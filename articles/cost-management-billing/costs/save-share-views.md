@@ -18,7 +18,7 @@ Cost analysis is used to explore costs and get quick answers for things like fin
 
 ## Save and share cost views
 
-A *view* is a saved query in Cost Management. When you save a view, all settings in cost analysis are saved, including filters, grouping, granularity, the main chart type, and donut charts. Underlying data isn't saved. Only you can see private views, while everyone with Cost Management Reader access or greater to the scope can see shared views.
+A *view* is a saved query in Cost Management. When you save a view, all settings in cost analysis are saved, including filters, grouping, granularity, the main chart type, and donut charts. A view is saved only within the scope in which it was created. Underlying data isn't saved. Only you can see the private views you saved per scope, while shared views, saved within a scope, can be seen by anyone with Cost Management Reader access or greater to the scope.
 
 Check out the [Sharing and saving views](https://www.youtube.com/watch?v=kQkXXj-SmvQ) video.
 
@@ -36,7 +36,7 @@ You can also pin the current view to an Azure portal dashboard. Pinning only inc
 1. After you save a view, it's available to select from the **View** menu.  
      :::image type="content" source="./media/save-share-views/view-list.png" alt-text="Screen shot showing the View list." lightbox="./media/save-share-views/view-list.png" :::
      
-You can save up to 100 private views across all scopes for yourself and up to 100 shared views per scope that anyone with Cost Management Reader or greater access can use.
+You can save up to 100 private views, across all scopes you have access to, for yourself and up to 100 shared views per scope that anyone with Cost Management Reader or greater access can use.
 
 ### To share a view
 

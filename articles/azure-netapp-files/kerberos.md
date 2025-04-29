@@ -170,22 +170,22 @@ New machine accounts are created when an Azure NetApp Files SMB volume is provis
 | First new SMB volume | New SMB machine account/DNS name |
 | Subsequent SMB volumes created in short succession from first SMB volume | Reused SMB machine account/DNS name (in most cases). |
 | Subsequent SMB volumes created much later than first SMB volume | The service determines if new machine account is needed. It's possible multiple machine accounts can be created, which creates multiple IP address endpoints. |
-| First dual protocol volume | New SMB machine account/DNS name |
-| Subsequent dual protocol volumes created in short succession from first dual protocol volume	| Reused SMB machine account/DNS name (in most cases) |
-| Subsequent dual protocol volumes created much later than first dual protocol volume | The service determines if a new machine account is needed. It's possible multiple machine accounts can be created, which creates multiple IP address endpoints |
-| First SMB volume created after dual protocol volume | New SMB machine account/DNS name |
-| First dual protocol volume created after SMB volume | New SMB machine account/DNS name |
+| First dual-protocol volume | New SMB machine account/DNS name |
+| Subsequent dual-protocol volumes created in short succession from first dual-protocol volume	| Reused SMB machine account/DNS name (in most cases) |
+| Subsequent dual-protocol volumes created much later than first dual-protocol volume | The service determines if a new machine account is needed. It's possible multiple machine accounts can be created, which creates multiple IP address endpoints |
+| First SMB volume created after dual-protocol volume | New SMB machine account/DNS name |
+| First dual-protocol volume created after SMB volume | New SMB machine account/DNS name |
 
-The SMB machine account created for the Azure NetApp Files SMB (or dual protocol) volume uses a naming convention that adheres to the [15-character maximum that is enforced by Active Directory](/troubleshoot/windows-server/active-directory/naming-conventions-for-computer-domain-site-ou). The name uses the structure of [SMB Server prefix specified in Active Directory connection configuration]-[unique numeric identifier].
+The SMB machine account created for the Azure NetApp Files SMB (or dual-protocol) volume uses a naming convention that adheres to the [15-character maximum that is enforced by Active Directory](/troubleshoot/windows-server/active-directory/naming-conventions-for-computer-domain-site-ou). The name uses the structure of [SMB Server prefix specified in Azure AD connection configuration]-[unique numeric identifier].
 
 For instance, if you've [configured your AD connections](create-active-directory-connections.md) to use the SMB server prefix "AZURE," the SMB machine account that Azure NetApp Files creates resembles "AZURE-7806." That same name is used in the UNC path for the SMB share (for example, \\AZURE-7806) and is the name that dynamic DNS services use to create the A/AAAA record. 
 
 >[!NOTE]
->Because a name like “AZURE-7806” can be hard to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](#creating-smb-server-aliases).
+>Because a name like "AZURE-7806" can be difficult to remember, it's beneficial to create a CNAME record as a DNS alias for Azure NetApp Files volumes. For more information, see [Creating SMB server aliases](#creating-smb-server-aliases).
 
 :::image type="content" source="media/kerberos/multiple-dns-smb.png" alt-text="Diagram of multiple machine accounts/DNS entries in Azure NetApp Files." lightbox="media/kerberos/multiple-dns-smb.png":::
 
-In some cases, when creating multiple SMB and/or dual protocol volumes, the configuration can end up with multiple disparate SMB machine accounts and DNS names.
+In some cases, when creating multiple SMB and/or dual-protocol volumes, the configuration can end up with multiple disparate SMB machine accounts and DNS names.
 
 If a single namespace for user access across the volumes is desired, this can present a challenge in configuration, as a single CNAME alias can only point to a single A/AAAA host record, while using multiple identical A/AAAA record aliases can result in unpredictability of data access in accessing volumes across different SMB machine accounts, as there's no guarantee that the endpoint the client selects in the DNS lookup contains the expected volume due to the round-robin nature of DNS record selection in those configurations. 
 
@@ -196,7 +196,7 @@ To address this limitation, [Azure NetApp Files volumes can participate as targe
 
 ### SMB Kerberos SPN creation workflow
 
-The following diagram illustrates how an SMB Kerberos SPN is created when an Azure NetApp Files SMB or dual protocol volume is created. SMB SPNs are associated with SMB machine account objects in the domain. The SPN can be viewed and managed via the machine account properties using the attribute editor in the Advanced view.
+The following diagram illustrates how an SMB Kerberos SPN is created when an Azure NetApp Files SMB or dual-protocol volume is created. SMB SPNs are associated with SMB machine account objects in the domain. The SPN can be viewed and managed via the machine account properties using the attribute editor in the Advanced view.
 
 :::image type="content" source="media/kerberos/azure-smb-properties.png" alt-text="Screenshot of Azure-SMB properties." lightbox="media/kerberos/azure-smb-properties.png":::
 
@@ -337,7 +337,7 @@ When an Azure NetApp Files volume is mounting using Kerberos, a Kerberos ticket 
 - The SMB service ticket is retrieved from the KDC.
 - Azure NetApp Files attempts to map the Windows user requesting access to the share to a valid UNIX user.
     - A Kerberos TGS request is made using the SMB server Kerberos credentials stored with the SMB server’s keytab from initial SMB server creation to use for an LDAP server bind.
-    - LDAP is searched for a UNIX user that is mapped to the SMB user requesting share access. If no UNIX user exists in LDAP, then the default UNIX user `pcuser` is used by Azure NetApp Files for name mapping (files/folders written in dual protocol volumes use the mapped UNIX user as the UNIX owner).
+    - LDAP is searched for a UNIX user that is mapped to the SMB user requesting share access. If no UNIX user exists in LDAP, then the default UNIX user `pcuser` is used by Azure NetApp Files for name mapping (files/folders written in dual-protocol volumes use the mapped UNIX user as the UNIX owner).
 - Another negotiate protocol/session request/tree connect is performed, this time using the SMB server’s Kerberos SPN to the Active Directory DC’s IPC$ share.
     - A named pipe is established to the share via the `srvsvc`. 
     - A NETLOGON session is established to the share and the Windows user is authenticated.
@@ -456,7 +456,7 @@ In most cases, knowing these steps in depth won’t be necessary for day-to-day 
 
 ### NFS Kerberos SPN creation workflow
 
-The following diagram shows how an NFS SPN is created when an Azure NetApp Files NFS or dual protocol volume is created with Kerberos enabled. In most cases, knowing detailed steps in depth won’t be necessary for day-to-day administration tasks, but are useful in troubleshooting any failures when attempting to create an SMB volume in Azure NetApp Files.
+The following diagram shows how an NFS SPN is created when an Azure NetApp Files NFS or dual-protocol volume is created with Kerberos enabled. In most cases, knowing detailed steps in depth won’t be necessary for day-to-day administration tasks, but are useful in troubleshooting any failures when attempting to create an SMB volume in Azure NetApp Files.
 
 :::image type="content" source="media/kerberos/nfs-keberos-spn.png" alt-text="Diagram of NFS Kerberos SPN creation workflow." lightbox="media/kerberos/nfs-keberos-spn.png":::
 

@@ -2,7 +2,7 @@
 title: Update pool properties
 description: Learn how to update existing Batch pool properties.
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 04/02/2025
 ms.custom:
 ---
 

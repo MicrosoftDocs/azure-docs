@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 10/15/2024
+ms.date: 03/28/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: greg-lindsay
@@ -46,7 +46,7 @@ For Application Gateway v2 SKU, the following metrics are available. What follow
 - **Client TLS protocol**. Count of TLS and non-TLS requests.
 - **Current capacity units**. There are three determinants to capacity unit: compute unit, persistent connections, and throughput. Each capacity unit is composed of at most one compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 - **Current compute units**. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing.
-- **Current connections**. The total number of concurrent connections active from clients to the Application Gateway.
+- **Current connections**. The total number of concurrent connections active from clients to the Application Gateway, including probes for the health of the application gateway's instances.
 - **Estimated Billed Capacity units**. With the v2 SKU, consumption drives the pricing model. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units indicate the number of capacity units using which the billing is estimated. This amount is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
 - **Failed Requests**. This value includes the 5xx codes that are generated from the Application Gateway and the 5xx codes that are generated from the backend. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 - **Fixed Billable Capacity Units**. The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting in the Application Gateway configuration. One instance translates to 10 capacity units.
@@ -336,6 +336,7 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
 | ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
 | ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
+| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 500. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 ### Firewall log category
 

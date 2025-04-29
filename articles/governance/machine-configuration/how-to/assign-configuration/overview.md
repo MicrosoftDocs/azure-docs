@@ -24,6 +24,7 @@ See the following articles for examples of assigning configurations using differ
 - [How to assign a configuration using an Azure Resource Manager template][05]
 - [How to assign a configuration using Bicep][06]
 - [How to assign a configuration using Terraform][07]
+- [How to assign a configuration using the Rest API][10]
 
 ## Next steps
 
@@ -42,3 +43,4 @@ See the following articles for examples of assigning configurations using differ
 [07]: ./terraform.md
 [08]: ../develop-custom-package/overview.md
 [09]: /azure/governance/policy/assign-policy-portal
+[10]: /rest-api.md

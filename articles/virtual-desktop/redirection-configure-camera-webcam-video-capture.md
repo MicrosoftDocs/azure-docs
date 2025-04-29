@@ -4,7 +4,7 @@ description: Learn how to redirect camera, webcam, and video capture peripherals
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 04/24/2024
 ---
 
@@ -223,7 +223,7 @@ To allow or disable video capture redirection, which includes cameras and webcam
 
 You can disable camera redirection on a local device to prevent a camera from being redirected from a local device to a remote session. This method is useful if you want to enable camera redirection for most users, but disable it for specific devices.
 
-For iOS/iPadOS and Android devices, you can disable camera redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable camera redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ---
 

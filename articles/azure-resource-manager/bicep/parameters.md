@@ -150,7 +150,7 @@ param storageAccountName string
 
 When you hover your cursor over **storageAccountName** in Visual Studio Code, you see the formatted text:
 
-:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
+:::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VS Code":::
 
 Make sure the text follows proper Markdown formatting; otherwise, it might not display correctly when rendered.
 
