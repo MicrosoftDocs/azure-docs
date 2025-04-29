@@ -636,6 +636,8 @@ items:
             href: managed-service-identity.md
           - name: Cross-tenant delivery using managed identity
             href: cross-tenant-delivery-using-managed-identity.md
+          - name: Configure network security perimeter for topics and domains
+            href: configure-network-security-perimeter.md
         - name: Enforce security controls with custom Azure policies
           href: custom-azure-policies-for-security-control.md
         - name: Deliver events securely over a private link
