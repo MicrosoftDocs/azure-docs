@@ -1,7 +1,14 @@
 ---
-author: Sonia Gupta (AZURE)
+title: Encryption in Transit for NFS shares - Public Preview
+description: This article explains how data is encrypted while in transit for NFS shares.
+author: guptasonia
+ms.service: azure-file-storage
+ms.topic: conceptual
 ms.date: 04/29/2025
+ms.author: kendownie
+ms.custom: devx-track-azurepowershell
 ---
+
 # Encryption in Transit for NFS shares- Public Preview
 
 ## Overview
@@ -40,7 +47,7 @@ Enforce Encryption in Transit
 
 By enabling 'Secure transfer required' setting on the storage account, you will be able to ensure that "all" the mounts to the NFS volumes in the storage account ae encrypted. 
 
-:::image type="content" source="media/image1.png" alt-text="" border="true":::
+:::image type="content" source="media/storage-account-settings.png" alt-text="" border="true":::
 
 However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the 'Secure transfer' setting must remain OFF.
 
