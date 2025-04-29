@@ -61,4 +61,4 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
   - Purpose: `<publish abc app to users>`
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md).

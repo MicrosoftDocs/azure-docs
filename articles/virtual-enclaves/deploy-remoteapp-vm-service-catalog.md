@@ -121,7 +121,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
 1. Install Application:
     1. On the workload overview page, select `Add an Azure Service`.
     2. For `Service`, select `RemoteApp VM`.
-    3. For `Version`, if not selected by default, select the most recent version (eg: 0.0.1(latest)).
+    3. For `Version`, if not selected by default, select the most recent version (eg: .0.1(latest)).
     4. Select `Next`
     5. Basics Tab:
         - For `Virtual Machine name`, input the name of the VM.
@@ -130,7 +130,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
-            - For `Storage Container Resource Id` add the [resource id ](./application-deployment-using-remote-app-vm-in-ave.md) of the container.
+            - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm-in-ave.md) of the container.
             - For `App folder in private container` select "true". This allows reader role access to the storage account via the VM. 
         > [!NOTE] 
         > 
