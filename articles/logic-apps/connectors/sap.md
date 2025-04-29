@@ -214,7 +214,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   - Namespace construction
 
-    To construct the namespace in the SAP trigger payload, the trigger uses the released version from the SAP Fetch Metadata response. To override this behvior and use the release version specified in the control record instead, go to the workflow designer, and in the trigger input parameters, set the **`EnforceControlRecordNamespace`** property to **`true`**.
+    The trigger constructs the namespace in the SAP trigger payload by using the release version number from IDoc metadata, which is retrieved before parsing an IDoc (BizTalk XML or plain XML). To override this source and use the release version number from the control record instead, go to the workflow designer, and in the trigger input parameters, set the **EnforceControlRecordNamespace** property to **true**.
 
   - Handling empty elements
 
