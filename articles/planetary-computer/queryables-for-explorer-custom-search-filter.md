@@ -97,7 +97,7 @@ Each queryable's `"definition"` field describes the features of the STAC item pr
   A list of allowed values. If provided, the enumerated options appear as checkboxes in the Data Explorer for easier selection.
 
 - `"title"` (optional):  
-  A user-friendly display name for the filter as shown in the Data Explorer.
+  A user-friendly display name for the filter as shown in the Explorer. If a title isn't specified, by default, the name of the queryable is used as the title.
 
 ## Using Queryables in Advanced Search
 
@@ -108,55 +108,6 @@ Select **Advanced** to reveal **Custom filters**. By default, the following filt
 - **Acquired** (based on the `datetime` range)
 - **Item ID**
 
-Any queryables added to the collection's Queryables configuration, for exmaple **Gsd** and **Year** in the previous example, appear as other filter options.
+Any queryables added to the collection's Queryables configuration, like **Gsd** and **Year** in the previous example, appear as other filter options.
 
 You can toggle which filters are visible using the **Select filters** control.
-
-## Defining Queryables in Code
-
-Alternatively, customers can use `GeocatalogClient` to define queryables.
-```python
-import geocatalog
-
-geocatalog_client = GeocatalogClient(
-    url=GEOCATALOG_URL,
-    credential=CREDENTIAL
-)
-
-geocatalog_client.create_queryables(
-    collection_id=collection.id,
-    queryables=[
-  {
-    "name": "gsd",
-    "definition": {
-      "type": "number"
-    }
-  },
-  {
-    "name": "naip:year",
-    "definition": {
-      "enum": [
-        "2010",
-        "2011",
-        "2012",
-        "2013",
-        "2014",
-        "2015",
-        "2016",
-        "2017",
-        "2018",
-        "2019",
-        "2020",
-        "2021",
-        "2022",
-        "2023",
-        "2024",
-        "2025"
-      ],
-      "type": "string",
-      "title": "Year"
-    }
-  }
-]
-)
-```
