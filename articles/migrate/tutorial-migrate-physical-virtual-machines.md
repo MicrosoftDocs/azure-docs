@@ -137,7 +137,7 @@ The first step of migration is to set up the replication appliance. To set up th
 1. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
 1. In **Download and install the replication appliance software**, download the appliance installer and the registration key. You need the key to register the appliance. The key is valid for five days after it was downloaded.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/simplified-experience.png" alt-text="Shows the simplified experience":::
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/simplified-experience.png" alt-text="Screenshot shows the simplified experience":::.
 
 1. Copy the appliance setup file and key file to the Windows Server 2016 machine you created for the appliance.
 
@@ -173,9 +173,9 @@ Follow the steps to navigate to the Azure Migrate project:
 
 **Step 1**: Navigate to Azure Migrate project
 
-1. Open [Azure portal](https://portal.azure.com) 
+1. Open [Azure portal](https://portal.azure.com). 
 1. Search for the **Azure Migrate** service.
-1. Create a new project or select an existing one. [Learn more](/azure/migrate/)
+1. Create a new project or select an existing one. [Learn more](/azure/migrate/).
 
 **Step 2**: Select the required Agent-Based Migration Scenario
 
@@ -183,14 +183,14 @@ Follow the steps to navigate to the Azure Migrate project:
 1. Select the scenario **VMware agent-based replication** or **Physical or other**.
 1. If resources aren't already created, select a target region for your migration and create the resources.
 
-     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/azure-migrate-discover.png" alt-text="Shows the azure migrate discover screen":::
+     :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/azure-migrate-discover.png" alt-text="Screenshot shows the azure migrate discover screen":::.
 
 1. Select **Simplified experience** from the **Experience type** dropdown.
 
 > [!Note]
 > For more detailed information on deploying the appliance, refer to the appendix section at the end of this document.
 
-**Step 3**: : Deploy the Appliance
+**Step 3**: Deploy the Appliance
 
 1. Follow the steps with OVA or PowerShell for VMware and PowerShell for the physical scenario. 
 1. After deployment and completing the registration key process, wait for 30 minutes for the appliance to connect.
@@ -204,19 +204,19 @@ Follow the steps to navigate to the Azure Migrate project:
 
 1. Navigate to the migration overview page.
 1. Select **Test Migrate**. For more information, see, [Migrate machines as physical servers to Azure with Azure Migrate and Modernize](/azure/migrate/tutorial-migrate-physical-virtual-machines#run-a-test-migration).
-1. Perform the final migration. [Learn more](/azure/migrate/tutorial-migrate-physical-virtual-machines#migrate-vms)
+1. Perform the final migration. [Learn more](/azure/migrate/tutorial-migrate-physical-virtual-machines#migrate-vms).
 
 **Step 6**: Verify the virtual machine in Azure VM 
 
 Verify if the VM boots up on Azure: 
 * By going to the target resource group and searching for your VM. 
-* Or by navigating to the Azure VM section on the Azure Portal and searching for your migrated VM.
+* Or by navigating to the Azure VM section on the Azure portal and searching for your migrated VM.
 
 ### Set up the replication appliance using the OVA template for VMware agent-based migration
 
 We recommend using this approach as it ensures all prerequisite configurations are handled by the template. The OVA template creates a machine with the required specifications.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/download-ova-file.png" alt-text="Shows the download option of the ova file":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/download-ova-file.png" alt-text="Screenshot shows the download option of the ova file":::.
 
 Follow the steps:
 
@@ -235,7 +235,7 @@ Follow these steps:
 1. Unzip and extract the components.
 1. Execute the **DRInstaller.ps1 PowerShell** script as an administrator.
 
-### Register Appliance
+### Register appliance
 
 After the appliance is created, the **Microsoft Azure Appliance Configuration Manager** launches automatically. It validates prerequisites such as internet connectivity, time synchronization, system configurations, and group policies.
 
@@ -267,20 +267,19 @@ Use the following steps to register the appliance:
 1. After the prerequisites are verified, the appliance fetch all its component information in the next step. Review the status of all components and then select **Continue**.
 1. **Save** the details, and then proceed to choose the appliance connectivity method. You can select either FQDN or a NAT IP to define how communication with the appliance occurs.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text="Shows how to select replication appliance connectivity":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text=" Screenshot shows how to select replication appliance connectivity":::.
 
 1. After saving the connectivity details, select **Continue** to proceed with registration in Microsoft Azure. 
 1. Ensure the [prerequisites](/azure/site-recovery/replication-appliance-support-matrix#pre-requisites) are met, and then proceed with the registration.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Shows registry with recovery service vault":::
-
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Screenshot shows the registry with recovery service vault":::.
 1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
 
-    > [!Note]
-    > The name can't be changed once set.
+> [!Note]
+> The name can't be changed once set.
 1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.
     
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Shows the generated key":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Screenshot shows the generated key":::.
 
 1. After pasting the key, select **Login**. You're redirected to a new authentication tab. By default, an authentication code is generated on the **Appliance Configuration Manager** page. Use the following code in the authentication tab. 
 1. Enter your Microsoft Azure credentials to complete the registration. 
@@ -294,11 +293,11 @@ Use the following steps to register the appliance:
 1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
 1. Select **Continue** to proceed.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Illustrates how to register with recovery services":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Screenshot shows how to register with recovery services":::.
 
 1. After successful registration, proceed to configure **vCenter** details.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Illustrate how to provide vcenter information":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Screenshot shows how to provide vcenter information":::.
 
 1. Select **Add vCenter Server** to input the vCenter information.
 1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/en-us/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises?branch=main). The user account details are encrypted and stored locally on the machine.
@@ -315,17 +314,17 @@ Use the following steps to register the appliance:
 
 1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text="Provide physical server details":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-physical-server-details.png" alt-text=" Screenshot provides physical server details":::.
 
 1. Select **Add Credentials** to add the credentials of the machine(s) you plan to protect. Provide all necessary details, such as the **Operating System**, a friendly name for the credential, **username**, and **Password**. The user account details are encrypted and stored locally on the machine.
 1. Finally, select **Add**.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Shows to add physical server credentials":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-credentials.png" alt-text="Screenshot shows how to add physical server credentials":::.
 
 1. Select **Add Server** to add the physical server details. Provide the machine's **IP address or FQDN**
 1. Select the **credential account**, and then select **Add**.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Shows to add physical server details":::
+:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/add-physical-server-details.png" alt-text="Screenshot shows how to add physical server details":::.
 
 ## Install the Mobility service agent
 

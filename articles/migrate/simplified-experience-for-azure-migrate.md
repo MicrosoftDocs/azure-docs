@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 04/24/2025
 ---
 
-# Overview of Simplified experience for Azure Migrate
+# Overview of simplified experience for Azure Migrate
 
 The enhanced agent-based migration stack designed for physical and VMware environments. The upgraded stack offers several significant benefits, such as:
 
-1.  It enables the migration of newer Linux distributions to Azure, expanding the range of supported operating systems and ensuring that customers can leverage the latest advancements in Linux technology. 
-1. It utilizes Windows Server 2019 (WS2019) for the replication appliance.
-1. It offers a unified OS support matrix and implies that customers can benefit from a consistent and streamlined approach to operating system support across their migration processes.
+- It enables the migration of newer Linux distributions to Azure, expanding the range of supported operating systems and ensuring that customers can leverage the latest advancements in Linux technology. 
+- It utilizes Windows Server 2019 (WS2019) for the replication appliance.
+- It offers a unified OS support matrix and implies that customers can benefit from a consistent and streamlined approach to operating system support across their migration processes.
 
 The upgraded agent-based migration stack provides customers with the tools and capabilities to efficiently migrate newer Linux distributions. It also allows them to utilize WS2019 for replication and benefit from a unified OS support matrix. These features enhance the overall migration process to Azure. [Learn more](tutorial-migrate-physical-virtual-machines.md#simplified-experience)
 
