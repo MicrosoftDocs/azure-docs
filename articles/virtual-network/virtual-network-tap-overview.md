@@ -72,11 +72,12 @@ Following are limitations during our preview.
 
 |Partner|Product|
 |-------------|----------|
-|**DarkTrace**|[Darktrace /NETWORK](https://www.darktrace.com/products/network)|
+|**Darktrace**|[Darktrace /NETWORK](https://www.darktrace.com/products/network)|
 |**Netscout**|[Omnis Cyber Intelligence NDR](https://www.netscout.com/product/cyber-intelligence)|
 |**Corelight**|[Corelight Open NDR Platform](https://corelight.com/solutions/why-open-ndr)|
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
+||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
 |**Extrahop**|[Reveal(x)](https://hop.extrahop.com/partners/tech-partners/microsoft/)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
