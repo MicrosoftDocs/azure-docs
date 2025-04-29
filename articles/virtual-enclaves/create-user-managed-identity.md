@@ -1,7 +1,7 @@
 ---
-title: Create User Managed Identity
+title: Create a User Managed Identity
 titleSuffix: Azure Virtual Enclaves
-description: Create User Managed Identity.
+description: Create a User Managed Identity.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -9,9 +9,10 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create a User Assigned Managed Identity
+# Create a User-assigned Managed Identity
+Create a User-assigned Managed Identity to grant least privledges to specific service for actions like encryption at rest.
 
-## Create from the Service Catalog (faster)
+## Create from the Service Catalog (quick)
 1. Quickly deploy a `user` or `system` managed identity from the service catalog `Common Dependencies` template. You can also create a Key Vault from this template if you don't already have one.
 2. [Assign Role to Managed Identity](#assign-role-to-managed-identity)
 
@@ -21,7 +22,7 @@ ms.date: 04/08/2025
 3. Select `Create`.
 4. Enter the Workload Resource Group (RG) or RG where you would like to store the Managed Identity resource.
 
-  ![Screenshot that shows the Create User Assigned Managed Identity pane.](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png)
+  ![Screenshot that shows the Create User-assigned Managed Identity pane.](/entra/identity/managed-identities-azure-resources/media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png)
 
 5. Confirm the Region and enter a name for the Managed Identity resource.
 6. Select `Review + Create` and then select `Create`.
@@ -37,5 +38,5 @@ ms.date: 04/08/2025
 7. The Key Vault should be using Role Base Access Control (RBAC), then select the `Key Vault Crypto Service Encryption User` role.
 
 ## References
-- [How to create a user assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
-- [Manage User Assigned Identity](../operator-service-manager/how-to-create-user-assigned-managed-identity.md)
+- [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
+- [Manage User-assigned Identity](../operator-service-manager/how-to-create-user-assigned-managed-identity.md)
