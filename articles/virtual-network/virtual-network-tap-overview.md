@@ -45,7 +45,7 @@ Following are limitations during our preview.
 - VMs behind Basic Load Balancer can't be set as a mirroring source.
 - Virtual network doesn't support mirroring of inbound Private Link Service traffic.
 - VMs in a virtual network with encryption enabled can't be set as mirroring source.
-- Virtual network doesn't support IPv6 isn't supported.
+- Virtual network TAP doesn't support IPv6.
 - When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
 
 ## Supported Regions
