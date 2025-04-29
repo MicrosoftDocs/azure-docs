@@ -9,17 +9,17 @@ ms.date: 11/21/2024
 ---
 
 # Mandatory Access Control for Azure Virtual Enclaves 
-Access to Azure Virtual Enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant Just-in-Time access to Virtual Enclave resources. 
+Access to Azure Virtual enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
 
-## RBAC for Community and Enclaves 
+## RBAC for community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
 
-- **Community Owner** - Create/delete Communities, Enclaves, Community Endpoints, and Transit Hubs resources. Read-Onlyaccess to Workloads, Enclave Connections, and Enclave Endpoints.
+- **Community Owner** - Create/delete communities, Enclaves, community endpoints, and transit hub resources. Read-Onlyaccess to Workloads, enclave Connections, and enclave endpoints.
 - **Community Contributor** - Same as above except for delete.
-- **Community Reader** - Read-Onlyaccess to Communities, Enclaves, Community Endpoints, and Transit Hubs
+- **Community Reader** - Read-Only access to communities, Enclaves, community endpoints, and transit hub.
 - **Enclave Owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave Contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
-- **Enclave Reader** - Has read-Onlyaccess to one or more Enclave resources and underlying workloads, endpoints, and connections.
+- **Enclave Reader** - Has read-Onlyaccess to one or more enclave resources and underlying workloads, endpoints, and connections.
 - **Enclave Approver** - Read-access to all AVE resource types and explicit permissions to approve actions that require approval.
 
 |Built in Role          |Community              |Community Endpoint     |Transit Hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave Connection |Approvals      |
@@ -34,7 +34,7 @@ Azure Virtual Enclaves provides built-in RBAC roles to control access at the **C
 
 These built-in RBAC roles can be assigned at [different scopes](../role-based-access-control/scope-overview.md) depending on the scenario. 
 
-For instance, an individual given a Community Owner RBAC assignment at the subscription scope would have the ability to create and/or delete Community Resources within the subscription. If the assignment is at the individual resource level of the Community itself, they would have the ability to manage endpoints and transit hubs within that individual Community. Similarly, an Enclave Owner assignment at the individual resource level would provide the ability to manage workloads, connections, and endpoints within that Enclave, but would not necessarily have access to the resource groups containing individual workloads.
+For instance, an individual given a community Owner RBAC assignment at the subscription scope would have the ability to create and/or delete community resources within the subscription. If the assignment is at the individual resource level of the community itself, they would have the ability to manage endpoints and transit hubs within that individual community. Similarly, an enclave Owner assignment at the individual resource level would provide the ability to manage workloads, connections, and endpoints within that Enclave, but would not necessarily have access to the resource groups containing individual workloads.
 
 [Learn more on RBAC Assignment Scopes ](../role-based-access-control/scope-overview.md)
 
@@ -44,10 +44,10 @@ Each workload deployed using Azure Virtual Enclaves comes with a managed resourc
 [Learn more about Azure RBAC](../role-based-access-control/overview.md)
 
 ## Privileged Identity Management (PIM) Integration
-Privileged access to Virtual Enclave resources can be further controlled/enforced by leveraging Azure Privileged Identity management to grant "eligibilities" as opposed to persistent access.
+Privileged access to Virtual enclave resources can be further controlled/enforced by leveraging Azure Privileged Identity management to grant "eligibilities" as opposed to persistent access.
 
 ### Time-Based Access Control
-Azure Privileged Identity Management can be used in conjunction with built-in roles to grant users "eligibility" for specific role assignments and scopes over Community, Virtual Enclave, and Workload resources, granting users the exact privileges they need for a limited amount of time. 
+Azure Privileged Identity Management can be used in conjunction with built-in roles to grant users "eligibility" for specific role assignments and scopes over community, Virtual Enclave, and Workload resources, granting users the exact privileges they need for a limited amount of time. 
 
 ### Require Approvals for Privileged Access
 Azure Privileged Identity Management can also be leveraged to be Activating an eligibility can also require a second person to approve the request before permissions are granted.

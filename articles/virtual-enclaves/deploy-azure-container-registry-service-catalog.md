@@ -28,13 +28,13 @@ This quickstart assumes a basic understanding of networking and Azure Virtual En
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
 There are guardrails in the enclaves to ensure an Azure Container Registry is using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-subnet-enclave-vnet.md) after enclave creation.
+1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies Service Catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own with the following requirements.
     - These resources should be created inside a [Workload Resource Group](./create-workload-portal.md#create-workload-resource-groups)
     - The CMK key that meets or exceeds the CMK key requirements.
@@ -49,7 +49,7 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 
 ![Screenshot showing the Azure Container Registry template selected from the Service Catalog list.](./media/service-catalog-list-azure-container-registry.png)
 
-4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User Assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
+4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User-assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
 5. Adjust any of the prepopulated parameters as needed.
 6. Select `Review + Add` then `Create`.
 

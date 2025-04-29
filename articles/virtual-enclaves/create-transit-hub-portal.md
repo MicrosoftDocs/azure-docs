@@ -1,21 +1,21 @@
 ---
-title: Create a Transit Hub from the Azure portal
-description: Create a Transit Hub from the Azure portal
+title: Create a transit hub from the Azure portal
+description: Create a transit hub from the Azure portal
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
 ---
-# Create a Transit Hub from the Azure portal
+# Create a transit hub from the Azure portal
 
-A Transit hub establishes a virtual hub within a Community vWAN that serves as a secure tunnel between the Community and an external private network. A Transit Hub can be associated with a Private Network rule within a Community Endpoint to enable Virtual Enclaves to connect to trusted private networks outside of the Community boundary.
+A Transit hub establishes a virtual hub within a community vWAN that serves as a secure tunnel between the community and an external private network. A transit hub can be associated with a Private Network rule within a community endpoint to enable Virtual Enclaves to connect to trusted private networks outside of the community boundary.
 
 ## Prerequisites
 
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-- All access to Azure Virtual Enclaves takes place through a Community or an enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal.
+- All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md).
 
 ## Sign-in to Azure
 Sign-in to the [Azure portal](https://portal.azure.com).
@@ -26,13 +26,13 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 ![Screenshot showing the transit hub creation page with the create button highlighted in red.](./media/fabrikam-transit-hub-create.png)
 
-2. Provide a name and type for the Transit Hub and select the type of transit hub.
+2. Provide a name and type for the transit hub and select the type of transit hub.
 
-Refer to this guidance for more information on the different types of Transit Hub connections:
+Refer to this guidance for more information on the different types of transit hub connections:
 
 - [Express Route](../virtual-wan/virtual-wan-expressroute-portal.md)
 - [VPN Gateway](../virtual-wan/virtual-wan-site-to-site-portal.md)
-- [vNet Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+- [Virtual network Peering](../virtual-network/tutorial-connect-virtual-networks-portal.md)
 
 ![Screenshot showing the basics input page for creating a new transit hub.](./media/create-transit-hub-tab-1-basics.png)
 
@@ -42,4 +42,4 @@ Refer to this guidance for more information on the different types of Transit Hu
 
 > [!NOTE]
 > 
-> Transit Hub connectivity might be a "break-glass" scenario due to configuration variability of transit connections.
+> transit hub connectivity might be a "break-glass" scenario due to configuration variability of transit connections.

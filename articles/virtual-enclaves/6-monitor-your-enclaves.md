@@ -25,11 +25,11 @@ Throughout this tutorial series, you created several resources using Azure Virtu
 
 ## Monitoring your network in Azure Virtual Enclaves
 
-Review network activity through the Enclave or Community Log Analytics Workspace.
+Review network activity through the enclave or community Log Analytics Workspace.
 
 ## Monitoring your workloads in Azure Virtual Enclaves
 
-Review workload activity through the Enclave or Community Log Analytics Workspace such as Virtual Machines logs.
+Review workload activity through the enclave or community Log Analytics Workspace such as Virtual Machines logs.
 
 ## Closing
 In this tutorial series, you prepared a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves.

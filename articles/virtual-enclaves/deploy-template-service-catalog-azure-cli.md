@@ -23,9 +23,9 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- You need to have the Azure CLI installed or use the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/). For more information, see [Azure Command-Line Interface (CLI) documentation](https://learn.microsoft.com/cli/azure/) 
+- You need to have the Azure CLI installed or use the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/). For more information, see [Azure Command-Line Interface (CLI) documentation](/cli/azure/) 
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 
 

@@ -27,7 +27,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
 
-[ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png)
+[ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png#lightbox)
 
 4. On the `Workloads` page, select `Create`.
 
@@ -39,7 +39,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 > [!NOTE]
 >
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
 ## Create Workload Resource Groups
 
@@ -54,4 +54,4 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 - [What is a Workload?](./what-workload.md)
 - [Create an Enclave](./create-enclave-portal.md)
 - [Best practices](./best-practices.md)
-- [Defining your naming convention](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)
+- [Defining your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)

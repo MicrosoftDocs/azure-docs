@@ -27,7 +27,7 @@ landingContent:
           - text: Why use Azure Virtual Enclaves?
             url: why-azure-virtual-enclaves.md
           - text: Quotas and region availability
-            url: quotas-and-region-availability-in-azure-virtual-enclaves.md
+            url: quotas-region-availability-azure-virtual-enclaves.md
       # - linkListType: learn
       #   links:
       #     - text: Understanding Enclave Networking
@@ -43,13 +43,13 @@ landingContent:
             url: what-community.md
           - text: "What is a Transit Hub?"
             url: what-transit-hub.md
-          - text: "What is a Community Endpoint?"
+          - text: "What is a community Endpoint?"
             url: what-community-endpoint.md
           - text: "What is an Enclave?"
             url: what-enclave.md
           - text: "What is an Enclave Endpoint?"
             url: what-enclave-endpoint.md
-          - text: "What is an Enclave Connection?"
+          - text: "What is an enclave ?"
             url: what-enclave-connection.md
           - text: "What is a Workload?"
             url: what-workload.md
@@ -64,15 +64,15 @@ landingContent:
         links:
           # - text: Onboard to AVE
           #   url: Onboard-to-AVE.md
-          - text: Create a Community
+          - text: Create a community
             url: create-community-portal.md
-          - text: Create a Community Endpoint
+          - text: Create a community Endpoint
             url: create-community-endpoint-portal.md
           - text: Create an Enclave
             url: create-enclave-portal.md
           - text: Create an Enclave Endpoint
             url: create-enclave-endpoint-portal.md
-          - text: Create an Enclave Connection
+          - text: Create an enclave 
             url: create-enclave-connection-portal.md
           - text: Create a Workload
             url: create-workload-portal.md
@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Tutorial 1 Create a Community
+          - text: Tutorial 1 Create a community
             url: 1-create-community.md
           - text: Tutorial 2 Create Enclaves inside a community
             url: 2-create-enclaves-inside-community.md
@@ -106,14 +106,14 @@ landingContent:
 #     linkLists:
 #       - linkListType: how-to-guide
 #         links:
-#           - text: Just-In-Time Access
+#           - text: Just-in-time Access
 #             url: just-in-time-access.md
 #           - text: Dynamic Access Controls
 #             url: dynamic-access-controls.md
 #           - text: Managed Identity
 #             url: managed-identity.md
 #           - text: Customer Managed Key Encryption
-#             url: setup-sustomer-sanaged-key-encryption-within-an-enclave.md
+#             url: configure-customer-managed-key-encryption-within-enclave.md
 #           - text: Policy compliance framework
 #             url: policy-compliance-framework.md
 #           - text: Regulatory compliance guidelines
@@ -133,27 +133,27 @@ landingContent:
             url: deploy-storage-account-service-catalog.md
           - text: Deploy Azure Kubernetes Service from the Service Catalog
             url: deploy-azure-kubernetes-service-service-catalog.md
-          - text: Deploy Remote App Virtual Machine from the Service Catalog
-            url: deploy-remote-app-vm-service-catalog.md
+          - text: Deploy RemoteApp Virtual Machine from the Service Catalog
+            url: deploy-remoteapp-vm-service-catalog.md
           
   - title: Service Catalog Additional Templates
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Deploy Azure App Service from the Service Catalog
-            url: deploy-app-service-service-catalog.md
+            url: deploy-app-service-web-app-service-catalog.md
           - text: Deploy Azure Container Registry from the Service Catalog
             url: deploy-azure-container-registry-service-catalog.md
           - text: Deploy Azure Cosmos DB from the Service Catalog
             url: deploy-azure-cosmos-db-service-catalog.md
           - text: Deploy Function App from the Service Catalog
-            url: deploy-function-app-service-catalog.md
+            url: deploy-app-service-function-app-service-catalog.md
           # - text: Deploy Key Vault from the Service Catalog
           #   url: deploy-key-vault-service-catalog.md
           - text: Deploy Azure SQL from the Service Catalog
             url: deploy-azure-sql-service-catalog.md
           - text: Deploy Azure Service Bus from the Service Catalog
-            url: deploy-azure-service-bus-service-catalog.md
+            url: deploy-service-bus-service-catalog.md
 #  # Card
 #   - title: Manage and Monitor Virtual Enclaves
 #     linkLists:
