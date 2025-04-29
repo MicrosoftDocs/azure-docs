@@ -1,7 +1,7 @@
 ---
-title: Setup Community Governance
+title: Configure Community Governance
 titleSuffix: Azure Virtual Enclaves
-description: Setup Community Governance.
+description: Configure Community Governance.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Setup Community Governance
+# Configure Community governance
 
 Governance options for communities are configurable during the Community creation and can be managed after the Community is created.
 
