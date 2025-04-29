@@ -90,20 +90,20 @@
       href: access-controls-virtual-enclaves.md
     - name: Create a User Managed Identity
       href: create-user-managed-identity.md
-    - name: Use Managed Identity
-      href: use-managed-identity.md
+    # - name: Use Managed Identity
+    #   href: use-managed-identity.md
     - name: Policy compliance exemptions
       href: policy-compliance-exemptions.md
-    - name: Create Customer Managed Key Encryption
-      href: setup-customer-managed-key-encryption-within-enclave.md
+    - name: Configure Customer Managed Key Encryption
+      href: configure-customer-managed-key-encryption-within-enclave.md
     - name: Install BannerApp for RemoteApps
       href: install-bannerapp-remoteapps.md
 #     - name: Regulatory compliance guidelines
 #       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
 #       href: security-best-practices.md
-    - name: Setup Community Governance
-      href: setup-community-governance.md
+    - name: Configure Community Governance
+      href: configure-community-governance.md
   - name: Manage and Monitor
     items:
 #     - name: Monitor your enclaves
@@ -114,8 +114,8 @@
     #   href: ip-allocation-management.md
     - name: Naming rules and restrictions
       href: name-rules-restrictions-azure-virtual-enclave-resources.md
-    - name: Manage Key Vault SKUs
-      href: upgrade-enclave-key-vault-sku.md
+    # - name: Manage Key Vault SKUs
+    #   href: upgrade-enclave-key-vault-sku.md
     - name: Move data inside an Enclave
       href: move-data-inside-enclave.md
   - name: Troubleshoot
@@ -168,13 +168,13 @@
     - name: Deploy a Storage Account from the Service Catalog
       href: deploy-storage-account-service-catalog.md
     - name: Deploy Service Catalog Template from Azure CLI
-      href: deploy-service-catalog-template-azure-cli.md
+      href: deploy-template-service-catalog-azure-cli.md
 - name: Resources
   items:
-    - name: AVE Templates
+    - name: Azure Virtual Enclaves Templates
       href: azure-virtual-enclaves-templates.md
-    - name: Migrate Azure Resources into AVE
-      href: migrate-azure-resources-into-azure-virtual-enclaves.md
+    - name: Migrate Azure Resources into Azure Virtual Enclaves
+      href: migrate-azure-resources-azure-virtual-enclaves.md
     - name: Azure Virtual Enclaves FAQ
       href: virtual-enclaves-faq.md
     - name: What's New in Azure Virtual Enclaves
@@ -205,8 +205,8 @@
       href: storage-initiative.md
 - name: Workload Quickstarts
   items:
-    - name: Create Azure Virtual Desktop Workload
-      href: create-azure-virtual-desktop-workload.md
+    - name: Create Azure Virtual Desktop Workloads
+      href: create-azure-virtual-desktop-workloads.md
     - name: Create Domain Name Service Forwarder
       href: create-domain-name-service-forwarder.md
     - name: Create New Enclave Subnet
@@ -216,7 +216,7 @@
 - name: Architecture
   items:
     - name: Understand create and delete logic
-      href: create-and-delete-logic.md
+      href: creation-and-deletion-logic.md
     - name: Defense in Depth
       href: defense-in-depth.md
     - name: Built in RBAC Roles

@@ -17,11 +17,11 @@ This is the current list of Azure services and workload templates in the Service
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
-| RemoteApp | [link](#remote-app) | Available |
+| RemoteApp | [link](#remoteapp-vm) | Available |
 | Storage Account | [link](#storage-account) | Available |
 | Key Vault | [link](#key-vault) | Available |
 | App Service: Web App | [link](#app-service-web-app) | Available |
-| App Service: Functions | [link](#app-service-functions) | Available |
+| App Service: Functions | [link](#app-service-function-app) | Available |
 | Azure SQL | [link](#azure-sql) | Available |
 | Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-aks) | Available |
 | Azure Container Registry (ACR) | [link](#azure-container-registry-acr) | Available |
@@ -38,7 +38,7 @@ New templates will be added over time
 Description: A Virtual Machine (VM) created for the purpose of securely accessing enclave resources for administrative purposes. Admin VM Virtual Machines (VMs) that can be remotely accessed through [Azure Bastion](https://aka.ms/bastion).
 
 Documentation:
-[Understanding Admin VMs](understanding-admin-vm.md)
+[Understanding Admin VMs](./understand-admin-vm.md)
 
 ## Common Dependencies
 

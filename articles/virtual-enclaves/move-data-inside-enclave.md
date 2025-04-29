@@ -39,8 +39,7 @@ To download tools from Azure Toolbox into an enclave, AVE recommends that either
 - [How to make a Connection](./create-enclave-connection-portal.md) connecting either a Community or an Enclave to the Endpoint created above
 ![Diagram showing an enclave connecting to the Azure Toolbox outside the Community.](./media/data-movement-connection-azure-toolbox.png)
 
-
-Should further troubleshooting be required to investigate making Connections, see [Create a Connection from the Azure portal](./create-an-enclave-connection-from-the-azure-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
+Should further troubleshooting be required to investigate making Connections, see [Create a Connection from the Azure portal](./create-enclave-connection-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)

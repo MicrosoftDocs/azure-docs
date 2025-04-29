@@ -34,7 +34,7 @@ AVE natively uses existing Azure user interface controls to allow for access int
 
 For certain Community and Enclave Owners, this default access model might not be granular enough. For example, some Enclave Owners might have regulatory requirements for their workloads that do not authorize Azure Bastion. 
 
-If the default behavior of Admin VMs or the configurations that AVE allows to be changed are insufficient for customer use-cases, AVE recommends [creating a Workload, Virtual Machines in the Workload, an Endpoint, and Connections that function similarly to how Admin VMs function](./create-avd-workloads.md).
+If the default behavior of Admin VMs or the configurations that AVE allows to be changed are insufficient for customer use-cases, AVE recommends [creating a Workload, Virtual Machines in the Workload, an Endpoint, and Connections that function similarly to how Admin VMs function](./create-azure-virtual-desktop-workloads.md).
 
 ## Size
 The default VM size for AVE Admin VMs is Standard_D4s_v3. Community and Enclave Owners are allowed to resize the VM size of these Admin VMs after an Enclave is created. Furthermore, Community Owners will be allowed to choose what VM size the Admin VMs are deployed when creating an Enclave.

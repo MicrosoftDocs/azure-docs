@@ -39,7 +39,7 @@ For a more exhaustive and detailed checklist, see [Checklist before moving resou
 - If you move a resource that has an Azure role assigned directly to the resource (or a child resource), the role assignment isn't moved and becomes orphaned. After the move, you must re-create the role assignment.
 - **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 <br>If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be combined into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
-- Moving resources into a workload resource group means that those resources will be governed by AVE [Policy Assignments](./what-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring). Moving resources into an enclave may require changing configurations to those resources to be [compliant](../governance/policy/concepts/compliance-states.md) with AVE policy governance.
+- Moving resources into a workload resource group means that those resources will be governed by AVE [Policy Assignments](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring). Moving resources into an enclave may require changing configurations to those resources to be [compliant](../governance/policy/concepts/compliance-states.md) with AVE policy governance.
 
 ## Existing Preview Customers
 Certain AVE customers deployed enclaves with early preview or beta builds of AVE or predecessor systems (for example, "mission enclaves"). If you deployed your system into a traditional mission enclave (or similar landing zone architecture), here are some things to consider as you plan your migration into Azure Virtual Enclaves:
@@ -49,8 +49,8 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
     - Exporting secrets from the mission enclave Key Vault
     - Temporarily storing those secrets locally
     - Uploading the secrets to the AVE Key Vault
-- [Moving data](./transfer-or-move-data-into-my-enclave.md) from a mission enclave to an AVE enclave requires the creation of [connections](./create-an-enclave-connection-from-the-azure-portal.md) and [endpoints](./create-a-enclave-endpoint-in-the-azure-portal.md).
-- AVE assigns [Azure Policies](./what-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring) to all workload resource groups. Certain preview or beta versions of AVE had manually assigned Policies at different assignment scopes.
+- [Moving data](./move-data-inside-enclave.md) from a mission enclave to an AVE enclave requires the creation of [connections](./create-enclave-connection-portal.md) and [enclave endpoints](./create-enclave-endpoint-portal.md).
+- AVE assigns [Azure Policies](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) to all workload resource groups. Certain preview or beta versions of AVE had manually assigned Policies at different assignment scopes.
 - Certain mission enclave deployments utilized different networking connectivity technology, such as [VPN Gateways](../vpn-gateway/vpn-gateway-about-vpngateways.md) and IPSec tunnels. AVE additionally utilizes [Azure VWAN](../virtual-wan/virtual-wan-about.md) and [virtual network Peering](../virtual-network/virtual-network-peering-overview.md) for its hub-and-spoke network architecture.
 - Certain mission enclave deployments utilize [locks](../azure-resource-manager/management/lock-resources.md). Before you move any resources, these locks must be removed by a user with elevated privileges.
 - Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in AVE can be taken with our AVE RBAC roles.
@@ -62,7 +62,7 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
 - [Move Azure Networking resources to new subscription or resource group](../azure-resource-manager/management/move-limitations/networking-move-limitations.md)
-- [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring)
+- [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Azure Policy compliance states](../governance/policy/concepts/compliance-states.md)
 - [What is an Enclave?](./what-enclave.md)
 - [What is a Workload?](./what-workload.md)
