@@ -230,7 +230,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
      --parameters "clusterManager.parameters.jsonc" --debug --no-wait
    ```
 
-   Follow these links for the structure of the ARM template and parameters files:
+   Follow these links for the structure of the ARM template and parameters files for the CM:
    - [`clusterManager.jsonc`](clustermanager-jsonc-example.md)
    - [`clusterManager.parameters.jsonc`](clustermanager-parameters-jsonc-example.md)
 
@@ -363,27 +363,34 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
  <summary> Detailed steps for deploying a Cluster </summary>
 
 ### Create Cluster
-1. Prework
+1. Create group if it doesn't exist from Azure CLI:
    ```
    az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<CLUSTER_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
-
-   # If group does not exist, then create the group:
    az group create -l <AZURE_REGION> -n <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID>
+   ```
 
-   # Check if Cluster exists
+2. Check if Cluster already exists from Azure CLI:   
+   ```
    az networkcloud cluster list --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
-2. Create Cluster from payload
+   > [!IMPORTANT]
+   > Do not continue if a Cluster already exists for <CLUSTER_NAME>.
+   
+3. Create Cluster from Telco Input template with ARM Deployment from Azure CLI:
    ```
-   cd <PAYLOAD_DIR>
-   export PL_DIR=`pwd`
-   source $PL_DIR/set_env.sh
-   chmod +x cluster.sh
-   ./cluster.sh
+   az deployment sub create --name "<CLUSTER_NAME>-deployment" --subscription <CUSTOMER_SUB_ID> --location <REGION> --template-file "cluster.jsonc" --parameters "cluster.parameters.jsonc" --debug --no-wait
    ```
-
-3. Update deployment threshold to customer requested value from default of 80%:
+   Follow these links for the structure of the ARM template and parameters files for the Cluster:
+   - [`cluster.jsonc`](cluster-jsonc-example.md)
+   - [`cluster.parameters.jsonc`](cluster-parameters-jsonc-example.md)
+     
+4. Verify Cluster `Provisioning state` is `Succeeded` from Azure CLI:
+   ```
+   az networkcloud cluster list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+   
+5. Update deployment threshold to custom value with Azure CLI (if desired threshold is different from default of 80%):
    ```
    az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID> --compute-deployment-threshold type=<CLUSTER_DEPLOY_TYPE> grouping=<CLUSTER_DEPLOY_GROUPING> value=<CLUSTER_DEPLOY_THRESHOLD>
 
@@ -391,16 +398,11 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID> | grep -a3 computeDeploymentThreshold
    
      "clusterType": "MultiRack",
-     "clusterVersion": "<CLUSER_VERSION>",
+     "clusterVersion": "<CLUSTER_VERSION>",
      "computeDeploymentThreshold": {
        "grouping": "<CLUSTER_DEPLOY_GROUPING>",
        "type": "<CLUSTER_DEPLOY_TYPE>",
        "value": <CLUSTER_DEPLOY_THRESHOLD>
-   ```
-
-4. Verify Cluster status:
-   ```
-   az networkcloud cluster list -o table
    ```
 
 ### Add resource tag on Cluster resource in Azure portal
@@ -412,12 +414,11 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
 ### Deploy Cluster
-The Cluster deployment can be initiated from Azure portal or Azure CLI.
 
-To initiate deployment through Azure portal:
+To initiate Cluster deployment through Azure portal:
 Azure portal -> `Clusters (Operator Nexus)` -> `<CLUSTER_NAME>` -> `Deploy`
 
-To initiate deployment through Azure CLI:
+To initiate Cluster deployment through Azure CLI:
 ```
 az networkcloud cluster deploy --resource-group <CLUSTER_RG> --name <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID> --no-wait --debug
 ```
@@ -539,5 +540,12 @@ CC: stakeholders_list
 - [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
 - [Azure CLI](https://aka.ms/azcli)
 - [Install CLI Extension](howto-install-cli-extensions.md)
+- [Troubleshoot hardware validation failure](troubleshoot-hardware-validation-failure.md)
+- [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
+- [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
+- [Troubleshoot BMM degraded](troubleshoot-bare-metal-machine-degraded.md)
+- [Troubleshoot BMM warning](troubleshoot-bare-metal-machine-warning.md)
+- [Telco Input Template](concepts-telco-input-template.md).
+- [Platform Prerequisites](howto-platform-prerequisites.md).
 
 </details>
