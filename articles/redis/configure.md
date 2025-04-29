@@ -25,19 +25,19 @@ You can view and configure the following settings using the **Resource Menu**.
 - [Access control (IAM)](#access-control-iam)
 - [Tags](#tags)
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
-- [Redis console](#redis-console)
-- [Move to a new subscription](#move-your-cache-to-a-new-subscription)
+<!-- - Redis console -->
+<!-- - [Move to a new subscription](#move-your-cache-to-a-new-subscription) -->
 - [Settings](#settings)
   - [Authentication](#authentication)
   - [Advanced settings](#advanced-settings)
-	- [Access Ports](#access-ports)
+	<!-- - [Access Ports](#access-ports)
 	- [Memory policies](#memory-policies)
-	- [Keyspace notifications](#keyspace-notifications)
+	- [Keyspace notifications](#keyspace-notifications) -->
 	- [Data persistence](#data-persistence)
   - [Encryption](#encryption)
   - [Active geo-replication](#active-geo-replication)
   - [Scale](#scale)
-  - [Schedule updates](#schedule-updates)
+  <!-- - [Schedule updates](#schedule-updates) -->
   - [Properties](#properties)
   - [Locks](#locks)
 - [Administration](#administration)
@@ -77,17 +77,17 @@ The **Tags** section helps you organize your resources. For more information, se
 
 Select **Diagnose and solve problems** to be provided with common issues and strategies for resolving them.
 
-## Redis console
+<!-- ## Redis console
 
-Direct access to the Redis console is not yet supported in Azure Managed Redis. Instead, consider using the [Redis CLI](how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/).
+Direct access to the Redis console is not yet supported in Azure Managed Redis. Instead, consider using the [Redis CLI](how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/). -->
 
-## Move your cache to a new subscription
+<!-- ## Move your cache to a new subscription
 
 You can move your cache to a new subscription by selecting **Move**.
 
 :::image type="content" source="media/configure/redis-cache-move.png" alt-text="Move Azure Managed Redis":::
 
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription).
+For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription). -->
 
 ## Settings
 
@@ -123,24 +123,26 @@ Select **Microsoft Entra Authentication** to  a password-free authentication mec
 
 The following settings are configured on the **Advanced settings** on the left.
 
-- [Access Ports](#access-ports)
-- [Memory policies](#memory-policies)
-- [Keyspace notifications](#keyspace-notifications)
-- [Data persistence](#data-persistence)
+<!-- - [Access Ports](#access-ports) -->
+<!-- - [Memory policies](#memory-policies) -->
+<!-- - [Keyspace notifications](#keyspace-notifications) -->
+<!-- - [Data persistence](#data-persistence) -->
 
+<!-- The only settings I see are Non-TLS access, Eviction Policy, Defer Redis DB Version -->
+<!-- 
 #### Access Ports
 
 By default, only TLS access is enabled for new caches. To enable non-TLS access, Select **Enable** for **Non-TLS access only** and then Select **Save**.
 
 > [!NOTE]
 > Azure Managed Redis supports TLS 1.2 and 1.3. See [What are the configuration settings for the TLS protocol?](tls-configuration.md) for more details.
->
+> -->
 
-#### Memory policies
+<!-- #### Memory policies
 
-When you create a cache, approximately 20% of the instance memory is reserved as a memory buffer for replication and other system processes. This helps the instance operate more effectively. 
+When you create a cache, approximately 20% of the instance memory is reserved as a memory buffer for replication and other system processes. This helps the instance operate more effectively.  -->
 
-**Eviction policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
+<!-- **Eviction policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
 
 - `volatile-lru`: The default eviction policy. It removes the least recently used key out of all the keys with an expiration set.
 - `allkeys-lru`: Removes the least recently used key.
@@ -151,16 +153,16 @@ When you create a cache, approximately 20% of the instance memory is reserved as
 - `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
 - `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
 
-For more information, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies).
+For more information, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies). -->
 
-#### Keyspace notifications
+<!-- #### Keyspace notifications
 
 Redis keyspace notifications are configured using the **notify-keyspace-events** box. Keyspace notifications allow clients to receive notifications when certain events occur. 
-Keyspace notifications can be used to [trigger Azure Functions](tutorial-functions-getting-started.md) based on activity on your Redis instance.  
+Keyspace notifications can be used to [trigger Azure Functions](tutorial-functions-getting-started.md) based on activity on your Redis instance.   
 
-For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications).
+For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications).-->
 
-#### Data persistence
+### Data persistence (preview)
 
 **Data persistence** allows you to enable, disable, or configure data persistence for your Redis instance. Azure Managed Redis offers Redis persistence using either RDB persistence or AOF persistence.
 
@@ -176,13 +178,13 @@ For more information, see [Configure disk encryption for Azure Managed Redis ins
 This functionality can be used to replicate a cache across Azure regions, providing greater data durability and availability.
 For more information, see [Configure active geo-replication for Azure Managed Redis instances](how-to-active-geo-replication.md)
 
-### Scale
+### Scale (preview)
 
 Select **Scale** to view or change the size and performance tier of your Redis instance. For more information on scaling, see [How to Scale Azure Managed Redis](how-to-scale.md).
 
-### Schedule updates
+<!-- ### Schedule updates
 
-Scheduled updates are not yet available in Azure Managed Redis.
+Scheduled updates are not yet available in Azure Managed Redis. -->
 
 <!--
 The **Schedule updates** section allows you to choose a maintenance window for Redis server updates for your cache.
@@ -197,6 +199,8 @@ To specify a maintenance window, check the days you want. Then, specify the main
 
 For more information and instructions, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates).
 -->
+
+<!-- ### Identity this missing from the list/toc -->
 
 ### Properties
 
@@ -217,9 +221,7 @@ The **Administration** section allows you to access and configure the following 
 
 ### Import/Export
 
-Import/Export is an Azure Managed Redis data management operation that allows you to import and export data to/from the Redis instance. 
-You can import and export a Redis Database (RDB) snapshot to/from an Azure Storage Account. 
-Use Import/Export to migrate between different Azure Managed Redis instances or populate the cache with data before use.
+Import/Export is an Azure Managed Redis data management operation that allows you to import and export data to/from the Redis instance. You can import and export a Redis Database (RDB) snapshot to/from an Azure Storage Account. Use Import/Export to migrate between different Azure Managed Redis instances or populate the cache with data before use.
 
 You can use import with Redis-compatible RDB files from any Redis server running in virtually any cloud or environment including:
 
@@ -229,6 +231,7 @@ You can use import with Redis-compatible RDB files from any Redis server running
 Importing data is an easy way to create a cache with prepopulated data. During the import process, Azure Managed Redis loads the RDB files from Azure storage into memory, and then inserts the keys into the cache.
 
 Export allows you to export the data stored in Azure Managed Redis to Redis compatible RDB files. You can use this feature to move data from one Azure Managed Redis instance to another or to another Redis server.
+
 During the export process, a temporary file is created on the VM that hosts the Azure Managed Redis instance. The temporary file is uploaded to the designated storage account. When the export operation completes with either a status of success or failure, the temporary file is deleted.
 
 For more information and instructions, see [Import and Export data in Azure Managed Redis](how-to-import-export-data.md).
@@ -274,6 +277,7 @@ Further information can be found on the **Recommendations** in the working pane 
 ### Diagnostic Settings Metrics
 
 By default, cache metrics in Azure Monitor are [stored for 30 days](/azure/azure-monitor/essentials/data-platform-metrics) and then deleted. 
+
 To persist your cache metrics for longer than 30 days, select **Diagnostics Settings - Metrics** to [configure the storage account](monitor-cache.md#data-storage) used to store cache diagnostics.
 
 >[!NOTE]
@@ -338,7 +342,7 @@ New Azure Managed Redis instances are configured with the following default Redi
 
 ### Databases
 
-Currently, Azure Managed Redis only supports a single database per instance. 
+Currently, Azure Managed Redis only supports a single database per instance.
 
 ### Maximum number of clients
 
@@ -377,7 +381,7 @@ For cache instances using active geo-replication, the following commands are als
 - FLUSHALL
 - FLUSHDB
 
-Instead, use the [control plane flush operation](how-to-active-geo-replication.md#flush-operation) through the portal, PowerShell, or CLI. 
+Instead, use the [control plane flush operation](how-to-active-geo-replication.md#flush-operation) through the portal, PowerShell, or CLI.
 
 ## Related content
 

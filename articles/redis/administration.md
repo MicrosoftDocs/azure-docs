@@ -12,7 +12,7 @@ appliesto:
 ---
 # How to administer Azure Managed Redis
 
-This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Managed Redisinstances.
+This article describes how to do administration tasks such as [rebooting](#reboot) and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Managed Redis instances.
 
 ## Reboot
 
