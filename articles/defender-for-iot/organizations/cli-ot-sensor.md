@@ -28,13 +28,6 @@ Here is the list of commands according to category:
 | config | config |
 | system | backup </br>date</br>hostname</br>ntp</br>password</br>reboot</br>sanity</br>shell</br>shutdown</br>syslog</br>version|
 | network |  blink</br>capture-filter</br>list</br>ping</br>reconfigure</br>statistics</br>validate|
-| network |  blink|
-| | capture-filter|
-| | list|
-| | ping|
-| | reconfigure|
-| |statistics|
-| |validate|
 
 To list the commands in a category, type help. For example:
 
