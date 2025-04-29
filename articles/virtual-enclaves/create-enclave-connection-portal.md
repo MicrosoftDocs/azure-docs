@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create an enclave Connection from the Azure portal
 
-Enclave Connections enable network traffic to flow into, out of, and between AVE Communities and Enclaves. Follow these steps to create an enclave Connection within the Azure portal.
+Enclave Connections enable network traffic to flow into, out of, and between AVE communities and Enclaves. Follow these steps to create an enclave Connection within the Azure portal.
 
 ## Prerequisites
 
@@ -59,10 +59,10 @@ For connections where the `Transit Hub` is the connection source:
 
 8. Enter the required information for the connection
   - **Source Type**: Select `Transit Hub`.
-  - **Source Transit Hub**: Select the Transit Hub from the list.
+  - **Source Transit Hub**: Select the transit hub from the list.
   - **Source IP addresses/CIDR range(s)**: Enter the source IP addresses or CIDR ranges for this connection.
   - **Destination endpoint**: Select the endpoint from the list.
 
-![Screenshot showing enclave creation page with Transit Hub source selected.](./media/create-enclave-connection-tab-1-basics-transit-hub-source.png)
+![Screenshot showing enclave creation page with transit hub source selected.](./media/create-enclave-connection-tab-1-basics-transit-hub-source.png)
 
 9. Select `Review + Create` and then `Create`

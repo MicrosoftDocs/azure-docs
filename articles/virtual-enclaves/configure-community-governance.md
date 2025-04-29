@@ -22,7 +22,7 @@ Governance options for communities are configurable during the community creatio
 ## Customize governance settings on community creation
 Go to community creation and customize your governance settings.
 
- In the context of governance for Communities, the following settings can be specified for each service:
+ In the context of governance for communities, the following settings can be specified for each service:
  [ ![Screenshot showing the policy management options when creating a community.](./media/create-community-tab-2-policy-management.png) ](./media/create-community-tab-2-policy-management.png#lightbox)
 
  - Enforcement: This setting determines whether the rules defined for a service are actively enforced. When enforcement is enabled, any action that violates the rules will be blocked or flagged.

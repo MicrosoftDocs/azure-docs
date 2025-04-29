@@ -73,7 +73,7 @@ Azure Virtual Enclaves' identity and access control model ensures robust securit
 
 ## Built in RBAC roles for Azure Virtual Enclaves
 
-Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AVE objects like Communities and Enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
+Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AVE objects like communities and Enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
 
 ### AVE Built in roles
 
@@ -127,7 +127,7 @@ Environment Structure:
   - **Viewer** role assignment is created for Fabrikam Security Auditors.
 
 **Community Administration**: 
-  - **Community Owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of Communities and Enclaves within those subscriptions. 
+  - **Community Owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of communities and Enclaves within those subscriptions. 
   - **Community Approver** role assignment is created at the Security Administrator to review and authorized connections to/from external destinations.
   - **Community Viewer** role assignment is created at the community-level Security Auditor to view/analyze endpoints and connections within the community.
   - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.

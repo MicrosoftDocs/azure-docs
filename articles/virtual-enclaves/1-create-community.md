@@ -15,7 +15,7 @@ ms.custom: references_region
 
 Azure Virtual Enclaves is an Azure service that accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive mission workloads.
 
-Communities are isolated hub networks that can securely and logically group several enclaves together for governance, management, and security purposes. A community owner can enable other Communities or on-premises networks to connect through Transit Hubs or Endpoints.
+Communities are isolated hub networks that can securely and logically group several enclaves together for governance, management, and security purposes. A community owner can enable other communities or on-premises networks to connect through transit hub or Endpoints.
 
 ## Get started
 
@@ -44,7 +44,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 
 2. On the `Communities` page, select `Create`.
 
-![Screenshot showing the Azure Virtual Enclaves portal page with the Communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
+![Screenshot showing the Azure Virtual Enclaves portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png)
 
 3. Enter the basic details for your community:
    - **Subscription**: Select an existing Subscription
@@ -64,7 +64,7 @@ Community deployments will take around 30-45 minutes to complete. Once it comple
 ## Clean up resources
 If you need to delete your community created after completing this tutorial, this can be also done from the Azure portal.
 
-![Screenshot showing the completed community in the Azure Virtual Enclaves portal page Communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
+![Screenshot showing the completed community in the Azure Virtual Enclaves portal page communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
 
 ## Next steps
 In this tutorial, you created two sample enclaves using Azure portal. In the next tutorial, you'll learn how to create several workloads within your enclave.

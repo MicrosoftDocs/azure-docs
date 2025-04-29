@@ -54,7 +54,7 @@
 #       href: designing-intra-enclave-network-isolation.md
     - name: Best practices
       href: best-practices.md
-#     - name: Air-Gapped Communities and Enclaves
+#     - name: Air-Gapped communities and Enclaves
 #       href: air-gapped-communities-and-enclaves.md
     - name: Understand Admin Virtual Machines
       href: understand-admin-vm.md

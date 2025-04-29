@@ -14,9 +14,9 @@ Access to Azure Virtual enclave resources is primarily controlled using built-in
 ## RBAC for community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
 
-- **Community Owner** - Create/delete Communities, Enclaves, community endpoints, and Transit Hubs resources. Read-Onlyaccess to Workloads, enclave Connections, and enclave endpoints.
+- **Community Owner** - Create/delete communities, Enclaves, community endpoints, and transit hub resources. Read-Onlyaccess to Workloads, enclave Connections, and enclave endpoints.
 - **Community Contributor** - Same as above except for delete.
-- **Community Reader** - Read-Onlyaccess to Communities, Enclaves, community endpoints, and Transit Hubs
+- **Community Reader** - Read-Only access to communities, Enclaves, community endpoints, and transit hub.
 - **Enclave Owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave Contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave Reader** - Has read-Onlyaccess to one or more enclave resources and underlying workloads, endpoints, and connections.

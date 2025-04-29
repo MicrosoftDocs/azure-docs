@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create a community in the Azure portal
 
-[Communities](./what-community.md) are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A community Owner can enable other Communities or on-premises networks to connect through Transit Hubs or Endpoints.
+[Communities](./what-community.md) are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A community Owner can enable other communities or on-premises networks to connect through transit hub or Endpoints.
 
 ## Prerequisites
 To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) and sign-in to the [Azure portal](https://portal.azure.com) before you begin.
@@ -30,7 +30,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
    - **Region**: Azure region the community will be created in
    - **Community Address Space**: IP Address space of the community (for example `10.0.0.0/16`)
    > [!NOTE]
-   > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a community. Users shouldn't create Communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
+   > `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a community. Users shouldn't create communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
    
    ![Screenshot showing community creation basics inputs page.](./media/create-community-tab-1-basics.png)
 
@@ -40,7 +40,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 > [!NOTE]
 > 
-> In the context of governance for Communities, the following settings can be specified for each service:
+> In the context of governance for communities, the following settings can be specified for each service:
 > - Enforcement: This setting determines whether the rules defined for a service are actively enforced. When enforcement is enabled, any action that violates the rules will be blocked or flagged.
 > - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It's useful for understanding the change to potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.
 > - Options: This setting declares whether the service is:
