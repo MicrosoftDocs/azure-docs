@@ -30,7 +30,7 @@ Autopurge ignores data associated with the following statuses:
 
 ### Policy value
 
-Retention value can range from 0 (purge immediately after completion) to the maximum integer value, with the unit being **days**. 
+Retention value can range from 0 (purge up to 5 minutes after completion) to the maximum integer value, with the unit being **days**. 
 
 Although retention periods have no maximum limit, we recommend you avoid retaining large volumes of stale orchestration data for extended periods. This practice ensures efficient use of storage resources and maintains optimal app performance.
 
@@ -189,21 +189,25 @@ If creation is successful, you receive the following response.
 
 ```json
 {
-  "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAMER/retentionPolicies/default",
+  "id": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAMER/retentionPolicies/default",
   "name": "default",
   "properties": {
     "provisioningState": "Succeeded",
     "retentionPolicies": [
+      {
+        "retentionPeriodInDays": 1
+      },
       {
         "orchestrationState": "Completed",
         "retentionPeriodInDays": 0
       },
       {
         "orchestrationState": "Failed",
-        "retentionPeriodInDays": 30
+        "retentionPeriodInDays": 60
       }
     ]
   },
+  "resourceGroup": "RESOURCE_GROUP",
   "systemData": {
     "createdAt": "2025-04-23T23:41:17.3165122Z",
     "createdBy": "someone@microsoft.com",
