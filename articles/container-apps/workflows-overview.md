@@ -14,8 +14,22 @@ ms.reviewer: cshoe, jiayma
 
 Intro
 
-ACA option
+## Durable execution overview + scenarios
+Why durable execution, discuss workflows and orchestrations
 
-DTS option (preview)
+## Available durable execution frameworks
+How to choose 
+
+### Durable Task SDKs 
+
+### Durable Functions 
+
+## Options for running in ACA today
+
+### Durable Task SDK + DTS 
+
+### Durable Functions + MSSQL 
+
+## Quickstarts - could link back to DTS docs or be on ACA docs 
 
 ## Next steps
