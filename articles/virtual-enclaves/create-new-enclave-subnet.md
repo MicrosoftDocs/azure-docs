@@ -1,7 +1,7 @@
 ---
-title: Create New Subnet within an Enclave Virtual Network
+title: Create new Subnet within an Enclave Virtual Network
 titleSuffix: Azure Virtual Enclaves
-description: Create New Subnet within an Enclave Virtual Network.
+description: Create new Subnet within an Enclave Virtual Network.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create New Subnet within an Enclave Virtual Network
+# Create new Subnet within an Enclave Virtual Network
 
 This guides you through replacing the existing AVE Enclave virtual network subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the Enclave is created so there are no resources attached to the existing subnet. An existing subnet can't be deleted until there are no resources attached to it.
 

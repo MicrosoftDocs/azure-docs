@@ -40,7 +40,7 @@ If the default behavior of Admin VMs or the configurations that AVE allows to be
 The default VM size for AVE Admin VMs is Standard_D4s_v3. Community and Enclave Owners are allowed to resize the VM size of these Admin VMs after an Enclave is created. Furthermore, Community Owners will be allowed to choose what VM size the Admin VMs are deployed when creating an Enclave.
 
 ## Patching
-It is the Community or Enclave Owner's (and therefore customer's) responsibility to [maintain and patch](https://learn.microsoft.com/azure/virtual-machines/updates-maintenance-overview) the Admin VMs deployed in their Enclaves. Currently, AVE will not perform any patching on Admin VMs after they are deployed in an Enclave.
+It is the Community or Enclave Owner's (and therefore customer's) responsibility to [maintain and patch](/azure/virtual-machines/updates-maintenance-overview) the Admin VMs deployed in their Enclaves. Currently, AVE will not perform any patching on Admin VMs after they are deployed in an Enclave.
 
 Admin VMs are intended only for bootstrapping Enclaves and to provide initial entry for Enclave setup. Enclave Owners and system administrators should either delete them after set-up, or continuously monitor, patch, and manage them just like any of their other enclave workloads or Azure resources. Admin VMs are deployed using known good images through Azure Marketplace but are not monitored or patched by AVE thereafter.
 
@@ -48,7 +48,7 @@ Admin VMs are intended only for bootstrapping Enclaves and to provide initial en
 Community and Enclave Owners might also have concerns regarding the default VM image used for these VMs. Currently, AVE uses Azure Marketplace's Windows Server 2019 Datacenter image for Admin VMs. AVE does not currently support custom images for our Admin VMs.
 
 ## Monitoring
-By default, Admin VMs are configured with [Data collection rules](https://learn.microsoft.com/azure/azure-monitor/essentials/data-collection-rule-overview) to log certain resource and operating system logging.
+By default, Admin VMs are configured with [Data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to log certain resource and operating system logging.
 
 Should further troubleshooting be required to investigate Azure Virtual Machines, contact [Azure Support](https://azure.microsoft.com/support/).
 

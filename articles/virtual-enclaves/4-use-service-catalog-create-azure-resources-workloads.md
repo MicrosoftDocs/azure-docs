@@ -89,7 +89,7 @@ In the [next tutorial](./5-create-enclave-endpoint-connections.md), you'll learn
 
 ## Recommendations
 
-- Review an architecture example for a [basic web application](https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/basic-web-app.md)
+- Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)
 - [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
   - Owner: `main POC`
   - Deployer: `yourName`

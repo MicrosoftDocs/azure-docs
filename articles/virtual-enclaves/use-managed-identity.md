@@ -20,7 +20,7 @@ This article shows how to enable the following types of managed identity on a ne
 
 Both types of managed identities are managed by the Azure platform, so that you can authorize access from your applications without needing to create or rotate any secrets. Azure manages the identity's credentials for you.
 
-To learn more about managed identities, see [Managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
+To learn more about managed identities, see [Managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Create a system-assigned managed identity
 A system-assigned managed identity is an identity that is associated with an AVE enclave or another Azure resource. The system-assigned managed identity is tied to the lifecycle of the enclave. When the enclave is deleted, the system-assigned managed identity is also deleted.
@@ -67,6 +67,6 @@ az role assignment create \
 A user-assigned managed identity is a standalone Azure resource. When you create an enclave with a user-assigned managed identity for the control plane, the user-assigned managed identity resource must exist prior to enclave creation.
 
 #### Create a user-assigned managed identity via Azure portal
-If you don't yet have a user-assigned managed identity resource, create one using the Azure portal. User-assigned managed identities can be assigned Azure RBAC roles in a process similar to system-assigned managed identities. [Learn more about user-assigned managed identities](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+If you don't yet have a user-assigned managed identity resource, create one using the Azure portal. User-assigned managed identities can be assigned Azure RBAC roles in a process similar to system-assigned managed identities. [Learn more about user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 ![A screenshot showing the ability to create user-assigned managed identities for an enclave.](./media/support-msi-create.png)

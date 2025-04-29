@@ -49,7 +49,7 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 
 ![Screenshot showing the Azure Container Registry template selected from the Service Catalog list.](./media/service-catalog-list-azure-container-registry.png)
 
-4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User Assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
+4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User-assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
 5. Adjust any of the prepopulated parameters as needed.
 6. Select `Review + Add` then `Create`.
 

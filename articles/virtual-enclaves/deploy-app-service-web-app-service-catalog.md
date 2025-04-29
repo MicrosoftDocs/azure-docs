@@ -13,7 +13,7 @@ ms.date: 04/08/2025
 In this article, you:
 
 - Deploy a Service Catalog App Service Web App template into an existing Workload from the Azure portal.
-- Review an architecture example for a [basic web application](https://learn.microsoft.com/azure/architecture/web-apps/app-service/architectures/basic-web-app?tabs=cli)
+- Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app?tabs=cli)
 
 > [!NOTE]
 > 
@@ -70,7 +70,7 @@ Go to the specified Resource Group to confirm the intended resources were create
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
 
 ## Recommendations
-- [Add tags](https://learn.microsoft.com/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

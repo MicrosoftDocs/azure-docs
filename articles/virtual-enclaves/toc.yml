@@ -211,3 +211,5 @@
       href: create-azure-virtual-desktop-workload.md
     - name: Create Domain Name Service Forwarder
       href: create-domain-name-service-forwarder.md
+    - name: Create New Enclave Subnet
+      href: create-new-enclave-subnet.md
