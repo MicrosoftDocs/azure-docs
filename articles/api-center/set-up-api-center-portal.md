@@ -74,11 +74,11 @@ The API Center portal supports and streamlines the work of developers who use an
 
 * **Try out APIs** that support API key authentication or OAuth 2.0 authorization
 
-### Search with AI
+## Search with AI
 
 In the Standard tier, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
 
-To use AI-assisted search in the API Center portal, click in the search box, select **Search with AI**, and enter your query.
+To use AI-assisted search in the API Center portal, click in the search box, select **Search with AI**, and enter a query.
 
 :::image type="content" source="media/set-up-api-center-portal/semantic-search.png" alt-text="Screenshot of semantic search results in API Center portal.":::
 
