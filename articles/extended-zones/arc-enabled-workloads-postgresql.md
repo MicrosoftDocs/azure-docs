@@ -159,6 +159,8 @@ az group delete --name my-aks-cluster-group
 
 ## Related content
 
+- [Deploy arc-enabled workloads in an Extended Zone: ContainerApps](https://learn.microsoft.com/en-us/azure/container-apps/arc-enabled-workloads-container-apps)
+- [Deploy arc-enabled workloads in an Extended Zone: ManagedSQL](https://learn.microsoft.com/en-us/azure/container-apps/arc-enabled-workloads-managedsql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)

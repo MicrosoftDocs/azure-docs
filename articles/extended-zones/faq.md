@@ -22,11 +22,11 @@ No, given the size, hardware, and targeted use cases for the Azure Extended Zone
 
 ## What are the available Azure Extended Zones?
 
-Currently, Los Angeles is the only available Azure Extended Zone.
+See [Request access to Azure Extended Zones](request-access.md) to learn how to request access to Extended Zones. A comprehensive list of Extended Zones will be listed in the process.
 
 ## How will I be charged for resources I create in an Azure Extended Zone?
 
-The pricing and billing process of Los Angeles Azure Extended Zone is consistent with the West US Region. Resources created in the Los Angeles Extended Zone follow the same billing pricing as those created in the West US Region.
+The billing experience of Azure Extended Zones is consistent with the rest of Azure. Please reach out to your sales representative to get more detailed information on protocols and pricing.
 
 ## Can I use the parent region network security groups (NSGs) or user defined routes (UDRs)?
 
