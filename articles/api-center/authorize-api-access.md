@@ -51,7 +51,7 @@ To manage the API key securely, store it in Azure Key Vault, and access the key 
 ### 2.  Add API key configuration in your API center
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
-1. In the left menu, under **Assets**, select **Authorization (preview)** > **+ Add configuration**.
+1. In the left menu, under **Governance**, select **Authorization (preview)** > **+ Add configuration**.
 1. In the **Add configuration** page, set the values as follows:
     :::image type="content" source="media/authorize-api-access/configure-api-key.png" alt-text="Screenshot of configuring an API key in the portal.":::
 
@@ -111,7 +111,7 @@ To manage the secret securely, store it in Azure Key Vault, and access the key v
 ### 3. Add OAuth 2.0 authorization in your API center
 
 1. In the [portal](https://azure.microsoft.com), navigate to your API center.
-1. In the left menu, under **Assets**, select **Authorization (preview)** > **+ Add configuration**.
+1. In the left menu, under **Governance**, select **Authorization (preview)** > **+ Add configuration**.
 1. In the **Add configuration** page, set the values as follows:
 
     :::image type="content" source="media/authorize-api-access/configure-oauth.png" alt-text="Screenshot of configuring OAuth 2.0 in the portal.":::
