@@ -21,15 +21,6 @@ In this guide, we demonstrate how to use Azure Front Door with Azure SignalR Ser
 
 As shown in the diagram, you’ll configure Azure Front Door to route WebSocket traffic to your SignalR-powered application backend. This setup ensures that your real-time functionality benefits from low-latency, scalable, and secure traffic handling through Azure’s global edge network.
 
-This article contains two parts,
-
-- [The first part](#set-up-and-configure-azure-front-door) shows how to configure Azure Front Door so that the clients can access SignalR through it.
-- [The second part](#secure-signalr-service) shows how to secure SignalR Service by adding access control to SignalR Service and only allow traffic from Azure Front Door.
-
-:::image type="content" source="./media/signalr-howto-work-azure-front-door/architecture.jpg" alt-text="Diagram that shows the architecture of using SignalR Service with Azure Front Door.":::
-[!!!! Diagram missing !!!!]
-
-
 ## Set up and configure Azure Front Door
 
 ### Create an Azure SignalR Service resource
@@ -46,7 +37,7 @@ On the [Azure portal](https://portal.azure.com/), search for **Front Door** and 
 ### Quick test
 Conduct quick tests to verify that SignalR endpoint is healthy and Azure Front Door resource is correctly configured.
 
-- Send a request to `<your-SignalR-resource-endpoint>/client` and it should return _400_ with error message _'hub' query parameter is required._ This means that the request arrived at SignalR Service and the service performed validation as expected.
+Send a request to `<your-SignalR-resource-endpoint>/client` and it should return _400_ with error message _'hub' query parameter is required._ This means that the request arrived at SignalR Service and the service performed validation as expected.
   ```bash
   curl -v <your-SignalR-resource-endpoint>/client
   ```
@@ -57,7 +48,7 @@ Conduct quick tests to verify that SignalR endpoint is healthy and Azure Front D
   <
   'hub' query parameter is required.
   ```
-- Send a request to the same health endpoint of Azure SignalR through Azure Front Door `http://<the-hostname-of-your-Azure-Front-Door-resource>/client`. Go to the Overview tab of the created Azure Front Door resource, and locate the endpoint hostname
+Send a request to the same health endpoint of Azure SignalR through Azure Front Door `http://<the-hostname-of-your-Azure-Front-Door-resource>/client`. Go to the Overview tab of the created Azure Front Door resource, and locate the endpoint hostname.
 
   :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/afd-hostname.jpg" alt-text="Screenshot of the the hostname of Azure Front Door resource":::
   
@@ -253,13 +244,11 @@ Open http://localhost:5129 from the browser and use `F12` keyboard shortcut to
 
 Try to type something in the text box and hit the send button. You will see the message is logged to browser console as expected.
 
-  :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/console-log.jpg" alt-text="Screenshot of the running app establishing a WebSocket connection with Azure Front Door.":::
+  :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/console-log.jpg" alt-text="Screenshot of the received message in browser's console log.":::
 
 You can also inspect the flow of messages in the network panel. 
   
   :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/network-panel-flow-of-messages.jpg" alt-text="Screenshot of flow of messages in the network panel.":::
 
-
-## Secure SignalR Service
 
 
