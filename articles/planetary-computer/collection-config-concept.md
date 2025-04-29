@@ -1,6 +1,6 @@
 ---
 title: Collection configuration in Microsoft Planetary Computer Pro
-description: "This article describes collection confirguration in Microsoft Planetary Computer Pro."
+description: "This article describes collection configuration in Microsoft Planetary Computer Pro."
 author: brentharris
 ms.author: brentharris
 ms.service: azure
@@ -14,7 +14,7 @@ ms.date: 04/24/2025
 
 ## Collection configuration
 
-To visualize your data in the Microsoft Planetary Computer Pro Explorer, you must first configure your collection. This configuration enables users to filter and save collection subsets that match desired attribute values, create and display custom visualizations of data in a collection, set desired zoom defaults, and define searchable attributes and valid data types. Collections are configured using json forms in the UI that operate on various parameters described in STAC items. Collection configuration features include Mosaic, Render, Tile Settings, and Queryables. 
+To visualize your data in the Microsoft Planetary Computer Pro Explorer, you must first configure your collection. This configuration enables users to filter and save collection subsets that match desired attribute values, create, and display custom visualizations of data in a collection, set desired zoom defaults, and define searchable attributes and valid data types. Collections are configured using json forms in the UI that operate on various parameters described in STAC items. Collection configuration features include Mosaic, Render, Tile Settings, and Queryables. 
 
 ### Mosaic
 
@@ -22,11 +22,11 @@ Microsoft Planetary Computer Pro's Explorer allows you to specify one or more mo
 
 ### Render
 
-Before your geospatial assets can be viewed within the Explorer you must first define at least one render configuration for your collection, which will allow you to visualize data in different ways. Raster, or imagery, data may contain many different assets that can be combined to create entirely new images of a given area that highlight visible or non-visible phenomena. Render configurations give you the ability to decide which assets you want to visualize, and how you want that visualization to appear in the Explorer. For instance, Sentinel-2 data many different bands that can be combined to form false color images such as color infrared. A properly formatted render config instructs Planetary Computer Pro how to create these images so they can be displayed in the Explorer.  For more information see [Quickstart: Render configuration in Microsoft Planetary Computer Pro](./render-configuration.md).
+Before your geospatial assets can be viewed within the Explorer you must first define at least one render configuration for your collection, which allows you to visualize data in different ways. Raster, or imagery, data may contain many different assets that can be combined to create entirely new images of a given area that highlight visible or nonvisible phenomena. Render configurations give you the ability to decide which assets you want to visualize, and how you want that visualization to appear in the Explorer. For instance, Sentinel-2 data many different bands that can be combined to form false color images such as color infrared. A properly formatted render config instructs Planetary Computer Pro how to create these images so they can be displayed in the Explorer. For more information, see [Quickstart: Render configuration in Microsoft Planetary Computer Pro](./render-configuration.md).
 
 ### Tile Settings
 
-You also have the ability to define Tile Settings based on the unique features of your collection. For example, you can set the 'min-zoom' parameter that defines the minimum zoom level at which the assets within your collection will appear on the Explorer basemap. High resolution imagery should have a high 'min-zoom' value to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower 'min-zoom' levels without issue. For more information see [Quickstart: Tile settings in Microsoft Planetary Computer Pro](./tile-settings.md).
+You also have the ability to define Tile Settings based on the unique features of your collection. For example, you can set the 'min-zoom' parameter that defines the minimum zoom level at which the assets within your collection will appear on the Explorer basemap. High resolution imagery should have a high 'min-zoom' value to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower 'min-zoom' levels without issue. For more information, see [Quickstart: Tile settings in Microsoft Planetary Computer Pro](./tile-settings.md).
 
 ### Queryables
 

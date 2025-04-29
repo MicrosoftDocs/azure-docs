@@ -30,7 +30,7 @@ Before using this quickstart, you need:
 Once you have created a collection and configured an ingestion source, you are ready to ingest data into your collection. The following steps will guide you through the process of creating an ingestion using the Microsoft Planetary Computer Pro web interface:
 
 1. Navigate to the **Overview** tab of the collection in which you want to ingest data. 
-2. If you have not already ingested data into your collection, you will see a graphic showing the 3 steps to get started. '1. Create an ingestion, 2. Start run, 3. View STAC items.' Click the **Get started** button to begin with step 1. 
+2. If you have not already ingested data into your collection, you will see a graphic showing the 3 steps to get started. '1. Configure ingestion source, 2. Create ingestion, 3. Start run.' Click the **Get started** button to begin with step 1. 
 
 
 ## Next steps
