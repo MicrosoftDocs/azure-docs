@@ -42,7 +42,12 @@ ms.custom:
    > [!IMPORTANT]
    > For optimal security, we recommend that you use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization by using Microsoft Entra ID and managed identities provides superior security and ease of use over shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication).
 
-   Set **Clustering policy** to **Enterprise** for a nonclustered cache, or to **OSS** for a clustered cache. For more information on choosing **Clustering policy**, see [Cluster policy](../architecture.md#cluster-policies).
+   Set **Clustering policy**:
+    - Use **Enterprise** in order to use RedisSearch or other modules
+    - Use **OSS** for a clustered cache.
+    - Use **Non-clustered (Preview)** for a non-clustered cache.
+
+   For more information on choosing **Clustering policy**, see [Cluster policy](../architecture.md#cluster-policies).
 
    <!-- :::image type="content" source="media/managed-redis-create/managed-redis-advanced-settings.png" alt-text="Screenshot that shows the Azure Managed Redis Advanced tab."::: -->
 
