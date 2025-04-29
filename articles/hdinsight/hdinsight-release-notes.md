@@ -68,7 +68,7 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * HDInsight service transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
 
   > [!IMPORTANT]
-  > By default, all newly created HDInsight clusters are configured with a Standard Load Balancer. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+  > By default, creation of any new HDInsight cluster happens with Standard Load Balancers. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
   > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 * [Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/).
