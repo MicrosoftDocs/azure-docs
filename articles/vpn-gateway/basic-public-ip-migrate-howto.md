@@ -9,16 +9,20 @@ ms.date: 04/28/2025
 ms.author: cherylmc
 ---
 
-# How to migrate a Basic SKU public IP address to Standard SKU
+# How to migrate a Basic SKU public IP address to Standard SKU - Preview
 
-This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5. For more information about Basic SKU migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
+This article helps you migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway deployments that use gateway SKUs VpnGw 1-5 for active-passive gateways (not active-active). For more information about Basic SKU migration, see [About migrating a Basic SKU public IP address to Standard SKU for VPN Gateway](basic-public-ip-migrate-about.md).
+
+> [!IMPORTANT]
+> Basic SKU public IP address migration for VPN Gateway is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 During the public IP address SKU migration process, your Basic SKU public IP address resource is migrated to a Standard SKU public IP address resource. The IP address assigned to your gateway doesn't change.
 
 Additionally, if your VPN Gateway gateway SKU is VpnGw 1-5, your gateway SKU is migrated to a VPN Gateway AZ SKU (VpnGw 1-5 AZ). For more information, see [About VPN Gateway SKU consolidation and migration](gateway-sku-consolidation.md).
 
 > [!NOTE]
-> Migration functionality is currently rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region.
+> Migration functionality is rolling out to regions. If you don't see the **Migrate** tab in the Azure portal, it means that the migration process isn't available yet in your region.
 
 ## Workflow
 
@@ -64,7 +68,7 @@ Use the steps in the Azure portal to migrate your Basic SKU public IP address re
 
 ### Validate migration
 
-If your VPN Gateway SKU was VpnGw 1-5, your gateway SKU migrated to an AZ SKU (VpnGw 1-5 AZ) in the previous section. In this section, you validate that the migration was successful and that traffic is flowing as expected. If you find that your gateway isn't working as expected, you have the opportunity to abort the migration to roll back any migration changes.
+If your VPN Gateway gateway SKU was VpnGw 1-5, your gateway SKU automatically migrated to an AZ SKU (VpnGw 1-5 AZ) as part of the migration process. In this section, you validate that the migration was successful and that traffic is flowing as expected. If you find that your gateway isn't working as expected, you have the opportunity to abort the migration to roll back any migration changes.
 
 > [!IMPORTANT]
 > It's important to validate the migration was successful before you commit the changes in this section. If migration wasn't successful, you have the option to abort and roll back your changes if you haven't committed them in this section.
