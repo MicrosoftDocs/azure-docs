@@ -104,7 +104,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Handling empty XML elements
 
-  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value. To omit the parameter to be sent to SAP, you can simply remove the empty element from the input payload.
+  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value. To omit sending the parameter to SAP, you can just remove the empty element from the input payload.
 
   - SAP managed connector: An empty XML element is interpreted as a missing parameter and isn't sent to the SAP function.
 
