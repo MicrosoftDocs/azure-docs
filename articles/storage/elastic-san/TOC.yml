@@ -64,6 +64,8 @@ items:
       href: elastic-san-configure-customer-managed-keys.md
     - name: Manage customer keys
       href: elastic-san-encryption-manage-customer-keys.md
+  - name: Troubleshoot your Elastic SAN
+    href: elastic-san-troubleshoot.md
 - name: Samples
   items:
   - name: Create elastic SAN volumes in a batch

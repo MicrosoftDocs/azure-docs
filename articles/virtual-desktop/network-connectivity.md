@@ -5,7 +5,7 @@ description: Learn about Azure Virtual Desktop network connectivity.
 author: dknappettmsft
 ms.topic: conceptual
 ms.date: 01/17/2025
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

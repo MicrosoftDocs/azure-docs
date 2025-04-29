@@ -141,4 +141,4 @@ To use the values in a pipeline, utilize parameters, like `@pipeline().parameter
 
 ## Related content
 
-For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-execution-with-json).
+For more information about triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md#trigger-types).

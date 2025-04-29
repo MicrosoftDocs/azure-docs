@@ -135,12 +135,12 @@ Now that you've created a virtual network, create a virtual network gateway:
    | **Name** | Enter a unique name for the virtual network gateway. |
    | **Region** | Select the geographical location of the virtual network gateway. |
    | **Gateway type** | Select **ExpressRoute**. |
-   | **SKU** | Select the gateway type that's appropriate for your workload. <br> For Azure NetApp Files datastores, select **UltraPerformance** or **ErGw3Az**. |
+   | **SKU** | Select the gateway type that's appropriate for your workload. <br> For external storage such as Azure Elastic SAN or Azure NetApp Files datastores, select **UltraPerformance** or **ErGw3Az**. |
    | **Virtual network** | Select the virtual network that you created previously. If you don't see the virtual network, make sure the gateway's region matches the region of your virtual network. |
    | **Gateway subnet address range** | The value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |
-
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Screenshot that shows the details for a virtual network gateway." border="true":::
+   
+      :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Screenshot that shows the details for a virtual network gateway." border="true":::
 
 1. Verify that the details are correct, and then select **Create** to start deployment of your virtual network gateway.
 
