@@ -21,7 +21,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | --- | --- | --- | --- |
 | Request Header Names | Equals | keytoblock | {"matchVariableName":"HeaderValue:keytoblock","matchVariableValue":"****"} |
 | Request Cookie Names | Equals | cookietoblock | {"matchVariableName":"CookieValue:cookietoblock","matchVariableValue":"****"} |
-| Request Post Arg Names <sup>1</sup> | Equals | var | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"} |
+| Request Body Post Arg Names <sup>1</sup> | Equals | var | {"matchVariableName":"PostParamValue:var","matchVariableValue":"****"} |
 | Request Body JSON Arg Names <sup>1</sup> | Equals | JsonValue | {"matchVariableName":"JsonValue:key","matchVariableValue":"****"} |
 | Query String Arg Names | Equals | foo | {"matchVariableName":"QueryParamValue:foo","matchVariableValue":"****"} |
 | Request IP Address <sup>2</sup> | Equals Any | NULL | {"matchVariableName":"ClientIP","matchVariableValue":"****"} |
@@ -33,7 +33,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 
 For more information, see [What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?](waf-sensitive-data-protection-frontdoor.md)
 
-## Enable Sensitive Data Protection
+## Enable sensitive data protection
 
 Use the following information to enable and configure Sensitive Data Protection.
 
@@ -77,7 +77,7 @@ az network front-door waf-policy update -g <MyResourceGroup> -n <MyPolicyName> -
 
 ---
 
-## Verify Sensitive Data Protection
+## Verify sensitive data protection
 
 To verify your Sensitive Data Protection rules, open the Front Door firewall log and search for _******_ in place of the sensitive fields.
 
