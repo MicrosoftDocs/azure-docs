@@ -17,7 +17,7 @@ ms.date: 04/08/2025
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Database for PostgreSQL, and use Data Flow to transform data in Azure Database for PostgreSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!IMPORTANT]
-> The Azure Database for PostgreSQL version 2.0 provides improved native Azure Database for PostgreSQL support. If you are using the Azure Database for PostgreSQL version 1.0 in your solution, you are recommended to [upgrade your Azure Database for PostgreSQL connector](#upgrade-the-azure-database-for-postgresql-connector) at your earliest convenience.
+> The Azure Database for PostgreSQL version 2.0 provides improved native Azure Database for PostgreSQL support. If you're using the Azure Database for PostgreSQL version 1.0 in your solution, you're recommended to [upgrade your Azure Database for PostgreSQL connector](#upgrade-the-azure-database-for-postgresql-connector) at your earliest convenience.
 
 This connector is specialized for the [Azure Database for PostgreSQL service](/azure/postgresql/overview). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
 
@@ -33,7 +33,7 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
-The three activities work on Azure Database for PostgreSQL  [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), as well as [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
+The three activities work on Azure Database for PostgreSQL [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), and [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
@@ -46,7 +46,7 @@ The three activities work on Azure Database for PostgreSQL  [Single Server](/azu
 
 Use the following steps to create a linked service to Azure database for PostgreSQL in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -87,7 +87,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection fails.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime.|No|
 | ***Additional connection properties:*** |  |  |
 | schema | Sets the schema search path. | No |
@@ -97,7 +97,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | trustServerCertificate | Whether to trust the server certificate without validating it. | No |
 | readBufferSize | Determines the size of the internal buffer Npgsql uses when reading. Increasing may improve performance if transferring large values from the database. | No |
 | timezone | Gets or sets the session timezone. | No |
-| encoding | Gets or sets the .NET encoding that will be used to encode/decode PostgreSQL string data. | No |
+| encoding | Gets or sets the .NET encoding for encoding/decoding PostgreSQL string data. | No |
 
 ### Basic authentication
 
@@ -167,7 +167,15 @@ To use System-assigned managed identity, follow the steps:
 
 1. The Azure data for PostgreSQL with System assigned managed identity **On**.
 
-    :::image type="content" source="media/connector-azure-database-for-postgresql/system-managed-identity-configuration.png" alt-text="Screenshot of the system assigned managed identity configuration in the Azure database for PostgreSQL server resource." lightbox="media/connector-azure-database-for-postgresql/system-managed-identity-configuration.png":::
+    :::image type="content" source="media/connector-azure-database-for-postgresql/system-managed-identity-configuration.png" alt-text="Screenshot of the system assigned managed identity configuration in the Azure database for PostgreSQL server." lightbox="media/connector-azure-database-for-postgresql/system-managed-identity-configuration.png":::
+
+1.  In your Azure Database for PostgreSQL resource under **Security**
+    1. Select **Authentication**
+    1. Select either **Microsoft Entra authentication only** or **PostgreSQL and Microsoft Entra authentication** Authentication method.
+    1. Select **+ Add Microsoft Entra administrators**
+    1. Add the system-assigned managed identity for the Azure Data Factory resource as one of the **Microsoft Entra Administrators** 
+        
+       :::image type="content" source="media/connector-azure-database-for-postgresql/system-assigned-managed-identity-adding-access.png" alt-text="Screenshot of adding system assigned managed identity in the Azure Database for PostgreSQL configuration." lightbox="media/connector-azure-database-for-postgresql/system-assigned-managed-identity-adding-access.png":::
 
 1. Configure an Azure database for PostgreSQL linked service.
 
@@ -208,13 +216,13 @@ You also need to follow the steps:
     1. In your Azure database for PostgreSQL server resource, under **Security**
     1. Select **Authentication**
     1. Verify if Authentication method is **Microsoft Entra authentication only** or **PostgreSQL and Microsoft Entra authentication**
-    1. Click on **+ Add Microsoft Entra administrators** and select your user-assigned managed identity
+    1. Select **+ Add Microsoft Entra administrators** link and select your user-assigned managed identity
 
         :::image type="content" source="media/connector-azure-database-for-postgresql/user-managed-identity-postgresql-configuration.png" alt-text="Screenshot of the user-assigned managed identity configuration in the Azure database for PostgreSQL server." lightbox="media/connector-azure-database-for-postgresql/user-managed-identity-postgresql-configuration.png":::
 
 1. Assign the **User-assigned Managed Identity** to your Azure Data Factory resource
     1. Select **Settings** and then **Managed Identities**
-    1. Under the **User assigned** tab. Click on the **+ Add** and select your user-managed identity
+    1. Under the **User assigned** tab. Select the **+ Add** link and select your user-managed identity
 
         :::image type="content" source="media/connector-azure-database-for-postgresql/data-factory-user-identity-configuration.png" alt-text="Screenshot of the user-assigned managed identity configuration in the Azure Data Factory resource." lightbox="media/connector-azure-database-for-postgresql/data-factory-user-identity-configuration.png":::
 
@@ -255,7 +263,7 @@ Example:
 | servicePrincipalKey | Client secret value. Used when service principal key is selected | Yes |
 | azureCloudType | Select the Azure cloud type of your Azure Database for PostgreSQL server | Yes |
 | servicePrincipalEmbeddedCert | Service principal certificate file | Yes |
-| servicePrincipalEmbeddedCertPassword | Service principal certificate password if required | No |
+| servicePrincipalEmbeddedCertPassword | Service principal certificate password if necessary | No |
 
 **Example**:
 
