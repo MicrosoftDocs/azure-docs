@@ -94,7 +94,7 @@ You can create or update retention policies by adding the `retentionPolicies` co
 ```bicep
 resource exampleResource 'Microsoft.DurableTask/schedulers/retentionPolicies@2025-04-01-preview' = {
   parent: parentResource 
-  name: 'example'
+  name: 'default'
   properties: {
     retentionPolicies: [
       {
