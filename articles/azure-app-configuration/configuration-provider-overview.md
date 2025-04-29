@@ -64,3 +64,4 @@ Replica Auto Discovery | GA | GA | GA | WIP | [GA](./reference-javascript-provid
 Replica Failover | GA | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
 Replica Load Balancing | GA | WIP | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
 Snapshots | GA | GA | GA | WIP | WIP
+Distributed tracing | GA | WIP | WIP | WIP | WIP
