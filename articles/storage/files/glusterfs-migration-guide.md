@@ -26,6 +26,8 @@ Organizations using GlusterFS should migrate to supported alternatives, such as 
 
 For Windows clients, use Robocopy. For Linux clients, use rsync.
 
+# [Windows](#tab/windows)
+
 ### For Windows clients: Robocopy
 
 Robocopy is a built-in Windows command-line tool designed for copying SMB file shares.
@@ -44,6 +46,8 @@ robocopy <GlusterFS_Source> <AzureFiles_Destination> /MIR /Z /MT:8 /W:1 /R:3 /LO
 - `/R:3`: Number of retries on failed copies
 - `/LOG`: Creates a detailed log file
 
+# [Linux](#tab/linux)
+
 ### For Linux clients: rsync
 
 rsync is a fast, versatile file copy tool available on Linux systems.
@@ -61,6 +65,7 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 - `--progress`: Shows progress during transfer
 - `--stats`: Provides transfer statistics
 - `--delete`: Removes files from destination that don't exist in source
+---
 
 ## Step-by-step migration procedure
 
@@ -95,6 +100,8 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 
 Before migrating the data, you must mount the Azure file share(s). This article shows how to mount the Azure file share using NTLMv2 authentication (storage account key). In non-administrative scenarios, using identity-based authentication is preferred for security reasons. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
+# [Windows](#tab/windows)
+
 #### For Windows clients (SMB):
 
 Be sure to replace `<storage-account-name>`, `<share-name>`, and `<storage-account-key>` with your actual values.
@@ -103,6 +110,8 @@ Be sure to replace `<storage-account-name>`, `<share-name>`, and `<storage-accou
 net use Z: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 ```
 
+# [Linux](#tab/linux)
+
 #### For Linux clients (NFS):
 
 Be sure to replace `<storage-account-name>`, `<share-name>`, and `<mount-point>` with your actual values.
@@ -110,28 +119,35 @@ Be sure to replace `<storage-account-name>`, `<share-name>`, and `<mount-point>`
 ```bash
 sudo mount -t nfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> <mount-point> -o vers=4.1,sec=sys
 ```
+---
 
 ### Step 4: Perform data migration
 
+Once you've mounted the Azure file share, you can perform the data migration.
+
+# [Windows](#tab/windows)
+
 #### For Windows workloads using Robocopy:
 
-1. Open a command prompt or PowerShell window with administrator privileges.
+Open a command prompt or PowerShell window with administrator privileges, and run the following command:
 
-1. Run the following Robocopy command:
-   
-   ```powershell
-   robocopy X:\GlusterFSData Z:\AzureFilesData /MIR /Z /MT:8 /W:1 /R:3 /LOG:C:\migration_log.txt
-   ```
+```powershell
+robocopy X:\GlusterFSData Z:\AzureFilesData /MIR /Z /MT:8 /W:1 /R:3 /LOG:C:\migration_log.txt
+```
+
+# [Linux](#tab/linux)
 
 #### For Linux workloads using rsync:
 
-Execute the following rsync command:
+Execute the following command:
 
 ```bash
 rsync -avz --progress --stats --delete /mnt/glusterfs/ /mnt/azurefiles/
 ```
 
 For large datasets, consider using the `--exclude` parameter to perform the migration in phases.
+
+---
 
 ### Step 5: Verify that migration succeeded
 
@@ -152,17 +168,24 @@ For large datasets, consider using the `--exclude` parameter to perform the migr
 
 ## Optimize performance
 
-- For SMB shares:
+# [Windows](#tab/windows)
+
+For SMB shares:
   - Enable [SMB Multichannel](smb-performance.md#smb-multichannel) for higher throughput.
   - Consider using SSD file shares for IO-intensive workloads.
 
-- For NFS shares:
+# [Linux](#tab/linux)
+
+For NFS shares:
   - Make sure you provision enough capacity to get the performance you need.
   - Configure appropriate read/write cache sizes on clients.
+---
 
 ## Troubleshooting
 
 Follow these instructions to troubleshoot common migration issues.
+
+# [Windows](#tab/windows)
 
 ### Common issues with Robocopy
 
@@ -170,11 +193,14 @@ Follow these instructions to troubleshoot common migration issues.
 - **Error 67 (Network name not found)**: Check network connectivity and share name.
 - **Error 1314 (Not enough quota)**: Increase Azure Files quota or free space.
 
+# [Linux](#tab/linux)
+
 ### Common issues with rsync
 
 - **Permission denied**: Check file permissions and mount options.
 - **Connection timeout**: Verify network connectivity and firewall settings.
 - **Partial transfer**: Use `--partial` flag to resume interrupted transfers.
+---
 
 ## Migration support
 
