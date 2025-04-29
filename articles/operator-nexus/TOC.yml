@@ -346,6 +346,8 @@
           href: howto-check-runtime-version.md
         - name: Site decommission checklist
           href: howto-decommission-nexus-instance-checklist.md
+        - name: Nexus Instance Deployment Template
+          href: howto-nexus-instance-deployment-template.md
 
 - name: Troubleshooting
   expanded: true
