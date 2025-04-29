@@ -40,4 +40,4 @@ The managed resource group functions just like an Azure resource group with the 
 - [What is an Enclave?](./what-enclave.md)
 - [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md)
 - [Best practices](./best-practices.md)
-- [Tutorial: Create a Workload](./3-create-workloads-enclave.md)
+- [Tutorial: Create a Workload](./3-create-workloads-inside-enclave.md)
