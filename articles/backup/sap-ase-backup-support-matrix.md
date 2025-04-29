@@ -62,7 +62,7 @@ Learn more [about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sy
 
 ## Support for multiple SAP ASE instances on a single host
 
-Azure Backup for SAP ASE supports backing up multiple SAP ASE Instances (SIDs) on a single host. SAP ASE Multi-SID support includes the following configurations:
+Azure Backup now enables seamless backups for multiple ASE (Sybase) database instances on Azure VMs, utilizing Multi-SID support. This advancement is particularly useful for shared VM environments, such as non-production setups, where multiple users require efficient data protection and recovery. SAP ASE Multi-SID support includes the following configurations:
 | Sap ASE instance | Support |
 | --- |--- |
 | Standalone (SID1)+ Standalone (SID2) | Supported |
@@ -76,7 +76,9 @@ The following table lists the required parameters for adding/removing SAP ASE in
 | Action | Parameter | Description | Example script |
 | --- | --- | --- | --- |
 | Add an instance | `--sid` | SAP ASE database instance that you want to protect. <br><br> By default, the first instance is selected. | `./PreReg.sh  --add --sid HXE` <br><br> Or <br><br> `./PreReg.sh --sid HXE` <br><br> (Default mode is `add` for the script.) <br><br> After you add instances, registration needs to be done on recovery services vault. If a new instance is added later, re-registration is required. |
+|    | `sudo` | Add a `SID` from the **Config** file. | `"<Path_to_the_Pre-Reg_Script" -aw SAPAse --sid "<SID>" --sid-user "<sidUser>" --db-port "<dbPort>" --db-user <dbUser> --db-host "<dbHost>" --enable-striping <true/false> --skip-network-checks` |
 | Remove an instance | `--sid` | SAP ASE database instance that you want to remove protection. <br><br> SID is a mandate parameter for remove. | `./PreReg.sh --remove --sid HXE` |
+|    | `sudo` | Remove a `SID` from the **Config** file. | `"<Path_to_the_Pre-Reg_Script" -aw SAPAse --sid "<SID>" --sid-user "<sidUser>" --db-port "<dbPort>" --db-user <dbUser> --db-host "<dbHost>" --enable-striping <true/false> --skip-network-checks --remove` |
 |    | `--dbHost` | The private IP of the specific SID instance that you intend to register. <br><br> In multi-instance setups, each System ID (SID) might have a different private IP. Use the IP available in `/sybase/<SID>/interfaces` for the correct instance. |     |
 
 ## Next steps
