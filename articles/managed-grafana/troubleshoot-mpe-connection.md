@@ -11,11 +11,11 @@ ai-usage: ai-assisted
 
 # Troubleshoot connecting managed private endpoint to a private link service
 
-This article guides you to troubleshoot and fix issues related to connecting a managed private endpoint to a private link service.
+This article guides you to troubleshoot and fix issues related to connecting Azure Managed Grafana to an AKS cluster via a private link service
 
 ## Symptom
 
-Connection from services running on an Azure Kubernetes Service (AKS) cluster to Azure Managed Grafana using a Managed Private Endpoint isn't working. Users may encounter errors such as **"504 Gateway Time-out"** when attempting to connect.
+Grafana is unable to connect to a private link service that exposes an Azure Kubernetes Service (AKS) cluster running a user’s database over a private network. Users may encounter errors such as **504 Gateway Time-out** when attempting to connect.
 
 ## Possible causes
 
@@ -24,8 +24,8 @@ The issue may occur due to one or more of the following reasons:
 - The managed private endpoint isn't approved.
 - The private DNS zone isn't configured correctly, leading to DNS resolution failures.
 - Network security group (NSG) rules are blocking the connection.
-- The AKS cluster doesn't have the correct outbound internet access configuration.
 - The private link service isn't properly configured to accept connections from the managed private endpoint.
+- The port configuration between the monitored service, the load balancer, and the private link service is inconsistent.
 
 ## Resolution
 
@@ -43,30 +43,25 @@ Follow these steps to resolve the issue:
 
 ### Step 2: check private DNS zone configuration
 
-1. Verify that the private DNS zone is linked to the virtual network where the AKS cluster or other service is deployed.
+1. Verify that the private DNS zone is linked to the virtual network where Azure Managed Grafana is deployed.
 1. Ensure the DNS zone contains the correct records for the private link service (for example, `privatelink.<service>.azure.com`).
-1. Test DNS resolution from the AKS cluster or other service to confirm it resolves to the private IP address of the private link service.
-1. For more information, see [Create and manage private DNS zones using the Azure portal](/azure/dns/private-dns-portal).
+1. Test DNS resolution from Azure Managed Grafana to confirm it resolves to the private IP address of the private link service.
+
+For more information, see [Create and manage private DNS zones using the Azure portal](/azure/dns/private-dns-portal).
 
 ### Step 3: Review Network Security Group (NSG) rules
 
-1. Check the NSG rules applied to the subnet where your resource (for example, AKS cluster or other service) is deployed.
-1. Ensure there are no rules blocking outbound traffic to the private link service.
-1. Add an allow rule if necessary to permit traffic to the private endpoint.
+1. Check the NSG rules applied to the subnet where the private link service is deployed.
+1. Ensure there are no rules blocking inbound traffic from Azure Managed Grafana to the private link service.
+1. Add an allow rule if necessary to permit traffic from Azure Managed Grafana.
 
-### Step 4: Validate outbound configuration
-
-1. Confirm that your resource (for example, AKS cluster or other service) has outbound internet access configured correctly.
-1. If using a custom route table, ensure it allows traffic to the private endpoint.
-1. Test connectivity from your resource to the private endpoint using tools like `curl` or `ping`.
-
-### Step 5: Verify private link service configuration
+### Step 4: Verify private link service configuration
 
 1. Ensure the private link service is configured to accept connections from the managed private endpoint.
 1. Check the private link service's settings to confirm it's correctly associated with the target resource.
 1. Verify that the private link service is healthy and operational.
 
-### Step 6: Analyze Port Configuration for AKS Clusters
+### Step 5: Analyze port configuration for AKS clusters
 
 If you're working with an AKS cluster, ensure that the port configuration is consistent across the monitored service, the load balancer, and the private link service. Incorrect port configurations can lead to data source connection failures.
 
