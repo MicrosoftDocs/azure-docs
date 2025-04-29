@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/10/2025
+ms.date: 04/28/2025
 ms.author: danlep 
 ---
 
@@ -246,7 +246,7 @@ If you want to discard all changes you've made to the developer portal, you can 
 
 > [!NOTE]
 > * Resetting the developer portal doesn't delete the published version of the developer portal.
-> * If you've already been using the developer portal for some time, resetting the portal could update the portal to a newer version of the developer portal codebase with updated components. The placeholder content that appears might also be changed, but the functionality remains consistent. 
+> * Resetting the portal could update the portal to a newer version of the developer portal codebase with updated components. The placeholder content that appears might also be changed. Developer portal features and customization options remain consistent. 
 
 To reset the developer portal:
 

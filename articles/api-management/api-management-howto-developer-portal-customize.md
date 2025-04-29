@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 04/09/2025
+ms.date: 04/28/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
