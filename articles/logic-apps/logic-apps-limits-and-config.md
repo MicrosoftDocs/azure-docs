@@ -591,7 +591,7 @@ For example, suppose you have logic apps in the West US region. To support the c
 
 Before you set up your firewall with IP addresses, review these considerations:
 
-* To simplify any security rules that you create, use [service tags](/azure/virtual-network/service-tags-overview.md), rather than specific IP addresses. These tags represent a group of IP address prefixes from a specific Azure service and work across the regions where the Azure Logic Apps service is available:
+* To simplify any security rules that you create, use [service tags](/azure/virtual-network/service-tags-overview), rather than specific IP addresses. These tags represent a group of IP address prefixes from a specific Azure service and work across the regions where the Azure Logic Apps service is available:
 
   | Service tag | Description |
   |-------------|-------------|
