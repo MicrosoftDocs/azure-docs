@@ -45,12 +45,12 @@ This is an overview of each feature and its current status for different framewo
 
 Feature | .NET | Spring | Kubernetes | Python | JavaScript
 ------- | ---- | ------ | ---------- | ------ | ----------
-Connection String Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration)
-Entra ID Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration)
+Connection String Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration)
+Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | GA | GA | GA | [GA](./reference-javascript-provider.md#load-configuration)
 Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh)
-JSON Content Type Handling | GA | GA | GA | GA | GA
+JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | GA | GA
 Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
 Key Vault References | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference)
 Key Vault Secret Refresh | GA | WIP | GA | WIP | WIP
