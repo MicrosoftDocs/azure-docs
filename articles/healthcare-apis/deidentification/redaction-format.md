@@ -1,8 +1,8 @@
 ---
 title: "Use a custom redaction format with the Azure Health De-identification service"
 description: "Learn how to redact using a custom format with the Azure Health De-identification service."
-author: GrahamMThomas
-ms.author: gthomas
+author: kimiamavon
+ms.author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
 ms.topic: tutorial

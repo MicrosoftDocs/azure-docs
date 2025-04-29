@@ -29,10 +29,6 @@ Service endpoints are available for the following Azure services and regions. Th
 
 - **[Azure Synapse Analytics](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in all Azure regions for dedicated SQL pools (formerly SQL DW).
 
-- **[Azure Database for PostgreSQL server](/azure/postgresql/howto-manage-vnet-using-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
-
-- **[Azure Database for MySQL server](/azure/mysql/howto-manage-vnet-using-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
-
 - **[Azure Database for MariaDB](/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft.Sql*): Generally available in Azure regions where database service is available.
 
 - **[Azure Cosmos DB](/azure/cosmos-db/how-to-configure-vnet-service-endpoint?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.AzureCosmosDB*): Generally available in all Azure regions.

@@ -154,7 +154,7 @@ The Cross Region Restore option allows you to restore data in a secondary Azur
    :::image type="content" source="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png" alt-text="Screenshot shows how to monitor the postgresql restore to the secondary region." lightbox="./media/backup-vault-overview/monitor-postgresql-restore-to-secondary-region.png":::
 
 > [!NOTE]
-> Cross Region Restore is currently only available for PostGreSQL servers.
+> Cross Region Restore is currently only available for PostgreSQL servers.
 
 ## Cross Subscription Restore using Azure portal
 

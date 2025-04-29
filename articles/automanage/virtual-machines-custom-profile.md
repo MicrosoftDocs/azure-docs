@@ -1,12 +1,10 @@
 ---
 title: Create a custom profile in Azure Automanage for VMs
 description: Learn how to create a custom profile in Azure Automanage and select your services and settings.
-author: johnmarco
 ms.service: azure-automanage
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 07/01/2023
-ms.author: johnmarc
 ---
 
 

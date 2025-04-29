@@ -24,7 +24,7 @@ ms.subservice: calling
 | 4097 | 0 | Call ended for all users by the meeting organizer. | Success | |
 | 4507 | 495 | Call ended as application didn't provide valid Azure Communication Services token. | UnexpectedClientError |- Ensure that your application implements token refresh mechanism correctly. |
 | 5000 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
-| 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
+| 5003 | 0 | Call was ended by Azure Communication Service as the call has ended. | Success | |
 | 5300 | 0 | Call ended for this participant as it was removed from the conversation by another participant. | Success | |
 | 7000 | 0 | Call ended by Azure Communication Services platform. | Success | |
 | 10003 | 487 | Call was accepted elsewhere, by another endpoint of this user. | Success | |

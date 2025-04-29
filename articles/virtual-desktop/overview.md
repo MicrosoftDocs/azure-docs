@@ -4,7 +4,7 @@ description: Azure Virtual Desktop is a desktop and app virtualization service t
 author: dknappettmsft
 ms.topic: overview
 ms.date: 01/17/2025
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # What is Azure Virtual Desktop?

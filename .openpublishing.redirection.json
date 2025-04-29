@@ -1,6 +1,91 @@
 {
   "redirections": [
     {
+      "source_path": "articles/api-management/migrate-stv1-to-stv2-no-vnet.md",
+      "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-no-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/migrate-stv1-to-stv2-vnet.md",
+      "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/migrate-stv1-to-stv2.md",
+      "redirect_url": "/previous-versions/azure/api-management/migrate-stv1-to-stv2",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/breaking-changes/stv1-platform-retirement-august-2024.md",
+      "redirect_url": "/previous-versions/azure/api-management/breaking-changes/stv1-platform-retirement-august-2024",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md",
+      "redirect_url": "/previous-versions/azure/api-management/breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md",
+      "redirect_url": "/previous-versions/azure/api-management/breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/compute-infrastructure.md",
+      "redirect_url": "/previous-versions/azure/api-management/compute-infrastructure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-caching-rules.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-caching-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-dynamic-site-acceleration.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-dynamic-site-acceleration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-caching-policy.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-caching-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-manage-expiration-of-blob-content.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-manage-expiration-of-blob-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-manage-expiration-of-cloud-service-content.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-manage-expiration-of-cloud-service-content",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-http-variables.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-http-variables",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-advanced-http-reports.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-advanced-http-reports",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-preload-endpoint.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-preload-endpoint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-real-time-stats.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-real-time-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cdn/cdn-token-auth.md",
+      "redirect_url": "/previous-versions/azure/cdn/cdn-token-auth",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cdn/edgio-retirement-faq.md",
       "redirect_url": "/previous-versions/azure/cdn/edgio-retirement-faq",
       "redirect_document_id": false
@@ -6752,7 +6837,12 @@
     {
       "source_path": "articles/defender-for-iot/organizations/extra-deploy-enterprise-iot.md",
       "redirect_url": "/azure/defender-for-iot/organizations/eiot-defender-for-endpoint",
-           "redirect_document_id": false
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cyclecloud/how-to/slurm-cloud-bursting-setup.md",
+      "redirect_url": "/azure/cyclecloud/how-to/bursting/slurm-cloud-bursting-setup",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/sentinel/work-with-styx-objects-indicators.md",
@@ -6784,5 +6874,10 @@
       "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
+      "redirect_url": "/azure/storage/files/storage-files-prevent-file-share-deletion",
+      "redirect_document_id": false
+    }
   ]
 }

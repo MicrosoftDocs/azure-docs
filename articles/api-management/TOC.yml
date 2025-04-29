@@ -80,19 +80,8 @@
       href: configure-custom-domain.md
     - name: Use an external cache
       href: api-management-howto-cache-external.md
-    - name: Compute platform
-      displayName: stv1, stv2
-      href: compute-infrastructure.md
-    - name: Migrate from stv1 to stv2 platform
-      items:
-      - name: Scenarios to migrate to stv2
-        href: migrate-stv1-to-stv2.md
-      - name: Migrate a non-VNet-injected instance
-        href: migrate-stv1-to-stv2-no-vnet.md
-      - name: Migrate a VNet-injected instance
-        href: migrate-stv1-to-stv2-vnet.md
-    - name: Validate service updates
-      href: validate-service-updates.md
+    - name: Configure update settings
+      href: configure-service-update-settings.md
     - name: Move instances between regions
       href: api-management-howto-migrate.md
     - name: Recover a deleted instance
@@ -109,7 +98,7 @@
     - name: Networking options
       href: virtual-network-concepts.md
     - name: Network isolation - classic tiers
-      items:  
+      items:
       - name: Virtual network injection (classic tiers) - requirements
         href: virtual-network-injection-resources.md
       - name: Deploy to virtual network - external
@@ -120,7 +109,7 @@
         href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Network isolation - v2 tiers
       items:
-      - name: Virtual network injection (v2 tiers) 
+      - name: Virtual network injection (v2 tiers)
         href: inject-vnet-v2.md
       - name: Virtual network integration (v2 tiers)
         href: integrate-vnet-outbound.md
@@ -217,7 +206,7 @@
       href: grpc-api.md
     - name: Azure OpenAI and LLM APIs
       items:
-      - name: GenAI gateway capabilities in API Management
+      - name: AI gateway capabilities in API Management
         href: genai-gateway-capabilities.md
       - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
@@ -662,7 +651,7 @@
     - name: Web API implementation
       href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Building an API security strategy
-    href: https://aka.ms/API-Security-EBook    
+    href: https://aka.ms/API-Security-EBook
   - name: Breaking changes and retirements
     items:
     - name: Breaking changes overview
@@ -673,18 +662,12 @@
       href: breaking-changes/metrics-retirement-aug-2023.md
     - name: Virtual network changes (September 2023)
       href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-    - name: Self-hosted gateway v0/v1 retirements (October 2023)
-      href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
     - name: Deprecated (legacy) developer portal (October 2023)
       href: breaking-changes/legacy-portal-retirement-oct-2023.md
     - name: Workspaces preview breaking changes (June 2024)
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
     - name: API version retirements (June 2024)
       href: breaking-changes/api-version-retirement-sep-2023.md
-    - name: stv1 compute platform retirement - Global Azure (August 2024)
-      href: breaking-changes/stv1-platform-retirement-august-2024.md
-    - name: stv1 compute platform retirement - Azure Government, Azure in China (February 2025)
-      href: breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md
     - name: Workspaces preview breaking changes, part 2 (March 2025)
       href: breaking-changes/workspaces-breaking-changes-march-2025.md
     - name: Git configuration retirement (March 2025)

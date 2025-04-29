@@ -5,7 +5,7 @@ description: Learn about networking as it relates to virtual machines in Azure.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 05/16/2023
+ms.date: 04/15/2025
 ms.author: allensu
 ---
 
@@ -39,7 +39,7 @@ A [network interface (NIC)](../virtual-network/virtual-network-network-interface
 
 You can create a VM with multiple NICs, and add or remove NICs through the lifecycle of a VM. Multiple NICs allow a VM to connect to different subnets.
 
-Each NIC attached to a VM must exist in the same location and subscription as the VM. Each NIC must be connected to a VNet that exists in the same Azure location and subscription as the NIC. You can change the subnet a VM is connected to after it's created. You can't change the virtual network. Each NIC attached to a VM is assigned a MAC address that doesn't change until the VM is deleted.
+Each NIC attached to a VM must exist in the same location and subscription as the VM. Each NIC must be connected to a virtual network that exists in the same Azure location and subscription as the NIC. The subnet a VM is connected to can be changed after the VM is created. You can't change the virtual network. Each NIC attached to a VM is assigned a MAC address that doesn't change until the VM is deleted.
 
 This table lists the methods that you can use to create a network interface.
 
@@ -72,15 +72,15 @@ You can assign private IP address to:
 
 You assign IP addresses to a VM using a network interface.
 
-There are two methods in which an IP address is given to a resource, dynamic or static. The default method that Azure gives IP addresses is dynamic. An IP address isn't given when it's created. Instead, the IP address is given when you create a VM or start a stopped VM. The IP address is released when you stop or delete the VM.
+Azure assigns IP addresses dynamically by default. An IP address isn't assigned at creation but is assigned when you create or start a stopped VM. The IP address is released when you stop or delete the VM.
 
-To ensure the IP address for the VM remains the same, you can set the allocation method explicitly to static. In this case, an IP address is assigned immediately. It's released only when you delete the VM or change its allocation method to dynamic.
+To keep the IP address for the VM the same, set the allocation method to static. The IP address assigns immediately and releases only if you delete the VM or change its allocation method to dynamic.
 
 This table lists the methods that you can use to create an IP address.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address may change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
+| [Azure portal](./ip-services/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic. The IP address might change when the VM is stopped or deleted. To guarantee that the VM always uses the same public IP address, create a static public IP address. By default, the portal assigns a dynamic private IP address to a NIC when creating a VM. You can change this IP address to static after the VM is created.|
 | [Azure PowerShell](./ip-services/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) with the **`-AllocationMethod`** parameter as Dynamic or Static. |
 | [Azure CLI](./ip-services/virtual-network-deploy-static-pip-arm-cli.md) | You use [az network public-ip create](/cli/azure/network/public-ip) with the **`--allocation-method`** parameter as Dynamic or Static. |
 | [Template](../virtual-network/template-samples.md) | For more information on deploying a public IP address using a template, see [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nic-publicip-dns-vnet). |
@@ -110,7 +110,7 @@ This table lists the methods that you can use to create a virtual network and su
 
 ### Multiple address prefixes on a subnet
 
-Multiple address prefixes on a subnet is a feature that offers the ability to modify IP address spaces on a subnet. With this solution, customers using virtual machines and virtual machine scale sets can add and remove IP address prefixes to meet their scaling requirements.
+Multiple address prefixes on a subnet are a feature that offers the ability to modify IP address spaces on a subnet. With this solution, customers using virtual machines and virtual machine scale sets can add and remove IP address prefixes to meet their scaling requirements.
 
 **Limitations**: 
 
@@ -118,13 +118,13 @@ Multiple address prefixes on a subnet is a feature that offers the ability to mo
 
 - Customers can only use on VM and Virtual Machine Scale Sets subnets. Delegated subnets aren't supported.
 
-**Pricing**: Multiple address prefixes on a subnet is offered free of charge.
+**Pricing**: Multiple address prefixes on a subnet are offered free of charge.
 
 We welcome you to share your feedback about this feature in this [quick survey](https://aka.ms/multiple-prefixes-feedback).  
 
 > [!IMPORTANT]
 > Multiple prefix support for Azure Virtual Network subnets is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> This preview version has no service level agreement and isn't recommended for production workloads. Certain features might not be supported or might have limited capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 For more information about how-to configure multiple address prefixes on a subnet, see [Create multiple prefixes for a subnet](how-to-multiple-prefixes-subnet.md). 
@@ -132,9 +132,9 @@ For more information about how-to configure multiple address prefixes on a subne
 > [!IMPORTANT]
 > There are two subnet properties for address space, **AddressPrefix** (string), and **AddressPrefixes** (list). The distinction and usage is explained as follows.
 > - The array property was introduced for dual stack. The property is also used for scenarios with more than one subnet prefixes as discussed previously.
-> - As part of the Azure Portal customer experience update, the **AddressPrefixes** is the default property for subnet address space when a subnet is created via the portal. 
->     - Any new subnets created via portal will default to the **AddressPrefixes** list parameter.
-> - If customers are using dual-stack in their virtual network or have more than one subnet prefixes, they are updated to use the list property.
+> - As part of the Azure portal customer experience update, the **AddressPrefixes** is the default property for subnet address space when a subnet is created via the portal. 
+>     - Any new subnets created via portal default to the **AddressPrefixes** list parameter.
+> - If customers are using dual-stack in their virtual network or have more than one subnet prefixes, they're updated to use the list property.
 >     - For existing deployments using the string, the current behavior is retained unless there are explicit changes in  your virtual network to use the list property for subnet address prefixes. An example is adding IPv6 address space or another prefix to the subnet.
 > - We recommend that customers should look for both the properties in subnet wherever applicable.
 
@@ -169,14 +169,14 @@ This table lists the methods that you can use to create a network security group
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-network/tutorial-filter-network-traffic.md) | When you create a VM in the Azure portal, an NSG is automatically created and associated to the NIC the portal creates. The name of the NSG is a combination of the name of the VM and **`-nsg`**. </br> This NSG contains one inbound rule: </br> With a priority of 1000. </br> The service set to RDP. </br> The protocol set to TCP. </br> The port set to 3389. </br> The action set to **Allow**. </br> If you want to allow any other inbound traffic to the VM, create another rule or rules. |
+| [Azure portal](../virtual-network/tutorial-filter-network-traffic.md) | When you create a VM in the Azure portal, an NSG is automatically created and associated to the NIC the portal creates. The name of the NSG is a combination of the name of the VM and **`-nsg`**.</br> This NSG contains one inbound rule: </br> With a priority of 1000.</br> The service set to RDP.</br> The protocol set to TCP.</br> The port set to 3389.</br> The action set to **Allow**.</br> If you want to allow any other inbound traffic to the VM, create another rule or rules. |
 | [Azure PowerShell](../virtual-network/tutorial-filter-network-traffic.md) | Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) and provide the required rule information. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG. Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to configure the NSG for the subnet. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to add the NSG to the virtual network. |
 | [Azure CLI](../virtual-network/tutorial-filter-network-traffic-cli.md) | Use [az network nsg create](/cli/azure/network/nsg) to initially create the NSG. Use [az network nsg rule create](/cli/azure/network/nsg/rule) to add rules to the NSG. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet) to add the NSG to the subnet. |
 | [Template](../virtual-network/template-samples.md) | Use [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/security-group-create) as a guide for deploying a network security group using a template. |
 
 ## Load balancers
 
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../load-balancer/components.md#frontend-ip-configurations) to VMs or [balance traffic between VMs in a VNet](../load-balancer/components.md#frontend-ip-configurations). A load balancer can also balance traffic between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../load-balancer/components.md#frontend-ip-configurations) to VMs or [balance traffic between VMs in a virtual network](../load-balancer/components.md#frontend-ip-configurations). A load balancer can also balance traffic between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
 
 The load balancer maps incoming and outgoing traffic between:  
 
@@ -224,7 +224,7 @@ Virtual machines are assigned an IP address when they're deployed. When you depl
 
 If you create a VM and later want to migrate it into a virtual network, it isn't a simple configuration change. Redeploy the VM into the virtual network. The easiest way to redeploy is to delete the VM, but not any disks attached to it, and then re-create the VM using the original disks in the virtual network.
 
-This table lists the methods that you can use to create a VM in a VNet.
+This table lists the methods that you can use to create a VM in a virtual network.
 
 | Method | Description |
 | ------ | ----------- |
@@ -238,7 +238,7 @@ This table lists the methods that you can use to create a VM in a VNet.
 Azure NAT Gateway simplifies outbound-only Internet connectivity for virtual networks. When configured on a subnet, all outbound connectivity uses your specified static public IP addresses. Outbound connectivity is possible without load balancer or public IP addresses directly attached to virtual machines. NAT is fully managed and highly resilient.
 
 Outbound connectivity can be defined for each subnet with NAT. Multiple subnets within the same virtual network can have different NATs. A subnet is configured by specifying which NAT gateway resource to use. All UDP and TCP outbound flows from any virtual machine instance use a NAT gateway.
-NAT is compatible with standard SKU public IP address resources or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT grooms all traffic to the range of IP addresses of the prefix. Any IP filtering of your deployments is easier.
+NAT is compatible with standard public IP address resources or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT grooms all traffic to the range of IP addresses of the prefix. Any IP filtering of your deployments is easier.
 
 NAT Gateway automatically processes all outbound traffic without any customer configuration. User-defined routes aren't necessary. NAT takes precedence over other outbound scenarios and replaces the default Internet destination of a subnet.
 
@@ -257,7 +257,7 @@ This table lists the methods that you can use to create a NAT gateway resource.
 
 ## Azure Bastion 
 
-Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to the VMs in your virtual network. Azure bastion enables connections without exposing a public IP on the VM. Connections are made directly from the Azure portal, without the need of an extra client/agent or piece of software. Azure Bastion supports standard SKU public IP addresses.
+Azure Bastion is deployed to provide secure management connectivity to virtual machines in a virtual network. Azure Bastion Service enables you to securely and seamlessly RDP & SSH to the VMs in your virtual network. Azure bastion enables connections without exposing a public IP on the VM. Connections are made directly from the Azure portal, without the need of an extra client/agent or piece of software. Azure Bastion supports standard public IP addresses.
 
  [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
