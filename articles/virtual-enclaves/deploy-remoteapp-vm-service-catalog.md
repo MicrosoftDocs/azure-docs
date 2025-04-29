@@ -121,7 +121,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
 1. Install Application:
     1. On the workload overview page, select `Add an Azure Service`.
     2. For `Service`, select `RemoteApp VM`.
-    3. For `Version`, if not selected by default, select the most recent version (eg: .0.1(latest)).
+    3. For `Version`, if not selected by default, select the most recent version (for example, 1.0.1(latest)).
     4. Select `Next`
     5. Basics Tab:
         - For `Virtual Machine name`, input the name of the VM.
