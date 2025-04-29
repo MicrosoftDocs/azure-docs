@@ -198,7 +198,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Next steps
 
-For the full feature rundown of the JavaScript.NET feature management library, continue to the following document.
+For the full feature rundown of the JavaScript feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
 > [JavaScript Feature Management](./feature-management-javascript-reference.md)

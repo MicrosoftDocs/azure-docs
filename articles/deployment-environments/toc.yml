@@ -122,8 +122,8 @@ items:
 - name: Resources
   expanded: false
   items: 
-    - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/
+    - name: Azure updates
+      href: https://azure.microsoft.com/updates/?filters=%5B%22Azure+Deployment+Environments%22%5D
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
     - name: Report a problem

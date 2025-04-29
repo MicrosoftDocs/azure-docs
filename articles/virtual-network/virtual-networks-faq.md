@@ -698,6 +698,10 @@ Scenarios that aren't supported include:
 
 See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
 
+### Can I recover a deleted public IP address?
+
+No. Once an Azure public IP address is deleted, it cannot be recovered. For more information, see [View, modify settings for, or delete a public IP address](ip-services/virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
+
 ### How can I report a problem?
 
 You can post questions about migration problems to the [Microsoft Q&A](/answers/topics/azure-virtual-network.html) page. We recommend that you post all your questions on this forum. If you have a support contract, you can also file a support request.

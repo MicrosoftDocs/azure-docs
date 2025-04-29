@@ -40,7 +40,7 @@ sections:
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
-  - name: identity validation
+  - name: Identity validation
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
@@ -79,7 +79,7 @@ sections:
           - Deleting a certificate profile does not revoke any previously issued certificates or invalidate their signatures; they remain valid.
       - question: Can I add OU field to Public Trust or Public Trust Test or VBS enclave certificate profile? 
         answer: |
-          - No. OU fields are only available with Private Trust certificates.
+          - No. OU is only available for Private Trust and Private Trust CI Policy certificates.
   - name: Signing
     questions:
       - question: What types of files can we sign by using Trusted Signing?
