@@ -1,13 +1,13 @@
 ---
 title: Save costs with Microsoft Fabric Capacity reservations
 description: Learn about how to save costs with Microsoft Fabric Capacity reservations.
-author: bandersmsft
-ms.reviewer: franciscosa
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ms.custom: ignite-2023
 ---
 
@@ -15,7 +15,7 @@ ms.custom: ignite-2023
 
 You can save money with Fabric capacity reservation by committing to a reservation for your Fabric capacity usage for a duration of one year. This article explains how you can save money with Fabric capacity reservations.
 
-To purchase a Fabric capacity reservation, you choose an Azure region, size, and then add the Fabric capacity SKU to your cart. Then you choose the quantity of capacity units (CUs) that you want to purchase.
+To purchase a Fabric capacity reservation, you choose an Azure region, billing frequency, and the quantity of capacity units (CUs) that you want to purchase. Then you add the Fabric capacity reservation to your cart.
 
 When you purchase a reservation, the Fabric capacity usage that matches the reservation attributes is no longer charged at the pay-as-you-go rates.
 
@@ -98,7 +98,7 @@ If you bought an Azure Synapse Analytics Dedicated SQL pool reservation and you 
 
 The new reservation's lifetime commitment should equal or be greater than the returned reservation's remaining commitment. For example, assume you have a three-year reservation that costs $100 per month. You exchange it after the 18th payment. The new reservation's lifetime commitment should be $1,800 or more (paid monthly or upfront).
 
-The exchange value of your Azure Synapse Analytics reserved capacity is based on the prorated remaining term and the current price of the reservation. The exchange value is applied as a credit to your Azure account. If the exchange value is less than the cost of the Fabric capacity reservation, you must pay the difference.
+An exchange is processed as a refund and a repurchase – different transactions are created for the cancellation and the new reservation purchase. The prorated reservation amount is refunded for the reservations that's traded-in. You're charged fully for the new purchase. The prorated reservation amount is the daily prorated residual value of the reservation being returned.
 
 After you exchange the reservation, the Fabric capacity reservation is applied to your Fabric capacity automatically. You can view and manage your reservations on the Reservations page in the Azure portal.
 
@@ -120,8 +120,8 @@ The following examples show how the Fabric capacity reservation discount applies
 - **Example 2** - A reservation that's larger than your used capacity. For example, you buy 64 CUs of capacity and you only deploy an F32. In this example, the reservation discount is applied to the F32. For the remaining 32 CUs of unused reservation capacity, if you don't have matching resources for any hour. You lose the reservation quantity for that hour. You can't carry forward unused reserved hours.
 - **Example 3** - A reservation that's smaller than the used capacity. For example, you buy 64 CUs of capacity and you deploy an F128. In this example, your discount is applied to 64 CUs that were used. For the remaining 64 CUs, you pay the pay-as-you-go rate.
 - **Example 4** - A reservation that's the same size as two used capacities that equal the size of the reservation. For example, you buy 64 CUs of capacity and you deploy two F32s. In this example, the discount is applied to all used capacity.
-- **Example 5** - This example explains the relationship between smoothing and reservations. Smoothing is a feature of Fabric and allows spikes in usage to be spread out over time.   Smoothing spreads background process like Spark jobs and sematic model refreshes over a 24-hour interval.  Interactive process like Power BI reports, KQL and SQL queries are spread out of a 10 minute interval.  See the detailed explanation here: [Smoothing](https://support.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming)  
-For example, You purchase a Fabric capacity reservation of two CUs, and assume that your usage spikes to 4 CUs for an hour.  The processes will run and consume 4 CUs, however, the CU usage is spread out of the 24 hours. This feature allows you to purchase for average workload rather than the peak. Please review the link provided to understand the impact of smoothing if you use more CU that available over 24 hours.  
+- **Example 5** - This example explains the relationship between smoothing and reservations. Smoothing is a feature of Fabric and allows spikes in usage to be spread out over time. Smoothing spreads background process like Spark jobs and semantic model refreshes over a 24-hour interval. Interactive process like Power BI reports, KQL, and SQL queries are spread out of a 10-minute interval. For more information, see the detailed explanation at [Smoothing](https://support.fabric.microsoft.com/blog/fabric-capacities-everything-you-need-to-know-about-whats-new-and-whats-coming).  
+    For example, You purchase a Fabric capacity reservation of two CUs, and assume that your usage spikes to 4 CUs for an hour. The process runs and consumes 4 CUs, however, the CU usage is spread out of the 24 hours. This feature allows you to purchase for average workload rather than the peak. Review the link provided to understand the effect of smoothing if you use more CU that available over 24 hours.  
 
 ## Increase the size of a Fabric Capacity reservation
 

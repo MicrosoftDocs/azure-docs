@@ -1,13 +1,13 @@
 ---
-title: Configure authentication in a sample Angular SPA by using Azure Active Directory B2C
-description: Learn how to use Azure Active Directory B2C to sign in and sign up users in an Angular SPA.
+title: Configure authentication in a sample Angular SPA by using Azure AD B2C
+description: Learn how to configure authentication in an Angular SPA using Azure AD B2C. Securely sign in users and call a protected web API with MSAL Angular.
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: "b2c-support"
@@ -273,7 +273,7 @@ You can add and modify redirect URIs in your registered applications at any time
 * The reply URL must begin with the scheme `https`.
 * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. 
 
-## Next steps
+## Related content
 
 * [Learn more about the code sample](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/)
 * [Enable authentication in your own Angular application](enable-authentication-angular-spa-app.md)

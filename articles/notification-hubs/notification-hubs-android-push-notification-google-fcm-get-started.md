@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure Notification Hubs and 
 services: notification-hubs
 keywords: push notifications,push notification,android push notification,fcm,firebase cloud messaging
 author: sethmanheim
-manager: femila
+manager: lizross
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-android

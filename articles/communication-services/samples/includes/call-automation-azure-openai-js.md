@@ -24,7 +24,7 @@ This server-side application helps create a virtual assistant that can handle ph
 - [Node.js](https://nodejs.org/en/download) installed
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
 - Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](../../quickstarts/telephony/get-phone-number.md).
-- Azure Dev Tunnels CLI. For details, see  [Enable dev tunnel](https://docs.tunnels.api.visualstudio.com/cli)
+- Azure Dev Tunnels. For details, see  [Enable dev tunnel](/azure/developer/dev-tunnels/get-started)
 - An Azure OpenAI Resource and Deployed Model. See [instructions](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal).
 
 

@@ -3,11 +3,11 @@ title: Overview of Azure Synapse database templates
 description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
-ms.reviewer: wiassaf
+
 ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
-ms.date: 10/16/2023
+ms.date: 02/25/2025
 ms.custom: template-overview
 ---
 
@@ -15,7 +15,7 @@ ms.custom: template-overview
 
 Data takes many forms as it moves from source systems to data warehouses and data marts with the intent to solve business problems. Database templates can help with the transformation of data into insights. 
 
-Database templates are a set of business and technical data definitions that are pre-designed to meet the needs of a particular industry. They act as blueprints that provide common elements derived from best practices, government regulations, and the complex data and analytic needs of an industry-specific organization. 
+Database templates are a set of business and technical data definitions that are predesigned to meet the needs of a particular industry. They act as blueprints that provide common elements derived from best practices, government regulations, and the complex data and analytic needs of an industry-specific organization. 
 
 These schema blueprints can be used by organizations to plan, architect, and design data solutions for data governance, reporting, business intelligence, and advanced analytics. The data models provide integrated business-wide information architectures that can help you implement, in a timely and predictable way, a proven industry data architecture. 
 
@@ -50,7 +50,7 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **Freight & Logistics** - For companies that provide freight and logistics services.
 * **Fund Management** - For companies that manage investment funds for investors.
 * **Genomics** - For companies acquiring and analyzing genomic data about human beings or other species.
-* **Government** - For organizations controlling, regulating or providing services to a country/region, state or province, or community.
+* **Government** - For organizations controlling, regulating, or providing services to a country/region, state or province, or community.
 * **Healthcare Insurance** - For organizations providing insurance to cover healthcare needs (sometimes known as Payors).
 * **Healthcare Provider** - For organizations providing healthcare services.
 * **Life Insurance & Annuities** - For companies that provide life insurance, sell annuities, or both.
@@ -66,10 +66,10 @@ Currently, you can choose from the following database templates in Azure Synapse
 * **Travel Services** - For companies providing booking services for airlines, hotels, car rentals, cruises, and vacation packages.
 * **Utilities** - For gas, electric, and water utilities; power generators; and water desalinators.
 * **Wireless** - For companies providing a range of wireless telecommunications services.
- 
+
 As emission and carbon management is an important discussion in all industries, so we've included those components in all the available database templates. These components make it easy for companies who need to track and report their direct and indirect greenhouse gas emissions.
 
-## Next steps
+## Related content
 
 Continue to explore the capabilities of the database designer using the links below.
 * [Database templates concept](concepts-database-templates.md)

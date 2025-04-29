@@ -9,8 +9,10 @@ ms.topic: faq
 ms.date: 06/05/2024
 ms.author: chrupa
 ---
-
 # MedTech service FAQ
+
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
 
 ## Where is the MedTech service available?
 

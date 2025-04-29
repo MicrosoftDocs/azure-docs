@@ -87,7 +87,7 @@ To set credentials, you must go to the Proxy Settings dialog (**Edit** > **Confi
 
 ### Use system proxy
 
-When this option is selected, Storage Explorer will use your OS proxy settings. More specifically, it will result in network calls being made using the Chromium networking stack. The Chromium networking stack is much more robust than the NodeJS networking stack normally used by Storage Explorer. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings) on what all it can do:
+When this option is selected, Storage Explorer will use your OS proxy settings. More specifically, it will result in network calls being made using the Chromium networking stack. The Chromium networking stack is much more robust than the Node.js networking stack normally used by Storage Explorer. Here's a snippet from [Chromium's documentation](https://www.chromium.org/developers/design-documents/network-settings) on what all it can do:
 
 > The Chromium network stack uses the system network settings so that users and administrators can control the network settings of all applications easily. The network settings include:
 > - proxy settings
@@ -127,7 +127,7 @@ Currently, AzCopy only supports proxy servers that use **basic authentication**.
 
 ## SSL certificates
 
-By default, Storage Explorer uses the NodeJS networking stack. NodeJS ships with a predefined list of trusted SSL certificates. Some networking technologies, such as proxy servers or anti-virus software, inject their own SSL certificates into network traffic. These certificates are often not present in NodeJS' certificate list. NodeJS won't trust responses that contain such a certificate. When NodeJS doesn't trust a response, then Storage Explorer will receive an error.
+By default, Storage Explorer uses the Node.js networking stack. Node.js ships with a predefined list of trusted SSL certificates. Some networking technologies, such as proxy servers or anti-virus software, inject their own SSL certificates into network traffic. These certificates are often not present in NodeJS' certificate list. Node.js won't trust responses that contain such a certificate. When Node.js doesn't trust a response, then Storage Explorer will receive an error.
 
 You have multiple options for resolving such errors:
 - Use [**system proxy**](#use-system-proxy) as your proxy source.

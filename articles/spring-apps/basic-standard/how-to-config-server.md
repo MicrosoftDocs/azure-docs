@@ -3,7 +3,8 @@ title: Configure Your Managed Spring Cloud Config Server
 titleSuffix: Azure Spring Apps
 description: Learn how to configure a managed Spring Cloud Config Server in Azure Spring Apps on the Azure portal
 author: KarlErickson
-ms.author: guitarsheng
+ms.author: karler
+ms.reviewer: guitarsheng
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/10/2024
@@ -243,7 +244,7 @@ After you save your configuration files in a repository, use the following steps
 
 1. Select **Spring Cloud Config Server** in the navigation pane.
 
-1. In the **Default repository** section, set **URI** to `https://github.com/Azure-Samples/piggymetrics-config`.
+1. In the **Default repository** section, set **URI** to **https://github.com/Azure-Samples/piggymetrics-config**.
 
 1. Select **Validate**.
 

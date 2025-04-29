@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -164,7 +164,7 @@ The password change flow involves the following steps:
 1. For **Application**, select the application that you registered earlier. To see the token, the **Reply URL** should show `https://jwt.ms`.
 1. Select **Run now**. In the new tab that opens, remove "&prompt=login" from the URL and refresh the tab. Then, sign in with the account you created earlier. A password change dialog gives you the option to change the password.
 
-## Next steps
+## Related content
 
 * Find the [sample policy on GitHub](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/password-change).
 * Learn about how you can [configure password complexity in Azure AD B2C](password-complexity.md).

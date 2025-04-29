@@ -34,7 +34,7 @@ Unless otherwise noted, you can run the console commands in this tutorial in eit
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and dataflows.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows.
 
 ## Deploy the OPC PLC simulator
 
@@ -137,8 +137,7 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 
 | Node ID            | Tag name    | Observability mode |
 | ------------------ | ----------- | ------------------ |
-| ns=3;s=FastUInt10  | temperature | None               |
-| ns=3;s=FastUInt100 | Tag 10      | None               |
+| ns=3;s=SpikeData   | temperature | None               |
 
 The **Observability mode** is one of the following values: `None`, `Gauge`, `Counter`, `Histogram`, or `Log`.
 
@@ -177,16 +176,12 @@ The portal enables you to view the asset details. Select **JSON View** for more 
 To verify that the thermostat asset you added is publishing data, view the telemetry in the `azure-iot-operations/data` topic:
 
 ```output
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:17.1858435Z","Value":4558},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:17.1858869Z","Value":4558}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:18.1838125Z","Value":4559},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:18.1838523Z","Value":4559}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:19.1834363Z","Value":4560},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:19.1834879Z","Value":4560}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:20.1861251Z","Value":4561},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:20.1861709Z","Value":4561}}
-Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
-{"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))
+azure-iot-operations/data/thermostat {"temperature":{"SourceTimestamp":"2025-02-14T11:27:44.5030912Z","Value":48.17536741017152}}
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (90 bytes))
+azure-iot-operations/data/thermostat {"temperature":{"SourceTimestamp":"2025-02-14T11:27:45.50333Z","Value":98.22872507286887}}
+Client $server-generated/0000aaaa-11bb-cccc-dd22-eeeeee333333 received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (92 bytes))
+azure-iot-operations/data/thermostat {"temperature":{"SourceTimestamp":"2025-02-14T11:27:46.503381Z","Value":12.533323356430426}}
 ```
 
 If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
@@ -210,12 +205,8 @@ The sample tags you added in the previous tutorial generate messages from your a
 ```json
 {
     "temperature": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1969959Z",
-        "Value": 2696
-    },
-    "Tag 10": {
-        "SourceTimestamp": "2024-08-02T13:52:15.1970198Z",
-        "Value": 2696
+        "SourceTimestamp": "2025-02-14T11:27:46.503381Z",
+        "Value": 212.45
     }
 }
 ```
@@ -232,4 +223,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 
 ## Next step
 
-[Tutorial: Send asset telemetry to the cloud using a dataflow](tutorial-upload-telemetry-to-cloud.md).
+[Tutorial: Send asset telemetry to the cloud using a data flow](tutorial-upload-telemetry-to-cloud.md).

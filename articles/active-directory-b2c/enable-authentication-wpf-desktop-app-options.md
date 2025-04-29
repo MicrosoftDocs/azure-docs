@@ -129,4 +129,4 @@ During the [desktop app registration](configure-authentication-sample-wpf-deskto
 
 ## Next steps
 
-- To learn more, see [MSAL for .NET, UWP, NetCore, and Xamarin configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki).
+- To learn more, see [MSAL for .NET, UWP and NetCore configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki).

@@ -2,7 +2,7 @@
 title: 'Quickstart: Get started ingesting data with One-click (Preview)'
 description: In this quickstart, you'll learn to ingest data to Data Explorer pools using One-click.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -12,6 +12,8 @@ ms.custom: mode-other
 ---
 
 # Quickstart: Ingest data using One-click (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 One-click ingestion makes the data ingestion process easy, fast, and intuitive. One-click ingestion helps you ramp-up quickly to start ingesting data, creating database tables, mapping structures. Select data from different kinds of sources in different data formats, either as a one-time or continuous ingestion process.
 

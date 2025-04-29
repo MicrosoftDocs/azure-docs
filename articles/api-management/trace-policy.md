@@ -4,7 +4,7 @@ description: Reference for the trace policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
 ms.author: danlep
 ---

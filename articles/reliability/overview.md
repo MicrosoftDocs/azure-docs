@@ -1,11 +1,12 @@
 ---
 title: Azure reliability documentation
-description: Overview of Azure reliability documentation, including platform capabilities, the shared responsibility model, and how each Azure service supports reliability.
+description: Overview of Azure reliability documentation, incuding platform capabilities, guides for how each Azure service supports reliability, and reliability fundamentals.
 author: anaharris-ms
 ms.topic: overview
-ms.date: 01/28/2025
+ms.date: 02/28/2025
 ms.author: anaharris
 ms.service: azure
+ms.subservice: azure-reliability
 ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I want to learn about Azure Reliability.
 ---
@@ -16,10 +17,14 @@ The Azure reliability documentation provides information on what reliability mea
 
 The documentation is organized into the following sections:
 
-- **Azure reliability guides by service.** Learn how each Azure service supports reliability, including availability zones, multi-region support, and backup support.
-- **Reliability fundamentals.** Learn about the concepts of reliability, business continuity, high availability, and disaster recovery. Understand how shared responsibility works between Microsoft and you.
-- **Azure regions.** Learn about Azure regions, paired and nonpaired regions, and the list of services that are deployed to Azure regions.
-- **Azure availability zones.** Learn about availability zones, including how they support high availability and disaster recovery, and which Azure services and regions support availability zones.
+- **Azure reliability guides by service** contains guides on how each Azure service supports reliability, including availability zones, multi-region support, and backup support.
+- **Reliability fundamentals** contains fundamental reliability concepts, such as:
+    - Business continuity, high availability, and disaster recovery.
+    - Redundancy, replication (Data redundancy), and backup
+    - Failover and failback.
+    - Shared responsibility between Microsoft and you.
+- **Azure regions** contains information on Azure regions, paired and nonpaired regions, and different region configurations.
+- **Azure availability zones** contains information on how availability zones, including how they support high availability and disaster recovery. The section also includes lists of Azure services and regions that support availability zones.
 
 ## What is reliability?
 
@@ -60,7 +65,24 @@ When considering business continuity, it's important to understand the following
 
 - *Disaster recovery* is about planning how to deal with uncommon risks and the catastrophic outages that can result.
 
-For more information on business continuity and business continuity planning through high availability and disaster recovery design, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md)
+For information on business continuity and business continuity planning through high availability and disaster recovery design, see [What are business continuity, high availability, and disaster recovery?](./concept-business-continuity-high-availability-disaster-recovery.md).
+### Redundancy, replication, and backup
+
+We often think about the cloud as a globally distributed, ubiquitous system. However, in reality the cloud is made up of hardware running in datacenters. Resiliency requires that you account for some of the risks associated with the physical locations in which your cloud-hosted components run.
+
+*Redundancy* is the ability to maintain multiple identical copies of a service component, and to use those copies in a way that prevents any one component from becoming a single point of failure.
+
+*Replication* or data redundancy is the ability to maintain multiple copies of data, called replicas.
+
+*Backup* is the ability to maintain a timestamped copy of data that can be used to restore data that has been lost.
+
+For an introduction to redundancy, replication, and backup, see [What is redundancy, replication, and backup?](./concept-redundancy-replication-backup.md).
+
+### Failover and failback
+
+A common reason for maintaining redundant copies of both applications and data replicas is to be able to perform a failover. With failover, you can redirect traffic and requests from unhealthy instances to healthy ones. Then, once the original instances become healthy again, you can perform a failback to return to the original configuration.
+
+For more information on failover and failback, see [What is failover and failback?](./concept-failover-failback.md).
 
 ### Shared responsibility
 
@@ -81,9 +103,9 @@ Azure provides over 60 regions globally, that are located across many different 
 Many Azure regions provide availability zones, which are separated groups of datacenters within a region. Availability zones are close enough to have low-latency connections to other availability zones, but are far enough apart to reduce the likelihood that more than one will be affected by local outages or weather. Availability zones have independent power, cooling, and networking infrastructure. They're designed so that if one zone experiences an outage, then regional services, capacity, and high availability are supported by the remaining zones. 
 
 - For more information on availability zones, see [What are availability zones?](./availability-zones-overview.md).
-- To view which regions support availability zones, see [Azure regions with availability zone support](./availability-zones-region-support.md).
+- To view which regions support availability zones, see [List of Azure regions](./regions-list.md).
 - To learn about how each Azure service supports availability zones, see [Azure services with availability zone support](./availability-zones-service-support.md)
-- To learn how to approach a migration to availability zone support, see [Azure availability zone migration baseline](availability-zones-baseline.md).
+- To learn how to approach a migration to availability zone support, see [Azure availability zone migration overview](availability-zones-migration-overview.md).
 
 ## Related content
 

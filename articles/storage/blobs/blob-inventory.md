@@ -106,7 +106,7 @@ The global **Blob inventory enabled** flag takes precedence over the *enabled* p
 | format | string | Determines the output of the inventory file. Valid values are `csv` (For CSV format) and `parquet` (For Apache Parquet format).| Yes |
 | objectType | string | Denotes whether this is an inventory rule for blobs or containers. Valid values are `blob` and `container`. |Yes |
 | schedule | string | Schedule on which to run this rule. Valid values are `daily` and `weekly`. | Yes |
-| schemaFields | Json array | List of Schema fields to be part of inventory. | Yes |
+| schemaFields | JSON array | List of Schema fields to be part of inventory. | Yes |
 
 ### Rule filters
 

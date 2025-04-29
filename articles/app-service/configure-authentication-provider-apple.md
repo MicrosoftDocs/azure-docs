@@ -43,7 +43,7 @@ You'll need to create an App ID and a service ID in the Apple Developer portal.
 10. Review the service registration information and select **Save**.
 
 ## <a name="generateClientSecret"> </a>Generate the client secret
-Apple requires app developers to create and sign a JWT token as the client secret value. To generate this secret, first generate and download an elliptic curve private key from the Apple Developer portal. Then, use that key to [sign a JWT](#sign-the-client-secret-jwt) with a [specific payload](#structure-the-client-secret-jwt).
+Apple requires app developers to create and sign a JWT as the client secret value. To generate this secret, first generate and download an elliptic curve private key from the Apple Developer portal. Then, use that key to [sign a JWT](#sign-the-client-secret-jwt) with a [specific payload](#structure-the-client-secret-jwt).
 
 ### Create and download the private key
 1. On the **Keys** tab in the Apple Developer portal, choose **Create a key** or select the **(+)** button.
@@ -53,7 +53,7 @@ Apple requires app developers to create and sign a JWT token as the client secre
 5. On the **Download Your Key** page, download the key. It will download as a `.p8` (PKCS#8) file - you'll use the file contents to sign your client secret JWT.
 
 ### Structure the client secret JWT
-Apple requires the client secret be the base64-encoding of a JWT token. The decoded JWT token should have a payload structured like this example:
+Apple requires the client secret be the base64-encoding of a JWT. The decoded JWT should have a payload structured like this example:
 ```json
 {
   "alg": "ES256",
@@ -81,7 +81,7 @@ More information about generating and validating tokens can be found in [Apple's
 ### Sign the client secret JWT
 You'll use the `.p8` file you downloaded previously to sign the client secret JWT. This file is a [PCKS#8 file](https://en.wikipedia.org/wiki/PKCS_8) that contains the private signing key in PEM format. There are many libraries that can create and sign the JWT for you. 
 
-There are different kinds of open-source libraries available online for creating and signing JWT tokens. For more information about generating JWT tokens, see [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
+There are different kinds of open-source libraries available online for creating and signing JWTs. For more information about generating JWTs, see [JSON Web Token (JWT)](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). For example, one way of generating the client secret is by importing the [Microsoft.IdentityModel.Tokens NuGet package](https://www.nuget.org/packages/Microsoft.IdentityModel.Tokens/) and running a small amount of C# code shown below.
 
 ```csharp
 using Microsoft.IdentityModel.Tokens;

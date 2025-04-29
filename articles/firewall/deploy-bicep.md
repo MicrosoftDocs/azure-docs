@@ -2,12 +2,12 @@
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Bicep'
 description: In this quickstart, you deploy Azure Firewall using Bicep. The virtual network has one VNet with three subnets. Two Windows Server virtual machines, a jump box, and a server are deployed.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 06/28/2022
-ms.author: victorh
+ms.author: duau
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - Bicep

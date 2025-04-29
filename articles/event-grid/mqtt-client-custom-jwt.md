@@ -11,7 +11,7 @@ ms.subservice: mqtt
 
 # Custom JWT authentication and authorization to publish or subscribe to MQTT messages
 
-You can authenticate MQTT clients with Custom JWT to connect to the Event Grid namespace. You can embed and validate custom claims in the JWT token to authorize publish or subscribe permissions to your Event Grid topic spaces.
+You can authenticate MQTT clients with Custom JWT to connect to the Event Grid namespace. You can embed and validate custom claims in the JWT to authorize publish or subscribe permissions to your Event Grid topic spaces.
 
 > [!IMPORTANT]
 > - This feature is supported only when using the MQTT v5 protocol version.
@@ -22,7 +22,7 @@ You can authenticate MQTT clients with Custom JWT to connect to the Event Grid n
 <a name='authentication-using-azure-ad-jwt'></a>
 
 ## Authentication using Custom JWT
-You can use the MQTT v5 CONNECT packet to provide the Custom JWT token to authenticate your client and the MQTT v5 AUTH packet to refresh the token.  
+You can use the MQTT v5 CONNECT packet to provide the Custom JWT to authenticate your client and the MQTT v5 AUTH packet to refresh the token.  
 
 > [!IMPORTANT]
 > - If you don't set the CONNECT packet's authentication method to CUSTOM-JWT, you receive an 'invalid issuer' error—even if all other configurations are correct.
@@ -32,14 +32,14 @@ In the CONNECT packet, you can provide the required values in the following fiel
 |Field  | Value  |
 |---------|---------|
 |Authentication Method | CUSTOM-JWT |
-|Authentication Data | JWT token |
+|Authentication Data | JWT |
 
 In the AUTH packet, you can provide the required values in the following fields:
 
 |Field | Value |
 |---------|---------|
 | Authentication Method | CUSTOM-JWT |
-| Authentication Data | JWT token |
+| Authentication Data | JWT |
 | Authentication Reason Code | 25 |
  
 Authenticate Reason Code with value 25 signifies reauthentication.

@@ -1,13 +1,13 @@
 ---
 title: Get started with your updated Azure billing account
 description: Get started with your updated Azure billing account to understand changes in the new billing and cost management experience
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/21/2024
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Get started with your updated Azure billing account
@@ -165,7 +165,7 @@ You can now create budgets for the billing account, allowing you to track costs 
 
 #### Exports
 
-Your new billing account provides improved export functionality. For example, you can create exports for actual costs that include purchases or amortized costs (reservation purchase costs spread across the purchase term). You can also create an export for the billing account to get usage and charges data across all subscriptions in the billing account. For more information about exports, see [Create and manage exported data](../costs/tutorial-export-acm-data.md).
+Your new billing account provides improved export functionality. For example, you can create exports for actual costs that include purchases or amortized costs (reservation purchase costs spread across the purchase term). You can also create an export for the billing account to get usage and charges data across all subscriptions in the billing account. For more information about exports, see [Create and manage exported data](../costs/tutorial-improved-exports.md).
 
 > [!NOTE]
 > Exports created before your account update with the **Monthly export of last month's costs** type will export data for the last calendar month, not the last billing period.

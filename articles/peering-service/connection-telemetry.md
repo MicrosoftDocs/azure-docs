@@ -6,7 +6,7 @@ services: peering-service
 author: halkazwini
 ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 10/07/2024
+ms.date: 03/03/2025
 ms.author: halkazwini
 
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
@@ -30,11 +30,9 @@ To view the latency report for a specific Peering Service connection, follow the
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
-    :::image type="content" source="./media/connection-telemetry/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/connection-telemetry/peering-service-portal-search.png":::
+    :::image type="content" source="./media/peering-services-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/peering-services-portal-search.png":::
 
 1. Select the Peering Service connection that you want to view its latency report. 
-
-    :::image type="content" source="./media/connection-telemetry/peering-service-connection-page.png" alt-text="Screenshot shows the selected Peering Service in the Azure portal." lightbox="./media/connection-telemetry/peering-service-connection-page.png":::
 
 1. Under **Settings**, select **Prefixes** to see the prefixes associated with the Peering Service connection. 
 

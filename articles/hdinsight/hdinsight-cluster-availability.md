@@ -4,6 +4,9 @@ description: Learn how to use Apache Ambari to monitor cluster health and availa
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ms.date: 06/14/2024
 ---
 

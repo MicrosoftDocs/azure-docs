@@ -1,13 +1,13 @@
 ---
 title: Create and delete routes and endpoints by using Azure Resource Manager
 description: Learn how to create and delete routes and endpoints in Azure IoT Hub by using an Azure Resource Manager template in the Azure portal.
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 ms.custom: devx-track-arm-template
 services: iot-hub
 ms.topic: how-to
 ms.date: 12/05/2024
-ms.author: kgremban
+ms.author: sonialopez
 ---
 
 # Create and delete routes and endpoints by using Azure Resource Manager
@@ -411,12 +411,12 @@ Add a route definition to your Resource Manager template. For more information, 
    | Property | Value |
    | -------- | ----- |
    | name | Provide a unique value to name your route. |
-   | source | Select the message or event logs source to route to the endpoint. For a list of source options, see [az iot hub route](/cli/azure/iot/hub/route#az-iot-hub-route-create-required-parameters). |
+   | source | Select the message or event logs source to route to the endpoint. For a list of source options, see [az iot hub message-route](/cli/azure/iot/hub/message-route). |
    | condition | A query to filter the source data. If no condition is required, say `true`. For more information, see [IoT Hub message routing query syntax](./iot-hub-devguide-routing-query-syntax.md). |
    | endpointNames | The name of the existing endpoint where this data will be routed. Currently only one endpoint is allowed. |
    | isEnabled | Set to `true` to enable the route, or `false` to disable the route. |
 
-1. Save your JSON file.
+2. Save your JSON file.
 
 ## Deploy the Resource Manager template
 

@@ -241,9 +241,9 @@ the scope's status is equal to "Failed" or "Aborted".
    From the dynamic content list, select **Expression**. In the edit box,
    enter this expression, and then select **OK**:
    
-      `action('Scope')`
+      `actions('Scope')?['status']`
 
-      ![Screenshot that shows the "Expression" box with the result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot shows Expression editor with result expression highlighted.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. For both rows, select **is equal to** as the operator. 
    

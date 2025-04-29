@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 02/05/2024
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ## How it works

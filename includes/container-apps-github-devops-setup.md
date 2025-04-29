@@ -1,10 +1,10 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 11/09/2022
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 1. Change into the *src* folder of the cloned repository.
 

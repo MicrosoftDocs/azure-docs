@@ -1,8 +1,8 @@
 ---
-title: Delete resource group and resources
-description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded.
+title: Delete Resource Groups and Resources
+description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when you delete a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 02/09/2025
 ms.custom: devx-track-arm-template
 content_well_notification: 
   - AI-contribution
@@ -17,7 +17,7 @@ This article shows how to delete resource groups and resources. It describes how
 > To delete a resource group, you must first remove any underlying resource locks and backup data.
 >
 
-## How order of deletion is determined
+## How Resource Manager determines the order of deletion
 
 When you delete a resource group, Resource Manager determines the order to delete resources. It uses the following order:
 
@@ -27,7 +27,7 @@ When you delete a resource group, Resource Manager determines the order to delet
 
 3. The remaining resources are deleted after the previous two categories.
 
-After the order is determined, Resource Manager issues a DELETE operation for each resource. It waits for any dependencies to finish before proceeding.
+After Resource Manager determines the order, it issues a DELETE operation for each resource. It waits for any dependencies to finish before proceeding.
 
 For synchronous operations, the expected successful response codes are:
 
@@ -36,18 +36,17 @@ For synchronous operations, the expected successful response codes are:
 * 404
 
 For asynchronous operations, the expected successful response is 202. Resource Manager tracks the location header or the azure-async operation header to determine the status of the asynchronous delete operation.
-  
 ### Deletion errors
 
-When a delete operation returns an error, Resource Manager retries the DELETE call. Retries happen for the 5xx, 429 and 408 status codes. By default, the time period for retry is 15 minutes.
+When a delete operation returns an error, Resource Manager retries the DELETE call. Retries happen for the 5xx, 429, and 408 status codes. By default, the time period for retry is 15 minutes.
 
 ## After deletion
 
-Resource Manager issues a GET call on each resource that it tried to delete. The response of this GET call is expected to be 404. When Resource Manager gets a 404, it considers the deletion to have completed successfully. Resource Manager removes the resource from its cache.
+Resource Manager issues a GET call on each resource that it tried to delete. The response of this GET call is expected to be 404. When Resource Manager gets a 404, it considers the deletion to be successful. Resource Manager removes the resource from its cache.
 
 However, if the GET call on the resource returns a 200 or 201, Resource Manager recreates the resource.
 
-If the GET operation returns an error, Resource Manager retries the GET for the following error code:
+If the GET operation returns an error, Resource Manager retries the GET for the following error codes:
 
 * Less than 100
 * 408
@@ -57,11 +56,11 @@ If the GET operation returns an error, Resource Manager retries the GET for the 
 For other error codes, Resource Manager fails the deletion of the resource.
 
 > [!IMPORTANT]
-> Resource Group deletion is irreversible.
+> Resource group deletion is irreversible.
 
 ## Delete resource group
 
-Use one of the following methods to delete the resource group.
+To delete the resource group, use one of the following methods.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -81,9 +80,9 @@ az group delete --name ExampleResourceGroup
 
 1. Select **Delete resource group**.
 
-   :::image type="content" source="./media/delete-resource-group/delete-group.png" alt-text="Screenshot of the Delete resource group button in the Azure portal.":::
+   :::image type="content" source="./media/delete-resource-group/delete-group.png" alt-text="Screenshot of the 'Delete resource group' button in the Azure portal.":::
 
-1. To confirm the deletion, type the name of the resource group
+1. To confirm the deletion, type the name of the resource group.
 
 # [Python](#tab/azure-python)
 
@@ -104,7 +103,7 @@ rg_result = resource_client.resource_groups.begin_delete("exampleGroup")
 
 ## Delete resource
 
-Use one of the following methods to delete a resource.
+To delete a resource, use one of the following methods.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -164,11 +163,11 @@ resource_client.resources.begin_delete_by_id(
 To delete a resource group, you need access to the delete action for the **Microsoft.Resources/subscriptions/resourceGroups** resource.
 
 > [!IMPORTANT]
-> The only permission required to delete a resource group is permission to the delete action for deleting resource groups.  You do **not** need permission to delete individual resources within that resource group.  Additionally, delete actions that are specified in **notActions** for a roleAssignment are superseded by the resource group delete action.  This is consistent with the scope hierarchy in the Azure role-based access control model.
+> The only permission required to delete a resource group is permission to the delete action for deleting resource groups. You don't need permission to delete individual resources within that resource group. Additionally, delete actions that are specified in **notActions** for a roleAssignment are superseded by the resource group delete action. This requirement is consistent with the scope hierarchy in the Azure role-based access control model.
 
 For a list of operations, see [Azure resource provider operations](../../role-based-access-control/resource-provider-operations.md). For a list of built-in roles, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 
-If you have the required access, but the delete request fails, it may be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, [a related service may have automatically locked it](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that are still in use by a virtual machine.
+If you have the required access, but the delete request fails, it might be because there's a [lock on the resources or resource group](lock-resources.md). Even if you didn't manually lock a resource group, [a related service might automatically lock it](lock-resources.md#managed-applications-and-locks). Or, the deletion can fail if the resources are connected to resources in other resource groups that aren't being deleted. For example, you can't delete a virtual network with subnets that a virtual machine uses.
 
 ## Can I recover a deleted resource group?
 
@@ -176,9 +175,9 @@ No, you can't recover a deleted resource group. However, you might be able to re
 
 Some resource types support *soft delete*. You might have to configure soft delete before you can use it. For information about enabling soft delete, see:
 
-* [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview)
-* [Azure Storage - Soft delete for containers](../../storage/blobs/soft-delete-container-overview.md)
-* [Azure Storage - Soft delete for blobs](../../storage/blobs/soft-delete-blob-overview.md)
+* [Soft-delete overview - Azure Key Vault](/azure/key-vault/general/soft-delete-overview)
+* [Soft delete for containers - Azure Storage](../../storage/blobs/soft-delete-container-overview.md)
+* [Soft delete for blobs - Azure Storage](../../storage/blobs/soft-delete-blob-overview.md)
 * [Soft delete for Azure Backup](../../backup/backup-azure-security-feature-cloud.md)
 * [Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads](../../backup/soft-delete-sql-saphana-in-azure-vm.md)
 * [Soft delete for virtual machines](../..//backup/soft-delete-virtual-machines.md)
@@ -186,12 +185,12 @@ Some resource types support *soft delete*. You might have to configure soft dele
 To restore deleted resources, see:
 
 * [Recover deleted Azure AI services resources](/azure/ai-services/manage-resources)
-* [Microsoft Entra - Recover from deletions](../../active-directory/architecture/recover-from-deletions.md)
+* [Recover from deletions - Microsoft Entra](../../active-directory/architecture/recover-from-deletions.md)
 
 You can also [open an Azure support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). Provide as much detail as you can about the deleted resources, including their resource IDs, types, and resource names. Request that the support engineer check if the resources can be restored.
 
 > [!NOTE]
-> Recovery of deleted resources is not possible under all circumstances. A support engineer will investigate your scenario and advise you whether it's possible.
+> Recovery of deleted resources isn't possible under all circumstances. A support engineer investigates your scenario and advises you whether it's possible.
 
 ## Next steps
 

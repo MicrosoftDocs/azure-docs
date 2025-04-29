@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 06/14/2022
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 API options for Static Web Apps include the following Azure services:

@@ -51,7 +51,7 @@ The solution architecture comprises the following components:
 - [GPU-optimized virtual machines](/azure/virtual-machines/sizes-gpu)
 - Media Asset Manager for tracking and organizing content
 - Adobe Premiere Pro video-editing software, running on virtual machines in your Azure tenant
-- [HP Anyware](https://www.teradici.com/partners/cloud-partners/microsoft) (formerly Teradici)
+- [HP Anyware](https://connect.teradici.com/blog/teradici-microsoft-partnership) (formerly Teradici)
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [VNet ExpressRoute](/azure/expressroute/expressroute-introduction)
 - [Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)

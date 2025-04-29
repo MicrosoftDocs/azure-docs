@@ -177,7 +177,9 @@ Inherit flags are a way to more easily manage your NFSv4.x ACLs, sparing you fro
 
 Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success (`S`) or failure (`F`) access attempts for actions to be performed. 
 
-Azure NetApp Files supports _setting_ administrative flags for Audit ACEs, however the ACEs do not function. In addition, Alarm ACEs aren't supported in Azure NetApp Files.
+This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
+
+Azure NetApp Files only supports setting administrative flags for Audit ACEs, however the ACEs don't function. Alarm ACEs aren't supported in Azure NetApp Files.
 
 ## NFSv4.x user and group principals
 

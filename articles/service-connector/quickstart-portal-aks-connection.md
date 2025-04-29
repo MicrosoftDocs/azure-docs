@@ -1,15 +1,17 @@
 ---
-title: Quickstart - Create a service connection in Azure Kubernetes Service (AKS) from the Azure portal
+title: Create a service connection in Azure Kubernetes Service (AKS) from the Azure portal
 description: Quickstart showing how to create a service connection in Azure Kubernetes Service (AKS) from the Azure portal
 author: houk-ms
 ms.author: honc
+ms.reviewer: malev
 ms.service: service-connector
 ms.topic: quickstart
 ms.date: 01/28/2025
 ---
+
 # Quickstart: Create a service connection in an AKS cluster from the Azure portal
 
-Get started with Service Connector by using the Azure portal to create a new service connection in an Azure Kubernetes Service (AKS) cluster.
+In this quickstart, you create a new service connection in an Azure Kubernetes Service (AKS) cluster to connect your AKS resource to other Azure services.
 
 ## Prerequisites
 
@@ -60,12 +62,17 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
     ---
 
 1. Select **Next: Networking** to configure the network access to your target service and select **Configure firewall rules to enable access to your target service**.
+
+    > [!NOTE]
+    > Service Connector for AKS currently only supports the firewall option. Private link and service endpoint aren't supported.
+
 1. Select **Next: Review + Create**  to review the provided information. Then select **Create** to create the service connection. This operation may take a minute to complete.
 
 ## View service connections in AKS cluster
 
 1. **Service Connector** displays existing connections in this cluster.
 1. Select **Network View** to see all the service connections in a network topology view.
+
    :::image type="content" source="./media/aks-quickstart/list-and-view.png" alt-text="Screenshot of the Azure portal, listing and viewing the connections.":::
 
 ## Update your container
@@ -84,12 +91,8 @@ Now that you created a connection between your AKS cluster and target service, y
 
         :::image type="content" source="media/aks-quickstart/kubernetes-snippet.png" alt-text="Screenshot of the Azure portal showing the Kubernetes snippet to create a new connection in AKS.":::
 
-## Next steps
+## Related links
 
-Follow the following tutorials to start connecting to Azure services on AKS cluster with Service Connector.
-
-> [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure Key Vault using CSI driver](./tutorial-python-aks-keyvault-csi-driver.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure Storage using workload identity](./tutorial-python-aks-storage-workload-identity.md)
+- [Tutorial: Connect to Azure Key Vault using CSI driver](./tutorial-python-aks-keyvault-csi-driver.md)
+- [Tutorial: Connect to Azure Storage using workload identity](./tutorial-python-aks-storage-workload-identity.md)
+- [Use Service Connector in AKS](./how-to-use-service-connector-in-aks.md)

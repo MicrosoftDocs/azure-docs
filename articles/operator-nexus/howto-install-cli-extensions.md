@@ -11,15 +11,24 @@ ms.date: 09/05/2024
 ---
 
 # Prepare to install Azure CLI extensions
+
 This how-to guide explains the steps for installing the required az CLI and extensions required to interact with Operator Nexus.
 
-Installations of the following CLI extensions are required:
-`networkcloud` (for Microsoft.NetworkCloud APIs) and `managednetworkfabric` (for Microsoft.ManagedNetworkFabric APIs).
+Azure CLI is required to be installed before the extensions installations. Follow [Install Azure CLI][installation-instruction] instructions to install it.
 
-If you haven't already installed Azure CLI: [Install Azure CLI][installation-instruction]. The aka.ms links download the latest available version of the extension.
-For list of available versions, see [the extension release history][az-cli-networkcloud-cli-versions].
+Installations of the following CLI extensions are required:
+- `networkcloud` for Microsoft.NetworkCloud APIs
+- `managednetworkfabric` for Microsoft.ManagedNetworkFabric APIs
+
+
+
+>[!NOTE]
+> Any upgrade of the Azure CLI downloads the latest stable version of the installed extension.
+>The `--allow-preview=True` needs to be explicitly set to install the preview version of the extensions.
 
 ## Install `networkcloud` CLI extension
+
+- For list of available versions, see [the extension release history][az-cli-networkcloud-cli-versions].
 
 - Upgrade any previously installed version of the extension
 
@@ -36,6 +45,8 @@ For list of available versions, see [the extension release history][az-cli-netwo
 
 ## Install `managednetworkfabric` CLI extension
 
+- For list of available versions, see [the extension release history][az-cli-managednetworkfabric-cli-versions].
+
 - Upgrade any previously installed version of the extension
 
     ```azurecli
@@ -51,17 +62,19 @@ For list of available versions, see [the extension release history][az-cli-netwo
 
 ## Install other Azure extensions
 
-   ```azurecli
-   az extension add --yes --upgrade --name customlocation
-   az extension add --yes --upgrade --name k8s-extension
-   az extension add --yes --upgrade --name k8s-configuration
-   az extension add --yes --upgrade --name connectedmachine
-   az extension add --yes --upgrade --name monitor-control-service
-   az extension add --yes --upgrade --name ssh
-   az extension add --yes --upgrade --name connectedk8s
-   ```
+Install the other Azure CLI extensions that Nexus makes use of.
 
-- List installed CLI extensions and versions
+```azurecli
+az extension add --yes --upgrade --name customlocation
+az extension add --yes --upgrade --name k8s-extension
+az extension add --yes --upgrade --name k8s-configuration
+az extension add --yes --upgrade --name connectedmachine
+az extension add --yes --upgrade --name monitor-control-service
+az extension add --yes --upgrade --name ssh
+az extension add --yes --upgrade --name connectedk8s
+```
+
+## List installed CLI extensions and versions
 
 List the extension version running:
 
@@ -75,17 +88,18 @@ Example output:
 Name                     Version
 -----------------------  -------------
 monitor-control-service  0.4.1
-connectedmachine         0.7.0
-connectedk8s             1.9.2
-k8s-extension            1.4.3
-networkcloud             1.1.0
-k8s-configuration        2.0.0
-managednetworkfabric     6.4.0
+connectedmachine         1.0.0
+connectedk8s             1.10.6
+k8s-extension            1.6.4
+networkcloud             2.0.0
+k8s-configuration        2.2.0
+managednetworkfabric     8.0.0
 customlocation           0.1.3
-ssh                      2.0.5
+ssh                      2.0.6
 ```
 
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
 
 [az-cli-networkcloud-cli-versions]: https://github.com/Azure/azure-cli-extensions/blob/main/src/networkcloud/HISTORY.rst
+[az-cli-managednetworkfabric-cli-versions]: https://github.com/Azure/azure-cli-extensions/blob/main/src/managednetworkfabric/HISTORY.rst

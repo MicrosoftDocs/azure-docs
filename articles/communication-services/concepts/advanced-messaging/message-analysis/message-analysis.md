@@ -66,4 +66,4 @@ This integration between Azure Communication Services and Azure AI services is o
 ## Next steps
 - [Enable Message Analysis With Azure OpenAI Quick Start](../../../quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md)
 - [Handle Advanced Messaging events](../../../quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md)
-- [Send WhatsApp template messages](../whatsapp/template-messages.md)
+- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)

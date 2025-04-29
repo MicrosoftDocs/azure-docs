@@ -6,8 +6,8 @@ ms.topic: reference
 ms.date: 03/01/2024
 ms.author: cwatson
 appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
-    - Microsoft Sentinel in the Microsoft Defender portal.
 
 
 #Customer intent: As a security operations analyst, I want to deploy domain-specific security solutions in Microsoft Sentinel so that I can enhance threat detection and compliance capabilities efficiently.
@@ -41,7 +41,7 @@ The following table lists the domain-specific out-of-the-box (built-in) and on-d
 |**[Cybersecurity Maturity Model Certification (CMMC) 2.0](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-cmmcv2?tab=Overview)** | [Analytics rules, workbook, playbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-cybersecurity-maturity-model-certification-cmmc/ba-p/2111184) | Compliance | Microsoft|
 | **[Deception Honey Tokens](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinelhoneytokens.azuresentinelhoneytokens?tab=Overview)** | [Workbooks, analytics rules, playbooks](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft Sentinel community |
 |**[Dev 0270 Detection and Hunting](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dev0270detectionandhunting?tab=Overview)**|[Analytic rules](https://www.microsoft.com/security/blog/2022/09/07/profiling-dev-0270-phosphorus-ransomware-operations/)|Security - Threat Protection|Microsoft|
-|**[Dev-0537 Detection and Hunting](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dev0537detectionandhunting?tab=Overview)**||Security - Threat Protection|Microsoft|
+|**[Dev-0537 Detection and Hunting](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-office365?tab=overview)**||Security - Threat Protection|Microsoft|
 |**[DNS Essentials Solution](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-dns-domain?tab=Overview)**|[Analytics rules, hunting queries, playbooks, workbook](domain-based-essential-solutions.md)|Security - Network | Microsoft|
 |**[Endpoint Threat Protection Essentials](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-endpointthreat?tab=Overview)**|Analytic rules, hunting queries|Security - Threat Protection|Microsoft|
 |**[Legacy IOC based Threat Protection](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-ioclegacy?tab=Overview)**|Analytic rules, hunting queries|Security - Threat Protection|Microsoft|

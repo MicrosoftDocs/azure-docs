@@ -1,12 +1,12 @@
 ---
 title: Azure Firewall Manager policy overview
 description: Learn about Azure Firewall Manager policies.
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: concept-article
 ms.date: 03/06/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall Manager policy overview

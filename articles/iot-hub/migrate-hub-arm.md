@@ -2,9 +2,9 @@
 title: How to manually migrate an IoT hub
 titleSuffix: Azure IoT Hub
 description: Use the Azure portal, ARM templates, and service SDKs to manually migrate an Azure IoT hub to a new region or new SKU
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.custom: devx-track-arm-template
 ms.topic: how-to

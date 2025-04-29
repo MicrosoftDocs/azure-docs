@@ -1,7 +1,7 @@
 ---
-title: Apply for 10DLC (10 digit long codes)
-titleSuffix: An Azure Communication Services quickstart 
-description: Learn about how to apply for  10DLC (10 digit long codes)
+title: Apply for 10 digit long code (10DLC) brand registration and campaign registration
+titleSuffix: An Azure Communication Services article 
+description: This article describes how to apply for 10 digit long code (10DLC) brand registration and campaign registration.
 author: prakulka
 manager: darmour
 services: azure-communication-services
@@ -14,7 +14,7 @@ ms.subservice: sms
 ms.custom: mode-other
 ---
 
-# Apply for 10DLC (10 digit long codes)
+# Apply for 10 digit long code (10DLC) brand registration and campaign registration
 
 This article describes how to register a brand and campaign for 10DLC (10-Digit Long Code) messaging in Azure Communication Services. This process ensures compliance with carrier requirements and enables reliable, high-quality message delivery. For more information about how to complete the registration form, see [10DLC guidelines](../../concepts/sms/ten-digit-long-code-guidelines.md).
 
@@ -24,11 +24,18 @@ This article describes how to register a brand and campaign for 10DLC (10-Digit 
 
 - [An active Communication Services resource.](../create-communication-resource.md).
 - An eligible subscription: Check eligibility [here](../../concepts/numbers/phone-number-management-for-united-states.md).
-- Company Information: Information about your business, such as your company's legal name, tax ID, and other relevant details.
-- Campaign Details: A description of the use case and sample messages you plan to send through 10DLC.
+- Company information: Information about your business, such as your company's legal name, tax ID, and other relevant details.
+- Campaign details: A description of the use case and sample messages you plan to send through 10DLC.
 
+## Schedule constraints
+
+You need to complete brand registration and receive approval first. Then you can continue with campaign registration.
+
+1. Brand registration may take 2 to 3 business days to receive approval.
+2. Campaign registration may take 3 to 5 business days to receive approval.
 
 ## 10DLC registration
+
 Navigate to the **Regulatory Documents** blade in your Azure Communication Services resource and select **Add** to start the 10DLC brand registration wizard.
 
 :::image type="content" source="./media/apply-for-brand-registration/regulatory-screen-1.png" alt-text="Screenshot showing Regulatory Documents blade." lightbox="./media/apply-for-brand-registration/regulatory-screen-1.png":::
@@ -37,9 +44,10 @@ Navigate to the **Regulatory Documents** blade in your Azure Communication Servi
 
 You first need to choose country/region and phone number type you would like to get verified. You need to apply for brand and campaign registration before acquiring 10DLC numbers for SMS. If you previously acquired a 10DLC number for calling and want to enable it for SMS, then you need to first register the brand and campaign and then associate the number.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-registration-1.png" alt-text="Screenshot showing Brand registration form." lightbox="./media/apply-for-brand-registration/brand-registration-1.png":::
+:::image type="content" source="./media/apply-for-brand-registration/brand-registration-1.png" alt-text="Screenshot showing brand registration form." lightbox="./media/apply-for-brand-registration/brand-registration-1.png":::
 
 ### Company details
+
 In the brand registration form, provide details about your company:
    - **Company Name**: Your official registered business name.
    - **DBA or Brand Name**: Doing Business As (DBA) or brand name, if different.
@@ -50,7 +58,7 @@ In the brand registration form, provide details about your company:
    - **Alternate ID**: Specify an alternate ID type (such as DUNS, GIIN, or LEI).
    - **DUNS or GIIN or LEI Number**: Enter the applicable ID number based on your alternate ID type.
    - **Company Address**: Primary address of your business.
-   - **Address Line 2**: Additional address information, if needed.
+   - **Address Line 2**: More address information, if needed.
    - **City**: City of the business location.
    - **State or Province**: State or province of the business location.
    - **Zip Code or Postal Code**: ZIP or postal code for the business location.
@@ -61,28 +69,29 @@ In the brand registration form, provide details about your company:
    - **Contact Email Address**: Contact email for inquiries related to the brand registration.
    - **Contact Phone Number**: Phone number for inquiries related to the brand registration.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing Brand registration form 2." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
+:::image type="content" source="./media/apply-for-brand-registration/brand-registration-2.png" alt-text="Screenshot showing brand registration form 2." lightbox="./media/apply-for-brand-registration/brand-registration-2.png":::
 
 ### Review and submit
-Submit the form for verification. Brand verification may take up to 48 hours.
 
-:::image type="content" source="./media/apply-for-brand-registration/brand-registration-3.png" alt-text="Screenshot showing Brand registration form 3." lightbox="./media/apply-for-brand-registration/brand-registration-3.png":::
+Submit the form for registration. Brand registration may take 2 to 3 days to complete.
+
+:::image type="content" source="./media/apply-for-brand-registration/brand-registration-3.png" alt-text="Screenshot showing brand registration form 3." lightbox="./media/apply-for-brand-registration/brand-registration-3.png":::
 
 > [!Important]
-> Providing incorrect or incomplete information may result in brand verification failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
+> Providing incorrect or incomplete information may result in brand registration failure. Double-check all details before submitting to avoid delays or rejections in the registration process.
 
 ## Campaign registration
 
-After your brand is verified, proceed with the campaign registration:
+After your brand is registered, proceed with the campaign registration:
 
 Select **Add** and begin by filling in the **Application Type** details:
    - **Country or Region**: Select the country or region where you plan to run your campaign.
    - **Phone Number Type**: Choose the type of phone number for your campaign (such as Local).
-   - **Application Type**: Select the Campaign application type.
+   - **Application Type**: Select the campaign application type.
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-1.png" alt-text="Screenshot showing campaign registration form 1." lightbox="./media/apply-for-brand-registration/campaign-registration-1.png":::
 
-Click **Next** to proceed to the **Campaign Details** section.
+Click **Next** to proceed to the **Campaign details** section.
 
 ### Campaign details
 
@@ -114,7 +123,7 @@ Fill in the campaign and content attributes as follows:
    - **Subscriber Help**: Select **Yes** or **No** to indicate if subscriber help is available.
    - **Subscriber Help Answer**: If **Yes** is selected, provide the message for subscribers seeking assistance.
 
-#### Additional attributes
+#### More attributes
 
    - **Direct Lending or Loan Arrangement**: Indicate if the campaign involves any lending or loan arrangements.
    - **Embedded Link**: Select **Yes** or **No** to specify if the campaign includes an embedded link.
@@ -123,7 +132,7 @@ Fill in the campaign and content attributes as follows:
 
 #### Terms and conditions
 
-Affiliate marketing is not permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
+Affiliate marketing isn't permitted on 10DLC numbers. Check the box to confirm that the campaign will not be used for Affiliate Marketing.
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-4.png" alt-text="Screenshot showing campaign registration form 4." lightbox="./media/apply-for-brand-registration/campaign-registration-4.png":::
 
@@ -134,7 +143,7 @@ Once all fields are completed, click **Next** to proceed to the **Review** tab.
 
 ### Review and submit
 
-Review all information on the **Review** tab and submit your campaign application. Campaign approval may take 2 to 3 business days.
+Review all information on the **Review** tab and submit your campaign registration. Campaign registration may take 3 to 5 business days.
 
 ### Check the status of brand and campaign registration
 
@@ -146,9 +155,9 @@ After submitting your brand and campaign registration, you can check the status 
 
 2. **View Brand Status**:
    - Under the **Brand Registration** section, locate your brand name.
-   - The status displays as one of the following:
+   - The status displays as one of these:
      - **Pending**: Your brand registration is under review.
-     - **Approved**: Your brand registration has been approved, and you may proceed with campaign registration.
+     - **Approved**: Your brand registration is approved, and you may proceed with campaign registration.
      - **Rejected**: Your brand registration was rejected. Review the reason provided, make any necessary updates, and resubmit.
 
 3. **View Campaign Status**:
@@ -158,11 +167,11 @@ After submitting your brand and campaign registration, you can check the status 
      - **Approved**: Your campaign is approved, and you're authorized to start messaging.
      - **Rejected**: Your campaign was rejected. Check the details for the reason, make corrections, and resubmit as needed.
 
-Using the **Regulatory Documents** blade to monitor the status of your brand and campaign registration allows you to stay informed and quickly address any issues to keep your messaging operations uninterrupted.
+Using the **Regulatory Documents** blade to monitor the status of your brand and campaign registration enables you to stay informed and quickly address any issues to keep your messaging operations uninterrupted.
 
 :::image type="content" source="./media/apply-for-brand-registration/campaign-registration-status.png" alt-text="Screenshot showing campaign registration status." lightbox="./media/apply-for-brand-registration/campaign-registration-status.png":::
 
-### Linking a Phone Number to an Approved Campaign
+### Linking a phone number to an approved campaign
 
 Once your campaign is approved, follow these steps to link a phone number to it:
 
@@ -192,7 +201,7 @@ Once your campaign is approved, follow these steps to link a phone number to it:
 
 ## Related articles
 
-- Check SMS FAQ for questions regarding [SMS](../../concepts/sms/sms-faq.md)
-- Familiarize yourself with the [SMS SDK](../../concepts/sms/sdk-features.md)
-- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md)
-- Learn about [SMS number types](../../concepts/sms/sms-number-types.md)
+- Check SMS FAQ for questions regarding [SMS](../../concepts/sms/sms-faq.md).
+- Familiarize yourself with the [SMS SDK](../../concepts/sms/sdk-features.md).
+- Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md).
+- Learn about [SMS number types](../../concepts/sms/sms-number-types.md).

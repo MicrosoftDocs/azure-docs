@@ -1,12 +1,12 @@
 ---
 title: Understand Azure IoT Hub AMQP support | Microsoft Docs
 description: This article describes support for devices connecting to IoT Hub device-facing and service-facing endpoints using the AMQP Protocol. Includes information about built-in AMQP support in the Azure IoT device SDKs.
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/21/2022
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom:  [amqp, mqtt]
 ---
 

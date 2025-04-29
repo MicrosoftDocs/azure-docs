@@ -34,10 +34,12 @@ items:
       href: storage-quickstart-blobs-dotnet.md
     - name: Java
       items:
-      - name: Java
+      - name: Java SE
         href: storage-quickstart-blobs-java.md
-      - name: Spring
+      - name: Spring Boot
         href: /azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=/azure/storage/blobs/toc.json
+      - name: Quarkus
+        href: storage-quickstart-blobs-java-quarkus.md
     - name: Python
       href: storage-quickstart-blobs-python.md
     - name: JavaScript
@@ -76,7 +78,7 @@ items:
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Relocate a storage account to another region
-        href: ../../operational-excellence/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
+        href: ../../azure-resource-manager/management/relocation/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
     - name: Classic storage account retirement
       href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -221,6 +223,8 @@ items:
       items:
       - name: Configure lifecycle management policies
         href: lifecycle-management-policy-configure.md
+      - name: Lifecycle management performance characteristics
+        href: lifecycle-management-performance-characteristics.md
     - name: Full text search
       href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Static websites
@@ -235,6 +239,8 @@ items:
         href: storage-blobs-static-site-github-actions.md
       - name: 'Tutorial: Host a static website'
         href: storage-blob-static-website-host.md
+    - name: Create a Managed Application to Store Blob Digests
+      href: /azure/confidential-ledger/create-blob-managed-app?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
   - name: Security and networking
     items:
     - name: Security recommendations
@@ -382,10 +388,8 @@ items:
         items:
         - name: Overview
           href: anonymous-read-access-overview.md
-        - name: Remediate anonymous access (Azure Resource Manager deployments)
+        - name: Remediate anonymous access
           href: anonymous-read-access-prevent.md
-        - name: Remediate anonymous access (classic deployments)
-          href: anonymous-read-access-prevent-classic.md
         - name: Configure anonymous access
           href: anonymous-read-access-configure.md
     - name: Microsoft Defender for Storage
@@ -444,10 +448,6 @@ items:
       items:
       - name: Change redundancy configuration
         href: ../common/redundancy-migration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-      - name: Regions that support ZRS
-        href: ../common/redundancy-regions-zrs.md?toc=/azure/storage/blobs/toc.json
-      - name: Regions that support GZRS
-        href: ../common/redundancy-regions-gzrs.md?toc=/azure/storage/blobs/toc.json
     - name: Disaster recovery
       items:
       - name: Disaster recovery planning and failover

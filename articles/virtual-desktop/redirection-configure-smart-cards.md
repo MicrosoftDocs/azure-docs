@@ -4,7 +4,7 @@ description: Learn how to redirect smart card devices from a local device to a r
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 07/05/2024
 ---
 

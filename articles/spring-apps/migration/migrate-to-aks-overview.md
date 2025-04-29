@@ -2,7 +2,8 @@
 title: Migrate Azure Spring Apps to Azure Kubernetes Service
 description: Provides an overview of migrating from Azure Spring Apps to Azure Kubernetes Service.
 author: KarlErickson
-ms.author: dixue
+ms.author: karler
+ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
 ms.date: 01/29/2025
@@ -32,7 +33,7 @@ Because Azure Spring Apps and AKS are different types of cloud service offerings
 | Azure Spring Apps service                                                                                              | Azure Kubernetes Service                                                                                                                                                                                                                                                                                                                                                                           |
 |------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | A *Service instance* hosts and secures a boundary for apps and other resources, and supports a custom virtual network. | A *Cluster* is the basic unit of deployment. Within a cluster, a *Namespace* is a virtual subdivision used to organize and isolate resources. It shares the same underlying network infrastructure defined by cluster's virtual network. Choosing between a dedicated cluster or a shared cluster with namespaces depends on your business needs.                                                  |
-| An *App* is one business app that serves as a child resource within a service instance.                                | A business *App* is a virtual concept in Azure Spring Apps and is made up of multiple resources in AKS. *Ingress* controls external access to services and sets rules for routing traffic to different services. A *Service* abstracts access to a set of pods. You can perform a blue-green deployment switch by updating a service to point to a different version of a deployment using labels. |
+| An *App* is one business app that serves as a child resource within a service instance.                                | *App* is a virtual concept in Azure Spring Apps and is made up of multiple resources in AKS. *Ingress* controls external access to services and sets rules for routing traffic to different services. A *Service* abstracts access to a set of pods. You can perform a blue-green deployment switch by updating a service to point to a different version of a deployment using labels. |
 | A *Deployment* is the version of an app. An app can have one production deployment and one staging deployment.         | A *Deployment* manages the rollout and lifecycle of a specific application or service. It also enables rolling updates and rollbacks, enabling controlled, seamless application changes without downtime.                                                                                                                                                                                          |
 | An *Application instance* is the minimum runtime unit managed by the service.                                          | A *Pod* represents one or more tightly coupled containers and hosts a single instance of a running application or workload.                                                                                                                                                                                                                                                                        |
 
@@ -78,7 +79,7 @@ Alongside the application deployment, you also need to define a [Service](https:
 
 When deploying Spring Cloud components, such as Spring Cloud Config or Spring Cloud Gateway, you would generally use Deployments for stateless services. For backend services that need stable storage or state, you might choose StatefulSets.
 
-The following links provide reference examples of container images and manifest files for Spring Cloud Components:
+The following links provide reference examples on how to set up Java component projects based on Open Source libraries, build container images, and deploy components to AKS:
 
 - [Eureka Server](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/docs/02-create-eureka-server.md)
 - [Config Server](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure-kubernetes-service/docs/03-create-config-server.md)
@@ -97,4 +98,7 @@ In addition to Azure Monitor and Prometheus, you can also use other monitoring s
 
 ## Tutorial
 
-We provide a tutorial to demonstrate the end-to-end experience of running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service). This tutorial provides practical guidance and is meant for reference. AKS is highly flexible, so you need to choose configurations and customizations based on your specific requirements.
+We provide the following tutorials to demonstrate the end-to-end experience of running applications on AKS. These tutorials are meant for reference, and because AKS is highly flexible, you need to choose configurations and customizations based on your specific requirements.
+
+- ACME Fitness Store Application: This tutorial offers practical guidance for running the ACME Fitness store application on AKS. For more information, see [acme-fitness-store/azure-kubernetes-service](https://github.com/Azure-Samples/acme-fitness-store/tree/Azure/azure-kubernetes-service).
+- Spring PetClinic Microservices: This tutorial showcases the distributed version of the Spring PetClinic application built with Spring Cloud. For more information, see [spring-petclinic-microservices/azure-kubernetes-service](https://github.com/Azure-Samples/spring-petclinic-microservices/tree/azure/azure-kubernetes-service). 
