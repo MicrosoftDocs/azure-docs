@@ -326,7 +326,7 @@ items:
       - name: Automate migration of large number of VMs
         href: how-to-migrate-at-scale.md
       - name: How to automate VMware migration
-        href: how-to-automate-migration.md
+        href: ./vmware/how-to-automate-migration.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
   - name: Manage
     items:
     - name: Manage projects
@@ -374,9 +374,9 @@ items:
   - name: Migrate
     items:
     - name: Replication in agentless VMware migration
-      href: troubleshoot-changed-block-tracking-replication.md
+      href: ./vmware/troubleshoot-changed-block-tracking-replication.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Stuck replication and slow migration in agentless VMware
-      href: troubleshoot-replication-vmware.md
+      href: ./vmware/troubleshoot-replication-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Web app migration issues
       href: troubleshoot-webapps-migration.md
     - name: Windows OS upgrade issues
