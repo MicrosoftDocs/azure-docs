@@ -106,14 +106,14 @@ The final step sets up an ingestion source, or a credential with the user assign
 
 :::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal showing where the Settings button is located.":::
 
-1. Select the **Create Credential** button, which opens a new sidebar to Create a Credential.
+1. Select the **Create ingestion source** button, which opens a new sidebar to Create a Credential.
 
 1. Select the **managed identity** button.
 
 1. Input the URL of the container in the storage account containing the data you wish to ingest.
 
-    > [!NOTE] 
-    > You must input the URL of the container, not the URL of the storage account fails* 
+    > [!IMPORTANT] 
+    > You must input the entire URL including the container. It isn't possible to link only the base storage account. 
 
 1. Select the managed identity associated with this Azure Blob Storage account. 
 
