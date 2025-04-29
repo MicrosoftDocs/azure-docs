@@ -1,0 +1,532 @@
+---
+title: "Azure Operator Nexus: Nexus Instance Deployment Template"
+description: Learn the process for deploying a Nexus instance with a step-by-step parameterized template.
+author: bartpinto 
+ms.author: bpinto
+ms.service: azure-operator-nexus
+ms.date: 04/25/2025
+ms.topic: how-to
+ms.custom: azure-operator-nexus, template-include
+---
+
+# Azure Operator Nexus: Nexus Instance Deployment Template
+
+This how-to guide provides a step-by-step template for deploying a Nexus instance.
+
+## Overview
+
+This template is designed to assist users in managing a reproducible end-to-end deployment through Azure APIs and standard operating procedures.
+
+## Prerequisites
+<details>
+<summary> Prerequisites for using this template to deploy a Nexus instance </summary>
+
+- Latest version of [Azure CLI](https://aka.ms/azcli).
+- Latest `networkcloud` [CLI extension](howto-install-cli-extensions.md).
+- Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
+- Nexus instance data for the [Telco Input Template](concepts-telco-input-template.md).
+- Additional [Platform Prerequisites](howto-platform-prerequisites.md)
+
+</details>
+ 
+## Required Parameters
+<details>
+<summary> Parameters used in this document </summary>
+
+- \<ENVIRONMENT\>: - Instance name
+- <AZURE_REGION>: - Azure Region of Instance
+- <CUSTOMER_SUB_NAME>: Subscription name
+- <CUSTOMER_SUB_ID>: Subscription ID
+- <CUSTOMER_SUB_TENANT_ID>: Tenant ID (from `az account show`)
+- <DE_ID>: Deployment Engineer performing upgrade
+- \<NEXUS_VERSION\>: Nexus release version (for example, 2504.1)
+- <NNF_VERSION>: Nexus Network Fabric (NNF) release version (for example, 8.1) 
+- <NF_VERSION>: Network Fabric (NF) runtime version (for example, 5.0.0)
+- <NC_VERSION>: Network Cloud (NC) release version (for example, 4.2.5)
+- <NFC_NAME>: Associated Network Fabric Controller (NFC) name
+- <NFC_RG>: NFC Resource Group
+- <NFC_RID>: NFC ARM ID
+- <NFC_MRG>: NFC Managed Resource Group
+- <NFC_SUBNET>: Subnet range for the NFC
+- <NF_NAME>: NF name
+- <NF_RG>: NF Resource Group
+- <NF_RID>: NF ARM ID
+- <NF_MGMT_SUBNET>: NF management subnet range
+- <NF_IDRAC_SUBNET>: NF IDRAC subnet range
+- <NF_DEVICE_NAME>: NF Device name
+- <NF_DEVICE_RID>: NF Device Resource ID
+- <NF_DEVICE_INTERFACE_NAME>: NF Device Interface name
+- <NF_DEVICE_HOSTNAME>: NF Device hostname
+- <NF_DEVICE_SN>: NF Device serial number
+- <CLUSTER_NAME>: Associated Cluster name
+- <CLUSTER_RG>: Cluster Resource Group (RG)
+- <CLUSTER_RID>: Cluster ARM ID
+- <CLUSTER_MRG>: Cluster Managed Resource Group
+- <CLUSTER_CONTROL_BMM>: Cluster Control plane Bare Metal Machine (BMM)
+- <CLUSTER_DEPLOY_GROUPING>: Cluster deployment grouping
+- <CLUSTER_DEPLOY_TYPE>: Cluster deployment type
+- <CLUSTER_DEPLOY_THRESHOLD>: Cluster deployment threshold
+- <NC_VERSION>: Runtime version for upgrade
+- <DEPLOYMENT_THRESHOLD>: Compute deployment threshold
+- <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next Rack once the current Rack meets the deployment threshold
+- <CM_NAME>: Associated Cluster Manager (CM)
+- <CM_RG>: CM Resource Group
+- <BMM_ISSUE_LIST>: List of BMM with provisioning issues after Cluster upgrade is complete
+- <MISE_CID>: Microsoft.Identity.ServiceEssentials (MISE) Correlation ID in debug output for Device updates
+- <CORRELATION_ID>: Operation Correlation ID in debug output for Device updates
+- <ASYNC_URL>: Asynchronous (ASYNC) URL in debug output for Device updates
+- <START_DATE>: Track deployment start date
+- <TARGET_DATE>: Track deployment expected end date
+
+> [!NOTE]
+> Additional parameters come from the Telco Input template.
+
+</details>
+
+## Deployment Data
+<details>
+<summary> Deployment data details </summary>
+
+```
+<START_DATE> <ENVIRONMENT> <AZURE_REGION> <DE_ID> <TARGET_DATE>
+- Nexus: <NEXUS_VERSION>
+- NC: <NC_VERSION>
+- NF: <NF_VERSION>
+- Subscription Name: <CUSTOMER_SUB_NAME>
+- Subscription ID: <CUSTOMER_SUB_ID>
+- Tenant ID: <CUSTOMER_SUB_TENANT_ID>
+- Telco Input: <LINK_TO_TELCO_INPUT>
+```
+
+</details>
+
+## Debug information for Azure CLI commands
+<details>
+<summary> How to collect debug information for Azure CLI commands </summary>
+
+Azure CLI deployment commands issued with `--debug` contain the following information in the command output:
+```
+cli.azure.cli.core.sdk.policies:     'mise-correlation-id': '<MISE_CID>'
+cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '<CORRELATION_ID>'
+cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': '<ASYNC_URL>'
+```
+
+To request status of long running operations, run the following command with `az rest`:
+```
+az rest -m get -u '<ASYNC_URL>'
+```
+
+The following status information is returned along with additional detailed messages or errors:
+- `"status": "Accepted"`
+- `"status": "Succeeded"`
+- `"status": "Failed"`
+
+Report the <MISE_CID>, <CORRELATION_ID>, status code, and detailed messages when opening support requests.
+
+</details>
+
+## Setup Azure CLI Environment
+<details>
+ <summary> Setup Azure CLI environment for deployment commands </summary>
+
+Setup the following environment variables in the execution environment from the Telco Input template data:
+```
+export TS_USER=$(az keyvault secret show --name "<TS_USER_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export TS_PASSWORD=$(az keyvault secret show --name "<TS_PWD_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export BMC_USER=$(az keyvault secret show --name "<BMC_USER_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export BMC_PASSWORD=$(az keyvault secret show --name "<BMC_PWD_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export SP_PASSWORD=$(az keyvault secret show --name "<SP_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export STORAGE_USER=$(az keyvault secret show --name "<STORAGE_USER_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export STORAGE_PASSWORD=$(az keyvault secret show --name "<STORAGE_PWD_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export MGMT_AUTH_1=$(az keyvault secret show --name "<MGMT_ER1_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export MGMT_AUTH_2=$(az keyvault secret show --name "<MGMT_ER2_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export TNT_AUTH_1=$(az keyvault secret show --name "<TNT_ER1_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
+```
+
+</details>
+
+## Deploy NFC (skip section if NFC already exists)
+<details>
+ <summary> Detailed steps for deploying NFC </summary>
+
+### Create NFC
+1. Create group if it doesn't exist:
+   ```
+   az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<NFC_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
+
+   az group create -l <AZURE_REGION> -n <NFC_RG> --subscription <CUSTOMER_SUB_ID>
+
+   # Check if NFC already exists
+   az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+
+2. Create NFC from Telco Input template (skip for existing NFC):
+   ```
+   az networkfabric controller create --resource-group "NFC_RG" --subscription "SUBSCRIPTION_ID" --location "REGION" \
+     --resource-name "NFC_NAME" --ipv4-address-space "NFC_IPV4/NFC_IPV4_CIDR" --ipv6-address-space "NFC_IPV6/NFC_IPV6_CIDR" \
+     --infra-er-connections '[{"expressRouteCircuitId": "MGMT_ER1_RID", "expressRouteAuthorizationKey": "'$MGMT_AUTH_1'"}, \
+       {"expressRouteCircuitId": "MGMT_ER2_RID", "expressRouteAuthorizationKey": "'$MGMT_AUTH_2'"}]' \
+     --workload-er-connections '[{"expressRouteCircuitId": "TNT_ER1_RID", "expressRouteAuthorizationKey": "'$TNT_AUTH_1'"}, \
+       {"expressRouteCircuitId": "TNT_ER2_RID", "expressRouteAuthorizationKey": "'$TNT_AUTH_2'"}]' \
+     --mrg name='NFC_MRG' location='REGION' --debug --no-wait
+   ```
+
+   > [!NOTE]
+   > NFC creation can take up to 1 hour.
+
+4. Check status of NFC and creation of the NFC `customlocation` from Azure CLI:
+   ```
+   az networkfabric controller show --resource-group "<NFC_RG>" --resource-name "<NFC_NAME>" --subscription <CUSTOMER_SUB_ID> -o table
+
+   az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
+   az vm list -o table --query "[?location=='<AZURE_REGION>']" --subscription <CUSTOMER_SUB_ID>
+
+   az customlocation list -o table --query "[?location=='<AZURE_REGION>']" | grep <NFC_NAME> --subscription <CUSTOMER_SUB_ID>
+   ```
+
+5. Verify subnets in portal for <NFC_MRG>/networkfabric-infravnet | Subnets
+   ```
+   az network vnet subnet list --vnet-name networkfabric-infravnet -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+   <NFC_SUBNET>.<+0>.0/24  nfc-aks-subnet    Disabled  Enabled   Succeeded <NFC_MRG>
+   <NFC_SUBNET>.<+1>.0/24  GatewaySubnet        Disabled  Enabled   Succeeded <NFC_MRG>
+   <NFC_SUBNET>.<+2>.0/23  infra-proxy-subnet   Disabled  Enabled   Succeeded <NFC_MRG>
+   <NFC_SUBNET>.<+7>.0/24  private-link-subnet  Disabled  Enabled   Succeeded <NFC_MRG>  PrivateEndpoints
+   <NFC_SUBNET>.<+4>.0/24  clustermanager-subnet  Disabled  Disabled  Succeeded <NFC_MRG>
+   ```
+
+6. Check ER connections in <NFC_MRG> (may be hidden in RG): `Status: Succeeded`
+   ```
+   az network vpn-connection list -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+
+### Add resource tag on NFC resource in Azure portal (optional)
+   To increase visibility of the deployment, add a tag to the NFC resource in Azure portal:
+   ```
+   |Name            | Value          |
+   |----------------|-----------------
+   |GF in progress  |<DE_ID>         |
+   ```
+
+</details>
+
+## Deploy CM (skip section if CM already exists)
+<details>
+ <summary> Detailed Steps for deploying a CM </summary>
+
+### Create CM
+1. Prework
+   ```
+   az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<CM_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
+
+   # If group does not exist, then create the group:
+   az group create -l <AZURE_REGION> -n <CM_RG> --subscription <CUSTOMER_SUB_ID>
+
+   # Check if CM already exists
+   az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+
+2. Create CM from Telco Input template (skip for existing CM):
+   ```
+   az deployment sub create --name "<CM_NAME>-deployment" --subscription "<CUSTOMER_SUB_ID>" --location "<AZURE_REGION>" --template-file "clusterManager.jsonc" \
+     --parameters "clusterManager.parameters.jsonc" --debug --no-wait
+   ```
+
+   Follow these links for the structure of the ARM template and parameters files:
+   - [`clusterManager.jsonc`](clustermanager-jsonc-example.md)
+   - [`clusterManager.parameters.jsonc`](clustermanager-parameters-jsonc-example.md)
+
+3. Check status of CM for `Succeeded`:
+   ```
+   az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+   
+### Add resource tag on CM resource in Azure portal (optional)
+   To increase visibility of the deployment, add a tag to the CM resource in Azure portal (optional):
+   ```
+   |Name            | Value          |
+   |----------------|-----------------
+   |GF in progress  |<DE_ID>         |
+   ```
+
+</details>
+
+## Deploy Fabric
+<details>
+ <summary> Detailed Steps for deploying a Fabric </summary>
+
+### Create Fabric
+
+1. Prework
+   ```
+   az customlocation list --subscription <CUSTOMER_SUB_ID> -o table | grep <ENVIRONMENT>   #Make sure no custom locations exist for <AZURE_REGION> and <ENVIRONMENT>
+
+   az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<NF_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
+
+   # If group does not exist, then create the group:
+   az group create -l <AZURE_REGION> -n <NF_RG> --subscription <CUSTOMER_SUB_ID>
+
+   # Check if fabric exists
+   az networkfabric fabric list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+
+2. Create Fabric from payload:
+   ```
+   cd <PAYLOAD_DIR>
+   export PL_DIR=`pwd`
+   source $PL_DIR/set_env.sh
+   chmod +x nf.sh
+   ./nf.sh
+   ```
+
+3. Verify fabric status:
+   ```
+   az networkfabric fabric show --resource-group "<NF_RG>" --resource-name "<NF_NAME>" --subscription <CUSTOMER_SUB_ID> -o table
+   az networkfabric fabric list --subscription <CUSTOMER_SUB_ID> -o table
+   Accepted
+   Succeeded
+   ```
+4. Create Access Control List (ACL) resource:
+   ```
+   cd <PAYLOAD_DIR>
+   export PL_DIR=`pwd`
+   source $PL_DIR/set_env.sh
+   chmod +x nni_ingress_acl.ps1
+   ./nni_ingress_acl.ps1
+   ```
+
+5. Create Network-to-Network Interface (NNI) resource and verify
+   ```
+   cd <PAYLOAD_DIR>
+   export PL_DIR=`pwd`
+   source $PL_DIR/set_env.sh
+   chmod +x nni.ps1
+   ./nni.ps1
+
+   az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID>
+
+   az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+
+   ```
+
+6. Update Device Names and Serial Numbers from automation payloads:
+   ```
+   cd <PAYLOAD_DIR>
+   export PL_DIR=`pwd`
+   source $PL_DIR/set_env.sh
+   chmod +x networkdevice.ps1
+   ./networkdevice.ps1
+   ```
+
+7. Verify all Devices are created and configured:
+   ```
+   az networkfabric device list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+   
+### Provision Fabric
+1. Verify Fabric ProvisioningState is `Succeeded`:
+   ```
+   az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+
+2. Provision fabric:
+```
+az networkfabric fabric provision --resource-group <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --debug --no-wait
+
+az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+Provisioned
+```
+
+### Add resource tag on Fabric resource in Azure portal
+   To increase visibility of the deployment, add a tag to the Fabric resource in Azure portal (optional):
+   ```
+   |Name            | Value          |
+   |----------------|-----------------
+   |GF in progress  |<DE_ID>         |
+   ```
+
+</details>
+
+## Deploy Cluster
+<details>
+ <summary> Detailed steps for deploying a Cluster </summary>
+
+### Create Cluster
+1. Prework
+   ```
+   az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<CLUSTER_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
+
+   # If group does not exist, then create the group:
+   az group create -l <AZURE_REGION> -n <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID>
+
+   # Check if Cluster exists
+   az networkcloud cluster list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+
+2. Create Cluster from payload
+   ```
+   cd <PAYLOAD_DIR>
+   export PL_DIR=`pwd`
+   source $PL_DIR/set_env.sh
+   chmod +x cluster.sh
+   ./cluster.sh
+   ```
+
+3. Update deployment threshold to customer requested value from default of 80%:
+   ```
+   az networkcloud cluster update --name <CLUSTER_NAME> --resource-group <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID> --compute-deployment-threshold type=<CLUSTER_DEPLOY_TYPE> grouping=<CLUSTER_DEPLOY_GROUPING> value=<CLUSTER_DEPLOY_THRESHOLD>
+
+   # Validate update:
+   az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID> | grep -a3 computeDeploymentThreshold
+   
+     "clusterType": "MultiRack",
+     "clusterVersion": "<CLUSER_VERSION>",
+     "computeDeploymentThreshold": {
+       "grouping": "<CLUSTER_DEPLOY_GROUPING>",
+       "type": "<CLUSTER_DEPLOY_TYPE>",
+       "value": <CLUSTER_DEPLOY_THRESHOLD>
+   ```
+
+4. Verify Cluster status:
+   ```
+   az networkcloud cluster list -o table
+   ```
+
+### Add resource tag on Cluster resource in Azure portal
+   To increase visibility of the deployment, add a tag to the Cluster resource in Azure portal (optional):
+   ```
+   |Name            | Value          |
+   |----------------|-----------------
+   |GF in progress  |<DE_ID>         |
+   ```
+
+### Deploy Cluster
+The Cluster deployment can be initiated from Azure portal or Azure CLI.
+
+To initiate deployment through Azure portal:
+Azure portal -> `Clusters (Operator Nexus)` -> `<CLUSTER_NAME>` -> `Deploy`
+
+To initiate deployment through Azure CLI:
+```
+az networkcloud cluster deploy --resource-group <CLUSTER_RG> --name <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID> --no-wait --debug
+```
+
+### Order of deployment
+1. Validate Baseboard Management Controller (BMC) connection strings
+2. Power down all servers
+3. Validate hardware
+4. Generate bootstrap image
+5. Bootstrap  ephemeral node
+6. Reboot servers and perform `racreset`
+7. Upgrade firmware, configure RAID and, configure BIOS settings on control BMM
+8. Provision Kubernetes Control Plane (KCP) and provision Nexus Management Plane (NMP)
+9. Move KCP from ephemeral to on-premises BMM
+10. Generate Infrastructure L2 Isolation Domains (ISD)
+11. Bootstrap cluster and connect to Azure
+12. Hydrate cluster into Azure
+13. Deploy Workers until deployment threshold met
+14. Configure Storage Appliance
+
+### Monitor Cluster deployment
+
+Monitor Cluster deployment progress in Azure portal or CLI.
+
+To monitor in Azure portal:
+Azure portal -> `Clusters (Operator Nexus)` -> `<CLUSTER_NAME>` -> Overview-> "Detailed status message"
+
+To monitor through Azure CLI:
+```
+// Monitor detailed cluster status and update every 5 mins 
+watch -n 300 'az networkcloud cluster show --resource-group <CLUSTER_RG> --name <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID> -o table'
+```
+
+Follow link to troubleshoot all [BMM that fail hardware validation](troubleshoot-hardware-validation-failure.md).
+- KCP/MNP nodes that fail hardware validation cause Cluster deployment to fail.
+- BMMs that fail hardware validation cause Cluster deployment to fail if not enough BMMs are available to pass the deployment threshold.
+
+> [!IMPORTANT]
+> If the Cluster deployment reaches the time out threshold, the status moves to `Failed`. Failure can occur if any KCP or NMP BMM fail hardware validation, or too many compute BMM fail hardware validations.
+> Once hardware issues are fixed, delete the Cluster, re-create, and then retry the Cluster deploy action.
+
+### Monitor provisioning of BMM
+Monitor BMM provisioning progress in Azure portal or CLI.
+
+To monitor in Azure portal:
+Azure portal -> `Bare Metal Machines (Operator Nexus)` -> `<BMM_NAME>` -> Overview
+
+To monitor through Azure CLI:
+```
+az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([]. {name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+```
+
+### BMM provisioning lifecycle
+- Registering -> Preparing -> Inspecting -> Available -> Provisioning -> Provisioned -> Ready
+
+BMM provisioning is complete when the following conditions are met:
+   - Provisioning State = `Succeeded`
+   - Detailed Status = `Provisioned`
+   - Cordon Status = `Uncordoned`
+   - Ready State = `True`
+
+</details>
+
+## Post-deployment tasks
+<details>
+ <summary> Detailed steps for post-deployment tasks </summary>
+
+### Notify Operations of new Nexus instance readiness
+```
+Title: <ENVIRONMENT> Deployed with Operator Nexus <NEXUS_VERSION>
+ 
+Operations:
+ 
+<ENVIRONMENT> has completed deployment and is now running Operator Nexus <NEXUS_VERSION> from the Azure <AZURE_REGION> region.
+
+Subscription: <CUSTOMER_SUB_ID>
+NFC: <NFC_NAME>
+CM: <CM_NAME>
+Fabric: <NF_NAME>
+Cluster: <CLUSTER_NAME>
+Region: <AZURE_REGION>
+Version: <NEXUS_VERSION>
+ 
+Note the following BMM have hardware issues that need troubleshooting:
+<FAILED_BMM_LIST>
+
+Please verify logs/metrics/traffic monitoring and any alerts.
+
+CC: stakeholders_list
+```
+
+### Remove DE Tags for GF in progress
+- Search for these resources in Azure portal and remove the `GF in progress` tags applied (if any exist):
+  - <NFC_NAME>
+  - <NF_NAME>
+  - <CM_NAME>
+  - <CLUSTER_NAME>
+- Remove `GF provision issue` Azure resource tags for any BMM issues resolved after deployment.
+- To remove a tag, click `Tags (edit)` and click the `Remove` icon next to the Tag, then click `Save`.
+
+</details>
+
+## Close out work items
+<details>
+<summary> Close out any work items in your ticketing system on deployment completion </summary>
+
+- Update task hours for deployment duration.
+- Set Nexus deployment work item to `Complete`.
+- Add any notes on support tickets and issues encountered during deployment.
+- List any BMM that failed to provision. 
+
+</details>
+
+## Links
+<details>
+<summary> Reference Links for Nexus Deployments </summary>
+
+- [Azure portal](https://aka.ms/nexus-portal)
+- [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
+- [Azure CLI](https://aka.ms/azcli)
+- [Install CLI Extension](howto-install-cli-extensions.md)
+
+</details>
