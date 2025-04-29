@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Container Registry Guardrails Initiative
+# Container Registry guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure Container Registry is deployed securely.
 
 ## Container Registry GitHub Repository

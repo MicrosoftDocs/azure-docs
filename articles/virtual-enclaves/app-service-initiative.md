@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# App Service Guardrails Initiative
+# App Service guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure App Service is deployed securely.
 
 ## App Service GitHub Repository

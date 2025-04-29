@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# KeyVault Guardrails Initiative
+# KeyVault guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure Key Vault is deployed securely.
 
 ## KeyVault GitHub Repository

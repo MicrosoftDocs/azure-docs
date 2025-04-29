@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Cosmos DB Guardrails Initiative
+# Cosmos DB guardrails initiative
 This article describes the Policy guardrails in place to ensure Cosmos DB is deployed securely.
 
 ## Cosmos DB GitHub Repository

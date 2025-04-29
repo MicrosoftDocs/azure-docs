@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# PostgreSQL Guardrails Initiative
+# PostgreSQL guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure PostgreSQL is deployed securely.
 
 ## PostgreSQL GitHub Repository

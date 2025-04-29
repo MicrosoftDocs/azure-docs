@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Storage Guardrails Initiative
+# Storage guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure Storage Account is deployed securely.
 
 ## Storage GitHub Repository
