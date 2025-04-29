@@ -361,7 +361,7 @@ The target architecture is set when you create the container image in a later st
 
 ### Update module with custom code
 
-Each template includes sample code that takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT hub. The sample module receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+Each template includes sample code that takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT Hub. The sample module receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
 
 Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific code for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
