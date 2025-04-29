@@ -27,3 +27,6 @@ AzureMigration.ps1
 
 # Pycharm
 .idea/*
+articles/planetary-computer/doc-tree-generator.py
+.gitignore
+articles/planetary-computer/article_links_diagram.md
