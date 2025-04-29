@@ -29,7 +29,7 @@ This is the current list of Azure services and workload templates in the Service
 | Service Bus | [link](#service-bus) | Available |
 | Azure Compute Gallery | [link](#azure-compute-gallery) | Future |
 
-New templates will be added over time
+New templates will be added over time.
 
 ## Admin VM
 
