@@ -62,7 +62,7 @@ To make only specific APIs visible, go to the **API visibility** tab in the API 
 
 ## Enable access to test console for APIs
 
-You can configure user settings to granularly authorize access to APIs and their specific versions in your API center. For example, you can configure certain API versions to use API keys for authentication, and create an access policy that permits only specific users to authenticate using those keys. This policy also applies to the "Try it now" capability for APIs in the API Center portal, ensuring that only portal users with the appropriate access policy can use the test console for those API versions. [Learn more about authorizing access to APIs](authorize-api-access.md)
+You can configure user settings to granularly authorize access to APIs and their specific versions in your API center. For example, you can configure certain API versions to use API keys for authentication, and create an access policy that permits only specific users to authenticate using those keys. This policy also applies to the "Try this API" capability for APIs in the API Center portal, ensuring that only portal users with the appropriate access policy can use the test console for those API versions. [Learn more about authorizing access to APIs](authorize-api-access.md)
 
 [!INCLUDE [api-center-portal-compare-apim-dev-portal](includes/api-center-portal-compare-apim-dev-portal.md)]
 
