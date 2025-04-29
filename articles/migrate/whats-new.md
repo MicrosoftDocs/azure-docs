@@ -16,6 +16,16 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
+Azure Migrate now supports the simplified experience through its upgraded version of the CS Stack of the Azure Migrate tool. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years.
+
+The key differences between the simplified experience and the classic experience are:
+
+1. The simplified experience is designed to make the migration process more user-friendly.
+1. The ASR applicance is used for physical stack migrations.
+1. VMware and Hyper-V migrations use different appliances.
+
+## Update (April 2025)
+
 Public preview: Azure Migrate supports Application Awareness, offering an enhanced and modernized user experience. This feature streamlines the discovery, assessment, and migration of on-premises applications and workloads to Microsoft Azure. It streamlines and enhances the decision-making, planning, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
 
 - Updated Inventory View: Explore the inventory of discovered workloads across the Infrastructure, Data, and Web tiers. [Learn more](how-to-review-discovered-inventory.md).

@@ -152,14 +152,13 @@ The mobility service agent must be installed on the servers to get them discover
 > [!NOTE]
 > We recommend that you perform discovery and assessment prior to the migration by using the Azure Migrate: Discovery and assessment tool, a separate lightweight Azure Migrate appliance. You can deploy the appliance as a physical server to continuously discover servers and performance metadata. For more information, see [Discover physical servers](tutorial-discover-physical.md).
 
-## Simplified experience
+## Simplified experience 
 
 This section introduces a new process, which is simplified experience. Users will follow a streamlined flow that begins with discovery, followed by replication, and finally migration.
 
 This section introduces an upgraded agent-based migration stack for physical and VMware environments. Customers benefit from the ability to migrate newer Linux distributions to Azure, use WS2019 for the replication appliance, and enjoy a unified OS support matrix. The new Linux distributions supported include:
 
-* Oracle Linux 9.0
-* Oracle Linux 9.1
+* Oracle Linux 9.0, 9.1
 * RHEL 9.0
 * RHEL 9.1
 * Ubuntu 22.04
@@ -204,7 +203,7 @@ Follow the steps to navigate to the Azure Migrate project:
 1. Select **Test Migrate**. For more information, see, [Migrate machines as physical servers to Azure with Azure Migrate and Modernize](/azure/migrate/tutorial-migrate-physical-virtual-machines#run-a-test-migration).
 1. Perform the final migration. [Learn more](/azure/migrate/tutorial-migrate-physical-virtual-machines#migrate-vms)
 
-**Step 6**: Verify the VM in Azure VM 
+**Step 6**: Verify the virtual machine in Azure VM 
 
 Verify if the VM boots up on Azure: 
 * By going to the target resource group and searching for your VM. 
