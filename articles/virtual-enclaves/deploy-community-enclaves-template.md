@@ -1,19 +1,12 @@
 ---
-layout: default
-title: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
-parent: Quickstarts
-nav_order: 1
----
-
-# Quickstart: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
-{: .no_toc }
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
-
+title: Deploy Community and Enclaves from a quickstart template
+titlesuffix: Azure Virtual Enclaves
+description: Deploy Community and Enclaves from a quickstart template.
+author: aserfass-msft
+ms.author: aserfass
+# ms.service: Azure Virtual Enclaves
+ms.topic: how-to
+ms.date: 04/08/2025
 ---
 
 # Quickstart: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
@@ -23,7 +16,7 @@ nav_order: 1
 - Deploy one AVE [community](/docs/overview/what%20is%20a%20community) with two [enclaves](/docs/overview/what%20is%20an%20enclave) using an Azure Resource Manager (ARM) template.
 - Deploy [workloads](/docs/overview/what%20is%20a%20workload), [enclave endpoints](/docs/overview/what%20is%20an%20enclave%20endpoint), [transit hubs](/docs/overview/what%20is%20a%20transit%20hub) and [community endpoints](/docs/overview/what%20is%20a%20community%20endpoint), and [enclave connections](/docs/overview/what%20is%20an%20enclave%20connection) across your community using an ARM template.
 
-> Note
+> [!NOTE]
 >
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
@@ -32,24 +25,24 @@ nav_order: 1
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [resource manager template](/en-us/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
+- A [resource manager template](/azure/azure-resource-manager/templates/overview) is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
 - If your environment meets the prerequisites and you're familiar with ARM templates, select Deploy to Azure to open the template in the Azure portal.
 
 ## Review the template
 
-The template used in this quickstart can be found [here](/assets/code/nightly-base.json).
+The template used in this quickstart can be found [here](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json).
 
 ### What gets deployed
-![Nightly-docs.svg](/assets/Nightly-docs.svg)
+![Diagram showing community and enclave resources deployed.](https://github.com/Azure/virtual-enclaves/ave-templates/media/nightly-docs.svg)
 
 - Community (x1)
 - Enclaves (x2)
 - Workload (x1, empty, created in `enc-1`)
 - Community Endpoints: 
-    - `plx`
-        - `plx-vpaw`; sample values of demonstrating PrivateNetwork connectivity
-        - `plx-dataplane`, 
+    - `ep-example`
+        - `ep-example-workstation`; sample values of demonstrating PrivateNetwork connectivity
+        - `ep-example-dataplane`, 
     - `bing-outlook`; sample values of demonstrating Internet connectivity
         - `bing.com`
         - `outlook.com`
@@ -62,11 +55,12 @@ The template used in this quickstart can be found [here](/assets/code/nightly-ba
       |--|--|
       | Enclave 2 | Enclave 1 Endpoint `ADDS-TCP/UDP` |
       | Enclave 2 | Community Endpoint `bing-outlook` |
-      | Enclave 2 | Community Endpoint `plx` |
+      | Enclave 2 | Community Endpoint `ep-example` |
       | Community (via Transit hub) | Enclave 1 Endpoint `ADDS-TCP/UDP` |
 
 ## Deploy the template
 1. Login to the Azure Portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section, upload or copy and paste the above ARM template.
+
 ![image.png](/assets/image-3087f961-30be-4cec-9989-cfb5020f7fdb.png)
 
 2. On the **Basics** page, leave the default values, and configure the following template parameters:
@@ -92,10 +86,10 @@ It can take up to 50 minutes to finish all resource creation. Wait for the deplo
 
 ## Validate the deployment
 
-Learn more about what gets deployed in a [community](/docs/overview/what%20is%20a%20community) and what gets deployed in an [enclave](/docs/overview/what%20is%20an%20enclave).
+Learn more about what gets deployed in a [community](./what-community.md) and what gets deployed in an [enclave](./what-enclave.md).
 
 ### Connect to the admin workstations
-Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](/docs/Concepts/Understanding-Admin-Workstations).
+Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](./understand-admin-vm.md).
 
 ## Delete the deployment
 If you do not plan on keeping these resources, clean up unnecessary resources to avoid Azure charges.
