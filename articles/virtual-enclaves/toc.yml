@@ -84,7 +84,7 @@
       href: 8-migrate-workload-resources.md
   - name: Governance, Security, and Compliance
     items:
-    - name: Just-In-Time Access
+    - name: Just-in-time Access
       href: just-in-time-access.md
 #     - name: Dynamic Access Controls
 #       href: dynamic-access-controls.md

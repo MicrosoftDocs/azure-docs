@@ -9,7 +9,7 @@ ms.date: 11/21/2024
 ---
 
 # Mandatory Access Control for Azure Virtual Enclaves 
-Access to Azure Virtual Enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant Just-in-Time access to Virtual Enclave resources. 
+Access to Azure Virtual Enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual Enclave resources. 
 
 ## RBAC for Community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
