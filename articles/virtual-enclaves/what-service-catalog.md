@@ -32,6 +32,6 @@ You can edit the Service Catalog template itself but edits might change the form
 - [Service Catalog How-To Guides and tips for each template](./list-service-catalog-templates.md)
 - [Service Catalog Storage Account deployment Quickstart](./deploy-storage-account-service-catalog.md)
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
-- [What is a Community?](./what-community.md)
+- [What is a community?](./what-community.md)
 - [Tutorial: Create resources from the Service Catalog](/./4-use-service-catalog-create-azure-resources-workloads.md)
 - [What is an Enclave?](./what-enclave.md)

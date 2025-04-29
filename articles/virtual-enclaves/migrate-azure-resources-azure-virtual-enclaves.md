@@ -56,7 +56,7 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
 - Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in AVE can be taken with our AVE RBAC roles.
 - Accessing an AVE enclave through an [Admin Workstation](./understand-admin-vm.md) differs slightly from accessing a mission enclave's evPAW.
 - **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. Learn more about [DNS in AVE](./understand-domain-name-service.md).
-  - If you have requirements to connect to an existing instance of DNS elsewhere, you would provide the private IP addresses of the DNS server as the DNS servers list field for your Community and Enclaves.
+  - If you have requirements to connect to an existing instance of DNS elsewhere, you would provide the private IP addresses of the DNS server as the DNS servers list field for your community and Enclaves.
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)

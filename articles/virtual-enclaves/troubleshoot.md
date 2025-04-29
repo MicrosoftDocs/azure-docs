@@ -21,9 +21,9 @@ AVE portal links (for example "Learn More") don't work in the Azure Air Gapped e
 Solution: Those documentation links work on the low side so you can navigate to the same URL from a computer with access to github.io.
 
 ## Community Troubleshooting
-The Community troubleshooting steps that are specific to the Azure Virtual Enclaves Community resource.
+The community troubleshooting steps that are specific to the Azure Virtual Enclaves community resource.
 
-### API error when creating first Community (Preview)
+### API error when creating first community (Preview)
 
 Scenario: Create a community for the first time in a new subscription, the following error message blocks the deployment
 

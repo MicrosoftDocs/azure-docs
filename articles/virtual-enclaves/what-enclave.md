@@ -10,13 +10,13 @@ ms.date: 04/08/2025
 
 # What is an Enclave?
 
-An Enclave is an isolated Virtual Network that is part of a Community in which one or more workloads are hosted. These workloads can be isolated from other Enclaves in the Community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections. 
+An Enclave is an isolated Virtual Network that is part of a community in which one or more workloads are hosted. These workloads can be isolated from other Enclaves in the community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections. 
 
 ## Architecture of an enclave
 
 Enclaves come with the following primary platform-managed and platform-deployed resources:
 - Isolated [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts) you define. By default, these Enclaves aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls). Enabling connections is done through the use of platform-managed [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a Community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
 - [Azure Storage Account](../storage/common/storage-account-overview.md). By default and for convenience, all Enclaves are deployed with a Storage Account that can only be accessed from other hosts within the Enclave.  [Learn more about Azure Storage](/azure/architecture/guide/technology-choices/storage-options).
 - [Azure Key Vault](/azure/key-vault/general/basic-concepts). By default and for convenience, all Enclaves are deployed with Key Vault that can only be accessed from other hosts within the Enclave. [Learn more about how to use Azure Key Vaults](/azure/key-vault/general/best-practices).
 - [Admin VMs](./understand-admin-vm.md) ([Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)) and [Azure Bastion](../bastion/bastion-overview.md). These resources are created by default for Enclave system administrative access.
@@ -52,7 +52,7 @@ The following resources types are deployed into the Enclave Managed Resource Gro
 ## Next Steps
 - [What is a Workload?](./what-workload.md)
 - [What is the Service Catalog?](./what-service-catalog.md)
-- [What is a Community?](./what-community.md)
+- [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)
 - [Tutorial: Create an Enclave](./2-create-enclaves-inside-community.md)

@@ -12,9 +12,9 @@ ms.date: 04/08/2025
 
 By default, all enclaves are created with [Admin Workstation Virtual Machines](./understand-admin-vm.md). This means that all resources and hosts within an enclave are reachable through the Admin Workstation.
 
-For certain Enclave Owners, the default access pattern surrounding the Admin Workstation might not satisfy their requirements for various reasons. For example, Enclave Owners might have requirements that disallow the Azure Bastion service. 
+For certain enclave Owners, the default access pattern surrounding the Admin Workstation might not satisfy their requirements for various reasons. For example, enclave Owners might have requirements that disallow the Azure Bastion service. 
 
-Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-party service for secure remote connections using private IP addresses. This is expected behavior for Azure Virtual Enclaves. However, should Enclave Owners require an alternative connection method, they can manually deploy a fleet of Virtual Machines (called Session Hosts in [Azure Virtual Desktop](https://aka.ms/avd)) to access their Enclave. This can be done using native Azure cloud networking resources and Azure Virtual Enclaves.
+Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-party service for secure remote connections using private IP addresses. This is expected behavior for Azure Virtual Enclaves. However, should enclave Owners require an alternative connection method, they can manually deploy a fleet of Virtual Machines (called Session Hosts in [Azure Virtual Desktop](https://aka.ms/avd)) to access their Enclave. This can be done using native Azure cloud networking resources and Azure Virtual Enclaves.
 
 ## Prerequisites
 
@@ -25,9 +25,9 @@ Create a [Community](./what-community.md) and [Enclave](./what-enclave.md).
 2. [Deploy AVD resources](../virtual-desktop/deploy-azure-virtual-desktop.md) to the Workload RG (for example, `wl-avd-mgmt-pool`).
    - Create the AVD resources using the [RemoteApp VM template in the Service Catalog](./deploy-remoteapp-vm-service-catalog.md).
    - Alternatively, follow the [AVD deployment instructions](../virtual-desktop/deploy-azure-virtual-desktop.md) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the Workload RG (for example, `wl-avd-mgmt-pool`).
-3. [Create Community Endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
-4. [Create Enclave Endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
-5. [Create the Enclave Connection](./create-enclave-connection-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves.
+3. [Create community Endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
+4. [Create enclave Endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
+5. [Create the enclave Connection](./create-enclave-connection-portal.md) so that the customer can access the AVD service in Azure from specified Enclaves.
 
 ## References
 - [What is an Enclave?](./what-enclave.md)

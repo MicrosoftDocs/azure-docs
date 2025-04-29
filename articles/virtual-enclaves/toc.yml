@@ -14,17 +14,17 @@
     items:
 #     - name: Onboard to AVE
 #       href: onboard-to-ave.md
-    - name: Create a Community
+    - name: Create a community
       href: create-community-portal.md
     - name: Create an Enclave
       href: create-enclave-portal.md
     - name: Create a Workload
       href: create-workload-portal.md
-    - name: Create a Community Endpoint
+    - name: Create a community Endpoint
       href: create-community-endpoint-portal.md
     - name: Create an Enclave Endpoint
       href: create-enclave-endpoint-portal.md
-    - name: Create an Enclave Connection
+    - name: Create an enclave 
       href: create-enclave-connection-portal.md
     - name: Create a Transit Hub
       href: create-transit-hub-portal.md
@@ -32,17 +32,17 @@
 #       href: easy-button-deployments.md
   - name: Concepts
     items:
-    - name: "What is a Community?"
+    - name: "What is a community?"
       href: what-community.md
     - name: "What is an Enclave?"
       href: what-enclave.md
     - name: "What is a Workload?"
       href: what-workload.md
-    - name: "What is a Community Endpoint?"
+    - name: "What is a community Endpoint?"
       href: what-community-endpoint.md
     - name: "What is an Enclave Endpoint?"
       href: what-enclave-endpoint.md
-    - name: "What is an Enclave Connection?"
+    - name: "What is an enclave ?"
       href: what-enclave-connection.md
     - name: "What is a Transit Hub?"
       href: what-transit-hub.md
@@ -102,7 +102,7 @@
 #       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
 #       href: security-best-practices.md
-    - name: Configure Community Governance
+    - name: Configure community Governance
       href: configure-community-governance.md
   - name: Manage and Monitor
     items:

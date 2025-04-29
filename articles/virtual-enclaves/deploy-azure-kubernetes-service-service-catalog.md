@@ -23,7 +23,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster wit
 > [!NOTE]
 > 
 > This might take several minutes, to check on the status of this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
-7. Add the following Firewall rule to your Community firewall policy as an Application rule:
+7. Add the following Firewall rule to your community firewall policy as an Application rule:
     - Source: 10.0.2.0/23
     - Protocol: Https:443
     - Destination type: FQDN
@@ -72,7 +72,7 @@ You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster wit
     - protocol: any
     - action: allow
     - priority: 1000
-9. Using Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the ACR resource. In addition if the ACR is configured to use a public storage account, that URL must be added as a Community endpoint to create the firewall policy.
+9. Using Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the ACR resource. In addition if the ACR is configured to use a public storage account, that URL must be added as a community endpoint to create the firewall policy.
 
 Documentation around these rules can be found [here](/azure/aks/outbound-rules-control-egress)
 

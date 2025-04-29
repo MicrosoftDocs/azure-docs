@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # What is an Enclave Endpoint?
 
-Enclave Endpoints define how workloads can be accessed from outside of an Enclave boundary. When an Enclave Connection is created from Enclave-A to an Endpoint in Enclave-B, the Endpoint determines the destination, ports, and protocols for the connection. The Enclave Connection resource determines authorized source IP coming from Enclave-A that is authorized to connect to Enclave-B.
+Enclave Endpoints define how workloads can be accessed from outside of an Enclave boundary. When an enclave is created from Enclave-A to an Endpoint in Enclave-B, the Endpoint determines the destination, ports, and protocols for the connection. The enclave resource determines authorized source IP coming from Enclave-A that is authorized to connect to Enclave-B.
 
 ## Architecture of an enclave endpoint
 
@@ -25,7 +25,7 @@ Enclave Endpoint rules have the following three components:
 ## Connection Types
 
 Enclave Endpoints support two types of connections:
-- Inbound from another Enclave in the Community
+- Inbound from another Enclave in the community
 - Inbound from a Transit Hub
 
 ## Template

@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create an Enclave in the Azure portal
 
-An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is part of a Community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the Community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
+An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is part of a community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
    - Resource Group: Create a new or select an existing Resource Group
    - Enclave name: Name of the Virtual Enclave (for example `My-Enclave`)
    - Region: Azure region the Virtual Enclave will be created in.
-   - Select a Community: Select an existing `Community`
+   - Select a community: Select an existing `Community`
 
 ![Screenshot showing Enclave create basics input page.](./media/create-enclave-tab-1-basics.png)
 
@@ -73,7 +73,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 **References**
 - [What is an Enclave](./what-enclave.md)
-- [Create a Community](./create-community-portal.md)
+- [Create a community](./create-community-portal.md)
 - [Best practices](./best-practices.md)
 - [Azure best practices regarding Azure Virtual Networks](../virtual-network/concepts-and-best-practices.md)
 - [Plan Azure Virtual Networks](../virtual-network/virtual-network-vnet-plan-design-arm.md)

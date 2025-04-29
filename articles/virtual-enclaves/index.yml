@@ -43,13 +43,13 @@ landingContent:
             url: what-community.md
           - text: "What is a Transit Hub?"
             url: what-transit-hub.md
-          - text: "What is a Community Endpoint?"
+          - text: "What is a community Endpoint?"
             url: what-community-endpoint.md
           - text: "What is an Enclave?"
             url: what-enclave.md
           - text: "What is an Enclave Endpoint?"
             url: what-enclave-endpoint.md
-          - text: "What is an Enclave Connection?"
+          - text: "What is an enclave ?"
             url: what-enclave-connection.md
           - text: "What is a Workload?"
             url: what-workload.md
@@ -64,15 +64,15 @@ landingContent:
         links:
           # - text: Onboard to AVE
           #   url: Onboard-to-AVE.md
-          - text: Create a Community
+          - text: Create a community
             url: create-community-portal.md
-          - text: Create a Community Endpoint
+          - text: Create a community Endpoint
             url: create-community-endpoint-portal.md
           - text: Create an Enclave
             url: create-enclave-portal.md
           - text: Create an Enclave Endpoint
             url: create-enclave-endpoint-portal.md
-          - text: Create an Enclave Connection
+          - text: Create an enclave 
             url: create-enclave-connection-portal.md
           - text: Create a Workload
             url: create-workload-portal.md
@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Tutorial 1 Create a Community
+          - text: Tutorial 1 Create a community
             url: 1-create-community.md
           - text: Tutorial 2 Create Enclaves inside a community
             url: 2-create-enclaves-inside-community.md

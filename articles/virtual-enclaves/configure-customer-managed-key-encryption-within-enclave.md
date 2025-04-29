@@ -17,17 +17,17 @@ There are several types of [encryption](/azure/virtual-machines/windows/disk-enc
 
 ## Prerequisites for manual deployment method
 - Portal Access from Admin Workstation (192.168.0.0/26 usually).
-  - [Create Community Endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
+  - [Create community Endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
     - A default endpoint should have been created with the community that defines these. If so you might skip this step.
-  - [Create Enclave Connection](./create-enclave-connection-portal.md) to Community Endpoint.
-- You have been assigned "Key Vault Contributor" to the Enclave KV or Enclave RG.
+  - [Create enclave Connection](./create-enclave-connection-portal.md) to community Endpoint.
+- You have been assigned "Key Vault Contributor" to the KV or enclave RG.
 
 ## Steps in this guide
 - [Create KV RSA 2048 Key](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or Bring your own key.
 - [Create Managed Identity](./create-user-managed-identity.md) with permissions to the KV Key.
 
 ### Enclave Key Vault
-Every enclave is deployed with an [Azure Key Vault](https://aka.ms/kv) in the [default resource group](./best-practices.md#enclave-managed-resource-group) for enclave infrastructure. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, Enclave Contributors should be able to upload keys, secrets, or certificates to the Enclave Key Vault and utilize existing Azure capabilities and design patterns of other Azure services to support CMK encryption.
+Every enclave is deployed with an [Azure Key Vault](https://aka.ms/kv) in the [default resource group](./best-practices.md#enclave-managed-resource-group) for enclave infrastructure. Azure Key Vault is a cloud service for securely storing and accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, or cryptographic keys. By default, enclave Contributors should be able to upload keys, secrets, or certificates to the enclave Key Vault and utilize existing Azure capabilities and design patterns of other Azure services to support CMK encryption.
 
 Examples of setting-up CMK encryption are provided below, with more [detailed instructions](#create-cmk-via-the-portal) or articles provided.
 
@@ -61,7 +61,7 @@ Alternatively, CMK can be created via the Portal
 
 ### Enable Enclave access to the Azure portal
 KV access is restricted to the KV virtual network so the KV Key will need to be created from the Azure portal from within the Admin Workstation.
-* [Create Enclave Connection](./create-enclave-connection-portal.md) to Community endpoint for access to the Azure portal.
+* [Create enclave Connection](./create-enclave-connection-portal.md) to community endpoint for access to the Azure portal.
  
 ### Sign in to Admin Workstation
 Follow [these Admin Workstation](./understand-admin-vm.md) instructions to sign in.
