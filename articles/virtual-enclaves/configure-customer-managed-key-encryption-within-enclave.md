@@ -11,9 +11,9 @@ ms.date: 04/08/2025
 
 # Set-up customer-managed-key (CMK) encryption within an enclave
 
-The fastest way to deploy customer managed keys to be compliant with the Azure Virtual Enclaves policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-from-the-service-catalog-into-a-workload.md) Service Catalog template. 
+The fastest way to deploy customer managed keys to be compliant with the Azure Virtual Enclaves policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-service-catalog.md) Service Catalog template. 
 
-There are several types of [encryption](../virtual-machines/windows/disk-encryption-overview.md) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host. In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersecurity posture](./what-azure-virtual-enclaves.md#multi-layered-governancegovernance-security-and-monitoring) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-enclave.md).
+There are several types of [encryption](/azure/virtual-machines/windows/disk-encryption-overview) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host. In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersecurity posture](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-enclave.md).
 
 ## Prerequisites for manual deployment method
 - Portal Access from Admin Workstation (192.168.0.0/26 usually).
@@ -23,7 +23,7 @@ There are several types of [encryption](../virtual-machines/windows/disk-encrypt
 - You have been assigned "Key Vault Contributor" to the Enclave KV or Enclave RG.
 
 ## Steps in this guide
-- [Create KV RSA 2048 Key](../virtual-machines/disks-enable-customer-managed-keys-portal.md) or Bring your own key.
+- [Create KV RSA 2048 Key](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or Bring your own key.
 - [Create Managed Identity](./create-user-managed-identity.md) with permissions to the KV Key.
 
 ### Enclave Key Vault
@@ -35,8 +35,8 @@ Examples of setting-up CMK encryption are provided below, with more [detailed in
 - How-to Azure article - [Key creation starts after Step 6](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-azure-key-vault)
 
 ### Disk encryption sets (Windows IaaS)
-- How-to Azure article - [Pick up after KV creation](../virtual-machines/disks-enable-customer-managed-keys-portal.md)
-- [Learn more](../virtual-machines/windows/disk-encryption-windows.md)
+- How-to Azure article - [Pick up after KV creation](/azure/virtual-machines/disks-enable-customer-managed-keys-portal)
+- [Learn more](/azure/virtual-machines/windows/disk-encryption-windows)
 
 ### Azure PaaS example (Storage account)
 - [Customer Managed Keys overview](../storage/common/customer-managed-keys-overview.md)

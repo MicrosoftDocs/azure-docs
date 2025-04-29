@@ -33,7 +33,7 @@ There are guardrails in the enclaves to ensure resources are using CMK encryptio
 > 
 > These resources are not deployed with the enclave or workload by default. Required:
 
-Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
+Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.

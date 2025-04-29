@@ -34,7 +34,7 @@ This quickstart assumes a basic understanding of networking and Azure Virtual En
 
 There are guardrails in the enclaves to ensure an Azure Container Registry is using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md)
 
-1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
+1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies Service Catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own with the following requirements.
     - These resources should be created inside a [Workload Resource Group](./create-workload-portal.md#create-workload-resource-groups)
     - The CMK key that meets or exceeds the CMK key requirements.

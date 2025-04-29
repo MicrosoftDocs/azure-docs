@@ -29,7 +29,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster with a max node count of 3 a /26 subnet will be required. Use the following equation to calculate the minimum subnet size including an extra node for upgrade operations: `(node count + 1) + ((node count + 1) * maximum pods per node that you configure)`. Your Enclave's IP addresses might be different depending on the number of enclaves that were created before yours and the network size selected on enclave creation; assuming a `Small (/23)` subnet:
 
-1. Subnet setup and creation: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation. Create these subnets:
+1. Subnet setup and creation: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. Create these subnets:
     - Create new subnet `AzureVirtualEnclaveSubnet 10.0.2.0/26 [10.0.2.0 - 10.0.2.63]`
         - Add NSG rule set
         - Use this subnet for private endpoint resources
@@ -46,7 +46,7 @@ You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster wit
 
 3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the Virtual Network and `Key Vault Contributor` access to the resource group containing the ssh-key. > [!NOTE] This might be the same resource group.
     - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you'll also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing that wasn't enough).
-4. To leverage CMK you'll need to create the disk encryption set and give the disk encryption set the `wrapkey`, `unwrapkey`, and `get` permissions on the key vault that houses the key used for CMK. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
+4. To leverage CMK you'll need to create the disk encryption set and give the disk encryption set the `wrapkey`, `unwrapkey`, and `get` permissions on the key vault that houses the key used for CMK. [Setup CMK](./configure-customer-managed-key-encryption-within-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
 5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following:
 `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`.
 > [!NOTE]

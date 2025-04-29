@@ -36,7 +36,7 @@ The RemoteApp template can be deployed in multiple configurations:
 ## Prerequisites
 Required:
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 2. (optional) An existing domain to join if the RemoteApp will be domain joined.
 3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](/azure/virtual-machines/disk-encryption-overview)
@@ -54,7 +54,7 @@ Required:
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
 6. Adjust the prepopulated parameters as needed. 
-7. (Optional) [Publish your RemoteApp](#publish-remote-app-optional) to other users
+7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users
 8. (Optional) [Domain join](#join-vm-to-domain-optional) your RemoteApp VM.
 9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
 10. Select `Review + Create`, if all validations have passed, select `Create`
@@ -99,7 +99,7 @@ The Admin VM is used for administrator access the resources within the enclave b
 ## Install RemoteApp (Optional)
 Install an application on your RemoteApp VM using one of these methods or a method you're familiar with.
 
-- [Install via RemoteApp VM](./application-deployment-using-remote-app-vm-in-ave.md) (install or configure an application for RemoteApp publishing)
+- [Install via RemoteApp VM](./application-deployment-using-remote-app-vm.md) (install or configure an application for RemoteApp publishing)
 - Prerequisites:
     1. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
         - **Private or Public Container**
@@ -109,7 +109,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - App Folder:
             - app installer (ex: VSCodeSetup.exe)
             - main script to install the application (and any other supporting scripts)
-    2. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm-in-ave.md#prerequisites)
+    2. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm.md#prerequisites)
     1. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
     1. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
         1. Make an enclave connection to your IP Groups ending in `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
@@ -130,7 +130,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
-            - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm-in-ave.md) of the container.
+            - For `Storage Container Resource ID` add the [resource ID ](./application-deployment-using-remote-app-vm.md) of the container.
             - For `App folder in private container` select "true". This allows reader role access to the storage account via the VM. 
         > [!NOTE] 
         > 
