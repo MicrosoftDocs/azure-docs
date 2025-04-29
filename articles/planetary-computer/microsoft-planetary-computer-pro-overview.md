@@ -75,18 +75,4 @@ MPC Pro's ingestion capabilities allow users to bring their own data into a clou
 
 ### Collection configuration
 
-#### Mosaic
-
-GeoCatalog's Explorer allows you to specify one or more mosaic definitions for your collection. These mosaic definitions enable you to instruct GeoCatalog's Explorer on how to filter which items are displayed within the Explorer. For example, one basic render configuration would be to display the most recent image for any given area. More advanced render configurations allow you to render different views such as the least cloudy image for a given location captured in October 2023.
-
-#### Render
-
-Before STAC item assets can be viewed within the Explorer you must upload a render config for your STAC collection. These render configs are used by GeoCatalog to render images in different ways within the Explorer. This is because a STAC item may contain many different assets that can be combined to create entirely new images of a given area that highlight visible or non-visible phenomena. For instance, Sentinel-2 STAC items contain many different types of images that can be combined to form false color images such as color infrared. A properly formatted render config instructs GeoCatalog on how to properly create these images so they can be displayed in GeoCatalog's Explorer.  For more information see [Quickstart: Render Config and item_assets Guide](./render-configuration.md).
-
-#### Tile Settings
-
-You also have the ability to set other Tile Settings based on the unique features of your STAC collection. For example, you can set the min-zoom parameter that defines the zoom level at which the selected STAC item assets within your collection will appear on the map. High resolution imagery should have a high min zoom level to avoid experiencing latency when using the Explorer. Low resolution imagery can have lower min zoom levels without issue. For more information see [Tile settings](./tile-settings.md).
-
-#### Queryables
-
-If your collection contains a large number of STAC items, running complex queries against your collection may take large amounts of time. To prevent this, GeoCatalog provides the ability to index additional fields within your STAC items to improve your query performance. 
+Link to Collection configuration concept.
