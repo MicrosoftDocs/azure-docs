@@ -174,7 +174,7 @@
 - name: Resources
   items:
     - name: AVE Templates
-      href: ave-templates.md
+      href: azure-virtual-enclaves-templates.md
     - name: Migrate Azure Resources into AVE
       href: migrate-azure-resources-into-azure-virtual-enclaves.md
     - name: Azure Virtual Enclaves FAQ

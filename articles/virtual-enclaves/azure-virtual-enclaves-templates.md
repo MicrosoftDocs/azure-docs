@@ -8,10 +8,10 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Azure Virtual Enclaves Deployment Templates
+# Azure Virtual Enclaves deployment templates
 Example templates to deploy multiple Azure Virtual Enclave resources for a sample scenario. The current templates are maintained using a [Bicep](../azure-resource-manager/bicep/overview.md) file but those are converted to [Azure Resource Manager (ARM)](../azure-resource-manager/templates/overview.md) templates for deployment from the portal.
 
-## Secure Azure Computing Architecture (SACA) Template
+## Secure Azure Computing Architecture (SACA) template
 An example of how to deploy the SACA within AVE.
 
 What gets deployed:
@@ -23,14 +23,14 @@ What gets deployed:
 - Nine  [Enclave Connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
-[ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-saca.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-saca.png#lightbox)
+[ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-secure-azure-computing-architecture.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-secure-azure-computing-architecture.png#lightbox)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
 Deploy the template:
-1. Open the Azure portal and type "deploy" into the top search bar and select `Deploy a Custom Template`.
+1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
@@ -50,23 +50,23 @@ What gets deployed:
 - Nine  [Enclave Connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
-[ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-tre.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-tre.png#lightbox)
+[ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-trusted-research-environment.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-trusted-research-environment.png#lightbox)
 
-[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.json) (easiest to deploy via Portal, powershell, or command line)
+[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
 Deploy the template:
-1. In the Azure portal, type "deploy" into the top search bar and select "Deploy a Custom Template".
-2. Select "Build your own template in the editor".
-3. Replace the default template with the template linked above (e.g. copy the text inside the json file).  See [this quickstart](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+1. In the Azure portal, type `deploy` into the top search bar and select `Deploy a Custom Template`.
+2. Select `Build your own template in the editor`.
+3. Replace the default template with the template linked above (for example, copy the text inside the json file).  See [this quickstart](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
-5. Under "Resource Group", select "Create New" and enter the resource group name you would like to use (e.g. community-template-rg) for the AVE resources.
-6. Optionally, Under "Unique Number", increment the number if previous deployments occured in the same resources group.
-9. The remaining parameters that are not required can be left as the default unless you would like to test a modification. It is recommended to keep the defaults for the first test deployment.
-10. Select "Review + Create" and then "Create".
+5. Under `Resource Group`, select `Create New` and enter the resource group name you would like to use (for example, community-template-rg) for the AVE resources.
+6. Optionally, Under `Unique Number`, increment the number if previous deployments occurred in the same resources group.
+9. The remaining parameters that aren't required can be left as the default unless you would like to test a modification. It's recommended to keep the defaults for the first test deployment.
+10. Select `Review + Create` and then `Create`.
 
-## AVE Demo Environment Template
+## AVE demo environment template
 
 What gets deployed:
 - One  [Community](./what-community.md)
@@ -77,7 +77,7 @@ What gets deployed:
 - 25 [Enclave Connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
-[ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-env.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-env.png#lightbox)
+[ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-environment.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-environment.png#lightbox)
 
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
@@ -85,7 +85,7 @@ What gets deployed:
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
 Deploy the template:
-1. Open the Azure portal and type "deploy" into the top search bar and select `Deploy a Custom Template`.
+1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
@@ -94,7 +94,7 @@ Deploy the template:
 9. Review the remaining parameters but keep the default unless you would like to test a modification.
 10. Select `Review + Create` and then `Create`.
 
-## Community and Enclaves Template
+## Community and Enclaves template
 
 [What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
 - One  [Community](./what-community.md)
@@ -111,7 +111,7 @@ Deploy the template:
 
 [Deploy the template](./deploy-an-ave-community-with-enclaves.md#deploy-the-template)
 
-### Community Template
+### Community template
 What gets deployed:
 - One  [Community](./what-community.md)
 - Two  [Community Endpoints](./what-community-endpoint.md)
@@ -120,7 +120,7 @@ What gets deployed:
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/community.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
-1. Open the Azure portal and type "deploy" into the top search bar and select `Deploy a Custom Template`.
+1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
@@ -128,32 +128,32 @@ Deploy the template:
 6. Under `Community Name`, enter the community name you would like to use (for example cm-template-test).
 7. Select `Review + Create` and then `Create`.
 
-### Enclave Template
+### Enclave template
 What gets deployed:
 - One  [Enclave](./what-enclave.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/enclave.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
-1. Open the Azure portal and type "deploy" into the top search bar and select `Deploy a Custom Template`.
+1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
 5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group for other AVE resources but not required.
 6. Enter the `Community Resource ID` which can be found on the community `Properties` page under `ID`.
-7. Enter the new "Enclave Name" you would like to create (for example enc-template-test).
-8. Enter the `Community Address Space` which can be found on the community "Overview" page (for example 10.0.0.0/16).
+7. Enter the new `Enclave Name` you would like to create (for example enc-template-test).
+8. Enter the `Community Address Space` which can be found on the community `Overview` page (for example 10.0.0.0/16).
 9. Enter the `Enclave Third Octet` which is a number from 2-255 that is unused by other enclaves.
 10. Select `Review + Create` and then `Create`.
 
-### Endpoints Template
+### Endpoints template
 What gets deployed:
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/endpointsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
-1. Open the Azure portal and type "deploy" into the top search bar and select `Deploy a Custom Template`.
+1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
@@ -162,14 +162,14 @@ Deploy the template:
 7. Enter the `Enclave Address Space` for the enclave you're adding the endpoint to (for example 10.0.2.0/23). You can find this by selecting on the enclave resource, on the overview page select the `virtual network` link, and select the `Address Space` page.
 8. Select `Review + Create` and then `Create`.
 
-### Connections Template
+### Connections template
 What gets deployed:
 - Three  [Enclave Connections](./what-enclave-connection.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/connectionsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 Deploy the template:
-1. Open the Azure portal and type "deploy" into the top search bar and select `Deploy a Custom Template`.
+1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 2. Select `Build your own template in the editor`.
 3. Replace the default template with the ARM template contents (for example copy the text inside the json file).  See [this article](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template) if you have any issues with the above steps.
 4. Select `Save`.
