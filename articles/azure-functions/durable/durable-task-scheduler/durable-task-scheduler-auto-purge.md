@@ -13,17 +13,19 @@ Autopurge operates asynchronously in the background, optimized to minimize syste
 
 ## How it works
 
-Autopurge is an opt-in feature. You can enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated only with the following statuses:
+Autopurge is an opt-in feature. You can enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated with terminal statuses. "Terminal" refers to an orchestration state that no longer results in triggering work items. Terminal statuses include:
 - `Completed`
 - `Failed`
 - `Canceled`
 - `Terminated`
 
-Autopurge ignores orchestration data associated with the following statuses:
+Autopurge ignores orchestration data associated with non-terminal statuses. "Non-terminal" refers to an orchestration that is running, paused, or waiting for a worker. These statuses include:
 - `Pending` 
 - `Running` 
+- `Suspended`
+- `Continued_As_New`
 
-[Once enabled,](#enable-autopurge) autopurge periodically deletes orchestration data older than the retention period you set. 
+[Once enabled,](#enable-autopurge) autopurge periodically deletes orchestration data older than the retention period you set. Autopurge only 
 
 > [!NOTE]
 > Retention policies you define are applied to **all** task hubs in a scheduler.
@@ -31,6 +33,8 @@ Autopurge ignores orchestration data associated with the following statuses:
 ### Policy value
 
 Retention value can range from 0 (purge as soon as possible) to the maximum integer value, with the unit being **days**. 
+
+The retention period refers to the time period since the orchestration entered terminal state. For example, you set a retention value of 1 day. If the orchestration takes 10 days to finish, autopurge won't delete it until the following day. Autopurge isn't triggered until the orchestration finishes.
 
 Although retention periods have no maximum limit, we recommend you avoid retaining large volumes of stale orchestration data for extended periods. This practice ensures efficient use of storage resources and maintains optimal app performance.
 
@@ -149,7 +153,8 @@ If creation is successful, you receive the following response.
 }
 ```
 
-Learn more about the retention policy `create` command by running `az durabletask retention-policy create --help`. 
+> [!TIP]
+> Learn more about the retention policy command via [the CLI reference][TODO]. 
 
 # [Azure Resource Manager](#tab/arm)  
 
@@ -224,7 +229,7 @@ resource exampleResource 'Microsoft.DurableTask/schedulers/retentionPolicies@202
   properties: {
     retentionPolicies: [
       {
-        retentionPeriodInDays: 30
+        retentionPeriodInDays: 1
       }
       {
         "retentionPeriodInDays": 0,
@@ -247,7 +252,7 @@ resource exampleResource 'Microsoft.DurableTask/schedulers/retentionPolicies@202
 Delete the retention policies using the following command. The Durable Task Scheduler stops cleaning orchestration data within 5 to 10 minutes.
 
 ```azurecli
-az durabletask retention-poliby delete --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP
+az durabletask retention-policy delete --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP
 ```
 
 # [Azure Resource Manager](#tab/arm)  
