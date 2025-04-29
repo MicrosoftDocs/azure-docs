@@ -71,6 +71,11 @@ Some of the key aspects of Geo-data Replication feature are:
 - Customer-managed promotion from primary to secondary region, providing full ownership and visibility for outage resolution. Metrics are available, which can help to automate the promotion from customer side.
 Secondary regions can be added or removed at the customer's discretion.
 -	Replication consistency - There are two replication consistency settings, synchronous and asynchronous.
+
+| State | Diagram |
+| --- | ---|
+| Before failover (promotion of secondary) | :::image type="content" source="./media/geo-replication/a-as-primary.png" alt-text="Diagram showing when region A is primary, B is secondary."::: |
+| After failover (promotion of secondary) | :::image type="content" source="./media/geo-replication/b-as-primary.png" alt-text="Diagram showing when B is made the primary, that A becomes the new secondary."::: |
  
 ## Replication modes
 There are two replication consistency configurations, synchronous and asynchronous. It's important to know the differences between the two configurations as they have an impact on your applications and your data consistency.
@@ -169,6 +174,7 @@ Offsets are committed to Event Hubs directly and offsets are replicated across r
 Here are the list of Apache Kafka clients that are supported - 
 
 TBD add versions.
+
 | Client name | Version |
 | ----------- | ------- |
 | Apache Kafka | |
@@ -177,6 +183,7 @@ TBD add versions.
 In the case of other libraries, these are supported based on the versioning of the specific definitions - 
 
 TBD add protocol versions.
+
 | Operation name | Version supported |
 | -------------- | ----------------- |
 |||
@@ -198,9 +205,11 @@ TBD add other language package names
 | C# | [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) |
 
 > [!WARNING]
-> If you use the legacy SDK, [Windows.Azure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) you may encounter issues consuming from a geo-replication namespace after promotion of the secondary to primary.
+> As part of the implementation, the checkpoint format is adapted when geo-replication is enabled on a namespace. Subsequent checkpoints after the geo-replication is complete will be written with a new format. If you promote a secondary region to primary right after the geo-replication pairing is done but before a new checkpoint is stored (this may happen in the case of forced promotion/failover), then a new data published post promotion may be lost.
 >
-> It is recommended to upgrade to the [latest versions of the SDKs](sdks.md)
+> In such cases, it is preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
+>
+> It is also recommended to upgrade to the [latest versions of the SDKs](sdks.md).
 >
 
 ## Considerations
@@ -211,7 +220,23 @@ Note the following considerations to keep in mind with this feature:
 - Promoting a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once.
 
 ## Pricing
-Event Hubs dedicated clusters are priced independently of geo-replication. Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions. The dedicated clusters used as secondary instances for geo-replication can be used for other workloads. There's a charge for geo-replication based on the published bandwidth * the number of secondary regions. The geo-replication charge is waived in early public preview. 
+
+Geo-replication pricing has 2 parameters -
+
+   * The compute charge for the cluster or namespace.
+   * The bandwidth charge for the data being replicated between the primary and secondary regions.
+
+### Dedicated clusters
+
+Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions, which can be used to host namespaces other than the one being geo-replicated. These dedicated clusters are billed separately based on the number of Capacity Units (CUs) allocated to each.
+
+Bandwidth is charged based on the data transferred between the primary and secondary regions.
+
+### Premium namespaces
+
+For Premium namespaces, enabling geo-replication provisions the same number of processing units (PUs) in the secondary region. Thus, enabling geo-replication on a premium namespace doubles the Processing Units (PUs) billed.
+
+Bandwidth is charged based on the data transferred between the primary and secondary regions.
 
 ## Related content
 To learn how to use the Geo-replication feature, see [Use Geo-replication](use-geo-replication.md).
