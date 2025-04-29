@@ -56,7 +56,7 @@ When configuring an autopurge retention policy, you can set either a *specific* 
      ```
     
 Add specific policies to override the default policy applied to orchestrations, regardless of status. In the following example, the second and third policies override the default policy (`"retentionPeriodInDays": 1`). 
-- Data associated with completed orchestrations is deleted immediately. 
+- Data associated with completed orchestrations is deleted as soon as possible (approximately every 5 minutes). 
 - Data associated with failed orchestrations is purged after 60 days. 
 
 However, since no specific policy is set for canceled or terminated orchestrations, the default policy still applies to them, purging their data after 1 day. 
@@ -180,25 +180,7 @@ If creation is successful, you receive the following response.
 Create or update the retention policy by running the following command.
 
 ```azurecli
-  az rest --method put --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/retentionPolicies/default?api-version=2025-04-01-preview" --body '{
-    "name": "default",
-    "type": "private.durabletask/schedulers/retentionPolicies", 
-    "properties": {
-      "retentionPolicies": [
-        {
-          "retentionPeriodInDays": 1
-        },
-        {
-          "retentionPeriodInDays": 0,
-          "orchestrationState": "Completed"
-        },
-        {
-          "retentionPeriodInDays": 60,
-          "orchestrationState": "Failed"
-        },
-      ]
-    }
-  }'
+az durabletask retention-policy create --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP --default-days 1 --completed-days 0 --failed-days 60
 ```
 
 **Example response**
@@ -255,7 +237,7 @@ DELETE https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups
 Delete the retention policies using the following command. The Durable Task Scheduler stops cleaning orchestration data within 5 to 10 minutes.
 
 ```azurecli
-az rest --method delete --url "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAMER/retentionPolicies/default?api-version=2025-04-01-preview"
+az durabletask retention-poliby delete --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP
 ```
 
 ---
