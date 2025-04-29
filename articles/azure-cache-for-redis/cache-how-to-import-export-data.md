@@ -31,7 +31,7 @@ Import and export are supported in the Premium, Enterprise, and Enterprise Flash
 - You can import RDB files from Premium tier caches into Enterprise and Enterprise Flash tier caches.
 - You can't import from Redis Enterprise tiers to Premium tier.
 - You can export your snapshots as RDB page blobs in Premium tier, or as `.gz` block blobs in Enterprise tiers.
-- Export isn't supported by blob storage accounts.
+- Blob storage accounts don't support export.
 - Caches running Redis 4.0 support RDB version 8 and below. Caches running Redis 6.0 support RDB version 9 and below.
 - You can't import exported backups from newer versions of Redis like Redis 6.0 into older versions like Redis 4.0.
 
@@ -83,7 +83,7 @@ You can monitor import progress by following the notifications from the Azure po
 
 ## Export
 
-The export process exports the data stored in your Azure Redis cache to RDB files. You can use this feature to move data from one Azure Cache for Redis instance to another or to another Redis server.
+The export process exports the data stored in your Azure Redis cache to RDB files. You can use this feature to move data from one Azure Cache for Redis instance to another instance or to another Redis server.
 
 During the export process, a temporary file is created on the virtual machine that hosts the Azure Redis server instance. The file is then uploaded to the chosen storage account. When the export operation completes with either success or failure, the temporary file is deleted.
 
@@ -127,13 +127,13 @@ This section contains frequently asked questions about the import and export fea
 - [Can I automate import-export using Azure PowerShell or Azure CLI?](#can-i-automate-import-export-using-azure-powershell-or-azure-cli)
 - [Can I import data from any Redis server?](#can-i-import-data-from-any-redis-server)
 - [Can I import or export data from a storage account in a different subscription than my cache?](#can-i-import-or-export-data-from-a-storage-account-in-a-different-subscription-than-my-cache)
-- [Can I use import-export with Redis clustering?](#can-i-use-importexport-with-redis-clustering)
-- [How does import-export work with custom databases settings?](#how-does-import-export-work-with-custom-database-settings)
+- [Can I use import-export with Redis clustering?](#can-i-use-import-export-with-redis-clustering)
+- [How does import-export work with custom database settings?](#how-does-import-export-work-with-custom-database-settings)
 - [How is import-export different from Redis data persistence?](#how-is-import-export-different-from-redis-data-persistence)
 - [Is my cache available during an import-export operation?](#is-my-cache-available-during-an-import-export-operation)
 - [What if I have a firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account)
 - [What RDB versions can I import?](#what-rdb-versions-can-i-import)
-- [Which Azure Redis tiers support import-export?](#which-tiers-support-importexport)
+- [Which Azure Redis tiers support import-export?](#which-tiers-support-import-export)
 - [Which permissions does the storage account container shared access signature (SAS) token need to allow export?](#which-permissions-need-to-be-granted-to-the-storage-account-container-shared-access-signature-sas-token-to-allow-export)
 - [Why did I get an error when exporting my data to Azure Blob Storage?](#why-did-i-get-an-error-when-exporting-my-data-to-azure-blob-storage)
 <!--- [Why did I get a timeout error during my import-export operation?](#why-did-i-get-a-timeout-error-during-my-import-export-operation?)-->
@@ -164,7 +164,7 @@ For more information on supported RDB versions for import, see [Compatibility](#
 
 Yes, and you can import and export between a clustered cache and a nonclustered cache. Since Redis cluster [only supports database 0](cache-how-to-scale.md#do-i-need-to-make-any-changes-to-my-client-application-to-use-clustering), any data in databases other than 0 isn't imported. When clustered cache data is imported, the keys are redistributed among the shards of the cluster.
 
-### How does import-export work with custom databases settings?
+### How does import-export work with custom database settings?
 
 Some pricing tiers have different [database limits](cache-configure.md#databases). If you configured a custom value for the `databases` setting during cache creation, there are some considerations when importing.
 
