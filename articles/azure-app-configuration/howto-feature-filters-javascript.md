@@ -83,4 +83,4 @@ To learn more about the built-in feature filters, continue to the following docu
 For the full feature rundown of the JavaScript feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [.NET Feature Management](./feature-management-javascript-reference.md)
+> [JavaScript Feature Management](./feature-management-javascript-reference.md)

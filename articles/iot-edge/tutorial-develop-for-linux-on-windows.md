@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 >
 > * Set up your development machine.
 > * Use IoT Edge development tools to create a new project.
-> * Build your project as a container and store it in an Azure container registry.
+> * Build your project as a container and store it in an Azure Container Registry.
 > * Deploy your code to an IoT Edge device.
 
 ## Prerequisites
@@ -424,14 +424,14 @@ Use the module's Dockerfile to build the module's Docker image:
 docker build --rm -f "<DockerFilePath>" -t <ImageNameAndTag> "<ContextPath>" 
 ```
 
-For example, assume that your command shell is in your project directory and your module name is `IotEdgeModule1`. To build the image for the local registry or an Azure container registry, use the following commands:
+For example, assume that your command shell is in your project directory and your module name is `IotEdgeModule1`. To build the image for the local registry or an Azure Container Registry, use the following commands:
 
 ```bash
 # Build the image for the local registry
 
 docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t localhost:5000/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
 
-# Or build the image for an Azure container registry
+# Or build the image for an Azure Container Registry
 
 docker build --rm -f "./IotEdgeModule1/Dockerfile.amd64.debug" -t myacr.azurecr.io/iotedgemodule1:0.0.1-amd64 "./IotEdgeModule1"
 ```
@@ -449,7 +449,7 @@ For example:
 
 docker push localhost:5000/iotedgemodule1:0.0.1-amd64
 
-# Or push the Docker image to an Azure container registry
+# Or push the Docker image to an Azure Container Registry
 az acr login --name myacr
 docker push myacr.azurecr.io/iotedgemodule1:0.0.1-amd64
 ```
@@ -460,7 +460,7 @@ In Visual Studio, open the `deployment.debug.template.json` deployment manifest 
 
 Before deployment, you need to update your Azure Container Registry credentials, your module images, and the proper `createOptions` values. For more information about `createOption` values, see [How to configure container create options for IoT Edge modules](how-to-use-create-options.md).
 
-1. If you're using an Azure container registry to store your module image, add your credentials to `deployment.debug.template.json` in the `edgeAgent` settings. For example:
+1. If you're using an Azure Container Registry to store your module image, add your credentials to `deployment.debug.template.json` in the `edgeAgent` settings. For example:
 
     ```json
     "modulesContent": {
