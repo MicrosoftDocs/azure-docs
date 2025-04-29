@@ -23,7 +23,7 @@ These two paths are designed to make accessing Azure credits and resources easie
 
 ### Who qualifies for the Azure startup credit offer?
 
-To qualify for the [startup credit offer](/overview.md), you must meet the following criteria:
+To qualify for the [startup credit offer](overview.md), you must meet the following criteria:
 
 - You must be a new Azure customer with no prior Azure account.
 - You must sign up or sign in using a valid personal Microsoft Account (MSA).
