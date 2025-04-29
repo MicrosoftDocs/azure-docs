@@ -120,7 +120,7 @@ The `AzureAppConfiguration` type extends the following interfaces:
 
 ### JSON Content Type Handling
 
-You can [create JSON key-values](./howto-leverage-json-content-type#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into object.
+You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into object.
 
 ```json
 {
