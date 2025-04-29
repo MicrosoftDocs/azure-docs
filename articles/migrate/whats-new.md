@@ -16,7 +16,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
-- General Availability: Azure Migrate now supports the simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
+- General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
 
 - Public preview: Azure Migrate supports application awareness to offer an enhanced and modernized user experience. This feature streamlines the discovery, assessment, and migration of on-premises applications and workloads to Azure. It streamlines and enhances the decision-making, planning, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
 
@@ -28,7 +28,7 @@ ms.custom: mvc, engagement-fy25
 
 - Application assessment: You can include constituent workloads, such as application servers, web apps, and databases. The assessment then evaluates all potential Azure target services for these workloads and provides a recommended migration path, along with cost and readiness details. [Learn more](review-application-assessment.md).
 
-- Action Center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within a project. [Learn more](centralized-issue-tracking.md).
+- Action Center: Azure Migrate now includes Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within a project. [Learn more](centralized-issue-tracking.md).
 
 ## Update (February 2025)
 
@@ -77,7 +77,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (November 2023)
 
-- Public preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service (AKS). By using this feature, you get insights such as app readiness, cluster rightsizing, and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
+- Public preview: Assess your ASP.NET web apps for migration to Azure Kubernetes Service. By using this feature, you get insights such as app readiness, cluster rightsizing, and cost of running these web apps on AKS. [Learn more](tutorial-assess-aspnet-aks.md).
 - Public preview: Assess your ASP.NET web apps for migration to Azure App Service containers. [Learn more](tutorial-assess-webapps.md).
 - Public preview: Get the total cost of ownership (TCO) comparison for your ASP.NET web apps running on AKS and App Service containers in an Azure Migrate business case. [Learn more](how-to-build-a-business-case.md).
 
@@ -109,7 +109,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 - Build a quick business case for servers imported via a .csv file. [Learn more](tutorial-discover-import.md).
 - Build a business case by using Azure Migrate for:
-  - Servers and workloads running in your Microsoft Hyper-V and physical/ bare-metal environments, in addition to infrastructure as a service (IaaS) services of other public clouds.
+  - Servers and workloads running in your Microsoft Hyper-V and physical/bare-metal environments, in addition to infrastructure as a service (IaaS) services of other public clouds.
   - SQL Server Always On failover cluster instances and Always On availability groups. [Learn more](how-to-discover-applications.md).
 - Envision savings with Azure Hybrid Benefit by bringing your existing Windows Server licenses to Azure via Azure VM assessments.
 
@@ -120,7 +120,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (February 2023)
 
 - Azure Migrate now supports discovery and assessment of SQL Server Always On failover cluster instances and Always On availability groups. [Learn more](how-to-discover-applications.md).
-- Public preview: Modernize your ASP.NET web apps on Azure Kubernetes Service (AKS) directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
+- Public preview: Modernize your ASP.NET web apps on Azure Kubernetes Service directly through Azure Migrate. [Learn more](tutorial-modernize-asp-net-aks.md).
 
 ## Update (January 2023)
 
@@ -134,11 +134,11 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 - Public preview: Build a business case by using Azure Migrate for servers and workloads running in your VMware environment. A business case helps you eliminate guesswork in your cost-planning process. It also adds data-driven insights to help you understand how Azure can bring the most value to your business.
 
-  Key highlights:
+  Key highlights include:
 
-  - Total cost of ownership for on-premises versus Azure
-  - Year-on-year cashflow analysis
-  - Resource utilization-based insights to identify servers and workloads that are ideal for the cloud
+  - Total cost of ownership for on-premises versus Azure.
+  - Year-on-year cashflow analysis.
+  - Resource utilization-based insights to identify servers and workloads that are ideal for the cloud.
   - Quick wins for migration and modernization, including end-of-support Windows OS and SQL versions.
   - Long-term cost savings by moving from a capital expenditure model to an operating expenditure model, so you pay for only what you use.
 
@@ -196,12 +196,12 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 - Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization, and limiting factors for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements include:
   - Support for two new target assessment regions: Central US and Canada East.
   - Support for reserved instances in assessment properties for more accurate cost estimates.
-  - A new readiness condition to highlight operating systems deprecated by VMware.
+  - A new readiness condition to highlight operating systems that VMware deprecated.
   - Support for storage utilization parameters in storage sizing logic (only for discovery via a .csv file).
 
 ## Update (October 2021)
 
-- Azure Migrate now supports new public cloud geographies and regions. [Learn more](supported-geographies.md#public-cloud).
+- Azure Migrate supports new public cloud geographies and regions. [Learn more](supported-geographies.md#public-cloud).
 
 ## Update (September 2021)
 
@@ -228,7 +228,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (June 2021)
 
-- Azure Migrate now supports new public cloud geographies and regions. [Learn more](supported-geographies.md#public-cloud).
+- Azure Migrate supports new public cloud geographies and regions. [Learn more](supported-geographies.md#public-cloud).
 - Azure Migrate allows you to register servers running SQL Server with a SQL Server on Azure Virtual Machines resource provider during replication, to automatically install the SQL Server IaaS Agent extension. This feature is available for agentless VMware, agentless Hyper-V, and agent-based migrations.
 - Import of a CSV file for assessment now supports up to 20 disks. Earlier, it was limited to eight disks per server.
 
@@ -305,7 +305,7 @@ Many new features were added to Azure Migrate:
 - **Import-based assessment**: Azure Migrate now supports assessment of machines by using metadata and performance data provided in a CSV file.
 - **Application discovery**: Azure Migrate now supports application-level discovery of apps, roles, and features by using the Azure Migrate appliance. This capability is currently supported for VMware VMs only, and it's limited to discovery only. (Assessment isn't currently supported.) [Learn more](how-to-discover-applications.md).
 - **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization. Both agentless and agent-based visualization are now supported.
-- **Virtual Desktop**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
+- **Virtual desktop**: Use software development company (SDC) tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
 - **Web app**: The Azure App Service Migration Assistant, used for assessing and migration web apps, is now integrated into Azure Migrate.
 
 New assessment and migration tools were added to Azure Migrate:
@@ -313,16 +313,16 @@ New assessment and migration tools were added to Azure Migrate:
 - **RackWare**: Offers cloud migration.
 - **Movere**: Offers assessment.
 
-For more information about using tools and ISV offerings for assessment and migration in Azure Migrate, see [What is Azure Migrate?](migrate-services-overview.md).
+For more information about using tools and SDC offerings for assessment and migration in Azure Migrate, see [What is Azure Migrate?](migrate-services-overview.md).
 
 ## Azure Migrate current version
 
 The current version of Azure Migrate (released in July 2019) provides many new features:
 
 - **Unified migration platform**: Azure Migrate now provides a single portal to centralize, manage, and track your migration journey to Azure, with an improved deployment flow and portal experience.
-- **Assessment and migration tools**: Azure Migrate provides native tools. It also integrates with other Azure services and with tools from ISVs.
-- **Azure Migrate assessment**: By using the Azure Migrate Server Assessment tool, you can assess VMware VMs and Hyper-V VMs for migration to Azure. You can also assess VMs for migration by using other Azure services and ISV tools.
-- **Azure Migrate migration**: By using the Migration and modernization tool, you can migrate on-premises VMware VMs and Hyper-V VMs, physical servers, other virtualized servers, and private/public cloud VMs to Azure. In addition, you can migrate to Azure by using ISV tools.
+- **Assessment and migration tools**: Azure Migrate provides native tools. It also integrates with other Azure services and with tools from SDCs.
+- **Azure Migrate assessment**: By using the Azure Migrate Server Assessment tool, you can assess VMware VMs and Hyper-V VMs for migration to Azure. You can also assess VMs for migration by using other Azure services and SDC tools.
+- **Azure Migrate migration**: By using the Migration and modernization tool, you can migrate on-premises VMware VMs and Hyper-V VMs, physical servers, other virtualized servers, and private/public cloud VMs to Azure. In addition, you can migrate to Azure by using SDC tools.
 - **Azure Migrate appliance**: Azure Migrate deploys a lightweight appliance for discovery and assessment of on-premises VMware VMs and Hyper-V VMs.
   - The Azure Migrate Server Assessment tool and the Migration and modernization tool use this appliance for agentless migration.
   - The appliance continuously discovers server metadata and performance data, for the purposes of assessment and migration.  

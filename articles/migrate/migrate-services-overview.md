@@ -41,10 +41,10 @@ After you identify the inventory of workloads, you can create a *business case* 
 
 After you make the decision to migrate to Azure, the next important phase of migration is planning. To plan migration in detail, use Azure Migrate assessments to find:
 
-- **Azure readiness**: Assesses whether on-premises servers, SQL servers, and web apps are ready for migration to Azure.
-- **Right-sizing**: Estimates the size of Azure virtual machines (VMs), the Azure SQL configuration, and the number of Azure VMware Solution nodes after migration.
-- **Azure cost estimation**: Estimates costs for running on-premises servers in Azure.
-- **Dependency analysis:** Helps you understand the network dependencies between servers in your datacenter so that you can make high-confidence migration plans without missing any critical dependency. [Learn more about dependency analysis](concepts-dependency-visualization.md).
+- **Azure readiness**: Assess whether on-premises servers, SQL servers, and web apps are ready for migration to Azure.
+- **Right-sizing**: Estimate the size of Azure virtual machines (VMs), the Azure SQL configuration, and the number of Azure VMware Solution nodes after migration.
+- **Azure cost estimation**: Estimate costs for running on-premises servers in Azure.
+- **Dependency analysis**: Understand the network dependencies between servers in your datacenter so that you can make high-confidence migration plans without missing any critical dependency. [Learn more about dependency analysis](concepts-dependency-visualization.md).
 
 ### Execute
 
@@ -65,7 +65,7 @@ Azure Migrate offers these benefits for your cloud migration journey:
 
 - **Unified migration platform**: You use a single portal to start, run, and track your migration to Azure. The unified platform supports discovery, assessment, and migration of variety of workloads, like servers, databases, and web applications.
 
-- **Free tool**: Azure Migrate is a free self-service tool that you can use to:
+- **Free service**: Azure Migrate is a free service that you can use to:
 
   1. Identify your inventory of workloads.
   1. Assess workloads for multiple infrastructure as a service (IaaS) and platform as a service (PaaS) Azure targets.
@@ -76,11 +76,11 @@ Azure Migrate offers these benefits for your cloud migration journey:
 
 - **Assessment, migration, and modernization**: In the Azure Migrate hub, you can assess, migrate, and modernize:
 
-  - **Servers, databases and web apps**: Assess on-premises servers, including web apps and SQL Server instances, and migrate them to Azure.
+  - **Servers**: Assess on-premises servers and migrate them to Azure.
 
   - **Databases**: Assess on-premises SQL Server instances and databases to migrate them to a SQL server on an Azure VM, an Azure SQL managed instance, or an Azure SQL database.
 
-  - **Web applications**: Assess on-premises web applications and migrate them to Azure App Service and Azure Kubernetes Service.
+  - **Web applications**: Assess on-premises web apps and migrate them to Azure App Service and Azure Kubernetes Service.
 
   - **Data**: Migrate large amounts of data to Azure quickly and cost-effectively by using Azure Data Box products.
 
@@ -93,15 +93,15 @@ Azure Migrate includes the following integrated tools:
 |---|---|---|
 | Discovery and Assessment | Discover and assess servers, including servers for SQL and web apps. | Discover and assess on-premises servers running on VMware, Hyper-V, and physical servers in preparation for migration to Azure. |
 | Migrate and Modernize | Migrate servers. | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized servers, and public cloud VMs to Azure. |
-|Data Migration Assistant | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant is a standalone tool to assess SQL servers. It helps pinpoint potential problems blocking migration. It finds unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview). |
+|Data Migration Assistant | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant is a standalone tool to assess SQL servers. It helps pinpoint potential problems that block migration. It finds unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview). |
 | Azure Database Migration Service | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or Azure SQL Managed Instance. | [Learn more about Database Migration Service](/azure/dms/dms-overview). |
 | Azure App Service Migration Assistant | Assess on-premises web apps and migrate them to Azure. | Azure App Service Migration Assistant is a standalone tool to assess on-premises websites for migration to Azure App Service.<br><br>Use Migration Assistant to migrate .NET and PHP web apps to Azure. [Learn more](https://appmigration.microsoft.com/). |
 | Azure Data Box | Migrate offline data. | Use Azure Data Box products to move large amounts of offline data to Azure. [Learn more](/azure/databox/). |
 | Movere | Discover and assess on-premises workloads. | This tool is retired. Use Azure Migrate for your migration journey. |
 
-The following features from ISVs are integrated into Azure Migrate:
+The following features from software development companies (SDCs) are integrated into Azure Migrate:
 
-| ISV | Function of feature |
+| SDC | Function of feature |
 | --- | --- |
 | [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Migrate servers. |
 | [Cloudamize](https://www.cloudamize.com/platform) | Assess servers. |

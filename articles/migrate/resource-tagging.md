@@ -13,11 +13,11 @@ monikerRange: migrate
 
 In any cloud transformation journey, a comprehensive current-state analysis of the IT landscape is essential. That analysis includes infrastructure, workloads, applications, and dependencies.
 
-The new tagging feature in Azure Migrate enhances this analysis. You can use tags to group and visualize related resources based on specific properties, such as environment, department, or criticality. These meaningful groupings can help you manage resources throughout your migration journey and beyond.
+The new tagging feature in Azure Migrate enhances this analysis. You can use tags to group and visualize related resources based on specific properties, such as environment, department, or criticality. These meaningful groupings can help you manage resources throughout your migration process and beyond.
 
 ## Key benefits
 
-- **Enhanced resource grouping and organization**: Tagging resources with relevant attributes helps you categorize, track, and manage your assets. For example, you can collectively manage and analyze resources tagged by department (like HR or Finance), which improves oversight and streamlines operations.
+- **Enhanced resource grouping and organization**: Tagging resources with relevant attributes helps you categorize, track, and manage your assets. For example, you can collectively manage and analyze resources tagged by department (like HR or finance), which improves oversight and streamlines operations.
 
 - **Improved visibility and control**: You gain an organized view of how resources interrelate. This view supports better management of resources that share a common purpose, application, or organizational unit.
 
@@ -27,7 +27,7 @@ The new tagging feature in Azure Migrate enhances this analysis. You can use tag
 
 ## Use cases
 
-- **Department-based grouping**: Tagging resources by department (for example, finance and marketing) helps allocate resources appropriately and track department-specific assets.
+- **Department-based grouping**: Tagging resources by department (for example, finance and marketing) helps you allocate resources appropriately and track department-specific assets.
 
 - **Environment and criticality identification**: Tags such as production, development, or high criticality simplify the management of environments and critical workloads.
 
@@ -55,6 +55,6 @@ The new tagging feature in Azure Migrate enhances this analysis. You can use tag
 
 ## Import tags
 
-1. Select **Tags** > **Import tags**
+1. Select **Tags** > **Import tags**.
 
 2. Choose the file with the tags that you want to import.
