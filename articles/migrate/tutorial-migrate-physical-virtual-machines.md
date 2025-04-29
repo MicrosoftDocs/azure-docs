@@ -285,7 +285,7 @@ Use the following steps to register the appliance:
 1. Enter your Microsoft Azure credentials to complete the registration. 
 1. After successful registration, you can close the tab and return to the **Appliance Configuration Manager** to continue the setup.
 
-    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows the microsoft code":::
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Screenshot that shows the Microsoft code.":::
 
     > [!Note]
     > An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
