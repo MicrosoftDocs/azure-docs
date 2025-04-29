@@ -1,6 +1,6 @@
 ---
-title: Tagging in Azure Migrate
-description: Learn how to tag resources with relevant attributes.
+title: Tags in Azure Migrate
+description: Learn how to tag resources with relevant attributes in Azure Migrate.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
@@ -17,7 +17,7 @@ The new tagging feature in Azure Migrate enhances this analysis. You can use tag
 
 ## Key benefits
 
-- **Enhanced resource grouping and organization**: By tagging resources with relevant attributes, you can easily categorize, track, and manage your assets. For example, resources tagged by department (like HR or Finance) can be collectively managed and analyzed, which improves oversight and streamlines operations.
+- **Enhanced resource grouping and organization**: Tagging resources with relevant attributes helps you categorize, track, and manage your assets. For example, you can collectively manage and analyze resources tagged by department (like HR or Finance), which improves oversight and streamlines operations.
 
 - **Improved visibility and control**: You gain an organized view of how resources interrelate. This view supports better management of resources that share a common purpose, application, or organizational unit.
 
@@ -25,7 +25,7 @@ The new tagging feature in Azure Migrate enhances this analysis. You can use tag
 
 - **Simplified migration planning**: You can use tags as selection filters when you create your reports for business cases and assessments.
 
-## Tagging use cases
+## Use cases
 
 - **Department-based grouping**: Tagging resources by department (for example, finance and marketing) helps allocate resources appropriately and track department-specific assets.
 
@@ -43,7 +43,7 @@ The new tagging feature in Azure Migrate enhances this analysis. You can use tag
 
 ## View tags
 
-To view tags, select the workload for which you want to view the assigned tags.
+- Select the workload for which you want to view the assigned tags.
 
 ## Filter by using tags
 
