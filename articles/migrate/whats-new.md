@@ -16,21 +16,24 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (April 2025)
 
-Public preview: Azure Migrate supports Application Awareness, offering an enhanced and modernized user experience. This feature streamlines the discovery, assessment, and migration of on-premises applications and workloads to Microsoft Azure. It streamlines and enhances the decision-making, planning, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
+- General Availability: Azure Migrate now supports the simplified experience through its upgraded version of the CS Stack of the Azure Migrate tool. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
 
-- Updated Inventory View: Explore the inventory of discovered workloads across the Infrastructure, Data, and Web tiers. [Learn more](how-to-review-discovered-inventory.md).
+- Public Preview: Azure Migrate supports Application Awareness, offering an enhanced and modernized user experience. This feature streamlines the discovery, assessment, and migration of on-premises applications and workloads to Microsoft Azure. It streamlines and enhances the decision-making, planning, and migration workflow by identifying and evaluating the current state of your on-premises infrastructure.
 
-- Tags: in Azure Migrate Tags in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
+    - Updated Inventory View: Explore the inventory of discovered workloads across the Infrastructure, Data, and Web tiers. [Learn more](how-to-review-discovered-inventory.md).
 
-- Enhanced Dependency Analysis: Leverage the new dependency analysis experience to identify application boundaries and group workloads accordingly. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
+    - Tags: in Azure Migrate Tags in Azure Migrate enhances analysis by allowing customers to group and visualize related resources based on specific properties. [Learn more](resource-tagging.md).
 
-- Application Assessment: This feature allows customers to include constituent workloads, such as application servers, web apps, and databases. The assessment then evaluates all potential Azure target services for these workloads, providing a recommended migration path, along with cost and readiness details. [Learn more](review-application-assessment.md).
+    - Enhanced Dependency Analysis: Leverage the new dependency analysis experience to identify application boundaries and group workloads accordingly. [Learn more](how-to-create-group-machine-dependencies-agentless.md).
 
-- Action Center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
+    - Application Assessment: This feature allows customers to include constituent workloads, such as application servers, web apps, and databases. The assessment then evaluates all potential Azure target services for these workloads, providing a recommended migration path, along with cost and readiness details. [Learn more](review-application-assessment.md).
+
+    - Action Center: Azure Migrate now includes the new Action Center, which offers a centralized hub for users to view and manage all migration-related issues, pending actions, and jobs within their project. [Learn more](centralized-issue-tracking.md).
 
 ## Update (February 2025)
 
 Public Preview: Azure Migrate now supports discovery and assessment of MySQL databases. You can use this capability to discover MySQL instances and their attributes within your environment, assess their readiness for migration to Azure Database for MySQL, and obtain recommendations on the suitable compute and storage options, along with the associated costs. [Learn more](assessments-overview-migrate-to-azure-db-mysql.md).
+
 
 ## Update (November 2024)
 
