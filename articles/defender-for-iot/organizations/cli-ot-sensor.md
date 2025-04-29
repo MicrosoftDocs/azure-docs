@@ -49,13 +49,13 @@ Commands can be entered in the shell level or in the category level. At the shel
 shell> system ntp enable 10.0.0.1
 Starting ntp-enable 10.0.0.1
 .....
-Finsihed ntp-enable
+Finished ntp-enable
 
 shell> system
 system> ntp enable 10.0.0.1
 Starting ntp-enable 10.0.0.1
 .....
-Finsihed ntp-enable
+Finished ntp-enable
 ```
 
 ## Appliance maintenance
