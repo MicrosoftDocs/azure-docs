@@ -25,7 +25,7 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - Latest `networkcloud` [CLI extension](howto-install-cli-extensions.md).
 - Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
 - Nexus instance data for the [Telco Input Template](concepts-telco-input-template.md).
-- Additional [Platform Prerequisites](howto-platform-prerequisites.md)
+- Additional [Platform Prerequisites](howto-platform-prerequisites.md).
 
 </details>
  
@@ -79,7 +79,7 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - <TARGET_DATE>: Track deployment expected end date
 
 > [!NOTE]
-> Additional parameters come from the Telco Input template.
+> Additional parameters come from the [Telco Input template](concepts-telco-input-template.md).
 
 </details>
 
@@ -111,38 +111,17 @@ cli.azure.cli.core.sdk.policies:     'x-ms-correlation-request-id': '<CORRELATIO
 cli.azure.cli.core.sdk.policies:     'Azure-AsyncOperation': '<ASYNC_URL>'
 ```
 
-To request status of long running operations, run the following command with `az rest`:
+To view status of long running asynchronous operations, run the following command with `az rest`:
 ```
 az rest -m get -u '<ASYNC_URL>'
 ```
 
-The following status information is returned along with additional detailed messages or errors:
+Command status nformation is returned along with additional detailed messages or errors:
 - `"status": "Accepted"`
 - `"status": "Succeeded"`
 - `"status": "Failed"`
 
-Report the <MISE_CID>, <CORRELATION_ID>, status code, and detailed messages when opening support requests.
-
-</details>
-
-## Setup Azure CLI Environment
-<details>
- <summary> Setup Azure CLI environment for deployment commands </summary>
-
-Setup the following environment variables in the execution environment from the Telco Input template data:
-```
-export TS_USER=$(az keyvault secret show --name "<TS_USER_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export TS_PASSWORD=$(az keyvault secret show --name "<TS_PWD_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export BMC_USER=$(az keyvault secret show --name "<BMC_USER_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export BMC_PASSWORD=$(az keyvault secret show --name "<BMC_PWD_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export SP_PASSWORD=$(az keyvault secret show --name "<SP_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export STORAGE_USER=$(az keyvault secret show --name "<STORAGE_USER_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export STORAGE_PASSWORD=$(az keyvault secret show --name "<STORAGE_PWD_SECRET>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export MGMT_AUTH_1=$(az keyvault secret show --name "<MGMT_ER1_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export MGMT_AUTH_2=$(az keyvault secret show --name "<MGMT_ER2_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export TNT_AUTH_1=$(az keyvault secret show --name "<TNT_ER1_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name "<CUSTOMER_KV_RID>" --query value -o tsv)
-```
+If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and detailed messages when opening a support request.
 
 </details>
 
@@ -151,31 +130,36 @@ export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name
  <summary> Detailed steps for deploying NFC </summary>
 
 ### Create NFC
-1. Create group if it doesn't exist:
+1. Create group if it doesn't exist from Azure CLI:
    ```
    az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<NFC_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
-
    az group create -l <AZURE_REGION> -n <NFC_RG> --subscription <CUSTOMER_SUB_ID>
-
-   # Check if NFC already exists
-   az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
-2. Create NFC from Telco Input template (skip for existing NFC):
+2. Check if NFC already exists from Azure CLI:
+   ```
+   az networkfabric controller show --resource-group <NFC_RG> --resource-name <NFC_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+   Code: ResourceNotFound
+   ```
+
+   > [!IMPORTANT]
+   > Do not continue if NFC already exists for <NFC_NAME>.
+
+3. Create NFC from Telco Input template (skip for existing NFC) with Azure CLI:
    ```
    az networkfabric controller create --resource-group "NFC_RG" --subscription "SUBSCRIPTION_ID" --location "REGION" \
-     --resource-name "NFC_NAME" --ipv4-address-space "NFC_IPV4/NFC_IPV4_CIDR" --ipv6-address-space "NFC_IPV6/NFC_IPV6_CIDR" \
-     --infra-er-connections '[{"expressRouteCircuitId": "MGMT_ER1_RID", "expressRouteAuthorizationKey": "'$MGMT_AUTH_1'"}, \
-       {"expressRouteCircuitId": "MGMT_ER2_RID", "expressRouteAuthorizationKey": "'$MGMT_AUTH_2'"}]' \
-     --workload-er-connections '[{"expressRouteCircuitId": "TNT_ER1_RID", "expressRouteAuthorizationKey": "'$TNT_AUTH_1'"}, \
-       {"expressRouteCircuitId": "TNT_ER2_RID", "expressRouteAuthorizationKey": "'$TNT_AUTH_2'"}]' \
+     --resource-name "NFC_NAME" --ipv4-address-space "NFC_IPV4"/"NFC_IPV4_CIDR" --ipv6-address-space "NFC_IPV6"/"NFC_IPV6_CIDR" \
+     --infra-er-connections '[{"expressRouteCircuitId": "MGMT_ER1_RID", "expressRouteAuthorizationKey": "MGMT_AUTH_1"}, \
+       {"expressRouteCircuitId": "MGMT_ER2_RID", "expressRouteAuthorizationKey": "MGMT_AUTH_2"}]' \
+     --workload-er-connections '[{"expressRouteCircuitId": "TNT_ER1_RID", "expressRouteAuthorizationKey": "TNT_AUTH_1"}, \
+       {"expressRouteCircuitId": "TNT_ER2_RID", "expressRouteAuthorizationKey": "TNT_AUTH_2"}]' \
      --mrg name='NFC_MRG' location='REGION' --debug --no-wait
    ```
 
    > [!NOTE]
    > NFC creation can take up to 1 hour.
 
-4. Check status of NFC and creation of the NFC `customlocation` from Azure CLI:
+4. Check statuses of the NFC and the NFC `customlocation` are both `Succeeded` from Azure CLI:
    ```
    az networkfabric controller show --resource-group "<NFC_RG>" --resource-name "<NFC_NAME>" --subscription <CUSTOMER_SUB_ID> -o table
 
@@ -185,7 +169,12 @@ export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name
    az customlocation list -o table --query "[?location=='<AZURE_REGION>']" | grep <NFC_NAME> --subscription <CUSTOMER_SUB_ID>
    ```
 
-5. Verify subnets in portal for <NFC_MRG>/networkfabric-infravnet | Subnets
+5. Verify NFC subnets are created:
+
+   Check in Azure portal:
+   `Network Fabric Controllers (Operator Nexus)` -> <NFC_NAME> -> <NFC_MRG> -> `networkfabric-infravnet` -> `Subnets`
+
+   Check with Azure CLI:
    ```
    az network vnet subnet list --vnet-name networkfabric-infravnet -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
    <NFC_SUBNET>.<+0>.0/24  nfc-aks-subnet    Disabled  Enabled   Succeeded <NFC_MRG>
@@ -195,7 +184,12 @@ export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name
    <NFC_SUBNET>.<+4>.0/24  clustermanager-subnet  Disabled  Disabled  Succeeded <NFC_MRG>
    ```
 
-6. Check ER connections in <NFC_MRG> (may be hidden in RG): `Status: Succeeded`
+6. Check ER connections are `Status: Succeeded`:
+
+   Check in Azure portal:
+   `Network Fabric Controllers (Operator Nexus)` -> <NFC_NAME> -> <NFC_MRG> -> <NF_ER_CONNECTIONS>
+
+   Check with Azure CLI:
    ```
    az network vpn-connection list -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
    ```
@@ -215,18 +209,22 @@ export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name
  <summary> Detailed Steps for deploying a CM </summary>
 
 ### Create CM
-1. Prework
+1. Create group if it doesn't exist from Azure CLI:
    ```
    az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<CM_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
-
-   # If group does not exist, then create the group:
    az group create -l <AZURE_REGION> -n <CM_RG> --subscription <CUSTOMER_SUB_ID>
-
-   # Check if CM already exists
-   az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
+   ```
+   
+2. Check if CM already exists from Azure CLI:
+   ```
+   az networkcloud clustermanager show --subscription <CUSTOMER_SUB_ID> -n <CM_NAME> -g <CM_RG> -o table
+   Code: ResourceNotFound
    ```
 
-2. Create CM from Telco Input template (skip for existing CM):
+   > [!IMPORTANT]
+   > Do not continue if a CM already exists for <CM_NAME>.
+
+3. Create CM from Telco Input template (skip for existing CM) with ARM Deployment from Azure CLI:
    ```
    az deployment sub create --name "<CM_NAME>-deployment" --subscription "<CUSTOMER_SUB_ID>" --location "<AZURE_REGION>" --template-file "clusterManager.jsonc" \
      --parameters "clusterManager.parameters.jsonc" --debug --no-wait
@@ -236,7 +234,7 @@ export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name
    - [`clusterManager.jsonc`](clustermanager-jsonc-example.md)
    - [`clusterManager.parameters.jsonc`](clustermanager-parameters-jsonc-example.md)
 
-3. Check status of CM for `Succeeded`:
+4. Check status of CM for `Succeeded` from Azure CLI:
    ```
    az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
    ```
@@ -257,85 +255,98 @@ export TNT_AUTH_2=$(az keyvault secret show --name "<TNT_ER2_AUTH>" --vault-name
 
 ### Create Fabric
 
-1. Prework
+1. Create group if it doesn't exist from Azure CLI:
    ```
-   az customlocation list --subscription <CUSTOMER_SUB_ID> -o table | grep <ENVIRONMENT>   #Make sure no custom locations exist for <AZURE_REGION> and <ENVIRONMENT>
-
    az group list --query "[?location=='<AZURE_REGION>'] | [?contains(name,'<NF_RG>')]" --subscription <CUSTOMER_SUB_ID> -o table
-
-   # If group does not exist, then create the group:
    az group create -l <AZURE_REGION> -n <NF_RG> --subscription <CUSTOMER_SUB_ID>
-
-   # Check if fabric exists
-   az networkfabric fabric list --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
-2. Create Fabric from payload:
+2. Check if Fabric custom location already exists from Azure CLI:
    ```
-   cd <PAYLOAD_DIR>
-   export PL_DIR=`pwd`
-   source $PL_DIR/set_env.sh
-   chmod +x nf.sh
-   ./nf.sh
+   az customlocation list --subscription <CUSTOMER_SUB_ID> -o table | grep <NF_NAME>
    ```
 
-3. Verify fabric status:
+   > [!IMPORTANT]
+   > Do not continue if a Fabric custom location already exists for <NF_NAME>.
+
+3. Check if Fabric already exists from Azure CLI:
+   ```
+   az networkfabric fabric show --resource-group <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+   Code: ResourceNotFound
+   ```
+   > [!IMPORTANT]
+   > Do not continue if a Fabric already exists for <NF_NAME>.
+   
+4. Create Fabric from Telco Input template with Azure CLI:
+   ```
+   az networkfabric fabric create --resource-group "NF_RG" --subscription "SUBSCRIPTION_ID" --location "REGION" --resource-name "NF_NAME" \
+     --nf-sku "NF_SKU" --nfc-id "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NFC_RG/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFC_NAME" \
+     --fabric-asn NF_ASN --fabric-version NF_VER --ipv4-prefix "MGMT_IPV4/MGMT_IPV4_CIDR" --ipv6-prefix "MGMT_IPV6/MGMT_IPV6_CIDR" --rack-count RACK_COUNT \
+     --server-count-per-rack SERVERS_PER_RACK --ts-config '{"primaryIpv4Prefix": "TS_IPV4_1/TS1_IPV4_1_CIDR", "secondaryIpv4Prefix": "TS_IPV4_2/TS1_IPV4_2_CIDR", \
+       "username": "'$TS_USER'", "password": "'$TS_PASSWORD'", "serialNumber": "TS_SERIAL", "primaryIpv6Prefix": "TS_IPV6_1/TS1_IPV6_1_CIDR", "secondaryIpv6Prefix": "TS_IPV6_2/TS1_IPV6_2_CIDR"}' \
+     --managed-network-config '{"infrastructureVpnConfiguration": {"peeringOption": "OptionA", "optionAProperties": {"mtu": "MGMT_OPA_MTU", "vlanId": "MGMT_OPA_VLANID", \
+       "peerASN": "MGMT_OPA_PEERASN", "primaryIpv4Prefix": "MGMT_OPA_PRIMARYIPV4PREFIX", "secondaryIpv4Prefix": "MGMT_OPA_SECONDARYIPV4PREFIX"}}, \
+       "workloadVpnConfiguration": {"peeringOption": "OptionA", "optionAProperties": {"mtu": "TENANT_OPA_MTU", "vlanId": "TENANT_OPA_VLANID", "peerASN": "TENANT_OPA_PEERASN", \
+       "primaryIpv4Prefix": "TENANT_OPA_PRIMARYIPV4PREFIX", "secondaryIpv4Prefix": "TENANT_OPA_SECONDARYIPV4PREFIX", "primaryIpv6Prefix": "TENANT_OPA_PRIMARYIPV6PREFIX", \
+       "secondaryIpv6Prefix": "TENANT_OPA_SECONDARYIPV6PREFIX"}}}' --debug --no-wait
+   ```
+
+5. Check status of Fabric for `Succeeded` from Azure CLI:
    ```
    az networkfabric fabric show --resource-group "<NF_RG>" --resource-name "<NF_NAME>" --subscription <CUSTOMER_SUB_ID> -o table
    az networkfabric fabric list --subscription <CUSTOMER_SUB_ID> -o table
-   Accepted
-   Succeeded
-   ```
-4. Create Access Control List (ACL) resource:
-   ```
-   cd <PAYLOAD_DIR>
-   export PL_DIR=`pwd`
-   source $PL_DIR/set_env.sh
-   chmod +x nni_ingress_acl.ps1
-   ./nni_ingress_acl.ps1
    ```
 
-5. Create Network-to-Network Interface (NNI) resource and verify
+6. Create Ingress and Egress Access Control List (ACL) resources if using ACL from Azure CLI:
    ```
-   cd <PAYLOAD_DIR>
-   export PL_DIR=`pwd`
-   source $PL_DIR/set_env.sh
-   chmod +x nni.ps1
-   ./nni.ps1
+   az rest  --subscription "SUBSCRIPTION_ID" -m put --url /subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/NNI_1_INGRESS_ACL_1_NAME?api-version=2023-06-15 --body @NNI_1_INGRESS_ACL_1.json
+   az rest  --subscription "SUBSCRIPTION_ID" -m put --url /subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/NNI_1_EGRESS_ACL_1_NAME?api-version=2023-06-15 --body @NNI_1_EGRESS_ACL_1.json
+   ```
 
+7. Create Network-to-Network Interface (NNI) resource wih Azure CLI:
+   ```
+   az networkfabric nni create --resource-group "NF_RG" --subscription "SUBSCRIPTION_ID" --resource-name "nni_1_name" --fabric "NF_NAME" --is-management-type "True" --use-option-b "False" \
+     --layer2-configuration '{"interfaces": \
+       ["/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/networkDevices/NF_NAME-AggrRack-CE1/networkInterfaces/NNI1_L2_CE1_INT_1", \
+       "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/networkDevices/NF_NAME-AggrRack-CE2/networkInterfaces/NNI1_L2_CE2_INT_1"], \
+       "mtu": "NNI1_L2_MTU"}' --option-b-layer3-configuration '{"peerASN": "NNI1_PEER_ASN", "vlanId": "NNI1_L3_VLAN_ID", "primaryIpv4Prefix": "NNI1_L3_IPV4_1/NNI1_L3_IPV4_1_CIDR", \
+       "secondaryIpv4Prefix": "NNI1_L3_IPV4_2/NNI1_L3_IPV4_2_CIDR"}' \
+     --ingress-acl-id "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/nni_1_ingress-1-acl-name" \
+     --egress-acl-id "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/nni_1_egress-1-acl-name" --debug --no-wait
+   ```
+
+8. Check status of Fabric for `Succeeded` from Azure CLI:
+   ```
    az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID>
-
    az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
-
+   ```
+   
+9. Update Device Names and Serial Numbers for all Devices with Azure CLI:
+   ```
+   az networkfabric device update  --subscription "SUBSCRIPTION_ID" --resource-group "NF_RG" --resource-name "NF_NAME-AggrRack-CE1" --host-name "CE1_HOSTNAME" \
+     --serial-number "CE1_HW_VENDOR;CE1_HW_MODEL;CE1_HW_VER;CE1_SN" --debug --no-wait
    ```
 
-6. Update Device Names and Serial Numbers from automation payloads:
-   ```
-   cd <PAYLOAD_DIR>
-   export PL_DIR=`pwd`
-   source $PL_DIR/set_env.sh
-   chmod +x networkdevice.ps1
-   ./networkdevice.ps1
-   ```
-
-7. Verify all Devices are created and configured:
+10. Verify all Devices are created and configured from Azure CLI:
    ```
    az networkfabric device list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
    ```
    
 ### Provision Fabric
-1. Verify Fabric ProvisioningState is `Succeeded`:
+1. Verify Fabric ProvisioningState is `Succeeded` from Azure CLI:
    ```
    az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
-2. Provision fabric:
-```
-az networkfabric fabric provision --resource-group <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --debug --no-wait
+2. Provision fabric with Azure CLI:
+   ```
+   az networkfabric fabric provision --resource-group <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --debug --no-wait
+   ```
 
-az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
-Provisioned
-```
+3. Check provisioning status of Fabric is `Provisioned` from Azure CLI:
+   ```
+   az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+   ```
 
 ### Add resource tag on Fabric resource in Azure portal
    To increase visibility of the deployment, add a tag to the Fabric resource in Azure portal (optional):
