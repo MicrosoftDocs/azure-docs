@@ -267,37 +267,37 @@ Use the following steps to register the appliance:
 1. After the prerequisites are verified, the appliance fetch all its component information in the next step. Review the status of all components and then select **Continue**.
 1. **Save** the details, and then proceed to choose the appliance connectivity method. You can select either FQDN or a NAT IP to define how communication with the appliance occurs.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text=" Screenshot shows how to select replication appliance connectivity":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/select-replication-appliance-connectivity.png" alt-text=" Screenshot shows how to select replication appliance connectivity":::.
 
 1. After saving the connectivity details, select **Continue** to proceed with registration in Microsoft Azure. 
 1. Ensure the [prerequisites](/azure/site-recovery/replication-appliance-support-matrix#pre-requisites) are met, and then proceed with the registration.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Screenshot shows the registry with recovery service vault":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/registry-with-recovery-service-vault.png" alt-text="Screenshot shows the registry with recovery service vault":::.
 1. **Friendly name of appliance**: Provide a friendly name to track this appliance in the Azure portal under Recovery Services Vault infrastructure. 
 
-> [!Note]
-> The name can't be changed once set.
+   > [!Note]
+   > The name can't be changed once set.
 1. **Azure Migrate replication appliance key**: Copy the key from the portal's discovery screen.
     
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Screenshot shows the generated key":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/generate-key.png" alt-text="Screenshot shows the generated key":::.
 
 1. After pasting the key, select **Login**. You're redirected to a new authentication tab. By default, an authentication code is generated on the **Appliance Configuration Manager** page. Use the following code in the authentication tab. 
 1. Enter your Microsoft Azure credentials to complete the registration. 
 1. After successful registration, you can close the tab and return to the **Appliance Configuration Manager** to continue the setup.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows the microsoft code":::
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/microsoft-code.png" alt-text="Shows the microsoft code":::
 
-> [!Note]
-> An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
+    > [!Note]
+    > An authentication code expires within 5 minutes of generation. If there is inactivity for longer than this duration, you're prompted to re-log in to Azure.
 
 1. After successfully signing in, the details for Subscription, Resource Group, and Recovery Services Vault are displayed. 
 1. Select **Continue** to proceed.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Screenshot shows how to register with recovery services":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/register-with-recovery-services.png" alt-text="Screenshot shows how to register with recovery services":::.
 
 1. After successful registration, proceed to configure **vCenter** details.
 
-:::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Screenshot shows how to provide vcenter information":::.
+    :::image type="content" source="./media/tutorial-migrate-physical-virtual-machines/provide-vcenter-information.png" alt-text="Screenshot shows how to provide vcenter information":::.
 
 1. Select **Add vCenter Server** to input the vCenter information.
 1. Enter the server name or IP address of the vCenter along with the port information, and then provide the username, password, and a friendly name. This information is used to fetch details of the [virtual machines managed through the vCenter](/en-us/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises?branch=main). The user account details are encrypted and stored locally on the machine.
