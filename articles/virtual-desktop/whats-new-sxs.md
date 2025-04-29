@@ -36,10 +36,11 @@ Here's information about the SxS Network Stack.
 
 ## Version 1.0.2501.05600
 
-*Published March 2025*
+*Published March 2025; updated April 2025*
 
 In this release, we've made the following changes:
 
+- Two new binaries have been released: rdpstartuplauncher.exe and rdpstartup.exe that enable future improvements to peripheral and resource redirections.
 - Connection reliability bug fixes.
 - Improved diagnostics checkpoints for UDP connections.
 - Added a diagnostic checkpoint to log all graphics codecs in use and whether hardware graphics encoding is active for each connection session.
