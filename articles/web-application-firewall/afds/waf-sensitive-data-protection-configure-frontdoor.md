@@ -28,6 +28,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | Request URI | Equals Any | NULL | {"matchVariableName":"URI","matchVariableValue":"****"} |
 
 <sup>1</sup> The whole request body is scrubbed if this rule is triggered and the request content type is `application/x-www-form-urlencoded` or `application/json`.
+
 <sup>2</sup> Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
 
 For more information, see [What is Azure Web Application Firewall on Azure Front Door Sensitive Data Protection?](waf-sensitive-data-protection-frontdoor.md)
