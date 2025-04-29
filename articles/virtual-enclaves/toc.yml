@@ -205,3 +205,9 @@
       href: service-bus-initiative.md
     - name: Azure Storage Guardrail Initiative
       href: storage-initiative.md
+- name: Workload Quickstarts
+  items:
+    - name: Create Azure Virtual Desktop Workload
+      href: create-azure-virtual-desktop-workload.md
+    - name: Create Domain Name Service Forwarder
+      href: create-domain-name-service-forwarder.md

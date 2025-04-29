@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 ---
 
 # Create a Domain Name Service (DNS) forwarder
-This example of setting up a DNS Forwarder Virtual Machine (VM) is for the `contoso5.com` domain with three domain controllers on IPs `10.0.2.4, 10.0.2.5,and 10.0.2.6`.
+This example of setting up a DNS Forwarder Virtual Machine (VM) is for the `contoso5.com` domain with three domain controllers on IPs `10.0.2.4`, `10.0.2.5`, and `10.0.2.6`.
 
 ## Steps in this guide
 
@@ -42,6 +42,6 @@ Use the commands `ipconfig /all` and `nslookup contoso5.com` to get the VM IP ad
 ![Screenshot showing the IP address configuration.](./media/dns-forwarder-static-ip-config.png)
 
 ## Update enclave virtual network DNS
-1. Open the enclave virtual network resource
-2. Select `DNS` on the left side
+1. Open the enclave virtual network resource.
+2. Select `DNS` on the left side.
 3. Remove the default Azure IP address and add the domain controller IPs. Reboot any VMs in the virtual network for these new setting to take effect automatically.
