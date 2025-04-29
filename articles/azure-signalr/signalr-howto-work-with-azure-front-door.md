@@ -15,6 +15,7 @@ Azure Front Door is a modern cloud-native application delivery network (ADN) tha
 A key benefit of Azure Front Door is its native support for WebSocket and WebSocket Secure (WSS) connections. This support enables real-time, bi-directional communication between clients and backend services without requiring any special configuration.
 
 In this guide, we demonstrate how to use Azure Front Door with Azure SignalR Service to front-end your real-time applications. By routing traffic through Front Door, you can:
+
 - Apply WebSocket support with global reach and edge acceleration,
 - Apply centralized security policies, such as WAF rules and rate limiting,
 - Reduce public exposure of your backend services.
