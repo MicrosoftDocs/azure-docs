@@ -104,7 +104,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
 * Handling empty XML elements
 
-  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value.
+  - SAP built-in connector: An empty XML element is treated as an SAP parameter with an explicit empty value or default value. To omit the parameter to be sent to SAP, you can simply remove the empty element from the input payload.
 
   - SAP managed connector: An empty XML element is interpreted as a missing parameter and isn't sent to the SAP function.
 
@@ -134,7 +134,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   </RfcName>
   ```
 
-  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element, for example:
+  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element. This is to conform with W3C specification [2.10 White Space Handling](https://www.w3.org/TR/xml/#sec-white-space). For example:
 
   ```xml
   <RfcName>
