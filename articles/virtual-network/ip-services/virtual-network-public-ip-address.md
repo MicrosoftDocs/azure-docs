@@ -77,6 +77,9 @@ For more detail on the specific attributes of a public IP address during creatio
 
    - **Delete**: Deletion of public IPs requires that the public IP object isn't associated to any IP configuration or virtual machine network interface. For more information, see the following table.
 
+>[!WARNING]
+   >Once a public IP address is deleted it can not be recovered.
+
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
 |[Virtual machine](./remove-public-ip-address-vm.md)|Select **Dissociate** to dissociate the IP address from the NIC configuration, then select **Delete**.|[Set-AzNetworkInterface](/powershell/module/az.network/set-aznetworkinterface) to dissociate the IP address from the NIC configuration; [Remove-AzPublicIpAddress](/powershell/module/az.network/remove-azpublicipaddress) to delete|[az network nic ip-config update](/cli/azure/network/nic/ip-config#az-network-nic-ip-config-update) and with the parameter `--public-ip-address` to remove the IP address from the NIC configuration. Use [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete) to delete the public IP. |
