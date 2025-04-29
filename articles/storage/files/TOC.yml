@@ -77,6 +77,8 @@
       href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
     - name: Configure, optimize, and troubleshoot AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
+  - name: Migrate GlusterFS to Azure Files
+    href: glusterfs-migration-guide.md      
 - name: Authentication and authorization
   items:
   - name: Overview of identity-based authentication
