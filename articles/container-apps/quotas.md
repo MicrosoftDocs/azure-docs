@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/25/2025
+ms.date: 04/29/2025
 ms.author: cshoe
 ---
 
@@ -19,7 +19,7 @@ Azure Container Apps assigns different quota types to different scopes. In addit
 | [Manual requests](quota-requests.md#manual-requests) | Manual requests always result in generating a support ticket. Approval is often automated, but some requests can take up to a few days for us to process. | ▪ environment | [Azure CLI](#list-usage-cli) |
   
 > [!NOTE]
-> Azure Container Apps is a production grade service designed for at-scale workloads. Making a quota request that escalates to the support team isn't out of the norm, but part of the process of managing resources on behalf of our customers. **Microsoft makes every effort to accommodate most quota change requests with limited exceptions**.
+> Azure Container Apps is a production grade service designed for at-scale workloads. Making a quota request that escalates to the support team isn't out of the norm, but part of the process of managing resources on behalf of our customers. **Azure Container Apps is an at-scale service. Most all quota change requests are granted with exceptions only in limited circumstances**.
 
 ## View current quotas levels
 
@@ -33,7 +33,7 @@ When in the portal, select **Azure Container Apps** for the *Provider*.
 
 <a id="list-usage-cli"></a>
 
-Quotas change requests made via manual requests aren't available in the portal. Use the following command to view your quotas on a per environment basis.
+Quotas change requests made via the manual method aren't available in the portal. Use the following command to view your quotas on a per environment basis.
 
 Before you run the following command, make sure to replace the placeholders surrounded by `<>` with your own values.
 
