@@ -17,7 +17,7 @@ As an administrator, you can [delete Azure Virtual Enclave (AVE) resources and r
 
 - An Enclave can't be created in failed Communities.
 - A Workload can't be created in failed Enclaves.
-- An Enclave endpoint can't be created in failed Enclaves.
+- An enclave endpoint can't be created in failed Enclaves.
 - A Catalog can't be created in failed Enclaves.
 - A Transit hub can't be created in failed Communities or using failed Enclave endpoints.
 - An enclave  can't be created in failed Enclaves or using failed Enclave endpoints.
@@ -29,10 +29,10 @@ Attempting to delete AVE resources while AVE resources are locked can lead to un
 - A community can't be deleted if there are Enclaves in the community.
 - A community can't be deleted if there are any existing Transit Hubs in the community.
 - An Enclave can't be deleted if there are Workloads in the Enclave.
-- An Enclave can't be deleted if there are Enclave Endpoints in the Enclave.
+- An Enclave can't be deleted if there are enclave endpoints in the Enclave.
 - An Enclave can't be deleted if there are Catalogs in the Enclave.
-- When an Enclave is deleted, enclave s or community Endpoints between community and Enclave are also deleted along with Firewall rules.
+- When an Enclave is deleted, enclave s or community endpoint between community and Enclave are also deleted along with Firewall rules.
 - A Workload can't be deleted in the Workload Resource group is locked.
-- An Enclave endpoint can't be deleted if there are active enclave s using the Enclave endpoint.
+- An enclave endpoint can't be deleted if there are active enclave s using the enclave endpoint.
 - community endpoints can't be deleted if there are active enclave s using the community endpoint.
 - Transit hubs can't be deleted if there are associated community endpoints.

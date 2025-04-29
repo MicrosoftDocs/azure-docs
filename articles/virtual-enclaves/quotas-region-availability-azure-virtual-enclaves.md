@@ -48,7 +48,7 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 | Community endpoint per community | 800[^3] |
 | Community endpoint Rule | Unlimited[^5] |
 | Enclave endpoint per Enclave | 800[^3] |
-| Enclave endpoint Rule | 993[^6] |
+| Enclave endpoint rule | 993[^6] |
 | Transit hub | 499[^7] |
 | Enclave connection| 993[^8] |
 

@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Tutorial 7: Host a publicly accessible application in an enclave
 
-Web applications can be hosted inside of an enclave and made publicly accessible by routing traffic through a separate DMZ enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address, creating an **Enclave Endpoint** for the Web App, and establishing an **enclave connection** between the Web App and DMZ enclaves.
+Web applications can be hosted inside of an enclave and made publicly accessible by routing traffic through a separate Demilitarized Zone (DMZ) enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address, creating an **Enclave Endpoint** for the Web App, and establishing an **enclave connection** between the Web App and DMZ enclaves.
 
 ## Public Web Applications in Azure Virtual Enclaves
 
@@ -18,9 +18,9 @@ Web applications can be hosted inside of an enclave and made publicly accessible
 
 ## Steps to make your web app accessible from the internet in Azure Virtual Enclaves
 
-1. Deploy a enclave to host the public Web Application (`Enclave-WebApp`)
+1. Deploy an enclave to host the public Web Application (`Enclave-WebApp`)
 
-2. Deploy a enclave to host an Application Gateway (`Enclave-DMZ`) 
+2. Deploy an enclave to host an Application Gateway (`Enclave-DMZ`) 
 
 3. Deploy a workload + the resources required to host the web application into `Enclave-WebApp`
 
@@ -36,15 +36,15 @@ Web applications can be hosted inside of an enclave and made publicly accessible
     - **Destination Enclave**:`Enclave-WebApp`
     - **Destination Endpoint**:`endpoint-MyService`
 
-## Public Web Application in the PLX Managed Service
+## Public Web Application in the PLx Managed Service
 
 ![Diagram showing the architecture for securely hosting an application in PLX Managed Service.](./media/secure-webapp-architecture-plx.png)
 
 ## Steps to make your web app accessible from the internet in the Gates managed service
 
-1. Create a enclave to host the public Web Application (`Enclave-WebApp`)
+1. Create an enclave to host the public Web Application (`Enclave-WebApp`)
 
-2. Create a enclave to host an Application Gateway (`Enclave-DMZ`) 
+2. Create an enclave to host an Application Gateway (`Enclave-DMZ`) 
 
 3. Deploy the resources required to host the web application into `Enclave-WebApp`
 

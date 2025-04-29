@@ -12,10 +12,10 @@ ms.date: 04/08/2025
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for Common Dependencies when deploying azure services into an existing Workload from the Portal. Optionally create the following:
+- Deploy a Service Catalog template for Common Dependencies when deploying Azure services into an existing Workload from the Portal. The template includes the options to create a:
 1. Key Vault
 2. Customer Managed Key (CMK) for encryption
-3. Disk Encryption Set (DES) for VM disk encryption
+3. Disk Encryption Set (DES) for disk encryption
 4. Storage Account quickstart. See the separate Storage Account Service Catalog template for more deployment customization
 5. Managed Identity to securely access your resources within Azure Virtual Enclaves
 
@@ -42,7 +42,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 5. Adjust any of the prepopulated parameters as needed.
 5. Select `Review + Add` then `Create`.
 
-It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
+It can take 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
 Go to the specified Resource Group to confirm the intended resources were created.

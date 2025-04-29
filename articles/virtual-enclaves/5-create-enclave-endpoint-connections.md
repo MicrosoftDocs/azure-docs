@@ -1,6 +1,6 @@
 ---
-title: Create Enclave or community Endpoint resources in Azure Virtual Enclaves
-description: Create Enclave or community Endpoint resources in Azure Virtual Enclaves.
+title: Create Enclave or community endpoint resources in Azure Virtual Enclaves
+description: Create Enclave or community endpoint resources in Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 04/08/2025
 ---
 
-# Tutorial 5: Create Enclave or community Endpoint resources in Azure Virtual Enclaves
+# Tutorial 5: Create Enclave or community endpoint resources in Azure Virtual Enclaves
 
 Community endpoints enable enclaves in a community to establish connections to resources outside of the community boundary to include public websites, public IP addresses, and external private networks through Site-to-Site (S2S) VPN or ExpressRoute connections. Enclave Endpoints enable others to connect to your service by defining the means by which inbound traffic is allowed to flow into a given enclave once a connection is made.
 
@@ -56,14 +56,14 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 1. Navigate to the `fabrikam` community, select `Community Endpoints`
 
-![Screenshot showing no existing community Endpoints.](./media/tutorial-step-five-fabrikam-endpoint-list.png)
+![Screenshot showing no existing community endpoints.](./media/tutorial-step-five-fabrikam-endpoint-list.png)
 
 2. Select `Create`
 
-![Screenshot showing the community Endpoint create button highlighted.](./media/tutorial-step-five-fabrikam-endpoint-create.png)
+![Screenshot showing the community endpoint create button highlighted.](./media/tutorial-step-five-fabrikam-endpoint-create.png)
 
 3. Enter the details for your app/service
-   - community Endpoint name: Name of the community endpoint `fabrikam-endpoint-website`
+   - Community endpoint name: Name of the community endpoint `fabrikam-endpoint-website`
    - Select `Add` to add Endpoint Rules that represent how to access your app/service
       - Name: 'Website-Rule'
       - Destination Type: FQDN
@@ -71,13 +71,13 @@ If you haven't created those resources yet, return to those earlier tutorials.
       - Protocol: HTTPS
       - Port: 443
 
-[ ![Screenshot showing the creation page for the community Endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png#lightbox)
+[ ![Screenshot showing the creation page for the community endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png#lightbox)
 
 4. Select `Save`
 
 5. Select `Yes`, select `Review + Create`, and select `Create`
 
-![Screenshot showing community Endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
+![Screenshot showing community endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
 
 6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp en.
 

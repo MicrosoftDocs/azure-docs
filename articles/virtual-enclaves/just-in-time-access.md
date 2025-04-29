@@ -11,7 +11,7 @@ ms.date: 04/08/2025
 
 # Configuring just-in-time access in Azure Virtual Enclaves using Privileged Identity Management
 
-Azure Virtual Enclaves (AVE) leverage **Privileged Identity Management (PIM)** to enable **just-in-time (JIT)** access for sensitive resources within enclaves and workloads. PIM allows users to request temporary, time-bound permissions to perform specific tasks, minimizing the risk of overprovisioning and unauthorized actions. This guide explains how to configure JIT access in AVE using PIM.
+Azure Virtual Enclaves (AVE) use **Privileged Identity Management (PIM)** to enable **just-in-time (JIT)** access for sensitive resources within enclaves and workloads. PIM allows users to request temporary, time-bound permissions to perform specific tasks, minimizing the risk of overprovisioning and unauthorized actions. This guide explains how to configure JIT access in AVE using PIM.
 
 
 [Azure Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is an Azure service that helps you manage, control, and monitor access within your Azure environment. By combining Azure PIM with Azure Virtual Enclave, you can enforce a controlled and secure workflow for approving actions that are taken within Azure Virtual Enclave. This can help prevent unauthorized or accidental changes that could change your organization's security posture.
@@ -103,4 +103,4 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 - [Microsoft Sentinel Integration](../sentinel/overview.md)
 
 
-By configuring just-in-time access with Privileged Identity Management, Azure Virtual Enclaves provide a secure, scalable framework for managing temporary permissions. This approach supports operational flexibility while maintaining a robust security posture and compliance with organizational standards.
+Configure just-in-time access with Privileged Identity Management and Azure Virtual Enclaves to provide a secure, scalable framework for managing temporary permissions. This approach supports operational flexibility while maintaining a robust security posture and compliance with organizational standards.

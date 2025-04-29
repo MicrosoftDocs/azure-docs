@@ -1,6 +1,6 @@
 ---
-title: Create a community Endpoint in the Azure portal
-description: Create a community Endpoint in the Azure portal.
+title: Create a community endpoint in the Azure portal
+description: Create a community endpoint in the Azure portal.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,9 +8,9 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create a community Endpoint in the Azure portal
+# Create a community endpoint in the Azure portal
 
-Quickly create a community Endpoint in the Azure portal.
+Quickly create a community endpoint in the Azure portal.
 
 ## Prerequisites
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
@@ -24,9 +24,9 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to an existing community within your Azure subscription, select the `Community Endpoints` on the left side, and select `Create`
 
-![Screenshot showing the community Endpoint create button highlighted.](./media/tutorial-step-five-fabrikam-endpoint-create.png)
+![Screenshot showing the community endpoint create button highlighted.](./media/tutorial-step-five-fabrikam-endpoint-create.png)
 
-2. Provide a name for the community Endpoint and select `Add` to create a community Endpoint rule. 
+2. Provide a name for the community endpoint and select `Add` to create a community endpoint rule. 
 
 Community Endpoint rule types:
 - **IP Address**: Enable traffic from an enclave to an IP address outside of the community vWAN
@@ -34,13 +34,13 @@ Community Endpoint rule types:
 - **FQDN Tag**: Enable traffic from Enclaves to known Microsoft Azure services via FQDN Tags (for example `AzurePortal`)
 - **Private Network**: Enable traffic from Enclaves to an external private network through a [Transit Hub](./create-transit-hub-portal.md) connection
 
-3. Provide a name, destination type, destination, port, and protocol for the community Endpoint Rule and select `Add`
+3. Provide a name, destination type, destination, port, and protocol for the community endpoint rule and select `Add`
 
-[ ![Screenshot showing the creation page for the community Endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png#lightbox)
+[ ![Screenshot showing the creation page for the community endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png#lightbox)
 
 4. Select `Review + Create` and select `Create`
 
-![Screenshot showing community Endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
+![Screenshot showing community endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
 
 **References**
 - [What is a community?](./what-community.md)
