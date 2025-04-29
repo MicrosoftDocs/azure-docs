@@ -11,7 +11,7 @@ ms.date: 04/28/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
-# Import and Export data in Azure Cache for Redis
+# Import and export data in Azure Cache for Redis
 
 You can use import and export functionality for data management in Azure Cache for Redis. This article describes how to import and export data in Azure Redis, and answers commonly asked questions.
 
