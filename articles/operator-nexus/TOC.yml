@@ -11,6 +11,8 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
+    - name: Telco Input Template
+      href: concepts-telco-input-template.md
     - name: Storage
       expanded: false
       items:
