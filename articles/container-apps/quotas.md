@@ -61,7 +61,7 @@ Maximum Allowed Cores exceeded for the Managed Environment.
 Please check https://learn.microsoft.com/en-us/azure/container-apps/quotas for resource limits
 ```
 
-Other error messages could indicate that you've reached an environment or other quota limit. The Azure Quota Management System allows you to [monitor and alert](azure/quotas/monitoring-alerting) on quota usage to proactively prevent constraints.
+Other error messages could indicate that you've reached an environment or other quota limit. The Azure Quota Management System allows you to [monitor and alert](/azure/quotas/monitoring-alerting) on quota usage to proactively prevent constraints.
 
 ## Quota types
 
