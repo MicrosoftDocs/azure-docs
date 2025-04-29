@@ -68,11 +68,11 @@ To restore a user database, follow these steps:
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png" alt-text="Screenshot showing how to select backup items." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-backup-items.png":::
 
-2. On the **Backup Items** blade, select **View Details** for the database to perform operations such as **Backup** or **Restore**.
+2. On the **Backup Items** pane, select **View Details** for the database to perform operations such as **Backup** or **Restore**.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/view-details.png" alt-text="Screenshot showing how to view details." lightbox="media/sap-adaptive-server-enterprise-db-restore/view-details.png":::
 
-3. On the *database specific* blade, select **Restore**.
+3. On the *database specific* pane, select **Restore**.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-restore.png" alt-text="Screenshot showing how to select restore." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-restore.png":::
 
@@ -83,7 +83,7 @@ To restore a user database, follow these steps:
 To restore the SAP ASE database to an alternate location, follow these steps: 
 
 1. Go to the **Recovery Services vault**.
-1. On the **Restore** blade, under **Where and how to restore**, select **Alternate location**.
+1. On the **Restore** pane, under **Where and how to restore**, select **Alternate location**.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-alternate-location.png" alt-text="Screenshot showing how to select alternate location." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-alternate-location.png":::
 
@@ -93,7 +93,7 @@ To restore the SAP ASE database to an alternate location, follow these steps:
 
 4. If applicable, select the **Overwrite if the DB with the same name already exists on selected ASE instance** checkbox.
 
-5. On the **Select restore point** blade, select **Logs (Point in Time) to** restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
+5. On the **Select restore point** pane, select **Logs (Point in Time) to** restore to a specific point in time. Or select **Full & Differential** to restore to a specific recovery point.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-restore/select-restore-point.png" alt-text="Screenshot showing how to select restore point." lightbox="media/sap-adaptive-server-enterprise-db-restore/select-restore-point.png":::
 
@@ -110,7 +110,7 @@ For an in-place restore, if the database is corrupted and you want to restore it
 
 To restore the backup data as files instead of a database, select **Restore as Files**. After the files are dumped to a specified path, you can take them to any SAP ASE machine where you want to restore them as a database. Because you can move the files to any machine, you can now restore the data across subscriptions and regions.
 
-1.	On the **Restore** blade, under **Where and how to restore**, select **Restore as files**.
+1.	On the **Restore** pane, under **Where and how to restore**, select **Restore as files**.
 
 2.	Select the host or ASE server name to which you want to restore the backup files.
 
@@ -148,7 +148,7 @@ If CRR is enabled, you can view the backup items in the secondary region.
 
 ## Restore in the secondary region
 
-The secondary region restore user experience is similar to the primary region restore user experience. When you configure the details on the **Restore Configuration** blade, you're prompted to provide only secondary region parameters. A vault should exist in the secondary region, and the SAP ASE server should be registered to the vault in the secondary region.
+The secondary region restore user experience is similar to the primary region restore user experience. When you configure the details on the **Restore Configuration** pane, you're prompted to provide only secondary region parameters. A vault should exist in the secondary region, and the SAP ASE server should be registered to the vault in the secondary region.
 
 >[!Note]
 > After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.<br>

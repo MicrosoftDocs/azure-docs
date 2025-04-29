@@ -23,9 +23,9 @@ This article describes how to configure backup for SAP Adaptive Server Enterpris
 Before you set up the SAP ASE database for backup, review the following prerequisites:
 - Identify or create a Recovery Services vault in the same region and subscription as the VM running SAP ASE.
 - Allow connectivity from the VM to the internet, so that it can reach Azure.
-- The combined length of the SAP ASE Server VM name and the Resource Group name doesn't exceed 84 characters for Azure Resource Manager (ARM) VMs (and 77 characters for classic VMs). This limitation is because the service reserves some characters. 
-- VM has python >= 3.6.15 (recommended- Python3.10) and python's requests module should be installed. Default sudo python3 should run python 3.6.15 or newer version. Validate by running python3 and **sudo python3** in your system and check which python version it runs by default. It should run the required version. You can change the version by linking python3 to python 3.6.15 or higher.
-- [Run the SAP ASE backup configuration script (preregistration script)](sap-ase-database-backup-run-preregistration-quickstart.md) in the virtual machine hosting the SAP ASE.
+- The combined length of the SAP ASE Server VM name and the Resource Group name must have **<= 84** characters for Azure Resource Manager (ARM) VMs (and 77 characters for classic VMs) as the service reserves some characters. 
+- VM must have python **>= 3.6.15** (recommended- Python3.10) with requests module installed. The default sudo python3 must run python 3.6.15 or higher. Validate by running python3 and **sudo python3** in your system to check the python version it runs by default. To change the default version, link python3 to python 3.6.15 or higher.
+- [Run the SAP ASE backup configuration script (preregistration script)](sap-ase-database-backup-run-preregistration-quickstart.md) in the virtual machine that hosts the SAP ASE database. This script gets the ASE system ready for backup.
 - Assign the following privileges and settings for the backup operation:
   
   | Privilege/ Setting | Description |
@@ -47,7 +47,7 @@ Before you set up the SAP ASE database for backup, review the following prerequi
 - [Create a custom role for Azure Backup](sap-ase-database-backup-tutorial.md#create-a-custom-role-for-azure-backup).
 - [Establish network connectivity](sap-ase-database-backup-tutorial.md#establish-network-connectivity).
 - Use an existing Recovery Services vault, or [create a new one](backup-create-recovery-services-vault.md#create-a-recovery-services-vault).
-- [Enable Cross Region Restore](sap-ase-database-backup-tutorial.md#enable-cross-region-restore).
+- [Enable Cross Region Restore](sap-ase-database-backup-tutorial.md#enable-cross-region-restore) for Recovery Services vault.
 
 ## Discover the databases
 
@@ -79,6 +79,8 @@ To discover the SAP ASE databases, follow these steps:
      :::image type="content" source="./media/sap-ase-database-backup/select-database.png" alt-text="screenshot shows how to select a database for backup configuration from the discovered list." lightbox="./media/sap-ase-database-backup/select-database.png"::: 
 
 ## Configure the SAP ASE (Sybase) database backup
+
+After the database discovery process is complete, Azure Backup redirects to the **Backup Goal** pane, allowing you to configure backup settings for the selected VM hosting the SAP ASE database.
 
 To configure the backup operation for the SAP ASE database, follow these steps:
 
