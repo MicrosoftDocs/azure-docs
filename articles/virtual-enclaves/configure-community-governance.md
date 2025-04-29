@@ -23,7 +23,7 @@ Governance options for communities are configurable during the Community creatio
 Go to Community creation and customize your governance settings.
 
  In the context of governance for Communities, the following settings can be specified for each service:
- [ ![Screenshot showing the policy management options when creating a Community.](./media/create-community-tab-2-policy-management.png) ](./media/create-community-tab-2-policy-management.png)
+ [ ![Screenshot showing the policy management options when creating a Community.](./media/create-community-tab-2-policy-management.png) ](./media/create-community-tab-2-policy-management.png#lightbox)
 
  - Enforcement: This setting determines whether the rules defined for a service are actively enforced. When enforcement is enabled, any action that violates the rules will be blocked or flagged.
  - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It is useful for understanding the impact of potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.

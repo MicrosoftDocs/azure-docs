@@ -26,16 +26,16 @@ The application installation scripting supports the following scenarios:
 
 ## Prerequisites
 The RemoteApp template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
-1. A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
-2. A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
-3. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
-4. A copy of AzCopy.exe
+- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
+- A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
+- A copy of AzCopy.exe
     1. Get AzCopy from the [AzToolBox](./application-deployment-using-remote-app-vm.md). Create a [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
     
-    > [!NOTE] 
-    > 
-    > The latest version of AzCopy.exe might not be available at deployment
-    1. Use my copy of [AzCopy.exe](../storage/common/storage-use-azcopy-v10.md#download-azcopy.md) in my Storage Account/Container.
+      > [!NOTE] 
+      > 
+      > The latest version of AzCopy.exe might not be available at deployment
+    2. Use my copy of [AzCopy.exe](../storage/common/storage-use-azcopy-v10.md#download-azcopy.md) in my Storage Account/Container.
         - Upload the AzCopy installer to the storage account at the same level as your app folder.
         - File Structure: 
             ```md
@@ -47,7 +47,7 @@ The RemoteApp template supports scripting to automate the process of installing 
         ![Screenshot showing storage container organization structure.](./media/remoteapp-container-artifacts.png)
 
         - Like the picture above, multiple app folders can be in the same container and utilize the same copy of AzCopy.exe.
-5. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
+- [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoints using IP groups `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
 
 ![Screenshot showing example community endpoint rules.](./media/remoteapp-community-endpoint-rules.png)
 
@@ -156,7 +156,7 @@ Folder Structure:
         - script to install and schedule reboot('install_winget.ps1')
         - ('restart.ps1')
 ```
-[ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remoteapp-winget-folder.png) ](./media/remoteapp-winget-folder.png)
+[ ![Screenshot showing the artifacts needed to install winget onto the RemoteApp to then install and manage other applications using winget.](./media/remoteapp-winget-folder.png) ](./media/remoteapp-winget-folder.png#lightbox)
 
 1. Download installers and upload them to the winget folder in storage container
     1. WinGet MSIX bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))

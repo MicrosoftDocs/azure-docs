@@ -23,7 +23,7 @@ What gets deployed:
 - Nine  [Enclave Connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
-[ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-saca.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-saca.png)
+[ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-saca.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-saca.png#lightbox)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
 
@@ -50,7 +50,7 @@ What gets deployed:
 - Nine  [Enclave Connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
-[ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-tre.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-tre.png)
+[ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-tre.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-tre.png#lightbox)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.json) (easiest to deploy via Portal, powershell, or command line)
 
@@ -77,7 +77,7 @@ What gets deployed:
 - 25 [Enclave Connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
-[ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-env.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-env.png)
+[ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-env.png) ](https://github.com/Azure/virtual-enclaves/ave-templates/media/ave-demo-env.png#lightbox)
 
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
