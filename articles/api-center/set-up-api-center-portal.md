@@ -76,7 +76,7 @@ The API Center portal supports and streamlines the work of developers who use an
 
 ## Search with AI
 
-In the Standard tier, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
+In the Standard plan, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
 
 To use AI-assisted search in the API Center portal, click in the search box, select **Search with AI**, and enter a query.
 
