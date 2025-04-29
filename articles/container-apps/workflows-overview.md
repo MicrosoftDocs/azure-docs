@@ -6,8 +6,8 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: overview
 ms.date: 04/21/2025
-ms.author: hhunter-ms
-ms.reviewer: cshoe, jiayma
+ms.author: jiayma
+ms.reviewer: cshoe, hannahhunter
 ---
 
 # Workflows in Azure Container Apps
@@ -28,8 +28,10 @@ How to choose
 
 ### Durable Task SDK + DTS 
 
-### Durable Functions + MSSQL 
+### Durable Functions + DTS 
 
-## Quickstarts - could link back to DTS docs or be on ACA docs 
+## Quickstarts
+Link back to DTS docs from overview and TOC
+Maybe we could make this the "next step" button?
 
 ## Next steps
