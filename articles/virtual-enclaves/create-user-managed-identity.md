@@ -14,7 +14,7 @@ Create a User-assigned Managed Identity to grant least privledges to specific se
 
 ## Create from the Service Catalog (quick)
 1. Quickly deploy a `user` or `system` managed identity from the service catalog `Common Dependencies` template. You can also create a Key Vault from this template if you don't already have one.
-2. [Assign Role to Managed Identity](#assign-role-to-managed-identity)
+2. [Assign Role to Managed Identity](#assign-role-to-managed-identity).
 
 ## Create from the portal
 1. From the portal, type "Managed Identity" in the search bar at the top of the Portal.
