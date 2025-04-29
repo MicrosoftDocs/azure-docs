@@ -536,8 +536,8 @@ CC: stakeholders_list
 <summary> Reference Links for Nexus Deployments </summary>
 
 Reference links for deploying a Nexus instance:
-- Login to [Azure portal](https://aka.ms/nexus-portal)
-- Access [Azure portal ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
+- Access the [Azure portal](https://aka.ms/nexus-portal)
+- Access the [Azure portal ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
 - [Install Azure CLI](https://aka.ms/azcli)
 - [Install CLI Extension](howto-install-cli-extensions.md)
 - [Troubleshoot hardware validation failure](troubleshoot-hardware-validation-failure.md)
@@ -545,8 +545,8 @@ Reference links for deploying a Nexus instance:
 - [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
 - [Troubleshoot BMM degraded](troubleshoot-bare-metal-machine-degraded.md)
 - [Troubleshoot BMM warning](troubleshoot-bare-metal-machine-warning.md)
-- Reference [Nexus Telco Input Template](concepts-telco-input-template.md)
-- Reference [Nexus Platform Prerequisites](howto-platform-prerequisites.md)
+- Reference the [Nexus Telco Input Template](concepts-telco-input-template.md)
+- Reference the [Nexus Platform Prerequisites](howto-platform-prerequisites.md)
 - Create a [Network Fabric ACL](howto-create-access-control-list-for-network-to-network-interconnects.md)
 
 </details>
