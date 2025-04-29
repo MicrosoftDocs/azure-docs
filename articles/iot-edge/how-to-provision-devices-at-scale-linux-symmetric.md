@@ -9,7 +9,7 @@ ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
-# Create and provision IoT Edge devices at scale on Linux using symmetric key
+# Create and provision IoT Edge devices at scale on Linux using symmetric keys
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
