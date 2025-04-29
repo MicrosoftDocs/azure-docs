@@ -27,11 +27,11 @@ The durable task scheduler is a fully managed, high performance backend provider
 The key benefits of the durable task scheduler include:
 
 * Lower management and operation overhead compared to BYO backend providers
-* First-class observability and management [dashboard](../durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
+* First-class observability and management [dashboard](./durable-task-scheduler/durable-task-scheduler-dashboard.md) provided out-of-the-box. 
 * Supports the highest throughput of all backends today.
 * Support for authentication using managed identity.
 
-Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](../durable-task-scheduler/durable-task-scheduler.md), and [how to get started](../durable-task-scheduler/quickstart-durable-task-scheduler.md). 
+Existing Durable Functions users can leverage the scheduler with no code changes. Learn more about the [durable task scheduler](./durable-task-scheduler/durable-task-scheduler.md), and [how to get started](./durable-task-scheduler/quickstart-durable-task-scheduler.md). 
 
 Samples for durable task scheduler can be found on [GitHub](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
 
@@ -52,7 +52,9 @@ The source code for the DTFx components of the Azure Storage storage provider ca
 > [!NOTE]
 > Standard general purpose Azure Storage accounts are required when using the Azure Storage provider. All other storage account types are not supported. We highly recommend using legacy v1 general purpose storage accounts because the newer v2 storage accounts can be more expensive for Durable Functions workloads. For more information on Azure Storage account types, see the [Storage account overview](../../storage/common/storage-account-overview.md) documentation.
 
-## <a name="netherite"></a>Netherite
+## <a name="netherite"></a>Netherite 
+> [!NOTE]
+> Support for using the Netherite storage backend with Durable Functions will end 31 March 2028. It is recommended that you start evaluating the Durable Task Scheduler for workloads that you're currently using Netherite for. See [end-ofsupport announcement](https://azure.microsoft.com/updates/?id=489009). 
 
 The Netherite storage backend was designed and developed by [Microsoft Research](https://www.microsoft.com/research). It uses [Azure Event Hubs](../../event-hubs/event-hubs-about.md) and the [FASTER](https://www.microsoft.com/research/project/faster/) database technology on top of [Azure Page Blobs](../../storage/blobs/storage-blob-pageblob-overview.md). The design of Netherite enables higher-throughput processing of orchestrations and entities compared to other providers. In some benchmark scenarios, throughput was shown to increase by more than an order of magnitude when compared to the default Azure Storage provider.
 
@@ -123,43 +125,7 @@ Configuring alternate storage providers is generally a two-step process:
 If no storage provider is explicitly configured in host.json, the Azure Storage provider will be enabled by default.
 
 ### Configuring durable task scheduler (preview)
-See the [durable task scheduler getting started documentation](../durable-task-scheduler/quickstart-durable-task-scheduler.md).
-
-### Configuring the Netherite storage provider
-
-Enabling the Netherite storage provider requires a configuration change in your `host.json`. For C# users, it also requires an additional installation step.
-
-#### `host.json` Configuration
-
-The following host.json example shows the minimum configuration required to enable the Netherite storage provider.
-
-```json
-{
-  "version": "2.0",
-  "extensions": {
-    "durableTask": {
-      "storageProvider": {
-        "type": "Netherite",
-        "storageConnectionName": "AzureWebJobsStorage",
-        "eventHubsConnectionName": "EventHubsConnection"
-      }
-    }
-  }
-}
-```
-
-For more detailed setup instructions, see the [Netherite getting started documentation](https://microsoft.github.io/durabletask-netherite/#/?id=getting-started).
-
-#### Install the Netherite extension (.NET only)
-
-> [!NOTE]
-> If your app uses [Extension Bundles](../functions-bindings-register.md#extension-bundles), you should ignore this section as Extension Bundles removes the need for manual Extension management.
-
-You'll need to install the latest version of the Netherite Extension on NuGet. This usually means including a reference to it in your `.csproj` file and building the project.
-
-The Extension package to install depends on the .NET worker you are using:
-- For the _in-process_ .NET worker, install [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions).
-- For the _isolated_ .NET worker, install [`Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite`](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.Netherite).
+See the [durable task scheduler getting started documentation](./durable-task-scheduler/quickstart-durable-task-scheduler.md).
 
 ### Configuring the MSSQL storage provider
 
@@ -200,11 +166,14 @@ The Extension package to install depends on the .NET worker you are using:
 
 There are many significant tradeoffs between the various supported storage providers. The following table can be used to help you understand these tradeoffs and decide which storage provider is best for your needs.
 
+> [!NOTE]
+> Support for using the Netherite storage backend with Durable Functions will end 31 March 2028. It is recommended that you start evaluating the Durable Task Scheduler for workloads that you're currently using Netherite for. See [end-ofsupport announcement](https://azure.microsoft.com/updates/?id=489009). 
+
 | Storage provider | Azure Storage | Netherite | MSSQL | DTS| 
 |- |-              |-          |-      |- |
 | Official support status | ✅ Generally available (GA) | ✅ Generally available (GA) | ✅ Generally available (GA) | Public preview|
 | External dependencies | Azure Storage account (general purpose v1) | Azure Event Hubs<br/>Azure Storage account (general purpose) | [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) or Azure SQL Database | N/A | 
-| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | [Durable task scheduler emulator](../durable-task-scheduler/durable-task-scheduler.md#emulator-for-local-development) | 
+| Local development and emulation options | [Azurite v3.12+](../../storage/common/storage-use-azurite.md) (cross platform) | Supports in-memory emulation of task hubs ([more information](https://microsoft.github.io/durabletask-netherite/#/emulation)) | SQL Server Developer Edition (supports [Windows](/sql/database-engine/install-windows/install-sql-server), [Linux](/sql/linux/sql-server-linux-setup), and [Docker containers](/sql/linux/sql-server-linux-docker-container-deployment)) | [Durable task scheduler emulator](./durable-task-scheduler/durable-task-scheduler.md#emulator-for-local-development) | 
 | Task hub configuration | Explicit | Explicit | Implicit by default ([more information](https://microsoft.github.io/durabletask-mssql/#/taskhubs)) | Explicit | 
 | Maximum throughput | Moderate | Very high | Moderate | Very high | 
 | Maximum orchestration/entity scale-out (nodes) | 16 | 32 | N/A | N/A | 

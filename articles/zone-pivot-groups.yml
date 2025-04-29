@@ -360,8 +360,6 @@ groups:
     title: Azure PowerShell
   - id: development-environment-azure-portal
     title: Azure portal
-  - id: development-environment-azd
-    title: Azure Developer CLI
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -1028,7 +1026,8 @@ groups:
   - id: callend
     title: Call end
 # Owner: prakulka
-- id: acs-tollfree-shortcode-alphanumeric-tendlc
+# SMS Number types pricing
+- id: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
   title: Number Type
   prompt: Choose a Number Type
   pivots:
@@ -1038,6 +1037,8 @@ groups:
     title: 10DLC
   - id: shortcode
     title: Short Code
+  - id: mobile-number
+    title: Mobile Numbers
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
 # Owner: cshoe

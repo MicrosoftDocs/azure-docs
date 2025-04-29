@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 04/23/2024
 ms.collection: usx-security
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a security analyst, I want to create and manage hunting bookmarks so that I can preserve and collaborate on relevant threat investigation data.

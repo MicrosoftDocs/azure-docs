@@ -4,7 +4,7 @@ description: Learn how to enable Insights to monitor Azure Virtual Desktop and s
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 01/17/2025
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
