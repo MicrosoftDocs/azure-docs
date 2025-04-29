@@ -149,8 +149,6 @@
       href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
     - name: Azure Static Web Apps
       href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
-    - name: Azure Spring Apps
-      href: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy?toc=/azure/frontdoor/toc.json
 - name: Migration and upgrades
   items:
   - name: Migrate to Standard or Premium tier
