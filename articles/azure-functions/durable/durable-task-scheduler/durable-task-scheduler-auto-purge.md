@@ -13,7 +13,7 @@ Autopurge operates asynchronously in the background, optimized to minimize syste
 
 ## How it works
 
-Autopurge is an opt-in feature. Enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated only with the following statuses:
+Autopurge is an opt-in feature. You can enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated only with the following statuses:
 - `Completed`
 - `Failed`
 - `Canceled`
@@ -30,7 +30,7 @@ Autopurge ignores orchestration data associated with the following statuses:
 
 ### Policy value
 
-Retention value can range from 0 (purge up to 5 minutes after completion) to the maximum integer value, with the unit being **days**. 
+Retention value can range from 0 (purge as soon as possible) to the maximum integer value, with the unit being **days**. 
 
 Although retention periods have no maximum limit, we recommend you avoid retaining large volumes of stale orchestration data for extended periods. This practice ensures efficient use of storage resources and maintains optimal app performance.
 
@@ -56,10 +56,8 @@ When configuring an autopurge retention policy, you can set either a *specific* 
      ```
     
 Add specific policies to override the default policy applied to orchestrations. In the following example, the second and third policies override the default policy (`"retentionPeriodInDays": 1`). 
-- Data associated with `completed` orchestrations is deleted as soon as possible (approximately every 5 minutes). 
+- Data associated with `completed` orchestrations is deleted as soon as possible. 
 - Data associated with `failed` orchestrations is purged after 60 days. 
-
-However, since no specific policy is set for `canceled` or `terminated` orchestrations, the default policy still applies to them, purging their data after 1 day. 
 
   ```json
   [
@@ -77,6 +75,8 @@ However, since no specific policy is set for `canceled` or `terminated` orchestr
   ]
   ```
 
+Since no specific policy is set for `canceled` or `terminated` orchestrations, the default policy still applies to them, purging their data after 1 day. 
+
 [For more information, see the API reference spec for Durable Task Scheduler retention policies.](/rest/api/durabletask/retention-policies/create-or-replace?view=rest-durabletask-2025-04-01-preview&preserve-view=true)
 
 ## Enable autopurge
@@ -89,19 +89,28 @@ You can define retention policies using:
 
 # [Durable Task CLI](#tab/cli)  
 
-First, run `az extension update --name durabletask` to update the extension if you have it installed, or `az extension add --name durabletask` to install if you don't currently have the extension. 
+Make sure you have the latest version of the Durable Task CLI extension.
+
+```azurecli 
+az extension add --name durabletask
+az extension update --name durabletask
+``` 
 
 Create or update the retention policy by running the following command.
 
 ```azurecli
 az durabletask retention-policy create --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP --default-days 1 --completed-days 0 --failed-days 60
 ```
-The following are properties for specifying the retention duration for orchestration data of different statuses:
-  - `--canceled-days` or `-x`             : The number of days to retain canceled orchestrations.
-  - `--completed-days` or `-c`            : The number of days to retain completed orchestrations.
-  - `--default-days` or `-d`              : The number of days to retain orchestrations.
-  - `--failed-days` or `-f`               : The number of days to retain failed orchestrations.
-  - `--terminated-days` or `-t`           : The number of days to retain terminated orchestrations.
+
+The following properties specify the retention duration for orchestration data of different statuses.
+
+| Property | Description |
+| -------- | ----------- |
+| `--canceled-days` or `-x` | The number of days to retain canceled orchestrations. |
+| `--completed-days` or `-c` | The number of days to retain completed orchestrations. |
+| `--default-days` or `-d` | The number of days to retain orchestrations. |
+| `--failed-days` or `-f` | The number of days to retain failed orchestrations. |
+| `--terminated-days` or `-t` | The number of days to retain terminated orchestrations. |
 
 **Example response**
 
@@ -139,8 +148,8 @@ If creation is successful, you receive the following response.
   "type": "microsoft.durabletask/schedulers/retentionpolicies"
 }
 ```
-> [!TIP]
-> Add `--help` to learn more about a Durable Task CLI command. For example, learn about the arguments and properties of the retention policy create command by running `az durabletask retention-policy create --help`
+
+Learn more about the retention policy `create` command by running `az durabletask retention-policy create --help`. 
 
 # [Azure Resource Manager](#tab/arm)  
 
