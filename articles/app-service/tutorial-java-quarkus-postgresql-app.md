@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-portal-azd
 
 # Tutorial: Deploy a Quarkus web app to Azure App Service and PostgreSQL
 
-In this tutorial, you'll deploy a data-driven [Quarkus](https://quarkus.io) web application to Azure App Service with the [Azure Database for PostgreSQL](../postgresql/index.yml)) relational database service. Azure App Service supports Java SE in a Windows or Linux server environment. 
+In this tutorial, you deploy a data-driven [Quarkus](https://quarkus.io) web application to Azure App Service with the [Azure Database for PostgreSQL](../postgresql/index.yml)) relational database service. Azure App Service supports Java Standard Edition (Java SE) in a Windows or Linux server environment. 
 
 :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
@@ -143,7 +143,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column span="2":::
         **Step 2: Configure the new app**
         Fill out the form as follows.
-        1. *Name*: **msdocs-quarkus-postgres**. A resource group named **msdocs-quarkus-postgres_group** will be generated for you.
+        1. *Name*: **msdocs-quarkus-postgres**. A resource group named **msdocs-quarkus-postgres_group** is generated for you.
         1. *Runtime stack*: **Java 21**.
         1. *Java web server stack*: **Java SE (Embedded Web Server)**.
         1. *Operating system*: **Linux**.
@@ -175,7 +175,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         **Step 4: Configure GitHub deployment**
         1. Select the **Deployment** tab.
         1. Select **Continuous deployment**.
-        1. If this is your first time, select **Authorize** and authenticate with your GitHub account.
+        1. If this is your first time configuring GitHub deployment in App Service, select **Authorize** and authenticate with your GitHub account.
         1. In **Organization**, select your GitHub alias.
         1. In **Repository**, select **msdocs-quarkus-postgresql-sample-app**.
         1. In **Branch**, select **starter-no-infra**.
@@ -371,8 +371,8 @@ Note the following:
     :::column span="2":::
         **Step 2 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about how the quarkus data source settings are configured in *src/main/resources/application.properties*. 
-        1. Say, "*@workspace I have created a PostgreSQL service connector in Azure App Service using the Java client type and the app setting name is AZURE_POSTGRESQL_CONNECTIONSTRING. I want to use this connection string when the app is running in production.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *src/main/resources/application.properties* file.
+        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about how the Quarkus data source settings are configured in *src/main/resources/application.properties*. 
+        1. Say, "*@workspace I created a PostgreSQL service connector in Azure App Service using the Java client type and the app setting name is AZURE_POSTGRESQL_CONNECTIONSTRING. I want to use this connection string when the app is running in production.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *src/main/resources/application.properties* file.
         1. Open *src/main/resources/application.properties* in the explorer and add the code suggestion.
         1. Say, "@workspace How do i configure this project to create an Uber Jar?" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *src/main/resources/application.properties* file.
         1. Open *src/main/resources/application.properties* in the explorer and add the code suggestion.
@@ -703,7 +703,7 @@ This Quarkus error is most likely because the app can't connect to the Azure dat
 
 ### The app failed to start and the log stream shows "Waiting for response to warmup request for container"
 
-Your application is probably not configured to listen to the port specified by the App Service `PORT` environment variable, so it can't respond to any requests. If App Service doesn't get a response from your application, it considers the application to have failed to start. Go back to [4. Deploy sample code](#4-deploy-sample-code) and verify that *application.properties* is configured properly.
+Your application is probably not configured to listen to the port specified by the App Service `PORT` environment variable, so it can't respond to any requests. If App Service doesn't get a response from your application, it assumes that the application failed to start. Go back to [4. Deploy sample code](#4-deploy-sample-code) and verify that *application.properties* is configured properly.
 
 ### The app works, but I see the error log "ERROR [org.acm.hib.orm.pan.ent.FruitEntityResource] (vert.x-eventloop-thread-0) Failed to handle request: jakarta.ws.rs.NotFoundException: HTTP 404 Not Found".
 
