@@ -2,7 +2,7 @@
 title: Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
 description: Learn about how and why you'd want to configure autopurge retention policies for Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 04/28/2025
+ms.date: 04/29/2025
 ---
 
 # Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
@@ -96,7 +96,7 @@ Create or update the retention policy by running the following command.
 ```azurecli
 az durabletask retention-policy create --scheduler-name SCHEDULER_NAME --resource-group RESOURCE_GROUP --default-days 1 --completed-days 0 --failed-days 60
 ```
-The following are properties for specifying the retention duration of orchestration data of different statuses:
+The following are properties for specifying the retention duration for orchestration data of different statuses:
   - `--canceled-days` or `-x`             : The number of days to retain canceled orchestrations.
   - `--completed-days` or `-c`            : The number of days to retain completed orchestrations.
   - `--default-days` or `-d`              : The number of days to retain orchestrations.
