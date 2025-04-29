@@ -33,7 +33,7 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
-The three activities work on Azure Database for PostgreSQL [Single Server](/azure/postgresql/single-server/) and [Flexible Server](/azure/postgresql/flexible-server/), and [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
+The three activities work on Azure Database for PostgreSQL [Single Server](/azure/postgresql/single-server/), [Flexible Server](/azure/postgresql/flexible-server/), and [Azure Cosmos DB for PostgreSQL](/azure/postgresql/hyperscale/).
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL Single Server will be retired on March 28, 2025. Please migrate to Flexible Server by that date. You can refer to this [article](/azure/postgresql/migrate/migration-service/overview-migration-service-postgresql) and [FAQ](/azure/postgresql/migrate/whats-happening-to-postgresql-single-server) for the migration guidance.
