@@ -258,6 +258,8 @@ items:
     href: migrate-servers-to-azure-using-private-link.md
   - name: Troubleshoot network connectivity for private endpoint
     href: troubleshoot-network-connectivity.md
+  - name: Simplified experience for Azure migrate
+    href: simplified-experience-for-azure-migrate.md
   - name: Discovery
     items:
     - name: Deploy appliance
