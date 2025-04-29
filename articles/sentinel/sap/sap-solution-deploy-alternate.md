@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to deploy and configure a custom Microsoft Sentinel for SAP applications data connector so that I can securely integrate SAP logs into my cloud-based SIEM for enhanced monitoring and analysis.
 

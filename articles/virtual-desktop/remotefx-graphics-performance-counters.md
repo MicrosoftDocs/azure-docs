@@ -4,7 +4,7 @@ description: This article describes how to use RemoteFX graphics counters in rem
 author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 05/23/2019
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 

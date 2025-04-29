@@ -765,7 +765,10 @@ To perform an in-place upgrade, you need to edit the existing linked service pay
     }
    ```
 
-1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**. 
+1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**.
+
+>[!NOTE]
+>When transitioning linked services, the override template parameter section might only display database properties. You can resolve this by manually editing the parameters. After that the **Override template parameters** section will show the connection strings.
 
 ### Upgrade the Snowflake V2 connector from version 1.0 to version 1.1 (Preview)
 
