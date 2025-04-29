@@ -1,7 +1,7 @@
 ---
-title: Understand create and deletion in Azure Virtual Enclaves
+title: Understand create and delete in Azure Virtual Enclaves
 titleSuffix: Azure Virtual Enclaves
-description: Understand create and deletion in Azure Virtual Enclaves.
+description: Understand create and delete in Azure Virtual Enclaves.
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves

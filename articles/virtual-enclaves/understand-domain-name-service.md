@@ -27,11 +27,11 @@ For some enterprise systems, this level of DNS doesn't fully satisfy all use-cas
 1. Log in to the DNS server, and open a PowerShell Window 
 2. Run the following commands:
 
-  ``` PowerShell
-  $AzureDnsIpAddress = '168.63.129.16'
-  $dnsZone = '' #Insert the name of your private link
-  Add-DnsServerConditionalForwarderZone -Name $dnsZone -MasterServers $AzureDnsIpAddress
-  ```
+   ``` PowerShell
+   $AzureDnsIpAddress = '168.63.129.16'
+   $dnsZone = '' #Insert the name of your private link
+   Add-DnsServerConditionalForwarderZone -Name $dnsZone -MasterServers $AzureDnsIpAddress
+   ```
 
 ### Verification
 Assuming no errors, you can validate by opening the DNS manager on the DNS server and validating the new private link you added shows up under the 'Conditional Forwarders' folder:

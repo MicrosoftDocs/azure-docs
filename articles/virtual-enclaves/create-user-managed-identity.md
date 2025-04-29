@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create a User-assigned Managed Identity
+# Create a user-assigned managed identity
 Create a User-assigned Managed Identity to grant least privledges to specific service for actions like encryption at rest.
 
 ## Create from the Service Catalog (quick)

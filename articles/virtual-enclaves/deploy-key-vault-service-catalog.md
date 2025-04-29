@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy a Key Vault from the Service Catalog into a Workload
+# Deploy a Key Vault from the Service Catalog into a workload
 
 In this article, you:
 
