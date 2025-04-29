@@ -48,7 +48,7 @@ There are required fields (identified with a red asterisk) in each section that 
 
     | Field                  | Action                                                                                           |
     |------------------------|--------------------------------------------------------------------------------------------------|
-    | Organization Name      | Choose to create a new organization, or associate your resource with an existing organization.   |
+    | Organization Name      | Specify the name of the MongoDB Atlas organization                                               |
 
     The remaining fields update to reflect the details of the plan you selected for this new organization.
 
