@@ -12,14 +12,14 @@ ms.topic: how-to
 
 Azure Front Door is a modern cloud-native application delivery network (ADN) that provides dynamic site acceleration, global load balancing, TLS termination, and application layer security. It operates at the HTTP/HTTPS layer (Layer 7) and acts as the entry point for web applications—routing and optimizing traffic based on attributes such as URL paths, latency, and health status of backends.
 
-A key benefit of Azure Front Door is its native support for WebSocket and WebSocket Secure (WSS) connections. This enables real-time, bi-directional communication between clients and backend services without requiring any special configuration.
+A key benefit of Azure Front Door is its native support for WebSocket and WebSocket Secure (WSS) connections. This support enables real-time, bi-directional communication between clients and backend services without requiring any special configuration.
 
 In this guide, we demonstrate how to use Azure Front Door with Azure SignalR Service to front-end your real-time applications. By routing traffic through Front Door, you can:
-- Leverage WebSocket support with global reach and edge acceleration,
+- Apply WebSocket support with global reach and edge acceleration,
 - Apply centralized security policies, such as WAF rules and rate limiting,
 - Reduce public exposure of your backend services.
 
-As shown in the diagram, you’ll configure Azure Front Door to route WebSocket traffic to your SignalR-powered application backend. This setup ensures that your real-time functionality benefits from low-latency, scalable, and secure traffic handling through Azure’s global edge network.
+As shown in the diagram, you configure Azure Front Door to route WebSocket traffic to your SignalR-powered application backend. This setup ensures that your real-time functionality benefits from low-latency, scalable, and secure traffic handling through Azure’s global edge network.
 
 ## Set up and configure Azure Front Door
 
@@ -37,11 +37,11 @@ On the [Azure portal](https://portal.azure.com/), search for **Front Door** and 
 ### Quick test
 Conduct quick tests to verify that SignalR endpoint is healthy and Azure Front Door resource is correctly configured.
 
-Send a request to `<your-SignalR-resource-endpoint>/client` and it should return _400_ with error message _'hub' query parameter is required._ This means that the request arrived at SignalR Service and the service performed validation as expected.
+Send a request to `<your-SignalR-resource-endpoint>/client` and it should return _400_ with error message _'hub' query parameter is required._ This message means that the request arrived at SignalR Service and the service performed validation as expected.
   ```bash
   curl -v <your-SignalR-resource-endpoint>/client
   ```
-  returns
+  Returns
   ```
   < HTTP/1.1 400 Bad Request
   < ...
@@ -55,7 +55,7 @@ Send a request to the same health endpoint of Azure SignalR through Azure Front 
   ```bash
   curl -I http://<the-hostname-of-your-Azure-Front-Door-resource>/client
   ```
-  It should also return _400_ with error message _'hub' query parameter is required._ This confirms that the request successfully went through Azure Front Door to SignalR Service.
+  It should also return _400_ with error message _'hub' query parameter is required._ This message confirms that the request successfully went through Azure Front Door to SignalR Service.
 
   ```
   < HTTP/1.1 400 Bad Request
@@ -66,7 +66,7 @@ Send a request to the same health endpoint of Azure SignalR through Azure Front 
 
 ### Run a SignalR sample app through Azure Front Door
 
-Now that we have verified that the traffic can reach SignalR Service through Azure Front Door. Next, we use a barebone sample app to demonstrate Azure Front Door's ability to route WebSocket traffic without configuration. We take a step-by-step approach so that you can follow along, if needed.
+Now that we can verify that the traffic can reach SignalR Service through Azure Front Door. Next, we use a barebone sample app to demonstrate Azure Front Door's ability to route WebSocket traffic without configuration. We take a step-by-step approach so that you can follow along, if needed.
 
 #### Create the project
 ```bash
@@ -92,7 +92,7 @@ Paste in the content to the `afd-demo.csproj` file. This project uses only the "
 ```
 
 #### Configure app settings
-Create an `appsettings.json` file and paste in the content below. The values will be referenced in the `Program.cs` file, which we create in the next step.
+Create an `appsettings.json` file and paste in the content. The values will be referenced in the `Program.cs` file, which we create in the next step.
 ```bash
 touch appsettings.json
 ```
@@ -117,7 +117,7 @@ touch appsettings.json
 touch Program.cs
 ```
 
-Paste in the code below to the `Program.cs` file. The web app defines a SignalR hub and serves `index.html` at the web root.
+Paste in the code to the `Program.cs` file. The web app defines a SignalR hub and serves `index.html` at the web root.
 ```csharp
 using Microsoft.Azure.SignalR;
 var builder = WebApplication.CreateBuilder(args);
@@ -161,7 +161,7 @@ mkdir hubs && cd hubs
 touch demohubs.cs
 ```
 
-Paste in the code below to the `demohubs.cs` file. For simplicity, the hub exposes only `BroadcastMessage` method to SignalR client, which broadcasts the received message to all connected SignalR clients.
+Paste in the code to the `demohubs.cs` file. For simplicity, the hub exposes only `BroadcastMessage` method to SignalR client, which broadcasts the received message to all connected SignalR clients.
 ```csharp
 using Microsoft.AspNetCore.SignalR;
 
@@ -179,7 +179,7 @@ mkdir wwwroot && cd wwwroot
 touch index.html
 ```
 
-Paste in the code below to `index.html`. The user interface consists of a `<textarea>` to receive text input from user and a `<button>` to send the user input through a SignalR connection. Since we defined the SignalR server's behavior to broadcast received messages, you will see the same message logged to the browser console. 
+Paste in the code to `index.html`. The user interface consists of a `<textarea>` to receive text input from user and a `<button>` to send the user input through a SignalR connection. Since we defined the SignalR server's behavior to broadcast received messages, you see the same message logged to the browser console. 
 ```html
 <!DOCTYPE html>
 <html>
@@ -231,7 +231,7 @@ Paste in the code below to `index.html`. The user interface consists of a `<text
 ```
 
 #### Run the app and verify the flow of message through Azure Front Door
-That's all the code to the sample. Let's run the app.
+That is all the code to the sample. Let's run the app.
 
 ```bash
   dotnet restore
@@ -242,7 +242,7 @@ Open http://localhost:5129 from the browser and use `F12` keyboard shortcut to
 
   :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/network-panel-afd.jpg" alt-text="Screenshot of the running app establishing a WebSocket connection with Azure Front Door.":::
 
-Try to type something in the text box and hit the send button. You will see the message is logged to browser console as expected.
+Try to type something in the text box and hit the send button. You see the message is logged to browser console as expected.
 
   :::image type="content" source="./media/signalr-howto-work-with-azure-front-door/console-log.jpg" alt-text="Screenshot of the received message in browser's console log.":::
 
