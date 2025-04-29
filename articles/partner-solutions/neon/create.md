@@ -60,6 +60,8 @@ There are required fields in each section that you need to fill out.
 
 In Neon, everything starts with a project: the top-level object in the Neon object hierarchy. When you create a project, a default branch and database is automatically created for your project to help you get started.
 
+:::image type="content" source="media/create/project-tab.png" alt-text="Screenshot from the Azure portal showing the Project tab for the Neon resource.":::
+
 1. Enter the values for each setting, or continue with the default values for your project.
     
     |Field              |Action                                                             |
