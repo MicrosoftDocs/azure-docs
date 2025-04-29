@@ -81,15 +81,15 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 
 ## Benefits of JIT Access in Azure Virtual Enclaves
 
-1. **Enhanced Security**:
+- **Enhanced Security**:
    - Time-bound access minimizes exposure to sensitive resources.
    - Conditional Access enforces strong identity and device verification.
 
-2. **Operational Flexibility**:
+- **Operational Flexibility**:
    - Users can quickly request and receive necessary permissions for specific tasks.
    - Approvers retain control over who accesses enclave resources and when.
 
-3. **Compliance and Auditability**:
+- **Compliance and Auditability**:
    - Logs of all access requests, approvals, and actions ensure traceability for audits.
    - Integration with tools like Azure Monitor and Microsoft Sentinel enhances visibility.
 

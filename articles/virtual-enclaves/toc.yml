@@ -119,7 +119,9 @@
     - name: Naming rules and restrictions
       href: name-rules-restrictions-azure-virtual-enclave-resources.md
     - name: Manage Key Vault SKUs
-      href: upgrade-enclave-key-vault-sku.md 
+      href: upgrade-enclave-key-vault-sku.md
+    - name: Move data inside an Enclave
+      href: move-data-inside-enclave.md
   - name: Troubleshoot
     items:
     - name: Troubleshooting guide

@@ -106,7 +106,7 @@ landingContent:
 #     linkLists:
 #       - linkListType: how-to-guide
 #         links:
-#           - text: Just-In-Time Access
+#           - text: Just-in-time Access
 #             url: just-in-time-access.md
 #           - text: Dynamic Access Controls
 #             url: dynamic-access-controls.md
