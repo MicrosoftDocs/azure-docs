@@ -27,7 +27,7 @@ Azure Managed Redis has different SKU and tier offerings that provide flexibilit
 
 Azure Managed Redis supports scaling in two dimensions:
 
-- **Memory** Increasing memory increases the size of the Redis instance, allowing you to store more data.
+- **Memory** Increasing memory increases the size of the Redis instance, allowing you to store more data. When reducing the memory, you need to ensure that your current memory usage is less than new memory size you want to use.
 
 - **vCPUs** Azure Managed Redis offers three tiers (_Memory Optimized_, _Balanced_, and _Compute Optimized_) that have an increasing number of vCPUs for each level of memory. Scaling to a tier with more vCPUs increases the performance of your instance without requiring you to increase memory. Unlike the community edition of Redis, which can only utilize a single vCPU, Azure Managed Redis uses the Redis Enterprise stack, which is able to use multiple vCPUs. This means that the number of vCPUs used by your Redis instance directly correlates with throughput and latency performance.
 
@@ -62,7 +62,7 @@ You can monitor the following metrics to determine if you need to scale.
 - **CPU**
   - High CPU usage means that the Redis server is unable to keep pace with requests from all the clients. Scaling up to more vCPUs helps distribute requests across multiple Redis processes. Scaling also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS.
 - **Memory Usage**
-  - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory.
+  - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. When reducing the memory, you need to ensure that your current memory usage is less than new memory size you want to use.
 - **Client connections**
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling to a larger memory size or a higher performance tier.
   - For more information on connection limits by cache size, see [Performance testing with Azure Managed Redis](best-practices-performance.md).
@@ -77,19 +77,15 @@ For more information on determining the cache pricing tier to use, see [Choosing
 > For more information on how to optimize the scaling process, see the [best practices for scaling guide](best-practices-scale.md)
 >
 
-## Prerequisites/limitations of scaling Azure Managed Redis
+## Limitations of scaling Azure Managed Redis
 
 - You can't scale from the **Memory Optimized**, **Balanced**, or **Compute Optimized** tiers to the **Flash Optimized** tier, or vice-versa.
-- You can't scale down from to a SKU with fewer vCPUs. (Across tiers or within a tier.)
-- You can't scale down to a smaller memory size, even if it has the same or more vCPUs.
-- In some cases when scaling, the underlying IP address of the Redis instance can change. The DNS record for the instance changes and is transparent to most applications. However, if you use an IP address to configure the connection to your cache, or to configure NSGs, or firewalls allowing traffic to the cache, your application might have trouble connecting sometime after the DNS record updates.
+- When reducing the memory for your Redis instance, the current memory usage of your Redis instance should be less than the intended new memory size. See [this](#what-will-happen-to-my-data-if-i-scale-to-smaller-memory-size) for more details.
+- When reducing the memory or vCPU for your Redis instance, you can only scale to SKUs which have a vCPU and shard configuration that is compatible with the configuration on your current instance. See this [table](add link) for a guideline on which SKUs can you scale down your Redis instance to.
+- In some cases when scaling, the underlying IP address of the Redis instance can change. The DNS record for the instance changes and is transparent to most applications. However, if you use an IP address to configure the connection to your Redis instance, or to configure NSGs, or firewalls allowing traffic to the Redis instance, your application might have trouble connecting sometime after the DNS record updates.
 - Scaling an instance in a geo-replication group has some more limitations. See [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication) for more information.
-  
-## How to scale
 
-> [!TIP]
-> You can change both the memory size and performance tier in one operation.
->
+## How to scale
 
 ### Scale using the Azure portal
 
@@ -97,9 +93,9 @@ For more information on determining the cache pricing tier to use, see [Choosing
 
    :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale.png" alt-text="Screenshot showing Scale selected in the Resource menu for an Enterprise cache.":::
 
-1. To scale up, choose a different **Cache type** and then choose **Save**.
+1. To scale your vCPUs, choose a different **Cache type** and then choose **Save**.
    > [!IMPORTANT]
-   > If you select a SKU that cannot be scaled to, the **Save** option is disabled. Review the [Prerequisites/limitations of scaling Azure Managed Redis](#prerequisiteslimitations-of-scaling-azure-managed-redis) section for details on which scaling options are allowed.
+   > If you select a SKU that cannot be scaled to, the **Save** option is disabled. Review the [Limitations of scaling Azure Managed Redis](#prerequisiteslimitations-of-scaling-azure-managed-redis) section for details on which scaling options are allowed.
 
    :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale-up.png" alt-text="Screenshot showing the Enterprise tiers in the working pane.":::
 
@@ -107,7 +103,7 @@ For more information on determining the cache pricing tier to use, see [Choosing
 
     :::image type="content" source="media/how-to-scale/managed-redis-enterprise-notifications.png" alt-text="Screenshot showing notification of scaling an Enterprise cache.":::
 
-1. When scaling is complete, the status changes from **Scaling** to **Running**.
+1. When scaling is complete, the status on the Overview blade changes from **Scaling** to **Running**.
 
 ### Scale using PowerShell
 
@@ -130,6 +126,7 @@ az redisenterprise update --cluster-name "myCache" --resource-group "myGroup" --
 The following list contains answers to commonly asked questions about Azure Managed Redis scaling.
 
 - [Can I scale within or across tiers?](#can-i-scale-within-or-across-tiers)
+- [What will happen to my data if I scale to smaller memory size?](#what-will-happen-to-my-data-if-i-scale-to-smaller-memory-size)
 - [After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 - [How does scaling work?](#how-does-scaling-work)
 - [Do I lose data from my cache during scaling?](#do-i-lose-data-from-my-cache-during-scaling)
@@ -145,7 +142,29 @@ The following list contains answers to commonly asked questions about Azure Mana
 
 ### Can I scale within or across tiers?
 
-You can always scale to a higher performance tier at the same memory size or a larger memory size within the same performance tier. For scaling to a lower performance tier or smaller memory size, see the [Prerequisites/limitations of scaling Azure Managed Redis](#prerequisiteslimitations-of-scaling-azure-managed-redis).
+You can always scale to a higher performance tier at the same memory size or a larger memory size within the same performance tier. For scaling to a lower performance tier or smaller memory size, see the table below for SKUs that your cluster can scale to. Please note that this table is just a guidance and we recommend you run the "listskusforscaling" REST API to get the list of SKUs that you can scale to.
+
+| **Size (GB)** | **Memory Optimized**                                                                | **Balanced**                                                                | **Compute Optimized**                                                                 |
+|---------------|----------------------------------------------------------------------------------|--------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
+| **0.5**       |                           -                                                       |                   -                                                       |                                         -                                          |
+| **1**         |                 -                                                                 |                                                       B0                 |                                                              -                     |
+| **3**         |                                                                                  | B1, B0                                                                   | B3, B1, B0                                                                        |
+| **6**         | B5, B3, B1, B0<br>X5, X3                                                         | M10<br>B5, B3, B1, B0<br>X5, X3                                          | M10<br>B10, B5, B3, B1, B0<br>X5, X3                                              |
+| **12**        | M10<br>B10, B5, B3, B1, B0<br>X10, X5, X3                                        | M20, M10<br>B10, B5, B3, B1, B0<br>X10, X5, X3                           | M20, M10<br>B20, B10, B5, B3, B1, B0<br>X10, X5, X3                               |
+| **24**        | M20, M10<br>B20, B10, B5, B3, B1, B0<br>X20, X10, X5, X3                        | M50, M20, M10<br>B20, B10, B5, B3<br>X20, X10, X5, X3                    | M50<br>B50, B20<br>X20, X10                                                       |
+| **60**        | M50, M20, M10<br>B50, B20, B10, B5, B3<br>X50, X20, X10, X5, X3                 | M100, M50<br>B50, B20<br>X20, X10                                        | M100<br>B100, B50<br>X50, X20                                                     |
+| **120**       | M100, M50<br>B100, B50, B20<br>X100, X50, X20, X10                              | M150, M100<br>B100, B50<br>X100, X50, X20                                | M150<br>B150, B100<br>X100, X50                                                   |
+| **180**       | M150, M100, M50<br>B150, B100, B50, B20<br>X150, X100, X50, X20, X10            | M200, M150, M100<br>B150, B100, B50<br>X150, X100, X50, X20              | M200, M150<br>B200, B150, B100<br>X150, X100, X50                                 |
+| **240**       | M200, M150, M100<br>B200, B150, B100, B50<br>X200, X150, X100, X50, X20         | M350, M200, M150, M100<br>B200, B150, B100<br>X200, X150, X100, X50      | M350<br>B350, B200, B150<br>X200, X150, X100                                      |
+| **360**       | M350, M200, M150, M100<br>B350, B200, B150, B100, B50<br>X350, X200, X150, X100 | M500, M350, M200, M150<br>B350, B200, B150, B100<br>X350, X200, X150, X100, X50 | M500, M350<br>B350, B200, B150<br>X350, X200, X150, X100                          |
+| **480**       | M500, M350, M200, M150<br>B500, B350, B200, B150, B100<br>X500, X350, X200, X150, X100, X50 | M700, M500, M350<br>B500, B350, B200, B150<br>X350, X200, X150, X100     | M700, M500, M350<br>B350, B200, B150<br>X500, X350, X200, X150, X100              |
+| **720**       | M700, M500, M350, M200, M150<br>B700, B500, B350, B200, B150, B100<br>X700, X500, X350, X200, X150, X100, X50 | M1000, M700, M500, M350<br>B1000, B700, B500, B350, B200, B150<br>X700, X500, X350, X200, X150, X100 |                                                                                   |
+| **960**       | M1000, M700, M500, M350<br>B1000, B700, B500, B350, B200, B150<br>X700, X500, X350, X200, X150, X100 |                     -                                                     |                                                                                   |-
+| **1440**      | M1000, M700, M500, M350<br>B1000, B700, B500, B350, B200, B150<br>X700, X500, X350, X200, X150, X100 |                  -                                                        |                                                      -                             |
+
+### What will happen to my data if I scale to smaller memory size?
+
+You can scale to a smaller memory size only if the current memory usage is less than the intended smaller memory size. If the current memory usage is higher than the intended smaller size, your scaling request will fail. You can reduce the current memory usage by deleted unwanted key value pairs or by running the flush operation. (Add link)
 
 ### After scaling, do I have to change my cache name or access keys?
 
@@ -161,7 +180,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 ### Do I lose data from my cache during scaling?
 
 - If high availability mode is enabled, all data should be preserved during scaling operations.
-- If you're scaling down to a smaller memory level, data can be lost if the data size exceeds the new smaller size when the cache is scaled down. If data is lost when scaling down, keys are evicted using the [allkeys-lru](https://redis.io/topics/lru-cache) eviction policy.
+- If you're scaling to a smaller memory level, you need to ensure that the current memory usage is lower than the intended new memory size. If the current memory usage is more than the intended SKU memory size, you can flush your data using Flush operation (add link) or choose key values to delete manually.
 - If high availability mode is disabled, all data is lost and the cache is unavailable during the scaling operation.
 
 ### Will my cache be available during scaling?
@@ -209,10 +228,6 @@ For more information, see [Keys distribution model](https://redis.io/topics/clus
 ### What is the largest cache size I can create?
 
 The largest cache size you can have is 4.5 TB, called Flash Optimized A4500 instance. [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
-
-### What is the difference between the OSS and Enterprise cluster policies?
-
-OSS cluster policy is the same as clustering approach used in community edition Redis. Typically OSS cluster policy is more performant. Enterprise cluster policy implements clustering so that it appears to a client as a nonclustered Redis instance. This approach can be less performant, but can prevent client compatibility issues. It isn't currently possible to switch between cluster policies on a running instance. For more information, see [Cluster policy](architecture.md#cluster-policies).
 
 ## Next steps
 
