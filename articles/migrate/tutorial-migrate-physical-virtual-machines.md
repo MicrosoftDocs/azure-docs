@@ -307,10 +307,10 @@ Use the following steps to register the appliance:
 
 1. After successfully saving the vCenter information, select **Add Virtual Machine** credentials to provide user details for the VMs discovered through the vCenter.
 
- > [!Note]
- > * For Linux OS, ensure to provide root credentials.
- > * For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow.
- > * Visit the **Appliance Configurator** to edit or add credentials to access your machines.
+     > [!Note]
+     > * For Linux OS, ensure to provide root credentials.
+     > * For Windows OS, a user account with admin privileges should be added. These credentials are used to push the installation of the mobility agent onto the source VM during the enable replication operation. The credentials can be chosen per VM in the Azure portal during the enable replication workflow.
+     > * Visit the **Appliance Configurator** to edit or add credentials to access your machines.
 
 1. After adding the vCenter details, expand **Provide Physical Server Details** to add information about any physical servers you plan to protect.
 
