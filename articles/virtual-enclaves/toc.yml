@@ -195,7 +195,7 @@
       href: key-vault-initiative.md
     - name: Azure SQL Guardrail Initiative
       href: sql-initiative.md
-    - name: Azure Montior Guardrail Initiative
+    - name: Azure Monitor Guardrail Initiative
       href: monitor-initiative.md
     - name: Azure PostgreSQL Guardrail Initiative
       href: postgresql-initiative.md
