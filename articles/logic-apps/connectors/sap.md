@@ -146,11 +146,11 @@ The SAP built-in connector significantly differs from the SAP managed connector 
 
   - SAP built-in connector: Strictly validates the input payload against the **`IDoc Format`** specified in the action inputs. If a mismatch exists between the provided **`IDoc Format`** and the input XML IDoc structure, the built-in connector throws an error.
 
-  - SAP managed connector: Direclty infers the IDoc format from the input payload, allowing for more flexibility by not requiring an exactly matching format.
+  - SAP managed connector: Directly infers the IDoc format from the input payload, allowing for more flexibility by not requiring an exactly matching format.
 
 * Handling BizTalk XML group segments
 
-  - SAP built-in connector**: Strictly follows the schema defined by the schema generator.
+  - SAP built-in connector: Strictly follows the schema defined by the schema generator.
 
     - A segment that ends with **`GRP`** (group segment) must define any child segments only one time per instance.
 
