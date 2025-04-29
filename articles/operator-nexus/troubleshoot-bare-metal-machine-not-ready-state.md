@@ -8,6 +8,7 @@ ms.date: 10/09/2024
 ms.author: omarrivera
 author: omarrivera
 ---
+
 # Troubleshoot Azure Operator Nexus BareMetal Machines in a Not Ready state
 
 This guide attempts to provide steps to troubleshoot when a BareMetal Machine is declared to be `Not Ready` state.
