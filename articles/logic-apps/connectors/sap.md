@@ -134,7 +134,7 @@ The SAP built-in connector significantly differs from the SAP managed connector 
   </RfcName>
   ```
 
-  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element. This is to conform with W3C specification [2.10 White Space Handling](https://www.w3.org/TR/xml/#sec-white-space). For example:
+  In the SAP RFC function call, the whitespace in the **Parameter** value is treated as an empty string ('') and is trimmed. To make sure that the call keeps whitespace exactly as provided in the payload, include the **`xml:space="preserve"`** attribute with the element to comply with the W3C specification [2.10 White Space Handling](https://www.w3.org/TR/xml/#sec-white-space), for example:
 
   ```xml
   <RfcName>
