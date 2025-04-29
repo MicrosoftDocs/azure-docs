@@ -44,7 +44,7 @@ Flex Consumption expands on the traditional benefits of Consumption plan by addi
 
 When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how instance memory sizes affect the costs of your function app. 
 
-Currently, Flex Consumption offers instance memory size options of both 2,048 MB and 4,096 MB.
+Currently, Flex Consumption offers instance memory size options are 512 MB, 2048 MB and 4096 MB.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
