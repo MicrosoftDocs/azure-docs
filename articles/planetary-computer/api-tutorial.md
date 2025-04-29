@@ -18,7 +18,7 @@ STAC (SpatioTemporal Asset Catalog) Collections are used within a GeoCatalog to 
 In this tutorial, you:
 > * Will create your very own STAC collection within a Planetary Computer Pro GeoCatalog
 > * Ingest satellite imagery into that collection from the European Space Agency
-> * Configure the collection so the imagery in the collection can be visualized in the Planetary Computer Pro's portal
+> * Configure the collection so the imagery in the collection can be visualized in the Planetary Computer Pro's web interface
 > * Query data from within the STAC collection using the Planetary Computer Pro's STAC API
 
 ## Prerequisites
@@ -180,7 +180,7 @@ else:
     raise_for_status(response)
 ```
 
-Open your GeoCatalog portal and you should see your new collection listed under the "Collections" tab.
+Open your GeoCatalog web interface and you should see your new collection listed under the "Collections" tab.
 
 ### Access Collection Thumbnail
 
@@ -486,7 +486,7 @@ You should be able to refresh your web browser and click on the Items tab to see
 
 ## Collection Management
 
-Now that you ingested these STAC items and their associated assets (images) into the STAC collection, you need to provide you GeoCatalog with some other configuration files before you can visualize these items in the GeoCatalog portal.
+Now that you ingested these STAC items and their associated assets (images) into the STAC collection, you need to provide you GeoCatalog with some other configuration files before you can visualize these items in the GeoCatalog web interface.
 
 ### Collection Render Config
 First download a render configuration file for this collection from the Planetary Computer. This config file can be read by GeoCatalog to render images in different ways within the Explorer. This is because STAC items may contain many different assets (images) that can be combined to create entirely new images of a given area that highlight visible or nonvisible features. For instance, Sentinel-2 STAC items have over 12 different images from different portions of the electromagnetic spectrum. This render config instructs GeoCatalog on how to combine these images so it can display images in Natural Color or False Color (Color Infrared).
@@ -543,11 +543,11 @@ response = requests.post(
 )
 ```
 
-### Open GeoCatalog Portal
+### Open GeoCatalog web interface
 
-Congrats! You created a collection, added STAC items and assets, and updated your collection to include the required configuration files so it can be viewed through the Explorer within the GeoCatalog portal.
+Congrats! You created a collection, added STAC items and assets, and updated your collection to include the required configuration files so it can be viewed through the Explorer within the GeoCatalog web interface.
 
-**Navigate back to the GeoCatalog Explorer in the portal to view your collection!**
+**Navigate back to the GeoCatalog Explorer in the web interface to view your collection!**
 
 ## Query Collection via STAC API
 
@@ -638,7 +638,7 @@ print(f"STAC Collection deleted: {collection_id}")
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a STAC Collection through the portal](./create-collection-portal.md)
+> [Create a STAC Collection through the web interface](./create-collection-ui.md)
 
 ## Related Content
 In this end-to-end tutorial, you walked through the process of creating a new STAC collection, ingesting Sentinel-2 images into the collection, and querying those images via GeoCatalog's APIs. If you would like to learn more about each of these topics, explore these other materials:
