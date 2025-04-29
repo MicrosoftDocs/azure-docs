@@ -145,7 +145,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 3. Create NFC from Telco Input template (skip for existing NFC) with Azure CLI:
    ```
    az networkfabric controller create --resource-group <NFC_RG> --subscription <CUSTOMER_SUB_ID> --location <AZURE_REGION> \
-     --resource-name NFC_NAME --ipv4-address-space "<NFC_IPV4>/<NFC_IPV4_CIDR>" --ipv6-address-space "<NFC_IPV6>/<NFC_IPV6_CIDR>" \
+     --resource-name <NFC_NAME> --ipv4-address-space "<NFC_IPV4>/<NFC_IPV4_CIDR>" --ipv6-address-space "<NFC_IPV6>/<NFC_IPV6_CIDR>" \
      --infra-er-connections '[{"expressRouteCircuitId": "<MGMT_ER1_RID>", "expressRouteAuthorizationKey": "<MGMT_AUTH_1>"}, \
        {"expressRouteCircuitId": "<MGMT_ER2_RID>", "expressRouteAuthorizationKey": "<MGMT_AUTH_2>"}]' \
      --workload-er-connections '[{"expressRouteCircuitId": "<TNT_ER1_RID>", "expressRouteAuthorizationKey": "<TNT_AUTH_1>"}, \
@@ -223,7 +223,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 3. Create CM from Telco Input template (skip for existing CM) with ARM Deployment from Azure CLI:
    ```
-   az deployment sub create --name "<CM_NAME>-deployment" --subscription "<CUSTOMER_SUB_ID>" --location "<AZURE_REGION>" --template-file "clusterManager.jsonc" \
+   az deployment sub create --name <CM_NAME>-deployment --subscription <CUSTOMER_SUB_ID> --location <AZURE_REGION> --template-file "clusterManager.jsonc" \
      --parameters "clusterManager.parameters.jsonc" --debug --no-wait
    ```
 
@@ -276,40 +276,41 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    
 4. Create Fabric from Telco Input template with Azure CLI:
    ```
-   az networkfabric fabric create --resource-group "NF_RG" --subscription "SUBSCRIPTION_ID" --location "REGION" --resource-name "NF_NAME" \
-     --nf-sku "NF_SKU" --nfc-id "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NFC_RG/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/NFC_NAME" \
-     --fabric-asn NF_ASN --fabric-version NF_VER --ipv4-prefix "MGMT_IPV4/MGMT_IPV4_CIDR" --ipv6-prefix "MGMT_IPV6/MGMT_IPV6_CIDR" --rack-count RACK_COUNT \
-     --server-count-per-rack SERVERS_PER_RACK --ts-config '{"primaryIpv4Prefix": "TS_IPV4_1/TS1_IPV4_1_CIDR", "secondaryIpv4Prefix": "TS_IPV4_2/TS1_IPV4_2_CIDR", \
-       "username": "'$TS_USER'", "password": "'$TS_PASSWORD'", "serialNumber": "TS_SERIAL", "primaryIpv6Prefix": "TS_IPV6_1/TS1_IPV6_1_CIDR", "secondaryIpv6Prefix": "TS_IPV6_2/TS1_IPV6_2_CIDR"}' \
-     --managed-network-config '{"infrastructureVpnConfiguration": {"peeringOption": "OptionA", "optionAProperties": {"mtu": "MGMT_OPA_MTU", "vlanId": "MGMT_OPA_VLANID", \
-       "peerASN": "MGMT_OPA_PEERASN", "primaryIpv4Prefix": "MGMT_OPA_PRIMARYIPV4PREFIX", "secondaryIpv4Prefix": "MGMT_OPA_SECONDARYIPV4PREFIX"}}, \
-       "workloadVpnConfiguration": {"peeringOption": "OptionA", "optionAProperties": {"mtu": "TENANT_OPA_MTU", "vlanId": "TENANT_OPA_VLANID", "peerASN": "TENANT_OPA_PEERASN", \
-       "primaryIpv4Prefix": "TENANT_OPA_PRIMARYIPV4PREFIX", "secondaryIpv4Prefix": "TENANT_OPA_SECONDARYIPV4PREFIX", "primaryIpv6Prefix": "TENANT_OPA_PRIMARYIPV6PREFIX", \
-       "secondaryIpv6Prefix": "TENANT_OPA_SECONDARYIPV6PREFIX"}}}' --debug --no-wait
+   az networkfabric fabric create --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> --location <AZURE_REGION> --resource-name <NF_NAME> \
+     --nf-sku <NF_SKU> --nfc-id </subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NFC_RG>/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/<NFC_NAME> \
+     --fabric-asn <NF_ASN> --fabric-version <NF_VER> --ipv4-prefix "<MGMT_IPV4>/<MGMT_IPV4_CIDR>" --ipv6-prefix "<MGMT_IPV6>/<MGMT_IPV6_CIDR>" --rack-count <RACK_COUNT> \
+     --server-count-per-rack <SERVERS_PER_RACK> --ts-config '{"primaryIpv4Prefix": "<TS_IPV4_1>/<TS1_IPV4_1_CIDR>", "secondaryIpv4Prefix": "<TS_IPV4_2>/<TS1_IPV4_2_CIDR>", \
+       "username": "<TS_USER>", "password": "<TS_PASSWORD?", "serialNumber": "<TS_SERIAL>", "primaryIpv6Prefix": "<TS_IPV6_1>/<TS1_IPV6_1_CIDR>", "secondaryIpv6Prefix": "<TS_IPV6_2>/<TS1_IPV6_2_CIDR>"}' \
+     --managed-network-config '{"infrastructureVpnConfiguration": {"peeringOption": "OptionA", "optionAProperties": {"mtu": "<MGMT_OPA_MTU>", "vlanId": "<MGMT_OPA_VLANID>", \
+       "peerASN": "<MGMT_OPA_PEERASN>", "primaryIpv4Prefix": "<MGMT_OPA_PRIMARYIPV4PREFIX>", "secondaryIpv4Prefix": "<MGMT_OPA_SECONDARYIPV4PREFIX>"}}, \
+       "workloadVpnConfiguration": {"peeringOption": "OptionA", "optionAProperties": {"mtu": "<TENANT_OPA_MTU>", "vlanId": "<TENANT_OPA_VLANID>", "peerASN": "<TENANT_OPA_PEERASN>", \
+       "primaryIpv4Prefix": "<TENANT_OPA_PRIMARYIPV4PREFIX>", "secondaryIpv4Prefix": "<TENANT_OPA_SECONDARYIPV4PREFIX>", "primaryIpv6Prefix": "<TENANT_OPA_PRIMARYIPV6PREFIX>", \
+       "secondaryIpv6Prefix": "<TENANT_OPA_SECONDARYIPV6PREFIX>"}}}' --debug --no-wait
    ```
 
 5. Check status of Fabric for `Succeeded` from Azure CLI:
    ```
-   az networkfabric fabric show --resource-group "<NF_RG>" --resource-name "<NF_NAME>" --subscription <CUSTOMER_SUB_ID> -o table
+   az networkfabric fabric show --resource-group <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    az networkfabric fabric list --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
 6. Create Ingress and Egress Access Control List (ACL) resources if using ACL from Azure CLI:
    ```
-   az rest  --subscription "SUBSCRIPTION_ID" -m put --url /subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/NNI_1_INGRESS_ACL_1_NAME?api-version=2023-06-15 --body @NNI_1_INGRESS_ACL_1.json
-   az rest  --subscription "SUBSCRIPTION_ID" -m put --url /subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/NNI_1_EGRESS_ACL_1_NAME?api-version=2023-06-15 --body @NNI_1_EGRESS_ACL_1.json
+   az rest  --subscription <CUSTOMER_SUB_ID> -m put --url /subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/accessControlLists/<NNI_1_INGRESS_ACL_1_NAME>?api-version=2023-06-15 --body @<NNI_1_INGRESS_ACL_1_NAME>.json
+   az rest  --subscription <CUSTOMER_SUB_ID> -m put --url /subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/accessControlLists/<NNI_1_EGRESS_ACL_1_NAME>?api-version=2023-06-15 --body @<NNI_1_EGRESS_ACL_1_NAME>.json
    ```
-
+   See [how to create ACL for NNI](howto-create-access-control-list-for-network-to-network-interconnects.md), for more information on creating ACLs.
+   
 7. Create Network-to-Network Interface (NNI) resource with Azure CLI:
    ```
-   az networkfabric nni create --resource-group "NF_RG" --subscription "SUBSCRIPTION_ID" --resource-name "nni_1_name" --fabric "NF_NAME" --is-management-type "True" --use-option-b "False" \
+   az networkfabric nni create --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> --resource-name <NNI_1_NAME> --fabric <NF_NAME> --is-management-type "True" --use-option-b "False" \
      --layer2-configuration '{"interfaces": \
-       ["/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/networkDevices/NF_NAME-AggrRack-CE1/networkInterfaces/NNI1_L2_CE1_INT_1", \
-       "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/networkDevices/NF_NAME-AggrRack-CE2/networkInterfaces/NNI1_L2_CE2_INT_1"], \
-       "mtu": "NNI1_L2_MTU"}' --option-b-layer3-configuration '{"peerASN": "NNI1_PEER_ASN", "vlanId": "NNI1_L3_VLAN_ID", "primaryIpv4Prefix": "NNI1_L3_IPV4_1/NNI1_L3_IPV4_1_CIDR", \
-       "secondaryIpv4Prefix": "NNI1_L3_IPV4_2/NNI1_L3_IPV4_2_CIDR"}' \
-     --ingress-acl-id "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/nni_1_ingress-1-acl-name" \
-     --egress-acl-id "/subscriptions/SUBSCRIPTION_ID/resourceGroups/NF_RG/providers/Microsoft.ManagedNetworkFabric/accessControlLists/nni_1_egress-1-acl-name" --debug --no-wait
+       ["/subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NF_NAME>-AggrRack-CE1/networkInterfaces/<NNI1_L2_CE1_INT_1>", \
+       "/subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/networkDevices/<NF_NAME>-AggrRack-CE2/networkInterfaces/<NNI1_L2_CE2_INT_1>"], \
+       "mtu": "<NNI1_L2_MTU>"}' --option-b-layer3-configuration '{"peerASN": "<NNI1_PEER_ASN>", "vlanId": "<NNI1_L3_VLAN_ID>", "primaryIpv4Prefix": "<NNI1_L3_IPV4_1>/<NNI1_L3_IPV4_1_CIDR>", \
+       "secondaryIpv4Prefix": "<NNI1_L3_IPV4_2>/<NNI1_L3_IPV4_2_CIDR>"}' \
+     --ingress-acl-id "/subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/accessControlLists/<NNI_1_INGRESS_1_ACL_NAME>" \
+     --egress-acl-id "/subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/accessControlLists/<NNI_1_INGRESS_1_ACL_NAME>" --debug --no-wait
    ```
 
 8. Check status of Fabric for `Succeeded` from Azure CLI:
@@ -320,8 +321,9 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    
 9. Update Device Names and Serial Numbers for all Devices with Azure CLI:
    ```
-   az networkfabric device update  --subscription "SUBSCRIPTION_ID" --resource-group "NF_RG" --resource-name "NF_NAME-AggrRack-CE1" --host-name "CE1_HOSTNAME" \
-     --serial-number "CE1_HW_VENDOR;CE1_HW_MODEL;CE1_HW_VER;CE1_SN" --debug --no-wait
+   az networkfabric device update  --subscription <CUSTOMER_SUB_ID> --resource-group <NF_RG> --resource-name <NF_NAME>-AggrRack-CE1 --host-name <CE1_HOSTNAME> \
+     --serial-number "<CE1_HW_VENDOR>;<CE1_HW_MODEL>;<CE1_HW_VER>;<CE1_SN>" --debug --no-wait
+   # Repeat for each device in Network Fabric Device list
    ```
 
 10. Verify all Devices are created and configured from Azure CLI:
@@ -376,7 +378,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    
 3. Create Cluster from Telco Input template with ARM Deployment from Azure CLI:
    ```
-   az deployment sub create --name "<CLUSTER_NAME>-deployment" --subscription <CUSTOMER_SUB_ID> --location <REGION> --template-file "cluster.jsonc" --parameters "cluster.parameters.jsonc" --debug --no-wait
+   az deployment sub create --name <CLUSTER_NAME>-deployment --subscription <CUSTOMER_SUB_ID> --location <REGION> --template-file "cluster.jsonc" --parameters "cluster.parameters.jsonc" --debug --no-wait
    ```
    Follow these links for the structure of the ARM template and parameters files for the Cluster:
    - [`cluster.jsonc`](cluster-jsonc-example.md)
@@ -534,16 +536,17 @@ CC: stakeholders_list
 <summary> Reference Links for Nexus Deployments </summary>
 
 Reference links for deploying a Nexus instance:
-- [Azure portal](https://aka.ms/nexus-portal)
-- [ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
-- [Azure CLI](https://aka.ms/azcli)
+- Login to [Azure portal](https://aka.ms/nexus-portal)
+- Access [Azure portal ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
+- [Install Azure CLI](https://aka.ms/azcli)
 - [Install CLI Extension](howto-install-cli-extensions.md)
 - [Troubleshoot hardware validation failure](troubleshoot-hardware-validation-failure.md)
 - [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
 - [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
 - [Troubleshoot BMM degraded](troubleshoot-bare-metal-machine-degraded.md)
 - [Troubleshoot BMM warning](troubleshoot-bare-metal-machine-warning.md)
-- Nexus [Telco Input Template](concepts-telco-input-template.md)
-- Nexus [Platform Prerequisites](howto-platform-prerequisites.md)
+- Reference [Nexus Telco Input Template](concepts-telco-input-template.md)
+- Reference [Nexus Platform Prerequisites](howto-platform-prerequisites.md)
+- Create a [Network Fabric ACL](howto-create-access-control-list-for-network-to-network-interconnects.md)
 
 </details>
