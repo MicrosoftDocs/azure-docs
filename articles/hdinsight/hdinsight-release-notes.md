@@ -55,9 +55,9 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 
 ## Issues fixed
 
-* Managed identity based authentication for WASB when storage has network ACL enabled.
-* Managed identity based authentication for SQL databases when availability zones are used.
-* Security fixes.
+* Managed identity-based authentication for WASB encounters issues when network ACL is enabled on storage..
+* Managed identity-based authentication for SQL databases encounters issues when availability zones are used.
+* Multiple security fixes.
 
 ## Updates
 
