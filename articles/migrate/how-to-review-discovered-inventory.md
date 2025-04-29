@@ -132,7 +132,7 @@ Workload type | Details
 --- | ---
 Server | [Server details](#review-server-data)
 Database | Database details
-Web app | [Web app details](#review-web-apps-inventory)
+Web app | [Web app details](#review-the-web-app-inventory)
 
 After you review the workloads and their attributes, you can choose **Select all workloads across pages** to perform the required action on the inventory. Or you can use the **Search** and **Filter** capabilities to scope the list.
 

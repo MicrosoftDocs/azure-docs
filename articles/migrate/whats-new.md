@@ -96,7 +96,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 ## Update (June 2023)
 
 - Envision security cost savings with [Microsoft Defender for Cloud](https://www.microsoft.com/security/business/cloud-security/microsoft-defender-cloud) by using an Azure Migrate business case.
-- Resolve issues that affect the collection of performance data and the accuracy of Azure VM and Azure VMware Solution assessment recommendations, and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
+- Resolve problems that affect the collection of performance data and the accuracy of Azure VM and Azure VMware Solution assessment recommendations, and improve the confidence ratings of assessments. [Learn more](common-questions-discovery-assessment.md).
 
 ## Update (May 2023)
 
@@ -301,7 +301,7 @@ Many new features were added to Azure Migrate:
 - **Physical server assessment**: Azure Migrate now supports assessment of on-premises physical servers, in addition to the physical server migration that's already supported.
 - **Import-based assessment**: Azure Migrate now supports assessment of machines by using metadata and performance data provided in a CSV file.
 - **Application discovery**: Azure Migrate now supports application-level discovery of apps, roles, and features by using the Azure Migrate appliance. This capability is currently supported for VMware VMs only, and it's limited to discovery only. (Assessment isn't currently supported.) [Learn more](how-to-discover-applications.md).
-- **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization. Both agentless and agent-based viaualization are now supported.
+- **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization. Both agentless and agent-based visualization are now supported.
 - **Virtual Desktop**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
 - **Web app**: The Azure App Service Migration Assistant, used for assessing and migration web apps, is now integrated into Azure Migrate.
 

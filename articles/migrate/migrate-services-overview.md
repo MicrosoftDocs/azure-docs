@@ -117,6 +117,6 @@ The following features from ISVs are integrated into Azure Migrate:
 
 ## Related content
 
-- Try tutorials to discover [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md) or [physical servers](./tutorial-discover-physical.md).
+- Try tutorials to discover [VMware VMs](./tutorial-discover-vmware.md), [Hyper-V VMs](./tutorial-discover-hyper-v.md), or [physical servers](./tutorial-discover-physical.md).
 - Review [frequently asked questions about Azure Migrate](resources-faq.md).
 - Learn about the [Azure VMware Solution landing zone accelerator](/azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone).
