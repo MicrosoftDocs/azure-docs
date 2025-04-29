@@ -72,7 +72,7 @@ You'll want to use your own images and other media content in the developer port
 
 A placeholder logo is provided in the top left corner of the navigation bar. You can replace it with your own logo to match your organization's branding.
 
-1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
+1. In the developer portal, select the default logo in the top left of the navigation bar. 
 1. Select **Edit**. 
 1. In the **Picture** pop-up, under **Main**, select **Source**.
 1. In the **Media** pop-up, select one of the following:
