@@ -13,13 +13,17 @@ Autopurge operates asynchronously in the background, optimized to minimize syste
 
 ## How it works
 
-Autopurge is an opt-in feature. You can enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated with terminal statuses. "Terminal" refers to an orchestration state that no longer results in triggering work items. Terminal statuses include:
+Autopurge is an opt-in feature. You can enable it by defining retention policies that control how long to keep the data of orchestrations in certain statuses. The autopurge feature purges orchestration data associated with terminal statuses. "Terminal" refers to orchestrations that have reached a final state with no further scheduling, event processing, or work item generation. Terminal statuses include:
 - `Completed`
 - `Failed`
 - `Canceled`
 - `Terminated`
 
-Autopurge ignores orchestration data associated with non-terminal statuses. "Non-terminal" refers to an orchestration that is running, paused, or waiting for a worker. These statuses include:
+The orchestration instances eligible for autopurge match those targeted by [the Durable SDK PurgeInstancesAsync API](/dotnet/api/microsoft.durabletask.client.durabletaskclientextensions.purgeinstancesasync?view=durabletask-dotnet-1.x).
+
+Autopurge ignores orchestration data associated with non-terminal statuses. "Non-terminal" statuses indicate that the orchestration instance is either actively executing, paused, or in a state where it may resume in the future (waiting for external events or timers). These orchestrations that are continuing as new, where the current *execution* is completed, but a new instance has been started as a continuation.
+
+These statuses include:
 - `Pending` 
 - `Running` 
 - `Suspended`
