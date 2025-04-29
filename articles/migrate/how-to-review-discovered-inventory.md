@@ -38,7 +38,7 @@ If you're an existing user who already created an Azure Migrate project and perf
 Ensure that you meet the following prerequisites:
 
 - [Create a project](./create-manage-projects.md) with the Azure Migrate Discovery and Assessment tool added to it.
-- Review the requirements based on your environment and the appliance that you set up to perform inventory:
+- Review the requirements based on your environment and the appliance that you set up to perform the inventory:
 
   Environment | Requirements
   --- | ---
@@ -87,7 +87,7 @@ After the discovery is complete, go to the Azure portal and refresh the **Overvi
 
 You can select the count of workloads on the **Overview** tab of your project. Or, you can select **All inventory** > **Explore inventory** on the left menu to see the list of workloads discovered from your environment through either the [Azure Migrate appliance](migrate-appliance.md) or CSV import.
 
-The **All Inventory** view helps you review all the workloads discovered from your datacenter. The list includes workloads running on servers (VMware VMs, Hyper-V VMs, physical servers, and servers running in other public clouds), databases, and web applications. You can find these workloads inline by expanding the server.
+The **All Inventory** view helps you review all the workloads discovered from your datacenter. The list includes workloads running on servers (VMware VMs, Hyper-V VMs, physical servers, and servers running on other public clouds), databases, and web applications. You can find these workloads inline by expanding the server.
 
 The default view shows databases and web applications when you expand a server in a hierarchical list. However, you can also choose to view a flat list of all workloads. To switch to that view, use the action button on the upper-right corner of the pane.
 
@@ -116,7 +116,7 @@ Attribute name | Details
 To view more attributes that Azure Migrate gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
 
 > [!NOTE]
-> The [details of exported inventory data](#export-all-inventory-data) later in this article show a complete list of attributes that Azure Migrate discovers.
+> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
 
 ---
 
@@ -134,7 +134,7 @@ Server | [Server details](#review-server-data)
 Database | Database details
 Web app | [Web app details](#review-the-web-app-inventory)
 
-After you review the workloads and their attributes, you can choose **Select all workloads across pages** to perform the required action on the inventory. Or you can use the **Search** and **Filter** capabilities to scope the list.
+After you review the workloads and their attributes, you can choose **Select all workloads across pages** to perform the required action on the inventory. Or you can use the search and filter capabilities to scope the list.
 
 ### Search and filter
 
@@ -185,18 +185,18 @@ Attribute name | Details
 **Support ends in (Days)** | Number of days before support ends.
 **Power Status** | Power status of the server.
 **Appliance** | Name of the appliance used to discover the workload.
-**First discovery time** | First time stamp when the workload was discovered.
+**First discovery time** | First time stamp of when the workload was discovered.
 **Last updated time** | Last known time stamp of when the workload discovery data was updated.
-**Processor** | Processor details of the server
+**Processor** | Processor details of the server.
 **DB engine status** | Status of the database engine.
 **User databases** | Number of databases running on the instance.
 **HADR configuration** | Configuration of high availability and disaster recovery (HADR).
 
-## Review infrastructure inventory
+## Review the infrastructure inventory
 
 To view the list of infrastructure workloads discovered from your environment through either [the Azure Migrate appliance](migrate-appliance.md) or CSV import, select **Explore inventory** > **Infrastructure inventory** on the left menu.
 
-The **Infrastructure inventory** view helps you review all the servers discovered from your datacenter, including VMware VMs, Hyper-V VMs,  physical servers, or servers running in other public clouds.
+The **Infrastructure inventory** view helps you review all the servers discovered from your datacenter, including VMware VMs, Hyper-V VMs,  physical servers, or servers running on other public clouds.
 
 # [Default columns](#tab/default)
 
@@ -219,7 +219,7 @@ Attribute name | Details
 To view more attributes that Azure Migrate gathers during the discovery process, select **Columns** on the command bar. Then, select more attributes that you want to review.
 
 > [!NOTE]
-> The [details of exported inventory data](#export-all-inventory-data) later in this article show a complete list of attributes that Azure Migrate discovers.
+> The [details of exported inventory data](#export-all-inventory-data) in this article show a complete list of attributes that Azure Migrate discovers.
 
 ---
 
@@ -238,7 +238,7 @@ Tab name | Details
 
 ### Scope server data
 
-After you review the servers and their attributes, you can choose **Select all workloads across pages** to perform the required action on the server inventory. Or you can use the **Search** and **Filter** capabilities to scope the list.
+After you review the servers and their attributes, you can choose **Select all workloads across pages** to perform the required action on the server inventory. Or you can use the search and filter capabilities to scope the list.
 
 To scope the list in the **Infrastructure inventory** view, you can search for the name of the servers. Or you can add one or more filters on the attributes or tags associated with the servers.
 
@@ -251,7 +251,7 @@ You can perform actions on all servers or a scoped set of servers. For more info
 
 ### Export server inventory data
 
-You can export and review the server inventory with associated attributes and tags. The following table summarizes the fields in the exported CSV:
+You can export and review the server inventory with associated attributes and tags. The following table summarizes the fields in the exported CSV file:
 
 Attribute name | Details
 --- | ---
@@ -266,7 +266,7 @@ Attribute name | Details
 **Issues** | Number of discovery problems reported on the server.
 **Support Status** | Support status for the servers and databases to indicate if they're in mainstream support, end of support, or extended support.
 **Tags** | Tags applied to the server.
-**Source** | Source of discovery of the server, such as the FQDN of the vCenter Server or Hyper-V host.
+**Source** | Source of discovery of the server, such as the fully qualified domain name (FQDN) of the vCenter Server or Hyper-V host.
 **Memory (MBs)** | Total RAM, in megabytes, allocated to the server.
 **Disks** | Number of disks allocated to the server.
 **Cores** | Number of processor cores allocated to the server.
@@ -277,7 +277,7 @@ Attribute name | Details
 **Operating system type** | Type of operating system (Windows or Linux).
 **Operating system version** | Version of the operating system.
 **Operating system architecture** | Type of operating system architecture, such as 32-bit or 64-bit.
-**First discovery time** | First time stamp when the server was discovered.
+**First discovery time** | First time stamp of when the server was discovered.
 **Last updated time** | Last known time stamp of when the server discovery data was updated.
 **Processor** | Processor details of the server.
 **Resource type** | Type of resource created in Azure.
@@ -292,13 +292,13 @@ Attribute name | Details
 Select the name of a web app to see all the attributes and other metadata discovered for that workload in a detailed view. You can also add tags to an individual server. The following table lists the details to review each web app:
 
 Tab name | Details
----|---
-**Overview**|Overview of the web app, with basic details such as web app name, server, protocol framework, and discovery information.
-**Tags**|List of custom tags applied to the web app, with an option to edit or delete existing tags and to add new tags.
+--- | ---
+**Overview** | Overview of the web app, with basic details such as web app name, server, protocol framework, and discovery information.
+**Tags** | List of custom tags applied to the web app, with an option to edit or delete existing tags and to add new tags.
 
 ### Scope web app data
 
-After you review the web apps and their attributes, you can choose **Select all workloads across pages** to perform the required action on the server inventory. Or you can use the **Search** and **Filter** capabilities to scope the list.
+After you review the web apps and their attributes, you can choose **Select all workloads across pages** to perform the required action on the server inventory. Or you can use the search and filter capabilities to scope the list.
 
 To scope the list in the web apps view, you can search for the name of the web app. Or you can add one or more filters on the attributes or tags associated with the web apps.
 
@@ -317,7 +317,7 @@ You can perform the following actions on all web apps or a scoped set of web app
 - **Export data**: Export the inventory data for all web apps.
 - **Refresh**: Refresh the view to review any updates in discovery.
 
-## Review database inventory
+## Review the database inventory
 
 To see all the discovered databases from your environment, select **Databases** > **Explore inventory** on the left menu.
 
@@ -375,13 +375,13 @@ You can review the following details for each database:
 
 Tab name | Details
 --- | ---
-**Overview** | This tab provides an overview of the database instance, including the server name that hosts the database, its support status, and the database size. This tab also offers a comprehensive overview of the platform configuration, HADR configuration, and discovery details.
+**Overview** | This tab provides an overview of the database instance, including the name of the server that hosts the database, the support status, and the database size. This tab also offers a comprehensive overview of the platform configuration, HADR configuration, and discovery details.
 **Tags** | The database has a list of custom tags. You can edit or delete existing tags or add new ones.
 **Issues** |This section details the problems encountered during the database discovery, their possible causes, and the recommended remediations for successful discovery.
 
 ### Scope database data
 
-After you review the databases and their attributes, you can choose **Select all workloads across pages** to perform the necessary actions on the database inventory. Or you can use the **Search** and **Filter** capabilities to scope the list.
+After you review the databases and their attributes, you can choose **Select all workloads across pages** to perform the necessary actions on the database inventory. Or you can use the search and filter capabilities to scope the list.
 
 You can narrow down the list in the database view by searching for the database name or applying filters based on attributes or tags. You can also add a tag to name the scoped workload.
 
@@ -398,4 +398,4 @@ Action name | Details
 
 ## Related content
 
-[Create a group for assessment](how-to-create-a-group.md)
+- [Create a group for assessment](how-to-create-a-group.md)
