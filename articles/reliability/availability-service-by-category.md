@@ -34,6 +34,7 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Event Hubs
 - Azure ExpressRoute
 - Azure Key Vault
+- Azure Kubernetes Service (AKS)
 - Azure Load Balancer
 - Azure NAT Gateway
 - Azure Public IP
@@ -83,7 +84,6 @@ Azure services are presented in the following lists by category. Note that some 
 - Azure Functions
 - Azure HDInsight
 - Azure IoT Hub
-- Azure Kubernetes Service (AKS)
 - Azure Logic Apps
 - Azure Media Services
 - Azure Monitor: Application Insights
