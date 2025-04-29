@@ -111,7 +111,7 @@ During the export process, a temporary file is created on the virtual machine th
 
    :::image type="content" source="./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png" alt-text="Screenshot showing a list of storage accounts.":::
 
-1. On the **Containers** page, if you want to create a new container for the export, select **Container**, and on the **New Container** page, enter a name for the container and select **Create**.
+1. On the **Containers** page, if you want to create a new container for the export, select **Container**, and on the **New Container** page, enter a name for the container and select **Create**. Otherwise, select the existing container you want to use.
 
    :::image type="content" source="./media/cache-how-to-import-export-data/cache-export-data-choose-storage-container.png" alt-text="Screenshot showing Export data selected in the Resource menu":::
 
