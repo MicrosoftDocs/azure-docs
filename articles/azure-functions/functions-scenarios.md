@@ -198,6 +198,8 @@ A function might also call a TensorFlow model or Azure AI services to process an
 + Sample: [Leverage semantic search](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch/powershell)
 ::: zone-end
 
+For more information, see [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md). 
+
 ## Run scheduled tasks 
 
 Functions enables you to run your code based on a [cron schedule](./functions-bindings-timer.md#usage) that you define. 

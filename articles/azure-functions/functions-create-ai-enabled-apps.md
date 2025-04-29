@@ -114,12 +114,16 @@ Here's an example of such a custom MCP server project:
 ::: zone pivot="programming-language-typescript"  
 **[Remote MCP servers](https://github.com/Azure-Samples/remote-mcp-functions-typescript)**
 ::: zone-end
-    
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"  
+> Provides an MCP server template along with several function tool endpoints, which can be run locally and also deployed to Azure.
+::: zone-end
 ### Agentic workflows
 
 While it's common for AI-driven processes to autonomously determine how to interact with models and other AI assets, there are many cases where a higher level of predicability is required or where the required steps are well-defined. These directed agentic workflows are composed of an orchestration of separate tasks or interactions that agents are required to follow. 
 
-The [Durable Functions extension](durable/durable-functions-overview.md) helps you take advantage of the strengths of Functions to create multi-step, long-running operations with built-in fault tolerance. These workflows are perfect for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. For more workflow scenario ideas, see [Application patterns](durable/durable-functions-overview.md#application-patterns) in Durable Functions. 
+The [Durable Functions extension](durable/durable-functions-overview.md) helps you take advantage of the strengths of Functions to create multi-step, long-running operations with built-in fault tolerance. These workflows are perfect for your directed agentic workflows. For example, a trip planning solution might first gather requirements from the user, search for plan options, obtain user approval, and finally make required bookings. In this scenario, you can build an agent for each step and then coordinate their actions as a workflow using Durable Functions. 
+
+For more workflow scenario ideas, see [Application patterns](durable/durable-functions-overview.md#application-patterns) in Durable Functions. 
 
 ## AI tools and frameworks
 
