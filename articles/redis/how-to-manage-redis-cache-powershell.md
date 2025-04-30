@@ -1526,7 +1526,7 @@ The following command exports data from an Azure Cache for Redis instance into t
 You can reboot your Azure Cache for Redis instance using the `Reset-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Reboot is only available for [Basic, Standard, and Premium tier]/azure-cache-for-redis/cache-overview.md#service-tiers) caches. For more information about rebooting your cache, see [Cache administration - reboot]/azure-cache-for-redis/cache-administration.md#reboot).
+> Reboot is only available for Basic, Standard, and Premium tier caches in Azure Cache for Redis. It is not available for Azure Managed Redis. For more information about rebooting your Azure Cache for Redis instances, see [Cache administration - reboot](/azure/azure-cache-for-redis/cache-administration.md#reboot).
 >
 >
 

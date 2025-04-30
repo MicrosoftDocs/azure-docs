@@ -106,7 +106,6 @@ The following table helps describe some of the features supported by tier:
 | [Probabilistic data structures (that is, Redis Bloom)](redis-modules.md)                    | Yes               | Yes               | Yes               | Yes               |
 | [Time Series database capability (that is, Redis TimeSeries)](redis-modules.md)             | Yes               | Yes               | Yes               | Yes               |
 | [Import/Export](how-to-import-export-data.md)                                           | Yes               | Yes               | Yes               | Yes               |
-| [Update channel and Schedule updates](administration.md)                                | No                | No                | No                | No                |
 
 > [!IMPORTANT]
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
