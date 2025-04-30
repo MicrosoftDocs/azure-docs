@@ -17,6 +17,14 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## April 2025
+**Enhanced error handling for READ operations with wrong cases on resource types**: Added validation on the resource type with wrong casing for READ operations (e.g. GET /patient/ instead of GET /Patient/). In the past, a request with the wrong casing resource type was causing 500 status code (InternalServerError) in API for FHIR (CosmosDB). After this change, a request with the wrong casing resource type will be rejected with 400 status code (ResourceNotSupported) as the resource type in any request should be validated in the case-sensitive manner. 
+
+#### Bug fixes:
+**Custom search parameters with same "code" value on different resource types fix**: An issue was discovered where upon running a delete or update search parameter operation, all of the other related search parameters that matched on the same "code" value, even those for other resource types, were being removed. This issue was fixed, and users will now be able to update and delete custom search parameters without affecting other search parameters that have the same "code" value on other resource types.
+
+**Fix for deleting and uploading custom search parameters**: An issue was discovered where deleting a custom search parameter and then subsequently using PUT operation to re-upload that same search parameter could potentially cause a 424 Failed Dependency error. We have fixed this issue by adding a check to ensure that if the previous version of the search parameter was already deleted, it will be properly handled. Users will now be able to delete a custom search parameter and then re-upload that search parameter using PUT.
+
 ## March 2025
 
 **Improved Error Handling for $export**: Added retry logic for certain export queries that previously wouldn't be retried.
