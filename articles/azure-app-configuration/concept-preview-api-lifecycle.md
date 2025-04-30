@@ -69,4 +69,4 @@ az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?
 
 ## Completed deprecations
 
-There aren't any completed deprecations yet.
+There are no completed deprecations yet.
