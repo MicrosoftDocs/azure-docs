@@ -366,6 +366,11 @@
 - name: Troubleshooting
   expanded: true
   items:
+    - name: Resource Health
+      expanded: false
+      items:
+        - name:
+          href: troubleshoot-resource-health-alerts.md
     - name: Network Fabric
       expanded: false
       items:

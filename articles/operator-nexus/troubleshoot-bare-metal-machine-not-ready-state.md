@@ -1,15 +1,15 @@
 ---
-title: Troubleshoot Azure Operator Nexus BareMetal Machines in a Not Ready state
-description: Examine common and known issues with BareMetal Machine resources.
+title: Troubleshoot Azure Operator Nexus Bare Metal Machine in not ready state
+description: Examine common and known issues with Bare Metal Machine resources.
 ms.service: azure-operator-nexus
 ms.custom: troubleshooting
 ms.topic: troubleshooting
-ms.date: 10/09/2024
+ms.date: 04/29/2025
 ms.author: omarrivera
 author: omarrivera
 ---
 
-# Troubleshoot Azure Operator Nexus BareMetal Machines in a Not Ready state
+# Troubleshoot Bare Metal Machine in not ready state
 
 This guide attempts to provide steps to troubleshoot when a BareMetal Machine is declared to be `Not Ready` state.
 
