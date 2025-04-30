@@ -110,11 +110,11 @@ from urllib.parse import urlparse
 ###################################
 
 # Set Key Variables Here
-## The Spatio App ID. Do not change.
-SPATIO_APP_ID = "https://geocatalog.spatio.azure.com"
+## The MPC Pro App ID. Do not change.
+MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
 
 ## The API version. Do not change.
-API_VERSION = "2024-01-31-preview"
+API_VERSION = "2025-04-30-preview"
 
 ## The URL of the Blob Container, replace the default with your specific container url
 CONTAINER_URL = "https://datazoo.blob.core.windows.net/test"
@@ -166,7 +166,7 @@ The next block of code uses the MPC Pro API to post the credential.
 ```python
 # Obtain an access token
 credential = AzureCliCredential()
-access_token = credential.get_token(f"{SPATIO_APP_ID}/.default")
+access_token = credential.get_token(f"{MPCPRO_APP_ID}/.default")
 
 # Payload for the POST request
 payload = {
@@ -178,7 +178,7 @@ payload = {
 }
 
 # STAC Collection API endpoint
-endpoint = f"{GEOCATALOG_URL}/api/ingestion-sources"
+endpoint = f"{GEOCATALOG_URL}/inma/ingestion-sources"
 
 # Make the POST request
 response = requests.post(
