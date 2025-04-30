@@ -12,18 +12,18 @@ ms.date: 05/19/2025
 
 Service groups in Azure are a low-privilege-based grouping of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. This article will help give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started. 
 
-> ![Important]
+> ![IMPORTANT]
 > Service Groups are currently in a Limited Preview state and require Tenant onboarding before trial. To request for onboarding please see [TBD Link](). 
 
 
 ## Key capabilities
 * **Flexible Membership**: Service Groups allow resources from different subscriptions to be grouped together, providing a unified view and management capabilities. They also allow the grouping of subscriptions, resource groups, and resources. 
 * **Low Privilege Management**: Service Groups are designed to operate with minimal permissions, ensuring that users can manage resources without needing excessive access rights.
-* **Multiple Hierarchies**: Service Groups live outside of the resource hierarchy enabling scenarios where the same resources need to be group for diffrent purposes.   
+* **Multiple Hierarchies**: Service Groups live outside of the resource hierarchy enabling scenarios where the same resources need to be group for different purposes.   
 
 
 ### Flexible Membership
-No matter where a resource or resource container exists within the Resource Hierarchy, it has always been limited to one parent resource container. For example a resource can only be a member of one resource group or a resource grou pcan only be a member of one subscriptions.. Service Groups introduce a new model that allows a resource or resource container to have memberships to multiple different Service Groups.  This allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
+No matter where a resource or resource container exists within the Resource Hierarchy, it has always been limited to one parent resource container. For example a resource can only be a member of one resource group or a resource group can only be a member of one subscriptions. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups.  This allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
 
 #### Example Scenarios 
 * Aggregating Health Metrics
@@ -106,6 +106,19 @@ This table shows a summary of the differences between the groups.
 
 ***: Azure tags can be used as criteria within Azure Policy to apply policies to certain resources.  Azure tags are subject to limitations.
 
+### The Root Service Group 
+
+Service Groups is similar to Management Groups, in that there will be only one root Service Group which will be top most parent of all service groups in that tenant. Root Service Group's id will be same as its tenant id.
+
+Also as Management Groups, if root entity of Service Group is not already created, it will be created in the background when it is provided as parent-resourceId. Users cannot create root entity of serviceGroup type on their own.
+
+```json
+/providers/microsoft.management/servicegroups/<tenantId>
+```
+
+Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
+
+
 ## Next step -or- Related content
 
 > [!div class="nextstepaction"]
@@ -114,8 +127,10 @@ This table shows a summary of the differences between the groups.
 -or-
 
 * [How to: Connect Service Group Members](link.md)
-* [How to: ](link.md)
+* [How to:](link.md)
 * [Related article title](link.md)
+* [Service Group REST API Spec]()
+* [Service Group Member REST API Spec]()
 
 <!-- Optional: Next step or Related content - H2
 
