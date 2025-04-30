@@ -43,16 +43,10 @@ Here's the sample JSON definition of a Databricks Job Activity:
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
-            "jobPath": "/Users/user@example.com/ScalaExampleJob",
-            "baseParameters": {
-                "inputpath": "input/folder1/",
-                "outputpath": "output/"
+            "jobID": "012345678910112",
+            "jobParameters": {
+                "testParameter": "testValue"
             },
-            "libraries": [
-                {
-                "jar": "dbfs:/docs/library.jar"
-                }
-            ]
         }
     }
 }
@@ -69,82 +63,11 @@ definition:
 |description|Text describing what the activity does.|No|
 |type|For Databricks Job Activity, the activity type is DatabricksJob.|Yes|
 |linkedServiceName|Name of the Databricks Linked Service on which the Databricks job runs. To learn about this linked service, see [Compute linked services](compute-linked-services.md) article.|Yes|
-|jobPath|The absolute path of the job to be run in the Databricks Workspace. This path must begin with a slash.|Yes|
-|baseParameters|An array of Key-Value pairs. Base parameters can be used for each activity run. If the job takes a parameter that isn't specified, the default value from the job will be used. Find more on parameters in [Databricks Jobs](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
-|libraries|A list of libraries to be installed on the cluster that will execute the job. It can be an array of \<string, object>.|No|
+|jobId|The id of the job to be run in the Databricks Workspace.|Yes|
+|jobParameters|An array of Key-Value pairs. Job parameters can be used for each activity run. If the job takes a parameter that isn't specified, the default value from the job will be used. Find more on parameters in [Databricks Jobs](https://docs.databricks.com/api/latest/jobs.html#jobsparampair).|No|
 
-## Supported libraries for Databricks activities
-
-In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
-
-```json
-{
-    "libraries": [
-        {
-            "jar": "dbfs:/mnt/libraries/library.jar"
-        },
-        {
-            "egg": "dbfs:/mnt/libraries/library.egg"
-        },
-        {
-            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
-        },
-        {
-            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
-        },
-        {
-            "maven": {
-                "coordinates": "org.jsoup:jsoup:1.7.2",
-                "exclusions": [ "slf4j:slf4j" ]
-            }
-        },
-        {
-            "pypi": {
-                "package": "simplejson",
-                "repo": "http://my-pypi-mirror.com"
-            }
-        },
-        {
-            "cran": {
-                "package": "ada",
-                "repo": "https://cran.us.r-project.org"
-            }
-        }
-    ]
-}
-
-```
-
-For more information, see the [Databricks documentation](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) for library types.
 
 ## Passing parameters between jobs and pipelines
 
-You can pass parameters to jobs using *baseParameters* property in databricks activity.
+You can pass parameters to jobs using *jobParameters* property in Databricks activity.
 
-In certain cases, you might require to pass back certain values from job back to the service, which can be used for control flow (conditional checks) in the service or be consumed by downstream activities (size limit is 2 MB).
-
-1. In your job, you can call `dbutils.job.exit("returnValue")` and corresponding "returnValue" will be returned to the service.
-
-1. You can consume the output in the service by using expression such as `@{activity('databricks job activity name').output.runOutput}`. 
-
-   > [!IMPORTANT]
-   > If you're passing JSON object, you can retrieve values by appending property names. Example: `@{activity('databricks job activity name').output.runOutput.PropertyName}`
-
-## How to upload a library in Databricks
-
-### You can use the Workspace UI:
-
-1. [Use the Databricks workspace UI](/azure/databricks/libraries/cluster-libraries#install-a-library-on-a-cluster)
-
-2. To obtain the dbfs path of the library added using UI, you can use [Databricks CLI](/azure/databricks/dev-tools/cli/fs-commands#list-the-contents-of-a-directory).
-
-   Typically the Jar libraries are stored under dbfs:/FileStore/jars while using the UI. You can list all through the CLI: *databricks fs ls dbfs:/FileStore/job-jars*
-
-### Or you can use the Databricks CLI:
-
-1. Follow [Copy the library using Databricks CLI](/azure/databricks/dev-tools/cli/fs-commands#copy-a-directory-or-a-file)
-
-2. Use Databricks CLI [(installation steps)](/azure/databricks/dev-tools/cli/commands#compute-commands)
-
-   As an example, to copy a JAR to dbfs:
-   `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`
