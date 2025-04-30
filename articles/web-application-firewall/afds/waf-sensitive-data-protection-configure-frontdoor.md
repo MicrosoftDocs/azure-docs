@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 04/29/2025
+ms.date: 04/30/2025
 ---
 
 # How to mask sensitive data on Azure Web Application Firewall on Azure Front Door
@@ -27,7 +27,7 @@ The following table shows examples of log scrubbing rules that can be used to pr
 | Request IP Address <sup>2</sup> | Equals Any | NULL | {"matchVariableName":"ClientIP","matchVariableValue":"****"} |
 | Request URI | Equals Any | NULL | {"matchVariableName":"URI","matchVariableValue":"****"} |
 
-<sup>1</sup> The whole request body is scrubbed if this rule is triggered and the request content type is `application/x-www-form-urlencoded` or `application/json`.
+<sup>1</sup> If a request triggers a rule that scans the request body, and the content type is either `application/x-www-form-urlencoded` or `application/json`,  the WAF will scrub all request details from the logs to prevent any potential storage of PII. 
 
 <sup>2</sup> Request IP Address and Request URI rules only support the *equals any* operator and scrubs all instances of the requestor's IP address that appears in the WAF logs.
 
