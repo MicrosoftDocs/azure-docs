@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 Azure Functions-3.svg Page-1 -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="5.11811in" height="3.14961in"
+		viewBox="0 0 368.504 226.772" xml:space="preserve" color-interpolation-filters="sRGB" class="st17">
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false">
+		<v:userDefs>
+			<v:ud v:nameU="msvNoAutoConnect" v:val="VT0(1):26"/>
+		</v:userDefs>
+	</v:documentProperties>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:none;stroke:#f2f2f2;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st2 {stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:0.75}
+		.st3 {fill:#a6a6a6;font-family:Segoe UI;font-size:1.16666em}
+		.st4 {font-size:1em}
+		.st5 {fill:url(#grad1-14);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st6 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.561468}
+		.st7 {fill:#1490df;stroke:none;stroke-linecap:butt;stroke-width:0.561468}
+		.st8 {fill:url(#grad0-27);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st9 {fill:#e8e8e8;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st10 {fill:#50e6ff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st11 {fill:#198ab3;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st12 {fill:#ffffff;font-family:Segoe UI;font-size:1.5em;font-weight:bold}
+		.st13 {marker-end:url(#mrkr4-43);stroke:#a6a6a6;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.5}
+		.st14 {fill:#a6a6a6;fill-opacity:1;stroke:#a6a6a6;stroke-opacity:1;stroke-width:0.37313432835821}
+		.st15 {fill:url(#grad0-53);stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st16 {fill:#ffffff;stroke:none;stroke-linecap:butt;stroke-width:0.75}
+		.st17 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Patterns_And_Gradients">
+		<radialGradient id="grad1-14" cx="1" cy="1" r="1.4">
+			<stop offset="0.195" stop-color="#ffd70f" stop-opacity="1"/>
+			<stop offset="0.44" stop-color="#ffcb12" stop-opacity="1"/>
+			<stop offset="0.875" stop-color="#feac19" stop-opacity="1"/>
+			<stop offset="1" stop-color="#fea11b" stop-opacity="1"/>
+		</radialGradient>
+		<linearGradient id="grad0-27" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(0 0.5 0.5)">
+			<stop offset="0" stop-color="#005ba1" stop-opacity="1"/>
+			<stop offset="0.07" stop-color="#0060a9" stop-opacity="1"/>
+			<stop offset="0.36" stop-color="#0071c8" stop-opacity="1"/>
+			<stop offset="0.52" stop-color="#0078d4" stop-opacity="1"/>
+			<stop offset="0.64" stop-color="#0074cd" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#006abb" stop-opacity="1"/>
+			<stop offset="1" stop-color="#005ba1" stop-opacity="1"/>
+		</linearGradient>
+		<linearGradient id="grad0-53" x1="0" y1="0" x2="1" y2="0" gradientTransform="rotate(-90 0.5 0.5)">
+			<stop offset="0" stop-color="#5e9624" stop-opacity="1"/>
+			<stop offset="0.185" stop-color="#629c25" stop-opacity="1"/>
+			<stop offset="0.435" stop-color="#6dae2a" stop-opacity="1"/>
+			<stop offset="0.725" stop-color="#7fcb30" stop-opacity="1"/>
+			<stop offset="0.82" stop-color="#86d633" stop-opacity="1"/>
+		</linearGradient>
+	</defs>
+	<defs id="Markers">
+		<g id="lend4">
+			<path d="M 2 1 L 0 0 L 2 -1 L 2 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr4-43" class="st14" v:arrowType="4" v:arrowSize="2" v:setback="5.36" refX="-5.36" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend4" transform="scale(-2.68,-2.68) "/>
+		</marker>
+	</defs>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>页-1</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="连接线" v:index="0"/>
+		<g id="shape444-1" v:mID="444" v:groupContext="shape" transform="translate(0.283414,0)">
+			<title>工作表.444</title>
+			<rect x="0" y="-6.81154E-06" width="368.504" height="226.772" class="st1"/>
+		</g>
+		<g id="group82-3" transform="translate(-95.6274,-1644.09)" v:mID="82" v:groupContext="group">
+			<title>工作表.82</title>
+		</g>
+		<g id="shape445-4" v:mID="445" v:groupContext="shape" transform="translate(110.494,-156.878)">
+			<title>工作表.445</title>
+			<desc>Respond to database changes</desc>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+			<v:textRect cx="63.9881" cy="213.571" width="127.98" height="26.4016"/>
+			<path d="M127.98 200.37 L0 200.37 L0 226.77 L127.98 226.77 L127.98 200.37" class="st2"/>
+			<text x="28.48" y="209.37" class="st3" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Respond to<v:newlineChar/><tspan
+						x="8.68" dy="1.2em" class="st4">database changes </tspan> </text>		</g>
+		<g id="group446-9" transform="translate(146.426,-88.7259)" v:mID="446" v:groupContext="group">
+			<title>工作表.446</title>
+			<g id="group447-10" transform="translate(16.7202,0)" v:mID="447" v:groupContext="group">
+				<title>MsPortalFx.base.images-37.291</title>
+				<g id="shape448-11" v:mID="448" v:groupContext="shape" transform="translate(0,7.11314)">
+					<title>工作表.448</title>
+					<path d="M12.76 199.63 L0.68 199.63 a0.624067 0.777709 0 0 1 -0.684124 -0.650803 a0.456953 0.569452 0 0 1 0.0600567
+								 -0.276591 L14.55 167.45 a0.715458 0.8916 0 0 1 0.624067 -0.390482 L29.46 167.06 a0.621456 0.774455
+								 0 0 1 0.684124 0.650803 a0.462176 0.57596 0 0 1 -0.120113 0.387228 L13.01 192.55 L29.59 192.55 a0.624067
+								 0.777709 0 0 1 0.684124 0.650803 a0.483065 0.601993 0 0 1 -0.174948 0.4458 L2.54 224.94 C2.28 225.11
+								 0.45 226.77 1.34 224.25 L12.76 199.63 Z" class="st5"/>
+				</g>
+			</g>
+			<g id="group449-15" transform="translate(0,-6.23006)" v:mID="449" v:groupContext="group">
+				<title>工作表.449</title>
+				<g id="shape450-16" v:mID="450" v:groupContext="shape" transform="translate(0.0244141,-1.7053E-13)">
+					<title>工作表.450</title>
+					<path d="M20.4 224.21 L18.23 226.39 C17.84 226.77 17.22 226.77 16.84 226.39 L0.77 210.37 C0 209.6 0 208.36 0.77
+								 207.59 L2.94 205.41 L20.4 222.82 C20.78 223.21 20.78 223.83 20.4 224.21 Z" class="st6"/>
+				</g>
+				<g id="shape451-18" v:mID="451" v:groupContext="shape" transform="translate(0,-14.2687)">
+					<title>工作表.451</title>
+					<path d="M17.92 206.01 L20.1 208.18 C20.48 208.56 20.48 209.19 20.1 209.57 L2.94 226.77 L0.77 224.6 C0 223.84
+								 0 222.59 0.76 221.83 L16.54 206.01 C16.92 205.63 17.54 205.63 17.92 206.01 Z" class="st7"/>
+				</g>
+				<g id="shape452-20" v:mID="452" v:groupContext="shape" transform="translate(44.8538,-0.405849)">
+					<title>工作表.452</title>
+					<path d="M17.84 205.41 L20.01 207.59 C20.78 208.36 20.77 209.6 20.01 210.37 L3.94 226.39 C3.56 226.77 2.94 226.77
+								 2.55 226.39 L0.38 224.21 C0 223.83 0 223.21 0.39 222.82 L17.84 205.41 Z" class="st6"/>
+				</g>
+				<g id="shape453-22" v:mID="453" v:groupContext="shape" transform="translate(45.1468,-14.6637)">
+					<title>工作表.453</title>
+					<path d="M19.71 224.6 L17.54 226.77 L0.38 209.57 C0 209.19 0 208.56 0.39 208.18 L2.59 205.99 C2.97 205.6 3.59
+								 205.6 3.97 205.99 L19.74 221.8 C20.51 222.57 20.51 223.81 19.74 224.58 L19.71 224.6 Z" class="st7"/>
+				</g>
+			</g>
+		</g>
+		<g id="shape454-24" v:mID="454" v:groupContext="shape" transform="translate(18,-88.1223)">
+			<title>SQL 数据库.364</title>
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<path d="M23.12 188.57 C10.35 188.57 0 185.48 0 181.4 L0 219.6 C0 223.53 10.17 226.71 22.8 226.77 L23.12 226.77 C35.89
+						 226.77 46.24 223.68 46.24 219.6 L46.24 181.4 C46.24 185.38 35.89 188.57 23.12 188.57 Z" class="st8"/>
+		</g>
+		<g id="shape455-28" v:mID="455" v:groupContext="shape" transform="translate(18,-126.326)">
+			<title>SQL 数据库.365</title>
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<path d="M46.24 219.6 C46.24 223.59 35.89 226.77 23.12 226.77 C10.35 226.77 0 223.68 0 219.6 C0 215.52 10.35 212.43 23.12
+						 212.43 C35.89 212.43 46.24 215.52 46.24 219.6 Z" class="st9"/>
+		</g>
+		<g id="shape456-30" v:mID="456" v:groupContext="shape" transform="translate(23.3743,-129.51)">
+			<title>SQL 数据库.366</title>
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<path d="M35.49 222.2 C35.49 224.73 27.52 226.77 17.75 226.77 C7.97 226.77 0 224.73 0 222.2 C0 219.66 7.97 217.65 17.75
+						 217.65 C27.52 217.65 35.49 219.69 35.49 222.2 Z" class="st10"/>
+		</g>
+		<g id="shape457-32" v:mID="457" v:groupContext="shape" transform="translate(27.0894,-129.51)">
+			<title>SQL 数据库.367</title>
+			<v:userDefs>
+				<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+			</v:userDefs>
+			<path d="M14.03 223.34 A41.6598 35.7004 -180 0 0 -0 225.1 A41.1909 35.2986 -180 0 0 14.03 226.77 A40.217 34.4641 -180
+						 0 0 28.06 224.98 A42.7058 36.5968 -180 0 0 14.03 223.34 Z" class="st11"/>
+		</g>
+		<g id="shape458-34" v:mID="458" v:groupContext="shape" transform="translate(27.0894,-97.609)">
+			<title>工作表.458</title>
+			<desc>DB</desc>
+			<v:textBlock v:margins="rect(0,0,0,0)" v:tabSpace="42.5197"/>
+			<v:textRect cx="14.0309" cy="213.571" width="28.07" height="26.4016"/>
+			<path d="M28.06 200.37 L0 200.37 L0 226.77 L28.06 226.77 L28.06 200.37" class="st2"/>
+			<text x="1.63" y="218.97" class="st12" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>DB</text>		</g>
+		<g id="shape460-38" v:mID="460" v:groupContext="shape" transform="translate(67.4697,-110.883)">
+			<title>直线.415</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+			</v:userDefs>
+			<path d="M0 226.77 L69.28 226.77" class="st13"/>
+		</g>
+		<g id="shape461-44" v:mID="461" v:groupContext="shape" transform="translate(222.891,-110.883)">
+			<title>直线.416</title>
+			<v:userDefs>
+				<v:ud v:nameU="visVersion" v:prompt="" v:val="VT0(17):26"/>
+			</v:userDefs>
+			<path d="M0 226.77 L57.45 226.77" class="st13"/>
+		</g>
+		<g id="group462-49" transform="translate(290.319,-88.5336)" v:mID="462" v:groupContext="group">
+			<title>工作表.462</title>
+			<g id="shape463-50" v:mID="463" v:groupContext="shape">
+				<title>工作表.463</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M59.27 177.18 L59.27 216.82 A2.03249 2.13336 0 0 1 57.23 218.94 L41.49 218.94 a0.49505 0.519617 -180 0 0
+							 -0.49505 0.515958 L40.99 225.85 a0.9901 1.03923 0 0 1 -1.58974 0.819677 L29.91 219.05 a0.505509 0.530595
+							 -180 0 0 -0.303305 -0.109778 L2.04 218.94 A2.03249 2.13336 0 0 1 -0 216.82 L0 177.18 A2.03598 2.13702
+							 0 0 1 2.04 175.05 L57.23 175.05 A2.03598 2.13702 0 0 1 59.27 177.18 Z" class="st15"/>
+			</g>
+			<g id="shape464-54" v:mID="464" v:groupContext="shape" transform="translate(25.0657,-16.3888)">
+				<title>信息.405</title>
+				<v:userDefs>
+					<v:ud v:nameU="msvDisableCustomConnectionPoints" v:prompt="" v:val="VT0(1):5"/>
+				</v:userDefs>
+				<path d="M3.5 204.17 C2.57 204.21 1.67 203.87 0.99 203.25 C0.35 202.69 0 201.87 0.03 201.03 C0 200.18 0.35 199.37
+							 0.99 198.81 C1.71 198.27 2.6 198.01 3.5 198.08 C4.41 198.03 5.31 198.34 6 198.92 C6.65 199.48 7.01 200.29
+							 6.99 201.14 C7.02 202 6.66 202.83 6 203.39 C5.3 203.96 4.4 204.24 3.5 204.17 ZM5.3 226.77 L1.61 226.77
+							 C0.96 226.77 0.43 226.24 0.43 225.59 L0.43 208.44 C0.43 207.79 0.96 207.26 1.61 207.26 L5.3 207.26 C5.95
+							 207.26 6.48 207.79 6.48 208.44 L6.48 225.59 C6.48 226.24 5.95 226.77 5.3 226.77 Z" class="st16"/>
+			</g>
+		</g>
+	</g>
+</svg>
