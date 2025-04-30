@@ -19,7 +19,7 @@ ms.custom: mode-other
 
 # Quickstart: Set up sign in for a single-page app using Azure Active Directory B2C
 
-[!INCLUDE [active-directory-b2c-end-of-sale-notice-a](../../includes/active-directory-b2c-end-of-sale-notice-a.md)]
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) provides cloud identity management to keep your application, business, and customers protected. Azure AD B2C enables your applications to authenticate to social accounts, and enterprise accounts using open standard protocols. 
 
