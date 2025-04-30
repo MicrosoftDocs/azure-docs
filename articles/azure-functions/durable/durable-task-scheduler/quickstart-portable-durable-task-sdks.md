@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Set a portable Durable Task SDK in your application to use Azure Functions Durable Task Scheduler (preview)"
-description: Learn how to configure an existing app for the Azure Functions Durable Task Scheduler using the portable Durable Task SDKs.
+title: "Quickstart: Configure Durable Task SDKs for your app with Azure Functions Durable Task Scheduler (preview)"
+description: Learn how to configure an existing app for the Azure Functions Durable Task Scheduler using the Durable Task SDKs.
 ms.topic: how-to
 ms.date: 04/23/2025
 zone_pivot_groups: df-languages
 ---
 
-# Quickstart: Set a portable Durable Task SDK in your application to use Azure Functions Durable Task Scheduler (preview)
+# Quickstart: Configure Durable Task SDKs for your app with Azure Functions Durable Task Scheduler (preview)
 
-The Durable Task SDKs, or "portable SDKs", provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that leverage [the fan-out/fan-in application pattern](../durable/durable-functions-overview.md#fan-in-out) to perform parallel processing. 
+The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that use [the fan-out/fan-in application pattern](../durable-functions-overview.md#fan-in-out) to perform parallel processing. 
 
 ::: zone pivot="javascript"
 
@@ -65,13 +65,13 @@ Before you begin:
 
 ## Set up the Durable Task Scheduler emulator
 
-The code looks for a deployed scheduler and task hub. If none are found, the code falls back to the emulator. The emulator simulates a scheduler and taskhub in a Docker container, making it ideal for the local development required in this quickstart.
+The application code looks for a deployed scheduler and task hub resource. If none are found, the code falls back to the emulator. The emulator simulates a scheduler and task hub in a Docker container, making it ideal for the local development required in this quickstart.
 
 ::: zone-end
 
 ::: zone pivot="csharp"
 
-1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample dirctory. 
+1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the .NET SDK sample directory. 
     
      ```bash
      cd samples/portable-sdks/dotnet/FanOutFanIn
@@ -89,7 +89,7 @@ The code looks for a deployed scheduler and task hub. If none are found, the cod
      docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
 
-Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
+Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
 - Endpoint: `http://localhost:8080`
 - Task hub: `default`
 
@@ -98,7 +98,7 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone pivot="python"
 
-1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample dirctory. 
+1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample directory. 
 
      ```bash
      cd samples/portable-sdks/python/fan-out-fan-in
@@ -116,7 +116,7 @@ Since the example code automatically uses the default emulator settings, you don
      docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
 
-Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
+Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
 - Endpoint: `http://localhost:8080`
 - Task hub: `default`
 
@@ -124,7 +124,7 @@ Since the example code automatically uses the default emulator settings, you don
 
 ::: zone pivot="java"
 
-1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Java SDK sample dirctory. 
+1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Java SDK sample directory. 
 
      ```bash
      cd samples/portable-sdks/java/fan-out-fan-in
@@ -142,7 +142,7 @@ Since the example code automatically uses the default emulator settings, you don
      docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
      ```
 
-Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. 
+Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
 - Endpoint: `http://localhost:8080`
 - Task hub: `default`
 
@@ -189,7 +189,7 @@ The worker output shows:
 
 The client output shows: 
 
-- Starting the orchestration with a list of work items
+- The orchestration starting with a list of work items
 - The unique orchestration instance ID
 - The final aggregated results, showing each work item and its corresponding result
 - Total count of processed items
@@ -218,13 +218,13 @@ Total items processed: 5
 ::: zone pivot="python"
 
 
-1. If you're using a Python virtual environment, activate it now.
+1. Activate a Python virtual environment.
 
       # [Windows](#tab/windows)
 
       ```bash
       python -m venv venv
-      source ./venv/bin/activate
+      /venv/Scripts/activate
       ```      
 
       # [Linux](#tab/linux)
@@ -250,7 +250,7 @@ Total items processed: 5
 
      **Expected output**
 
-     You'll see output indicating that the worker has started and is waiting for work items.
+     You can see output indicating that the worker started and is waiting for work items.
 
      ```
      Starting Fan Out/Fan In pattern worker...
@@ -260,12 +260,23 @@ Total items processed: 5
      Successfully connected to http://localhost:8080. Waiting for work items...
      ```
      
-1. In a new terminal (with the virtual environment activated, if applicable), start the virtual environment, and then run the client.
+1. In a new terminal, activate the virtual environment and run the client.
 
-     ```bash
-     source ./venv/bin/activate
-     python client.py
-     ```
+      # [Windows](#tab/windows)
+
+      ```bash
+      venv/Scripts/activate
+      python client.py
+      ```      
+
+      # [Linux](#tab/linux)
+
+      ```bash
+      source ./venv/bin/activate
+      python client.py
+      ```      
+
+      ---
 
      You can provide the number of work items as an argument. If no argument is provided, the example runs 10 items by default.
 
@@ -290,12 +301,12 @@ The worker output shows:
 
 The client output shows: 
 
-- Starting the orchestration with the specified number of work items.
+- The orchestration starting with the specified number of work items.
 - The unique orchestration instance ID.
 - The final aggregated result, which includes:
-   - Total number of items processed
-   - Sum of all results (each item result is the square of its value)
-   - Average of all results
+   - The total number of items processed
+   - The sum of all results (each item result is the square of its value)
+   - The average of all results
 
 #### Example output
 
@@ -365,14 +376,14 @@ Output: 60
 
 ::: zone pivot="csharp,python,java"
 
-Now that you've run the project locally, you can also [deploy to Azure](#next-steps). 
+Now that you ran the project locally, you can now learn how to [deploy to Azure hosted in Azure Container Apps](#next-steps). 
 
 ## View orchestration status and history
 
 You can view the orchestration status and history via the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). By default, the dashboard runs on port 8082. 
 
 1. Navigate to http://localhost:8082 in your web browser.
-1. Click the **default** task hub. The orchestration instance you just created is in the list.
+1. Click the **default** task hub. The orchestration instance you created is in the list.
 1. Click the orchestration instance ID to view the execution details, which include:
    - The parallel execution of multiple activity tasks
    - The fan-in aggregation step
@@ -383,19 +394,19 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ::: zone pivot="csharp"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-dotnet.png" alt-text="Screenshot showing the orchestartion instance's details for the .NET sample.":::
+:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-dotnet.png" alt-text="Screenshot showing the orchestration instance's details for the .NET sample.":::
 
 ::: zone-end
 
 ::: zone pivot="python"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-python.png" alt-text="Screenshot showing the orchestartion instance's details for the Python sample.":::
+:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-python.png" alt-text="Screenshot showing the orchestration instance's details for the Python sample.":::
 
 ::: zone-end
 
 ::: zone pivot="java"
 
-:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-java.png" alt-text="Screenshot showing the orchestartion instance's details for the Java sample.":::
+:::image type="content" source="media/quickstart-portable-durable-task-sdks/review-dashboard-java.png" alt-text="Screenshot showing the orchestration instance's details for the Java sample.":::
 
 ::: zone-end
 
@@ -409,7 +420,7 @@ You can view the orchestration status and history via the [Durable Task Schedule
 
 ### The worker project
 
-To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a separate task for each work item using `ProcessWorkItemActivity`.
@@ -524,7 +535,7 @@ var instance = await client.WaitForInstanceCompletionAsync(
 
 ### `worker.py`
 
-To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-overview.md#fan-in-out), the worker project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Receives a list of work items as input.
 1. It "fans out" by creating parallel tasks for each work item (calling `process_work_item` for each one).
@@ -592,7 +603,7 @@ result = client.wait_for_orchestration_completion(
 
 ::: zone pivot="java"
 
-To demonstrate [the fan-out/fan-in pattern](../durable/durable-functions-overview.md#fan-in-out), the `FanOutFanInPattern` project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
+To demonstrate [the fan-out/fan-in pattern](../durable-functions-overview.md#fan-in-out), the `FanOutFanInPattern` project orchestration creates parallel activity tasks and waits for all to complete. The orchestrator:
 
 1. Takes a list of work items as input.
 1. Fans out by creating a separate task for each work item using ``.
@@ -687,6 +698,8 @@ logger.info("Output: {}", completedInstance.readOutputAs(int.class));
 ::: zone-end
 
 ## Next steps
+
+Now that you've run the sample locally using the Durable Task Scheduler emulator, try creating a scheduler and task hub resource and deploying to Azure Container Apps.
 
 > [!div class="nextstepaction"]
 > [Deploy to Azure](./develop-with-durable-task-scheduler.md)
