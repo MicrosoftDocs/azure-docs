@@ -47,7 +47,7 @@ A single geospatial STAC item may contain many assets, each of which contains ra
 
 ## GRIB assets contain messages, queried as subdataset_bands
 
-A GRIB file is a collection of many 2-D geospatial arrays, organized like an indexed list. Metadata about a GRIB file shows which data corresponds to which 'grib message'. Planetary Computer uses the query parameter 'subdataset_bands' in a render configuration to identify which 2-D array of data within the grib dataset, and which grib message will be visualized, as in {"options": "assets=grib&nodata=0&scale=2&rescale=1,75&resampling=nearest&colormap_name=jet&subdataset_bands=1"}.
+A GRIB file is a collection of many 2-D geospatial arrays, organized like an indexed list. Metadata about a GRIB file shows which data corresponds to which 'grib message.' Planetary Computer uses the query parameter 'subdataset_bands' in a render configuration to identify which 2-D array of data within the grib dataset, and which grib message will be visualized, as in {"options": "assets=grib&nodata=0&scale=2&rescale=1,75&resampling=nearest&colormap_name=jet&subdataset_bands=1"}.
 
 ### GRIB example
 
@@ -100,7 +100,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
         ...
     ```
 
-1. Now we can visualize the data. We'll use the `tile` endpoint, which requires providing `z`, `x`, and `x` parameters with the zoom and tile coordinates.
+1. Now we can visualize the data. We use the `tile` endpoint, which requires providing `z`, `x`, and `x` parameters with the zoom and tile coordinates.
 
     ```python
     bounds = client.get(f"/data/collections/{collection_id}/items/{item_id}/bounds").json()["bounds"]
@@ -145,18 +145,18 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
 
 ## NETCDF assets contain subdatasets and an optional time dimension queried as subdataset_name, datetime
 
-Microsot Planetary Computer uses xarray to read NETCDF files and currently supports visualizing 2-D geospatial arrays with dimensions of latitude (labeled 'y', 'lat', 'latitude', 'LAT', 'LATITUDE' or 'Lat') and longitude (labeled 'x', 'lon', 'longitude', 'LON', 'LONGITUDE', or 'Lon') and 3-D geospatial arrays with an additional time dimension (labeled 'TIME' or 'time').  
+Microsoft Planetary Computer uses xarray to read NETCDF files and currently supports visualizing 2-D geospatial arrays with dimensions of latitude (labeled 'y', 'lat', 'latitude', 'LAT', 'LATITUDE' or 'Lat') and longitude (labeled 'x', 'lon', 'longitude', 'LON', 'LONGITUDE', or 'Lon') and 3-D geospatial arrays with an additional time dimension (labeled 'TIME' or 'time').  
 
 A single NETCDF asset may have multiple 2-D or 3-D arrays. To visualize a 2-D array of a NETCDF asset, specify the desired array with subdataset_name= within a render configuration.  To visualize a single timepoint from within a 3-D array of a NETCDF asset, use ISO8601 formatted datetime=, as in 
 {"options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr&datetime=1950-07-07T00:00:00"}.  
 
-Microsot Planetary Computer uses the xarray-assets STAC extension. Query arguments are passed forward to xarray.open_dataset.
+Microsoft Planetary Computer uses the xarray-assets STAC extension. Query arguments are passed forward to xarray.open_dataset.
 
-For a given datetime, Microsot Planetary Computer and xarray find the 2-D slice of the dataset nearest the specified datetime; they do not interprolate between multiple slices.  
+For a given datetime, Microsoft Planetary Computer and xarray find the 2-D slice of the dataset nearest the specified datetime; they don't interpolate between multiple slices.  
 
 ## Check NetCDF visualizability 
 
-Not all NetCDF datasets that can be ingested into Microsot Planetary Computer can be visualized by the Microsot Planetary Computer tiler. A dataset must have X and Y axes, latitude and longitude coordinates, and spatial dimensions and bounds to be visualized. For example, a dataset in which latitude and longitude are variables, but not coordinates, must be reprojected to be visualized by Planetary Computer's tiler.  
+Not all NetCDF datasets that can be ingested into Microsoft Planetary Computer can be visualized by the Microsoft Planetary Computer tiler. A dataset must have X and Y axes, latitude and longitude coordinates, and spatial dimensions and bounds to be visualized. For example, a dataset in which latitude and longitude are variables, but not coordinates, must be reprojected to be visualized by Planetary Computer's tiler.  
 
 Before attempting to visualize your NetCDF dataset, you can use the following to check whether it meets the requirements.
 
