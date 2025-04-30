@@ -601,7 +601,7 @@ sections:
         answer: No. The AGIC add-on is a managed service, which means Microsoft automatically updates the add-on to the latest stable version.
 
       - question: Can I upgrade a cluster running Kubenet or Azure CNI to Azure CNI Overlay with AGIC installed?
-        answer: Yes, upgrade of the AKS cluster from Kubnet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
+        answer: Yes, upgrade of the AKS cluster from Kubenet or CNI to CNI Overlay is automatically detected by Application Gateway Ingress Controller. It's recommended to schedule the upgrade during a maintenance window as traffic disruption can occur. The controller may take a few minutes post-cluster upgrade to detect and configure support for CNI Overlay.
 
 
   - name: 'Configuration: Mutual authentication'
