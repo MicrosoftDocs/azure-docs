@@ -15,14 +15,14 @@ An effective disaster recovery plan includes testing your disaster recovery conf
 
 This disaster recovery workflow can be tested with either [Azure NetApp cross-region replication](cross-region-replication-introduction.md) or [cross-zone replication](cross-zone-replication-introduction.md). You can test your disaster recovery understanding and preparedness without disrupting the existing replication schedule, posing no risk to RPO or RTO. This test plan also leverages Azure NetApp Files' ability to [create new volumes from the snapshots](snapshots-restore-new-volume.md) in cross-region replication.
 
-## Pre-requisites
+## Prerequisites
 
 * Application consistent snapshots should be created in the volumes hosted in the primary region. Application data hosted in Azure NetApp Files volumes must be in a consistent state prior to the creation of the snapshot. 
 
     The [Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) can be used to create application consistent snapshots. 
 
     >[!NOTE]
-    >If the data in the snapshot isn't consistent, the disaster recovery workflow or test workflow may not work properly.
+    >If the data in the snapshot isn't consistent, the disaster recovery workflow or test workflow might not work properly.
 
 * Cross-region or cross-zone replication must be established. The [replication status must be healthy](cross-region-replication-display-health-status.md).
 
@@ -38,7 +38,7 @@ Given the uniqueness of each application architecture, there's no specific workf
     * Any other resources required to run the application in the secondary region
 1. [Create new volumes from the most recent snapshots](snapshots-restore-new-volume.md) replicated to the Azure NetApp Files data protection volumes in the secondary region.
     >[!NOTE]
-    > Cross-region replication baseline snapshots cannot be used to create volumes.
+    > Cross-region replication baseline snapshots can't be used to create volumes.
 1. [Mount the volumes](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) to the application VMs from Step 1
 1. Run the application in the secondary zone or region. Test the application's functionality.
 1. Bring down the application in the secondary zone or region.

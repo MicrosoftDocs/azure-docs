@@ -37,7 +37,7 @@ All cloud-hosted applications should follow the Azure transient fault handling g
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)] 
 
-[Azure NetApp Files' availability zone volume placement feature](../azure-netapp-files/use-availability-zones) lets you deploy each volume in the specific availability zone of your choice, in alignment with Azure compute and other services in the same zone. Azure NetApp Files deployments occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
+[Azure NetApp Files' availability zone volume placement feature](../azure-netapp-files/use-availability-zones.md) lets you deploy each volume in the specific availability zone of your choice, in alignment with Azure compute and other services in the same zone. Azure NetApp Files deployments occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
 Azure NetApp Files availability zone volume placement provides zonal placement. Zonal placement means resources are pinned to a specific availability zone. You can combine multiple zonal deployments across different zones to meet high reliability requirements. You're responsible for managing data replication and distributing requests across zones. If an outage occurs in a single availability zone, you're responsible for failover to another availability zone.
 
