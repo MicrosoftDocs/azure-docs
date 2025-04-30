@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL- Flexible server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 04/11/2025
+ms.date: 04/30/2025
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: jyothisuri
@@ -40,6 +40,22 @@ Azure Database for PostgreSQL – Flexible Server backups include the following 
 - Vaulted backups don't support tables containing a row with **BYTEA length exceeding 500 MB**.
 - Vaulted backups support full backups only; incremental or differential backups aren't supported.
 
+
+### Restore limitations
+- The use of **create role** scripts for `azure_su`, `azure_pg_admin`, `replication`, `localadmin`, and `Entra Admin` causes the following errors  during restoration on another flexible server, which you can safely ignore.
+
+  - `role "azure_pg_admin" already exists.`
+  - `role "azuresu" already exists.`
+  - `role "replication" already exists.`
+  - `ERROR: must be superuser to create superusers`
+  - `ERROR: Only roles with privileges of role "azuresu" may grant privileges as this role. permission denied granting privileges as role "azuresu"`
+  - `ERROR: permission denied granting privileges as role "azuresu" SQL state: 42501 Detail: Only roles with privileges of role "azuresu" may grant privileges.`
+  - `Ignore any errors related to pg_catalog, pg _aadauth extensions as it is owned by azure_su and localadmin does not have access to directly create this extension on flexible server, but these are automatically created on new flexible servers or when you enable Microsoft entra authentication.`
+  - `ERROR: Only roles with the ADMIN option on role "pg_use_reserved_connections" may grant this role. permission denied to grant role "pg_use_reserved_connections"`
+  - `ERROR: permission denied to grant role "pg_use_reserved_connections" SQL state: 42501 Detail: Only roles with the ADMIN option on role "pg_use_reserved_connections" may grant this role.`
+
+- In PostgreSQL **community version 16**, the requirement for superuser privileges to set the Bypass Row -level security (RLS) attribute was removed. So, in versions 16 and higher, you can grant the Bypass RLS to azure_pg_admin allowing others to set the RLS. For versions lower than 16, the bypasses attribute is granted only to the server admin and no other nonsuperuser roles. 
+- If you're using Entra Admins after restoration, you might encounter the **Owner Change Issue** : As a workaround, use the **grant** option to provide ownership. 
 
 
 ## Next steps
