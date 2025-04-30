@@ -23,17 +23,17 @@ Advanced network features enhance the virtual networking experience, offering im
 * US West  
 * UK South 
 * UK West
-[!NOTE]
-Advanced network features are currently supported only for new ODAA deployments. 
- Existing virtual networks with previously created ODAA delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
-Registration Required: 
- To use advanced network features, you must first register using the commands below before creating your virtual network for the ODAA deployment. 
- ```
- Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" 
- ```
- ```
- Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" 
- ```
+>[!NOTE]
+>Advanced network features are currently supported only for new ODAA deployments. 
+> Existing virtual networks with previously created ODAA delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
+>Registration Required: 
+> To use advanced network features, you must first register using the commands below before creating your virtual network for the ODAA deployment. 
+>```
+> Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" 
+> ```
+> ```
+> Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" 
+> ```
  
 ## Supported topologies
 The following table describes the network topologies that are supported by each configuration of network features for Oracle Database@Azure:
