@@ -11,7 +11,7 @@ ms.date: 04/25/2025
 
 # Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface
 
-This quickstart explains how to ingest data into your collection using the Microsoft Planetary Computer Pro web interface. This approach is ideal if you're less comfortable using APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
+This quickstart explains how to ingest data into your collection using the Microsoft Planetary Computer Pro web interface. This approach is ideal if you're less comfortable using APIs, and want to use a graphical user interface to manage your geospatial data and navigate Planetary Computer Pro.
 
 ## Prerequisites
 
@@ -27,37 +27,33 @@ Before using this quickstart, you need:
 
 ## Configure your ingestion source
 
-Once you create a collection, you're ready to ingest data into your collection. The first step, however, is to configure your ingestion source. You can do this either by using the ***Settings** page or the **Create ingestion** panel in the **Ingestion** tab of your collection. Either of these methods work, the important thing is that you must set up your ingestion source before you can ingest data. For more information on ingestion sources, see [Ingestion sources](./ingestion-source.md).
+Once you create a collection, you're ready to ingest data. The first step, however, is to configure your ingestion source. You can do this by navigating to the ***Settings** tab of your collection. For more information on ingestion sources, see [Ingestion sources](./ingestion-source.md).
 
 ### Configure your ingestion source in the **Settings** page
 
 Whether you want to use managed identity or a shared access signature, you can  configure you ingestion source by following the steps outlined in [Configure an ingestion source in Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md) or [Configure an ingestion source in Microsoft Planetary Computer Pro using a shared access signature](./setup-ingestion-credentials-sas-tokens.md). 
 
-To configure your ingestion source and create a new ingestion from within your collection, follow along with the rest of this quickstart.
-
 ## Create ingestion
 
-To configure your ingestion source and create a new ingestion using the **Create ingestion** panel, refer to these steps:
+Now that you have configured an ingestion source, refer to the following steps to create an ingestion:
 
-1. Navigate to the **Overview** tab of the collection in which you want to ingest data. 
+1. Navigate to the collection in which you want to ingest data. 
 
 **NOTE:** If you have not already ingested data into your collection, a graphic showing the 3 steps to get started appears. '1. Configure ingestion source, 2. Create ingestion, 3. Start run.'
 
-2. Select the **Get started** button, and you're taken to the **Ingestion** tab of the collection, where the **Create ingestion** panel opens. 
+2. Select the **Get started** button, and you're taken to the **Ingestion** tab of the collection.
 
 **NOTE:** If you already ingested data into this collection, and want to create another ingestion, you can navigate to the **Ingestion** tab of the collection and select **Create ingestion** to open the **Create ingestion** panel.
 
-3. The **Create ingestion** panel, like the **Create ingestion source** panel in **Settings**, allows you to select either managed identity or a shared access signature. Select the appropriate option for your ingestion source, input the container URL where the data is stored, and either input your SAS token or select your managed identity. 
+3. If you haven't yet configured an ingestion source, a graphic appears prompting you to do so. Select the **Create ingestion source** button to navigate to the **Settings** page where you can configure your ingestion source. If you have already configured an ingestion source, you'll see a graphic prompting you to **Create ingestion**. Select the **Create ingestion** button to open the **Create ingestion** panel.
 
-**NOTE:** If you already configured your ingestion source for this data, you can skip this step and select 'Already created.'
-
-4. Now that the ingestion source fields are filled out, enter the rest of the information needed to create your ingestion, including adding a Display Name and Ingestion URL (URL of the STAC catalog json organizing your STAC items). Here, you can also check the boxes to 'Keep Original STAC items' or 'Skip items already in STAC catalog.' You may or may not want to check those boxes depending on your use cases or whether you already ingested data into this collection.
+4. To create your ingestion, input a Display Name and Ingestion URL (URL of the STAC catalog json organizing your STAC items). You can also check the boxes to 'Keep Original STAC items' or 'Skip items already in STAC catalog.' You may or may not want to check those boxes depending on your use cases or whether you already ingested data into this collection.
 
 5. Once you have filled out all the fields, select **Create** to create your ingestion.
 
-6. You have now defined and authenticated your ingestion path, which can be seen in your list of ingestions in your collection, but you still need to start an ingestion run in order to pull your data in. Select the **Start new run** button from the **Run actions** column to open the **Create run** panel. 
+6. After you define and authenticate your ingestion path, which can be seen in your list of ingestions in your collection, you still need to start an ingestion run in order to pull your data in. Select the **Start new run** button from the **Run actions** column to open the **Create run** panel. 
 
-7. Select **Create** to start the run. This brings you back to the **Ingestion** tab, where you can select the **View runs** button to see the status of your ingestion. 
+7. Select **Create** to start the run, which will bring you back to the **Ingestion** tab, where you can select the **View runs** button to see the status of your ingestion. 
 
 8. When the ingestion run is complete, the **STAC items** tab in your collection displays your list of STAC items that have been ingested, with columns for the item ID and acquisition date. 
 

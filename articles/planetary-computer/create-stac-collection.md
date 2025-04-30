@@ -67,27 +67,27 @@ This credential can be provided as a Bearer token in the `Authorization` header 
 With the STAC metadata, a token, and the URL to your GeoCatalog, make a request to the STAC API to add the Collection.
 
 ```python
-# Put the URL to your MPC Pro GeoCatalog (not including '/api' or a trailing '/' ) here
+# Put the URL to your MPC Pro GeoCatalog (not including '/stac' or a trailing '/' ) here
 geocatalog_url = "<your-geocatalog-url>"
 
 response = requests.post(
-    f"{geocatalog_url}/api/collections",
+    f"{geocatalog_url}/stac/collections",
     json=collection,
     headers=headers,
-    params={"api-version": "2024-01-31-preview"},
+    params={"api-version": "2025-04-30-preview"},
 )
 print(response.status_code)
 ```
 
 A status code of `201` indicates that your Collection was created. A status code of `409` indicates that a collection with that ID already exists. See [Update a collection](#update-a-collection) for how to update an existing collection.
 
-You can now get this collection at the `/api/collections/{collection_id}` endpoint.
+You can now get this collection at the `/stac/collections/{collection_id}` endpoint.
 
 ```python
 geocatalog_collection = requests.get(
-    f"{geocatalog_url}/api/collections/{collection['id']}",
+    f"{geocatalog_url}/stac/collections/{collection['id']}",
     headers=headers,
-    params={"api-version": "2024-01-31-preview"},
+    params={"api-version": "2025-04-30-preview"},
 ).json()
 ```
 
@@ -128,10 +128,10 @@ Each collection in a GeoCatalog includes some configuration that controls how th
     }
     
     response = requests.post(
-        f"{geocatalog_url}/api/collections/{collection['id']}/config/render-options",
+        f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/render-options",
         json=render_option,
         headers=headers,
-        params={"api-version": "2024-01-31-preview"}
+        params={"api-version": "2025-04-30-preview"}
     )
     print(response.status_code)
     ```
@@ -146,10 +146,10 @@ Each collection in a GeoCatalog includes some configuration that controls how th
         "cql": [],
     }
     response = requests.post(
-        f"{geocatalog_url}/api/collections/{collection['id']}/config/mosaics",
+        f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/mosaics",
         json=mosaic,
         headers=headers,
-        params={"api-version": "2024-01-31-preview"}
+        params={"api-version": "2025-04-30-preview"}
     )
     print(response.status_code)
     ```
@@ -168,25 +168,25 @@ Each collection in a GeoCatalog includes some configuration that controls how th
       "maxItemsPerTile": 35,
     }
     requests.put(
-        f"{geocatalog_url}/api/collections/{collection['id']}/config/tile-settings",
+        f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/tile-settings",
         json=tile_settings,
         headers=headers,
-        params={"api-version": "2024-01-31-preview"}
+        params={"api-version": "2025-04-30-preview"}
     )
     ```
 
 ## Update a collection
 
-You can update an existing collection with a `PUT` request to the `/api/collections/{collection_id}` endpoint.
+You can update an existing collection with a `PUT` request to the `/stac/collections/{collection_id}` endpoint.
 
 ```python
 collection["description"] += " (Updated)"
 
 response = requests.put(
-    f"{geocatalog_url}/api/collections/{collection['id']}",
+    f"{geocatalog_url}/stac/collections/{collection['id']}",
     headers={"Authorization": f"Bearer {token.token}"},
     json=collection,
-    params={"api-version": "2024-01-31-preview"},
+    params={"api-version": "2025-04-30-preview"},
 )
 print(response.status_code)
 ```
@@ -205,9 +205,9 @@ The quickstart, [Add STAC Items to a collection](./add-stac-item-to-collection.m
 
 ```python
 response = requests.delete(
-    f"{geocatalog_url}/api/collections/{collection['id']}",
+    f"{geocatalog_url}/stac/collections/{collection['id']}",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": "2025-04-30-preview"}
 )
 print(response.status_code)
 ```

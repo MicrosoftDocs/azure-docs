@@ -229,12 +229,12 @@ Within the MPC Pro web interface, under the collection of interest, you can conf
 If using the Python API, as demonstrated in [Create a STAC collection](./create-stac-collection.md), you can register a new render config using the following POST:
 
 ```python
-render_config_endpoint = f"{geocatalog_url}/api/collections/{collection_id}/config/render-options"
+render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
 response = requests.post(
     render_config_endpoint,
     json=render_config,
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": "2025-04-30-preview"}
 )
 ```
 

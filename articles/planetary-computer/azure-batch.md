@@ -156,16 +156,16 @@ from os import environ
 import requests
 from azure.identity import DefaultAzureCredential
 
-SPATIO_APP_ID = "https://geocatalog.spatio.azure.com"
+MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
 credential = DefaultAzureCredential()
-access_token = credential.get_token(f"{SPATIO_APP_ID}/.default")
+access_token = credential.get_token(f"{MPCPRO_APP_ID}/.default")
 
 geocatalog_url = environ["GEOCATALOG_URL"]
 
 response = requests.get(
-    f"{geocatalog_url}/api/collections",
+    f"{geocatalog_url}/stac/collections",
     headers={"Authorization": "Bearer " + access_token.token},
-    params={"api-version": "2024-01-31-preview"},
+    params={"api-version": "2025-04-30-preview"},
 )
 print(json.dumps(response.json(), indent=2))
 ```
@@ -195,7 +195,7 @@ The Bash job executes the following Bash script:
 ```bash
 az login --identity --allow-no-subscriptions > /dev/null
 token=$(az account get-access-token --resource https://geocatalog.spatio.azure.com --query accessToken --output tsv)
-curl --header \"Authorization: Bearer $token\" $GEOCATALOG_URL/api/collections | jq
+curl --header \"Authorization: Bearer $token\" $GEOCATALOG_URL/stac/collections | jq
 ```
 
 Which uses `az login --identity` to authenticate with the managed identity and retrieves the collections from the GeoCatalog. To get the results of the job, run the following command:

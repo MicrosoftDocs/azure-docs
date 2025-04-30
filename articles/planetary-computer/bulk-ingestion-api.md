@@ -56,10 +56,10 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
 1. Set the required constants according to your environment
 
     ```python
-    SPATIO_APP_ID = "https://geocatalog.spatio.azure.com"
+    MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
     CONTAINER_URI = "<container_uri>" # The URI for the blob storage container housing your geospatial data
     GEOCATALOG_URI = "<geocatalog uri>" # The URI for your GeoCatalog can be found in the Azure portal resource overview 
-    API_VERSION = "2024-01-31-preview"
+    API_VERSION = "2025-04-30-preview"
     ```
 1. Create the SAS Token
 
@@ -99,7 +99,7 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
     ```python
     # Obtain an access token
     credential = AzureCliCredential()
-    access_token = credential.get_token(f"{SPATIO_APP_ID}/.default")
+    access_token = credential.get_token(f"{MPCPRO_APP_ID}/.default")
     ```
 
 1. Create POST payload for the ingestion source API
@@ -119,7 +119,7 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
 
     ```python
     # STAC Collection API endpoint
-    endpoint = f"{GEOCATALOG_URI}/api/ingestion-sources"
+    endpoint = f"{GEOCATALOG_URI}/inma/ingestion-sources"
     
     # Make the POST request
     response = requests.post(
@@ -161,9 +161,9 @@ A STAC collection is the high-level container for STAC Items and their associate
 1. Set the required constants according to your environment
 
     ```python
-    SPATIO_APP_ID = "https://geocatalog.spatio.azure.com"
+    MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
     GEOCATALOG_URI = "<geocatalog uri>" # The URI for your GeoCatalog can be found in the Azure portal resource overview 
-    API_VERSION = "2024-01-31-preview"
+    API_VERSION = "2025-04-30-preview"
 
     COLLECTION_ID = "example-collection" #You can your own collection ID
     COLLECTION_TITLE = "Example Collection" #You can your own collection title    
@@ -173,7 +173,7 @@ A STAC collection is the high-level container for STAC Items and their associate
     ```python
     # Obtain an access token
     credential = AzureCliCredential()
-    access_token = credential.get_token(f"{SPATIO_APP_ID}/.default")
+    access_token = credential.get_token(f"{MPCPRO_APP_ID}/.default")
     ```
 
 1. Create a basic STAC collection specification
@@ -200,7 +200,7 @@ A STAC collection is the high-level container for STAC Items and their associate
 
     ```python
     response = requests.post(
-        f"{GEOCATALOG_URI}/api/collections",
+        f"{GEOCATALOG_URI}/stac/collections",
         json=collection,
         headers={"Authorization": "Bearer " + access_token.token},
         params={"api-version": API_VERSION},
@@ -233,9 +233,9 @@ In this final step, we're using the ingestion API to initiate a bulk ingestion w
 1. Set the required constants according to your environment
 
     ```python
-    SPATIO_APP_ID = "https://geocatalog.spatio.azure.com"
+    MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
     GEOCATALOG_URI = "<geocatalog uri>" # The URI for your GeoCatalog can be found in the Azure portal resource overview 
-    API_VERSION = "2024-01-31-preview"
+    API_VERSION = "2025-04-30-preview"
 
     COLLECTION_ID = "example-collection" #You can your own collection ID
     catalog_href = "<catalog_href>" #The blob storage location of the STAC Catalog JSON file
@@ -249,13 +249,13 @@ In this final step, we're using the ingestion API to initiate a bulk ingestion w
     ```python
     # Obtain an access token
     credential = AzureCliCredential()
-    access_token = credential.get_token(f"{SPATIO_APP_ID}/.default")
+    access_token = credential.get_token(f"{MPCPRO_APP_ID}/.default")
     ``` 
 
 1. Create the POST payload for the Bulk Ingestion API
 
     ```python
-    url = f"{GEOCATALOG_URI}/api/collections/{COLLECTION_ID}/ingestions"
+    url = f"{GEOCATALOG_URI}/inma/collections/{COLLECTION_ID}/ingestions"
     body = {
         "importType": "StaticCatalog",
         "sourceCatalogUrl": catalog_href,
@@ -289,7 +289,7 @@ In this final step, we're using the ingestion API to initiate a bulk ingestion w
         
     ```python
     runs_endpoint = (
-        f"{geocatalog_url}/api/collections/{collection_id}/ingestions/{ingestion_id}/runs"
+        f"{geocatalog_url}/inma/collections/{collection_id}/ingestions/{ingestion_id}/runs"
     )
     
     wf_response = requests.post(
@@ -310,7 +310,7 @@ Once the workflow is complete, you can query, retrieve, or visualize your geospa
 1. Delete ingestion source
 
     ```python
-    del_is_endpoint = f"{GEOCATALOG_URI}/api/ingestion-sources/{ingestion_source_id}"
+    del_is_endpoint = f"{GEOCATALOG_URI}/inma/ingestion-sources/{ingestion_source_id}"
     del_is_response = requests.delete(
         del_is_endpoint,
         headers={"Authorization": f"Bearer {access_token.token}"},

@@ -68,7 +68,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
     
     client = httpx.Client(
         base_url=GEOCATALOG_URL,
-        headers={"Authorization": f"Bearer {token}", "api-version": "2024-01-31-preview"},
+        headers={"Authorization": f"Bearer {token}", "api-version": "2025-04-30-preview"},
     )
     
 
@@ -81,7 +81,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
     c["links"] = [x for x in c["links"] if x["rel"] != "root"]
     
     
-    response = client.post("/api/collections", json=collection)
+    response = client.post("/stac/collections", json=collection)
     if response.status_code not in (200, 409):
         raise Exception(f"Failed to create collection: {response.json()}")
     
@@ -89,7 +89,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
         f"https://raw.githubusercontent.com/stactools-packages/noaa-hrrr/main/examples/hrrr-conus-sfc-2024-05-10T12-FH0/{item_id}.json"
     ).json()
     
-    response = client.post(f"/api/collections/{collection_id}/items", json=item)
+    response = client.post(f"/stac/collections/{collection_id}/items", json=item)
     if response.status_code not in (200, 409):
         raise Exception(f"Failed to create item: {response.json()}")
     
@@ -103,7 +103,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
 1. Now we can visualize the data. We'll use the `tile` endpoint, which requires providing `z`, `x`, and `x` parameters with the zoom and tile coordinates.
 
     ```python
-    bounds = client.get(f"collections/{collection_id}/items/{item_id}/bounds").json()["bounds"]
+    bounds = client.get(f"/data/collections/{collection_id}/items/{item_id}/bounds").json()["bounds"]
     center = ((bounds[0] + bounds[2]) / 2, (bounds[1] + bounds[3]) / 2)
     
     tms = morecantile.tms.get("WebMercatorQuad")
@@ -114,7 +114,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
 
     ```python
     response = client.get(
-        f"collections/{collection_id}/items/{item_id}/tiles/WebMercatorQuad/{tile.z}/{tile.x}/{tile.y}.png",
+        f"/data/collections/{collection_id}/items/{item_id}/tiles/{tile.z}/{tile.x}/{tile.y}.png",
         params={
             "assets": "grib",
             "scale": "2",
