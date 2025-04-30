@@ -2,7 +2,7 @@
 title: Register an Entra ID application for Open OnDemand Authentication
 description: How to register an Entra ID application for Open OnDemand Authentication
 author: xpillons
-ms.date: 04/08/2025
+ms.date: 04/30/2025
 ms.author: padmalathas
 ---
 
@@ -20,19 +20,19 @@ resource_group=<resource_group_name>
 az deployment group create -g $resource_group --template-uri https://raw.githubusercontent.com/Azure/cyclecloud-slurm-workspace/refs/head/main/bicep/ood/oodEntraApp.json --parameters "$(az deployment group show -g $resource_group -n pid-d5d2708b-a4ef-42c0-a89b-b8bd6dd6d29b-partnercenter --query properties.outputs | jq '.oodManualRegistration.value | with_entries(.value |= {value: .})')"
 ```
 
-Once executed, check that the application is well registered and copy its client ID. 
-Ensure the redirect URI in Authentication is correct, federated credentials are set, upn is an optional claim in Token configuration, and API permissions are present.
+Once executed, check that the application is indeed registered and copy its client ID. 
+Ensure the redirect URI in Authentication is correct, federated credentials are set, `upn` is an optional claim in Token configuration, and API permissions are present.
 
 ## Update an existing Entra ID Application after a successful deployment
-If you already have an Entra ID application registered, you need to update the redirect URI with either the private IP or the FQDN of the Open OnDemand virtual machine.
+Update the redirect URI with either the private IP or the FQDN of the Open OnDemand virtual machine if an Entra ID application is already registered.
 
 Verify that both the `ccw` and `OpenOnDemand` clusters are started. Although there may be some temporary errors, both clusters should be ready within a few minutes. 
-Retrieve the IP address of the Open OnDemand VM from the CycleCloud UI. To complete the configuration of the registered application, add a new redirect URI, 'https://`<ip`>/oidc', in the Authentication settings of the application as illustrated below.
+Complete the configuration of the registered application by adding a new redirect URI, 'https://\<ip\>/oidc', in the Authentication settings of the application as illustrated below.
 
 ![Screenshot of Entra ID redirect URI update](../../images/ccws/entraid-redirect-uri.png)
 
 ## Register an Entra ID application before a deployment
-It is possible to register an Entra ID application before the deployment of a full environment and configure it afterwards 
+It is possible to register an Entra ID application before the deployment of a full environment and configure it afterwards. 
 
 Create an  app.json parameter file containing:
 - **appName** : the name of the application to be registered,

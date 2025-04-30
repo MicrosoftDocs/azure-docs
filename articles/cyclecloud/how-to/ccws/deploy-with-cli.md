@@ -2,13 +2,13 @@
 title: How to deploy a CycleCloud Workspace for Slurm environment using the CLI
 description: How to deploy a CycleCloud Workspace for Slurm environment using the Azure CLI and the Azure Portal UI Sandbox
 author: xpillons
-ms.date: 01/29/2025
+ms.date: 04/30/2025
 ms.author: xpillons
 ---
 
 # How to deploy a CycleCloud Workspace for Slurm environment using the CLI
 
-Prerequisites: Users need to install the Azure CLI and Git. They'll need to sign into or set their Azure subscription.
+Prerequisites: Users need to install the Azure CLI and Git and then sign into or set their Azure subscription.
 
 - Clone the Azure CycleCloud Workspace for Slurm on the latest stable release
 
@@ -27,7 +27,7 @@ git clone --depth 1 --branch $latest https://github.com/azure/cyclecloud-slurm-w
 - Paste the content of the UI Definition file into the multiline text box in the right,
 - Click `Preview >>` in the bottom-left corner to bring up a UI experience. 
 - Proceed through each page of the UI flow to ensure that necessary values populate in the output payload described in the next step,
-- Proceed with the UI flow to the `Review + create` page and then click the link labeled `View outputs payload` near the `Create` button to generate a pane with JSON-formatted text in its body on the right-hand side of the browser window,
+- Proceed with the UI flow to the `Review + create` page and then click the link labeled `View outputs payload` to the right of the `Create` button to generate a pane with JSON-formatted text in its body on the right-hand side of the browser window,
 - Copy the JSON-formatted text into a local JSON file, 
 - Save it as `parameters.json` and make note of the path to it. This is what we call the Parameters File for the deployment,
 - Open the shell of choice and navigate to the folder/directory that contains the `cyclecloud-slurm-workspace` repository cloned above,
