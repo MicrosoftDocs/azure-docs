@@ -7,24 +7,117 @@ author: normesta
 
 ms.service: azure-storage-actions
 ms.topic: conceptual
-ms.date: 01/31/2025
+ms.date: 04/30/2025
 ms.author: normesta
 
 ---
 
-# Best practices for using storage actions
+# Best practices for using storage tasks
 
-Introduction goes here.
+This article provides you with best practice guidelines for using storage tasks.
 
-## Subheading 1
+## Composition and Validation
 
-Text goes here.
+### Validate conditions as you compose them
 
-## Subheading 2
+You should validate each condition you compose using the condition preview capability. This feature provides an interactive experience that shows which of the selected blobs meet the condition predicate you've configured. The condition preview experience does not make any changes to the data. You can validate the condition against various sets of blobs by specifying different storage accounts or blob path prefixes. Incorrectly composed conditions can adversely affect your data, making this step crucial to ensure the condition is composed correctly.
 
-Text goes here.
+See [Preview the effect of conditions](storage-task-conditions-operations-edit#preview-the-effect-of-conditions)
+
+### Validate conditions before you commit a storage task assignment
+
+The condition preview capability also appears in the **Add Assignment** pane. Before committing an assignment, use this capability to verify that the storage task will operate on the correct set of blobs in the storage account. This ensures that if the storage task is used in other storage account assignments, no unintended blobs will be impacted.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the add assignment pane.](../media/storage-tasks/storage-task-best-practices/add-assignment-pane.png)
+
+### Avoid recreating separate storage task conditions for each storage account that you manage
+
+You can define a single storage task condition that can be applied to multiple storage accounts simultaneously. This approach eliminates the need to create individual storage task conditions for each storage account, thereby simplifying the management of a large number of storage accounts. 
+
+To utilize this feature, create one storage task condition to scan blobs across your storage accounts and assign it to each account. This can be accomplished by adding multiple storage task assignments for a single storage task in the Azure portal using the **Assignments** menu option of a storage task.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows the location of the assignments option.](../media/storage-tasks/storage-task-best-practices/assignments-option.png)
+
+After all these task assignments are enabled, the storage task execution will operate on the blobs in their respective accounts concurrently, thus enabling horizontal scaling.
+
+### Decide if you want to enable blob soft delete in a storage account before using the delete operation
+
+For enhanced data protection, Microsoft recommends enabling blob soft delete on your storage account. Blob soft delete provides an additional layer of retention and peace of mind by allowing you to recover blobs that might have been accidentally deleted. By enabling blob soft delete, you can undelete blobs within the retention period, minimizing the risk of data loss due to inadvertent deletions. If blobs are accidentally deleted on a soft-deleted storage account, an undelete operation in a storage task can be used to recover the blob.
+
+### Understand the impact of storage task condition groupings
+
+Verify that the way you've grouped conditions will lead to the desired result. Incorrect grouping might result in unexpected operations. Test the grouped conditions thoroughly using the preview capability. Ensure that the conditions match the blobs as anticipated.
+
+## Scale and performance
+
+### Enable a single storage task assignment at a time
+
+Storage Actions currently supports the execution of one storage task assignment at a time on a storage account. If two storage tasks are assigned to an account and enabled simultaneously, the first task will be executed while the second task will be queued until the first task completes. This applies to both single-run and recurrent scheduled task assignments.
+
+For scheduled task assignments, if the previous task iteration is still in progress, new iterations will be skipped. The next scheduled task will only run at its designated trigger time after the previous task has finished. When scheduling recurrent tasks, consider the scale implications where task assignments applied to large storage accounts may take longer to complete. Therefore, it is advisable to schedule them such that each task run can finish before the next iteration to prevent skipping subsequent iterations.
+
+For single-run task assignments, if a parallel task is already in progress, the new task execution will be deferred for 60 minutes plus additional random minutes before attempting again. In general, to avoid confusion regarding which task assignment is being executed, Microsoft recommends enabling only one task assignment at a time.
+
+### Workarounds on scale limits
+
+Storage Actions have defined scale limits, including:
+
+- A maximum of 50 task assignments per storage account
+
+- A maximum of 10,000 total task assignments per subscription
+
+- A maximum of 5,000 task definitions per subscription
+
+- A maximum of 5,000 assignments per task definition
+
+- The capability to process 90 billion FNS blobs and 7 billion HNS blobs within 14 days
+
+To optimize the management of scale limits, consider implementing the following workarounds:
+
+1. **Task segmentation by prefix**: Instead of assigning a single task to process all blobs in a storage account, create multiple tasks, each responsible for a specific filtered subset of blobs based on their prefixes. This segmentation approach distributes the workload more evenly and helps stay within scale limits. You can add filters during task assignment as shown:
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot that shows the filter objects section of the add assignment pane.](../media/storage-tasks/storage-task-best-practices/add-assignment-pane-filter-objects-section.png)
+
+2. **Staggered Scheduling**: Schedule tasks to run at different times, especially for large-scale operations. By staggering the execution times, you avoid concurrent tasks that could breach concurrency limits and cause task execution contention.
+
+3. **Incremental Processing**: Break down large tasks into smaller, incremental steps. This method ensures that each task segment can complete within the given limits, reducing the risk of incomplete operations.
+
+4. **Monitoring and Adjust**: Regularly monitor task performance and progress. Adjust the task conditions / prefixes and schedules as necessary to ensure efficient processing withing scale limits.
+
+By employing these strategies, you can effectively manage and work around the imposed scale limits, ensuring smooth and efficient task executions.
+
+## Reliability
+
+### Use geo redundance storage accounts for business continuity 
+
+Storage accounts with [geo-redundant storage](#geo-redundant-storage) (GRS), or [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS) replicate data to a secondary region in the event of storage account failovers. The business continuity of storage actions significantly depends on the redundancy configuration of the target storage account. Accounts utilizing geo-redundant storage benefit from an automated failover process. This automatic management ensures that future task assignment run iterations, whether single or recurrent, will be executed in the secondary region without issues. However, storage tasks that were in progress at the time of failover may encounter failures. New storage tasks and storage task assignments continue to function as expected.
+
+Consistent monitoring of the storage account is crucial. In the case of a failover, you should thoroughly review task reporting and monitoring to verify the successful completion of all blob operations and to identify any discrepancies that need addressing.
+
+## Monitoring
+
+### Monitor tasks Periodically
+
+You should periodically monitor the storage task execution to ensure that tasks are running as expected. This includes reviewing task reports, metrics, monitoring dashboards, checking for any errors, and verifying that the tasks are completing within the expected timeframes.
+
+### Ensure the result report container is not deleted 
+
+Storage Actions generate detailed reports in CSV format which are written into the result reporting container configured during task assignment. These reports provide insights into the task execution operations where each row line in the CSV file includes information about the operations performed, the status of each operation, and any errors encountered. It is important to make sure that the result reporting container that is configured during task assignment is not deleted from the storage account during the task execution. If the result reporting container is deleted during the task run, the task execution can fail. 
+
+Storage Actions generate detailed reports in CSV format, which are written into the result reporting container that is configured during task assignment. These reports provide insights into task execution operations, with each row in the CSV file including information about the operations performed, the status of each operation, and any errors encountered. It is important to ensure that the result reporting container is not deleted from the storage account during task execution. If the result reporting container is deleted during the task run, the task execution can fail.
+
+## Storage Actions lifecycle
+
+### Managing tasks using a central library subscription
+
+To efficiently manage your tasks and task assignments, it is recommended to use a central subscription containing a library of storage tasks. This approach allows you to assign these tasks to numerous storage accounts across different subscriptions and regions simultaneously, without having to configure them individually for each region or subscription. By centralizing your task management, you can streamline the process, reduce administrative overhead, and ensure consistency in task execution across your entire Azure environment.
 
 ## See also
 
-- [Storage task operations](storage-task-operations.md)
-- [Define conditions and operations](storage-task-conditions-operations-edit.md)
+- [Azure Storage Actions overview](../overview.md)
+- [Azure RBAC best practices](../../role-based-access-control/best-practices.md) 
+- [AKS best practices](/azure/aks/best-practices) 
+
