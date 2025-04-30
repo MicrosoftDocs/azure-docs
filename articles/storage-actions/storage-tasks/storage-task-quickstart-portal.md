@@ -108,7 +108,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
-4. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
+4. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you're using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)

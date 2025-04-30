@@ -14,7 +14,7 @@ ms.author: normesta
 
 # Storage task scenarios
 
-Large data lakes can have thousands of data sets with different object types that need various processing methods. Depending on their attributes, individual objects in a blob container may need specific retention or expiry periods, different tiering transitions, or tagging with different labels. With Azure Storage Actions, you can define tasks to scan billions of blobs, examining each one based on properties like file extension, naming pattern, index tags, blob metadata, or system properties such as creation time, content type, and blob tier. This approach simplifies many recurring or one-off use cases. This article describes scenarios where Storage Actions have been applied or could be applied.
+Large data lakes can have thousands of data sets with different object types that need various processing methods. Depending on their attributes, individual objects in a blob container might need specific retention or expiry periods, different tiering transitions, or tagging with different labels. With Azure Storage Actions, you can define tasks to scan billions of blobs, examining each one based on properties like file extension, naming pattern, index tags, blob metadata, or system properties such as creation time, content type, and blob tier. This approach simplifies many recurring or one-off use cases. This article describes scenarios where Storage Actions have been applied or could be applied.
 
 ## Managing retention and expiry with object Tags
 
@@ -22,7 +22,7 @@ A financial services agency uses Azure Blob Storage to ingest customer service c
 
 ## Managing data protection in datasets 
 
-A leading travel services company uses blob versioning and snapshots, but their datasets have different protection needs. Sensitive data requires strict version history, while others do not. Keeping extensive version and snapshot history for all datasets is too expensive. With Azure Storage Actions, they can now use metadata and tags to manage the retention and lifecycle of versions and snapshots more flexibly.
+A leading travel services company uses blob versioning and snapshots, but their datasets have different protection needs. Sensitive data requires strict version history, while others don't. Keeping extensive version and snapshot history for all datasets is too expensive. With Azure Storage Actions, they can now use metadata and tags to manage the retention and lifecycle of versions and snapshots more flexibly.
 
 ## Cost optimization based on naming patterns and file types
 

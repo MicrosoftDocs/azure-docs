@@ -40,7 +40,7 @@ On the **Basics** tab, provide the essential information for your storage task. 
 | Project details | Resource group | Required | Create a new resource group for this storage task, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
 | Instance details | Storage task name | Required | Choose a unique name for your storage task. Storage task names must be between 3 and 18 characters in length and might contain only lowercase letters and numbers. |
 | Instance details | Region | Required | Select the appropriate region for your storage task. For more information, see [Regions and Availability Zones in Azure](../../reliability/availability-zones-overview.md). |
-| Instance details | User-assigned identity | optional | optionally associate a user-assigned managed identity with this storage task. A user-assigned managed identity is a managed identity is represented as a standalone Azure resource that is managed separately from the resources that use it. You cannot associate one later. Therefore, if you want to use a user-assigned managed identity, you must select one as you create the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. To learn more, see [Storage task assignment](storage-task-assignment.md)<br> To select a user-assigned managed identity, choose **Select an identity**. On the **Select user assigned managed identity** page, filter for and then select the managed identity.Then, select **Add**. You can add select a user-assigned managed identity only as you create a storage task.  |
+| Instance details | User-assigned identity | optional | optionally associate a user-assigned managed identity with this storage task. A user-assigned managed identity is a managed identity is represented as a standalone Azure resource that is managed separately from the resources that use it. You can't associate one later. Therefore, if you want to use a user-assigned managed identity, you must select one as you create the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. To learn more, see [Storage task assignment](storage-task-assignment.md)<br> To select a user-assigned managed identity, choose **Select an identity**. On the **Select user assigned managed identity** page, filter for and then select the managed identity. Then, select **Add**. You can add select a user-assigned managed identity only as you create a storage task.  |
 
 The following image shows an example of the **Basics** tab.
 
@@ -85,8 +85,8 @@ select the role that you want to assign to the system-assigned managed identity 
 |--|--|--|--|
 | Select scope | Subscription | Required | The subscription of the storage account that you want to add to this assignment. |
 | Select scope | Select a storage account | Required | The storage account that you want to add to this assignment. |
-| Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and may contain only letters and numbers. |
-| Role assignment | Assignment name | Required | The role that you want to assigned to the managed identity of the storage task. To learn more about which role to choose, see [Permission for a task to perform operations](storage-task-authorization-roles-assign.md?#permission-for-a-task-to-perform-operations). |
+| Select scope | Assignment name | Required | The name of the assignment. Assignment names must be between 2 and 62 characters in length and might contain only letters and numbers. |
+| Role assignment | Assignment name | Required | The role that you want to assign to the managed identity of the storage task. To learn more about which role to choose, see [Permission for a task to perform operations](storage-task-authorization-roles-assign.md?#permission-for-a-task-to-perform-operations). |
 | Filter objects | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
 | Filter objects | Blob prefixes | Optional | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
 | Trigger details | Run frequency | Required | Option to either run the task one time or multiple times. |
@@ -140,7 +140,7 @@ The following image shows the **Review** tab data prior to the creation of a new
 
    ```
 
-4. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. The following command creates a storage task and enables the system-managed identity of the task. Storage task assignments will use permissions applied to that system-managed identity to authorize access.
+4. Create a storage task by using the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command, and pass in any conditions and operations that you define. The following command creates a storage task and enables the system-managed identity of the task. Storage task assignments use permissions applied to that system-managed identity to authorize access.
 
    ```powershell
    $task = New-AzStorageActionTask `
@@ -154,7 +154,7 @@ The following image shows the **Review** tab data prior to the creation of a new
    -EnableSystemAssignedIdentity:$true
    ```
    
-   If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments will use permissions applied to the user-assigned managed identity to authorize access.
+   If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [New-AzStorageActionTask](/powershell/module/az.storageaction/new-azstorageactiontask) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments use permissions applied to the user-assigned managed identity to authorize access.
 
    ```powershell
    $managedIdentity = Get-AzUserAssignedIdentity -ResourceGroupName <resource-group> -Name <user-assigned-managed-identity-name>
@@ -182,7 +182,7 @@ The following image shows the **Review** tab data prior to the creation of a new
    > [!TIP]
    > Azure CLI uses shorthand syntax. Shorthand syntax is a simplified representation of a JSON string. To learn more, see [How to use shorthand syntax with Azure CLI](/cli/azure/use-azure-cli-successfully-shorthand).
 
-2. Create a storage task by using the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command, and pass in a JSON-formatted expression of the conditions and operations. This example finds blobs in the cool tier and moves them to the hot tier. All other blobs are deleted. The following command creates a storage task and specifies a system assigned managed identity. Storage task assignments will use permissions applied to the system-assigned managed identity to authorize access.
+2. Create a storage task by using the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command, and pass in a JSON-formatted expression of the conditions and operations. This example finds blobs in the cool tier and moves them to the hot tier. All other blobs are deleted. The following command creates a storage task and specifies a system assigned managed identity. Storage task assignments use permissions applied to the system-assigned managed identity to authorize access.
 
    ```azurecli
    az storage-actions task create -g myresourcegroup -n mystoragetask \ 
@@ -190,7 +190,7 @@ The following image shows the **Review** tab data prior to the creation of a new
    --action "{if:{condition:'[[equals(AccessTier,'/Cool'/)]]',operations:[{name:'SetBlobTier',parameters:{tier:'Hot'},onSuccess:'continue',onFailure:'break'}]},else:{operations:[{name:'DeleteBlob',onSuccess:'continue',onFailure:'break'}]}}" --description myStorageTask --enabled true
    ```
 
-   If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments will use permissions applied to the user-assigned managed identity to authorize access.
+   If you want assignments to authorize by using a user-assigned managed identity, you must provide that identity as a parameter to the [az storage-actions task create](/cli/azure/storage-actions/task#az-storage-actions-task-create) command. The following command creates a storage task and specifies a user assigned managed identity. Storage task assignments use permissions applied to the user-assigned managed identity to authorize access.
 
    ```azurecli
    $identityId=az identity show --name <user-assigned-managed-identity-name> \
@@ -246,7 +246,7 @@ resource storageTask 'Microsoft.StorageActions/storageTasks@2023-01-01' = {
 
 Include a JSON snippet similar to the following in your Azure Resource Manager template. This example sets an immutability policy on word documents.
 
-For a complete example, see [Quickstart: Create a storage task with ARM](storage-task-quickstart-arm.md).
+For a complete example, see [Quickstart: Create a storage task with an ARM template](storage-task-quickstart-arm.md).
 
 ```JSON
  "resources": [

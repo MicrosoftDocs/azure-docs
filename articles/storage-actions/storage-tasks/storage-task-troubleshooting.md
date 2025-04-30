@@ -14,19 +14,19 @@ ms.author: normesta
 
 # Storage task troubleshooting
 
-These article describes issues that you might encounter when you use storage tasks.
+This article describes issues that you might encounter when you use storage tasks.
 
 ## Permission-related errors
 
-These errors occur when the necessary permissions are not granted to create the task or task assignment resource, or for the task assignment's managed identity to perform the defined operations. It is essential to review and update the permissions to ensure that the tasks have the required permissions to execute successfully. See [Azure roles for storage task](storage-task-authorization-roles.md) and [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
+Permission-related errors occur when the necessary permissions aren't granted to create the task or task assignment resource, or for the task assignment's managed identity to perform the defined operations. It's essential to review and update the permissions to ensure that the tasks have the required permissions to execute successfully. See [Azure roles for storage task](storage-task-authorization-roles.md) and [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md).
 
 ## Scale limits exceeded errors
 
-These errors arise when the task assignments and task execution operations exceed the predefined scale limits. It is important to monitor and adjust the scope of the task assignment accordingly to prevent such errors. See [Scale limits](storage-tasks/storage-task-known-issues.md#scale-limits).
+Scale limits exceeded errors arise when the task assignments and task execution operations exceed the predefined scale limits. It's important to monitor and adjust the scope of the task assignment accordingly to prevent such errors. See [Scale limits](storage-tasks/storage-task-known-issues.md#scale-limits).
 
 ## Internal errors
 
-These are unforeseen errors that occur within the system. Diagnosing internal errors often requires a deeper dive into the system logs and may necessitate contacting support for resolution.
+These are unforeseen errors that occur within the system. Diagnosing internal errors often requires a deeper dive into the system logs and might necessitate contacting support for resolution.
 
 ## See also
 

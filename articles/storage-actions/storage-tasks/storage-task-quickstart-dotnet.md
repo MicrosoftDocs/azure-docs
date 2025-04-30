@@ -64,7 +64,7 @@ Create a .NET console app using either the .NET CLI or Visual Studio 2022.
    ```
 
 1. Open the project in your desired code editor. To open the project in:
-    * Visual Studio, locate and double-click the `StorageTaskQuickstart.csproj` file.
+    * Visual Studio, locate, and double-click the `StorageTaskQuickstart.csproj` file.
     * Visual Studio Code, run the following command:
 
     ```bash

@@ -42,7 +42,7 @@ In this quickstart, you learn how to use Azure CLI to create a storage task and 
 
    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal. Then, sign in with your account credentials in the browser.
 
-2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you aren't prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```azurecli
    az account set --subscription <subscription-id>

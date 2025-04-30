@@ -30,8 +30,8 @@ The following table describes each element.
 |---|--|
 | `name` | The name of the operation.<sup>1</sup> |
 | `parameters` | A collection of one or more parameters. Each parameter has parameter name and a parameter value.<sup>1</sup> |
-| `onSuccess` | The action to take when the operation is successful for an object. `continue` is the only allowable value during the. |
-| `onFailure` | The action to take when the operation fails for an object. `break` is the only allowable value during the. |
+| `onSuccess` | The action to take when the operation is successful for an object. |
+| `onFailure` | The action to take when the operation fails for an object. |
 
 <sup>1</sup>    For a complete list of operation names, operation parameters, and parameter values, see the [Supported operations](#supported-operations) section of this article.
  
@@ -84,7 +84,7 @@ The following JSON shows two operations separate by a comma.
 ]
 ```
 
-*** Asyncronous operations. Put something in here for that capability.
+*** Asynchronous operations. Put something in here for that capability.
 
 ## Supported operations
 

@@ -15,9 +15,9 @@ ms.author: normesta
 
 # What is Azure Storage Actions
 
-Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. You can use it perform common data operations on millions of objects across multiple storage accounts without provisioning additional compute capacity and without requiring you to write code.
+Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. You can use it perform common data operations on millions of objects across multiple storage accounts without provisioning extra compute capacity and without requiring you to write code.
 
-You can use Azure Storage Actions to automate tasks such as moving data to more cost-effective tiers, managing the retention of versions, snapshots or sensitive data sets, rehydrating data from archive storage so that it is available for immediate use, or managing blob index tags and metadata for better organization and data retrieval.
+You can use Azure Storage Actions to automate tasks such as moving data to more cost-effective tiers, manage the retention of versions, snapshots or sensitive data sets, rehydrating data from archive storage so that it is available for immediate use, or manage blob index tags and metadata for better organization and data retrieval.
 
 ## Terms and definitions
 
@@ -36,7 +36,7 @@ A storage task contains a set of _conditions_, _operations_. To execute a storag
 Start by creating a storage task. To provision a storage task, you must define at least one condition and one operation. The easiest way to compose conditions is by using a visual designer in the Azure portal. You can use a built-in preview capability in that designer to see the impact of your conditions against test data. See [Define storage task conditions and operations](storage-tasks/storage-task-conditions-operations-edit.md).
 
 > [!NOTE]
-> You can also create storage task definitions by using REST, SDKs, PowerShell, Azure CLI, Bicep, Terraform or ARM templates.
+> You can also create storage task definitions by using REST, SDKs, PowerShell, Azure CLI, Bicep, Terraform, or ARM templates.
   
 See these articles to learn how to define a storage task:
 
@@ -65,13 +65,13 @@ See these articles to learn how to assign a storage task:
 
 Azure Storage Actions events allow applications to react to events, such as the completion of a storage task run. It does so without the need for complicated code or expensive and inefficient polling services.
 
-Azure Storage Actions events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service will send data about that event to the endpoint.
+Azure Storage Actions events are pushed using [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own http listener. Event Grid provides reliable event delivery to your applications through rich retry policies and dead-lettering. Event Grid uses [event subscriptions](../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. First, subscribe an endpoint to an event. Then, when an event is triggered, the Event Grid service sends data about that event to the endpoint.
 
 See the [Azure Storage Actions events schema](../event-grid/event-schema-storage-actions.md?toc=/azure/storage-actions/toc.json) article to view the full list of the events that Azure Storage Actions supports.
 
 ## Pricing and billing
 
-Pricing is based on the execution of storage task assignments. Each time your storage task assignment executes, you are billed a task execution instance charge. You also incur a charge based on the count of objects scanned and evaluated against the conditions of the storage task. That charge is based on a single price per million objects scanned. The final meter applies to the count of operations performed on objects in the storage account. This charge is also based on a single price per million objects. Meters are applied to each executing instance. If a storage task assignment is scheduled to execute repeatedly, then you're billed for each separate instance. 
+Pricing is based on the execution of storage task assignments. Each time your storage task assignment executes, you're billed a task execution instance charge. You also incur a charge based on the count of objects scanned and evaluated against the conditions of the storage task. That charge is based on a single price per million objects scanned. The final meter applies to the count of operations performed on objects in the storage account. This charge is also based on a single price per million objects. Meters are applied to each executing instance. If a storage task assignment is scheduled to execute repeatedly, then you're billed for each separate instance. 
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. To learn more about Azure Storage Actions billing meters along with example calculations for common scenarios, see [Plan to manage costs for Azure Storage Actions](storage-actions-plan-manage-costs.md)
 

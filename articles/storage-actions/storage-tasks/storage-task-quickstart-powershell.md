@@ -60,7 +60,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
    Connect-AzAccount
    ```
 
-2. If your identity is associated with more than one subscription, and you are not prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
+2. If your identity is associated with more than one subscription, and you aren't prompted to select the subscription, then set your active subscription to subscription of the storage account that you want operate upon. In this example, replace the `<subscription-id>` placeholder value with the ID of your subscription.
 
    ```powershell
    Select-AzSubscription -SubscriptionId <subscription-id>
@@ -73,7 +73,7 @@ In this quickstart, you learn how to use Azure PowerShell to create a storage ta
    ```powershell
    $conditions = "[[endsWith(Name, '.docx')]]"
    ```
-   For a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md).. 
+   For a complete list of properties and operators, see [Storage task conditions](storage-task-conditions.md). 
 
    > [!TIP] 
    > You can add multiple conditions to the same string and separate them with a comma. 

@@ -94,11 +94,11 @@ To learn more about the visual editor, see [Define storage task conditions and o
 
 ## Condition preview
 
-You can view a list of blobs that would be impacted by the conditions that you've defined. That way, you can find issues and optimize conditions before applying them to production data. A preview does not make changes to the objects in a target storage account so it is safe to apply to test against production data.
+You can view a list of blobs that would be impacted by the conditions that you've defined. That way, you can find issues and optimize conditions before applying them to production data. A preview doesn't make changes to the objects in a target storage account so it's safe to apply to test against production data.
 
 While condition preview is available in PowerShell, Azure CLI, and SDK environments, the easiest way to preview the effect of conditions is by using the **Preview Conditions** window in the Azure portal. You can open this window was you define conditions and as you assign storage tasks. 
 
-To preview the effect of conditions, you must specify a target subscription, storage account and container. Because a can only show up to 5000 blobs, you can also specify a prefix to narrow the list. 
+To preview the effect of conditions, you must specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list. 
 
 > [!NOTE]
 > You can't use wildcard characters in the blob prefix.
@@ -108,7 +108,7 @@ The following image shows an example of a preview result in the Azure portal.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of storage task preview window in the Azure portal.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-preview.png)
 
-The preview result appears in a table that shows objects which meet the condition along with objects that did not meet the condition. You can sort by field that appears in the table.
+The preview result appears in a table that shows objects which meet the condition along with objects that didn't meet the condition. You can sort by field that appears in the table.
 
 If conditions refer to properties that don't exist in the target storage account, an error appears. For example, blob index tags aren't available for accounts that have a hierarchical namespace. If a clause in a condition refers to blob index tags, a validation error appears. 
 

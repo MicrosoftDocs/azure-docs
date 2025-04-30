@@ -119,7 +119,7 @@ conditionclause="[[and(endsWith(Name, '/.docx'/),equals(utcNow,dateTimeAdd(Creat
 
 This condition tests whether a blob was created earlier than a certain time duration relative to now (the current date and time). For example, if the value retrieved from the `retainFor` tag is five minutes, then this condition checks if the blob was created more than 5 minutes ago.
 
-If the key is not present for an evaluated object, then the condition evaluates to false. If the key value is a string that does not conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, then an error is reported in the execution report.
+If the key isn't present for an evaluated object, then the condition evaluates to false. If the key value is a string that doesn't conform to the [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) standard, then an error is reported in the execution report.
 
 #### Apply And / Or to a clause
 
@@ -185,7 +185,7 @@ conditionclause="[[and(equals(Tags.Value[Archive-Status],'/Ready'/),endsWith(Nam
 
 Grouped clauses operate as a single unit separate from the rest of the clauses. Grouping clauses is similar to putting parentheses around a mathematical equation or logic expression. The **And** or **Or** operator for the first clause in the group applies to the whole group.
 
-The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file has not been accessed in 120 days.
+The following example shows two conditions grouped together. In this example, the operation executes if a blob has the `.log` extension and either a tag named `Archive-Status` is set to the value of `Ready` or the file hasn't been accessed in 120 days.
 
 ### [Portal](#tab/azure-portal)
 
@@ -225,7 +225,7 @@ In the conditions editor, select **Preview conditions**.
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions button.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions-button.png)
 
-In the **Preview Conditions**, you can specify a target subscription, storage account and container. Because a can only show up to 5000 blobs, you can also specify a prefix to narrow the list.
+In the **Preview Conditions**, you can specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Conditions page.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions.png)

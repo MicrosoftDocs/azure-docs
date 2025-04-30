@@ -34,23 +34,23 @@ In a 14 day period, Azure Storage Actions can process 90 billion blobs in an acc
 
 ## Premium Block Blobs 
 
-Creating assignments on PBB storage accounts does not work. Will be fixed in STG100. 
+Creating assignments on PBB storage accounts doesn't work. Will be fixed in STG100. 
 
 ## Soft deleted blobs are included in listing during scanning as objects targeted 
 
 No workaround yet available.
 
-## Billing does not show task assignment name 
+## Billing doesn't show task assignment name 
 
-Billing meters show up on the bill with only the storage account name. Subscription bill does not show the task assignment name for which the meter was emitted. To correlate the meter with the task assignment, you must look at the resource metrics for Storage Actions filtered by the storage account for that day.
+Billing meters show up on the bill with only the storage account name. Subscription bill doesn't show the task assignment name for which the meter was emitted. To correlate the meter with the task assignment, you must look at the resource metrics for Storage Actions filtered by the storage account for that day.
 
 ## Propagation of task definition updates 
 
-Task assignments are not updated when changes are made to a task definition. New task assignments must be created after deleting the older ones to pick up any changes.  
+Task assignments aren't updated when changes are made to a task definition. New task assignments must be created after deleting the older ones to pick up any changes.  
 
 ## Stopping task assignments
 
-We do not plan to support "Disable" for task assignments and "Stop" for in-progress runs. You can work around this by removing the role assignment for the underlying managed identity. 
+We don't plan to support "Disable" for task assignments and "Stop" for in-progress runs. You can work around this by removing the role assignment for the underlying managed identity. 
 
 ## Move for storage account resource is blocked when a task assignment exists
 
@@ -81,11 +81,11 @@ For more information about scale limits, see [Scalability and performance target
 
 ## Storage task runs can write to the report export container without permission to the container
 
-As you create a task assignment, you'll assign a role to the system-assigned managed identity of the storage task. When the storage task runs, it can operate only on containers where it's managed identity is assigned the required role. This is not the case with the report export container that you choose during task assignment. While a storage task can't operate on existing blobs in that container, a task does not require the correct role to write reports to that container.
+As you create a task assignment, you'll assign a role to the system-assigned managed identity of the storage task. When the storage task runs, it can operate only on containers where it's managed identity is assigned the required role. This isn't the case with the report export container that you choose during task assignment. While a storage task can't operate on existing blobs in that container, a task doesn't require the correct role to write reports to that container.
 
 ## String operators on container metadata, blob metadata, and blob index tags don't work if the values are numbers
 
-You can't use string operators on container metadata, blob metadata and blob index tags along with numbers as value. For example, equals(Tags.Value[Year], '2022') where the value '2022' is a number, along with string operator equals, doesn't evaluate correctly.
+You can't use string operators on container metadata, blob metadata, and blob index tags along with numbers as value. For example, equals(Tags.Value[Year], '2022') where the value '2022' is a number, along with string operator equals, doesn't evaluate correctly.
 
 ## Assignments fail when they reference a storage account name that starts with a digit
 
@@ -103,7 +103,7 @@ In most cases, tasks execution progresses after 20 minutes. However, if the task
 
 If incompatible storage task operations are tried out on storage accounts, the task execution can fail with an error, or it can be stuck in in-progress state. For example, an operation that attempts to set a blob index tag on an account that has a hierarchical namespace won't succeed. Make sure that the storage account configuration and the storage task operation are compatible.
 
-## Whitespace characters in Blob index tags and metadata isn't yet supported
+## Whitespace characters in Blob index tags and metadata aren't yet supported
 
 Whitespace characters in the key and value of blob tags are acceptable inputs. However, storage task conditions are unable to process the whitespace characters. If a key or value contains a whitespace character, an error appears when the task runs.
 
@@ -125,14 +125,14 @@ Storage Actions operate on blobs in a hierarchical namespace-enabled account at 
 
 ## Operating on storage accounts in a private network is unsupported
 
-When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments needs to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
+When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments need to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
 
 ## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
 
 If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
 
 ## Moving storage tasks and task assignments
-Moving storage tasks and task assignments across different resource groups and subscriptions is not supported. This limitation means that any storage tasks and their associated task assignments cannot be transferred between resource groups or subscriptions.
+Moving storage tasks and task assignments across different resource groups and subscriptions isn't supported. This limitation means that any storage tasks and their associated task assignments can't be transferred between resource groups or subscriptions.
 
 ## Cleaning up task assignments before moving storage accounts
 Task assignments must be cleaned up before moving storage accounts across resource groups and subscriptions. Specifically, before a storage account is moved from one resource group to another, or from one subscription to another, all task assignments applied to the storage account must be deleted to ensure a smooth transition.
