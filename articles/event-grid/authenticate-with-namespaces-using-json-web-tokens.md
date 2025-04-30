@@ -3,34 +3,33 @@ title: Authenticate with namespaces using JSON Web Tokens
 description: This article shows you how to authenticate with Azure Event Grid namespace using JSON Web Tokens.
 ms.topic: how-to
 ms.custom: build-2024, devx-track-azurecli
-ms.date: 01/27/2025
+ms.date: 04/30/2025
 author: Connected-Seth
 ms.author: seshanmugam
 ---
 
-# Authenticate with namespaces using JSON Web Tokens
-This article shows how to authenticate with Azure Event Grid namespace using JSON Web Tokens.
+# Use OAuth 2.0 JSON Web Tokens (JWT) to authenticate with namespaces
+This article shows how to authenticate with Azure Event Grid namespace using OAuth 2.0 JSON Web Tokens. 
 
-Azure Event Grid's MQTT broker supports custom JWT authentication, which enables clients to connect and authenticate with an Event Grid namespace using JSON Web Tokens that are issued by any identity provider, aside from Microsoft Entra ID. 
+Azure Event Grid's MQTT broker supports OAuth 2.0 JWT authentication, which enables clients to connect and authenticate with an Event Grid namespace using JSON Web Tokens that are issued by any identity provider, aside from Microsoft Entra ID. 
 
 ## Prerequisites 
 
-To use custom JWT authentication for namespaces, you need to have the following prerequisites: 
+To use OAuth 2.0 JWT authentication for namespaces, you need to have the following prerequisites: 
 
 - Identity provider that can issue JSON Web Tokens. 
-- CA certificate that includes your public keys used to validate the client tokens. 
-- Azure Key Vault account to host the CA certificate that includes your public keys. 
+- CA certificate that includes your public keys used to validate the client tokens(Key Vault) or PEM file of your public key certificates(direct upload). 
 
 ## High-level steps 
 
-To use custom JWT authentication for namespaces, follow these steps: 
+To use OAuth 2.0 JWT authentication for namespaces, follow these steps: 
 
-1. Create a namespace and configure its subresources.
+1. Create a namespace and configure its subresources. 
 1. Enable managed identity on your Event Grid namespace. 
-1. Create an Azure Key Vault account that hosts the CA certificate that includes your public keys. 
-1. Add role assignment in Azure Key Vault for the namespace’s managed identity. 
-1. Configure custom authentication settings on your Event Grid namespace 
-1. Your clients can connect to the Event Grid namespace using the tokens provided by your identity provider. 
+1. Configure OAuth 2.0 authentication settings on your Event Grid namespace by following these steps: 
+    1. Create an Azure Key Vault account that hosts the CA certificate that includes your public keys and  add role assignment in Key Vault for the namespace’s managed identity. 
+    1. Upload the PEM file of your public key certificates to namespace. 
+  1. Your clients can connect to the Event Grid namespace using the tokens provided by your identity provider. 
 
 ## Create a namespace and configure its subresources 
 Follow instructions from [Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal](mqtt-publish-and-subscribe-portal.md) to create a namespace and configure its subresources. Skip the certificate and client creation steps as the client identities come from the provided token. Client attributes are based on the custom claims in the client token. The client attributes are used in the client group query, topic template variables, and routing enrichment configuration.
@@ -81,7 +80,7 @@ You need to provide access to the namespace to access your Azure Key Vault accou
 
     For more information about Key Vault access and the portal experience, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). 
 
-## Configure custom authentication settings on your Event Grid namespace 
+## Configure OAuth 2.0 JWT authentication settings on your Event Grid namespace -Key Vault 
 In this step, you configure custom authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps.
 
 ### Use Azure portal
@@ -130,7 +129,7 @@ az resource update \
   }'
  
 ```
-## JSON Web Token format
+### JSON Web Token format
 JSON Web Tokens are divided into the JWT Header and JWT payload sections.
  
 ### JWT Header 
@@ -183,6 +182,88 @@ Event Grid maps all claims to client attributes if they have one of the followin
     }
 }
 ```
+
+## Configure OAuth 2.0 JWT authentication settings on your Event Grid namespace - Direct upload 
+
+In this step, you configure custom JWT authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps. 
+
+## Use Azure portal
+1. Navigate to your Event Grid namespace in the Azure portal. 
+1. On the Event Grid Namespace page, select Configuration on the left menu. 
+1. In the Custom JWT authentication section, specify values for the following properties: 
+    1. Select **Enable custom JWT authentication**. 
+    1. **Token Issuer**: Enter the value of the issuer claims of the JWTs, presented by the MQTT clients. 
+    1. Select  issuer certificate option – **Direct Upload**.  
+1. In the new page, specify values for the following properties. 
+    1. **Certificate**: upload your server certificate in PEM Format. 
+    1. **Kid**: A unique key identifier for the certificate. 
+    1. Select **Add**. 
+1. Back on the **Configuration** page, select **Apply**. 
+
+
+### Use Azure CLI 
+Use the following command to update your namespace with the OAuth 2.0 JWT authentication configuration. 
+
+```azurecli
+az eventgrid namespace update \ 
+    --resource-group <resource-group-name> \ 
+    --name <namespace-name> \ 
+    --api-version 2024-12-15-preview \ 
+    --set customJwtAuthenticationSettings='{ 
+        "tokenIssuer": "issuer-name", 
+        "encodedIssuerCertificates": [
+            { 
+                "kid": "key1", 
+                "encodedCertificate": "-----BEGIN CERTIFICATE-----\n<certificate-in-PEM-format>\n-----END CERTIFICATE-----" 
+            } 
+        ] 
+    } 
+```
+
+- Replace `<resource-group-name>`, `<namespace-name>`, `<location>`, `<key-vault-name>`, `<certificate-name>`, and `<certificate-in-PEM-format>` with your actual values. 
+- The encodedCertificate value must include the full certificate in PEM format, including headers ( `"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE----`). 
+- Ensure the public key certificate provided is valid and trusted by your identity provider. 
+- Regularly update the encodedIssuerCertificates if certificates are rotated or expired. 
+
+### JSON Web Token format
+
+JWT payload 
+
+Event Grid requires the following claims: `iss`, `sub`, `aud`, `exp`, `nbf`. 
+
+* `kid` is optional. If it is present, then certificate with matching `kid` is used for validation. 
+* List of standard claims that aren't used as attributes - `iss`, `sub`, `aud`, `exp`, `nbf`, `iat`, `jti`. 
+* All claims which have correct data type (number that fits int32, string, array of strings) are used as attributes. In the example `num_attr_pos`, `num_attr_neg`, `str_attr`, `str_list_attr` claims have correct data types and are used as attributes. 
+* In the example `bool_attr`, `num_attr_to_big`, `num_attr_float`, `obj_attr` claims have incorrect data types and aren't be used as attributes. 
+
+ 
+```json
+{ 
+  "typ": "JWT", 
+  "alg": "RS256", 
+  "kid": "keyId1" 
+}.{ 
+  "iss": "some-issuer", 
+  "sub": "device1", 
+  "aud": "event-grid-namespace.ts.eventgrid.azure.net", 
+  "exp": 1770426501, 
+  "nbf": 1738886901, 
+  "bool_attr": true, 
+  "num_attr_pos": 1, 
+  "num_attr_neg": -1, 
+  "num_attr_to_big": 9223372036854775807, 
+  "num_attr_float": 1.23, 
+  "str_attr": "str_value", 
+  "str_list_attr": [ 
+    "str_value_1", 
+    "str_value_2" 
+  ], 
+  "obj_attr": { 
+      "key": "value" 
+  } 
+} 
+```
+
 
 ## Related content
 - [MQTT client authentication](mqtt-client-authentication.md)
