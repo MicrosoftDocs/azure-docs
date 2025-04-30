@@ -189,7 +189,7 @@ Event Grid maps all claims to client attributes if they have one of the followin
 
 In this step, you configure custom JWT authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps. 
 
-## Use Azure portal
+### Use Azure portal
 1. Navigate to your Event Grid namespace in the Azure portal. 
 1. On the Event Grid Namespace page, select Configuration on the left menu. 
 1. In the Custom JWT authentication section, specify values for the following properties: 
