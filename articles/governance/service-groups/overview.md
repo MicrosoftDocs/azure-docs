@@ -61,35 +61,13 @@ Information about Service Groups
 * Service Groups Names support up to 250 characters.  They can be alphanumeric and special characters: - _ ( ) . ~
 
 
-<!-- 
+
 ## Azure Resource Manager Groupings 
 
 Azure offers a wide variety of resources containers that enable our customers to mange resources at many different scales.  Service Groups is only the newest in a family of Azure Resource Manager (ARM) containers used to organize your environment.
 
 This table shows a summary of the differences between the groups. 
 
-### Capability comparison
-
-|Capability| Resource Groups|Subscription| 	Management Group|Service Group|
-|----------|----------------|------------|------------------|-------------|
-|Resource Provider|	Microsoft.Resources|	Microsoft.Subscriptions| 	Microsoft.Management|	Microsoft.Management|
-|Product State|	GA|	GA|	GA|	Limited Preview|
-|ARG Supported| 	Yes|	Yes|	Yes|	Yes| In Progress|
-|ARN Supported| 	Yes|	Yes|	Yes|	Yes|
-|Allows grouping of resource type|  Resources from a Resource Provider|	Only Resource Groups|	Only Subscriptions| 	Resources/ RGs/Subscriptions|
-|Self Nesting (member of a group with the same type)|	No|	No|	Yes (6 levels)|	Yes ( 10 levels)|
-|Allows cross-subscription grouping|	No|	No|	No|	Yes|
-|Supports Tags|	Yes|	Yes|	No |	Yes |
-|RBAC 1P Support| 	Yes|	Yes|	Yes|	Yes|
-|RBAC Built in Roles|	Yes|	Yes|	Yes|	Yes|
-|RBAC Assignment inherits to Resource|	Yes|	Yes|	Yes|
-|Policy 1p Support|	Yes|	Yes*|	Yes|	No|
-|Policy Assignment inherits to Resource|	Yes|	Yes|	Yes|	No|
-|Allows resources to be in multiple instances of the same group type|	No|	No|	No|	Yes|
-|Deployment Scope|	Yes|	Yes|	Yes|	No|
-|Membership method|	Membership in URL|	Membership in URL|	Parent Membership in Properties|	Parent Membership in Properties for SGs. All other Via Relationships|
-* *: Policy supports a wide array of capabilities on Subscriptions.  There are some APIs that are done directly with the Commerce team and not through ARM which Policy cannot be applied to.  Ex. Tenant Transfer of Subscription or Subscription Type
---> 
 ### Scenario comparison
 
 |Scenario|Resource Group|Subscription|Management Group|Service Group|Tags|
@@ -131,24 +109,3 @@ Access to the root has to be given from a user with "microsoft.authorization/rol
 * [Related article title](link.md)
 * [Service Group REST API Spec]()
 * [Service Group Member REST API Spec]()
-
-<!-- Optional: Next step or Related content - H2
-
-Consider adding one of these H2 sections (not both):
-
-A "Next step" section that uses 1 link in a blue box 
-to point to a next, consecutive article in a sequence.
-
--or- 
-
-A "Related content" section that lists links to 
-1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
