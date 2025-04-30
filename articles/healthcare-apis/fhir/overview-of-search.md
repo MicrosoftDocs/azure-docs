@@ -150,7 +150,7 @@ The FHIR service support search queries using the `_include` and `_revinclude` p
 
 The `_include` search parameter enables the retrieval of a particular FHIR resource, as well as any other FHIR resources that are referenced by it. When used in a query, the `_include` parameter returns the specified resource and resources *it references*. The `_revinclude` search parameter operates in the reverse, allowing the retrieval of a resource, along with any other resources that *reference it*, providing a way to search for resources based on their relationships with other resources. For detailed information on include and revinclude in search parameters, refer to the [FHIR Search Documentation](https://www.hl7.org/fhir/R4/search.html#revinclude).
 
-#### Request parameters
+##### Request parameters
 
 When executing a search request with `_include` and `_revinclude` parameters, the following optional parameters can be used to control the count.
 
