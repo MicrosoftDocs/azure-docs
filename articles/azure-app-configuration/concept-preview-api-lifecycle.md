@@ -65,10 +65,8 @@ az provider show --namespace Microsoft.AppConfiguration --query "resourceTypes[?
 
 | API version        | Announce Date     | Deprecation Date  |
 |--------------------|-------------------|-------------------|
-| 2023-09-01-preview | April 29, 2025    | July 28, 2025     |
+| 2023-09-01-preview | April 30, 2025    | July 29, 2025     |
 
 ## Completed deprecations
 
-| API version        | Announce Date     | Deprecation Date  |
-|--------------------|-------------------|-------------------|
-
+There aren't any completed deprecations yet.
