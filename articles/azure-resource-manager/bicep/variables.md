@@ -3,7 +3,7 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/25/2024
+ms.date: 04/28/2025
 ---
 
 # Variables in Bicep
@@ -151,7 +151,7 @@ param storageNamePrefix string = 'STG'
 
 var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
 
-resource demoAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource demoAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
   name: storageName
   location: rgLocation
   kind: 'Storage'

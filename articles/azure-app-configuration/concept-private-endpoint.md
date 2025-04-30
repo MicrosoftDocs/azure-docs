@@ -59,7 +59,7 @@ If you are using a custom DNS server on your network, you need to configure it t
 
 ## Pricing
 
-Enabling private endpoints requires a [Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
+Enabling private endpoints requires a [Developer, Standard or Premium tier](https://azure.microsoft.com/pricing/details/app-configuration/) App Configuration store. To learn about private link pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link).
 
 ## Troubleshooting private endpoint errors
 

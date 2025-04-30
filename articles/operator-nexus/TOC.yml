@@ -163,6 +163,8 @@
               href: howto-cluster-runtime-upgrade.md
             - name: Cluster Upgrades With PauseAfterRack Strategy
               href: howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md
+            - name: Cluster Upgrades Template
+              href: howto-cluster-runtime-upgrade-template.md
             - name: Network Fabric Upgrades
               href: howto-upgrade-nexus-fabric.md
             - name: Network Fabric Upgrades Template

@@ -50,7 +50,7 @@ Entra ID Authentication | GA | GA | GA | GA | [GA](./reference-javascript-provid
 Dynamic Refresh (Poll Mode) | GA | GA | GA | GA | GA
 Dynamic Refresh (Push Mode) | GA | GA | N/A | N/A | N/A
 Dynamic Refresh (Collection Monitoring) | WIP | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh)
-JSON Content Type Handling | GA | GA | GA | GA | GA
+JSON Content Type Handling | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#json-content-type-handling)
 Configuration Setting Mapping | GA | N/A | N/A | N/A | N/A
 Key Vault References | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#key-vault-reference)
 Key Vault Secret Refresh | GA | WIP | GA | WIP | WIP

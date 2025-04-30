@@ -3,7 +3,7 @@ title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 09/19/2024
+ms.date: 04/28/2025
 ---
 
 # Add linter settings in the Bicep config file

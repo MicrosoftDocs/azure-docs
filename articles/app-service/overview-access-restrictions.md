@@ -67,7 +67,7 @@ Service endpoints allow you to lock down *inbound* access to your app so that th
 > [!NOTE]
 > Access restriction rules based on service endpoints are not supported on apps that have private endpoint configured or apps that use IP-based SSL ([App-assigned address](./networking-features.md#app-assigned-address)).
 
-To learn more about configuring service endpoints with your app, see [Azure App Service access restrictions](../virtual-network/virtual-network-service-endpoints-overview.md).
+To learn more about configuring service endpoints with your app, see [Azure Virtual Network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md).
 
 #### Any service endpoint source
 

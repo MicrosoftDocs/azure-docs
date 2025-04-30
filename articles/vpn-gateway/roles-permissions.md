@@ -40,6 +40,7 @@ Depending on whether you're creating new resources or using existing ones, add t
 | IP addresses  | Use existing| Microsoft.Network/publicIPAddresses/read<br>Microsoft.Network/publicIPAddresses/join/action |
 | Local Network Gateway  | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write |
 | Connection | Create new/ Update existing| Microsoft.Network/connections/write |
+| Connection/Preshared Key | Update existing | Microsoft.Network/connections/sharedKey/action | 
 | Azure VPN Gateway | Create new/ Update existing| Microsoft.Network/localnetworkgateways/write<br>Microsoft.Network/publicIPAddresses/join/action<br>Microsoft.Network/virtualNetworks/subnets/join/action | 
 
 For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
