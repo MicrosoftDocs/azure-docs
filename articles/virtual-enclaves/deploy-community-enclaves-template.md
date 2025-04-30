@@ -50,7 +50,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
     - `ADDS-TCP` and `ADDS-UDP` - Ports/Protocols covering a fake AD DS instance
 - Transit Hub:
     - Input parameter to a remote virtual network; covering Gateway connection
-- Enclave Connections
+- Enclave connections
     - | Source | Destination |
       |--|--|
       | Enclave 2 | Enclave 1 Endpoint `ADDS-TCP/UDP` |
