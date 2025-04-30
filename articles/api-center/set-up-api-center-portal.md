@@ -1,16 +1,13 @@
 ---
-title: Set up the API Center portal
+title: Set Up the API Center Portal
 description: How to set up the API Center portal, a managed website that enables discovery of the API inventory in your Azure API center.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-<<<<<<< HEAD
 ms.date: 04/30/2025
-=======
-ms.date: 04/28/2025
->>>>>>> 8b694ddbef7e0e0e25059d90c085c0dc0984ad8e
 ms.author: danlep 
 ms.custom: 
+ms.collection: ce-skilling-ai-copilot
 # Customer intent: As an API program manager, I want to enable an Azure-managed portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
 ---
 
