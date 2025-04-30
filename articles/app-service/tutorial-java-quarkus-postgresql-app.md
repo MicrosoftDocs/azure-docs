@@ -12,14 +12,14 @@ zone_pivot_groups: app-service-portal-azd
 
 # Tutorial: Deploy a Quarkus web app to Azure App Service and PostgreSQL
 
-In this tutorial, you deploy a data-driven [Quarkus](https://quarkus.io) web application to Azure App Service with the [Azure Database for PostgreSQL](../postgresql/index.yml)) relational database service. Azure App Service supports Java Standard Edition (Java SE) in a Windows or Linux server environment. 
+In this tutorial, you deploy a data-driven [Quarkus](https://quarkus.io) web application to Azure App Service with the [Azure Database for PostgreSQL](/azure/postgresql/) relational database service. Azure App Service supports Java Standard Edition (Java SE) in a Windows or Linux server environment. 
 
 :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a secure-by-default architecture for Azure App Service and Azure Database for PostgreSQL Flexible Server.
+> * Create a secure-by-default architecture for Azure App Service and Azure Database for PostgreSQL flexible server.
 > * Secure connection secrets using a managed identity and Key Vault reference.
 > * Deploy a sample Quarkus app to App Service from a GitHub repository.
 > * Access App Service app settings in the application code.
@@ -412,7 +412,7 @@ Note the following:
         1. Find the `Build with Maven` step, and modify the `run` command to `mvn clean install -DskipTests`. `-DskipTests` tells Maven to skip tests so that the deployment doesn't fail on database errors. The GitHub Actions container can't connect to a PostgreSQL server.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing a GitHub codespace and the application.properties file opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing a GitHub codespace and a GitHub workflow file opened." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -442,7 +442,7 @@ Note the following:
         **Step 6:** You're taken to your GitHub repository and see that the GitHub action is running. The workflow file defines two separate stages, build and deploy. Wait for the GitHub run to show a status of **Success**. It takes about 5 minutes.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-8.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-8.png":::
+        :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png" alt-text="A screenshot showing a GitHub run in progress." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-deploy-sample-code-6.png":::
     :::column-end:::
 :::row-end:::
 
@@ -496,7 +496,7 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 ## 7. Clean up resources
 
@@ -677,7 +677,7 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
