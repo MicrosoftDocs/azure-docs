@@ -15,9 +15,30 @@ ms.custom: references_regions
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## April 2025
+### FHIR service
+
+**Enhanced error handling for READ operations with wrong cases on resource types**: Added validation on the resource type with wrong casing for READ operations (e.g. GET /patient/ instead of GET /Patient/). In the past, a request with the wrong casing resource type was causing 500 status code (InternalServerError) in API for FHIR (CosmosDB). After this change, a request with the wrong casing resource type will be rejected with 400 status code (ResourceNotSupported) as the resource type in any request should be validated in the case-sensitive manner. 
+
+**Stability improvements**: Introduced merge throttling to manage code execution waits, improving system stability under high concurrency conditions.
+
+**Custom error container for $import**: Added ability for users to specify the name of the container where errors encountered during $import are logged. If not specified, the default container will be used. More information [here](/articles/healthcare-apis/fhir/import-data.md).
+
+**Search for not referenced resources**: Added functionality to search for resources that are not referenced by other resources. 
+
+**Improved search error handling**: Previously, a search query with too many parameters would return a 500 error without any error message. Now, if a search query has too many parameters, the FHIR server will return a 400 error with the error message: "The incoming request has too many parameters. Reduce the number of parameters and resend the request."
+
+**Search with _include and _revinclude enhancements**: Previously, searches with _include and _revinclude were limited to return a maximum of 100 items, meaning that results would get truncated at 100 _include and _revinclude items. Now, we have removed that 100 item limit, through the introduction of a "Related" link with the $includes operation, and a new search result parameter called _includesCount that will allow customers to page through the _include and _revinclude items. The parameter _includesCount, which is set by default to the maximum value of 1000, can be used to configure how many _include and _revinclude items are on each page. Customers can use the "Related" link in the original search response and the "Next" link in the response from the "Related" link to page through the _include and _revinclude items.
+
+
+#### Bug fixes:
+**Custom search parameters with same "code" value on different resource types fix**: An issue was discovered where upon running a delete or update search parameter operation, all of the other related search parameters that matched on the same "code" value, even those for other resource types, were being removed. This issue was fixed, and users will now be able to update and delete custom search parameters without affecting other search parameters that have the same "code" value on other resource types.
+
+**Fix for deleting and uploading custom search parameters**: An issue was discovered where deleting a custom search parameter and then subsequently using PUT operation to re-upload that same search parameter could potentially cause a 424 Failed Dependency error. We have fixed this issue by adding a check to ensure that if the previous version of the search parameter was already deleted, it will be properly handled. Users will now be able to delete a custom search parameter and then re-upload that search parameter using PUT.
+
 ## March 2025
-### FHIR Service
-**Selectable search parameters in GA**
+### FHIR service
+**Selectable search parameters in GA**:
 The selectable search parameter capability allows you to customize and optimize searches on FHIR resources. The capability lets you choose which inbuilt search parameters to enable or disable for the FHIR service. By enabling only the search parameters you need, you can store more FHIR resources and potentially improve performance of FHIR search queries.
 
 Learn more:[Selectable search parameters for the FHIR service](fhir/selectable-search-parameters.md)
@@ -26,14 +47,14 @@ Learn more:[Selectable search parameters for the FHIR service](fhir/selectable-s
 
 **Bundle Transactions Enhancement**: Improved bundle transactions for single-record bundles by applying new transaction logic, preventing HTTP 500 errors.
 
-### Bug fixes
+#### Bug fixes:
 
 **ValueSet size increase**: The maximum ValueSet size was reduced to 500 codes, preventing large valuesets from loading. This has been fixed, and the limit is now increased to 20,000 codes.
 
 **Search with _sort fix**: An issue in Search with the _sort parameter was resolved, where in some edge cases, the bundle response included a next link leading to an empty page. Now, the next link will only appear if there are more resources to retrieve.
 
 ## February 2025
-
+### FHIR service
 **Schema Upgrade Changes**: To improve customer experience during schema upgrades, the service now ensures that instances are initialized up to the minimum supported schema version. If a schema upgrade is in progress, the service continues to respond while initializing the instance in parallel.
  
 **Incremental Import Enhancement**: Error handling has been added for `lastUpdated` input values marked in the future during ingestion using the import operation. The error handling includes a check to ensure that if the input `lastUpdated` is set to less than 10 seconds in the future, the input resources with dates in the future are rejected.
