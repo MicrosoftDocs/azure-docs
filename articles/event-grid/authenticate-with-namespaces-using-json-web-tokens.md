@@ -43,7 +43,11 @@ az eventgrid namespace update --resource-group <resource group name> --name <nam
  
 For information configuring system and user-assigned identities using the Azure portal, see [Enable managed identity for an Event Grid namespace](event-grid-namespace-managed-identity.md).
 
-## Create an Azure Key Vault account and upload your server certificate 
+
+## Configure OAuth 2.0 JWT authentication settings on your Event Grid namespace -Key Vault 
+First, create an Azure Key Vault account, upload your server certificate, and assign the namespace's managed identity an appropriate role on the key vault. Then, you configure custom authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps.
+
+### Create an Azure Key Vault account and upload your server certificate 
 
 1. Use the following command to create an Azure Key Vault account: 
  
@@ -59,7 +63,7 @@ For information configuring system and user-assigned identities using the Azure 
     > Your certificate must include the domain name in the Subject Alternative name for DNS. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 
-## Add role assignment in Azure Key Vault for the namespace’s managed identity 
+### Add role assignment in Azure Key Vault for the namespace’s managed identity 
 You need to provide access to the namespace to access your Azure Key Vault account using the following steps: 
 
 1. Get Event Grid namespace system managed identity principal ID using the following command 
@@ -80,17 +84,15 @@ You need to provide access to the namespace to access your Azure Key Vault accou
 
     For more information about Key Vault access and the portal experience, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide). 
 
-## Configure OAuth 2.0 JWT authentication settings on your Event Grid namespace -Key Vault 
-In this step, you configure custom authentication settings on your Event Grid namespace using Azure portal and Azure CLI. You need to create the namespace first then update it using the following steps.
 
-### Use Azure portal
+### Use Azure portal to configure authentication
 
 1. Navigate to your Event Grid namespace in the [Azure portal](https://portal.azure.com).
 1. On the **Event Grid Namespace** page, select **Configuration** on the left menu. 
 1. In the **Custom JWT authentication** section, specify values for the following properties:  
     1. Select **Enable custom JWT authentication**. 
     1. **Token Issuer**: Enter the value of the issuer claims of the JWTs, presented by the MQTT clients. 
-    1. Select **Add issuer certificate**
+    1. For **Issuer certificate**, select **From Azure Key Vault**. 
     
         :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png" alt-text="Screenshot that shows the Custom JWT authentication section of the Configuration page for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png":::
     1. In the new page, specify values for the following properties.

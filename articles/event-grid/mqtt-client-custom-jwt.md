@@ -24,6 +24,26 @@ You can authenticate MQTT clients with OAuth 2.0 JWT to connect to the Event Gri
 ## Authentication using OAuth 2.0 JWT
 You can use the MQTT v5 CONNECT packet to provide the OAuth 2.0 JWT to authenticate your client and the MQTT v5 AUTH packet to refresh the token.  
 
+> [!IMPORTANT]
+> If you don't set the CONNECT packet's authentication method to CUSTOM-JWT, you receive an 'invalid issuer' error—even if all other configurations are correct.
+
+In the CONNECT packet, you can provide the required values in the following fields:
+
+|Field  | Value  |
+|---------|---------|
+|Authentication Method | CUSTOM-JWT |
+|Authentication Data | JWT |
+
+In the AUTH packet, you can provide the required values in the following fields:
+
+|Field | Value |
+|---------|---------|
+| Authentication Method | CUSTOM-JWT |
+| Authentication Data | JWT |
+| Authentication Reason Code | 25 |
+ 
+Authenticate Reason Code with value 25 signifies reauthentication.
+
 > [!NOTE]
 > Audience: `aud` claim must be set to `https://[namespace].ts.eventgrid.azure.net/`. 
 
