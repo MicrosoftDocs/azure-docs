@@ -47,7 +47,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 7. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your workload.
 
-8. Select `Review + create`, ensure the details for your workload are correct, and select `Create`.
+8. Select `Review + create` and validate the details for your workload are correct, then select `Create`.
 
 
 **References**

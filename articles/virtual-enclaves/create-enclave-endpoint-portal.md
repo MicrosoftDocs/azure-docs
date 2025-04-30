@@ -49,4 +49,4 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 9. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Endpoint.
 
-10.  Select `Review + create`, ensure the details for your Endpoint are correct, and select `Create`.
+10.  Select `Review + create` and validate the details for your Endpoint are correct, then select `Create`.

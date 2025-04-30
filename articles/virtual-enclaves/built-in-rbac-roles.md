@@ -14,20 +14,20 @@ Access to Azure Virtual enclave resources is primarily controlled using built-in
 ## RBAC for community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
 
-- **Community Owner** - Create/delete communities, Enclaves, community endpoints, and transit hub resources. Read-Only access to workloads, enclave Connections, and enclave endpoints.
-- **Community Contributor** - Same as above except for delete.
-- **Community Reader** - Read-Only access to communities, Enclaves, community endpoints, and transit hub.
-- **Enclave Owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
-- **Enclave Contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
-- **Enclave Reader** - Has read-Onlyaccess to one or more enclave resources and underlying workloads, endpoints, and connections.
-- **Enclave Approver** - Read-access to all AVE resource types and explicit permissions to approve actions that require approval.
+- **Community owner** - Create/delete communities, Enclaves, community endpoints, and transit hub resources. Read-Only access to workloads, enclave Connections, and enclave endpoints.
+- **Community contributor** - Same as above except for delete.
+- **Community reader** - Read-Only access to communities, Enclaves, community endpoints, and transit hub.
+- **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
+- **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
+- **Enclave reader** - Has read-Onlyaccess to one or more enclave resources and underlying workloads, endpoints, and connections.
+- **Enclave approver** - Read-access to all AVE resource types and explicit permissions to approve actions that require approval.
 
-|Built in Role          |Community              |Community Endpoint     |Transit Hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave Connection |Approvals      |
+|Built in Role          |Community              |Community Endpoint     |Transit Hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|
-|Community Owner        |Read/Write/Delete      |Read/Write/Delete      |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete  |Read-Only              |Read/Write/Delete  |Read-Only     |
+|Community owner        |Read/Write/Delete      |Read/Write/Delete      |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete  |Read-Only              |Read/Write/Delete  |Read-Only     |
 |Community Contributor  |Read/Write             |Read/Write             |Read/Write         |Read/Write         |Read/Write         |Read-Only              |Read/Write         |Read-Only     |
 |Community Reader       |Read-Only              |Read-Only              |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Read-Only     |
-|Enclave Owner          |Read-Only              |Read Only              |Read-Only          |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete      |Read/Write/Delete  |Read-Only     |
+|Enclave owner          |Read-Only              |Read Only              |Read-Only          |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete      |Read/Write/Delete  |Read-Only     |
 |Enclave Contributor    |Read-Only              |Read-Only              |Read-Only          |Read/Write         |Read/Write         |Read/Write             |Read/Write         |Read-Only     |
 |Enclave Approver       |Read-Only              |Read-Only              |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Approve/Reject |
 |Enclave  Reader        |X                      |X                      |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Read-Only     |

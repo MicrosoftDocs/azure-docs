@@ -17,9 +17,9 @@ There are several types of [encryption](/azure/virtual-machines/windows/disk-enc
 
 ## Prerequisites for manual deployment method
 - Portal Access from Admin Workstation (192.168.0.0/26 usually).
-  - [Create community Endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
+  - [Create community endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
     - A default endpoint should have been created with the community that defines these. If so you might skip this step.
-  - [Create enclave Connection](./create-enclave-connection-portal.md) to community Endpoint.
+  - [Create enclave Connection](./create-enclave-connection-portal.md) to community endpoint.
 - You have been assigned "Key Vault Contributor" to the KV or enclave RG.
 
 ## Steps in this guide

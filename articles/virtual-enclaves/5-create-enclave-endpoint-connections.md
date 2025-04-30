@@ -52,7 +52,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing the completed enclave endpoint overview page.](./media/tutorial-step-five-enclave-webapp-endpoint-deployed.png)
 
-## Create a community Endpoint
+## Create a community endpoint
 
 1. Navigate to the `fabrikam` community, select `Community Endpoints`
 
@@ -81,7 +81,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp enclave endpoint page.
 
-![Screenshot showing the completed community Endpoint.](./media/tutorial-step-five-fabrikam-endpoint-deployed.png)
+![Screenshot showing the completed community endpoint.](./media/tutorial-step-five-fabrikam-endpoint-deployed.png)
 
 ## Create an enclave  associated to an Endpoint
 

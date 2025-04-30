@@ -22,7 +22,7 @@ An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is
 Sign-in to the [Azure portal](https://portal.azure.com).
 
 ## Create enclave
-Enclave deployments will take around 30-45 minutes to complete. Once it completes, open your Enclave and verify that the Status is `succeeded`.
+Enclave deployments will take around 30-45 minutes to complete. Once it completes, open your enclave and verify that the Status is `succeeded`.
 
 1. Enter `Azure Virtual Enclaves` in the search.
 
@@ -69,7 +69,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 11. Select `Next` and create any [Tags](../azure-resource-manager/management/tag-resources.md) for your Enclave.
 
-12. Select `Review + create`, ensure the details for your Enclave are correct, and select `Create`.
+12. Select `Review + create` and validate the details for your Enclave are correct, then select `Create`.
 
 **References**
 - [What is an Enclave](./what-enclave.md)

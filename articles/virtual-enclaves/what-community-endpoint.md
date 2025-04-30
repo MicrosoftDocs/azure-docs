@@ -11,7 +11,7 @@ ms.date: 04/08/2025
 # What is a community endpoint?
 
 A community endpoint is a collection of trusted destinations or transit hub connections to private networks outside of the community boundary. 
-Enclave Connections associated with a community endpoint allow the Source Enclave to connect to the destination defined within the community Endpoint. 
+Enclave connections associated with a community endpoint allow the Source Enclave to connect to the destination defined within the community endpoint. 
 
 ## Architecture of a community endpoint
 

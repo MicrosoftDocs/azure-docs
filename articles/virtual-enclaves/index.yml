@@ -43,7 +43,7 @@ landingContent:
             url: what-community.md
           - text: "What is a Transit Hub?"
             url: what-transit-hub.md
-          - text: "What is a community Endpoint?"
+          - text: "What is a community endpoint?"
             url: what-community-endpoint.md
           - text: "What is an Enclave?"
             url: what-enclave.md
@@ -66,7 +66,7 @@ landingContent:
           #   url: Onboard-to-AVE.md
           - text: Create a community
             url: create-community-portal.md
-          - text: Create a community Endpoint
+          - text: Create a community endpoint
             url: create-community-endpoint-portal.md
           - text: Create an Enclave
             url: create-enclave-portal.md

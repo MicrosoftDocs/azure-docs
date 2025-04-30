@@ -20,7 +20,7 @@ What gets deployed:
 - Four  [Workloads](./what-workload.md)
 - Three  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Nine  [Enclave Connections](./what-enclave-connection.md)
+- Nine  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](./media/reference-architecture-secure-azure-computing-architecture.png) ](./media/reference-architecture-secure-azure-computing-architecture.png#lightbox)
@@ -47,7 +47,7 @@ What gets deployed:
 - Four  [Workloads](./what-workload.md)
 - Five  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Nine  [Enclave Connections](./what-enclave-connection.md)
+- Nine  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
@@ -74,7 +74,7 @@ What gets deployed:
 - Eight  [Workloads](./what-workload.md)
 - Three  [Community Endpoints](./what-community-endpoint.md)
 - 11 [Enclave Endpoint](./what-enclave-endpoint.md)
-- 25 [Enclave Connections](./what-enclave-connection.md)
+- 25 [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](./media/reference-architecture-demo-environment.png) ](./media/reference-architecture-demo-environment.png#lightbox)
@@ -102,7 +102,7 @@ Deploy the template:
 - One  [Workloads](./what-workload.md)
 - Two  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Four  [Enclave Connections](./what-enclave-connection.md)
+- Four  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json) (easiest to deploy via Portal, PowerShell, or command line)
@@ -164,7 +164,7 @@ Deploy the template:
 
 ### Connections template
 What gets deployed:
-- Three  [Enclave Connections](./what-enclave-connection.md)
+- Three  [enclave connections](./what-enclave-connection.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/connectionsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 

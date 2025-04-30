@@ -58,7 +58,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 8. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.
 9. Select `Next`.
-10. Select `Review + create`, ensure the details for your community are correct, and select `Create`.
+10. Select `Review + create` and validate the details for your community are correct, then select `Create`.
 
 ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png)
 

@@ -80,33 +80,33 @@ Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Cont
 The built-in roles are scoped specifically for AVE and don't overlap with permissions for Azure networking, firewall, or virtual WAN components. The key AVE RBAC roles and their descriptions:
 
 #### Community-Level roles
-**Community Owner**  
+**Community owner**  
   Grants full control over the AVE community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, vWAN or firewall).  
   **Example Permissions**:  
   - Create, delete, or update an AVE community.  
   - Configure endpoints and transit hub connections for the community.  
 
-**Community Contributor**  
+**Community contributor**  
   Provides permissions to manage community configurations but doesn't include the ability to delete the resource.  
   **Example Permissions**:  
   - Modify existing endpoint rules or transit hub configurations.  
 
-**Community Reader**  
+**Community reader**  
   Grants read-only access to view the AVE community and its settings, such as networking endpoints and diagnostics configurations.  
 
 #### Enclave-Level roles
-**Enclave Owner**  
+**Enclave owner**  
   Grants full control over the AVE enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (for example, virtual network or NSGs).  
   **Example Permissions**:  
   - Create, update, or delete an enclave.  
   - Associate workloads and manage enclave connection rules.  
 
-**Enclave Contributor**  
+**Enclave contributor**  
   Provides permissions to manage enclave configurations without the ability to delete the resource.  
   **Example Permissions**:  
   - Modify enclave endpoints or workload settings.  
 
-**Enclave Reader**  
+**Enclave reader**  
   Grants read-only access to view enclave settings and associated workloads.  
 
 
@@ -127,13 +127,13 @@ Environment Structure:
   - **Viewer** role assignment is created for Fabrikam Security Auditors.
 
 **Community Administration**: 
-  - **Community Owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of communities and enclaves within those subscriptions. 
+  - **Community owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of communities and enclaves within those subscriptions. 
   - **Community Approver** role assignment is created at the Security Administrator to review and authorized connections to/from external destinations.
   - **Community Viewer** role assignment is created at the community-level Security Auditor to view/analyze endpoints and connections within the community.
   - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.
 
 **Enclave Administration** - AVE Built-in role assignments set the:  
-  - **Enclave Owner** Mission/Network Owners that need to deploy workloads, endpoints, and connections for one or more enclaves.
+  - **Enclave owner** Mission/Network Owners that need to deploy workloads, endpoints, and connections for one or more enclaves.
   - **Enclave Viewer** Security Auditor to view and analyze endpoints and connections within the enclave.
   - **Network Contributor** Network Engineer for updating underlying NSG rules within the enclave’s virtual network in a break-glass scenario.
 

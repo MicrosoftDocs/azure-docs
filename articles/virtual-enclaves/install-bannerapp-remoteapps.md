@@ -35,7 +35,7 @@ The color is used with the text in the banner to denote the classification and c
 *	#FF8000 is Orange
 
 ## Who sets up BannerApp and when?
-Enclave Owners (EO), Contributors (EC), or other personnel designated by the EO who are responsible for configuring BannerApp for their enclaves. BannerApp installation should be completed when the VM is deployed. EAs and other designated personnel are also responsible for ensuring their configuration meets all Cybersecurity requirements for their deployment.
+Enclave owners (EO), enclave contributors (EC), or other personnel designated by the EO who are responsible for configuring BannerApp for their enclaves. BannerApp installation should be completed when the VM is deployed. EAs and other designated personnel are also responsible for ensuring their configuration meets all Cybersecurity requirements for their deployment.
 
 ## How do I get support for BannerApp?
 Ensure you mention "BannerApp" and use one of the options below:

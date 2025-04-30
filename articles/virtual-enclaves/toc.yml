@@ -20,7 +20,7 @@
       href: create-enclave-portal.md
     - name: Create a workload
       href: create-workload-portal.md
-    - name: Create a community Endpoint
+    - name: Create a community endpoint
       href: create-community-endpoint-portal.md
     - name: Create an enclave endpoint
       href: create-enclave-endpoint-portal.md
@@ -38,7 +38,7 @@
       href: what-enclave.md
     - name: "What is a workload?"
       href: what-workload.md
-    - name: "What is a community Endpoint?"
+    - name: "What is a community endpoint?"
       href: what-community-endpoint.md
     - name: "What is an enclave endpoint?"
       href: what-enclave-endpoint.md
