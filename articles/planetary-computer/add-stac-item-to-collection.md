@@ -82,11 +82,11 @@ headers = {
 
 ## Add items to a collection
 
-Items can be added to a collection by posting an `Item` or `ItemCollection` object to the `/collections/{collection_id}/items` endpoint.
+Items can be added to a collection by posting an `Item` or `ItemCollection` object to the `/stac/collections/{collection_id}/items` endpoint.
 
 ```python
 response = requests.post(
-    f"{geocatalog_url}/api/collections/{collection_id}/items?api-version=2024-01-31-preview",
+    f"{geocatalog_url}/stac/collections/{collection_id}/items?api-version=2025-04-30-preview",
     headers=headers,
     json=item_collection
 )
@@ -112,25 +112,13 @@ while True:
     time.sleep(5)
 ```
 
-A status of `Success` indicates that the import completed successfully. A status of `Failed` indicates that one of more of the items couldn't be imported. Use the `logs` endpoint to get more information on the failure.
-
-```python
-operation_id = response.json()["operationId"]
-logs_response = requests.get(
-    f"{geocatalog_url}/api/collections/{collection_id}/operations/{operation_id}/logs",
-    params={"api-version": "2024-01-31-preview"},
-    headers=headers
-)
-print(logs_response.text)
-```
-
-Once the items are ingested, use the `/api/collections/{collection_id}/items` or `/api/search` endpoints to get a paginated list of items, including your newly ingested items.
+Once the items are ingested, use the `/stac/collections/{collection_id}/items` or `/stac/search` endpoints to get a paginated list of items, including your newly ingested items.
 
 ```python
 items_response = requests.get(
-    f"{geocatalog_url}/api/collections/{collection_id}/items",
+    f"{geocatalog_url}/stac/collections/{collection_id}/items",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2024-01-31-preview"},
+    params={"api-version": "2025-04-30-preview"},
 )
 items_ingested = items_response.json()
 print(f"Found {len(items_ingested['features'])} items")
@@ -140,9 +128,9 @@ Or search:
 
 ```python
 search_response = requests.get(
-    f"{geocatalog_url}/api/collections/{collection_id}/items",
+    f"{geocatalog_url}/stac/search",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2024-01-31-preview", "collection": collection_id},
+    params={"api-version": "2025-04-30-preview", "collection": collection_id},
 )
 #print(search_response.json())
 ```
@@ -156,9 +144,9 @@ Items can be deleted from a collection with a `DELETE` request to the item detai
 ```python
 item_id = item_collection["features"][0]["id"]
 delete = requests.delete(
-    f"{geocatalog_url}/api/collections/{collection_id}/items/{item_id}",
+    f"{geocatalog_url}/stac/collections/{collection_id}/items/{item_id}",
     headers=headers,
-    params={"api-version": "2024-01-31-preview"},
+    params={"api-version": "2025-04-30-preview"},
 )
 print(delete.status_code)
 ```
