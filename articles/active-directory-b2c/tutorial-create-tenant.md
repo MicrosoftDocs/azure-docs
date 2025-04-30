@@ -20,7 +20,7 @@ ms.custom: "b2c-support"
 
 # Tutorial: Create an Azure Active Directory B2C tenant
 
-[!INCLUDE [active-directory-b2c-end-of-sale-notice-a](../../includes/active-directory-b2c-end-of-sale-notice-a.md)]
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Before your applications can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. 
 
