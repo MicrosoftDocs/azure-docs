@@ -128,7 +128,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
     }
     
     response = requests.post(
-        f"{geocatalog_url}/stac/collections/{collection['id']}/config/render-options",
+        f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/render-options",
         json=render_option,
         headers=headers,
         params={"api-version": "2025-04-30-preview"}
@@ -146,7 +146,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
         "cql": [],
     }
     response = requests.post(
-        f"{geocatalog_url}/stac/collections/{collection['id']}/config/mosaics",
+        f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/mosaics",
         json=mosaic,
         headers=headers,
         params={"api-version": "2025-04-30-preview"}
@@ -168,7 +168,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
       "maxItemsPerTile": 35,
     }
     requests.put(
-        f"{geocatalog_url}/stac/collections/{collection['id']}/config/tile-settings",
+        f"{geocatalog_url}/stac/collections/{collection['id']}/configurations/tile-settings",
         json=tile_settings,
         headers=headers,
         params={"api-version": "2025-04-30-preview"}
