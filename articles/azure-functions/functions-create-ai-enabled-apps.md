@@ -27,7 +27,7 @@ This article is language-specific, so make sure you choose your programming lang
 
 ## Core AI integration scenarios 
 
-The combination of built-in bindings and broad support for external libraries provide you with a vast range of potential scenarios to enhance your apps and solutions with the power of AI. Here are some key scenarios supported by Functions.   
+The combination of built-in bindings and broad support for external libraries provides you with a wide range of potential scenarios for augmenting your apps and solutions with the power of AI. These are some key AI integration scenarios supported by Functions.   
 
 ### Retrieval-augmented generation
 
@@ -62,14 +62,14 @@ Here are some reference samples for RAG-based scenarios:
 **[Custom chat bot](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)**
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
-> Shows you how to create a friendly chat bot that issues simple prompts, receives completions, and sends messages, all in a stateful session using the [OpenAI bindings extension].
+> Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI bindings extension].
 ::: zone-end
 
 ### Assistant function calling
 
 Assistant function calling gives your AI assistant or agent the ability to invoke specific functions or APIs dynamically based on the context of a conversation or task. These behaviors enable assistants to interact with external systems, retrieve data, and perform other actions.
 
-Functions is ideal for implementing assistant function calling in agentic workflows. In addition to scaling efficiently to handle demand, the [provided binding extensions](./functions-triggers-bindings.md) simplify the process of creating functions that connect assistants to Azure and other services. If you need full control over SDK behavior, you can also manually create client SDK connections in your app.
+Functions is ideal for implementing assistant function calling in agentic workflows. In addition to scaling efficiently to handle demand,  [binding extensions](./functions-triggers-bindings.md) simplify the process of using Functions to connect assistants with remote Azure services. If there's no binding for your data source or you need full control over SDK behaviors, you can always manage your own client SDK connections in your app.
 
 ::: zone pivot="programming-language-java,programming-language-typescript,programming-language-powershell"
 Here are some reference samples for assistant function calling scenarios:
@@ -95,7 +95,6 @@ Here are some reference samples for assistant function calling scenarios:
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-javascript"  
 > Uses function calling features for agents in Azure AI SDKs to implement custom functions calling.  
 ::: zone-end
-
 ### Remote MCP servers
 
 The Model Context Protocol (MCP) provides a standardized way for AI models to communicate with external systems to determine their capabilities and how they can best be used by AI assistants and agents. An MCP server enables an AI model (client) to more efficiently make these determinations. 
