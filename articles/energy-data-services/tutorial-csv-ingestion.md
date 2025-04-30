@@ -46,6 +46,7 @@ Ensure you have `curl` installed on your system. You will use it to make API cal
 ## Ingest wellbore data by using `curl`
 
 To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy instance, complete the following steps:
+Replace the placeholders (`<DNS>`, `<access_token>`, etc.) with the appropriate values.
 
 ### 1. Create a Schema
 
@@ -82,7 +83,14 @@ curl -X POST "https://<DNS>/api/schema-service/v1/schema" \
        }'
 ```
 
-Replace the placeholders (`<DNS>`, `<access_token>`, etc.) with the appropriate values. Save the `id` from the response for use in subsequent steps.
+**Sample Response:**
+```json
+{
+  "id": "schema-12345",
+  "status": "DEVELOPMENT"
+}
+```
+Save the `id` from the response for use in subsequent steps.
 
 ### 2. Create a Legal Tag
 
@@ -109,6 +117,14 @@ curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
        }'
 ```
 
+**Sample Response:**
+```json
+{
+  "name": "LegalTagName",
+  "status": "Created"
+}
+```
+
 ### 3. Get a Signed URL for Uploading a CSV File
 
 Run the following `curl` command to get a signed URL:
@@ -119,6 +135,14 @@ curl -X GET "https://<DNS>/api/file/v2/files/uploadURL" \
      -H "data-partition-id: <data-partition-id>"
 ```
 
+**Sample Response:**
+```json
+{
+  "SignedURL": "https://storageaccount.blob.core.windows.net/container/file.csv?sv=...",
+  "FileSource": "file-source-12345"
+}
+```
+
 Save the `SignedURL` and `FileSource` from the response for use in the next steps.
 
 ### 4. Upload a CSV File
@@ -127,6 +151,13 @@ Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/
 
 ```bash
 curl -X PUT -T "Wellbore.csv" "<SignedURL>" -H "x-ms-blob-type: BlockBlob"     
+```
+
+**Sample Response:**
+```json
+{
+  "status": "Success"
+}
 ```
 
 ### 5. Upload CSV File Metadata
@@ -158,6 +189,15 @@ curl -X POST "https://<DNS>/api/file/v2/files/metadata" \
            }
        }'
 ```
+
+**Sample Response:**
+```json
+{
+  "id": "metadata-12345",
+  "status": "Created"
+}
+```
+
 Save the `id`, which is the uploaded file's id, from the response for use in the next step.
 
 
@@ -177,6 +217,15 @@ curl -X POST "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun" \
            }
        }'
 ```
+
+**Sample Response:**
+```json
+{
+  "runId": "workflow-12345",
+  "status": "Running"
+}
+```
+
 Save the `runId` from the response for use in the next step.
 
 ### 7. Check the status of the workflow and wait for its completion.
@@ -189,6 +238,15 @@ curl -X GET "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun/<runI
      -H "Content-Type: application/json" \
      -H "data-partition-id: <data-partition-id>"      
 ```
+
+**Sample Response:**
+```json
+{
+  "runId": "workflow-12345",
+  "status": "Completed"
+}
+```
+
 Keep checking every few seconds, until the response indicates a sccessful completion.
 
 ### 8. Search for Ingested CSV Records
@@ -203,6 +261,19 @@ curl -X POST "https://<DNS>/api/search/v2/query" \
      -d '{
            "kind": "osdu:wks:dataset--File.Generic:1.0.0"
        }'
+```
+
+**Sample Response:**
+```json
+{
+  "results": [
+    {
+      "id": "dataset-12345",
+      "kind": "osdu:wks:dataset--File.Generic:1.0.0",
+      "status": "Available"
+    }
+  ]
+}
 ```
 
 You should be able to see the records in the search results.
