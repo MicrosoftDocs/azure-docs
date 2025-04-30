@@ -22,7 +22,7 @@ VMware Cloud Director on Azure VMware Solution is currently available for eligib
 
 Azure VMware Solution provides private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. The minimum initial deployment is three hosts, with the option to add more hosts, up to a maximum of 16 hosts per cluster. All provisioned private clouds have VMware vCenter Server, VMware vSAN, VMware vSphere, and VMware NSX. 
 
-VMware Cloud Director enables multi-tenancy by using organizations. Each organization can have one or more organization virtual data centers (VDC). Every Organization's VDC can have its own dedicated Tier-1 router (Organization VDC Edge Gateway), which connects to the provider managed shared Tier-0 router.
+VMware Cloud Director enables multi-tenancy by using organizations. Each organization can have one or more organization virtual data centers (VDC). Every Organization's VDC can have its own dedicated Tier-1 router (Organization VDC Edge Gateway), which connects to the shared Tier-0 router (Provider gateway).
 
 :::image type="content" source="media/vmware-vcd/VCD_architecture-diagram.png" alt-text="Diagram showing typical architecture of VMware Cloud Director in Azure VMware Solution." lightbox="media/vmware-vcd/VCD_architecture-diagram.png":::
 
@@ -140,7 +140,7 @@ Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](e
 
 Eligible Enterprise and hosters can self-install and self-managed VMware Cloud Director on Azure VMware Solution. Use **CloudAdmin** role to integrate VMware Cloud Director with Azure VMware solution vCenter and NSX-T. 
 
-### What limitations does NSX-T **CloudAdmin** role have for VMware Cloud Director in Azure VMware Solution?
+### What limitations does **CloudAdmin** role have for VMware Cloud Director in Azure VMware Solution?
 
 **CloudAdmin** Role is restricted role, and it currently does not allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](https://learn.microsoft.com/azure/azure-vmware/architecture-identity)
 

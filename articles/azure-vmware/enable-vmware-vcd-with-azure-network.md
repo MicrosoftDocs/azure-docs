@@ -33,7 +33,7 @@ VMware Cloud Director (VCD) on Azure VMware Solution offers a robust platform fo
 ## How VCD tenants and their organization virtual datacenters can connect to Azure services
 
 - To enable access to Azure services in Azure vNet, configure Azure VNet with an Azure VPN gateway. 
-- Follow his document to create an [Azure virtual network gateway](https://learn.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
+- Follow this document to create an [Azure virtual network gateway](https://learn.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
 - A site-to-site VPN is established between tenant’s organization Virtual Data Center and Azure VNet. To achieve this connectivity, the tenant provides a public IP to the organization VDC. Both source and destination of the tunnel should have identical settings for IKE,SA, DPD etc.
 - The organization VDC administrator can configure IPsec VPN connectivity using VMware Cloud Director.
 
