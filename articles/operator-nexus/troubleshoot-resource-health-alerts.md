@@ -19,11 +19,14 @@ These alerts are generated based on the status of the resource and its dependenc
 
 ## Cluster
 
-| Resource Health Event Name                                                                                     | Troubleshooting Guide                                                                                     |
+| Resource Health Event Name                                                                                    | Troubleshooting Guide                                                                                     |
 |---------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| `ClusterHeartbeatConnectionStatusDisconnectedClusterManagerOperationsAreAffectedPossibleNetworkIssues`        | [Troubleshoot Cluster heartbeat connection status shows disconnected](./troubleshoot-cluster-heartbeat-connection-status-disconnected.md) |
-| `ClusterHeartbeatConnectionStatusTimedoutPossiblePerformanceIssues`                                           | [Troubleshoot Cluster heartbeat connection status shows disconnected](./troubleshoot-cluster-heartbeat-connection-status-disconnected.md) |
-| `ETCDPossibleQuorumLossClusterOperationsAreAffected`<br>`ETCDPossibleQuorumLossDegradedProposalsProcessing`<br>`ETCDPossibleQuorumLossIncreasedProposalsProcessingFailures`<br>`ETCDPossibleQuorumLossNoClusterLeader` | [Troubleshoot Cluster Manager Not Reachable](./troubleshoot-cluster-manager-not-reachable.md)             |
+| `ClusterHeartbeatConnectionStatusDisconnectedClusterManagerOperationsAreAffectedPossibleNetworkIssues`                                            | [Troubleshoot Cluster heartbeat connection status shows disconnected] |
+| `ClusterHeartbeatConnectionStatusTimedoutPossiblePerformanceIssues`                                                                               | [Troubleshoot Cluster heartbeat connection status shows disconnected] |
+| `ETCDPossibleQuorumLossClusterOperationsAreAffected`<br>`ETCDPossibleQuorumLossDegradedProposalsProcessing`<br>`ETCDPossibleQuorumLossIncreasedProposalsProcessingFailures`<br>`ETCDPossibleQuorumLossNoClusterLeader` | [Troubleshoot Cluster Manager Not Reachable] |
+
+[Troubleshoot Cluster heartbeat connection status shows disconnected]: ./troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+[Troubleshoot Cluster Manager Not Reachable]: ./troubleshoot-etcd-cluster-possible-quorum-lost.md
 
 ## Bare Metal Machine
 

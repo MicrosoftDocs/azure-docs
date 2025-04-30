@@ -18,7 +18,7 @@ This guide attempts to provide steps to follow when an `etcd` quorum is lost for
 > Feature enhancements are ongoing for a future release to help address this scenario without contacting support.
 > Open a support ticket via [contact support].
 
-[!include[prereqAzCLI](./includes/prereq-az-cli.md)]
+[!include[prereqAzCLI](./includes/baremetal-machines/prerequisites-azure-cli-bare-metal-machine-actions.md)]
 
 > [!NOTE]
 > The commands can be executed from the Azure portal or with the Azure CLI.

@@ -369,7 +369,7 @@
     - name: Resource Health
       expanded: false
       items:
-        - name:
+        - name: Troubleshoot Resource Health alerts
           href: troubleshoot-resource-health-alerts.md
     - name: Network Fabric
       expanded: false
