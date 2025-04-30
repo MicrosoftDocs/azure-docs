@@ -22,7 +22,8 @@ In this quickstart, you will use the [Azure App Configuration JavaScript provide
 - An Azure account with an active subscription - [Create one for free](https://azure.microsoft.com/free/)
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
-[Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
+- [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
+
 ## Create a Node.js console app
 
 1. Create a new directory for the project named *app-config-chat-completion*:
@@ -57,7 +58,7 @@ In this quickstart, you will use the [Azure App Configuration JavaScript provide
 1. Connect to your App Configuration store by calling the `load` method in the `app.js` file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    Use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```javascript
     const { load } = require("@azure/app-configuration-provider");
@@ -142,7 +143,7 @@ In this quickstart, you will use the [Azure App Configuration JavaScript provide
     console.log("----------------------------------------------------------");
     ```
 
-1. After completing the previous steps, your _app.js_file should now contain the complete implementation as shown below:
+1. After completing the previous steps, your _app.js_ file should now contain the complete implementation as shown below:
 
     ```javascript
     const { load } = require("@azure/app-configuration-provider");

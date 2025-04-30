@@ -70,7 +70,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the _Program.cs_ file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    Use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
         var credential = new DefaultAzureCredential();
@@ -92,7 +92,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
     ### [Connection string](#tab/connection-string)
     ```csharp
         IConfiguration configuration = new ConfigurationBuilder()
-            .AddAzureAppConfiguration(Environment.GetEnvironmentVariable("ConnectionString"));
+            .AddAzureAppConfiguration(Environment.GetEnvironmentVariable("AZURE_APPCONFIG_CONNECTION_STRING"));
         
         var model = configuration.GetSection("ChatLLM")["model"];
         string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;

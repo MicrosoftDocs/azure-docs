@@ -22,7 +22,7 @@ In this quickstart, you will use the [Azure App Configuration Python provider cl
 - An Azure account with an active subscription - [Create one for free](https://azure.microsoft.com/free/)
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-[Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
+- [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
 
 ## Create a python app
 
@@ -61,7 +61,7 @@ In this quickstart, you will use the [Azure App Configuration Python provider cl
 1. Connect to your App Configuration store by calling the `load` method in the `app.py` file.
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    Use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```python
     from azure.appconfiguration.provider import (
