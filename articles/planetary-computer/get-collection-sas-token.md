@@ -6,19 +6,19 @@ ms.author: tanyamarton
 ms.service: azure
 ms.topic: quickstart
 ms.date: 04/29/2025
-#customer intent: help customers setup the mosaic configurations. 
+#customer intent: help customers get a sas token for a collection. 
 ---
-# 📄 Request a Collection SAS Token
+# 📄 Quickstart: Request a Collection SAS Token
 
-This example shows how to retrieve a collection-level SAS token that can be used to access secured assets in a managed storage account.
+In this quickstart, you will retrieve a collection-level SAS token that can be used by other applications to access STAC collection assets in a managed storage account.
 
 In some applications, you need to pass a **collection-level SAS token** to enable authenticated access to assets stored in a managed storage account.  
 
-For example, when retrieving **collection-level assets** such as Zarr datasets or other metadata, a SAS token provides temporary permissions to access the data directly from blob storage.
+For example, when retrieving **collection-level assets** such as Zarr data, a SAS token provides temporary permissions to access the data directly from blob storage.
 
 This example shows how to request a collection-level SAS token from the `/sas/token/{collection_id}` route.
 
-## 🛠️ Get an Access Token for Authorization
+## 1. Get Access Token for Authorization to MPC Pro Endpoints
 
 ```python
 from datetime import datetime, timedelta
@@ -52,7 +52,9 @@ def raise_for_status(r: requests.Response) -> None:
             raise
 ```
 
-## Helper Function to Request the Collection SAS Token
+## 2. Request a SAS Token for a STAC Collection
+
+With this helper function, you can access the endpoint that returns your temporary STAC collection-level sas token.
 
 ```python
 def get_collection_sas_token(collection_id, geocatalog_url):
@@ -71,8 +73,7 @@ def get_collection_sas_token(collection_id, geocatalog_url):
     sas_token_info = response.json()
     return sas_token_info["token"]
 ```
-
-## Example Usage of Helper Function
+Use the helper function to return a sas token that other applications can use to access STAC collection assets.
 
 ```python
 geocatalog_url = "https://geocatalog.pro.spatio.azure.com"
