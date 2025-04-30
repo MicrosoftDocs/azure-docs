@@ -2,7 +2,7 @@
 title: Current Release Notes - Azure CycleCloud Workspace for Slurm
 description: Read the product release notes for the current Azure CycleCloud Workspace for Slurm release.
 author: xpillons
-ms.date: 04/08/2025
+ms.date: 04/30/2025
 ms.author: padmalathas
 ---
 
