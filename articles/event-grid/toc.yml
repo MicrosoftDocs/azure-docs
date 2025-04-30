@@ -248,6 +248,8 @@ items:
             href: authenticate-with-entra-id-namespaces.md
           - name: Deliver events securely using managed identities
             href: deliver-events-using-managed-identity.md          
+          - name: Cross-tenant delivery using managed identity
+            href: cross-tenant-delivery-using-managed-identity.md
   - name: Event Grid basic
     items:
     - name: Overview
