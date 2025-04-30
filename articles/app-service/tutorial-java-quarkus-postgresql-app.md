@@ -600,7 +600,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Modify sample code and redeploy
 
-Once the command finishes creating resources the first time, you must make some changes to make it to your application code and then deploy it:
+You must make some changes in your application code to make it work with App Service:
 
 - Quarkus listens to port 8080 by default. In production, it needs to be configured to listen to the port specified by the `PORT` environment variable in App Service.
 - Your deployed Java package must be an [Uber-Jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven).
