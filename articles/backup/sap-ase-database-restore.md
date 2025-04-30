@@ -160,7 +160,7 @@ Learn about the [minimum role requirements for cross-region restore](/azure/back
 
 ## Restore to a Private Endpoint enabled vault in a different subscription
 
-Before you do Cross Subscription Restore (CSR), ensure that the Recovery Services vault has the necessary [Azure role-based access control (Azure RBAC) permissions.](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore).
+Before you do Cross Subscription Restore (CSR), ensure that the Recovery Services vault has the necessary [Azure role-based access control (Azure RBAC) permissions](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore).
 
 To trigger Cross Subscription Restore to a Private Endpoint enabled vault, follow these steps:
 

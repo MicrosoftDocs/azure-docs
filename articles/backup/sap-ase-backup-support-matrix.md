@@ -33,7 +33,7 @@ This article summarizes the scenarios supported and limitations present when you
 | **Compression** | You can enable ASE Native compression via the Backup policy and when you take an on-demand Backup/Backup Now. In Preregistration Script, Compression Level is set to **Level 101** for Optimal results. |  |
 | **Striping Support** | You can increase your  backup throughput by enabling Striping configuration, which needs to be set in **Preregistration script** –  refer parameters **enable-striping** - Set to **true** and **stripesCount** set to 4 by Default and can be adjusted.  | |
 | **Azure CLI/PowerShell** |  | Azure CLI/PowerShell support is currently not available. |
-| **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, Encryption at rest are supported. | |
+| **Security Capabilities** | Immutability, Soft Delete, MUA, Private Endpoint, and Encryption at rest are supported. | |
 
 >[!NOTE]
 >- Azure Backup doesn’t automatically adjust for daylight saving time changes when backing up an SAP ASE (Sybase) database running in an Azure VM. We recommend you to modify the policy manually as needed.
@@ -65,11 +65,11 @@ Learn more [about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sy
 Azure Backup now enables seamless backups for multiple ASE (Sybase) database instances on Azure VMs, utilizing Multi-SID support. This advancement is particularly useful for shared VM environments, such as non-production setups, where multiple users require efficient data protection and recovery. SAP ASE Multi-SID support includes the following configurations:
 | Sap ASE instance | Support |
 | --- |--- |
-| Standalone (SID1)+ Standalone (SID2) | Supported |
+| Standalone (SID1) + Standalone (SID2) | Supported |
 | HA (SID1) + Standalone (SID2) | Supported |
 | HA (SID1) + HA (SID2)| Supported |
 
-***SID1(HXE) and SID2 (HYE) represent two ASE instances running on the same host.**
+***SID1 (HXE) and SID2 (HYE) represent two ASE instances running on the same host.**
 
 The following table lists the required parameters for adding/removing SAP ASE instances:
 
@@ -77,7 +77,7 @@ The following table lists the required parameters for adding/removing SAP ASE in
 | --- | --- | --- | --- |
 | Add an instance | `--sid` | SAP ASE database instance that you want to protect. <br><br> By default, the first instance is selected. | `./PreReg.sh  --add --sid HXE` <br><br> Or <br><br> `./PreReg.sh --sid HXE` <br><br> (Default mode is `add` for the script.) <br><br> After you add instances, registration needs to be done on recovery services vault. If a new instance is added later, re-registration is required. |
 |    | `sudo` | Add a `SID` from the **Config** file. | `"<Path_to_the_Pre-Reg_Script" -aw SAPAse --sid "<SID>" --sid-user "<sidUser>" --db-port "<dbPort>" --db-user <dbUser> --db-host "<dbHost>" --enable-striping <true/false> --skip-network-checks` |
-| Remove an instance | `--sid` | SAP ASE database instance that you want to remove protection. <br><br> SID is a mandate parameter for remove. | `./PreReg.sh --remove --sid HXE` |
+| Remove an instance | `--sid` | SAP ASE database instance that you want to remove protection from. <br><br> SID is a mandate parameter for remove. | `./PreReg.sh --remove --sid HXE` |
 |    | `sudo` | Remove a `SID` from the **Config** file. | `"<Path_to_the_Pre-Reg_Script" -aw SAPAse --sid "<SID>" --sid-user "<sidUser>" --db-port "<dbPort>" --db-user <dbUser> --db-host "<dbHost>" --enable-striping <true/false> --skip-network-checks --remove` |
 |    | `--dbHost` | The private IP of the specific SID instance that you intend to register. <br><br> In multi-instance setups, each System ID (SID) might have a different private IP. Use the IP available in `/sybase/<SID>/interfaces` for the correct instance. |     |
 

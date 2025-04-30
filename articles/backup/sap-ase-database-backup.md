@@ -12,7 +12,7 @@ ms.author: jsuri
 
 # Back up SAP ASE (Sybase) database on Azure VMs via Azure Backup
 
-This article describes how to configure backup for SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on Azure virtual machines (VMs) on the Azure portal.
+This article describes how to configure backup for SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on Azure Virtual Machines (VMs) on the Azure portal.
 
 >[!Note]
 >- Currently, the SAP ASE is available only in non-US public regions. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
@@ -38,7 +38,7 @@ Before you set up the SAP ASE database for backup, review the following prerequi
   >[!Note]
   >Log backups aren't supported for the Master database. For other system databases, log backups can only be supported if the database's log files are stored separately from its data files. By default, system databases are created with both data and log files in the same database device, which prevents log backups. To enable log backups, the database administrator must change the location of the log files to a separate device.
 
-- Use the Azure built-in roles to configure backup- assignment of roles and scope to the resources. The following Contributor role allows you to run the **Configure Protection** operation on the database VM.
+- Use the Azure built-in roles to configure backup- assignment of roles and scope to the resources. The following Contributor role allows you to run the **Configure Protection** operation on the database VM:
 
   | Resource (Access control) | Role | User, group, or service principal |
   | --- | --- | --- |
@@ -70,7 +70,7 @@ To discover the SAP ASE databases, follow these steps:
    >- If a VM isn't listed as expected, check if it's already backed up in a vault.
    >- Multiple VMs can have the same name but they belong to different resource groups.
  
-4. On the **Select Virtual Machines** pane, download the pre-post script that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
+4. On the **Select Virtual Machines** pane, download the prepost script that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
 5. Run the script on each VM hosting SAP ASE databases that you want to back up.
 6. After you run the script on the VMs, on the **Select Virtual Machines** pane, select the *VMs*, and then select **Discover DBs**.
 
@@ -121,7 +121,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 5. On the **Retention Range**, define the retention range for the full backup.
    >[!Note]
-   >- By default all options are selected. Clear any retention range limits you don't want to use, and set those that you want.
+   >- By default, all options are selected. Clear any retention range limits you don't want to use, and set those that you want.
    >- The minimum retention period for any type of backup (full/differential/log) is seven days.
    >- Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
    >- The backup for a specific day is tagged and retained based on the weekly retention range and setting.
@@ -144,7 +144,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
      >[!Note]
      >- Log backups only begin to flow after a successful full backup is completed.
-     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2-hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 12. On the **Configure Backup**, select the new policy under **Backup Policy**, and then select **Add**.
 13. Select **Configure backup**.
@@ -161,7 +161,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
 After the backup configuration is complete, Azure Backup takes backup of the SAP ASE database as per the backup schedule set in the backup policy. You can also [run an on-demand backup](sap-ase-database-backup-tutorial.md#run-an-on-demand-backup-for-sap-ase-database) to create the first full backup.
 
-## Next step
+## Next steps
 
 - [Restore the SAP ASE database on Azure VMs](sap-ase-database-restore.md).
 - [Manage the SAP ASE database on Azure VMs](sap-ase-database-manage.md).

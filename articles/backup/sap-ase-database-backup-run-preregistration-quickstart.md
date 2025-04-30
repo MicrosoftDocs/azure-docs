@@ -34,7 +34,7 @@ Before you run the preregistration script, ensure that the following prerequisit
 
 The preregistration script is a Python script that you run on the VM where the SAP ASE database is installed. The script performs the following tasks:
 
-1. Creates the necessary group where the **plugin users** is added.
+1. Creates the necessary group where the **plugin users** are added.
 2. Installs and updates required packages such as waagent, Python, curl, unzip, Libicu, and PythonXML.
 3. Verifies the status of waagent, checks `wireserver` and `IMDS connectivity`, and tests **TCP connectivity** to  Microsoft Entra ID.
 4. Confirms if the geographic region is supported.
