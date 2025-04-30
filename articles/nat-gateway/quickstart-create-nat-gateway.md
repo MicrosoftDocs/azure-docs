@@ -148,7 +148,7 @@ The bastion host can take several minutes to deploy. Wait for the bastion host t
 
 ## Create virtual machine
 
-In this section, you'll create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection.
+In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection.
 
 ```azurepowershell-interactive
 # Set the administrator and password for the VM ##
@@ -230,7 +230,7 @@ az network public-ip create \
 
 ### Create NAT gateway resource
 
-Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous step. The idle timeout is set to 10 minutes.
+Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous step. The idle time out is set to 10 minutes.
 
 ```azurecli-interactive
 az network nat gateway create \
@@ -343,7 +343,7 @@ This template is configured to create a:
 
 * Ubuntu virtual machine
 
-The Ubuntu VM is deployed to a subnet that's associated with the NAT gateway resource.
+The Ubuntu virtual machine is deployed to a subnet associated with the NAT gateway resource.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-1-vm/azuredeploy.json":::
 
@@ -537,7 +537,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 1. Select **Use Bastion**.
 
-1. Enter the username and password entered during VM creation. Select **Connect**.
+1. Enter the username and password entered during virtual machine creation. Select **Connect**.
 
 1. In the bash prompt, enter the following command:
 
