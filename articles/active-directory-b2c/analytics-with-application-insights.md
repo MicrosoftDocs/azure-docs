@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
 
-ms.date: 01/26/2024
+ms.date: 04/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type

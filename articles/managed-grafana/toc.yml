@@ -10,9 +10,9 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an instance - Portal
+  - name: Create a workspace - Portal
     href: quickstart-managed-grafana-portal.md
-  - name: Create an instance - Azure CLI
+  - name: Create a workspace - Azure CLI
     href: quickstart-managed-grafana-cli.md
 - name: Tutorial
   expanded: true

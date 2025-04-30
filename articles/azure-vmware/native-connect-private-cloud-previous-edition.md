@@ -3,14 +3,14 @@ title: Connect Azure VMware Solution Generation 2 private clouds to Azure VMware
 description: Learn about connecting Azure VMware Solution Generation 2 private clouds to Azure VMware Solution Generation 1 private clouds.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/21/2025
 ms.author: jacobjaygbay
 #customer intent: As a cloud administrator, I want to connect Azure VMware Solution Generation 2 private clouds to Azure VMware Solution Generation 1 private clouds so that I can enable seamless communication between private clouds.
 ---
 
 # Connect Azure VMware Solution Generation 2 private clouds to Azure VMware Solution Generation 1 private clouds
 
-In this article, you learn how to connect Azure VMware Solution Generation (Gen) 2 private clouds to Azure VMware Solution Gen 1 private clouds. After you deploy an Azure VMware Solution Gen 2 private cloud, you may need to have network connectivity between the private cloud and other networks you have in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet.  
+In this article, you learn how to connect Azure VMware Solution Generation 2 (Gen 2) private clouds to Azure VMware Solution Gen 1 private clouds. After you deploy an Azure VMware Solution Gen 2 private cloud, you may need to have network connectivity between the private cloud and other networks you have in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or the internet.  
 
 This article discusses how the Azure VMware Solution Gen 2 private cloud gets connectivity to Azure VMware Solution Gen 1 private cloud. 
 

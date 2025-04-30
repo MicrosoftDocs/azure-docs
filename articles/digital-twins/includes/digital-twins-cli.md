@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for Azure Digital Twins - set up CLI and the IoT extension
+description: Include file for Azure Digital Twins - set up CLI and the IoT extension.
 ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 03/17/2025
@@ -8,8 +8,6 @@ ms.author: baanders
 ---
 
 ### Set up CLI session
-
-[!INCLUDE [digital-twins-cli-issue](digital-twins-cli-issue.md)]
 
 To start working with Azure Digital Twins in the CLI, the first thing to do is sign in and set the CLI context to your subscription for this session. Run these commands in your CLI window:
 

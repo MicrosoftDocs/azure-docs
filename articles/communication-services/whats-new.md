@@ -13,7 +13,69 @@ ms.custom: template-concept, references_regions
 
 This article describes new features and updates related to Azure Communication Services.
 
-[!INCLUDE [Survey Request](includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](includes/survey-request.md)] -->
+
+## February 2025
+
+### Calling Native SDKs add calling to Teams call queues and auto attendants
+
+Now in general availability.
+
+Calling Native SDKs can now place calls to a Teams call queue or auto attendant. After answering the call, video calling and screenshare are available to both the Teams and Azure Communication Services users. These features are available in the Calling SDKs for Android, iOS, and Windows. 
+
+For more information, see: 
+
+- [Contact center scenarios](./tutorials/contact-center.md#chat-on-a-website-that-escalates-to-a-voice-call-answered-by-a-teams-agent).
+- [Teams Call Queue on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-call-queue.md).
+- [Teams Auto Attendant on Azure Communication Services](./quickstarts/voice-video-calling/get-started-teams-auto-attendant.md).
+
+### Calling Web & Graph Beta SDKs add Teams shared line appearance
+
+Now in public preview.
+
+Microsoft Teams shared line appearance lets a user choose a delegate to answer or handle calls on their behalf. This feature is helpful if a user has an administrative assistant who regularly handles the user's calls. In the context of Teams shared line appearance, a manager is someone who authorizes a delegate to make or receive calls on their behalf. A delegate can make or receive calls on behalf of the delegator.
+
+For more information, see: 
+
+- [Microsoft Teams shared line appearance](./concepts/interop/teams-user/teams-shared-line-appearance.md).
+- [Teams Shared Line Appearance](./how-tos/cte-calling-sdk/shared-line-appearance.md).
+
+### Number Lookup API
+
+Now in general availability.
+
+Azure Communication Services Number Lookup API enables you to validate the number format, retrieve insights, and look up a specific phone number using the Communication Services Number Lookup SDK. This new function is part of the Phone Numbers SDK and can be used to support customer service scenarios, appointment reminders, two-factor authentication, and other real-time communication needs. Number Lookup enables you to reliably retrieve number insights (format, type, location, carrier, and so on) before engaging with end users.
+
+For more information, see: 
+
+- [Number Lookup API concepts in Azure Communication Services](./concepts/numbers/number-lookup-concept.md).
+- [Look up operator information for a phone number using Azure Communication Services](./quickstarts/telephony/number-lookup.md).
+
+### New version of Azure Communication Calling client library for JavaScript
+
+New version release of Calling Web SDK 1.34.1 is now available at [https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.34.1).
+
+Calling Web SDK 1.34.1 changes now in general availability:
+
+- Supports 720p mobile video send.
+- Real Time Text (RTT) - Instantly transmit text as you type while in a call, enabling seamless and immediate communication for more accessible and responsive interactions.
+- Collaborator role support.
+
+Fixed an issue that caused the Web SDK bundle size to increase in versions 1.33 and 1.34.1-beta.
+
+Updated `Call.callEndReason` subcodes:
+- Updated message for code 0/5003: "Call was ended by Azure Communication Service as the call has ended."
+- Added new code 401/71005: "Call failed due to a validation error in Azure Communication Services."
+
+For more information about call end reason codes and subcodes, see [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, PSTN, Chat SDK, and SMS SDK](./resources/troubleshooting/voice-video-calling/troubleshooting-codes.md).
+
+### Updated navigation for technical documentation
+
+Live now.
+
+In response to customer feedback and multiple customer interviews, we’re excited to announce an update to the navigational model of our technical documentation. We adjusted the structure of our docs site navigation to make it quicker and simpler than ever to find the information you need when you need it.
+
+For more information, see [Azure Communication Services technical documentation table of contents update | Microsoft Community Hub](https://techcommunity.microsoft.com/blog/azurecommunicationservicesblog/azure-communication-services-technical-documentation-table-of-contents-update/4375195).
 
 ## January 2025
 
@@ -56,7 +118,7 @@ Real-time text (RTT) is a system for transmitting text over the internet. RTT en
 
 :::image type="content" source="media/whats-new-images/rtt-demo.gif" alt-text="Animated image simulating real time text between people in a meeting and a person using a mobile device.":::
 
-Unlike traditional chat messaging, in which the recipient sees the full message only after it is completed and sent, RTT provides an immediate and continuous stream of communication.
+Unlike traditional chat messaging, in which the recipient sees the full message only after it's completed and sent, RTT provides an immediate and continuous stream of communication.
 
 For example, in a video or voice call, a user typing "Hello, how are you?" sees each character appear on the recipient’s screen as they type: "H," then "He," then "Hel," and so on. This messaging of text creates a dynamic, conversational experience that mirrors spoken communication. 
 
@@ -867,69 +929,4 @@ Developers can use Azure CLI extensions for their end-to-end flow for sending em
 - Link a domain resource to a communication service resource (existing)
 - Send an email (existing)
 
-Learn more in the [Azure CLI reference](/cli/azure/communication/email).
-
-## February 2024
-
-### Limited-access user tokens
-
-Limited-access user tokens are now in general availability. Limited-access user tokens enable customers to exercise finer control over user capabilities such as starting a new call/chat or participating in an ongoing call/chat.
-
-When a customer creates an Azure Communication Services user identity, the user is granted the capability to participate in chats or calls through access tokens. For example, a user must have a chat token to participate in chat threads or a VoIP token to participate in VoIP calls. A user can have multiple tokens simultaneously.
-
-With the limited-access tokens, Azure Communication Services supports controlling full access versus limited access within chats and calls. Customers can control users' ability to initiate a new call or chat, as opposed to participating in existing calls or chats.
-
-These tokens solve the cold-call or cold-chat issue. For example, without limited-access tokens, a user who has a VoIP token can initiate calls and participate in calls. So theoretically, a defendant could call a judge directly or a patient could call a doctor directly. This situation is undesirable for most businesses. Developers can now give a limited-access token to a patient who then can join a call but can't initiate a direct call to anyone.
-
-For more information, see [Identity model](./concepts/identity-model.md).
-
-### Try Phone Calling
-
-Try Phone Calling, now in preview, is a tool in the Azure portal that helps customers confirm the setup of a telephony connection by making a phone call. It applies to both voice calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
-
-:::image type="content" source="concepts/media/try-phone-calling.png" alt-text="Screenshot of the Try Phone Calling tool in the Azure portal." lightbox="concepts/media/try-phone-calling.png":::
-
-For more information, see [Try Phone Calling](./concepts/telephony/try-phone-calling.md).
-
-### Native UI Library updates
-
-Updates to the native UI Library including moving User Facing Diagnostics to general availability and releasing one-to-one calling and iOS CallKit integration.
-
-#### User Facing Diagnostics
-
-User Facing Diagnostics is now in general availability. This feature enhances the user experience by providing a set of events that can be triggered when some signal of the call is triggered. For example, an event can be triggered when a participant is talking but the microphone is muted, or if the device isn't connected to a network. You can subscribe to triggers such as weak network signals or muted microphones, so you're always aware of any factors that affect calls.
-
-Bringing User Facing Diagnostics into the UI Library helps customers implement events for a more fluid experience. Customers can use User Facing Diagnostics to notify users in real time if they face connectivity and quality problems during the call, such as network problems. Users receive a pop-up notification about these problems during the call. This feature also sends telemetry to help you track any event and review the call status.
-
-For more information, see [User Facing Diagnostics](./concepts/voice-video-calling/user-facing-diagnostics.md).
-
-#### One-to-one calling
-
-One-to-one calling for Android and iOS is now available in preview version 1.6.0. With this latest preview release, starting a call is as simple as a tap. Recipients are promptly alerted with a push notification to answer or decline the call.
-
-If the iOS-native application requires direct calling between two entities, developers can use the one-to-one calling function to make it happen. An example scenario is a client who needs to call a financial advisor to make account changes.
-
-For more information, see [Set up one-to-one calling and push notifications in the UI Library](./how-tos/ui-library-sdk/one-to-one-calling.md).
-
-#### iOS CallKit integration
-
-Azure Communication Services integrates CallKit, in preview, for a native iOS call experience. Now, calls made through the Native UI SDK have the same iOS calling features, such as notification, call history, and call on hold. These iOS features blend seamlessly with the existing native experience.
-
-This update enables UI Library developers to avoid spending time on integration. CallKit provides an out-of-the-box experience, meaning that integrated apps use the same interfaces as regular cellular calls. For users, incoming VoIP calls display the familiar iOS call screen for a consistent and intuitive experience.
-
-For more information, see [Integrate CallKit into the UI Library](./how-tos/ui-library-sdk/callkit.md).
-
-### PSTN Direct Offers
-
-Azure Communication Services continues to expand Direct Offers to new geographies. PSTN Direct Offers is in general availability for 42 countries and regions:
-
-> Argentina, Australia, Austria, Belgium, Brazil, Canada, Chile, China, Colombia, Denmark, Finland, France, Germany, Hong Kong SAR, Indonesia, Ireland, Israel, Italy, Japan, Luxembourg, Malaysia, Mexico, Netherlands, New Zealand, Norway, Philippines, Poland, Portugal, Puerto Rico, Saudi Arabia, Singapore, Slovakia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, Thailand, UAE (United Arab Emirates), United Kingdom, United States
-
-In addition to getting all current offers into general availability, we've introduced more than 400 new cross-country/region offers.
-
-Check all the new countries/regions, phone number types, and capabilities at [Country/regional availability of telephone numbers and subscription eligibility](./concepts/numbers/sub-eligibility-number-capability.md).
-
-## Related content
-
-- For a complete list of new features and bug fixes, see the [releases page](https://github.com/Azure/Communication/releases) on GitHub.
-- For more blog posts, see the [Azure Communication Services blog](https://techcommunity.microsoft.com/t5/azure-communication-services/bg-p/AzureCommunicationServicesBlog).
+For more information, see [Azure CLI reference](/cli/azure/communication/email).

@@ -3,7 +3,7 @@ title: Example diagnostic queries for session host update - Azure Virtual Deskto
 description: Some example queries you can use with Log Analytics in Azure Monitor to view diagnostics information about session host update.
 ms.topic: how-to
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 10/01/2024
 ---
 

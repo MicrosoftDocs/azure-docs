@@ -23,7 +23,7 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 ## Experience in the Defender portal 
 
-Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in both commercial and GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
+Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in commercial, GCC, GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
 
 While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) in the Defender portal available only in the commercial cloud.
 
