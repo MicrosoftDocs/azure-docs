@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 
 # Troubleshoot connecting managed private endpoint to a private link service
 
-This article guides you to troubleshoot and fix issues related to connecting Azure Managed Grafana to an AKS cluster via a private link service
+This article guides you to troubleshoot and fix issues related to connecting Azure Managed Grafana to an AKS cluster via a private link service.
 
 ## Symptom
 
