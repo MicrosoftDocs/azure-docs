@@ -1,18 +1,18 @@
 ---
-title: "Tutorial: Send telemetry from your assets to the cloud"
-description: "Tutorial: Use a data flow to send asset telemetry from the MQTT broker to an event hub in the cloud."
+title: "Tutorial: Send messages from your asset to the cloud using a data flow"
+description: "Tutorial: Use a data flow to send asset messages from the MQTT broker to an event hub in the cloud."
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 11/14/2024
+ms.date: 04/30/2025
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ms.service: azure-iot-operations
 ---
 
-# Tutorial: Send asset telemetry to the cloud using a data flow
+# Tutorial: Send messages from assets to the cloud using a data flow
 
 In this tutorial, you use a data flow to forward messages from the MQTT broker to an event hub in the Azure Event Hubs service. The event hub can deliver the data to other cloud services for storage and analysis. In the next tutorial, you use a real-time dashboard to visualize the data.
 
@@ -22,11 +22,14 @@ Before you begin this tutorial, you must complete [Tutorial: Add OPC UA assets t
 
 ## What problem will we solve?
 
-To use a tool such as Real-Time Dashboard to analyze your OPC UA data, you need to send the data to a cloud service such as Azure Event Hubs. A data flow can subscribe to an MQTT topic and forward the messages to an event hub in your Azure Event Hubs namespace. The next tutorial shows you how to use Real-Time Dashboards to visualize and analyze your data.
+To use a tool such as Microsoft Fabric Real-Time Dashboard to analyze your OPC UA data, you need to send the data to a cloud service such as Azure Event Hubs. A data flow can subscribe to an MQTT topic and forward the messages to an event hub in your Azure Event Hubs namespace. The next tutorial shows you how to use Real-Time Dashboards to visualize and analyze your data.
 
 ## Set your environment variables
 
-If you're using the Codespaces environment, the required environment variables are already set and you can skip this step. Otherwise, set the following environment variables in your shell:
+Make sure the following environment variables are set in your shell:
+
+> [!TIP]
+> To view the user assigned managed identities you created in your resource group, run the following command in your shell: `az identity list -g $RESOURCE_GROUP -o table`
 
 # [Bash](#tab/bash)
 
@@ -36,6 +39,9 @@ RESOURCE_GROUP=<resource-group-name>
 
 # The name of your Kubernetes cluster
 CLUSTER_NAME=<kubernetes-cluster-name>
+
+# The name of the user-assigned managed identity that you created for cloud connections
+USER_ASSIGNED_MI_NAME=<cloud-connection-uami>
 ```
 
 # [PowerShell](#tab/powershell)
@@ -46,6 +52,9 @@ $RESOURCE_GROUP = "<resource-group-name>"
 
 # The name of your Kubernetes cluster
 $CLUSTER_NAME = "<kubernetes-cluster-name>"
+
+# The name of the user-assigned managed identity that you created for cloud connections
+USER_ASSIGNED_MI_NAME="<cloud-connection-uami>"
 ```
 
 ---
@@ -57,7 +66,7 @@ To create an Event Hubs namespace and an event hub, run the following Azure CLI 
 # [Bash](#tab/bash)
 
 ```bash
-az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --disable-local-auth false
+az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --disable-local-auth true
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name ${CLUSTER_NAME:0:24} --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -65,7 +74,7 @@ az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP --disable-local-auth false
+az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP --disable-local-auth true
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -79,7 +88,7 @@ To grant the Azure IoT Operations extension in your cluster access to your Event
 ```bash
 EVENTHUBRESOURCE=$(az eventhubs namespace show --resource-group $RESOURCE_GROUP --namespace-name ${CLUSTER_NAME:0:24} --query id -o tsv)
 
-PRINCIPAL=$(az k8s-extension list --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o tsv --query "[?extensionType=='microsoft.iotoperations'].identity.principalId")
+PRINCIPAL=$(az identity show --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --query principalId --output tsv)
 
 az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRINCIPAL --scope $EVENTHUBRESOURCE
 ```
@@ -89,14 +98,14 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 ```powershell
 $EVENTHUBRESOURCE = $(az eventhubs namespace show --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --query id -o tsv)
 
-$PRINCIPAL = $(az k8s-extension list --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o tsv --query "[?extensionType=='microsoft.iotoperations'].identity.principalId")
+$PRINCIPAL = $(az identity show --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --query principalId --output tsv)
 
 az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRINCIPAL --scope $EVENTHUBRESOURCE
 ```
 
 ---
 
-## Create a data flow to send telemetry to an event hub
+## Create a data flow to send messages to an event hub
 
 Use the operations experience web UI to create and configure a data flow in your cluster that:
 
@@ -108,17 +117,21 @@ To create the data flow:
 
 1. Browse to the operations experience web UI and locate your instance. Then select **Data flow endpoints** and select **+ New** in the **Azure Event Hubs** tile:
 
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-event-hubs-endpoint.png" alt-text="Screenshot of the data flow endpoints page.":::
+    :::image type="content" source="media/tutorial-upload-messages-to-cloud/new-event-hubs-endpoint.png" alt-text="Screenshot of the data flow endpoints page.":::
 
-1. In the **Create new data flow endpoint: Azure Event Hubs**, enter *event-hubs-target* as the name, and update the **Host** field with the address of the Event Hubs namespace you created. Select **Apply**:
+1. In the **Create new data flow endpoint: Azure Event Hubs**, enter *event-hubs-target* as the name, and find the Event Hubs namespace you created in the **Host** field.
 
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-event-hubs-destination.png" alt-text="Screenshot of the Create new data flow endpoint: Azure Event Hubs page.":::
+1. Select user assigned managed identity as the authentication method. Add the client ID and tenant ID values of the user assigned managed identity you're using for cloud connections. Use the following CLI command to list the client ID and tenant ID of the user assigned managed identities in your resource group: `az identity list -g $RESOURCE_GROUP -o table`.
+
+1. Select **Apply**:
+
+    :::image type="content" source="media/tutorial-upload-messages-to-cloud/new-event-hubs-destination.png" alt-text="Screenshot of the Create new data flow endpoint: Azure Event Hubs page.":::
 
     Your new data flow endpoint is created and displays in the list on the **Data flow endpoints** page.
 
 1. Select **Data flows** and then select **+ Create data flow**. The **\<new-data-flow\>** page displays:
 
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/new-dataflow.png" alt-text="Screenshot of the data flows page.":::
+    :::image type="content" source="media/tutorial-upload-messages-to-cloud/new-dataflow.png" alt-text="Screenshot of the data flows page.":::
 
 1. In the data flow editor, select **Select source**. Then select the thermostat asset you created previously and select **Apply**.
 
@@ -144,13 +157,13 @@ To create the data flow:
   
     The rename transformation looks like the following screenshot:
   
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/rename-transform.png" alt-text="Screenshot of the rename transformation.":::
+    :::image type="content" source="media/tutorial-upload-messages-to-cloud/rename-transform.png" alt-text="Screenshot of the rename transformation.":::
 
     Select **Apply**.
 
 1. The data flow editor now looks like the following screenshot:
 
-    :::image type="content" source="media/tutorial-upload-telemetry-to-cloud/dataflow-complete.png" alt-text="Screenshot of the completed data flow.":::
+    :::image type="content" source="media/tutorial-upload-messages-to-cloud/dataflow-complete.png" alt-text="Screenshot of the completed data flow.":::
 
 1. To start the data flow running, enter *tutorial-data-flow* as its name and then select **Save**. After a few minutes, the **Provisioning State** changes to **Succeeded**. The data flow is now running in your cluster.
 
@@ -162,14 +175,14 @@ To verify that data is flowing to the cloud, you can view your Event Hubs instan
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 
-:::image type="content" source="media/tutorial-upload-telemetry-to-cloud/incoming-messages.png" alt-text="Screenshot that shows the Event Hubs instance overview page with incoming messages.":::
+:::image type="content" source="media/tutorial-upload-messages-to-cloud/incoming-messages.png" alt-text="Screenshot that shows the Event Hubs instance overview page with incoming messages.":::
 
 If messages are flowing, you can use the **Data Explorer** to view the messages:
 
-:::image type="content" source="media/tutorial-upload-telemetry-to-cloud/event-hubs-data-viewer.png" alt-text="Screenshot of the Event Hubs instance **Data Explorer** page.":::
+:::image type="content" source="media/tutorial-upload-messages-to-cloud/event-hubs-data-viewer.png" alt-text="Screenshot of the Event Hubs instance **Data Explorer** page.":::
 
 > [!TIP]
-> You may need to assign yourself to the **Azure Event Hubs Data Receiver** role for the Event Hubs namespace to view the messages.
+> You might need to assign yourself to the **Azure Event Hubs Data Receiver** role for the Event Hubs namespace to view the messages.
 
 ## How did we solve the problem?
 
@@ -186,4 +199,4 @@ If you're continuing on to the next tutorial, keep all of your resources.
 
 ## Next step
 
-[Tutorial: Get insights from your asset telemetry](tutorial-get-insights.md)
+[Tutorial: Get insights from your asset messages](tutorial-get-insights.md)

@@ -101,4 +101,4 @@ You can now follow the steps in [Deploy Azure IoT Operations to an Arc-enabled K
 Once IoT Operations is deployed, you can try the following tutorials. The Azure IoT Operations in your level 3 cluster works as described in the tutorials.
 
 - [Tutorial: Add OPC UA assets to your Azure IoT Operations cluster](../end-to-end-tutorials/tutorial-add-assets.md)
-- [Tutorial: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
+- [Tutorial: Send asset telemetry to the cloud using the data lake connector for MQTT broker](../end-to-end-tutorials/tutorial-upload-messages-to-cloud.md)
