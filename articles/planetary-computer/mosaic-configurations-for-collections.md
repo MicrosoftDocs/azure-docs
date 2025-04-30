@@ -11,7 +11,7 @@ ms.date: 04/09/2025
 
 # Mosaic configurations for collections in Microsoft Planetary Computer Pro
 
-For any STAC (Spatio Temporal Asset Catalog) collection, you can define **multiple mosaic configurations**. Each **mosaic** specifies search criteria that return and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or have less than a particular percentage cloud cover.
+For any STAC (Spatiotemporal Asset Catalog) collection, you can define **multiple mosaic configurations**. Each **mosaic** specifies search criteria that return and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or have less than a particular percentage cloud cover.
 
 Each mosaic configuration includes:
 
