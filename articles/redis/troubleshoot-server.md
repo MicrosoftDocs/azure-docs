@@ -78,7 +78,6 @@ Redis exposes two stats, `used_memory` and `used_memory_rss`, through the [INFO]
 
 There are several possible changes you can make to help keep memory usage healthy:
 
-- [Configure a memory policy](configure.md#memory-policies) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
 - [Create alerts](monitor-cache.md#create-alerts) on metrics like used memory to be notified early about potential impacts.
 - [Scale](how-to-scale.md) to a larger cache size with more memory capacity. For more information, see [Azure Managed Redis planning FAQs](planning-faq.yml).
 

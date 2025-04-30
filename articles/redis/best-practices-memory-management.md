@@ -23,10 +23,9 @@ Set an expiration value on your keys. An expiration removes keys proactively ins
 
 ## Monitor memory usage
 
-Consider adding alerting on "Used Memory Percentage" metric to ensure that you don't run out of memory and have the chance to scale your cache before seeing issues. If your "Used Memory Percentage" is consistently over 75%, consider increasing your memory by scaling to a higher tier. See [here](architecture.md#sharding-configuration) for information on tiers.
+Consider adding alerting on "Used Memory Percentage" metric to ensure that you don't run out of memory and have the chance to scale your cache before seeing issues. If your "Used Memory Percentage" is consistently over 75%, consider increasing your memory by scaling to a higher tier. For information on tiers, see [Architecture](architecture.md#sharding-configuration) for information on tiers.
 
 ## Next steps
 
 - [Best practices for development](best-practices-development.md)
-- [maxmemory-reserved setting](configure.md#memory-policies)
 - [Best practices for scaling](best-practices-scale.md)
