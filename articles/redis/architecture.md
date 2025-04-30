@@ -94,7 +94,7 @@ Each SKU of Azure Managed Redis is configured to run a specific number of Redis 
 |     1920 *     |       64/48      |         256/192         |          -         |           -        |
 |     4500 *     |       144/96      |        -         |          -         |           -        |
 
-  * These tiers are in Public Preview.
+  \* These tiers are in Public Preview.
 
 ## Running without high availability mode enabled
 
@@ -106,7 +106,7 @@ On each Azure Managed Redis Instance, approximately 20% of the available memory 
 
 ## Scaling down
 
-Scaling down is not currently supported on Azure Managed redis. For more information, see [Prerequisites/limitations of scaling Azure Managed Redis](how-to-scale.md#prerequisiteslimitations-of-scaling-azure-managed-redis).
+Scaling down is not currently supported on Azure Managed redis. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 
 ## Flash Optimized tier
 

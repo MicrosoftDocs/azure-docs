@@ -117,7 +117,7 @@ The following table helps describe some of the features supported by tier:
 >
 
 > [!NOTE]
-> Scaling down support is limited in some situations. For more information, see [Prerequisites/limitations of scaling Azure Managed Redis](how-to-scale.md#prerequisiteslimitations-of-scaling-azure-managed-redis).
+> Scaling down support is limited in some situations. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 >
 
 ### Other considerations when picking a tier
