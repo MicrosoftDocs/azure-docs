@@ -223,6 +223,7 @@ The creation wizard generated the connectivity variables for you already as [app
 :::row:::
     :::column span="2":::
         **Step 2: Create a subnet for securing Key Vault**
+        The virtual network already has two existing subnets, but one is already delegated to App Service and the other is already delegated to Azure Database for PostgreSQL. You create another one for secure access to Key Vault with a private endpoint (for more information, see [Network security for Azure Key Vault](/azure/key-vault/general/network-security)).
         1. In the left menu of the App Service page, select the **Overview** tab.
         1. Select the resource group of the app.
         1. Select the virtual network in the resource group.
@@ -230,7 +231,6 @@ The creation wizard generated the connectivity variables for you already as [app
         1. Select **+ Subnet**.
         1. In **Name**, type **subnet-keyvault**. Accept the defaults.
         1. Select **Add**.
-        The virtual network already has two existing subnets, but one is already delegated to App Service and the other is already delegated to Azure Database for PostgreSQL. The new subnet you create is used for secure access to Key Vault with a private endpoint (for more information, see [Network security for Azure Key Vault](/azure/key-vault/general/network-security)).
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a subnet in the virtual network." lightbox="./media/tutorial-java-quarkus-postgresql-app/azure-portal-secure-connection-secrets-2.png":::
@@ -562,13 +562,13 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd auth login
     ```  
 
-1. Create the necessary Azure resources with the `azd up` command. Follow the prompt to select the desired subscription and location for the Azure resources.
+1. Create the necessary Azure resources with the `azd provision` command. Follow the prompt to select the desired subscription and location for the Azure resources.
 
     ```bash
-    azd up
+    azd provision
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). Later, you'll modify your code to work with App Service and deploy the changes with `azd deploy`. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure.
+    The `azd provision` command takes about 15 minutes to complete (the Redis cache takes the most time). Later, you'll modify your code to work with App Service and deploy the changes with `azd deploy`. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -584,15 +584,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
 
-    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
-
-Having issues? Check the [Troubleshooting section](#troubleshooting).
-
-## 3. Use the database connection string
-
-The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository.
-
-1. In the AZD output, find the setting `AZURE_POSTGRESQL_CONNECTIONSTRING`. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
+1. Once provisioning finishes, find the setting `AZURE_POSTGRESQL_CONNECTIONSTRING` in the AZD output. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:
 
     <pre>
     App Service app has the following connection settings:
@@ -602,11 +594,17 @@ The AZD template you use generated the connectivity variables for you already as
             - AZURE_KEYVAULT_SCOPE
     </pre>
 
-1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
+    The AZD template you use generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings) and outputs the them to the terminal for your convenience. App settings are one way to keep connection secrets out of your code repository. You can also find the direct link to the app settings page for the created App Service app.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 4. Modify sample code and redeploy
+## 3. Modify sample code and redeploy
+
+Once the command finishes creating resources the first time, you must make some changes to make it to your application code and then deploy it:
+
+- Quarkus listens to port 8080 by default. In production, it needs to be configured to listen to the port specified by the `PORT` environment variable in App Service.
+- Your deployed Java package must be an [Uber-Jar](https://quarkus.io/guides/maven-tooling#uber-jar-maven).
+- For simplicity of the tutorial, you'll disable tests during the deployment process. The GitHub Actions runners don't have access to the PostgreSQL database in Azure, so any integration tests that require database access will fail, such as is the case with the Quarkus sample application. 
 
 # [With GitHub Copilot](#tab/copilot)
 
@@ -638,7 +636,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     ```
 
 > [!NOTE]
-> If you run `azd up`, it combines `azd package`, `azd provision`, and `azd deploy`.
+> If you run `azd up`, it combines `azd package`, `azd provision`, and `azd deploy`. The reason you didn't do it at the beginning was because you didn't have the PostgreSQL connection settings to modify your code with yet. If you ran `azd up` then, the deploy stage would stall because the Quarkus app wouldn't be able to start without the changes you made here.
 
 -----
 
@@ -669,7 +667,7 @@ Azure App Service can capture console logs to help you diagnose issues with your
 
 The sample application includes standard JBoss logging statements to demonstrate this capability as shown below.
 
-:::code language="java" source="~/msdocs-quarkus-postgresql-sample-app/src/main/java/org/acme/hibernate/orm/panache/entity/FruitEntityResource.java" range="34-40" highlight="38":::
+:::code language="java" source="~/msdocs-quarkus-postgresql-sample-app/src/main/java/org/acme/hibernate/orm/panache/entity/FruitEntityResource.java" range="34-40" highlight="1,5":::
 
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
