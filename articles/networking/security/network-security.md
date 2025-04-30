@@ -103,7 +103,7 @@ The Network Security hub currently supports the following deployment options:
 
 - **Secured hub-and-spoke virtual network**: Deploy an Azure Firewall in a virtual network designated as a hub. This hub virtual network can connect to multiple spoke virtual networks using virtual network peering. The Azure Firewall is associated with an Azure Firewall policy that defines the rules and configurations for the firewall. This deployment model is ideal for organizations seeking to centralize network security and management in one location.
 
-- **Protect Virtual WANs at scale**: Deploy an Azure Firewall in a Azure Virtual WAN secured hub. The Azure Firewall is associated with an Azure Firewall policy, and the secured hub is connected to multiple branch offices and remote users. This deployment model is ideal for organizations using Azure Virtual WAN to connect multiple branch offices and remote users to Azure resources.
+- **Protect Virtual WANs at scale**: Deploy an Azure Firewall in an Azure Virtual WAN secured hub. The Azure Firewall is associated with an Azure Firewall policy, and the secured hub is connected to multiple branch offices and remote users. This deployment model is ideal for organizations using Azure Virtual WAN to connect multiple branch offices and remote users to Azure resources.
 
 - **Zero Trust for web applications**: Use Azure Application Gateway with an Azure Web Application Firewall (WAF) policy to safeguard regional web applications against common exploits and vulnerabilities. Customize the WAF policy to address the specific security needs of your web applications effectively.
 
