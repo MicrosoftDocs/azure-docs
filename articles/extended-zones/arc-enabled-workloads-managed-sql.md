@@ -4,46 +4,45 @@ description: Learn how to deploy arc-enabled Managed SQL Instance in an Extended
 author: svaldes
 ms.author: svaldes
 ms.service: azure-extended-zones
-ms.topic: quickstart-arm
-ms.date: 30/04/2025
-ms.custom: subject-armqs, devx-track-azurecli
+ms.topic: arc-enabled AKS in Extended Zones
+ms.date: 05/02/2025
+ms.custom: arc-enabled-aks, extended-zones
 
 # Customer intent: As a cloud administrator and Azure Extended Zones user, I want a quick method to deploy PaaS services via Arc in an Azure Extended Zone. 
 ---
   
 # Deploy arc-enabled workloads in an Extended Zone: Managed SQL Instance
  
-In this article, you will learn how to deploy arc-enabled workloads in an Extended Zone. The current supported workloads are ContainerApps, ManagedSQL, and PostgreSQL.
-Feel free to explore Container Apps on Azure Arc Overview | Microsoft Learn to become more familiar with Container Apps on Azure Arc.
+In this article, you will learn how to deploy arc-enabled workloads in an Extended Zone. The current supported workloads are ContainerApps, ManagedSQL and PostgreSQL.
 
 ## Prerequisites
 
 - [An Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) with an active subscription.
 - Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
-- Azure Cloud Shell or Azure CLI. Install the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli).
-- Access to a public or private container registry, such as the [Azure Container Registry](https://learn.microsoft.com/en-us/azure/container-registry/).
-- Review the [requirements and limitations](https://learn.microsoft.com/en-us/azure/container-apps/azure-arc-overview0) of the public preview. Of particular importance are the cluster requirements.
+- Azure Cloud Shell or Azure CLI. Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+- Review the [requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
 - Azure Data Studio
 - Azure Arc extension for Azure Data Studio
 - arcdata extension for Azure CLI
 - kubectl
-- In addition to the required tools, to complete the tasks, you need an [Azure Arc data controller](https://learn.microsoft.com/en-us/azure/azure-arc/data/plan-azure-arc-data-services). 
-- Additional client tools depending your environment. For a more comprehensive list, see [Client tools](https://learn.microsoft.com/en-us/azure/azure-arc/data/install-client-tools).
-- Before you proceed to create a container app, you first need to set up an [Azure Arc-enabled Kubernetes cluster to run Azure Container Apps](https://learn.microsoft.com/en-us/azure/container-apps/azure-arc-enable-cluster). You will need to follow the steps in *Setup*, *Create a Connected Cluster*, and (optionally) *Create a Log Analytics Workspace* before addressing the following steps in this article. 
+- In addition to the required tools, to complete the tasks, you need an [Azure Arc data controller](/azure/azure-arc/data/plan-azure-arc-data-services). 
+- Additional client tools depending your environment. For a more comprehensive list, see [Client tools](/azure/azure-arc/data/install-client-tools).
+- Before you proceed to create a ManagedSQL Instance, you first need to set up an [Azure Arc-enabled Kubernetes cluster in Extended Zones](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster). You will need to follow the steps in *Setup*, *Create a Connected Cluster*, and (optionally) *Create a Log Analytics Workspace* before addressing the following steps in this article. 
 > [!NOTE] 
 > Use the intended Extended Location as your location variable. 
 
 ## Getting Started	
 If you are already familiar with the topics below, you may skip this paragraph. There are important topics you may want read before you proceed with creation:
-•	[Overview of Azure Arc-enabled data services](https://learn.microsoft.com/en-us/azure/azure-arc/data/overview)
-•	[Connectivity modes and requirements](https://learn.microsoft.com/en-us/azure/azure-arc/data/connectivity)
-•	[Storage configuration and Kubernetes storage concepts](https://learn.microsoft.com/en-us/azure/azure-arc/data/storage-configuration)
+•	[Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
+•	[Connectivity modes and requirements](/azure/azure-arc/data/connectivity)
+•	[Storage configuration and Kubernetes storage concepts](/azure/azure-arc/data/storage-configuration)
 •	[Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
 
 
 ### Create an Azure Arc-enabled ManagedSQL Instance in Extended Zones
 
-Now that the Arc-enabled AKS has been created, we can proceed to using the following PowerShell script to create our ManagedSQL Instance on an AKS cluster in an Extended Zone and connect it to the Azure Arc-enabled Kubernetes. 
+Now that the Arc-enabled AKS cluster has been created, we can proceed to using the following PowerShell script to create our ManagedSQL Instance on an AKS cluster in an Extended Zone and connect it to the Azure Arc-enabled Kubernetes. 
 
 > [!NOTE] 
 > Please make sure to transfer the parameters from the Arc-enabled AKS steps correctly into the script.
@@ -169,8 +168,9 @@ az group delete --name my-aks-cluster-group
 
 ## Related content
 
-- [Deploy arc-enabled workloads in an Extended Zone: ContainerApps](https://learn.microsoft.com/en-us/azure/container-apps/arc-enabled-workloads-container-apps)
-- [Deploy arc-enabled workloads in an Extended Zone: PostgreSQL](https://learn.microsoft.com/en-us/azure/container-apps/arc-enabled-workloads-postgresql)
+- [Create an Arc-enabled AKS cluster in an Extended Zone](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster)
+- [Deploy arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
+- [Deploy arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgresql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)
