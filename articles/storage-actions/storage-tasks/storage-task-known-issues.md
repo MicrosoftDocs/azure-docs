@@ -30,9 +30,7 @@ During the public, you can target only storage accounts that are in the same reg
 
 Azure Storage Actions autoscales its processing tasks based on the volume of data in a storage account, subject to internal limits. The duration of execution depends on the number of blobs in the storage account, as well as their hierarchy in Azure Data Lake Storage Gen2. The first execution of a task over a path prefix might take longer than subsequent executions. Azure Storage Actions are also designed to be self-regulating and to allow application workloads on the storage account to take precedence. As a result, the scale and the duration of execution also depend on the available transaction capacity given the storage account's maximum request limit. The following are typical processing scales, which might be higher if you have more transaction capacity available, or might be lower for lesser spare transaction capacity on the storage account.
 
-During the, Azure Storage Actions can invoke up to 200 million operations per day for a maximum of seven days on a flat-namespace storage account. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 200 million and four billion blobs in a day.
-
-For storage accounts with a hierarchical namespace, Azure Storage Actions can invoke up to 35 million operations per day for a maximum of seven days during the. Depending on the proportion of blobs targeted that meet the condition for operations, a task assignment might process between 35 million to 400 million blobs in a day.
+In a 14 day period, Azure Storage Actions can process 90 billion blobs in an account that has a flat namespace, and 7 billion blob in an account that has a hierarchical namespace.
 
 ## Premium Block Blobs 
 
