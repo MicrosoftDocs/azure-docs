@@ -84,7 +84,7 @@ items:
     href: how-to-configure-customization-imaging.md
   - name: Create customization tasks
     href: how-to-create-customization-tasks-catalog.md
-  - name: Use secrets
+  - name: Use customization files to clone private repositories
     href: how-to-use-secrets-customization-files.md 
 - name: Create & connect to dev boxes
   items:
