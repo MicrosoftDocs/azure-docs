@@ -30,3 +30,5 @@ AzureMigration.ps1
 articles/planetary-computer/doc-tree-generator.py
 .gitignore
 articles/planetary-computer/article_links_diagram.md
+articles/planetary-computer/index_helper.py
+articles/planetary-computer/metadata_index.csv

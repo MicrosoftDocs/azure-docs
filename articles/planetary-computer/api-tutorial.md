@@ -1,6 +1,6 @@
 ---
-title: Using the Planetary Computer Pro APIs to Ingest and Visualize Data
-description: "In this tutorial, you'll create and store satellite imagery within a Planetary Computer Pro GeoCatalog"
+title: Using the Microsoft Planetary Computer Pro APIs to Ingest and Visualize Data
+description: "In this tutorial, you'll create and store satellite imagery within a Microsoft Planetary Computer Pro GeoCatalog"
 author: TaylorCorbett
 ms.author: gecorbet
 ms.service: azure
@@ -11,7 +11,7 @@ ms.date: 4/25/2025
 
 ---
 
-# Tutorial: Using the Planetary Computer Pro APIs to Ingest and Visualize Data
+# Tutorial: Using the Microsoft Planetary Computer Pro APIs to Ingest and Visualize Data
 
 STAC (SpatioTemporal Asset Catalog) Collections are used within a GeoCatalog to index and store related spatiotemporal assets. In this end-to-end tutorial, you'll create a new STAC collection, ingest Sentinel-2 images into the collection, and query those images via GeoCatalog's APIs.
 

@@ -24,10 +24,6 @@ landingContent:
         links:
           - text: What is Microsoft Planetary Computer Pro?
             url: microsoft-planetary-computer-pro-overview.md
-      - linkListType: get-started
-        links:
-          - text: Get started with Microsoft Planetary Computer Pro
-            url: get-started-planetary-computer.md
       - linkListType: whats-new
         links:
           - text: What's new in Microsoft Planetary Computer Pro
@@ -35,62 +31,103 @@ landingContent:
       - linkListType: concept
         links:
           - text: STAC overview
-            url: stac-overview.md  
-
-
-  # Card
-  - title: Concepts
-    linkLists:
-      - linkListType: concept
+            url: stac-overview.md
+          - text: Supported Data Types
+            url: supported-data-types.md
+      - linkListType: limits-and-quotas
         links:
-          - text: Manage access
-            url: manage-access.md
-          - text: Ingestion source
-            url: ingestion-source.md
-          - text: Mosaic configurations for collections
-            url: mosaic-configurations-for-collections.md
-          - text: Render configuration
-            url: render-configuration.md
-          - text: Tile settings
-            url: tile-settings.md
-          - text: Queryables for data explorer custom search filters
-            url: queryables-for-explorer-custom-search-filter.md
-          - text: Data cube Overview
-            url: datacube-overview.md
-  
+          - text: Service Limitations
+            url: service-limitations.md
+
   # Card
-  - title: Quickstarts
+  - title: Deploy & Setup
     linkLists:
-      - linkListType: quickstart
+      - linkListType: get-started
+        links:
+          - text: Get started with Microsoft Planetary Computer Pro
+            url: get-started-planetary-computer.md
+      - linkListType: install-set-up-deploy
         links:
           - text: Deploy a GeoCatalog resource
             url: deploy-geocatalog-resource.md
-          - text: Create a STAC collection with GeoCatalog using Python
-            url: create-stac-collection.md
-          - text: Add STAC Items to a Collection
-            url: add-stac-item-to-collection.md
-          - text: Use the Microsoft Planetary Computer Pro Explorer
-            url: use-explorer.md
-          - text: Use GeoCatalog in Azure Batch
-            url: azure-batch.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage access to Microsoft Planetary Computer Pro
+            url: manage-access.md
+      - linkListType: tutorial
+        links:
+          - text: Using the Microsoft Planetary Computer Pro APIs to Ingest and Visualize Data
+            url: api-tutorial.md
 
 
   # Card
-  - title: How-to guides
+  - title: Create a STAC Collection
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a STAC collection (Web Interface)
+            url: create-collection-ui.md
+          - text: Create a STAC collection (API)
+            url: create-stac-collection.md
+  
+  # Card
+  - title: Ingest Data
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Ingestion Overview
+            url: ingestion-overview.md
+          - text: Ingestion Sources
+            url: ingestion-source.md
       - linkListType: how-to-guide
         links:
-          - text: Assign a user-assigned managed identity to a GeoCatalog resource
-            url: assign-managed-identity-geocatalog-resource.md
-          - text: Create a STAC item
-            url: create-stac-item.md  
-          - text: Add STAC Items to a Collection
-            url: add-stac-item-to-collection.md  
-          - text: Delete a GeoCatalog resource
-            url: delete-geocatalog-resource.md
           - text: Setup an ingestion source using managed identity
-            url: setup-ingestion-credentials-managed-identity.md 
-          - text: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
+            url: setup-ingestion-credentials-managed-identity.md
+          - text: Set up ingestion source using SAS tokens
             url: setup-ingestion-credentials-sas-tokens.md
-          - text: Visualize assets
-            url: visualize-assets.md
+          - text: Create a STAC item
+            url: create-stac-item.md
+      - linkListType: quickstart
+        links:
+          - text: Add a STAC Item to a collection
+            url: add-stac-item-to-collection.md
+          - text: Bulk Ingest data
+            url: bulk-ingestion-api.md
+
+  # Card
+  - title: Configure Collections for Visualization
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Mosaic Configuration
+            url: mosaic-configurations-for-collections.md
+          - text: Render Configuration
+            url: render-configuration.md
+          - text: Tile Settings
+            url: tile-settings.md
+          - text: Queryables 
+            url: queryables-for-explorer-custom-search-filter.md
+          - text: Supported Color Maps
+            url: supported-colormaps.md
+
+  # Card
+  - title: Build and Use Applications
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Build Applications
+            url: build-applications-with-planetary-computer-pro.md
+      - linkListType: quickstart
+        links:
+          - text: Use the explorer
+            url: use-explorer.md
+      - linkListType: how-to-guide
+        links:
+          - text: Application authentication
+            url: application-authentication.md
+          - text: Connect to ArcGIS Pro
+            url: create-connection-arcgispro.md
+      - linkListType: quickstart
+        links:
+          - text: Azure Batch and Microsoft Planetary Computer Pro
+            url: azure-batch.md

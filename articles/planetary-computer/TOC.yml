@@ -1,64 +1,81 @@
 - name: Microsoft Planetary Computer Pro
   href: index.yml
-- name: Overview
+- name: About Microsoft Planetary Computer Pro
   items:
   - name: What is Microsoft Planetary Computer Pro?
     href: microsoft-planetary-computer-pro-overview.md
+  - name: What's new in Microsoft Planetary Computer Pro
+    href: whats-new.md
   - name: STAC overview
-    href: stac-overview.md  
+    href: stac-overview.md
+  - name: Supported Data Types
+    href: supported-data-types.md
+  - name: Service Limitations
+    href: service-limitations.md
   expanded: true
-- name: Deployment & Management
+- name: Deploy & Setup
   items:
+  - name: Get started with Microsoft Planetary Computer Pro
+    href: get-started-planetary-computer.md
   - name: Deploy a GeoCatalog resource
     href: deploy-geocatalog-resource.md
   - name: Delete a GeoCatalog resource
     href: delete-geocatalog-resource.md
-  - name: Assign a user-assigned managed identity to a GeoCatalog resource
-    href: assign-managed-identity-geocatalog-resource.md
-- name: Quickstarts
-  items:
-  - name: Create a STAC collection with GeoCatalog using Python
-    href: create-stac-collection.md
-  - name: Add STAC Items to a Collection
-    href: add-stac-item-to-collection.md
-  - name: Use the Microsoft Planetary Computer Pro Explorer
-    href: use-explorer.md
-  - name: Use GeoCatalog in Azure Batch
-    href: azure-batch.md
-  - name: Gest Started with Data Cubes
-    href: datacube-quickstart.md
-- name: How-to-guides
-  items:
-  - name: Create a STAC item
-    href: create-stac-item.md
-  - name: Setup an ingestion source using managed identity
-    href: setup-ingestion-credentials-managed-identity.md 
-  - name: Set up ingestion credentials Microsoft Planetary Computer Pro using SAS tokens
-    href: setup-ingestion-credentials-sas-tokens.md
-  - name: Ingest data with the Bulk Ingestion API
-    href: bulk-ingestion-api.md
-  - name: Visualize assets
-    href: visualize-assets.md  
-- name: Concepts
-  items:
-  - name: Data cube Overview
-    href: datacube-overview.md
-  - name: Ingestion source
-    href: ingestion-source.md
   - name: Manage access
     href: manage-access.md
-  - name: Mosaic configurations for collections
-    href: mosaic-configurations-for-collections.md
-  - name: Queryables for data explorer custom search filters
-    href: queryables-for-explorer-custom-search-filter.md
-  - name: Render configuration
-    href: render-configuration.md
-  - name: Tile settings
-    href: tile-settings.md
-- name: References
+  - name: Assign a user-assigned managed identity to a GeoCatalog resource
+    href: assign-managed-identity-geocatalog-resource.md
+  - name: Using the Microsoft Planetary Computer Pro APIs
+    href: api-tutorial.md
+- name: Create a STAC Collection
   items:
-  - name: Supported Data Types
-    href: supported-data-types.md
-  - name: Supported Colormaps
+  - name: Create a STAC collection (Web Interface)
+    href: create-collection-ui.md
+  - name: Create a STAC collection (API)
+    href: create-stac-collection.md
+- name: Ingest Data
+  items:
+  - name: Ingestion Overview
+    href: ingestion-overview.md
+  - name: Ingestion Sources
+    href: ingestion-source.md
+  - name: Setup an ingestion source using managed identity
+    href: setup-ingestion-credentials-managed-identity.md
+  - name: Set up ingestion source using SAS tokens
+    href: setup-ingestion-credentials-sas-tokens.md
+  - name: Create a STAC item
+    href: create-stac-item.md
+  - name: Add a STAC Item to a collection
+    href: add-stac-item-to-collection.md
+  - name: Bulk Ingest data
+    href: bulk-ingestion-api.md
+- name: Configure Collections for Visualization
+  items:
+  - name: Mosaic Configuration
+    href: mosaic-configurations-for-collections.md
+  - name: Render Configuration
+    href: render-configuration.md
+  - name: Tile Settings
+    href: tile-settings.md
+  - name: Queryables
+    href: queryables-for-explorer-custom-search-filter.md
+  - name: Supported Color Maps
     href: supported-colormaps.md
-  
+  - name: Visualize assets
+    href: visualize-assets.md
+- name: Build and Use Applications
+  items:
+  - name: Build Applications
+    href: build-applications-with-planetary-computer-pro.md
+  - name: Use the explorer
+    href: use-explorer.md
+  - name: Application authentication
+    href: application-authentication.md
+  - name: Connect to ArcGIS Pro
+    href: create-connection-arcgispro.md
+  - name: Azure Batch and Microsoft Planetary Computer Pro
+    href: azure-batch.md
+  - name: Get Started with Data Cubes
+    href: datacube-quickstart.md
+  - name: Data cube Overview
+    href: datacube-overview.md
