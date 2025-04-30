@@ -41,6 +41,9 @@
   - name: Configure Durable Functions app with Durable Task Scheduler
     displayName: get started, durable task scheduler
     href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
+  - name: Configure a container app with Durable Task SDK and Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-aca-azd-durable-task-sdk.md
   - name: Configure Durable Functions app with MSSQL
     href: quickstart-mssql.md
   - name: Configure Durable Functions app with managed identity
