@@ -28,7 +28,7 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 * [Create a backup policy for protection of Azure Files](quick-backup-azure-files-vault-tier-portal.md).
 * If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
 * Ensure that you allow the **Storage account key access** in the required storage account.
-* Ensure that the target storage account has the[supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
+* Ensure that the target storage account has the [supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
 
 >[!IMPORTANT]
 >To perform [Cross Subscription Backup (CSB) for protecting Azure Files (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
