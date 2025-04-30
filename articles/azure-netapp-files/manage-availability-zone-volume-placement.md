@@ -44,7 +44,7 @@ You can deploy new volumes in the logical availability zone of your choice. You 
     * [Create an SMB volume](azure-netapp-files-create-volumes-smb.md)      
     * [Create a dual-protocol volume](create-volumes-dual-protocol.md)    
 
-2.	In the **Create a Volume** page, under the **Basic** tab, select the **Availability Zone** pulldown to specify an availability zone where Azure NetApp Files resources are present.   
+2.	In the **Create a Volume** page, under the **Basic** tab, select the **Availability Zone** dropdown to specify an availability zone where Azure NetApp Files resources are present.   
 
     > [!IMPORTANT]
     > Logical availability zones for the subscription without Azure NetApp Files presence are marked `(Unavailable)` and are greyed out.
@@ -141,7 +141,7 @@ If you're using a custom RBAC role or the [built-in Contributor role](../role-ba
     ```
 
 1. Select **Review + update**.
-1. Sign out of your Azure account, then sign back in to confirm permissions effect has taken hold and the options are visible. 
+1. Sign out of your Azure account, then log back in to confirm permissions effect has taken hold and the options are visible. 
 
 ## Next steps  
 

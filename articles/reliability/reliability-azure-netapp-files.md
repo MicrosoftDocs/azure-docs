@@ -15,7 +15,9 @@ This article describes reliability support in Azure NetApp Files, covering intra
 Resiliency is a shared responsibility between you and Microsoft. This article also covers ways for you to create a resilient solution that meets your needs.
 
 <!-- needed? -->
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides Volumes as a service, which you can create within a NetApp account and a capacity pool, and share to clients using SMB and NFS. You can also select service and performance levels and manage data protection. You can create and manage high-performance, highly available, and scalable file shares by using the same protocols and tools that you're familiar with and rely on on-premises.
+Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides volumes as a service, which you can create within a NetApp account and a capacity pool, and share to clients using SMB and NFS. You can also select service and performance levels and manage data protection.
+
+<!-- check aks example -->
 
 ## Production deployment recommendations
 
@@ -27,15 +29,21 @@ For recommendations about reliable production workloads in Azure NetApp Files, s
 
 ## Transient faults
 
-Transient faults are short, intermittent failures in components. They occur frequently in a distributed environment like the cloud, and they're a normal part of operations. They correct themselves after a short period of time. It's important that your applications handle transient faults, usually by retrying affected requests.
+[!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-All cloud-hosted applications should follow the Azure transient fault handling guidance when communicating with any cloud-hosted APIs, databases, and other components. For more information, see [Recommendations for handing transient faults](/azure/well-architected/reliability/handle-transient-faults).
+Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are nondisruptive, as long as the application can handle the I/O pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds.
 
-<!-- details for ANF -->
+The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle IO pauses for as long as 30-45 seconds. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events.
+
+For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. Azure NetApp Files also supports [SMB continuous availability](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#continuous-availability), which enables SMB Transparent Failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience. SMB continuous availability is only available for [specific application](../azure-netapp-files/faq-application-resilience.md#do-i-need-to-take-special-precautions-for-smb-based-applications)
+
+For further recommendations, see [Azure NetApp Files application resilience FAQs](../azure-netapp-files/faq-application-resilience.md).
 
 ## Availability zone support
 
 [!INCLUDE [AZ support description](includes/reliability-availability-zone-description-include.md)] 
+
+Azure NetApp Files supports both zonal placement and zone redundancy. 
 
 [Azure NetApp Files' availability zone volume placement feature](../azure-netapp-files/use-availability-zones.md) lets you deploy each volume in the specific availability zone of your choice, in alignment with Azure compute and other services in the same zone. Azure NetApp Files deployments occur in the availability of zone of choice if Azure NetApp Files is present in that availability zone and has sufficient capacity.
 
@@ -45,17 +53,17 @@ To achieve zone redundancy, Azure NetApp Files offers [cross-zone replication](.
 
 For more information, see [Manage availability zone volume placement in Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md). 
 
+### Region support 
 
-###  Region support 
-
-<!-- edit -->
-For a list of regions that currently support availability zones, see Azure regions with availability zone support.
+For a list of regions that currently support availability zones, see [Azure regions with availability zone support](availability-zones-region-support.md).
 
 ###  Considerations 
 
-* Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it does not provide lowest latency guarantee.
+* Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide lowest latency guarantee.
 * For other considerations related to availability zones in Azure NetApp Files, see [Manage availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations).
-* If you're deploying Terraform-managed volumes with availability zones, there are [additional configurations required](../azure-netapp-files/manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+* If you're deploying Terraform-managed volumes with availability zones, there are [other configurations required](../azure-netapp-files/manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+* Zone-redundancy in Azure NetApp Files uses the [availability zone placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations). For further considerations, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md).
+* If you're using role-based access control, [ensure you've configure the correct permissions](../azure-netapp-files/manage-availability-zone-volume-placement.md#configure-custom-rbac-roles).
 
 ### Cost
 
@@ -65,11 +73,7 @@ There's no extra charge to enable availability zone support in Azure NetApp File
 
 * You can configure availability zone support for new and existing volumes in Azure NetApp Files. To configure availability zones for volumes in Azure NetApp Files, see [Manage availability zone volume placement for Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md).
 * After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can't be moved between availability zones.
-* For additional resiliency, [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
-
-
-### Zone-down experience
-
+* For added resiliency, [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
 
 
 ### Failback
@@ -82,16 +86,19 @@ To test your preparedness and cross-zone replication configuration, see [Test di
 
 ## Multi-region support
 
-The Azure NetApp Files replication functionality provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens. To learn more, see:
+Azure NetApp Files provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens. To learn more, see:
 
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
 - [Supported regions for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#supported-region-pairs)
 - [Requirements and considerations for using cross-region replication in Azure NetApp Files](../azure-netapp-files/cross-region-replication-requirements-considerations.md)
 - [Create volume replication for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md)
+- [Display health and monitor status of replication relationship](../azure-netapp-files/cross-region-replication-display-health-status.md)
 
 ### Failback
 
-Both failover and failback are manual process in Azure NetApp Files cross-region replicaiton. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md)
+Both failover and failback are manual process in Azure NetApp Files cross-region replication. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md)
+
+It's also recommended you [set alert rules to monitor replication status](../azure-netapp-files/cross-region-replication-display-health-status.md#set-alert-rules-to-monitor-replication).
 
 ### Testing for region failures  
 
@@ -101,7 +108,7 @@ To test your preparedness and cross-region replication configuration, see [Test 
 
 [Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md) expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. 
 
-For additional security, Azure NetApp Files [snapshots](/azure-netapp-files/data-protection-disaster-recovery-options#snapshots) add stability, scalability, and fast recoverability without affecting performance. They provide the foundation for other redundancy solutions, including backup, cross-region replication, and cross-zone replication.
+For further security, Azure NetApp Files [snapshots](/azure-netapp-files/data-protection-disaster-recovery-options#snapshots) add stability, scalability, and fast recoverability without affecting performance. They provide the foundation for other redundancy solutions, including backup, cross-region replication, and cross-zone replication.
 
 For most solutions, you shouldn't rely exclusively on backups. Instead, use the other capabilities described in this guide to support your resiliency requirements. However, backups protect against some risks that other approaches don't. For more information, see [What are redundancy, replication, and backup?](concept-redundancy-replication-backup.md).
 
