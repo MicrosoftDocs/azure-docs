@@ -26,7 +26,7 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.6.6 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30, v1.31, v1.32 | [Fix for SSE timeout value of 0](https://learn.microsoft.com/en-us/answers/questions/2153620/server-sent-events-and-azure-application-gateway-f), [Overlay CNI fix](https://github.com/Azure/AKS/issues/4950), [port by name in health check](https://github.com/Azure/AKS/issues/4861), leverage init container during bootstrap, misc. bug fixes and improvements |
+| 1.6.6 | v1.1.1 | v1.26, v1.27, v1.28, v1.29, v1.30, v1.31, v1.32 | [Fix for SSE timeout value of 0](https://learn.microsoft.com/en-us/answers/questions/2153620/server-sent-events-and-azure-application-gateway-f), [Overlay CNI fix](https://github.com/Azure/AKS/issues/4950), [support readinessProbe port by name](https://github.com/Azure/AKS/issues/4861), leverage init container during bootstrap, misc. bug fixes and improvements |
 
 ## Release history
 
