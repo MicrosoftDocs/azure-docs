@@ -2,7 +2,7 @@
 title: Azure Database for PostgreSQL- Flexible server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 05/02/2025
+ms.date: 04/30/2025
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
 author: jyothisuri
@@ -54,7 +54,7 @@ Azure Database for PostgreSQL – Flexible Server backups include the following 
   - `ERROR: Only roles with the ADMIN option on role "pg_use_reserved_connections" may grant this role. permission denied to grant role "pg_use_reserved_connections"`
   - `ERROR: permission denied to grant role "pg_use_reserved_connections" SQL state: 42501 Detail: Only roles with the ADMIN option on role "pg_use_reserved_connections" may grant this role.`
 
-- In PostgreSQL **community version 16**, the requirement for superuser privileges to set the Bypass RLS attribute was removed. So, in versions 16 and higher, you can grant the Bypass RLS to azure_pg_admin allowing others to perform this. For versions lower than 16, the bypassrls attribute is granted only to the server admin and no other non-superuser roles. 
+- In PostgreSQL **community version 16**, the requirement for superuser privileges to set the Bypass Row -level security (RLS) attribute was removed. So, in versions 16 and higher, you can grant the Bypass RLS to azure_pg_admin allowing others to set the RLS. For versions lower than 16, the bypasses attribute is granted only to the server admin and no other nonsuperuser roles. 
 - If you're using Entra Admins after restoration, you might encounter the **Owner Change Issue** : As a workaround, use the **grant** option to provide ownership. 
 
 
