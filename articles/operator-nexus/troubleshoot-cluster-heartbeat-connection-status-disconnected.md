@@ -46,7 +46,7 @@ The following table shows the possible values of `ClusterConnectionStatus` and t
 
 The value of `ClusterConnectionStatus` is visible in the Azure portal in the Cluster resource view.
 
-![!include[clusterConnectionStatus](./includes/cluster-connection-status.md)]
+![!include[clusterConnectionStatus](./media/troubleshoot-cluster-heartbeat-connection-status.png)]
 
 Or, you can use the Azure CLI to see the value of `ClusterConnectionStatus`:
 
@@ -77,17 +77,17 @@ The following sections provide some common investigation steps and references to
 It's useful to start with the Network Fabric [controller][Network Fabric Controller] and [services][Network Fabric Services] resources.
 Verify the [network configuration][How to Configure Network Fabric], including rack cabling, IP addresses, DNS settings, routing rules, firewall rules, and any other network-related settings that might be affecting the connectivity.
 
-[How to Configure Network Fabric]: https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-network-fabric
-[Network Fabric Controller]: https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-controller
-[Network Fabric Services]: https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-services
+[How to Configure Network Fabric]: ./howto-configure-network-fabric.md
+[Network Fabric Controller]: ./concepts-network-fabric-controller.md
+[Network Fabric Services]: ./concepts-network-fabric-services.md
 
 Evaluate any configured monitoring or metrics for the Network Fabric resources.
 For more information, see the following links:
 
-- [Nexus Network Fabric configuration monitoring overview](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-network-fabric-configuration-monitoring)
-- [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-configure-diagnostic-settings-monitor-configuration-differences)
-- [Azure Operator Nexus Network Fabric internal network BGP metrics](https://learn.microsoft.com/en-us/azure/operator-nexus/concepts-internal-network-bgp-metrics)
-- [How to monitor interface In and Out packet rate for network fabric devices](https://learn.microsoft.com/en-us/azure/operator-nexus/howto-monitor-interface-packet-rate)
+- [Nexus Network Fabric configuration monitoring overview](./concepts-network-fabric-configuration-monitoring.md)
+- [How to configure diagnostic settings and monitor configuration differences in Nexus Network Fabric](./howto-configure-diagnostic-settings-monitor-configuration-differences.md)
+- [Azure Operator Nexus Network Fabric internal network BGP metrics](./concepts-internal-network-bgp-metrics.md)
+- [How to monitor interface In and Out packet rate for network fabric devices](./howto-monitor-interface-packet-rate.md)
 
 ### Recent changes to the Managed Identity permissions
 
