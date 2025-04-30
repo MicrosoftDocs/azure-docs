@@ -18,7 +18,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-dotnetcore.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -30,7 +30,7 @@ dotnet
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -85,7 +85,7 @@ The file, `run.sh`, calls WebJob.py as shown below:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-node.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -144,7 +144,7 @@ node webjob.js
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- An existing App Service Python app on Linux.  In this quickstart, a [Java app](quickstart-java.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -156,7 +156,7 @@ node webjob.js
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- An existing App Service Python app on Linux.  In this quickstart, a [PHP app](quickstart-php.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
