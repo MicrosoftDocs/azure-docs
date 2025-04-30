@@ -14,7 +14,7 @@ ms.subservice: mqtt
 You can authenticate MQTT clients with OAuth 2.0 JWT to connect to the Event Grid namespace. You can embed and validate custom claims in the JWT to authorize publish or subscribe permissions to your Event Grid topic spaces.
 
 > [!IMPORTANT]
-> - This feature is supported only when using the MQTT v5 protocol version.
+> This feature is supported only when using the MQTT v5 protocol version.
 
 ## Prerequisites
 - You need an Event Grid namespace with MQTT enabled. Learn about [creating Event Grid namespace](/azure/event-grid/create-view-manage-namespaces#create-a-namespace)
@@ -25,7 +25,7 @@ You can authenticate MQTT clients with OAuth 2.0 JWT to connect to the Event Gri
 You can use the MQTT v5 CONNECT packet to provide the OAuth 2.0 JWT to authenticate your client and the MQTT v5 AUTH packet to refresh the token.  
 
 > [!NOTE]
-> - Audience: `aud` claim must be set to `https://[namespace].ts.eventgrid.azure.net/`. 
+> Audience: `aud` claim must be set to `https://[namespace].ts.eventgrid.azure.net/`. 
 
 ## Access permissions
 A client using OAuth 2.0 JWT authentication can use client attributes and permissions to limit access to specific topics. 
