@@ -47,7 +47,7 @@ MCP utilizes a client-host-server architecture built on [JSON-RPC 2.0 for messag
 
 ## MCP servers in your API inventory
 
-The following sections describe how to inventory and discover an MCP server in your API Center. You can register remote or local MCP servers.
+The following sections describe how to inventory and discover a remote MCP server in your API Center. 
 
 ### MCP API type
 
@@ -88,7 +88,7 @@ You can use the following lightweight OpenAPI 3.0 API definition for your MCP se
 
 ###  Discover MCP servers using API Center portal
 
-Set up the [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. Users can browse and filter MCP servers in the inventory and view details such as a the URL endpoint of the MCP server, if available in the MCP server's API definition. 
+Set up the [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover MCP servers in your API inventory. Users can browse and filter MCP servers in the inventory and view details such as the URL endpoint of the MCP server, if available in the MCP server's API definition. 
 
 :::image type="content" source="media/register-discover-mcp-server/mcp-server-portal-small.png" lightbox="media/register-discover-mcp-server/mcp-server-portal.png" alt-text="Screenshot of MCP server in API Center portal.":::
 

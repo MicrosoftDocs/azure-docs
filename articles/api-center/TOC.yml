@@ -52,6 +52,8 @@
         href: register-apis-github-actions.md
       - name: Register and discover MCP servers
         href: register-discover-mcp-server.md
+      - name: Export API from API Center to Copilot Studio
+        href: export-to-copilot-studio.yml
 - name: API governance
   items:
       - name: Use metadata for governance

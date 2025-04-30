@@ -22,14 +22,16 @@ Azure portal supports the following type of billing accounts:
     - *If you have difficulty finding a new subscription* after you create it, you might need to change the global subscription filter. For more information about changing the global subscription filter, see [Can't view subscription](create-subscription.md#view-all-subscriptions).
 
 - **Enterprise Agreement**: A billing account for an Enterprise Agreement (EA) is created when your organization signs an [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/) to use Azure. An EA enrollment can contain an unlimited number of EA accounts. 
-    - An EA account has a subscription limit of 5000. *Regardless of a subscription's state, it gets included in the limit. So, deleted and disabled subscriptions are included in the limit*. If you need more subscriptions than the limit, create more EA accounts. Generally speaking, a subscription is a billing container. 
+    - An EA account has a subscription limit of 5000. If you need more subscriptions than the limit, create more EA accounts. Generally speaking, a subscription is a billing container. 
     - We recommend that you avoid creating multiple subscriptions to implement access boundaries. To separate resources with an access boundary, consider using a resource group. For more information about resource groups, see [Manage Azure resource groups by using the Azure portal](../../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 - **Microsoft Customer Agreement**: A billing account for a Microsoft Customer Agreement is created when your organization works with a Microsoft representative to sign a Microsoft Customer Agreement. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) might have a billing account for a Microsoft Customer Agreement as well. 
     - You can have a maximum of five subscriptions in a Microsoft Customer Agreement for an individual. The ability to create more subscriptions is determined on an individual basis according to your history with Azure.
-    - A Microsoft Customer Agreement for an enterprise can have up to 5,000 subscriptions under it.
+    - A Microsoft Customer Agreement for an enterprise can have up to 10,000 subscriptions under it.
 
-- **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
+- **Microsoft Partner Agreement**: A billing account for a Microsoft Partner Agreement is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. A Partner billing account can have up to 10,000 subscriptions under it. For more information, see [Get started with your billing account for Microsoft Partner Agreement](../understand/mpa-overview.md).
+
+Regardless of a subscription's state, it gets included in the subscription limit. So, deleted and disabled subscriptions are also included in the subscription limit.
 
 To determine the type of your billing account, see [Check the type of your billing account](#check-the-type-of-your-account).
 
