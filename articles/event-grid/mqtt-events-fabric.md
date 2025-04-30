@@ -29,14 +29,14 @@ This article shows you how to use Azure Event Grid to send events from MQTT clie
     1. Configure routing for the Event Grid namespace. 
     1. Create clients, topic space, and permission bindings. 
     1. Use MQTTX tool to send a few test events or messages.  
-1. In Microsoft Fabric, follow the steps from the article: [Add Azure Event Grid Namespace source to an eventstream (Preview)](add-source-azure-event-grid.md)
+1. In Microsoft Fabric, follow the steps from the article: [Add Azure Event Grid Namespace source to an eventstream (Preview)](fabric/real-time-intelligence/event-streams/add-source-azure-event-grid)
     1. Create workspace in Fabric. 
     1. Create an eventstream.
     1. Create an Azure Event Grid namespace datasource. 
     1. Preview Data in the eventstream.
 
 ## Next steps
-To learn how to add other sources to an eventstream, see the following article: [Add and manage an event source in an eventstream](add-manage-eventstream-sources.md). 
+To learn how to add other sources to an eventstream, see the following article: [Add and manage an event source in an eventstream](/fabric/real-time-intelligence/event-streams/add-manage-eventstream-sources). 
 
     
 
