@@ -24,6 +24,8 @@ balancer for Azure App Services. [Tutorial: Create a multi-region app - Azure Ap
 
 - Secondary Region: The backup region which mirrors the data and configurations of the primary region. (for example, West US)
 
+[ ![Diagram showing multiple regions deployed and configured for disaster recovery.](./media/disaster-recovery-planning-multi-region.png) ](./media/disaster-recovery-planning-multi-region.png#lightbox)
+
 ### Synchronization of Data
 
 Similar to any other resource deployment in Azure, geo-replicated services in Azure Virtual Enclaves can also be deployed via ARM/Bicep templates or via Azure portal. Ensure that the data between the primary and secondary regions remains synchronized.
