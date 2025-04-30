@@ -9,7 +9,7 @@ ms.date: 04/29/2025
 # Deliver events securely using managed identities
 If you're using Event Grid basic and your requirements call for a secure way to send events using an encrypted channel and a known identity of the sender (in this case, Event Grid) using public IP space, you could deliver events to Event Hubs, Service Bus, or Azure Storage service using an Azure Event Grid custom topic or a domain with system-assigned or user-assigned managed identity. For details about delivering events using managed identity, see [Event delivery using a managed identity](managed-service-identity.md).
 
-:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="Deliver via private link service":::
+:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="Diagram that shows the delivery of events via the Private Link service.":::
 
 Under this configuration, the secured traffic from Event Grid to Event Hubs, Service Bus, or Azure Storage, [stays on the Microsoft backbone](../networking/microsoft-global-network.md#get-the-premium-cloud-network) and a managed identity of Event Grid is used. Configuring your Azure Function or webhook from within your virtual network to use an Event Hubs, Service Bus, or Azure Storage via private link ensures the traffic between those services and your function or webhook stays within your virtual network perimeter.
 
