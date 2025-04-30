@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 03/24/2025
+ms.date: 04/30/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -140,7 +140,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | Maximum size of a file (if the destination account is in a Vnet) | 1 TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large File Shares | 15  TiB |
-| Maximum duration of a restore job                           | 15 days
+| Maximum duration of a restore job                           | 7 days
 
 # [Vault-standard tier](#tab/vault-tier)
 

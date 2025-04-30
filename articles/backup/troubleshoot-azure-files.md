@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Files backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure Files.
 ms.service: azure-backup
-ms.date: 03/05/2025
+ms.date: 04/30/2025
 ms.topic: troubleshooting
 author: jyothisuri
 ms.author: jsuri
@@ -286,7 +286,15 @@ Recommended Actions: Ensure that the following configurations in the storage acc
 
   :::image type="content" source="./media/troubleshoot-azure-files/storage-account-network-configuration.png" alt-text="Screenshot shows the required networking details in a storage account." lightbox="./media/troubleshoot-azure-files/storage-account-network-configuration.png":::
 
-- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* is set to *From storage accounts in the same Microsoft Entra tenant*.
+- Ensure that the target storage account has the following configuration ([Permitted scope for copy operations(preview)](backup-azure-files.md)):
+
+  | Configuration | Support |
+  | --- | --- |
+  | From any storage account | Supported |
+  | From storage accounts in the same Microsoft Entra tenant | Supported |
+  | From storage accounts with a private endpoint to the same virtual network | Unsupported |
+
+  Azure Trusted Services are allowed, but private endpoints take priority; so, this won't work. 
 
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
