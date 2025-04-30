@@ -27,7 +27,7 @@ You can view and configure the following settings using the **Resource Menu**.
 - [Settings](#settings)
   - [Authentication](#authentication)
   - [Advanced settings](#advanced-settings)
-	- [Data persistence](#data-persistence-preview)
+  - [Data persistence](#data-persistence-preview)
   - [Encryption](#encryption)
   - [Active geo-replication](#active-geo-replication)
   - [Scale](#scale-preview)
@@ -76,15 +76,16 @@ The **Settings** section allows you to access and configure the following settin
 
 - [Authentication](#authentication)
 - [Advanced settings](#advanced-settings)
+- [Data persistence](#data-persistence-preview) (preview)
 - [Encryption](#encryption)
 - [Active geo-replication](#active-geo-replication)
-- [Scale](#scale)
+- [Scale](#scale-preview)
 - [Properties](#properties)
 - [Locks](#locks)
 
 ### Authentication
 
-You have two options for authentication: access keys and [Microsoft Entra Authentication](entra-for-authentication.md). Using Microsoft Entra Authentication is recommended because it is more secure. 
+You have two options for authentication: access keys and [Microsoft Entra Authentication](entra-for-authentication.md). Using Microsoft Entra Authentication is recommended because it's more secure. 
 
 #### [Access keys](#tab/access-keys)
 
@@ -102,11 +103,15 @@ Select **Microsoft Entra Authentication** to  a password-free authentication mec
 
 ### Advanced settings
 
-The following settings are configured on the **Advanced settings** on the left.
+The following properties are set:
+
+  - Non-TLS access only
+  - Eviction Policy
+  - Defer Redis DB version updates
 
 ### Data persistence (preview)
 
-**Data persistence** allows you to enable, disable, or configure data persistence for your Redis instance. Azure Managed Redis offers Redis persistence using either RDB persistence or AOF persistence.
+Use **Data persistence** to enable, disable, or configure data persistence for your Redis cache. Azures Managed Redis offers Redis persistence using either RDB persistence or AOF persistence.
 
 For more information, see [Configure data persistence for an Azure Managed Redis instance](how-to-persistence.md).
 
@@ -234,7 +239,7 @@ The settings in the **Help** section provide you with options for resolving issu
 
 ### Resource health
 
-**Resource health** watches your resource and tells you if it's running as expected. Resource health is not yet supported for Azure Managed Redis.
+**Resource health** watches your resource and tells you if it's running as expected. Resource health isn't yet supported for Azure Managed Redis.
 For more information about the Azure Resource health service, see [Azure Resource health overview](/azure/service-health/resource-health-overview).
 
 ### Support and Troubleshooting
@@ -242,6 +247,8 @@ For more information about the Azure Resource health service, see [Azure Resourc
 Select **Support + Troubleshooting** to open a support request for your cache.
 
 ## Other configuration information
+
+Here's some additional information about Azure Managed Redis caches.
 
 ### Databases
 
@@ -254,13 +261,13 @@ The `maxclients` property is different for each Azure Managed Redis SKU.
 See the [Azure Managed Redis pricing page](https://aka.ms/amrpricing) for more information about the connection limits per SKU.  
 
 > [!NOTE]
-> While each size of cache allows *up to* a certain number of connections, each connection to Redis has overhead associated with it. An example of such overhead would be CPU and memory usage as a result of TLS/SSL encryption. The maximum connection limit for a given cache size assumes a lightly loaded cache. If load from connection overhead *plus* load from client operations exceeds capacity for the system, the cache can experience capacity issues even if you have not exceeded the connection limit for the current cache size.
+> Each cache size allows *up to* some number connections, but each connection adds overhead. Examples of such overhead include CPU and memory usage due to TLS/SSL encryption. The maximum connection limit for a cache size assumes a lightly loaded cache. If the load from connection overhead *plus* the load from client operations exceeds the system's capacity, the cache might  encounter capacity issues even without exceeding the connection limit for the current cache size.
 >
 
 ### Redis commands not supported in Azure Managed Redis
 
-Configuration and management of Azure Managed Redis instances is managed by Microsoft, which disables several commands in order to ensure safe and consistent operation of the service. 
-If you try to invoke them, you receive an error message similar to `"(error) ERR unknown command"`.
+Microsoft manages the configuration and management of Azure Managed Redis instances, which disables several commands in order to ensure safe and consistent operation of the service.
+If you try to invoke a disabled command, you receive an error message similar to `"(error) ERR unknown command"`.
 
 Blocked commands include:
 
@@ -271,7 +278,7 @@ Blocked commands include:
 - MOVE
 - PSYNC
 - REPLICAOF
-- REPLCONF - Azure Managed Redis instances don't allow customers to add external replicas. This [command](https://redis.io/commands/replconf/) is normally only sent by servers.
+- REPLCONF - Azure Managed Redis instances don't allow customers to add external replicas. Normally, only servers send this command.
 - SAVE
 - SHUTDOWN
 - SELECT
