@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 04/30/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable an Azure-managed portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -76,9 +76,12 @@ The API Center portal supports and streamlines the work of developers who use an
 
 ## Search with AI
 
-In the Standard plan, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
+In the Standard plan of Azure API Center, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
 
-To use AI-assisted search in the API Center portal, click in the search box, select **Search with AI**, and enter a query.
+> [!TIP]
+> If you're using the Free plan of Azure API Center, you can [upgrade easily](frequently-asked-questions.yml##how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan) to the Standard plan to enable full service features including semantic search in the API Center portal.
+
+To use AI-assisted search when signed in to the API Center portal, click in the search box, select **Search with AI**, and enter a query.
 
 :::image type="content" source="media/set-up-api-center-portal/semantic-search.png" alt-text="Screenshot of semantic search results in API Center portal.":::
 
