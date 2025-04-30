@@ -132,23 +132,6 @@ View your non-USD charges in USD or switch between the currencies you have charg
 
 Enable the currency switcher on the [Try preview](https://aka.ms/costmgmt/trypreview) page in the Azure portal. Select **How would you rate cost analysis?** at the bottom of the page to share feedback about the preview.
 
-## Exports (preview)
-
-The improved exports experience is designed to streamline your FinOps practice. It includes automatic exports of more cost-impacting datasets, optimized to handle large datasets while enhancing the user experience. You can export more datasets, including price sheets, reservation recommendations, reservation details, and reservation transactions. Furthermore, you can download cost and usage details using the open-source [FinOps Open Cost and Usage Specification (FOCUS)](https://focus.finops.org) format. The format combines actual and amortized costs and reduces data processing times and storage and compute costs.
-
-The enhanced user interface allows you to easily create multiple exports for various cost management datasets using a single, simplified creation experience. You can also selectively rerun an existing Export job for a historical date range instead of creating a new one-time export of the required date range.
-
-You can easily handle large datasets through features like file partitioning, break the file into manageable chunks and file overwrite for daily exports, which replaces the previous day’s file with an updated file each day and the upcoming support for Parquet format and file compression. These optimizations improve file manageability, reduce download latency, and save on storage and network charges.
-
-You can choose the latest or any of the previous dataset schema versions during the export creation. Selecting a version ensures that the data processing layers that you build on top of the datasets can be reused without compromising on the latest API functionality.
-
-And, you can enhance security and compliance by configuring exports to storage accounts behind a firewall, which provides access control for the public endpoint of the storage account.
-
->[!NOTE]
-> After you enable **Exports (preview)** in Cost Management Labs, you might have to refresh your browser to see the new **Export** menu item in the Cost Management menu.
-
-:::image type="content" source="./media/enable-preview-features-cost-management-labs/export-preview.png" alt-text="Screenshot showing the Export window with various fields." lightbox="./media/enable-preview-features-cost-management-labs/export-preview.png" :::
-
 ## How to share feedback
 
 We're always listening and making constant improvements based on your feedback, so we welcome it. Here are a few ways to share your feedback with the team:

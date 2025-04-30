@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 04/18/2025
+ms.date: 04/29/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -20,7 +20,6 @@ The tables in this article provide information on ExpressRoute geographical cove
 
 > [!NOTE]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
->
 
 ## Azure regions
 
@@ -43,6 +42,9 @@ The following table shows connectivity locations and the service providers for e
 * **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 * **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
+
+> [!NOTE]
+> If you are a service provider interested in becoming an ExpressRoute partner, please complete and submit this [Microsoft Form](https://aka.ms/erproviderform). 
 
 ### Global commercial Azure
 

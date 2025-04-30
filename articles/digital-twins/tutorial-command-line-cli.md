@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: Tutorial that shows how to build an Azure Digital Twins scenario using the Azure CLI
 author: baanders
 ms.author: baanders
-ms.date: 1/3/2024
+ms.date: 4/17/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurecli
 
 [!INCLUDE [digital-twins-tutorial-selector.md](includes/digital-twins-tutorial-selector.md)]
 
-In this tutorial, you'll build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](/cli/azure/dt).
+In this tutorial, you build a graph in Azure Digital Twins using models, twins, and relationships. The tool for this tutorial is the [Azure Digital Twins command set for the Azure CLI](/cli/azure/dt).
 
 You can use the CLI commands to perform essential Azure Digital Twins actions such as uploading models, creating and modifying twins, and creating relationships. You can also look at the [reference documentation for az dt command set](/cli/azure/dt) to see the full set of CLI commands.
 
@@ -31,17 +31,17 @@ In this tutorial, you will...
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you'll need to first complete the following prerequisites.
+To complete the steps in this tutorial, you need to first complete the following prerequisites.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ### Download the sample models
 
-The tutorial uses two pre-written models that are part of the C# [end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) for Azure Digital Twins. The model files are located here: 
+The tutorial uses two prewritten models that are part of the C# [end-to-end sample project](/samples/azure-samples/digital-twins-samples/digital-twins-samples/) for Azure Digital Twins. The model files are located here: 
 * [Room.json](https://github.com/Azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Room.json)
 * [Floor.json](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json)
 
-To get the files on your machine, use the navigation links above and copy the file bodies into local files on your machine with the same names (*Room.json* and *Floor.json*).
+To get the files on your machine, use the navigation links in the previous list and copy the file bodies into local files on your machine with the same names (*Room.json* and *Floor.json*).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
@@ -51,7 +51,7 @@ To get the files on your machine, use the navigation links above and copy the fi
 
 To work with Azure Digital Twins in this article, you first need to set up an Azure Digital Twins instance and the required permissions for using it. If you already have an Azure Digital Twins instance set up from previous work, you can use that instance.
 
-Otherwise, follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance). The instructions also contain steps to verify that you've completed each step successfully and are ready to move on to using your new instance.
+Otherwise, follow the instructions in [Set up an instance and authentication](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance). The instructions also contain steps to verify that you completed each step successfully and are ready to move on to using your new instance.
 
 After you set up your Azure Digital Twins instance, make a note of the following values that you'll need to connect to the instance later:
 * The instance's **host name**
@@ -64,7 +64,7 @@ After you set up your Azure Digital Twins instance, make a note of the following
 >az dt show --dt-name <Azure-Digital-Twins-instance-name>
 >```
 >
->They'll appear in the output like this:
+>They appear in the output like this:
 >:::image type="content" source="media/tutorial-command-line/cli/instance-details.png" alt-text="Screenshot of Cloud Shell browser window showing the output of the az dt show command. The hostName field and subscription ID are highlighted.":::
 
 ## Model a physical environment with DTDL
@@ -76,7 +76,7 @@ The first step in creating an Azure Digital Twins solution is defining twin [mod
 Models are similar to classes in object-oriented programming languages; they provide user-defined templates for [digital twins](concepts-twins-graph.md) to follow and instantiate later. They're written in a JSON-like language called *Digital Twins Definition Language (DTDL)*, and can define a twin's properties, relationships, and components.
 
 > [!NOTE]
-> DTDL also allows for the definition of commands on digital twins. However, commands are not currently supported in the Azure Digital Twins service.
+> DTDL also allows for the definition of commands on digital twins. However, commands aren't currently supported in the Azure Digital Twins service.
 
 Navigate on your machine to the *Room.json* file that you created in the [Prerequisites](#prerequisites) section. Open it in a code editor, and change it in the following ways:
 
@@ -84,27 +84,27 @@ Navigate on your machine to the *Room.json* file that you created in the [Prereq
 
 ### Upload models to Azure Digital Twins
 
-After designing models, you need to upload them to your Azure Digital Twins instance. Doing so configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you've uploaded the models, you can create twin instances that use them.
+After designing models, you need to upload them to your Azure Digital Twins instance. Doing so configures your Azure Digital Twins service instance with your own custom domain vocabulary. Once you upload the models, you can create twin instances that use them.
 
-1. If you're using a local installation of the Azure CLI, you can skip this step. If you're using Cloud Shell, you'll need to upload your model files to Cloud Shell's storage so the files will be available when you run the Cloud Shell command that uses them. To do so, select the "Upload/Download files" icon and choose "Upload".
+1. If you're using a local installation of the Azure CLI, you can skip this step. If you're using Cloud Shell, you need to upload your model files to Cloud Shell's storage so the files are available when you run the Cloud Shell command that uses them. Select **Manage Files** and then **Upload**.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Screenshot of Cloud Shell browser window showing selection of the Upload icon.":::
     
     Navigate to the *Room.json* file on your machine and select "Open." Then, repeat this step for *Floor.json*.
 
-1. Next, use the [az dt model create](/cli/azure/dt/model#az-dt-model-create) command as shown below to upload your updated Room model to your Azure Digital Twins instance. The second command uploads another model, Floor, which you'll also use in the next section to create different types of twins. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for a path to each model file. If you're using Cloud Shell, *Room.json* and *Floor.json* are in the main storage directory, so you can just use the file names directly in the command below where a path is required.
+1. Next, use the [az dt model create](/cli/azure/dt/model#az-dt-model-create) command as shown in the following example to upload your updated Room model to your Azure Digital Twins instance. The second command uploads another model, Floor, which you'll also use in the next section to create different types of twins. There's a placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance), and a placeholder for a path to each model file. If you're using Cloud Shell, *Room.json* and *Floor.json* are in the main storage directory, so you can just use the file names directly in the following commands where a path is required.
 
     ```azurecli-interactive
     az dt model create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --models <path-to-Room.json>
     az dt model create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --models <path-to-Floor.json>
     ```
     
-    The output from each command will show information about the successfully uploaded model.
+    The output from each command shows information about the successfully uploaded model.
 
     >[!TIP]
-    >You can also upload all models within a directory at the same time, by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az-dt-model-create-optional-parameters).
+    >You can also upload all models within a directory at the same time by using the `--from-directory` option for the model create command. For more information, see [Optional parameters for az dt model create](/cli/azure/dt/model#az-dt-model-create-optional-parameters).
 
-1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az-dt-model-list) command as shown below. Doing so will print a list of all models that have been uploaded to the Azure Digital Twins instance with their full information. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
+1. Verify the models were created with the [az dt model list](/cli/azure/dt/model#az-dt-model-list) command as shown in the following example. Doing so prints a list of all models uploaded to the Azure Digital Twins instance with their full information. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
     ```azurecli-interactive
     az dt model list --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --definition
@@ -118,17 +118,17 @@ After designing models, you need to upload them to your Azure Digital Twins inst
 
 The CLI also handles errors from the service. 
 
-Rerun the `az dt model create` command to try re-uploading one of the same models you uploaded, for a second time:
+Rerun the `az dt model create` command to try reuploading one of the same models you uploaded, for a second time:
 
 ```azurecli-interactive
 az dt model create --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --models Room.json
 ```
 
-As models cannot be overwritten, running this command on the same model will now return an error code of `ModelIdAlreadyExists`.
+As models can't be overwritten, running this command on the same model now returns an error code of `ModelIdAlreadyExists`.
 
 ## Create digital twins
 
-Now that some models have been uploaded to your Azure Digital Twins instance, you can create [digital twins](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
+Now that some models are uploaded to your Azure Digital Twins instance, you can create [digital twins](concepts-twins-graph.md) based on the model definitions. Digital twins represent the entities within your business environment—things like sensors on a farm, rooms in a building, or lights in a car. 
 
 To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-dt-twin-create) command. You must reference the model that the twin is based on, and can optionally define initial values for any properties in the model. You don't have to pass any relationship information at this stage.
 
@@ -142,13 +142,13 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-
     ```
 
     >[!NOTE]
-    >If you're using anything other than Cloud Shell in the Bash environment, you may need to escape certain characters in the inline JSON so that it's parsed correctly. 
+    >If you're using anything other than Cloud Shell in the Bash environment, you might need to escape certain characters in the inline JSON so that it parses correctly. 
     >
     >For more information, see [Use special characters in different shells](concepts-cli.md#use-special-characters-in-different-shells).
     
-    The output from each command will show information about the successfully created twin (including properties for the room twins that were initialized with them).
+    The output from each command shows information about the successfully created twin (including properties for the room twins that were initialized with them).
 
-1. You can verify that the twins were created with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command as shown below. The query shown finds all the digital twins in your Azure Digital Twins instance. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
+1. You can verify that the twins were created with the [az dt twin query](/cli/azure/dt/twin#az-dt-twin-query) command as shown in the following example. The query shown finds all the digital twins in your Azure Digital Twins instance. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
     
     ```azurecli-interactive
     az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT * FROM DIGITALTWINS"
@@ -162,7 +162,7 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin#az-
 
 ### Modify a digital twin
 
-You can also modify the properties of a twin you've created. 
+You can also modify the properties of a twin that you created. 
 
 1. Run the following [az dt twin update](/cli/azure/dt/twin#az-dt-twin-update) command to change room0's RoomName from Room0 to PresidentialSuite. There's one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
 
@@ -171,9 +171,9 @@ You can also modify the properties of a twin you've created.
     ```
     
     >[!NOTE]
-    > It's recommended to use the CLI in the Bash environment for this tutorial. If you're using the PowerShell environment, you may need to escape the quotation mark characters in order for the `--json-patch` JSON value to be parsed correctly.
+    > We recommend that you use the CLI in the Bash environment for this tutorial. If you use the PowerShell environment, you might need to escape the quotation mark characters in order for the `--json-patch` JSON value to be parsed correctly.
     
-    The output from this command will show the twin's current information, and you should see the new value for the `RoomName` in the result.
+    The output from this command shows the twin's current information, and you should see the new value for the `RoomName` in the result.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-update-twin.png" alt-text="Screenshot of Cloud Shell showing result of the update command, which includes a RoomName of PresidentialSuite." lightbox="media/tutorial-command-line/cli/output-update-twin.png":::
 
@@ -201,13 +201,13 @@ To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/tw
     ```
     
     >[!TIP]
-    >The `contains` relationship in the [Floor model](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these when you create the relationships.
+    >The `contains` relationship in the [Floor model](https://github.com/azure-Samples/digital-twins-samples/blob/main/AdtSampleApp/SampleClientApp/Models/Floor.json) was also defined with two properties, `ownershipUser` and `ownershipDepartment`, so you can also provide arguments with the initial values for these properties when you create the relationships.
     > To create a relationship with these properties initialized, add the `--properties` option to either of the above commands, like this:
     > ```azurecli-interactive
     > ... --properties '{"ownershipUser":"MyUser", "ownershipDepartment":"MyDepartment"}'
     > ``` 
     
-    The output from each command will show information about the successfully created relationship.
+    The output from each command shows information about the successfully created relationship.
 
 1. You can verify the relationships with any of the following commands, which print the relationships in your Azure Digital Twins instance. Each command has one placeholder for the instance's host name (you can also use the instance's friendly name with a slight decrease in performance).
     * To see all relationships coming off of each floor (viewing the relationships from one side):
@@ -226,7 +226,7 @@ To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/tw
         az dt twin relationship show --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --twin-id floor1 --relationship-id relationship1
         ```
 
-The twins and relationships you have set up in this tutorial form the following conceptual graph:
+The twins and relationships that you set up in this tutorial form the following conceptual graph:
 
 :::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="A diagram showing a conceptual graph. floor0 is connected via relationship0 to room0, and floor1 is connected via relationship1 to room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
@@ -249,7 +249,7 @@ Run the following queries in the CLI to answer some questions about the sample e
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
     >[!TIP]
-    >You may recognize that this is the same command you used in the [Create digital twins](#create-digital-twins) section earlier to find all the Azure Digital Twins in the instance.
+    >You might recognize that this command is the same command you used in the [Create digital twins](#create-digital-twins) section earlier to find all the Azure Digital Twins in the instance.
 
 1. What are all the rooms in my environment? (query by model)
 
@@ -267,12 +267,12 @@ Run the following queries in the CLI to answer some questions about the sample e
     az dt twin query --dt-name <Azure-Digital-Twins-instance-hostname-or-name> --query-command "SELECT room FROM DIGITALTWINS floor JOIN room RELATED floor.contains where floor.\$dtId = 'floor0'"
     ```
 
-    You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. This query also illustrates that a twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. Only room0 is on floor0, so it's the only room in the result for this query.
+    You can query based on relationships in your graph, to get information about how twins are connected or to restrict your query to a certain area. This query also illustrates that a twin's ID (like floor0 in the previous query) is queried using the metadata field `$dtId`. Only room0 is on floor0, so it's the only room in the result for this query.
 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Screenshot of Cloud Shell showing result of relationship query, which includes room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    >When using Cloud Shell to run a query with metadata fields like this one that begin with `$`, you should escape the `$` with a backslash to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text. This is reflected in the screenshot above.
+    >When using Cloud Shell to run a query with metadata fields like this one that begin with `$`, you should escape the `$` with a backslash to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text. The escaped metadata field is reflected in the previous screenshot.
 
 1. What are all the twins in my environment with a temperature above 75? (query by property)
 
@@ -304,7 +304,7 @@ After completing this tutorial, you can choose which resources you want to remov
 
 [!INCLUDE [digital-twins-cleanup-basic.md](includes/digital-twins-cleanup-basic.md)]
 
-You may also want to delete the model files you created on your local machine.
+You might also want to delete the model files you created on your local machine.
 
 ## Next steps 
 
@@ -312,4 +312,4 @@ In this tutorial, you got started with Azure Digital Twins by building a graph i
 
 Continue to the next tutorial to combine Azure Digital Twins with other Azure services to complete a data-driven, end-to-end scenario:
 > [!div class="nextstepaction"]
-> [Connect an end-to-end solution](tutorial-end-to-end.md)
+> [Build out an end-to-end solution](tutorial-end-to-end.md)

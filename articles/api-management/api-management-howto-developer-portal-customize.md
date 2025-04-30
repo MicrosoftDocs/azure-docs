@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 04/28/2025
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 For more information about developer portal features and options, see [Azure API Management developer portal overview](developer-portal-overview.md).
 
-:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." border="false":::
+:::image type="content" source="media/api-management-howto-developer-portal-customize/cover.png" alt-text="Screenshot of the API Management developer portal - administrator mode." :::
 
 ## Prerequisites
 
@@ -48,6 +48,8 @@ Follow these steps to access the managed version of the developer portal.
     
     It might take a few minutes to enable the developer portal.
 1. In the left menu, under **Developer portal**, select **Portal overview**. Then select the **Developer portal** button in the top navigation bar. A new browser tab with an administrative version of the portal will open.
+
+[!INCLUDE [developer-portal-editor-refresh](../../includes/developer-portal-editor-refresh.md)] 
 
 ## Understand the portal's administrative interface
 
@@ -70,7 +72,7 @@ You'll want to use your own images and other media content in the developer port
 
 A placeholder logo is provided in the top left corner of the navigation bar. You can replace it with your own logo to match your organization's branding.
 
-1. In the developer portal, select the default **Contoso** logo in the top left of the navigation bar. 
+1. In the developer portal, select the default logo in the top left of the navigation bar. 
 1. Select **Edit**. 
 1. In the **Picture** pop-up, under **Main**, select **Source**.
 1. In the **Media** pop-up, select one of the following:

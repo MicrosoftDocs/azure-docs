@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -43,7 +43,7 @@ Go to Microsoft Fabric workspace you created, select **Manage access** > **+ Add
 
 ## Create data flow endpoint for Microsoft Fabric OneLake
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the operations experience, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Microsoft Fabric OneLake** > **New**.
@@ -149,7 +149,7 @@ kubectl apply -f <FILE>.yaml
 
 The `oneLakePathType` setting determines the type of path to use in the OneLake path. The default value is `Tables`, which is the recommended path type for the most common use cases. The `Tables` path type is a table in the OneLake lakehouse that is used to store the data. It can also be set as `Files`, which is a file in the OneLake lakehouse that is used to store the data. The `Files` path type is useful when you want to store the data in a file format that isn't supported by the `Tables` path type.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 The OneLake path type is set in the **Basic** tab for the data flow endpoint.
 
@@ -186,7 +186,7 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
@@ -215,7 +215,7 @@ fabricOneLakeSettings:
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -256,7 +256,7 @@ Before you configure the data flow endpoint, assign a role to the user-assigned 
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
@@ -312,7 +312,7 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 

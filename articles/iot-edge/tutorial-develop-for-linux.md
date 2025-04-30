@@ -56,7 +56,7 @@ Use the quickstart article [Deploy code to a Linux Device](quickstart-linux.md) 
 
 Cloud resources:
 
-* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
+* A free or standard-tier [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -69,7 +69,7 @@ Cloud resources:
 
 ## Key concepts
 
-This tutorial walks through the development of an IoT Edge module. An *IoT Edge module* is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
+This tutorial walks through the development of an IoT Edge module. An *IoT Edge module* is a container with executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, cleaning and analyzing data, or sending messages to an IoT Hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
 When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module deploys. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
 
@@ -361,7 +361,7 @@ The target architecture is set when you create the container image in a later st
 
 ### Update module with custom code
 
-Each template includes sample code that takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT hub. The sample module receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
+Each template includes sample code that takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT Hub. The sample module receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
 
 Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific code for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
@@ -379,7 +379,7 @@ The sample C# code that comes with the project template uses the [ModuleClient C
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-1. Add the **temperatureThreshold** variable to the **ModuleBackgroundService** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub.
+1. Add the **temperatureThreshold** variable to the **ModuleBackgroundService** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT Hub.
 
     ```csharp
     static int temperatureThreshold { get; set; } = 25;
@@ -926,7 +926,7 @@ In this section, add the code that expands the *filtermodule* to analyze the mes
     import json
     ```
 
-1. Add global definitions for **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** and **TWIN_CALLBACKS** variables. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT hub.
+1. Add global definitions for **TEMPERATURE_THRESHOLD**, **RECEIVED_MESSAGES** and **TWIN_CALLBACKS** variables. The temperature threshold sets the value that the measured machine temperature must exceed for the data to be sent to the IoT Hub.
 
     ```python
     # global counters
@@ -1295,7 +1295,7 @@ The sample module code receives messages through its input queue and passes them
 
 1. In the Visual Studio Code explorer, right-click the IoT Edge device that you want to monitor, then select **Start Monitoring Built-in Event Endpoint**.
 
-1. Watch the output window in Visual Studio Code to see messages arriving at your IoT hub.
+1. Watch the output window in Visual Studio Code to see messages arriving at your IoT Hub.
 
    :::image type="content" source="./media/tutorial-develop-for-linux/view-d2c-messages.png" alt-text="Screenshot showing where to view incoming device to cloud messages.":::
 
@@ -1323,7 +1323,7 @@ The commands in this section are for your IoT Edge device, not your development 
 
    IoT Edge modules are case-sensitive.
 
-   The *tempSensor* and *filtermodule* logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs have information about implementing the deployment manifest. If you find a module is unlisted or not running, the edgeAgent logs likely have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs likely have the errors.
+   The *tempSensor* and *filtermodule* logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs have information about implementing the deployment manifest. If you find a module is unlisted or not running, the edgeAgent logs likely have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT Hub, the edgeHub logs likely have the errors.
 
 ## Clean up resources
 

@@ -185,8 +185,8 @@ Perform the following steps.
 
     ```json
     {
-        "PrincipalId":  "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
-        "TenantId":  "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+        "PrincipalId":  "00a000aa-00a0-00aa-00aa-0a0aa000aa00",
+        "TenantId":  "00a000aa-00a0-00aa-00aa-0a0aa000aa00",
         "Type":  0,
         "UserAssignedIdentities":  null
     }

@@ -68,7 +68,7 @@ This sample XML provides you with an insight about the geo-codes mapped with the
 <GeoCodeRegionNameMap	GeoCode="JIW"	RegionName="Jio India West"	/>
 <GeoCodeRegionNameMap	GeoCode="QAC"	RegionName="Qatar Central"	/>
 <GeoCodeRegionNameMap	GeoCode="PLC"	RegionName="Poland Central"	/>
-<GeoCodeRegionNameMap	GeoCode="MYS"	RegionName="Malaysia South"	/
+<GeoCodeRegionNameMap	GeoCode="MYS"	RegionName="Malaysia South"	/>
 <GeoCodeRegionNameMap	GeoCode="TWN"	RegionName="Taiwan North"	/>
 <GeoCodeRegionNameMap	GeoCode="TWNR"	RegionName="Taiwan Northwest"	/>
 <GeoCodeRegionNameMap	GeoCode="ILC"	RegionName="Israel Central"	/>

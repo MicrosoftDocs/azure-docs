@@ -1,6 +1,6 @@
 ---
-title: About Azure ExpressRoute FastPath
-description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway.
+title: What is Azure ExpressRoute FastPath? Features, availability, and limitations
+description: Discover Azure ExpressRoute FastPath, its features, availability, IP limits, and how it enhances network performance by bypassing the gateway. Learn configuration steps and supported scenarios.
 services: expressroute
 author: duongau
 ms.service: azure-expressroute

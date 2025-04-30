@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: madsd
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 04/10/2025
+ms.date: 04/29/2025
 ms.author: madsd
 ms.custom: "UpdateFrequency3, fasttrack-edit"
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -237,10 +237,10 @@ The status of **Connected** means that at least one HCM is configured with that 
 
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint.":::
 
-  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all 128 of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
+  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
 
   - If you can use a wildcard, you can allowlist *\*.servicebus.windows.net*.
-  - If you can't use a wildcard, you must allowlist all 128 gateways.
+  - If you can't use a wildcard, you must allowlist all 256 of the gateways.
 
     You can find out the stamp using *nslookup* on the Service Bus endpoint URL.
 
@@ -255,6 +255,13 @@ The status of **Connected** means that at least one HCM is configured with that 
     ...
     G126-prod-sn3-010-sb.servicebus.windows.net  
     G127-prod-sn3-010-sb.servicebus.windows.net
+    GV0-prod-sn3-010-sb.servicebus.windows.net  
+    GV1-prod-sn3-010-sb.servicebus.windows.net  
+    GV2-prod-sn3-010-sb.servicebus.windows.net  
+    GV3-prod-sn3-010-sb.servicebus.windows.net  
+    ...
+    GV126-prod-sn3-010-sb.servicebus.windows.net  
+    GV127-prod-sn3-010-sb.servicebus.windows.net
 
 If your status says **Connected** but your app can't reach your endpoint then:
 

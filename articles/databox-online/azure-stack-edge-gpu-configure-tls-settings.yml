@@ -9,10 +9,10 @@ metadata:
 
   ms.service: azure-stack-edge
   ms.topic: how-to
-  ms.date: 04/02/2025
+  ms.date: 04/28/2025
   ms.author: alkohli
 title: |
-  Configure TLS 1.2 on Windows clients accessing Azure Stack Edge Pro device
+  Configure TLS 1.2 on Windows clients that access Azure Stack Edge Pro device
 introduction: |
   [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
