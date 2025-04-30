@@ -16,7 +16,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) is now generally available (GA)
 
-    The Azure NetApp Files support for one Active Directory (AD) connection per NetApp account feature now allows each NetApp account to connect to its own AD Forest and Domain, providing the ability to manage more than one AD connections within a single region under a subscription. This feature is now generally available.
+    The Azure NetApp Files support for Active Directory connection per NetApp account feature is now generally available. The feature allows each NetApp account to connect to its own Active Directory Forest and Domain, providing the ability to manage more than one Active Directory connections within a single region under a subscription. This enhancement enables distinct Active Directory connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. Active Directory connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to these Active Directory connections in the NetApp account, the management of Active Directory environments becomes more scalable, streamlined, and efficient.
+
+    You're still required [to register for this feature](create-active-directory-connections.md#register-the-feature).
 
 ## April 2025
 

@@ -22,7 +22,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * An Azure NetApp Files account must be created in the region where the Azure NetApp Files volumes are to be deployed.
 
-* Azure NetApp Files, by default, allows one Active Directory (AD) connection per subscription. You can modify the default to [create one Active Directory connection per NetApp account](#multi-ad).
+* Azure NetApp Files, by default, allows one Active Directory (AD) connection per subscription and account. You can modify the default to [create one Active Directory connection per NetApp account](#multi-ad).
 
 * The Azure NetApp Files AD connection admin account must have the following properties: 
     * It must be an AD DS domain user account in the same domain where the Azure NetApp Files computer accounts are created. 
@@ -279,7 +279,7 @@ For more information about the relationship between NetApp accounts and subscrip
 
 ## <a name="multi-ad"></a> Create one Active Directory connection per NetApp account
 
-The current default behavior of Azure NetApp Files supports one AD connection per subscription and region. By enabling this feature, you modify behavior so that each NetApp account within an Azure subscription can have its own AD connection. 
+The current default behavior of Azure NetApp Files supports one AD connection per subscription and region. By enabling this feature, you modify behavior so that each NetApp account within an Azure subscription can have its own AD connection. When this feature is enabled, _newly created_ NetApp accounts maintain their own AD connection. 
 
 Once configured, the AD connection of the NetApp account is used when you create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). That means Azure NetApp Files supports more than one AD connection per Azure subscription when multiple NetApp accounts are used.
 
