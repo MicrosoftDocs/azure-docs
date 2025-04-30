@@ -246,6 +246,8 @@ items:
             href: event-grid-namespace-managed-identity.md
           - name: Authenticate publishing clients using Microsoft Entra ID
             href: authenticate-with-entra-id-namespaces.md
+          - name: Cross-tenant delivery using managed identity
+            href: cross-tenant-delivery-using-managed-identity.md
   - name: Event Grid basic
     items:
     - name: Overview
