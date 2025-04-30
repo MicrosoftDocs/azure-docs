@@ -24,7 +24,7 @@ Microsoft Planetary Computer Pro (MPC Pro) is an Azure cloud service for storing
 | [Deploy a GeoCatalog Resource in your Azure Subscription](#deploy-a-geocatalog-resource-in-your-azure-subscription) | [Quickstart: Deploy a GeoCatalog Resource](/deploy-geocatalog-resource.md)            |
 | [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | Create a STAC Collection to organize your data                |
 | [Ingest Data into a STAC Collection](#ingest-data-into-a-stac-collection) | [Concept: Ingestion](./ingestion-overview.md)      |
-| [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-portal.md)  |
+| [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-ui.md)  |
 | [Connect and Build Applications with your Data](#connect-and-build-applications-with-your-data) | Connect and Build Applications with Your Data |
 
 ## Deploy a GeoCatalog Resource in your Azure Subscription
@@ -91,7 +91,7 @@ Ingested data can be visualized both in the built-in [Data Explorer](./use-explo
 
 Once data has been ingested, it's available for use in applications inside and outside of Microsoft Planetary Computer Pro. 
 
-Data that is [configured for visualization](./configure-collection-portal.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
+Data that is [configured for visualization](./configure-collection-ui.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
 
 :::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
 
