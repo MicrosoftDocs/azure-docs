@@ -43,7 +43,7 @@ MCP utilizes a client-host-server architecture built on [JSON-RPC 2.0 for messag
 
 * **Remote MCP servers** - MCP clients connect to MCP servers over the internet, establishing a connection using HTTP and server-sent events (SSE), and authorizing the MCP client access to resources on the user's account using OAuth.
 
-* **Local MCP servers** MCP clients connect to MCP servers on the same machine, using Stdio as a local transport method.
+* **Local MCP servers** MCP clients connect to MCP servers on the same machine, using standard input/output as a local transport method.
 
 ## MCP servers in your API inventory
 
