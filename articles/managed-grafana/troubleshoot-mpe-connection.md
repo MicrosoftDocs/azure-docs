@@ -41,26 +41,19 @@ Follow these steps to resolve the issue:
 > [!NOTE]
 > Two approvals are required: one by the person who created the managed private endpoint and one by the private link service owner. Ensure both approvals are completed.
 
-### Step 2: check private DNS zone configuration
-
-1. Verify that the private DNS zone is linked to the virtual network where Azure Managed Grafana is deployed.
-1. Ensure the DNS zone contains the correct records for the private link service (for example, `privatelink.<service>.azure.com`).
-
-For more information, see [Create and manage private DNS zones using the Azure portal](/azure/dns/private-dns-portal).
-
-### Step 3: Review Network Security Group (NSG) rules
+### Step 2: Review Network Security Group (NSG) rules
 
 1. Check the NSG rules applied to the subnet where the private link service is deployed.
 1. Ensure there are no rules blocking inbound traffic from Azure Managed Grafana to the private link service.
 1. Add an allow rule if necessary to permit traffic from Azure Managed Grafana.
 
-### Step 4: Verify private link service configuration
+### Step 3: Verify private link service configuration
 
 1. Ensure the private link service is configured to accept connections from the managed private endpoint.
 1. Check the private link service's settings to confirm it's correctly associated with the target resource.
 1. Verify that the private link service is healthy and operational.
 
-### Step 5: Analyze port configuration for AKS clusters
+### Step 4: Analyze port configuration for AKS clusters
 
 If you're working with an AKS cluster, ensure that the port configuration is consistent across the monitored service, the load balancer, and the private link service. Incorrect port configurations can lead to data source connection failures.
 
