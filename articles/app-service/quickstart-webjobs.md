@@ -102,7 +102,7 @@ Select the log for the WebJob you created earlier.
 
 The output should look similar to the following.
 
-:::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows WebJobs log output.":::
+:::image type="content" source="media/quickstart-webjobs/webjobs-log-output.png" alt-text="Screenshot that shows WebJobs log output.":::
 
 
 
