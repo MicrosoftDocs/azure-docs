@@ -13,8 +13,7 @@ appliesto:
 
 # How to configure Azure Managed Redis
 
-This article describes the configurations available for your Azure Managed Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Managed Redis instances.
-
+This article describes the configurations available for your Azure Managed Redis instances.
 
 ## Configure Azure Managed Redis settings
 
@@ -25,19 +24,13 @@ You can view and configure the following settings using the **Resource Menu**.
 - [Access control (IAM)](#access-control-iam)
 - [Tags](#tags)
 - [Diagnose and solve problems](#diagnose-and-solve-problems)
-<!-- - Redis console -->
-<!-- - [Move to a new subscription](#move-your-cache-to-a-new-subscription) -->
 - [Settings](#settings)
   - [Authentication](#authentication)
   - [Advanced settings](#advanced-settings)
-	<!-- - [Access Ports](#access-ports)
-	- [Memory policies](#memory-policies)
-	- [Keyspace notifications](#keyspace-notifications) -->
-	- [Data persistence](#data-persistence)
+	- [Data persistence](#data-persistence-preview)
   - [Encryption](#encryption)
   - [Active geo-replication](#active-geo-replication)
-  - [Scale](#scale)
-  <!-- - [Schedule updates](#schedule-updates) -->
+  - [Scale](#scale-preview)
   - [Properties](#properties)
   - [Locks](#locks)
 - [Administration](#administration)
@@ -77,18 +70,6 @@ The **Tags** section helps you organize your resources. For more information, se
 
 Select **Diagnose and solve problems** to be provided with common issues and strategies for resolving them.
 
-<!-- ## Redis console
-
-Direct access to the Redis console is not yet supported in Azure Managed Redis. Instead, consider using the [Redis CLI](how-to-redis-cli-tool.md) or a tool like [Redis Insight](https://redis.io/insight/). -->
-
-<!-- ## Move your cache to a new subscription
-
-You can move your cache to a new subscription by selecting **Move**.
-
-:::image type="content" source="media/configure/redis-cache-move.png" alt-text="Move Azure Managed Redis":::
-
-For information on moving resources from one resource group to another, and from one subscription to another, see [Move resources to new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription). -->
-
 ## Settings
 
 The **Settings** section allows you to access and configure the following settings for your cache.
@@ -123,45 +104,6 @@ Select **Microsoft Entra Authentication** to  a password-free authentication mec
 
 The following settings are configured on the **Advanced settings** on the left.
 
-<!-- - [Access Ports](#access-ports) -->
-<!-- - [Memory policies](#memory-policies) -->
-<!-- - [Keyspace notifications](#keyspace-notifications) -->
-<!-- - [Data persistence](#data-persistence) -->
-
-<!-- The only settings I see are Non-TLS access, Eviction Policy, Defer Redis DB Version -->
-<!-- 
-#### Access Ports
-
-By default, only TLS access is enabled for new caches. To enable non-TLS access, Select **Enable** for **Non-TLS access only** and then Select **Save**.
-
-> [!NOTE]
-> Azure Managed Redis supports TLS 1.2 and 1.3. See [What are the configuration settings for the TLS protocol?](tls-configuration.md) for more details.
-> -->
-
-<!-- #### Memory policies
-
-When you create a cache, approximately 20% of the instance memory is reserved as a memory buffer for replication and other system processes. This helps the instance operate more effectively.  -->
-
-<!-- **Eviction policy** configures the eviction policy for the cache and allows you to choose from the following eviction policies:
-
-- `volatile-lru`: The default eviction policy. It removes the least recently used key out of all the keys with an expiration set.
-- `allkeys-lru`: Removes the least recently used key.
-- `volatile-random`: Removes a random key that has an expiration set.
-- `allkeys-random`: Removes a random key.
-- `volatile-ttl`: Removes the key with the shortest time to live based on the expiration set for it.
-- `noeviction`: No eviction policy. Returns an error message if you attempt to insert data.
-- `volatile-lfu`: Evicts the least frequently used keys out of all keys with an expire field set.
-- `allkeys-lfu`: Evicts the least frequently used keys out of all keys.
-
-For more information, see [Eviction policies](https://redis.io/topics/lru-cache#eviction-policies). -->
-
-<!-- #### Keyspace notifications
-
-Redis keyspace notifications are configured using the **notify-keyspace-events** box. Keyspace notifications allow clients to receive notifications when certain events occur. 
-Keyspace notifications can be used to [trigger Azure Functions](tutorial-functions-getting-started.md) based on activity on your Redis instance.   
-
-For more information, see [Redis Keyspace Notifications](https://redis.io/topics/notifications).-->
-
 ### Data persistence (preview)
 
 **Data persistence** allows you to enable, disable, or configure data persistence for your Redis instance. Azure Managed Redis offers Redis persistence using either RDB persistence or AOF persistence.
@@ -181,26 +123,6 @@ For more information, see [Configure active geo-replication for Azure Managed Re
 ### Scale (preview)
 
 Select **Scale** to view or change the size and performance tier of your Redis instance. For more information on scaling, see [How to Scale Azure Managed Redis](how-to-scale.md).
-
-<!-- ### Schedule updates
-
-Scheduled updates are not yet available in Azure Managed Redis. -->
-
-<!--
-The **Schedule updates** section allows you to choose a maintenance window for Redis server updates for your cache.
-
-
-> [!IMPORTANT]
-> The maintenance window applies only to Redis server updates, and not to any Azure updates or updates to the operating system of the VMs that host the cache.
-
-:::image type="content" source="media/configure/redis-schedule-updates.png" alt-text="Schedule updates":::
-
-To specify a maintenance window, check the days you want. Then, specify the maintenance window start hour for each day, and select **OK**. The maintenance window time is in UTC.
-
-For more information and instructions, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates).
--->
-
-<!-- ### Identity this missing from the list/toc -->
 
 ### Properties
 
@@ -262,7 +184,7 @@ Select **Metrics** to create your own custom chart to track the metrics you want
 
 The **Advisor recommendations** displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
-<!--I'm keeping the screenshots in this section because they're kind of necessary. But they should be updated at some point -->
+  <!--The screenshots in this section should be updated at some point -->
 
 :::image type="content" source="media/configure/redis-cache-no-recommendations.png" alt-text="Screenshot that shows where the Advisor recommendations are displayed but there are no current ones.":::
 
@@ -320,25 +242,6 @@ For more information about the Azure Resource health service, see [Azure Resourc
 Select **Support + Troubleshooting** to open a support request for your cache.
 
 ## Other configuration information
-
-### Default Redis server configuration
-
-New Azure Managed Redis instances are configured with the following default Redis configuration values:
-
-| Setting | Default value | Description |
-| --- | --- | --- |
-| `maxclients` |Depends on the pricing tier<sup>2</sup> |This value is the maximum number of connected clients allowed at the same time. Once the limit is reached Redis closes all the new connections, returning a 'max number of clients reached' error. |
-| `maxmemory-reserved` | 20% of `maxmemory` | 20% of memory is reserved for replication buffers and other system processes. This parameter cannot be changed.|
-| `maxmemory-policy` |`noeviction` | Maxmemory policy is the setting used by the Redis server to select what to remove when `maxmemory` (the size of the cache that you selected when you created the cache) is reached. With Azure Managed Redis, the default setting is `noeviction`. This setting returns an error message if you attempt to insert data into a full Redis instance. This setting can be configured in the Azure portal. For more information, see [Memory policies](#memory-policies). |
-| `maxmemory-samples` |3 |To save memory, LRU and minimal TTL algorithms are approximated algorithms instead of precise algorithms. By default Redis checks three keys and picks the one that was used less recently. |
-| `lua-time-limit` |5,000 |Max execution time of a Lua script in milliseconds. If the maximum execution time is reached, Redis logs that a script is still in execution after the maximum allowed time, and starts to reply to queries with an error. |
-| `lua-event-limit` |500 |Max size of script event queue. |
-| `client-output-buffer-limit normal` / `client-output-buffer-limit pubsub` |`0 0 0` / `32mb 8mb 60` |The client output buffer limits can be used to force disconnection of clients that aren't reading data from the server fast enough for some reason. A common reason is that a Pub/Sub client can't consume messages as fast as the publisher can produce them. For more information, see [https://redis.io/topics/clients](https://redis.io/topics/clients). |
-
-> [!NOTE]
-> Azure Managed Redis only supports a subset of Redis configuration settings. Some of the most commonly used configuration settings, such as such as **max-memory-policy**, are configurable through the Azure portal or command-line management tools such as Azure CLI or PowerShell.
-> Other values may be configured using the `CONFIG SET` command. See [Compatibility with Redis Community Edition configuration settings](https://redis.io/docs/latest/operate/rs/references/compatibility/config-settings/) for more information.
->
 
 ### Databases
 
