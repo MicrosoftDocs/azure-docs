@@ -79,7 +79,7 @@ The API Center portal supports and streamlines the work of developers who use an
 In the Standard plan of Azure API Center, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
 
 > [!TIP]
-> If you're using the Free plan of Azure API Center, you can [upgrade easily](frequently-asked-questions.yml##how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan) to the Standard plan to enable full service features including semantic search in the API Center portal.
+> If you're using the Free plan of Azure API Center, you can [upgrade easily](frequently-asked-questions.yml#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan) to the Standard plan to enable full service features including semantic search in the API Center portal.
 
 To use AI-assisted search when signed in to the API Center portal, click in the search box, select **Search with AI**, and enter a query.
 
