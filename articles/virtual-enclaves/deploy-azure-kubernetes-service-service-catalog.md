@@ -23,7 +23,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster wit
 
 3. [Create a user-assigned managed identity](./create-user-managed-identity.md) with `Virtual Machine Contributor` access on the resource group containing the Virtual Network and `Key Vault Contributor` access to the resource group containing the ssh-key. > [!NOTE] This might be the same resource group.
     - External services using the enclave Virtual Network: If using the enclave Virtual Network as the dedicated subnet for the cluster service, you'll also need to grant the managed identity `Contributor` on the Virtual Network resource group. (This seems like it should be `Network Contributor` but in testing that wasn't enough).
-4. To leverage CMK you'll need to create the disk encryption set and give the disk encryption set the `wrapkey`, `unwrapkey`, and `get` permissions on the key vault that houses the key used for CMK. [Setup CMK](./setup-customer-managed-key-encryption-within-an-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
+4. To leverage CMK you'll need to create the disk encryption set and give the disk encryption set the `wrapkey`, `unwrapkey`, and `get` permissions on the key vault that houses the key used for CMK. [Setup CMK](./configure-customer-managed-key-encryption-within-enclave.md). Use the managed identity created in step 3 while creating this disk encryption set.
 5. In order to deploy AKS, you must deploy to a subscription that allows `EncryptionAtHost`. To do this, first set your azContext to ensure you're using the correct subscription, and then run the following:
 `Register-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`.
 > [!NOTE]
@@ -57,7 +57,7 @@ You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster wit
 > [!NOTE]
 > 
 > This might take several minutes, to check on the status of this registration run: `Get-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`
-7. Add the following Firewall rule to your Community firewall policy as an Application rule:
+7. Add the following Firewall rule to your community firewall policy as an Application rule:
     - Source: 10.0.2.0/23
     - Protocol: Https:443
     - Destination type: FQDN
@@ -72,7 +72,7 @@ You'll need to create a subnet to host the AKS cluster. For a 30 pod cluster wit
     - protocol: any
     - action: allow
     - priority: 1000
-9. Using Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the ACR resource. In addition if the ACR is configured to use a public storage account, that URL must be added as a Community endpoint to create the firewall policy.
+9. Using Azure Container Registry: Typical configuration requires granting the `Acr Pull` role to the AKS managed identity for the ACR resource. In addition if the ACR is configured to use a public storage account, that URL must be added as a community endpoint to create the firewall policy.
 
 Documentation around these rules can be found [here](/azure/aks/outbound-rules-control-egress)
 
@@ -139,9 +139,9 @@ Via the Admin VM:
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM is also called a "jumpbox".
 1. Sign-in to a desktop session on the Admin VM.
 2. From the start menu, type `RDP`, and open the RDP window
-3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
-4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the Remote App VM desktop, validate any VM settings set during the deployment. Otherwise, start using the Remote App VM (e.g. install or configure an application for Remote App publishing).
+3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
+4. Enter RemoteApp VM credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (e.g. install or configure an application for RemoteApp publishing).
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.

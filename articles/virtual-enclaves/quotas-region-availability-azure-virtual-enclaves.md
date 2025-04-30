@@ -18,9 +18,9 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 |Product Feature | Limit |
 |--|--|
-| Enclaves in a Community | 200[^2] |
-| Workloads in an Enclave | 800[^3] |
-| Workloads in a Community| 160,000[^1] |
+| Enclaves in a community | 200[^2] |
+| Workloads in an enclave | 800[^3] |
+| Workloads in a community| 160,000[^1] |
 | Endpoints (either type)| 800[^3] |
 
 [^1]: Theoretically the number of workloads in a community can reach 200 * 800 = **160,000** if the `resourceGroupCollection` property is an empty list. Otherwise, the number is limited by the number of resource groups per subscription which is 980.
@@ -37,7 +37,7 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 |--|--|
 | Community | 978[^4] |
 | Enclave | 200[^2] |
-| Workloads per Enclave | 800[^3] |
+| Workloads per enclave | 800[^3] |
 
 [^4]: The maximum is limited by the number of resource groups allowed in a subscription given that a community deploys an MRG. Among these resource groups, two of these must be reserved for deploying communities since each resource group can only have a maximum of 800 resource, per resource type.
 
@@ -45,12 +45,12 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 |Resource | Limit |
 |--|--|
-| Community Endpoint per Community | 800[^3] |
-| Community Endpoint Rule | Unlimited[^5] |
-| Enclave Endpoint per Enclave | 800[^3] |
-| Enclave Endpoint Rule | 993[^6] |
-| Transit Hub | 499[^7] |
-| Enclave Connection| 993[^8] |
+| Community endpoint per community | 800[^3] |
+| Community endpoint Rule | Unlimited[^5] |
+| Enclave endpoint per Enclave | 800[^3] |
+| Enclave endpoint rule | 993[^6] |
+| Transit hub | 499[^7] |
+| Enclave connection| 993[^8] |
 
 [^5]: Each community endpoint rule deploys only internal metadata.
 

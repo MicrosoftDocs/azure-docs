@@ -1,5 +1,6 @@
 ---
 title: Install BannerApp for RemoteApps
+titleSuffix: Azure Virtual Enclaves
 description: Install BannerApp for RemoteApps.
 author: aserfass-msft
 ms.author: aserfass

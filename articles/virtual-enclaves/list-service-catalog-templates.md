@@ -17,11 +17,11 @@ This is the current list of Azure services and workload templates in the Service
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
-| Remote App | [link](#remote-app) | Available |
+| RemoteApp | [link](#remoteapp-vm) | Available |
 | Storage Account | [link](#storage-account) | Available |
 | Key Vault | [link](#key-vault) | Available |
 | App Service: Web App | [link](#app-service-web-app) | Available |
-| App Service: Functions | [link](#app-service-functions) | Available |
+| App Service: Functions | [link](#app-service-function-app) | Available |
 | Azure SQL | [link](#azure-sql) | Available |
 | Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-aks) | Available |
 | Azure Container Registry (ACR) | [link](#azure-container-registry-acr) | Available |
@@ -29,7 +29,7 @@ This is the current list of Azure services and workload templates in the Service
 | Service Bus | [link](#service-bus) | Available |
 | Azure Compute Gallery | [link](#azure-compute-gallery) | Future |
 
-New templates will be added over time
+New templates will be added over time.
 
 ## Admin VM
 
@@ -38,7 +38,7 @@ New templates will be added over time
 Description: A Virtual Machine (VM) created for the purpose of securely accessing enclave resources for administrative purposes. Admin VM Virtual Machines (VMs) that can be remotely accessed through [Azure Bastion](https://aka.ms/bastion).
 
 Documentation:
-[Understanding Admin VMs](understanding-admin-vm.md)
+[Understanding Admin VMs](./understand-admin-vm.md)
 
 ## Common Dependencies
 
@@ -48,15 +48,15 @@ Description: This template creates the resources needed to secure the other reso
 
 Documentation:
 
-## Remote App VM
+## RemoteApp VM
 
-[How to create a Remote App VM](./deploy-remoteapp-vm-service-catalog.md)
+[How to create a RemoteApp VM](./deploy-remoteapp-vm-service-catalog.md)
 
 Description:
-This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](../virtual-desktop/publish-applications-stream-remoteapp.md) by joining and deploying a host pool, app location group, and workspace. The default application published as a remote app is the edge browser.
+This template and deploy a virtual machine that is domain joined and optionally published as a [RemoteApp](../virtual-desktop/publish-applications-stream-remoteapp.md) by joining and deploying a host pool, app location group, and workspace. The default application published as a RemoteApp is the edge browser.
 
 Documentation:
-[Remote App Streaming Overview](../virtual-desktop/remote-app-streaming/overview.md)
+[RemoteApp Streaming Overview](../virtual-desktop/remote-app-streaming/overview.md)
 [How-to deploy a Streaming App (RemoteApp)](./deploy-remoteapp-vm-service-catalog.md)
 
 

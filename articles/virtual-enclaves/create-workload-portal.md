@@ -27,7 +27,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
 
-[ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png)
+[ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the Workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png#lightbox)
 
 4. On the `Workloads` page, select `Create`.
 

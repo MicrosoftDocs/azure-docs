@@ -25,7 +25,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 
 ## Deploy the template
@@ -47,11 +47,11 @@ Go to the specified Resource Group to confirm the intended resources were create
 ### Connect to the Application VM
 Via the Admin VM:
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a jumpbox.
-1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./understanding-admin-vm.md)
+1. Sign-in to the Admin VM you have deployed for your enclave or [create a new Admin VM](./understand-admin-vm.md)
 2. From the start menu, type `RDP`, and open the RDP window
-3. Enter the Remote App VM IP address as the destination IP address for the RDP connection.
-4. Enter Remote App VM credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the Remote App VM desktop, validate any VM settings set during the deployment. Otherwise, start using the Remote App VM (e.g. install or configure an application for Remote App publishing).
+3. Enter the RemoteApp VM IP address as the destination IP address for the RDP connection.
+4. Enter RemoteApp M credentials and select `Accept/Yes` to warnings about a new connection.
+5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (e.g. install or configure an application for RemoteApp publishing).
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.

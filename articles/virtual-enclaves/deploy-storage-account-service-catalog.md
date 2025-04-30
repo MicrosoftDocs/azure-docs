@@ -23,7 +23,7 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ There are guardrails in the enclaves to ensure a storage account is using CMK en
 > 
 > These resources are not deployed with the enclave or workload by default. Required:
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet-enclave.md) after enclave creation.
+1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deployment Service Catalog template](./deploy-common-dependencies-service-catalog.md) article to:
     - Create an RSA (2048 or greater) key.
     - Create a user managed identity with access to the CMK key.

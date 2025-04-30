@@ -19,7 +19,7 @@ Building and running workloads successfully in AVE requires understanding and im
 - [Security design patterns](#security-design-patterns-for-azure-virtual-enclaves)
 - [Managed resource groups](#managed-resource-groups-in-azure-virtual-enclaves)
 
-The AVE product group, engineering teams, and field teams contributed to, wrote, and grouped the following best practices and conceptual articles. Their purpose is to help Community and Enclave Owners and developers better understand the concepts above and implement the appropriate features.
+The AVE product group, engineering teams, and field teams contributed to, wrote, and grouped the following best practices and conceptual articles. Their purpose is to help community and enclave Owners and developers better understand the concepts above and implement the appropriate features.
 
 ## Networking and Organizational Design Patterns for Azure Virtual Enclaves
 
@@ -54,7 +54,7 @@ AVE advises customers to follow, wherever possible, underlying Azure service bes
 Learn more about overall [Azure networking best practices](/azure/security/fundamentals/network-best-practices).
 
 ### Workload deployment
-- Workloads contain a managed resource group, which Enclave Contributors can use to deploy Azure resources to
+- Workloads contain a managed resource group, which enclave Contributors can use to deploy Azure resources to
 - By default, all AVE Workloads are [governed](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) through built-in Azure Policy initiatives
 - Workloads associated with a [community](./what-community.md) that has a custom governance setup, will use this unique configuration instead of the default AVE governance configuration.
 - [Considerations for naming Azure resources](/azure/azure-government/documentation-government-concept-naming-resources)
@@ -79,48 +79,48 @@ Customers are also recommended to follow the [Azure security best practices - Cl
 ## Managed resource groups in Azure Virtual Enclaves
 
 ### Community managed resource group
-The _Community managed resource group_ contains the infrastructure resources described in [What is a Community?](./what-community.md).
+The _Community managed resource group_ contains the infrastructure resources described in [What is a community?](./what-community.md).
 
-The Community managed resource group is assigned a name by default following this convention `myCommunityName-HostedResources-<GUID>`. Every Community deployment will create this resource group and create the Community infrastructure inside. When you delete your community, the Azure Virtual Enclaves resource provider automatically deletes the Community managed resource group.
+The community managed resource group is assigned a name by default following this convention `myCommunityName-HostedResources-<GUID>`. Every community deployment will create this resource group and create the community infrastructure inside. When you delete your community, the Azure Virtual Enclaves resource provider automatically deletes the community managed resource group.
 
-![Screenshot showing an example of the Community resources managed by Azure Virtual Enclaves.](./media/fabrikam-hosted-resources.png)
+![Screenshot showing an example of the community resources managed by Azure Virtual Enclaves.](./media/fabrikam-hosted-resources.png)
 
-The Community managed resource group has the following limitations:
-- You can't specify an existing resource group for the Community managed resource group.
-- You can't specify a different subscription for the Community managed resource group.
-- You can't change the Community managed resource group name after the Community has been created.
-- You can't specify names for the managed resources within the Community  managed resource group.
-- You can't modify or delete Azure-created tags of managed resources within the Community managed resource group.
+The community managed resource group has the following limitations:
+- You can't specify an existing resource group for the community managed resource group.
+- You can't specify a different subscription for the community managed resource group.
+- You can't change the community managed resource group name after the community has been created.
+- You can't specify names for the managed resources within the community managed resource group.
+- You can't modify or delete Azure-created tags of managed resources within the community managed resource group.
 
-If you modify or delete Azure-created tags, resources, and other resource properties in the Community managed resource group, you could get unexpected results, such as network, access, and monitoring errors. As Azure Virtual Enclaves manages the lifecycle of infrastructure in the Community managed resource group, any changes could potentially move your enclave into an unsupported state.
+If you modify or delete Azure-created tags, resources, and other resource properties in the community managed resource group, you could get unexpected results, such as network, access, and monitoring errors. As Azure Virtual Enclaves manages the lifecycle of infrastructure in the community managed resource group, any changes could potentially move your enclave into an unsupported state.
 
-A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the Community managed resource group, and you can add those tags when creating the Community. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the Community managed resource group.
+A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the community managed resource group, and you can add those tags when creating the community. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the community managed resource group.
 
 > [!NOTE]
 > 
-> If you don't have Community managed resource group lockdown enabled, you can directly modify any resource in the Community managed resource group. Directly modifying resources in the Community managed resource group can cause your enclave to become unstable or unresponsive.
+> If you don't have community managed resource group lockdown enabled, you can directly modify any resource in the community managed resource group. Directly modifying resources in the community managed resource group can cause your enclave to become unstable or unresponsive.
 
 ### Enclave managed resource group
 The _Enclave managed resource group_ contains the infrastructure resources described in [What is an Enclave?](./what-enclave.md).
 
-The Enclave managed resource group is assigned a name by default following this convention `myEnclaveName-HostedResources-<GUID>`. Every Enclave deployment will create this resource group and create the Enclave infrastructure inside. When you delete your enclave, the Azure Virtual Enclaves resource provider automatically deletes the Enclave managed resource group.
+The enclave managed resource group is assigned a name by default following this convention `myEnclaveName-HostedResources-<GUID>`. Every enclave deployment will create this resource group and create the enclave infrastructure inside. When you delete your enclave, the Azure Virtual Enclaves resource provider automatically deletes the enclave managed resource group.
 
-![Screenshot showing an example of the Enclave resources managed by Azure Virtual Enclaves.](./media/enclave-webapp-hosted-resources.png)
+![Screenshot showing an example of the enclave resources managed by Azure Virtual Enclaves.](./media/enclave-webapp-hosted-resources.png)
 
-The Enclave managed resource group has the following limitations:
-- You can't specify an existing resource group for the Enclave managed resource group.
-- You can't specify a different subscription for the Enclave managed resource group.
-- You can't change the Enclave managed resource group name after the Enclave has been created.
-- You can't specify names for the managed resources within the Enclave managed resource group.
-- You can't modify or delete Azure-created tags of managed resources within the Enclave managed resource group.
+The enclave managed resource group has the following limitations:
+- You can't specify an existing resource group for the enclave managed resource group.
+- You can't specify a different subscription for the enclave managed resource group.
+- You can't change the enclave managed resource group name after the enclave has been created.
+- You can't specify names for the managed resources within the enclave managed resource group.
+- You can't modify or delete Azure-created tags of managed resources within the enclave managed resource group.
 
-If you modify or delete Azure-created tags, resources, and other resource properties in the Enclave managed resource group, you could get unexpected results, such as network, access, and monitoring errors. As Azure Virtual Enclaves manages the lifecycle of infrastructure in the Enclave managed resource group, any changes could potentially move your enclave into an unsupported state.
+If you modify or delete Azure-created tags, resources, and other resource properties in the enclave managed resource group, you could get unexpected results, such as network, access, and monitoring errors. As Azure Virtual Enclaves manages the lifecycle of infrastructure in the enclave managed resource group, any changes could potentially move your enclave into an unsupported state.
 
-A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the Enclave managed resource group, and you can add those tags when creating the enclave. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the Enclave managed resource group.
+A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the enclave managed resource group, and you can add those tags when creating the enclave. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the enclave managed resource group.
 
 > [!NOTE]
 > 
-> If you don't have Enclave managed resource group lockdown enabled, you can directly modify any resource in the Enclave managed resource group. Directly modifying resources in the Enclave managed resource group can cause your enclave to become unstable or unresponsive.
+> If you don't have enclave managed resource group lockdown enabled, you can directly modify any resource in the enclave managed resource group. Directly modifying resources in the enclave managed resource group can cause your enclave to become unstable or unresponsive.
 
 ### Workload managed resource group
 The _Workload managed resource group_ contains the infrastructure resources described in [What is a Workload?](./what-workload.md).
@@ -139,7 +139,7 @@ A common scenario where customers want to modify resources is through tags. Azur
 As you build your communities, enclaves, and workloads in Azure, it's important to keep in mind the following universal design principles:
 
 - [Networking architecture design in Azure](/azure/architecture/guide/networking/networking-start-here)
-- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
+- [Hub-spoke network topology in Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?tabs=cli)
 - [Azure Private Link in a hub-and-spoke network](/azure/architecture/guide/networking/private-link-hub-spoke-network)
 - [Azure Firewall - Well-Architected Framework](/azure/well-architected/services/networking/azure-firewall)
 - [Considerations for naming Azure resources](/azure/azure-government/documentation-government-concept-naming-resources)

@@ -1,5 +1,6 @@
 ---
 title: Deploy a Key Vault from the Service Catalog into a Workload
+titleSuffix: Azure Virtual Enclaves
 description: Deploy a Key Vault from the Service Catalog into a Workload
 author: aserfass-msft
 ms.author: aserfass
@@ -8,7 +9,7 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy a Key Vault from the Service Catalog into a Workload
+# Deploy a Key Vault from the Service Catalog into a workload
 
 In this article, you:
 
@@ -23,7 +24,7 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -32,16 +33,16 @@ There are guardrails in the enclaves to ensure resources are using CMK encryptio
 > 
 > These resources are not deployed with the enclave or workload by default. Required:
 
-1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
+Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
 3. Select the `Key Vault` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-![Screenshot showing the Storage Account template selected from the Service Catalog list.](./media/service-catalog-list-key-vault.png)
+  ![Screenshot showing the Storage Account template selected from the Service Catalog list.](./media/service-catalog-list-key-vault.png)
 
-4. Enter the required parameters on each tab
+4. Enter the required parameters on each tab.
 5. Adjust any of the prepopulated parameters as needed.
 5. Select `Review + Add` then `Create`.
 
@@ -60,4 +61,4 @@ If you don't plan on keeping these resources, clean up unnecessary resources to 
   - Purpose: `<publish abc app to users>`
   - Service Catalog Name: `<RemoteApp>`
   - Service Catalog Version: `<version you deployed>`
-- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md)
+- Consider adding an [Azure Policy to enforce and inherit tags](../azure-resource-manager/management/tag-policies.md).

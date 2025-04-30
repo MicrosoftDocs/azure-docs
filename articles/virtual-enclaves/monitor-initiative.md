@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Monitoring Guardrails Initiative
+# Monitoring guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure Monitoring is deployed securely.
 
 ## Monitoring GitHub Repository

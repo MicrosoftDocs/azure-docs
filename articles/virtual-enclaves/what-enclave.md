@@ -10,13 +10,13 @@ ms.date: 04/08/2025
 
 # What is an Enclave?
 
-An enclave is an isolated Azure Virtual Network that is part of a [community](./what-community.md) in which one or more [workloads](./what-workload.md) are hosted. These workloads can be isolated from other enclaves in the community. An Enclave Owner can enable other enclaves to connect to theirs by creating an [enclave endpoint](./what-enclave-endpoint.md). Enclave endpoints are used by other enclaves to establish [enclave connections](./what-enclave-connection.md).
+An enclave is an isolated Azure Virtual Network that is part of a [community](./what-community.md) in which one or more [workloads](./what-workload.md) are hosted. These workloads can be isolated from other enclaves in the community. An enclave owner can enable other enclaves to connect to theirs by creating an [enclave endpoint](./what-enclave-endpoint.md). Enclave endpoints are used by other enclaves to establish [enclave connections](./what-enclave-connection.md).
 
 ## Architecture of an enclave
 
 Enclaves come with the following primary platform-managed and platform-deployed resources:
 - Isolated [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts) you define. By default, these Enclaves aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls). Enabling connections is done through the use of platform-managed [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a Community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a community and enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
 - [Azure Bastion](../bastion/bastion-overview.md).
 - [Private Endpoints](../private-link/private-endpoint-overview.md) and [Private DNS Zones](../dns/private-dns-privatednszone.md). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
@@ -31,7 +31,7 @@ For more details regarding the Enclave managed resource group, learn more about 
 Maintenance mode is a feature that allows Enclave Owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
 
 ## Template
-See [template documentation](./ave-templates.md#enclave-template)
+See [template documentation](./azure-virtual-enclaves-templates.md#enclave-template)
 
 ## Managed Resources
 The following resources types are deployed into the Enclave Managed Resource Group:
@@ -46,7 +46,7 @@ The following resources types are deployed into the Enclave Managed Resource Gro
 ## Next Steps
 - [What is a Workload?](./what-workload.md)
 - [What is the Service Catalog?](./what-service-catalog.md)
-- [What is a Community?](./what-community.md)
+- [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)
 - [Tutorial: Create an Enclave](./2-create-enclaves-inside-community.md)

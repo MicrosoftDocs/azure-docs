@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Service Bus Guardrails Initiative
+# Service Bus guardrails initiative
 This article describes the Policy guardrails in place to ensure Azure Service Bus is deployed securely.
 
 ## Service Bus GitHub Repository

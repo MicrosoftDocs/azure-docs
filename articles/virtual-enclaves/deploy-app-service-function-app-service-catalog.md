@@ -23,7 +23,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed Community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 2. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](/azure/virtual-machines/disk-encryption-overview)
     - [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
-    - [Manage User Assigned Identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
+    - [Manage User-assigned Identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
     - Create an Access Policy in the Key Vault for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
 
 ## Deploy the template
