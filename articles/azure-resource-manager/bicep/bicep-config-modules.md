@@ -169,7 +169,6 @@ Bicep uses the [Azure.Identity SDK](/dotnet/api/azure.identity) to do authentica
 - [Environment](/dotnet/api/azure.identity.environmentcredential)
 - [ManagedIdentity](/dotnet/api/azure.identity.managedidentitycredential)
 - [VisualStudio](/dotnet/api/azure.identity.visualstudiocredential)
-- [VisualStudioCode](/dotnet/api/azure.identity.visualstudiocodecredential)
 
 [!INCLUDE [vscode authentication](../../../includes/resource-manager-vscode-authentication.md)]
 
