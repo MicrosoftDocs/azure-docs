@@ -17,15 +17,15 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 
 * An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 * An [Azure Microsoft Planetary Computer Pro GeoCatalog](./deploy-geocatalog-resource.md)
-* A Geocatalog collection with:
+* A collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).
   * Items ingested. Learn how to [ingest STAC items](./ingestion-source.md).
-  * A collection that has been configured for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
+  * A collection configuration defined for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
 
 ## Open the Microsoft Planetary Computer Pro web interface
 
-1. Sign in to Azure Portal
-1. In the Azure Portal search box, enter GeoCatalogs. Select GeoCatalogs in the search results.
+1. Sign in to Azure portal
+1. In the Azure portal search box, enter GeoCatalogs. Select GeoCatalogs in the search results.
 1. In the GeoCatalogs page, select the GeoCatalog you want to explore.
 1. In the GeoCatalog's "Resource" page, under the Essentials section, follow the GeoCatalog URI link to open the Planetary Computer Pro web interface.
 
@@ -34,7 +34,7 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 The Explorer can be opened in two ways:
 
 1. Select **Explorer** in the navigation bar, **or** select a valid collection to explore.
-1. From the collection's **Overview** page, click **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
+1. From the collection's **Overview** page, select **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
 
 > [!NOTE]
 > If the "Launch In Explorer" button is grey, you must [Create a Render Configuration](./render-configuration.md).
@@ -124,7 +124,7 @@ You can set a thumbnail for a collection, the image that represents that collect
 1. In the Explorer, select a collection to display.
 1. Select your desired item asset to display on the map.
 1. Zoom in to your desired area.
-1. Select the three dots icon to the right of the dataset name in the Explore Datasets side-panel and select "Generate Snapshot Image".
+1. Select the three dots icon to the right of the dataset name in the Explore Datasets side-panel and select "Generate Snapshot Image."
 1. Select Draw export area and draw a rectangular area on the map.
 1. Select an image size.
 1. Select Generate image.
