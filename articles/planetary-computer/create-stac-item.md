@@ -923,7 +923,7 @@ Validating collection and items...
 ✅ STAC item saved at: stac_catalog/goes-18-ABI-L2-LSTC/items/OR_ABI-L2-LSTC-M6_G18_s20232080001177_e20232080003550_c20232080004568_DQF.json
 ```
 
-## Add your new STAC Items to MC Pro
+## Add your new STAC Items to MPC Pro
 
 We can now add the STAC Collection and STAC Item we created to MPC Pro.
 
