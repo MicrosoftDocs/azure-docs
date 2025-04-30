@@ -38,7 +38,7 @@ Creating assignments on PBB storage accounts doesn't work. Will be fixed in STG1
 
 ## Soft deleted blobs are included in listing during scanning as objects targeted 
 
-No workaround yet available.
+Exclude the prefix.
 
 ## Billing doesn't show task assignment name 
 
@@ -59,6 +59,10 @@ The workaround is to delete the storage task assignment and then move the storag
 ## Restrictions on moving a storage task
 
 You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
+
+## Preview feature won't work for a storage account that is behind firewall
+
+If the target storage account has firewall rules enabled, make sure to configure the target storage account to allow access to the storage task by creating a resource instance rule in the network settings of the storage account.
 
 ## Overlapping prefix for assignments
 
