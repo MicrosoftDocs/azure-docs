@@ -14,10 +14,7 @@ This article describes reliability support in Azure NetApp Files, covering intra
 
 Resiliency is a shared responsibility between you and Microsoft. This article also covers ways for you to create a resilient solution that meets your needs.
 
-<!-- needed? -->
 Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides volumes as a service, which you can create within a NetApp account and a capacity pool, and share to clients using SMB and NFS. You can also select service and performance levels and manage data protection.
-
-<!-- check aks example -->
 
 ## Production deployment recommendations
 
@@ -74,7 +71,6 @@ There's no extra charge to enable availability zone support in Azure NetApp File
 * You can configure availability zone support for new and existing volumes in Azure NetApp Files. To configure availability zones for volumes in Azure NetApp Files, see [Manage availability zone volume placement for Azure NetApp Files](../azure-netapp-files/manage-availability-zone-volume-placement.md).
 * After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can't be moved between availability zones.
 * For added resiliency, [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
-
 
 ### Failback
 
