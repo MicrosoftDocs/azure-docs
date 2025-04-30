@@ -1,6 +1,6 @@
 ---
-title: How to administer Azure Cache for Redis
-description: Learn how to perform administration tasks such as reboot and schedule updates for Azure Cache for Redis
+title: Reboot, Flush, and Schedule Updates Azure Cache for Redis
+description: Learn how to reboot, flush a cache, and schedule updates for Azure Cache for Redis
 
 ms.topic: conceptual
 ms.date: 04/30/2025
@@ -8,9 +8,9 @@ appliesto:
   - ✅ Azure Cache for Redis
 
 ---
-# How to administer Azure Cache for Redis
+# Administration tasks for Azure Cache for Redis
 
-This article describes how to do administration tasks such as [rebooting](#reboot), [flushing](#flush-data) a cache,  and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
+This article describes tasks such as [rebooting](#reboot), [flushing](#flush-data) a cache,  and [Update channel and Schedule updates](#update-channel-and-schedule-updates) for your Azure Cache for Redis instances.
 
 ## Reboot
 
