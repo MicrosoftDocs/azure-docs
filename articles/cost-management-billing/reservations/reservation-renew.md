@@ -17,7 +17,7 @@ You can renew reservations to automatically purchase a replacement when an exist
 
 The renewal price is available 30 days before the expiry of existing reservation. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs 30 days before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal will not be processed and you can purchase a new reservation in order to continue getting the benefit.
 
-Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation.
+Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation. When the replacement reservation is purchased, the new reservation is automatically set to auto-renew off.
 
 ## Set up renewal
 

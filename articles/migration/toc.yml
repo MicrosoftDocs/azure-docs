@@ -71,7 +71,7 @@ items:
         - name: Migrate to Azure Database for PostgreSQL (online)
           href: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-online
       - name: Migrate MySQL on AWS to Azure Database for MySQL
-        href: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
+        href: /azure/dms/tutorial-mysql-azure-mysql-offline-portal
       - name: Migrate Amazon SQL Server to Azure SQL Database
         href: /data-migration/sql-server/database/guide
       - name: Amazon DynamoDB

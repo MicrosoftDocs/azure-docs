@@ -17,7 +17,13 @@ This document also shows you how to check the status, or delete a Network Fabric
 
 Before configuring NFC, ensure you meet the following requirements:
 
-Names, such as for resources, shouldn't contain the underscore (\_) character.
+- Resource names must start with a letter (uppercase or lowercase).
+
+- Only letters, digits, and hyphens are allowed.
+
+- Underscores (_) and other special characters are not permitted.
+
+- The maximum length is 63 characters.
 
 ### Validate ExpressRoute circuit
 

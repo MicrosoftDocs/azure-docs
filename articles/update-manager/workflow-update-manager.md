@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/14/2024
+ms.date: 07/21/2024
 ms.topic: overview
 ---
 

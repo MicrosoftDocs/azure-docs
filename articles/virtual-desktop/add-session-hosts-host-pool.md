@@ -4,7 +4,7 @@ description: Learn how to add session host virtual machines to a host pool in Az
 ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 author: dknappettmsft
-ms.author: daknappe
+ms.author: avdcontent
 ms.date: 03/18/2025
 ---
 

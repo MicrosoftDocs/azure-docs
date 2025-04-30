@@ -34,6 +34,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
    * The upgrade process takes around 30 minutes.
    * The upgrade process only happens the first time a route-map is created on a hub.
+   * Once the virtual hub router and gateways are upgraded to this new software version, your virtual hub will support ExpressRoute ECMP for outbound traffic flows. For more details, see [About ExpressRoute ECMP](virtual-wan-faq.md#does-expressroute-support-equal-cost-multi-path-ecmp-routing-in-virtual-wan).
    * If the route-map is deleted, the virtual hub router remains on the new version of software.
    * Using Route-maps incurs an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 1. The process is complete when the **Provisioning state** is **Succeeded**. Open a support case if the process failed.
