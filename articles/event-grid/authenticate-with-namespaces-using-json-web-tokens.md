@@ -94,7 +94,7 @@ You need to provide access to the namespace to access your Azure Key Vault accou
     1. **Token Issuer**: Enter the value of the issuer claims of the JWTs, presented by the MQTT clients. 
     1. For **Issuer certificate**, select **From Azure Key Vault**. 
     
-        :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png" alt-text="Screenshot that shows the Custom JWT authentication section of the Configuration page for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/configuration-custom-authentication.png":::
+        :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/select-azure-key-vault-option.png" alt-text="Screenshot that shows the selection of the Azure Key Vault option of the Configuration page for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/select-azure-key-vault-option.png":::
     1. In the new page, specify values for the following properties.
         1. **Certificate URL**: the Certificate Identifier of the issuer certificate in Azure Key Vault that you created. You can choose **Select a certificate using a key vault** instead to select the certificate and the key vault from your subscriptions. 
         1. **Identity**: the identity used to authenticate with the Key Vault to access the issuer certificate that was created.          
@@ -196,10 +196,14 @@ In this step, you configure custom JWT authentication settings on your Event Gri
     1. Select **Enable custom JWT authentication**. 
     1. **Token Issuer**: Enter the value of the issuer claims of the JWTs, presented by the MQTT clients. 
     1. Select  issuer certificate option – **Direct Upload**.  
+
+        :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/direct-upload-option.png" alt-text="Screenshot that shows the selection of the Direct Upload option of the Configuration page for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/direct-upload-option.png":::
 1. In the new page, specify values for the following properties. 
     1. **Certificate**: upload your server certificate in PEM Format. 
     1. **Kid**: A unique key identifier for the certificate. 
     1. Select **Add**. 
+    
+        :::image type="content" source="./media/authenticate-with-namespaces-using-json-web-tokens/upload-certificate.png" alt-text="Screenshot that shows the Upload issuer certificate page." lightbox="./media/authenticate-with-namespaces-using-json-web-tokens/upload-certificate.png":::
 1. Back on the **Configuration** page, select **Apply**. 
 
 
