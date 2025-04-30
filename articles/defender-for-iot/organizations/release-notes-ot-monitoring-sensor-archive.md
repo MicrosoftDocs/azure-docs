@@ -1,54 +1,55 @@
 ---
-title: OT monitoring software versions - Microsoft Defender for IoT
-description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions, including release and support dates and highlights for new features.
-ms.topic: release-notes
+title: OT monitoring software versions archive for Microsoft Defender for IoT for organizations
+description: This article lists Microsoft Defender for IoT on-premises OT monitoring software versions archive released more than six months ago, including release and support dates and highlights for new features.
+ms.topic: concept-article
 ms.date: 04/06/2025
 ---
 
-# OT monitoring software versions
+# OT monitoring software versions archive for in Microsoft Defender for IoT for organizations
 
-The Microsoft Defender for IoT architecture uses on-premises sensors and management servers.
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
-This article lists the supported software versions for the OT sensor and on-premises management software, including release dates, support dates, and highlights for the updated features.
+This article serves as an archive for OT monitoring software versions released for Microsoft Defender for IoT for organizations more than six months ago.
 
-For more information, including detailed descriptions and updates for cloud-only features, see [What's new in Microsoft Defender for IoT?](whats-new.md) Cloud-only features aren't dependent on specific sensor versions.
+For more recent updates, see [OT monitoring software versions in Microsoft Defender for IoT?](release-notes.md).
+
+Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Versioning and support for on-premises software versions
 
 This section describes the servicing information, timelines, and guidance for the available on-premises software versions.
 
-### Version update recommendations
-
-When updating your on-premises software, we recommend:
-
-- Plan to **update your sensor versions to the latest version once every 6 months**.
-
-- Update to a **patch version only for specific bug fixes or security patches**. When working with the Microsoft support team on a specific issue, verify which patch version is recommended to resolve your issue.
+> [!NOTE]
+> If you have an on-premises management console, make sure to also update your on-premises management console to the same version as your sensors.
+>
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### OT monitoring software versions (sensor versions)
- 
+
 Cloud features may be dependent on a specific sensor version. Such features are listed below for the relevant software versions, and are only available for data coming from sensors that have the required version installed, or higher.
 
 > [!IMPORTANT]
-> The on-premises management console won't be supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
+> The on-premises management console isn't supported or available for download after January 1st, 2025. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 >
 
 | Version / Patch |  Release date | Scope     | Supported until |
 | ------- |  ------------ | ----------- | ------------------- |
-| **25.1** | | | |
-| 25.1.1  |03/2025 | Minor |02/2026 |
-| 25.1.0  |03/2025 | Major |02/2026 |
-| **24.1** | | | |
-| 24.1.9  |03/2025 | Minor |02/2026 |
-| 24.1.8  |12/2024 | Minor |12/2025 |
-| 24.1.7  |12/2024 | Minor |12/2025 |
-| 24.1.6  |11/2024 | Minor |12/2025 |
-| 24.1.5  |09/2024 | Minor |09/2025 |
-| 24.1.4  |07/2024 | Minor |07/2025 |
-| 24.1.3  |06/2024 | Minor |06/2025 |
-| 24.1.2  |04/2024 | Minor |04/2025 |
+| **23.2** | | | |
+| 23.2.0 | 12/2023 | Major | 12/2024 |
+| **23.1** | | | |
+| 23.1.3 | 09/2023 | Patch | 08/2024 |
+| 23.1.2 | 07/2023 | Major | 06/2024 |
+| **22.3** | | | |
+|22.3.10 | 07/2023 | Patch | 06/2024 |
+| 22.3.9 | 05/2023 | Patch | 04/2024 |
+| 22.3.8 | 04/2023 | Patch | 03/2024 |
+| 22.3.7 | 03/2023 | Patch | 02/2024 |
+| 22.3.6 | 03/2023 | Patch | 02/2024 |
+| 22.3.5 | 01/2023 | Patch | 12/2023 |
+| 22.3.4 | 01/2023 | Major | 12/2023 |
+| **22.2** | | | |
+| 22.2.9 | 01/2023 | Patch | 12/2023 |
 
 ### Threat intelligence updates
 
@@ -60,7 +61,7 @@ For more information, see [Threat intelligence research and packages](how-to-wor
 
 Defender for IoT provides **1 year of support** for every new version, starting with versions **22.1.7** and **22.2.7**. For example, version **22.2.7** was released in **October 2022** and is supported through **September 2023**.
 
-Earlier versions use a legacy support model, with support dates [detailed for each version](#ot-monitoring-software-versions).
+Earlier versions use a legacy support model, with support dates detailed for each version.
 
 ### On-premises appliance security
 
@@ -80,122 +81,6 @@ Version numbers are listed only in this article and in the [What's new in Micros
 
 To understand whether a feature is supported in your sensor version, check the relevant version section below and its listed features.
 
-## Versions 25.1.x
-
-### Version 25.1.1
-
-**Release date**: 04/2025
-
-**Supported until**: 03/2026
-
-This version includes the following updates:
-
-- Bug fixes for stability improvements
-- Enhanced 'Address Scan Detected' alert with port and protocol details for each scanned address, allowing SOC teams to investigate more efficiently without opening the PCAP.
-
-### Version 25.1.0
-
-**Release date**: 03/2025
-
-**Supported until**: 02/2026
-
-This version includes the following updates and enhancements:
-
-- ["Unauthorized Internet Connectivity Detected" alert now includes URL information](whats-new.md#unauthorized-internet-connectivity-detected-alert-now-includes-url-information)
-- [Improved RDP brute force detection](whats-new.md#improved-rdp-brute-force-detection)
-
-## Versions 24.1.x
-
-### 24.1.9
-
-**Release date**: 03/2025
-
-**Supported until**: 02/2026
-
-This version includes bug fixes for stability improvements.
-
-### 24.1.8
-
-**Release date**: 12/2024
-
-**Supported until**: 12/2025
-
-This version includes bug fixes for stability improvements.
-
-### 24.1.7
-
-**Release date**: 12/2024
-
-**Supported until**: 12/2025
-
-This version includes bug fixes for stability improvements.
-
-### 24.1.6
-
-**Release date**: 11/2024
-
-**Supported until**: 12/2025
-
-This version includes bug fixes for stability improvements.
-
-### Version 24.1.5
-
-**Release date**: 09/2024
-
-**Supported until**: 09/2025
-
-This version includes the following updates and enhancements:
-
-- [Add wildcards to allowlist domain names](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network)
-- [OCPI protocol is now supported](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery)
-- [New sensor setting type: Public addresses](configure-sensor-settings-portal.md#add-sensor-settings)
-- [Improved OT sensor onboarding](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor)
-
-### Version 24.1.4
-
-**Release date**: 07/2024
-
-**Supported until**: 07/2025
-
-This version includes the following updates and enhancements:
-
-- [Malicious URL path alert](whats-new-archive.md#malicious-url-path-alert)
-- The following CVE is resolved in this version:
-  - CVE-2024-38089
-
-### Version 24.1.3
-
-**Release date**: 06/2024
-
-**Supported until**: 06/2025
-
-This version includes the following updates and enhancements:
-
-- [Sensor time drift detection](whats-new-archive.md#sensor-time-drift-detection)
-- Bug fixes for stability improvements
-- The following CVEs are resolved in this version:
-  - CVE-2024-29055
-  - CVE-2024-29054
-  - CVE-2024-29053
-  - CVE-2024-21324
-  - CVE-2024-21323
-  - CVE-2024-21322
-
-### Version 24.1.2
-
-**Release date**: 04/2024
-
-**Supported until**: 04/2025
-
-This version includes the following updates and enhancements:
-
-- [Alert suppression rules from the Azure portal](how-to-accelerate-alert-incident-response.md#suppress-irrelevant-alerts)
-- [Focused alerts in OT/IT environments](alerts.md#focused-alerts-in-otit-environments)
-- [Alert ID (ID field) is now aligned on the Azure portal and sensor console](how-to-manage-cloud-alerts.md#view-alerts-on-the-azure-portal)
-- [Newly supported protocols](concept-supported-protocols.md)
-- [L60 hardware profile is no longer supported](ot-appliance-sizing.md#production-line-monitoring-medium-and-small-deployments)
-
-=======
 ## Versions 23.2.x
 
 ### Version 23.2.0
@@ -500,56 +385,3 @@ This version includes the following new updates and fixes:
 - [Updated process for sensor name changes](how-to-manage-individual-sensors.md#upload-a-new-activation-file)
 
 - [Site-based access control on the Azure portal](manage-users-portal.md#manage-site-based-access-control-public-preview)
-
-## Versions 10.5.x
-
-To update your software to the latest version available, first update to version 22.1.7, and then update again to the latest 22.2.x version. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
-### 10.5.5
-
-**Release date**: 12/2021
-
-**Supported until**: 9/2022
-
-This version minor maintenance updates.
-
-### 10.5.4
-
-**Release date**: 12/2021
-
-**Supported until**: 09/2022
-
-This version includes the following new updates and fixes:
-
-- [New Microsoft Sentinel solution for Defender for IoT](../../sentinel/iot-solution.md)
-- [Mitigation for the Apache Log4j vulnerability](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844)
-- [Alerts for minor events and edge cases disabled or minimized](alert-engine-messages.md)
-
-### 10.5.3
-
-**Release date**: 10/2021
-
-**Supported until**: 07/2022
-
-This version includes the following new updates and fixes:
-
-- [New integration APIs](api/management-integration-apis.md)
-- [Network traffic analysis enhancements for multiple OT and ICS protocols](concept-supported-protocols.md)
-- [Automatic deletion for older, archived alerts](how-to-view-alerts.md)
-- [Export alert enhancements](legacy-central-management/how-to-work-with-alerts-on-premises-management-console.md#export-alerts-to-a-csv-file)
-
-### 10.5.2
-
-**Release date**: 10/2021
-
-**Supported until**: 07/2022
-
-This version includes the following new updates and fixes:
-
-- [PLC operating mode detections](how-to-create-risk-assessment-reports.md)
-- [New PCAP API](api/management-alert-apis.md#pcap-request-alert-pcap)
-- [Unicode support for certificate passphrases](best-practices/plan-prepare-deploy.md#prepare-ca-signed-certificates)
-
-## Next steps
-
-For more information about the features listed in this article, see [What's new in Microsoft Defender for IoT](whats-new.md) and [What's new archive for in Microsoft Defender for IoT for organizations](whats-new-archive.md).
