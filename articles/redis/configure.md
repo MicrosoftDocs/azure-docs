@@ -13,8 +13,9 @@ appliesto:
 
 # How to configure Azure Managed Redis
 
-This article describes the configurations available for your Azure Managed Redis instances. This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Managed Redis instances.
+This article describes the configurations available for your Azure Managed Redis instances. 
 
+<!-- This article also covers the [default Redis server configuration](#default-redis-server-configuration) for Azure Managed Redis instances. -->
 
 ## Configure Azure Managed Redis settings
 
@@ -321,7 +322,7 @@ Select **Support + Troubleshooting** to open a support request for your cache.
 
 ## Other configuration information
 
-### Default Redis server configuration
+<!-- ### Default Redis server configuration
 
 New Azure Managed Redis instances are configured with the following default Redis configuration values:
 
@@ -338,7 +339,7 @@ New Azure Managed Redis instances are configured with the following default Redi
 > [!NOTE]
 > Azure Managed Redis only supports a subset of Redis configuration settings. Some of the most commonly used configuration settings, such as such as **max-memory-policy**, are configurable through the Azure portal or command-line management tools such as Azure CLI or PowerShell.
 > Other values may be configured using the `CONFIG SET` command. See [Compatibility with Redis Community Edition configuration settings](https://redis.io/docs/latest/operate/rs/references/compatibility/config-settings/) for more information.
->
+> -->
 
 ### Databases
 
