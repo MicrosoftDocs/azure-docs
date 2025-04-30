@@ -112,7 +112,7 @@ items:
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
-        - name: Send events to Microsoft Fabric via Azure Event Hubs
+        - name: Send MQTT events to Microsoft Fabric
           href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                

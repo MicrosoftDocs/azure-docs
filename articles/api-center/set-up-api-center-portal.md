@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/04/2025
+ms.date: 04/28/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable an Azure-managed portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
@@ -50,15 +50,19 @@ You can now access the API Center portal:
 
 ### API visibility
 
-API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center.
+API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center. Visibility settings apply to all users of the API Center portal.
 
 To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
 
-:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::
+:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::.
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
+
+## Enable access to test console for APIs
+
+You can configure user settings to granularly authorize access to APIs and their specific versions in your API center. For example, you can configure certain API versions to use API keys for authentication, and create an access policy that permits only specific users to authenticate using those keys. This policy also applies to the "Try this API" capability for APIs in the API Center portal, ensuring that only portal users with the appropriate access policy can use the test console for those API versions. [Learn more about authorizing access to APIs](authorize-api-access.md)
 
 [!INCLUDE [api-center-portal-compare-apim-dev-portal](includes/api-center-portal-compare-apim-dev-portal.md)]
 
