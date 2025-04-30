@@ -47,7 +47,7 @@ ntp:
 
 You can type commands at the shell or category level.
 
-At the shell level type: \<category> \`<command`> `<parameter`>.
+At the shell level type: \<category> \<command> \<parameter>.
 
 Alternatively, type the \<category> and press ENTER. The shell will change to the category name, then type \<command> \<parameter>. For example:
 
