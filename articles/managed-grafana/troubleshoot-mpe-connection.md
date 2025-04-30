@@ -45,7 +45,6 @@ Follow these steps to resolve the issue:
 
 1. Verify that the private DNS zone is linked to the virtual network where Azure Managed Grafana is deployed.
 1. Ensure the DNS zone contains the correct records for the private link service (for example, `privatelink.<service>.azure.com`).
-1. Test DNS resolution from Azure Managed Grafana to confirm it resolves to the private IP address of the private link service.
 
 For more information, see [Create and manage private DNS zones using the Azure portal](/azure/dns/private-dns-portal).
 
