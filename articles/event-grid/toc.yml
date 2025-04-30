@@ -246,6 +246,8 @@ items:
             href: event-grid-namespace-managed-identity.md
           - name: Authenticate publishing clients using Microsoft Entra ID
             href: authenticate-with-entra-id-namespaces.md
+          - name: Deliver events securely using managed identities
+            href: deliver-events-using-managed-identity.md          
   - name: Event Grid basic
     items:
     - name: Overview
@@ -624,6 +626,8 @@ items:
         items:
         - name: Publish events securely over a private link
           href: configure-private-endpoints.md
+        - name: Configure network security perimeter for topics and domains
+          href: configure-network-security-perimeter.md
         - name: Use managed identity
           items:
           - name: Enable managed identity for a custom topic or a domain
@@ -636,8 +640,8 @@ items:
             href: managed-service-identity.md
           - name: Cross-tenant delivery using managed identity
             href: cross-tenant-delivery-using-managed-identity.md
-          - name: Configure network security perimeter for topics and domains
-            href: configure-network-security-perimeter.md
+          - name: Deliver events securely using managed identities
+            href: deliver-events-using-managed-identity.md          
         - name: Enforce security controls with custom Azure policies
           href: custom-azure-policies-for-security-control.md
         - name: Deliver events securely over a private link
