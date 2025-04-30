@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Configure a VMware vSAN storage policy
 
-VMware vSAN storage policies define storage requirements for your virtual machines (VMs). These policies guarantee that your VMs have the required level of service because they determine how storage is allocated to the VM. Each VM that's deployed to a vSAN datastore is assigned at least one VM storage policy.
+VMware vSAN storage policies define storage requirements for your virtual machines (VMs). These policies guarantee that your VMs have the required level of service because they determine how storage is allocated to the VM. Each VM that you deploy to a vSAN datastore is assigned at least one VM storage policy.
 
 You can assign a VM storage policy during a VM's initial deployment or during other VM operations, such as cloning or migrating. Post-deployment users with the **cloudadmin** or equivalent roles can't change the default storage policy for a VM. However, VM storage policy per disk changes is permitted.
 
