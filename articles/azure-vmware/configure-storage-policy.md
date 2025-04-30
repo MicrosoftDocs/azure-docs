@@ -23,11 +23,11 @@ Run commands are executed one at a time in the order submitted.
 In this article learn how to:
 
 > [!div class="checklist"]
-> * List all storage policies
-> * Set the storage policy for a VM
-> * Specify the default storage policy for a cluster
-> * Create a storage policy
-> * Remove a storage policy
+> * List all storage policies.
+> * Set the storage policy for a VM.
+> * Specify the default storage policy for a cluster.
+> * Create a storage policy.
+> * Remove a storage policy.
 
 ## Prerequisites
 
