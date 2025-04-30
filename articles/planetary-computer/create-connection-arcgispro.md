@@ -122,6 +122,5 @@ map_view.add(ndvi)
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Perform geospatial analysis with Microsoft Planetary Computer Pro](./analyze-data.md)
 > [Visualize data in the Explorer](./use-explorer.md)
 > [Learn about STAC collections](./stac-overview.md)

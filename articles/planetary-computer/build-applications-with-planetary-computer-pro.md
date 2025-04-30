@@ -72,7 +72,7 @@ The recommended approach depends on your application scenario:
 - For web applications with user interactions, implement user authentication
 - For background services or API-to-API communications, use service principals or managed identities
 
-For detailed authentication guidance, see [Set up application authentication for MPC Pro](./set-up-application-authentication.md).
+For detailed authentication guidance, see [Set up application authentication for MPC Pro](./application-authentication.md).
 
 ## Data access patterns
 

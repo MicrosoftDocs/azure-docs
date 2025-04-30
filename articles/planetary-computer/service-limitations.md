@@ -7,85 +7,69 @@ ms.service: azure
 ms.topic: limits-and-quotas
 ms.date: 04/30/2025
 
-#customer intent: As a <role>, I want <what> so that <why>.
+#customer intent: As a data scientist or geospatial analyst, I want to understand the service limitations of Microsoft Planetary Computer Pro so that I can plan my workloads and projects accordingly.
 
 ---
 
-<!-- --------------------------------------
-
-- Use this template with pattern instructions for:
-
-Limits and Quotas
-
-- Before you sign off or merge:
-
-Remove all comments except the customer intent.
-
-- Feedback:
-
-https://aka.ms/patterns-feedback
-
--->
-
 # Service Limitations for Microsoft Planetary Computer Pro Preview
 
-<!-- Required: Article headline - H1
+This article outlines the current service limitations and quotas for Microsoft Planetary Computer Pro Preview. Understanding these limitations helps you plan your geospatial data processing workloads and avoid potential issues when using the service.
 
-Identify the product or service and the feature area
-the article covers.
+The Microsoft Planetary Computer Pro service is currently in public preview, and these limitations may change as the service moves toward general availability. We update this document as service capabilities evolve.
 
--->
+## General information about service limitations
 
-[Introduce and explain the purpose of the article.]
+Microsoft Planetary Computer Pro Preview has several types of limitations to ensure service stability and performance:
 
-<!-- Required: Introductory paragraphs (no heading)
+- **Character and naming limitations**: Restrictions on the length and format of catalog names, collection names, and other identifiers.
+- **Rate limitations**: Caps on the number of API calls and operations per time period.
+- **Storage limitations**: Constraints on data redundancy, maximum file sizes, and storage capacities.
+- **Quantity limitations**: Limits on the number of items that can be processed or stored.
 
-Write a brief introduction that can help the user
-determine whether the article is relevant for them
-and to describe the concept of limits and quotas.
+These limitations are designed to maintain service quality while providing you with the capabilities needed for most geospatial data processing scenarios. If you have workloads that might exceed these limitations, contact Azure support to discuss your requirements.
 
--->
+## Character limitations
 
-## [General information about limits and quotas]
+The following table outlines the naming and character limitations for Microsoft Planetary Computer Pro Preview:
 
-<!-- Optional: General information section - H2
+| Resource | Limitation |
+|----------|------------|
+| Catalog Name | 3 to 24 alphanumeric characters (hyphens allowed as interior characters) |
+| Collection Name | 3 to 32 alphanumeric characters (hyphens and underscores allowed) |
+| SpatioTemporal Asset Catalog (STAC) Item ID | 1 to 64 alphanumeric characters (hyphens, underscores, and periods allowed) |
 
-As needed, provide general information
-about limits and quotas or any contextual information.
+## Rate limitations
 
--->
+Microsoft Planetary Computer Pro Preview enforces the following rate limitations to ensure service stability:
 
-## [Limits and quotas table]
+| Operation | Limit |
+|-----------|-------|
+| Tile Operations per Second | 100 per second per subscription |
+| STAC API Calls per Second | 50 per second per subscription |
+| Bulk Processing Operations | Five concurrent operations per subscription |
 
-<!-- Required: Limits and quotas table - H2
+## Storage limitations
 
-In one or more H2 sections, provide tables that
-summarize limits and quotas. 
+The following table outlines storage-related limitations for Microsoft Planetary Computer Pro Preview:
 
-In the section introduction, include information that's
-common to all the resources in the table.
+| Resource | Limitation |
+|----------|------------|
+| Data Redundancy | All data is stored in hot storage tier with locally redundant storage (LRS) |
+| Maximum Asset File Size | 5 GB per file |
+| Maximum Capacity per GeoCatalog | 10 TB |
 
-Add short resource-specific explanations in the table
-or in a separate notes column. 
+## Processing and quantity limitations
 
--->
+The following table outlines the quantity limitations for Microsoft Planetary Computer Pro Preview:
+
+| Resource | Limitation |
+|----------|------------|
+| Maximum Items in a Bulk Ingestion | 10,000 items |
+| Maximum STAC Items in a GeoCatalog | 5,000,000 items |
+| Maximum Collections per Catalog | 100 |
 
 ## Related content
 
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)
-
-<!-- Optional: Related content - H2
-
-Consider including a "Related content" H2 section that 
-lists links to 1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
--->
+- [Overview of Microsoft Planetary Computer Pro](microsoft-planetary-computer-pro-overview.md)
+- [Overview of getting started with Microsoft Planetary Computer Pro](get-started-planetary-computer.md)
+- [Overview of ingesting data into GeoCatalog with the Bulk Ingestion API](bulk-ingestion-api.md)

@@ -27,6 +27,8 @@
     href: assign-managed-identity-geocatalog-resource.md
   - name: Using the Microsoft Planetary Computer Pro APIs
     href: api-tutorial.md
+  - name: Delete a Geocatalog resource
+    href: delete-geocatalog-resource.md
 - name: Create a STAC Collection
   items:
   - name: Create a STAC collection (Web Interface)
@@ -39,7 +41,7 @@
     href: ingestion-overview.md
   - name: Ingestion Sources
     href: ingestion-source.md
-  - name: Setup an ingestion source using managed identity
+  - name: Setup an ingestion source using managed identity through the UI
     href: setup-ingestion-credentials-managed-identity.md
   - name: Set up ingestion source using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md

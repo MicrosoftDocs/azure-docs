@@ -1,5 +1,5 @@
 ---
-title: Assign a user-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog
+title: Assign a user-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog via the CLI
 description: Learn how to assign a User-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog using either PowerShell or Bash.
 author: prasadko
 ms.topic: how-to
@@ -8,12 +8,13 @@ ms.date: 04/24/2025
 ms.author: prasadkomma
 ---
 
-# Assign a user-assigned managed identity to a GeoCatalog
+# Assign a user-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog via the CLI
 
 This guide shows how to use the [Azure Command Line Interface (CLI)](/cli/azure/) through the command terminal of your choice to assign a managed identity to a GeoCatalog resource.  
 
-Select either PowerShell or Bash instructions to assign the managed identity.
+Select either PowerShell or Bash tab to assign the managed identity.
 
+# [PowerShell](#tab/powershell)
 ## Use PowerShell to assign a user-assigned managed identity
 
 ```powershell
@@ -72,6 +73,8 @@ After saving the script and replacing the variables, run it using the following 
 ```
 
 Once complete, proceed to the [Give a User-assigned Managed Identity read permissions to Azure Blob Storage](./setup-ingestion-credentials-managed-identity.md#give-a-user-assigned-managed-identity-storage-blob-data-reader-to-azure-blob-storage) instructions. 
+
+# [Bash](#tab/bash)
 
 ## Use a bash script to assign a user-assigned managed identity
 
