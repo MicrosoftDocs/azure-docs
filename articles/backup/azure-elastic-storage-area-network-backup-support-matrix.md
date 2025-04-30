@@ -15,7 +15,7 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Backups of Azure Elastic SAN are available in the following regions: Australia East, North Europe, West Europe, East US, East US2, Germany West Central.
+Backups of Azure Elastic SAN are available in the following regions: Australia East, North Europe, East US 2.
 
 ## Supported and unsupported scenarios for Azure Elastic SAN protection (preview)
 

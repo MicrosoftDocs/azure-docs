@@ -27,7 +27,7 @@ Azure Elastic SAN volume protection (preview) includes the following key feature
 
 - **Snapshot export**: Exports the selected Elastic SAN volume to an independent Managed Disk incremental snapshot (operational tier) at a given point in time.
 - **Storage and resiliency**: Managed Disk incremental snapshot is stored in Locally redundant storage (LRS) resiliency (in LRS-supported regions), independent of the Elastic SAN volume lifecycle.
-- **Restore points**: Supports up to **450 restore points**, with backup frequency ranging from **24 hours** to **4 hours**.
+- **Restore points**: Supports up to **450 restore points**, with backup frequency of **24 hours**.
 - **Backup tier**: Supports operational tier; long-term vaulted backups are currently not supported.
 - **Volume size limit**: Supports Elastic SAN volumes size **<= 4 TB**.
 

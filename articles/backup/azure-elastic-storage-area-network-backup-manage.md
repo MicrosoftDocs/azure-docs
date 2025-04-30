@@ -59,7 +59,7 @@ To stop backups and retain data for an Azure Elastic SAN volume (preview), follo
 1. On the selected **Elastic SAN instance** pane, select **Stop Backup**.
 1. On the **Stop Backup** pane, under **Stop backup level**, choose **Retain Backup Data**.
 
-   Azure Backup stops future backup jobs for Elastic SAN instances and retains existing restore points in the vault. You can use these restore points to restore the Elastic SAN instance. This option allows you to resume the backup operation as required.
+   Azure Backup stops future backup jobs for Elastic SAN instances and retains existing restore points. You can use these restore points to restore the Elastic SAN instance. This option allows you to resume the backup operation as required.
 
 1. Under **Backup data retention**, choose one of the following  retention options:
 
