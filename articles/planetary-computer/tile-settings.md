@@ -16,7 +16,7 @@ In this article, see where to find and modify tile settings for Microsoft Planet
 
 ## Prerequisites
 
-- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md)
+- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-ui.md)
 
 ## Find tile settings
 
@@ -69,3 +69,9 @@ The `defaultLocation` field allows specifying the default zoom level and coordin
 > In the list of items, there's a menu item called "Set view as default location".  This isn't currently enabled.
 
 ![Screenshot of the save view as default location option in the tile settings interface](media/tilesettings_save_view_as.png)
+
+## Related content
+
+- [Mosaic configurations for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md)
+- [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
+- [Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters](./queryables-for-explorer-custom-search-filter.md)

@@ -1,6 +1,6 @@
 ---
 title: Mosaic configurations for collections in Microsoft Planetary Computer Pro
-description: See examples of how to setup mosaic in Microsoft Planetary Computer Pro collection configuration.
+description: See examples of how to set up mosaic in Microsoft Planetary Computer Pro collection configuration.
 author: tanyamarton
 ms.author: tanyamarton
 ms.service: azure
@@ -11,13 +11,13 @@ ms.date: 04/09/2025
 
 # Mosaic configurations for collections in Microsoft Planetary Computer Pro
 
-For any STAC collection, you can define **multiple mosaic configurations**. A **mosaic** returns and visualizes within the Explorer a set of STAC items based on some specific search criteria — for example, filtering by datetime or cloud cover.
+For any STAC (Spatio Temporal Asset Catalog) collection, you can define **multiple mosaic configurations**. Each **mosaic** specifies search criteria that return and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or have less than a particular percentage cloud cover.
 
 Each mosaic configuration includes:
 
 - `id`: A unique identifier for the mosaic  
 - `name`: A human-readable title  
-- `description`: Additional info about the mosaic  
+- `description`: Info about the mosaic  
 - `cql`: A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression that defines the search parameters for STAC items to be found and visualized
 
 The mosaic configuration can be accessed by selecting the **Configuration** button when viewing a STAC collection. 
@@ -30,7 +30,7 @@ The mosaic configuration can be accessed by selecting the **Configuration** butt
 
 These three mosaics illustrate different ways to visualize Sentinel-2 imagery:
 
-### 1. Most recent results (any cloud cover)
+### 1. Most recent search results (any cloud cover)
 
 ```json
 {
@@ -41,7 +41,7 @@ These three mosaics illustrate different ways to visualize Sentinel-2 imagery:
 }
 ```
 
-### 2. Most recent results with low cloud cover
+### 2. Most recent search results with low cloud cover
 
 ```json
 {
@@ -53,11 +53,11 @@ These three mosaics illustrate different ways to visualize Sentinel-2 imagery:
 }
 ```
 
-### 3. Summer 2022 results with low cloud cover
+### 3. June - August 2022 search results with low cloud cover
 
 ```json
 {
-  "id": "summer2022_low_cloud",
+  "id": "jun_aug2022_low_cloud",
   "name": "Jun - Aug, 2022 (low cloud)",
   "description": "",
   "cql": [{"op":"anyinteracts",
@@ -83,3 +83,9 @@ This mosaic filters for the most recent cropland data.
           "args": [ {"property": "usda_cdl:type"}, "cropland"]}]
 }
 ```
+
+## Related content
+
+- [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
+- [Tile settings for Microsoft Planetary Computer Pro](./tile-settings.md)
+- [Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters](./queryables-for-explorer-custom-search-filter.md)

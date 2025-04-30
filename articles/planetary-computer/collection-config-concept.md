@@ -35,5 +35,9 @@ If your collection contains a large number of items, running complex queries may
 
 ## Related content
 
+<<<<<<< HEAD
 - [Quickstart: Create collections with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md)
+=======
+- [Quickstart: Create collections with the Microsoft Planetary Computer Pro portal](./create-stac-collection.md)
+>>>>>>> ea01ff18dab4eabc3465da92aa8a80859fd0c12c
 - [STAC in Microsoft Planetary Computer Pro](./stac-overview.md)

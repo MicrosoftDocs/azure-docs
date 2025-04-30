@@ -134,7 +134,7 @@ For Single Item Ingestion:
 
 For Bulk Ingestion:
 > [!div class="nextstepaction"]
-> [Bulk Ingestion](./add-stac-item-to-collection.md)
+> [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
 
 ## Related content
 

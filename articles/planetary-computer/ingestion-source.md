@@ -38,11 +38,16 @@ Securely ingesting data requires users to provide an authentication mechanism wh
 
 - [Shared Access Signatures (SAS)](/azure/storage/common/storage-sas-overview) are cryptographic credentials used to access a resource, such as Azure Blob Storage.
 
+## Next steps
+To securely ingest data, setup managed identity access:
+
+> [!div class="nextstepaction"]
+- [Configure an ingestion source for Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
 
 ## Related content
 
 The following quickstarts are available to assist users in setting up ingestion sources using either the managed identity or SAS token approach:
 
-- [Setup Ingestion Credentials for MPC Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
 - [Setup Ingestion Credentials for MPC Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
-- [Ingestion overview](./ingestion-overview.md).
+- [Adding an Item to a STAC Collection](./add-stac-item-to-collection.md)
+- [Ingest data into GeoCatalog with the Bulk Ingestion API](./add-stac-item-to-collection.md)

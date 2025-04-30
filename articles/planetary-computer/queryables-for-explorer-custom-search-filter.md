@@ -1,5 +1,5 @@
 ---
-title: Overview of Queryables | Microsoft Planetary Computer Pro
+title: Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters
 description: Learn how to configure and use queryables in Microsoft Planetary Computer Pro to create custom search filters for geospatial data in the Data Explorer.
 author: tanyamarton
 ms.author: tanyamarton
@@ -19,6 +19,10 @@ In the Microsoft Planetary Computer Pro, a **GeoCatalog** resource organizes dat
 Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
 
 **Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Data Explorer for easy search.
+
+## Prerequisites
+
+- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-ui.md)
 
 ## What is a Queryable?
 
@@ -97,7 +101,7 @@ Each queryable's `"definition"` field describes the features of the STAC item pr
   A list of allowed values. If provided, the enumerated options appear as checkboxes in the Data Explorer for easier selection.
 
 - `"title"` (optional):  
-  A user-friendly display name for the filter as shown in the Data Explorer.
+  A user-friendly display name for the filter as shown in the Explorer. If a title isn't specified, by default, the name of the queryable is used as the title.
 
 ## Using Queryables in Advanced Search
 
@@ -108,55 +112,12 @@ Select **Advanced** to reveal **Custom filters**. By default, the following filt
 - **Acquired** (based on the `datetime` range)
 - **Item ID**
 
-Any queryables added to the collection's Queryables configuration, for exmaple **Gsd** and **Year** in the previous example, appear as other filter options.
+Any queryables added to the collection's Queryables configuration, like **Gsd** and **Year** in the previous example, appear as other filter options.
 
 You can toggle which filters are visible using the **Select filters** control.
 
-## Defining Queryables in Code
+## Related content
 
-Alternatively, customers can use `GeocatalogClient` to define queryables.
-```python
-import geocatalog
-
-geocatalog_client = GeocatalogClient(
-    url=GEOCATALOG_URL,
-    credential=CREDENTIAL
-)
-
-geocatalog_client.create_queryables(
-    collection_id=collection.id,
-    queryables=[
-  {
-    "name": "gsd",
-    "definition": {
-      "type": "number"
-    }
-  },
-  {
-    "name": "naip:year",
-    "definition": {
-      "enum": [
-        "2010",
-        "2011",
-        "2012",
-        "2013",
-        "2014",
-        "2015",
-        "2016",
-        "2017",
-        "2018",
-        "2019",
-        "2020",
-        "2021",
-        "2022",
-        "2023",
-        "2024",
-        "2025"
-      ],
-      "type": "string",
-      "title": "Year"
-    }
-  }
-]
-)
-```
+- [Mosaic configurations for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md)
+- [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
+- [Tile settings for Microsoft Planetary Computer Pro](./tile-settings.md)
