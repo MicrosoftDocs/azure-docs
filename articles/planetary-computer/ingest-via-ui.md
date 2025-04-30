@@ -9,7 +9,7 @@ ms.date: 04/25/2025
 #customer intent: As a Planetary Computer Pro user, I want to ingest data into my collection using the web interface so that I can manage my geospatial assets.
 ---
 
-# Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface
+# Quickstart: Ingest data using the Microsoft Planetary Computer Pro web 
 
 This quickstart explains how to ingest data into your collection using the Microsoft Planetary Computer Pro web interface. This approach is ideal if you're less comfortable using APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
 
