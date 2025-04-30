@@ -496,7 +496,7 @@ See the following GitHub repositories to compare AWS Lambda code and Azure Funct
 
 - [AWS Lambda code](https://github.com/MadhuraBharadwaj-MSFT/TestLambda)
 - [Azure Functions code](https://github.com/MadhuraBharadwaj-MSFT/TestAzureFunction)
-   - This repository also includes starter samples, IaC, and end-to-end samples for Azure Functions.
+- [Azure samples repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples), which includes starter, IaC, and end-to-end samples for Azure Functions.
 
 ### Adjust configuration settings
 
