@@ -734,6 +734,9 @@
   items:
     - name: Migrate from AWS Lambda
       items:
+        - name: Migrate from AWS Lambda
+          href: migration/migrate-aws-lambda-to-azure-functions.md
+          displayName: AWS Lambda, migration
         - name: Overview
           href: migration/migrate-lambda-workloads-overview.md
           displayName: AWS Lambda, migration

@@ -22,7 +22,7 @@ Migrating a serverless workload that uses Amazon Web Services (AWS) Lambda to Az
 
 ## Scope
 
-This article describes the migration of an AWS Lambda instance to an Azure Functions solution that's hosted on a Flex Consumption plan, Premium plan, Dedicated plan, or Consumption plan.
+This article describes the migration of an AWS Lambda instance to Azure Functions.
 
 This article doesn't address:
 
@@ -46,7 +46,7 @@ To have a comprehensive strategy, you must combine the recommendations presented
 
 ## Perform a discovery process on your existing workload
 
-The first step is to conduct a detailed discovery process to evaluate your existing AWS Lambda workload. The goal is to understand which AWS features and services your workload relies on. Compile a comprehensive inventory of your AWS Lambda functions by using AWS tooling like service-specific SDKs, APIs, and CloudTrail to assess the workload on AWS. You should understand the following key aspects of your AWS Lambda inventory:
+The first step is to conduct a detailed discovery process to evaluate your existing AWS Lambda workload. The goal is to understand which AWS features and services your workload relies on. Compile a comprehensive inventory of your AWS Lambda functions by using AWS tooling like service-specific SDKs, APIs, CloudTrail, and AWS CLI to assess the workload on AWS. You should understand the following key aspects of your AWS Lambda inventory:
 
 - Use cases
 - Configurations
@@ -61,7 +61,7 @@ The first step is to conduct a detailed discovery process to evaluate your exist
 
 Before you start migrating your workload, you must map AWS Lambda features to Azure Functions to ensure compatibility and develop a migration plan. Then you can select key workloads for a proof of concept.
 
-You also need to [map the AWS services](/azure/architecture/aws-professional) that Lambda depends on to the equivalent dependencies in Azure. For example, Azure Functions has a dependency on Azure Blob Storage in the same way that Lambda requires Amazon S3.
+You also need to [map the AWS services](/azure/architecture/aws-professional) that Lambda depends on to the equivalent dependencies in Azure.
 
 ## Map AWS Lambda features to Azure Functions
 
@@ -90,7 +90,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 | Programming language  | [AWS Lambda supported versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported)  | [Azure Functions supported versions](/azure/azure-functions/supported-languages) |
 |---|---|---|
-| Node.js | 18, 20, 22 | 18, 20, 22 |
+| Node.js | 20, 22 | 20, 22 |
 | Python | 3.9, 3.10, 3.11, 3.12, 3.13 | 3.9, 3.10, 3.11 |
 | Java | 8, 11, 17, 21 | 8, 11, 17, 21 |
 | PowerShell | Not supported | 7.4 |
@@ -575,7 +575,10 @@ Deployments follow a single path. After you build your project code and zip it i
 
 ### Use tools for refactoring
 
-Use tools like GitHub Copilot in Visual Studio Code for help with code refactoring, manual refactoring for specific changes, or other migration aids.
+Use tools like GitHub Copilot in VS Code for help with code refactoring, manual refactoring for specific changes, or other migration aids.
+
+> [!NOTE]
+> Use *Agent mode* in GitHub Copilot in VS Code.
 
 The following articles provide specific examples and detailed steps to facilitate the migration process:
 
@@ -632,7 +635,7 @@ If you prefer to use Terraform, use [MigrationGetStarted-Terraform](https://gith
 
 ## Optimize and monitor the application's performance on Azure
 
-After you migrate your workload and your AWS resources are decommissioned, we recommend that you explore more features on Azure. These features can help you fulfill future workload requirements or help close gaps in areas where your AWS Lambda solution didn't meet requirements.
+After you migrate your workload, we recommend that you explore more features on Azure. These features might help you fulfill future workload requirements and help close gaps.
 
 ### Use Application Insights for monitoring and troubleshooting
 
