@@ -21,9 +21,9 @@ This article provides suggestions to troubleshoot common problems with the Amazo
 - **Message**:
     `S3 operation failed for: %s3Message;.`
 
-- **Cause**: Error occurs in Amazon S3 API.
+- **Cause**: The error occurs in Amazon S3 API.
 
-- **Resolution**: See inner S3 message in current error to check error details. Reference of Amazon S3 error responses: [Error responses - Amazon Simple Storage Service](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
+- **Reccomendation**: See the inner S3 message in the current error to check the error details. For more information, see [Amazon S3 error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
 
 ## Related content
 
