@@ -23,7 +23,7 @@ For this quickstart, you need:
 
 1. An Azure account with an active subscription
 1. The **Contributor** and **User Access Administrator** roles at the subscription level
-1. If deploying Open OnDemand, direct connectivity with a VPN to the Virtual Network, to be built or used, is required
+1. Direct connection to the virtual network used by the cluster (i.e., not using Azure Bastion), if deploying Open OnDemand is required
 1. Permission to register an Entra application if deploying Open OnDemand
 
 ## How to deploy?
