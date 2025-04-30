@@ -4,7 +4,7 @@ description: Learn how to configure access to APIs in the Azure API Center inven
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/28/2025
+ms.date: 04/30/2025
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to store API authorization information in my API center and enable authorized users to test APIs in the API Center portal.
@@ -117,16 +117,19 @@ To manage the secret securely, store it in Azure Key Vault, and access the key v
     :::image type="content" source="media/authorize-api-access/configure-oauth.png" alt-text="Screenshot of configuring OAuth 2.0 in the portal.":::
 
 
+    > [!NOTE]
+    > Configure settings based on the app registration you created previously in your identity provider. If you're using Microsoft Entra ID, find the **Client ID** on the **Overview** page of the app registration, and find the URL endpoints on the **Overview** > **Endpoints** page. 
+
     | **Setting**            | **Description**                                                                                                                                               |
     |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **Title**              | A name for the authorization.                                                                                                 |
     | **Description**        | Optional description for the authorization.                                                                                                                   |
     | **Security scheme**    | Select **OAuth2**.                                                                  |
-    | **Client ID**          | Client ID of the app that you created in the previous section.                                                                                     |
-    | **Client secret**      | Secret identifier of the client secret in Azure Key Vault. Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`                                                                               |
-    | **Authorization URL**  | OAuth 2.0 authorization endpoint for the identity provider.                                                                                        |
-    | **Token URL**          | OAuth 2.0 token endpoint for the identity provider.                                                                                             |
-    | **Refresh URL**        | OAuth 2.0 refresh token endpoint for the identity provider. For most providers, same as the Token URL.                                                                                                |
+    | **Client ID**          | Client ID (GUID) of the app that you created in your identity provider.                                                                                     |
+    | **Client secret**      | Secret identifier of the client secret in Azure Key Vault.<br/><br/>Example: `https://<key-vault-name>.vault.azure.net/secrets/<secret-name>/<version>`                                                                               |
+    | **Authorization URL**  | OAuth 2.0 authorization endpoint for the identity provider.<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<tenant>/oauth2/v2.0/authorize`                                                                                      |
+    | **Token URL**          | OAuth 2.0 token endpoint for the identity provider.<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<token>/oauth2/v2.0/token`                                                                                            |
+    | **Refresh URL**        | OAuth 2.0 token refresh endpoint for the identity provider. For most providers, same as the **Token URL**<br/><br/>Example for Microsoft Entra ID: `https://login.microsoftonline.com/<token>/oauth2/v2.0/token`                                                                                                |
     | **OAuth2 flow**        | One or both of the OAuth 2.0 flows that you want to use. Available values are **Authorization code (PKCE)** and **Client credentials**.               |
     | **Scopes**             | One or more API scopes configured for your API, separated by spaces. If no scopes are configured, enter `.default`.                                                   |
 
