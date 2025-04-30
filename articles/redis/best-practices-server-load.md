@@ -46,10 +46,6 @@ The **Server Load** metric represents the load on the Redis Server alone. We rec
 
 When monitoring server load, we also recommend that you examine the max spikes of Server Load rather than average because even brief spikes can trigger failovers and command timeouts.
 
-## Plan for server maintenance
-
-Ensure you have enough server capacity to handle your peak load while your cache servers are undergoing maintenance. Test your system by rebooting nodes while under peak load. For more information on how to simulate deployment of a patch, see [reboot](administration.md#reboot).
-
 ## Test for increased server load after failover
 
 For standard and premium SKUs, each cache is hosted on two nodes. A load balancer distributes the client connections to the two nodes. When planned or unplanned maintenance occurs on the primary node, the node closes all the client connections. In such situations, all client connections could land on a single node causing the server load to increase on the one remaining node. We recommend testing this scenario by rebooting the primary node and ensuring that one node can handle all your client connections without the server load going too high.

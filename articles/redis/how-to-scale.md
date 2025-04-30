@@ -141,7 +141,6 @@ The following list contains answers to commonly asked questions about Azure Mana
   [How many shards does each Azure Managed Redis SKU use?](#how-many-shards-does-each-azure-managed-redis-sku-use)
 - [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 - [What is the largest cache size I can create?](#what-is-the-largest-cache-size-i-can-create)
-- [What is the difference between the OSS and Enterprise cluster policies?](#what-is-the-difference-between-the-oss-and-enterprise-cluster-policies)
 
 ### Can I scale within or across tiers?
 
@@ -150,7 +149,7 @@ You can always scale to a higher performance tier at the same memory size or a l
 
 ### What will happen to my data if I scale to smaller memory size?
 
-You can scale to a smaller memory size only if the current memory usage is less than the intended smaller memory size. If the current memory usage is higher than the intended smaller size, your scaling request will fail. You can reduce the current memory usage by deleted unwanted key value pairs or by running the flush operation. 
+You can scale to a smaller memory size only if the current memory usage is less than the intended smaller memory size. If the current memory usage is higher than the intended smaller size, your scaling request will fail. You can reduce the current memory usage by deleted unwanted key value pairs or by running the flush operation.
 
 <!-- (Add link) -->
 

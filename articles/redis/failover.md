@@ -113,14 +113,6 @@ Refer to these design patterns to build resilient clients, especially the circui
 - [Retry guidance for Azure services - Best practices for cloud applications](/azure/architecture/best-practices/retry-service-specific)
 - [Implement retries with exponential backoff](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff)
 
-<!-- To test a client application's resiliency, use a [reboot](administration.md#reboot) as a manual trigger for connection breaks. -->
-
-<!-- Additionally, we recommend that you use scheduled updates to choose an update channel and a maintenance window for your cache to apply Redis runtime patches during specific weekly windows. These windows are typically periods when client application traffic is low, to avoid potential incidents. For more information, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates). -->
-
-<!-- For more information, see [Connection resilience](best-practices-connection.md). -->
-
 ## Related content
 
-<!-- - [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates) -->
-<!-- - Test application resiliency by using a [reboot](administration.md#reboot) -->
 - [Connection resilience](best-practices-connection.md)

@@ -72,14 +72,6 @@ If you're reconnecting many client instances, consider staggering the new connec
 
 Caches have limits on the number of client connections per cache tier. Ensure that when your client application recreates connections that it closes and removes the old connections.
 
-<!-- ## Advance maintenance notification -->
-<!-- FXL - check with Umang if this is ok. -->
-<!-- Use notifications to learn of upcoming maintenance. For more information, see [Can I be notified in advance of a planned maintenance](failover.md#can-i-be-notified-in-advance-of-maintenance). -->
-
-## Schedule maintenance window
-
-Adjust your cache settings to accommodate maintenance. For more information about creating a maintenance window to reduce any negative effects to your cache, see [Update channel and Schedule updates](administration.md#update-channel-and-schedule-updates).
-
 ## More design patterns for resilience
 
 Apply design patterns for resiliency. For more information, see [How do I make my application resilient](failover.md#how-do-i-make-my-application-resilient).
