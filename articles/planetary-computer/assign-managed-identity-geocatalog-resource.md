@@ -41,7 +41,7 @@ $USER_ASSIGNED_IDENTITY = "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOU
 
 # Use the Azure CLI to create or update a GeoCatalog with the specified properties
 az rest --method PUT `
-  --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/${GEOCATALOG_NAME}?api-version=2024-01-31-preview" `
+  --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/${GEOCATALOG_NAME}?api-version=2025-02-11-preview" `
   --headers "Content-Type=application/json" `
   --body "{'location': '$LOCATION', 'Properties': {'tier': '$TIER'}, 'identity': {'type': 'UserAssigned', 'userAssignedIdentities': {'$USER_ASSIGNED_IDENTITY': {}}}}"
 ```
@@ -117,7 +117,7 @@ EOF
 
 # Use the Azure CLI to create or update a geo catalog with the specified properties
 az rest --method PUT \
-  --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$GEOCATALOG_NAME?api-version=2024-01-31-preview" \
+  --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$GEOCATALOG_NAME?api-version=2025-02-11-preview" \
   --body "$PROPERTIES"
 ```
 
