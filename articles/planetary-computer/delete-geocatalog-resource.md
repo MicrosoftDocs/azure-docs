@@ -51,7 +51,7 @@ Before you continue with the deletion steps, make sure you're ready to delete th
    > **Running this command will *immediately* begin deleting this resource.**
 
    ```bash
-   az rest --method DELETE --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2024-01-31-preview"
+   az rest --method DELETE --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2025-02-11-preview"
    ```
 
 ## Next Steps
