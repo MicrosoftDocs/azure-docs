@@ -62,7 +62,7 @@ There are two features that provide geo-disaster recovery in Azure Event Hubs.
 
     For detailed information, samples, and further documentation, on Geo-Disaster recovery in Event Hubs, see [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md).
 
-- **Geo-replication (public preview)**, which provides replication of both metadata and data, replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
+- **Geo-replication**, which provides replication of both metadata and data, replicates configuration information and all of the data from a primary namespace to one, or more secondary namespaces. When a failover is performed, the selected secondary becomes the primary and the previous primary becomes a secondary. Users can perform a failover back to the original primary when desired.
 
     For detailed information, samples, and further documentation, on Geo-replication in Event Hubs, see [Geo-replication ](../event-hubs/geo-replication.md).
 
