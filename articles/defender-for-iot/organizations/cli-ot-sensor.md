@@ -19,9 +19,7 @@ While this article lists the command syntax for each user, we recommend using th
 
 For more information, see [Access the CLI](../references-work-with-defender-for-iot-cli-commands.md#access-the-cli) and [Privileged user access for OT monitoring](references-work-with-defender-for-iot-cli-commands.md#privileged-user-access-for-ot-monitoring).
 
-## List of commands
-
-Here is the list of commands according to category:
+## List of available commands
 
 | Category| Command |
 |****|*****|
@@ -29,7 +27,9 @@ Here is the list of commands according to category:
 | system | backup </br>date</br>hostname</br>ntp</br>password</br>reboot</br>sanity</br>shell</br>shutdown</br>syslog</br>version|
 | network |  blink</br>capture-filter</br>list</br>ping</br>reconfigure</br>statistics</br>validate|
 
-To list the commands in a category, type help. For example:
+### List commands in a category
+
+To list the commands in a category, type ```help```. For example:
 
 ```bash
 shell> help
@@ -43,7 +43,13 @@ date:
 ntp:
 ```
 
-Commands can be entered in the shell level or in the category level. At the shell level type the category first, followed by the command and then type any parameters needed for the command. Alternatively, type the category and press Enter. The shell will change to the category name, then type the command and parameter. For example:
+### Commands at the shell and category level
+
+You can type commands at the shell or category level.
+
+At the shell level type: <category> <command> <parameter>.
+
+Alternatively, type the <category> and press ENTER. The shell will change to the category name, then type <command> <parameter>. For example:
 
 ```bash
 shell> system ntp enable 10.0.0.1
