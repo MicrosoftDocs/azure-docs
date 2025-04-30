@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 04/29/2025
+ms.date: 04/29/20    25
 ms.author: danlep
 ---
 
@@ -36,7 +36,7 @@ The rest of this article describes how Azure API Management can help you address
 
 ## Import Azure OpenAI Service resource as an API
 
-[Import an API from an Azure OpenAI Service endpoint](azure-openai-api-from-specification.md) to Azure API management using a single-click experience. API Management streamlines the onboarding process by automatically importing the OpenAPI schema for the Azure OpenAI API and sets up authentication to the Azure OpenAI endpoint using managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for [token limits](#token-limit-policy) and [emitting token metrics](#emit-token-metric-policy). 
+[Import an API from an Azure OpenAI Service endpoint](azure-openai-api-from-specification.md) to Azure API management using a single-click experience. API Management streamlines the onboarding process by automatically importing the OpenAPI schema for the Azure OpenAI API and sets up authentication to the Azure OpenAI endpoint using managed identity, removing the need for manual configuration. Within the same user-friendly experience, you can preconfigure policies for [token limits](#token-limit-policy), [emitting token metrics](#emit-token-metric-policy), and [semantic caching](#semantic-caching-policy). 
 
 :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of Azure OpenAI API tile in the portal.":::
 
@@ -99,7 +99,7 @@ Configure [Azure OpenAI semantic caching](azure-openai-enable-semantic-caching.m
 
 :::image type="content" source="media/genai-gateway-capabilities/semantic-caching.png" alt-text="Diagram of semantic caching in API Management.":::
 
-In API Management, enable semantic caching by using Azure Redis Enterprise or another [external cache](api-management-howto-cache-external.md) compatible with RediSearch and onboarded to Azure API Management. By using the Azure OpenAI Service Embeddings API, the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) and [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policies store and retrieve semantically similar prompt completions from the cache. This approach ensures completions reuse, resulting in reduced token consumption and improved response performance. 
+In API Management, enable semantic caching by using Azure Redis Enterprise, Azure Managed Redis, or another [external cache](api-management-howto-cache-external.md) compatible with RediSearch and onboarded to Azure API Management. By using the Azure OpenAI Service Embeddings API, the [azure-openai-semantic-cache-store](azure-openai-semantic-cache-store-policy.md) and [azure-openai-semantic-cache-lookup](azure-openai-semantic-cache-lookup-policy.md) policies store and retrieve semantically similar prompt completions from the cache. This approach ensures completions reuse, resulting in reduced token consumption and improved response performance. 
 
 > [!TIP]
 > To enable semantic caching for other LLM APIs, API Management provides the equivalent [llm-semantic-cache-store-policy](llm-semantic-cache-store-policy.md) and [llm-semantic-cache-lookup-policy](llm-semantic-cache-lookup-policy.md) policies.
@@ -107,7 +107,9 @@ In API Management, enable semantic caching by using Azure Redis Enterprise or an
 
 ## Content safety policy
 
+To help safeguard users from harmful, offensive, or misleading content, you can automatically moderate all incoming requests to an LLM API by configuring the [llm-content-safety](llm-content-safety-policy.md) policy. The policy enforces content safety checks on LLM prompts by transmitting them first to the [Azure AI Content Safety](azure/ai-services/content-safety/overview) service before sending to the backend LLM API. 
 
+:::image type="content" source="media/genai-gateway-capabilities/content-safety.png" alt-text="Diagram of moderating prompts by Azure AI Content Safety in an API Management policy.":::
 
 ## Labs and samples
 
