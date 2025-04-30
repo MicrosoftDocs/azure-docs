@@ -92,10 +92,10 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
    export CATALOG_NAME="catalog_name"
 
    # Kick off the GeoCatalog deployment process, which may take 10-20 minutes
-   az rest --method PUT --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2024-01-31-preview" --body '{"location": "'$LOCATION'", "Properties":{"tier":"Basic"}}'
+   az rest --method PUT --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2025-02-11-preview" --body '{"location": "'$LOCATION'", "Properties":{"tier":"Basic"}}'
 
    # Check the status of the deployment
-   az rest --method GET --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2024-01-31-preview"
+   az rest --method GET --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2025-02-11-preview"
 
    # Get catalog uri
    az resource show -g $RESOURCE_GROUP -n $CATALOG_NAME --namespace Microsoft.Orbital --resource-type "geocatalogs"
