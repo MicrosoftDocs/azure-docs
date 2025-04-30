@@ -56,7 +56,7 @@ As a feature of Azure Functions, [Durable Functions](../azure-functions/durable/
 - Serverless pricing model
 
 > [!NOTE]
-> Durable Functions with Durable Task Scheduler currently only runs in App Service and Elastic Premium SKUs. Until it's available in other SKUs (like Flex Consumption), you need to use the [Microsoft SQL backend](../azure-functions/durable/durable-functions-storage-providers.md#microsoft-sql-server-mssql) for state persistence when hosting a Durable Functions app in Azure Container Apps. 
+> Durable Functions with Durable Task Scheduler currently only runs in App Service and Elastic Premium SKUs. Until it's available in other SKUs (like Flex Consumption), you need to use the [Microsoft SQL backend](../azure-functions/durable/durable-functions-storage-providers.md#mssql) for state persistence when hosting a Durable Functions app in Azure Container Apps. 
 
 ## How to choose 
 
