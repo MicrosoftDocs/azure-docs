@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload
-description: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload.
+title: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a workload
+description: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload
+# Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for a RemoteApplication into an existing Workload from the Portal.
+- Deploy a Service Catalog template for a RemoteApplication into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -23,7 +23,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -99,11 +99,11 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 >
 > If you're deploying an AKS cluster within a virtual enclave you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. To ensure that the user assigned managed identity does not get blocked by any enclave deny assignments, you'll need to make sure that its principal is either added directly to an enclave's [Maintenance Mode](./maintenance-mode.md) configuration or that the managed identity is part of a Microsoft Entra ID group that is connected to an enclave's maintenance mode.
 
-### Associating AKS Resource Groups to Workload
+### Associating AKS Resource Groups to workload
 
-The AVE Workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that an AVE Workload can now apply AVE policies to multiple resource groups.
+The AVE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that an AVE workload can now apply AVE policies to multiple resource groups.
 
-Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a Workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a Workload resource is provided below:
+Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource is provided below:
 
 ```json
 {

@@ -1,6 +1,6 @@
 ---
-title: Create Azure resources from the service catalog in an AVE Workload
-description: Create Azure resources from the service catalog in an AVE Workload.
+title: Create Azure resources from the service catalog in an AVE workload
+description: Create Azure resources from the service catalog in an AVE workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,13 +8,13 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Tutorial 4: Create Azure resources from the service catalog in an AVE Workload
+# Tutorial 4: Create Azure resources from the service catalog in an AVE workload
 
 The service catalog enables you to deploy Azure services and streaming applications into AVE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
 
 In this tutorial, part four of eight, you create Azure resources using service catalog in workloads. You learn how to:
 
-- ✅ Deploy a Service Catalog template for an Azure resource into an existing Workload from the Portal
+- ✅ Deploy a Service Catalog template for an Azure resource into an existing workload from the Portal
 
 > [!NOTE] 
 > 
@@ -24,7 +24,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 - This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 - Complete the [prerequisites](./deploy-app-service-web-app-service-catalog.md#prerequisites) for an App Service Web App. Including subnet delegation for the
 
 ![Screenshot showing the subnet delegation prerequisite step.](./media/tutorial-step-four-service-catalog-app-service-subnet-delegate.png)
@@ -47,7 +47,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 ## Create Azure web app resources from the service catalog
 
-1. Navigate to the `wl-webapp-frontend` Workload to create an Azure App Service for your webapp.
+1. Navigate to the `wl-webapp-frontend` workload to create an Azure App Service for your webapp.
 2. Select `Add an Azure service` button on the overview page.
 3. Select `App Service` from the Service Catalog dropdown list and select `Next`.
 4. Enter all the required parameters on each tab.

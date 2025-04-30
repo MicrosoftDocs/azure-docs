@@ -20,7 +20,7 @@ Create a User-assigned Managed Identity to grant least privledges to specific se
 1. From the portal, type "Managed Identity" in the search bar at the top of the Portal.
 2. Select `Managed Identities`.
 3. Select `Create`.
-4. Enter the Workload Resource Group (RG) or RG where you would like to store the Managed Identity resource.
+4. Enter the workload resource group (RG) where you would like to store the Managed Identity resource.
 
   ![Screenshot that shows the Create User-assigned Managed Identity pane.](/entra/identity/managed-identities-azure-resources/media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png)
 

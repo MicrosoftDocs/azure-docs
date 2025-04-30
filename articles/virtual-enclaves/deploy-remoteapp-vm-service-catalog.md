@@ -1,6 +1,6 @@
 ---
-title: Deploy RemoteApp VM from the Service Catalog into a Workload
-description: Deploy RemoteApp VM from the Service Catalog into a Workload.
+title: Deploy RemoteApp VM from the Service Catalog into a workload
+description: Deploy RemoteApp VM from the Service Catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy RemoteApp VM from the Service Catalog into a Workload
+# Deploy RemoteApp VM from the Service Catalog into a workload
 The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
 
-- Deploy a Service Catalog template for a Remote Application (RemoteApp) into an existing Workload from the Portal.
+- Deploy a Service Catalog template for a Remote Application (RemoteApp) into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -31,7 +31,7 @@ The RemoteApp template can be deployed in multiple configurations:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 Required:
@@ -82,7 +82,7 @@ If you publish your application, all of the following fields on this tab must be
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-1. Go to the specified Resource Group, the Workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC.
+1. Go to the specified resource group, the workload resource group by default, to confirm the intended resources were created. Including: VM, OS Disk, NIC.
 2. If the RemoteApp was published: host pool, app group, and workspace.
 
 ## Connect to the Application VM

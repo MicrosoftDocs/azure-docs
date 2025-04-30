@@ -20,7 +20,7 @@ Diagram Description: The user/admin accesses the Service Catalog through the por
 
 The Service Catalog contains two template categories:
 1. Azure Services - custom templates to allow common Azure Services to be deployed with the secure AVE boundaries without being blocked by policy or hardened network settings.
-1. Customer Workload Templates - Collections of Azure resources to meet specific customer needs
+1. Customer workload templates - Collections of Azure resources to meet specific customer needs
 
 See the [Service Catalog List](./list-service-catalog-templates.md) to view the available templates in the Service Catalog. Review the documentation for each Service Catalog template you wish to deploy to determine if there are any prerequisite steps.
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy a Storage Account from the Service Catalog into a Workload
-description: Deploy a Storage Account from the Service Catalog into a Workload
+title: Deploy a Storage Account from the Service Catalog into a workload
+description: Deploy a Storage Account from the Service Catalog into a workload
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy a Storage Account from the Service Catalog into a Workload
+# Deploy a Storage Account from the Service Catalog into a workload
 
 In this article, you:
 
-- Deploy a Service Catalog template for a Storage Account into an existing Workload from the Portal.
+- Deploy a Service Catalog template for a Storage Account into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -23,7 +23,7 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 

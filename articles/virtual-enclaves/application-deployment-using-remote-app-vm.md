@@ -26,7 +26,7 @@ The application installation scripting supports the following scenarios:
 
 ## Prerequisites
 The RemoteApp template supports scripting to automate the process of installing applications and configuring the VM. Before you can start using the RemoteAppVM app installation, you need to make sure you have the following:
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 - A [container](../storage/blobs/blob-containers-portal.md) (artifacts) within the [storage account](./deploy-storage-account-service-catalog.md).
 - A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
 - A copy of AzCopy.exe
@@ -91,7 +91,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 ### Setup Template
 1. On the workload overview page, select `+Add an Azure Service`.
 
-![Screenshot showing Workload overview page.](./media/workload-overview.png)
+![Screenshot showing workload overview page.](./media/workload-overview.png)
 
 2. For `Service`, select `RemoteApp VM`.
 3. For `Version`, if not selected by default, select the most recent version (for example: 1.0.0(latest)).

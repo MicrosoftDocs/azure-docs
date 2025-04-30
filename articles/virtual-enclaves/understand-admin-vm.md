@@ -13,7 +13,7 @@ ms.date: 04/08/2025
 A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave.
 
 ## Access
-By default, AVE creates an Azure Bastion instance for community or Enclave Owners to access their enclaves.
+By default, AVE creates an Azure Bastion instance for community or enclave owners to access their enclaves.
 
 ### Enable Enclave access to the Azure portal
 Azure portal access is restricted by default for enclaves. This means you need to create endpoint rules and connections to access the Azure portal from within the Admin VM or enclave.
@@ -32,20 +32,20 @@ If this is the first time using the Admin VM, reset the password with the instru
 ### Accessing enclaves through Azure Bastion
 AVE natively uses existing Azure user interface controls to allow for access into Admin VMs. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md).
 
-For certain community and Enclave Owners, this default access model might not be granular enough. For example, some Enclave Owners might have regulatory requirements for their workloads that do not authorize Azure Bastion. 
+For certain community and enclave owners, this default access model might not be granular enough. For example, some enclave owners might have regulatory requirements for their workloads that do not authorize Azure Bastion. 
 
-If the default behavior of Admin VMs or the configurations that AVE allows to be changed are insufficient for customer use-cases, AVE recommends [creating a Workload, Virtual Machines in the Workload, an Endpoint, and Connections that function similarly to how Admin VMs function](./create-azure-virtual-desktop-workloads.md).
+If the default behavior of Admin VMs or the configurations that AVE allows to be changed are insufficient for customer use-cases, AVE recommends [creating a workload, Virtual Machines in the workload, an Endpoint, and Connections that function similarly to how Admin VMs function](./create-azure-virtual-desktop-workloads.md).
 
 ## Size
-The default VM size for AVE Admin VMs is Standard_D4s_v3. community and Enclave Owners are allowed to resize the VM size of these Admin VMs after an Enclave is created. Furthermore, community Owners will be allowed to choose what VM size the Admin VMs are deployed when creating an Enclave.
+The default VM size for AVE Admin VMs is Standard_D4s_v3. community and enclave owners are allowed to resize the VM size of these Admin VMs after an Enclave is created. Furthermore, community owners will be allowed to choose what VM size the Admin VMs are deployed when creating an Enclave.
 
 ## Patching
-It is the community or Enclave Owner's (and therefore customer's) responsibility to [maintain and patch](/azure/virtual-machines/updates-maintenance-overview) the Admin VMs deployed in their Enclaves. Currently, AVE will not perform any patching on Admin VMs after they are deployed in an Enclave.
+It is the community or enclave owner's (and therefore customer's) responsibility to [maintain and patch](/azure/virtual-machines/updates-maintenance-overview) the Admin VMs deployed in their Enclaves. Currently, AVE will not perform any patching on Admin VMs after they are deployed in an Enclave.
 
 Admin VMs are intended only for bootstrapping Enclaves and to provide initial entry for Enclave setup. Enclave Owners and system administrators should either delete them after set-up, or continuously monitor, patch, and manage them just like any of their other enclave workloads or Azure resources. Admin VMs are deployed using known good images through Azure Marketplace but are not monitored or patched by AVE thereafter.
 
 ## Image
-Community and Enclave Owners might also have concerns regarding the default VM image used for these VMs. Currently, AVE uses Azure Marketplace's Windows Server 2019 Datacenter image for Admin VMs. AVE does not currently support custom images for our Admin VMs.
+Community and enclave owners might also have concerns regarding the default VM image used for these VMs. Currently, AVE uses Azure Marketplace's Windows Server 2019 Datacenter image for Admin VMs. AVE does not currently support custom images for our Admin VMs.
 
 ## Monitoring
 By default, Admin VMs are configured with [Data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to log certain resource and operating system logging.
@@ -56,7 +56,7 @@ Should further troubleshooting be required to investigate Azure Virtual Machines
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
-- [What is a Workload?](./what-workload.md)
+- [What is a workload?](./what-workload.md)
 - [Azure Bastion](https://aka.ms/bastion)
 - [Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md)
 - [Azure Support](https://azure.microsoft.com/support/)

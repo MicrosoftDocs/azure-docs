@@ -18,11 +18,11 @@
       href: create-community-portal.md
     - name: Create an Enclave
       href: create-enclave-portal.md
-    - name: Create a Workload
+    - name: Create a workload
       href: create-workload-portal.md
     - name: Create a community Endpoint
       href: create-community-endpoint-portal.md
-    - name: Create an Enclave Endpoint
+    - name: Create an enclave endpoint
       href: create-enclave-endpoint-portal.md
     - name: Create an enclave 
       href: create-enclave-connection-portal.md
@@ -36,11 +36,11 @@
       href: what-community.md
     - name: "What is an Enclave?"
       href: what-enclave.md
-    - name: "What is a Workload?"
+    - name: "What is a workload?"
       href: what-workload.md
     - name: "What is a community Endpoint?"
       href: what-community-endpoint.md
-    - name: "What is an Enclave Endpoint?"
+    - name: "What is an enclave endpoint?"
       href: what-enclave-endpoint.md
     - name: "What is an enclave ?"
       href: what-enclave-connection.md
@@ -86,8 +86,8 @@
 #       href: dynamic-access-controls.md
 #     - name: Attribute-Based Access Controls
 #       href: attribute-based-access-controls.md
-    - name: Access Controls in Virtual Enclaves
-      href: access-controls-virtual-enclaves.md
+    - name: Access Controls in enclaves
+      href: access-controls-enclaves.md
     - name: Create a User Managed Identity
       href: create-user-managed-identity.md
     # - name: Use Managed Identity
@@ -203,9 +203,9 @@
       href: service-bus-initiative.md
     - name: Azure Storage Guardrail Initiative
       href: storage-initiative.md
-- name: Workload Quickstarts
+- name: Workload quickstarts
   items:
-    - name: Create Azure Virtual Desktop Workloads
+    - name: Create Azure Virtual Desktop workloads
       href: create-azure-virtual-desktop-workloads.md
     - name: Create Domain Name Service Forwarder
       href: create-domain-name-service-forwarder.md

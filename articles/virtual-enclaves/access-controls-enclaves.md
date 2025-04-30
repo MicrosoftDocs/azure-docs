@@ -11,19 +11,19 @@ ms.date: 04/08/2025
 
 # Identity and access controls for Azure Virtual Enclaves
 
-Azure Virtual Enclaves (AVE) provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and Workload Administration settings are configured, as well as how Virtual Enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
+Azure Virtual Enclaves (AVE) provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and Workload Administration settings are configured, as well as how enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
 
 ## Enclave administration and workload administration settings
 
 Azure Virtual Enclaves uses hierarchical IAM settings to define roles and permissions at multiple levels: 
 
 ### Enclave administration settings
-- **Purpose**: Control administrative access to the resources that form the Enclave's managed infrastructure.  
+- **Purpose**: Control administrative access to the resources that form the enclave's managed infrastructure.  
 - **Scope**: Applies to the enclave managed resource group.  
 - **Configuration**:  
   `Enclave Administration` settings define **who can manage and configure enclave-level resources**. AVE users specify these permissions during enclave creation or modification.  
   Common roles assigned include:
-  - **Enclave Admin**: Full access to Enclave Managed Resource Group.
+  - **Enclave Admin**: Full access to enclave managed resource group.
   - **Enclave Operator**: Limited permissions for operational tasks such as monitoring logs or restarting services.
 
   **Resources governed under Enclave Administration settings**:
@@ -33,7 +33,7 @@ Azure Virtual Enclaves uses hierarchical IAM settings to define roles and permis
   - **Logging and monitoring configurations**
 
 ### Workload administration settings
-- **Purpose**: Define administrative access for workloads deployed into resource groups within the Enclave.  
+- **Purpose**: Define administrative access for workloads deployed into resource groups within the enclave.  
 - **Scope**: Applies to each workload resource group associated with the enclave.  
 - **Configuration**:  
   Workload Administration settings ensure **administrators can manage application-specific resources without impacting enclave-wide infrastructure**. These settings are specified when deploying or updating workloads.  
@@ -73,7 +73,7 @@ Azure Virtual Enclaves' identity and access control model ensures robust securit
 
 ## Built in RBAC roles for Azure Virtual Enclaves
 
-Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AVE objects like communities and Enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
+Azure Virtual Enclaves (AVE) includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AVE objects like communities and enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
 
 ### AVE Built in roles
 
@@ -98,7 +98,7 @@ The built-in roles are scoped specifically for AVE and don't overlap with permis
 **Enclave Owner**  
   Grants full control over the AVE enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (for example, virtual network or NSGs).  
   **Example Permissions**:  
-  - Create, update, or delete an Enclave.  
+  - Create, update, or delete an enclave.  
   - Associate workloads and manage enclave connection rules.  
 
 **Enclave Contributor**  
@@ -127,7 +127,7 @@ Environment Structure:
   - **Viewer** role assignment is created for Fabrikam Security Auditors.
 
 **Community Administration**: 
-  - **Community Owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of communities and Enclaves within those subscriptions. 
+  - **Community Owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of communities and enclaves within those subscriptions. 
   - **Community Approver** role assignment is created at the Security Administrator to review and authorized connections to/from external destinations.
   - **Community Viewer** role assignment is created at the community-level Security Auditor to view/analyze endpoints and connections within the community.
   - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.

@@ -94,7 +94,7 @@ Deploy the template:
 9. Review the remaining parameters but keep the default unless you would like to test a modification.
 10. Select `Review + Create` and then `Create`.
 
-## Community and Enclaves template
+## Community and enclaves template
 
 [What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
 - One  [Community](./what-community.md)
@@ -128,7 +128,7 @@ Deploy the template:
 6. Under `Community Name`, enter the community name you would like to use (for example cm-template-test).
 7. Select `Review + Create` and then `Create`.
 
-### Enclave template
+### enclave template
 What gets deployed:
 - One  [Enclave](./what-enclave.md)
 
@@ -175,11 +175,11 @@ Deploy the template:
 4. Select `Save`.
 5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group for other AVE resources but not required.
 6. Enter the `Community Resource ID` which can be found on the community `Properties` page under `ID`.
-7. Enter the `Source Enclave Resource ID` which can be found on the source enclave `Properties` page under `ID`.
+7. Enter the `Source enclave Resource ID` which can be found on the source enclave `Properties` page under `ID`.
 8. Enter the `ADDS Endpoint Resource ID` which can be found on the ADDS endpoint `Properties` page under `ID`.
 9. Enter the `Example Endpoint Resource ID` which can be found on the Example endpoint `Properties` page under `ID`.
 10. Enter the `Msft Sites Endpoint Resource ID` which can be found on the Example endpoint `Properties` page under `ID`.
-11. Enter the `Source Enclave Address Space` for the source enclave in your connection (for example 10.0.2.0/23). You can find this by selecting on the enclave resource, on the overview page select the `virtual network` link, and select the `Address Space` page.
+11. Enter the `Source enclave Address Space` for the source enclave in your connection (for example 10.0.2.0/23). You can find this by selecting on the enclave resource, on the overview page select the `virtual network` link, and select the `Address Space` page.
 12. Select `Review + Create` and then `Create`.
 
 ## Terraform

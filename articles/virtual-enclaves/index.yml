@@ -35,7 +35,7 @@ landingContent:
 #           - text: Designing intra-enclave network isolation
 #             url: designing-intra-enclave-network-isolation.md
  # Card
-  - title: Components of a Virtual Enclave Environment 
+  - title: Azure Virtual Enclaves components
     linkLists:
       - linkListType: concept
         links:
@@ -47,11 +47,11 @@ landingContent:
             url: what-community-endpoint.md
           - text: "What is an Enclave?"
             url: what-enclave.md
-          - text: "What is an Enclave Endpoint?"
+          - text: "What is an enclave endpoint?"
             url: what-enclave-endpoint.md
           - text: "What is an enclave ?"
             url: what-enclave-connection.md
-          - text: "What is a Workload?"
+          - text: "What is a workload?"
             url: what-workload.md
           - text: "What is the Service Catalog?"
             url: what-service-catalog.md
@@ -70,11 +70,11 @@ landingContent:
             url: create-community-endpoint-portal.md
           - text: Create an Enclave
             url: create-enclave-portal.md
-          - text: Create an Enclave Endpoint
+          - text: Create an enclave endpoint
             url: create-enclave-endpoint-portal.md
           - text: Create an enclave 
             url: create-enclave-connection-portal.md
-          - text: Create a Workload
+          - text: Create a workload
             url: create-workload-portal.md
           - text: Create a Transit Hub
             url: create-transit-hub-portal.md
@@ -91,7 +91,7 @@ landingContent:
             url: 2-create-enclaves-inside-community.md
           - text: Tutorial 3 Create workloads inside an enclave
             url: 3-create-workloads-inside-enclave.md
-          - text: Tutorial 4 Use the service catalog to create Azure resources inside a Workload
+          - text: Tutorial 4 Use the service catalog to create Azure resources inside a workload
             url: 4-use-service-catalog-create-azure-resources-workloads.md
           - text: Tutorial 5 Create an enclave endpoint and connection
             url: 5-create-enclave-endpoint-connections.md
@@ -155,7 +155,7 @@ landingContent:
           - text: Deploy Azure Service Bus from the Service Catalog
             url: deploy-service-bus-service-catalog.md
 #  # Card
-#   - title: Manage and Monitor Virtual Enclaves
+#   - title: Manage and Monitor
 #     linkLists:
 #       - linkListType: how-to-guide
 #         links:

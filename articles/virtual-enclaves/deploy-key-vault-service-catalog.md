@@ -1,7 +1,7 @@
 ---
-title: Deploy a Key Vault from the Service Catalog into a Workload
+title: Deploy a Key Vault from the Service Catalog into a workload
 titleSuffix: Azure Virtual Enclaves
-description: Deploy a Key Vault from the Service Catalog into a Workload
+description: Deploy a Key Vault from the Service Catalog into a workload
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -13,7 +13,7 @@ ms.date: 04/08/2025
 
 In this article, you:
 
-- Deploy a Service Catalog template for a Key Vault into an existing Workload from the Portal.
+- Deploy a Service Catalog template for a Key Vault into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -24,7 +24,7 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 

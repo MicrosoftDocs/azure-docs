@@ -1,6 +1,6 @@
 ---
-title: Deploy an App Service Web App from the Service Catalog into a Workload
-description: Deploy an App Service Web App from the Service Catalog into a Workload.
+title: Deploy an App Service Web App from the Service Catalog into a workload
+description: Deploy an App Service Web App from the Service Catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy an App Service Web App from the Service Catalog into a Workload
+# Deploy an App Service Web App from the Service Catalog into a workload
 
 In this article, you:
 
-- Deploy a Service Catalog App Service Web App template into an existing Workload from the Azure portal.
+- Deploy a Service Catalog App Service Web App template into an existing workload from the Azure portal.
 - Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)
 
 > [!NOTE]
@@ -24,7 +24,7 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 

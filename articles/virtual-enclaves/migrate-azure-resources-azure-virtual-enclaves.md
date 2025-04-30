@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Moving Azure resources into an enclave is similar to [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md). When you move resources, the target resource group would be a [Workload](./what-workload.md) resource group. [Learn more about Azure tools, scripts, templates, or commands to automate resource group moving or migration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-It's important to note that the following considerations still apply when moving resources into an Enclave or Workload:
+It's important to note that the following considerations still apply when moving resources into an enclave or workload:
 - Locked resources or resource groups can't be moved.
 - Source and target resource groups (if using Azure portal, REST, Azure CLI, or Azure PowerShell Resource group move operations) are temporarily locked during the move operations.
 - Setting up new dependent resources incur interruptions to those resources until they have been reconfigured.
@@ -65,6 +65,6 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
 - [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
 - [Azure Policy compliance states](../governance/policy/concepts/compliance-states.md)
 - [What is an Enclave?](./what-enclave.md)
-- [What is a Workload?](./what-workload.md)
+- [What is a workload?](./what-workload.md)
 - [Shared responsibility model in the cloud](../security/fundamentals/shared-responsibility.md)
 - [Best practices of Azure Virtual Enclaves](./best-practices.md)

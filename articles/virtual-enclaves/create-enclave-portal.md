@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create an Enclave in the Azure portal
 
-An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is part of a community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
+An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is part of a community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the community. An enclave owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
 
 ## Prerequisites
 
@@ -34,11 +34,11 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 4. On the `Enclaves` page, select `Create`.
 
-5. Enter the basic details for your Virtual Enclave
+5. Enter the basic details for your enclave
    - Subscription: Select an existing Subscription
    - Resource Group: Create a new or select an existing Resource Group
-   - Enclave name: Name of the Virtual Enclave (for example `My-Enclave`)
-   - Region: Azure region the Virtual Enclave will be created in.
+   - Enclave name: Name of the enclave (for example `My-Enclave`)
+   - Region: Azure region the enclave will be created in.
    - Select a community: Select an existing `Community`
 
 ![Screenshot showing Enclave create basics input page.](./media/create-enclave-tab-1-basics.png)
@@ -63,7 +63,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 ![Screenshot showing Enclave create Enclave Administration input page.](./media/create-enclave-tab-5-enclave-administration.png)
 
-10. Select `Next` and on the `Workload Administration` page select users, groups that should have privileged access over the Workload resource groups a customer creates and deploys their resources into based on their needs.
+10. Select `Next` and on the `Workload Administration` page select users, groups that should have privileged access over the workload resource groups a customer creates and deploys their resources into based on their needs.
 
 ![Screenshot showing Enclave create Workload Administration input page.](./media/create-enclave-tab-6-workload-administration.png)
 

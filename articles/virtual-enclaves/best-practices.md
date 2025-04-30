@@ -19,7 +19,7 @@ Building and running workloads successfully in AVE requires understanding and im
 - [Security design patterns](#security-design-patterns-for-azure-virtual-enclaves)
 - [Managed resource groups](#managed-resource-groups-in-azure-virtual-enclaves)
 
-The AVE product group, engineering teams, and field teams contributed to, wrote, and grouped the following best practices and conceptual articles. Their purpose is to help community and enclave Owners and developers better understand the concepts above and implement the appropriate features.
+The AVE product group, engineering teams, and field teams contributed to, wrote, and grouped the following best practices and conceptual articles. Their purpose is to help community and enclave owners and developers better understand the concepts above and implement the appropriate features.
 
 ## Networking and Organizational Design Patterns for Azure Virtual Enclaves
 
@@ -54,8 +54,8 @@ AVE advises customers to follow, wherever possible, underlying Azure service bes
 Learn more about overall [Azure networking best practices](/azure/security/fundamentals/network-best-practices).
 
 ### Workload deployment
-- Workloads contain a managed resource group, which enclave Contributors can use to deploy Azure resources to
-- By default, all AVE Workloads are [governed](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) through built-in Azure Policy initiatives
+- Workloads contain a managed resource group, which enclave contributors can use to deploy Azure resources to
+- By default, all AVE workloads are [governed](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) through built-in Azure Policy initiatives
 - Workloads associated with a [community](./what-community.md) that has a custom governance setup, will use this unique configuration instead of the default AVE governance configuration.
 - [Considerations for naming Azure resources](/azure/azure-government/documentation-government-concept-naming-resources)
 
@@ -123,17 +123,17 @@ A common scenario where customers want to modify resources is through tags. Azur
 > If you don't have enclave managed resource group lockdown enabled, you can directly modify any resource in the enclave managed resource group. Directly modifying resources in the enclave managed resource group can cause your enclave to become unstable or unresponsive.
 
 ### Workload managed resource group
-The _Workload managed resource group_ contains the infrastructure resources described in [What is a Workload?](./what-workload.md).
+The _Workload managed resource group_ contains the infrastructure resources described in [What is a workload?](./what-workload.md).
 
-The Workload managed resource group is assigned a name by default following this convention `myWorkloadName`. When you delete your Workload, the Azure Virtual Enclaves resource provider automatically deletes the Workload managed resource group.
+The workload managed resource group is assigned a name by default following this convention `myWorkloadName`. When you delete your workload, the Azure Virtual Enclaves resource provider automatically deletes the workload managed resource group.
 
-The Workload managed resource group has the following limitations:
-- You can't specify an existing resource group for the Workload managed resource group.
-- You can't specify a different subscription for the Workload managed resource group.
-- You can't change the Workload managed resource group name after the Workload has been created.
-- You can't modify or delete Azure-created tags of managed resources within the Workload managed resource group.
+The workload managed resource group has the following limitations:
+- You can't specify an existing resource group for the workload managed resource group.
+- You can't specify a different subscription for the workload managed resource group.
+- You can't change the workload managed resource group name after the workload has been created.
+- You can't modify or delete Azure-created tags of managed resources within the workload managed resource group.
 
-A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the Workload managed resource group, and you can add those tags when creating the Workload. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the Workload managed resource group.
+A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the workload managed resource group, and you can add those tags when creating the workload. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the workload managed resource group.
 
 ## Other Azure best practices
 As you build your communities, enclaves, and workloads in Azure, it's important to keep in mind the following universal design principles:

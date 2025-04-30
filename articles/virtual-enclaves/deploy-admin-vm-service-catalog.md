@@ -1,6 +1,6 @@
 ---
-title: Deploy Admin VM from the Service Catalog into a Workload
-description: Deploy Admin VM from the Service Catalog into a Workload.
+title: Deploy Admin VM from the Service Catalog into a workload
+description: Deploy Admin VM from the Service Catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Admin VM from the Service Catalog into a Workload
+# Deploy Admin VM from the Service Catalog into a workload
 The Admin VM template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
 
-- Deploy a Service Catalog template for an Admin VM into an existing Workload from the Portal.
+- Deploy a Service Catalog template for an Admin VM into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -31,7 +31,7 @@ The Admin VM template can be deployed in multiple configurations:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 Required:

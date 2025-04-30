@@ -1,6 +1,6 @@
 ---
-title: Create an Enclave Endpoint in the Azure portal
-description: Create an Enclave Endpoint in the Azure portal
+title: Create an enclave endpoint in the Azure portal
+description: Create an enclave endpoint in the Azure portal
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create an Enclave Endpoint in the Azure portal
+# Create an enclave endpoint in the Azure portal
 
 ## Prerequisites
 
@@ -34,8 +34,8 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 ![Screenshot showing the highlighted create button for enclave endpoints.](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png)
 
-7. Enter the basic details for your Enclave Endpoint
-   - Enclave Endpoint name: Name of the enclave endpoint (ex: `endpoint-MyService`)
+7. Enter the basic details for your enclave endpoint
+   - Enclave endpoint name: Name of the enclave endpoint (ex: `endpoint-MyService`)
    - Endpoint rules: 
    
 8. Select `Add` and enter the `Rule Name`, `Destination IP addresses/CIDR range`, `Protocol`, and `Destination Port Range`.

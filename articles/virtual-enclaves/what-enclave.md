@@ -28,7 +28,7 @@ When you create an enclave, the Azure Virtual Enclaves resource provider also cr
 For more details regarding the Enclave managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md)
 
 ### Maintenance mode
-Maintenance mode is a feature that allows Enclave Owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
+Maintenance mode is a feature that allows enclave owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
 
 ## Template
 See [template documentation](./azure-virtual-enclaves-templates.md#enclave-template)
@@ -44,7 +44,7 @@ The following resources types are deployed into the Enclave Managed Resource Gro
 - [Private DNS Zones](../dns/private-dns-privatednszone.md)
 
 ## Next Steps
-- [What is a Workload?](./what-workload.md)
+- [What is a workload?](./what-workload.md)
 - [What is the Service Catalog?](./what-service-catalog.md)
 - [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)

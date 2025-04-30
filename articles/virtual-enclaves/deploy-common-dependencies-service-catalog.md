@@ -1,6 +1,6 @@
 ---
-title: Deploy Common Dependencies from the Service Catalog into a Workload
-description: Deploy Common Dependencies from the Service Catalog into a Workload.
+title: Deploy Common Dependencies from the Service Catalog into a workload
+description: Deploy Common Dependencies from the Service Catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Common Dependencies from the Service Catalog into a Workload
+# Deploy Common Dependencies from the Service Catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for Common Dependencies when deploying Azure services into an existing Workload from the Portal. The template includes the options to create a:
+- Deploy a Service Catalog template for Common Dependencies when deploying Azure services into an existing workload from the Portal. The template includes the options to create a:
 1. Key Vault
 2. Customer Managed Key (CMK) for encryption
 3. Disk Encryption Set (DES) for disk encryption
@@ -28,7 +28,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 
 ## Deploy the template

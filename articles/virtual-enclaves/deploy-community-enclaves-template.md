@@ -46,7 +46,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
     - `bing-outlook`; sample values of demonstrating Internet connectivity
         - `bing.com`
         - `outlook.com`
-- Enclave Endpoint:
+- Enclave endpoint:
     - `ADDS-TCP` and `ADDS-UDP` - Ports/Protocols covering a fake AD DS instance
 - Transit Hub:
     - Input parameter to a remote virtual network; covering Gateway connection
