@@ -1,5 +1,5 @@
 ---
-title: Overview of Queryables | Microsoft Planetary Computer Pro
+title: Queryables for Microsoft Planetary Computer Pro Data Explorer custom search filters
 description: Learn how to configure and use queryables in Microsoft Planetary Computer Pro to create custom search filters for geospatial data in the Data Explorer.
 author: tanyamarton
 ms.author: tanyamarton
@@ -19,6 +19,10 @@ In the Microsoft Planetary Computer Pro, a **GeoCatalog** resource organizes dat
 Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
 
 **Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Data Explorer for easy search.
+
+## Prerequisites
+
+- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-ui.md)
 
 ## What is a Queryable?
 
@@ -111,3 +115,9 @@ Select **Advanced** to reveal **Custom filters**. By default, the following filt
 Any queryables added to the collection's Queryables configuration, like **Gsd** and **Year** in the previous example, appear as other filter options.
 
 You can toggle which filters are visible using the **Select filters** control.
+
+## Related content
+
+- [Mosaic configurations for collections in Microsoft Planetary Computer Pro](./mosaic-configurations-for-collections.md)
+- [Render configuration for Microsoft Planetary Computer Pro](./render-configuration.md)
+- [Tile settings for Microsoft Planetary Computer Pro](./tile-settings.md)

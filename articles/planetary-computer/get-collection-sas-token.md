@@ -3,8 +3,8 @@ title: Request a Collection SAS Token
 description: See how to retrieve a sas token to access collection-level assets.
 author: tanyamarton
 ms.author: tanyamarton
-ms.service: planetary-computer
-ms.topic: quickstart-article
+ms.service: azure
+ms.topic: quickstart
 ms.date: 04/29/2025
 #customer intent: help customers setup the mosaic configurations. 
 ---
@@ -13,6 +13,7 @@ ms.date: 04/29/2025
 This example shows how to retrieve a collection-level SAS token that can be used to access secured assets in a managed storage account.
 
 In some applications, you need to pass a **collection-level SAS token** to enable authenticated access to assets stored in a managed storage account.  
+
 For example, when retrieving **collection-level assets** such as Zarr datasets or other metadata, a SAS token provides temporary permissions to access the data directly from blob storage.
 
 This example shows how to request a collection-level SAS token from the `/sas/token/{collection_id}` route.
