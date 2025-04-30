@@ -21,7 +21,7 @@ Workflows are multi-step operations that usually occur in a specific order or in
 - Infrastructure management
 - Data processing pipelines 
 
-Execution may be interrupted by events such as temporary infrastructure failures or dependency downtime. To prevent interruptions, you can leverage durable execution, which continues from the point of failure instead of restarting.
+Events like temporary infrastructure failures or dependency downtime can often interrupt workflow execution. To prevent interruptions, you can use durable execution, which continues from the point of failure instead of restarting.
 
 Azure provides two code-oriented workflow frameworks you can use to build apps that run on Azure Container Apps: 
 - **Durable Task SDKs** (preview)
@@ -35,7 +35,7 @@ The Durable Task SDKs and Durable Functions workflow frameworks are designed for
 
 ### Durable Task SDKs (preview)
 
-The Durable Task SDKs are lightweight client SDKs that provide an un-opinionated programming model for authoring workflows. They allow your app to connect to a workflow engine hosted in Azure called the [Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md). 
+The Durable Task SDKs are lightweight client SDKs that provide an unopinionated programming model for authoring workflows. They allow your app to connect to a workflow engine hosted in Azure called the [Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md). 
 
 To ensure durable execution, the Durable Task SDKs require a storage backend to persist workflow state as the app runs. The Durable Task Scheduler works as the backend for apps using the Durable Task SDKs. 
 
