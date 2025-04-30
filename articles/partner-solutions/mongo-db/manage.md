@@ -41,4 +41,4 @@ To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** from t
 
 ## Related content
 
-- [MongoDB Atlas resources and tools](tools.md)
+[MongoDB Atlas resources and tools](tools.md)
