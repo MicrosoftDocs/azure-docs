@@ -1,0 +1,11 @@
+{
+    "redirections": 
+    [
+        {
+            "source_path_from_root": "/articles/redis/administration.md",
+            "redirect_url": "/azure/redis/configure",
+            "redirect_document_id": false
+        }
+      ]
+}  
+  
