@@ -54,7 +54,7 @@ Bulk ingestion allows users to automatically ingest an existing STAC Collection,
 
 ### Single Item Ingestion
 
-Given a preexisting STAC collection within a GeoCatalog, users can ingest new or update existing STAC items and their associated assets using MPC Pro's web interface, or the API. In contrast to MPC Pro's Bulk Ingestion feature, Single Item ingestion is intended for low-latency imports or updates vs large data migrations. For more information about bulk ingestion, see [Add STAC Items to a Collection](/add-stac-item-to-collection.md).
+Given a preexisting STAC collection within a GeoCatalog, users can ingest new or update existing STAC items and their associated assets using MPC Pro's web interface, or the API. In contrast to MPC Pro's Bulk Ingestion feature, Single Item ingestion is intended for low-latency imports or updates vs large data migrations. For more information about bulk ingestion, see [Add STAC Items to a Collection](./add-stac-item-to-collection.md).
 
 :::image type="content" source="media/dpui-collections-items.png" alt-text="screenshot of single-item ingestion gui":::
 

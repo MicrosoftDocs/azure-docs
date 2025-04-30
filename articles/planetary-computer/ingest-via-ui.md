@@ -27,11 +27,11 @@ Before using this quickstart, you need:
 
 ## Configure your ingestion source
 
-Once you create a collection, you're ready to ingest data into your collection. The first step, however, is to configure your ingestion source. You can do this either by using the ***Settings** page or the **Create ingestion** panel in the **Ingestion** tab of your collection. Either of these methods work, the important thing is that you must set up your ingestion source before you can ingest data. For more information on ingestion sources, see [Ingestion sources](./ingestion-sources.md).
+Once you create a collection, you're ready to ingest data into your collection. The first step, however, is to configure your ingestion source. You can do this either by using the ***Settings** page or the **Create ingestion** panel in the **Ingestion** tab of your collection. Either of these methods work, the important thing is that you must set up your ingestion source before you can ingest data. For more information on ingestion sources, see [Ingestion sources](./ingestion-source.md).
 
 ### Configure your ingestion source in the **Settings** page
 
-Whether you want to use managed identity or a shared access signature, you can  configure you ingestion source by following the steps outlined in [Configure an ingestion source in Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md) or [Configure an ingestion source in Microsoft Planetary Computer Pro using a shared access signature](./setup-ingestion-credentials-sas.md). 
+Whether you want to use managed identity or a shared access signature, you can  configure you ingestion source by following the steps outlined in [Configure an ingestion source in Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md) or [Configure an ingestion source in Microsoft Planetary Computer Pro using a shared access signature](./setup-ingestion-credentials-sas-tokens.md). 
 
 To configure your ingestion source and create a new ingestion from within your collection, follow along with the rest of this quickstart.
 

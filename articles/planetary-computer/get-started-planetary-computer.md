@@ -21,7 +21,7 @@ Microsoft Planetary Computer Pro (MPC Pro) is an Azure cloud service for storing
 
 | Get Started                     | Deeper Dive                                   |
 |-------------------------------------|-----------------------------------------|
-| [Deploy a GeoCatalog Resource in your Azure Subscription](#deploy-a-geocatalog-resource-in-your-azure-subscription) | [Quickstart: Deploy a GeoCatalog Resource](/deploy-geocatalog-resource.md)            |
+| [Deploy a GeoCatalog Resource in your Azure Subscription](#deploy-a-geocatalog-resource-in-your-azure-subscription) | [Quickstart: Deploy a GeoCatalog Resource](./deploy-geocatalog-resource.md)            |
 | [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | Create a STAC Collection to organize your data                |
 | [Ingest Data into a STAC Collection](#ingest-data-into-a-stac-collection) | [Concept: Ingestion](./ingestion-overview.md)      |
 | [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-ui.md)  |
