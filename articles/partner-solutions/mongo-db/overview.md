@@ -27,7 +27,7 @@ Azure Native MongoDB Atlas provides the following capabilities:
 
 ## Subscribe to MongoDB Atlas (preview)
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] *[MongoDB Atlas](https://aka.ms/ANI/MongoDBAtlas/Marketplace)*.
+You can subscribe to this service through the Azure Marketplace's [online store](https://aka.ms/ANI/MongoDBAtlas/Marketplace) or through the [Azure portal](/marketplace/azure-marketplace-overview#azure-marketplace-in-the-azure-portal) by searching for the service by name, MongoDB Atlas.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
