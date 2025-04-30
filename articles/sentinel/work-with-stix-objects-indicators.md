@@ -16,14 +16,14 @@ ms.collection: usx-security
 
 # Work with STIX objects and indicators to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview)
 
-On April 3, 2025, we publicly previewed two new tables to support STIX (Structured Threat Information eXpression) indicator and object schemas: `ThreatIntelIndicator` and `ThreatIntelObjects`. This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting, and how to migrate to the new threat indicator schema.
+On April 3, 2025, we publicly previewed two new tables to support STIX (Structured Threat Information eXpression) indicator and object schemas: `ThreatIntelIndicators` and `ThreatIntelObjects`. This article provides examples of how to incorporate STIX objects into queries to enhance threat hunting, and how to migrate to the new threat indicator schema.
 
 For more information about threat intelligence in Microsoft Sentinel, see [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 
 >[!IMPORTANT]
-> Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicator` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+> Microsoft Sentinel will ingest all threat intelligence into the new `ThreatIntelIndicators` and `ThreatIntelObjects` tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
 >
-> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicator](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> **Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
 
 ## Identify threat actors associated with specific threat indicators
 
@@ -104,7 +104,7 @@ SourceRelationships
 
 ## Migrate existing queries to the new ThreatIntelObjects schema
 
-This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicator` table to the new `ThreatIntelObjects` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
+This example shows how to migrate existing queries from the legacy `ThreatIntelligenceIndicators` table to the new `ThreatIntelObjects` schema. The query uses the `extend` operator to recreate legacy columns based on the `ObservableKey` and `ObservableValue` columns in the new table. 
 
 ```Kusto
 ThreatIntelIndicators
