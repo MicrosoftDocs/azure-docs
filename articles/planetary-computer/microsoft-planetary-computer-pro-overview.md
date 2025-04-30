@@ -1,5 +1,5 @@
 ---
-title: Microsoft Planetary Computer Pro overview
+title: PLACEHOLDER Microsoft Planetary Computer Pro overview
 description: This article provides an overview of Microsoft Planetary Computer Pro.
 author: brentharris
 ms.author: brentharris
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/11/2025
 ---
 
-# Microsoft Planetary Computer Pro overview
+# PLACEHOLDER Microsoft Planetary Computer Pro overview
 
 Microsoft Planetary Computer's vision is to empower every organization to unlock the full potential of geospatial data. Microsoft Planetary Computer Pro (MPC Pro) provides customers with a geospatial data management service built on top of Azure's hyper-scale infrastructure and ecosystem. The MPC Pro GeoCatalog is a new Azure service that provides foundational capabilities to ingest, manage, search, and distribute geospatial datasets. GeoCatalog's are built using the SpatioTemporal Asset Catalog (STAC) technology, an open specification and standard that enables geospatial software interoperability. Learn more about STAC and how it relates to MPC Pro Geocatalogs in the [STAC overview](./stac-overview.md).  
 

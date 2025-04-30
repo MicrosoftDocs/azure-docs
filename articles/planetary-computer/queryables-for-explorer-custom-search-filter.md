@@ -16,7 +16,7 @@ ms.date: 04/09/2025
 ## Overview
 
 In the Microsoft Planetary Computer Pro, a **GeoCatalog** resource organizes datasets into **STAC Collections**. 
-Each Spatiotemporal Asset Catalog (STAC) Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
+Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
 
 **Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Data Explorer for easy search.
 
