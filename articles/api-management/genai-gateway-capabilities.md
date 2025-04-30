@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
-ms.date: 04/29/20    25
+ms.date: 04/29/2025
 ms.author: danlep
 ---
 
@@ -18,7 +18,7 @@ ms.author: danlep
 This article introduces capabilities in Azure API Management to help you manage generative AI APIs, such as those provided by [Azure OpenAI Service](/azure/ai-services/openai/overview). Azure API Management provides a range of policies, metrics, and other features to enhance security, performance, and reliability for the APIs serving your intelligent apps. Collectively, these features are called *AI gateway capabilities* for your generative AI APIs.
 
 > [!NOTE]
-> * Use AI gateway capabilities to manage APIs exposed by Azure OpenAI Service and with other large language model (LLM) APIs, including those available through [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) or with OpenAI-compatible models served through third-party inference providers.
+> * Use AI gateway capabilities to manage APIs exposed by Azure OpenAI Service, available through [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api), or with OpenAI-compatible models served through third-party inference providers.
 > * AI gateway capabilities are features of API Management's existing API gateway, not a separate API gateway. For more information on API Management, see [Azure API Management overview](api-management-key-concepts.md).
 
 ## Challenges in managing generative AI APIs
