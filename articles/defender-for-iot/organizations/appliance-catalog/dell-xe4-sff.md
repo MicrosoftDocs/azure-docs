@@ -30,7 +30,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 
 > [!Note]
 >
-> In order for this appliance to operate properly, install a seconday NIC. For more information, see [optional port expansion](#optional-port-expansion).
+> For this appliance to operate properly, install a seconday NIC. For more information, see [optional port expansion](#optional-port-expansion).
 
 ## Specifications
 
@@ -104,7 +104,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 
 ## Optional port expansion
 
-In order for this appliance to operate properly, install one of these secondary NIC's.
+For this appliance to operate properly, install one of these secondary NICs.
 
 Optional modules for port expansion include:
 
