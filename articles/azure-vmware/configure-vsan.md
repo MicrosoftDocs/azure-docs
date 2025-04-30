@@ -27,10 +27,10 @@ Azure VMware Solution defaults with the following configurations per cluster:
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Enable or disable TRIM/UNMAP
-> * Enable vSAN compression only
-> * Disable vSAN deduplication and compression
-> * Enable or disable vSAN data-in-transit encryption
+> * Enable or disable TRIM/UNMAP.
+> * Enable vSAN compression only.
+> * Disable vSAN deduplication and compression.
+> * Enable or disable vSAN data-in-transit encryption.
 
 ## Set VMware vSAN TRIM/UNMAP
 
