@@ -22,7 +22,7 @@ Permission-related errors occur when the necessary permissions aren't granted to
 
 ## Scale limits exceeded errors
 
-Scale limits exceeded errors arise when the task assignments and task execution operations exceed the predefined scale limits. It's important to monitor and adjust the scope of the task assignment accordingly to prevent such errors. See [Scale limits](storage-tasks/storage-task-known-issues.md#scale-limits).
+Scale limits exceeded errors arise when the task assignments and task execution operations exceed the predefined scale limits. It's important to monitor and adjust the scope of the task assignment accordingly to prevent such errors. See [Scale limits](storage-task-known-issues.md#scale-limits).
 
 ## Internal errors
 

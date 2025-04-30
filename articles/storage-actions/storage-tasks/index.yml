@@ -44,7 +44,7 @@ landingContent:
           - text: Known issues and limitations with storage tasks
             url: storage-task-known-issues.md
           - text: Costs and billing
-            url: storage-actions-plan-manage-costs.md
+            url: ../storage-actions-plan-manage-costs.md 
    # Card
   - title: Storage task composition
     linkLists:

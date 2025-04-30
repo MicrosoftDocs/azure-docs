@@ -70,7 +70,7 @@ For single-run task assignments, if a parallel task is already in progress, the 
 
 #### Workarounds on scale limits
 
-Storage Actions have defined scale limits. See [Scale limits](storage-tasks/storage-task-known-issues.md#scale-limits)
+Storage Actions have defined scale limits. See [Scale limits](storage-task-known-issues.md#scale-limits)
 
 To optimize the management of scale limits, consider implementing the following workarounds:
 
