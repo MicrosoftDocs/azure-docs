@@ -217,6 +217,18 @@ The following table lists the behavior of backups due to customer-initiated fail
 | Customer-managed planned failover | Supported | Supported | Not supported |
 | Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
 
+## Permitted scope for copy operations(preview)
+
+The following table lists the scope for copy operation:
+
+| Configuration | Support |
+| --- | --- |
+| From any storage account | Supported |
+| From storage accounts in the same Microsoft Entra tenant | Supported |
+| From storage accounts with a private endpoint to the same virtual network | Unsupported |
+
+Azure Trusted Services are allowed, but private endpoints take priority; so, this won't work. 
+
 
 ## Next steps
 
