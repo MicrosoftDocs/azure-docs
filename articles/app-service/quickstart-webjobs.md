@@ -97,12 +97,12 @@ php
 
 Select the log for the WebJob you created earlier.
 
-:::image type="content" source="media/quickstart-webjobs/review-webjob-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
+:::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
 
 
 The output should look similar to the following.
 
-:::image type="content" source="media/quickstart-webjobs/review-webjob-logs.png" alt-text="Screenshot that shows WebJobs log output.":::
+:::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows WebJobs log output.":::
 
 
 
@@ -110,7 +110,7 @@ The output should look similar to the following.
 
 To remove the WebJob, select the WebJob in the portal and select `Delete`.
 
-:::image type="content" source="media/quickstart-webjobs/delete-webjob.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
+:::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
 
 ## <a name="NextSteps"></a> Next steps
 
