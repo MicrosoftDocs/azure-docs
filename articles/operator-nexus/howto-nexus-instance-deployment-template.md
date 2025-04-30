@@ -299,7 +299,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    az rest  --subscription <CUSTOMER_SUB_ID> -m put --url /subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/accessControlLists/<NNI_1_INGRESS_ACL_1_NAME>?api-version=2023-06-15 --body @<NNI_1_INGRESS_ACL_1_NAME>.json
    az rest  --subscription <CUSTOMER_SUB_ID> -m put --url /subscriptions/<CUSTOMER_SUB_ID>/resourceGroups/<NF_RG>/providers/Microsoft.ManagedNetworkFabric/accessControlLists/<NNI_1_EGRESS_ACL_1_NAME>?api-version=2023-06-15 --body @<NNI_1_EGRESS_ACL_1_NAME>.json
    ```
-   See [how to create ACL for NNI](howto-create-access-control-list-for-network-to-network-interconnects.md), for more information on creating ACLs.
+   For more information on creating ACLs, see [how to create ACL for NNI](howto-create-access-control-list-for-network-to-network-interconnects.md).
    
 7. Create Network-to-Network Interface (NNI) resource with Azure CLI:
    ```
