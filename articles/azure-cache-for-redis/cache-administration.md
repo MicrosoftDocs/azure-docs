@@ -89,7 +89,7 @@ The _flush_ operation, when executed on a clustered cache, clears data from all 
 
 ## Update channel and schedule updates
 
-When using the Basic, Standard, or Premium tiers of Azure Cache for Redis,  you see **Schedule updates** on the resource menu. Use schedule updates to choose an update channel and a maintenance window for your cache instance.
+When using the Basic, Standard, or Premium tiers of Azure Cache for Redis, you see **Schedule updates** on the resource menu. Use schedule updates to choose an update channel and a maintenance window for your cache instance.
 
 Any cache instance using the **Stable** update channel receives updates a few weeks later than cache instances using **Preview** update channel. We recommend choosing the **Preview** update channel for your nonproduction and less critical workloads. Choose the **Stable** update channel for your most critical, production workloads. All caches default to the **Stable** update channel by default.
 
