@@ -14,6 +14,7 @@ zone_pivot_groups: app-service-webjobs
 
 WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
+:::zone target="docs" pivot="dotnet"
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
@@ -22,12 +23,18 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
 ## Download the sample WebJob
-
-:::zone target="docs" pivot="dotnet"
 dotnet
 :::zone-end
 
 :::zone target="docs" pivot="python"
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
+- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+
+## Download the sample WebJob
 
 You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.py` and `run.sh`.
 
@@ -75,6 +82,14 @@ The file, `run.sh`, calls WebJob.py as shown below:
 :::zone-end
 
 :::zone target="docs" pivot="node"
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
+- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+
+## Download the sample WebJob
 
 You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
 
@@ -126,10 +141,27 @@ node webjob.js
 :::zone-end
 
 :::zone target="docs" pivot="java"
-java
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
+- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+
+## Download the sample WebJob
+
 :::zone-end
 
 :::zone target="docs" pivot="php"
+## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python) is used.
+- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
+- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+
+## Download the sample WebJob
+
 You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-PHP-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.php` and `run.sh`.
 
 The PHP script, `webjob.php`, outputs the current time to the console as shown below:
