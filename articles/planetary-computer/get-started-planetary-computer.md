@@ -91,7 +91,7 @@ Ingested data can be visualized both in the built-in [Data Explorer](./use-explo
 
 Once data has been ingested, it's available for use in applications inside and outside of Microsoft Planetary Computer Pro. 
 
-Data that is [configured for visualization](./configure-collection-portal.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
+Data that is [configured for visualization](./configure-collection-ui.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
 
 :::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
 
