@@ -10,13 +10,6 @@ ms.date: 04/29/2025
 # Cross-tenant event delivery using a managed identity 
 This article provides information on delivery of events where Azure Event Grid basic resources like topics, domains, system topics, and partner topics are in one tenant and the Azure destination resource is in another tenant. 
 
-The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here are the high-level steps:
-
-1. Create an Azure Event Grid topic with a user-assigned managed identity in Tenant A.
-1. Create a multitenant app with a federated client credential.
-1. Create an Azure Storage Queue destination in Tenant B. 
-1. While creating an event subscription to the topic, enable cross-tenant delivery and configure an endpoint.
-
 ## Supported destinations and tiers
 The following table provides you with the information on whether the cross-tenant delivery to a supported destination is available in a tier (basic or standard) and is generally available (GA) or in public preview. 
 
@@ -30,6 +23,13 @@ The following table provides you with the information on whether the cross-tenan
 | Webhooks                   | Public preview      | Public preview             |
 | Namespace topics           | Public preview      | NA                         |
 | Blob Storage (Dead Letter Storage) | General available | Public preview       |
+
+The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here are the high-level steps:
+
+1. Create an Azure Event Grid topic with a user-assigned managed identity in Tenant A.
+1. Create a multitenant app with a federated client credential.
+1. Create an Azure Storage Queue destination in Tenant B. 
+1. While creating an event subscription to the topic, enable cross-tenant delivery and configure an endpoint.
 
 
 ## Create a topic with a user-assigned identity (Tenant A) 
