@@ -1,5 +1,5 @@
 ---
-title: Build and Use Applications with Microsoft Planetary Computer Pro
+title: PLACEHOLDER Build and Use Applications with Microsoft Planetary Computer Pro
 description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (MPC Pro) to applications or build your application on top of MPC Pro's API services."
 author: prasadko
 ms.author: prasadkomma
@@ -11,7 +11,7 @@ ms.date: 04/29/2025
 
 ---
 
-# Building applications with Microsoft Planetary Computer Pro
+# PLACEHOLDER Building applications with Microsoft Planetary Computer Pro
 
 Microsoft Planetary Computer Pro (MPC Pro) offers powerful APIs and services that enable developers to build applications that can access, analyze, and visualize large-scale geospatial datasets. This article provides an overview of the application development options available with MPC Pro and key concepts for integrating with its services.
 

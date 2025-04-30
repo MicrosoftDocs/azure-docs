@@ -1,5 +1,5 @@
 ---
-title: Service Limitations for Microsoft Planetary Computer Pro Preview
+title: PLACEHOLDER Service Limitations for Microsoft Planetary Computer Pro Preview
 description: "This article covers known limitations for Microsoft Planetary Computer Pro in the public preview release."
 author: prasadko
 ms.author: prasadkomma
@@ -11,7 +11,7 @@ ms.date: 04/30/2025
 
 ---
 
-# Service Limitations for Microsoft Planetary Computer Pro Preview
+# PLACEHOLDER Service Limitations for Microsoft Planetary Computer Pro Preview
 
 This article outlines the current service limitations and quotas for Microsoft Planetary Computer Pro Preview. Understanding these limitations helps you plan your geospatial data processing workloads and avoid potential issues when using the service.
 
