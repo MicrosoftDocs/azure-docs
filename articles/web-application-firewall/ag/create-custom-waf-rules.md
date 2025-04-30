@@ -48,7 +48,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -109,7 +109,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -167,7 +167,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -227,7 +227,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -297,7 +297,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -388,7 +388,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -532,7 +532,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
