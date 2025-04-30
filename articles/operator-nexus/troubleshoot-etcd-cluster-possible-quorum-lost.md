@@ -88,5 +88,3 @@ If the CPU or memory usage is high, it might indicate that the control plane nod
 
 
 [!include[stillHavingIssues](./includes/contact-support.md)]
-
-[contact support]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
