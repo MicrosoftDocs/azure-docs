@@ -91,7 +91,7 @@ The file, `run.sh`, calls WebJob.py as shown below:
 
 ## Download the sample WebJob
 
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
+You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Node-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
 
 The Javascript, `webjob.js`, outputs the current time to the console as shown below:
 
