@@ -23,30 +23,30 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
-## Create your sample locally
+## Create your WebJob locally
 
 1. In this step, you create a basic .NET WebJob project and navigate to the project root.
 
-```bash
-dotnet new console -n webjob –framework net9.0
-
-cd webjob
-```
+    ```bash
+    dotnet new console -n webjob –framework net9.0
+    
+    cd webjob
+    ```
 
 1. Next, replace `Program.cs` to the following code that writes the current time to the console:
 
-```dotnet
-using System; 
-
-class Program 
-{ 
-    static void Main() 
+    ```dotnet
+    using System; 
+    
+    class Program 
     { 
-        DateTimeOffset now = DateTimeOffset.Now; 
-        Console.WriteLine("Current time with is: " + now.ToString("hh:mm:ss tt zzz")); 
-    } 
-}
-```
+        static void Main() 
+        { 
+            DateTimeOffset now = DateTimeOffset.Now; 
+            Console.WriteLine("Current time with is: " + now.ToString("hh:mm:ss tt zzz")); 
+        } 
+    }
+    ```
 
 1. From the *webjob* directory, run the webjob to confirm the current time is output to the console:
 
@@ -385,7 +385,7 @@ The file, `run.sh`, calls webjob.php as shown below:
 
 Select the log for the WebJob you created earlier.
 
-:::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
+    :::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
 
 
 The output should look similar to the following.
@@ -396,8 +396,10 @@ The output should look similar to the following.
 
 To remove the WebJob, select the WebJob in the portal and select `Delete`.
 
-:::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
+    :::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
 
 ## <a name="NextSteps"></a> Next steps
 
-How to run
+## Next step
+
+[Explore more advanced WebJob scenarios, including triggers and deployment options](https://learn.microsoft.com/en-us/azure/app-service/webjobs-create)
