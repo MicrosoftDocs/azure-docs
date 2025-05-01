@@ -1,5 +1,5 @@
 ---
-title: PLACEHOLDER Service Limitations for Microsoft Planetary Computer Pro Preview
+title: Service Limitations of Microsoft Planetary Computer Pro
 description: "This article covers known limitations for Microsoft Planetary Computer Pro in the public preview release."
 author: prasadko
 ms.author: prasadkomma

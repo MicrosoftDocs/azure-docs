@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface"
+title: Creating Collections via UI in Microsoft Planetary Computer Pro
 description: Learn how to create collections in the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris

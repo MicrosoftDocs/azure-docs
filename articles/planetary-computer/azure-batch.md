@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch
+title: Azure Batch Integration with Microsoft Planetary Computer Pro
 description: This quickstart shows you how to use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch to process geospatial data.
 author: meaghanlewis
 ms.topic: quickstart

@@ -1,5 +1,5 @@
 ---
-title: Request a Collection SAS Token
+title: SAS Token Generation in Microsoft Planetary Computer Pro
 description: See how to retrieve a sas token to access collection-level assets.
 author: tanyamarton
 ms.author: tanyamarton

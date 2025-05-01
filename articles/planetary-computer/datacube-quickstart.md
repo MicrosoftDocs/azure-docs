@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get Started with Data Cubes in Microsoft Planetary Computer Pro"
+title: Data Cube Quickstart for Microsoft Planetary Computer Pro
 description: Learn how to work with data cube data Microsoft Planetary Computer Pro.
 author: brentharris
 ms.author: brentharris
@@ -28,7 +28,7 @@ Once your Ingestion Source is set up, you can create a Collection for your data 
 
 ## Ingest data cube assets
 
-The initiation of the ingestion process for data cube data, and other data types, can be followed in [Ingestion Overview](link to ingestion overview). As described in [Data Cube Overview](link to data cube overview), however, ingestion is the step in MPC Pro's data handling that differs for these file types. While GRIB2 data and associated STAC Items are ingested just like any other two-dimensional raster file, NetCDF and HDF5 assets undergo further data enrichment. The generation of Kerchunk Manifests is well documented in [Data Cube Overview](link to data cube overview), but what is important to note is that Kerchunk assets will be added to your Blob Storage container alongside the original assets, and an additional `cube:variables` field are added to the STAC Item JSON. This is important when rendering these data types in the MPC Pro Explorer.
+The initiation of the ingestion process for data cube data, and other data types, can be followed in [Ingestion Overview](./ingestion-overview.md). As described in [Data Cube Overview](./datacube-overview.md), however, ingestion is the step in MPC Pro's data handling that differs for these file types. While GRIB2 data and associated STAC Items are ingested just like any other two-dimensional raster file, NetCDF and HDF5 assets undergo further data enrichment. The generation of Kerchunk Manifests is documented in [Data Cube Overview](./datacube-overview.md), but what is important to note is that Kerchunk assets will be added to your Blob Storage container alongside the original assets, and an additional `cube:variables` field are added to the STAC Item JSON. This is important when rendering these data types in the MPC Pro Explorer.
 
 ### Configure a data cube collection
 

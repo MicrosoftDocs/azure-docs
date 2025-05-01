@@ -1,5 +1,5 @@
 --- 
-title: Configure an ingestion source for Microsoft Planetary Computer Pro using managed identity
+title: Configure Managed Identity for Sources in Microsoft Planetary Computer Pro
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro using managed identities.
 author: prasadko
 ms.author: prasadkomma

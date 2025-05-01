@@ -91,7 +91,7 @@ landingContent:
             url: ingest-via-ui.md
           - text: Add a STAC Item to a collection
             url: add-stac-item-to-collection.md
-          - text: Bulk Ingests data
+          - text: Bulk Ingest data
             url: bulk-ingestion-api.md
 
   # Card
@@ -113,7 +113,7 @@ landingContent:
             url: render-configuration.md
           - text: Tile Settings
             url: tile-settings.md
-          - text: Queryables 
+          - text: Queryables for Custom Search
             url: queryables-for-explorer-custom-search-filter.md
           - text: Supported Color Maps
             url: supported-colormaps.md

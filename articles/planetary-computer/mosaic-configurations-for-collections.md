@@ -1,5 +1,5 @@
 ---
-title: Mosaic configurations for collections in Microsoft Planetary Computer Pro
+title: Mosaic Configuration Options in Microsoft Planetary Computer Pro
 description: See examples of how to set up mosaic in Microsoft Planetary Computer Pro collection configuration.
 author: tanyamarton
 ms.author: tanyamarton

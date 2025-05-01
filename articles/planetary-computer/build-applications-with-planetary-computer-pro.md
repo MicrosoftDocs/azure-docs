@@ -1,5 +1,5 @@
 ---
-title: PLACEHOLDER Build and Use Applications with Microsoft Planetary Computer Pro
+title: Building Custom Applications with Microsoft Planetary Computer Pro
 description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (MPC Pro) to applications or build your application on top of MPC Pro's API services."
 author: prasadko
 ms.author: prasadkomma

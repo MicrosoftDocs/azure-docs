@@ -1,5 +1,5 @@
 ---
-title: What's new in Microsoft Planetary Computer Pro
+title: New Features in Microsoft Planetary Computer Pro
 description: "Updates to users on new features in Microsoft Planetary Computer Pro."
 author: prasadko
 ms.author: prasadkomma

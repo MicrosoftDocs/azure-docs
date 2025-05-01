@@ -1,5 +1,5 @@
 ---
-title: PLACEHOLDER Connect ArcGIS Pro to Microsoft Planetary Computer Pro
+title: ArcGIS Pro Integration with Microsoft Planetary Computer Pro
 description: "This article provides step-by-step instructions for connecting ESRI ArcGIS Pro to Microsoft Planetary Computer Pro and accessing geospatial data."
 author: prasadko
 ms.author: prasadkomma

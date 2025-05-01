@@ -1,5 +1,5 @@
 ---
-title: Collection configuration in Microsoft Planetary Computer Pro
+title: Collection Configuration Guide for Microsoft Planetary Computer Pro
 description: "This article describes collection configuration in Microsoft Planetary Computer Pro."
 author: brentharris
 ms.author: brentharris

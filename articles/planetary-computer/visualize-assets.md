@@ -1,5 +1,5 @@
 ---
-title: Visualize data cube assets in Microsoft Planetary Computer Pro
+title: Visualizing Data Cube Assets in Microsoft Planetary Computer Pro
 description: Learn how to visualize geospatial assets using the Microsoft Planetary Computer Pro's tiler. This guide includes examples for working with GRIB and NetCDF datasets.
 author: tanyamarton
 ms.author: tanyamarton

@@ -1,5 +1,5 @@
 ---
-title: Supported colormaps in Microsoft Planetary Computer Pro
+title: Color Maps for Data Visualization in Microsoft Planetary Computer Pro
 description: Learn about the complete set of named colormaps supported by the Data Explorer in Microsoft Planetary Computer Pro.
 author: aloverro
 ms.author: adamloverro

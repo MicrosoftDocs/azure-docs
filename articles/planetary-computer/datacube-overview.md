@@ -1,5 +1,5 @@
 ---
-title: Data cube overview in Microsoft Planetary Computer Pro
+title: Data Cubes in Microsoft Planetary Computer Pro: Overview and Use Cases
 description: Learn about data cube concepts and data cube enrichment for STAC assets in Microsoft Planetary Computer Pro. This article explains how to enable and disable data cube enrichment.
 author: tanyamarton
 ms.author: tanyamarton
@@ -11,7 +11,7 @@ ms.date: 04/24/2025
 ---
 # Data cubes in Microsoft Planetary Computer Pro
 
-As mentioned in [Supported Data Types](LINK TO SUPPORTED DATA TYPES), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with MPC Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
+As mentioned in [Supported Data Types](./supported-data-types.md), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with MPC Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
 
 ## Handling data cubes in MPC Pro
 

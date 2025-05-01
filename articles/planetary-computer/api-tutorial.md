@@ -1,5 +1,5 @@
 ---
-title: Using the Microsoft Planetary Computer Pro APIs to Ingest and Visualize Data
+title: Microsoft Planetary Computer Pro: API Usage Guide
 description: "In this tutorial, you'll create and store satellite imagery within a Microsoft Planetary Computer Pro GeoCatalog"
 author: TaylorCorbett
 ms.author: gecorbet

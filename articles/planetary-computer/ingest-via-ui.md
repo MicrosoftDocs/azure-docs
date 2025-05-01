@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Ingest data with the Microsoft Planetary Computer Pro web interface"
+title: Data Ingestion Using Web Interface in Microsoft Planetary Computer Pro
 description: Learn how to ingest data into your collection using the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris

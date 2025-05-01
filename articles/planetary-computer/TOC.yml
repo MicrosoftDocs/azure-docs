@@ -43,6 +43,8 @@
     href: setup-ingestion-credentials-managed-identity.md
   - name: Set up ingestion source using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md
+  - name: Ingest data using the Web Interface
+    href: ingest-via-ui.md
   - name: Create a STAC item
     href: create-stac-item.md
   - name: Add a STAC Item to a collection
@@ -51,6 +53,10 @@
     href: bulk-ingestion-api.md
 - name: Configure Collections for Visualization
   items:
+  - name: Collection configuration overview
+    href: collection-config-concept.md
+  - name: Configure Collections for Visualization
+    href: configure-collection-ui.md
   - name: Mosaic Configuration
     href: mosaic-configurations-for-collections.md
   - name: Render Configuration

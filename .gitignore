@@ -32,3 +32,6 @@ articles/planetary-computer/doc-tree-generator.py
 articles/planetary-computer/article_links_diagram.md
 articles/planetary-computer/index_helper.py
 articles/planetary-computer/metadata_index.csv
+articles/planetary-computer/broken_link_checker.py
+articles/planetary-computer/broken_links_external.csv
+articles/planetary-computer/broken_links.csv

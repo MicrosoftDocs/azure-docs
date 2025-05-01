@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Use the Microsoft Planetary Computer Pro Explorer"
+title: Using the Explorer Interface in Microsoft Planetary Computer Pro
 description: This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer.
 author: beharris
 ms.author: brentharris
