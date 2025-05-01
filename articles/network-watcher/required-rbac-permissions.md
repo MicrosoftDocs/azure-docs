@@ -18,7 +18,7 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that includes the actions listed for the Network Watcher capability that you want to use.
 
 > [!IMPORTANT]
-> [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't cover the following actions:
+> [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't include the following actions:
 > - Microsoft.Storage/* actions listed in [Additional actions](#additional-actions) or [Flow logs](#flow-logs) section.
 > - Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
 > - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
