@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot Intermittent Outbound Connection Errors
 description: Learn how to troubleshoot intermittent connection errors and related performance issues in Azure App Service.
-
 ms.topic: troubleshooting
 ms.date: 04/28/2025
 ms.custom: security-recommendations,fasttrack-edit
@@ -19,9 +18,9 @@ This article helps you troubleshoot intermittent connection errors and related p
 Applications and functions hosted on Azure App service might exhibit one or more of the following issues:
 
 * Slow response times on all or some of the instances in a service plan.
-* Intermittent 5xx or **Bad Gateway** errors
-* Time-out error messages
-* Couldn't connect to external endpoints (like SQLDB, Service Fabric, or other app services)
+* Intermittent 5xx or **Bad Gateway** errors.
+* Time-out error messages.
+* Couldn't connect to external endpoints (like SQLDB, Service Fabric, or other app services).
 
 ## Cause
 
