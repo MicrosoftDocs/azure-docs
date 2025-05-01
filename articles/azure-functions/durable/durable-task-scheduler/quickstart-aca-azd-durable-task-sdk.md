@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Set a portable Durable Task SDK in your container app to use Azure Functions Durable Task Scheduler (preview)"
-description: Learn how to configure an existing container app for the Azure Functions Durable Task Scheduler using the portable Durable Task SDKs and deploy using Azure Developer CLI.
+title: "Quickstart: Configure Durable Task SDKs in your container app with Azure Functions Durable Task Scheduler (preview)"
+description: Learn how to configure an existing container app for the Azure Functions Durable Task Scheduler using the Durable Task SDKs and deploy using Azure Developer CLI.
 ms.subservice: durable-task-scheduler
 ms.topic: how-to
 ms.date: 04/29/2025
 zone_pivot_groups: df-languages
 ---
 
-# Quickstart: Set a portable Durable Task SDK in your container app to use Azure Functions Durable Task Scheduler (preview)
+# Quickstart: Configure Durable Task SDKs in your container app with Azure Functions Durable Task Scheduler (preview)
 
 ::: zone pivot="javascript"
 
