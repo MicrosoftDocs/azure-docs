@@ -95,7 +95,7 @@ Data that is [configured for visualization](./configure-collection-ui.md) can be
 
 :::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
 
-Data can also be accessed directly using the [API service](/azure/planetary-computer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
+Data can also be accessed directly using the GeoCatalog API. For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 
 <!-- TODO, Links to new Content
 
@@ -105,7 +105,7 @@ Data can also be accessed directly using the [API service](/azure/planetary-comp
 ## Get help
 
 1. Review the [rest of the documentation](/azure/planetary-computer) for relevant articles
-2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure)] to ask a question or find answers from others
+2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure) to ask a question or find answers from others
 3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
 4. Contact the team at MPCProSupport@microsoft.com 
 
