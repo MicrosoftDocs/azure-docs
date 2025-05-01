@@ -61,13 +61,13 @@ If you're planning on connecting an Elastic SAN datastore to multiple clusters, 
 
 ## Configure Private Endpoint
 
-Keeping in mind the guidance from the previous section, create a number of private endpoints for your volume groups.
+Keeping in mind the guidance from the previous section, create as many private endpoints for your volume groups as you need.
 
-Modify a volume group (or create a new one). Then select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**.
+Edit your volume group, or create a new one. Then select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**.
 
-Fill out the values in the menu that pops up, select the virtual network that has your [ExpressRoute connection configured](/azure/azure-vmware/tutorial-configure-networking#connect-expressroute-to-the-virtual-network-gateway), and the subnet that your applications will use to connect. When you're done, select **Add**, and **Save**. 
+Fill out the values in the menu that pops up, select the virtual network that has your [ExpressRoute connection configured](/azure/azure-vmware/tutorial-configure-networking#connect-expressroute-to-the-virtual-network-gateway), and the subnet that your applications are going to use to connect. When you're done, select **Add**, and **Save**. 
 
-:::image type="content" source="../storage/elastic-san/media/elastic-san-create/elastic-san-private-endpoint.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="../storage/elastic-san/media/elastic-san-create/elastic-san-private-endpoint.png":::
+:::image type="content" source="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png":::
 
 ## Configure external storage address block
 
