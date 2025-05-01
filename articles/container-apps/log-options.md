@@ -41,7 +41,7 @@ Use these steps to configure the logging options for your environment in the Azu
 
 1. Browse to your Container Apps environment in the portal.
 
-1. Select *Monitoring* > *Logging options*.
+1. Select *Monitoring* > **Logging options**.
 
 1. You can choose from the following **Logs Destination** options:
     - **Azure Log Analytics**: With this option, you select a Log Analytics workspace to store your log data. Your logs can be viewed through Log Analytics queries. To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
@@ -60,7 +60,7 @@ Use these steps to configure the diagnostic settings for your environment:
 
 1. Browse to your environment in the portal.
 
-1. Select *Monitoring* > *Diagnostic settings*. If you've just set your environment's logs destination to **Azure Monitor**, you might need to refresh the page for this configuration item to appear.
+1. Select *Monitoring* > **Diagnostic settings**. If you've just set your environment's logs destination to **Azure Monitor**, you might need to refresh the page for this configuration item to appear.
 
 Destination details are saved as *diagnostic settings*. You can create up to five diagnostic settings for your environment. You can configure different log categories for each diagnostic setting. For example, create one diagnostic setting to send the system logs category to one destination, and another to send the container console logs category to another destination.
 
@@ -68,7 +68,7 @@ To create a new *diagnostic setting*:
 
 1. Select **Add diagnostic setting**.
 
-1. In **Diagnostic setting name**, enter a name for your diagnostic setting.
+1. In *Diagnostic setting name*, enter a name for your diagnostic setting.
 
 1. Select the log **Category groups** or **Categories** you want to send to this destination. You can select one or more categories. 
 
@@ -90,7 +90,7 @@ Use these steps to configure the diagnostic settings for your container app:
 
 1. Browse to your container app in the portal.
 
-1. Select *Monitoring* > *Diagnostic settings*. If you've just set your container app environment's logs destination to **Azure Monitor**, you might need to refresh the page for this configuration item to appear.
+1. Select *Monitoring* > **Diagnostic settings**. If you've just set your container app environment's logs destination to **Azure Monitor**, you might need to refresh the page for this configuration item to appear.
 
 1. Select **Add diagnostic setting**.
 
@@ -153,11 +153,11 @@ To create diagnostic settings at the environment level, run the following comman
 
 ```azurecli
 az monitor diagnostic-settings create \
---name "AllMetricsToLogAnalytics" \
---resource <ENVIRONMENT_ID> \
---logs '[{"categoryGroup":"allLogs","enabled":true}]' `
---metrics '[{"category":"AllMetrics","enabled":true}]' \
---workspace <LOG_ANALYTICS_RESOURCE_ID>
+  --name "AllMetricsToLogAnalytics" \
+  --resource <ENVIRONMENT_ID> \
+  --logs '[{"categoryGroup":"allLogs","enabled":true}]' \
+  --metrics '[{"category":"AllMetrics","enabled":true}]' \
+  --workspace <LOG_ANALYTICS_RESOURCE_ID>
 ```
 
 Ensure there are no spaces in the JSON values provided to the `--logs` and `--metrics` parameters.
