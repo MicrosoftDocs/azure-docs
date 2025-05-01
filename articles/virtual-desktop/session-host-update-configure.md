@@ -71,7 +71,7 @@ Before you update session hosts using session host update, you need:
 
    - Configure the key vault access configuration to allow [Azure Resource Manager for template deployment](../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
-   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
+   - Configure the key vault network settings to [Allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security). This requirement is a known issue; support for key vaults that do not allow public access is planned.
 
 - For any custom configuration PowerShell scripts you specify in the session host configuration to run after an update, the URL to the script must be resolvable from the public internet.
 
