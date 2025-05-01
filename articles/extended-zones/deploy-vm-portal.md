@@ -132,6 +132,10 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
+## Contact
+
+Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+
 ## Related content
 
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)

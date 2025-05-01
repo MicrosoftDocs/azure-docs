@@ -187,6 +187,10 @@ In this section, you learn how to unregister your subscription for an Azure Exte
 
 ---
 
+## Contact
+
+Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+
 ## Related content
 
 - [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)

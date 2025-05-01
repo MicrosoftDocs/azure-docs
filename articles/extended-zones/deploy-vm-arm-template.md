@@ -346,6 +346,10 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 az group delete --name myResourceGroup
 ```
 
+## Contact
+
+Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+
 ## Related content
 
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)

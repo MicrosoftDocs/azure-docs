@@ -155,6 +155,10 @@ When no longer needed, delete **my-aks-cluster-group** resource group and all of
 az group delete --name my-aks-cluster-group
 ```
 
+## Contact
+
+Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+
 ## Related content
 
 - [Create an Arc-enabled AKS cluster in an Extended Zone](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster)

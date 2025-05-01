@@ -75,6 +75,10 @@ In this section, you request a quota increase in the Azure portal.
 > [!NOTE]
 > The Quota's view will only show the quota from the Extended Zone's parent region, given Extended Zones respect quota from their parent region. Nevertheless, providing the Extended Zone's information is needed when requesting quotas, as that's where the SKU is intended to be deployed. Consequently, there may be situations where the parent region is capacity constrained while the Extended Zone is not. 
 
+## Contact
+
+Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+
 ## Related content
 
 - [What is Azure Extended Zones?](overview.md)
