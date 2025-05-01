@@ -46,7 +46,7 @@
       href: what-community-endpoint.md
     - name: "What is an enclave endpoint?"
       href: what-enclave-endpoint.md
-    - name: "What is an enclave ?"
+    - name: "What is an enclave connection?"
       href: what-enclave-connection.md
     - name: "What is a Transit Hub?"
       href: what-transit-hub.md
@@ -66,21 +66,21 @@
       href: understand-domain-name-service.md
 - name: Tutorials
   items:
-  - name: Tutorial 1 Create a community
+  - name: Create a community
     href: 1-create-community.md
-  - name: Tutorial 2 Create enclaves inside a community
+  - name: Create enclaves inside a community
     href: 2-create-enclaves-inside-community.md
-  - name: Tutorial 3 Create workloads inside an enclave
+  - name: Create workloads inside an enclave
     href: 3-create-workloads-inside-enclave.md
-  - name: Tutorial 4 Use the service catalog to create Azure resources inside a workload
+  - name: Use the service catalog to create Azure resources inside a workload
     href: 4-use-service-catalog-create-azure-resources-workloads.md
-  - name: Tutorial 5 Create an enclave endpoint and connection
+  - name: Create an enclave endpoint and connection
     href: 5-create-enclave-endpoint-connections.md
-  - name: Tutorial 6 Monitor your enclaves
+  - name: Monitor your enclaves
     href: 6-monitor-your-enclaves.md
-  - name: Tutorial 7 Host a publicly accessible application in a virtual enclave
+  - name: Host a publicly accessible application in a virtual enclave
     href: 7-host-publicly-accessible-application-virtual-enclave.md
-  - name: Tutorial 8 Migrate workload resources
+  - name: Migrate workload resources
     href: 8-migrate-workload-resources.md
 - name: Governance, Security, and Compliance
   items:
@@ -112,7 +112,7 @@
   items:
   - name: List of service catalog Templates
     href: list-service-catalog-templates.md
-  - name: Deploy an Admin VM from the service catalog
+  - name: Deploy an Admin Virtual Machine from the service catalog
     href: deploy-admin-vm-service-catalog.md
   - name: Deploy Azure App Service from the service catalog
     href: deploy-app-service-web-app-service-catalog.md

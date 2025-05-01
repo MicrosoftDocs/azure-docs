@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 ---
 
 # Create a user-assigned managed identity
-Create a User-assigned Managed Identity to grant least privledges to specific service for actions like encryption at rest.
+Create a user-assigned managed identity to grant least privileges to specific service for actions like encryption at rest.
 
 ## Create from the service catalog (quick)
 1. Quickly deploy a `user` or `system` managed identity from the service catalog `Common Dependencies` template. You can also create a Key Vault from this template if you don't already have one.
@@ -24,7 +24,7 @@ Create a User-assigned Managed Identity to grant least privledges to specific se
 
   ![Screenshot that shows the Create User-assigned Managed Identity pane.](/entra/identity/managed-identities-azure-resources/media/how-manage-user-assigned-managed-identities/create-user-assigned-managed-identity-portal.png)
 
-5. Confirm the Region and enter a name for the Managed Identity resource.
+5. Confirm the Region and enter a name for the managed identity resource.
 6. Select `Review + Create` and then select `Create`.
 7. Finally, copy the Managed Identity name into the service catalog deployment parameter or temporarily paste into notepad for use during deployment.
 
