@@ -55,7 +55,7 @@ Error pages are currently a Premium feature. You need to use at least a Premium 
 
 3. How can I reference a single error page across multiple apps?
 
-If you need to use the same error page across multiple apps, you can link to your error page hosted in a storage account in your uploaded html file. Upload your error page to a [storage account](/azure/storage/common/storage-account-overview.md) and add the provided storage URL for your page in an `<iframe>` tag located in the html file uploaded to the app. 
+If you need to use the same error page across multiple apps, you can link to your error page hosted in a storage account in your uploaded html file. Upload your error page to a [storage account](/azure/storage/common/storage-account-overview) and add the provided storage URL for your page in an `<iframe>` tag located in the html file uploaded to the app. 
 
 
 
