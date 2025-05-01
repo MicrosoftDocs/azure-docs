@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 03/11/2025
+ms.date: 05/1/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -32,6 +32,15 @@ This article explains how the billing models for Azure Files work to help you un
     :::column-end:::
     :::column:::
         This video covers the Azure Files billing models including pay-as-you-go, provisioned v1, and provisioned v2.
+   :::column-end:::
+:::row-end:::
+
+:::row:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/1sXwvHaTqfg]
+    :::column-end:::
+    :::column:::
+        This video focus on Azure Files provisioned v2 billing model.
    :::column-end:::
 :::row-end:::
 
