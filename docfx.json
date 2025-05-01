@@ -1026,7 +1026,7 @@
         "articles/vpn-gateway/*.md": "networking",
         "articles/vpn-gateway/*.yml": "networking",
         "articles/web-application-firewall/*.md": "networking",
-        "articles/web-application-firewall/*.yml": "anetworking"
+        "articles/web-application-firewall/*.yml": "networking"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
