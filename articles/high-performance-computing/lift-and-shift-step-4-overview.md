@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 4: compute nodes - overview"
-description: Learn about production-level environment migration deployment step four.
+title: "Compute node migration overview"
+description: Get a high level idea of the steps involved when migrating compute nodes during a migration of high performance computing architecture.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 08/30/2024
+ms.date: 04/10/2025
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
 ---
 
-# Deployment step 4: compute nodes - overview
+# Compute node migration overview
 
 Managing compute nodes in an HPC cloud environment involves careful consideration of virtual machine (VM) types, images, and quota limits. Testing key on-premises workloads in the cloud helps assess the cost-benefit of different VM SKUs, allowing for more informed hardware decisions over time. Azure provides preconfigured HPC images for Ubuntu and Alma Linux, which include necessary drivers and libraries, simplifying the deployment process. Custom images can also be created using available resources from the Azure HPC image repository. Additionally, it’s important to plan resource usage carefully and consult with Azure to avoid quota limitations, especially when scaling across multiple regions.
 

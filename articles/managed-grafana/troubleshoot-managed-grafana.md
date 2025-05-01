@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
 ms.service: azure-managed-grafana
-ms.date: 04/12/2024
+ms.date: 04/16/2025
 ---
 
 # Troubleshoot issues for Azure Managed Grafana
@@ -200,7 +200,7 @@ After disabling System-Assigned Managed Identity, the data source that has been 
 
 Data sources configured with a managed identity may still be able to access data from Azure services for up to 24 hours. When a role assignment is updated in a managed identity for Azure Managed Grafana, this change can take up to 24 hours to be effective, due to limitations of managed identities.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Support](./find-help-open-support-ticket.md)

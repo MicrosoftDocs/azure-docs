@@ -31,7 +31,7 @@ This article shows how to send Auth0 events received by Azure Event Grid to Azur
         // Event Grid always sends an array of data and may send more
         // than one event in the array. The runtime invokes this function
         // once for each array element, so we are always dealing with one.
-        // See: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
+        // See: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-event-grid-trigger?tabs=
         module.exports = async function (context, eventGridEvent) {
             context.log(typeof eventGridEvent);
             context.log(eventGridEvent);

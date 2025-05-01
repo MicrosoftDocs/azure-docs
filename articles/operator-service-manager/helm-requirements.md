@@ -162,8 +162,8 @@ The following `values.yaml` shows an example of how a publisher can provide the 
 
 ```json
 global: 
-   registryPath: “” 
-   imagePullSecrets: [] 
+   registryPath: “azure.io”
+   imagePullSecrets: ["abc123"] 
 ```
 
 > [!NOTE]
@@ -204,8 +204,8 @@ The following `values.yaml` shows an example of how a publisher can provide the 
 
 ```json
 global: 
-   registryPath: “”
-   imagePullSecrets: [] 
+   registryPath: “azure.io”
+   imagePullSecrets: ["abc123"] 
 ```
 
 > [!NOTE]

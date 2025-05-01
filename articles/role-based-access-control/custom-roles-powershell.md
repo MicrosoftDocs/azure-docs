@@ -2,7 +2,7 @@
 title: Create or update Azure custom roles using Azure PowerShell - Azure RBAC
 description: Learn how to list, create, update, or delete custom roles using Azure PowerShell and Azure role-based access control (Azure RBAC).
 author: rolyon
-manager: amycolannino
+manager: femila
 
 ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
 ms.service: role-based-access-control

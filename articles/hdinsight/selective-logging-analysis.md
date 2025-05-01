@@ -155,7 +155,7 @@ For example, assume that `spark HDInsightSecurityLogs` is a table that has two l
 If you need to disable two tables and two source types, use the following syntax:
 
 - Spark: `InteractiveHiveMetastoreLog` log type in the `HDInsightHiveAndLLAPLogs` table
-- Hbase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
+- HBase: `InteractiveHiveHSILog` log type in the `HDInsightHiveAndLLAPLogs` table
 - Hadoop: `HDInsightHiveAndLLAPMetrics` table
 - Hadoop: `HDInsightHiveTezAppStats` table
 

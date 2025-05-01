@@ -1,6 +1,6 @@
 ---
-author: dknappettmsft
-ms.author: daknappe
+author: ErikjeMS
+ms.author: avdcontent
 ms.topic: include
 ms.service: azure-virtual-desktop
 ms.date: 08/08/2024

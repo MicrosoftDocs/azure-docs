@@ -21,7 +21,7 @@ All resources in Azure NetApp files have [limits](azure-netapp-files-resource-li
 | - | - | 
 | Capacity | <ul><li>50 GiB minimum</li><li>100 TiB maximum</li></ul> |
 | File count | 2,147,483,632 |
-| Performance (MiB/s) | <ul><li>Standard: 1,600</li><li>Premium: 6,400</li><li>Ultra: 12,800</li></ul> |
+| Performance | <ul><li>Standard: 1,600 MiB/s</li><li>Flexible: 4,500 MiB/s</li><li>Premium: 4,500 MiB/s</li><li>Ultra: 4,500 MiB/s</li></ul> |
 
 Large volumes have the following limits: 
 
@@ -53,7 +53,7 @@ Regular volumes can handle most workloads. Once capacity, file count, performanc
 Large volumes allow workloads to extend beyond the current limitations of regular volumes. The following table shows some examples of use cases for each volume type.
 
 | Volume type | Primary use cases | 
-| - | -- |
+| - | --- |
 | Regular volumes | <ul><li>General file shares</li><li>SAP HANA and databases (Oracle, SQL Server, Db2, and others)</li><li>VDI/Azure VMware Service</li><li>Capacities less than 50 TiB</li></ul> |
 | Large volumes | <ul><li>General file shares</li><li>High file count or high metadata workloads (such as electronic design automation, software development, financial services)</li><li>High capacity workloads (such as AI/ML/LLP, oil & gas, media, healthcare images, backup, and archives)</li><li>Large-scale workloads (many client connections such as FSLogix profiles)</li><li>High performance workloads</li><li>Capacity quotas between 50 TiB and 1 PiB</li></ul> |
 

@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/17/2024
+ms.date: 03/25/2025
 ms.author: anfdocs
 ---
 # Reserved capacity for Azure NetApp Files
@@ -29,6 +29,9 @@ This section describes the terms of an Azure NetApp Files reservation.
 
 >[!NOTE]
 >Azure NetApp Files reservations cover matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](manage-cool-access.md), only "hot" tier consumption is covered by the reservation benefit.
+
+>[!NOTE]
+>Azure NetApp Files reservations aren't currently supported on the [Flexible service level](azure-netapp-files-service-levels.md).
 
 ### Reservation quantity
 

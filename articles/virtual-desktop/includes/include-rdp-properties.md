@@ -1,6 +1,6 @@
 ---
-author: dknappettmsft
-ms.author: daknappe
+author: ErikjeMS
+ms.author: avdcontent
 ms.topic: include
 ms.date: 01/11/2024
 ---

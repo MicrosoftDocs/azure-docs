@@ -19,20 +19,20 @@ Code executing inside the TEE is processed in the clear but is only visible in e
 
 :::image type="content" source="./media/trusted-compute-base/app-enclave-vs-virtual-machine.jpg " alt-text="Image showing the Trusted Compute Base (TCB) concept mapped to Intel SGX and AMD SEV-SNP Trusted Execution Environments":::
 
-Azure confidential computing has two offerings: one for enclave-based workloads and one for lift and shift workloads.
+Azure confidential computing has two offerings: one for lift and shift workloads and enclave-based workloads for custom developed applications.
 
-The enclave-based offering uses [Intel Software Guard Extensions (SGX)](virtual-machine-solutions-sgx.md) to create a protected memory region called Encrypted Protected Cache (EPC) within a VM. This allows customers to run sensitive workloads with strong data protection and privacy guarantees. Azure Confidential computing launched the first enclave-based offering in 2020. 
+The lift and shift offering uses [AMD SEV-SNP (GA)](virtual-machine-options.md) or [Intel TDX (preview)](tdx-confidential-vm-overview.md) to encrypt the entire memory of a VM. This allows customers to migrate their existing workloads to Azure confidential computing without any code changes or performance degradation and supports both virtual machine and container workloads.
 
-The lift and shift offering uses [AMD SEV-SNP (GA)](virtual-machine-options.md) or [Intel TDX (preview)](tdx-confidential-vm-overview.md) to encrypt the entire memory of a VM. This allows customers to migrate their existing workloads to Azure confidential Compute without any code changes or performance degradation.
+The enclave-based offering provides CPU features that allow customer code to use [Intel Software Guard Extensions (SGX)](virtual-machine-solutions-sgx.md) to create a protected memory region called Encrypted Protected Cache (EPC) within a VM. This allows customers to run sensitive workloads with strong data protection and privacy guarantees. Azure Confidential computing launched the first enclave-based offering in 2020. Customer applications need to be specifically developed to take advantage of this data protection model.
 
-Many of these underlying technologies are used to deliver [confidential IaaS and PaaS services](overview-azure-products.md) in the Azure platform making it simple for customers to adopt confidential computing in their solutions.
+Both of these underlying technologies are used to deliver [confidential IaaS and PaaS services](overview-azure-products.md) in the Azure platform making it simple for customers to adopt confidential computing in their solutions.
 
 New GPU designs also support a TEE capability and can be securely combined with CPU TEE solutions such as confidential virtual machines, such as the [NVIDIA offering currently in preview](https://azure.microsoft.com/blog/azure-confidential-computing-with-nvidia-gpus-for-trustworthy-ai/) to deliver trustworthy AI.
 
 Technical details on how the TEE is implemented across different Azure hardware is available as follows:
 
 AMD SEV-SNP Confidential Virtual Machines (https://www.amd.com/en/developer/sev.html) <p>
-Intel SGX enabled Virtual Machines (https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)<p>
 Intel TDX Virtual Machines (https://www.intel.com/content/www/us/en/developer/articles/technical/intel-trust-domain-extensions.html)<p>
 NVIDIA Hardware (https://www.nvidia.com/en-gb/data-center/h100/)<p>
+Intel SGX enabled Virtual Machines (https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html)<p>
 

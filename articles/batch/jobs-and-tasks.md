@@ -2,7 +2,7 @@
 title: Jobs and tasks in Azure Batch
 description: Learn about jobs and tasks and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 06/13/2024
+ms.date: 03/21/2025
 ---
 # Jobs and tasks in Azure Batch
 
