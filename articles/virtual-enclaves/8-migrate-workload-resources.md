@@ -19,4 +19,4 @@ Ensure your resources are included in this [moveable resources](../azure-resourc
 Resources for an enclave are split between the enclave managed resource group (MRG) and the workload resource group. Following [this example scenario](../azure-resource-manager/management/move-resource-group-and-subscription.md#scenario-for-moving-across-subscriptions) the resources to be moved should be put in one resource group. Connections outside of the enclave should also be removed.
 
 ## More information
-Read [this article](./migrate-azure-resources-into-azure-virtual-enclaves.md) for more information on moving Azure resources into AVE.
+Read [this article](./migrate-azure-resources-azure-virtual-enclaves.md) for more information on moving Azure resources into AVE.

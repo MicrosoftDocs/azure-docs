@@ -75,7 +75,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
 
 4. Once the template is created and available on the **Template Specs** page, select newly created ARM template and then click on **Deploy**.  
 
-5. On the **Deploy <template name>** page, leave default values and configure the following parameters:
+5. On the **Deploy** page for the template spec, leave default values and configure the following parameters:
    - **Community Name**: Name of the Community (ex: `My-Community`)
    - **Enclave Name**: Name of the Enclave (ex: `My-Enclave`)
    - **Endpoint name**: Name of the enclave endpoint (ex: `endpoint-bingdotcom`)

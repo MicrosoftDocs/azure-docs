@@ -171,7 +171,7 @@ landingContent:
 #           - text: IP Allocation Management
 #             url: ip-allocation-management.md
           - text: Naming rules and restrictions
-            url: naming-rules-restrictions-azure-virtual-enclave-resources.md
+            url: name-rules-restrictions-azure-virtual-enclaves-resources.md
           - text: Move data inside an enclave
             url: move-data-inside-enclave.md
       - linkListType: architecture
@@ -188,7 +188,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Troubleshooting guide
-            url: troubleshooting.md
+            url: troubleshoot.md
           - text: Policy compliance exemptions
             url: policy-compliance-exemptions.md
           - text: Migrate Azure Resources into Azure Virtual Enclaves

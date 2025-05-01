@@ -96,7 +96,7 @@ Deploy the template:
 
 ## Community and enclaves template
 
-[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
+[What gets deployed](./deploy-community-enclaves-template.md#what-gets-deployed)
 - One  [Community](./what-community.md)
 - One  [Enclaves](./what-enclave.md)
 - One  [workloads](./what-workload.md)
