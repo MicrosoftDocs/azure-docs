@@ -2,7 +2,7 @@
 title: "Quickstart: Configure Durable Task SDKs in your container app with Azure Functions Durable Task Scheduler (preview)"
 description: Learn how to configure an existing container app for the Azure Functions Durable Task Scheduler using the Durable Task SDKs and deploy using Azure Developer CLI.
 ms.subservice: durable-task-scheduler
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 04/29/2025
 zone_pivot_groups: df-languages
 ---
@@ -164,11 +164,12 @@ cd /samples/portable-sdks/java/FunctionChaining
     - Endpoint: https://SAMPLE_WORKER_APP.westus2.azurecontainerapps.io/
 
 
-   SUCCESS: Your up workflow to provision and deploy to Azure completed in 10 minutes 34 seconds.   ```
+   SUCCESS: Your up workflow to provision and deploy to Azure completed in 10 minutes 34 seconds.   
+   ```
 
 ## Confirm successful deployment 
 
-In the Azure portal, verify the client container app is publishing messages to the Azure Service Bus topic. 
+In the Azure portal, verify the orchestrations are running successfully. 
 
 1. Copy the resource group name from the terminal output.
 
@@ -186,7 +187,7 @@ In the Azure portal, verify the client container app is publishing messages to t
 
 1. Select **Monitoring** > **Log stream**.
 
-1. Confirm the client container is logging the function chaining tasks.
+1. Confirm the worker container is logging the function chaining tasks.
 
    :::image type="content" source="media/quickstart-aca-azd-durable-task-sdk/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
 
@@ -199,6 +200,22 @@ In the Azure portal, verify the client container app is publishing messages to t
 ::: zone-end
 
 ::: zone pivot="csharp"
+
+### Client Project
+
+The Client project:
+
+- Uses the same connection string logic as the worker
+- Schedules an orchestration instance with a name input
+- Waits for the orchestration to complete and displays the result
+- Uses WaitForInstanceCompletionAsync for efficient polling
+
+```csharp
+var instance = await client.WaitForInstanceCompletionAsync(
+    instanceId,
+    getInputsAndOutputs: true,
+    cts.Token);
+```
 
 ### Worker Project
 
@@ -247,22 +264,6 @@ builder.Services.AddDurableTaskWorker()
     .UseDurableTaskScheduler(connectionString);
 var host = builder.Build();
 await host.StartAsync();
-```
-
-### Client Project
-
-The Client project:
-
-- Uses the same connection string logic as the worker
-- Schedules an orchestration instance with a name input
-- Waits for the orchestration to complete and displays the result
-- Uses WaitForInstanceCompletionAsync for efficient polling
-
-```csharp
-var instance = await client.WaitForInstanceCompletionAsync(
-    instanceId,
-    getInputsAndOutputs: true,
-    cts.Token);
 ```
 
 ::: zone-end

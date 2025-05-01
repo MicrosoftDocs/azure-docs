@@ -134,6 +134,8 @@
       href: ./durable-task-scheduler/durable-task-scheduler.md #placeholder
     - name: How-to guides
       items:
+      - name: Autoscaling with the Durable Task SDKs in Azure Container Apps
+        href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling-aca.md
       - name: Run app on Azure Container Apps
         href: ./durable-task-scheduler/durable-task-scheduler.md #placeholder
   - name: Billing
