@@ -14,7 +14,7 @@ zone_pivot_groups: sql-managed-instance-tiers
 
 This article describes reliability support in Azure SQL Managed Instance, covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
+Reliability is a shared responsibility between you and Microsoft. You can use this guide to find out which reliability options fulfill your specific business objectives and uptime goals.
 
 ::: zone pivot="general-purpose"
 
@@ -52,7 +52,7 @@ General Purpose managed instances run on a single node that's managed by [Azure 
 Business Critical managed instances use multiple replicas in a cluster. The cluster includes:
 
 - A single *primary* replica that's accessible for read-write customer workloads.
-- Up to three *secondary* replicas (compute and storage) that contain copies of data. 
+- Up to three *secondary* replicas (compute and storage) that contain copies of data.
 
 The primary replica continually and sequentially pushes changes to the secondary replicas, which ensures that data is persisted on a sufficient number of secondary replicas before committing each transaction. This process guarantees that, if the primary replica or a readable secondary replica become unavailable for any reason, a fully synchronized replica is always available for failover.
 
@@ -187,7 +187,7 @@ Azure SQL Managed Instance is deployed within a single region. However, you can 
 
 This section summarizes key information about failover groups, but it's important to review [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi) to learn more about how they work and how to configure them.
 
-### Region support 
+### Region support
 
 You can select any Azure region for the managed instances within the failover group. However, if you plan to enable synchronous replication, you should select regions with low latency connections. To learn more about latency between Azure regions, see [Azure network round-trip latency statistics](/azure/networking/azure-network-latency).
 
@@ -199,7 +199,7 @@ When you create multiple managed instances in different regions, you're billed f
 
 To learn how to configure a failover group, see [Configure a failover group for Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-configure-sql-mi).
 
-### Capacity planning and management 
+### Capacity planning and management
 
 During a failover, traffic is redirected to a secondary managed instance. It's important that your secondary managed instance is ready to receive traffic. Create secondary managed instances with the same service tier, hardware generation, and compute size as the primary instance.
 
@@ -209,7 +209,7 @@ When scaling managed instances in a failover group, follow the guidance in [Scal
 
 This section discusses how traffic is routed between regions and how data is replicated between regions during normal operations.
 
-#### Traffic routing between regions 
+#### Traffic routing between regions
 
 During normal operations, most requests go to the single primary instance in the primary region.
 
@@ -217,7 +217,7 @@ Failover groups also provide a separate read-only listener endpoint. During norm
 
 To learn more about how failover groups send traffic to each instance, and configuration you can apply to override the default behavior, see [Failover groups overview & best practices - Azure SQL Managed Instance](/azure/azure-sql/managed-instance/failover-group-sql-mi).
 
-#### Data replication between regions 
+#### Data replication between regions
 
 By default, data is replicated asynchronously from the primary instance to secondary managed instances. Because the replication is asynchronous, it's possible to have data loss when a failover occurs.
 
@@ -225,7 +225,7 @@ You can monitor the replication lag to understand the potential data loss during
 
 If you need to eliminate data loss from replication during failovers, you can configure your application to block until the replication is completed. This approach requires custom development, and it reduces the performance of your application. To learn more, see [Prevent loss of critical data](/azure/azure-sql/managed-instance/failover-group-sql-mi#prevent-loss-of-critical-data).
 
-### Region-down experience 
+### Region-down experience
 
 - **Detection and response.** The failover group is responsible for detecting a failure in a region and automatically failing over to another instance within the failover group.
 
