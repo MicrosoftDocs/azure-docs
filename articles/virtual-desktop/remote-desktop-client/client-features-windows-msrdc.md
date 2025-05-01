@@ -3,6 +3,8 @@ title: Use features of the Remote Desktop client for Windows - Azure Virtual Des
 description: Learn how to use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop.
 ms.topic: how-to
 ms.date: 01/20/2025
+ms.author: avdcontent
+author: dknappettmsft
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 

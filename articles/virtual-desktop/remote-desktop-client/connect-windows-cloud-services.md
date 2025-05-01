@@ -3,6 +3,8 @@ title: Use the Remote Desktop client to connect to Azure Virtual Desktop
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client.
 ms.topic: how-to
 ms.date: 02/26/2025
+ms.author: avdcontent
+author: dknappettmsft
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 
@@ -363,12 +365,4 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
 
 ## Next steps
 
-- To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows-msrdc.md).
-
-- To learn more about the features of the Remote Desktop client for macOS, check out [Use features of the Remote Desktop client for macOS when connecting to Azure Virtual Desktop](client-features-macos.md).
-
-- To learn more about the features of the Remote Desktop client for iOS and iPadOS, check out [Use features of the Remote Desktop client for iOS and iPadOS when connecting to Azure Virtual Desktop](client-features-ios-ipados.md).
-
-- To learn more about the features of the Remote Desktop Web client, check out [Use features of the Remote Desktop Web client when connecting to Azure Virtual Desktop](client-features-web-cloud.md).
-
-- To learn more about the features of the Remote Desktop client for Android and Chrome OS, check out [Use features of the Remote Desktop client for Android and Chrome OS when connecting to Azure Virtual Desktop](client-features-android-chrome-os.md).
+To learn more about the features of the Remote Desktop client for Windows, check out [Use features of the Remote Desktop client for Windows when connecting to Azure Virtual Desktop](client-features-windows-msrdc.md).
