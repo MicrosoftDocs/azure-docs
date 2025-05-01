@@ -80,6 +80,8 @@ We can easily upgrade from any small update in one Kubernetes version to any sma
 
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
+Note the azure-arc-k8sagents version refers to the version of this feature shipped with the version bundle, but this feature will auto-upgrade
+
 |Kubernetes Version|Version Bundle|OS Image|azure-arc-k8sagents|cloud-provider-kubevirt|calico|metallb|multus|sriov-dp|csi-nfs|csi-volume|metrics-server|ipam-cni-plugin|node-local-dns|azure-arc-servers|pause image|etcd image|coredns image|kube-vip image|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | v1.32.1<br/>v1.31.5<br/>v1.31.4<br/>v1.30.9<br/>v1.30.8<br/>v1.29.13<br/>v1.29.12<br/>v1.28.14<br/>v1.28.12<br/>v1.27.13<br/>v1.27.9|4.3.0|v1.30.x and newer: [Azure Linux 3.0.20250311-3.0](https://github.com/microsoft/azurelinux/releases/tag/3.0.20250311-3.0)<br/>1.29.x and older: [Azure Linux 2.0.20250304-2.0](https://github.com/microsoft/azurelinux/releases/tag/2.0.20250304-2.0)|1.24.4|1.0.5|[v3.29.2](https://github.com/projectcalico/calico/releases/tag/v3.29.2)|v0.14.5-9|[v4.0.2](https://github.com/k8snetworkplumbingwg/multus-cni/releases/tag/v4.0.2)|[v3.7.0](https://github.com/k8snetworkplumbingwg/sriov-network-device-plugin/releases/tag/v3.7.0)|[v4.11.0](https://github.com/kubernetes-csi/csi-driver-nfs/releases/tag/v4.11.0)|4.3.0-45|[v0.7.2](https://github.com/kubernetes-sigs/metrics-server/releases/tag/v0.7.2)|v1.0.7|1.23.1-1|v1.2.0|3.10|v3.5.15-1|v1.9.4-4|v0.8.5|
