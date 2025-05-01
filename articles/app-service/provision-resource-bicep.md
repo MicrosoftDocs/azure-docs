@@ -5,7 +5,7 @@ author: seligj95
 ms.author: msangapu
 ms.topic: quickstart
 ms.custom: devx-track-bicep
-ms.date: 04/02/2025
+ms.date: 05/01/2025
 zone_pivot_groups: app-service-bicep
 ---
 
@@ -32,14 +32,14 @@ This quickstart uses the following template. It deploys an App Service plan and 
 ```bicep
 param webAppName string = uniqueString(resourceGroup().id) // Generate a unique string for the web app name
 param sku string = 'F1' // Tier of the App Service plan
-param linuxFxVersion string = 'node|14-lts' // Runtime stack of the web app
+param linuxFxVersion string = 'node|20-lts' // Runtime stack of the web app
 param location string = resourceGroup().location // Location for all resources
 param repositoryUrl string = 'https://github.com/Azure-Samples/nodejs-docs-hello-world'
 param branch string = 'main'
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 var webSiteName = toLower('wapp-${webAppName}')
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: appServicePlanName
   location: location
   properties: {
@@ -51,7 +51,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   kind: 'linux'
 }
 
-resource appService 'Microsoft.Web/sites@2020-06-01' = {
+resource appService 'Microsoft.Web/sites@2023-12-01' = {
   name: webSiteName
   location: location
   properties: {
@@ -62,8 +62,9 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   }
 }
 
-resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
-  name: '${appService.name}/web'
+resource srcControls 'Microsoft.Web/sites/sourcecontrols@2023-12-01' = {
+  parent: appService
+  name: 'web'
   properties: {
     repoUrl: repositoryUrl
     branch: branch
@@ -85,7 +86,7 @@ The template contains the following parameters that are predefined for your conv
 | `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information about the value, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
 | `location`   | string  | `resourceGroup().location` | App region. For more information about the value, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
 | `sku`        | string  | `F1`                         | Instance size.  |
-| `linuxFxVersion`   | string  | `NODE`&#124;`14-LTS`       | Programming language stack and version. |
+| `linuxFxVersion`   | string  | `NODE`&#124;`20-LTS`       | Programming language stack and version. |
 | `repositoryUrl`    | string  | `https://github.com/Azure-Samples/nodejs-docs-hello-world`    | External Git repo (optional). |
 | `branch`    | string  | `master`    | Default branch for the code sample. |
 
@@ -157,7 +158,6 @@ resource webApp 'Microsoft.Web/sites@2024-04-01' = {
     httpsOnly: true
   }
 }
-
 ```
 
 The template defines two Azure resources:

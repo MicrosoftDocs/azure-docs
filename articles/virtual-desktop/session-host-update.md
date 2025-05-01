@@ -2,7 +2,7 @@
 title: Session host update (preview) - Azure Virtual Desktop
 description: Learn about session host update, which updates the operating system image and configuration of session hosts in a host pool in Azure Virtual Desktop.
 ms.topic: conceptual
-author: dknappettmsft
+author: ErikjeMS
 ms.author: avdcontent
 ms.date: 01/24/2025
 ---

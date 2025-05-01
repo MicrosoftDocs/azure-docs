@@ -5,8 +5,8 @@ author: cwatson-cat
 ms.author: cwatson
 ms.topic: concept-article
 ms.date: 02/27/2025
-appliesto: Microsoft Sentinel with Defender XDR in the Defender portal
-
+appliesto: 
+    - Microsoft Sentinel with Defender XDR in the Defender portal
 
 #Customer intent: As a security profession, I want to understand the support for multiple workspaces for Microsoft Sentinel in the Defender portal so that I can make the right choices for my organization when setting up and managing workspaces.
 
