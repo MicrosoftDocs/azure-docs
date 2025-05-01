@@ -134,7 +134,7 @@
       - name: Disaster recovery
         href: /azure/azure-sql/database/recovery-using-backups?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore
     - name: Azure SQL Managed Instance
-      href: /azure/azure-sql/database/auto-failover-group-sql-db?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=azure-powershell
+      href: reliability-sql-managed-instance.md
   - name: Developer tools
     items:
     - name: Azure API Center

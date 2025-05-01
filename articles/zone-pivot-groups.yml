@@ -1907,3 +1907,12 @@ groups:
     title: Azure CLI
   - id: azure-powershell
     title: Azure PowerShell
+# Owner: jodowns
+- id: sql-managed-instance-tiers
+  title: Tier
+  prompt: Choose a tier
+  pivots:
+  - id: general-purpose
+    title: General Purpose
+  - id: business-critical
+    title: Business Critical
