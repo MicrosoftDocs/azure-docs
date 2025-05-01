@@ -56,7 +56,8 @@ To deliver events to Storage queues using managed identity, follow these steps:
 To deliver events to a Webhook using managed identity, follow these steps: 
 
 1. Enable system-assigned or user-assigned managed identity: [system topics](enable-identity-system-topics.md), [custom topics and domains](enable-identity-custom-topics-domains.md), and [namespaces](event-grid-namespace-managed-identity.md). 
-1. [Configure the event subscription](create-view-manage-event-subscriptions.md) that uses a Webhook as an endpoint to use the system-assigned or user-assigned managed identity. 
+1. Create a single tenant or multitenant application to set the audience for the token. 
+1. [Configure the event subscription](create-view-manage-event-subscriptions.md) that uses a Webhook as an endpoint to use the system-assigned or user-assigned managed identity. Once you select the type of managed identity, you need to introduce the new application ID and the tenant ID. In the cross-tenant scenario, the application ID must be from an application created in the destination tenant. 
 
 ## Firewall and virtual network rules
 If there's no firewall or virtual network rules configured for the destination Storage account, Event Hubs namespace, or Service Bus namespace, you can use both user-assigned and system-assigned identities to deliver events. 

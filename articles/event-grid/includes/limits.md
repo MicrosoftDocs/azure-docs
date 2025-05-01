@@ -4,7 +4,7 @@
  author: robece
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 11/15/2023
+ ms.date: 04/30/2025
  ms.author: robece
 ms.custom: include file, ignite-2023
 ---
@@ -41,9 +41,9 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Session Expiry Interval                      | 8 hours, [configurable on the Event Grid namespace](../mqtt-support.md#maximum-session-expiry-interval-configuration)|
 | Inbound MQTT publishing requests per Event Grid namespace  | 1,000 messages per second per TU                                                         |
 | Inbound MQTT bandwidth per Event Grid namespace         | 1 MB per second per TU                                                            |
-| Inbound MQTT publishing requests per session | 100 messages per second                                                           |
+| Inbound MQTT publishing requests per session | 1000 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
-| Inbound in-flight MQTT messages*        | 100 messages                                                                   |
+| Inbound in-flight MQTT messages*        | 1000 messages                                                                   |
 | Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
@@ -52,11 +52,12 @@ The following limits apply to MQTT in Azure Event Grid namespace resource.
 | Outbound in-flight MQTT messages*        | 100 messages                                                                   |
 | Outbound in-flight MQTT bandwidth*         | 64 KB                                                             |
 | Max message size                             | 512 KB                                                                            |
-| Segments per topic/ topic filter             | 8                                                                                 |
+| Segments per topic/ topic filter             | 15                                                                                 |
 | Topic size                                   | 256 B                                                                             |
 | MQTTv5 response topic                        | 256 B                                                                             |
 | MQTTv5 topic aliases                         | 10 per session                                                                 |
 | MQTTv5 total size of all user properties     | 32 KB                                                                              |
+| MQTT connect rate per client Session |  1 connection attempt per second per client session | 
 | MQTTv5 content type size                     | 256 B                                                                             |
 | MQTTv5 correlation data size                 | 256 B                                                                             |
 | Connect requests                             | 200 requests per second per TU                                                    |
