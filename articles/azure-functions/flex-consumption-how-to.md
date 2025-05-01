@@ -170,9 +170,36 @@ You can choose to deploy your project code to an existing function app using var
 
 [!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
+### [Azure CLI](#tab/azure-cli)
+
+You can use the `az functionapp deployment source config-zip` command to deploy a ready-to-run .zip containing your application package to your function app.
+
+1. First, produce a ready-to-run .zip of your application package. From your project root, perform the required build steps for your project's runtime. Then zip the contents of the build directory. Refer to the "Folder structure" section of your runtime's Developer reference guide ([Python example](./functions-reference-python.md#folder-structure)).
+
+1. Before you can deploy, sign in to your Azure subscription using the Azure CLI. 
+
+    ```azurecli
+    az login
+    ```
+
+    The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
+
+1. Run the following command to deploy the application package located in the relative `<FILE_PATH>`. Only set `--build-remote true` if you need to perform a [remote build](./functions-deployment-technologies.md#remote-build).
+    
+    ```azurecli
+    az functionapp deployment source config-zip --src <FILE_PATH> --name <APP_NAME> --resource-group <RESOURCE_GROUP> --build-remote false
+    ```
+
 ### [Core Tools](#tab/core-tools)
 
-[!INCLUDE [functions-publish-project-cli-clean](../../includes/functions-publish-project-cli-clean.md)]
+[!INCLUDE [functions-publish-project-CLI-clean](../../includes/functions-publish-project-cli-clean.md)]
+
+### [Continuous Deployment](#tab/continuous-deployment)
+
+Azure Functions has a custom GitHub Action and Azure DevOps Task to support continuous deployment. Please refer the the following guides to incorporate these tools in your CI/CD pipelines:
+
+- [Build and deploy using Azure Pipelines](./functions-how-to-azure-devops.md)
+- [Build and deploy using GitHub Actions](./functions-how-to-github-actions.md)
 
 ---
 
