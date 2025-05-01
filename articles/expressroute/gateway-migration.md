@@ -39,10 +39,17 @@ Historically, users had to use the Resize-AzVirtualNetworkGateway PowerShell com
 
 With the guided gateway migration experience you can deploy a second virtual network gateway in the same GatewaySubnet and Azure automatically transfers the control plane and data path configuration from the old gateway to the new one. During the migration process, there will be two virtual network gateways in operation within the same GatewaySubnet. This feature is designed to support migrations without downtime. However, users may experience brief connectivity issues or interruptions during the migration process.
 
-> [!NOTE]
-> The total time required for the migration to complete can take up to one hour. During this period, the gateway will remain locked, and no changes will be permitted.
 
-Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a non-Az enabled Gateway Basic IP Gateway SKU.
+### Steps to migrate to a new gateway
+
+1. **Validate**: Ensure all resources are in a succeeded state to confirm the gateway is ready for migration. If prerequisites aren't met, validation fails, and you can't proceed.
+2. **Prepare**: Create a new Virtual Network gateway, Public IP, and connections. This operation can take up to 45 minutes. You can choose a preferred name for the new gateway and connections. If you don't change the name, the tag **_migrate** will be appended by default. During this process, the existing Virtual Network gateway will be locked, preventing any crgeation or modification of connections.
+3. **Migrate**: Select the new gateway to transfer traffic from the old gateway to the new one. This operation can take up to 15 minutes and may cause brief interruptions.
+4. **Commit**: Finalize the migration by deleting the old gateway and connections.
+
+> [!IMPORTANT]
+> After migration, validate your connectivity to ensure everything is functioning as expected. You can revert to the old gateway by selecting **Abort** after the prepare step, which will delete the new gateway and connections.
+
 
 | Migrate from Non-Az enabled Gateway SKU     | Migrate to Az-enabled Gateway SKU              |
 |---------------------------------------------|------------------------------------------------|
