@@ -14,6 +14,7 @@ ms.custom: b2c-support
 ---
 
 # Overview of user accounts in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), there are several types of accounts that can be created. These account types are shared across Microsoft Entra ID, Microsoft Entra B2B, and Azure Active Directory B2C (Azure AD B2C).
 
