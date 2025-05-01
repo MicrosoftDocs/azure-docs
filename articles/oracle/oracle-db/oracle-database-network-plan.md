@@ -11,10 +11,12 @@ ms.date: 12/12/2023
 # Network planning for Oracle Database@Azure
 In this article, learn about network topologies and constraints in Oracle Database@Azure.
 After you purchase an offer through Azure Marketplace and provision the Oracle Exadata infrastructure, the next step is to create your virtual machine cluster to host your instance of Oracle Exadata Database@Azure. The Oracle database clusters are connected to your Azure virtual network via a virtual network interface card (virtual NIC) from your delegated subnet (delegated to `Oracle.Database/networkAttachment`).  
-## Network Features
-### Default Network Features
-Default network features enable basic network connectivity for both new and existing ODAA deployments. These features are available across all supported ODAA regions and provide the foundational networking required for your deployment
-### Advanced Network Features
+## Network features
+There are two types of network features: default and advance.
+
+### Default network features
+Default network features enable basic network connectivity for both new and existing Oracle Database@Azure deployments. These features are available across all supported Oracle Database@Azure regions and provide the foundational networking required for your deployment
+### Advanced network features
 Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are currently in public preview and available in the following regions: 
 * Australia East 
 * Central US 
@@ -24,10 +26,10 @@ Advanced network features enhance the virtual networking experience, offering im
 * UK South 
 * UK West
 >[!NOTE]
->Advanced network features are currently supported only for new ODAA deployments. 
-> Existing virtual networks with previously created ODAA delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
+>Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
+> Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
 >Registration Required: 
-> To use advanced network features, you must first register using the commands below before creating your virtual network for the ODAA deployment. 
+> To use advanced network features, you must first register using the commands below before creating your virtual network for the Oracle Database@Azure deployment. 
 >```
 > Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" 
 > ```
@@ -42,7 +44,7 @@ The following table describes the network topologies that are supported by each 
 |Connectivity to an Oracle database cluster in a local virtual network| Yes | Yes |
 |Connectivity to an Oracle database cluster in a peered virtual network (in the same region)|Yes |Yes |
 |Connectivity to an Oracle database cluster in a spoke virtual network in a different region with a virtual wide area network (virtual WAN) |Yes | Yes |
-|Connectivity to an Oracle database cluster in a peered virtual network (cross-region or global peering) without a virtual WAN\* | No| Yes |
+|Connectivity to an Oracle database cluster in a peered virtual network in different region (Global Peering) | No| Yes |
 |On-premises connectivity to an Oracle database cluster via global and local Azure ExpressRoute |Yes| Yes|
 |Azure ExpressRoute FastPath |No | Yes|
 |Connectivity from on-premises to an Oracle database cluster in a spoke virtual network over an ExpressRoute gateway and virtual network peering with a gateway transit|Yes | Yes|
@@ -50,7 +52,7 @@ The following table describes the network topologies that are supported by each 
 |Connectivity from on-premises to an Oracle database in a spoke virtual network over a VPN gateway and virtual network peering with gateway transit| Yes | Yes|
 |Connectivity over active/passive VPN gateways| Yes |Yes|
 |Connectivity over active/active VPN gateways| No | Yes|
-|Connectivity over active/active zone-redundant gateways| Yes | Yes|
+|Connectivity over zone-redundant, zonal ExpressRoute gateways | Yes | Yes|
 |Transit connectivity via a virtual WAN for an Oracle database cluster provisioned in a spoke virtual network| Yes |Yes|
 |On-premises connectivity to an Oracle database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|Yes|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
@@ -71,16 +73,22 @@ The following table describes required configurations of supported network featu
 |Load balancers for Oracle database cluster traffic|No| Yes|
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
 > [!NOTE]
-> If you want to configure a route table (UDR route) to control the routing of packets through a network virtual appliance or firewall destined to an Oracle Database@Azure instance from a source in the same VNet or a peered VNet, the UDR prefix must be more specific or equal to the delegated subnet size of the Oracle Database@Azure instance. If the UDR prefix is less specific than the delegated subnet size, it isn't effective. 
+> For Traffic Destined to Oracle Database@Azure 
+>When routing traffic through a Network Virtual Appliance (NVA) or firewall to Oracle Database@Azure, the UDR prefix must be at least as specific as the delegated subnet of the instance.
 > 
-> For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall. 
+> If the delegated subnet for your instance is x.x.x.x/27, configure the UDR on the Gateway Subnet as:  
+> x.x.x.x/27 (same as the subnet) ✅  
+> x.x.x.x/32 (more specific) ✅  
+> x.x.x.x/24  (too broad) ❌ 
+
+  
 ## FAQ: 
 ### What are advanced network features? 
 Advanced network features enhance your virtual networking experience by providing better security, performance, and control—similar to standard Azure virtual machines. With this feature, customers can use native VNet integrations like Network Security Groups (NSG), User-Defined Routes (UDR), Private Link, Global VNet Peering, and ExpressRoute FastPath without needing any workarounds. 
 ### Will advanced network features work for existing deployments? 
 Not at the moment. Support for existing deployments is on our roadmap, and we’re actively working to enable it. Stay tuned for updates in the near future. 
 ### Do I need to self-register to enable advanced network features for new deployments? 
-Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Please run the registration commands before creating a new VNet and delegated subnet for your ODAA deployments. 
+Yes. To take advantage of advanced network features for new deployments, you must complete a registration process. Please run the registration commands before creating a new VNet and delegated subnet for your Oracle Database@Azure deployments. 
 ### How can I check if my deployment supports advanced network features? 
 Currently, there’s no direct way to verify whether a VNet supports advanced network features. We recommend tracking your feature registration timeline and associating it with the VNets created afterward. You can also use the Activity Log blade under the VNet to review creation details—but note, logs are only available for the past 90 days by default. 
 
