@@ -1,5 +1,5 @@
 ---
-title: Visualize assets for Microsoft Planetary Computer Pro
+title: Visualize assets in Microsoft Planetary Computer Pro
 description: Learn how to visualize geospatial assets using the Microsoft Planetary Computer Pro's tiler. This guide includes examples for working with GRIB and NetCDF datasets.
 author: tanyamarton
 ms.author: tanyamarton
@@ -10,7 +10,7 @@ ms.date: 04/09/2025
 
 # Visualize assets for Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro includes a tiler that can be used to visualize assets.
+Microsoft Planetary Computer (MPC) Pro includes a tiler that can be used to visualize assets.
 
 ## Supported media types
 
@@ -31,8 +31,8 @@ Kerchunk stores as JSON media types:
 
 GRIB media types:
 
-- application/grib
-- application/grib;edition=2
+- application/GRIB
+- application/GRIB;edition=2
 
 NetCDF and HDF5 media types:
 
@@ -43,15 +43,15 @@ NetCDF and HDF5 media types:
 
 ## Items contain assets, raster assets contain bands 
 
-A single geospatial STAC item may contain many assets, each of which contains raster data.  Commonly, three 'red', 'blue', and 'green' geotiff assets of an item are combined in a render configuration to form a single image as in {"options": "assets=red&assets=green&assets=blue&nodata=0&color_formula=gamma RGB 2.7, saturation 1.5, sigmoidal RGB 15 0.55"}. Alternatively, a single geotiff asset may contain all three bands composing an image. In this case, a render configuration uses 'asset_bidx' to show which band indices will be visualized as in {"options": "assets=image&asset_bidx=image|1,2,3"}.   
+A single geospatial SpatioTemporal Access Catalog (STAC) item might contain many assets, each of which contains raster data. Commonly, three 'red', 'blue', and 'green' GeoTIFF assets of an item are combined in a render configuration to form a single image as in {"options": "assets=red&assets=green&assets=blue&nodata=0&color_formula=gamma RGB 2.7, saturation 1.5, sigmoidal RGB 15 0.55"}. Alternatively, a single GeoTIFF asset might contain all three bands composing an image. In this case, a render configuration uses 'asset_bidx' to show which band indices to visualize as in {"options": "assets=image&asset_bidx=image|1,2,3"}.   
 
 ## GRIB assets contain messages, queried as subdataset_bands
 
-A GRIB file is a collection of many 2-D geospatial arrays, organized like an indexed list. Metadata about a GRIB file shows which data corresponds to which 'grib message.' Planetary Computer uses the query parameter 'subdataset_bands' in a render configuration to identify which 2-D array of data within the grib dataset, and which grib message will be visualized, as in {"options": "assets=grib&nodata=0&scale=2&rescale=1,75&resampling=nearest&colormap_name=jet&subdataset_bands=1"}.
+A GRIB (General Regularly-distributed Information in Binary form) file is a collection of many 2D geospatial arrays, organized like an indexed list. Metadata about a GRIB file shows which data corresponds to which 'GRIB message.' Planetary Computer uses the query parameter 'subdataset_bands' in a render configuration to identify which 2D array of data within the GRIB dataset, and which GRIB message to visualize, as in {"options": "assets=GRIB&nodata=0&scale=2&rescale=1,75&resampling=nearest&colormap_name=jet&subdataset_bands=1"}.
 
 ### GRIB example
 
-This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using some examples from the [stactools-hrrr](https://github.com/stactools-packages/noaa-hrrr) dataset. In this example, subdataset_bands=9 enables visualization of the Wind Speed (Gust) subdataset, where the grib_message=9. See grib item's json for other grib messages (https://github.com/stactools-packages/noaa-hrrr/examples/hrrr-conus-sfc-2024-05-10T12-FH0/hrrr-conus-sfc-2024-05-10T12-FH0.json)
+This example loads data from the National Oceanic and Atmospheric Association (NOAA) High-Resolution Rapid Refresh (HRRR) dataset ([NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/)) data using some examples from the [stactools-hrrr](https://github.com/stactools-packages/noaa-hrrr) dataset. In this example, subdataset_bands=9 enables visualization of the Wind Speed (Gust) subdataset, where the GRIB_message=9. See GRIB item's json for other GRIB messages (https://github.com/stactools-packages/noaa-hrrr/examples/hrrr-conus-sfc-2024-05-10T12-FH0/hrrr-conus-sfc-2024-05-10T12-FH0.json)
 
 1. First, we load the Collection and Item into the GeoCatalog using the following Python code.
 
@@ -116,7 +116,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
     response = client.get(
         f"/data/collections/{collection_id}/items/{item_id}/tiles/{tile.z}/{tile.x}/{tile.y}.png",
         params={
-            "assets": "grib",
+            "assets": "GRIB",
             "scale": "2",
             "rescale": "0,40",
             "resampling": "nearest",
@@ -135,7 +135,7 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
     pathlib.Path("image.png").write_bytes(response.content)
     ```
 
-    Or, in the context of a Jupyter notebook, is displayed as the following:
+    Or, in the context of a Jupyter notebook, is displayed as the following code snippet:
 
     ```python
     from IPython.display import Image
@@ -145,18 +145,21 @@ This example loads [NOAA HRRR](https://rapidrefresh.noaa.gov/hrrr/) data using s
 
 ## NETCDF assets contain subdatasets and an optional time dimension queried as subdataset_name, datetime
 
-Microsoft Planetary Computer uses xarray to read NETCDF files and currently supports visualizing 2-D geospatial arrays with dimensions of latitude (labeled 'y', 'lat', 'latitude', 'LAT', 'LATITUDE' or 'Lat') and longitude (labeled 'x', 'lon', 'longitude', 'LON', 'LONGITUDE', or 'Lon') and 3-D geospatial arrays with an additional time dimension (labeled 'TIME' or 'time').  
+MPC Pro uses xarray to read NETCDF files and currently supports visualizing 2D geospatial arrays with the following dimension labels:
+- latitude (labeled 'y', 'lat', 'latitude', 'LAT', 'LATITUDE' or 'Lat')
+- longitude (labeled 'x', 'lon', 'longitude', 'LON', 'LONGITUDE', or 'Lon') 
+- time, for 3D geospatial arrays with a temporal dimension (labeled 'TIME' or 'time')
 
-A single NETCDF asset may have multiple 2-D or 3-D arrays. To visualize a 2-D array of a NETCDF asset, specify the desired array with subdataset_name= within a render configuration.  To visualize a single timepoint from within a 3-D array of a NETCDF asset, use ISO8601 formatted datetime=, as in 
+A single NETCDF asset might have multiple 2D or 3D arrays. To visualize a 2D array of a NETCDF asset, specify the desired array with subdataset_name= within a render configuration. To visualize a single timepoint from within a 3D array of a NETCDF asset, use ISO8601 formatted datetime=, as in 
 {"options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr&datetime=1950-07-07T00:00:00"}.  
 
 Microsoft Planetary Computer uses the xarray-assets STAC extension. Query arguments are passed forward to xarray.open_dataset.
 
-For a given datetime, Microsoft Planetary Computer and xarray find the 2-D slice of the dataset nearest the specified datetime; they don't interpolate between multiple slices.  
+For a given datetime, Microsoft Planetary Computer and xarray find the 2D slice of the dataset nearest the specified datetime; they don't interpolate between multiple slices.  
 
 ## Check NetCDF visualizability 
 
-Not all NetCDF datasets that can be ingested into Microsoft Planetary Computer can be visualized by the Microsoft Planetary Computer tiler. A dataset must have X and Y axes, latitude and longitude coordinates, and spatial dimensions and bounds to be visualized. For example, a dataset in which latitude and longitude are variables, but not coordinates, must be reprojected to be visualized by Planetary Computer's tiler.  
+Not all NetCDF datasets that can be ingested into Microsoft Planetary Computer are compatible by the MPC Pro's visualization tiler. A dataset must have X and Y axes, latitude and longitude coordinates, and spatial dimensions and bounds to be visualized. For example, a dataset in which latitude and longitude are variables, but not coordinates, isn't compatible with MPC Pro's tiler.  
 
 Before attempting to visualize your NetCDF dataset, you can use the following to check whether it meets the requirements.
 
