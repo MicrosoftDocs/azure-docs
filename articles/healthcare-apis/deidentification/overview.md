@@ -1,6 +1,6 @@
 ---
 title:  Overview of the De-identification service in Azure Health Data Services
-description: Learn how the De-identification service in Azure Health Data Services anonymizes clinical data, ensuring HIPAA compliance while retaining data relevance for research and analytics.
+description: Learn how the De-identification service in Azure Health Data Services de-identifies clinical data for HIPAA compliance while retaining data relevance for research and analytics.
 author: kimiamavon
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
@@ -11,7 +11,7 @@ ms.author: kimiamavon
 
 # What is the de-identification service?
 
-The de-identification service in Azure Health Data Services enables healthcare organizations to anonymize clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 28 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
+The de-identification service in Azure Health Data Services enables healthcare organizations de-identify clinical data so that the resulting data retains its clinical relevance and distribution while also adhering to the Health Insurance Portability and Accountability Act of 1996 (HIPAA) Privacy Rule. The service uses state-of-the-art machine learning models to automatically extract, redact, or surrogate 27 entities - including the HIPAA 18 Protected Health Information (PHI) identifiers – from unstructured text such as clinical notes, transcripts, messages, or clinical trial studies.
 
 ## Use de-identified data in research, analytics, and machine learning
 
