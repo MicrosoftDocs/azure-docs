@@ -1017,6 +1017,8 @@
         "articles/peering-service/*.yml": "networking",
         "articles/private-link/*.md": "networking",
         "articles/private-link/*.yml": "networking",
+        "articles/route-server/*.md": "networking",
+        "articles/route-server/*.yml": "networking",
         "articles/traffic-manager/*.md": "networking",
         "articles/traffic-manager/*.yml": "networking",
         "articles/virtual-network/*.md": "networking",
