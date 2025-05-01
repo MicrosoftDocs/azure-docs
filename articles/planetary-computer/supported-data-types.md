@@ -39,7 +39,6 @@ It's important to understand which geospatial data formats are supported in MPC 
 ### Vector Data Formats
 
 * GeoJSON (coming soon)
-* GeoParquet (coming soon)
 
 ### Future data types
 
@@ -50,6 +49,6 @@ It's important to understand which geospatial data formats are supported in MPC 
 ## Related Content
 
 - Learn more about STAC collections and items: [STAC Overview](./stac-overview.md)
-- Learn more about visualizing these assets: [Visualize Assets](visualize-assets.md)
+- Learn more about visualizing these assets: [Visualize data cube Assets](./visualize-assets.md)
 - Get started ingesting GeoTIFF STAC Items [Add STAC items to a Collection](./add-stac-item-to-collection.md)
 - Get started with Data Cubes: [Data Cube Quickstart](./datacube-quickstart.md)
