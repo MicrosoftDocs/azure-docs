@@ -118,8 +118,6 @@ items:
           href: mqtt-request-response-messages.md                
         - name: Assign custom domain name to a namespace
           href: assign-custom-domain-name.md
-        - name: Authenticate with MQTT broker using OAuth 2.0 authentication
-          href: authenticate-with-namespaces-using-json-web-tokens.md
         - name: Monitor
           items:
           - name: Monitor Event Grid namespaces
@@ -140,6 +138,10 @@ items:
             href: event-grid-namespace-managed-identity.md 
           - name: MQTT client authentication using certificate chain
             href: mqtt-certificate-chain-client-authentication.md            
+          - name: Authenticate with MQTT broker using OAuth 2.0 authentication
+            href: authenticate-with-namespaces-using-json-web-tokens.md
+          - name: Authenticate with MQTT broker using webhook authentication
+            href: authenticate-with-namespaces-using-webhook-authentication.md
     - name: Namespace topics
       items:
       - name: Pull delivery overview
