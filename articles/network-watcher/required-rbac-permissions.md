@@ -53,9 +53,9 @@ The following sections list the minimum required permissions for each Network Wa
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/flowLogs/read | Get Flow Log details |
-> | Microsoft.Network/networkWatchers/flowLogs/write | Creates a Flow Log |
-> | Microsoft.Network/networkWatchers/flowLogs/delete | Deletes a Flow Log |
+> | Microsoft.Network/networkWatchers/flowLogs/read | Get flow log details |
+> | Microsoft.Network/networkWatchers/flowLogs/write | Creates a flow log |
+> | Microsoft.Network/networkWatchers/flowLogs/delete | Deletes a flow log |
 > | Microsoft.Network/networkWatchers/configureFlowLog/action | Configure a flow Log |
 > | Microsoft.Network/networkWatchers/queryFlowLogStatus/action | Query status for a flow log |
 > | Microsoft.Network/networkSecurityGroups/write <sup>1</sup> | Creates a network security group or updates an existing network security group |
