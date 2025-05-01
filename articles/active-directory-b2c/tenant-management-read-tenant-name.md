@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Find tenant name and tenant ID in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When you create an Azure Active Directory B2C (Azure AD B2C) for your organization, it's assigned a default domain name (name) and a directory (tenant) ID. The tenant ID is same as the organization ID. 
 

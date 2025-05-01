@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample Angular single-page application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample Angular single-page application (SPA) to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your Angular apps.
 

@@ -21,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Track user behavior in Azure AD B2C by using Application Insights
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-user-flow"

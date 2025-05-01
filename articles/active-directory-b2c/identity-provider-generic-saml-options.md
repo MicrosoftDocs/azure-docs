@@ -18,6 +18,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure SAML identity provider options with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Azure Active Directory B2C (Azure AD B2C) supports federation with SAML 2.0 identity providers. This article describes how to parse the security assertions, and the configuration options that are available when enabling sign-in with a SAML identity provider.
 
 

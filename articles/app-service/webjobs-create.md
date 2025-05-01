@@ -1,5 +1,5 @@
 ---
-title: Run Background Tasks with WebJobs
+title: How-to Run Background Tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from various script formats and run them with CRON expressions.
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -7,20 +7,18 @@ ms.topic: concept-article
 ms.date: 4/17/2025
 author: msangapu-msft
 ms.author: msangapu
-ms.reviewer: cephalin;suwatch;pbatum;naren.soni;
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./webjobs-create-ieux
+ms.reviewer: glenga;suwatch;pbatum;naren.soni;
+
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 ---
 
-# Run background tasks with WebJobs in Azure App Service
+# Run background tasks with WebJobs
 
 This article explains how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. WebJobs is a feature of [Azure App Service](index.yml) that allows you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
-> [!NOTE]
-> WebJobs for *Windows container*, *Linux code*, and *Linux container* is in preview. WebJobs for Windows code is generally available and not in preview.
+## Overview
+
+WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
 If you're using Visual Studio instead of the Azure App Service to develop and deploy WebJobs, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
@@ -44,10 +42,6 @@ The necessary runtimes to run these file types are already installed on the web 
 
 ### [Windows container](#tab/windowscontainer)
 
-> [!NOTE]
-> WebJobs for Windows container is in preview.
->
-
 The following file types are supported using Windows cmd: *.cmd*, *.bat*, *.exe*
 
 In addition to these file types, WebJobs written in the language runtime of the Windows container app are supported.
@@ -56,10 +50,6 @@ In addition to these file types, WebJobs written in the language runtime of the 
 
 ### [Linux code](#tab/linuxcode)
 
-> [!NOTE]
-> WebJobs for Linux code is in preview. 
->
-
 *.sh* scripts are supported.
 
 In addition to shell scripts, WebJobs written in the language of the selected runtime are also supported.
@@ -67,10 +57,6 @@ In addition to shell scripts, WebJobs written in the language of the selected ru
 - Example: Python (*.py*) scripts are supported if the main site is a Python app.
 
 ### [Linux container](#tab/linuxcontainer)
-
-> [!NOTE]
-> WebJobs for Linux container is in preview.
->
 
 *.sh* scripts are supported.
 

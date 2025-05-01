@@ -7,20 +7,8 @@ items:
     href: nat-overview.md
 - name: Quickstarts
   items:
-  - name: Portal
-    href: quickstart-create-nat-gateway-portal.md
-  - name: PowerShell
-    href: quickstart-create-nat-gateway-powershell.md
-  - name: CLI
-    href: quickstart-create-nat-gateway-cli.md
-  - name: Bicep
-    displayName: ARM, Resource Manager, Template
-    href: quickstart-create-nat-gateway-bicep.md
-  - name: ARM template
-    displayName: Resource Manager
-    href: quickstart-create-nat-gateway-template.md
-  - name: Terraform
-    href: quickstart-create-nat-gateway-terraform.md
+  - name: Create and validate Azure NAT Gateway
+    href: quickstart-create-nat-gateway.md
 - name: Tutorials
   items:
   - name: Use a NAT gateway with a hub and spoke network

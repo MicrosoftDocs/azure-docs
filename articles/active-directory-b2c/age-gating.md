@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Enable age gating in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Age gating in Azure Active Directory B2C (Azure AD B2C) enables you to identify minors that want to use your application, with, or without parental consent. You can choose to block the minor from sign-in into the application. Or allow uses to complete the sign-in, and provide the application the minor status. 

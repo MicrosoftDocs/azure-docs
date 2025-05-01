@@ -17,6 +17,7 @@ ms.subservice: b2c
 ---
 
 # Manage administrator accounts in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In Azure Active Directory B2C (Azure AD B2C), a tenant represents your directory of consumer, work and guest accounts. With an administrator role, work and guest accounts can manage the tenant.  
 

@@ -18,6 +18,7 @@ ms.subservice: b2c
 ---
 
 # Clean up resources and delete the tenant
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When you've finished the Azure Active Directory B2C (Azure AD B2C) tutorials, you can delete the tenant you used for testing or training. To delete the tenant, you'll first need to delete all tenant resources. In this article, you'll:
 

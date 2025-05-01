@@ -415,12 +415,16 @@
         - name: Isolated worker model
           displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
-        - name: In-process model
-          href: functions-dotnet-class-library.md
-        - name: Script (.csx)
-          href: functions-reference-csharp.md
-        - name: Execution mode comparison
-          href: dotnet-isolated-in-process-differences.md
+        - name: .NET Aspire integration (Preview)
+          href: dotnet-aspire-integration.md
+        - name: Legacy models
+          items:
+            - name: Execution mode comparison
+              href: dotnet-isolated-in-process-differences.md
+            - name: In-process model
+              href: functions-dotnet-class-library.md
+            - name: Script (.csx)
+              href: functions-reference-csharp.md
     - name: JavaScript
       href: functions-reference-node.md?tabs=javascript
     - name: TypeScript

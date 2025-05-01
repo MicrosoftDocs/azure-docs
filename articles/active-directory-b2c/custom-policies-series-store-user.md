@@ -20,6 +20,7 @@ ms.subservice: b2c
 ---
 
 # Create and read a user account by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) is built on Microsoft Entra ID, and so it uses Microsoft Entra ID storage to store user accounts. Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number, but you can [extend the user profile with your own custom attributes](user-flow-custom-attributes.md) without requiring an external data store. 
 

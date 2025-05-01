@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample React single-page application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample React single-page application (SPA) to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your React apps. The React SPA also calls an API that's protected by Azure AD B2C itself. 
 
