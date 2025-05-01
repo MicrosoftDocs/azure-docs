@@ -72,6 +72,20 @@ There's no extra charge to enable availability zone support in Azure NetApp File
 * After a volume is created with an availability zone, the specified availability zone can’t be modified. Volumes can't be moved between availability zones.
 * For added resiliency, [Create cross-zone replication relationships for Azure NetApp Files](../azure-netapp-files/create-cross-zone-replication.md).
 
+### Zone-down experience 
+
+* **Detection and response:**
+
+* **Notification:**
+
+* **Active requests:**
+
+* **Expected data loss:** 
+
+* **Expected downtime:**
+
+* **Traffic rerouting:**
+
 ### Failback
 
 Failback is a manual process. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md)
