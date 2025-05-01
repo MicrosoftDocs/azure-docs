@@ -20,6 +20,8 @@ Each client maintains reference documentation for its own library, and provides 
 
 Microsoft and Azure Redis do recommend some libraries, based on popularity and whether there's an active online support community to answer questions. These libraries are under active development and often release new versions with reliability and performance improvements. Microsoft recommends using the latest available version, and upgrading regularly as new versions become available.
 
+The following table lists links and documentation for some recommended client libraries.
+
 | **Client library**  | **Language** |  **GitHub repo**                                  |          **Documentation**|
 | --------------------|------------- |-------------------------------------------------------| --------------------------|
 | StackExchange.Redis | C#/.NET |  [https://github.com/StackExchange/StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis)| [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) |
@@ -62,7 +64,7 @@ Here are some recommended best practices for Redisson:
 
 - Use Redisson 3.14.1 or higher. Older versions contain known connection leak issues that cause problems after failovers.
 
-- Monitor the Redisson changelog for known issues that can affect features your application uses. For more information, see[`CHANGELOG`](https://github.com/redisson/redisson/blob/master/CHANGELOG.md) and the [Redisson FAQ](https://github.com/redisson/redisson/wiki/16.-FAQ).
+- Monitor the Redisson changelog for known issues that can affect features your application uses. For more information, see [`CHANGELOG`](https://github.com/redisson/redisson/blob/master/CHANGELOG.md) and the [Redisson FAQ](https://github.com/redisson/redisson/wiki/16.-FAQ).
 
 - If you don't want to use the *read from replica* strategy, modify the `readMode` config setting. Unlike some other clients, Redisson uses *read from replica* as the default.
 
@@ -70,7 +72,7 @@ Here are some recommended best practices for Redisson:
 
   Redisson has a connection pooling strategy with configurable minimum and maximum settings, and the default minimum values are large. The large defaults could contribute to aggressive reconnect behaviors or connection storms. To reduce this risk, consider using fewer connections. You can efficiently pipeline commands or batches of commands over a few connections.
 
-- Reset the idle connection timeout if necessary. Redisson has a default 10 second idle connection timeout, which can lead to more closing and reopening of connections than ideal.
+- Reset the idle connection timeout if necessary. Redisson has a default 10-second idle connection timeout, which can lead to more closing and reopening of connections than ideal.
 
 - For an article about Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 

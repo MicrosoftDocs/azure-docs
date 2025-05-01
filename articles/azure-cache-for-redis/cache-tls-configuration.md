@@ -54,7 +54,7 @@ To enable the non-TLS port:
 1. On the **Advanced settings** page, select **No** under **Allow access only via SSL**.
 1. Select **Save**.
 
-For more information, see [Access ports](cache-configure.md#access-ports):
+For more information, see [Access ports](cache-configure.md#access-ports).
 
 In clustered caches, TLS-enabled caches use ports in the `150XX` range, while non-TLS caches use ports in the `130XX` range. For more information, see [Can I directly connect to the individual shards of my cache?](cache-how-to-scale.md#can-i-directly-connect-to-the-individual-shards-of-my-cache)
 
