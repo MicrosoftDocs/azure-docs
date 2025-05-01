@@ -22,9 +22,13 @@ ms.date: 04/29/2025
 
 <!-- Note for Azure service writer: Modify the following for your service. -->
 
-This article describes how you plan for and manage costs for Azure App Service. First, you use the Azure pricing calculator to help plan for App Service costs before you add any resources for the service to estimate costs. Next, as you add Azure resources, review the estimated costs.
+This article describes how to plan for and manage costs for Azure App Service.
 
-After you start using App Service resources, use [Cost Management](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
+- First, before you add any resources, you can use the Azure pricing calculator to estimate App Service costs.
+
+- Next, as you add Azure resources to App Service, review the estimated costs of the services.
+
+- After you start using App Service resources, use [Cost Management](../cost-management-billing/index.yml?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) features to set budgets and monitor costs. You can also review forecasted costs and identify spending trends to identify areas where you might want to act.
 
 ## Understand the full billing model
 
@@ -37,12 +41,12 @@ Costs for App Service are only a portion of the monthly costs in your Azure bill
 When you create or use App Service resources, you're charged for the following meters:
 
 - An hourly rate based on the pricing tier of your App Service plan, prorated to the second.
-- The charge is applied to each scaled-out instance in your plan, based on the amount of time that the virtual machine instance is allocated. 
+- The charge is applied to each scaled-out instance in your plan, based on the amount of time that the virtual machine (VM) instance is allocated.
 
 Other cost resources for App Service are:
 
 - [App Service domains](manage-custom-dns-buy-domain.md): Your subscription is charged for the domain registration on a yearly basis, if you enable automatic renewal.
-- [App Service certificates](configure-ssl-app-service-certificate.md): One-time charge at the time of purchase. If you have multiple subdomains to secure, you can reduce cost by purchasing one wildcard certificate instead of multiple standard certificates.
+- [App Service certificates](configure-ssl-app-service-certificate.md): One-time charge at the time of purchase. If you have multiple subdomains to secure, you can reduce costs by purchasing one wildcard certificate instead of multiple standard certificates.
 - [IP-based SSL binding](configure-ssl-bindings.md): The binding is configured on a certificate at the app level. Costs are accrued for each binding. For **Standard** tier and higher, the first IP-based binding isn't charged.
 
 At the end of your billing cycle, the charges for each VM instance appear. Your bill or invoice shows a section for all App Service costs. There's a separate line item for each meter.

@@ -146,13 +146,13 @@ Terraform provides many features that you can use to manage, build, deploy, and 
 
 1. On the main menu of the Azure portal, select **Resource groups** and go to the resource group that you created by using the preceding template. The name is `myResourceGroup-` followed by a string of random integers.
 
-1. You can see the App Service and an App Service Plan that Terraform created.
+1. You can see the App Service and an App Service plan that Terraform created.
 
-1. Select **App Service** and go to the URL to verify that your site was created properly. You can also browse to `http://<app_name>.azurewebsites.net/`, where app name is `webapp-` followed by that same string of random integers from the resource group.
+1. Select **App Service** and go to the URL to verify that your site was created properly. You can also browse to `http://<app_name>.azurewebsites.net`, where the app name is `webapp-` followed by that same string of random integers from the resource group.
 
 ## Clean up resources
 
-When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or go back to your terminal/command line and execute `terraform destroy` to delete all resources associated with this quickstart.
+When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or go back to your terminal and execute `terraform destroy` to delete all resources associated with this quickstart.
 
 > [!NOTE]
 > To find more Azure App Service Terraform samples, see [Terraform samples for Azure App Service](./samples-terraform.md). You can find even more Terraform samples across all of the Azure services on [GitHub](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
