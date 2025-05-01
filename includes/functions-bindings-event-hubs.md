@@ -55,7 +55,7 @@ Version 1.x of the Functions runtime doesn't require an extension.
 
 [!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-isolated-process-guide.md#connection-configuration-with-aspire).
+This version supports configuration of triggers and bindings through [.NET Aspire integration](../articles/azure-functions/dotnet-aspire-integration.md#connection-configuration-with-aspire).
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 5.x.
 
