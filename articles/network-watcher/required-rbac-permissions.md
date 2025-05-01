@@ -25,6 +25,8 @@ To use Azure Network Watcher capabilities, the account you log into Azure with, 
 
 To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
+The following sections list the minimum required permissions to use Network Watcher and its capabilities.
+
 ## Network Watcher
 
 > [!div class="mx-tableFixed"]
@@ -33,8 +35,6 @@ To learn how to check roles assigned to a user for a subscription, see [List Azu
 > | Microsoft.Network/networkWatchers/read | Get a network watcher |
 > | Microsoft.Network/networkWatchers/write | Create or update a network watcher |
 > | Microsoft.Network/networkWatchers/delete | Delete a network watcher |
-
-The following sections list the minimum required permissions for each Network Watcher capability.
 
 ## Connection monitor
 
@@ -158,7 +158,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 
 ## Additional actions
 
-Network Watcher capabilities also require the following actions:
+Some Network Watcher capabilities require the following addtional actions:
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
