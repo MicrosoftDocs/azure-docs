@@ -4,7 +4,7 @@ description: Learn about the types of user accounts that can be used in Azure Ac
 author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
-ms.date: 02/13/2024
+ms.date: 01/05/2025
 ms.topic: concept-article
 ms.author: godonnell
 ms.subservice: b2c

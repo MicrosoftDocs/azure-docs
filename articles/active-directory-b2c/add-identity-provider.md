@@ -5,7 +5,7 @@ description: Learn how to add an identity provider to your Active Directory B2C 
 author: garrodonnell
 manager: CelesteDG
 ms.author: godonnell
-ms.date: 03/22/2024
+ms.date: 01/05/2025
 ms.custom: mvc
 ms.topic: how-to
 ms.service: azure-active-directory
