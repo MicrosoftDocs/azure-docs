@@ -7,6 +7,10 @@
     href: what-azure-virtual-enclaves.md
   - name: "Why use Azure Virtual Enclaves?"
     href: why-azure-virtual-enclaves.md
+  - name: Azure Virtual Enclaves FAQs
+    href: virtual-enclaves-faq.md
+  - name: "What's new?"
+    href: whats-new.md
   - name: Quotas and region availability
     href: quotas-region-availability-azure-virtual-enclaves.md
   - name: Quickstarts
@@ -102,44 +106,9 @@
 #       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
 #       href: security-best-practices.md
-    - name: Configure community Governance
+    - name: Configure community governance
       href: configure-community-governance.md
-  - name: Manage and Monitor
-    items:
-#     - name: Monitor your enclaves
-#       href: monitor-your-enclaves.md
-    - name: Maintenance mode
-      href: maintenance-mode.md
-    # - name: IP Allocation Management
-    #   href: ip-allocation-management.md
-    - name: Naming rules and restrictions
-      href: name-rules-restrictions-azure-virtual-enclave-resources.md
-    # - name: Manage Key Vault SKUs
-    #   href: upgrade-enclave-key-vault-sku.md
-    - name: Move data inside an Enclave
-      href: move-data-inside-enclave.md
-  - name: Troubleshoot
-    items:
-    - name: Troubleshoot guide
-      href: troubleshoot.md
-    - name: Policy compliance exemptions
-      href: policy-compliance-exemptions.md
-    - name: Migrate Azure Resources into Azure Virtual Enclaves
-      href: migrate-azure-resources-azure-virtual-enclaves.md
-    - name: Move data inside Enclave boundary
-#     - name: Connectivity troubleshooting
-#       href: connectivity-troubleshooting.md
-#     - name: Firewall and security troubleshooting
-#       href: firewall-and-security-troubleshooting.md
-#     - name: Performance troubleshooting
-#       href: performance-troubleshooting.md
-#     - name: Resource allocation issues
-#       href: resource-allocation-issues.md
-#     - name: Deployment errors
-#       href: deployment-errors.md
-#     - name: Compliance validation
-#       href: compliance-validation.md
-  - name: Service Catalog
+  - name: Azure service catalog
     items:
     - name: List of Service Catalog Templates
       href: list-service-catalog-templates.md
@@ -169,6 +138,40 @@
       href: deploy-storage-account-service-catalog.md
     - name: Deploy Service Catalog Template from Azure CLI
       href: deploy-template-service-catalog-azure-cli.md
+  - name: Manage and Monitor
+    items:
+#     - name: Monitor your enclaves
+#       href: monitor-your-enclaves.md
+    - name: Maintenance mode
+      href: maintenance-mode.md
+    # - name: IP Allocation Management
+    #   href: ip-allocation-management.md
+    - name: Naming rules and restrictions
+      href: name-rules-restrictions-azure-virtual-enclave-resources.md
+    # - name: Manage Key Vault SKUs
+    #   href: upgrade-enclave-key-vault-sku.md
+    - name: Move data inside an enclave
+      href: move-data-inside-enclave.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot guide
+      href: troubleshoot.md
+    - name: Policy compliance exemptions
+      href: policy-compliance-exemptions.md
+    - name: Migrate Azure Resources into Azure Virtual Enclaves
+      href: migrate-azure-resources-azure-virtual-enclaves.md
+#     - name: Connectivity troubleshooting
+#       href: connectivity-troubleshooting.md
+#     - name: Firewall and security troubleshooting
+#       href: firewall-and-security-troubleshooting.md
+#     - name: Performance troubleshooting
+#       href: performance-troubleshooting.md
+#     - name: Resource allocation issues
+#       href: resource-allocation-issues.md
+#     - name: Deployment errors
+#       href: deployment-errors.md
+#     - name: Compliance validation
+#       href: compliance-validation.md
 - name: Resources
   items:
     - name: Azure Virtual Enclaves Templates
@@ -216,7 +219,7 @@
 - name: Architecture
   items:
     - name: Understand create and delete logic
-      href: creation-and-deletion-logic.md
+      href: create-and-delete-logic.md
     - name: Defense in Depth
       href: defense-in-depth.md
     - name: Built in RBAC Roles
