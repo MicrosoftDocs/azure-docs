@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 03/06/2025
+ms.date: 05/01/2025
 
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
@@ -28,31 +28,35 @@ To learn how to check roles assigned to a user for a subscription, see [List Azu
 ## Network Watcher
 
 > [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/read                              | Get a network watcher                                          |
-> | Microsoft.Network/networkWatchers/write                             | Create or update a network watcher                             |
-> | Microsoft.Network/networkWatchers/delete                            | Delete a network watcher                                       |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/read | Get a network watcher |
+> | Microsoft.Network/networkWatchers/write | Create or update a network watcher |
+> | Microsoft.Network/networkWatchers/delete | Delete a network watcher |
 
 ## Connection monitor
 
-| Action                                                              | Description                                                    |
-| ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/connectionMonitors/start/action   | Start a connection monitor                                     |
-| Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | Stop a connection monitor                                      |
-| Microsoft.Network/networkWatchers/connectionMonitors/query/action   | Query a connection monitor                                     |
-| Microsoft.Network/networkWatchers/connectionMonitors/read           | Get a connection monitor                                       |
-| Microsoft.Network/networkWatchers/connectionMonitors/write          | Create a connection monitor                                    |
-| Microsoft.Network/networkWatchers/connectionMonitors/delete         | Delete a connection monitor                                    |
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/connectionMonitors/start/action | Start a connection monitor |
+> | Microsoft.Network/networkWatchers/connectionMonitors/stop/action | Stop a connection monitor |
+> | Microsoft.Network/networkWatchers/connectionMonitors/query/action | Query a connection monitor |
+> | Microsoft.Network/networkWatchers/connectionMonitors/read | Get a connection monitor |
+> | Microsoft.Network/networkWatchers/connectionMonitors/write | Create a connection monitor |
+> | Microsoft.Network/networkWatchers/connectionMonitors/delete | Delete a connection monitor |
 
 ## Flow logs
 
 > [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ---------                                                           | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configure a flow Log                                           |
-> | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Query status for a flow log                                    |
-> | Microsoft.Network/networkSecurityGroups/write <sup>1</sup>          | Creates a network security group or updates an existing network security group |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/flowLogs/read | Get Flow Log details |
+> | Microsoft.Network/networkWatchers/flowLogs/write | Creates a Flow Log |
+> | Microsoft.Network/networkWatchers/flowLogs/delete | Deletes a Flow Log |
+> | Microsoft.Network/networkWatchers/configureFlowLog/action | Configure a flow Log |
+> | Microsoft.Network/networkWatchers/queryFlowLogStatus/action | Query status for a flow log |
+> | Microsoft.Network/networkSecurityGroups/write <sup>1</sup> | Creates a network security group or updates an existing network security group |
 Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
 
 <sup>1</sup> Only required with NSG flow logs.
@@ -62,27 +66,27 @@ Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage
 Since traffic analytics is enabled as part of the flow log resource, the following permissions are required in addition to all the required permissions for [Flow logs](#flow-logs):
 
 > [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/applicationGateways/read                          | Get an application gateway                                     |
-> | Microsoft.Network/connections/read                                  | Get VirtualNetworkGatewayConnection                            |
-> | Microsoft.Network/loadBalancers/read                                | Get a load balancer definition                                 |
-> | Microsoft.Network/localNetworkGateways/read                         | Get LocalNetworkGateway                                        |
-> | Microsoft.Network/networkInterfaces/read                            | Get a network interface definition                             |
-> | Microsoft.Network/networkSecurityGroups/read                        | Get a network security group definition                        |
-> | Microsoft.Network/publicIPAddresses/read                            | Get a public IP address definition                             |
-> | Microsoft.Network/routeTables/read                                  | Get a route table definition                                   |
-> | Microsoft.Network/virtualNetworkGateways/read                       | Get a VirtualNetworkGateway                                    |
-> | Microsoft.Network/virtualNetworks/read                              | Get a virtual network definition                               |
-> | Microsoft.Network/expressRouteCircuits/read                         | Get an ExpressRouteCircuit                                     |
-> | Microsoft.OperationalInsights/workspaces/read                       | Get an existing workspace                                      |
-> | Microsoft.OperationalInsights/workspaces/sharedkeys/action          | Retrieve the shared keys for the workspace                     |
-> | Microsoft.Insights/dataCollectionRules/read <sup>1</sup>            | Read a data collection rule                                    |
-> | Microsoft.Insights/dataCollectionRules/write <sup>1</sup>           | Create or update a data collection rule                        |
-> | Microsoft.Insights/dataCollectionRules/delete <sup>1</sup>          | Delete a data collection rule                                  |
-> | Microsoft.Insights/dataCollectionEndpoints/read <sup>1</sup>        | Read a data collection endpoint                                |
-> | Microsoft.Insights/dataCollectionEndpoints/write <sup>1</sup>       | Create or update a data collection endpoint                    |
-> | Microsoft.Insights/dataCollectionEndpoints/delete <sup>1</sup>      | Delete a data collection endpoint                              |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/applicationGateways/read | Get an application gateway |
+> | Microsoft.Network/connections/read | Get VirtualNetworkGatewayConnection |
+> | Microsoft.Network/loadBalancers/read | Get a load balancer definition |
+> | Microsoft.Network/localNetworkGateways/read | Get LocalNetworkGateway |
+> | Microsoft.Network/networkInterfaces/read | Get a network interface definition |
+> | Microsoft.Network/networkSecurityGroups/read | Get a network security group definition |
+> | Microsoft.Network/publicIPAddresses/read | Get a public IP address definition |
+> | Microsoft.Network/routeTables/read | Get a route table definition |
+> | Microsoft.Network/virtualNetworkGateways/read | Get a VirtualNetworkGateway |
+> | Microsoft.Network/virtualNetworks/read | Get a virtual network definition |
+> | Microsoft.Network/expressRouteCircuits/read | Get an ExpressRouteCircuit |
+> | Microsoft.OperationalInsights/workspaces/read | Get an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/sharedkeys/action | Retrieve the shared keys for the workspace |
+> | Microsoft.Insights/dataCollectionRules/read <sup>1</sup> | Read a data collection rule |
+> | Microsoft.Insights/dataCollectionRules/write <sup>1</sup> | Create or update a data collection rule |
+> | Microsoft.Insights/dataCollectionRules/delete <sup>1</sup> | Delete a data collection rule |
+> | Microsoft.Insights/dataCollectionEndpoints/read <sup>1</sup> | Read a data collection endpoint |
+> | Microsoft.Insights/dataCollectionEndpoints/write <sup>1</sup> | Create or update a data collection endpoint |
+> | Microsoft.Insights/dataCollectionEndpoints/delete <sup>1</sup> | Delete a data collection endpoint |
 
 <sup>1</sup> Only required when using traffic analytics to analyze virtual network flow logs. For more information, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview?toc=/azure/network-watcher/toc.json) and [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview?toc=/azure/network-watcher/toc.json).
 
@@ -93,76 +97,80 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 
 ## Connection troubleshoot
 
-| Action                                                              | Description                                                    |
-| ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/connectivityCheck/action          | Initiate a connection troubleshoot test                        |
-| Microsoft.Network/networkWatchers/queryTroubleshootResult/action    | Query results of a connection troubleshoot test                |
-| Microsoft.Network/networkWatchers/troubleshoot/action               | Run a connection troubleshoot test                             |
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/connectivityCheck/action | Initiate a connection troubleshoot test |
+> | Microsoft.Network/networkWatchers/queryTroubleshootResult/action | Query results of a connection troubleshoot test |
+> | Microsoft.Network/networkWatchers/troubleshoot/action | Run a connection troubleshoot test |
 
 ## Packet capture
 
-| Action                                                              | Description                                                    |
-| ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture                          |
-| Microsoft.Network/networkWatchers/packetCaptures/stop/action        | Stop a packet capture                                         |
-| Microsoft.Network/networkWatchers/packetCaptures/read               | Get a packet capture                                          |
-| Microsoft.Network/networkWatchers/packetCaptures/write              | Create a packet capture                                       |
-| Microsoft.Network/networkWatchers/packetCaptures/delete             | Delete a packet capture                                       |
-| Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read   | View the status of a packet capture                           | 
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture |
+> | Microsoft.Network/networkWatchers/packetCaptures/stop/action | Stop a packet capture |
+> | Microsoft.Network/networkWatchers/packetCaptures/read | Get a packet capture |
+> | Microsoft.Network/networkWatchers/packetCaptures/write | Create a packet capture |
+> | Microsoft.Network/networkWatchers/packetCaptures/delete | Delete a packet capture |
+> | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read | View the status of a packet capture | 
 
 ## IP flow verify
 
 > [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/ipFlowVerify/action               | Verify an IP flow                                              |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/ipFlowVerify/action | Verify an IP flow |
 
 ## Next hop
 
-| Action                                                              | Description                                                    |
-| ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/read | For a specified target and destination IP address, return the next hop type and next hope IP address |
-| Microsoft.Compute/virtualMachines/read | Get the properties of a virtual machine |
-| Microsoft.Network/networkInterfaces/read | Get a network interface definition |
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/read | For a specified target and destination IP address, return the next hop type and next hope IP address |
+> | Microsoft.Compute/virtualMachines/read | Get the properties of a virtual machine |
+> | Microsoft.Network/networkInterfaces/read | Get a network interface definition |
 
 ## Network security group view
 
 > [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/securityGroupView/action          | View security groups                                           |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/securityGroupView/action | View security groups |
 
 ## Topology
 
 > [!div class="mx-tableFixed"]
-> | Action                                                              | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Network/networkWatchers/topology/action                   | Get topology                                                   |
-> | Microsoft.Network/networkWatchers/topology/read                     | Get topology                                                   |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/topology/action | Get topology |
+> | Microsoft.Network/networkWatchers/topology/read | Get topology |
 
 ## Reachability report
 
-| Action                                                              | Description                                                    |
-| ------------------------------------------------------------------- | -------------------------------------------------------------- |
-| Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Get an Azure reachability report                               |
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Get an Azure reachability report |
 
 ## Additional actions
 
 Network Watcher capabilities also require the following actions:
 
 > [!div class="mx-tableFixed"]
-> | Action(s)                                                           | Description                                                    |
-> | ------------------------------------------------------------------- | -------------------------------------------------------------- |
-> | Microsoft.Authorization/\*/Read                                     | Fetch Azure role assignments and policy definitions            |
-> | Microsoft.Resources/subscriptions/resourceGroups/Read               | Enumerate all the resource groups in a subscription            |
-> | Microsoft.Storage/storageAccounts/Read                              | Get the properties for the specified storage account           |
+> | Action | Description |
+> | ---- | ---- |
+> | Microsoft.Authorization/\*/Read | Fetch Azure role assignments and policy definitions |
+> | Microsoft.Resources/subscriptions/resourceGroups/Read | Enumerate all the resource groups in a subscription |
+> | Microsoft.Storage/storageAccounts/Read | Get the properties for the specified storage account |
 > | Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
 > | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Log in to the VM, do a packet capture and upload it to storage account |
 > | Microsoft.Compute/virtualMachines/extensions/Read, </br> Microsoft.Compute/virtualMachines/extensions/Write | Check if Network Watcher extension is present, and install if necessary |
 > | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write | Access virtual machine scale sets, do packet captures and upload them to storage account |
 > | Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Check if Network Watcher extension is present, and install if necessary |
-> | Microsoft.Insights/alertRules/*                                     | Set up metric alerts                                          |
-> | Microsoft.Support/*                                                 | Create and update support tickets from Network Watcher        |
+> | Microsoft.Insights/alertRules/* | Set up metric alerts |
+> | Microsoft.Support/* | Create and update support tickets from Network Watcher |
 
 ## Related content
 
