@@ -37,7 +37,7 @@ This article explains how the billing models for Azure Files work to help you un
 
 :::row:::
     :::column:::
-        > [!VIDEO https://youtu.be/1sXwvHaTqfg?si=y8QOnsOSA_IgIRbU]
+        > [!VIDEO https://www.youtube.com/embed/1sXwvHaTqfg]
     :::column-end:::
     :::column:::
         This video focus on Azure Files provisioned v2 billing model.
