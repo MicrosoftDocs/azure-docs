@@ -176,7 +176,7 @@ landingContent:
             url: move-data-inside-enclave.md
       - linkListType: architecture
         links:
-          - text: Understand create and delete logic
+          - text: Understand creation and deletion logic
             url: create-and-delete-logic.md
           - text: Defense in Depth
             url: defense-in-depth.md

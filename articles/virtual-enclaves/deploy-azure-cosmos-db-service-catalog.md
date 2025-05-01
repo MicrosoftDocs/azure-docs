@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Cosmos DB from theservice catalog into a workload
-description: Deploy Azure Cosmos DB from theservice catalog into a workload.
+title: Deploy Azure Cosmos DB from the service catalog into a workload
+description: Deploy Azure Cosmos DB from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Azure Cosmos DB from theservice catalog into a workload
+# Deploy Azure Cosmos DB from the service catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy aservice catalog template for an Azure Cosmos DB account into an existing workload from the Portal.
+- Deploy a service catalog template for an Azure Cosmos DB account into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -29,13 +29,13 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 ## Prerequisites
 
-There are guardrails in the enclaves to ensure a service bus is using CMK encryption (customer-managed keys). This requires a key and identity to access the key to be accessible from the storage account in the enclave.
+There are guardrails in the enclaves to ensure a service bus is using Customer Managed Key (CMK) encryption. This requires a key and identity to access the key to be accessible from the storage account in the enclave.
 > [!NOTE]
 > 
-> These resources are not deployed with the enclave or workload.
+> These resources aren't deployed with the enclave or workload.
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deploymentservice catalog template](./deploy-common-dependencies-service-catalog.md) article to:
+2. A Key Vault that supports CMK and a key that can be used for CMK encryption. Create a new CMK, if needed, using the [Common Deploymentservice catalog template](./deploy-common-dependencies-service-catalog.md) article to:
     - Create an RSA (2048) key in the Key Vault.
     - [Create a user-assigned managed identity](./create-user-managed-identity.md) with access to the CMK key in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
@@ -68,7 +68,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) toservice catalog deployments to track important information for that resource such as:   
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:   
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<cosmos db account purpose>`

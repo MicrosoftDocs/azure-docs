@@ -147,7 +147,7 @@
   # - name: IP Allocation Management
   #   href: ip-allocation-management.md
   - name: Naming rules and restrictions
-    href: name-rules-restrictions-azure-virtual-enclave-resources.md
+    href: name-rules-restrictions-azure-virtual-enclaves-resources.md
   # - name: Manage Key Vault SKUs
   #   href: upgrade-enclave-key-vault-sku.md
   - name: Move data inside an enclave
@@ -218,7 +218,7 @@
 #       href: workload-and-application-planning.md
 - name: Architecture
   items:
-    - name: Understand create and delete logic
+    - name: Understand creation and deletion logic
       href: create-and-delete-logic.md
     - name: Defense in Depth
       href: defense-in-depth.md

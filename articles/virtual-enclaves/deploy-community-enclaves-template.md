@@ -14,7 +14,7 @@ ms.date: 04/08/2025
 [Azure Virtual Enclaves](./what-azure-virtual-enclaves.md) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive missions and workloads across commercial and air-gapped environments. In this quickstart, you:
 
 - Deploy one AVE [community](./what-community.md) with two [enclaves](./what-enclave.md) using an Azure Resource Manager (ARM) template.
-- Deploy [workloads](./what-workload.md), [enclave endpoints](/docs/overview/what%20is%20an%20enclave%20endpoint), [transit hubs](/docs/overview/what%20is%20a%20transit%20hub) and [community endpoints](/docs/overview/what%20is%20a%20community%20endpoint), and [enclave connections](/docs/overview/what%20is%20an%20enclave%20connection) across your community using an ARM template.
+- Deploy [workloads](./what-workload.md), [enclave endpoints](./what-enclave-endpoint.md), [transit hubs](./what-transit-hub.md) and [community endpoints](./what-community-endpoint.md), and [enclave connections](./what-enclave-connection.md) across your community using an ARM template.
 
 > [!NOTE]
 >
@@ -61,7 +61,7 @@ The template used in this quickstart can be found [here](https://github.com/Azur
 ## Deploy the template
 1. Login to the Azure Portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section, upload or copy and paste the above ARM template.
 
-![image.png](/assets/image-3087f961-30be-4cec-9989-cfb5020f7fdb.png)
+![Screenshot showing the template spec page with the create button highlighted.](./media/create-template-spec.png)
 
 2. On the **Basics** page, leave the default values, and configure the following template parameters:
    - **Subscription**: Select an Azure subscription.
