@@ -21,11 +21,11 @@ To use Azure Network Watcher capabilities, the account you log into Azure with, 
 > [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't include the following actions:
 > - Microsoft.Storage/* actions listed in [Additional actions](#additional-actions) or [Flow logs](#flow-logs) section.
 > - Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
-> - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
+> - Microsoft.OperationalInsights/workspaces/*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
 
 To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
-The following sections list the minimum required permissions to use Network Watcher and its capabilities.
+The following sections list the minimum required permissions to use Network Watcher and its capabilities. For a full list of related Azure permissions, see [Microsoft.Network permissions](/azure/role-based-access-control/permissions/networking#microsoftnetwork), [Microsoft.Insights permissions](/azure/role-based-access-control/permissions/monitor#microsoftinsights), and [Microsoft.OperationalInsights](/azure/role-based-access-control/permissions/monitor#microsoftoperationalinsights).
 
 ## Network Watcher
 
@@ -158,7 +158,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 
 ## Additional actions
 
-Some Network Watcher capabilities require the following addtional actions:
+Some Network Watcher capabilities require the following actions:
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
