@@ -51,6 +51,3 @@ Azure Privileged Identity Management can be used in conjunction with built-in ro
 
 ### Require Approvals for Privileged Access
 Azure Privileged Identity Management can also be leveraged to be Activating an eligibility can also require a second person to approve the request before permissions are granted.
-
-## Attribute-Based Access Control
-[Learn more](./attribute-based-access-controls.md)
