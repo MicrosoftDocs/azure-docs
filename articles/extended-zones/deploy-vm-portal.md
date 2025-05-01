@@ -134,7 +134,7 @@ When no longer needed, delete **myResourceGroup** resource group and all of the 
 
 ## Contact
 
-Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any questions, comments, or proposals.
 
 ## Related content
 

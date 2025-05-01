@@ -28,7 +28,7 @@ The following diagram shows some of the industries and use cases where Azure Ext
 
 ## Availability and access
 
-See Request access to Azure Extended Zones to learn how to request access to Extended Zones. A comprehensive list of Extended Zones will be listed in the process.
+See [Request access to Azure Extended Zones](request-access.md) to learn how to request access to Extended Zones. A comprehensive list of Extended Zones will be listed in the process.
 
 ## Service offerings for Azure Extended Zones
 
@@ -49,7 +49,7 @@ The following table lists key services that are available in Azure Extended Zone
 | **BCDR** | [Azure Site Recovery](../site-recovery/site-recovery-overview.md)* <br> [Azure Backup](../backup/backup-overview.md) |
 | **Arc-enabled PaaS** | [ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)* <br> [PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)* <br> [ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)* |
 
-\* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones.
+\* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones.  
 \** [Learn more about Virtual Machine family series here](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist) and feel free to ask your account executive for a detailed SKU list. 
 
 > [!NOTE]  
@@ -61,7 +61,7 @@ To get answers to frequently asked questions about Azure Extended Zones, see [Az
 
 ## Contact
 
-Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any questions, comments, or proposals.
 
 ## Related content
 

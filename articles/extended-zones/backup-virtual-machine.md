@@ -97,7 +97,7 @@ When no longer needed, delete the resource group and the resources it contains:
 
 ## Contact
 
-Feel free to reach out to aez-support@microsoft.com with any questions, comments, or proposals.
+Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any questions, comments, or proposals.
 
 ## Related content
 
