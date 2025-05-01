@@ -182,10 +182,8 @@
       href: cache-how-to-import-export-data.md
     - name: Configure disk encryption 
       href: cache-how-to-encryption.md
-    - name: Reboot
-      href: cache-administration.md#reboot
-    - name: Update channel and schedule updates
-      href: cache-administration.md#update-channel-and-schedule-updates
+    - name: Reboot, flush, and schedule updates
+      href: cache-administration.md
     - name: Configure redis-cli access
       href: cache-how-to-redis-cli-tool.md
     - name: Move between regions
