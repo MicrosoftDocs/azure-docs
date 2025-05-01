@@ -24,7 +24,7 @@ Like personal computers, mobile phones, and other devices, machines in the cloud
 
 Because a typical cloud solution consists of multiple applications, databases, storage accounts, functions, and other resources, parts of your solutions can undergo maintenance at different times. Some of this coordination is related to geography, region, datacenters, and availability zones. It can also be due to the cloud, where not everything is touched simultaneously. For more information, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
 
-To find maintenance events, search for **Service Health** in the Azure Portal. Under **Active Events**, select **Planned maintenance**.
+To find maintenance events, search for **Service Health** in the Azure portal. Under **Active Events**, select **Planned maintenance**.
 
 :::image type="content" source="media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance.png":::
 
