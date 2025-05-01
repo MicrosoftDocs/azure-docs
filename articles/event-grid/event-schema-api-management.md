@@ -222,7 +222,7 @@ The following example shows the schema of a circuit breaker opened event. The sc
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a gateway token expired event.
+The following example shows the schema of a gateway token expired event. The schema of a gateway token near expiry event is similar, but substitutes an `expiresAtUtc` property for the `expiredAtUtc` property.
 
 ```json
 {
