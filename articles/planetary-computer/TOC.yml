@@ -19,8 +19,6 @@
     href: get-started-planetary-computer.md
   - name: Deploy a GeoCatalog resource
     href: deploy-geocatalog-resource.md
-  - name: Delete a GeoCatalog resource
-    href: delete-geocatalog-resource.md
   - name: Manage access
     href: manage-access.md
   - name: Assign a user-assigned managed identity to a GeoCatalog resource
@@ -77,7 +75,15 @@
     href: create-connection-arcgispro.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
-  - name: Get Started with Data Cubes
-    href: datacube-quickstart.md
+  - name: API Reference
+    href: /rest/api/planetarycomputer
+- name: Working with Data Cubes
+  items:
   - name: Data cube Overview
     href: datacube-overview.md
+  - name: Get Started with Data Cubes
+    href: datacube-quickstart.md
+  - name: Visualize Data Cubes
+    href: visualize-assets.md
+  - name: Get a Collection SAS Token
+    href: get-collection-sas-token.md

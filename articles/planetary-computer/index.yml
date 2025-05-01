@@ -139,6 +139,10 @@ landingContent:
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro
             url: azure-batch.md
+      - linkListType: reference
+        links:
+          - text: API Reference Guide
+            url: /rest/api/planetarycomputer
 
   # Card
   - title: Working with Data Cubes
@@ -151,4 +155,11 @@ landingContent:
         links:
           - text: Get Started with Data Cubes
             url: datacube-quickstart.md
-
+      - linkListType: how-to-guide
+        links:
+          - text: Visualize Data Cubes
+            url: visualize-assets.md
+      - linkListType: quickstart
+        links:
+          - text: Get a Collection SAS Token
+            url: get-collection-sas-token.md
