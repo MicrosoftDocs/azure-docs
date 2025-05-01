@@ -82,8 +82,8 @@ You can also monitor your application performance by using a *site extension*.
 
 Each App Service app provides an extensible management endpoint that allows you to use a powerful set of tools deployed as site extensions. Extensions include: 
 
-- Source code editors like [Azure DevOps](/azure/devops/user-guide/what-is-azure-devops)
-- Management tools for connected resources such as a MySQL database connected to an app
+- Source code editors like [GitHub Codespaces](https://github.com/features/codespaces/).
+- Management tools for connected resources such as a MySQL database connected to an app.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is a performance monitoring site extension that's also available. To use Application Insights, you rebuild your code with an SDK. You can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail. For more information, see [Introduction to Application Insights - OpenTelemetry observability](/azure/azure-monitor/app/app-insights-overview).
 
