@@ -1,12 +1,12 @@
 ---
-title: "Quickstart: Configure Durable Task SDKs for your app with Azure Functions Durable Task Scheduler (preview)"
+title: "Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)"
 description: Learn how to configure an existing app for the Azure Functions Durable Task Scheduler using the Durable Task SDKs.
 ms.topic: how-to
 ms.date: 04/23/2025
 zone_pivot_groups: df-languages
 ---
 
-# Quickstart: Configure Durable Task SDKs for your app with Azure Functions Durable Task Scheduler (preview)
+# Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)
 
 The Durable Task SDKs provide a lightweight client library for the Durable Task Scheduler. In this quickstart, you learn how to create orchestrations that use [the fan-out/fan-in application pattern](../durable-functions-overview.md#fan-in-out) to perform parallel processing. 
 
@@ -348,6 +348,9 @@ From the `fan-out-fan-in` directory, build and run the application using Gradle.
 ```bash
 ./gradlew runFanOutFanInPattern
 ```
+
+> [!TIP]
+> If you receive the error message `zsh: permission denied: ./gradlew`, try running `chmod +x gradlew` before running the application. 
 
 ### Understanding the output
 

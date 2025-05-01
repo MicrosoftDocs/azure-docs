@@ -6,4 +6,4 @@ ms.date: 04/23/2025
 ---
 
 > [!IMPORTANT]
-> Currently, this quickstart sample isn't available for JavaScript and PowerShell.
+> Currently, the Durable Task SDKs aren't available for JavaScript and PowerShell.
