@@ -347,8 +347,8 @@
   items:
     - name: Overview
       href: networking.md
-    - name: Configuration
-      href: networking-configuration.md
+    - name: Environment-level networking
+      href: environment-level-networking.md
     - name: Ingress
       items:
         - name: Overview
@@ -388,7 +388,7 @@
           items:
           - name: Use rule-based routing
             href: rule-based-routing.md
-          - name: Configure a custom domain
+          - name: Use a custom domain with rule-based routing
             href: rule-based-routing-custom-domain.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md

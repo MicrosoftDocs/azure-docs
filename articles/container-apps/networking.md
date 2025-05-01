@@ -4,8 +4,8 @@ description: Learn about virtual networks in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic:  conceptual
-ms.date: 04/11/2025
+ms.topic: conceptual
+ms.date: 05/01/2025
 ms.author: cshoe
 ---
 
@@ -40,11 +40,6 @@ Use an existing VNet when you need Azure networking features like:
 - Control over outbound traffic from your container app
 - Access to resources behind private endpoints in your virtual network
 
-Use a generated VNet when you do not need these features. Generated VNets only support a limited subset of networking capabilities such as:
-
-- Ingress IP restrictions
-- Container app level ingress controls
-
 If you use an existing VNet, you need to provide a subnet that is dedicated exclusively to the Container App environment you deploy. This subnet isn't available to other services. For more information see [Virtual network configuration](custom-virtual-networks.md).
 
 ## Accessibility level
@@ -69,6 +64,31 @@ In order to create private endpoints on your Azure Container App environment, pu
 
 Azure networking policies are supported with the public network access flag.
 
+## <a name="private-endpoint"></a>Private endpoint (preview)
+
+Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
+
+This feature is supported for both Consumption and Dedicated plans in workload profile environments.
+
+#### Tutorials
+- To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.
+- Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
+
+#### Considerations
+- To use a private endpoint, you must disable [public network access](#public-network-access). By default, public network access is enabled, which means private endpoints are disabled.
+- Private endpoints only support inbound HTTP traffic. TCP traffic isn't supported.
+- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
+- Your private endpoint's VNet can be separate from the VNet integrated with your container app.
+- You can add a private endpoint to both new and existing workload profile environments.
+
+In order to connect to your container apps through a private endpoint, you must configure a private DNS zone.
+
+| Service | subresource | Private DNS zone name |
+|--|--|--|
+| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
+
+You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
+
 ### Ingress configuration
 
 Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) section, you can configure the following settings:
@@ -81,21 +101,9 @@ Under the [ingress](azure-resource-manager-api-spec.md#propertiesconfiguration) 
 
 For more information about different networking scenarios, see [Ingress in Azure Container Apps](ingress-overview.md).
 
-### Environment security
-
-:::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
-
-You can fully secure your ingress and egress networking traffic workload profiles environment by taking the following actions:
-
-- Create your internal container app environment in a workload profiles environment. For steps, refer to [Manage workload profiles with the Azure CLI](./workload-profiles-manage-cli.md#create).
-
-- Integrate your Container Apps with an [Application Gateway](./waf-app-gateway.md).
-
-- Configure UDR to route all traffic through [Azure Firewall](./user-defined-routes.md).
-
 ## Inbound features
 
-|Feature  |Learn how to  |
+|Feature |Learn how to |
 |---------|---------|
 |[Ingress](ingress-overview.md)<br><br>[Configure ingress](ingress-how-to.md) | Control the routing of external and internal traffic to your container app. |
 |[IP restrictions](ip-restrictions.md) | Restrict inbound traffic to your container app by IP address. |
@@ -110,7 +118,7 @@ You can fully secure your ingress and egress networking traffic workload profile
 
 ## Outbound features
 
-|Feature  |Learn how to |
+|Feature |Learn how to |
 |---------|---------|
 |[Using Azure Firewall](using-azure-firewall.md) | Use Azure Firewall to control outbound traffic from your container app. |
 |[Securing a existing VNet with an NSG](firewall-integration.md) | Secure your container app environment's VNet with a Network Security Group (NSG). |
@@ -118,7 +126,7 @@ You can fully secure your ingress and egress networking traffic workload profile
 
 ## Tutorials
 
-|Tutorial  |Learn about how to |
+|Tutorial |Learn how to |
 |---------|---------|
 |[Use a virtual network](vnet-custom.md) | Use a virtual network. |
 |[Configure WAF Application Gateway](waf-app-gateway.md) | Configure a WAF application gateway. |
@@ -127,6 +135,18 @@ You can fully secure your ingress and egress networking traffic workload profile
 |[Use Mutual Transport Layer Security (mTLS)](mtls.md) | Build an mTLS application in Azure Container Apps. |
 |[Use a private endpoint](how-to-use-private-endpoint.md) (preview) | Use a private endpoint to securely access your Azure Container App without exposing it to the public Internet. |
 |[Integrate with Azure Front Door](how-to-integrate-with-azure-front-door.md) (preview) | Connect directly from Azure Front Door to your Azure Container Apps using a private link instead of the public internet. |
+
+### Environment security
+
+:::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
+
+You can fully secure your ingress and egress networking traffic workload profiles environment by taking the following actions:
+
+- Create your internal container app environment in a workload profiles environment. For steps, refer to [Manage workload profiles with the Azure CLI](./workload-profiles-manage-cli.md#create).
+
+- Integrate your Container Apps with an [Application Gateway](./waf-app-gateway.md).
+
+- Configure UDR to route all traffic through [Azure Firewall](./user-defined-routes.md).
 
 ## HTTP edge proxy behavior
 

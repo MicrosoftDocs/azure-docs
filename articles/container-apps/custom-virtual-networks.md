@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 11/21/2023
+ms.date: 05/01/2025
 ms.author: cshoe
 ---
 
@@ -123,35 +123,41 @@ If you're using the CLI, the parameter to define the subnet resource ID is `infr
 
 If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
 
-## <a name="private-endpoint"></a>Private endpoint (preview)
-
-Azure private endpoint enables clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A private link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space. 
-
-This feature is supported for both Consumption and Dedicated plans in workload profile environments.
-
-#### Tutorials
-- To learn more about how to configure private endpoints in Azure Container Apps, see the [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md) tutorial.
-- Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
-
-#### Considerations
-- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
-- To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
-- Your private endpoint's VNet can be separate from the VNet integrated with your container app.
-- You can add a private endpoint to both new and existing workload profile environments.
-
-In order to connect to your container apps through a private endpoint, you must configure a private DNS zone.
-
-| Service | subresource | Private DNS zone name |
-|--|--|--|
-| Azure Container Apps (Microsoft.App/ManagedEnvironments) | managedEnvironment | privatelink.{regionName}.azurecontainerapps.io |
-
-You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
-
 ## NAT gateway integration
 
 You can use NAT Gateway to simplify outbound connectivity for your outbound internet traffic in your virtual network in a workload profiles environment.
 
 When you configure a NAT Gateway on your subnet, the NAT Gateway provides a static public IP address for your environment. All outbound traffic from your container app is routed through the NAT Gateway's static public IP address.
+
+## Managed resources
+
+When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform. Don't modify the services in this group or the resource group itself.
+
+# [Workload profiles environment](#tab/workload-profiles-env)
+
+The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `ME_` by default, and the resource group name *can* be customized as you create your container app environment.
+
+For external environments, the resource group contains a public IP address used specifically for inbound connectivity to your external environment and a load balancer. For internal environments, the resource group only contains a [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+In addition to the standard [Azure Container Apps billing](./billing.md), you're billed for:
+
+- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress if using an internal or external environment, plus one standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress if using an external environment. If you need more public IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
+
+- One standard [load balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+- The cost of data processed (in GBs) includes both ingress and egress for management operations.
+
+# [Consumption only environment](#tab/consumption-only-env)
+
+The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `MC_` by default, and the resource group name *can't* be customized when you create a container app. The resource group contains public IP addresses used specifically for outbound connectivity from your environment and a load balancer.
+
+In addition to the standard [Azure Container Apps billing](./billing.md), you're billed for:
+
+- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress. If you need more IPs for egress due to Source Network Address Translation (SNAT) issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
+
+- Two standard [load balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [load balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (in GBs) includes both ingress and egress for management operations.
+
+---
 
 ## Next steps
 

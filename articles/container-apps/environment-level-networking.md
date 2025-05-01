@@ -1,47 +1,17 @@
 ---
-title: Networking configuration in Azure Container Apps environment
-description: Learn how to configure networking in Azure Container Apps.
+title: Networking configuration in an Azure Container Apps environment
+description: Learn how to configure networking in an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/11/2025
+ms.date: 05/01/2025
 ms.author: cshoe
 ---
 
-# Networking configuration in Azure Container Apps environment
+# Networking in an Azure Container Apps environment
 
-Azure Container Apps run in the context of an environment, with its own virtual network (VNet). This VNet creates a secure boundary around your Azure Container Apps [environment](environment.md). This article tells you how to configure your VNet.
-
-## Managed resources
-
-When you deploy an internal or an external environment into your own network, a new resource group is created in the Azure subscription where your environment is hosted. This resource group contains infrastructure components managed by the Azure Container Apps platform. Don't modify the services in this group or the resource group itself.
-
-# [Workload profiles environment](#tab/workload-profiles-env)
-
-The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `ME_` by default, and the resource group name *can* be customized as you create your container app environment.
-
-For external environments, the resource group contains a public IP address used specifically for inbound connectivity to your external environment and a load balancer. For internal environments, the resource group only contains a [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
-
-In addition to the standard [Azure Container Apps billing](./billing.md), you're billed for:
-
-- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress if using an internal or external environment, plus one standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for ingress if using an external environment. If you need more public IPs for egress due to SNAT issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
-
-- One standard [load balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
-
-- The cost of data processed (in GBs) includes both ingress and egress for management operations.
-
-# [Consumption only environment](#tab/consumption-only-env)
-
-The name of the resource group created in the Azure subscription where your environment is hosted is prefixed with `MC_` by default, and the resource group name *can't* be customized when you create a container app. The resource group contains public IP addresses used specifically for outbound connectivity from your environment and a load balancer.
-
-In addition to the standard [Azure Container Apps billing](./billing.md), you're billed for:
-
-- One standard static [public IP](https://azure.microsoft.com/pricing/details/ip-addresses/) for egress. If you need more IPs for egress due to Source Network Address Translation (SNAT) issues, [open a support ticket to request an override](https://azure.microsoft.com/support/create-ticket/).
-
-- Two standard [load balancers](https://azure.microsoft.com/pricing/details/load-balancer/) if using an internal environment, or one standard [load balancer](https://azure.microsoft.com/pricing/details/load-balancer/) if using an external environment. Each load balancer has fewer than six rules. The cost of data processed (in GBs) includes both ingress and egress for management operations.
-
----
+Azure Container Apps run in the context of an environment, with its own virtual network (VNet). This VNet creates a secure boundary around your Azure Container Apps [environment](environment.md). This article tells you how to configure networking in your environment.
 
 ## <a name="peer-to-peer-encryption"></a> Peer-to-peer encryption in the Azure Container Apps environment
 
