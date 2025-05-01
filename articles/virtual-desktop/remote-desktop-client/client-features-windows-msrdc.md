@@ -312,7 +312,7 @@ For more information and the available commands, see [Uniform Resource Identifie
 
 If you want to provide feedback to us on the Remote Desktop client for Windows, you can do so by selecting the button that looks like a smiley face emoji in the client app, as shown in the following image. This will open the **Feedback Hub**.
 
-:::image type="content" source="../media/smiley-face-icon.png" alt-text="A screenshot highlighting the feedback button in a red box":::
+:::image type="content" source="../media/smiley-face-icon.png" alt-text="A screenshot highlighting the feedback button in a red box.":::
 
 To best help you, we need you to give us as detailed information as possible. Along with a detailed description, you can include screenshots, attach a file, or make a recording. For more tips about how to provide helpful feedback, see [Feedback](/windows-insider/feedback#add-new-feedback).
 
@@ -506,7 +506,7 @@ To subscribe to a workspace with a link:
 
 If you want to provide feedback to us on the Remote Desktop app for Windows, you can do so by selecting the button that looks like a smiley face emoji in the app, as shown in the following image. This will open the **Feedback Hub**.
 
-:::image type="content" source="../media/smiley-face-icon-store.png" alt-text="A screenshot highlighting the feedback button in a red box":::
+:::image type="content" source="../media/smiley-face-icon-store.png" alt-text="A screenshot highlighting the feedback button in a red box.":::
 
 To best help you, we need you to give us as detailed information as possible. Along with a detailed description, you can include screenshots, attach a file, or make a recording. For more tips about how to provide helpful feedback, see [Feedback](/windows-insider/feedback#add-new-feedback).
 
