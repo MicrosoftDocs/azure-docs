@@ -92,7 +92,7 @@ Failback is a manual process. For more information, see [Manage disaster recover
 
 ### Testing for zone failures  
 
-To test your preparedness and cross-zone replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
+To test your cross-zone replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
 
 ## Multi-region support
 
@@ -106,13 +106,13 @@ Azure NetApp Files provides data protection through cross-region volume replicat
 
 ### Failback
 
-Both failover and failback are manual process in Azure NetApp Files cross-region replication. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md)
+Both failover and failback are manual process in Azure NetApp Files cross-region replication. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
 It's also recommended you [set alert rules to monitor replication status](../azure-netapp-files/cross-region-replication-display-health-status.md#set-alert-rules-to-monitor-replication).
 
 ### Testing for region failures  
 
-To test your preparedness and cross-region replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
+To test your cross-region replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
 
 ## Backups
 
@@ -126,6 +126,7 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 
 The service-level agreement (SLA) for Azure NetApp Files describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
+<!-- 
 Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.
 
 Cross-zone and cross-region replication support three replication schedules: 10 minutes, hourly, and daily.
@@ -138,6 +139,7 @@ Cross-zone and cross-region replication support three replication schedules: 10 
 >The 10-minute replication schedule isn't supported for [Azure NetApp Files large volumes](../azure-netapp-files/large-volumes.md) using cross-zone or cross-region replication.
 
 Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
+-->
 
 ## Related content
 
