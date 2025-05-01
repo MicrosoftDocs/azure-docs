@@ -75,7 +75,7 @@ List of available regions for the resource type:
 - West US2, West US, South Central US, West US3, 
 - South Africa North
 - Central US euap, East US2 euap, 
-- Taiwan North, Taiwan North West.
+- Taiwan North, Taiwan North West
 
 This error happens because the deployment scripts functionality might not be available when the region launches. However, retrying the replication process after a short interval should fix the issue.
 
@@ -118,10 +118,10 @@ The supported locations:
 - Norway East 
 - Poland Central 
 - Qatar Central
-- South Africa North, 
+- South Africa North
 - South Central US 
 - South India, 
-- South East Asia, 
+- South East Asia
 - Spain Central 
 - Sweden Central 
 - Switzerland North
@@ -130,7 +130,7 @@ The supported locations:
 - West Central US
 - West Europe
 - West India
-- West US, West US2, West US3.
+- West US, West US2, West US3
 
 > [!NOTE]
 > Despite this error, the Virtual Machine migration succeeds. However, users must know that the Virtual Machine won't be registered with the SQL Virtual Machine Resource Provider in the specified region.
