@@ -26,7 +26,7 @@ As you create a virtual network, keep in mind the following situations:
   - You can restrict inbound requests to the environment exclusively to the VNet by deploying the environment as [internal](vnet-custom.md).
 
 > [!NOTE]
-> When you provide your own virtual network, additional [managed resources](networking-configuration.md#managed-resources) are created. These resources incur costs at their associated rates.
+> When you provide your own virtual network, additional [managed resources](custom-virtual-networks.md#managed-resources) are created. These resources incur costs at their associated rates.
 
 As you begin to design the network around your container app, refer to [Plan virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 

@@ -73,7 +73,7 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
-> External TCP ingress is only supported for Container Apps environments that use a [virtual network](vnet-custom.md). TCP ingress is not supported for apps that accept inbound traffic through a [private endpoint](custom-virtual-networks.md#private-endpoint).
+> External TCP ingress is only supported for Container Apps environments that use a [virtual network](vnet-custom.md). TCP ingress is not supported for apps that accept inbound traffic through a [private endpoint](networking.md#private-endpoint).
 
 With TCP ingress enabled, your container app:
 
@@ -119,7 +119,7 @@ Azure Container Apps provides built-in authentication and authorization features
 
 You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md).
 
-For details on how to use peer-to-peer environment level network encryption, see [networking configuration](./networking-configuration.md#peer-to-peer-encryption).
+For details on how to use peer-to-peer environment level network encryption, see [networking configuration](./environment-level-networking.md#peer-to-peer-encryption).
 
 ## Traffic splitting
 
