@@ -423,7 +423,7 @@ az deployment group create \
 
 ### [Bicep](#tab/bicep)
 
-# Review #the Bicep file
+## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm/).
 
