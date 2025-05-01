@@ -17,8 +17,8 @@ Azure WebJobs is a built-in feature of Azure App Service that enables you to run
 
 ## WebJob types
 WebJobs come in two primary types:
-- **Triggered WebJobs:** Run on demand, on a schedule, or in response to specific events.
-- **Continuous WebJobs:** Operate perpetually, ensuring that critical background processes are always active.
+- Triggered WebJobs: Run on demand, on a schedule, or in response to specific events.
+- Continuous WebJobs: Operate perpetually, ensuring that critical background processes are always active.
 
 For scheduled tasks, NCRONTAB expressions are used to define precise execution intervals, giving you fine-grained control over when the jobs run.
 
@@ -30,13 +30,20 @@ Supported file types include:
 - PowerShell scripts (`.ps1`)
 - Bash scripts (`.sh`)
 - Scripting languages such as Python (`.py`), PHP (`.php`), Node.js (`.js`), and F# (`.fsx`)
+- WebJobs written in the language runtime of the Windows/Linux container app.
 
 This versatility enables integration of WebJobs into a wide range of application architectures.
 
 ## Benefits and deployment
-By incorporating WebJobs into your App Service, you reduce operational overhead while gaining robust capabilities for background processing. Deployment options are flexible and include:
-- **Visual Studio Integration:** Seamlessly deploy WebJobs alongside your ASP.NET applications.
-- **Azure Portal and ZIP Deployment:** Easily upload and deploy your WebJob packages.
-- **Automated Pipelines:** Use ARM templates or Git for automated deployments.
+WebJobs provide a straightforward way to run background tasks as part of your App Service app, without needing separate infrastructure. They support various deployment methods depending on your workflow:
 
-Additionally, WebJobs provide built-in logging and monitoring, as well as seamless integration with other Azure services, making them a cost-effective and efficient solution for automating background tasks.
+- Visual Studio: Supports direct deployment of WebJobs along with ASP.NET apps on Windows App Service.
+- Azure portal or ZIP upload: Upload a .zip package containing your script or executable and trigger configuration.
+- Automation tools: WebJobs can be deployed using ARM templates, Git, or CI/CD pipelines (like GitHub Actions or Azure DevOps).
+- Built-in logging and integration with Kudu make it easy to monitor execution and troubleshoot issues.
+- Additionally, WebJobs provide built-in logging and monitoring, as well as seamless integration with other Azure services, making them a practical solution for automating background tasks.
+
+## <a name="NextSteps"></a> Next step
+[Create a scheduled WebJob](quickstart-webjobs.md).
+[Build a custom scheduled WebJob from scratch using .NET, Python, Node.js, Java, or PHP](tutorial-webjobs.md).
+[How to run background tasks with WebJobs](webjobs-create.md).
