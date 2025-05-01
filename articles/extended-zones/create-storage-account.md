@@ -46,7 +46,7 @@ In this section, you create a storage account in an Extended Zone.
     | Premium account type | Select **Page blobs**. Other available options are **Block blobs** and **File shares**. |
     | Redundancy | **Locally-redundant storage (LRS)** is the only available option for an Extended Zone. |
 
- *If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
+     *If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
 
     :::image type="content" source="./media/create-storage-account/create-storage-account-basics.png" alt-text="Screenshot that shows the Basics tab of creating a storage account in an Azure Extended Zone." lightbox="./media/create-storage-account/create-storage-account-basics.png":::
 

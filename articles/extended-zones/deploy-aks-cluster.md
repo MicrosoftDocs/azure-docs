@@ -49,7 +49,7 @@ In this section, you will create an AKS cluster in an Extended Zone. Los Angeles
     | Storage account name | Enter *myAKSCluster*. |
     | Region* | Select the target Extended Zone's **Parent Region (its *homeLocation*)** and then select **Deploy to an Azure Extended Zone**. </br> Under  **Azure Extended Zones**, select the respective **Extended Zone**. </br> Select the **Select** button. |
 
-*If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
+    *If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
 
     :::image type="content" source="./media/deploy-aks-cluster/aks-basics.png" alt-text="Screenshot that shows the Basics tab of create an AKS cluster in the Azure portal." lightbox="./media/deploy-aks-cluster/aks-basics.png":::
 

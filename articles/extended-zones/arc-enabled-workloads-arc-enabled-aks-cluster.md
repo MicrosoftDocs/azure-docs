@@ -4,16 +4,15 @@ description: Learn how to creat an arc-enabled AKS cluster in an Extended Zone.
 author: svaldes
 ms.author: svaldes
 ms.service: azure-extended-zones
-ms.topic: arc-enabled AKS in Extended Zones
+ms.topic: how-to
 ms.date: 05/02/2025
-ms.custom: arc-enabled-aks, extended-zones
 
 # Customer intent: As a cloud administrator and Azure Extended Zones user, I want a quick method to deploy PaaS services via Arc in an Azure Extended Zone. 
 ---
   
 # Create an Arc-enabled AKS cluster in an Extended Zone
  
-In this article, you will learn how to create an Arc-enabled AKS cluster in an Extended Zone. This will help you deploy PaaS services through Arc. Current supported PaaS workloads are ContainerApps, ManagedSQL and PostgreSQL.
+In this article, you'll learn how to create an Arc-enabled AKS cluster in an Extended Zone, which helps you deploy PaaS services through Arc. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
 
 ## Prerequisites
 
@@ -21,10 +20,10 @@ In this article, you will learn how to create an Arc-enabled AKS cluster in an E
 - Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
 - Azure Cloud Shell or Azure CLI. Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
-- Review the [requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements. 
 
 ## Getting Started	
-If you are already familiar with the topics below, you may skip this paragraph. There are important topics you may want read before you proceed with creation:
+If you're already familiar with the subject, you may skip this paragraph. Here are important topics you may want read before you proceed with creation:
+•	[Requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
 •	[Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
 •	[Connectivity modes and requirements](/azure/azure-arc/data/connectivity)
 •	[Storage configuration and Kubernetes storage concepts](/azure/azure-arc/data/storage-configuration)
@@ -48,10 +47,10 @@ az provider register --namespace Microsoft.OperationalInsights --wait
 
 ### Create an Arc-enabled AKS cluster in Extended Zones
 
-Before proceeding to deploy PaaS workloads in Extended Zones, an Arc-enabled AKS cluster has to be created in the target Extended Zone. The following script will help do that and ease the deployment of supported PaaS services (see related content at the end of this article to learn more about them). 
+Before proceeding to deploy PaaS workloads in Extended Zones, an Arc-enabled AKS cluster has to be created in the target Extended Zone. The following script helps do that and ease the deployment of supported PaaS services (see related content at the end of this article to learn more about them). 
 
 > [!NOTE] 
-> Please make sure to keep parameters consistent and transfer them correctly from this script to any following ones.
+> Make sure to keep parameters consistent and transfer them correctly from this script to any following ones.
  
 ```powershell
 # Create an ARC-enabled AKS cluster on an edge zone
@@ -120,8 +119,8 @@ az group delete --name my-aks-cluster
 ## Related content
 
 - [Deploy arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
-- [Deploy arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgresql)
-- [Deploy arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managedsql)
+- [Deploy arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)
+- [Deploy arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)
