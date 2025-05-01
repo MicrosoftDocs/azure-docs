@@ -35,7 +35,7 @@ API Management emits the following event types:
 | Microsoft.ApiManagement.GatewayCreated | Raised when a self-hosted gateway is created. |
 | Microsoft.ApiManagement.GatewayDeleted | Raised when a self-hosted gateway is updated. |
 | Microsoft.ApiManagement.GatewayUpdated | Raised when a self-hosted gateway is deleted. |
-| Microsoft.ApiManagement.GatewayAPIAdded | Raised when an API is removed from a self-hosted gateway. |
+| Microsoft.ApiManagement.GatewayAPIAdded | Raised when an API is added to a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayAPIRemoved | Raised when an API is removed from a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayCertificateAuthorityCreated | Raised when a certificate authority is updated for a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayCertificateAuthorityDeleted | Raised when a certificate authority is deleted for a self-hosted gateway. |
@@ -43,12 +43,10 @@ API Management emits the following event types:
 | Microsoft.ApiManagement.GatewayHostnameConfigurationCreated | Raised when a hostname configuration is created for a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayHostnameConfigurationDeleted | Raised when a hostname configuration is deleted for a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayHostnameConfigurationUpdated | Raised when a hostname configuration is updated for a self-hosted gateway. |
-| Microsoft.ApiManagement.GatewayAPIAdded| Raised when an API is added to a self-hosted gateway. |
-| Microsoft.ApiManagement.GatewayAPIRemoved| Raised when an API is removed from a self-hosted gateway. |  
-| Microsoft.ApiManagement.GatewayTokenNearExpiry | Raised when a self-hosted gateway authentication token is near expiry. |
-| Microsoft.ApiManagement.GatewayTokenExpired | Raised when a self-hosted gateway authentication token is expired. |
-| Microsoft.ApiManagement.CircuitBreaker.Opened | Raised when a backend circuit breaker is opened. |
-| Microsoft.ApiManagement.CircuitBreaker.Closed | Raised when a backend circuit breaker is closed. |
+| Microsoft.ApiManagement.GatewayTokenNearExpiry (preview)| Raised when a self-hosted gateway authentication token is near expiry. |
+| Microsoft.ApiManagement.GatewayTokenExpired (preview) | Raised when a self-hosted gateway authentication token is expired. |
+| Microsoft.ApiManagement.CircuitBreaker.Opened (preview) | Raised when a backend circuit breaker is opened. |
+| Microsoft.ApiManagement.CircuitBreaker.Closed (preview)  | Raised when a backend circuit breaker is closed. |
 
 ## Example event
 
@@ -170,7 +168,7 @@ The following example shows the schema of an API updated event. The schema of ot
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example shows the schema of a circuit breaker opened event event. 
+The following example shows the schema of a circuit breaker opened event. 
 
 ```json
 {
@@ -196,7 +194,7 @@ The following example shows the schema of a circuit breaker opened event event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example shows the schema of a circuit breaker opened event event. The schema of a circuit breaker closed event is similar.
+The following example shows the schema of a circuit breaker opened event. The schema of a circuit breaker closed event is similar.
   
 ```json
 {
@@ -263,7 +261,7 @@ The following example shows the schema of a gateway token expired event.
       "instanceId": "{instance-name}"
     },
     "tokenInfo": {
-      "edAtUtc": "2025-02-25T08:56:00.0000000Z"
+      "expiredAtUtc": "2025-02-25T08:56:00.0000000Z"
     }
   },
   "eventType": "Microsoft.ApiManagement.GatewayTokenExpired",
@@ -312,9 +310,10 @@ An event has the following top-level data:
 
 ### Data object properties
 
-The `data` object has the following properties for control plane events such as creating, updating, and deleting API Management resources. 
 
 #### Control plane events
+
+The `data` object has the following properties for control plane events such as creating, updating, and deleting API Management resources. 
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
