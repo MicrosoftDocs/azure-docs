@@ -41,7 +41,7 @@ The **GuestConfiguration** module requires the following software:
   with the **GuestConfiguration** module, or you can follow [these instructions][03].
 
 
-### Install the module from the PowerShell Gallery
+### Install the GuestConfiguration module from the PowerShell Gallery
 
 To install the **GuestConfiguration** module on either Windows or Linux, run the following command
 in PowerShell 7.
@@ -56,6 +56,23 @@ Validate that the module has been imported:
 ```powershell
 # Get a list of commands for the imported GuestConfiguration module
 Get-Command -Module 'GuestConfiguration'
+```
+
+### Install the PSDesiredStateConfiguration module from the PowerShell Gallery
+
+To install the **PSDesiredStateConfiguration** module on either Windows or Linux, run the 
+following command in PowerSehll 7.
+
+```powershell
+# Install the module from the PowerShell Gallery
+Install-Module -Name PSDesiredStateConfiguration
+```
+
+Validate that the module has been imported:
+
+```powershell
+# Get a list of commands for the imported PSDesiredStateConfiguration module
+Get-Command -Module 'PSDesiredStateConfiguration'
 ```
 
 ## Next step
