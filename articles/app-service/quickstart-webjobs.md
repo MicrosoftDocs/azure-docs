@@ -12,25 +12,112 @@ zone_pivot_groups: app-service-webjobs
 
 # Quickstart: Create a scheduled WebJob
 
+:::zone target="docs" pivot="dotnet"
+
 WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
 
-:::zone target="docs" pivot="dotnet"
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-dotnetcore.md) is used.
+- An existing App Service [.NET 9 app](quickstart-dotnetcore.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
-## Download the sample WebJob
-dotnet
+## Create your sample WebJob
+
+1. In this step, you create a basic .NET WebJob project and navigate to the project root.
+
+```bash
+dotnet new console -n webjob –framework net9.0
+
+cd webjob
+```
+
+1. Next, replace `Program.cs` to the following code to write the current time to the console:
+
+```dotnet
+using System; 
+
+class Program 
+{ 
+    static void Main() 
+    { 
+        DateTimeOffset now = DateTimeOffset.Now; 
+        Console.WriteLine("Current time with is: " + now.ToString("hh:mm:ss tt zzz")); 
+    } 
+}
+```
+
+1. From the webjob directory, run the webjob to confirm the current time is output to the console:
+
+```bash
+dotnet run
+```
+
+You should see output similar to the following:
+
+```bash
+Current time with is: 07:53:07 PM -05:00
+```
+
+1. Once you've confirmed the app works, build it with the following command:
+
+```bash
+dotnet build --self-contained
+```
+
+
+1. Next we to create `run.sh` with the following code:
+
+```text 
+#!/bin/bash
+
+Dotnet webjob/bin/net9.0/webjob.dll 
+``` 
+
+1. Now we navigate to the parent folder and package all the files into a .zip as shown below:
+
+```bash
+cd ..
+zip webjob.zip run.sh webjob/bin/Debug/net9.0/*
+```
+
+## Create a scheduled WebJob in Azure
+
+1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
+
+1. From the left pane, select **WebJobs**, then select **Add**.
+
+    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
+
+1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
+
+    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
+
+   | Setting      | value   | Description  |
+   | ------------ | ----------------- | ------------ |
+   | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
+   | **File Upload** | webjob.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
+   | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
+   | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
+   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
+
+1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
+
+1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
+
+    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
+
 :::zone-end
 
 :::zone target="docs" pivot="python"
+
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-python.md) is used.
+- An existing App Service [Python app](quickstart-python.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -82,10 +169,13 @@ The file, `run.sh`, calls WebJob.py as shown below:
 :::zone-end
 
 :::zone target="docs" pivot="node"
+
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Python app](quickstart-node.md) is used.
+- An existing App Service [Node app](quickstart-node.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -93,9 +183,9 @@ The file, `run.sh`, calls WebJob.py as shown below:
 
 You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Node-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
 
-The Javascript, `webjob.js`, outputs the current time to the console as shown below:
+The JavaScript, `webjob.js`, outputs the current time to the console as shown below:
 
-```Javascript 
+```JavaScript 
 // Import the 'Date' object from JavaScript
 const currentTime = new Date();
 
@@ -141,10 +231,13 @@ node webjob.js
 :::zone-end
 
 :::zone target="docs" pivot="java"
+
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [Java app](quickstart-java.md) is used.
+- An existing App Service [Java app](quickstart-java.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -153,10 +246,13 @@ node webjob.js
 :::zone-end
 
 :::zone target="docs" pivot="php"
+
+WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service Python app on Linux.  In this quickstart, a [PHP app](quickstart-php.md) is used.
+- An existing App Service PHP app on Linux.  In this quickstart, a [PHP app](quickstart-php.md) is used.
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -224,8 +320,6 @@ Select the log for the WebJob you created earlier.
 The output should look similar to the following.
 
 :::image type="content" source="media/quickstart-webjobs/webjobs-log-output.png" alt-text="Screenshot that shows WebJobs log output.":::
-
-
 
 ## Clean up
 
