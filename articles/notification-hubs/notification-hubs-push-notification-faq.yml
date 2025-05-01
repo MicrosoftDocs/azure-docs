@@ -6,14 +6,11 @@ metadata:
   author: sethmanheim
   manager: lizross
   keywords: push notification, push notifications, iOS push notifications, android push notifications, ios push, android push
-
   ms.service: azure-notification-hubs
   ms.tgt_pltfrm: mobile-multiple
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 05/01/2025
   ms.author: sethm
-  ms.reviewer: heathertian
-  ms.lastreviewed: 11/13/2019
 title: "Push notifications with Azure Notification Hubs: Frequently asked questions"
 summary: |
 
