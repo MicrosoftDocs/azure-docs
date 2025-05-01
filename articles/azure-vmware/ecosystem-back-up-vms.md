@@ -17,7 +17,7 @@ Back up network traffic between Azure VMware Solution VMs and the backup reposit
 
 >[!NOTE]
 >**Support Guidance for 3P Backup and recovery solution customer(s):**
->For any issues related to 3P backup and Recovery solutions, customers must contact the respective partner's support team directly. AVS does not provide direct support for partner products. If advanced troubleshooting becomes necessary, the partner’s support team will engage AVS support as appropriate. We appreciate your understanding and recommend not opening a support request with Microsoft for partner solution-related matters.
+>For any issues related to 3 P backup and Recovery solutions, customers must contact the respective partner's support team directly. AVS does not provide direct support for partner products. If advanced troubleshooting becomes necessary, the partner’s support team engages AVS support as appropriate. We appreciate your understanding and recommend not opening a support request with Microsoft for partner solution-related matters.
 
 
 You can find more information on these backup solutions here:
