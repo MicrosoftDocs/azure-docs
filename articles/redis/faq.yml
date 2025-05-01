@@ -43,9 +43,9 @@ sections:
     questions:
       - question: Which Azure Cache for Redis services were deprecated?
         answer: |
-          - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+          - Managed Cache service - Managed Cache service was retired November 30, 2016.
             
-          - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+          - In-Role Cache - In-Role Cache was retired November 30, 2016.
                           
   - name: General questions
     questions:
