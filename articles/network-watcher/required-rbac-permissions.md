@@ -102,7 +102,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/connectivityCheck/action | Initiate a connection troubleshoot test |
+> | Microsoft.Network/networkWatchers/connectivityCheck/action, <br> Microsoft.Network/networkWatchers/connectivityCheck/read | Verify the possibility of establishing a direct TCP connection from a virtual machine to a given endpoint |
 > | Microsoft.Network/networkWatchers/queryTroubleshootResult/action | Query results of a connection troubleshoot test |
 > | Microsoft.Network/networkWatchers/troubleshoot/action | Run a connection troubleshoot test |
 
@@ -112,8 +112,8 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > | Action | Description |
 > | ---- | ---- |
 > | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | Query the status of a packet capture |
-> | Microsoft.Network/networkWatchers/packetCaptures/stop/action | Stop a packet capture |
-> | Microsoft.Network/networkWatchers/packetCaptures/read | Get a packet capture |
+> | Microsoft.Network/networkWatchers/packetCaptures/stop/action | Stop the running packet capture session |
+> | Microsoft.Network/networkWatchers/packetCaptures/read | Get a packet capture definition |
 > | Microsoft.Network/networkWatchers/packetCaptures/write | Create a packet capture |
 > | Microsoft.Network/networkWatchers/packetCaptures/delete | Delete a packet capture |
 > | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/read | View the status of a packet capture | 
@@ -123,7 +123,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/ipFlowVerify/action | Verify an IP flow |
+> | Microsoft.Network/networkWatchers/ipFlowVerify/action, <br> Microsoft.Network/networkWatchers/ipFlowVerify/read | Returns whether the packet is allowed or denied to or from a particular destination |
 
 ## Next hop
 
@@ -139,22 +139,21 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/securityGroupView/action | View security groups |
+> | Microsoft.Network/networkWatchers/securityGroupView/action | View the configured and effective network security group rules applied on a virtual machine |
 
 ## Topology
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/topology/action | Get topology |
-> | Microsoft.Network/networkWatchers/topology/read | Get topology |
+> | Microsoft.Network/networkWatchers/topology/action, <br> Microsoft.Network/networkWatchers/topology/read | Get a network level view of resources and their relationships in a resource group |
 
 ## Reachability report
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Get an Azure reachability report |
+> | Microsoft.Network/networkWatchers/azureReachabilityReport/action | Get the relative latency score for internet service providers from a specified location to Azure regions |
 
 ## Additional actions
 
