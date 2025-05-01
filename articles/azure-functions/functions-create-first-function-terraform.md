@@ -2,7 +2,7 @@
 title: 'Quickstart: Create and deploy Azure Functions resources from Terraform'
 description: In this quickstart article, you create a function app in a Flex Consumption plan, along with the resource group, storage account, and blob storage container required by the app.
 ms.topic: quickstart
-ms.date: 04/14/2025
+ms.date: 05/01/2025
 ms.custom: devx-track-terraform
 ms.service: azure-functions
 author: ggailey777
