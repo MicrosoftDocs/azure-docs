@@ -21,6 +21,8 @@ ms.custom: "b2c-support"
 
 # Define a one-time password technical profile in an Azure AD B2C custom policy
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory B2C (Azure AD B2C) provides support for managing the generation and verification of a one-time password. Use a technical profile to generate a code, and then verify that code later.
