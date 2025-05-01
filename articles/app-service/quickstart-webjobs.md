@@ -33,7 +33,7 @@ dotnet new console -n webjob –framework net9.0
 cd webjob
 ```
 
-1. Next, replace `Program.cs` to the following code to write the current time to the console:
+1. Next, replace `Program.cs` to the following code that writes the current time to the console:
 
 ```dotnet
 using System; 
@@ -60,12 +60,13 @@ You should see output similar to the following:
 Current time with is: 07:53:07 PM -05:00
 ```
 
-1. Once you've confirmed the app works, build it with the following command:
+1. Once you've confirmed the app works, build it and navigate to the parent directory:
 
 ```bash
 dotnet build --self-contained
-```
 
+cd ..
+```
 
 1. Next we to create `run.sh` with the following code:
 
@@ -174,7 +175,7 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service [Node app](quickstart-node.md).
+- An existing App Service [Node app](quickstart-nodejs.md).
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
@@ -240,7 +241,64 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 - **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
 - Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
 
-## Download the sample WebJob
+## Create your sample WebJob
+
+1. In this step, you create a basic .NET WebJob project and navigate to the project root.
+
+    ```bash
+    dotnet new console -n webjob –framework net9.0
+    
+    cd webjob
+    ```
+
+1. Next, replace `Program.cs` to the following code that writes the current time to the console:
+
+    ```dotnet
+    using System; 
+    
+    class Program 
+    { 
+        static void Main() 
+        { 
+            DateTimeOffset now = DateTimeOffset.Now; 
+            Console.WriteLine("Current time with is: " + now.ToString("hh:mm:ss tt zzz")); 
+        } 
+    }
+    ```
+
+1. From the *webjob* directory, run the webjob to confirm the current time is output to the console:
+
+    ```bash
+    dotnet run
+    ```
+
+You should see output similar to the following:
+
+    ```bash
+    Current time with is: 07:53:07 PM -05:00
+    ```
+
+1. Once you've confirmed the app works, build it and navigate to the parent directory:
+
+    ```bash
+    dotnet build --self-contained
+    
+    cd ..
+    ```
+
+1. Next we to create `run.sh` with the following code:
+
+    ```text 
+    #!/bin/bash
+    
+    dotnet webjob/bin/Debug/net9.0/webjob.dll 
+    ``` 
+
+1. Now package all the files into a .zip as shown below:
+
+    ```bash
+    zip webjob.zip run.sh webjob/bin/Debug/net9.0/*
+    ```
 
 :::zone-end
 
