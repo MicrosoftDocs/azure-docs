@@ -68,4 +68,8 @@ The Data Explorer and tiling APIs preferentially use the **Kerchunk manifest (`.
 
 Reading data using a chunked, reference-based approach is faster because it avoids reading the entire file into memory.
 
+## Related content
+
+- [Access STAC collection data cube assets with a collection-level SAS token](./get-collection-sas-token.md)
+
   

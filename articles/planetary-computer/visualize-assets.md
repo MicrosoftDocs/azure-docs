@@ -211,5 +211,7 @@ Before attempting to visualize your NetCDF dataset, you can use the following to
         print("✅ Dataset is compatible with the Planetary Computer tiler API.")
     ```
 
+## Related content
 
+- Learn other components of a render configuration: [Render configuration](./render-configuration.md)
  
