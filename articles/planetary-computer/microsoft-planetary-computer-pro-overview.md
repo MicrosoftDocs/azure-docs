@@ -1,5 +1,5 @@
 ---
-title: Microsoft Planetary Computer Pro: Features and Capabilities
+title: Microsoft Planetary Computer Pro Features and Capabilities
 description: This article provides an overview of Microsoft Planetary Computer Pro Azure Service.
 author: aloverro
 ms.author: adamloverro
