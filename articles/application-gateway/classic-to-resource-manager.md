@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Application gateway classic to Resource Manager migration
 
-This article describes benefits of the new Azure Resource Manager (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment.  For more information about deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](/azure/azure-resource-manager/management/deployment-models).
+This article describes benefits of the new Azure Resource Manager (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment.  For more information about deployment models, see [Azure Resource Manager vs. classic deployment](/azure/azure-resource-manager/management/deployment-models).
 
 > [!NOTE]
 > For information about retirement of the classic deployment model, see [Azure updates](https://azure.microsoft.com/updates?id=azure-classic-resource-providers-will-be-retired-on-31-august-2024).
@@ -66,20 +66,19 @@ Step 1: Install the old PowerShell version for managing legacy resources.
 > [!NOTE]
 > The cmdlets referenced in this documentation are for managing legacy Azure resources that use Azure Service Manager (ASM) APIs. This legacy PowerShell module isn't recommended for creating new resources since ASM is scheduled for retirement.
 
-Step 2: Run the following command to remove the application gateway.
- [Remove-AzureApplicationGateway](/powershell/module/servicemanagement/azure/remove-azureapplicationgateway)
+Step 2: Run the following command to remove the application gateway: [Remove-AzureApplicationGateway](/powershell/module/servicemanagement/azure/remove-azureapplicationgateway)
 
  ```
-#Login to account and set proper subscription
-  Add-AzureAccount
-  Get-AzureSubscription
-  Select-AzureSubscription -SubscriptionId <SubscriptionId> -Default
+# Sign in to account and set proper subscription
+Add-AzureAccount
+Get-AzureSubscription
+Select-AzureSubscription -SubscriptionId <SubscriptionId> -Default
  
-  # Get the list of application gateways in the subscription
-  Get-AzureApplicationGateway
+# Get the list of application gateways in the subscription
+Get-AzureApplicationGateway
  
-  #Remove the desired application gateway
-  Remove-AzureApplicationGateway -Name <NameofGateway>
+# Remove the desired application gateway
+Remove-AzureApplicationGateway -Name <NameofGateway>
 ```
 
 ### How do I report an issue?
@@ -87,6 +86,9 @@ Step 2: Run the following command to remove the application gateway.
 Post your issues and questions about migration to our [Microsoft Q&A page](/answers/topics/azure-virtual-network.html). We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## Next steps
-To get started, see: [platform-supported migration of IaaS resources from classic to Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-ps)
+
+To get started, see [Platform-supported migration of IaaS resources from classic to Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-ps)
+
+Also see [Prepare for Azure classic administrator roles retirement](azure/cost-management-billing/manage/classic-administrator-retire?source=recommendations) and [Azure classic subscription administrators](/azure/role-based-access-control/classic-administrators?source=recommendations&tabs=azure-portal).
 
 For any concerns around migration, you can contact Azure Support. Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
