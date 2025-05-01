@@ -64,102 +64,102 @@
       href: understand-admin-vm.md
     - name: Understand Domain Name Service
       href: understand-domain-name-service.md
-  - name: Tutorials
-    items:
-    - name: Tutorial 1 Create a community
-      href: 1-create-community.md
-    - name: Tutorial 2 Create enclaves inside a community
-      href: 2-create-enclaves-inside-community.md
-    - name: Tutorial 3 Create workloads inside an enclave
-      href: 3-create-workloads-inside-enclave.md
-    - name: Tutorial 4 Use the service catalog to create Azure resources inside a workload
-      href: 4-use-service-catalog-create-azure-resources-workloads.md
-    - name: Tutorial 5 Create an enclave endpoint and connection
-      href: 5-create-enclave-endpoint-connections.md
-    - name: Tutorial 6 Monitor your enclaves
-      href: 6-monitor-your-enclaves.md
-    - name: Tutorial 7 Host a publicly accessible application in a virtual enclave
-      href: 7-host-publicly-accessible-application-virtual-enclave.md
-    - name: Tutorial 8 Migrate workload resources
-      href: 8-migrate-workload-resources.md
-  - name: Governance, Security, and Compliance
-    items:
-    - name: Just-in-time Access
-      href: just-in-time-access.md
+- name: Tutorials
+  items:
+  - name: Tutorial 1 Create a community
+    href: 1-create-community.md
+  - name: Tutorial 2 Create enclaves inside a community
+    href: 2-create-enclaves-inside-community.md
+  - name: Tutorial 3 Create workloads inside an enclave
+    href: 3-create-workloads-inside-enclave.md
+  - name: Tutorial 4 Use the service catalog to create Azure resources inside a workload
+    href: 4-use-service-catalog-create-azure-resources-workloads.md
+  - name: Tutorial 5 Create an enclave endpoint and connection
+    href: 5-create-enclave-endpoint-connections.md
+  - name: Tutorial 6 Monitor your enclaves
+    href: 6-monitor-your-enclaves.md
+  - name: Tutorial 7 Host a publicly accessible application in a virtual enclave
+    href: 7-host-publicly-accessible-application-virtual-enclave.md
+  - name: Tutorial 8 Migrate workload resources
+    href: 8-migrate-workload-resources.md
+- name: Governance, Security, and Compliance
+  items:
+  - name: Just-in-time Access
+    href: just-in-time-access.md
 #     - name: Dynamic Access Controls
 #       href: dynamic-access-controls.md
 #     - name: Attribute-Based Access Controls
 #       href: attribute-based-access-controls.md
-    - name: Access Controls in enclaves
-      href: access-controls-enclaves.md
-    - name: Create a User Managed Identity
-      href: create-user-managed-identity.md
-    # - name: Use Managed Identity
-    #   href: use-managed-identity.md
-    - name: Policy compliance exemptions
-      href: policy-compliance-exemptions.md
-    - name: Configure Customer Managed Key Encryption
-      href: configure-customer-managed-key-encryption-within-enclave.md
-    - name: Install BannerApp for RemoteApps
-      href: install-bannerapp-remoteapps.md
+  - name: Access Controls in enclaves
+    href: access-controls-enclaves.md
+  - name: Create a User Managed Identity
+    href: create-user-managed-identity.md
+  # - name: Use Managed Identity
+  #   href: use-managed-identity.md
+  - name: Policy compliance exemptions
+    href: policy-compliance-exemptions.md
+  - name: Configure Customer Managed Key Encryption
+    href: configure-customer-managed-key-encryption-within-enclave.md
+  - name: Install BannerApp for RemoteApps
+    href: install-bannerapp-remoteapps.md
 #     - name: Regulatory compliance guidelines
 #       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
 #       href: security-best-practices.md
-    - name: Configure community governance
-      href: configure-community-governance.md
-  - name: Azure service catalog
-    items:
-    - name: List of Service Catalog Templates
-      href: list-service-catalog-templates.md
-    - name: Deploy an Admin VM from the Service Catalog
-      href: deploy-admin-vm-service-catalog.md
-    - name: Deploy Azure App Service from the Service Catalog
-      href: deploy-app-service-web-app-service-catalog.md
-    - name: Deploy Azure Container Registry from the Service Catalog
-      href: deploy-azure-container-registry-service-catalog.md
-    - name: Deploy Azure Cosmos DB from the Service Catalog
-      href: deploy-azure-cosmos-db-service-catalog.md
-    - name: Deploy Common Dependencies from the Service Catalog
-      href: deploy-common-dependencies-service-catalog.md
-    - name: Deploy Function App from the Service Catalog
-      href: deploy-app-service-function-app-service-catalog.md
-    - name: Deploy Key Vault from the Service Catalog
-      href: deploy-key-vault-service-catalog.md
-    - name: Deploy Azure SQL from the Service Catalog
-      href: deploy-azure-sql-service-catalog.md
-    - name: Deploy Azure Kubernetes Service from the Service Catalog
-      href: deploy-azure-kubernetes-service-service-catalog.md
-    - name: Deploy RemoteApp Virtual Machine from the Service Catalog
-      href: deploy-remoteapp-vm-service-catalog.md
-    - name: Deploy Azure Service Bus from the Service Catalog
-      href: deploy-service-bus-service-catalog.md
-    - name: Deploy a Storage Account from the Service Catalog
-      href: deploy-storage-account-service-catalog.md
-    - name: Deploy Service Catalog Template from Azure CLI
-      href: deploy-template-service-catalog-azure-cli.md
-  - name: Manage and Monitor
-    items:
+  - name: Configure community governance
+    href: configure-community-governance.md
+- name: Azure service catalog
+  items:
+  - name: List of Service Catalog Templates
+    href: list-service-catalog-templates.md
+  - name: Deploy an Admin VM from the Service Catalog
+    href: deploy-admin-vm-service-catalog.md
+  - name: Deploy Azure App Service from the Service Catalog
+    href: deploy-app-service-web-app-service-catalog.md
+  - name: Deploy Azure Container Registry from the Service Catalog
+    href: deploy-azure-container-registry-service-catalog.md
+  - name: Deploy Azure Cosmos DB from the Service Catalog
+    href: deploy-azure-cosmos-db-service-catalog.md
+  - name: Deploy Common Dependencies from the Service Catalog
+    href: deploy-common-dependencies-service-catalog.md
+  - name: Deploy Function App from the Service Catalog
+    href: deploy-app-service-function-app-service-catalog.md
+  - name: Deploy Key Vault from the Service Catalog
+    href: deploy-key-vault-service-catalog.md
+  - name: Deploy Azure SQL from the Service Catalog
+    href: deploy-azure-sql-service-catalog.md
+  - name: Deploy Azure Kubernetes Service from the Service Catalog
+    href: deploy-azure-kubernetes-service-service-catalog.md
+  - name: Deploy RemoteApp Virtual Machine from the Service Catalog
+    href: deploy-remoteapp-vm-service-catalog.md
+  - name: Deploy Azure Service Bus from the Service Catalog
+    href: deploy-service-bus-service-catalog.md
+  - name: Deploy a Storage Account from the Service Catalog
+    href: deploy-storage-account-service-catalog.md
+  - name: Deploy Service Catalog Template from Azure CLI
+    href: deploy-template-service-catalog-azure-cli.md
+- name: Manage and Monitor
+  items:
 #     - name: Monitor your enclaves
 #       href: monitor-your-enclaves.md
-    - name: Maintenance mode
-      href: maintenance-mode.md
-    # - name: IP Allocation Management
-    #   href: ip-allocation-management.md
-    - name: Naming rules and restrictions
-      href: name-rules-restrictions-azure-virtual-enclave-resources.md
-    # - name: Manage Key Vault SKUs
-    #   href: upgrade-enclave-key-vault-sku.md
-    - name: Move data inside an enclave
-      href: move-data-inside-enclave.md
-  - name: Troubleshoot
-    items:
-    - name: Troubleshoot guide
-      href: troubleshoot.md
-    - name: Policy compliance exemptions
-      href: policy-compliance-exemptions.md
-    - name: Migrate Azure Resources into Azure Virtual Enclaves
-      href: migrate-azure-resources-azure-virtual-enclaves.md
+  - name: Maintenance mode
+    href: maintenance-mode.md
+  # - name: IP Allocation Management
+  #   href: ip-allocation-management.md
+  - name: Naming rules and restrictions
+    href: name-rules-restrictions-azure-virtual-enclave-resources.md
+  # - name: Manage Key Vault SKUs
+  #   href: upgrade-enclave-key-vault-sku.md
+  - name: Move data inside an enclave
+    href: move-data-inside-enclave.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshoot guide
+    href: troubleshoot.md
+  - name: Policy compliance exemptions
+    href: policy-compliance-exemptions.md
+  - name: Migrate Azure Resources into Azure Virtual Enclaves
+    href: migrate-azure-resources-azure-virtual-enclaves.md
 #     - name: Connectivity troubleshooting
 #       href: connectivity-troubleshooting.md
 #     - name: Firewall and security troubleshooting
