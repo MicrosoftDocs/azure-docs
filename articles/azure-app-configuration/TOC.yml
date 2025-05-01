@@ -281,7 +281,11 @@
   - name: REST API
     items:
     - name: Control plane
-      href: /rest/api/appconfiguration/
+      items:
+      - name: Overview
+        href: /rest/api/appconfiguration/
+      - name: API Lifecycle
+        href: concept-preview-api-lifecycle.md
     - name: Data plane
       items:
       - name: Overview
