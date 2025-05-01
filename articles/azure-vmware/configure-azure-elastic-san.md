@@ -69,6 +69,11 @@ Fill out the values in the menu that pops up, select the virtual network that ha
 
 :::image type="content" source="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png":::
 
+> [!NOTE]
+> Using Private Endpoints provides the highest network security. However, since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
+> These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection will be re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
+
+
 ## Configure external storage address block
 
 Start by providing an IP block for deploying external storage. Navigate to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
@@ -79,14 +84,6 @@ Start by providing an IP block for deploying external storage. Navigate to the *
 - The address block must fall within the following allowed network blocks: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. If you want to use a non-RFC 1918 address block, submit a support request. 
 - The address block can't overlap any of the following restricted network blocks: 100.72.0.0/15 
 - The address block provided is used to enable multipathing from the ESXi hosts to the target, it can’t be edited or changed. If you do need to change it, submit a support request.
-
-## Connect Elastic SAN
-
-After you provide an External storage address block, connect your private cloud express route with the private endpoints you set up for your Elastic SAN volume groups. To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
-
-> [!NOTE]
-> Connection to Elastic SAN from Azure VMware Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
-> These connectivity issues aren't expected to impact the availability of the datastore backed by Elastic SAN as the connection will be re-established within seconds. The potential impact from gateway maintenance is covered under the [Service Level Agreement](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) for ExpressRoute virtual network gateways and private endpoints.
 
 ## Add an Elastic SAN volume as a datastore
 
