@@ -16,11 +16,14 @@ Our backup partners have industry-leading backup and restore solutions in VMware
 Back up network traffic between Azure VMware Solution VMs and the backup repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
 >[!NOTE]
->For common questions, see [our third-party backup solution FAQ](./faq.yml).
+>**Support Guidance for 3P Backup and recovery solution customer(s):**
+>For any issues related to 3P backup and Recovery solutions, customers must contact the respective partner's support team directly. AVS does not provide direct support for partner products. If advanced troubleshooting becomes necessary, the partner’s support team will engage AVS support as appropriate. We appreciate your understanding and recommend not opening a support request with Microsoft for partner solution-related matters.
+
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
 - [Commvault](https://documentation.commvault.com/v11/essential/azure_vmware_solution.html)
+- [Dell PPDM](https://www.dell.com/support/manuals/en-us/enterprise-copy-data-management/pp-dm_19.11_virtual_machines_ug/unsupported-operations?guid=guid-c4e1cb60-931b-4583-a44a-27da48fda899&lang=en-us/)
 - [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
 - [Veeam](https://www.veeam.com/kb4012)
 - [Veritas](https://vrt.as/nb4avs)
