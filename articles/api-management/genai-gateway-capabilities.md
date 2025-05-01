@@ -107,7 +107,7 @@ In API Management, enable semantic caching by using Azure Redis Enterprise, Azur
 
 ## Content safety policy
 
-To help safeguard users from harmful, offensive, or misleading content, you can automatically moderate all incoming requests to an LLM API by configuring the [llm-content-safety](llm-content-safety-policy.md) policy. The policy enforces content safety checks on LLM prompts by transmitting them first to the [Azure AI Content Safety](azure/ai-services/content-safety/overview) service before sending to the backend LLM API. 
+To help safeguard users from harmful, offensive, or misleading content, you can automatically moderate all incoming requests to an LLM API by configuring the [llm-content-safety](llm-content-safety-policy.md) policy. The policy enforces content safety checks on LLM prompts by transmitting them first to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service before sending to the backend LLM API. 
 
 :::image type="content" source="media/genai-gateway-capabilities/content-safety.png" alt-text="Diagram of moderating prompts by Azure AI Content Safety in an API Management policy.":::
 
