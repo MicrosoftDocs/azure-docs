@@ -6875,9 +6875,14 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
+         "source_path": "articles/storage/files/storage-files-enable-soft-delete.md",
       "redirect_url": "/azure/storage/files/storage-files-prevent-file-share-deletion",
       "redirect_document_id": false
+     },
+     {
+      "source_path": "articles/defender-for-iot/organizations/release-notes-archive.md",
+      "redirect_url": "/azure/defender-for-iot/organizations/release-notes-ot-monitoring-sensor-archive",
+       "redirect_document_id": false
     }
   ]
 }
