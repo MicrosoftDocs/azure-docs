@@ -1,6 +1,6 @@
 ---
-title: 'Create a scheduled Python WebJob'
-description: WebJobs on App Service enable you to automate repetitive tasks on your app. Learn how to create scheduled WebJobs in Azure App Service.
+title: 'Create a scheduled WebJob using a prebuilt script'
+description: Quickly schedule a time-based WebJob in Azure App Service using a prebuilt script for Windows or Linux.
 ms.topic: quickstart
 ms.date: 4/24/2025
 author: msangapu-msft
@@ -18,7 +18,7 @@ WebJobs in Azure App Service let you run scripts or programs as background tasks
 - An Azure account. [Create one for free](https://azure.microsoft.com/free/).
 - An existing App Service app running on your preferred OS:
   - Windows App Service (any stack: code or container)
-  - Linux App Service (any stack: code or container))
+  - Linux App Service (any stack: code or container)
 - Enable **Always On** in the App Service settings: [Configure Always On](configure-common.md?tabs=portal#configure-general-settings)
 - For Windows containers and all Linux apps, set the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT = false`
 

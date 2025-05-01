@@ -1,5 +1,5 @@
 ---
-title: 'Create a scheduled WebJob'
+title: 'Create a custom scheduled WebJob'
 description: WebJobs on App Service enable you to automate repetitive tasks on your app. Learn how to create scheduled WebJobs in Azure App Service.
 ms.topic: tutorial
 ms.date: 5/1/2025
@@ -127,19 +127,19 @@ You can [download a pre-built sample project](https://github.com/Azure-Samples/A
 
 The Python script, `webjob.py`, outputs the current time to the console as shown below:
 
-    ```Python 
-    import datetime 
-    
-    current_datetime = datetime.datetime.now() 
-    print(current_datetime) # Output: 2025-03-27 10:27:21.240752 
-    ``` 
+```Python 
+import datetime 
+
+current_datetime = datetime.datetime.now() 
+print(current_datetime) # Output: 2025-03-27 10:27:21.240752 
+``` 
 
 The file, `run.sh`, calls WebJob.py as shown below:
 
-    ```Bash
-    #!/bin/bash
-    /opt/python/3/bin/python3.13 webjob.py
-    ``` 
+```Bash
+#!/bin/bash
+/opt/python/3/bin/python3.13 webjob.py
+``` 
 
 ## Create a scheduled WebJob
 
@@ -185,24 +185,24 @@ You can [download a pre-built sample project](https://github.com/Azure-Samples/A
 
 The JavaScript, `webjob.js`, outputs the current time to the console as shown below:
 
-    ```JavaScript 
-    // Import the 'Date' object from JavaScript
-    const currentTime = new Date();
-    
-    // Format the time as a string
-    const formattedTime = currentTime.toLocaleTimeString();
-    
-    // Output the formatted time to the console
-    console.log(`Current system time is: ${formattedTime}`);
-    ``` 
+```JavaScript 
+// Import the 'Date' object from JavaScript
+const currentTime = new Date();
+
+// Format the time as a string
+const formattedTime = currentTime.toLocaleTimeString();
+
+// Output the formatted time to the console
+console.log(`Current system time is: ${formattedTime}`);
+``` 
 
 The file, `run.sh`, calls webjob.js as shown below:
 
-    ```Bash
-    #!/bin/bash
-    
-    node webjob.js
-    ``` 
+```Bash
+#!/bin/bash
+
+node webjob.js
+``` 
 
 ## Create a scheduled WebJob
 
@@ -251,42 +251,42 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 
 The Java project located at `project/src/main/java/webjob/HelloWorld.java` outputs a message & the current time to the console.  
 
-    ```Java 
-    import java.time.LocalDateTime; 
-    
-    public class HelloWorld { 
-    
-        public static void main(String[] args) { 
-    
-            System.out.println("------------------------------------------------------------"); 
-            System.out.println("Hello World from WebJob: " + LocalDateTime.now()); 
-            System.out.println("------------------------------------------------------------"); 
-        } 
+```Java 
+import java.time.LocalDateTime; 
+
+public class HelloWorld { 
+
+    public static void main(String[] args) { 
+
+        System.out.println("------------------------------------------------------------"); 
+        System.out.println("Hello World from WebJob: " + LocalDateTime.now()); 
+        System.out.println("------------------------------------------------------------"); 
     } 
-    ``` 
+} 
+``` 
 
 ### Build the Java WebJob
 
 1. The `run.sh` script runs a jar with the name that set in the Maven configuration. This script will run when our WebJob is triggered.
 
-    ```bash 
-    java -jar webjob-artifact-1.0.0.jar 
-    ``` 
+```bash 
+java -jar webjob-artifact-1.0.0.jar 
+``` 
 
 1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:  
 
-    ```bash 
-    mvn install 
-    mvn package 
-    ``` 
+```bash 
+mvn install 
+mvn package 
+``` 
 
     The jar files will be located at `project/target/webjob-artifact-1.0.0.jar` after a successful build.  
 
 1. Move the jar file to the root of the git repo with `mv project/target/webjob-artifact-1.0.0.jar .` Next you package our application as a `.zip` file. 
 
-    ```bash 
-    zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
-    ``` 
+```bash 
+zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
+``` 
 
 ## Create a scheduled WebJob on Azure
 
@@ -333,23 +333,23 @@ You can [download a pre-built sample project](https://github.com/Azure-Samples/A
 
 The PHP script, `webjob.php`, outputs the current time to the console as shown below:
 
-    ```PHP 
-    <?php
-    // Get the current time
-    $current_time = date("Y-m-d H:i:s");
-    
-    // Display the current time
-    echo "The current time is: " . $current_time;
-    ?>
-    ``` 
+```PHP 
+<?php
+// Get the current time
+$current_time = date("Y-m-d H:i:s");
+
+// Display the current time
+echo "The current time is: " . $current_time;
+?>
+``` 
 
 The file, `run.sh`, calls webjob.php as shown below:
 
-    ```Bash
-    #!/bin/bash
-    
-    php -f webjob.php
-    ``` 
+```Bash
+#!/bin/bash
+
+php -f webjob.php
+``` 
 
 ## Create a scheduled WebJob
 
