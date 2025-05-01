@@ -25,7 +25,7 @@ This tutorial is a prerequisite to the subsequent Objective C and Swift iOS tuto
 
 To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
-You'll also need the following:
+You also need the following:
 
 - An active [Apple Developer](https://developer.apple.com/) account.
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532), along with a valid developer certificate installed into your Keychain.
@@ -67,7 +67,7 @@ Next, register your app with Apple, enable push notifications, and upload the ex
 To send push notifications to an iOS app, register your application with
 Apple, and also register for push notifications.
 
-1. If you haven't already registered your app, browse to the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center. Sign in to the portal with your Apple ID, and select **Identifiers**. Then select **+** to register a new app.
+1. If you didn't register your app yet, browse to the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center. Sign in to the portal with your Apple ID, and select **Identifiers**. Then select **+** to register a new app.
 
    :::image type="content" source="media/ios-sdk-get-started/image4.png" alt-text="App IDs page":::
 
@@ -103,7 +103,7 @@ A certificate is required to enable the notification hub to work with **APNS**.
 
 - Create a **.p8** file that can be used for [token-based authentication](notification-hubs-push-notification-http2-token-authentication.md) (the newer approach).
 
-The second option has a number of benefits compared to using certificates, as documented in [Token-based (HTTP/2) authentication for APNS](notification-hubs-push-notification-http2-token-authentication.md). However, steps are provided for both approaches.
+The second option has many benefits compared to using certificates, as documented in [Token-based (HTTP/2) authentication for APNS](notification-hubs-push-notification-http2-token-authentication.md). However, steps are provided for both approaches.
 
 ### Option 1: Create a .p12 push certificate that can be uploaded directly to Notification Hubs
 
@@ -155,7 +155,7 @@ The second option has a number of benefits compared to using certificates, as do
    > [!IMPORTANT]
    > Be sure to keep your .p8 file in a secure place (and save a backup). After downloading your key, it cannot be re-downloaded; the server copy is removed.
 
-1. On **Keys**, click on the key that you just created (or an existing key if you have chosen to use that instead).
+1. On **Keys**, click on the key that you just created (or an existing key if you chose to use that instead).
 
 1. Make note of the **Key ID** value.
 
@@ -167,7 +167,7 @@ The second option has a number of benefits compared to using certificates, as do
    -----END PRIVATE KEY-----
    ```
 
-   This is the token value that will be used later to configure Notification Hubs.
+   This is the token value that's used later to configure Notification Hubs.
 
 At the end of these steps you should have the following information for
 use later in [Configure your notification hub with APNS information](#configure-the-notification-hub-with-apns-information):
@@ -214,7 +214,7 @@ use later in [Configure your notification hub with APNS information](#configure
 
 ## Create a notification hub
 
-In this section, you create a notification hub and configure authentication with APNS by using either the .p12 push certificate or token-based authentication. If you want to use a notification hub that you've already created, you can skip to step 5.
+In this section, you create a notification hub and configure authentication with APNS by using either the .p12 push certificate or token-based authentication. If you want to use a notification hub that you already created, you can skip to step 5.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -240,7 +240,7 @@ In this section, you create a notification hub and configure authentication with
 
    :::image type="content" source="media/ios-sdk-get-started/image21.png" alt-text="Portal notifications":::
 
-1. Select **Access Policies** from the list. Note that the two connection strings are available to you. You'll need them later to handle push notifications.
+1. Select **Access Policies** from the list. Note that the two connection strings are available to you. You need them later to handle push notifications.
 
    > [!IMPORTANT]
    > Do not use the **DefaultFullSharedAccessSignature** policy in your application. This is meant to be used in your back end only.
