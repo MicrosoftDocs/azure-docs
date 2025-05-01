@@ -48,7 +48,7 @@ class Program
 }
 ```
 
-1. From the webjob directory, run the webjob to confirm the current time is output to the console:
+1. From the *webjob* directory, run the webjob to confirm the current time is output to the console:
 
 ```bash
 dotnet run
@@ -72,13 +72,12 @@ dotnet build --self-contained
 ```text 
 #!/bin/bash
 
-Dotnet webjob/bin/net9.0/webjob.dll 
+dotnet webjob/bin/Debug/net9.0/webjob.dll 
 ``` 
 
-1. Now we navigate to the parent folder and package all the files into a .zip as shown below:
+1. Now package all the files into a .zip as shown below:
 
 ```bash
-cd ..
 zip webjob.zip run.sh webjob/bin/Debug/net9.0/*
 ```
 
