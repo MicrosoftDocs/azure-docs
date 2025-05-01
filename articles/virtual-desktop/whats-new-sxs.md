@@ -1,7 +1,7 @@
 ---
 title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
-author: sipastak
+author: ErikjeMS
 ms.topic: release-notes
 ms.date: 03/18/2025
 ms.author: avdcontent

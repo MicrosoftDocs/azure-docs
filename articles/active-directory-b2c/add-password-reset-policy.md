@@ -16,6 +16,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up a password reset flow in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 In a [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md), a user can reset their own password by using the **Forgot your password?** link. This self-service password reset flow applies to local accounts in Azure Active Directory B2C (Azure AD B2C) that use an [email address](sign-in-options.md#email-sign-in) or a [username](sign-in-options.md#username-sign-in) with a password for sign-in.
