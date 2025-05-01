@@ -11,7 +11,7 @@ ms.reviewer: glenga
 
 # Quickstart: Create a scheduled WebJob
 
-WebJobs in Azure App Service let you run scripts or programs as background tasks. In this quickstart, you’ll create a scheduled WebJob that prints the current time, using a prebuilt script for either Windows or Linux.
+WebJobs in Azure App Service let you run scripts or programs as background tasks. In this quickstart, you create a scheduled WebJob that prints the current time, using a prebuilt script for either Windows or Linux.
 
 ## Prerequisites
 
@@ -49,7 +49,7 @@ Each zip contains a single script that prints the current system date and time.
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-4. Click **OK** to create the WebJob.
+4. Select **OK** to create the WebJob.
 
 ## Step 3: Monitor WebJob logs
 
