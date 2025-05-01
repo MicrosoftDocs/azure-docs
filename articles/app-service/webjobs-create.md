@@ -26,7 +26,7 @@ Azure Functions provides another way to run programs and scripts. For a comparis
 
 ## WebJob types
 
-[!INCLUDE [webjob-types](./includes/webjobs-create/quickstart-php-windows-pivot.md)]
+[!INCLUDE [webjob-types](./includes/webjobs-create/webjob-types.md)]
 
 ### Continuous vs. triggered WebJobs
 
