@@ -14,9 +14,11 @@ ms.service: azure-communication-services
 
 # Managed applications
 
-This article describes how you can use Azure managed applications to offer cloud solutions that are easy for customers to deploy and operate. 
+This article describes how you can use Azure managed applications to offer cloud solutions that are easy for customers to deploy and operate.
 
-Azure managed applications enable you to build and manage complete solutions in Azure. It enables you to offer cloud solutions that are easy for customers to deploy and operate.  
+Customers also control the permissions that enable full access to resources in the managed resource group. Customers can make sure that all end users are using approved versions, compliant with organizational standards. Your customers don't need to develop application-specific domain knowledge to manage these applications. Your customers automatically acquire application updates without the need to worry about troubleshooting and diagnose issues with the applications.
+
+Azure managed applications enable you to build and manage complete solutions in Azure. Managed applications enable you to offer cloud solutions that are easy for customers to deploy and operate.  
 
 You implement the infrastructure and can provide ongoing support. You determine if your managed application is public or private:
 
@@ -29,13 +31,11 @@ Managed applications enable you to define terms for managing the application and
 
 :::image type="content" source="../../azure-resource-manager/managed-applications/media/overview/managed-apps-resource-group.png" alt-text="Diagram that shows the relationship between customer and publisher Azure subscriptions for a managed resource group.":::
 
-You also control permissions that enable full access to resources in the managed resource group. You can make sure that all customers are using approved versions, compliant with organizational standards. Your customers don't need to develop application-specific domain knowledge to manage these applications. Your customers automatically acquire application updates without the need to worry about troubleshooting and diagnose issues with the applications.
-
 ## How to implement
 
 To publish a managed application to your service catalog, you need to:
 
-1. Create an Azure ARM template that defines the Azure resources you want to deploy with the managed application. Every managed application includes a `mainTemplate.json` file. **???Can they rename this file???**
+1. Create an Azure ARM template that defines the Azure resources you want to deploy with the managed application. Every managed application includes a `mainTemplate.json` file.
 2. Define the nested ARM templates as needed in their own JSON files in a subfolder, to be included in the `mainTemplate.json` file.
 3. Create the portal experience to for the managed application. Use the `createUiDefinition.json` file to generate the portal user interface. Define the portal user interface elements for that customers see when deploying the managed application.
 4. Create a `.zip` package that contains the required JSON files. The `.zip` package file has a 120-MB limit for a service catalog's managed application definition.
