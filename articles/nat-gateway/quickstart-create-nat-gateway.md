@@ -12,7 +12,7 @@ ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
 
 # Quickstart: Create a NAT gateway
 
-In this quickstart, learn how to create a NAT gateway by using the Azure portal, Azure CLI, PowerShell, and ARM template and Terraform. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
+In this quickstart, learn how to create a NAT gateway by using the Azure portal, Azure CLI, PowerShell, Bicep, ARM template and Terraform. The NAT Gateway service provides outbound connectivity for virtual machines in Azure.
 
 :::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
@@ -377,7 +377,7 @@ Nine Azure resources are defined in the template:
 
 ## Deploy the template
 
-**Portal**
+### Portal
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-1-vm%2Fazuredeploy.json":::
 
@@ -393,7 +393,7 @@ Nine Azure resources are defined in the template:
 
     ![Virtual Network NAT resource group](./media/quick-create-template/nat-gateway-template-rg.png)
 
-**PowerShell**
+### PowerShell
 
 ```azurepowershell-interactive
 $location = Read-Host -Prompt "Enter the location (i.e. westcentralus)"
@@ -405,7 +405,7 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 ```
 
-**Azure CLI**
+### Azure CLI
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
@@ -465,14 +465,14 @@ Nine Azure resources are defined in the Bicep file:
 
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    **CLI**
+    ### Azure CLI
 
     ```azurecli
     az group create --name exampleRG --location eastus
     az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminusername=<admin-name>
     ```
 
-    **PowerShell**
+    ### PowerShell
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
@@ -490,13 +490,13 @@ Nine Azure resources are defined in the Bicep file:
 
 Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
 
-**CLI**
+### Azure CLI
 
 ```azurecli-interactive
 az resource list --resource-group exampleRG
 ```
 
-**PowerShell**
+### PowerShell
 
 ```azurepowershell-interactive
 Get-AzResource -ResourceGroupName exampleRG
@@ -559,7 +559,7 @@ As with the public key, the names of the created resource group, virtual network
 
 ## Verify the results
 
-**Azure CLI**
+### Azure CLI
 
 1. Get the Azure resource group name.
 
@@ -581,7 +581,7 @@ az network nat gateway show \
     --ids $nat_gateway
 ```
 
-**PowerShell**
+### PowerShell
 
 1. Get the Azure resource group name.
 
