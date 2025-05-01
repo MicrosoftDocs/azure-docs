@@ -8,6 +8,8 @@ items:
 - name: Partner services documentation
   expanded: true
   items:
+  - name: Arize AI
+    href: ./arize-ai/index.yml
   - name: Astro
     href: ./astronomer/index.yml
   - name: Confluent
