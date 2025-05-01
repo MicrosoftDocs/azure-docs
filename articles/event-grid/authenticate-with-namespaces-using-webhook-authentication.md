@@ -106,6 +106,8 @@ In this step, you configure custom webhook authentication settings on your Event
     1. For **Token audience URI**, enter the value of Microsoft Entra application ID or URI to get the access token that will be included as the bearer token in delivery requests. 
     1. For **Microsoft Entra tenant ID**, enter the value of Microsoft Entra tenant ID used to acquire the bearer token for authenticated webhook delivery. 
     1. Select **Apply**. 
+    
+        :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/configure-webhook-authentication.png" alt-text="Screenshot that shows the configuration of webhook authentication for an Event Grid namespace." lightbox="./media/authenticate-with-namespaces-using-webhook-authentication/configure-webhook-authentication.png":::
 
 ### Use Azure CLI 
 
