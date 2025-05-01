@@ -111,30 +111,30 @@ In this step, you configure custom webhook authentication settings on your Event
 
 Use the following command to update your namespace with the custom webhook authentication configuration. 
 
-    ```azurecli    
-    az eventgrid namespace update \ 
-        --resource-group <resource-group-name> \ 
-        --name <namespace-name> \ 
-        --api-version 2025-04-01-preview \ 
-       --identity-type UserAssigned \ 
-       --identity-user-assigned-identities "/subscriptions/XXXXXXXXXXX/resourcegroups/XXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/XXXXXXXXXXX={}" \ 
-      --set properties.isZoneRedundant=true \ 
-            properties.topicSpacesConfiguration.state=Enabled \ 
-            properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.identity.type=UserAssigned \ 
-            properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.identity.userAssignedIdentity="/subscriptions/XXXXXXXXXXX/resourcegroups/XXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/XXXXXXXXXXX" \ 
-            properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.endpointUrl="https://XXXXXXXXXXX" \ 
-            properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.azureActiveDirectoryApplicationIdOrUri="api://XXXXXXXXXXX/.default" \ 
-            properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.azureActiveDirectoryTenantId="XXXXXXXXXXX" 
-     ```
-    
-    Replace <NAMESPACE_NAME> and <RESOURCE_GROUP_NAME> with your actual values, and fill in the placeholders in the subscription/resource group/identity/app ID/URL/tenant ID. To enhance the performance and reliability of webhook-based authentication for Azure Event Grid MQTT Broker, we strongly recommend enabling HTTP/2 support for your webhook endpoint. 
+```azurecli    
+az eventgrid namespace update \ 
+    --resource-group <resource-group-name> \ 
+    --name <namespace-name> \ 
+    --api-version 2025-04-01-preview \ 
+    --identity-type UserAssigned \ 
+    --identity-user-assigned-identities "/subscriptions/XXXXXXXXXXX/resourcegroups/XXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/XXXXXXXXXXX={}" \ 
+    --set properties.isZoneRedundant=true \ 
+        properties.topicSpacesConfiguration.state=Enabled \ 
+        properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.identity.type=UserAssigned \ 
+        properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.identity.userAssignedIdentity="/subscriptions/XXXXXXXXXXX/resourcegroups/XXXXXXXXXXX/providers/Microsoft.ManagedIdentity/userAssignedIdentities/XXXXXXXXXXX" \ 
+        properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.endpointUrl="https://XXXXXXXXXXX" \ 
+        properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.azureActiveDirectoryApplicationIdOrUri="api://XXXXXXXXXXX/.default" \ 
+        properties.topicSpacesConfiguration.clientAuthentication.webHookAuthentication.azureActiveDirectoryTenantId="XXXXXXXXXXX" 
+```
+
+Replace <NAMESPACE_NAME> and <RESOURCE_GROUP_NAME> with your actual values, and fill in the placeholders in the subscription/resource group/identity/app ID/URL/tenant ID. To enhance the performance and reliability of webhook-based authentication for Azure Event Grid MQTT Broker, we strongly recommend enabling HTTP/2 support for your webhook endpoint. 
 
 ## Webhook API details 
 
 ### Request Headers 
 
-- Authorization: Bearer <token> 
-    - <token> is an Entra ID token for the managed identity configured to call the webhook. 
+- Authorization: Bearer token 
+    - token is an Entra ID token for the managed identity configured to call the webhook. 
     
 ### Request payload 
 
