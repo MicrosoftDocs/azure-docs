@@ -2,7 +2,7 @@
 title: How WebJobs run in Azure App Service
 description: Understand how WebJobs are discovered, triggered, and managed by the Kudu engine in Azure App Service.
 ms.topic: conceptual
-ms.service: app-service
+ms.service: azure-app-service
 author: msangapu-msft
 ms.author: msangapu
 ms.date: 05/01/2025
@@ -81,7 +81,7 @@ Triggered WebJobs include a full history of executions. Continuous WebJobs strea
 
 ## Platform-specific notes
 
-[!INCLUDE [webjob-types](./includes/webjobs-create/quickstart-php-windows-pivot.md)]
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## Troubleshooting tips
 
@@ -91,7 +91,7 @@ Triggered WebJobs include a full history of executions. Continuous WebJobs strea
 
 ## See also
 
-- [WebJobs overview](./overview.md)
-- [Create a scheduled WebJob](./scheduled-webjob-quickstart.md)
+- [WebJobs overview](overview-webjobs.md)
+- [Create a scheduled WebJob](quickstart-webjobs.md)
 - [Kudu WebJobs wiki (GitHub)](https://github.com/projectkudu/kudu/wiki/WebJobs)
 
