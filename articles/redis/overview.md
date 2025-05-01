@@ -111,10 +111,6 @@ The following table helps describe some of the features supported by tier:
 > The Balanced B0 and B1 SKU options don't support active geo-replication.
 >
 
-> [!IMPORTANT]
-> SLA is only available at GA, and isn't available during preview.
->
-
 > [!NOTE]
 > Scaling down support is limited in some situations. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 >
