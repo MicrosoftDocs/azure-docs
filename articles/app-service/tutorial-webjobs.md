@@ -269,24 +269,24 @@ public class HelloWorld {
 
 1. The `run.sh` script runs a jar with the name that set in the Maven configuration. This script will run when our WebJob is triggered.
 
-```bash 
-java -jar webjob-artifact-1.0.0.jar 
-``` 
+    ```bash 
+    java -jar webjob-artifact-1.0.0.jar 
+    ``` 
 
 1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:  
 
-```bash 
-mvn install 
-mvn package 
-``` 
+    ```bash 
+    mvn install 
+    mvn package 
+    ``` 
 
     The jar files will be located at `project/target/webjob-artifact-1.0.0.jar` after a successful build.  
 
 1. Move the jar file to the root of the git repo with `mv project/target/webjob-artifact-1.0.0.jar .` Next you package our application as a `.zip` file. 
 
-```bash 
-zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
-``` 
+    ```bash 
+    zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
+    ``` 
 
 ## Create a scheduled WebJob on Azure
 
@@ -385,7 +385,7 @@ php -f webjob.php
 
 Select the log for the WebJob you created earlier.
 
-    :::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
+:::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
 
 
 The output should look similar to the following.
@@ -396,7 +396,7 @@ The output should look similar to the following.
 
 To remove the WebJob, select the WebJob in the portal and select `Delete`.
 
-    :::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
+:::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
 
 ## <a name="NextSteps"></a> Next steps
 
