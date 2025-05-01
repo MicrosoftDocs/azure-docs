@@ -53,49 +53,16 @@ Each zip contains a single script that prints the current system date and time.
 
 ## Step 3: Monitor WebJob logs
 
-Select the log for the WebJob you created earlier.
-
-    :::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
-
-
-The output should look similar to the following.
-
-    :::image type="content" source="media/quickstart-webjobs/webjobs-log-output.png" alt-text="Screenshot that shows WebJobs log output.":::
+1. Go to the **WebJobs** tab.
+2. Select your WebJob and open **Logs**.
+3. Confirm that it runs every minute and prints the system time.
 
 ## Step 4: Clean up
 
 To remove the WebJob, select the WebJob in the portal and select `Delete`.
-
-    :::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
 
 ## <a name="NextSteps"></a> Next steps
 
 ## Next step
 
 [Build a custom scheduled WebJob from scratch using .NET, Python, Node.js, Java, or PHP](tutorial-webjobs.md)
-
-## Create a scheduled WebJob in Azure
-
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
-
-1. From the left pane, select **WebJobs**, then select **Add**.
-
-    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
-
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
-
-    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
-
-   | Setting      | value   | Description  |
-   | ------------ | ----------------- | ------------ |
-   | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | webjob.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
-   | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
-   | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
-   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
-
-1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
-
-1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
-
-    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
