@@ -42,6 +42,10 @@ In this quickstart, learn how to create a NAT gateway by using the Azure portal,
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+### [Bicep](#tab/bicep)
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 ### [Terraform](#tab/terraform)
 
 - An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -417,6 +421,88 @@ az deployment group create \
 --template-uri  $templateUri
 ```
 
+### [Bicep](#tab/bicep)
+
+# Review #the Bicep file
+
+The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/nat-gateway-1-vm/).
+
+This Bicep file is configured to create a:
+
+* Virtual network
+
+* NAT gateway resource
+
+* Ubuntu virtual machine
+
+The Ubuntu VM is deployed to a subnet that's associated with the NAT gateway resource.
+
+:::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.network/nat-gateway-1-vm/main.bicep":::
+
+Nine Azure resources are defined in the Bicep file:
+
+* **[Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)**: Creates a network security group.
+
+* **[Microsoft.Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)**: Creates a security rule.
+
+* **[Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)**: Creates a public IP address.
+
+* **[Microsoft.Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)**: Creates a public IP prefix.
+
+* **[Microsoft.Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)**: Creates a virtual machine.
+
+* **[Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)**: Creates a virtual network.
+
+* **[Microsoft.Network/natGateways](/azure/templates/microsoft.network/natgateways)**: Creates a NAT gateway resource.
+
+* **[Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets)**: Creates a virtual network subnet.
+
+* **[Microsoft.Network/networkinterfaces](/azure/templates/microsoft.network/networkinterfaces)**: Creates a network interface.
+
+## Deploy the Bicep file
+
+1. Save the Bicep file as **main.bicep** to your local computer.
+
+1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+
+    **CLI**
+
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters adminusername=<admin-name>
+    ```
+
+    **PowerShell**
+
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -adminusername "<admin-name>"
+    ```
+
+    ---
+
+    > [!NOTE]
+    > Replace **\<admin-name\>** with the administrator username for the virtual machine. You'll also be prompted to enter **adminpassword**.
+
+    When the deployment finishes, you should see a message indicating the deployment succeeded.
+
+## Review deployed resources
+
+Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+
+**CLI**
+
+```azurecli-interactive
+az resource list --resource-group exampleRG
+```
+
+**PowerShell**
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName exampleRG
+```
+
+
 ### [Terraform](#tab/terraform)
 
 This Terraform file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
@@ -587,6 +673,8 @@ When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/modu
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
+
+### [Bicep](#tab/bicep)
 
 ### [Terraform](#tab/terraform)
 

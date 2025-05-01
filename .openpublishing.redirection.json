@@ -6908,6 +6908,11 @@
       "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-terraform.md",
       "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
        "redirect_document_id": false
+     },
+     {
+      "source_path": "articles/nat-gateway/quickstart-create-nat-gateway-bicep.md",
+      "redirect_url": "/azure/nat-gateway/quickstart-create-nat-gateway",
+       "redirect_document_id": false
      }
   ]
 }
