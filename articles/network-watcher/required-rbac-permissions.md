@@ -11,19 +11,19 @@ ms.date: 05/01/2025
 #CustomerIntent: As an Azure administrator, I want to know the required Azure role-based access control (Azure RBAC) permissions to use each of the Network Watcher capabilities, so I can assign them correctly to users using any of those capabilities.
 ---
 
-# Azure role-based access control permissions required to use Network Watcher capabilities
+# Azure role-based access control permissions required to use Network Watcher
 
 Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities.
 
-To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that is assigned the actions listed for each Network Watcher capability in the sections that follow.
-
-To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
+To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that includes the actions listed for the Network Watcher capability that you want to use.
 
 > [!IMPORTANT]
 > [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't cover the following actions:
 > - Microsoft.Storage/* actions listed in [Additional actions](#additional-actions) or [Flow logs](#flow-logs) section.
 > - Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
 > - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
+
+To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
 ## Network Watcher
 
@@ -33,6 +33,8 @@ To learn how to check roles assigned to a user for a subscription, see [List Azu
 > | Microsoft.Network/networkWatchers/read | Get a network watcher |
 > | Microsoft.Network/networkWatchers/write | Create or update a network watcher |
 > | Microsoft.Network/networkWatchers/delete | Delete a network watcher |
+
+The following sections list the minimum required permissions for each Network Watcher capability.
 
 ## Connection monitor
 
