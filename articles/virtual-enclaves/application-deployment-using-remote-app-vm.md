@@ -96,7 +96,7 @@ The RemoteApp template supports scripting to automate the process of installing 
 2. For `Service`, select `RemoteApp VM`.
 3. For `Version`, if not selected by default, select the most recent version (for example: 1.0.0(latest)).
 
-![Screenshot showing RemoteApp VM selected from the Service Catalog list.](./media/service-catalog-list-virtual-machine.png)
+![Screenshot showing RemoteApp VM selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Select `Next`
 5. Basics Tab:

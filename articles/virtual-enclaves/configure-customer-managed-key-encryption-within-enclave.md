@@ -11,7 +11,7 @@ ms.date: 04/08/2025
 
 # Set-up customer-managed-key (CMK) encryption within an enclave
 
-The fastest way to deploy customer managed keys to be compliant with the Azure Virtual Enclaves policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-service-catalog.md) Service Catalog template. 
+The fastest way to deploy customer managed keys to be compliant with the Azure Virtual Enclaves policy requiring CMK is through the [Common Dependencies](./deploy-common-dependencies-service-catalog.md) service catalog template. 
 
 There are several types of [encryption](/azure/virtual-machines/windows/disk-encryption-overview) available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE) and encryption at host. In accordance with Azure Virtual Enclaves (AVE) default [governance and cybersecurity posture](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-enclave.md).
 

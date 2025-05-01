@@ -56,7 +56,7 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 
 4. For each role, configure the following settings:
    - **Activation Required**: Ensure the role requires activation for JIT access.
-   - **Assignment Scope**: Limit the role to specific resources, such as the **Enclave Managed Resource Group** or **Workload Resource Groups**.
+   - **Assignment Scope**: Limit the role to specific resources, such as the **enclave managed resource group** or **workload resource groups**.
 
 ### Step 3: Define Approval Settings
 1. Navigate to the role’s settings in PIM.

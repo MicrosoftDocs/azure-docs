@@ -1,6 +1,6 @@
 ---
-title: Deploy an App Service Web App from the Service Catalog into a workload
-description: Deploy an App Service Web App from the Service Catalog into a workload.
+title: Deploy an App Service Web App from the service catalog into a workload
+description: Deploy an App Service Web App from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy an App Service Web App from the Service Catalog into a workload
+# Deploy an App Service Web App from the service catalog into a workload
 
 In this article, you:
 
-- Deploy a Service Catalog App Service Web App template into an existing workload from the Azure portal.
+- Deploy a service catalog App Service Web App template into an existing workload from the Azure portal.
 - Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)
 
 > [!NOTE]
@@ -53,9 +53,9 @@ There are guardrails in the enclaves to ensure an App Service is isolated with p
 ## Deploy the template
 1. Navigate to the [Workload](./what-workload.md) for the intended deployment.
 2. Select `+Add Azure Service` button.
-3. Select the `App Service` template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `App Service` template from the [service catalog](./what-service-catalog.md) of templates (the dropdown list).
 
-![Screenshot showing the App Service template selected from the Service Catalog list.](./media/service-catalog-list-app-service.png)
+![Screenshot showing the App Service template selected from the service catalog list.](./media/service-catalog-list-app-service.png)
 
 4. Enter all the required parameters on each page.
 5. Adjust any of the prepopulated parameters as needed.
@@ -64,13 +64,13 @@ There are guardrails in the enclaves to ensure an App Service is isolated with p
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created. Including: App Service, App Service Plan, Private Endpoint, Network Interface
+Go to the specified resource group to confirm the intended resources were created. Including: App Service, App Service Plan, Private Endpoint, Network Interface
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

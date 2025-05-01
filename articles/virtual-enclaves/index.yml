@@ -54,9 +54,9 @@ landingContent:
             url: what-enclave-connection.md
           - text: "What is a workload?"
             url: what-workload.md
-          - text: "What is the Service Catalog?"
+          - text: "What is the service catalog?"
             url: what-service-catalog.md
-          - text: List of Service Catalog Templates
+          - text: List of service catalog Templates
             url: list-service-catalog-templates.md
   # Card
   - title: Get started
@@ -133,31 +133,31 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Deploy an Admin VM from the Service Catalog
+          - text: Deploy an Admin VM from the service catalog
             url: deploy-admin-vm-service-catalog.md
-          - text: Deploy Common Dependencies from the Service Catalog
+          - text: Deploy Common Dependencies from the service catalog
             url: deploy-common-dependencies-service-catalog.md
-          - text: Deploy a Storage Account from the Service Catalog
+          - text: Deploy a Storage Account from the service catalog
             url: deploy-storage-account-service-catalog.md
-          - text: Deploy Azure Kubernetes Service from the Service Catalog
+          - text: Deploy Azure Kubernetes Service from the service catalog
             url: deploy-azure-kubernetes-service-service-catalog.md
-          - text: Deploy RemoteApp Virtual Machine from the Service Catalog
+          - text: Deploy RemoteApp Virtual Machine from the service catalog
             url: deploy-remoteapp-vm-service-catalog.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy Azure App Service from the Service Catalog
+          - text: Deploy Azure App Service from the service catalog
             url: deploy-app-service-web-app-service-catalog.md
-          - text: Deploy Azure Container Registry from the Service Catalog
+          - text: Deploy Azure Container Registry from the service catalog
             url: deploy-azure-container-registry-service-catalog.md
-          - text: Deploy Azure Cosmos DB from the Service Catalog
+          - text: Deploy Azure Cosmos DB from the service catalog
             url: deploy-azure-cosmos-db-service-catalog.md
-          - text: Deploy Function App from the Service Catalog
+          - text: Deploy Function App from the service catalog
             url: deploy-app-service-function-app-service-catalog.md
-          # - text: Deploy Key Vault from the Service Catalog
+          # - text: Deploy Key Vault from the service catalog
           #   url: deploy-key-vault-service-catalog.md
-          - text: Deploy Azure SQL from the Service Catalog
+          - text: Deploy Azure SQL from the service catalog
             url: deploy-azure-sql-service-catalog.md
-          - text: Deploy Azure Service Bus from the Service Catalog
+          - text: Deploy Azure Service Bus from the service catalog
             url: deploy-service-bus-service-catalog.md
   # Card
   - title: Manage and Monitor

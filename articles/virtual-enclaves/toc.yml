@@ -50,7 +50,7 @@
       href: what-enclave-connection.md
     - name: "What is a Transit Hub?"
       href: what-transit-hub.md
-    - name: "What is the Service Catalog?"
+    - name: "What is the service catalog?"
       href: what-service-catalog.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
@@ -110,33 +110,33 @@
     href: configure-community-governance.md
 - name: Azure service catalog
   items:
-  - name: List of Service Catalog Templates
+  - name: List of service catalog Templates
     href: list-service-catalog-templates.md
-  - name: Deploy an Admin VM from the Service Catalog
+  - name: Deploy an Admin VM from the service catalog
     href: deploy-admin-vm-service-catalog.md
-  - name: Deploy Azure App Service from the Service Catalog
+  - name: Deploy Azure App Service from the service catalog
     href: deploy-app-service-web-app-service-catalog.md
-  - name: Deploy Azure Container Registry from the Service Catalog
+  - name: Deploy Azure Container Registry from the service catalog
     href: deploy-azure-container-registry-service-catalog.md
-  - name: Deploy Azure Cosmos DB from the Service Catalog
+  - name: Deploy Azure Cosmos DB from the service catalog
     href: deploy-azure-cosmos-db-service-catalog.md
-  - name: Deploy Common Dependencies from the Service Catalog
+  - name: Deploy Common Dependencies from the service catalog
     href: deploy-common-dependencies-service-catalog.md
-  - name: Deploy Function App from the Service Catalog
+  - name: Deploy Function App from the service catalog
     href: deploy-app-service-function-app-service-catalog.md
-  - name: Deploy Key Vault from the Service Catalog
+  - name: Deploy Key Vault from the service catalog
     href: deploy-key-vault-service-catalog.md
-  - name: Deploy Azure SQL from the Service Catalog
+  - name: Deploy Azure SQL from the service catalog
     href: deploy-azure-sql-service-catalog.md
-  - name: Deploy Azure Kubernetes Service from the Service Catalog
+  - name: Deploy Azure Kubernetes Service from the service catalog
     href: deploy-azure-kubernetes-service-service-catalog.md
-  - name: Deploy RemoteApp Virtual Machine from the Service Catalog
+  - name: Deploy RemoteApp Virtual Machine from the service catalog
     href: deploy-remoteapp-vm-service-catalog.md
-  - name: Deploy Azure Service Bus from the Service Catalog
+  - name: Deploy Azure Service Bus from the service catalog
     href: deploy-service-bus-service-catalog.md
-  - name: Deploy a Storage Account from the Service Catalog
+  - name: Deploy a Storage Account from the service catalog
     href: deploy-storage-account-service-catalog.md
-  - name: Deploy Service Catalog Template from Azure CLI
+  - name: Deploy service catalog Template from Azure CLI
     href: deploy-template-service-catalog-azure-cli.md
 - name: Manage and Monitor
   items:

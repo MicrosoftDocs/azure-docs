@@ -39,7 +39,7 @@ Azure Virtual Enclaves uses hierarchical IAM settings to define roles and permis
   Workload Administration settings ensure **administrators can manage application-specific resources without impacting enclave-wide infrastructure**. These settings are specified when deploying or updating workloads.  
   Common roles assigned include:
   - **Workload Admin**: Full access to the workload resource group for deployment and configuration.
-  - **Workload Contributor**: Permissions limited to deploying preapproved resources from the Service Catalog.
+  - **Workload Contributor**: Permissions limited to deploying preapproved resources from the service catalog.
 
   **Resources governed under Workload Administration settings**:
   - Compute (for example, Virtual Machines, Azure Kubernetes Service)
@@ -56,7 +56,7 @@ Azure Virtual Enclaves uses hierarchical IAM settings to define roles and permis
 
 ### Scenario 2: Workload deployment
 - A development team is granted **Workload Contributor** role within a specific workload resource group.  
-- Team members deploy a preapproved web application from the Service Catalog without requiring access to enclave infrastructure.
+- Team members deploy a preapproved web application from the service catalog without requiring access to enclave infrastructure.
 
 ### Scenario 3: Dynamic group management
 - A personnel group for database administrators is created in the Personnel Portal.  
@@ -112,7 +112,7 @@ The built-in roles are scoped specifically for AVE and don't overlap with permis
 
 ### Example scenario
 
-Consider a scenario where an organization is managing an AVE environment. Azure RBAC is managed at four levels - Management Group, Subscription, Resource Group, and Individual Resource. RBAC Role Assignments can be made at any of these levels.
+Consider a scenario where an organization is managing an AVE environment. Azure RBAC is managed at four levels - Management Group, Subscription, resource group, and Individual Resource. RBAC Role Assignments can be made at any of these levels.
 
 Environment Structure:
 

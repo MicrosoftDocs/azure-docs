@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Container Registry (ACR) from the Service Catalog into a workload
-description: Deploy Azure Container Registry (ACR) from the Service Catalog into a workload.
+title: Deploy Azure Container Registry (ACR) from the service catalog into a workload
+description: Deploy Azure Container Registry (ACR) from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Azure Container Registry (ACR) from the Service Catalog into a workload
+# Deploy Azure Container Registry (ACR) from the service catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for an Azure Container Registry into an existing workload from the Portal.
+- Deploy a service catalog template for an Azure Container Registry into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -32,11 +32,11 @@ This quickstart assumes a basic understanding of networking and Azure Virtual En
 
 ## Prerequisites
 
-There are guardrails in the enclaves to ensure an Azure Container Registry is using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md)
+There are guardrails in the enclaves to ensure an Azure Container Registry is using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. A subnet with no [subnet delegation](../virtual-network/subnet-delegation-overview.md) to place a private endpoint into. You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
-2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies Service Catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own with the following requirements.
-    - These resources should be created inside a [Workload Resource Group](./create-workload-portal.md#create-workload-resource-groups)
+2. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, Managed Identity in [the Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own with the following requirements.
+    - These resources should be created inside a [Workload resource group](./create-workload-portal.md#create-workload-resource-groups)
     - The CMK key that meets or exceeds the CMK key requirements.
     - A User Managed Identity with an Access Policy to the CMK key (for example, `Key Vault Crypto Service Encryption User`) or `Unwrap Key, Wrap Key, Recover, Get` permissions.
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
@@ -45,9 +45,9 @@ There are guardrails in the enclaves to ensure an Azure Container Registry is us
 
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Azure Container Registry` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
+3. Select the `Azure Container Registry` service template from the [service catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-![Screenshot showing the Azure Container Registry template selected from the Service Catalog list.](./media/service-catalog-list-azure-container-registry.png)
+![Screenshot showing the Azure Container Registry template selected from the service catalog list.](./media/service-catalog-list-azure-container-registry.png)
 
 4. Select through the tabs and enter all the required parameters. Under the encryption tab you'll need to use the CMK Key and User-assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
 5. Adjust any of the prepopulated parameters as needed.
@@ -61,11 +61,11 @@ Go to the workload resource Group to confirm the intended resources were created
 
 ## Delete the deployment
 
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
 
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

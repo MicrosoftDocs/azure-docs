@@ -15,9 +15,9 @@ Workloads are logical groups of Azure resources that you define to create and au
 Workloads also automatically inherit security posture and policies of their enclave. Workloads can also, by default, utilize community services reachable from their Enclave.
 
 ## Why use a workload?
-Workloads allow customers to group resources, the same as other Azure Resource Groups, and importantly also separate groups of policies and exceptions can be scoped and applied to a workload and therefore the individual apps and services within the workload. When using the managed resource group that comes with a workload there are minor restrictions described [here](./best-practices.md).
+Workloads allow customers to group resources, the same as other Azure resource groups, and importantly also separate groups of policies and exceptions can be scoped and applied to a workload and therefore the individual apps and services within the workload. When using the managed resource group that comes with a workload there are minor restrictions described [here](./best-practices.md).
 
-The alternative is to deploy an Azure Resource Group through the portal that isn't managed. The workload managed resource group is equivalent to a normal Azure resource group aside from these minor restrictions, which help to keep the resource group secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group wouldn't be secured within the enclave boundary.
+The alternative is to deploy an Azure resource group through the portal that isn't managed. The workload managed resource group is equivalent to a normal Azure resource group aside from these minor restrictions, which help to keep the resource group secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group wouldn't be secured within the enclave boundary.
 
 ## Architecture of a workload
 Workloads come with the following primary platform-managed and platform-deployed resources:
@@ -26,15 +26,15 @@ Workloads come with the following primary platform-managed and platform-deployed
 - [Enclave services and properties](./what-enclave.md)
 
 ## workload resource group
-When you create a workload, you create workload Resource Groups that you need to organize your resources. You could separate 
+When you create a workload, you create workload resource groups that you need to organize your resources. You could separate 
 
 For more details regarding the workload managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md).
 
 ## What can I add to my workload?
-The managed resource group functions just like an Azure resource group with the managed aspects mentioned above. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the Service Catalog: [What is the Service Catalog](./what-service-catalog.md)
+The managed resource group functions just like an Azure resource group with the managed aspects mentioned above. You can create new resources using the methods you're familiar with for your Azure resources. Additionally, you can create resources from the Portal through the service catalog: [What is the service catalog](./what-service-catalog.md)
 
 ## Next Steps
-- [What is the Service Catalog?](./what-service-catalog.md)
+- [What is the service catalog?](./what-service-catalog.md)
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
 - [What is a community?](./what-community.md)
 - [What is an Enclave?](./what-enclave.md)

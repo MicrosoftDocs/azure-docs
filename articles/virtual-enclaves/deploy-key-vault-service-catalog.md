@@ -1,7 +1,7 @@
 ---
-title: Deploy a Key Vault from the Service Catalog into a workload
+title: Deploy a Key Vault from the service catalog into a workload
 titleSuffix: Azure Virtual Enclaves
-description: Deploy a Key Vault from the Service Catalog into a workload
+description: Deploy a Key Vault from the service catalog into a workload
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -9,11 +9,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy a Key Vault from the Service Catalog into a workload
+# Deploy a Key Vault from the service catalog into a workload
 
 In this article, you:
 
-- Deploy a Service Catalog template for a Key Vault into an existing workload from the Portal.
+- Deploy a service catalog template for a Key Vault into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -40,7 +40,7 @@ Subnet for Private Endpoints: You had the option to create subnets during enclav
 2. Select `+Add an Azure Service` button.
 3. Select the `Key Vault` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-  ![Screenshot showing the Storage Account template selected from the Service Catalog list.](./media/service-catalog-list-key-vault.png)
+  ![Screenshot showing the Storage Account template selected from the service catalog list.](./media/service-catalog-list-key-vault.png)
 
 4. Enter the required parameters on each tab.
 5. Adjust any of the prepopulated parameters as needed.
@@ -49,13 +49,13 @@ Subnet for Private Endpoints: You had the option to create subnets during enclav
 It can take up to 15+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created. Including: key vault and private endpoint.
+Go to the specified resource group to confirm the intended resources were created. Including: key vault and private endpoint.
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](/azure/azure-resource-manager/management/tag-resources) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](/azure/azure-resource-manager/management/tag-resources) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

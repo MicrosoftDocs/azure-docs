@@ -1,6 +1,6 @@
 ---
-title: Deploy RemoteApp VM from the Service Catalog into a workload
-description: Deploy RemoteApp VM from the Service Catalog into a workload.
+title: Deploy RemoteApp VM from the service catalog into a workload
+description: Deploy RemoteApp VM from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy RemoteApp VM from the Service Catalog into a workload
+# Deploy RemoteApp VM from the service catalog into a workload
 The RemoteApp template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
 
-- Deploy a Service Catalog template for a Remote Application (RemoteApp) into an existing workload from the Portal.
+- Deploy a service catalog template for a Remote Application (RemoteApp) into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -38,7 +38,7 @@ Required:
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 2. (optional) An existing domain to join if the RemoteApp will be domain joined.
-3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
+3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](/azure/virtual-machines/disk-encryption-overview)
     - [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
     - [Manage User-assigned Identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
@@ -49,7 +49,7 @@ Required:
 2. Select `+Add an Azure Service` button.
 3. Select the `RemoteApp VM` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
 
-![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the Service Catalog list.](./media/service-catalog-list-virtual-machine.png)
+![Screenshot showing the RemoteApp VM (aka Virtual Machine) template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
@@ -105,7 +105,7 @@ Install an application on your RemoteApp VM using one of these methods or a meth
         - **Private or Public Container**
             - *Private Container* - securely store installers, main script, and any supporting scripts. 
                 - You might want to choose this option if your scripts or installers can’t be shared with others who have access to that storage account container.
-            - *Public Container* - stores publicly accessible artifacts in the remoteappvm folder in the Service Catalog's container
+            - *Public Container* - stores publicly accessible artifacts in the remoteappvm folder in the service catalog's container
         - App Folder:
             - app installer (ex: VSCodeSetup.exe)
             - main script to install the application (and any other supporting scripts)
@@ -141,11 +141,11 @@ Install an application on your RemoteApp VM using one of these methods or a meth
 Otherwise, start using the RemoteApp VM 
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
 - Session host or VM [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

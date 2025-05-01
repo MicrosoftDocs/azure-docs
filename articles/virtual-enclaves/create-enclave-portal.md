@@ -36,7 +36,7 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 5. Enter the basic details for your enclave
    - Subscription: Select an existing Subscription
-   - Resource Group: Create a new or select an existing Resource Group
+   - Resource Group: Create a new or select an existing resource group
    - Enclave name: Name of the enclave (for example `My-Enclave`)
    - Region: Azure region the enclave will be created in.
    - Select a community: Select an existing `Community`

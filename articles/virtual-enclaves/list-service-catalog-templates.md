@@ -1,6 +1,6 @@
 ---
-title: List of Service Catalog templates
-description: List of Service Catalog templates.
+title: List of service catalog templates
+description: List of service catalog templates.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,8 +8,8 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# List of Service Catalog templates
-This is the current list of Azure services and workload templates in the Service Catalog.
+# List of service catalog templates
+This is the current list of Azure services and workload templates in the service catalog.
 
 ## Table of Azure Service templates
 

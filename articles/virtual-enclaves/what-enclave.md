@@ -34,7 +34,7 @@ Maintenance mode is a feature that allows enclave owners to temporarily place th
 See [template documentation](./azure-virtual-enclaves-templates.md#enclave-template)
 
 ## Managed Resources
-The following resources types are deployed into the Enclave Managed Resource Group:
+The following resources types are deployed into the enclave managed resource group:
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts)
 - [Network Security Groups](../virtual-network/network-security-groups-overview.md)
@@ -45,7 +45,7 @@ The following resources types are deployed into the Enclave Managed Resource Gro
 
 ## Next Steps
 - [What is a workload?](./what-workload.md)
-- [What is the Service Catalog?](./what-service-catalog.md)
+- [What is the service catalog?](./what-service-catalog.md)
 - [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)

@@ -39,7 +39,7 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
   - Private-Links for the following managed resources:
     - Log Analytics Workspace (Optional)
 
-- [**Workloads**](./what-workload.md) - platform-managed Resource Groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave. The primary components of a workload include:
+- [**Workloads**](./what-workload.md) - platform-managed resource groups protected by Azure policy guardrails and RBAC Deny Assignments that serve as the resource container for an individual service or application hosted within an Enclave. The primary components of a workload include:
   - Managed resources protected by Azure Policy and Deny Assignments
   - Service Catalog - Collection of templates that can be used to deploy well-known services and applications.
 

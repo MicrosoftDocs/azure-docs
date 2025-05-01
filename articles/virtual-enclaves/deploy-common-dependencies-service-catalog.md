@@ -1,6 +1,6 @@
 ---
-title: Deploy Common Dependencies from the Service Catalog into a workload
-description: Deploy Common Dependencies from the Service Catalog into a workload.
+title: Deploy Common Dependencies from the service catalog into a workload
+description: Deploy Common Dependencies from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,15 +8,15 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Common Dependencies from the Service Catalog into a workload
+# Deploy Common Dependencies from the service catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for Common Dependencies when deploying Azure services into an existing workload from the Portal. The template includes the options to create a:
+- Deploy a service catalog template for Common Dependencies when deploying Azure services into an existing workload from the Portal. The template includes the options to create a:
 1. Key Vault
 2. Customer Managed Key (CMK) for encryption
 3. Disk Encryption Set (DES) for disk encryption
-4. Storage Account quickstart. See the separate Storage Account Service Catalog template for more deployment customization
+4. Storage Account quickstart. See the separate Storage Account service catalog template for more deployment customization
 5. Managed Identity to securely access your resources within Azure Virtual Enclaves
 
 > [!NOTE]
@@ -36,7 +36,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 2. Select `Add Service` button.
 3. Select the `Common Dependencies` template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-![Screenshot showing the Common Dependencies template selected from the Service Catalog list.](./media/service-catalog-list-common-dependencies.png)
+![Screenshot showing the Common Dependencies template selected from the service catalog list.](./media/service-catalog-list-common-dependencies.png)
 
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
@@ -45,13 +45,13 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 It can take 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created.
+Go to the specified resource group to confirm the intended resources were created.
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

@@ -23,7 +23,7 @@ Create a [Community](./what-community.md) and [Enclave](./what-enclave.md).
 ### Create AVD through Azure portal into an AVE workload
 1. [Create a workload](./create-workload-portal.md) with any specified name (for example, `wl-avd-mgmt-pool`).
 2. [Deploy AVD resources](../virtual-desktop/deploy-azure-virtual-desktop.md) to the workload resource group (for example, `wl-avd-mgmt-pool`).
-   - Create the AVD resources using the [RemoteApp VM template in the Service Catalog](./deploy-remoteapp-vm-service-catalog.md).
+   - Create the AVD resources using the [RemoteApp VM template in the service catalog](./deploy-remoteapp-vm-service-catalog.md).
    - Alternatively, follow the [AVD deployment instructions](../virtual-desktop/deploy-azure-virtual-desktop.md) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the workload resource group (for example, `wl-avd-mgmt-pool`).
 3. [Create community endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
 4. [Create enclave endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
