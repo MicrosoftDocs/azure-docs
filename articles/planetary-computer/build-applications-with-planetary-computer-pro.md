@@ -184,3 +184,4 @@ When building applications with MPC Pro, consider these best practices:
 - [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arcgispro.md)
 - [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)
 - [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md)
+- [Use a STAC collection SAS token](./get-collection-sas-token.md)
