@@ -17,7 +17,7 @@ An example of how to deploy the SACA within AVE.
 What gets deployed:
 - One  [Community](./what-community.md)
 - Four  [Enclaves](./what-enclave.md)
-- Four  [Workloads](./what-workload.md)
+- Four  [workloads](./what-workload.md)
 - Three  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
 - Nine  [enclave connections](./what-enclave-connection.md)
@@ -44,7 +44,7 @@ Deploy the template:
 What gets deployed:
 - One  [Community](./what-community.md)
 - Four  [Enclaves](./what-enclave.md)
-- Four  [Workloads](./what-workload.md)
+- Four  [workloads](./what-workload.md)
 - Five  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
 - Nine  [enclave connections](./what-enclave-connection.md)
@@ -71,7 +71,7 @@ Deploy the template:
 What gets deployed:
 - One  [Community](./what-community.md)
 - Eight  [Enclaves](./what-enclave.md)
-- Eight  [Workloads](./what-workload.md)
+- Eight  [workloads](./what-workload.md)
 - Three  [Community Endpoints](./what-community-endpoint.md)
 - 11 [Enclave Endpoint](./what-enclave-endpoint.md)
 - 25 [enclave connections](./what-enclave-connection.md)
@@ -99,7 +99,7 @@ Deploy the template:
 [What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
 - One  [Community](./what-community.md)
 - One  [Enclaves](./what-enclave.md)
-- One  [Workloads](./what-workload.md)
+- One  [workloads](./what-workload.md)
 - Two  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
 - Four  [enclave connections](./what-enclave-connection.md)

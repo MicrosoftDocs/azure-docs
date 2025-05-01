@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Migrate Azure Resources into Azure Virtual Enclaves
 
-Moving Azure resources into an enclave is similar to [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md). When you move resources, the target resource group would be a [Workload](./what-workload.md) resource group. [Learn more about Azure tools, scripts, templates, or commands to automate resource group moving or migration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Moving Azure resources into an enclave is similar to [moving resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md). When you move resources, the target resource group would be a [workload](./what-workload.md) resource group. [Learn more about Azure tools, scripts, templates, or commands to automate resource group moving or migration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 It's important to note that the following considerations still apply when moving resources into an enclave or workload:
 - Locked resources or resource groups can't be moved.

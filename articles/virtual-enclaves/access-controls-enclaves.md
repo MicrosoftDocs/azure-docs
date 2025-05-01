@@ -41,7 +41,7 @@ Azure Virtual Enclaves uses hierarchical IAM settings to define roles and permis
   - **Workload Admin**: Full access to the workload resource group for deployment and configuration.
   - **Workload Contributor**: Permissions limited to deploying preapproved resources from the service catalog.
 
-  **Resources governed under Workload Administration settings**:
+  **Resources governed under workload Administration settings**:
   - Compute (for example, Virtual Machines, Azure Kubernetes Service)
   - Storage (for example, Azure Blob Storage, Azure Files)
   - Managed Services (for example, Azure SQL Database, App Services)
@@ -52,10 +52,10 @@ Azure Virtual Enclaves uses hierarchical IAM settings to define roles and permis
 ### Scenario 1: Enclave setup and administration
 - An IT administrator assignment is created **Enclave Admin** role during enclave creation.  
 - This administrator configures network security settings, sets up private DNS zones, and monitors logging within the enclave managed resource group.  
-- More operators are granted **Enclave Operator** roles for troubleshooting and operational tasks.
+- More operators are granted **enclave Operator** roles for troubleshooting and operational tasks.
 
 ### Scenario 2: Workload deployment
-- A development team is granted **Workload Contributor** role within a specific workload resource group.  
+- A development team is granted **workload contributor** role within a specific workload resource group.  
 - Team members deploy a preapproved web application from the service catalog without requiring access to enclave infrastructure.
 
 ### Scenario 3: Dynamic group management

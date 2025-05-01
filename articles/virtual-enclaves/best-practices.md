@@ -123,7 +123,7 @@ A common scenario where customers want to modify resources is through tags. Azur
 > If you don't have enclave managed resource group lockdown enabled, you can directly modify any resource in the enclave managed resource group. Directly modifying resources in the enclave managed resource group can cause your enclave to become unstable or unresponsive.
 
 ### Workload managed resource group
-The _Workload managed resource group_ contains the infrastructure resources described in [What is a workload?](./what-workload.md).
+The _workload managed resource group_ contains the infrastructure resources described in [What is a workload?](./what-workload.md).
 
 The workload managed resource group is assigned a name by default following this convention `myWorkloadName`. When you delete your workload, the Azure Virtual Enclaves resource provider automatically deletes the workload managed resource group.
 

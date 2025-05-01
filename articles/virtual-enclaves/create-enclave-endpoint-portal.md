@@ -39,7 +39,7 @@ Sign-in to the [Azure portal](https://portal.azure.com).
    - Endpoint rules: 
    
 8. Select `Add` and enter the `Rule Name`, `Destination IP addresses/CIDR range`, `Protocol`, and `Destination Port Range`.
-   - For example, if you were trying to create networking rules to allow other enclaves to talk to the `Enclave-WebApp` enclave, specifically an HTTPS server hosted on an Azure Virtual Machine (VM) with a Private IP address of `10.0.2.5` in subnet `10.0.2.0/26` in a [Workload](./what-workload.md), you would supply the `Destination` (for example `10.0.0.5` or `10.0.2.0/26`) of the VM, `TCP` for the `Protocol`, and `443` for the `Destination Port Range`.
+   - For example, if you were trying to create networking rules to allow other enclaves to talk to the `Enclave-WebApp` enclave, specifically an HTTPS server hosted on an Azure Virtual Machine (VM) with a Private IP address of `10.0.2.5` in subnet `10.0.2.0/26` in a [workload](./what-workload.md), you would supply the `Destination` (for example `10.0.0.5` or `10.0.2.0/26`) of the VM, `TCP` for the `Protocol`, and `443` for the `Destination Port Range`.
 
 ![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/create-enclave-endpoint-tab-1-basics.png)
 
