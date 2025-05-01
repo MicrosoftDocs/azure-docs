@@ -47,7 +47,7 @@ App Service currently supports three types of error codes that are available to 
 ## FAQ
 1. I've uploaded my error page, why doesn't it show when the error is triggered?
 
-Currently, error pages are only triggered when the error is coming from the front end. Errors that get triggered at the app level should still be handled through the app. 
+Custom error pages are triggered from front end failures. If the error is coming from the app level, it won't trigger or show the configured error page. If you want the error page to show for all requests, check the **Apply to all requests** box under the configured error code. This will show the error page for all requests matching the status code regardless of where it failed. Note, when this box is checked it will override any existing error pages that are configured for the app.
 
 2. Why is the error page feature greyed out?
 
@@ -55,9 +55,7 @@ Error pages are currently a Premium feature. You need to use at least a Premium 
 
 3. How can I reference a single error page across multiple apps?
 
-If you need to use the same error page across multiple apps, you can link to your error page hosted in a storage account in your uploaded html file. Upload your error page to a [storage account](https://learn.microsoft.com/azure/storage/common/storage-account-overview) and add the provided storage URL for your page in an `<iframe>` tag located in the html file uploaded to the app. 
+If you need to use the same error page across multiple apps, you can link to your error page hosted in a storage account in your uploaded html file. Upload your error page to a [storage account](/azure/storage/common/storage-account-overview.md) and add the provided storage URL for your page in an `<iframe>` tag located in the html file uploaded to the app. 
 
-4. Why is my error page not showing after it's been configured? 
 
-Custom error pages are triggered from front end failures. If the error is coming from the app, it won't trigger and show the configured error page. If you want the error page to show for all requests, check the **Apply to all requests** box under the configured error code. This will show the error page for all requests matching the status code regardless of where it failed. Note, when this box is checked it will override any existing error pages that are configured for the app.
 
