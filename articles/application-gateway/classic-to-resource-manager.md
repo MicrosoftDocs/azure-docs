@@ -5,23 +5,32 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 05/01/2025
 ms.author: greglin
 ---
 
 # Application gateway classic to Resource Manager migration
 
-Resource Manager enables deploying complex applications through templates, configures virtual machines by using VM extensions, and incorporates access management and tagging. Azure Resource Manager includes scalable, parallel deployment for virtual machines into availability sets. The new deployment model also provides lifecycle management of compute, network, and storage independently.
-You can read more about Azure Resource Manager [features and benefits](../azure-resource-manager/management/overview.md).
+This article describes benefits of the new Azure Resource Manager (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment. 
 
-Application gateway resources are **not** migrated automatically as part of VNet migration from classic to Resource Manager.
-As part of VNet migration process as documented at [IaaS resources migration page](/azure/virtual-machines/migration-classic-resource-manager-ps), if you have an application gateway resource present on the VNet that you're trying to migrate to Resource Manager deployment model, the automatic migration wouldn't be successful. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) has many features and benefits, including:
+* Deployment of complex applications through [templates](/azure/azure-resource-manager/templates/overview) 
+* Configuration of virtual machines with [VM extensions](/azure/virtual-machines/extensions/overview) 
+* Incorporation of [access management](/azure/role-based-access-control/) and [tagging](/azure/azure-resource-manager/management/tag-resources) 
+* Scalable, parallel deployment for virtual machines into [availability sets](/azure/virtual-machines/availability-set-overview)
+* Independent lifecycle management of compute, network, and storage resources
 
-To migrate your application gateway resource to Resource Manager deployment model, you'll have to remove the Application Resource from the VNet before beginning migration and then recreate the application gateway resource once migration is complete.
+At a high level, migration of an application gateway from classic to Resource manager requires three steps:
+1. Remove the application gateway resource from the VNet.
+2. [Migrate your IaaS resources](/azure/virtual-machines/migration/migration-classic-resource-manager-ps).
+3. [Recreate the application gateway resource](#creating-a-new-application-gateway-resource) using Resource Manager.
+
+> [!IMPORTANT]
+> Application gateway resources are **not** migrated automatically as part of VNet migration from classic to Resource Manager. If you have an application gateway resource present on the VNet that you're trying to migrate to Resource Manager deployment model, automatic migration fails.
 
 ## Creating a new application gateway resource 
 
-For more information on how to set up an application gateway resource after VNet migration, you can refer:
+See the following articles for more information on how to set up an application gateway resource after VNet migration:
 
 * [Deployment via portal](quick-create-portal.md)
 * [Deployment via PowerShell](quick-create-powershell.md)
