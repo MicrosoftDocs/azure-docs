@@ -11,7 +11,10 @@ ms.author: greglin
 
 # Application gateway classic to Resource Manager migration
 
-This article describes benefits of the new Azure Resource Manager (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment. 
+This article describes benefits of the new Azure Resource Manager (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment.  For more information about deployment models, see [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](/azure/azure-resource-manager/management/deployment-models).
+
+> [!NOTE]
+> For information about retirement of the classic deployment model, see [Azure updates](https://azure.microsoft.com/updates?id=azure-classic-resource-providers-will-be-retired-on-31-august-2024).
 
 [Azure Resource Manager](../azure-resource-manager/management/overview.md) has many features and benefits, including:
 * Deployment of complex applications through [templates](/azure/azure-resource-manager/templates/overview) 
@@ -21,7 +24,7 @@ This article describes benefits of the new Azure Resource Manager (ARM) deployme
 * Independent lifecycle management of compute, network, and storage resources
 
 At a high level, migration of an application gateway from classic to Resource manager requires three steps:
-1. Remove the application gateway resource from the VNet.
+1. Remove (delete) the application gateway resource from the VNet.
 2. [Migrate your IaaS resources](/azure/virtual-machines/migration/migration-classic-resource-manager-ps).
 3. [Recreate the application gateway resource](#creating-a-new-application-gateway-resource) using Resource Manager.
 
