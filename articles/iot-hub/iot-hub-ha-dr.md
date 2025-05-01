@@ -12,6 +12,8 @@ ms.custom: references_regions
 
 # IoT Hub high availability and disaster recovery
 
+<!-- The content in this document fits within the reliability guide, and we've moved it across to that. It would be best to deprecate this document and redirect to the reliability guide. -->
+
 As a first step towards implementing a resilient IoT solution, architects, developers, and business owners must define the uptime goals for the solutions they're building. These goals can be defined primarily based on specific business objectives for each scenario. In this context, the article [Azure Business Continuity Technical Guidance](/azure/architecture/framework/resiliency/app-design) describes a general framework to help you think about business continuity and disaster recovery. The [Disaster recovery and high availability for Azure applications](/azure/architecture/reliability/disaster-recovery) paper provides architecture guidance on strategies for Azure applications to achieve high availability (HA) and disaster recovery (DR).
 
 Depending on the uptime goals you define for your IoT solutions, you should determine which of the options outlined in this article best suit your business objectives. Incorporating any of these HA/DR alternatives into your IoT solution requires a careful evaluation of the trade-offs between the:

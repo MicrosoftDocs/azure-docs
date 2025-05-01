@@ -163,7 +163,7 @@
         displayName: device provisioning, staggered provisioning schedule, reprovisioning devices, monitoring devices
         href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
       - name: High availability and disaster recovery
-        displayName: HA, DR, availability zone, failover, failback
+        displayName: HA, DR, availability zone, failover, failback <!-- needs to be removed. replaced with new reliability guide -->
         href: iot-hub-ha-dr.md
       - name: Reliability
         href: ../reliability/reliability-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
