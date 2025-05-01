@@ -62,7 +62,9 @@ Target services:
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Web PubSub
 * Apache Kafka on Confluent Cloud
+* MongoDB Atlas (Preview)
 * Neon Serverless Postgres (Preview)
+* SQL database in Microsoft Fabric
 
 ## How to use Service Connector?
 

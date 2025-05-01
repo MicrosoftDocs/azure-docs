@@ -26,7 +26,7 @@ Before you begin, ensure you have:
 - Azure Communication Services resource, see [create a new Azure Communication Services resource](../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). You need to record your resource **connection string** for this sample.
 - Create a new web service application using Call automation SDK.
 - An Azure AI Multiservice resource and a custom domain.
-- [Connect Azure Communication Services and Azure AI](/azure/communication-services/concepts/call-automation/azure-communication-services-azure-cognitive-services-integration).
+- [Connect Azure Communication Services and Azure AI](../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - A Copilot Studio License so that you can create and publish an agent.
 
 ## 1. Create your Agent in Copilot Studio
@@ -40,7 +40,7 @@ Once you provided all the requested information, click **Create**.
 
 ![Screenshot of the Click to create.](./media/click-create.png)
 
-For more details on creating and customizing your agent, you can see the [Copilot Studio quickstart](/copilot-studio/quickstart).
+For more details on creating and customizing your agent, you can see the [Copilot Studio quickstart](/microsoft-copilot-studio/fundamentals-get-started).
 
 ## 2. Disable Authentication
 Once you’ve created your agent, you need to make some updates so that you can integrate it with Azure Communication Service.
