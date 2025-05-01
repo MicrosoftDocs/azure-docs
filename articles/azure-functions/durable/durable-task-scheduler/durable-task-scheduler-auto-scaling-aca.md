@@ -10,7 +10,7 @@ ms.date: 05/01/2025
 
 You can implement Kubernetes Event-Driven Autoscaling (KEDA) in container apps that use the Durable Task SDKs. Autoscaling maintains the reliability and scalability of long-running workflows by adapting to changing demands without manual intervention. 
 
-Control autoscaling by setting the range of application replicas deployed in response to an orchestration being triggered. The scaler dynamically adjusts the number of replicas within that range, allowing your solution to handle spikes in the workload and prevent resource exhaustion. 
+Control autoscaling by setting the range of application replicas deployed in response to an orchestration, activity, or entity being triggered. The scaler dynamically adjusts the number of container app replicas within that range, allowing your solution to handle spikes in the workload and prevent resource exhaustion. 
 
 ## Scaler configuration in the Azure portal
 
@@ -18,9 +18,9 @@ You can set the autoscaler configuration via the Azure portal, a Bicep template,
 
 # [Azure portal](#tab/portal)
 
-:::image type="content" source="media/durable-task-scheduler-auto-scaling-aca/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
+:::image type="content" source="media/durable-task-scheduler-auto-scaling-aca/scaler-configuration.png" alt-text="Screenshot of the scaler min and max replica configuration in the Azure portal.":::
 
-:::image type="content" source="media/durable-task-scheduler-auto-scaling-aca/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
+:::image type="content" source="media/durable-task-scheduler-auto-scaling-aca/scaler-configuration-details.png" alt-text="Screenshot of the Durable Task Scheduler-related configuration for the scaler in the Azure portal.":::
 
 | Field | Description | Example |
 | ----- | ----------- | ------- |
@@ -97,7 +97,7 @@ The [Autoscaling in Azure Container Apps sample]() demonstrates how to implement
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) or later
 - [Docker](https://www.docker.com/products/docker-desktop/) (for building the image)
-- [Azure Developer CLI](/developer/azure-developer-cli/install-azd)
+- [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
 
 ### Set up your environment
 
@@ -222,7 +222,7 @@ The custom scaler:
 - Scales back down when the load decreases.
 - Provides efficient resource utilization by matching capacity to demand.
 
-### Confirm the scaler is working
+### Confirm the scaler is configured
 
 Verify the autoscaling is functioning correctly in the deployed solution.
 
@@ -235,22 +235,6 @@ Verify the autoscaling is functioning correctly in the deployed solution.
 1. From the left side menu, click **Application** > **Scale**.
 
 1. Click the scale name to view the scaler settings.
-
-### Test the scaler
-
-You can test the scaler by running the client app with a large number of orchestration requests.
-
-1. Open the client `Program.cs` and edit it to scheduler more orchestrations in your preferred code editor.  
-
-1. In the terminal, run the client using Azure Developer CLI.
-
-   ```azdeveloper
-   azd deploy --service client
-   ```
-
-1. While the orchestrations are running, navigate to the client app in the Azure portal to monitor its replica count.
-
-1. Once orchestrations complete, make sure the replicas scale back down after a cooldown period.
 
 ## Next steps
 
