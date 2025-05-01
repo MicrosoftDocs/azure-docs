@@ -467,8 +467,11 @@ items:
       href: overview-webjobs.md 
       displayname: WebJobs overview
     - name: WebJobs Quickstart
-      displayName: Create a scheduled WebJob
       href: quickstart-webjobs.md
+      displayName: Create a scheduled WebJob
+    - name: WebJobs Tutorial
+      href: tutorial-webjobs.md      
+      displayName: Prepare and schedule a WebJob
     - name: WebJobs How-to
       href: webjobs-create.md
     - name: Develop WebJobs using VS

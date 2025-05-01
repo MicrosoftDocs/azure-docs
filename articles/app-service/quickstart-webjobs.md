@@ -6,81 +6,73 @@ ms.date: 4/24/2025
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
-zone_pivot_groups: app-service-webjobs
-#Customer intent: As a web developer, I want to leverage a scheduled background task to keep my application running smoothly.
+#Customer intent: As a web developer, I want to quickly run a background script that prints the current time.
 ---
 
 # Quickstart: Create a scheduled WebJob
 
-:::zone target="docs" pivot="dotnet"
-
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
+WebJobs in Azure App Service let you run scripts or programs as background tasks. In this quickstart, you’ll create a scheduled WebJob that prints the current time, using a prebuilt script for either Windows or Linux.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service [.NET 9 app](quickstart-dotnetcore.md).
-- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
+- An Azure account. [Create one for free](https://azure.microsoft.com/free/).
+- An existing App Service app running on your preferred OS:
+  - Windows App Service (any stack: code or container)
+  - Linux App Service (any stack: code or container))
+- Enable **Always On** in the App Service settings: [Configure Always On](configure-common.md?tabs=portal#configure-general-settings)
+- For Windows containers and all Linux apps, set the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT = false`
 
-## Create your WebJob locally
+## Step 1: Download a sample WebJob
 
-1. In this step, you create a basic .NET WebJob project and navigate to the project root.
+Choose the version that matches your App Service OS:
 
-    ```bash
-    dotnet new console -n webjob –framework net9.0
-    
-    cd webjob
-    ```
+| Platform | Download link | Included script |
+|----------|----------------|-----------------|
+| **Windows** | [Download CMD version](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/windows/webjob-windows.zip) | `run.cmd` (uses `echo %date% %time%`) |
+| **Linux**   | [Download Bash version](https://github.com/Azure-Samples/App-Service-WebJobs-Quickstart/raw/main/linux/webjob-linux.zip)   | `run.sh` (uses `date`) |
 
-1. Next, replace `Program.cs` to the following code that writes the current time to the console:
+Each zip contains a single script that prints the current system date and time.
 
-    ```dotnet
-    using System; 
-    
-    class Program 
-    { 
-        static void Main() 
-        { 
-            DateTimeOffset now = DateTimeOffset.Now; 
-            Console.WriteLine("Current time with is: " + now.ToString("hh:mm:ss tt zzz")); 
-        } 
-    }
-    ```
+## Step 2: Add the WebJob in the Azure portal
 
-1. From the *webjob* directory, run the webjob to confirm the current time is output to the console:
+1. In the [Azure portal](https://portal.azure.com), go to your **App Service** app.
+2. In the left menu, select **WebJobs** > **+ Add**.
+3. Fill in the form with the following values:
 
-    ```bash
-    dotnet run
-    ```
-    
-    You should see output similar to the following:
-    
-    ```bash
-    Current time with is: 07:53:07 PM -05:00
-    ```
+   | Setting            | Value             |
+   |--------------------|-------------------|
+   | **Name**           | `webjob`          |
+   | **File Upload**    | The `.zip` file you downloaded |
+   | **Type**           | `Triggered`       |
+   | **Triggers**       | `Scheduled`       |
+   | **CRON Expression**| `0 0/1 * * * *`   |
 
-1. Once you've confirmed the app works, build it and navigate to the parent directory:
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
-    ```bash
-    dotnet build --self-contained
-    
-    cd ..
-    ```
+4. Click **OK** to create the WebJob.
 
-1. Next we to create `run.sh` with the following code:
+## Step 3: Monitor WebJob logs
 
-    ```text 
-    #!/bin/bash
-    
-    dotnet webjob/bin/Debug/net9.0/webjob.dll 
-    ``` 
+Select the log for the WebJob you created earlier.
 
-1. Now package all the files into a .zip as shown below:
+    :::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
 
-    ```bash
-    zip webjob.zip run.sh webjob/bin/Debug/net9.0/*
-    ```
+
+The output should look similar to the following.
+
+    :::image type="content" source="media/quickstart-webjobs/webjobs-log-output.png" alt-text="Screenshot that shows WebJobs log output.":::
+
+## Step 4: Clean up
+
+To remove the WebJob, select the WebJob in the portal and select `Delete`.
+
+    :::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
+
+## <a name="NextSteps"></a> Next steps
+
+## Next step
+
+[Build a custom scheduled WebJob from scratch using .NET, Python, Node.js, Java, or PHP](tutorial-webjobs.md)
 
 ## Create a scheduled WebJob in Azure
 
@@ -107,299 +99,3 @@ WebJobs is a feature of Azure App Service that enables you to run a program 
 1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
 
     :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
-
-:::zone-end
-
-:::zone target="docs" pivot="python"
-
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service [Python app](quickstart-python.md).
-- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
-
-## Download the sample WebJob
-
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Python-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.py` and `run.sh`.
-
-The Python script, `webjob.py`, outputs the current time to the console as shown below:
-
-    ```Python 
-    import datetime 
-    
-    current_datetime = datetime.datetime.now() 
-    print(current_datetime) # Output: 2025-03-27 10:27:21.240752 
-    ``` 
-
-The file, `run.sh`, calls WebJob.py as shown below:
-
-    ```Bash
-    #!/bin/bash
-    /opt/python/3/bin/python3.13 webjob.py
-    ``` 
-
-## Create a scheduled WebJob
-
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
-
-1. From the left pane, select **WebJobs**, then select **Add**.
-
-    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
-
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
-
-    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
-
-   | Setting      | value   | Description  |
-   | ------------ | ----------------- | ------------ |
-   | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-Python-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
-   | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
-   | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
-   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
-
-1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
-
-1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
-
-    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
-:::zone-end
-
-:::zone target="docs" pivot="node"
-
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service [Node app](quickstart-nodejs.md).
-- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
-
-## Download the sample WebJob
-
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-Node-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.js` and `run.sh`.
-
-The JavaScript, `webjob.js`, outputs the current time to the console as shown below:
-
-    ```JavaScript 
-    // Import the 'Date' object from JavaScript
-    const currentTime = new Date();
-    
-    // Format the time as a string
-    const formattedTime = currentTime.toLocaleTimeString();
-    
-    // Output the formatted time to the console
-    console.log(`Current system time is: ${formattedTime}`);
-    ``` 
-
-The file, `run.sh`, calls webjob.js as shown below:
-
-    ```Bash
-    #!/bin/bash
-    
-    node webjob.js
-    ``` 
-
-## Create a scheduled WebJob
-
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
-
-1. From the left pane, select **WebJobs**, then select **Add**.
-
-    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
-
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
-
-    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
-
-   | Setting      | value   | Description  |
-   | ------------ | ----------------- | ------------ |
-   | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-Node-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
-   | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
-   | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
-   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
-
-1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
-
-1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
-
-    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
-:::zone-end
-
-:::zone target="docs" pivot="java"
-
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service [Java app](quickstart-java.md).
-- [Maven Plugin for Azure App Service Web Apps](https://github.com/microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md).
-- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
-
-## Create your sample WebJob
-
-[A sample Java WebJob](https://github.com/Azure-Samples/App-Service-Java-WebJobs-QuickStart) has been created for you. In this section, you review the sample and then build a `.JAR` file using Maven in the Cloud Shell.
-
-### Review the sample
-
-Digging into the code, our Java project located at `project/src/main/java/webjob/HelloWorld.java` is relatively simple. It just outputs a message & the current time to the console.  
-
-    ```Java 
-    import java.time.LocalDateTime; 
-    
-    public class HelloWorld { 
-    
-        public static void main(String[] args) { 
-    
-            System.out.println("------------------------------------------------------------"); 
-            System.out.println("Hello World from WebJob: " + LocalDateTime.now()); 
-            System.out.println("------------------------------------------------------------"); 
-        } 
-    } 
-    ``` 
-
-### Build the Java WebJob
-
-The run.sh script located at the root of our git repo, just runs a jar with the name that we’ve set in our maven configuration. This script will run when our WebJob is triggered, and it is the job of this script to kick off our Java executable (jar).
-
-    ```bash 
-    java -jar webjob-artifact-1.0.0.jar 
-    ``` 
-
-Now we need to compile our Java project to produce the executable jar. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:  
-
-    ```bash 
-    mvn install 
-    mvn package 
-    ``` 
-
-After successfully building our app with `mvn package`, our jar file will be located at `project/target/webjob-artifact-1.0.0.jar`.  
-
-Now we have everything we need to assemble our zip file. Again, there are multiple ways to do this, but for this demo we’ll use the zip CLI utility to create our zip file called `webjob.zip`. First move your jar file to the root of the git repo with ` project/target/webjob-artifact-1.0.0.jar .` Then run the zip command to package our application as a zip file. 
-
-    ```bash 
-    zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
-    ``` 
-
-## Create a scheduled WebJob on Azure
-
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
-
-1. From the left pane, select **WebJobs**, then select **Add**.
-
-    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
-
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
-
-    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
-
-   | Setting      | value   | Description  |
-   | ------------ | ----------------- | ------------ |
-   | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-PHP-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
-   | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
-   | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
-   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
-
-1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
-
-1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
-
-    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
-
-:::zone-end
-
-:::zone target="docs" pivot="php"
-
-WebJobs is a feature of Azure App Service that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs at no additional cost. This sample uses a scheduled (Triggered) WebJob to output the system time once every minute.  
-
-## Prerequisites
-
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- An existing App Service PHP app on Linux.  In this quickstart, a [PHP app](quickstart-php.md) is used.
-- **[Always on](configure-common.md?tabs=portal#configure-general-settings)** must be enabled on your app.
-- Ensure the App setting `WEBSITE_SKIP_RUNNING_KUDUAGENT` is set to `false`.
-
-## Download the sample WebJob
-
-You can [download a pre-built sample project](https://github.com/Azure-Samples/App-Service-PHP-WebJobs-QuickStart/archive/refs/heads/main.zip) to get started quickly. The sample includes two files: `webjob.php` and `run.sh`.
-
-The PHP script, `webjob.php`, outputs the current time to the console as shown below:
-
-    ```PHP 
-    <?php
-    // Get the current time
-    $current_time = date("Y-m-d H:i:s");
-    
-    // Display the current time
-    echo "The current time is: " . $current_time;
-    ?>
-    ``` 
-
-The file, `run.sh`, calls webjob.php as shown below:
-
-    ```Bash
-    #!/bin/bash
-    
-    php -f webjob.php
-    ``` 
-
-## Create a scheduled WebJob
-
-1. In the [Azure portal](https://portal.azure.com), go to the **App Service** page of your App Service app.
-
-1. From the left pane, select **WebJobs**, then select **Add**.
-
-    :::image type="content" source="media/webjobs-create/add-webjob.png" alt-text="Screenshot that shows how to add a WebJob in an App Service app in the portal (scheduled WebJob).":::
-
-1. Fill in the **Add WebJob** settings as specified in the table, then select **Create Webjob**. For **File Upload**, be sure to select the .zip file you downloaded earlier in the [Download the sample WebJob](#download-the-sample-webjob) section.
-
-    :::image type="content" source="media/webjobs-create/configure-new-scheduled-webjob.png" alt-text="Screenshot that shows how to configure a scheduled WebJob in an App Service app.":::
-
-   | Setting      | value   | Description  |
-   | ------------ | ----------------- | ------------ |
-   | **Name** | webjob | The WebJob name. Must start with a letter or a number and must not contain special characters other than "-" and "_". |
-   | **File Upload** | App-Service-PHP-WebJobs-Quickstart-Main.zip | The *.zip* file that contains your executable or script file. The supported file types are listed in the [supported file types](webjobs-create.md?tabs=windowscode#acceptablefiles) section. |
-   | **Type** | Triggered | Specifies when the WebJob runs: Continuous or Triggered. |
-   | **Triggers** | Scheduled | Scheduled or Manual. Ensure [Always on](configure-common.md?tabs=portal#configure-general-settings) is enabled for the schedule to work reliably.|
-   | **CRON Expression** | 0 0/1 * * * * | For this quickstart, we use a schedule that runs every minute. See [CRON expressions](webjobs-create.md?tabs=windowscode#ncrontab-expressions) to learn more about the syntax. |
-
-1. The new WebJob appears on the **WebJobs** page. If you see a message that says the WebJob was added, but you don't see it, select **Refresh**. 
-
-1. The scheduled WebJob is run at the schedule defined by the CRON expression. 
-
-    :::image type="content" source="media/webjobs-create/scheduled-webjob-run.png" alt-text="Screenshot that shows how to run a manually scheduled WebJob in the Azure portal.":::
-
-:::zone-end
-
-[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
-
-## Review the WebJob logs
-
-Select the log for the WebJob you created earlier.
-
-    :::image type="content" source="media/quickstart-webjobs/review-webjobs-logs.png" alt-text="Screenshot that shows how to view WebJob logs in an App Service app in the portal (scheduled WebJob).":::
-
-
-The output should look similar to the following.
-
-:::image type="content" source="media/quickstart-webjobs/webjobs-log-output.png" alt-text="Screenshot that shows WebJobs log output.":::
-
-## Clean up
-
-To remove the WebJob, select the WebJob in the portal and select `Delete`.
-
-    :::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
-
-## <a name="NextSteps"></a> Next steps
-
-## Next step
-
-[Explore more advanced WebJob scenarios, including triggers and deployment options](https://learn.microsoft.com/en-us/azure/app-service/webjobs-create)
