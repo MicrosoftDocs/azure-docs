@@ -115,6 +115,9 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
+          - name: Terraform
+            displayName: Terraform, quickstart, get started
+            href: functions-create-first-function-terraform.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
