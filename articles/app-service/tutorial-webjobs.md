@@ -273,7 +273,7 @@ public class HelloWorld {
     java -jar webjob-artifact-1.0.0.jar
     ``` 
 
-1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:  
+1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:
 
     ```bash
     mvn install 
@@ -282,7 +282,7 @@ public class HelloWorld {
 
     The jar files will be located at `project/target/webjob-artifact-1.0.0.jar` after a successful build.  
 
-1. Move the jar file to the root of the git repo with `mv project/target/webjob-artifact-1.0.0.jar .` Next you package our application as a `.zip` file. 
+1. Move the jar file to the root of the git repo with `mv project/target/webjob-artifact-1.0.0.jar .` Next you package our application as a `.zip` file.
 
     ```bash
     zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
@@ -398,8 +398,6 @@ To remove the WebJob, select the WebJob in the portal and select `Delete`.
 
 :::image type="content" source="media/quickstart-webjobs/delete-webjobs.png" alt-text="Screenshot showing how you can delete a WebJob in the portal.":::
 
-## <a name="NextSteps"></a> Next steps
-
-## Next step
+## <a name="NextSteps"></a> Next step
 
 [Explore more advanced WebJob scenarios, including triggers and deployment options](webjobs-create.md)
