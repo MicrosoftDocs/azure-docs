@@ -269,13 +269,13 @@ public class HelloWorld {
 
 1. The `run.sh` script runs a jar with the name that set in the Maven configuration. This script will run when our WebJob is triggered.
 
-    ```bash 
-    java -jar webjob-artifact-1.0.0.jar 
+    ```bash
+    java -jar webjob-artifact-1.0.0.jar
     ``` 
 
 1. Next, we compile the Java project to produce the executable `.jar`. There are multiple ways to do this, but for this example, we’ll use Maven. Run the following commands from the `project/` directory:  
 
-    ```bash 
+    ```bash
     mvn install 
     mvn package 
     ``` 
@@ -284,7 +284,7 @@ public class HelloWorld {
 
 1. Move the jar file to the root of the git repo with `mv project/target/webjob-artifact-1.0.0.jar .` Next you package our application as a `.zip` file. 
 
-    ```bash 
+    ```bash
     zip webjob.zip run.sh webjob-artifact-1.0.0.jar 
     ``` 
 
@@ -402,4 +402,4 @@ To remove the WebJob, select the WebJob in the portal and select `Delete`.
 
 ## Next step
 
-[Explore more advanced WebJob scenarios, including triggers and deployment options](https://learn.microsoft.com/en-us/azure/app-service/webjobs-create)
+[Explore more advanced WebJob scenarios, including triggers and deployment options](webjobs-create.md)
