@@ -47,8 +47,6 @@ Each zip contains a single script that prints the current system date and time.
    | **Triggers**       | `Scheduled`       |
    | **CRON Expression**| `0 0/1 * * * *`   |
 
-[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
-
 4. Select **OK** to create the WebJob.
 
 ## Step 3: Monitor WebJob logs
@@ -61,8 +59,6 @@ Each zip contains a single script that prints the current system date and time.
 
 To remove the WebJob, select the WebJob in the portal and select `Delete`.
 
-## <a name="NextSteps"></a> Next steps
-
-## Next step
+## <a name="NextSteps"></a> Next step
 
 [Build a custom scheduled WebJob from scratch using .NET, Python, Node.js, Java, or PHP](tutorial-webjobs.md)
