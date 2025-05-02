@@ -1,22 +1,22 @@
 ---
-title: Authorize test console of API Management developer portal - OAuth 2.0
+title: Create OAuth application access to product - Azure API Management
 titleSuffix: Azure API Management
-description: Set up OAuth 2.0 user authorization for the test console in Azure API Management developer portal. This example uses Microsoft Entra ID as OAuth 2.0 provider.
+description: TBD
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 05/02/2025
 ms.author: danlep
-ms.custom: engagement-fy23
+ms.custom: 
 ---
 
 # Create and authorize access to products using OAuth 2.0 application 
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-
+[Intro here]
 
 
 Applications feature is now available for private preview testing. 
@@ -27,7 +27,7 @@ Applications feature is now available for private preview testing.
 
 This feature enables:
 
-* API Management gateway can now authorize product/API access using OAuth token 
+* API Management gateway can now authorize product/API access using OAuth token **in client credentials flow**
 * API managers can identify products which have OAuth authorization enabled
 * API managers can create client applications and assign access to products
 * Developers can view all client applications and use OAuth token to get secure access to product/API
@@ -76,9 +76,12 @@ The following are the high level configuration steps:
     1. In the **Add assignments** pane, search for the API Management instance's managed identity by name or object (prinicipal) ID, select it, and then select **Add**.
 
 
-## Enable OAuth 2.0 authorization for product
+## Enable application based access for product
 
-To enable OAuth 2.0 authorization for a product, you must first enable **Application based access** in the product settings. This setting automatically creates a client application in Microsoft Entra ID for this product.
+To enable OAuth 2.0 authorization for a product, can enable **Application based access** in the product settings. This setting automatically creates a client application in Microsoft Entra ID for this product.
+
+> [!TIP]
+> You can also enable the **Application based access** setting when creating a new product. 
 
 1. Sign in to the Azure portal at the following URL () and navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Products**.
@@ -90,8 +93,36 @@ To enable OAuth 2.0 authorization for a product, you must first enable **Applica
 :::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
 
 
+After you enable application based access, an enterprise application is created. 
 
-## Create application in Microsoft Entra ID
+### Review application settings
+
+The application is named with the following format: **APIMProductApplication<product-name>**. For example, if the product name is **Starter**, the application name is **APIMProductApplicationStarter**. The application should have an **App role** defined.
+
+You can review application settings in **App registrations**.
+
+1. Sign in to the Azure portal and naviage to **App registrations**.
+1. Select **All applications** and search for the application created by API Management.
+1. In the left menu, under **Manage**, select **App roles**.
+1. Confirm that an application role was set by Azure API Management, as shown in the following screenshot:
+
+:::image type="content" source="media/applications/application-roles.png" alt-text="Screenshot of app roles in the portal.":::
+
+## Create application for multiple products
+
+You can also create an application that can access multiple products.
+
+1. Sign in to the Azure portal at the following URL () and navigate to your API Management instance.
+1. In the left menu, under **APIs**, select **Applications** > **+ Register application**.
+1. In the **Register an application** pane, 
+1. Enter the following application settings:
+    * **Name**: Enter a name for the application. For example, **MyApp**.
+    * **Owner**: Select the owner of the application from the dropdown list. <!-- What are options here? -->
+    * **Grant access to selected products**: Select one or more products that you want the application to access. <!--Why were some product options greyed out? -->
+    * **Description**: Optionally enter a description.
+
+    :::image type="content" source="media/applications/register-application.png" alt-text="Screenshot of application settings in the portal.":::
+1. Select **Register**.
 
 ## Add/remove products in application
 
