@@ -1,8 +1,8 @@
 ---
 title: Choosing your orchestration framework
-description: This article provides guidance to help developers pick an orchestration framework.
+description: Learn which orchestration framework works for your scenario.
 ms.topic: conceptual
-ms.date: 04/29/2025
+ms.date: 05/02/2025
 ---
 
 # Choosing an orchestration framework
