@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 4/30/2025
+ms.date: 5/2/2025
 ms.author: greglin
 ---
 
