@@ -9,7 +9,7 @@ ms.date: 04/08/2025
 ---
 
 # Understand approvals in Azure Virtual Enclaves
-Approvals require additional oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. Approvals can only be reviewed by someone with `Enclave Approver Role` in Azure.
+Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. Approvals can only be reviewed by someone with `Enclave Approver Role` in Azure.
 
 ## Introduction to approvals
 
@@ -30,22 +30,22 @@ Approval settings can be set for eligible resources at the Community Level. The 
 
 ## Who can approve requests in AVE
 Approval workflows in Azure Virtual Enclaves (AVE) are governed by a Role-Based Access Control (RBAC) system, ensuring that only authorized individuals or groups can approve requests. Approvers are explicitly defined based on their roles, responsibilities, and the specific approval requirements within an organization.  
-Typically, approvers may include Administrators, Tenant Owners, Designated Security/Cyber Personnel, Business Unit Stakeholders or Custom Approver Groups and Authorizing officials.
+Typically, approvers may include Administrators, Tenant Owners, Designated Security/Cyber Personnel, Business Unit Stakeholders, or Custom Approver Groups and Authorizing officials.
 
 You have the flexibility to define approvers based on your requirements. This ensures that only those with the right authority and context can validate requests, maintaining strict controls over deployments and configurations in AVE. This reinforces a secure and efficient operational framework tailored to everyone's needs.  
 
 ### How to designate someone as an approver
-1. Go to the particular resource that you want to grant the approver role and click on `Access Control (IAM)` on the left pane.
-2. Click on `Add` button in header and then click on `Add role assignment`.
-3. A new window will open. Search and select for `Enclave Approver Role` and click on `Next`.
-4. Click on `Select Members` to search and select the people you want to mark as approvers and then click on `Next`.
-5. On the final screen, click on `Review + Assign`. The select members will get the approver role.
+1. Go to the particular resource that you want to grant the approver role and select on `Access Control (IAM)` on the left pane.
+2. Select on `Add` button in header and then select on `Add role assignment`.
+3. A new window opens. Search and select for `Enclave Approver Role` and select on `Next`.
+4. Select on `Select Members` to search and select the people you want to mark as approvers and then select on `Next`.
+5. On the final screen, select on `Review + Assign`. The select members get the approver role.
 
 ## Approvals FAQs
 These are some of the Frequently Asked Questions (FAQs) about Approvals.
 
 ### 1. How can I view approval requests
-Approvals blade can be accessed from three places and is available under Monitoring section
+The approvals view can be accessed from three places and is available under Monitoring section
 1. AVE Home Page
 
 [ ![Screenshot showing the Azure Virtual Enclaves service view of all approvals you have access to review.](./media/approvals-service-view.png) ](./media/approvals-service-view.png#lightbox)
@@ -58,35 +58,35 @@ Approvals blade can be accessed from three places and is available under Monitor
 
 [ ![Screenshot showing the enclave view of all approvals you have access to review.](./media/approvals-enclave-view.png) ](./media/approvals-enclave-view.png#lightbox)
 
-Once you click on `Approvals` from any of these places, you will be able to see the scoped approval requests as long as you have the [Approval role](#how-to-designate-someone-as-an-approver). You can also see the details about the approval request like, Approval Status, Deployment Status, Requestor, etc. You can change the filters on the top to view the requests as per your requirement.
+Once you select on `Approvals` from any of these places, you see the scoped approval requests as long as you have the [Approval role](#how-to-designate-someone-as-an-approver). You can also see the details about the approval request like, Approval Status, Deployment Status, Requestor, etc. You can change the filters on the top to view the requests as per your requirement.
 
 ### 2. How do I review approval requests?
-Once you land up on the approvals page, you will be able to see if any requests were raised for approval. You will also be able to see the previous requests which were actioned earlier.
-Please keep in mind that only one request can be reviewed at a time.
-The requests will be visible to everyone but can only be approved or denied by people having RBAC role.
+Once you land up on the approvals page, you see if any requests were raised for approval. You also see the previous requests which were actioned earlier.
+Keep in mind that only one request can be reviewed at a time.
+The requests are visible to everyone but can only be approved or denied by people having RBAC role.
 
 To review the request, follow the below steps:
 1. Select an approval request.
-2. Click on `Review` button in the header. This will open a right side pane.
-3. Here, you will be able to see the resource for which the request has been raised. To see the underlying changes, click on the resource name which will navigate you to the specific changes for perusal.
-4. Once the changes are viewed, go back to previous screen and select either `Approved` or `Denied` and click on `Submit` button.
-5. The deployment will start based on the earlier chosen approval action.
+2. Select on `Review` button in the header. This opens a right side pane with the approval details.
+3. The right side pane shows the resource for which the request has been raised. To see the underlying changes, select on the resource name which will navigate you to the specific changes for perusal.
+4. Once the changes are viewed, go back to previous screen and select either `Approved` or `Denied` and select on `Submit` button.
+5. The deployment starts based on the earlier chosen approval action.
 
 [ ![Screenshot showing an approved enclave creation approval request.](./media/approvals-request.png) ](./media/approvals-request.png#lightbox)
 
 ### 3. Can I self approve my requests?
-No, self approval of requests are currently disabled. Even if you are an approver, you will need to be get an approval from someone else. This is to ensure highest level of security and that no change goes without eyes from multiple people.
+No, approval of your own requests is not allowed. Even if you're an approver, you need to get an approval from someone else. This is to ensure highest level of security and that no change goes without eyes from multiple people.
 
 ### 4. Can I delete accidentally raised requests?
 You can only delete the requests that are in Pending state. Any requests that are already Approved/Denied can't be deleted.
-Furthermore, the metadata of deleted requests will persist in logs for auditing purpose.
+Furthermore, the metadata of deleted requests remain in logs for auditing purpose.
 
 ### 5. How can I attach a Ticket ID to approval request?
-1. Navigate to your approval request and click on `Review`.
-2. You will see a field called `Ticket ID`.
-3. Click on `Add Ticket ID`.
-4. Enter the Ticket ID in the field and click on `Save`.
-5. You can click on `Edit` if you want to update the Ticket ID.
+1. Navigate to your approval request and select on `Review`.
+2. View the field called `Ticket ID`.
+3. Select on `Add Ticket ID`.
+4. Enter the Ticket ID in the field and select on `Save`.
+5. You can select on `Edit` if you want to update the Ticket ID.
 > Note:
 >
 > Make sure to not enter any PII data or any personal details in Ticket ID field.
