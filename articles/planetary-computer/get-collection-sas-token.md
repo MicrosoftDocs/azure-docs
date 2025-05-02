@@ -54,32 +54,19 @@ def raise_for_status(r: requests.Response) -> None:
 
 ## 2. Request a SAS Token for a STAC Collection
 
-With this helper function, you can access the endpoint that returns your temporary STAC collection-level sas token.
+Access the endpoint that returns your temporary STAC collection-level sas token.
 
 ```python
-def get_collection_sas_token(collection_id, geocatalog_url):
-    """
-    Requests a collection-level SAS token from the MPC Pro Geocatalog.
-
-    """
-    sas_token_endpoint = f"{geocatalog_url}/sas/token/{collection_id}"
+geocatalog_url = "<your-geocatalog-url>"
+collection_id = "<your-collection-id>"
 
     response = requests.get(
-        sas_token_endpoint,
+        f"{geocatalog_url}/sas/token/{collection_id}",
         headers=getBearerToken(),
         params={"api-version": "2025-04-30-preview"}
     )
 
-    sas_token_info = response.json()
-    return sas_token_info["token"]
-```
-Use the helper function to return a sas token that other applications can use to access STAC collection assets.
-
-```python
-geocatalog_url = "https://geocatalog.pro.spatio.azure.com"
-collection_id = "<your-collection-id>"
-
-sas_token = get_collection_sas_token(collection_id, geocatalog_url)
+sas_token = response.json()["token"]
 
 print(f"SAS Token: {sas_token}")
 ```
