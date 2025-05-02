@@ -42,7 +42,7 @@ WebJobs come in three main types:
 - **Continuous WebJobs**: Run persistently in the background while your App Service app is running. Ideal for queue polling or background monitoring tasks.
 
 
-:::image type="content" source="media/overview-webjobs/webjob-types-app-service.png" alt-text="Overview of WebJobs in Azure App Service, showing job types." lightbox="media/overview-webjobs/webjob-types-app-service.png":::
+:::image type="content" source="media/overview-webjobs/webjob-types-app-service.png" alt-text="Overview of WebJobs in Azure App Service, showing job types.":::
 
 ## Supported platforms and file types
 
@@ -100,7 +100,7 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 | Build a WebJob manually using scripts or code | [Create a WebJob in Azure App Service](webjobs-create.md) |
 | Follow a tutorial using a practical use case | [Tutorial: Run background tasks with WebJobs](tutorial-webjobs.md) |
 
-## Related guidance
+## <a name="NextSteps"></a> Next steps
 
 - [Background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs)
 - [Develop WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)

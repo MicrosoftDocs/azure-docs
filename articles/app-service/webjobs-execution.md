@@ -96,7 +96,7 @@ Triggered WebJobs include a full history of executions. Continuous WebJobs strea
 - **Scheduled job not running:** Verify the CRON expression in `settings.job` is correct and the App Service Plan has "Always On" enabled if needed.
 - **Check Kudu logs:** Examine the detailed execution logs and deployment logs available in the Kudu console (`https://<your-app>.scm.azurewebsites.net/`) under Tools > WebJobs and potentially Log stream.
 
-## See also
+## <a name="NextSteps"></a> Next steps
 
 - [WebJobs overview](overview-webjobs.md)
 - [Create a scheduled WebJob](quickstart-webjobs.md)
