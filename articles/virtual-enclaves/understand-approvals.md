@@ -17,10 +17,10 @@ Approvals in Azure Virtual Enclaves (AVE) form a critical layer of governance, e
 
 ## Which resources are approval enabled
 Currently, the below resources are approval enabled:
-1. [Enclave](./create-enclave-portal.md) creation
-2. [Enclave endpoint](./create-enclave-endpoint-portal.md) modification
-3. [Enclave connection](./create-enclave-connection-portal.md) creation and update
-4. Turn on [maintenance mode](./maintenance-mode.md) for an enclave.
+- [Enclave](./create-enclave-portal.md) creation
+-  [Enclave endpoint](./create-enclave-endpoint-portal.md) modification
+- [Enclave connection](./create-enclave-connection-portal.md) creation and update
+- Turn on [maintenance mode](./maintenance-mode.md) for an enclave.
 
 ## How to set approval settings on resources
 Approval settings can be set for eligible resources at the Community Level. The Community Owner can set which resources should be approval enabled while creating the community itself. Once set, these settings can't be changed.
