@@ -193,351 +193,351 @@ Your hub is now configured to work with Firebase Cloud Messaging. You also have 
 
 1. Add another new class to your project named `RegistrationIntentService`. This class implements the `IntentService` interface. It also handles [refreshing the FCM token](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens) and [registering with the notification hub](notification-hubs-push-notification-registration-management.md).
 
-    Use the following code for this class.
+   Use the following code for this class.
 
-    ```java
-    import android.app.IntentService;
-    import android.content.Intent;
-    import android.content.SharedPreferences;
-    import android.preference.PreferenceManager;
-    import android.util.Log;
-    import com.google.android.gms.tasks.OnSuccessListener;
-    import com.google.firebase.iid.FirebaseInstanceId;
-    import com.google.firebase.iid.InstanceIdResult;
-    import com.microsoft.windowsazure.messaging.NotificationHub;
-    import java.util.concurrent.TimeUnit;
+   ```java
+   import android.app.IntentService;
+   import android.content.Intent;
+   import android.content.SharedPreferences;
+   import android.preference.PreferenceManager;
+   import android.util.Log;
+   import com.google.android.gms.tasks.OnSuccessListener;
+   import com.google.firebase.iid.FirebaseInstanceId;
+   import com.google.firebase.iid.InstanceIdResult;
+   import com.microsoft.windowsazure.messaging.NotificationHub;
+   import java.util.concurrent.TimeUnit;
 
-    public class RegistrationIntentService extends IntentService {
+   public class RegistrationIntentService extends IntentService {
 
-        private static final String TAG = "RegIntentService";
-        String FCM_token = null;
+       private static final String TAG = "RegIntentService";
+       String FCM_token = null;
 
-        private NotificationHub hub;
+       private NotificationHub hub;
 
-        public RegistrationIntentService() {
-            super(TAG);
-        }
+       public RegistrationIntentService() {
+           super(TAG);
+       }
 
-        @Override
-        protected void onHandleIntent(Intent intent) {
+       @Override
+       protected void onHandleIntent(Intent intent) {
 
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            String resultString = null;
-            String regID = null;
-            String storedToken = null;
+           SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+           String resultString = null;
+           String regID = null;
+           String storedToken = null;
 
-            try {
-                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
-                    @Override 
-                    public void onSuccess(InstanceIdResult instanceIdResult) { 
-                        FCM_token = instanceIdResult.getToken(); 
-                        Log.d(TAG, "FCM Registration Token: " + FCM_token); 
-                    } 
-                }); 
-                TimeUnit.SECONDS.sleep(1);
+           try {
+               FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(new OnSuccessListener<InstanceIdResult>() { 
+                   @Override 
+                   public void onSuccess(InstanceIdResult instanceIdResult) { 
+                       FCM_token = instanceIdResult.getToken(); 
+                       Log.d(TAG, "FCM Registration Token: " + FCM_token); 
+                   } 
+               }); 
+               TimeUnit.SECONDS.sleep(1);
 
-                // Storing the registration ID that indicates whether the generated token has been
-                // sent to your server. If it is not stored, send the token to your server.
-                // Otherwise, your server should have already received the token.
-                if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
+               // Storing the registration ID that indicates whether the generated token has been
+               // sent to your server. If it is not stored, send the token to your server.
+               // Otherwise, your server should have already received the token.
+               if (((regID=sharedPreferences.getString("registrationID", null)) == null)){
 
-                    NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
-                            NotificationSettings.HubListenConnectionString, this);
-                    Log.d(TAG, "Attempting a new registration with NH using FCM token : " + FCM_token);
-                    regID = hub.register(FCM_token).getRegistrationId();
+                   NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
+                           NotificationSettings.HubListenConnectionString, this);
+                   Log.d(TAG, "Attempting a new registration with NH using FCM token : " + FCM_token);
+                   regID = hub.register(FCM_token).getRegistrationId();
 
-                    // If you want to use tags...
-                    // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
-                    // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+                   // If you want to use tags...
+                   // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+                   // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
-                    resultString = "New NH Registration Successfully - RegId : " + regID;
-                    Log.d(TAG, resultString);
+                   resultString = "New NH Registration Successfully - RegId : " + regID;
+                   Log.d(TAG, resultString);
 
-                    sharedPreferences.edit().putString("registrationID", regID ).apply();
-                    sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
-                }
+                   sharedPreferences.edit().putString("registrationID", regID ).apply();
+                   sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
+               }
 
-                // Check to see if the token has been compromised and needs refreshing.
-               else if (!(storedToken = sharedPreferences.getString("FCMtoken", "")).equals(FCM_token)) {
+              // Check to see if the token has been compromised and needs refreshing.
+              else if (!(storedToken = sharedPreferences.getString("FCMtoken", "")).equals(FCM_token)) {
 
-                    NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
-                            NotificationSettings.HubListenConnectionString, this);
-                    Log.d(TAG, "NH Registration refreshing with token : " + FCM_token);
-                    regID = hub.register(FCM_token).getRegistrationId();
+                   NotificationHub hub = new NotificationHub(NotificationSettings.HubName,
+                           NotificationSettings.HubListenConnectionString, this);
+                   Log.d(TAG, "NH Registration refreshing with token : " + FCM_token);
+                   regID = hub.register(FCM_token).getRegistrationId();
 
-                    // If you want to use tags...
-                    // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
-                    // regID = hub.register(token, "tag1,tag2").getRegistrationId();
+                   // If you want to use tags...
+                   // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+                   // regID = hub.register(token, "tag1,tag2").getRegistrationId();
 
-                    resultString = "New NH Registration Successfully - RegId : " + regID;
-                    Log.d(TAG, resultString);
+                   resultString = "New NH Registration Successfully - RegId : " + regID;
+                   Log.d(TAG, resultString);
 
-                    sharedPreferences.edit().putString("registrationID", regID ).apply();
-                    sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
-                }
+                   sharedPreferences.edit().putString("registrationID", regID ).apply();
+                   sharedPreferences.edit().putString("FCMtoken", FCM_token ).apply();
+               }
 
-                else {
-                    resultString = "Previously Registered Successfully - RegId : " + regID;
-                }
-            } catch (Exception e) {
-                Log.e(TAG, resultString="Failed to complete registration", e);
-                // If an exception happens while fetching the new token or updating registration data
-                // on a third-party server, this ensures that we'll attempt the update at a later time.
-            }
+               else {
+                   resultString = "Previously Registered Successfully - RegId : " + regID;
+               }
+           } catch (Exception e) {
+               Log.e(TAG, resultString="Failed to complete registration", e);
+               // If an exception happens while fetching the new token or updating registration data
+               // on a third-party server, this ensures that we'll attempt the update at a later time.
+           }
 
-            // Notify UI that registration has completed.
-            if (MainActivity.isVisible) {
-                MainActivity.mainActivity.ToastNotify(resultString);
-            }
-        }
-    }
-    ```
+           // Notify UI that registration has completed.
+           if (MainActivity.isVisible) {
+               MainActivity.mainActivity.ToastNotify(resultString);
+           }
+       }
+   }
+   ```
 
-1 In the `MainActivity` class, add the following `import` statements above the class declaration.
+1. In the `MainActivity` class, add the following `import` statements above the class declaration.
 
-  ```java
-  import com.google.android.gms.common.ConnectionResult;
-  import com.google.android.gms.common.GoogleApiAvailability;
-  import android.content.Intent;
-  import android.util.Log;
-  import android.widget.TextView;
-  import android.widget.Toast;
-  ```
+   ```java
+   import com.google.android.gms.common.ConnectionResult;
+   import com.google.android.gms.common.GoogleApiAvailability;
+   import android.content.Intent;
+   import android.util.Log;
+   import android.widget.TextView;
+   import android.widget.Toast;
+   ```
 
 1. Add the following members at the top of the class. You use these fields to [check the availability of Google Play Services as recommended by Google](https://developers.google.com/android/guides/setup#ensure_devices_have_the_google_play_services_apk).
 
-    ```java
-    public static MainActivity mainActivity;
-    public static Boolean isVisible = false;
-    private static final String TAG = "MainActivity";
-    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    ```
+   ```java
+   public static MainActivity mainActivity;
+   public static Boolean isVisible = false;
+   private static final String TAG = "MainActivity";
+   private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+   ```
 
 1. In the `MainActivity` class, add the following method to check the availability of Google Play Services.
 
-    ```java
-    /**
-    * Check the device to make sure it has the Google Play Services APK. If
-    * it doesn't, display a dialog box that enables  users to download the APK from
-    * the Google Play Store or enable it in the device's system settings.
-    */
+   ```java
+   /**
+   * Check the device to make sure it has the Google Play Services APK. If
+   * it doesn't, display a dialog box that enables  users to download the APK from
+   * the Google Play Store or enable it in the device's system settings.
+   */
 
-    private boolean checkPlayServices() {
-        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
-        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
-        if (resultCode != ConnectionResult.SUCCESS) {
-            if (apiAvailability.isUserResolvableError(resultCode)) {
-                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
-                        .show();
-            } else {
-                Log.i(TAG, "This device is not supported by Google Play Services.");
-                ToastNotify("This device is not supported by Google Play Services.");
-                finish();
-            }
-            return false;
-        }
-        return true;
-    }
-    ```
+   private boolean checkPlayServices() {
+       GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+       int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+       if (resultCode != ConnectionResult.SUCCESS) {
+           if (apiAvailability.isUserResolvableError(resultCode)) {
+               apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                       .show();
+           } else {
+               Log.i(TAG, "This device is not supported by Google Play Services.");
+               ToastNotify("This device is not supported by Google Play Services.");
+               finish();
+           }
+           return false;
+       }
+       return true;
+   }
+   ```
 
 1. In the `MainActivity` class, add the following code that checks for Google Play Services before calling the `IntentService` to get your FCM registration token and register with your hub:
 
-    ```java
-    public void registerWithNotificationHubs()
-    {
-        if (checkPlayServices()) {
-            // Start IntentService to register this application with FCM.
-            Intent intent = new Intent(this, RegistrationIntentService.class);
-            startService(intent);
-        }
-    }
-    ```
+   ```java
+   public void registerWithNotificationHubs()
+   {
+       if (checkPlayServices()) {
+           // Start IntentService to register this application with FCM.
+           Intent intent = new Intent(this, RegistrationIntentService.class);
+           startService(intent);
+       }
+   }
+   ```
 
 1. In the `OnCreate` method of the `MainActivity` class, add the following code to start the registration process when the activity is created:
 
-    ```java
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+   ```java
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
 
-        mainActivity = this;
-        registerWithNotificationHubs();
-        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
-    }
-    ```
+       mainActivity = this;
+       registerWithNotificationHubs();
+       FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
+   }
+   ```
 
 1. To verify app state and report status in your app, add these additional methods to `MainActivity`:
 
-    ```java
-    @Override
-    protected void onStart() {
-        super.onStart();
-        isVisible = true;
-    }
+   ```java
+   @Override
+   protected void onStart() {
+       super.onStart();
+       isVisible = true;
+   }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        isVisible = false;
-    }
+   @Override
+   protected void onPause() {
+       super.onPause();
+       isVisible = false;
+   }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        isVisible = true;
-    }
+   @Override
+   protected void onResume() {
+       super.onResume();
+       isVisible = true;
+   }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        isVisible = false;
-    }
+   @Override
+   protected void onStop() {
+       super.onStop();
+       isVisible = false;
+   }
 
-    public void ToastNotify(final String notificationMessage) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
-                TextView helloText = (TextView) findViewById(R.id.text_hello);
-                helloText.setText(notificationMessage);
-            }
-        });
-    }
-    ```
+   public void ToastNotify(final String notificationMessage) {
+       runOnUiThread(new Runnable() {
+           @Override
+           public void run() {
+               Toast.makeText(MainActivity.this, notificationMessage, Toast.LENGTH_LONG).show();
+               TextView helloText = (TextView) findViewById(R.id.text_hello);
+               helloText.setText(notificationMessage);
+           }
+       });
+   }
+   ```
 
 1. The `ToastNotify` method uses the *"Hello World"* `TextView` control to report status and notifications persistently in the app. In your **res** > **layout** > **activity_main.xml** layout, add the following ID for that control.
 
-    ```java
-    android:id="@+id/text_hello"
-    ```
+   ```java
+   android:id="@+id/text_hello"
+   ```
 
-    ![Screenshot that shows the android:id="@+id/text_hello" id applied to the TextView control.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
+   ![Screenshot that shows the android:id="@+id/text_hello" id applied to the TextView control.](./media/notification-hubs-android-push-notification-google-fcm-get-started/activity-main-xml.png)
 
 1. Next you add a subclass for the receiver that you defined in AndroidManifest.xml. Add another new class to your project named `FirebaseService`.
 
 1. Add the following import statements at the top of `FirebaseService.java`:
 
-    ```java
-    import com.google.firebase.messaging.FirebaseMessagingService;
-    import com.google.firebase.messaging.RemoteMessage;
-    import android.util.Log;
-    import android.app.NotificationChannel;
-    import android.app.NotificationManager;
-    import android.app.PendingIntent;
-    import android.content.Context;
-    import android.content.Intent;
-    import android.media.RingtoneManager;
-    import android.net.Uri;
-    import android.os.Build;
-    import android.os.Bundle;
-    import androidx.core.app.NotificationCompat;
-    ```
+   ```java
+   import com.google.firebase.messaging.FirebaseMessagingService;
+   import com.google.firebase.messaging.RemoteMessage;
+   import android.util.Log;
+   import android.app.NotificationChannel;
+   import android.app.NotificationManager;
+   import android.app.PendingIntent;
+   import android.content.Context;
+   import android.content.Intent;
+   import android.media.RingtoneManager;
+   import android.net.Uri;
+   import android.os.Build;
+   import android.os.Bundle;
+   import androidx.core.app.NotificationCompat;
+   ```
 
 1. Add the following code for the `FirebaseService` class, making it a subclass of `FirebaseMessagingService`.
 
-    This code overrides the `onMessageReceived` method and reports notifications that are received. it also sends the push notification to the Android notification manager by using the `sendNotification()` method. Call the `sendNotification()` method when the app isn't running and a notification is received.
+   This code overrides the `onMessageReceived` method and reports notifications that are received. it also sends the push notification to the Android notification manager by using the `sendNotification()` method. Call the `sendNotification()` method when the app isn't running and a notification is received.
 
-    ```java
-    public class FirebaseService extends FirebaseMessagingService
-    {
-        private String TAG = "FirebaseService";
+   ```java
+   public class FirebaseService extends FirebaseMessagingService
+   {
+       private String TAG = "FirebaseService";
+   
+       public static final String NOTIFICATION_CHANNEL_ID = "nh-demo-channel-id";
+       public static final String NOTIFICATION_CHANNEL_NAME = "Notification Hubs Demo Channel";
+       public static final String NOTIFICATION_CHANNEL_DESCRIPTION = "Notification Hubs Demo Channel";
     
-        public static final String NOTIFICATION_CHANNEL_ID = "nh-demo-channel-id";
-        public static final String NOTIFICATION_CHANNEL_NAME = "Notification Hubs Demo Channel";
-        public static final String NOTIFICATION_CHANNEL_DESCRIPTION = "Notification Hubs Demo Channel";
+       public static final int NOTIFICATION_ID = 1;
+       private NotificationManager mNotificationManager;
+       NotificationCompat.Builder builder;
+       static Context ctx;
     
-        public static final int NOTIFICATION_ID = 1;
-        private NotificationManager mNotificationManager;
-        NotificationCompat.Builder builder;
-        static Context ctx;
+       @Override
+       public void onMessageReceived(RemoteMessage remoteMessage) {
+           // ...
     
-        @Override
-        public void onMessageReceived(RemoteMessage remoteMessage) {
-            // ...
+           // TODO(developer): Handle FCM messages here.
+           // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
+           Log.d(TAG, "From: " + remoteMessage.getFrom());
     
-            // TODO(developer): Handle FCM messages here.
-            // Not getting messages here? See why this may be: https://goo.gl/39bRNJ
-            Log.d(TAG, "From: " + remoteMessage.getFrom());
+           String nhMessage;
+           // Check if message contains a notification payload.
+           if (remoteMessage.getNotification() != null) {
+               Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
     
-            String nhMessage;
-            // Check if message contains a notification payload.
-            if (remoteMessage.getNotification() != null) {
-                Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+               nhMessage = remoteMessage.getNotification().getBody();
+           }
+           else {
+               nhMessage = remoteMessage.getData().values().iterator().next();
+           }
     
-                nhMessage = remoteMessage.getNotification().getBody();
+           // Also if you intend on generating your own notifications as a result of a received FCM
+           // message, here is where that should be initiated. See sendNotification method below.
+           if (MainActivity.isVisible) {
+               MainActivity.mainActivity.ToastNotify(nhMessage);
+           }
+           sendNotification(nhMessage);
+       }
+    
+       private void sendNotification(String msg) {
+    
+           Intent intent = new Intent(ctx, MainActivity.class);
+           intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    
+           mNotificationManager = (NotificationManager)
+                   ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+    
+           PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
+                   intent, PendingIntent.FLAG_ONE_SHOT);
+    
+           Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+           NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
+                   ctx,
+                   NOTIFICATION_CHANNEL_ID)
+                   .setContentText(msg)
+                   .setPriority(NotificationCompat.PRIORITY_HIGH)
+                   .setSmallIcon(android.R.drawable.ic_popup_reminder)
+                   .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
+    
+           notificationBuilder.setContentIntent(contentIntent);
+           mNotificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
+       }
+    
+       public static void createChannelAndHandleNotifications(Context context) {
+           ctx = context;
+    
+           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+               NotificationChannel channel = new NotificationChannel(
+                       NOTIFICATION_CHANNEL_ID,
+                       NOTIFICATION_CHANNEL_NAME,
+                       NotificationManager.IMPORTANCE_HIGH);
+               channel.setDescription(NOTIFICATION_CHANNEL_DESCRIPTION);
+               channel.setShowBadge(true);
+    
+               NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+               notificationManager.createNotificationChannel(channel);
             }
-            else {
-                nhMessage = remoteMessage.getData().values().iterator().next();
-            }
-    
-            // Also if you intend on generating your own notifications as a result of a received FCM
-            // message, here is where that should be initiated. See sendNotification method below.
-            if (MainActivity.isVisible) {
-                MainActivity.mainActivity.ToastNotify(nhMessage);
-            }
-            sendNotification(nhMessage);
-        }
-    
-        private void sendNotification(String msg) {
-    
-            Intent intent = new Intent(ctx, MainActivity.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    
-            mNotificationManager = (NotificationManager)
-                    ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-    
-            PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0,
-                    intent, PendingIntent.FLAG_ONE_SHOT);
-    
-            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(
-                    ctx,
-                    NOTIFICATION_CHANNEL_ID)
-                    .setContentText(msg)
-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
-                    .setSmallIcon(android.R.drawable.ic_popup_reminder)
-                    .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL);
-    
-            notificationBuilder.setContentIntent(contentIntent);
-            mNotificationManager.notify(NOTIFICATION_ID, notificationBuilder.build());
-        }
-    
-        public static void createChannelAndHandleNotifications(Context context) {
-            ctx = context;
-    
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel channel = new NotificationChannel(
-                        NOTIFICATION_CHANNEL_ID,
-                        NOTIFICATION_CHANNEL_NAME,
-                        NotificationManager.IMPORTANCE_HIGH);
-                channel.setDescription(NOTIFICATION_CHANNEL_DESCRIPTION);
-                channel.setShowBadge(true);
-    
-                NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-                notificationManager.createNotificationChannel(channel);
-             }
-        }
-    }
-    ```
+       }
+   }
+   ```
 
 1. In Android Studio, on the menu bar, select **Build** > **Rebuild Project** to make sure that there aren't any errors in your code. If you receive an error about the `ic_launcher` icon, remove the following statement from the **AndroidManifest.xml** file:
 
-    ```xml
-    android:icon="@mipmap/ic_launcher"
-    ```
+   ```xml
+   android:icon="@mipmap/ic_launcher"
+   ```
 
 1. Ensure you have a virtual device for running the app. If you do not have one, add one as follows:
 
-    * ![Open device manager](./media/notification-hubs-android-push-notification-google-fcm-get-started/open-device-manager.png)
-    * ![Create virtual device](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.PNG)
+   * ![Open device manager](./media/notification-hubs-android-push-notification-google-fcm-get-started/open-device-manager.png)
+   * ![Create virtual device](./media/notification-hubs-android-push-notification-google-fcm-get-started/your-virtual-devices.PNG)
 
 1. Run the app on your selected device and verify that it registers successfully with the hub.
 
-    > [!NOTE]
-    > Registration might fail during the initial launch until the `onTokenRefresh()` method of the instance ID service is called. The refresh should initiate a successful registration with the notification hub.
+   > [!NOTE]
+   > Registration might fail during the initial launch until the `onTokenRefresh()` method of the instance ID service is called. The refresh should initiate a successful registration with the notification hub.
 
-    ![Device registration successful](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
+   ![Device registration successful](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
 ## Test send notification from the notification hub
 
@@ -548,10 +548,11 @@ You can send push notifications from the [Azure portal] by taking the following 
 1. Select **Send**.  You won't see a notification on the Android device yet because you haven't run the mobile app on it. After you run the mobile app, select the **Send** button again to see the notification message.
 1. See the result of the operation in the list at the bottom.
 
-    ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+   ![Azure Notification Hubs - Test Send](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-test-send.png)
+
 1. You see the notification message on your device.
 
-    ![Notification message on device](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
+   ![Notification message on device](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-on-device.png)
 
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
