@@ -4,7 +4,7 @@ description: How to install the Azure Virtual Desktop client on a per-user basis
 ms.topic: how-to
 ms.date: 01/23/2024
 ms.author: avdcontent
-author: dknappettmsft
+author: dougeby
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 
