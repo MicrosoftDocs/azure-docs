@@ -4,7 +4,7 @@ description: Learn how to create import and export jobs in the Azure portal for 
 author: stevenmatthew
 services: storage
 ms.service: azure-import-export
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2023
 ms.author: shaas
 ---
