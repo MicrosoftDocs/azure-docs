@@ -11,8 +11,6 @@
     href: virtual-enclaves-faq.md
   - name: "What's new?"
     href: whats-new.md
-  - name: Quotas and region availability
-    href: quotas-region-availability-azure-virtual-enclaves.md
   - name: Quickstarts
     expanded: true
     items:
@@ -20,7 +18,7 @@
 #       href: onboard-to-ave.md
     - name: Create a community
       href: create-community-portal.md
-    - name: Create an Enclave
+    - name: Create an enclave
       href: create-enclave-portal.md
     - name: Create a workload
       href: create-workload-portal.md
@@ -30,7 +28,7 @@
       href: create-enclave-endpoint-portal.md
     - name: Create an enclave 
       href: create-enclave-connection-portal.md
-    - name: Create a Transit Hub
+    - name: Create a transit hub
       href: create-transit-hub-portal.md
 #     - name: Easy Button Deployments
 #       href: easy-button-deployments.md
@@ -38,7 +36,7 @@
     items:
     - name: "What is a community?"
       href: what-community.md
-    - name: "What is an Enclave?"
+    - name: "What is an enclave?"
       href: what-enclave.md
     - name: "What is a workload?"
       href: what-workload.md
@@ -48,10 +46,14 @@
       href: what-enclave-endpoint.md
     - name: "What is an enclave connection?"
       href: what-enclave-connection.md
-    - name: "What is a Transit Hub?"
+    - name: "What is a transit hub?"
       href: what-transit-hub.md
     - name: "What is the service catalog?"
       href: what-service-catalog.md
+    - name: List of service catalog Templates
+      href: list-service-catalog-templates.md
+    - name: Understand approvals
+      href: understand-approvals.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation
@@ -84,21 +86,21 @@
     href: 8-migrate-workload-resources.md
 - name: Governance, Security, and Compliance
   items:
-  - name: Just-in-time Access
+  - name: Just-in-time access
     href: just-in-time-access.md
 #     - name: Dynamic Access Controls
 #       href: dynamic-access-controls.md
 #     - name: Attribute-Based Access Controls
 #       href: attribute-based-access-controls.md
-  - name: Access Controls in enclaves
+  - name: Access controls in enclaves
     href: access-controls-enclaves.md
-  - name: Create a User Managed Identity
+  - name: Create a user-assigned managed identity
     href: create-user-managed-identity.md
   # - name: Use Managed Identity
   #   href: use-managed-identity.md
   - name: Policy compliance exemptions
     href: policy-compliance-exemptions.md
-  - name: Configure Customer Managed Key Encryption
+  - name: Configure customer managed key encryption
     href: configure-customer-managed-key-encryption-within-enclave.md
   - name: Install BannerApp for RemoteApps
     href: install-bannerapp-remoteapps.md
@@ -110,8 +112,6 @@
     href: configure-community-governance.md
 - name: Azure service catalog
   items:
-  - name: List of service catalog Templates
-    href: list-service-catalog-templates.md
   - name: Deploy an Admin Virtual Machine from the service catalog
     href: deploy-admin-vm-service-catalog.md
   - name: Deploy Azure App Service from the service catalog
@@ -152,13 +152,17 @@
   #   href: upgrade-enclave-key-vault-sku.md
   - name: Move data inside an enclave
     href: move-data-inside-enclave.md
+  - name: Quotas and region availability
+    href: quotas-region-availability-azure-virtual-enclaves.md
+  - name: Disaster recovery planning
+    href: disaster-recovery-planning.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot guide
     href: troubleshoot.md
   - name: Policy compliance exemptions
     href: policy-compliance-exemptions.md
-  - name: Migrate Azure Resources into Azure Virtual Enclaves
+  - name: Migrate Azure resources into Azure Virtual Enclaves
     href: migrate-azure-resources-azure-virtual-enclaves.md
 #     - name: Connectivity troubleshooting
 #       href: connectivity-troubleshooting.md
@@ -174,14 +178,10 @@
 #       href: compliance-validation.md
 - name: Resources
   items:
-    - name: Azure Virtual Enclaves Templates
+    - name: Azure Virtual Enclaves templates
       href: azure-virtual-enclaves-templates.md
-    - name: Migrate Azure Resources into Azure Virtual Enclaves
+    - name: Migrate Azure resources into Azure Virtual Enclaves
       href: migrate-azure-resources-azure-virtual-enclaves.md
-    - name: Azure Virtual Enclaves FAQ
-      href: virtual-enclaves-faq.md
-    - name: What's New in Azure Virtual Enclaves
-      href: whats-new.md
     # - name: Videos
     #   href: videos.md
 - name: Guardrail Initiatives
@@ -210,9 +210,9 @@
   items:
     - name: Create Azure Virtual Desktop workloads
       href: create-azure-virtual-desktop-workloads.md
-    - name: Create Domain Name Service Forwarder
+    - name: Create Domain Name Service forwarder
       href: create-domain-name-service-forwarder.md
-    - name: Create New Enclave Subnet
+    - name: Create new Enclave Subnet
       href: create-new-enclave-subnet.md
 #     - name: Workload and Application Planning
 #       href: workload-and-application-planning.md
@@ -222,5 +222,5 @@
       href: create-and-delete-logic.md
     - name: Defense in Depth
       href: defense-in-depth.md
-    - name: Built in RBAC Roles
+    - name: Built in RBAC roles
       href: built-in-rbac-roles.md
