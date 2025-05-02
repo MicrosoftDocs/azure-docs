@@ -12,7 +12,7 @@ ms.subservice: authentication
 
 # Authentication best practices
 
-The security of your application is paramount. Regardless of how excellent the user experience is, an insecure application can be compromised by hackers, undermining its integrity.
+The security of your application is crucial. Regardless of how excellent the user experience is, an insecure application can be compromised by hackers, undermining its integrity and deteriorating user trust.
 
 This article contains tips to ensure the security of your Azure Maps application. When using Azure, it's important to familiarize yourself with the available security tools. For more information, See [Introduction to Azure security] in the Azure security documentation.
 
