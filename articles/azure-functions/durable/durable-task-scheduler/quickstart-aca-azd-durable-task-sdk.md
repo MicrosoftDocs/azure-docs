@@ -77,7 +77,7 @@ In a new terminal window, from the `Azure-Samples/Durable-Task-Scheduler` direct
 ::: zone pivot="csharp"
 
 ```bash
-cd /samples/portable-sdks/dotnet/FunctionChaining
+cd /samples/durable-task-sdks/dotnet/FunctionChaining
 ```
 
 ::: zone-end
@@ -85,7 +85,7 @@ cd /samples/portable-sdks/dotnet/FunctionChaining
 ::: zone pivot="python"
 
 ```bash
-cd /samples/portable-sdks/python/function-chaining
+cd /samples/durable-task-sdks/python/function-chaining
 ```
 
 ::: zone-end
@@ -93,7 +93,7 @@ cd /samples/portable-sdks/python/function-chaining
 ::: zone pivot="java"
 
 ```bash
-cd /samples/portable-sdks/java/function-chaining
+cd /samples/durable-task-sdks/java/function-chaining
 ```
 
 ::: zone-end

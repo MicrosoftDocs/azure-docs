@@ -8,7 +8,7 @@ ms.date: 05/01/2025
 
 # Autoscaling in Azure Container Apps pattern for the Durable Task SDKs
 
-You can implement Kubernetes Event-Driven Autoscaling (KEDA) in container apps that use the Durable Task SDKs. Autoscaling maintains the reliability and scalability of long-running workflows by adapting to changing demands without manual intervention. 
+You can implement autoscaling in container apps that use the Durable Task Scheduler. Autoscaling maintains the reliability and scalability of long-running workflows by adapting to changing demands without manual intervention. 
 
 Control autoscaling by setting the range of application replicas deployed in response to an orchestration, activity, or entity being triggered. The scaler dynamically adjusts the number of container app replicas within that range, allowing your solution to handle spikes in the workload and prevent resource exhaustion. 
 
@@ -118,7 +118,7 @@ The [Autoscaling in Azure Container Apps sample]() demonstrates how to implement
 1. Navigate into the `AutoscalingInACA` sample directory.
 
    ```azdeveloper
-   cd /path/to/Durable-Task-Scheduler/samples/portable-sdks/dotnet/AutoscalingInACA
+   cd /path/to/Durable-Task-Scheduler/samples/scenarios/AutoscalingInACA
    ```
 
 1. Provision resources and deploy the application:
@@ -213,7 +213,7 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 ### Understanding the custom scaler
 
-This sample includes an `azure.yaml` configuration file.  When you ran `azd up`, you deployed the entire sample solution to Azure, including a custom KEDA scaler for your container apps that automatically scales based on the Durable Task Scheduler's workload.
+This sample includes an `azure.yaml` configuration file.  When you ran `azd up`, you deployed the entire sample solution to Azure, including a custom scaler for your container apps that automatically scales based on the Durable Task Scheduler's workload.
 
 The custom scaler: 
 
