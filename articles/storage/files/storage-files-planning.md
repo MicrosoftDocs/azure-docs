@@ -3,7 +3,7 @@ title: Plan for an Azure Files deployment
 description: Understand how to plan for an Azure Files deployment. You can either direct mount an SMB or NFS Azure file share, or cache SMB Azure file shares on-premises with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/07/2024
 ms.author: kendownie
 ms.custom: references_regions

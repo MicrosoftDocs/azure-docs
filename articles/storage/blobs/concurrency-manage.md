@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: pauljewell
 ms.devlang: csharp
