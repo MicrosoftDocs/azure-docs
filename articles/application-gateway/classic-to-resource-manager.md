@@ -11,12 +11,12 @@ ms.author: greglin
 
 # Application gateway classic to Resource Manager migration
 
-This article describes benefits of the new Azure Resource Manager (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment.  For more information about deployment models, see [Azure Resource Manager vs. classic deployment](/azure/azure-resource-manager/management/deployment-models).
+This article describes benefits of the new [Azure Resource Manager](../azure-resource-manager/management/overview.md) (ARM) deployment model and provides guidance on how to migrate Azure Application Gateway from [classic deployment](#what-is-azure-service-manager-and-what-does-it-mean-by-classic) to Azure Resource Manager deployment.  For more information about deployment models, see [Azure Resource Manager vs. classic deployment](/azure/azure-resource-manager/management/deployment-models).
 
 > [!NOTE]
 > For information about retirement of the classic deployment model, see [Azure updates](https://azure.microsoft.com/updates?id=azure-classic-resource-providers-will-be-retired-on-31-august-2024).
 
-[Azure Resource Manager](../azure-resource-manager/management/overview.md) has many features and benefits, including:
+Azure Resource Manager has many features and benefits, including:
 * Deployment of complex applications through [templates](/azure/azure-resource-manager/templates/overview) 
 * Configuration of virtual machines with [VM extensions](/azure/virtual-machines/extensions/overview) 
 * Incorporation of [access management](/azure/role-based-access-control/) and [tagging](/azure/azure-resource-manager/management/tag-resources) 
