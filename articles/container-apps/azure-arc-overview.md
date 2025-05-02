@@ -5,11 +5,11 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 03/06/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
-# Azure Container Apps on Azure Arc (Preview)
+# Azure Container Apps on Azure Arc
 
 You can run Container Apps on an Azure Arc-enabled AKS or AKS on Azure Local cluster.
 
@@ -36,7 +36,7 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 
 | Limitation | Details |
 |---|---|
-| Supported Azure regions | East US, West Europe, East Asia |
+| Supported Azure regions | Central US, East Asia, East US, North Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US |
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
 | Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
@@ -73,7 +73,7 @@ The following table describes the role of each revision created for you:
 | dapr-placement-server | Used for Actors only - creates mapping tables that map actor instances to pods | 1 | 100 millicpu | 500 MB | StatefulSet |
 | dapr-sentry | Manages mTLS between services and acts as a CA | 2 | 800 millicpu | 200 MB | ReplicaSet |
 
-## FAQ for Azure Container Apps on Azure Arc (Preview)
+## FAQ for Azure Container Apps on Azure Arc
 
 - [How much does it cost?](#how-much-does-it-cost)
 - [Which Container Apps features are supported?](#which-container-apps-features-are-supported)

@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
@@ -73,7 +73,7 @@ HTTP ingress adds headers to pass metadata about the client request to your cont
 Container Apps supports TCP-based protocols other than HTTP or HTTPS. For example, you can use TCP ingress to expose a container app that uses the [Redis protocol](https://redis.io/topics/protocol).
 
 > [!NOTE]
-> External TCP ingress is only supported for Container Apps environments that use a [custom VNET](vnet-custom.md). TCP ingress is not supported for apps that accept inbound traffic through a [private endpoint](networking.md#private-endpoint).
+> External TCP ingress is only supported for Container Apps environments that use a [custom VNET](vnet-custom.md).
 
 With TCP ingress enabled, your container app:
 
@@ -88,14 +88,22 @@ In addition to the main HTTP/TCP port for your container apps, you might expose 
 > To use this feature, you must have the container apps CLI extension. Run `az extension add -n containerapp` in order to install the latest version of the container apps CLI extension.
 
 The following apply to additional TCP ports:
+
 - Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
+
 - Any externally exposed additional TCP ports must be unique across the entire Container Apps environment. This includes all external additional TCP ports, external main TCP ports, and 80/443 ports used by built-in HTTP ingress. If the additional ports are internal, the same port can be shared by multiple apps.
+
 - If an exposed port isn't provided, the exposed port will default to match the target port.
+
 - Each target port must be unique, and the same target port can't be exposed on different exposed ports.
+
 - There's a maximum of five additional ports per app. If additional ports are required, please open a support request.
+
 - Only the main ingress port supports built-in HTTP features such as CORS and session affinity. When running HTTP on top of the additional TCP ports, these built-in features aren't supported.
 
-Visit the [how to article on ingress](ingress-how-to.md#use-additional-tcp-ports) for more information on how to enable additional ports for your container apps.
+- Port number `36985` is a reserved for internal health checks and isn't available to TCP applications or additional exposed ports on HTTP applications.
+
+For more information on how to enable additional ports, see [Configure ingress for your app](ingress-how-to.md#use-additional-tcp-ports).
 
 ## Domain names
 

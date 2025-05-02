@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 03/20/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
@@ -310,7 +310,7 @@ In order to connect to your container apps through a private endpoint, you must 
 ### Environment security
 
 > [!NOTE]
-> To control ingress traffic, you can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway. This feature is in preview.
+> To control ingress traffic, you can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Application Gateway.
 
 :::image type="content" source="media/networking/locked-down-network.png" alt-text="Diagram of how to fully lock down your network for Container Apps.":::
 
