@@ -184,6 +184,8 @@ landingContent:
             url: defense-in-depth.md
           - text: Built in RBAC roles
             url: built-in-rbac-roles.md
+          - text: Disaster recovery planning
+            url: disaster-recovery-planning.md
   # Card
   - title: Troubleshoot
     linkLists:
