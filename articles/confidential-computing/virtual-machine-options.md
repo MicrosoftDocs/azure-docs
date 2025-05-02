@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.reviewer: mattmcinnes
 ms.service: azure-virtual-machines
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 ---
 

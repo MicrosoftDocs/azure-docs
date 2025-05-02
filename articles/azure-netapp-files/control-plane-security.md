@@ -4,7 +4,7 @@ description: Learn about the different control plane security features in Azure 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/30/2024
 ms.author: anfdocs
 ---

@@ -4,7 +4,7 @@ description: Learn about how Azure confidential computing partners build on the 
 author: ananyagarg
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
 ---

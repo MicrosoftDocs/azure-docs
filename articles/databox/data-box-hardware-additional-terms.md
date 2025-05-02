@@ -4,7 +4,7 @@ description: Describes additional terms for Azure Data Box hardware.
 services: databox
 author: stevenmatthew
 ms.service: azure-databox
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/13/2022
 ms.author: shaas
 ---

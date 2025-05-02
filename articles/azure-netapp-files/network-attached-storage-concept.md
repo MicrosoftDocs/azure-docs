@@ -4,7 +4,7 @@ description: This article covers important information about NAS volumes when us
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2023
 ms.author: anfdocs
 ---

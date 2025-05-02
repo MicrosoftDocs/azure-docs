@@ -4,7 +4,7 @@ description: Describes the change to using volume hard quota, how to plan for th
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: anfdocs
 ---

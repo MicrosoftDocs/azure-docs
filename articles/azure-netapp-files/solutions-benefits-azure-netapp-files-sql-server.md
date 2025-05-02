@@ -4,7 +4,7 @@ description: Shows a detailed cost analysis performance benefits about using Azu
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/19/2025
 ms.author: anfdocs
 ---

@@ -4,7 +4,7 @@ description: Describes the cost model for Azure NetApp Files for managing expens
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/15/2024
 ms.author: anfdocs
 ---

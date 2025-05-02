@@ -4,7 +4,7 @@ description: Describes Azure NetApp Files best practices about Azure virtual mac
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/02/2024
 ms.author: anfdocs
 ---

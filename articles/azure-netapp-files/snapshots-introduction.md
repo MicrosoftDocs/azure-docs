@@ -4,7 +4,7 @@ description: Explains how Azure NetApp Files snapshots work, including ways to c
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/28/2025
 ms.author: anfdocs
 ---

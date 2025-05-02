@@ -4,7 +4,7 @@ description: Learn how to build an application that securely gets the key from A
 author: ThomVanL
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 2/2/2023
 ms.author: simranparkhe
 ---

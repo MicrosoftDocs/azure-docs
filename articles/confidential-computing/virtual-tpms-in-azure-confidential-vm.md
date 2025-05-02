@@ -5,7 +5,7 @@ author: simranparkhe
 ms.author: simranparkhe
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/20/2023
 ms.custom: template-concept
 ---

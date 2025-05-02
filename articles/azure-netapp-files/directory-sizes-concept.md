@@ -4,7 +4,7 @@ description: Learn how metadata impacts directory sizes in Azure NetApp Files.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/23/2024
 ms.author: anfdocs
 ---

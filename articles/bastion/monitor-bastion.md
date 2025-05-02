@@ -3,7 +3,7 @@ title: Monitor Azure Bastion
 description: Start here to learn how to monitor Azure Bastion by using Azure Monitor. Learn about collecting data and tools you can use to analyze data.
 ms.date: 12/02/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: cherylmc
 ms.author: cherylmc
 ms.service: azure-bastion

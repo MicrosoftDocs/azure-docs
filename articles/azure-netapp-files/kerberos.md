@@ -4,7 +4,7 @@ description: Learn how Kerberos works in Azure NetApp Files.
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/11/2025
 ms.author: anfdocs
 ---

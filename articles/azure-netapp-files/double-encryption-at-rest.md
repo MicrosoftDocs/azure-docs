@@ -4,7 +4,7 @@ description: Explains Azure NetApp Files double encryption at rest to help you u
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/05/2024
 ms.author: anfdocs
 ms.custom: references_regions

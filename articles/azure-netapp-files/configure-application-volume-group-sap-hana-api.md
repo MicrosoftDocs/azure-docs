@@ -4,7 +4,7 @@ description: Setting up your application volume groups for the SAP HANA API requ
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/22/2025
 ms.author: b-ahibbard
 ---

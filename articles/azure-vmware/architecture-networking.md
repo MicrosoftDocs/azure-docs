@@ -1,7 +1,7 @@
 ---
 title: Architecture - Network interconnectivity
 description: Learn about key concepts and use cases of networking and interconnectivity in Azure VMware Solution.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: engagement-fy23

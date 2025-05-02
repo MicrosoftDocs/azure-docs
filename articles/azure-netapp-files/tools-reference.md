@@ -4,7 +4,7 @@ description: Learn about the tools available to you to maximize your experience 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/11/2025
 ms.author: anfdocs
 ---

@@ -3,7 +3,7 @@ title: Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptio
 author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about Azure Hybrid Benefit for Windows Server, SQL Server, or Linux subscriptions.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 12/19/2023
 ms.custom: engagement-fy23, linux-related-content

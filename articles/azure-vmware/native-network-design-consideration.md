@@ -1,7 +1,7 @@
 ---
 title: Azure VMware Solution Generation 2 private cloud design considerations (preview)
 description: Learn about Azure VMware Solution Generation 2 private cloud design considerations.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 4/21/2025
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Generation 2 private cloud design considerations so that I can make informed decisions about my Azure VMware Solution deployment.

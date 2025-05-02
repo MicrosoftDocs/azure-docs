@@ -4,7 +4,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/15/2024
 ---
 

@@ -4,7 +4,7 @@ description: Learn how file path limits and lengths are calculated in Azure NetA
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/08/2024
 ms.author: anfdocs
 ---
