@@ -73,7 +73,7 @@ MPC Pro GeoCatalog requires an access token to authenticate requests. Use the [A
 ```python
 import azure.identity
 
-credential = azure.identity.DefaultAzureCredential()
+credential = azure.identity.AzureCliCredential()
 token = credential.get_token("https://geocatalog.spatio.azure.com")
 headers = {
     "Authorization": f"Bearer {token.token}"
