@@ -1,4 +1,4 @@
-<--
+--
 title: Reliability in Azure Functions
 description: Find out about reliability support in Azure Functions, including intra-regional resiliency and cross-region recovery and business continuity.
 author: anaharris-ms
@@ -6,9 +6,11 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
-ms.date: 05/01/2025
+ms.date: 05/02/2025
+zone_pivot_groups: functions-hosting-plan
+
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
--->
+--
 
 # Reliability in Azure Functions
 
@@ -53,7 +55,7 @@ To check the list of regions that support zone-redundant Flex Consumption plans,
     az functionapp list-flexconsumption-locations --zone-redundant=true --query "sort_by(@, &name)[].{Region:name}" -o table
     ```
 
-Alternatively when [creating a new Flex Consumption app](#create-a-zone-redundant-flex-consumption-app) using the Azure Portal the regions that support zone redundancy will have the `Zone redundancy` section enabled.
+Alternatively when [creating a new Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) using the Azure Portal the regions that support zone redundancy will have the `Zone redundancy` section enabled.
 
 ### Prerequisites
 
@@ -175,7 +177,7 @@ After the zone-redundant plan is created and deployed, the Flex Consumption func
 Before updating your Flex Consumption plan to be zone-redundant, consider updating the storage account(s) associated with the app and the deployment storage of the app to also be zone redundant. This will be disruptive and careful consideration should be taken.
 - Review [Storage Considerations](../azure-functions/storage-considerations.md).
 - Create or identify a zone-redundant storage account to associate with the app.
-- Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#work-with-application-settings).
+- Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
 - Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
 
 Once the storage account(s) associated with the app have been updated, you can update the Flex Consumption plan to be zone-redundant. This will cause the Flex Consumption app in the plan to restart. There are currently multiple ways to update a zone-redundant Flex Consumption app.
@@ -195,10 +197,10 @@ Not currently supported.
 
 # [Bicep template](#tab/bicep)
 
-Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-app) to add the `zoneRedundant` property to the plan definition.
+Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition.
 
 # [ARM template](#tab/arm-template)
-Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-app) to add the `zoneRedundant` property to the plan definition..
+Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition..
 
 ---
 

@@ -77,7 +77,7 @@ Flex Consumption includes an _always ready_ feature that lets you choose instanc
 
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
-No less than 2 always-ready instances will be allowed to be configured per function or function group while [zone redundancy is enabled](../reliability/reliability-functions.md#flex-consumption-availability-zone-support). 
+No less than 2 always-ready instances will be allowed to be configured per function or function group while [zone redundancy is enabled](../reliability/reliability-functions.md#flex-consumption-availability-zone-support-preview). 
 
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
