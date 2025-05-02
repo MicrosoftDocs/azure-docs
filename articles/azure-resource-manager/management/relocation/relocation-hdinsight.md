@@ -84,7 +84,15 @@ Perform delta data synchronization from the source storage to the target storage
 
 ## Redeploy the Cluster
 
-Deploy the updated Bicep file or ARM template to create the HDInsight cluster in the target region.
+Deploy the updated Bicep file or ARM template to create the HDInsight cluster in the target region. For more information, see:
+
+- [Deploy Bicep files from VS Code](../../bicep/deploy-vscode.md)
+- [Deploy Bicep files by using Azure CLI](../../bicep/deploy-cli.md)
+- [Deploy Bicep files by using Azure PowerShell](../../bicep/deploy-powershell.md)
+- [Deploy Bicep files by using Azure Cloud Shell](../../bicep/deploy-cloud-shell.md)
+- [Deploy ARM template files by using Azure CLI](../../templates/deploy-cli.md)
+- [Deploy ARM template files by using Azure PowerShell](../../templates/deploy-powershell.md)
+- [Deploy ARM template files by using Azure Cloud Shell](../../templates/deploy-cloud-shell.md)
 
 ## Validate the Relocation
 
