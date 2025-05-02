@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
@@ -47,7 +47,9 @@ The following ARM template example configures ingress to require a client certif
 > [!NOTE]
 > You can set the `clientCertificateMode` directly on the ingress property. It isn't yet available as an explicit option in the CLI, but you can patch your app using the Azure CLI.
 
-Get the ARM ID of the Azure Container App:
+Before you run the following commands, make sure to replace the placeholders surrounded by `<>` with your own values.
+
+Get the ARM ID of your container app:
 
 ```azurecli
 APP_ID=$(az containerapp show \
@@ -57,7 +59,7 @@ APP_ID=$(az containerapp show \
   --output tsv)
 ```
 
-Patch the clientCertificateMode Property on the App:
+Patch the `clientCertificateMode` property on the app:
 
 ```azurecli
 az rest \
@@ -74,12 +76,11 @@ az rest \
   }'
 ```
 
+The value for `clientCertificateMode` varies what you need to provide for Container Apps to manage your certificate:
 - When `require` is set, the client must provide a certificate.
-
 - When `accept` is set, the certificate is optional. If the client provides a certificate, it is passed to the app in the `X-Forwarded-Client-Cert` header, as a semicolon-separated list. For example:
 
-> [!NOTE]
-> Before you use the following example, make sure to replace the placeholders surrounded by `<>` with your own values.
+Before you use the following example, make sure to replace the placeholders surrounded by `<>` with your own values.
 
 ```text
 Hash=<HASH_VALUE>;Cert="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";Chain="-----BEGIN CERTIFICATE-----<CERTIFICATE_VALUE>";
