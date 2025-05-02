@@ -47,11 +47,11 @@ Before starting the relocation process, ensure the following prerequisites are m
 
 ## Downtime Considerations
 
-Understand potential downtimes involved in the relocation process. For more details, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+Understand potential downtimes involved in the relocation process. For more information, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
 
 ## Prepare for Relocation
 
-[jgao: it is not clear to me whether the steps in this section take place before "Redeploy the Cluster".]
+[jgao: it isn't clear to me whether the steps in this section take place before "Redeploy the Cluster".]
 
 ### Export a Template
 
@@ -64,7 +64,7 @@ Export an Azure Resource Manager (ARM) JSON template or a Bicep file for your HD
 
 ### Modify the Template
 
-Update the exported Bicep file or ARM template to reflect the new region. Ensure all resource details, such as storage accounts, managed identities, user accounts (e.g., `sshuser`), network configurations, and metastore databases, are updated accordingly.
+Update the exported Bicep file or ARM template to reflect the new region. Ensure all resource details, such as storage accounts, managed identities, user accounts (for example, `sshuser`), network configurations, and metastore databases, are updated accordingly.
 
 ### Relocate the Source Storage Account
 
@@ -102,7 +102,7 @@ After relocation, validate the HDInsight cluster and its dependent resources. Pe
 
 ## Clean Up
 
-(Optional) Discard or clean up resources in the source region if they are no longer needed.
+(Optional) Discard or clean up resources in the source region if they're no longer needed.
 
 ## Next Steps
 
