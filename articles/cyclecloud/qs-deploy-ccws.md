@@ -131,7 +131,7 @@ You can connect using an FQDN or private IP if you supply your own virtual netwo
 Azure CycleCloud Workspace for Slurm comes with 3 defined Slurm partitions:
 - HTC : For embarrassingly parallel non-MPI jobs.
 - HPC : For tightly coupled MPI jobs mostly using VM types with InfiniBand support.
-- GPU : For MPI and non-MPI GPU jobs.
+- GPU : For MPI and non-MPI GPU jobs using VM types with or without InfiniBand support.
 
 You can configure the image and the maximum number of nodes for each partition that CycleCloud dynamically provisions. Only the HTC partition allows the use of spot instances, as spot instances aren't suitable for HPC and GPU jobs.
 
