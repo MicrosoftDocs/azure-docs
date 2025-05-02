@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/20/2024
+ms.date: 05/02/2025
 ms.author: anfdocs
 ---
 # Understand cross-zone-region replication in Azure NetApp Files
@@ -28,9 +28,13 @@ Azure NetApp Files supports using cross-zone and cross-region replication on the
 
 * Cross-zone-region replication adheres to the same requirements as [cross-zone replication](cross-zone-replication-requirements-considerations.md) and [cross-region replication](cross-region-replication-requirements-considerations.md).
 
-* If you use cross-region replication, you must adhere to supported [cross-region replication pairs](cross-region-replication-introduction.md#supported-region-pairs).
+* If you use cross-region replication, you must adhere to supported [cross-region replication pairs](#supported-region-pairs).
 
 * Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant.
+
+## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
+
+[!INCLUDE [Supported region pairs](includes/region-pairs.md)]
 
 ## Next steps
 

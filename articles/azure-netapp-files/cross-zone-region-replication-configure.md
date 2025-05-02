@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 05/02/2025
 ms.author: anfdocs 
 ---
 # Manage cross-zone-region replication for Azure NetApp Files (preview)
@@ -58,8 +58,6 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 >[!NOTE]
 >With cross-zone-region replication, you can create a combination of a cross-zone and a cross-region replication relationship, two cross-region replication relationships, or two cross-zone replication relationships. The cross-zone relationship can be within the same zone.
 
-
-<!-- replace image -->
 :::image type="content" source="./media/cross-zone-region-replication-configure/complete-configuration.png" alt-text="Screenshot of successful configuration." lightbox="./media/cross-zone-region-replication-configure/complete-configuration.png":::
 
 
