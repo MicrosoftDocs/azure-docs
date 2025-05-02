@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: madsd
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 04/29/2025
+ms.date: 05/02/2025
 ms.author: madsd
 ms.custom: "UpdateFrequency3, fasttrack-edit"
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -115,26 +115,49 @@ In addition to there being an App Service plan SKU requirement, there's an extra
 
 ## Hybrid Connection Manager
 
-> [!NOTE]
-> The new version of the Hybrid Connection Manager is in public preview and supports both Windows and Linux. To download and learn more about the new version, see [Announcing the Public Preview of the New Hybrid Connection Manager](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-public-preview-of-the-new-hybrid-connection-manager-hcm/4401657).
->
+The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download the HCM, follow the instructions for your client.
 
-The Hybrid Connections feature requires a relay agent in the network that hosts your Hybrid Connection endpoint. That relay agent is called the Hybrid Connection Manager (HCM). To download the HCM:
+This tool runs on both Windows and Linux. On Windows, the HCM requires Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.
+
+To install the HCM on Windows, download the MSI package and follow the installation instructions.
 
 > [!div class="nextstepaction"]
-> [Download the Hybrid Connection Manager](https://download.microsoft.com/download/0/e/4/0e48d57b-c563-4877-8acb-cb740c7c6a78/HybridConnectionManager-0.7.9.msi)
+> [Windows download](https://aka.ms/appservice/hcm/windows)
 
-This tool runs on Windows Server 2012 and later. The HCM runs as a service and connects outbound to Azure Relay on port 443.
+To install the HCM on Linux, from your terminal running as administrator:
 
-After you install HCM, you can run *HybridConnectionManagerUi.exe* to use the UI for the tool. This file is in the Hybrid Connection Manager installation directory. In Windows 10 and later, you can also search for *Hybrid Connection Manager UI* in your search box.
+```bash
+sudo apt update
+sudo apt install tar gzip build-essential
+wget "https://download.microsoft.com/download/HybridConnectionManager-Linux-preview.tar.gz"
+tar -xf HybridConnectionManager-Linux-preview.tar.gz
+cd HybridConnectionManager/
+sudo chmod 755 setup.sh
+sudo ./setup.sh
+```
 
+To support the Hybrid Connections it's configured with, HCM requires:
+
+- TCP access to Azure over port 443.
+- TCP access to the Hybrid Connection endpoint.
+- The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the HCM.
+
+> [!NOTE]
+> Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of this fact, HCM isn't supported on systems earlier than Windows Server 2012.
+>
+
+### Getting started with the Hybrid Connection Manager GUI
+
+After you install the HCM, on Windows, search for *Hybrid Connection Manager GUI* in your search box. 
+
+<!-- TODO: update this section -->
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm.png" alt-text="Screenshot of Hybrid Connection Manager.":::
 
-When you start the HCM UI, the first thing you see is a table that lists all the Hybrid Connections that are configured with this instance of the HCM. If you want to make any changes, first authenticate with Azure.
+When you start the HCM GUI, the first thing you see is a table that lists all the Hybrid Connections that are configured with this instance of the HCM. If you want to make any changes, first authenticate with Azure.
 
 To add one or more Hybrid Connections to your HCM:
 
-1. Start the HCM UI.
+1. Start the HCM GUI.
 1. Select **Add a new Hybrid Connection**.
 
    :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-add.png" alt-text="Screenshot of Configure New Hybrid Connections.":::
@@ -151,15 +174,13 @@ You can now see the Hybrid Connections you added. You can also select the config
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-details.png" alt-text="Screenshot of Hybrid Connection Details.":::
 
-To support the Hybrid Connections it's configured with, HCM requires:
+### Getting started with the Hybrid Connection Manager CLI
 
-- TCP access to Azure over port 443.
-- TCP access to the Hybrid Connection endpoint.
-- The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the HCM.
+On Windows, you can use the HCM CLI by searching for and opening *Hybrid Connection Manager CLI*. On Linux, once installed, you can run `hcm help` to confirm the HCM is installed and to see the available commands.
 
-> [!NOTE]
-> Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of this fact, HCM isn't supported on systems earlier than Windows Server 2012.
->
+To use the interactive mode with the HCM CLI, which allows you to view your Azure subscription and Hybrid Connection details, you need to install and login to the Azure CLI. For installation instructions, see [How to install the Azure CLI][install-azure-cli] and select the appropriate option for your client. Once installed, run `az login` and follow the prompts to complete your login.
+
+<!-- TODO: getting started with cli pics and instructions -->
 
 ### Redundancy
 
@@ -167,13 +188,20 @@ Each HCM can support multiple Hybrid Connections. Multiple HCMs can support any 
 
 ### Manually add a Hybrid Connection
 
-To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal]. To use that string, select **Enter Manually** in the HCM, and paste in the gateway connection string.
+To enable someone outside your subscription to host an HCM instance for a given Hybrid Connection, share the gateway connection string for the Hybrid Connection with them. You can see the gateway connection string in the Hybrid Connection properties in the [Azure portal]. 
 
+To use that string in the HCM GUI, select **+ New** and **Use Connection String** and paste in the gateway connection string.
+
+<!-- TODO:update photo -->
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-manual.png" alt-text="Screenshot of the dialog box where you manually add a Hybrid Connection.":::
+
+To use that string in the HCM CLI, run `hcm add` with either the connection string, or the Hybrid Connection resource details.
+
+<!-- TODO:add photos -->
 
 ### Upgrade
 
-There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a dialog box appears in the HCM UI. Applying the upgrade applies the changes and restarts the HCM.
+There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a dialog box appears in the HCM GUI and the HCM CLI command responses. Applying the upgrade applies the changes and restarts the HCM.
 
 ## Adding a Hybrid Connection to your app programmatically
 
@@ -234,7 +262,7 @@ The status of **Connected** means that at least one HCM is configured with that 
 - Do you have a firewall between your HCM host and Azure? If so, you need to allow outbound access to both the Service Bus endpoint URL *AND* the Service Bus gateways that service your Hybrid Connection.
 
   - You can find the Service Bus endpoint URL in the Hybrid Connection Manager UI.
-
+    <!-- TODO: update image -->
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint.":::
 
   - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
@@ -252,14 +280,14 @@ The status of **Connected** means that at least one HCM is configured with that 
     G1-prod-sn3-010-sb.servicebus.windows.net  
     G2-prod-sn3-010-sb.servicebus.windows.net  
     G3-prod-sn3-010-sb.servicebus.windows.net  
-    ...
+    ...  
     G126-prod-sn3-010-sb.servicebus.windows.net  
     G127-prod-sn3-010-sb.servicebus.windows.net
     GV0-prod-sn3-010-sb.servicebus.windows.net  
     GV1-prod-sn3-010-sb.servicebus.windows.net  
     GV2-prod-sn3-010-sb.servicebus.windows.net  
     GV3-prod-sn3-010-sb.servicebus.windows.net  
-    ...
+    ...  
     GV126-prod-sn3-010-sb.servicebus.windows.net  
     GV127-prod-sn3-010-sb.servicebus.windows.net
 
@@ -278,3 +306,4 @@ If you have a command-line client for your endpoint, you can test connectivity f
 [HCService]: /azure/service-bus-relay/relay-hybrid-connections-protocol/
 [Azure portal]: https://portal.azure.com/
 [sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
+[install-azure-cli]: /cli/azure/install-azure-cli/
