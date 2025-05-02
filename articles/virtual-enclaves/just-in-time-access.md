@@ -21,7 +21,7 @@ Here's how you can use Azure PIM to approve actions within Azure Virtual Enclave
 1. **Enable Azure PIM**:
    Before you can use Azure PIM, you need to enable it for your Azure subscription. You can do this through the Azure portal. Navigate to the "Microsoft Entra ID Privileged Identity Management" service and follow the steps to set up PIM for your subscription.
 
-2. **Assign Roles with Approval**:
+2. **Assign roles with approval**:
    In Azure PIM, you can define custom roles or use built-in roles with approval workflows. These roles are designed to grant access to Azure Virtual Enclave resource's actions, such as creating, modifying, and deleting community, endpoints, enclaves, etc. - including establishing internal connections. When you assign these roles to users, you can configure them to require approval before the role's permissions are activated.
 
 3. **Approve Access Requests**:
@@ -58,9 +58,9 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
    - **Activation Required**: Ensure the role requires activation for JIT access.
    - **Assignment Scope**: Limit the role to specific resources, such as the **enclave managed resource group** or **workload resource groups**.
 
-### Step 3: Define Approval Settings
+### Step 3: Define approval settings
 1. Navigate to the role’s settings in PIM.
-2. Enable **Require Approval to Activate**.
+2. Enable **Require approval to Activate**.
 3. Specify approvers, such as administrators or project managers, who will validate access requests.
 4. Configure **Notification Settings** to alert approvers and users when requests are made or approved.
 

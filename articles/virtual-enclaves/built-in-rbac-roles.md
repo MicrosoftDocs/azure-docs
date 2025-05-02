@@ -49,5 +49,5 @@ Privileged access to Virtual enclave resources can be further controlled/enforce
 ### Time-Based Access Control
 Azure Privileged Identity Management can be used in conjunction with built-in roles to grant users "eligibility" for specific role assignments and scopes over community, enclave, and workload resources, granting users the exact privileges they need for a limited amount of time. 
 
-### Require Approvals for Privileged Access
+### Require approvals for Privileged Access
 Azure Privileged Identity Management can also be leveraged to be Activating an eligibility can also require a second person to approve the request before permissions are granted.
