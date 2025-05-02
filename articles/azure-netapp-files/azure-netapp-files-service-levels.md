@@ -4,7 +4,7 @@ description: Describes throughput performance for the service levels of Azure Ne
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: anfdocs
 ---

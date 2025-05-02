@@ -1017,6 +1017,8 @@
         "articles/peering-service/*.yml": "networking",
         "articles/private-link/*.md": "networking",
         "articles/private-link/*.yml": "networking",
+        "articles/route-server/*.md": "networking",
+        "articles/route-server/*.yml": "networking",
         "articles/traffic-manager/*.md": "networking",
         "articles/traffic-manager/*.yml": "networking",
         "articles/virtual-network/*.md": "networking",
@@ -1026,7 +1028,7 @@
         "articles/vpn-gateway/*.md": "networking",
         "articles/vpn-gateway/*.yml": "networking",
         "articles/web-application-firewall/*.md": "networking",
-        "articles/web-application-firewall/*.yml": "anetworking"
+        "articles/web-application-firewall/*.yml": "networking"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
@@ -1139,6 +1141,7 @@
         "articles/dns/**/*.yml": "cherylmc, abell",
         "articles/expressroute/**/*.yml": "cherylmc, abell",
         "articles/firewall/**/*.yml": "cherylmc, abell",
+        "articles/frontdoor/**/*.yml": "cherylmc, abell, halkazwini",
         "articles/fxt-edge-filer/**/*.yml": "padmalathas",
         "articles/high-performance-computing/**/*.yml": "padmalathas",
         "articles/hpc-cache/**/*.yml": "padmalathas",
@@ -1148,7 +1151,7 @@
         "articles/migrate/**/*.yml": "ankitadutta",
         "articles/nat-gateway/**/*.yml": "cherylmc, abell",
         "articles/networking/**/*.yml": "cherylmc, abell",
-        "articles/network-watcher/**/*.yml": "cherylmc, abell",
+        "articles/network-watcher/**/*.yml": "cherylmc, abell, halkazwini",
         "articles/openshift/**/*.yml": "jacobjaygbay",
         "articles/oracle/**/*.yml": "jacobjaygbay",
         "articles/peering-service/**/*.yml": "cherylmc, abell",
@@ -1162,7 +1165,7 @@
         "articles/virtual-network/**/*.yml": "cherylmc, abell",
         "articles/vmware-cloudsimple/**/*.yml": "jacobjaygbay",
         "articles/vpn-gateway/**/*.yml": "cherylmc, abell",
-        "articles/web-application-firewall/**/*.yml": "cherylmc, abell",
+        "articles/web-application-firewall/**/*.yml": "cherylmc, abell, halkazwini",
         "articles/application-gateway/**/*.md": "cherylmc, abell",
         "articles/automanage/**/*.md": "jacobjaygbay",
         "articles/avere-vfxt/**/*.md": "wwilliams, jushiman",
@@ -1186,6 +1189,7 @@
         "articles/dns/**/*.md": "cherylmc, abell",
         "articles/expressroute/**/*.md": "cherylmc, abell",
         "articles/firewall/**/*.md": "cherylmc, abell",
+        "articles/frontdoor/**/*.md": "cherylmc, abell, halkazwini",
         "articles/fxt-edge-filer/**/*.md": "padmalathas",
         "articles/high-performance-computing/**/*.md": "padmalathas",
         "articles/hpc-cache/**/*.md": "padmalathas",
@@ -1195,7 +1199,7 @@
         "articles/migrate/**/*.md": "ankitadutta",
         "articles/nat-gateway/**/*.md": "cherylmc, abell",
         "articles/networking/**/*.md": "cherylmc, abell",
-        "articles/network-watcher/**/*.md": "cherylmc, abell",
+        "articles/network-watcher/**/*.md": "cherylmc, abell, halkazwini",
         "articles/openshift/**/*.md": "jacobjaygbay",
         "articles/oracle/**/*.md": "jacobjaygbay",
         "articles/peering-service/**/*.md": "cherylmc, abell",
@@ -1209,7 +1213,7 @@
         "articles/virtual-network/**/*.md": "cherylmc, abell",
         "articles/vmware-cloudsimple/**/*.md": "jacobjaygbay",
         "articles/vpn-gateway/**/*.md": "cherylmc, abell",
-        "articles/web-application-firewall/**/*.md": "cherylmc, abell"
+        "articles/web-application-firewall/**/*.md": "cherylmc, abell, halkazwini"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
