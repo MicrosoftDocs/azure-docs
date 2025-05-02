@@ -9,9 +9,9 @@ ms.custom: include file
 # azure-netapp-files/cross-region-replication-introduction.md
 # azure-netapp-files/cross-zone-region-replication.md
 ---
-### Azure regional pairs
-
 Azure NetApp Files volume replication is supported between various [Azure regional pairs](../../reliability/cross-region-replication-azure.md#azure-paired-regions) and non-standard pairs. Azure NetApp Files volume replication is currently available between the following regions. You can replicate Azure NetApp Files volumes from Regional Pair A to Regional Pair B, and vice versa.  
+
+### Azure regional pairs
 
 | Geography | Regional Pair A | Regional Pair B  |
 |:--- |:--- |:--- |
