@@ -1,4 +1,4 @@
---
+---
 title: Reliability in Azure Functions
 description: Find out about reliability support in Azure Functions, including intra-regional resiliency and cross-region recovery and business continuity.
 author: anaharris-ms
@@ -10,7 +10,7 @@ ms.date: 05/02/2025
 zone_pivot_groups: functions-hosting-plan
 
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
---
+---
 
 # Reliability in Azure Functions
 
