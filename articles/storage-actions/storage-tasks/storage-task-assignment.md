@@ -16,8 +16,6 @@ ms.author: normesta
 
 To use a storage task, you must create a _storage task assignment_. The assignment is saved as part of the storage account resource instance, and defines among other settings, a subset of objects to target, when and how often a task runs against those objects, and where the execution reports are stored. 
 
-## Creating an assignment
-
 To create an assignment, your identity must be assigned the appropriate Azure built-in role or a custom role with the appropriate RBAC actions. See [Azure roles required to assign tasks](storage-task-authorization-roles-assign.md). To learn how to create a storage task assignment, see [Create and manage a storage task assignment](storage-task-assignment-create.md). 
 
 ## Assignment settings
@@ -42,13 +40,17 @@ The following table describes the configuration settings of a storage task assig
 | Repeat very (in days) | Required | The interval in days between each run. Applicable only when scheduling a task to run multiple times. |
 | Report export container | Required | The container where task execution reports are stored. |
 
-## Authorizing a storage task
+## Storage task authorization
 
 As part of the assignment process, you'll assign a role to the managed identity associated with the storage task. By default, a system-assigned managed identity is created when the storage task is provisioned. However, the user that creates the storage task can optionally associate a user-assigned managed identity with the storage task. The type of managed identity that is associated with the storage task can't be changed after the storage task is provisioned.
 
 When assigning a role, you must choose an Azure built-in or custom role that has the permission necessary to perform the operations defined in a storage task upon the target storage account. See [Permission for a task to perform operations](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
 
 After you save the assignment, the managed identity is validated to ensure that has the correct permissions to perform the tasks defined in the storage task. If you use the Azure portal to create the assignment, this validation step also occurs after you assign the role to the managed identity.
+
+## Network access to storage accounts
+
+You must grant access to trusted Azure services in the network settings of each target storage account. To learn more, see [Grant access to trusted Azure services](./../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ## See also
 

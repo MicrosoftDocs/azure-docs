@@ -16,6 +16,9 @@ An _assignment_ identifies a storage account and a subset of objects in that acc
 
 This article helps you create an assignment, and then enable that assignment to run. To learn more about storage task assignments, see [Storage task assignments](storage-task-assignment.md).
 
+> [!IMPORTANT]
+> Before you enable storage task assignment, make sure that you grant access to trusted Azure services in the network settings of each target storage account. To learn more, see [Grant access to trusted Azure services](./../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
+
 ## Create and manage an assignment
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.

@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 05/01/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement, ignite-2024
@@ -670,6 +670,7 @@ The following table lists services that can access your storage account data if 
 | Azure Site Recovery             | `Microsoft.RecoveryServices/vaults`     | Enables access to storage accounts. |
 | Security Center                 | `Microsoft.Security/dataScanners`       | Enables access to storage accounts. |
 | Singularity                     | `Microsoft.Singularity/accounts`        | Enables access to storage accounts. |
+| Azure Storage Actions           | `Microsoft.Storageactions/Storagetasks` | Enables acccess to storage accounts. |
 | Azure SQL Database              | `Microsoft.Sql`                         | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure SQL Servers               | `Microsoft.Sql/servers`                 | Allows [writing audit data to storage accounts behind a firewall](/azure/azure-sql/database/audit-write-storage-account-behind-vnet-firewall). |
 | Azure Synapse Analytics         | `Microsoft.Sql`                         | Allows import and export of data from specific SQL databases via the `COPY` statement or PolyBase (in a dedicated pool), or the `openrowset` function and external tables in a serverless pool. [Learn more](/azure/azure-sql/database/vnet-service-endpoint-rule-overview). |
