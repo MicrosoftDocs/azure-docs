@@ -38,16 +38,12 @@ Azure Firewall's draft + deployment feature allows you to make bulk updates to y
 1. In the Azure portal, navigate to your existing firewall policies or create a new one.
 1. On the Azure Firewall Policy blade, under **Management** section click **Draft & Deployment**, then select **Create a new draft.** This creates a draft that is an exact copy of your current applied policy.
 
-    :::image type="content" source="media/draft-deploy/pic1.png" alt-text="screenshot of Draft and Deploy":::
-
-    :::image type="content" source="media/draft-deploy/pic2.png" alt-text="screenshot of create a draft":::
-
 1. On the draft page, make changes or additions to your rules or settings. These pages are identical to the ones in the deployed draft. These changes will only take effect when you deploy the draft.
-    :::image type="content" source="media/draft-deploy/pic3.png" alt-text="screenshot of drafting changes":::
+    :::image type="content" source="media/draft-deploy/drafting changes.png" alt-text="screenshot of drafting changes":::
 
 1. To verify the changes, return to the **deploy** screen and see the rules or setting changes. To deploy, select **deploy draft**. Once deployed, the draft replaces the current policy and becomes the latest version. The draft itself is deleted after the deployment. 
 
-    :::image type="content" source="media/draft-deploy/pic4.png" alt-text="screenshot of check changes and deploy":::
+    :::image type="content" source="media/draft-deploy/verify and deploy changes.png" alt-text="screenshot of check changes and deploy":::
 
 1. Repeat the process as needed to make further updates to the firewall policy.
 
