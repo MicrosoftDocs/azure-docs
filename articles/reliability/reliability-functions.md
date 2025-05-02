@@ -7,7 +7,7 @@ ms.topic: reliability-article
 ms.service: azure-functions
 ms.custom: references_regions, subject-reliability
 ms.date: 05/02/2025
-zone_pivot_groups: functions-hosting-plan
+zone_pivot_groups: reliability-functions-hosting-plan
 
 #Customer intent: I want to understand reliability support in Azure Functions so that I can respond to and/or avoid failures in order to minimize downtime and data loss.
 ---
