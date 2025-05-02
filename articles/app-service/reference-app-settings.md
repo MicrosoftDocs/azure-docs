@@ -202,6 +202,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
 | `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
+| `WEBSITE_AUTH_ROLE_CLAIM_TYPE` | For Java web apps using built-in built-in [authentication](overview-authentication-authorization.md), claims defined in Entra are available in the `HttpServletRequest.isUserInRole` API in the following format: `<claimType>|<claimValue>` (e.g. `team|contoso`). To add the values of claims with the type `roles` directly as role names in the `HttpServletRequest` implementation, set `WEBSITE_AUTH_ROLE_CLAIM_TYPE` to the value `roles`. |
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
