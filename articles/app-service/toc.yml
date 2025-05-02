@@ -465,7 +465,7 @@ items:
   items:
     - name: Overview
       href: overview-webjobs.md
-    - name: Background jobs best practices (Architecture Center)
+    - name: Background jobs best practices
       href: /azure/architecture/best-practices/background-jobs?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
       displayName: WebJobs overview
     - name: WebJobs Quickstart
