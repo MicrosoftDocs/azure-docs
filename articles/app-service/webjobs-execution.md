@@ -61,7 +61,7 @@ You can customize WebJob behavior using an optional `settings.job` file (JSON fo
 | `shutdownGraceTimeLimit` | (number, seconds) Max time (default 0s, meaning no limit) given for the entire WebJob process shutdown, including the `stopping_wait_time`, before it's forcefully terminated. |
 | `run_mode` | (string) Values: `continuous`, `scheduled`, `on_demand`. Overrides job type detection based on the folder. |
 
-> [NOTE]
+> [!NOTE]
 > `stopping_wait_time` applies specifically to the running script's grace period, while `shutdownGraceTimeLimit` defines the overall process shutdown timeout. Consult the [Kudu documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) for detailed behavior.
 
 ### Example
