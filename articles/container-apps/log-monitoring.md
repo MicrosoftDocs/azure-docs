@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
@@ -17,9 +17,8 @@ Log entries are accessible by querying Log Analytics tables through the Azure po
 
 Azure Container Apps provides two types of logs to help you monitor and troubleshoot: 
 
-- Console logs - Your application generates these logs.
-- System logs - The Container Apps service generates these logs.
-
+- **Console logs**: Your application generates these logs.
+- **System logs**: The Container Apps service generates these logs.
 
 ## System Logs
 
