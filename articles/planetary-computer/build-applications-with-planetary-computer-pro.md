@@ -133,7 +133,7 @@ map.on('load', () => {
 
 MPC Pro enables processing of geospatial data at scale:
 
-- **Cloud-optimized data formats**: Access data efficiently using Cloud-Optimized GeoTIFFs (COGs), GeoParquet, and more
+- **Cloud-optimized data formats**: Access data efficiently using Cloud-Optimized GeoTIFFs (COGs) and more
 - **Distributed computing**: Process large datasets using Azure's computational resources
 - **Raster and vector operations**: Perform common geospatial operations on both raster and vector data
 
