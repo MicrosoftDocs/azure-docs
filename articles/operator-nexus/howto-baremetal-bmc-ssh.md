@@ -64,7 +64,7 @@ Here's a mapping of the BMC slots to users.
 > [!CAUTION]
 > BMC users shouldn't be created or modified manually. Nexus fully manages the BMC users and their placement in the slots. Manual changes could cause the Bare Metal Machine to cease functioning and become unreachable. If there are questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### Microsoft Entra group user imitations
+### Microsoft Entra group user limitations
 
 Using a Microsoft Entra group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in time-outs, blocking access and causing sign-in issues.
 
