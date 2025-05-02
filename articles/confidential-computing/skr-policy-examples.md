@@ -4,7 +4,7 @@ description: Examples of AKV SKR policies across offered Azure Confidential Comp
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/5/2023
 ms.author: ananyagarg
 ---
