@@ -39,7 +39,7 @@ This architecture enables both higher performance and also advanced features lik
 
 ## Clustering
 
-Each Azure Managed Redis instance is internally configured to use clustering, across all tiers and SKUs, because it is based on Redis Enterprise, which is able to use multiple shards per node. That includes smaller instances that are only set up to use a single shard. Clustering is a way to divide the data in the Redis instance across the multiple Redis processes, also called "sharding." Azure Managed Redis offers two [cluster policies](#cluster-policies) that determine which protocol is available to Redis clients for connecting to the cache instance.
+Each Azure Managed Redis instance is internally configured to use clustering, across all tiers and SKUs, because it is based on Redis Enterprise, which is able to use multiple shards per node. That includes smaller instances that are only set up to use a single shard. Clustering is a way to divide the data in the Redis instance across the multiple Redis processes, also called "sharding." Azure Managed Redis offers three [cluster policies](#cluster-policies) that determine which protocol is available to Redis clients for connecting to the cache instance.
 
 ### Cluster policies
 
@@ -66,6 +66,7 @@ The considerations for using Non-Clustered (Preview) policy are:
 - It only applies to Azure Managed Redis tiers less than or equal to 25 GB.
 - It’s not as performant as other clustering policies because CPUs can only multi-thread with Redis Enterprise software when it’s sharded.
 - If you want to scale up your Azure Managed Redis cache, you must firs change the cluster policy.
+- If you are moving from Basic, Standard, or Premium non-clustered topology, consider to using OSS clusters to accelerate performance. Non-clustered should only be considered if the application program can't work with either OSS or Enterprise topologies.
 
 ### Scaling out or adding nodes
 
