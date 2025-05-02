@@ -16,7 +16,6 @@ Approvals require more oversight on critical Azure Virtual Enclaves actions. App
 Approvals in Azure Virtual Enclaves (AVE) form a critical layer of governance, ensuring that no action—be it resource creation or modification—proceeds without explicit authorization from designated approvers. This mechanism is integral to maintaining strict oversight, particularly in highly regulated and secure environments where compliance and operational integrity are paramount. By enforcing approval workflows tied to Role-Based Access Control (RBAC), AVE empowers organizations to mitigate risks associated with unauthorized changes, prevent accidental misconfigurations, and uphold stringent security standards. This approach fosters accountability, enhances traceability, and aligns with the robust security posture AVE aims to provide for its customers.  
 
 ## Which resources are approval enabled
-The scope of approvals is evolving and will integrate with more AVE features and capabilities in the future.
 Currently, the below resources are approval enabled:
 1. [Enclave](./create-enclave-portal.md) creation
 2. [Enclave endpoint](./create-enclave-endpoint-portal.md) modification
