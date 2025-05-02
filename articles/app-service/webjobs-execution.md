@@ -32,23 +32,27 @@ Inside the job folder, the Kudu engine looks for a file to execute. This file ca
 
 ## Entry point detection
 
-The WebJob runtime executes the **first valid script or binary** it finds based on this order:
+The WebJob runtime looks for a file named `run.*` (such as `run.sh`, `run.py`, or `run.js`) as the entry point for the job. This allows you to control exactly what script or binary runs first, regardless of language or file type.
 
-1. `run.cmd`
-2. `run.bat`
-3. `run.exe`
-4. `run.ps1`
-5. `run.sh`
-6. `run.py`
-7. `run.php`
-8. `run.js`
-9. `run.fsx`
+If a `run.*` file is not found, the platform falls back to executing the first valid script or binary it recognizes in the archive. This detection follows the order below:
 
-> [!NOTE]
-> The file must be named exactly `run.*` — not `start.sh` or `job.py`.
->
+- `run.cmd`
+- `run.bat`
+- `run.exe`
+- `run.ps1`
+- `run.sh`
+- `run.py`
+- `run.php`
+- `run.js`
+- `run.fsx`
 
-The platform uses a run.* file (such as run.sh, run.py, or run.js) as the entry point for a WebJob. If no recognized run.* file is present, it may attempt to execute the first supported script file it finds in the archive. This fallback behavior can be unpredictable—especially when multiple script files are included—so it's strongly recommended to explicitly define a run.* file to ensure reliable execution. On Linux, `.sh` scripts must have a shebang (`#!`) and executable permissions.
+> [!NOTE]  
+> The file must be named exactly `run.*` to be recognized automatically—names like `start.sh` or `job.py` will not be treated as entry points.
+
+On Linux-based apps, `.sh` scripts must include a shebang (#!) and must have executable permissions.
+
+To ensure consistent behavior across environments and avoid unpredictable results (especially when multiple script files are included), it’s strongly recommended to include a `run.*` file.
+
 
 ## WebJob configuration with settings.job
 
