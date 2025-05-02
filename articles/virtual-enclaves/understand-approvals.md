@@ -46,15 +46,15 @@ These are some of the Frequently Asked Questions (FAQs) about Approvals.
 
 ### 1. How can I view approval requests
 The approvals view can be accessed from three places and is available under Monitoring section
-1. AVE Home Page
+- AVE Home Page
 
 [ ![Screenshot showing the Azure Virtual Enclaves service view of all approvals you have access to review.](./media/approvals-service-view.png) ](./media/approvals-service-view.png#lightbox)
 
-2. Communities Page
+- Communities Page
 
 [ ![Screenshot showing the community view of all approvals you have access to review.](./media/approvals-community-view.png) ](./media/approvals-community-view.png#lightbox)
 
-3. Enclaves Page
+- Enclaves Page
 
 [ ![Screenshot showing the enclave view of all approvals you have access to review.](./media/approvals-enclave-view.png) ](./media/approvals-enclave-view.png#lightbox)
 
@@ -87,7 +87,7 @@ Furthermore, the metadata of deleted requests remain in logs for auditing purpos
 3. Select on `Add Ticket ID`.
 4. Enter the Ticket ID in the field and select on `Save`.
 5. You can select on `Edit` if you want to update the Ticket ID.
-> Note:
+> [!IMPORTANT]
 >
 > Make sure to not enter any PII data or any personal details in Ticket ID field.
 
