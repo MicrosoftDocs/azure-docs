@@ -18,6 +18,7 @@ ms.subservice: b2c
 ---
 
 # Recommendations and best practices for Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following best practices and recommendations cover some of the primary aspects of integrating Azure Active Directory (Azure AD) B2C into existing or new application environments.
 
