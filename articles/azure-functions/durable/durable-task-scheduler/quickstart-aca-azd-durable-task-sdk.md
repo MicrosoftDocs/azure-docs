@@ -304,20 +304,36 @@ The Client project:
 - Uses standard logging to show progress and results
 
 ```python
-# Schedule a new orchestration instance
-instance_id = client.schedule_new_orchestration(
-    "function_chaining_orchestrator", 
-    input=name
-)
-    
-logger.info(f"Started orchestration with ID = {instance_id}")
-    
-# Wait for orchestration to complete
-logger.info("Waiting for orchestration to complete...")
-result = client.wait_for_orchestration_completion(
-    instance_id,
-    timeout=30
-)
+# Schedule all orchestrations first
+instance_ids = []
+for i in range(TOTAL_ORCHESTRATIONS):
+    try:
+        # Create a unique instance name
+        instance_name = f"{name}_{i+1}"
+        logger.info(f"Scheduling orchestration #{i+1} ({instance_name})")
+
+        # Schedule the orchestration
+        instance_id = client.schedule_new_orchestration(
+            "function_chaining_orchestrator",
+            input=instance_name
+        )
+
+        instance_ids.append(instance_id)
+        logger.info(f"Orchestration #{i+1} scheduled with ID: {instance_id}")
+
+        # Wait before scheduling next orchestration (except for the last one)
+        if i < TOTAL_ORCHESTRATIONS - 1:
+            logger.info(f"Waiting {INTERVAL_SECONDS} seconds before scheduling next orchestration...")
+        await asyncio.sleep(INTERVAL_SECONDS)
+# ...
+# Wait for all orchestrations to complete
+for idx, instance_id in enumerate(instance_ids):
+    try:
+        logger.info(f"Waiting for orchestration {idx+1}/{len(instance_ids)} (ID: {instance_id})...")
+        result = client.wait_for_orchestration_completion(
+            instance_id,
+            timeout=120
+        )
 ```
 
 ### Worker
