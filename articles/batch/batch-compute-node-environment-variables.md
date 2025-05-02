@@ -1,7 +1,7 @@
 ---
 title: Task runtime environment variables
 description: Task runtime environment variable guidance and reference for Azure Batch Analytics.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/13/2024
 ---
 
