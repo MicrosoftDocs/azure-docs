@@ -183,4 +183,4 @@ The following is a list of common WebJob states:
 
 ## <a name="NextSteps"></a> Next step
 
-The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+[Tutorial: Run background tasks with WebJobs](tutorial-webjobs.md)

@@ -38,7 +38,7 @@ For more scalable, independently hosted, or event-driven workloads, consider usi
 WebJobs come in three main types:
 
 - **Triggered WebJobs**: Run on demand or in response to specific events. You can trigger them manually or from a service like Azure Storage.
-- **Scheduled WebJobs**: A specialized type of triggered WebJob that runs on a defined schedule using a `settings.job` file with [NCRONTAB expressions](webjobs-create.md##ncrontab-expressions).
+- **Scheduled WebJobs**: A specialized type of triggered WebJob that runs on a defined schedule using a `settings.job` file with [NCRONTAB expressions](webjobs-create.md#ncrontab-expressions).
 - **Continuous WebJobs**: Run persistently in the background while your App Service app is running. Ideal for queue polling or background monitoring tasks.
 
 
@@ -102,7 +102,7 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## Related guidance
 
-- [Background jobs best practices – Azure Architecture Center](../architecture/best-practices/background-jobs.md)
+- [Background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs.md)
 - [Develop WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 - [Get started with the WebJobs SDK](webjobs-sdk-get-started.md)
 - [Use the WebJobs SDK to build advanced jobs](webjobs-sdk-how-to.md)
