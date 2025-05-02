@@ -9,7 +9,7 @@ ms.date: 04/08/2025
 ---
 # Create a transit hub from the Azure portal
 
-A Transit hub establishes a virtual hub within a community vWAN that serves as a secure tunnel between the community and an external private network. A transit hub can be associated with a Private Network rule within a community endpoint to enable Virtual Enclaves to connect to trusted private networks outside of the community boundary.
+A Transit hub establishes a virtual hub within a community vWAN that serves as a secure tunnel between the community and an external private network. A transit hub can be associated with a Private Network rule within a community endpoint to enable enclaves to connect to trusted private networks outside of the community boundary.
 
 ## Prerequisites
 
@@ -42,4 +42,4 @@ Refer to this guidance for more information on the different types of transit hu
 
 > [!NOTE]
 > 
-> transit hub connectivity might be a "break-glass" scenario due to configuration variability of transit connections.
+> Transit hub connectivity might be a "break-glass" scenario due to configuration variability of transit connections.

@@ -1,6 +1,6 @@
 ---
-title: Deploy Template from the Service Catalog using Azure CLI
-description: Deploy Template from the Service Catalog using Azure CLI.
+title: Deploy Template from the service catalog using Azure CLI
+description: Deploy Template from the service catalog using Azure CLI.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Quickstart: Deploy a Service Catalog Template using the CLI
+# Quickstart: Deploy a service catalog Template using the CLI
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template from the Service Catalog using the Azure CLI.
+- Deploy a service catalog template from the service catalog using the Azure CLI.
 
 > [!NOTE]
 > 
@@ -25,16 +25,16 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need to have the Azure CLI installed or use the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/). For more information, see [Azure Command-Line Interface (CLI) documentation](/cli/azure/) 
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 
 
-## Deploy a template from the Service Catalog
-The Service Catalog templates are publicly available here in Azure Public: https://veservicecatalogprod.z22.web.core.windows.net/inventory.xml
+## Deploy a template from the service catalog
+The service catalog templates are publicly available here in Azure Public: https://veservicecatalogprod.z22.web.core.windows.net/inventory.xml
 
 Download a specific template by using the name found in the inventory above (e.g. https://veservicecatalogprod.z22.web.core.windows.net/adminVM/deploy-adminVM-1.0.1.json)
 
-1. List the available templates on the Service Catalog:
+1. List the available templates on the service catalog:
 
     ```
     # Download the XML file
@@ -153,7 +153,7 @@ Download a specific template by using the name found in the inventory above (e.g
     az deployment group create --resource-group <resource-group-name> --template-file ./<template-downloaded-name> --parameters ./<parameter-file-name>
     ```
 
-    This script is for deploying a Template from the Service Catalog
+    This script is for deploying a Template from the service catalog
     
     ```
     az storage blob list --account-name <storage-account-name> --container-name servicecatalog --query '[].{Name:name}'
@@ -174,4 +174,4 @@ Download a specific template by using the name found in the inventory above (e.g
     ```
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.

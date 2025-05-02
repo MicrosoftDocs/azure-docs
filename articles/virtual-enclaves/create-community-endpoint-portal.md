@@ -20,7 +20,7 @@ Quickly create a community endpoint in the Azure portal.
 ## Sign-in to Azure
 Sign-in to the [Azure portal](https://portal.azure.com).
 
-## Create community Endpoint
+## Create community endpoint
 
 1. Navigate to an existing community within your Azure subscription, select the `Community Endpoints` on the left side, and select `Create`
 

@@ -25,7 +25,7 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 [^1]: Theoretically the number of workloads in a community can reach 200 * 800 = **160,000** if the `resourceGroupCollection` property is an empty list. Otherwise, the number is limited by the number of resource groups per subscription which is 980.
 
-[^2]: The number of enclaves that can be deployed into a subscription is limited by the number of Private DNS zones, which is 1,000 per subscription. Each enclave deploys five Private DNS zones, which means up to 200 can be deployed before reaching the Private DNS zone limit.
+[^2]: The number of enclaves that can be deployed into a subscription is limited by the number of Private DNS zones, which is 1,000 per subscription. Each enclave deploys five Private DNS zones, which means up to 200 can be deployed before reaching the Private DNS zone limit. Each Private DNS Zone you add for your workloads will count for the 1,000 per subscription limit. You can use more than one subscription and spread the enclaves between each subscription.
 
 [^3]: This is a child resource, so it must be deployed in the same resource group as the parent resource. Therefore, the number of child resources is limited by the Azure limit of 800 resources per resource group, per resource type.
 

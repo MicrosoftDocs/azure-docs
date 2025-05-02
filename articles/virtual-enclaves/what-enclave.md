@@ -10,48 +10,42 @@ ms.date: 04/08/2025
 
 # What is an Enclave?
 
-An Enclave is an isolated Virtual Network that is part of a community in which one or more workloads are hosted. These workloads can be isolated from other Enclaves in the community. An Enclave Owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections. 
+An enclave is an isolated Azure Virtual Network that is part of a [community](./what-community.md) in which one or more [workloads](./what-workload.md) are hosted. These workloads can be isolated from other enclaves in the community. An enclave owner can enable other enclaves to connect to theirs by creating an [enclave endpoint](./what-enclave-endpoint.md). Enclave endpoints are used by other enclaves to establish [enclave connections](./what-enclave-connection.md).
 
 ## Architecture of an enclave
 
 Enclaves come with the following primary platform-managed and platform-deployed resources:
 - Isolated [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts) you define. By default, these Enclaves aren't connected to the rest of the Internet outside of [certain authorized Microsoft services](/azure/azure-portal/azure-portal-safelist-urls). Enabling connections is done through the use of platform-managed [Network Security Groups](../virtual-network/network-security-groups-overview.md).
-- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all Enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a community and Enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an Enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
-- [Azure Storage Account](../storage/common/storage-account-overview.md). By default and for convenience, all Enclaves are deployed with a Storage Account that can only be accessed from other hosts within the Enclave.  [Learn more about Azure Storage](/azure/architecture/guide/technology-choices/storage-options).
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts). By default and for convenience, all Enclaves are deployed with Key Vault that can only be accessed from other hosts within the Enclave. [Learn more about how to use Azure Key Vaults](/azure/key-vault/general/best-practices).
-- [Admin VMs](./understand-admin-vm.md) ([Azure Virtual Machines](https://azure.microsoft.com/products/virtual-machines)) and [Azure Bastion](../bastion/bastion-overview.md). These resources are created by default for Enclave system administrative access.
+- [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all enclave resources are integrated into Azure Log Analytics. This integration ensures all activities within a community and enclave are effectively monitored, logged, and auditable. You can then use this data to form actionable insights. More specifically, all resources deployed in an enclave send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
+- [Azure Bastion](../bastion/bastion-overview.md).
 - [Private Endpoints](../private-link/private-endpoint-overview.md) and [Private DNS Zones](../dns/private-dns-privatednszone.md). By default and for private networking security, Azure Private DNS Zones, along with certain private DNS records, are created for every new enclave. All platform-managed Enclave resources are configured to use Azure Private Link Service.
 
 ![Diagram showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-virtual-enclaves-enclave.svg)
 
 ## Enclave managed resource group 
-When you create an enclave, the Azure Virtual Enclaves resource provider also creates a resource group which is managed by the Virtual Enclaves service. This managed resource group has a controlled configuration that allows for specific control plane actions. When an enclave is created, Azure places a [deny assignment](../role-based-access-control/deny-assignments.md) to protect resources in the enclave managed resource group.
+When you create an enclave, the Azure Virtual Enclaves resource provider also creates a resource group which is managed by the Azure Virtual Enclaves service. This managed resource group has a controlled configuration that allows for specific control plane actions. When an enclave is created, Azure places a [deny assignment](../role-based-access-control/deny-assignments.md) to protect resources in the enclave managed resource group.
 
 For more details regarding the Enclave managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md)
 
 ### Maintenance mode
-Maintenance mode is a feature that allows Enclave Owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
+Maintenance mode is a feature that allows enclave owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary. [Learn more](./maintenance-mode.md).
 
 ## Template
 See [template documentation](./azure-virtual-enclaves-templates.md#enclave-template)
 
 ## Managed Resources
-The following resources types are deployed into the Enclave Managed Resource Group:
+The following resources types are deployed into the enclave managed resource group:
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
 - [Subnets](../virtual-network/concepts-and-best-practices.md#virtual-network-concepts)
 - [Network Security Groups](../virtual-network/network-security-groups-overview.md)
 - [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview)
-- [Azure Storage Account](../storage/common/storage-account-overview.md)
-- [Azure Key Vault](/azure/key-vault/general/basic-concepts)
-- [Azure Key Vaults](/azure/key-vault/general/best-practices)
-- [Azure Virtual Machine](https://azure.microsoft.com/products/virtual-machines/)
 - [Azure Bastion](../bastion/bastion-overview.md)
 - [Private Endpoints](../private-link/private-endpoint-overview.md)
 - [Private DNS Zones](../dns/private-dns-privatednszone.md)
 
 ## Next Steps
-- [What is a Workload?](./what-workload.md)
-- [What is the Service Catalog?](./what-service-catalog.md)
+- [What is a workload?](./what-workload.md)
+- [What is the service catalog?](./what-service-catalog.md)
 - [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)

@@ -17,10 +17,10 @@ An example of how to deploy the SACA within AVE.
 What gets deployed:
 - One  [Community](./what-community.md)
 - Four  [Enclaves](./what-enclave.md)
-- Four  [Workloads](./what-workload.md)
+- Four  [workloads](./what-workload.md)
 - Three  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Nine  [Enclave Connections](./what-enclave-connection.md)
+- Nine  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing Secure Azure Computing Architecture within Azure Virtual Enclaves.](./media/reference-architecture-secure-azure-computing-architecture.png) ](./media/reference-architecture-secure-azure-computing-architecture.png#lightbox)
@@ -44,10 +44,10 @@ Deploy the template:
 What gets deployed:
 - One  [Community](./what-community.md)
 - Four  [Enclaves](./what-enclave.md)
-- Four  [Workloads](./what-workload.md)
+- Four  [workloads](./what-workload.md)
 - Five  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Nine  [Enclave Connections](./what-enclave-connection.md)
+- Nine  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing a Trusted Research Environment using Azure Virtual Enclaves resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
@@ -71,10 +71,10 @@ Deploy the template:
 What gets deployed:
 - One  [Community](./what-community.md)
 - Eight  [Enclaves](./what-enclave.md)
-- Eight  [Workloads](./what-workload.md)
+- Eight  [workloads](./what-workload.md)
 - Three  [Community Endpoints](./what-community-endpoint.md)
 - 11 [Enclave Endpoint](./what-enclave-endpoint.md)
-- 25 [Enclave Connections](./what-enclave-connection.md)
+- 25 [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ ![Diagram showing an example demo environment within Azure Virtual Enclaves.](./media/reference-architecture-demo-environment.png) ](./media/reference-architecture-demo-environment.png#lightbox)
@@ -94,22 +94,22 @@ Deploy the template:
 9. Review the remaining parameters but keep the default unless you would like to test a modification.
 10. Select `Review + Create` and then `Create`.
 
-## Community and Enclaves template
+## Community and enclaves template
 
-[What gets deployed](./deploy-an-ave-community-with-enclaves.md#what-gets-deployed)
+[What gets deployed](./deploy-community-enclaves-template.md#what-gets-deployed)
 - One  [Community](./what-community.md)
 - One  [Enclaves](./what-enclave.md)
-- One  [Workloads](./what-workload.md)
+- One  [workloads](./what-workload.md)
 - Two  [Community Endpoints](./what-community-endpoint.md)
 - One  [Enclave Endpoint](./what-enclave-endpoint.md)
-- Four  [Enclave Connections](./what-enclave-connection.md)
+- Four  [enclave connections](./what-enclave-connection.md)
 - One  [Transit Hub](./what-transit-hub.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.json) (easiest to deploy via Portal, PowerShell, or command line)
 
 [Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/nightly-base.bicep) (easiest to edit and maintain then convert to ARM template before deployment)
 
-[Deploy the template](./deploy-an-ave-community-with-enclaves.md#deploy-the-template)
+[Deploy the template](./deploy-community-enclaves-template.md#deploy-the-template)
 
 ### Community template
 What gets deployed:
@@ -128,7 +128,7 @@ Deploy the template:
 6. Under `Community Name`, enter the community name you would like to use (for example cm-template-test).
 7. Select `Review + Create` and then `Create`.
 
-### Enclave template
+### enclave template
 What gets deployed:
 - One  [Enclave](./what-enclave.md)
 
@@ -164,7 +164,7 @@ Deploy the template:
 
 ### Connections template
 What gets deployed:
-- Three  [Enclave Connections](./what-enclave-connection.md)
+- Three  [enclave connections](./what-enclave-connection.md)
 
 [ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/connectionsv2.json) (easiest to deploy via Portal, PowerShell, or command line)
 
@@ -175,11 +175,11 @@ Deploy the template:
 4. Select `Save`.
 5. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg). It's recommended to use the same resource group for other AVE resources but not required.
 6. Enter the `Community Resource ID` which can be found on the community `Properties` page under `ID`.
-7. Enter the `Source Enclave Resource ID` which can be found on the source enclave `Properties` page under `ID`.
+7. Enter the `Source enclave Resource ID` which can be found on the source enclave `Properties` page under `ID`.
 8. Enter the `ADDS Endpoint Resource ID` which can be found on the ADDS endpoint `Properties` page under `ID`.
 9. Enter the `Example Endpoint Resource ID` which can be found on the Example endpoint `Properties` page under `ID`.
 10. Enter the `Msft Sites Endpoint Resource ID` which can be found on the Example endpoint `Properties` page under `ID`.
-11. Enter the `Source Enclave Address Space` for the source enclave in your connection (for example 10.0.2.0/23). You can find this by selecting on the enclave resource, on the overview page select the `virtual network` link, and select the `Address Space` page.
+11. Enter the `Source enclave Address Space` for the source enclave in your connection (for example 10.0.2.0/23). You can find this by selecting on the enclave resource, on the overview page select the `virtual network` link, and select the `Address Space` page.
 12. Select `Review + Create` and then `Create`.
 
 ## Terraform

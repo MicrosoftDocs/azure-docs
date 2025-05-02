@@ -1,6 +1,6 @@
 ---
-title: Create Enclave or community endpoint resources in Azure Virtual Enclaves
-description: Create Enclave or community endpoint resources in Azure Virtual Enclaves.
+title: Create enclave or community endpoint resources in Azure Virtual Enclaves
+description: Create enclave or community endpoint resources in Azure Virtual Enclaves.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,9 +8,9 @@ ms.topic: tutorial
 ms.date: 04/08/2025
 ---
 
-# Tutorial 5: Create Enclave or community endpoint resources in Azure Virtual Enclaves
+# Tutorial 5: Create enclave or community endpoint resources in Azure Virtual Enclaves
 
-Community endpoints enable enclaves in a community to establish connections to resources outside of the community boundary to include public websites, public IP addresses, and external private networks through Site-to-Site (S2S) VPN or ExpressRoute connections. Enclave Endpoints enable others to connect to your service by defining the means by which inbound traffic is allowed to flow into a given enclave once a connection is made.
+Community endpoints enable enclaves in a community to establish connections to resources outside of the community boundary to include public websites, public IP addresses, and external private networks through Site-to-Site (S2S) VPN or ExpressRoute connections. Enclave endpoints enable others to connect to your service by defining the means by which inbound traffic is allowed to flow into a given enclave once a connection is made.
 
 In this tutorial, part six of eight, you create community and enclave endpoint resources. You learn how to:
 
@@ -23,11 +23,11 @@ In the previous tutorials, you created a [community](./1-create-community.md) an
 
 If you haven't created those resources yet, return to those earlier tutorials.
 
-## Create an Enclave Endpoint
+## Create an enclave endpoint
 
-1. Navigate to an Enclave hosting a service you want to make available to other Enclaves in the community
+1. Navigate to an enclave hosting a service you want to make available to other enclaves in the community
 
-2. While in your Enclave's page, select `Enclave Endpoints` in the left menu.
+2. While in your enclave's page, select `Enclave Endpoints` in the left menu.
 
 ![Screenshot showing the empty list of enclave endpoints for the WebApp enclave.](./media/tutorial-step-five-enclave-webapp-endpoint-list.png)
 
@@ -36,8 +36,8 @@ If you haven't created those resources yet, return to those earlier tutorials.
 ![Screenshot showing the highlighted create button for enclave endpoints.](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png)
 
 4. Enter the details for your app/service and then select `Save`
-   - Enclave: Select the existing Enclave `Enclave-WebApp`.
-   - Enclave Endpoint name: Name of the enclave endpoint `endpoint-MyService`
+   - Enclave: Select the existing enclave `Enclave-WebApp`.
+   - Enclave endpoint name: Name of the enclave endpoint `endpoint-MyService`
    - Select `Add` to add Endpoint Rules that represent how to access your app/service
       - Name: `WebAppEndpointRules`
       - Destination: `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26)>`
@@ -52,7 +52,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing the completed enclave endpoint overview page.](./media/tutorial-step-five-enclave-webapp-endpoint-deployed.png)
 
-## Create a community Endpoint
+## Create a community endpoint
 
 1. Navigate to the `fabrikam` community, select `Community Endpoints`
 
@@ -79,9 +79,9 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing community endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
 
-6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp en.
+6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp enclave endpoint page.
 
-![Screenshot showing the completed community Endpoint.](./media/tutorial-step-five-fabrikam-endpoint-deployed.png)
+![Screenshot showing the completed community endpoint.](./media/tutorial-step-five-fabrikam-endpoint-deployed.png)
 
 ## Create an enclave  associated to an Endpoint
 

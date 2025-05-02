@@ -30,4 +30,6 @@ The subnet size determines how many usable IP addresses are in the subnet.
 | /24 | 251 |
 
 ## Detailed subnet creation steps
-Change the subnets in the Enclave by selecting `Manage` on the left side and then `Subnet` to manage existing subnets or create new subnets. 
+Change the subnets in the Enclave by selecting `Manage` on the left side and then `Subnet` to manage existing subnets or create new subnets.
+
+![Screenshot showing the Enclave submet management page.](./media/enclave-subnet-management.png)

@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload
-description: Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload.
+title: Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
+description: Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Azure Kubernetes Service (AKS) from the Service Catalog into a Workload
+# Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for a RemoteApplication into an existing Workload from the Portal.
+- Deploy a service catalog template for a RemoteApplication into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -23,7 +23,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -86,7 +86,7 @@ Documentation around these rules can be found [here](/azure/aks/outbound-rules-c
 2. Select `+Add an Azure Service` button.
 3. Select the `Private AKS Cluster` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
 
-![Screenshot showing the Azure Kubernetes Service template selected from the Service Catalog list.](./media/service-catalog-list-azure-kubernetes-service.png)
+![Screenshot showing the Azure Kubernetes Service template selected from the service catalog list.](./media/service-catalog-list-azure-kubernetes-service.png)
 
 4. Select through the tabs and enter all the required parameters.
 5. Use `172.16.0.0/16` for the serviceCidr and `172.16.0.10` for the dnsServiceIP
@@ -99,11 +99,11 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 >
 > If you're deploying an AKS cluster within a virtual enclave you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. To ensure that the user assigned managed identity does not get blocked by any enclave deny assignments, you'll need to make sure that its principal is either added directly to an enclave's [Maintenance Mode](./maintenance-mode.md) configuration or that the managed identity is part of a Microsoft Entra ID group that is connected to an enclave's maintenance mode.
 
-### Associating AKS Resource Groups to Workload
+### Associating AKS resource groups to workload
 
-The AVE Workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that an AVE Workload can now apply AVE policies to multiple resource groups.
+The AVE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This means that an AVE workload can now apply AVE policies to multiple resource groups.
 
-Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a Workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a Workload resource is provided below:
+Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource is provided below:
 
 ```json
 {
@@ -132,7 +132,7 @@ Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be br
 ```
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created.
+Go to the specified resource group to confirm the intended resources were created.
 
 ### Connect to the Application VM
 Via the Admin VM:
@@ -144,10 +144,10 @@ The Admin VM is used for administrator access the resources within the enclave b
 5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (e.g. install or configure an application for RemoteApp publishing).
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

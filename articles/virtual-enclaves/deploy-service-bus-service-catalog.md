@@ -1,6 +1,6 @@
 ---
-title: Deploy Service Bus from the Service Catalog into a Workload
-description: Deploy Service Bus from the Service Catalog into a Workload.
+title: Deploy Service Bus from the service catalog into a workload
+description: Deploy Service Bus from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Service Bus from the Service Catalog into a Workload
+# Deploy Service Bus from the service catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
-- Deploy a Service Catalog template for a RemoteApplication into an existing Workload from the Portal.
+- Deploy a service catalog template for a RemoteApplication into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -25,7 +25,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 
 ## Deploy the template
@@ -33,7 +33,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 2. Select `Add Service` button.
 3. Select the `Service Bus` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
 
-![Screenshot showing the Service Bus template selected from the Service Catalog list.](./media/service-catalog-list-service-bus.png)
+![Screenshot showing the Service Bus template selected from the service catalog list.](./media/service-catalog-list-service-bus.png)
 
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
@@ -42,7 +42,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created. Including: Service Bus
+Go to the specified resource group to confirm the intended resources were created. Including: Service Bus
 
 ### Connect to the Application VM
 Via the Admin VM:
@@ -54,10 +54,10 @@ The Admin VM is used for administrator access the resources within the enclave b
 5. From the RemoteApp VM desktop, validate any VM settings set during the deployment. Otherwise, start using the RemoteApp VM (e.g. install or configure an application for RemoteApp publishing).
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

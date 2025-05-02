@@ -1,6 +1,6 @@
 ---
-title: Deploy Admin VM from the Service Catalog into a Workload
-description: Deploy Admin VM from the Service Catalog into a Workload.
+title: Deploy Admin VM from the service catalog into a workload
+description: Deploy Admin VM from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Admin VM from the Service Catalog into a Workload
+# Deploy Admin VM from the service catalog into a workload
 The Admin VM template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
 
 In this article, you:
 
-- Deploy a Service Catalog template for an Admin VM into an existing Workload from the Portal.
+- Deploy a service catalog template for an Admin VM into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -31,14 +31,14 @@ The Admin VM template can be deployed in multiple configurations:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed Enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 Required:
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
 2. (optional) An existing domain to join if the Admin VM will be domain joined.
-3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
+3. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](/azure/virtual-machines/disk-encryption-overview)
     - [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
     - [Manage User-assigned Identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
@@ -47,9 +47,9 @@ Required:
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Admin VM` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
+3. Select the `Admin VM` service template from the [service catalog](./what-service-catalog.md) of templates (the dropdown list).
 
-![Screenshot showing the Service Catalog Admin VM selected from the list.](./media/service-catalog-list-admin-vm.png)
+![Screenshot showing the service catalog Admin VM selected from the list.](./media/service-catalog-list-admin-vm.png)
 
 4. Enter all the required parameters on each of the tabs.
 5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
@@ -57,7 +57,7 @@ Required:
 7. Select `Review + Create`, if all validations have passed, select `Create`
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created. Including: VM, OS Disk, NIC.
+Go to the specified resource group to confirm the intended resources were created. Including: VM, OS Disk, NIC.
 
 ## Connect to the Application VM
 Via the [Admin VM](./understand-admin-vm.md):
@@ -72,11 +72,11 @@ The Admin VM is used for administrator access the resources within the enclave b
 Otherwise, start using the RemoteApp Virtual Machine
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
 - Session host or VM [Sizing](/windows-server/remote/remote-desktop-services/virtual-machine-recs)
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

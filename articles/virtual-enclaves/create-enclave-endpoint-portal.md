@@ -1,6 +1,6 @@
 ---
-title: Create an Enclave Endpoint in the Azure portal
-description: Create an Enclave Endpoint in the Azure portal
+title: Create an enclave endpoint in the Azure portal
+description: Create an enclave endpoint in the Azure portal
 author: jadean-msft
 ms.author: jadean
 # ms.service: Azure Virtual Enclaves
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 04/08/2025
 ---
 
-# Create an Enclave Endpoint in the Azure portal
+# Create an enclave endpoint in the Azure portal
 
 ## Prerequisites
 
@@ -34,12 +34,12 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 ![Screenshot showing the highlighted create button for enclave endpoints.](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png)
 
-7. Enter the basic details for your Enclave Endpoint
-   - Enclave Endpoint name: Name of the enclave endpoint (ex: `endpoint-MyService`)
+7. Enter the basic details for your enclave endpoint
+   - Enclave endpoint name: Name of the enclave endpoint (ex: `endpoint-MyService`)
    - Endpoint rules: 
    
 8. Select `Add` and enter the `Rule Name`, `Destination IP addresses/CIDR range`, `Protocol`, and `Destination Port Range`.
-   - For example, if you were trying to create networking rules to allow other enclaves to talk to the `Enclave-WebApp` enclave, specifically an HTTPS server hosted on an Azure Virtual Machine (VM) with a Private IP address of `10.0.2.5` in subnet `10.0.2.0/26` in a [Workload](./what-workload.md), you would supply the `Destination` (for example `10.0.0.5` or `10.0.2.0/26`) of the VM, `TCP` for the `Protocol`, and `443` for the `Destination Port Range`.
+   - For example, if you were trying to create networking rules to allow other enclaves to talk to the `Enclave-WebApp` enclave, specifically an HTTPS server hosted on an Azure Virtual Machine (VM) with a Private IP address of `10.0.2.5` in subnet `10.0.2.0/26` in a [workload](./what-workload.md), you would supply the `Destination` (for example `10.0.0.5` or `10.0.2.0/26`) of the VM, `TCP` for the `Protocol`, and `443` for the `Destination Port Range`.
 
 ![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/create-enclave-endpoint-tab-1-basics.png)
 
@@ -49,4 +49,4 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 9. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your Endpoint.
 
-10.  Select `Review + create`, ensure the details for your Endpoint are correct, and select `Create`.
+10.  Select `Review + create` and validate the details for your Endpoint are correct, then select `Create`.

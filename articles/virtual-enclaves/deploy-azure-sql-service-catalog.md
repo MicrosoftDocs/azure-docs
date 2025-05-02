@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure SQL from the Service Catalog into a Workload
-description: Deploy Azure SQL from the Service Catalog into a Workload.
+title: Deploy Azure SQL from the service catalog into a workload
+description: Deploy Azure SQL from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 04/08/2025
 ---
 
-# Deploy Azure SQL from the Service Catalog into a Workload
+# Deploy Azure SQL from the service catalog into a workload
 
 In this article, you:
 
-- Deploy a Service Catalog template for Azure SQL into an existing Workload from the Portal.
+- Deploy a service catalog template for Azure SQL into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -23,7 +23,7 @@ In this article, you:
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ There are guardrails in the enclaves to ensure the Azure SQL is using CMK encryp
 > These resources are not deployed with the enclave or workload.
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
-2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deployment Service Catalog template](./deploy-common-dependencies-service-catalog.md) article to:
+2. A Key Vault that supports CMK and a key that can be leveraged for CMK encryption. Create a new CMK, if needed, using the [Common Deployment service catalog template](./deploy-common-dependencies-service-catalog.md) article to:
     - Create an RSA (2048) key in the Key Vault.
     - [Create a user-assigned managed identity](./create-user-managed-identity.md) with access to the CMK key in the enclave `HostedResources` resource group (for example `your-enclave-name-HostedResources-...`).
     - Create an Access Policy in the Key Vault above for this identity with the following Key Permissions: `Unwrap Key, Wrap Key, Recover, Get`
@@ -52,7 +52,7 @@ The Administrators tab requires login info. Here is an example of some input:
 2. Select `+Add an Azure Service` button.
 3. Select the `Azure SQL` service template from the [Service Catalog](./what-service-catalog.md) of templates (the dropdown list).
 
-![Screenshot showing the Azure SQL template selected from the Service Catalog list.](./media/service-catalog-list-azure-sql.png)
+![Screenshot showing the Azure SQL template selected from the service catalog list.](./media/service-catalog-list-azure-sql.png)
 
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
@@ -61,4 +61,4 @@ The Administrators tab requires login info. Here is an example of some input:
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created.
+Go to the specified resource group to confirm the intended resources were created.

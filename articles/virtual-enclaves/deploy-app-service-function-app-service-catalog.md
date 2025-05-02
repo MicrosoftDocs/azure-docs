@@ -1,6 +1,6 @@
 ---
-title: Deploy an App Service Function App from the Service Catalog into a Workload
-description: Deploy an App Service Function App from the Service Catalog into a Workload.
+title: Deploy an App Service Function App from the service catalog into a workload
+description: Deploy an App Service Function App from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 4/1/2025
 ---
 
-# Deploy an App Service Function App from the Service Catalog into a Workload
+# Deploy an App Service Function App from the service catalog into a workload
 
 Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this article, you:
 
-- Deploy a Service Catalog template for a Function App into an existing Workload from the Portal.
+- Deploy a service catalog template for a Function App into an existing workload from the Portal.
 
 > [!NOTE]
 > 
@@ -23,7 +23,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
-- A [deployed community](./what-community.md), [deployed Virtual Enclave](./what-enclave.md), and [deployed Workload](./what-workload.md) and permissions to create resources inside the workload.
+- A [deployed community](./what-community.md), [deployed enclave](./what-enclave.md), and [deployed workload](./what-workload.md) and permissions to create resources inside the workload.
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 > 
 > Two "/26" subnets leave space in the enclave subnet for more subnets (for example another "/26"). If these two subnets are the only subnets needed in the enclave, they can be resized according to your needs.
 
-2. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies Service Catalog template](./deploy-common-dependencies-service-catalog.md).
+2. A `Key Vault` with `Customer Mananged Key (CMK)`, `User Managed Identity`, and `Disk Encryption Set`. You can create these using the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md).
     - [Disk encryption options](/azure/virtual-machines/disk-encryption-overview)
     - [How to create a user assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp)
     - [Manage User-assigned Identity](/azure/operator-service-manager/how-to-create-user-assigned-managed-identity)
@@ -50,9 +50,9 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `Add Service` button.
-3. Select the `Function App` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list) and select the required version (default: `latest`)
+3. Select the `Function App` service template from the [service catalog](./list-service-catalog-templates.md) templates (the dropdown list) and select the required version (default: `latest`)
 
-![Screenshot showing the Function App template selected from the Service Catalog list.](./media/service-catalog-list-function-app.png)
+![Screenshot showing the Function App template selected from the service catalog list.](./media/service-catalog-list-function-app.png)
 
 4. On the Basics tab enter all the required parameters. The Storage Account name is the name of the new storage account.
 5. Once the two subnets are created, enter the new subnet names on the Networking tab.
@@ -64,17 +64,17 @@ There are guardrails in the enclaves to ensure a Function App is isolated with p
 It can take 10 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
-Go to the specified Resource Group to confirm the intended resources were created. Including: Function App and new Storage Account
+Go to the specified resource group to confirm the intended resources were created. Including: Function App and new Storage Account
 
 ### Open the Function App resource
 1. Open the Function App resource
 2. On the overview page, check functions
 
 ## Delete the deployment
-If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the Resource Group, the whole Resource Group can be deleted.
+If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.
 
 ## Recommendations
-- [Add tags](../azure-resource-manager/management/tag-resources.md) to Service Catalog deployments to track important information for that resource such as:
+- [Add tags](../azure-resource-manager/management/tag-resources.md) to service catalog deployments to track important information for that resource such as:
   - Owner: `<main POC>`
   - Deployer: `<yourName>`
   - Purpose: `<publish abc app to users>`

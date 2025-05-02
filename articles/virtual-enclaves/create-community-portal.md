@@ -10,7 +10,7 @@ ms.date: 04/08/2025
 
 # Create a community in the Azure portal
 
-[Communities](./what-community.md) are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A community Owner can enable other communities or on-premises networks to connect through transit hub or Endpoints.
+[Communities](./what-community.md) are isolated hub networks that can securely and logically group several Enclaves together for governance, management, and security purposes. A community owner can enable other communities or on-premises networks to connect through transit hub or Endpoints.
 
 ## Prerequisites
 To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) and sign-in to the [Azure portal](https://portal.azure.com) before you begin.
@@ -58,7 +58,7 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
 8. Select `Next` and enter any [Tags](../azure-resource-manager/management/tag-resources.md) for your community.
 9. Select `Next`.
-10. Select `Review + create`, ensure the details for your community are correct, and select `Create`.
+10. Select `Review + create` and validate the details for your community are correct, then select `Create`.
 
 ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png)
 
