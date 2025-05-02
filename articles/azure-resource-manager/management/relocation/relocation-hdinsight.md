@@ -1,6 +1,6 @@
 ---
-title: Relocate Azure Storage Account to another region
-description: Learn how to relocate Azure Storage Account to another region
+title: Relocate Azure HDInsight clusters to another region
+description: Learn how to relocate Azure HDInsight clusters to another region
 ms.date: 05/02/2025
 ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
@@ -73,8 +73,8 @@ Relocate the source storage account to the target region. For detailed steps, se
 Relocate jobs associated with the HDInsight cluster to the target region. Follow the appropriate guidance based on your HDInsight implementation:
 
 - **Oozie pipeline/workflow**: Use the Hue import/export method. See [Migrate pipelines using Hue UI](https://gethue.com/exporting-and-importing-oozie-workflows/).
-- **Storm topology**: Transfer Storm event hub spout checkpoint information. See [Transfer Storm event hub spout checkpoint information](https://docs.microsoft.com/en-us/azure/hdinsight/storm/apache-troubleshoot-storm#how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another).
-- **HBase workload**: Use backup and replication. See [Backup and replication method](https://docs.microsoft.com/en-us/azure/hdinsight/hbase/apache-hbase-backup-replication).
+- **Storm topology**: Transfer Storm event hub spout checkpoint information. See [Transfer Storm event hub spout checkpoint information](../../../hdinsight/storm/apache-troubleshoot-storm#how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another).
+- **HBase workload**: Use backup and replication. See [Backup and replication method](../../../hdinsight/hbase/apache-hbase-backup-replication).
 - **Hive workload & Interactive Query**: Follow the steps in [Migrate Azure HDInsight Hive workloads](../../../hdinsight/interactive-query/apache-hive-migrate-workloads#steps-to-upgrade).
 - **Kafka workload**: Use Mirror Maker. See [Mirror Maker](../../../hdinsight/kafka/apache-kafka-mirroring).
 
