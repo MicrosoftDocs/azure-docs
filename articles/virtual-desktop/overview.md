@@ -1,7 +1,7 @@
 ---
 title: What is Azure Virtual Desktop? - Azure
 description: Azure Virtual Desktop is a desktop and app virtualization service that runs on Azure. Deliver a full Windows experience with Windows 11 or Windows 10. Offer full desktops or use RemoteApp to deliver individual apps to users.
-author: ErikjeMS
+author: dougeby
 ms.topic: overview
 ms.date: 01/17/2025
 ms.author: avdcontent

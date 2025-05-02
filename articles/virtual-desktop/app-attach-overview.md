@@ -3,7 +3,7 @@ title: App attach and MSIX app attach - Azure Virtual Desktop
 description: Learn about app attach and MSIX app attach in Azure Virtual Desktop, where you can dynamically attach applications from an application package to a user session.
 ms.topic: conceptual
 zone_pivot_groups: azure-virtual-desktop-app-attach
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 01/17/2025
 ---

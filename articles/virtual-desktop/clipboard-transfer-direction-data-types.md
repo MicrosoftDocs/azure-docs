@@ -2,7 +2,7 @@
 title: Configure the clipboard transfer direction in Azure Virtual Desktop
 description: Learn how to configure the clipboard transfer direction and data types that can be copied in Azure Virtual Desktop from session host to client, or client to session host.
 ms.topic: how-to
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 08/13/2024
 ---

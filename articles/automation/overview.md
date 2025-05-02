@@ -134,4 +134,4 @@ You can review the prices associated with Azure Automation on the [pricing](http
 
 > [!div class="nextstepaction"]
 > [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)
-> [Well-architected recommendations for implementing automation](/azure/well-architected/operational-excellence/automate-tasks.md/azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate)
+> [Well-architected recommendations for implementing automation](/azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate)

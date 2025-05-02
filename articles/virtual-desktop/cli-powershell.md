@@ -3,7 +3,7 @@ title: Use Azure CLI and Azure PowerShell with Azure Virtual Desktop
 description: Learn about Azure CLI and Azure PowerShell with Azure Virtual Desktop and some useful example commands you can run.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, docs_inherited
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 01/08/2024
 ---

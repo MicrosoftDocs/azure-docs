@@ -3,7 +3,7 @@ title: Configure audio and video redirection over the Remote Desktop Protocol
 description: Learn how to redirect audio peripherals, such as microphone and speaker, between a local device and a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 04/24/2024
 ---

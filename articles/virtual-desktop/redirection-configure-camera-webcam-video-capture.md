@@ -3,7 +3,7 @@ title: Configure camera, webcam, and video capture redirection over the Remote D
 description: Learn how to redirect camera, webcam, and video capture peripherals, and also video encoding and quality, from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 04/24/2024
 ---

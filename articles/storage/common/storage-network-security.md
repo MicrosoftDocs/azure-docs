@@ -644,6 +644,7 @@ The following table lists services that can access your storage account data if 
 | Azure Backup Vault              | `Microsoft.DataProtection/BackupVaults` | Enables access to storage accounts. |
 | Azure Data Share                | `Microsoft.DataShare/accounts`          | Enables access to storage accounts. |
 | Azure Database for PostgreSQL   | `Microsoft.DBForPostgreSQL`             | Enables access to storage accounts. |
+| Azure Device Registry           | `Microsoft.DeviceRegistry/schemaRegistries`     | Enables access to storage accounts. |
 | Azure IoT Hub                   | `Microsoft.Devices/IotHubs`             | Allows data from an IoT hub to be written to Blob Storage. [Learn more](../../iot-hub/virtual-network-support.md#egress-connectivity-from-iot-hub-to-other-azure-resources). |
 | Azure DevTest Labs              | `Microsoft.DevTestLab/labs`             | Enables access to storage accounts. |
 | Azure Event Grid                | `Microsoft.EventGrid/domains`           | Enables access to storage accounts. |

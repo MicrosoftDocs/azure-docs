@@ -1,7 +1,7 @@
 ---
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
-author: ErikjeMS
+author: dougeby
 ms.topic: release-notes
 ms.date: 05/01/2025
 ms.author: avdcontent
@@ -38,7 +38,7 @@ Here's information about the Azure Virtual Desktop Agent.
 
 ## Version 1.0.11212.600 (validation)
 
-*Published: April 2025*
+*Published: May 2025*
 
 In this update, we made the following changes:
 

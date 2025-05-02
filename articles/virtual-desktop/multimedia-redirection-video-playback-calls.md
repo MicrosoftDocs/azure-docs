@@ -3,7 +3,7 @@ title: Multimedia redirection for video playback and calls in a remote session
 description: Learn how multimedia redirection redirects video playback and calls in a remote session from Azure Virtual Desktop, a Windows 365 Cloud PC, or Microsoft Dev Box to your local device for faster processing and rendering.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 09/30/2024
 ---

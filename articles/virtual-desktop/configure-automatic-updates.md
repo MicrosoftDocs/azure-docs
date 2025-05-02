@@ -1,7 +1,7 @@
 ---
 title: Update session hosts using Microsoft Configuration Manager to automatically deploy software updates to Azure Virtual Desktop session hosts - Azure
 description: How to configure Microsoft Configuration Manager to deploy software updates to Windows 10 Enterprise multi-session on Azure Virtual Desktop.
-author: ErikjeMS
+author: dougeby
 ms.topic: how-to
 ms.date: 07/05/2022
 ms.author: avdcontent
