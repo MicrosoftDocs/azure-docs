@@ -230,17 +230,17 @@ If you wish to uninstall the ALB Controller, complete the following steps.
 
 1. Delete the Application Gateway for Containers, you can delete the Resource Group containing the Application Gateway for Containers resources:
 
- ```azurecli-interactive
- az group delete --resource-group $RESOURCE_GROUP
- ```
+   ```azurecli-interactive
+   az group delete --resource-group $RESOURCE_GROUP
+   ```
 
 2. Uninstall ALB Controller and its resources from your cluster run the following commands:
 
- ```azurecli-interactive
- helm uninstall alb-controller
- kubectl delete ns azure-alb-system
- kubectl delete gatewayclass azure-alb-external
- ```
+   ```azurecli-interactive
+   helm uninstall alb-controller
+   kubectl delete ns azure-alb-system
+   kubectl delete gatewayclass azure-alb-external
+   ```
 
 > [!Note]
 > If a different namespace was used for alb-controller installation, ensure you specify the -n parameter on the helm uninstall command to define the proper namespace to be used. For example: `helm uninstall alb-controller -n unique-namespace`
