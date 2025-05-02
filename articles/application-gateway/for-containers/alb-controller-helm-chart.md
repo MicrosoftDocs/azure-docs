@@ -8,7 +8,7 @@ ms.topic: release-notes
 ms.date: 5/2/2025
 ms.author: greglin
 ---
-<!-- CRDs (Custom Resource Definitions) -->
+<!-- Custom Resource Definitions (CRDs) -->
 
 # ALB Controller Helm Chart
 
@@ -26,8 +26,6 @@ The following parameters are supported for configuration during installation:
 - seucrityPolicyFeatureFlag
 
 ## Values
-
-<div style="overflow-x: auto;">
 
 | Key | Type | Default | Description |
 | ----- | ------ | --------- | ------------- |
@@ -48,8 +46,6 @@ The following parameters are supported for configuration during installation:
 | albController.logLevel | string | `"info"` | Log level of ALB Controller. |
 | albController.namespace | string | `"azure-alb-system"` | Namespace to deploy ALB Controller components in. |
 | albController.securityPolicyFeatureFlag | bool | `false` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
-
-</div>
 
 ## Tolerations
 
