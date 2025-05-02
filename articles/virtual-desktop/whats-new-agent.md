@@ -38,7 +38,7 @@ Here's information about the Azure Virtual Desktop Agent.
 
 ## Version 1.0.11212.600 (validation)
 
-*Published: April 2025*
+*Published: May 2025*
 
 In this update, we made the following changes:
 
