@@ -30,7 +30,7 @@ Azure NetApp Files supports using cross-zone and cross-region replication on the
 
 * If you use cross-region replication, you must adhere to supported [cross-region replication pairs](#supported-region-pairs).
 
-* You can establish replication between different subscriptions under the same tenant ID. Replication across tenants isn't supported. 
+* All replications must be performed under a single subscription.
 
 ## <a name="supported-region-pairs"></a>Supported cross-region replication pairs
 
