@@ -1,20 +1,17 @@
 ---
 title: Allocation strategies for Azure Compute Fleet
 description: Learn about Compute Fleet allocation strategies for Spot and Standard virtual machines (VM).
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/13/2024
+ms.date: 04/21/2025
 ms.reviewer: jushiman
 ---
 
 # Allocation strategies for Azure Compute Fleet 
-
-> [!IMPORTANT]
-> [Azure Compute Fleet](overview.md) is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
 
 When using a Compute Fleet for your workloads, you have several allocation strategies available to optimize costs, performance, or availability. These strategies determine how the fleet fulfills your capacity requirements by distributing the requested instances across different instance types and Availability Zones. 
 

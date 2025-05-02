@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 11/20/2024
 ms.author: anfdocs
 ---
-
 # Understand cross-zone-region replication in Azure NetApp Files
 
 Azure NetApp Files supports using cross-zone and cross-region replication on the same source volume. With this added layer of protection, you can protect your volumes with a second protection volume in the following combinations:

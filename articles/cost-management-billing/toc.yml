@@ -118,8 +118,6 @@
         href: manage/subscription-disabled.md
       - name: Reactivate Azure Student subscription
         href: manage/azurestudents-subscription-disabled.md
-      - name: Set up and configure AWS integration
-        href: costs/aws-integration-set-up-configure.md
       - name: Create an MCA subscription
         href: manage/create-subscription.md
       - name: Create an MCA subscription request

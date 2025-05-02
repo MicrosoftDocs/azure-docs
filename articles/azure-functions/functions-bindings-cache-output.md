@@ -334,6 +334,6 @@ There are three types of connections that are allowed from an Azure Functions in
 
 - [Introduction to Azure Functions](functions-overview.md)
 - [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/cache-tutorial-write-behind)
+- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings)

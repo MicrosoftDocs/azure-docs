@@ -12,6 +12,9 @@ ms.custom: devx-track-arm-template
 ---
 # About Azure Cloud Services (extended support)
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 Cloud Services (extended support) is a new [Azure Resource Manager](../azure-resource-manager/management/overview.md) based deployment model for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services/) product and is now generally available. Cloud Services (extended support) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some Azure Resource Manager capabilities such as role-based access and control (RBAC), tags, policy, and supports deployment templates.  
 
 With this change, the Azure Service Manager based deployment model for Cloud Services is renamed to [Cloud Services (classic)](../cloud-services/cloud-services-choose-me.md). You retain the ability to build and rapidly deploy your web and cloud applications and services. You're able to scale your cloud services infrastructure based on current demand and ensure that the performance of your applications can keep up while simultaneously reducing costs.  

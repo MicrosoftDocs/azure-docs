@@ -46,7 +46,7 @@ The following ASNs are reserved for internal Azure VMware Solution infrastructur
 
 - **Transport ASNs (T0 Gateways):** 64513 (NSX Edges), 64600 – 64940
 
-- **Management ASNs:** 65000 – 65412
+- **Management ASNs:** 65000 – 65412, 398656-398670, 400572-400581
 
 ### Impact of Using Reserved ASNs
 

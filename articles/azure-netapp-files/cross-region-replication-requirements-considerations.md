@@ -22,11 +22,12 @@ This article describes requirements and considerations about [using the volume c
     >[!IMPORTANT]
     >Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break replication peering then mount the destination volume. For more information, see [fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume)
     >[!IMPORTANT]
-    > A volume with an active backup policy enabled can't be the destination volume in a reverse resync operation. You must suspend the backup policy on the volume prior to starting the reverse resync then resume when the reverse resync completes. 
-* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. You must [register this feature](cross-zone-region-replication-configure.md#register-for-cross-subscription-replication) before using it for the first time. 
+    > A volume with an active backup
+ policy enabled can't be the destination volume in a reverse resync operation. You must suspend the backup policy on the volume prior to starting the reverse resync then resume when the reverse resync completes. 
+* Azure NetApp Files replication doesn't currently support multiple subscriptions; all replications must be performed under a single subscription.
 * See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-region replication destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region).
 * There can be a delay up to five minutes for the interface to reflect a newly added snapshot on the source volume.  
-* Cascading and fan in/out topologies aren't supported.
+* Cascading and fan-in topologies aren't supported. For support of fan-out deployments, see [configure cross-zone-region replication](cross-zone-region-replication-configure.md#requirements).
 * After you set up cross-region replication, the replication process creates *SnapMirror snapshots* to provide references between the source volume and the destination volume. SnapMirror snapshots are cycled automatically when a new one is created for every incremental transfer. You can't delete SnapMirror snapshots until replication relationship and volume is deleted. 
 * You can't mount a dual-protocol volume until you [authorize replication from the source volume](cross-region-replication-create-peering.md#authorize-replication-from-the-source-volume) and the initial [transfer](cross-region-replication-display-health-status.md#display-replication-status) happens.
 * You can delete manual snapshots on the source volume of a replication relationship when the replication relationship is active or broken, and also after the replication relationship is deleted. You can't delete manual snapshots for the destination volume until the replication relationship is broken.

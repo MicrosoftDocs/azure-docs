@@ -29,7 +29,7 @@ Diagnostic settings in Azure are used to collect resource logs. An Azure resourc
 
 ## Cache Metrics
 
-Azure Cache for Redis emits [many metrics](/azure/redis/monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](/azure/redis/monitor-cache.md#view-cache-metrics).
+Azure Cache for Redis emits [many metrics](../redis/monitor-cache-reference.md#metrics) such as _Server Load_ and _Connections per Second_ that are useful to log. Selecting the **AllMetrics** option allows these and other cache metrics to be logged. You can configure how long the metrics are retained. See [here for an example of exporting cache metrics to a storage account](../redis/monitor-cache.md#view-cache-metrics).
 
 ## Connection Logs
 

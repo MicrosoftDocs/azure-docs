@@ -17,6 +17,7 @@ ms.subservice: b2c
 ---
 
 # UserJourneys
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -46,7 +47,7 @@ The **UserJourney** element contains the following attribute:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | Id | Yes | An identifier of a user journey that can be used to reference it from other elements in the policy. The **DefaultUserJourney** element of the [relying party policy](relyingparty.md) points to this attribute. |
-| DefaultCpimIssuerTechnicalProfileReferenceId| No | The default token issuer technical profile reference ID. For example, [JWT token issuer](userjourneys.md), [SAML token issuer](saml-issuer-technical-profile.md), or [OAuth2 custom error](oauth2-error-technical-profile.md). If your user journey or sub journey already has another `SendClaims` orchestration step, set the `DefaultCpimIssuerTechnicalProfileReferenceId` attribute to the user journey's token issuer technical profile. |
+| DefaultCpimIssuerTechnicalProfileReferenceId| No | The default token issuer technical profile reference ID. For example, [JWT issuer](userjourneys.md), [SAML token issuer](saml-issuer-technical-profile.md), or [OAuth2 custom error](oauth2-error-technical-profile.md). If your user journey or sub journey already has another `SendClaims` orchestration step, set the `DefaultCpimIssuerTechnicalProfileReferenceId` attribute to the user journey's token issuer technical profile. |
 
 The **UserJourney** element contains the following elements:
 

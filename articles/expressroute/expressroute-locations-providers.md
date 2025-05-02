@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 04/29/2025
 ms.author: duau
 ms.custom: references_regions, template-concept, engagement-fy23
 ---
@@ -20,7 +20,6 @@ The tables in this article provide information on ExpressRoute geographical cove
 
 > [!NOTE]
 > Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
->
 
 ## Azure regions
 
@@ -44,6 +43,9 @@ The following table shows connectivity locations and the service providers for e
 
 * **ER Direct** refers to [ExpressRoute Direct](expressroute-erdirect-about.md) support at each peering location. If you want to view the available bandwidth at a location, see [Determine available bandwidth](expressroute-howto-erdirect.md#resources)
 
+> [!NOTE]
+> If you are a service provider interested in becoming an ExpressRoute partner, please complete and submit this [Microsoft Form](https://aka.ms/erproviderform). 
+
 ### Global commercial Azure
 
 #### [A-C](#tab/a-c)
@@ -58,6 +60,8 @@ The following table shows connectivity locations and the service providers for e
 | **Auckland** | [Vocus Group NZ Albany](https://www.2degrees.nz/business/business-services/data-centres) | 2 | New Zealand North | &check; | Devoli<br/>Kordia<br/>Megaport<br/>REANNZ<br/>Spark NZ<br/>Vocus Group NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | &cross; | &check; | AIS<br/>National Telecom UIH |
 | **Berlin** | [NTT GDC](https://services.global.ntt/en-us/newsroom/ntt-ltd-announces-access-to-microsoft-azure-expressroute-at-ntts-berlin-1-data-center) | 1 | Germany North | &check; | Colt<br/>Equinix<br/>NTT Global DataCenters EMEA |
+| **Brussels** | [Digital Realty BRU4](https://www.digitalrealty.com/data-centers/emea/brussels/bru4) | 1 | &cross; | &check; | Digital Realty |
+| **Brussels2** | [LCL Brussels-North](https://www.lcl.be/) | 1 | &cross; | &check; |  |
 | **Busan** | [LG CNS](https://www.lgcns.com/business/cloud/datacenter/) | 2 | Korea South | &cross; | LG CNS |
 | **Campinas** | [Ascenty](https://www.ascenty.com/en/data-centers-en/campinas/) | 3 | Brazil South | &check; | Ascenty |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/about-us/) | 1 | Australia Central | &check; | CDC<br/>Telstra Corporation |
@@ -124,7 +128,7 @@ The following table shows connectivity locations and the service providers for e
 | **Paris** | [Digital Realty(Interxion) PAR5](https://www.digitalrealty.com/data-centers/emea/paris/par5) | 1 | France Central | &check; | British Telecom<br/>CenturyLink Cloud Connect<br/>Colt<br/>Equinix<br/>euNetworks<br/>Intercloud<br/>Interxion<br/>Jaguar Network<br/>Megaport<br/>Orange<br/>Telia Carrier<br/>Zayo<br/>Verizon |
 | **Paris2** | [Equinix](https://www.equinix.com/data-centers/europe-colocation/france-colocation/paris-data-centers/pa4) | 1 | France Central | &check; | Equinix<br/>InterCloud<br/>Megaport<br/>Orange |
 | **Perth** | [NextDC P1](https://www.nextdc.com/data-centres/p1-perth-data-centre) | 2 | &cross; | &check; | Equinix<br/>Megaport<br/>NextDC |
-| **Phoenix** | [EdgeConneX PHX01](https://www.cyrusone.com/data-centers/north-america/chandler-arizona) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
+| **Phoenix** | [EdgeConneX PHX01](https://www.edgeconnex.com/locations/americas/phoenix-az/) | 1 | West US 3 | &check; | AT&T NetBond<br/>Cox Business Cloud Port<br/>CenturyLink Cloud Connect<br/>DE-CIX<br/>Megaport<br/>Zayo |
 | **Phoenix2** | [PhoenixNAP](https://phoenixnap.com/) | 1 | West US 3 | &check; | Digital Realty<br/>Iron Mountain |
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | &check; |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | &check; | Airtel<br/>Lightstorm<br/>SIFY<br/>Tata Communications |

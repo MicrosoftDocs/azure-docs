@@ -18,7 +18,7 @@ The **Network Features** functionality enables you to indicate whether you want 
 Two settings are available for network features: 
 
 * ***Standard***  
-    This setting enables VNet features for the volume.  
+    This setting enables VNet features for the volume. Standard network features is the default and preferred setting. 
 
     If you need higher IP limits or VNet features such as [network security groups (NSGs)](../virtual-network/network-security-groups-overview.md), [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined), or additional connectivity patterns, set **Network Features** to *Standard*.
 
@@ -68,7 +68,6 @@ You can edit the network features option of existing volumes from *Basic* to *St
 
 ### Considerations when editing networking features 
 
-* You should only use the edit network features option for an [application volume group for SAP HANA](application-volume-group-introduction.md) if you have enrolled in the [extension one preview](application-volume-group-introduction.md#extension-1-features), which adds support for Standard network features. 
 * If you enabled both the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs and are using 1 or 2-TiB capacity pools, see [Resize a capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) for information about sizing your capacity pools. 
 * <a name="no-downtime"></a> Azure NetApp Files supports a non-disruptive upgrade to Standard network features and a revert to Basic network features. This operation is expected to take at least 15 minutes. You can't create a regular or data protection volume or application volume group in the targeted network sibling set while the operation completes.    
 

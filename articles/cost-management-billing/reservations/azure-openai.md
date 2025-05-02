@@ -2,7 +2,7 @@
 title: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 description: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations by committing to a reservation for your provisioned throughput units.
 author: pri-mittal
-ms.reviewer: primittal
+ms.reviewer: primittal, benshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
@@ -32,7 +32,8 @@ When the reservation expires, Azure OpenAI Service deployments continue to run b
 
 ## Renewal options
 
-You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Azure OpenAI Service reservation auto renewal, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
+You can choose to enable automatic renewal of reservations by selecting the option in the renewal settings or at time of purchase. With Azure OpenAI Service reservation auto renewal, the reservation renews using the same reservation order ID, and a new reservation doesn't get purchased. You can also choose to replace this reservation with a new reservation purchase in renewal settings and a replacement reservation is purchased when the reservation expires. By default, the replacement reservation has the same attributes as the expiring reservation but will be set to auto-renew off by default. You can optionally change the name, billing frequency, term, or quantity in the renewal settings. Any user with owner access on the reservation and the subscription used for billing can set up renewal.
+When the reservation is set to auto-renew on same reservation order ID, the auto-renew of this reservation is set to auto-renew on until you choose to set it off. At time of purchase, if you have chosen to set auto-renewal on, for 1-month term the reservation automatically renews on same reservation order ID, while 1-year term will result in purchasing a replacement reservation.
 
 ## Prerequisites
 

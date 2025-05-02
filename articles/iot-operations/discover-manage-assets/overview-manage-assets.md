@@ -30,7 +30,9 @@ Azure IoT Operations includes several services that help you manage your assets.
 
 The following diagram shows the high-level architecture of Azure IoT Operations. The services that you use to manage assets are highlighted in red:
 
-:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png":::
+<!-- Art Library Source# ConceptArt-0-000-067 -->
+
+:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.svg":::
 
 - The **operations experience** is a web UI that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets and is the recommended service to manage assets.
 - **Azure Device Registry** is a backend service that enables the cloud and edge management of assets. Device Registry projects assets defined in your edge environment as Azure resources in the cloud. It provides a single unified registry so that all apps and services that interact with your assets can connect to a single source. Device Registry also manages the synchronization between assets in the cloud and assets as custom resources in Kubernetes on the edge.
