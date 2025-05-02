@@ -75,36 +75,58 @@ https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription
 Included in the body of the request:
 
 ```json
-{ 
-  "type": "FeatureCollection",` 
-  "features": [ 
-    { 
-      "type": "Feature", 
-      "geometry": { 
-        "coordinates": [ 
-         -122.204171,47.610173 
-        ], 
-        "type": "Point" 
-      }, 
-      "properties": { 
-        "pointIndex": 0, 
-        "pointType": "waypoint" 
-      } 
-    }, 
-    { 
-      "type": "Feature", 
-      "geometry": { 
-        "coordinates": [ 
-          -122.204171,47.612440 
-        ], 
-        "type": "Point" 
-      }, 
-      "properties": { 
-        "pointIndex": 1, 
-        "pointType": "waypoint" 
-      } 
-    } 
-  ] 
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.201399,
+          47.608678
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "pointIndex": 0,
+        "pointType": "waypoint"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.20687,
+          47.612002
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "pointIndex": 1,
+        "pointType": "viaWaypoint"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.201669,
+          47.615076
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "pointIndex": 2,
+        "pointType": "waypoint"
+      }
+    }
+  ],
+  "optimizeRoute": "fastestWithTraffic",
+  "routeOutputOptions": [
+    "routePath"
+  ],
+  "maxRouteCount": 3,
+  "travelMode": "driving"
 }
 ```
 
