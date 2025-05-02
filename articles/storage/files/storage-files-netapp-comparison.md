@@ -4,7 +4,7 @@ description: Compare the scalability, performance, and features of Azure Files a
 author: khdownie
 services: storage
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/24/2025
 ms.author: kendownie
 recommendations: false
