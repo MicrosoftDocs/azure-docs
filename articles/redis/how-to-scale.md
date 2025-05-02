@@ -81,6 +81,7 @@ For more information on how to optimize the scaling process, see the [best pract
 - When reducing the memory or vCPU for your Redis instance, you can only scale to SKUs which have a vCPU and shard configuration that is compatible with the configuration on your current instance.
 - In some cases when scaling, the underlying IP address of the Redis instance can change. The DNS record for the instance changes and is transparent to most applications. However, if you use an IP address to configure the connection to your Redis instance, or to configure NSGs, or firewalls allowing traffic to the Redis instance, your application might have trouble connecting sometime after the DNS record updates.
 - Scaling an instance in a geo-replication group has some more limitations. See [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication) for more information.
+- When you scale down, you can only scale to certain tiers. For more information, see [Why can only I scale down to a subset of smaller SKUs?](#why-can-only-i-scale-down-to-a-subset-of-smaller-skus).
 
 ## How to scale (preview)
 
