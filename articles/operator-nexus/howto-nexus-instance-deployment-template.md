@@ -485,31 +485,10 @@ BMM provisioning is complete when the following conditions are met:
 <details>
  <summary> Detailed steps for post-deployment tasks </summary>
 
-### Notify Operations of new Nexus instance readiness
-```
-Title: <ENVIRONMENT> Deployed with Operator Nexus <NEXUS_VERSION>
- 
-Operations:
- 
-<ENVIRONMENT> has completed deployment and is now running Operator Nexus <NEXUS_VERSION> from the Azure <AZURE_REGION> region.
+### Review Operator Nexus release notes
+Review the Operator Nexus release notes for any version specific actions required post-deployment.
 
-Subscription: <CUSTOMER_SUB_ID>
-NFC: <NFC_NAME>
-CM: <CM_NAME>
-Fabric: <NF_NAME>
-Cluster: <CLUSTER_NAME>
-Region: <AZURE_REGION>
-Version: <NEXUS_VERSION>
- 
-Note the following BMM have hardware issues that need troubleshooting:
-<FAILED_BMM_LIST>
-
-Please verify logs/metrics/traffic monitoring and any alerts.
-
-CC: stakeholders_list
-```
-
-### Remove DE Tags for GF in progress
+### Remove DE Tags for GF in progress (if added)
 - Search for these resources in Azure portal and remove the `GF in progress` tags applied (if any exist):
   - <NFC_NAME>
   - <NF_NAME>
