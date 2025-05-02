@@ -477,7 +477,7 @@ items:
     - name: How to create WebJobs
       href: webjobs-create.md
     - name: How WebJobs work
-      href: webjobs-create.md
+      href: webjobs-execution.md
     - name: Develop WebJobs using VS
       href: webjobs-dotnet-deploy-vs.md
     - name: Get started with WebJobs SDK
