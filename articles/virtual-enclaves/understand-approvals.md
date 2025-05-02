@@ -1,8 +1,8 @@
 ---
 title: Understand approvals in Azure Virtual Enclaves
 description: Understand approvals in Azure Virtual Enclaves.
-author: jadean-msft
-ms.author: jadean
+author: aserfass-msft
+ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
@@ -72,7 +72,7 @@ To review the request, follow the below steps:
 4. Once the changes are viewed, go back to previous screen and select either `Approved` or `Denied` and click on `Submit` button.
 5. The deployment will start based on the earlier chosen approval action.
 
-![Screenshot showing an approved enclave creation approval request.](./media/approvals-request.png)
+[ ![Screenshot showing an approved enclave creation approval request.](./media/approvals-request.png) ](./media/approvals-request.png#lightbox)
 
 ### 3. Can I self approve my requests?
 No, self approval of requests are currently disabled. Even if you are an approver, you will need to be get an approval from someone else. This is to ensure highest level of security and that no change goes without eyes from multiple people.
