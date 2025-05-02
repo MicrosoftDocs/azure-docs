@@ -18,8 +18,8 @@ The following features of Event Grid Namespaces moved from public preview to gen
     - Storage queues
 - MQTT compliance – [Message ordering](mqtt-support.md#message-ordering) is supported now. 
 - [MQTT limits](quotas-limits.md) change:
-    - Segments per topic/ topic filter : 15 
-    - MQTT Connect Rate per Client Session :  1 connection attempt per second per client session. 
+    - Segments per topic/ topic filter: 15 
+    - MQTT connect rate per client session:  1 connection attempt per second per client session. 
 
 The following features are released in Preview: 
 
@@ -27,16 +27,16 @@ The following features are released in Preview:
 - [Managed identity support for webhook delivery](deliver-events-using-managed-identity.md#deliver-events-to-webhooks-using-managed-identity) 
 - [Cross-tenant delivery in the basic tier](cross-tenant-delivery-using-managed-identity.md)
     - Webhooks
-    - Namespacetopics
+    - Namespace topics
 - [Cross-tenant delivery in the standard tier (Event Grid namespaces)](cross-tenant-delivery-using-managed-identity.md) 
     - Event Hubs
     - Webhooks
     - Blob storage (Dead letter storage)
-- [OAuth 2.0 (JSON Web Token) authentication ( Refresh- with Direct upload of PEM certificates)](authenticate-with-namespaces-using-json-web-tokens.md#configure-oauth-20-jwt-authentication-settings-on-your-event-grid-namespace---direct-upload) 
+- [OAuth 2.0 (JSON Web Token) authentication ( Refresh- with Direct upload of (Privacy-Enhanced Mail) PEM certificates)](authenticate-with-namespaces-using-json-web-tokens.md#configure-oauth-20-jwt-authentication-settings-on-your-event-grid-namespace---direct-upload) 
 - [Custom Webhook Authentication](authenticate-with-namespaces-using-webhook-authentication.md)
 - [Send MQTT events directly to Microsoft Fabric using Azure Event Grid ](mqtt-events-fabric.md)
 - MQTT Compliance –  [Supports assigned client identifier](mqtt-support.md#assigned-client-identifiers-preview). 
-- [MQTT limit change](quotas-limits.md) – Inbound MQTT publishing requests per session : 1000 messages per second. 
+- [MQTT limit change](quotas-limits.md) – Inbound MQTT publishing requests per session: 1,000 messages per second. 
 
 ## November 2024
 The following features of Event Grid Namespaces moved from public preview to general availability (GA).
