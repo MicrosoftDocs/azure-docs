@@ -53,7 +53,7 @@ The following table lists key services that are available in Azure Extended Zone
 \** [Learn more about Virtual Machine family series here](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist) and feel free to ask your account executive for a detailed SKU list. 
 
 > [!NOTE]  
-> We're currently working with multiple third-party partners who are looking to add supportability of Azure Extended Zones to their platform. We will include in this article as they onboard support.You're always welcome to ask your Account Executive for the latest list.
+> We're currently working with multiple third-party partners who are looking to add supportability of Azure Extended Zones to their platform. We will include in this article as they onboard support. You're always welcome to ask your Account Executive for the latest list.
 
 ## Frequently asked questions (FAQ)
 

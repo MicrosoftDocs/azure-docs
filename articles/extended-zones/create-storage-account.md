@@ -44,7 +44,7 @@ In this section, you create a storage account in an Extended Zone.
     | Region* | Select the target Extended Zone's **Parent Region (its *homeLocation*)** and then select **Deploy to an Azure Extended Zone**. </br> Under  **Azure Extended Zones**, select the respective **Extended Zone**. </br> Select the **Select** button. |
     | Performance | **Premium** is the only available option for an Extended Zone. |
     | Premium account type | Select **Page blobs**. Other available options are **Block blobs** and **File shares**. |
-    | Redundancy | **Locally-redundant storage (LRS)** is the only available option for an Extended Zone. |
+    | Redundancy | **Locally Redundant Storage (LRS)** is the only available option for an Extended Zone. |
 
      *If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
 

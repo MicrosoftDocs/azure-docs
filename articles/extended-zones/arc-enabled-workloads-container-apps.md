@@ -1,5 +1,5 @@
 ---
-title: "Deploy arc-enabled workloads in an Extended Zone: ContainerApps"
+title: "Deploy Arc-enabled workloads in an Extended Zone: ContainerApps"
 description: Learn how to deploy arc-enabled ContainerApps in an Extended Zone.
 author: svaldes
 ms.author: svaldes
@@ -10,9 +10,9 @@ ms.date: 05/02/2025
 # Customer intent: As a cloud administrator and Azure Extended Zones user, I want a quick method to deploy PaaS services via Arc in an Azure Extended Zone. 
 ---
   
-# Deploy arc-enabled workloads in an Extended Zone: ContainerApps
+# Deploy Arc-enabled workloads in an Extended Zone: ContainerApps
  
-In this article, you'll learn how to deploy an arc-enabled ContainerApp in an Extended Zone. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
+In this article, you'll learn how to deploy an Arc-enabled ContainerApp in an Extended Zone. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
 Feel free to explore [Container Apps on Azure Arc Overview | Microsoft Learn](/azure/container-apps/azure-arc-overview) to become more familiar with Container Apps on Azure Arc.
 
 ## Prerequisites
@@ -52,7 +52,7 @@ function CreateContainerAppOnArcEnabledAksEz {
         [string] $edgeZone,
         [int] $nodeCount = 2,
         [string] $vmSize = "standard_nv12ads_a10_v5",
-        [string] $ARCResourceGroupName,
+        [string] $ArcResourceGroupName,
         [string] $CONNECTED_ENVIRONMENT_NAME,
         [string] $CUSTOM_LOCATION_NAME,
         [string] $SubscriptionId,
@@ -65,15 +65,15 @@ function CreateContainerAppOnArcEnabledAksEz {
         # Set the subscription
         az account set --subscription $SubscriptionId
 
-        # Create the ARC-enabled EZ AKS cluster
-        createArcEnabledAksOnEz -SubscriptionId $SubscriptionId -AKSClusterResourceGroupName $AKSClusterResourceGroupName -location $location -AKSName $AKSName -edgeZone $edgeZone -nodeCount $nodeCount -vmSize $vmSize -ARCResourceGroupName $ARCResourceGroupName -Debug:$Debug
+        # Create the Arc-enabled EZ AKS cluster
+        createArcEnabledAksOnEz -SubscriptionId $SubscriptionId -AKSClusterResourceGroupName $AKSClusterResourceGroupName -location $location -AKSName $AKSName -edgeZone $edgeZone -nodeCount $nodeCount -vmSize $vmSize -ArcResourceGroupName $ArcResourceGroupName -Debug:$Debug
 
         # Install container apps extension
-        $CLUSTER_NAME = "$ARCResourceGroupName-cluster" # Name of the connected cluster resource
+        $CLUSTER_NAME = "$ArcResourceGroupName-cluster" # Name of the connected cluster resource
         $EXTENSION_NAME="appenv-ext"
         $NAMESPACE="app-ns"
         az k8s-extension create `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --name $EXTENSION_NAME `
         --cluster-type connectedClusters `
         --cluster-name $CLUSTER_NAME `
@@ -91,7 +91,7 @@ function CreateContainerAppOnArcEnabledAksEz {
         $EXTENSION_ID=$(az k8s-extension show `
         --cluster-type connectedClusters `
         --cluster-name $CLUSTER_NAME `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --name $EXTENSION_NAME `
         --query id `
         --output tsv)
@@ -99,9 +99,9 @@ function CreateContainerAppOnArcEnabledAksEz {
         # Wait for extension to fully install before proceeding
         az resource wait --ids $EXTENSION_ID --custom "properties.provisioningState!='Pending'" --api-version "2020-07-01-preview"
         
-        $CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $ARCResourceGroupName --name $CLUSTER_NAME --query id --output tsv)
+        $CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $ArcResourceGroupName --name $CLUSTER_NAME --query id --output tsv)
         az customlocation create `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --name $CUSTOM_LOCATION_NAME `
         --host-resource-id $CONNECTED_CLUSTER_ID `
         --namespace $NAMESPACE `
@@ -109,26 +109,26 @@ function CreateContainerAppOnArcEnabledAksEz {
 
         # DEBUG: Test custom location creation
         if ($Debug) {
-            Write-Debug az customlocation show --resource-group $ARCResourceGroupName --name $CUSTOM_LOCATION_NAME
+            Write-Debug az customlocation show --resource-group $ArcResourceGroupName --name $CUSTOM_LOCATION_NAME
         }
 
         # Save id property of the custom location for later
         $CUSTOM_LOCATION_ID=$(az customlocation show `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --name $CUSTOM_LOCATION_NAME `
         --query id `
         --output tsv)
 
         # Create container Apps connected environment
         az containerapp connected-env create `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --name $CONNECTED_ENVIRONMENT_NAME `
         --custom-location $CUSTOM_LOCATION_ID `
         --location eastus
 
         # DEBUG: validate that the connected environment is successfully created
         if ($Debug) {
-            Write-Debug az containerapp connected-env show --resource-group $ARCResourceGroupName --name $CONNECTED_ENVIRONMENT_NAME
+            Write-Debug az containerapp connected-env show --resource-group $ArcResourceGroupName --name $CONNECTED_ENVIRONMENT_NAME
         }
 
         # Create a new resource group for the container app
@@ -136,15 +136,15 @@ function CreateContainerAppOnArcEnabledAksEz {
         az group create --name $myResourceGroup --location eastus
 
         # Get the custom location id
-        $customLocationId=$(az customlocation show --resource-group $ARCResourceGroupName --name $CUSTOM_LOCATION_NAME --query id --output tsv)
+        $customLocationId=$(az customlocation show --resource-group $ArcResourceGroupName --name $CUSTOM_LOCATION_NAME --query id --output tsv)
         
         # Get info about the connected environment
         $myContainerApp="${imageName}-container-app"
         $myConnectedEnvironment=$(az containerapp connected-env list --custom-location $customLocationId -o tsv --query '[].id')
 
         # create acr and group
-        az group create --name $ARCResourceGroupName --location eastus
-        az acr create --resource-group $ARCResourceGroupName --name $ACRName --sku Basic
+        az group create --name $ArcResourceGroupName --location eastus
+        az acr create --resource-group $ArcResourceGroupName --name $ACRName --sku Basic
 
         # Wait for the ACR to be created
         Start-Sleep -Seconds 10   
@@ -199,7 +199,7 @@ CreateContainerAppOnArcEnabledAksEz -AKSClusterResourceGroupName "my-aks-cluster
                                     -edgeZone "losangeles" `
                                     -nodeCount 2 `
                                     -vmSize "standard_nv12ads_a10_v5" `
-                                    -ARCResourceGroupName "myARCResourceGroup" `
+                                    -ArcResourceGroupName "myArcResourceGroup" `
                                     -CONNECTED_ENVIRONMENT_NAME "myConnectedEnvironment" `
                                     -CUSTOM_LOCATION_NAME "myCustomLocation" `
                                     -SubscriptionId "<your subscription>"`
@@ -223,8 +223,8 @@ Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microso
 ## Related content
 
 - [Create an Arc-enabled AKS cluster in an Extended Zone](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster)
-- [Deploy arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)
-- [Deploy arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
+- [Deploy Arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)
+- [Deploy Arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)

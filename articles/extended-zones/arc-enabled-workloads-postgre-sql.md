@@ -1,6 +1,6 @@
 ---
-title: "Deploy arc-enabled workloads in an Extended Zone: PostgreSQL"
-description: Learn how to deploy arc-enabled PostgreSQL in an Extended Zone.
+title: "Deploy Arc-enabled workloads in an Extended Zone: PostgreSQL"
+description: Learn how to deploy Arc-enabled PostgreSQL in an Extended Zone.
 author: svaldes
 ms.author: svaldes
 ms.service: azure-extended-zones
@@ -10,9 +10,9 @@ ms.date: 05/02/2025
 # Customer intent: As a cloud administrator and Azure Extended Zones user, I want a quick method to deploy PaaS services via Arc in an Azure Extended Zone. 
 ---
   
-# Deploy arc-enabled workloads in an Extended Zone: PostgreSQL
+# Deploy Arc-enabled workloads in an Extended Zone: PostgreSQL
  
-In this article, you'll learn how to deploy an arc-enabled PostgreSQL server in an Extended Zone. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
+In this article, you'll learn how to deploy an Arc-enabled PostgreSQL server in an Extended Zone. Refer to [What is Azure Extended Zones? | Services](/azure/extended-zones/overview#services) for currently supported PaaS workloads.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ function CreatePostgreSqlOnArcEnabledAksEz {
         [string] $edgeZone,
         [int] $nodeCount = 2,
         [string] $vmSize = "standard_nv12ads_a10_v5",
-        [string] $ARCResourceGroupName,
+        [string] $ArcResourceGroupName,
         [string] $DataControllerName,
         [string] $CustomLocationName,
         [string] $Namespace,
@@ -73,11 +73,11 @@ function CreatePostgreSqlOnArcEnabledAksEz {
         # Set the subscription
         az account set --subscription $SubscriptionId
 
-        # Create the ARC-enabled EZ AKS cluster
-        createArcEnabledAksOnEz -SubscriptionId $SubscriptionId -AKSClusterResourceGroupName $AKSClusterResourceGroupName -location $location -AKSName $AKSName -edgeZone $edgeZone -nodeCount $nodeCount -vmSize $vmSize -ARCResourceGroupName $ARCResourceGroupName -Debug:$Debug
+        # Create the Arc-enabled EZ AKS cluster
+        createArcEnabledAksOnEz -SubscriptionId $SubscriptionId -AKSClusterResourceGroupName $AKSClusterResourceGroupName -location $location -AKSName $AKSName -edgeZone $edgeZone -nodeCount $nodeCount -vmSize $vmSize -ArcResourceGroupName $ArcResourceGroupName -Debug:$Debug
         
         # Define name of the connected cluster resource
-        $CLUSTER_NAME = "$ARCResourceGroupName-cluster"
+        $CLUSTER_NAME = "$ArcResourceGroupName-cluster"
 
         # Create a key vault and store login
         $AZDATA_USERNAME = az keyvault secret show --vault-name $KeyVaultName --name $VaultSecretUser --query value -o tsv
@@ -93,29 +93,29 @@ function CreatePostgreSqlOnArcEnabledAksEz {
         $ENV:AZDATA_PASSWORD = $AZDATA_PASSWORD
 
         # Define the connected cluster and extension for the custom location
-        $CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $ARCResourceGroupName --name $CLUSTER_NAME --query id --output tsv)
+        $CONNECTED_CLUSTER_ID=$(az connectedk8s show --resource-group $ArcResourceGroupName --name $CLUSTER_NAME --query id --output tsv)
         $EXTENSION_ID=$(az k8s-extension show `
         --cluster-type connectedClusters `
         --name 'my-data-controller-custom-location-ext' `
         --cluster-name $CLUSTER_NAME `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --query id `
         --output tsv)
 
         # Create a custom location for the data controller
         Write-Output "Creating data controller custom location..."
         az customlocation create `
-        --resource-group $ARCResourceGroupName `
+        --resource-group $ArcResourceGroupName `
         --name $CustomLocationName `
         --host-resource-id $CONNECTED_CLUSTER_ID `
         --namespace $Namespace `
         --cluster-extension-ids $EXTENSION_ID
 
-        # Create data controller on ARC-enabled AKS cluster
-        Write-Output "Creating ARC Data Controller..."
-        az arcdata dc create --name $DataControllerName --subscription $SubscriptionId --cluster-name $CLUSTER_NAME --resource-group $ARCResourceGroupName --connectivity-mode direct --custom-location $CustomLocationName --profile-name $DataControllerConfigProfile
+        # Create data controller on Arc-enabled AKS cluster
+        Write-Output "Creating Arc Data Controller..."
+        az arcdata dc create --name $DataControllerName --subscription $SubscriptionId --cluster-name $CLUSTER_NAME --resource-group $ArcResourceGroupName --connectivity-mode direct --custom-location $CustomLocationName --profile-name $DataControllerConfigProfile
 
-        # Create PostgreSQL server on ARC-enabled AKS cluster
+        # Create PostgreSQL server on Arc-enabled AKS cluster
         Write-Output "Creating PostgreSQL server..."
         az postgres server-arc create --name $PostgreSqlName --k8s-namespace $Namespace --use-k8s
     }
@@ -134,7 +134,7 @@ CreatePostgreSqlOnArcEnabledAksEz -SubscriptionId "<your subscription>" `
                         -edgeZone "losangeles" `
                         -nodeCount 2 `
                         -vmSize "standard_nv12ad-DataControllerConfigProfiles_a10_v5" `
-                        -ARCResourceGroupName "myARCResourceGroup" `
+                        -ArcResourceGroupName "myArcResourceGroup" `
                         -DataControllerName "myDataController" `
                         -CustomLocationName "dc-custom-location" `
                         -Namespace "my-data-controller-custom-location" `
@@ -162,8 +162,8 @@ Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microso
 ## Related content
 
 - [Create an Arc-enabled AKS cluster in an Extended Zone](/azure/extended-zones/arc-enabled-workloads-arc-enabled-aks-cluster)
-- [Deploy arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
-- [Deploy arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
+- [Deploy Arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
+- [Deploy Arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)

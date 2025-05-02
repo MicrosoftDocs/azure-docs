@@ -1,6 +1,6 @@
 ---
 title: "Create an Arc-enabled AKS cluster in an Extended Zone"
-description: Learn how to creat an arc-enabled AKS cluster in an Extended Zone.
+description: Learn how to creat an Arc-enabled AKS cluster in an Extended Zone.
 author: svaldes
 ms.author: svaldes
 ms.service: azure-extended-zones
@@ -23,11 +23,11 @@ In this article, you'll learn how to create an Arc-enabled AKS cluster in an Ext
 
 ## Getting Started	
 If you're already familiar with the subject, you may skip this paragraph. Here are important topics you may want read before you proceed with creation:
-•	[Requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
-•	[Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
-•	[Connectivity modes and requirements](/azure/azure-arc/data/connectivity)
-•	[Storage configuration and Kubernetes storage concepts](/azure/azure-arc/data/storage-configuration)
-•	[Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
+-	[Requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
+-	[Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
+-	[Connectivity modes and requirements](/azure/azure-arc/data/connectivity)
+-	[Storage configuration and Kubernetes storage concepts](/azure/azure-arc/data/storage-configuration)
+-	[Kubernetes resource model](https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md#resource-quantities)
 
 ### Setup
 Install the following Azure CLI extensions.
@@ -53,7 +53,7 @@ Before proceeding to deploy PaaS workloads in Extended Zones, an Arc-enabled AKS
 > Make sure to keep parameters consistent and transfer them correctly from this script to any following ones.
  
 ```powershell
-# Create an ARC-enabled AKS cluster on an edge zone
+# Create an Arc-enabled AKS cluster on an edge zone
 function createArcEnabledAksOnEz {
     param(
         [string] $SubscriptionId,
@@ -63,7 +63,7 @@ function createArcEnabledAksOnEz {
         [string] $edgeZone,
         [int] $nodeCount = 2,
         [string] $vmSize = "standard_nv12ads_a10_v5",
-        [string] $ARCResourceGroupName,
+        [string] $ArcResourceGroupName,
         [switch] $Debug
     )
     # Set the subscription
@@ -79,20 +79,20 @@ function createArcEnabledAksOnEz {
     Write-Output "Creating AKS cluster in edge zone..." 
     az aks create -g $AKSClusterResourceGroupName -n $AKSName --location $location --edge-zone $edgeZone --node-count $nodeCount -s $vmSize --generate-ssh-keys 
     
-    # Create new resource group for ARC
-    az group create --name $ARCResourceGroupName --location eastus
+    # Create new resource group for Arc
+    az group create --name $ArcResourceGroupName --location eastus
 
     # Download cluster credentials and get AKS cluster context
     az aks get-credentials --resource-group $AKSClusterResourceGroupName --name $AKSName --overwrite-existing
 
-    # Connect the AKS cluster to ARC
-    $CLUSTER_NAME = "$ARCResourceGroupName-cluster" # Name of the connected cluster resource
+    # Connect the AKS cluster to Arc
+    $CLUSTER_NAME = "$ArcResourceGroupName-cluster" # Name of the connected cluster resource
     Write-Output "Connecting AKS cluster to Azure Arc..."
-    az connectedk8s connect --resource-group $ARCResourceGroupName --name $CLUSTER_NAME
+    az connectedk8s connect --resource-group $ArcResourceGroupName --name $CLUSTER_NAME
 
-    # DEBUG: Test connection to ARC
+    # DEBUG: Test connection to Arc
     if ($Debug) {
-        Write-Debug az connectedk8s show --resource-group $ARCResourceGroupName --name $CLUSTER_NAME
+        Write-Debug az connectedk8s show --resource-group $ArcResourceGroupName --name $CLUSTER_NAME
     }
 }
 
@@ -104,7 +104,7 @@ createArcEnabledAksOnEz -SubscriptionId "ffc37441-49e9-4291-a520-0b2d4972bb99" `
                         -edgeZone "losangeles" `
                         -nodeCount 2 `
                         -vmSize "standard_nv12ads_a10_v5" `
-                        -ARCResourceGroupName "t2"
+                        -ArcResourceGroupName "t2"
 ```
 
 
@@ -122,9 +122,9 @@ Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microso
 
 ## Related content
 
-- [Deploy arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
-- [Deploy arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)
-- [Deploy arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
+- [Deploy Arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)
+- [Deploy Arc-enabled workloads in an Extended Zone: PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)
+- [Deploy Arc-enabled workloads in an Extended Zone: ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)
 - [Deploy an AKS cluster in an Extended Zone](deploy-aks-cluster.md)
 - [Deploy a storage account in an Extended Zone](create-storage-account.md)
 - [Frequently asked questions](faq.md)
