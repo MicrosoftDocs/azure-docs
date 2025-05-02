@@ -23,7 +23,7 @@ Azure Resource Manager has many features and benefits, including:
 * Scalable, parallel deployment for virtual machines into [availability sets](/azure/virtual-machines/availability-set-overview)
 * Independent lifecycle management of compute, network, and storage resources
 
-At a high level, migration of an application gateway from classic to Resource manager requires three steps:
+At a high level, migration of an application gateway from classic to Resource Manager requires three steps:
 1. Remove (delete) the application gateway resource from the VNet.
 2. [Migrate your IaaS resources](/azure/virtual-machines/migration/migration-classic-resource-manager-ps).
 3. [Recreate the application gateway resource](#creating-a-new-application-gateway-resource) using Resource Manager.
