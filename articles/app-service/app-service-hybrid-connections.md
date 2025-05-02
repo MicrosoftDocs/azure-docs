@@ -192,12 +192,11 @@ To enable someone outside your subscription to host an HCM instance for a given 
 
 To use that string in the HCM GUI, select **+ New** and **Use Connection String** and paste in the gateway connection string.
 
-<!-- TODO:update photo -->
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-manual.png" alt-text="Screenshot of the dialog box where you manually add a Hybrid Connection.":::
 
 To use that string in the HCM CLI, run `hcm add` with either the connection string, or the Hybrid Connection resource details.
 
-<!-- TODO:add photos -->
+:::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-manual-cli.png" alt-text="Screenshot of the HCM CLI showing how to manually add a Hybrid Connection.":::
 
 ### Upgrade
 
@@ -261,9 +260,13 @@ The status of **Connected** means that at least one HCM is configured with that 
 - Do you have conflicting software installed? Hybrid Connection Manager can't coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. When you install the HCM, you should remove any versions of these packages first.
 - Do you have a firewall between your HCM host and Azure? If so, you need to allow outbound access to both the Service Bus endpoint URL *AND* the Service Bus gateways that service your Hybrid Connection.
 
-  - You can find the Service Bus endpoint URL in the Hybrid Connection Manager UI.
-    <!-- TODO: update image -->
+  - You can find the Service Bus endpoint URL in the Hybrid Connection Manager GUI.
+
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint.":::
+  
+  - You can also find the Service Bus endpoint URL in the Hybrid Connection Manager CLI.
+  
+    :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint-cli.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint in the CLI.":::
 
   - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allowlist all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
 
