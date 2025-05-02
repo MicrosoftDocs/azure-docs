@@ -1,21 +1,23 @@
 ---
 title: Use App Configuration References
-description: Learn how to set up Azure App Service and Azure Functions to use Azure App Configuration references. Make App Configuration key/value pairs available to your application code without changing it.
+description: Set up Azure App Service and Azure Functions to use App Configuration references. Make App Configuration key/value pairs available to your application code.
 author: muksvso
 
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.author: mubatra
 
+#customer intent: As a developer, I want to use Azure App Configuration references so that I can make configuration key/value pairs available to code.  
+
 ---
 
 # Use App Configuration references for Azure App Service and Azure Functions
 
-This article shows you how to work with configuration data in your Azure App Service or Azure Functions application without making any code changes. [Azure App Configuration](../azure-app-configuration/overview.md) is an Azure service you can use to centrally manage application configuration. It's also an effective audit tool for your configuration values over time or across releases.
+This article shows how to work with configuration data in Azure App Service or Azure Functions applications without making any code changes. [Azure App Configuration](../azure-app-configuration/overview.md) is an Azure service that you can use to centrally manage application configuration. It's also an effective tool for auditing your configuration values over time or across releases.
 
 ## Grant app access to App Configuration
 
-To get started with using App Configuration references in App Service, first you create an App Configuration store. Then, you grant permissions to your app to access the configuration key/value pairs that are in the store.
+To get started with using App Configuration references in App Service, first you create an App Configuration store. You then grant permissions to your app to access the configuration key/value pairs that are in the store.
 
 1. To create an App Configuration store, complete the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
 
@@ -23,17 +25,17 @@ To get started with using App Configuration references in App Service, first you
 
     App Configuration references use the app's system-assigned identity by default, but you can [specify a user-assigned identity](#access-the-app-configuration-store-with-a-user-assigned-identity).
 
-1. Grant the correct set of access permissions to the App Configuration store to the identity. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). You assign the App Configuration Data Reader role to this identity, scoped over the resource.
+1. Grant to the identity the correct set of access permissions to the App Configuration store. Update the [role assignments for your store](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration). Assign the App Configuration Data Reader role to this identity, scoped over the resource.
 
 ### Access the App Configuration store with a user-assigned identity
 
-Some apps might need to reference configuration when you create the apps, but a system-assigned identity wouldn't yet be available. In this scenario, you can [create a user-assigned identity for the App Configuration store](../azure-app-configuration/overview-managed-identity.md#adding-a-user-assigned-identity) in advance.
+In some cases, apps might need to reference configuration when you create them, but a system-assigned identity isn't yet available. In this scenario, you can [create a user-assigned identity for the App Configuration store](../azure-app-configuration/overview-managed-identity.md#adding-a-user-assigned-identity) in advance.
 
 After you grant permissions to the user-assigned identity, complete these steps:
 
 1. [Assign the identity](./overview-managed-identity.md#add-a-user-assigned-identity) to your application.
 
-1. Configure the app to use this identity for App Configuration reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity. Although the property has `keyVault` in the name, the identity also applies to App Configuration references.
+1. Configure the app to use this identity for App Configuration reference operations by setting the `keyVaultReferenceIdentity` property to the resource ID of the user-assigned identity. Although the property has `keyVault` in the name, the identity also applies to App Configuration references. Here's the code:
 
     ```azurecli
     userAssignedIdentityResourceId=$(az identity show -g MyResourceGroupName -n MyUserAssignedIdentityName --query id -o tsv)
@@ -41,11 +43,11 @@ After you grant permissions to the user-assigned identity, complete these steps:
     az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
     ```
 
-This configuration applies to all references from this app.
+This configuration applies to all references in this app.
 
 ## Grant your app access to referenced key vaults
 
-In addition to storing raw configuration values, Azure App Configuration has its own format for storing [Azure Key Vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a Key Vault reference in the App Configuration store, your app also must have permissions to access the key vault that is specified in the reference.
+In addition to storing raw configuration values, App Configuration has its own format for storing [Azure Key Vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a Key Vault reference in the App Configuration store, your app also must have permissions to access the key vault that's specified in the reference.
 
 > [!NOTE]
 > The concept of [App Configuration Key Vault references][app-config-key-vault-references] shouldn't be confused with the concept of [App Service and Azure Functions Key Vault references][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
