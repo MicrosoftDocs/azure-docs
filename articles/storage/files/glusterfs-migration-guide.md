@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ms.author: kendownie
 ---
 
@@ -293,5 +293,4 @@ For GlusterFS migration assistance, consider engaging Microsoft Consulting Servi
 - [rsync manual](https://linux.die.net/man/1/rsync)
 - [Using fpsync to parallelize rsync file operations](https://www.fpart.org/fpsync/)
 - [Azure Files scale targets](storage-files-scale-targets.md)
-- [Troubleshoot SMB on Linux for Azure Files](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-linux-smb)
-- [Troubleshoot NFS on Linux for Azure Files](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-linux-nfs)
+- [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files/connectivity/files-troubleshoot)
