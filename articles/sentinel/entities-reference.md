@@ -1,10 +1,10 @@
 ---
 title: Microsoft Sentinel entity types reference | Microsoft Docs
-description: This article displays the Microsoft Sentinel entity types and their required identifiers.
+description: This article displays the Microsoft Sentinel entity types and their identifiers, and lists strong and weak identifiers for each.
 author: yelevin
 ms.author: yelevin
 ms.topic: reference
-ms.date: 10/16/2024
+ms.date: 03/24/2025
 
 
 #Customer intent: As a security analyst, I want to understand the entity types and identifiers in Microsoft Sentinel so that I can effectively track and investigate alerts and incidents.
@@ -32,7 +32,7 @@ You can currently use up to three identifiers for a given entity when creating a
 | [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*](#strong-identifiers-of-an-account-entity)<br>Sid+*Host* [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+*Host*+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
 | [**Host**](#host) | DnsDomain<br>NTDomain<br>HostName<br>*FullName \**<br>NetBiosName<br>AzureID<br>OMSAgentID<br>OSFamily<br>OSVersion<br>IsDomainJoined | HostName+NTDomain<br>HostName+DnsDomain<br>NetBiosName+NTDomain<br>NetBiosName+DnsDomain<br>AzureID<br>OMSAgentID | HostName<br>NetBiosName |
 | **Entity type** | **Identifiers** | **Strong identifiers** | **Weak identifiers** |
-| [**IP**](#ip) | Address<br>AddressScope | [Global address:](#strong-identifiers-of-an-ip-entity) Address<br>[Private address:](#strong-identifiers-of-an-ip-entity) Address+AddressScope | <br>[Private address:](#weak-identifiers-of-an-ip-entity) Address |
+| [**IP**](#ip) | Address<br>AddressScope | [Global address:](#strong-identifiers-of-an-ip-entity) Address\*\*<br>[Private address:](#strong-identifiers-of-an-ip-entity) Address+AddressScope\*\* | <br>[Private address:](#weak-identifiers-of-an-ip-entity) Address\*\* |
 | [**URL**](#url) | Url | Url *(if absolute URL)* [\*\*](#strong-identifiers-of-a-url-entity) | Url *(if relative URL)* [\*\*](#strong-identifiers-of-a-url-entity) |
 | [**Azure resource**](#azure-resource)<br>*(AzureResource)* | ResourceId | ResourceId | |
 | [**Cloud application**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Name<br>InstanceName | AppId<br>Name<br>AppId+InstanceName<br>Name+InstanceName | |

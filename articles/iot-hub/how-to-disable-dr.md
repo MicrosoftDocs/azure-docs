@@ -1,7 +1,7 @@
 ---
 title: Disable disaster recovery in IoT Hub
 titleSuffix: Azure IoT Hub
-description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for C#, Python, Java, and Node.js.
+description: How to turn off disaster recovery failover for Azure IoT Hub in select regions using the Azure portal.
 author: kgremban
 ms.author: kgremban
 ms.service: azure-iot-hub
@@ -20,16 +20,15 @@ IoT Hub provides Microsoft-initiated failover and manual failover by replicating
 To disable disaster recovery in IoT Hub, you need the following:
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* An Azure IoT Hub. If you don't have an IoT hub, create one using the [Azure portal](https://portal.azure.com/).
 * The following regions support disabling disaster recovery:
   * **Brazil South**; paired region, South Central US.
   * **Southeast Asia (Singapore)**; paired region, East Asia (Hong Kong SAR).
 
-## Disable disaster recovery for new IoT hubs
+## Create an IoT hub without disaster recovery
 
 To disable disaster recovery in the Azure portal, follow these steps:
 
-1. Log on to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, [create your IoT hub](/azure/iot-hub/create-hub?tabs=portal) in one of the [supported regions](#prerequisites). Make sure that **Disaster recovery enabled** is unselected:
 
@@ -41,9 +40,9 @@ To disable disaster recovery in the Azure portal, follow these steps:
 
 You can also disable disaster recovery when you create an IoT hub using an [ARM template](/azure/templates/microsoft.devices/iothubs?tabs=bicep#iothubproperties).
 
-## Disable disaster recovery for existing IoT hubs
+## Disable disaster recovery for an existing IoT hub
 
-To configure your existing IoT hub to disable disaster recovery:
+You can only disable disaster recovery to avoid data replication when you create an IoT hub. If you want to configure an existing IoT hub to disable disaster recovery, create a new IoT hub with disaster recovery disabled and then manually migrate your existing IoT hub.
 
 1. [Create a new IoT hub with disaster recovery disabled](#disable-disaster-recovery-for-new-iot-hubs).
 1. Follow [How to migrate an IoT hub](migrate-hub-state-cli.md) to manually migrate your existing IoT hub.

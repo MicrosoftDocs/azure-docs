@@ -5,7 +5,7 @@ description: Learn how to configure the Application Performance Management (APM)
 customer intent: As a developer, I want to configure the APM Java agent with init containers in Azure Container Apps so that I can monitor and manage application performance.
 services: container-apps
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-java
 ms.topic: tutorial
 ms.date: 02/03/2025
 author: KarlErickson

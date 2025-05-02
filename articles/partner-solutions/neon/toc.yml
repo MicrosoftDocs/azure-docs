@@ -18,6 +18,8 @@ items:
     href: manage.md
   - name: Troubleshoot 
     href: troubleshoot.md
+  - name: Connect to compute services
+    href: create-service-connection.md
 - name: SDKs and tools
   items:
   - name: Azure CLI

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Join a Teams meeting
+title: Join a Teams meeting
 author: juramir
 ms.author: juramir
 ms.date: 10/15/2021
@@ -7,10 +7,11 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for C#.
+This article describes how to chat in a Teams meeting using the Azure Communication Services Chat SDK for C#.
 
 ## Sample code
-Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
+
+Download this code at GitHub Azure Samples [Join your chat app to a Teams meeting](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
 
 ## Prerequisites 
 
@@ -22,44 +23,44 @@ Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/c
 
 ## Joining the meeting chat 
 
-A Communication Services user can join a Teams meeting as an anonymous user using the Calling SDK. Joining the meeting adds them as a participant to the meeting chat as well, where they can send and receive messages with other users in the meeting. The user won't have access to chat messages that were sent before they joined the meeting, and they won't be able to send or receive messages after the meeting ends. To join the meeting and start chatting, you can follow the next steps.
+A Communication Services user can join a Teams meeting anonymously using the Calling SDK. Joining the meeting also adds them as a participant to the meeting chat. In chat they can send and receive messages with other users in the meeting. The user doesn't have access to chat messages that were sent before they joined the meeting. They can't send or receive messages after the meeting ends. To enable users to join the Teams meetings and start chatting, complete the following steps.
 
 ## Run the code
-You can build and run the code on Visual Studio. Note the solution platforms we support: `x64`,`x86`, and `ARM64`. 
+
+You can build and run the code on Visual Studio. The supported solution platforms are: `x64`,`x86`, and `ARM64`. 
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt, or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/Communication-Services-dotnet-quickstarts.git`
-3. Open the project ChatTeamsInteropQuickStart/ChatTeamsInteropQuickStart.csproj in Visual Studio.
+3. Open the project `ChatTeamsInteropQuickStart/ChatTeamsInteropQuickStart.csproj` in Visual Studio.
 4. Install the following NuGet packages versions (or higher):
-``` csharp
-Install-Package Azure.Communication.Calling -Version 1.0.0-beta.29
-Install-Package Azure.Communication.Chat -Version 1.1.0
-Install-Package Azure.Communication.Common -Version 1.0.1
-Install-Package Azure.Communication.Identity -Version 1.0.1
 
-```
+   ``` csharp
+   Install-Package Azure.Communication.Calling -Version 1.0.0-beta.29
+   Install-Package Azure.Communication.Chat -Version 1.1.0
+   Install-Package Azure.Communication.Common -Version 1.0.1
+   Install-Package Azure.Communication.Identity -Version 1.0.1
+
+   ```
 
 5. With the Communication Services resource procured in prerequisites, add the connectionstring to the **ChatTeamsInteropQuickStart/MainPage.xaml.cs** file. 
 
-``` csharp
-//Azure Communication Services resource connection string, i.e., = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
-private const string connectionString_ = "";
-```
+   ``` csharp
+   //Azure Communication Services resource connection string, i.e., = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
+   private const string connectionString_ = "";
+   ```
+
+   > [!IMPORTANT]
+   > * Select the proper platform from the **Solution Platforms** dropdown list in Visual Studio <b>before</b> running the code, such as `x64`
+   > * Make sure you enable *Developer Mode* in Windows [(Developer Settings)](/windows/apps/get-started/enable-your-device-for-development)
+   >  
+   >  *The next steps don't work if the platform isn't configured correctly.*
+
+6. Press **F5** to start the project in debugging mode.
+7. Paste a valid teams meeting link on the **Teams Meeting Link** box (see the next section).
+8. End users click **Join Teams meeting** to start chatting.
 
 > [!IMPORTANT]
-> * Select the proper platform from the 'Solution Platforms' dropdown list in Visual Studio <b>before</b> running the code, i.e., `x64`
-> * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](/windows/apps/get-started/enable-your-device-for-development)
->  
->  *The next steps will not work if this is not configured properly*
-
-
-6. Press F5 to start the project in debugging mode.
-7. Paste a valid teams meeting link on the 'Teams Meeting Link' box (see next section)
-8. Press 'Join Teams meeting' to start chatting.
-
-> [!IMPORTANT]
-> Once the calling SDK establishes the connection with the teams meeting [See Communication Services calling Windows app](../../voice-video-calling/getting-started-with-calling.md), the key functions to handle chat operations are: 
-> StartPollingForChatMessages and SendMessageButton_Click. Both code snippets are in ChatTeamsInteropQuickStart\MainPage.xaml.cs 
+> Once the calling SDK establishes a connection with the teams meeting [See Communication Services calling Windows app](../../voice-video-calling/getting-started-with-calling.md), the key functions to handle chat operations are: `StartPollingForChatMessages` and `SendMessageButton_Click`. Both code snippets are in the `ChatTeamsInteropQuickStart\MainPage.xaml.cs` file 
 
 ```csharp
         /// <summary>
@@ -135,18 +136,22 @@ private const string connectionString_ = "";
         }
 ```
 
-
-
 ## Get a Teams meeting link
 
-The Teams meeting link can be retrieved using Graph APIs, detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). 
+Retrieve the Teams meeting link using Graph APIs, as described in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true). This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true). 
 
 You can also get the required meeting link from the **Join Meeting** URL in the Teams meeting invite itself.
-A Teams meeting link looks like this: `https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`. 
-If your teams link has a different format to this, you need to retrieve the thread ID using the Graph API.
+
+A Teams meeting link looks like the following URL:
+
+   ```html
+   https://teams.microsoft.com/l/meetup-join/meeting_chat_thread_id/1606337455313?context=some_context_here`.
+   ```
+
+If your Teams link has a different format, you need to retrieve the thread ID using the Graph API.
 
 :::image type="content" source="../join-teams-meeting-chat-quickstart-windows.png" alt-text="Screenshot of the completed csharp Application.":::
 
 > [!NOTE] 
-> Certain features are currently not supported for interoperability scenarios with Teams. Learn more about the supported features, please see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md)
+> Certain features are currently not supported for interoperability scenarios with Teams. For more information about supported features, see [Teams meeting capabilities for Teams external users](../../../concepts/interop/guest/capabilities.md).
 

@@ -8,7 +8,7 @@ ms.subservice: metadata
 ms.date: 01/22/2025
 author: juluczni
 ms.author: juluczni
-ms.reviewer: wiassaf, jovanpop
+ms.reviewer:  jovanpop
 ms.custom: devx-track-csharp
 ---
 

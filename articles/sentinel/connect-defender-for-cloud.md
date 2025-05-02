@@ -5,8 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: yelevin
-appliesto: 
-    - Microsoft Sentinel
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a security engineer, I want to integrate and synchronize alerts from cloud security tools into Microsoft Sentinel so that analysts can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.

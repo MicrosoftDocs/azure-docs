@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 02/04/2025
+ms.date: 04/01/2025
 ms.service: azure-active-directory
 ms.subservice: b2c
 ms.topic: whats-new
@@ -14,8 +14,23 @@ manager: CelesteDG
 ---
 
 # Azure Active Directory B2C: What's new
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new and significantly updated docs from the past three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
+
+## April 2025
+
+### Updated articles
+
+This month, we added an important note to our articles stating that starting May 1, 2025, new customers can't purchase Azure AD B2C.  
+
+- [Manage administrator accounts in Azure Active Directory B2C](tenant-management-manage-administrator.md) - Updated the User page information
+- [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md) - Replaced instrumentation key with connection string
+
+## March 2025
+
+### Updated articles
+- [Error codes: Azure Active Directory B2C](error-codes.md) - Updated error messages
 
 ## February 2025
 
@@ -25,16 +40,4 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Page layout versions](page-layout.md) - Updated the latest versions of the self-asserted and MFA pages
 - [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Added billing name change for SMS phone
 - [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md) - Added CAPTCHA feature flag
-
-## January 2025
-
-### Updated articles
-
-- [Azure Active Directory B2C service limits and restrictions](service-limits.md) - Updated limits
-
-## December 2024
-
-### Updated articles
-
-- [Tutorial: Configure Nok Nok S3 Authentication Suite with Azure AD B2C for FIDO passkey authentication](partner-nok-nok.md) - Updated scenarios
 

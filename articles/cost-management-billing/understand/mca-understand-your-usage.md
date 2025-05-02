@@ -1,7 +1,7 @@
 ---
 title: Microsoft Customer Agreement Azure usage and charges file terms
 description: Learn how to read and understand the sections of the Azure usage and charges CSV for your billing profile.
-author: bandersmsft
+author: jojopm
 ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: billing
