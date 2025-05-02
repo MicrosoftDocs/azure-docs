@@ -54,18 +54,22 @@ You can customize WebJob behavior using an optional `settings.job` file (JSON fo
 
 | Property | Description |
 |----------|-------------|
-| `is_singleton` | (bool) Ensures only one instance of the job runs across all scaled-out instances. Default: `true`. |
-| `stopping_wait_time` | (number, seconds) Grace period before the job is killed on shutdown. |
-| `shutdownGraceTimeLimit` | (number, seconds) Max time given for shutdown before process is forcefully terminated. |
-| `run_mode` | (string) Values: `continuous`, `scheduled`, `on_demand`. Overrides job type detection. |
+| `schedule` | (string) A CRON expression used to schedule a triggered job. Example: `"0 */15 * * * *"`. Only applicable to triggered jobs. |
+| `is_singleton` | (bool) Ensures only one instance of the job runs across all scaled-out instances. Default: `true` for continuous jobs, `false` for triggered/on-demand. |
+| `stopping_wait_time` | (number, seconds) Grace period (default 5s) given to the script before it's killed when the WebJob is stopped (e.g., during site swaps or restarts). |
+| `shutdownGraceTimeLimit` | (number, seconds) Max time (default 0s, meaning no limit) given for the entire WebJob process shutdown, including the `stopping_wait_time`, before it's forcefully terminated. |
+| `run_mode` | (string) Values: `continuous`, `scheduled`, `on_demand`. Overrides job type detection based on the folder. |
+
+> [NOTE]
+> `stopping_wait_time` applies specifically to the running script's grace period, while `shutdownGraceTimeLimit` defines the overall process shutdown timeout. Consult the [Kudu documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) for detailed behavior.
 
 ### Example
 ```json
 {
+  "schedule": "0 0 * * * *", // Run once at the top of every hour
   "is_singleton": true,
-  "stopping_wait_time": 10,
-  "shutdownGraceTimeLimit": 20,
-  "run_mode": "scheduled"
+  "stopping_wait_time": 60,
+  "shutdownGraceTimeLimit": 120
 }
 ```
 
@@ -76,6 +80,7 @@ WebJob logs are handled by the Kudu engine and are available under the `App_Data
 ```
 https://<your-app>.scm.azurewebsites.net/api/triggeredwebjobs/<job>/history
 ```
+For more advanced monitoring and querying capabilities, consider integrating with [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Triggered WebJobs include a full history of executions. Continuous WebJobs stream logs in real time.
 
@@ -85,9 +90,11 @@ Triggered WebJobs include a full history of executions. Continuous WebJobs strea
 
 ## Troubleshooting tips
 
-- **WebJob not starting:** Check for a missing or misnamed `run.*` file.
-- **Permissions error (Linux):** Ensure the script has execute permissions.
-- **Job not stopping gracefully:** Use `settings.job` to define shutdown grace period.
+- **WebJob not starting:** Check for a missing or misnamed `run.*` file. Ensure it's in the correct job folder (`triggered` or `continuous`).
+- **Permissions error (Linux):** Ensure the script has execute permissions (`chmod +x run.sh`) and includes a valid shebang (e.g., `#!/bin/bash`).
+- **Job not stopping gracefully:** Use `settings.job` to define `stopping_wait_time` and potentially `shutdownGraceTimeLimit`.
+- **Scheduled job not running:** Verify the CRON expression in `settings.job` is correct and the App Service Plan has "Always On" enabled if needed.
+- **Check Kudu logs:** Examine the detailed execution logs and deployment logs available in the Kudu console (`https://<your-app>.scm.azurewebsites.net/`) under Tools > WebJobs and potentially Log stream.
 
 ## See also
 
