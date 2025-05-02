@@ -70,9 +70,9 @@ Before you begin:
 
 ## Prepare the project
 
-::: zone-end
-
 In a new terminal window, from the `Azure-Samples/Durable-Task-Scheduler` directory, navigate into the sample directory.
+
+::: zone-end
 
 ::: zone pivot="csharp"
 
