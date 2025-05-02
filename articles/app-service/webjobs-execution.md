@@ -32,27 +32,19 @@ Inside the job folder, the Kudu engine looks for a file to execute. This file ca
 
 ## Entry point detection
 
-The WebJob runtime looks for a file named `run.*` (such as `run.sh`, `run.py`, or `run.js`) as the entry point for the job. This allows you to control exactly what script or binary runs first, regardless of language or file type.
-
-If a `run.*` file is not found, the platform falls back to executing the first valid script or binary it recognizes in the archive. This detection follows the order below:
-
-- `run.cmd`
-- `run.bat`
-- `run.exe`
-- `run.ps1`
-- `run.sh`
-- `run.py`
-- `run.php`
-- `run.js`
-- `run.fsx`
+The WebJobs runtime uses a file named `run.*` (such as `run.py`, `run.sh`, or `run.js`) as the explicit entry point for a job. This file tells the platform which script or binary to execute first, ensuring consistent and predictable behavior across environments.
 
 > [!NOTE]  
-> The file must be named exactly `run.*` to be recognized automatically—names like `start.sh` or `job.py` will not be treated as entry points.
+> The filename must be exactly `run.*` to be auto-detected. Files like `start.sh` or `job.py` will be ignored unless manually triggered.
 
-On Linux-based apps, `.sh` scripts must include a shebang (#!) and must have executable permissions.
+If no `run.*` file is found, the platform attempts to detect a fallback entry point by selecting the first supported file **based on the language platform** of the WebJob. For example:
+- A Python WebJob with multiple `.py` files (e.g., `file1.py`, `file2.py`) will execute the first `.py` file it finds in the archive.
+- A Node.js WebJob will look for the first `.js` file.
+- A Bash-based WebJob will look for the first `.sh` script.
 
-To ensure consistent behavior across environments and avoid unpredictable results (especially when multiple script files are included), it’s strongly recommended to include a `run.*` file.
+This fallback behavior can lead to **unpredictable execution** when multiple script files are present—especially in multi-file projects—so it's strongly recommended to include a `run.*` file to define the entry point explicitly.
 
+On Linux-based WebJobs, `.sh` scripts must include a shebang (#!) and must be marked as executable.
 
 ## WebJob configuration with settings.job
 
