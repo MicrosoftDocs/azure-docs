@@ -460,7 +460,7 @@ Review the Operator Nexus release notes for any version specific actions require
 
 Validate the health and status of all the Nexus instance resources created during deployment with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
 
-To perform a simple validation of the Nexus instance components post-deployment through Azure CLI:
+To perform a resource validation of the Nexus instance components post-deployment through Azure CLI:
 ```
 # NFC
 az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
