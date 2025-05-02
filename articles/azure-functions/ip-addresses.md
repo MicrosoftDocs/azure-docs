@@ -144,7 +144,7 @@ You can control the IP address of outbound traffic from your functions by using 
 
 ### App Service Environments
 
-For full control over the IP addresses, both inbound and outbound, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment overview](../app-service/environment/overview).
+For full control over the IP addresses, both inbound and outbound, we recommend [App Service Environments](../app-service/environment/intro.md) (the [Isolated tier](https://azure.microsoft.com/pricing/details/app-service/) of App Service plans). For more information, see [App Service Environment overview](../app-service/environment/overview.md).
 
 To find out if your function app runs in an App Service Environment:
 
