@@ -24,30 +24,30 @@ This tutorial shows you how to use the Geo-replication with Event Hubs. To learn
 > To use geo-replication feature, at least one Dedicated Event Hubs cluster is needed in each region where Geo-replication feature is available.
 >
 
-1. Navigate to the **Event Hubs Cluster** page for your Event Hubs cluster. 
-1. On the left menu, expand **Entities**, and select **Cluster Namespaces**. 
-1. To create an Event Hubs namespace in an Event Hubs cluster in a region with Geo-replication enabled, on the **Cluster Namespaces** page, on the toolbar, select **+ Namespace**. Provide a name for the namespace, and select **Enable Geo-replication**.
+1. Navigate to the **Event Hubs Cluster** page for your Event Hubs cluster. Expand **Entities**, and select **Cluster Namespaces**. 
+2. To create an Event Hubs namespace in an Event Hubs cluster in a region with Geo-replication enabled, on the **Cluster Namespaces** page, on the toolbar, select **+ Namespace**. Provide a name for the namespace, and select **Enable Geo-replication**.
 
-:::image type="content" source="./media/use-geo-replication/namespace-create.png" alt-text="Screenshot of dedicated namespace create UI with geo-replication UI.":::
+    :::image type="content" source="./media/use-geo-replication/namespace-create.png" alt-text="Screenshot of dedicated namespace create UI with geo-replication UI.":::
 
 ### [Premium](#tab/Premium)
 
 1. Follow the steps to create an Event Hubs namespace as listed [here](event-hubs-create.md) and pick the `Premium` tier.
-1. Provide a name for the namespace, and select **Enable Geo-replication**.
 
-:::image type="content" source="./media/use-geo-replication/premium-namespace-create.png" alt-text="Screenshot of premium namespace create UI with geo-replication UI.":::
+2. Provide a name for the namespace, and select **Enable Geo-replication**.
+
+    :::image type="content" source="./media/use-geo-replication/premium-namespace-create.png" alt-text="Screenshot of premium namespace create UI with geo-replication UI.":::
 
 ---
 
-2. Select **Add secondary region**, and select a secondary region and a corresponding Event Hubs dedicated cluster running in that region. 
+3. Select **Add secondary region**, and select a secondary region and a corresponding Event Hubs dedicated cluster running in that region. 
 
     :::image type="content" source="./media/use-geo-replication/region-selection.png" alt-text="Screenshot of secondary region and cluster selection in namespace create UI.":::
  
-3. Select asynchronous or synchronous **replication mode** as the replication consistency mode. If you select asynchronous consistency, enter the allowable amount of time the secondary region can lag behind the primary region in minutes.
+4. Select asynchronous or synchronous **replication mode** as the replication consistency mode. If you select asynchronous consistency, enter the allowable amount of time the secondary region can lag behind the primary region in minutes.
  
     :::image type="content" source="./media/use-geo-replication/create-replication-consistency.png" alt-text="Screenshot of replication consistency UI in dedicated namespace create UI.":::  
-4. Then, select **Create** to create the Geo-replicated Event Hubs namespace. The deployment takes a couple of minutes to complete. 
-5. Once the namespace is created, you can navigate to it and select **Geo-replication** on the left menu to see your Geo-replication configuration. 
+5. Then, select **Create** to create the Geo-replicated Event Hubs namespace. The deployment takes a couple of minutes to complete. 
+6. Once the namespace is created, you can navigate to it and select **Geo-replication** on the left menu to see your Geo-replication configuration. 
 
      :::image type="content" source="./media/use-geo-replication/geo-replication.png" alt-text="Screenshot of geo-replication UI that shows configuration and allows various actions."::: 
  
