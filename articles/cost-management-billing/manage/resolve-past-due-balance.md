@@ -85,7 +85,9 @@ Users in the following countries/regions don't have the **Settle balance** optio
 
 ## Troubleshoot a declined credit card
 
-If your credit card charge is declined, contact your bank to resolve the problem. Check with your bank to make sure:
+If your credit card charge is declined, contact your bank to resolve the problem. Also confirm you have sufficient funds in your account to support the payment. 
+
+Check with your bank to make sure:
 
 - International transactions are enabled on the card.
 - The card has sufficient credit limit or funds to settle the balance.
