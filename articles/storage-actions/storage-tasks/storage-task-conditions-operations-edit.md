@@ -222,9 +222,6 @@ You can view a list of blobs that would be impacted by the conditions that you'v
 
 In the conditions editor, select **Preview conditions**.
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot of the Conditions button.](../media/storage-tasks/storage-task-conditions-operations-edit/storage-task-preview-conditions-button.png)
-
 In the **Preview Conditions**, you can specify a target subscription, storage account, and container. Because a can only show up to 5,000 blobs, you can also specify a prefix to narrow the list.
 
 > [!div class="mx-imgBorder"]
