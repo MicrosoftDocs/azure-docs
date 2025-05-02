@@ -9,6 +9,8 @@ ms.date: 5/2/2025
 ms.author: greglin
 ---
 
+# ALB Controller Helm Chart
+
 ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A Helm chart to install the ALB Controller on Kubernetes.
