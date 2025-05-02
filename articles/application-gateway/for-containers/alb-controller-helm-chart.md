@@ -8,6 +8,7 @@ ms.topic: release-notes
 ms.date: 5/2/2025
 ms.author: greglin
 ---
+<!-- CRDs (Custom Resource Definitions) -->
 
 # ALB Controller Helm Chart
 
@@ -26,6 +27,8 @@ The following parameters are supported for configuration during installation:
 
 ## Values
 
+<div style="overflow-x: auto;">
+
 | Key | Type | Default | Description |
 | ----- | ------ | --------- | ------------- |
 | albController.controller | object | `{"replicaCount":2,"resource":{"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}},"tolerations":[]}` | ALB Controller parameters |
@@ -35,7 +38,7 @@ The following parameters are supported for configuration during installation:
 | albController.env | list | `[{"name":"","value":""}]` | Environment variables for ALB Controller. |
 | albController.image | object | `{"name":{"CRDs":"application-lb/images/alb-controller-crds","bootstrap":"application-lb/images/alb-controller-bootstrap","controller":"application-lb/images/alb-controller"},"pullPolicy":"IfNotPresent","registry":"mcr.microsoft.com"}` | ALB Controller image parameters. |
 | albController.image.name | object | `{"CRDs":"application-lb/images/alb-controller-crds","bootstrap":"application-lb/images/alb-controller-bootstrap","controller":"application-lb/images/alb-controller"}` | Image name defaults. |
-| albController.image.name.CRDs | string | `"application-lb/images/alb-controller-crds"` | ALB Controller CRDS' image name |
+| albController.image.name.CRDs | string | `"application-lb/images/alb-controller-crds"` | ALB Controller CRDs' image name |
 | albController.image.name.bootstrap | string | `"application-lb/images/alb-controller-bootstrap"` | alb-controller bootstrap's init container image name. |
 | albController.image.name.controller | string | `"application-lb/images/alb-controller"` | ALB Controller's image name. |
 | albController.image.pullPolicy | string | `"IfNotPresent"` | Container image pull policy for ALB Controller containers. |
@@ -44,7 +47,9 @@ The following parameters are supported for configuration during installation:
 | albController.installGatewayApiCRDs | bool | `true` | A flag to enable/disable installation of Gateway API CRDs. |
 | albController.logLevel | string | `"info"` | Log level of ALB Controller. |
 | albController.namespace | string | `"azure-alb-system"` | Namespace to deploy ALB Controller components in. |
-| albController.securityPolicyFeatureFlag | bool | `false` | Enable Application Load Balancer Security Policy Resource (WAF Private Preview). |
+| albController.securityPolicyFeatureFlag | bool | `false` | Enable Application Load Balancer Security Policy Resource (WAF Preview). |
+
+</div>
 
 ## Tolerations
 
