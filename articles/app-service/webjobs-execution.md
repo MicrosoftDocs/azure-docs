@@ -35,14 +35,14 @@ Inside the job folder, the Kudu engine looks for a file to execute. This file ca
 The WebJobs runtime uses a file named `run.*` (such as `run.py`, `run.sh`, or `run.js`) as the explicit entry point for a job. This file tells the platform which script or binary to execute first, ensuring consistent and predictable behavior across environments.
 
 > [!NOTE]  
-> The filename must be exactly `run.*` to be auto-detected. Files like `start.sh` or `job.py` will be ignored unless manually triggered.
+> The filename must be exactly `run.*` to be autodetected. Files like `start.sh` or `job.py` will be ignored unless manually triggered.
 
-If no `run.*` file is found, the platform attempts to detect a fallback entry point by selecting the first supported file **based on the language platform** of the WebJob. For example:
-- A Python WebJob with multiple `.py` files (e.g., `file1.py`, `file2.py`) will execute the first `.py` file it finds in the archive.
-- A Node.js WebJob will look for the first `.js` file.
-- A Bash-based WebJob will look for the first `.sh` script.
+If no `run.*` file is found, the platform attempts to detect a fallback entry point by selecting the first supported file based on the language platform of the WebJob. For example:
+- A Python WebJob with multiple `.py` files (for example, `file1.py`, `file2.py`) will execute the first `.py` file it finds in the archive.
+- A Node.js WebJob looks for the first `.js` file.
+- A Bash-based WebJob looks for the first `.sh` script.
 
-This fallback behavior can lead to **unpredictable execution** when multiple script files are present—especially in multi-file projects—so it's strongly recommended to include a `run.*` file to define the entry point explicitly.
+This fallback behavior can lead to unpredictable execution when multiple script files are present—especially in multi-file projects—so it's recommended to include a `run.*` file to define the entry point explicitly.
 
 On Linux-based WebJobs, `.sh` scripts must include a shebang (#!) and must be marked as executable.
 
@@ -54,12 +54,12 @@ You can customize WebJob behavior using an optional `settings.job` file (JSON fo
 |----------|-------------|
 | `schedule` | (string) A CRON expression used to schedule a triggered job. Example: `"0 */15 * * * *"`. Only applicable to triggered jobs. |
 | `is_singleton` | (bool) Ensures only one instance of the job runs across all scaled-out instances. Default: `true` for continuous jobs, `false` for triggered/on-demand. |
-| `stopping_wait_time` | (number, seconds) Grace period (default 5s) given to the script before it's killed when the WebJob is stopped (e.g., during site swaps or restarts). |
+| `stopping_wait_time` | (number, seconds) Grace period (default 5s) given to the script before it's killed when the WebJob is stopped (for example, during site swaps or restarts). |
 | `shutdownGraceTimeLimit` | (number, seconds) Max time (default 0s, meaning no limit) given for the entire WebJob process shutdown, including the `stopping_wait_time`, before it's forcefully terminated. |
 | `run_mode` | (string) Values: `continuous`, `scheduled`, `on_demand`. Overrides job type detection based on the folder. |
 
 > [!NOTE]
-> `stopping_wait_time` applies specifically to the running script's grace period, while `shutdownGraceTimeLimit` defines the overall process shutdown timeout. Consult the [Kudu documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) for detailed behavior.
+> `stopping_wait_time` applies specifically to the running script's grace period, while `shutdownGraceTimeLimit` defines the overall process shutdown time-out. Consult the [Kudu documentation](https://github.com/projectkudu/kudu/wiki/WebJobs) for detailed behavior.
 
 ### Example
 ```json
