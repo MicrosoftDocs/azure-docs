@@ -49,7 +49,7 @@ There are guardrails in the enclaves to ensure a service bus is using Customer M
 2. Select `+Add an Azure Service` button.
 3. Select the `Azure Cosmos DB` service template from the [Service Catalog](./list-service-catalog-templates.md) templates (the dropdown list).
 
-![Screenshot showing the Cosmos DB template selected from theservice catalog list.](./media/service-catalog-list-cosmos-db.png)
+![Screenshot showing the Cosmos DB template selected from the service catalog list.](./media/service-catalog-list-cosmos-db.png)
 
 4. Select through the tabs and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
