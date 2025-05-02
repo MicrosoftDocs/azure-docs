@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure Communication Services with ExpressRoute
-titleSuffix: An Azure Communication Services tutorial
+titleSuffix: An Azure Communication Services article
 description: Integrate Azure Communication Services with ExpressRoute to extend your local networks into the Microsoft cloud over a private connection.
 author: hrazi
 manager: mharbut
@@ -64,11 +64,13 @@ Route filters enable you to selectively consume services over ExpressRoute.
 
    1.2. Provide a name, select your subscription and resource group. 
 
-2. Add Azure Communication Services to the route filter: 
+2. Add Azure Communication Services to the route filter:
 
    2.1. After creating the route filter, select **Rules** and click **+ Add**. 
 
-   2.2. Choose Azure Communication Services from the list of services. 
+   2.2. Choose Azure Communication Services from the list of services.
+
+   2.3. If you use Microsoft PSTN, choose Azure SIP Trunking from the list of services.
 
 3. Associate route filter with ExpressRoute Circuit: 
 
