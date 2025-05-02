@@ -61,7 +61,7 @@ tolerations:
   effect: "NoSchedule"
 ```
 
-If desired, you can specify the toleration inline via helm install command via the following example:
+If desired, you can specify the toleration inline via the helm install command using the following example:
 
 ```bash
 HELM_NAMESPACE='<namespace for deployment>'
