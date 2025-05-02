@@ -191,14 +191,6 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    az network vpn-connection list -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
-### Add resource tag on NFC resource in Azure portal (optional)
-   To increase visibility of the deployment, add a tag to the NFC resource in Azure portal:
-   ```
-   |Name            | Value          |
-   |----------------|-----------------
-   |GF in progress  |<DE_ID>         |
-   ```
-
 </details>
 
 ## Deploy CM (skip section if CM already exists)
@@ -236,14 +228,6 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
    ```
    
-### Add resource tag on CM resource in Azure portal (optional)
-   To increase visibility of the deployment, add a tag to the CM resource in Azure portal (optional):
-   ```
-   |Name            | Value          |
-   |----------------|-----------------
-   |GF in progress  |<DE_ID>         |
-   ```
-
 </details>
 
 ## Deploy Fabric
@@ -347,14 +331,6 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
-### Add resource tag on Fabric resource in Azure portal
-   To increase visibility of the deployment, add a tag to the Fabric resource in Azure portal (optional):
-   ```
-   |Name            | Value          |
-   |----------------|-----------------
-   |GF in progress  |<DE_ID>         |
-   ```
-
 </details>
 
 ## Deploy Cluster
@@ -402,14 +378,6 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
        "grouping": "<CLUSTER_DEPLOY_GROUPING>",
        "type": "<CLUSTER_DEPLOY_TYPE>",
        "value": <CLUSTER_DEPLOY_THRESHOLD>
-   ```
-
-### Add resource tag on Cluster resource in Azure portal
-   To increase visibility of the deployment, add a tag to the Cluster resource in Azure portal (optional):
-   ```
-   |Name            | Value          |
-   |----------------|-----------------
-   |GF in progress  |<DE_ID>         |
    ```
 
 ### Deploy Cluster
@@ -488,14 +456,35 @@ BMM provisioning is complete when the following conditions are met:
 ### Review Operator Nexus release notes
 Review the Operator Nexus release notes for any version specific actions required post-deployment.
 
-### Remove DE Tags for GF in progress (if added)
-- Search for these resources in Azure portal and remove the `GF in progress` tags applied (if any exist):
-  - <NFC_NAME>
-  - <NF_NAME>
-  - <CM_NAME>
-  - <CLUSTER_NAME>
-- Remove `GF provision issue` Azure resource tags for any BMM issues resolved after deployment.
-- To remove a tag, click `Tags (edit)` and click the `Remove` icon next to the Tag, then click `Save`.
+### Validate Nexus instance
+
+Validate the health and status of all the Nexus instance resources created during deployment with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
+
+To perform a simple validation of the Nexus instance components post-deployment through Azure CLI:
+```
+# NFC
+az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
+az vm list -o table --query "[?location=='<AZURE_REGION>']" --subscription <CUSTOMER_SUB_ID>
+az customlocation list -o table --query "[?location=='<AZURE_REGION>']" | grep <NFC_NAME> --subscription <CUSTOMER_SUB_ID>
+
+# Fabric
+az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric rack list -o table --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric fabric device list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric acl list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric l2domain list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
+
+# CM
+az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
+
+# Cluster
+az networkcloud cluster list --subscription <CUSTOMER_SUB_ID> -o table
+az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([]. {name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+```
+> [!Note]
+> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus instance. Simple validation does not provide functional tesing.
 
 </details>
 
