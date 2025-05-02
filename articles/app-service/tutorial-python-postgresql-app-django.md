@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a Python Django web app with PostgreSQL'
 description: Create a Python Django web app with a PostgreSQL database and deploy it to Azure. The tutorial uses either the Django framework and the app is hosted on Azure App Service on Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 01/22/2025
+ms.date: 04/17/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: mvc, cli-validate, devx-track-python, devdivchpfy22, vscode-azure-extension-update-completed, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Deploy a Python Django web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md) instead.
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)**) to **[Azure App Service](./overview.md)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. If you want, see the [Flask tutorial](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md) instead.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -369,7 +369,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
 :::row:::
     :::column span="2":::
         **Step 4 (Option 2: without GitHub Copilot):**  
-        1. Open *Program.cs* in the explorer.
+        1. Open *azureproject/production.py* in the explorer.
         1. Find the commented code (lines 29-48) and uncomment it. 
         This creates PostgreSQL and Redis connections by using `AZURE_POSTGRESQL_USER`, `AZURE_POSTGRESQL_PASSWORD`, `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, and `AZURE_REDIS_CONNECTIONSTRING`.
     :::column-end:::
@@ -386,7 +386,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-6.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png":::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png" alt-text="A screenshot showing the changes being committed and pushed to GitHub." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-deploy-sample-code-django-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -518,7 +518,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 

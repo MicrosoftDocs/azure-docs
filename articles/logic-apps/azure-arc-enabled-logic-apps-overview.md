@@ -5,14 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, kewear, rohithah, archidda, azla
 ms.topic: overview
-ms.date: 01/04/2024
+ms.date: 03/22/2025
 #Customer intent: As a developer, I want to learn about automated Azure Arc-enabled logic app workflows that can run anywhere that Kubernetes can run.
 ---
 
 # What is Azure Arc-enabled Logic Apps? (Preview)
 
 > [!NOTE]
-> This capability is in preview and is subject to the 
+>
+> Standard workflows can now deploy and run in partially connected environments hosted on your own infrastructure. 
+> For more information, see the following documentation:
+>
+> - [Set up your own infrastructure for Standard logic app workflows using hybrid deployment](/azure/logic-apps/set-up-standard-workflows-hybrid-deployment-requirements)
+> - [Create Standard logic app workflows for hybrid deployment on your own infrastructure](/azure/logic-apps/create-standard-workflows-hybrid-deployment?tabs=azure-portal)
+>
+> The following capability is in preview and is subject to the 
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 With Azure Arc-enabled Logic Apps, you can develop and run single-tenant based logic apps anywhere that Kubernetes can run. For example, you can run your logic app workflows on Azure, Azure Kubernetes Service, on premises, and even other cloud providers. This offering provides a centralized single-pane-of-glass management platform through Azure Arc and the Azure portal for the following capabilities:

@@ -2,8 +2,8 @@
 title: Enable GPU acceleration for Azure Virtual Desktop
 description: Learn how to enable GPU-accelerated rendering and encoding, including HEVC/H.265 and AVC/H.264 support, in Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 09/19/2024
 ---
 

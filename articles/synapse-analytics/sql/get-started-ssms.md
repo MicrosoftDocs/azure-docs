@@ -1,121 +1,129 @@
 ---
-title: Connect to Synapse SQL with SQL Server Management Studio (SSMS)
+title: Connect to Synapse SQL with SQL Server Management Studio
 description: Use SQL Server Management Studio (SSMS) to connect to and query Synapse SQL in Azure Synapse Analytics. 
 author: azaricstefan 
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql 
-ms.date: 04/15/2020 
+ms.date: 02/11/2025 
 ms.author: stefanazaric 
-ms.reviewer: whhender
 ---
 
-# Connect to Synapse SQL with SQL Server Management Studio (SSMS)
+# Connect to Synapse SQL with SQL Server Management Studio
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
 > * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
-> 
-> 
 
-You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either serverless SQL pool or dedicated SQL pool resources. 
+You can use [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) to connect to and query Synapse SQL in Azure Synapse Analytics through either serverless SQL pool or dedicated SQL pool resources.
 
-### Supported tools for serverless SQL pool
-
-[Azure Data Studio](/azure-data-studio/download-azure-data-studio) is fully supported starting from version 1.18.0. SSMS is partially supported starting from version 18.5, you can use it to connect and query only.
+> [!NOTE]
+> Supported tools for serverless SQL pool:
+> - The [mssql extension](https://aka.ms/mssql-marketplace) for [Visual Studio Code](https://code.visualstudio.com/docs).
+> - SSMS is partially supported starting from version 18.5. You can use it to connect and query only.
 
 ## Prerequisites
 
-Before you begin, make sure you have the following prerequisites:  
-
-* [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* For dedicated SQL pool, you need an existing data warehouse. To create one, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md). For serverless SQL pool one is already provisioned, named Built-in, in your workspace at creation time. 
+* [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+* A data warehouse. To create a data warehouse for dedicated SQL pool, see [Create a dedicated SQL pool](../quickstart-create-sql-pool-portal.md). For serverless SQL pool, a data warehouse named *Built-in* is already provisioned in your workspace at creation time.
 * The fully qualified SQL Server name. To find this name, see [Connect to Synapse SQL](connect-overview.md).
 
-## Connect
+## Connect to Synapse SQL
 
-### Dedicated SQL pool
+### [Dedicated SQL pool](#tab/dedicated-sql-pool)
 
-To connect to Synapse SQL using dedicated SQL pool, follow these steps: 
-
-1. Open SQL Server Management Studio (SSMS). 
-1. In the **Connect to Server** dialog box, fill in the fields, and then select **Connect**: 
-  
-    ![Connect to Server 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
-   
-   * **Server name**: Enter the **server name** previously identified.
-   * **Authentication**:  Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**.
-   * **User Name** and **Password**: Enter your user name and password if SQL Server Authentication was selected above.
-
-1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample AdventureWorksDW database. You can expand the database to see the tables:
-   
-    ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
-
-
-### Serverless SQL pool
-
-To connect to Synapse SQL using serverless SQL pool, follow these steps: 
+To connect to Synapse SQL using dedicated SQL pool, follow these steps:
 
 1. Open SQL Server Management Studio (SSMS).
-1. In the **Connect to Server** dialog box, fill in the fields,  and then select **Connect**: 
-   
-    ![Connect to Server 2](./media/get-started-ssms/connect-object-explorer1.png)
-   
-   * **Server name**: Enter the **server name** previously identified.
-   * **Authentication**: Choose an authentication type, such as **SQL Server Authentication** or **Active Directory Integrated Authentication**:
-   * **User Name** and **Password**: Enter your user name and password if SQL Server Authentication was selected above.
-   * Select **Connect**.
 
-4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand *demo* to see the content in your sample database.
-   
-    ![Explore AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
+1. In the **Connect to Server** dialog box, fill in the fields, and then select **Connect**:
+  
+    :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png" alt-text="Screenshot that shows the Connect to Server dialog box.":::
 
+   * **Server name**: Enter the server name previously identified.
+   * **Authentication**: Choose an authentication type, such as *SQL Server Authentication* or *Active Directory Integrated Authentication*.
+   * **Login** and **Password**: Enter your user name and password if SQL Server Authentication was selected.
+
+1. Expand your Azure SQL Server in **Object Explorer**. You can view the databases associated with the server, such as the sample `AdventureWorksDW` database. You can expand the database to see the tables:
+
+    :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png" alt-text="Screenshot that shows the Object Explorer window.":::
+
+### [Serverless SQL pool](#tab/serverless-sql-pool)
+
+To connect to Synapse SQL using serverless SQL pool, follow these steps:
+
+1. Open SQL Server Management Studio (SSMS).
+
+1. In the **Connect to Server** dialog box, fill in the fields, and then select **Connect**:
+
+    :::image type="content" source="media/get-started-ssms/connect-object-explorer1.png" alt-text="Screenshot that shows the Connect to Server dialog box for serverless SQL pool.":::
+
+   * **Server name**: Enter the server name previously identified.
+   * **Authentication**: Choose an authentication type, such as *SQL Server Authentication* or *Microsoft Entra Authentication*.
+   * **Login** and **Password**: Enter your user name and password if SQL Server Authentication was selected.
+
+1. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand *demo* to see the content in your sample database.
+
+    :::image type="content" source="media/get-started-ssms/explore-tables.png" alt-text="Screenshot that shows the Object Explorer window for serverless SQL pool.":::
+
+---
 
 ## Run a sample query
 
-### Dedicated SQL pool
+### [Dedicated SQL pool](#tab/dedicated-sql-pool)
 
-Now that a database connection has been established, you can query the data.
+After you establish a database connection, you can query the data.
 
 1. Right-click your database in SQL Server Object Explorer.
-2. Select **New Query**. A new query window opens.
-   
-    ![New query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
-3. Copy the following T-SQL query into the query window:
-   
+
+1. Select **New Query**. A new query window opens.
+
+    :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png" alt-text="Screenshot of the New Query window.":::
+
+1. Copy the following Transact-SQL (T-SQL) query into the query window:
+
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Run the query by selecting `Execute` or use the following shortcut: `F5`.
-   
-    ![Run query 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Look at the query results. In the following example, the FactInternetSales table has 60398 rows.
-   
-    ![Query results 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### Serverless SQL pool
+1. Run the query by selecting `Execute` or use the following shortcut: `F5`.
 
-Now that you've established a database connection, you can query the data.
+    :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png" alt-text="Screenshot of the Execute button to run the query.":::
+
+1. Look at the query results. In the following example, the `FactInternetSales` table has 60,398 rows.
+
+    :::image type="content" source="../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png" alt-text="Screenshot of the query results.":::
+
+### [Serverless SQL pool](#tab/serverless-sql-pool)
+
+After you establish a database connection, you can query the data.
 
 1. Right-click your database in SQL Server Object Explorer.
-2. Select **New Query**. A new query window opens.
-   
-    ![New query 2](./media/get-started-ssms/new-query.png)
-3. Copy the following T-SQL query into the query window:
-   
+
+1. Select **New Query**. A new query window opens.
+
+    :::image type="content" source="media/get-started-ssms/new-query.png" alt-text="Screenshot of the New Query window for serverless SQL pool.":::
+
+1. Copy the following Transact-SQL (T-SQL) query into the query window:
+
     ```sql
-    SELECT COUNT(*) FROM demo.dbo.usPopulationView
+    SELECT COUNT(*) FROM demo.dbo.usPopulationView;
     ```
-4. Run the query by selecting `Execute` or use the following shortcut: `F5`.
-   
-    ![Run query 2](./media/get-started-ssms/execute-query.png)
-5. Look at the query results. In this example, the usPopulationView view has 3664512 rows.
-   
-    ![Query results 2](./media/get-started-ssms/results.png)
 
-## Next steps
-Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
+1. Run the query by selecting `Execute` or use the following shortcut: `F5`.
 
-To configure your environment for Microsoft Entra authentication, see [Authenticate to Synapse SQL](../sql/sql-authentication.md).
+    :::image type="content" source="media/get-started-ssms/execute-query.png" alt-text="Screenshot of the Execute button to run the query for serverless SQL pool.":::
+
+1. Look at the query results. In this example, the `usPopulationView` view has 3,664,512 rows.
+
+    :::image type="content" source="media/get-started-ssms/results.png" alt-text="Screenshot of the query results for serverless SQL pool.":::
+
+---
+
+## Related content
+
+- [Connect to serverless SQL pool with Power BI Professional](get-started-power-bi-professional.md)
+- [SQL Authentication in Azure Synapse Analytics](../sql/sql-authentication.md)

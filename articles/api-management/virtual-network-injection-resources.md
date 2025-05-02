@@ -4,7 +4,7 @@ description: Learn about requirements for network resources when you deploy (inj
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/10/2024
 ms.author: danlep
 ---

@@ -4,6 +4,9 @@ description: Learn how to use an SSH tunnel to securely browse web resources hos
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
 ---
 

@@ -85,7 +85,7 @@ The Functions host also performs a background trigger sync after the application
 
 You can request Azure Functions to perform a remote build of your code project during deployment. In these scenarios, you should request a remote build instead of building locally:
 
-+ You're deploying an app to a Linux-based function app that was developed on a Windows computer. This is commonly the case for Python app development. You can end up with in incorrect libraries being used when building the deployment package locally on Windows.
++ You're deploying an app to a Linux-based function app that was developed on a Windows computer. This is commonly the case for Python app development. You can end up with incorrect libraries being used when building the deployment package locally on Windows.
 + Your project has dependencies on a [custom package index](functions-reference-python.md#remote-build-with-extra-index-url).
 + You want to reduce the size of your deployment package.
 

@@ -5,6 +5,7 @@ ms.subservice: databox
 ms.topic: include
 ms.date: 04/22/2024
 ms.author: shaas
+zone_pivot_groups: data-box-sku
 ---
 
 To order and device, perform the following steps in the Azure portal:
@@ -26,9 +27,11 @@ To order and device, perform the following steps in the Azure portal:
     |Subscription     | Select an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |
     |Resource group | Select an existing resource group. A resource group is a logical container for the resources that can be managed or deployed together. |
     |Source country/region    |    Select the country/region where your data currently resides.         |
-    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box](../articles/databox/data-box-overview.md#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br>If the selected source and destination regions cross international country/region borders, Data Box and Data Box Heavy aren't available. |
+    |Destination Azure region     |     Select the Azure region where you want to transfer data. <br> For more information, see [region availability for Data Box and Data Box Next Gen](/azure/databox/data-box-overview?pivots=dbx-ng#region-availability) or [region availability for Data Box Heavy](../articles/databox/data-box-heavy-overview.md#region-availability).<br> If the selected source and destination regions cross international country/region borders, check [Cross region transfer options](/azure/databox/data-box-overview?pivots=dbx-ng#cross-region-data-transfer-for-data-box-devices) |
 
-    :::image type="content" source="media/data-box-order-portal/data-box-import-03.png" alt-text="Screenshot of options to select the Transfer Type, Subscription, Resource Group, and source and destination to start a Data Box order in the Azure portal."::: 
+    :::image type="content" source="media/data-box-order-portal/data-box-import-03.png" alt-text="Screenshot of options to select the Transfer Type, Subscription, Resource Group, and source and destination to start a Data Box order in the Azure portal.":::
+   
+:::zone pivot="dbx"
 
 5. Select the **Data Box** product to order, either Data Box, as shown in the provided example, or Data Box Heavy.
 
@@ -39,13 +42,29 @@ To order and device, perform the following steps in the Azure portal:
 
     - Your selected source and destination regions cross international country/region boundaries.
 
-      To transfer your data across country/region borders, import your data to a destination within the same country/region. After the data import completes, use Azure Import/Export to transfer the data to your desired country/region.
+      To transfer your data across country/region borders, check [Cross region transfer options](/azure/databox/data-box-overview?pivots=dbx-ng#cross-region-data-transfer-for-data-box-devices). 
 
     - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
     
     If you select **Data Box Heavy**, the Data Box team checks device availability within your region and notifies you when you can continue placing the order.
 
     :::image type="content" source="media/data-box-order-portal/data-box-import-04.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/data-box-import-04-lrg.png":::
+
+:::zone-end
+:::zone pivot="dbx-ng"
+
+5. Select the **Data Box Next Gen** product to order, either Data Box 120, as shown in the provided example, or Data Box 525.
+
+    The maximum usable capacity for a single Data Box order is 120 TB or 525 TB depending on the device. You can create multiple orders to accommodate larger data sizes.
+
+    
+    You can't select either Data Box 120 or Data Box 525 if:
+
+    - Your Azure subscription doesn't support the Data Box product. In some cases, your subscription might not support a Data Box product in a specific country/region.
+    
+    :::image type="content" source="media/data-box-order-portal/data-box-order-portal-sku-selection.png" alt-text="Screenshot showing the screen for selecting an Azure Data Box product. The Select button for Data Box is highlighted." lightbox="media/data-box-order-portal/data-box-order-portal-sku-selection-lrg.png":::
+
+:::zone-end
 
 6. In **Order**, go to the **Basics** tab. Enter or select the following information. Then select **Next: Data destination>**.
 
@@ -90,7 +109,7 @@ To order and device, perform the following steps in the Azure portal:
     |---------|---------|
     |Resource groups     | Create new resource groups if you intend to create managed disks from on-premises VHDs. You can use an existing resource group only if the resource group was created previously when creating a Data Box order for managed disks by the Data Box service. <br> Specify multiple resource groups separated by semi-colons. A maximum of 10 resource groups are supported.|
 
-    :::image type="content" source="media/data-box-order-portal/data-box-import-08.png" alt-text="Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security button are highlighted."::: 
+    :::image type="content" source="media/data-box-order-portal/data-box-import-08.png" alt-text="Screenshot of the Data Destination tab for a Data Box order with a Managed Disks destination. The Data Destination tab, Managed Disks, and Next: Security buttons are highlighted."::: 
 
     The storage account specified for managed disks is used as a staging storage account. The Data Box service uploads the VHDs as page blobs to the staging storage account before converting the page blobs to managed disks and moving them to the resource groups. For more information, see [Verify data upload to Azure](../articles/databox/data-box-deploy-picked-up.md#verify-data-has-uploaded-to-azure).
 
@@ -116,8 +135,10 @@ To order and device, perform the following steps in the Azure portal:
     If you don't want to use a customer-managed key, skip to Step 15.
 
     :::image type="content" source="media/data-box-order-portal/customer-managed-key-01.png" alt-text="Screenshot of Security tab in the Data Box Order wizard. Encryption Type settings are expanded and highlighted.":::
+    
+10. If you want to use your own customer-managed key to protect the unlock passkey for your new resource, expand **Encryption type**.
 
-10. To use a customer-managed key, select **Customer managed key** as the key type. Then choose **Select a key vault and key**.
+    To use a customer-managed key, select **Customer managed key** as the key type. Then choose **Select a key vault and key**.
    
     :::image type="content" source="media/data-box-order-portal/customer-managed-key-02.png" alt-text="Screenshot of Encryption Type settings on the Security tab for a Data Box order. The 'Select a key and key vault' link is highlighted.":::
 
@@ -182,14 +203,13 @@ To order and device, perform the following steps in the Azure portal:
     > [!IMPORTANT]
     > If you use a customer-managed key, you must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. Without these permissions, order creation will fail. They're also needed during data copy. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
 
+15. The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
-15. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
+    :::image type="content" source="media/data-box-order-portal/bring-your-own-password-01.png" alt-text="Screenshot of expanded 'Bring your own password' on the Security tab for a Data Box order. Security tab and password options are highlighted.":::
 
-    The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
-
-    :::image type="content" source="media/data-box-order-portal/bring-your-own-password-01.png" alt-text="Screenshot of expanded 'Bring your own password' on the Security tab for a Data Box order. Security tab and password options are highlighted."::: 
-
-    - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
+If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password** on the **Security** screen.
+    
+- To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
      
      The password must be alphanumeric and contain between 12 to 15 characters. It must also contain at least one uppercase letter, one lowercase letter, one special character, and one number.
 
@@ -249,6 +269,24 @@ To order and device, perform the following steps in the Azure portal:
     :::image type="content" source="media/data-box-order-portal/contact-details-03.png" alt-text="Screenshot showing the Email section of the Contact Details tab for a Data Box order. The area for typing email addresses and the Review Plus Order button are highlighted."::: 
 
     Select **Review + Order** to continue.
+:::zone pivot="dbx-ng"
+21. In **Review + Order**:
+
+    1. Review the information in **Review + Order** related to the order, contact details, notification, and privacy terms. 
+    
+    1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
+
+    1. Once the order is validated, select **Order**.
+
+        :::image type="content" source="media/data-box-order-portal/dbx-ng-review-order-page.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
+
+    The order takes a few minutes to be created appears similar to the provided example. You can select **Go to resource** to open the order.
+
+    :::image type="content" source="media/data-box-order-portal/data-box-import-11.png" alt-text="Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.":::
+    
+:::zone-end
+
+:::zone pivot="dbx"
 
 21. In **Review + Order**:
 
@@ -257,9 +295,11 @@ To order and device, perform the following steps in the Azure portal:
     1. Check the box corresponding to the agreement to privacy terms. When you select the checkbox, the order information is validated.
 
     1. Once the order is validated, select **Order**.
-    
+
         :::image type="content" source="media/data-box-order-portal/data-box-import-10.png" alt-text="Screenshot of the Review Plus Order tab for a Data Box order. The validation status, terms checkbox, and Order button are highlighted.":::
 
     The order takes a few minutes to be created appears similar to the provided example. You can select **Go to resource** to open the order.
 
     :::image type="content" source="media/data-box-order-portal/data-box-import-11.png" alt-text="Screenshot of a completed deployment for a Data Box order. The Go To Resource button is highlighted.":::
+    
+:::zone-end

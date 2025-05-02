@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 01/29/2025
+ms.date: 03/21/2025
 
 #CustomerIntent: As an administrator, I want to learn about Azure Network Watcher packet capture tool so that I can use it to capture IP packets to and from virtual machines (VMs) and scale sets to diagnose and solve network problems.
 ---
@@ -49,7 +49,9 @@ Use filters to capture only the traffic that you want to monitor. Filters are ba
 
 ## Considerations
 
-There's a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) for a full list of limits. 
+- There's a limit of 10,000 parallel packet capture sessions per region per subscription. This limit applies only to the sessions and doesn't apply to the saved packet capture files either locally on the VM or in a storage account. See the [Network Watcher service limits page](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-network-watcher-limits) for a full list of limits. 
+
+- Packet capture uses shared access signature (SAS) tokens to access the storage account. Key access must be enabled on the storage account to authorize packet capture's SAS tokens. If key access isn't enabled, packet captures can only be saved to the virtual machine's local disk.
 
 ## Related content
 

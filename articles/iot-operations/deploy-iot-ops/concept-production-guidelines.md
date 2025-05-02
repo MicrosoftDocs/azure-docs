@@ -1,10 +1,10 @@
 ---
 title: Production deployment guidelines
 description: Learn about the recommendations and guidelines for preparing Azure IoT Operations for a production deployment.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: concept-article
-ms.date: 10/25/2024
+ms.date: 03/13/2025
 ms.service: azure-iot-operations
 
 #CustomerIntent: I want to understand system, configuration, and security best practices before deploying to production.
@@ -80,9 +80,20 @@ In the Azure portal deployment wizard, the broker resource is set up in the **Co
 
 In the Azure portal deployment wizard, the schema registry and its required storage account are set up in the **Dependency management** tab.
 
-* The storage account is only supported with public network access enabled.
+
 * The storage account must have hierarchical namespace enabled.
 * The schema registry's managed identity must have contributor permissions for the storage account.
+* The storage account is only supported with public network access enabled.
+
+For production deployments, scope the storage account's public network access to allow traffic only from trusted Azure services. For example:
+
+1. In the [Azure portal](https://portal.azure.com), navigate to the storage account that your schema registry uses.
+1. Select **Security + networking > Networking** from the navigation menu.
+1. For the public network access setting, select **Enabled from selected virtual networks and IP addresses**.
+1. In the **Exceptions** section of the networking page, ensure that the **Allow trusted Microsoft services to access this resource** option is selected.
+1. Select **Save** to apply the changes.
+
+For more information, see [Configure Azure Storage firewalls and virtual networks > Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ### Fault tolerance
 

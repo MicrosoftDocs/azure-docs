@@ -90,7 +90,7 @@ If you don't plan to continue to the tutorials, take these steps to clean up the
 
 For more code examples and an interactive coding experience, see these articles:
 
-* [Find an address with Azure Maps search service]
+* [Find an address with Azure Maps Search service]
 * [Use the Azure Maps Map Control]
 
 ## Next steps
@@ -101,7 +101,7 @@ In this quickstart, you created an Azure Maps account and a demo application. Ta
 > [Search nearby points of interest with Azure Maps]
 
 [Azure portal]: https://portal.azure.com
-[Find an address with Azure Maps search service]: how-to-search-for-address.md
+[Find an address with Azure Maps Search service]: how-to-search-for-address.md
 [free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
 [Interactive Search Quickstart.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html
 [Microsoft Entra ID]: /entra/fundamentals/whatis

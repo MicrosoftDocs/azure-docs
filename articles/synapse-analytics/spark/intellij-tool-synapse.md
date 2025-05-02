@@ -3,7 +3,7 @@ title: Tutorial - Azure Toolkit for IntelliJ (Spark application)
 description: Tutorial - Use the Azure Toolkit for IntelliJ to develop Spark applications, which are written in Scala, and submit them to a serverless Apache Spark pool.
 author: jejiang
 ms.author: jejiang
-ms.reviewer: whhender 
+ 
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark

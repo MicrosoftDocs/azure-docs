@@ -3,7 +3,7 @@ title: Manage resources - REST
 description: Use REST operations with Azure Resource Manager to manage your resources. Shows how to read, deploy, and delete resources. 
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 02/10/2025
 ---
 
 # Manage Azure resources by using the REST API
@@ -12,11 +12,11 @@ Learn how to use the REST API for [Azure Resource Manager](overview.md) to manag
 
 ## Obtain an access token
 
-To make a REST API call to Azure, you first need to obtain an access token. Include this access token in the headers of your Azure REST API calls using the "Authorization" header and setting the value to "Bearer {access-token}".
+To make a REST API call to Azure, you first need to obtain an access token. Include this access token in the headers of your Azure REST API calls using the `Authorization` header and setting the value to `Bearer {access-token}`.
 
 If you need to programmatically retrieve new tokens as part of your application, you can obtain an access token by [Registering your client application with Microsoft Entra ID](/rest/api/azure/#register-your-client-application-with-azure-ad).
 
-If you're getting started and want to test Azure REST APIs using your individual token, you can retrieve your current access token quickly with either Azure PowerShell or Azure CLI.
+To test Azure REST APIs using your individual token, retrieve your current access token with either Azure PowerShell or Azure CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -53,7 +53,7 @@ Authorization: Bearer <bearer-token>
 Host: management.azure.com
 ```
 
-Here is an example cURL command that you can use to list all resources in a resource group using the Azure Resource Manager API:
+Here's an example cURL command that you can use to list all resources in a resource group using the Azure Resource Manager API:
 
 ```curl
 curl  -H "Authorization: Bearer $token" -H 'Content-Type: application/json' -X GET 'https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/resources?api-version=2021-04-01'
@@ -124,7 +124,7 @@ Host: management.azure.com
 }
 ```
 
-For the REST APIs, the value of `uri` can't be a local file or a file that is only available on your local network. Azure Resource Manager must be able to access the template. Provide a URI value that downloadable as HTTP or HTTPS.
+For the REST APIs, the value of `uri` can't be a local file or a file that is only available on your local network. Azure Resource Manager must access the template. Provide a URI value that is downloadable as HTTP or HTTPS.
 For more information, see [Deploy resources with Resource Manager templates and Azure PowerShell](../templates/deploy-powershell.md).
 
 ## Deploy a resource group and resources

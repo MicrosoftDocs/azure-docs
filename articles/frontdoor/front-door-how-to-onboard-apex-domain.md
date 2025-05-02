@@ -1,12 +1,11 @@
 ---
 title: Onboard a root or apex domain to Azure Front Door
 description: Learn how to onboard a root or apex domain to an existing Azure Front Door by using the Azure portal.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/31/2024
-ms.author: duau
+ms.date: 04/30/2025
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -57,11 +56,7 @@ You can use the Azure portal to onboard an apex domain on your Azure Front Door 
 
 1. Select the **Pending** validation state. A new pane appears with the DNS TXT record information needed to validate the custom domain. The TXT record is in the form of `_dnsauth.<your_subdomain>`.
 
-   :::image type="content" source="./media/front-door-apex-domain/pending-validation.png" alt-text="Screenshot that shows the custom domain Pending validation.":::
-
    - **Azure DNS-based zone**: Select **Add** to create a new TXT record with the value that appears in the Azure DNS zone.
-
-      :::image type="content" source="./media/front-door-apex-domain/validate-custom-domain.png" alt-text="Screenshot that shows validating a new custom domain.":::
 
     - If you're using another DNS provider, manually create a new TXT record with the name `_dnsauth.<your_subdomain>` with the record value as shown on the pane.
 
@@ -75,13 +70,9 @@ You can use the Azure portal to onboard an apex domain on your Azure Front Door 
 
 1. On the **Associate endpoint and route** pane, select the endpoint and route to which you want to associate the domain. Then select **Associate**.
 
-    :::image type="content" source="./media/front-door-apex-domain/associate-endpoint.png" alt-text="Screenshot that shows the associated endpoint and route pane for a domain.":::
-
 1.	Under the **DNS state** column, select **CNAME record is currently not detected** to add the alias record to the DNS provider.
 
     - **Azure DNS**: Select **Add**.
-
-       :::image type="content" source="./media/front-door-apex-domain/cname-record.png" alt-text="Screenshot that shows the Add or update the CNAME record pane.":::
 
     - **A DNS provider that supports CNAME flattening**: You must manually enter the alias record name.
     
@@ -115,8 +106,6 @@ Follow the guidance for [configuring HTTPS for your custom domain](standard-prem
 
 1. Select **OK** to submit your changes.
 
-    :::image type="content" source="./media/front-door-apex-domain/front-door-apex-alias-record.png" alt-text="Screenshot that shows an alias record for zone apex.":::
-
 1. The preceding step creates a zone apex record that points to your Azure Front Door resource. It also creates a CNAME record mapping **afdverify** (for example, `afdverify.contosonews.com`) that's used for onboarding the domain on your Azure Front Door profile.
 
 ## Onboard the custom domain on your Azure Front Door
@@ -128,8 +117,6 @@ Follow the guidance for [configuring HTTPS for your custom domain](standard-prem
 1. After the CNAME mapping from the domain to your Azure Front Door is validated, select **Add** to add the custom domain.
 
 1. Select **Save** to submit the changes.
-
-   :::image type="content" source="./media/front-door-apex-domain/front-door-onboard-apex-domain.png" alt-text="Screenshot that shows the Add a custom domain pane.":::
 
 ## Enable HTTPS on your custom domain
 
@@ -155,7 +142,7 @@ Follow the guidance for [configuring HTTPS for your custom domain](standard-prem
 
 ::: zone-end
 
-## Next steps
+## Related content
 
-- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md).
-- Learn [how Azure Front Door works](front-door-routing-architecture.md).
+- Learn how to [create an Azure Front Door profile](quickstart-create-front-door.md)
+- Learn [how Azure Front Door works](front-door-routing-architecture.md)

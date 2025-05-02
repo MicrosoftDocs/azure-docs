@@ -6,7 +6,7 @@ ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
 ms.service: azure-event-hubs
-ms.date: 06/12/2024
+ms.date: 03/31/2025
 ---
 
 <!--#Customer intent:  I want to understand reliability support in Azure Event Hubs so that I can respond to and/or avoid failures in order to minimize downtime and data loss. -->
@@ -27,7 +27,7 @@ Event Hubs implements transparent failure detection and failover mechanisms so t
 
 ### Prerequisites
 
-Availability zone support is only available in [Azure regions with availability zones](./availability-zones-region-support.md). 
+Availability zone support is only available in [Azure regions with availability zones](./regions-list.md). 
 
 
 ### Create a resource with availability zones enabled
@@ -36,14 +36,6 @@ When you use the Azure portal, zone redundancy is automatically enabled. When yo
 
 :::image type="content" source="../event-hubs/media/event-hubs-geo-dr/eh-az.png" alt-text="Screenshot showing the Create Namespace page with a region that has availability zones.":::
 
-
-### Disable availability zones
-
-The Azure portal doesn't support disabling availability zones. To disable availability zones, use one of the following methods:
-
-- Azure CLI command [`az eventhubs namespace`](/cli/azure/eventhubs/namespace#az-eventhubs-namespace-create) with `--zone-redundant=false` 
-
-- PowerShell command [`New-AzEventHubNamespace`](/powershell/module/az.eventhub/new-azeventhubnamespace) with `-ZoneRedundant=false` to create a namespace with zone redundancy disabled. 
 
 ### Availability zone migration
 

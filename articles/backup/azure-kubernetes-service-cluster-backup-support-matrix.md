@@ -18,9 +18,13 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Supported regions
 
-- Operational Tier support for AKS backup is supported in all the following Azure public cloud regions: East US, North Europe, West Europe, South East Asia, West US 2, East US 2, West US, North Central US, Central US, France Central, Korea Central, Australia East, UK South, East Asia, West Central US, Japan East, South Central US, West US 3, Canada Central, Canada East, Australia South East, Central India, Norway East, Germany West Central, Switzerland North, Sweden Central, Japan West, UK West, Korea South, South Africa North, South India, France South, Brazil South, UAE North, China East 2, China East 3, China North 2, China North 3, USGov Virginia, USGov Arizona, and USGov Texas.
+- Operational Tier support for AKS backup is supported in all the following Azure public cloud regions:
 
-- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central, and Norway East.
+Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East 2, China East 3, China North 2, China North 3, East Asia, East US, East US 2, France Central, France South, Germany West Central, Italy North, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, Norway East, South Africa North, South Central US, South India,  Southeast Asia, Sweden Central, Switzerland North, UAE North, UK South, Uk West, US GOV Arizona, US GOV Texas, US GOV Virginia, West Central US, West Europe, West US, West US 2, West US 3.
+
+- Vault Tier and Cross Region Restore support for AKS backup are available in the following regions: 
+
+Canada Central, Central India, Central US, East Asia, East US, East US 2, Japan East, North Central US, North Europe, Norway East, South Central US, South India, South-East Asia, UK South, UK West, West Central US, West Europe, West US, West US 3.
 
 
   >[!Note]
@@ -28,7 +32,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 ## Limitations
 
-- Azure Backup won't address failures occurring during backup or restore operations for Kubernetes clusters running unsupported Kubernetes versions. While backup operations continue to run, please upgrade your clusters to a supported version, validate the backup operations, and reach out if the issue persists. [Here's the list of the supported Kubernetes versions](/azure/aks/supported-kubernetes-versions.md)
+- Azure Backup won't address failures occurring during backup or restore operations for Kubernetes clusters running unsupported Kubernetes versions. While backup operations continue to run, please upgrade your clusters to a supported version, validate the backup operations, and reach out if the issue persists. [Here's the list of the supported Kubernetes versions](/azure/aks/supported-kubernetes-versions)
 
 - Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
@@ -38,7 +42,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Currently, an AKS backup supports only the backup of Azure disk-based persistent volumes (enabled by the CSI driver). The supported Azure Disk SKUs are Standard HDD, Standard SSD, and Premium SSD. The disks belonging to Premium SSD v2 and Ultra Disk SKU aren't supported. Both static and dynamically provisioned volumes are supported. For backup of static disks, the persistent volumes specification should have the *storage class* defined in the **YAML** file, otherwise such persistent volumes are skipped from the backup operation.
 
-- Azure Files shares and Azure Blob Storage persistent volumes are not supported by AKS backup due to lack of CSI Driver-based snapshotting capability. If you're using said persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions. For more information, see [Azure file share backup](azure-file-share-backup-overview.md) and [Azure Blob Storage backup](blob-backup-overview.md).
+- Azure Files shares and Azure Blob Storage persistent volumes aren't supported by AKS backup due to lack of CSI Driver-based snapshotting capability. If you're using said persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions. For more information, see [Azure file share backup](azure-file-share-backup-overview.md) and [Azure Blob Storage backup](blob-backup-overview.md).
 
 - Any unsupported persistent volume type is skipped while a backup is being created for the AKS cluster.
 
@@ -48,7 +52,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - You can't install Backup Extension in AKS Cluster with Arm64 based agent nodes irrespective of Operating System (Ubuntu/Azure Linux/Windows) running on these nodes.
 
-- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. This could lead to disruption of backup service during any future Velero upgrades driven by you or AKS backup  
+- Azure Backup for AKS is currently not supported for Network Isolated AKS clusters.
+
+- Don't install AKS Backup Extension along with Velero or other Velero-based backup services. Additionally ensure that your Kubernetes resources do not have labels of annotations containing word `velero.io` except in recommended scenarios, otherwise this could lead to unexpected behavior.
 
 - You must install the backup extension in the AKS cluster. If you're using Azure CLI to install the backup extension, ensure that the version is 2.41 or later. Use `az upgrade` command to upgrade the Azure CLI.
 
@@ -66,7 +72,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - For successful backup and restore operations, the Backup vault's managed identity requires role assignments. If you don't have the required permissions, permission problems might happen during backup configuration or restore operations soon after you assign roles because the role assignments take a few minutes to take effect. [Learn about role definitions](azure-kubernetes-service-cluster-backup-concept.md#required-roles-and-permissions).
 
-- Backup vault doesn't support Azure Lighthouse. Thus, cross tenant management can't be enabled by Lighthouse for Azure Backup for AKS and you cannot backup/restore AKS Clusters across tenant.
+- Backup vault doesn't support Azure Lighthouse. Thus, cross tenant management can't be enabled by Lighthouse for Azure Backup for AKS and you can't backup/restore AKS Clusters across tenant.
 
 - The following namespaces are skipped from Backup Configuration and not configured for backups: `kube-system`, `kube-node-lease`, `kube-public`.
 
@@ -81,6 +87,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
   | Number of allowed restores per backup instance in a day | 10 |
 
 - Configuration of a storage account with private endpoint is supported.
+
 - To enable Azure Backup for AKS via Terraform, its version should be >= 3.99.
 
 ### Other limitations for Vaulted backup and Cross Region Restore
@@ -89,9 +96,9 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Currently, backup instances with <= 100 disks attached as persistent volume are supported. Backup and restore operations might fail if number of disks are higher than the limit. 
 
-- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if their are disks with network access apart from public access, tiering operation will fail. 
+- Only Azure Disks with public access enabled from all networks are eligible to be moved to the Vault Tier; if there are disks with network access apart from public access, tiering operation fails. 
 
-- *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault, the backup data is also available in West US for restore.
+- *Disaster Recovery* feature is only available between Azure Paired Regions (if backup is configured in a Geo Redundant Backup vault with Cross Region Restore enabled on them). The backup data is only available in an Azure paired region. For example, if you have an AKS cluster in East US that is backed up in a Geo Redundant Backup vault with Cross Region Restore enabled on them, the backup data is also available in West US for restore.
 
 - Only one scheduled recovery point is available in Vault Tier per day that is providing an RPO of 24 hours in the primary region. For secondary region, the recovery point can take up to 12 hours, thus providing an RPO of 36 hours.
 

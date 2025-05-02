@@ -70,7 +70,6 @@ The following table describes known issues related to the internet inbound/DNAT 
 |Issue | Description| Mitigation|
 |--|--|--|
 | DNAT traffic isn't forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic isn't forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
-|Inbound security rule configuration scalability| Inbound security rule configuration might fail when a large number (approximately 100)  rules are configured.| No mitigation, reach out to Azure Support for fix timelines.|
 
 ### Limitations
 
@@ -86,7 +85,7 @@ The following table describes known issues related to the internet inbound/DNAT 
 
 ### Considerations
 
-* Inbound Traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance.
+* Inbound traffic is automatically load-balanced across all healthy instances of the Network Virtual Appliance. Virtual WAN uses five-tuple hashing algorithm to distribute flows for backend NVA instances. For certain use cases such as File Transfer Protocol (FTP) where a single application session might have   multiple five-tuple flows (e.g. FTP control and data plane packets on different ports), Virtual WAN does not guarantee that all flows in that session are distributed to the same NVA instance.
 * In most cases, NVAs must perform source-NAT to the Firewall private IP in addition to  destination-NAT to ensure flow symmetry. Certain NVA types might not require source-NAT. Contact your NVA provider for best practices around source-NAT.
 * Timeout for idle flows is automatically set to 4 minutes.
 * You can assign individual IP address resources generated from an IP address prefix to the NVA as internet inbound IPs. Assign each IP address from the prefix individually.

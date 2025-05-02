@@ -3,11 +3,11 @@ title: Routing architecture
 titleSuffix: Azure Front Door
 description: This article helps you understand the global view aspect of Front Door's architecture.
 services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 08/12/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 

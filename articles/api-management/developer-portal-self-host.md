@@ -444,6 +444,6 @@ The conversion process is almost identical to setting up a generic self-hosted p
 > We recommend using a separate storage account in the `config.publish.json` file. This approach gives you more control and simplifies the management of the hosting service of your portal.
 
 
-## Next steps
+## Related content
 
 - Learn about [Alternative approaches to self-hosting](developer-portal-alternative-processes-self-host.md)

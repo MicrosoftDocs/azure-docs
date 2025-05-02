@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm 
 ms.service: dev-box 
 ms.topic: troubleshooting 
-ms.date: 01/10/2024
+ms.date: 02/21/2025
 
 #CustomerIntent: As a dev box user, I want to be able to automatically troubleshoot and repair connectivity issues with my dev box so that I don't lose development time.
 ---
@@ -59,7 +59,7 @@ To run the **Troubleshoot & repair** tool on your dev box, follow these steps:
 
    While you wait for the process to complete, you can leave your developer portal session open, or close it and reopen it later. The troubleshoot and repair process continues in the background.
 
-1. After the RDP connectivity issue is resolved, you can connect to dev box again through [a browser](quickstart-create-dev-box.md#connect-to-a-dev-box), or [a Remote Desktop client](/azure/dev-box/tutorial-connect-to-dev-box-with-remote-desktop-app?tabs=windows).
+1. After the RDP connectivity issue is resolved, you can connect to dev box again.
 
 ## View Troubleshoot & repair results
 
@@ -84,5 +84,4 @@ If the Troubleshoot & repair tool can't resolve the issue, try these steps:
 
 ## Related content
 
-- [Tutorial: Use a Remote Desktop client to connect to a dev box](tutorial-connect-to-dev-box-with-remote-desktop-app.md)
 - [Get support for Microsoft Dev Box](how-to-get-help.md)

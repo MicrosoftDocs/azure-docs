@@ -22,7 +22,7 @@ Syslog and CEF are two common formats for logging data from different devices an
 
 Syslog is a standard protocol for sending and receiving messages between different devices or applications over a network. It was originally developed for Unix systems, but it's now widely supported by various platforms and vendors. Syslog messages have a predefined structure that consists of a priority, a timestamp, a hostname, an application name, a process ID, and a message text. Syslog messages can be sent over UDP, TCP, or TLS, depending on the configuration and the security requirements.
 
-The Azure Monitor Agent supports Syslog RFCs 3164 and 5424.
+The Azure Monitor Agent (AMA) supports Syslog messages formatted according to RFC 3164 (BSD Syslog) and RFC 5424 (IETF Syslog).
 
 ## What is Common Event Format (CEF)?
 

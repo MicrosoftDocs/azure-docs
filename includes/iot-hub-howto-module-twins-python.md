@@ -2,8 +2,8 @@
 title: Get started with module identities and module identity twins (Python)
 titleSuffix: Azure IoT Hub
 description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDK for Python.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: python
 ms.topic: include

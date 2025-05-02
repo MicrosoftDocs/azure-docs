@@ -13,12 +13,12 @@ ms.custom: include file
 ms.author: bertong
 ---
 
-Get started with Azure Communication Services by using the Communication Services JavaScript SMS SDK to send SMS messages.
+Get started with Azure Communication Services using the Communication Services JavaScript SMS SDK to send SMS messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms).
+> See the finalized code Azure Samples GitHub [Send an SMS message using JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ To set up an environment for sending messages, take the steps in the following s
 
 1. Use a text editor to create a file called **send-sms.js** in the project root directory.
 
-In the following sections, you'll add all the source code for this quickstart to the **send-sms.js** file that you just created.
+In the following sections, add all the source code for this quickstart to the **send-sms.js** file that you created.
 
 ### Install the package
 
@@ -124,8 +124,8 @@ main();
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
-- Replace `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers that you'd like to send a message to.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
+- Replace `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers that you want to send a message to.
 
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
@@ -163,7 +163,7 @@ main();
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<to-phone-number-1>` and `<to-phone-number-2>` with phone numbers that you'd like to send a message to.
 
 > [!WARNING]

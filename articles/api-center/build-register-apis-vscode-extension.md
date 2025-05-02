@@ -70,6 +70,6 @@ After generating the OpenAPI specification file and checking for accuracy, you c
 * [Azure API Center - key concepts](key-concepts.md)
 * [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
 * [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view API Center portal in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
 * [Overview of GitHub Copilot for Azure](/azure/developer/github-copilot-azure/introduction)
 

@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/15/2024
 ms.author: danlep
 ---
@@ -217,7 +217,7 @@ As of v2.1.1 and above, you can manage the ciphers that are being used through t
 - `net.server.tls.ciphers.allowed-suites` allows you to define a comma-separated list of ciphers to use for the TLS connection between the API client and the self-hosted gateway.
 - `net.client.tls.ciphers.allowed-suites` allows you to define a comma-separated list of ciphers to use for the TLS connection between the self-hosted gateway and the backend.
 
-## Next steps
+## Related content
 
 -   Learn more about the various gateways in our [API gateway overview](api-management-gateways-overview.md)
 -   Learn more about the support policy for the [self-hosted gateway](self-hosted-gateway-support-policies.md)

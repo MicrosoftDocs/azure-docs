@@ -2,11 +2,11 @@
 title: Set up an apex domain in Azure Static Web Apps
 description: Configure the root domain in Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 02/11/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Set up an apex domain in Azure Static Web Apps

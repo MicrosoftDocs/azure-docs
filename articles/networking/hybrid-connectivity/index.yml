@@ -13,6 +13,7 @@ metadata:
   ms.author: duau
   manager: kumudD
   ms.date: 06/14/2024
+  ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -22,7 +23,7 @@ highlightedContent:
       url: /training/paths/intro-to-azure-hybrid-connectivity-services/
     - title: Azure Networking blogs
       itemType: concept
-      url: https://azure.microsoft.com/en-us/blog/?s=&k%5B0%5D=Virtual%20WAN&k%5B1%5D=ExpressRoute&k%5B2%5D=VPN
+      url: https://azure.microsoft.com/blog/category/networking/
     - title: Azure network security documentation
       itemType: overview
       url: ../security/index.yml
@@ -167,7 +168,7 @@ additionalContent:
         - title: Network foundation
           url: ../foundations/index.yml
         - title: Load balancing and content delivery
-          url: ../load-balancer-content-delivery/index.yml
+          url: ../load-balancer-content-delivery/index.yml?wt.mc_id=aznetportfolioconsolidation_lbcdscenariohub_content_cnl
         - title: Network security
           url: ../security/index.yml
         - title: Network monitoring and management

@@ -6,7 +6,8 @@ author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-java, mode-arm, devx-track-arm-template
-ms.author: rhudson
+ms.author: karler
+ms.reviewer: rhudson
 ms.date: 08/28/2024
 ---
 

@@ -93,7 +93,7 @@ We don’t perform [penetration testing](./pen-testing.md) of your application f
 
 ### Web Application firewall
 
-The web application firewall (WAF) in [Azure Application Gateway](../../application-gateway/features.md#web-application-firewall) helps protect web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacking. It comes preconfigured with protection from threats identified by the [Open Web Application Security Project (OWASP) as the top 10 common vulnerabilities](https://owasp.org/www-project-top-ten/).
+The Web Application Firewall (WAF) in [Azure Application Gateway](../../web-application-firewall/ag/ag-overview.md) provides protection for web applications against common web-based attacks such as SQL injection, cross-site scripting, and session hijacking. It is preconfigured to defend against the top 10 vulnerabilities identified by the [Open Web Application Security Project (OWASP)](https://owasp.org/www-project-top-ten/).
 
 ### Authentication and authorization in Azure App Service
 
@@ -167,7 +167,7 @@ A [Network Security Group (NSG)](../../virtual-network/virtual-network-vnet-plan
 
 [Azure Firewall](../../firewall/overview.md) is a cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. It provides both east-west and north-south traffic inspection.
 
-Azure Firewall is offered in two SKUs: Standard and Premium. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
+Azure Firewall is offered in three SKUs: Basic, Standard and Premium. [Azure Firewall Basic](../../firewall/basic-features.md) offers simplified security similar to the Standard SKU but without advanced features. [Azure Firewall Standard](../../firewall/features.md) provides L3-L7 filtering and threat intelligence feeds directly from Microsoft Cyber Security. [Azure Firewall Premium](../../firewall/premium-features.md) provides advanced capabilities include signature-based IDPS to allow rapid detection of attacks by looking for specific patterns.
 
 #### Azure DDoS Protection
 
@@ -263,17 +263,17 @@ Web Application Firewall is a feature of [Azure Application Gateway](../../appli
 
 - SQL injection protection
 
-- Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
+- Protection against common web attacks such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion
 
 - Protection against HTTP protocol violations
 
-- Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
+- Protection against HTTP protocol anomalies, such as missing host, user-agent, and accept headers
 
 - Prevention against bots, crawlers, and scanners
 
-- Detection of common application misconfigurations (that is, Apache, IIS, etc.)
+- Detection of common application misconfigurations (e.g., Apache, IIS)
 
-A centralized web application firewall to protect against web attacks makes security management simpler and gives better assurance to the application against the threats of intrusions. A WAF solution can also react to a security threat faster by patching a known vulnerability at a central location versus securing each of individual web applications. Existing application gateways can be converted to an application gateway with web application firewall easily.
+A centralized web application firewall (WAF) simplifies security management and enhances protection against web attacks. It provides better assurance against intrusion threats and can respond faster to security threats by patching known vulnerabilities centrally, rather than securing each individual web application. Existing application gateways can be easily upgraded to include a web application firewall.
 
 ### Traffic Manager
 

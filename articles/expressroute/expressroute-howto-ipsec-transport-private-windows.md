@@ -37,7 +37,7 @@ This diagram shows the IPsec tunnels in transit in ExpressRoute private peering.
 ### Working with IPsec policy
 
 In Windows, encryption is associated with IPsec policy. IPsec policy determines which IP traffic is secured and the security mechanism applied to the IP packets.
-**IPSec policies** are composed of the following items: **Filter Lists**, **Filter Actions**, and **Security Rules**.
+**IPsec policies** are composed of the following items: **Filter Lists**, **Filter Actions**, and **Security Rules**.
 
 When configuring IPsec policy, it's important to understand the following IPsec policy terminology:
 
@@ -97,10 +97,8 @@ Ensure that you meet the following prerequisites:
 
 1. Create a new GPO linked to an OU by opening the Group Policy Management snap-in. Then locate the OU to which the GPO gets linked. In the example, the OU is named **IPSecOU**. 
 
-   [![9]][9]
 2. In the Group Policy Management snap-in, select the OU, and right-click. In the dropdown, select "**Create a GPO in this domain, and Link it here…**".
 
-   [![10]][10]
 3. Name the GPO an intuitive name so that you can easily locate it later. Select **OK** to create and link the GPO.
 
    [![11]][11]
@@ -169,7 +167,6 @@ Create a filter list that specifies encrypted HTTP traffic with destination port
    [![29]][29]
 7. On the **IP Protocol Type** page, select **TCP**. Then, select **Next**.
 
-   [![30]][30]
 8. On the **IP Protocol Port** page, select **From any port** and **To this port:**. Type **8080** in the text box. These settings specify only the HTTP traffic on destination port 8080 gets encrypted. Then, select **Next**.
 
    [![31]][31]
@@ -315,8 +312,6 @@ For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute
 [1]: ./media/expressroute-howto-ipsec-transport-private-windows/network-diagram.png "network Diagram IPsec transport mode through ExpressRoute"
 [4]: ./media/expressroute-howto-ipsec-transport-private-windows/ipsec-interesting-traffic.png "IPsec interesting traffic"
 [5]: ./media/expressroute-howto-ipsec-transport-private-windows/windows-ipsec.png "Windows IPsec policy"
-[9]: ./media/expressroute-howto-ipsec-transport-private-windows/ou.png "Organization Unit in the Group Policy"
-[10]: ./media/expressroute-howto-ipsec-transport-private-windows/create-gpo-ou.png "create a GPO associated with the OU"
 [11]: ./media/expressroute-howto-ipsec-transport-private-windows/gpo-name.png "assign a name to the GPO associated with the OU"
 [12]: ./media/expressroute-howto-ipsec-transport-private-windows/edit-gpo.png "edit the GPO"
 [15]: ./media/expressroute-howto-ipsec-transport-private-windows/manage-ip-filter-list-filter-actions.png "Manage IP Filter Lists and Filter Actions"
@@ -334,7 +329,6 @@ For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute
 [27]: ./media/expressroute-howto-ipsec-transport-private-windows/source-address.png "selection of the Source subnet"
 [28]: ./media/expressroute-howto-ipsec-transport-private-windows/source-network.png "Source Network"
 [29]: ./media/expressroute-howto-ipsec-transport-private-windows/destination-network.png "Destination Network"
-[30]: ./media/expressroute-howto-ipsec-transport-private-windows/protocol.png "Protocol"
 [31]: ./media/expressroute-howto-ipsec-transport-private-windows/source-port-and-destination-port.png "source port and destination port"
 [32]: ./media/expressroute-howto-ipsec-transport-private-windows/ip-filter-list.png "filter list"
 [33]: ./media/expressroute-howto-ipsec-transport-private-windows/ip-filter-for-http.png "IP filter list with HTTP traffic"

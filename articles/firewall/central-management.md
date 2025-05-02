@@ -1,12 +1,12 @@
 ---
 title: Azure Firewall central management
 description: Learn about Azure Firewall Manager central management
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: concept-article
 ms.date: 07/13/2020
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall central management

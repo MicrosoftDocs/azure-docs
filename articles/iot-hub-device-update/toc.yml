@@ -113,6 +113,8 @@ items:
     displayName: Azure CLI, az iot, az iot du
   - name: Migrate devices to public preview refresh
     href: migration-public-preview-refresh-to-ga.md
+  - name: Prepare for root key rotation
+    href: device-update-rootkey.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage-related errors when importing updates

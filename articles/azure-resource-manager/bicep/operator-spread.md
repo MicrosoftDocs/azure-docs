@@ -3,7 +3,7 @@ title: Bicep spread operator
 description: Describes Bicep spread operator.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 11/20/2024
+ms.date: 02/12/2025
 ---
 
 # Bicep spread operator

@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Seed a historical cost dataset with the Exports API
 description: This tutorial helps your seed a historical cost dataset to visualize cost trends over time.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: tutorial
 ms.service: cost-management-billing
@@ -42,7 +42,7 @@ To learn how to get a bearer token with a service principal, see [Acquire an Acc
 
 ## Format the request
 
-See the following example request and create your own one-time data Export. The following example request creates a one-month Actual Cost dataset in the specified Azure storage account. We recommend that you request no more than one month's of data per report. If you have a large dataset every month, we recommend setting `partitionData = true` for your one-time export to split it into multiple files. For more information, see [File partitioning for large datasets](../costs/tutorial-export-acm-data.md#file-partitioning-for-large-datasets).
+See the following example request and create your own one-time data Export. The following example request creates a one-month Actual Cost dataset in the specified Azure storage account. We recommend that you request no more than one month's of data per report. If you have a large dataset every month, we recommend setting `partitionData = true` for your one-time export to split it into multiple files. For more information, see [File partitioning for large datasets](../costs/tutorial-improved-exports.md#file-partitioning-for-large-datasets). 
 
 ```http
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.CostManagement/exports/{ExportName}?api-version=2021-10-01

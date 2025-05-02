@@ -11,12 +11,7 @@ metadata:
   ms.custom: compute-evergreen
 title: 'Connectivity and networking issues for Azure Cloud Services (classic): Frequently asked questions (FAQs)'
 summary: |
-  [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
-  
   This article includes frequently asked questions about connectivity and networking issues for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). For size information, see the [Cloud Services Virtual Machine (VM) size page](cloud-services-sizes-specs.md).
-  
-  [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
-  
 
 sections:
   - name: Ignored

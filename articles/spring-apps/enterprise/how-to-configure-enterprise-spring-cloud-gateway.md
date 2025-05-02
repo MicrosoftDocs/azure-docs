@@ -2,7 +2,8 @@
 title: Configure VMware Spring Cloud Gateway
 description: Learn how to configure VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: xiading
+ms.author: karler
+ms.reviewer: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 12/01/2023
@@ -620,7 +621,7 @@ For other supported environment variables, see the following sources:
 - [Dynatrace environment variables](https://www.dynatrace.com/support/help/setup-and-configuration/setup-on-cloud-platforms/microsoft-azure-services/azure-integrations/azure-spring#envvar)
 - [New Relic environment variables](https://docs.newrelic.com/docs/apm/agents/java-agent/configuration/java-agent-configuration-config-file/#Environment_Variables)
 - [AppDynamics environment variables](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
-- [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/master/configuration.html)
+- [Elastic environment variables](https://www.elastic.co/guide/en/apm/agent/java/current/configuration.html)
 
 #### Configure APM integration on the service instance level (recommended)
 

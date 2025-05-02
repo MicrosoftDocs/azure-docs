@@ -2,8 +2,8 @@
 title: Session host update (preview) - Azure Virtual Desktop
 description: Learn about session host update, which updates the operating system image and configuration of session hosts in a host pool in Azure Virtual Desktop.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 01/24/2025
 ---
 
@@ -92,6 +92,8 @@ With only a reduced number of session hosts available, you should schedule an up
 ## Known issues and limitations
 
 Here are known issues and limitations:
+
+- Session host update only supports key vaults that are configured to [allow public access from all networks](/azure/key-vault/general/how-to-azure-key-vault-network-security).
 
 - Session host update is only available in the global Azure cloud. It isn't available in other clouds, such as Azure US Government or Azure operated by 21Vianet.
 

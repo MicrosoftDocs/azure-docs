@@ -16,8 +16,6 @@ ms.date: 11/06/2024
 # Quickstart: Create a dev box by using team customizations
   
 In this quickstart, you create a dev box by using Microsoft Dev Box team customizations. The feature uses an image definition file so that you can create consistently customized dev boxes for your development team and provide a tailored environment for your projects.
-
-[!INCLUDE [customizations-preview-text](includes/customizations-preview-text.md)]
   
 ## Prerequisites
   
@@ -105,6 +103,15 @@ The sections that follow walk you through these tasks:
 
 1. Switch back to the Azure portal.
 
+1. Select **Sync settings**.
+
+   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-settings-small.png" alt-text="Screenshot of the Catalogs pane in the Azure portal, with the button for sync settings highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-settings.png":::
+
+1. On the **Sync settings** pane, select **Image definitions**, and then select **Save**.
+
+   :::image type="content" source="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png" alt-text="Screenshot of the pane for sync settings in the Azure portal, with the checkbox for image definitions highlighted." lightbox="./media/how-to-configure-customization-imaging/customizations-project-sync-image-definitions.png":::
+
+
 1. On the **Add catalog** pane, enter the following information, and then select **Add**:
 
     | Field | Value |
@@ -113,7 +120,6 @@ The sections that follow walk you through these tasks:
     | **Branch**  | Select the branch. |
     | **Folder path**  | Select the folder that contains subfolders that hold your environment definitions. |
 
-   :::image type="content" source="media/quickstart-team-customizations/add-catalog-repo-branch-folder.png" alt-text="Screenshot of the Azure portal pane for adding a catalog, with the boxes for repo, branch, and folder path highlighted. The Add button is also highlighted." lightbox="media/quickstart-team-customizations/add-catalog-repo-branch-folder.png":::
 
 1. On the **Catalogs** pane, verify that your catalog appears. When the connection is successful, the **Status** column shows **Sync successful**.
 

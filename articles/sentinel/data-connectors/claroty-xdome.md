@@ -2,7 +2,7 @@
 title: "Claroty xDome connector for Microsoft Sentinel"
 description: "Learn how to install the connector Claroty xDome to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 05/30/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

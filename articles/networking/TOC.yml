@@ -157,12 +157,10 @@
     href: ../azure-resource-manager/templates/syntax.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Providers
     href: networking-partners-msp.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Community templates
     href: https://azure.microsoft.com/resources/templates/
   - name: Networking blog
-    href: https://azure.microsoft.com/blog/topics/networking
+    href: https://azure.microsoft.com/blog/category/networking/
   - name: Pricing
     href: https://azure.microsoft.com/pricing
   - name: Pricing calculator

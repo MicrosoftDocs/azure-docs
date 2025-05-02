@@ -72,6 +72,6 @@ To check if the maximum throughput limit has been reached, monitor the metric [T
 
 ## Next steps
 
-- [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/tco?hs_preview=tIKQbfoF-41214739590)
+- [Azure NetApp Files Performance Calculator](https://docs.netapp.com/us-en/netapp-solutions/ehc/azure-storage-options.html?hs_preview=tIKQbfoF-41214739590)
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)

@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.tool: azure-powershell
 ms.custom: hdinsightactive, devx-track-azurepowershell, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 01/02/2025
 ---
 
