@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Virtual Desktop using the Remote Desk
 ms.topic: how-to
 ms.date: 02/26/2025
 ms.author: avdcontent
-author: dknappettmsft
+author: dougeby
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 
