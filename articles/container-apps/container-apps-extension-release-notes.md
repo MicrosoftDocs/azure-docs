@@ -9,7 +9,7 @@ ms.date: 05/01/2025
 ms.author: cshoe
 ---
 
-# Azure Container Apps extension Release notes
+# Azure Container Apps extension release notes
 
 ## v1.0.46 (December 2022)
 
@@ -21,7 +21,7 @@ ms.author: cshoe
 
 ## v1.0.48 (February 2023)
 
-- Add probes to EasyAuth container(s)
+- Add probes to EasyAuth containers
 - Increased memory limit for dapr-operator
 - Added prevention of platform header overwriting
 
@@ -52,7 +52,7 @@ ms.author: cshoe
 - Support for container registries exposed on custom port
 - Enable activate/deactivate revision when a container app is stopped
 - Fix Revisions List not returning init containers
-- Default allow headers added for cors policy
+- Default "allow headers" added for cors policy
 
 ## v1.12.9 (July 2023)
 
@@ -78,11 +78,11 @@ ms.author: cshoe
 ## v1.30.6 (January 2024)
 
 - Update KEDA to v2.12, Envoy SC image to v1.0.4, and Dapr image to v1.11.6
-- Added default response timeout for Envoy routes to 1,800 seconds
+- Added default response time-out for Envoy routes to 1,800 seconds
 - Changed Fluent bit default log level to warn
 - Delay deletion of job pods to ensure log emission
 - Fixed issue for job pod deletion for failed job executions
-- Ensure jobs in suspended state have failed pods deleted
+- Ensure jobs in a suspended state deletes failed pods
 - Update to not resolve HTTPOptions for TCP applications
 - Allow applications to listen on HTTP or HTTPS
 - Add ability to suspend jobs
@@ -97,7 +97,7 @@ ms.author: cshoe
 - Allow customers to enabled Azure SDK debug logging in Dapr
 - Scale Envoy in response to memory usage
 - Change of Envoy log format to JSON
-- Export additional Envoy metrics
+- Export more Envoy metrics
 - Truncate Envoy log to first 1,024 characters when log content failed to parse
 - Handle SIGTERM gracefully in local proxy
 - Allow ability to use different namespaces with KEDA
@@ -113,7 +113,7 @@ ms.author: cshoe
 
 ## v1.37.2 (September 2024)
 
-- Updated Dapr-Metrics image to v0.6.8 to resolve network timeout issue
+- Updated Dapr-Metrics image to v0.6.8 to resolve network time out issue
 - Resolved issue in Log Processor which prevented MDSD container from starting when cluster is connected behind a Proxy
 
 ## v1.37.7 (October 2024)
@@ -123,7 +123,7 @@ ms.author: cshoe
 
 ## v1.37.8 (March 2025)
 
-- Resolved issue with SMB storage's read-only attribute which was not setting correctly
+- Resolved issue with SMB storage's read-only attribute which wasn't setting correctly
 - Resolved issue with cleanup hook
 - Added support for health probes for Logic Apps
 - Added support for JWT authentication for sync trigger
