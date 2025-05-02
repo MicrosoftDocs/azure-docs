@@ -17,7 +17,7 @@ ms.reviewer: cshoe, hannahhunter
 
 Workflows are multi-step operations that usually occur in a specific order or involve long-running tasks. Real-world scenarios requiring workflows include:
 - Order processing
-- Orchestrating AI agents
+- AI agent orchestration
 - Infrastructure management
 - Data processing pipelines 
 
@@ -25,10 +25,10 @@ Events like temporary infrastructure failures or dependency downtime can often i
 
 ## Durable execution 
 
-Durable execution provides a fault-tolerant approach to running code. It's designed to handle failures gracefully through automatic retries and state persistence. Durable execution is built on three core principles:
+Durable execution provides a fault-tolerant approach to running code and handles failures gracefully through automatic retries and state persistence. Durable execution is built on three core principles:
 
 - **Incremental execution:** Each operation is executed independently and in order.
-- **State persistence:** The output of each step is saved to ensure progress is not lost.
+- **State persistence:** The output of each step is saved to ensure progress isn't lost.
 - **Fault tolerance:** If a step fails, the operation is retried from the last successful step, skipping previously completed steps.
 
 Durable execution benefits scenarios requiring stateful chaining of operations. It simplifies the implementation of complex, long-running, stateful, and fault-tolerant application patterns. 
