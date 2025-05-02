@@ -89,6 +89,6 @@ Post your issues and questions about migration to our [Microsoft Q&A page](/answ
 
 To get started, see [Platform-supported migration of IaaS resources from classic to Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-ps)
 
-Also see [Prepare for Azure classic administrator roles retirement](azure/cost-management-billing/manage/classic-administrator-retire?source=recommendations) and [Azure classic subscription administrators](/azure/role-based-access-control/classic-administrators?source=recommendations&tabs=azure-portal).
+Also see [Prepare for Azure classic administrator roles retirement](/azure/cost-management-billing/manage/classic-administrator-retire?source=recommendations) and [Azure classic subscription administrators](/azure/role-based-access-control/classic-administrators?source=recommendations&tabs=azure-portal).
 
 For any concerns around migration, you can contact Azure Support. Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
