@@ -102,7 +102,7 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## Related guidance
 
-- [Background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs.md)
+- [Background jobs best practices – Azure Architecture Center](/azure/architecture/best-practices/background-jobs)
 - [Develop WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 - [Get started with the WebJobs SDK](webjobs-sdk-get-started.md)
 - [Use the WebJobs SDK to build advanced jobs](webjobs-sdk-how-to.md)

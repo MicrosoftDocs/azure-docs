@@ -80,7 +80,7 @@ WebJob logs are handled by the Kudu engine and are available under the `App_Data
 ```
 https://<your-app>.scm.azurewebsites.net/api/triggeredwebjobs/<job>/history
 ```
-For more advanced monitoring and querying capabilities, consider integrating with [Application Insights](/azure/azure-monitor/app/app-insights-overview.md).
+For more advanced monitoring and querying capabilities, consider integrating with [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
 Triggered WebJobs include a full history of executions. Continuous WebJobs stream logs in real time.
 
