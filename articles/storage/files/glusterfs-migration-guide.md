@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/01/2025
+ms.date: 05/02/2025
 ms.author: kendownie
 ---
 
@@ -19,12 +19,70 @@ Red Hat Gluster Storage (based on GlusterFS) has reached the end of its support 
 - End of full support: November 2020
 - End of maintenance support: November 2021
 - End of extended life phase: June 2024
+- Formal end of life : December 2024
 
 Organizations using GlusterFS should migrate to supported alternatives, such as Azure Files, to ensure continued support and security updates.
 
+## Client requirements for Azure Files
+
+Before migrating from GlusterFS to Azure Files, ensure your client systems meet the necessary requirements for connecting to Azure file shares using either SMB or NFS protocols.
+
+# [Windows](#tab/windows)
+
+### SMB requirements
+
+Windows clients connecting to Azure Files via SMB should meet the following requirements:
+
+- Windows 7 or Windows Server 2008 R2 or newer
+- SMB 2.1 protocol support (minimum)
+- SMB 3.0 protocol support for encryption features
+- SMB 3.1.1 protocol support for best security and performance
+
+For a complete list of requirements and setup instructions, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md#prerequisites).
+
+### NFS requirements
+
+Azure Files supports NFSv4.1, but Windows doesn't include a compatible NFSv4.1 client. To use NFS shares on Windows:
+
+1. Install Windows Subsystem for Linux (WSL):
+    - For Windows client: Follow the [WSL installation guide](/windows/wsl/install)
+    - For Windows Server: Follow the [WSL on Windows Server installation guide](/windows/wsl/install-on-server)
+
+1. Mount the NFS share from within a Linux distribution running on WSL.
+
+# [Linux](#tab/linux)
+
+### SMB requirements
+
+Linux clients connecting via SMB should have:
+
+- A compatible Linux distribution with SMB support
+- The `cifs-utils` package installed
+- SMB 3.0 protocol support (minimum)
+- SMB 3.1.1 protocol support (recommended)
+
+> [!IMPORTANT]
+> We strongly recommend using SMB 3.1.1 protocol for Azure Files access. SMB 3.0 and 2.0 should only be used for legacy clients, and you must plan an OS upgrade to mitigate unpatched security vulnerabilities.
+
+For specific distribution support and configuration steps, see [Use an Azure file share with Linux](storage-how-to-use-files-linux.md#prerequisites).
+
+### NFS requirements
+
+Linux clients connecting via NFS should have:
+
+- NFSv4.1 client support
+- A compatible Linux distribution
+- Proper network configuration for NFS traffic
+
+For NFS mount requirements and configuration steps, see [Mount an NFS share](storage-files-how-to-mount-nfs-shares.md).
+
+---
+
 ## Migration tools
 
-For Windows clients, use Robocopy. For Linux clients, use rsync.
+For Windows clients, we recommend using Robocopy.
+
+For Linux clients, use rsync or fpsync, which allows you to parallelize rsync file operations. See [Using fpsync vs. rsync](storage-files-migration-nfs.md#using-fpsync-vs-rsync).
 
 # [Windows](#tab/windows)
 
@@ -65,6 +123,7 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 - `--progress`: Shows progress during transfer
 - `--stats`: Provides transfer statistics
 - `--delete`: Removes files from destination that don't exist in source
+
 ---
 
 ## Step-by-step migration procedure
@@ -77,9 +136,7 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
    - Access patterns and performance requirements
    - Client operating systems
 
-1. Select the appropriate protocol:
-   - SMB for Windows environments
-   - NFS for Linux environments
+1. Select the appropriate protocol. In most cases, you'll want to use SMB for Windows workloads and NFS for Linux workloads.
 
 1. Select HDD or SSD, and size your Azure file shares appropriately:
    - Standard (HDD): Up to 100 TiB
@@ -172,17 +229,31 @@ For large datasets, consider using the `--exclude` parameter to perform the migr
 
 ## Optimize performance
 
+Follow these recommendations to optimize performance when migrating from GlusterFS to Azure Files. For detailed performance tuning, see [Azure Files scalability and performance targets](storage-files-scale-targets.md) and [Understand and optimize Azure file share performance](understand-performance.md).
+
+> [!NOTE]
+> Check VM size to ensure the VM network bandwidth isn't a bottleneck when your file shares are correctly sized for required throughput and IOPS. Different VM SKUs have different network bandwidth limits that can constrain overall file share performance. Select VM sizes that provide sufficient network throughput for your workload requirements. For more information, see [Azure virtual machine sizes](/azure/virtual-machines/sizes).
+
 # [Windows](#tab/windows)
 
-For SMB shares:
-  - Enable [SMB Multichannel](smb-performance.md#smb-multichannel) for higher throughput.
-  - Consider using SSD file shares for IO-intensive workloads.
+### Optimize SMB performance
+
+- Enable [SMB Multichannel](smb-performance.md#smb-multichannel) for higher throughput with multiple connections.
+- Use SSD file shares and [Metadata caching](smb-performance.md#metadata-caching-for-ssd-file-shares) for performance-critical workloads.
+- Configure appropriate client-side caching.
+- Follow [Azure Files performance recommendations](smb-performance.md) for SMB file shares.
 
 # [Linux](#tab/linux)
 
-For NFS shares:
-  - Make sure you provision enough capacity to get the performance you need.
-  - Configure appropriate read/write cache sizes on clients.
+### Optimize NFS performance
+
+- Always use Premium file shares for NFS workloads (required).
+- Provision sufficient capacity based on your [throughput requirements](understand-performance.md).
+- Optimize client-side settings like read/write buffer sizes.
+- Use nconnect, a client-side mount option that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of nconnect=4.
+- Consider network latency between your clients and Azure.
+- Follow [Azure Files performance recommendations](nfs-performance.md) for NFS file shares.
+
 ---
 
 ## Troubleshooting
@@ -193,7 +264,7 @@ Follow these instructions to troubleshoot common migration issues.
 
 ### Common issues with Robocopy
 
-- **Error 5 (Access Denied)**: Verify permissions on source and destination.
+- **Error 5 (Access denied)**: Verify permissions on source and destination.
 - **Error 67 (Network name not found)**: Check network connectivity and share name.
 - **Error 1314 (Not enough quota)**: Increase Azure Files quota or free space.
 
@@ -204,13 +275,15 @@ Follow these instructions to troubleshoot common migration issues.
 - **Permission denied**: Check file permissions and mount options.
 - **Connection timeout**: Verify network connectivity and firewall settings.
 - **Partial transfer**: Use `--partial` flag to resume interrupted transfers.
+- **No such file or directory**: Verify that the file path and directory exist.
+
 ---
 
 ## Migration support
 
 For issues related to Azure Files, contact Azure Support through the [Azure portal](https://portal.azure.com).
 
-For GlusterFS migration assistance, consider engaging Microsoft Consulting Services or a Microsoft partner.
+For GlusterFS migration assistance, consider engaging Microsoft Consulting Services.
 
 ## See also
 
@@ -218,4 +291,7 @@ For GlusterFS migration assistance, consider engaging Microsoft Consulting Servi
 - [Migrate to NFS Azure file shares](storage-files-migration-nfs.md)
 - [Robocopy documentation](/windows-server/administration/windows-commands/robocopy)
 - [rsync manual](https://linux.die.net/man/1/rsync)
+- [Using fpsync to parallelize rsync file operations](https://www.fpart.org/fpsync/)
 - [Azure Files scale targets](storage-files-scale-targets.md)
+- [Troubleshoot SMB on Linux for Azure Files](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-linux-smb)
+- [Troubleshoot NFS on Linux for Azure Files](https://learn.microsoft.com/en-us/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-linux-nfs)
