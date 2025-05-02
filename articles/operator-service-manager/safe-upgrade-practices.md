@@ -107,10 +107,10 @@ After fixing the failed nfApp, but before attempting an upgrade retry, consider 
 By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
 
 ## Skip nfApps using applicationEnablement
-In the NFDV resource, under `deployParametersMappingRuleProfile` there's a supported property `applicationEnablement` of type enum, which takes values of Unknown, Enabled, or disabled. It can be used to manually exclude nfApp operations during network function (NF) deployment. The following example demonstrates a generic method to parameterize `applicationEnablement` as an includeed value in `roleOverrideValues` property.
+In the NFDV resource, under `deployParametersMappingRuleProfile` there's a supported property `applicationEnablement` of type enum, which takes values of Unknown, Enabled, or disabled. It can be used to manually exclude nfApp operations during network function (NF) deployment. The following example demonstrates a generic method to parameterize `applicationEnablement` as an included value in `roleOverrideValues` property.
 
 ### Template changes
-While no NFDV changes are neccesarily required, optionally the publisher can use the NFDV to set a default value for the `applicationEnablement` property. The default value will be used, unless its changed via `roleOverrideValues`. 
+While no NFDV changes are necessarily required, optionally the publisher can use the NFDV to set a default value for the `applicationEnablement` property. The default value will be used, unless its changed via `roleOverrideValues`. 
 
 #### NFDV Template
 Use the NFDV template to set a default value for `applicationEnablement`. The following example sets `enabled` state as the default value for `hellotest` networkfunctionApplication. 
@@ -133,7 +133,7 @@ Use the NFDV template to set a default value for `applicationEnablement`. The fo
 To manage the `applicationEnablement` value more dynamically, the Operator can pass a realtime value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead it's suggested to parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. This requires the following modifications to the CGS, NF templates and finally the CGV.
 
 #### CGS Template
-The CGS template must be updated to include one variable decleration for each line to parameterize under `roleOverrideValues`. The below example demonstrates three override values, one to for nfConfiguration [0] and two for nfApplication options [1,2].
+The CGS template must be updated to include one variable declaration for each line to parameterize under `roleOverrideValues`. The below example demonstrates three override values, one to for nfConfiguration [0] and two for nfApplication options [1,2].
 
 ```json
         "roleOverrideValues0": {
@@ -174,7 +174,7 @@ The NF template must be update three ways. First, the implicit config parameter 
 ```
 
 #### CGV Template
-The CGV template can now be updated to include the content for each variable to be subsitited into `roleOverrideValues` property at run-time. The below example sets `rollbackEnabled` to true, followed by override sets for `hellotest` and `hellotest1` nfApplications.
+The CGV template can now be updated to include the content for each variable to be substituted into `roleOverrideValues` property at run-time. The below example sets `rollbackEnabled` to true, followed by override sets for `hellotest` and `hellotest1` nfApplications.
 
 ```json
 {
@@ -183,7 +183,7 @@ The CGV template can now be updated to include the content for each variable to 
     "roleOverrideValues2": "{\"name\":\"hellotest1\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\" : \"Enabled\"}}"
 }
 ```
-With this fraemwork in place, the Opeartor can manage any of the `roleOverrideValues` via simple updates to the CGV, followed by attaching that CGV to the desired SNS operation.
+With this framework in place, the Operator can manage any of the `roleOverrideValues` via simple updates to the CGV, followed by attaching that CGV to the desired SNS operation.
 
 ## Skip nfApps which have no change
 The `skipUpgrade` feature is designed to optimize the time taken for CNF upgrades. When the publisher enables this flag in the `roleOverrideValues` under `upgradeOptions`, the AOSM service layer performs certain prechecks, to determine whether an upgrade for a specific `nfApplication` can be skipped. If all precheck criteria are met, the upgrade is skipped for that application. Otherwise, an upgrade is executed at the cluster level.
