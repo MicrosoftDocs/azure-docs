@@ -1,10 +1,10 @@
 ---
-title: Collect and read OpenTelemetry data in Azure Container Apps (preview)
-description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps.
+title: Collect and read OpenTelemetry data in Azure Container Apps
+description: Learn to record and query data collected using OpenTelemetry in Azure Container Apps (preview).
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 04/28/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 ms.topic: how-to
 ---
@@ -48,7 +48,7 @@ The following table shows you what type of data you can send to each destination
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
 | [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
-| [Datadog](https://datadoghq.com/) | No | Yes | Yes |
+| [Datadog](https://datadoghq.com/) | Yes | Yes | Yes |
 | [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
 
 ## Azure Monitor Application Insights
@@ -771,7 +771,6 @@ See the destination service for their billing structure and terms. For example, 
 
 ## Known limitations
 
-- OpenTelemetry agents are in preview.
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
 - The Datadog endpoint doesn't accept logs.
