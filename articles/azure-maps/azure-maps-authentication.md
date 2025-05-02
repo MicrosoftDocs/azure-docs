@@ -192,7 +192,7 @@ SAS tokens are immutable. Once they're created, they remain valid until they exp
 
 #### SAS token maximum rate limit can control billing for an Azure Maps resource
 
-When setting a maximum rate limit on the token (`maxRatePerSecond`), any rates exceeding this limit aren't billed to the account, allowing you to cap billable transactions. However, the application will receive 429 client error (`TooManyRequests`) responses for all transactions once the limit is reached. It is the application's responsibility to manage retries and distribute SAS tokens. There is no restriction on the number of SAS tokens that can be created for an account. To modify an existing token's limit, a new SAS token must be generated. The old SAS token remains valid until it expires.
+When setting a maximum rate limit on the token (`maxRatePerSecond`), any rates exceeding this limit aren't billed to the account, allowing you to cap billable transactions. However, the application will receive client error 429 (`TooManyRequests`) responses for all transactions once the limit is reached. It is the application's responsibility to manage retries and distribute SAS tokens. There is no restriction on the number of SAS tokens that can be created for an account. To modify an existing token's limit, a new SAS token must be generated. The old SAS token remains valid until it expires.
 
 Estimated Example:
 
