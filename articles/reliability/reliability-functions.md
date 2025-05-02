@@ -178,13 +178,15 @@ Before updating your Flex Consumption plan to be zone-redundant, consider updati
 - Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
 - Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
 
-Once the storage account(s) associated with the app have been updated, you can update the Flex Consumption plan to be zone-redundant. This will cause the Flex Consumption app in the plan to restart. There are currently multiple ways to update a zone-redundant Flex Consumption plan.
+Once the storage account(s) associated with the app have been updated, you can update the Flex Consumption plan to be zone-redundant using Bicep or ARM templates. This will cause the Flex Consumption app in the plan to restart.
 
 # [Azure portal](#tab/azure-portal)
 Not currently supported.
 
 # [Azure CLI](#tab/azure-cli)
+Not currently supported.
 
+<-- Uncomment once AZ support is fixed:
 1. Update the Flex Consumption app and set the `--zone-redundant true` parameter:
 
     ```azurecli
@@ -192,7 +194,7 @@ Not currently supported.
 
     az functionapp plan update --ids $PLAN_RESOURCE_ID --set zoneRedundant=true
     ```
-
+-->
 # [Bicep template](#tab/bicep)
 
 Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition.
