@@ -171,7 +171,7 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
-    - name: Workflows in Azure Container Apps
+    - name: Workflows
       href: workflows-overview.md
     - name: Troubleshooting
       items:

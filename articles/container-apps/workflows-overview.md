@@ -13,31 +13,46 @@ ms.reviewer: cshoe, hannahhunter
 # Workflows in Azure Container Apps
 
 > [!NOTE]
-> You might see workflows referred to as *orchestrations*, especially in the context of Durable Functions. To avoid confusion with container orchestrations, this article uses the term *workflows* instead. 
+> The term "workflow" often has multiple meanings. In the context of Durable Functions, you might see workflows referred to as orchestrations. To avoid any confusion with container orchestrations, this article uses the term workflows instead. 
 
 Workflows are multi-step operations that usually occur in a specific order or involve long-running tasks. Real-world scenarios requiring workflows include:
 - Order processing
-- AI agents
+- Orchestrating AI agents
 - Infrastructure management
 - Data processing pipelines 
 
-Events like temporary infrastructure failures or dependency downtime can often interrupt workflow execution. To prevent interruptions, you can use durable execution, which continues from the point of failure instead of restarting.
+Events like temporary infrastructure failures or dependency downtime can often interrupt workflow execution. To prevent interruptions, you can use *durable execution*, which continues from the point of failure instead of restarting.
+
+## Durable execution 
+
+Durable execution provides a fault-tolerant approach to running code. It's designed to handle failures gracefully through automatic retries and state persistence. Durable execution is built on three core principles:
+
+- **Incremental execution:** Each operation is executed independently and in order.
+- **State persistence:** The output of each step is saved to ensure progress is not lost.
+- **Fault tolerance:** If a step fails, the operation is retried from the last successful step, skipping previously completed steps.
+
+Durable execution benefits scenarios requiring stateful chaining of operations. It simplifies the implementation of complex, long-running, stateful, and fault-tolerant application patterns. 
+
+You can achieve durable execution in your workflows in Azure Container Apps using one of the Azure-managed workflow frameworks.
+
+## Workflow frameworks for developers in Azure
 
 Azure provides two code-oriented workflow frameworks you can use to build apps that run on Azure Container Apps: 
 - **Durable Task SDKs** (preview)
 - **Durable Functions** 
 
-These frameworks continuously checkpoint workflow state as the app runs and automatically handles retries to ensure durable execution. 
-
-## Workflow frameworks for developers in Azure
-
 The Durable Task SDKs and Durable Functions workflow frameworks are designed for developers and available in multiple programming languages. 
 
 ### Durable Task SDKs (preview)
 
-The Durable Task SDKs are lightweight client SDKs that provide an unopinionated programming model for authoring workflows. They allow your app to connect to a workflow engine hosted in Azure called the [Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md). 
+The Durable Task SDKs are lightweight client SDKs that provide an unopinionated programming model for authoring workflows. Unlike Durable Functions, which is tightly coupled with the Functions compute, these portable SDKs are decoupled from any compute. They allow your app to connect to a workflow engine hosted in Azure called the [Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md). 
 
-To ensure durable execution, the Durable Task SDKs require a storage backend to persist workflow state as the app runs. The Durable Task Scheduler works as the backend for apps using the Durable Task SDKs. 
+To ensure durable execution, the Durable Task SDKs require a storage backend to persist workflow state as the app runs. The Durable Task Scheduler backend continuously checkpoints workflow state as the app runs and automatically handles retries to ensure durable execution. The scheduler is responsible for:
+
+- Schedules and manages workflow task execution.
+- Stores and maintains workflow state.
+- Handles persistence, failures, and retries.
+- Load balances orchestration execution at scale on your container app.
 
 #### Quickstarts
 
