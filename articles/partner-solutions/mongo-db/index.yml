@@ -20,16 +20,18 @@ landingContent:
             url: overview.md
 
   # Card
-  - title: Create an MongoDB Atlas resource
+  - title: Get started with MongoDB Atlas
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with MongoDB Atlas
+          - text: Create a resource
             url: create.md
       - linkListType: how-to-guide
         links:
-          - text: Manage your MongoDB Atlas resource
+          - text: Manage a resource
             url: manage.md
+        links: 
+          - text: Troubleshoot
 
   #Card
   - title: Tools
