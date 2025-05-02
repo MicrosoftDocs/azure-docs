@@ -81,16 +81,16 @@ specify a different service group as the parent, use the **properties.parent.id*
   ```
 
 ## Verify your Service Group was created
-Service Groups PUT or create call is an Asynchronous call which means that the response to the initial create call is a HTTP status code 201: Accepted. This doesn't mean the Service group was successfully created, only that the Azure successfully received the request to create the Service Group.  
+Service Groups PUT or create call is an Asynchronous call which means that the response to the initial create call is an HTTP status code 201: Accepted. This response doesn't mean the Service group was successfully created, only that the Azure successfully received the request to create the Service Group.  
 
-To check the operation was successful, you should do a GET call on the value returned in the **azure-asyncoperation** header.  The URL provided will provide the status of the create operation. 
+To check the operation was successful, you should do a GET call on the value returned in the **azure-asyncoperation** header. The URL provides the status of the created operation. 
 
 > ![NOTE]
 > To avoid issues within scripts or templates, the automation should poll this provided URL before moving to the next step. If the automation moves to the next step before the operation has responded successful, the next operation will fail as the Service Group has not been created.  
 
 ## Clean up resources
 
-To remove the service group created above, use the
+To remove the service group created in this document, use the
 [Management Groups - Delete]() endpoint:
 
 - REST API URI
