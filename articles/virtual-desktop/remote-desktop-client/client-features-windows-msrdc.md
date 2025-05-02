@@ -4,7 +4,7 @@ description: Learn how to use features of the Remote Desktop client for Windows 
 ms.topic: how-to
 ms.date: 01/20/2025
 ms.author: avdcontent
-author: dknappettmsft
+author: dougeby
 ROBOTS: NOINDEX, NOFOLLOW
 ---
 
