@@ -14,23 +14,23 @@ Access to Azure Virtual enclave resources is primarily controlled using built-in
 ## RBAC for community and Enclaves 
 Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
 
-- **Community owner** - Create/delete communities, Enclaves, community endpoints, and transit hub resources. Read-Only access to workloads, enclave Connections, and enclave endpoints.
+- **Community owner** - Create/delete communities, enclaves, community endpoints, and transit hub resources. Read-only access to workloads, enclave connections, and enclave endpoints.
 - **Community contributor** - Same as above except for delete.
-- **Community reader** - Read-Only access to communities, Enclaves, community endpoints, and transit hub.
+- **Community reader** - Read-only access to communities, Enclaves, community endpoints, and transit hub.
 - **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
-- **Enclave reader** - Has read-Onlyaccess to one or more enclave resources and underlying workloads, endpoints, and connections.
+- **Enclave reader** - Has read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
 - **Enclave approver** - Read-access to all AVE resource types and explicit permissions to approve actions that require approval.
 
 |Built in Role          |Community              |Community Endpoint     |Transit Hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|
-|Community owner        |Read/Write/Delete      |Read/Write/Delete      |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete  |Read-Only              |Read/Write/Delete  |Read-Only     |
-|Community Contributor  |Read/Write             |Read/Write             |Read/Write         |Read/Write         |Read/Write         |Read-Only              |Read/Write         |Read-Only     |
-|Community Reader       |Read-Only              |Read-Only              |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Read-Only     |
-|Enclave owner          |Read-Only              |Read Only              |Read-Only          |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete      |Read/Write/Delete  |Read-Only     |
-|Enclave Contributor    |Read-Only              |Read-Only              |Read-Only          |Read/Write         |Read/Write         |Read/Write             |Read/Write         |Read-Only     |
-|Enclave Approver       |Read-Only              |Read-Only              |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Approve/Reject |
-|Enclave  Reader        |X                      |X                      |Read-Only          |Read-Only          |Read-Only          |Read-Only              |Read-Only          |Read-Only     |
+|Community owner        |Read/Write/Delete      |Read/Write/Delete      |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete  |Read-only              |Read/Write/Delete  |Read-only     |
+|Community Contributor  |Read/Write             |Read/Write             |Read/Write         |Read/Write         |Read/Write         |Read-only              |Read/Write         |Read-only     |
+|Community Reader       |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Read-only     |
+|Enclave owner          |Read-only              |Read Only              |Read-only          |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete      |Read/Write/Delete  |Read-only     |
+|Enclave Contributor    |Read-only              |Read-only              |Read-only          |Read/Write         |Read/Write         |Read/Write             |Read/Write         |Read-only     |
+|Enclave Approver       |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Approve/Reject |
+|Enclave  Reader        |X                      |X                      |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Read-only     |
 
 These built-in RBAC roles can be assigned at [different scopes](../role-based-access-control/scope-overview.md) depending on the scenario. 
 
