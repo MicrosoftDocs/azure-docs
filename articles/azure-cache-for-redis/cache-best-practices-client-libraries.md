@@ -12,7 +12,7 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 # Client libraries
 
-Azure Cache for Redis is based on the open-source, in-memory data store Redis. Redis clients for many programming languages can access Azure Redis. Your application can use any client library that's compatible with open-source Redis to connect to your Azure Redis cache.
+Azure Cache for Redis is based on the Redis open-source, in-memory data store. Redis clients for many programming languages can access Azure Redis. Your application can use any client library that's compatible with open-source Redis to connect to your Azure Redis cache.
 
 Each client library has its own API that calls Redis servers using Redis commands. The client libraries are built to communicate with any Redis server.
 
@@ -60,13 +60,13 @@ Besides the reference documentation, you can use the following tutorials to get 
 
 ## Best practices for Redisson (Java)
 
-Here are some recommended best practices for Redisson:
+Here are some recommended best practices for the Redisson client library:
 
 - Use Redisson 3.14.1 or higher. Older versions contain known connection leak issues that cause problems after failovers.
 
-- Monitor the Redisson changelog for known issues that can affect features your application uses. For more information, see [`CHANGELOG`](https://github.com/redisson/redisson/blob/master/CHANGELOG.md) and the [Redisson FAQ](https://github.com/redisson/redisson/wiki/16.-FAQ).
+- Monitor the Redisson changelog for known issues that can affect features your application uses. For more information, see the [Redisson Releases History](https://github.com/redisson/redisson/blob/master/CHANGELOG.md) and the [Redisson FAQ](https://redisson.pro/docs/faq/).
 
-- If you don't want to use the *read from replica* strategy, modify the `readMode` config setting. Unlike some other clients, Redisson uses *read from replica* as the default.
+- Modify the `readMode` config setting if you don't want to use the *read from replica* strategy. Unlike some other clients, Redisson uses *read from replica* as the default.
 
 - To reduce the risk of aggressive reconnect behaviors or *connection storms*, consider setting fewer minimum connections.
 
@@ -74,7 +74,7 @@ Here are some recommended best practices for Redisson:
 
 - Reset the idle connection timeout if necessary. Redisson has a default 10-second idle connection timeout, which can lead to more closing and reopening of connections than ideal.
 
-- For an article about Redisson's support for JCache as the store for HTTP session state in IBM Liberty on Azure, see [Use Java EE JCache with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
+- For an article about Redisson support for Java EE JCache as the store for HTTP session state in IBM Liberty on an Azure Kubernetes Service (AKS) cluster, see [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 - Use the following recommended baseline configuration for cluster mode, and modify it as needed.
 

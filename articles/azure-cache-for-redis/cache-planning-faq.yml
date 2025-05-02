@@ -22,15 +22,20 @@ sections:
           For guidance on how to benchmark Azure Redis cache performance and for sample benchmarking numbers, see [Performance testing](cache-best-practices-performance.md#example-performance-benchmark-data).
           
       - question: |
-          Can I use Azure Redis with Azure Government Cloud or Azure operated by 21Vianet Cloud?
+          How am I billed for Azure Redis?
         answer: |
-          Yes, the Basic, Standard, and Premium tiers of Azure Redis are available in Azure Government Cloud and Azure operated by 21Vianet Cloud. The URLs for accessing and managing Azure Redis are different for these clouds than for the Azure Public cloud, as shown in the following table:
+          For details about Azure Redis billing, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis. The billing period is measured from time a cache is created until the time that the cache is deleted. There's no option for stopping or pausing cache billing.
+          
+      - question: |
+          How can I use Azure Redis with Azure Government Cloud or Azure operated by 21Vianet Cloud?
+        answer: |
+          The Basic, Standard, and Premium tiers of Azure Redis are available in Azure Government Cloud and Azure operated by 21Vianet Cloud. The URLs for accessing and managing Azure Redis are different for these clouds than for the Azure Public cloud, as shown in the following table:
           
           | Cloud   | Domain Name System (DNS) suffix for Redis            |
           |---------|---------------------------------|
           | Public  | *.redis.cache.windows.net       |
           | US Government  | *.redis.cache.usgovcloudapi.net |
-          | China   | *.redis.cache.chinacloudapi.cn  |
+          | 21Vianet Cloud (China)   | *.redis.cache.chinacloudapi.cn  |
           
           For other considerations about using Azure Redis with other clouds, see the following links:
           
@@ -42,12 +47,7 @@ sections:
           The Azure Redis Enterprise and Enterprise Flash tiers are available only in the Public cloud.
           
       - question: |
-          How am I billed for Azure Redis?
-        answer: |
-          For details about Azure Redis billing, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). The pricing page lists pricing as an hourly and monthly rate. Caches are billed on a per-minute basis. The billing period is measured from time a cache is created until the time that the cache is deleted. There's no option for stopping or pausing cache billing.
-          
-      - question: |
-          In what region should I locate my cache?
+          What region should I locate my cache in?
         answer: |
           For best performance and lowest latency, locate your Azure Redis cache in the same Azure region as your cache client application.
           
@@ -55,7 +55,7 @@ sections:
           Where does my cached data reside?
         answer: |
          In Azure Cache for Redis, your application data is stored in the RAM of the virtual machine (VM) or VMs, depending on the tier, that host your cache. By default, your data resides in the Azure region you selected. There are two cases where your data might leave a region:
-          * When you enable data persistence on a Premium-tier cache, Azure Cache for Redis backs up your data to an Azure Storage account. If your storage account is in another region, or replicates data through [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) to a different region, a copy of your data ends up there. The Enterprise and Enterprise Flash tiers use on-disk persistence mounted directly to the VMs and doesn't leave the region. 
+          * When you enable data persistence on a Premium-tier cache, Azure Cache for Redis backs up your data to an Azure Storage account. If your storage account is in another region, or replicates data through [geo-redundant storage (GRS)](/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) to a different region, a copy of your data ends up there. The Enterprise and Enterprise Flash tiers use on-disk persistence mounted directly to the VMs that doesn't leave the region. 
           
           * If you set up [passive geo-replication](cache-how-to-geo-replication.md) on a Premium-tier cache and your secondary cache is in a different region, as is typical, your data is replicated to that region.
           If you set up [active geo-replication]() on an Enterprise or Enterprise Flash tier cache, your data is replicated to each cache in the geo-replication group. If caches in the geo-replication group reside in other regions, as is typical, your data is replicated to those regions.
