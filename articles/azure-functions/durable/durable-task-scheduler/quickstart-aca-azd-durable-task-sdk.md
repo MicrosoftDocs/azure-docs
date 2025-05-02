@@ -85,7 +85,7 @@ cd /samples/portable-sdks/dotnet/FunctionChaining
 ::: zone pivot="python"
 
 ```bash
-cd /samples/portable-sdks/python/FunctionChaining
+cd /samples/portable-sdks/python/function-chaining
 ```
 
 ::: zone-end
@@ -93,7 +93,7 @@ cd /samples/portable-sdks/python/FunctionChaining
 ::: zone pivot="java"
 
 ```bash
-cd /samples/portable-sdks/java/FunctionChaining
+cd /samples/portable-sdks/java/function-chaining
 ```
 
 ::: zone-end
@@ -201,20 +201,40 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 ::: zone pivot="csharp"
 
-### Client Project
+### Client project
 
 The Client project:
 
 - Uses the same connection string logic as the worker
-- Schedules an orchestration instance with a name input
-- Waits for the orchestration to complete and displays the result
-- Uses WaitForInstanceCompletionAsync for efficient polling
+- Implements a sequential orchestration scheduler that:
+  - Schedules 20 orchestration instances, one at a time
+  - Waits 5 seconds between scheduling each orchestration
+  - Tracks all orchestration instances in a list
+  - Waits for all orchestrations to complete before exiting
+- Uses standard logging to show progress and results
 
 ```csharp
-var instance = await client.WaitForInstanceCompletionAsync(
-    instanceId,
-    getInputsAndOutputs: true,
-    cts.Token);
+// Schedule 20 orchestrations sequentially
+for (int i = 0; i < TotalOrchestrations; i++)
+{
+    // Create a unique instance ID
+    string instanceName = $"{name}_{i+1}";
+    
+    // Schedule the orchestration
+    string instanceId = await client.ScheduleNewOrchestrationInstanceAsync(
+        "GreetingOrchestration", 
+        instanceName);
+    
+    // Wait 5 seconds before scheduling the next one
+    await Task.Delay(TimeSpan.FromSeconds(IntervalSeconds));
+}
+
+// Wait for all orchestrations to complete
+foreach (string id in allInstanceIds)
+{
+    OrchestrationMetadata instance = await client.WaitForInstanceCompletionAsync(
+        id, getInputsAndOutputs: false, CancellationToken.None);
+}
 ```
 
 ### Worker Project
@@ -254,7 +274,8 @@ public class SayHelloActivity : TaskActivity<string, string>
 }
 ```
 
-The worker uses Microsoft.Extensions.Hosting for proper lifecycle management:
+The worker uses `Microsoft.Extensions.Hosting` for proper lifecycle management:
+
 ```csharp
 var builder = Host.CreateApplicationBuilder();
 builder.Services.AddDurableTaskWorker()
@@ -270,44 +291,97 @@ await host.StartAsync();
 
 ::: zone pivot="python"
 
-### Worker Project
-
-The Worker project contains:
-
-- ****: Defines the orchestrator and activity functions in a single file
-- ****: Sets up the worker host with proper connection string handling
-
-#### Orchestration Implementation
-
-The orchestration directly calls each activity in sequence using the standard `CallActivityAsync` method:
-
-```python
-
-```
-
-Each activity is implemented as a separate class decorated with the `[DurableTask]` attribute:
-
-```python
-
-```
-
-The worker uses Microsoft.Extensions.Hosting for proper lifecycle management:
-
-```python
-
-```
-
-### Client Project
+### Client
 
 The Client project:
 
 - Uses the same connection string logic as the worker
-- Schedules an orchestration instance with a name input
-- Waits for the orchestration to complete and displays the result
-- Uses WaitForInstanceCompletionAsync for efficient polling
+- Implements a sequential orchestration scheduler that:
+  - Schedules 20 orchestration instances, one at a time
+  - Waits 5 seconds between scheduling each orchestration
+  - Tracks all orchestration instances in a list
+  - Waits for all orchestrations to complete before exiting
+- Uses standard logging to show progress and results
 
 ```python
+# Schedule a new orchestration instance
+instance_id = client.schedule_new_orchestration(
+    "function_chaining_orchestrator", 
+    input=name
+)
+    
+logger.info(f"Started orchestration with ID = {instance_id}")
+    
+# Wait for orchestration to complete
+logger.info("Waiting for orchestration to complete...")
+result = client.wait_for_orchestration_completion(
+    instance_id,
+    timeout=30
+)
+```
 
+### Worker
+
+#### Orchestration Implementation
+
+The orchestration directly calls each activity in sequence using the standard `call_activity` function:
+
+```python
+# Orchestrator function
+def function_chaining_orchestrator(ctx, name: str) -> str:
+    """Orchestrator that demonstrates function chaining pattern."""
+    logger.info(f"Starting function chaining orchestration for {name}")
+    
+    # Call first activity - passing input directly without named parameter
+    greeting = yield ctx.call_activity('say_hello', input=name)
+    
+    # Call second activity with the result from first activity
+    processed_greeting = yield ctx.call_activity('process_greeting', input=greeting)
+    
+    # Call third activity with the result from second activity
+    final_response = yield ctx.call_activity('finalize_response', input=processed_greeting)
+    
+    return final_response
+```
+
+Each activity is implemented as a separate function:
+
+```python
+# Activity functions
+def say_hello(ctx, name: str) -> str:
+    """First activity that greets the user."""
+    logger.info(f"Activity say_hello called with name: {name}")
+    return f"Hello {name}!"
+
+def process_greeting(ctx, greeting: str) -> str:
+    """Second activity that processes the greeting."""
+    logger.info(f"Activity process_greeting called with greeting: {greeting}")
+    return f"{greeting} How are you today?"
+
+def finalize_response(ctx, response: str) -> str:
+    """Third activity that finalizes the response."""
+    logger.info(f"Activity finalize_response called with response: {response}")
+    return f"{response} I hope you're doing well!"
+```
+
+The worker uses `DurableTaskSchedulerWorker` for proper lifecycle management:
+
+```python
+with DurableTaskSchedulerWorker(
+    host_address=host_address, 
+    secure_channel=endpoint != "http://localhost:8080",
+    taskhub=taskhub_name, 
+    token_credential=credential
+) as worker:
+        
+    # Register activities and orchestrators
+    worker.add_activity(say_hello)
+    worker.add_activity(process_greeting)
+    worker.add_activity(finalize_response)
+    worker.add_orchestrator(function_chaining_orchestrator)
+        
+    # Start the worker (without awaiting)
+    worker.start()
 ```
 
 
@@ -315,44 +389,99 @@ The Client project:
 
 ::: zone pivot="java"
 
-### Worker Project
-
-The Worker project contains:
-
-- ****: Defines the orchestrator and activity functions in a single file
-- ****: Sets up the worker host with proper connection string handling
-
-#### Orchestration Implementation
-
-The orchestration directly calls each activity in sequence using the standard `CallActivityAsync` method:
-
-```java
-
-```
-
-Each activity is implemented as a separate class decorated with the `[DurableTask]` attribute:
-
-```java
-
-```
-
-The worker uses Microsoft.Extensions.Hosting for proper lifecycle management:
-
-```java
-
-```
-
-### Client Project
+### Client
 
 The Client project:
 
 - Uses the same connection string logic as the worker
-- Schedules an orchestration instance with a name input
-- Waits for the orchestration to complete and displays the result
-- Uses WaitForInstanceCompletionAsync for efficient polling
+- Implements a sequential orchestration scheduler that:
+  - Schedules 20 orchestration instances, one at a time
+  - Waits 5 seconds between scheduling each orchestration
+  - Tracks all orchestration instances in a list
+  - Waits for all orchestrations to complete before exiting
+- Uses standard logging to show progress and results
 
 ```java
+// Create client using Azure-managed extensions
+DurableTaskClient client = DurableTaskSchedulerClientExtensions.createClientBuilder(connectionString).build();
 
+// Start a new instance of the registered "ActivityChaining" orchestration
+String instanceId = client.scheduleNewOrchestrationInstance(
+        "ActivityChaining",
+        new NewOrchestrationInstanceOptions().setInput("Hello, world!"));
+logger.info("Started new orchestration instance: {}", instanceId);
+
+// Block until the orchestration completes. Then print the final status, which includes the output.
+OrchestrationMetadata completedInstance = client.waitForInstanceCompletion(
+        instanceId,
+        Duration.ofSeconds(30),
+        true);
+logger.info("Orchestration completed: {}", completedInstance);
+logger.info("Output: {}", completedInstance.readOutputAs(String.class))
+```
+
+### Worker
+
+#### Orchestration Implementation
+
+The orchestration directly calls each activity in sequence using the standard `callActivity` method:
+
+```java
+DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(connectionString)
+    .addOrchestration(new TaskOrchestrationFactory() {
+        @Override
+        public String getName() { return "ActivityChaining"; }
+
+        @Override
+        public TaskOrchestration create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                String x = ctx.callActivity("Reverse", input, String.class).await();
+                String y = ctx.callActivity("Capitalize", x, String.class).await();
+                String z = ctx.callActivity("ReplaceWhitespace", y, String.class).await();
+                ctx.complete(z);
+            };
+        }
+    })
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "Reverse"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                StringBuilder builder = new StringBuilder(input);
+                builder.reverse();
+                return builder.toString();
+            };
+        }
+    })
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "Capitalize"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> ctx.getInput(String.class).toUpperCase();
+        }
+    })
+    .addActivity(new TaskActivityFactory() {
+        @Override
+        public String getName() { return "ReplaceWhitespace"; }
+
+        @Override
+        public TaskActivity create() {
+            return ctx -> {
+                String input = ctx.getInput(String.class);
+                return input.trim().replaceAll("\\s", "-");
+            };
+        }
+    })
+    .build();
+
+// Start the worker
+worker.start();
 ```
 
 ::: zone-end
