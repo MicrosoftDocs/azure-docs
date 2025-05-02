@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: muksvso
 
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 05/08/2025
 ms.author: mubatra
 
 ---
