@@ -30,7 +30,6 @@ landingContent:
         links:
           - text: Manage a resource
             url: manage.md
-        links: 
           - text: Troubleshoot
             url: troubleshoot.md
 
