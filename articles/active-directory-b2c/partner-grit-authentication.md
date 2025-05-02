@@ -16,6 +16,8 @@ ms.subservice: b2c
 
 # Configure Grit's biometric authentication with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this sample tutorial, learn how to integrate [Grit's](https://www.gritiam.com) Biometric authentication with Azure Active Directory B2C (Azure AD B2C). Biometric authentication provides  users the option to sign in using finger print, face ID or [Windows Hello](https://support.microsoft.com/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0). It works both on desktop and mobile applications, provided the device is capable of doing biometric authentication.
 
 Biometric authentication has the following benefits:

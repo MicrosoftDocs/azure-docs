@@ -1,10 +1,10 @@
 ---
 title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
-author: sipastak
+author: dougeby
 ms.topic: release-notes
-ms.date: 03/18/2025
-ms.author: sipastak
+ms.date: 04/29/2025
+ms.author: avdcontent
 ms.custom: references_regions
 ---
 
@@ -36,10 +36,11 @@ Here's information about the SxS Network Stack.
 
 ## Version 1.0.2501.05600
 
-*Published March 2025*
+*Published March 2025; updated April 2025*
 
 In this release, we've made the following changes:
 
+- Added two new binaries: `rdpstartuplauncher.exe` and `rdpstartup.exe` that enable future improvements to peripheral and resource redirection.
 - Connection reliability bug fixes.
 - Improved diagnostics checkpoints for UDP connections.
 - Added a diagnostic checkpoint to log all graphics codecs in use and whether hardware graphics encoding is active for each connection session.

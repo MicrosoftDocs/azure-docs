@@ -12,7 +12,6 @@ ms.custom: template-how-to, devx-track-arm-template
 # Example of clusterManager.jsonc template file.
 
 ```clusterManager.jsonc
-
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -20,7 +19,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "environment": {
       "type": "string",
       "metadata": {
-        "description": "Name of the environment"
+        "description": "Name of the Environment"
       }
     },
     "name": {
@@ -49,20 +48,26 @@ ms.custom: template-how-to, devx-track-arm-template
     "resourceGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Specify the resource group for the resources."
+        "description": "Specify the Resource Group for the resources."
       },
       "defaultValue": ""
     },
     "managedResourceGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Specify a managed resource group for the resource."
+        "description": "Specify a Managed Resource Group for the resource."
       }
     },
     "clusterManagerTags": {
       "type": "object",
       "metadata": {
-        "description": "Additional tags to pass to the cluster manager on creation"
+        "description": "Additional tags to pass to the Cluster Manager on creation"
+      }
+    },
+    "assignedIdentities": {
+      "type": "object",
+      "metadata": {
+        "description": "The assigned identities for the Cluster Manager"
       }
     }
   },
@@ -72,7 +77,7 @@ ms.custom: template-how-to, devx-track-arm-template
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
       "name": "[concat(parameters('environment'), '-lab-cm-deployment')]",
-	  "resourceGroup": "[parameters('resourceGroupName')]",
+          "resourceGroup": "[parameters('resourceGroupName')]",
       "tags": {},
       "properties": {
         "debugSetting": {
@@ -112,16 +117,20 @@ ms.custom: template-how-to, devx-track-arm-template
             },
             "clusterManagerTags": {
               "type": "object"
+            },
+            "assignedIdentities": {
+              "type": "object"
             }
           },
           "variables": {},
           "resources": [
             {
               "type": "Microsoft.NetworkCloud/clusterManagers",
-              "apiVersion": "2023-07-01",
+              "apiVersion": "2024-07-01",
               "name": "[parameters('name')]",
               "location": "[parameters('location')]",
               "tags": "[parameters('clusterManagerTags')]",
+              "identity": "[parameters('assignedIdentities')]",
               "properties": {
                 "fabricControllerId": "[parameters('fabricControllerId')]",
                 "vmSize": "[if(equals(parameters('vmSize'), ''), json('null'), parameters('vmSize'))]",
@@ -156,6 +165,9 @@ ms.custom: template-how-to, devx-track-arm-template
           },
           "resourceGroupName": {
             "value": "[parameters('resourceGroupName')]"
+          },
+          "assignedIdentities": {
+            "value": "[parameters('assignedIdentities')]"
           },
           "managedResourceGroupConfiguration": {
             "value": {

@@ -75,6 +75,7 @@ This section assumes that you already built a Phi-3 Docker image and uploaded it
     - **Image type**: **Public**
     - **Registry server URL**: *mcr.microsoft.com*
     - **Image and tag**: *appsvc/docs/sidecars/sample-experiment:phi3-python-1.0*
+    - **Port**: *8000*
 1. Select **Apply**.
 
 ## 4. Verify the running app

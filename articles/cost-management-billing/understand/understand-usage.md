@@ -1,13 +1,13 @@
 ---
 title: Understand your detailed usage and charges
 description: Learn how to read and understand your detailed usage and charges file. View a list of terms and descriptions used in the file.
-author: bandersmsft
-ms.reviewer: micflan
+author: Jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 09/19/2024
-ms.author: banders
+ms.date: 04/30/2025
+ms.author: jkinma
 #customer intent: As a billing administrator, I want to understand usage and charges so that I can manage Azure billing.
 ---
 

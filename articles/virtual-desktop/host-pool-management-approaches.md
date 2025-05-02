@@ -2,8 +2,8 @@
 title: Host pool management approaches - Azure Virtual Desktop
 description: Learn about the different host pool management approaches of session host configuration management and standard management in Azure Virtual Desktop.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 11/19/2024
 ---
 

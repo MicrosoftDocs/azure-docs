@@ -107,13 +107,15 @@ After fixing the failed nfApp, but before attempting an upgrade retry, consider 
 By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
 
 ## Skip nfApps using applicationEnablement
-In the NFDV resource, under `deployParametersMappingRuleProfile` there's the property `applicationEnablement` of type enum, which takes values: Unknown, Enabled, or disabled. It can be used to exclude nfApp operations during network function (NF) deployment.
+In the NFDV resource, under `deployParametersMappingRuleProfile` there's a supported property `applicationEnablement` of type enum, which takes values of Unknown, Enabled, or disabled. It can be used to manually exclude nfApp operations during network function (NF) deployment. The following example demonstrates a generic method to parameterize `applicationEnablement` as an included value in `roleOverrideValues` property.
 
-### Publisher changes
-For the `applicationEnablement` property, the publisher has two options: either provide a default value or parameterize it. The following example sets `enabled` as the default value for `hellotest` which can later be changed via override.
+### Template changes
+While no NFDV changes are necessarily required, optionally the publisher can use the NFDV to set a default value for the `applicationEnablement` property. The default value will be used, unless its changed via `roleOverrideValues`. 
+
+#### NFDV Template
+Use the NFDV template to set a default value for `applicationEnablement`. The following example sets `enabled` state as the default value for `hellotest` networkfunctionApplication. 
 
 ```json
-{ 
       "location":"<location>", 
       "properties": {
       "networkFunctionTemplate": {
@@ -122,27 +124,66 @@ For the `applicationEnablement` property, the publisher has two options: either 
               "applicationEnablement": "Enabled"
             },
             "name": "hellotest"
-          }
         ],
         "nfviType": "AzureArcKubernetes"
-      },
-    }
-}
+        },
+      }
 ```
 
-### Operator changes
-Operators inherit default `applicationEnablement` values as defined by the NFDV. If `applicationEnablement` is parameterized, then it can be passed through the `deploymentValues` property at runtime using the CGV. `roleOverrideValues` specifies a nondefault setting for `applicationEnablement`.
+To manage the `applicationEnablement` value more dynamically, the Operator can pass a realtime value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead it's suggested to parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. This requires the following modifications to the CGS, NF templates and finally the CGV.
+
+#### CGS Template
+The CGS template must be updated to include one variable declaration for each line to parameterize under `roleOverrideValues`. The below example demonstrates three override values, one to for nfConfiguration [0] and two for nfApplication options [1,2].
+
+```json
+        "roleOverrideValues0": {
+          "type": "string"        
+        },    
+        "roleOverrideValues1": {
+          "type": "string"        
+        },        
+        "roleOverrideValues2": {
+          "type": "string"
+        }
+```
+
+#### NF Template
+The NF template must be update three ways. First, the implicit config parameter must be defined as type object. Second, roleOverrideValues0, roleOverrideValues1 and roleOverrideValues2 must be declared as variables mapped to config parameter. Third, roleOverrideValues0, roleOverrideValues1 and roleOverrideValues2 must be referenced for substitution under `roleOverrideValues` in proper order and following proper syntax.
+
+```json
+  "parameters": {
+    "config": {
+      "type": "object",
+      "defaultValue": {}
+    }
+  }
+  "variables": {
+    "roleOverrideValues0": "[string(parameters('config').roleOverrideValues1)]",
+    "roleOverrideValues1": "[string(parameters('config').roleOverrideValues1)]",
+    "roleOverrideValues2": "[string(parameters('config').roleOverrideValues2)]"
+  },
+  "resources": [
+  {
+<snip>
+     "roleOverrideValues": [
+          "[variables('roleOverrideValues0')]",
+          "[variables('roleOverrideValues1')]",
+          "[variables('roleOverrideValues2')]"
+        ]
+   }
+```
+
+#### CGV Template
+The CGV template can now be updated to include the content for each variable to be substituted into `roleOverrideValues` property at run-time. The below example sets `rollbackEnabled` to true, followed by override sets for `hellotest` and `hellotest1` nfApplications.
 
 ```json
 {
-  "location": "<location>",
-  "nfviType": "AzureArcKubernetes",
-  "nfdvId": "<nfdv_id>",
-  "helloworld-cnf-config": {
-    "roleOverrideValues1": "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\":\"Disable\"}}",
-  }
+    "roleOverrideValues0": "{\"nfConfiguration\":{\"rollbackEnabled\":true}}",
+    "roleOverrideValues1": "{\"name\":\"hellotest\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\":\"Enabled\",\"helmMappingRuleProfile\":{\"releaseName\":\"override-release\",\"releaseNamespace\":\"override-namespace\",\"helmPackageVersion\":\"1.0.0\",\"values\":\"\",\"options\":{\"installOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"30\",\"injectArtifactStoreDetails\":\"true\"},\"upgradeOptions\":{\"atomic\":\"true\",\"wait\":\"true\",\"timeout\":\"30\",\"injectArtifactStoreDetails\":\"true\"}}}}}",
+    "roleOverrideValues2": "{\"name\":\"hellotest1\",\"deployParametersMappingRuleProfile\":{\"applicationEnablement\" : \"Enabled\"}}"
 }
 ```
+With this framework in place, the Operator can manage any of the `roleOverrideValues` via simple updates to the CGV, followed by attaching that CGV to the desired SNS operation.
 
 ## Skip nfApps which have no change
 The `skipUpgrade` feature is designed to optimize the time taken for CNF upgrades. When the publisher enables this flag in the `roleOverrideValues` under `upgradeOptions`, the AOSM service layer performs certain prechecks, to determine whether an upgrade for a specific `nfApplication` can be skipped. If all precheck criteria are met, the upgrade is skipped for that application. Otherwise, an upgrade is executed at the cluster level.

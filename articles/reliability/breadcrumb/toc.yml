@@ -91,6 +91,9 @@ items:
       tocHref: /azure/cosmos-db/
       topicHref: /azure/reliability/index
     - name: Reliability
+      tocHref: /azure/cosmos-db/postgresql/
+      topicHref: /azure/reliability/index
+    - name: Reliability
       tocHref: /azure/devops/
       topicHref: /azure/reliability/index
     - name: Reliability

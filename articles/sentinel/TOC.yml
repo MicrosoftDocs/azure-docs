@@ -803,7 +803,7 @@
   - name: Use matching analytics to detect threats
     href: use-matching-analytics-to-detect-threats.md
   - name: Work with STIX objects and indicators
-    href: work-with-styx-objects-indicators.md
+    href: work-with-stix-objects-indicators.md
 - name: Detect threats and analyze data
   items:
   - name: Monitor and visualize data
@@ -1004,6 +1004,8 @@
     items: 
     - name: Overview
       href: sentinel-security-copilot.md
+    - name: Summarize incidents in Azure portal
+      href: sentinel-security-copilot-incident-summary.md
     - name: Microsoft Copilot in Microsoft Defender
       items:
       - name: Overview

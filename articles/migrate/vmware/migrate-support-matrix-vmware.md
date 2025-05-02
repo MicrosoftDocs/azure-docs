@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 04/02/2025
+ms.date: 04/04/2025
 ms.custom:
   - vmware-scenario-422
   - engagement-fy24
-  - migration
-  - aws-to-azure
+ms.collection:
+ - migration
 ---
 
 # Support matrix for VMware discovery
@@ -294,7 +294,7 @@ Windows servers | Windows Server 2008 R2 and later are supported. | Not supporte
 Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
 Protocol | WinRM port 5985 (HTTP) | SSH port 22 (TCP)
-Required privileges | Local admin. | Root or sudo user.
+Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
@@ -342,7 +342,7 @@ Azure Government | Agent-based dependency analysis isn't supported.
 Requirement | Details
 --- | ---
 Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](../migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMWare Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](./set-discovery-scope.md).
+Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMware Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](./set-discovery-scope.md).
 Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
 Learn more about [assessments](../concepts-assessment-calculation.md).
@@ -370,7 +370,7 @@ This section discusses limitations to consider.
 If you're importing servers by using an RVTools XLSX file and building a business case, here are a few limitations:
 
 - Performance history duration in Azure settings aren't applicable.
-- Servers are classified as unknown in the business case utilization insights chart and are sized as is without right sizing for Azure or Azure VMware Solution cost.
+- Servers are classified as unknown in the business case utilization insights chart and are sized as is without right-sizing for Azure or Azure VMware Solution cost.
 
 #### [Assessment considerations](#tab/assessmentcase)
 

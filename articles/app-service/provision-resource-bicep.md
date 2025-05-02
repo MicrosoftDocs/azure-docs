@@ -5,7 +5,7 @@ author: seligj95
 ms.author: msangapu
 ms.topic: quickstart
 ms.custom: devx-track-bicep
-ms.date: 11/18/2022
+ms.date: 05/01/2025
 zone_pivot_groups: app-service-bicep
 ---
 
@@ -27,19 +27,19 @@ To effectively create resources by using Bicep, you need to set up a Bicep [deve
 
 ::: zone pivot="app-service-bicep-linux"
 
-This quickstart uses the following template. It deploys an App Service plan and an App Service app on Linux. It also deploys a sample Node.js "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+This quickstart uses the following template. It deploys an App Service plan and an App Service app on Linux. It also deploys a sample Node.js *Hello World* app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
 ```bicep
 param webAppName string = uniqueString(resourceGroup().id) // Generate a unique string for the web app name
 param sku string = 'F1' // Tier of the App Service plan
-param linuxFxVersion string = 'node|14-lts' // Runtime stack of the web app
+param linuxFxVersion string = 'node|20-lts' // Runtime stack of the web app
 param location string = resourceGroup().location // Location for all resources
 param repositoryUrl string = 'https://github.com/Azure-Samples/nodejs-docs-hello-world'
 param branch string = 'main'
 var appServicePlanName = toLower('AppServicePlan-${webAppName}')
 var webSiteName = toLower('wapp-${webAppName}')
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: appServicePlanName
   location: location
   properties: {
@@ -51,7 +51,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
   kind: 'linux'
 }
 
-resource appService 'Microsoft.Web/sites@2020-06-01' = {
+resource appService 'Microsoft.Web/sites@2023-12-01' = {
   name: webSiteName
   location: location
   properties: {
@@ -62,8 +62,9 @@ resource appService 'Microsoft.Web/sites@2020-06-01' = {
   }
 }
 
-resource srcControls 'Microsoft.Web/sites/sourcecontrols@2021-01-01' = {
-  name: '${appService.name}/web'
+resource srcControls 'Microsoft.Web/sites/sourcecontrols@2023-12-01' = {
+  parent: appService
+  name: 'web'
   properties: {
     repoUrl: repositoryUrl
     branch: branch
@@ -82,10 +83,10 @@ The template contains the following parameters that are predefined for your conv
 
 | Parameter | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information about the value, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
-| `location`   | string  | `resourceGroup().location` | App region. For more information about the value, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
+| `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
+| `location`   | string  | `resourceGroup().location` | App region. For more information, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
 | `sku`        | string  | `F1`                         | Instance size.  |
-| `linuxFxVersion`   | string  | `NODE`&#124;`14-LTS`       | Programming language stack and version. |
+| `linuxFxVersion`   | string  | `NODE`&#124;`20-LTS`       | Programming language stack and version. |
 | `repositoryUrl`    | string  | `https://github.com/Azure-Samples/nodejs-docs-hello-world`    | External Git repo (optional). |
 | `branch`    | string  | `master`    | Default branch for the code sample. |
 
@@ -93,7 +94,7 @@ The template contains the following parameters that are predefined for your conv
 
 ## Deploy the template
 
-Copy and paste the template to your preferred editor or IDE. Then save the file to your local working directory.
+Copy and paste the template into a blank file in your preferred editor or IDE. Then save the file to your local working directory. Use the *.bicep* file extension.
 
 Here, you use the Azure CLI to deploy the template. You can also use the Azure portal, Azure PowerShell, or the REST API. To learn about other deployment methods, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
@@ -110,11 +111,11 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 
 | Language    | Example                                              |
 |-------------|------------------------------------------------------|
-| .NET    | linuxFxVersion="DOTNETCORE&#124;3.0"                 |
-| PHP     | linuxFxVersion="PHP&#124;7.4"                        |
-| Node.js | linuxFxVersion="NODE&#124;10.15"                     |
-| Java    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
-| Python  | linuxFxVersion="PYTHON&#124;3.8"                     |
+| .NET    | `linuxFxVersion="DOTNETCORE&#124;3.0"`                 |
+| PHP     | `linuxFxVersion="PHP&#124;7.4"`                        |
+| Node.js | `linuxFxVersion="NODE&#124;10.15"`                     |
+| Java    | `linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0"` |
+| Python  | `linuxFxVersion="PYTHON&#124;3.8"`                     |
 
 ---
 
@@ -122,7 +123,7 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 
 ::: zone pivot="app-service-bicep-windows-container"
 
-This quickstart uses the following template. It deploys an App Service plan and an App Service app on Windows. It also deploys a sample .NET "Hello World" app from the [Azure Samples](https://github.com/Azure-Samples) repo.
+This quickstart uses the following template. It deploys an App Service plan and an App Service app on Windows. It also deploys a sample .NET *Hello World* app from the [Azure Samples](https://github.com/Azure-Samples) repo.
 
 ```bicep
 param webAppName string = uniqueString(resourceGroup().id) // Generate a unique name for the web app
@@ -157,7 +158,6 @@ resource webApp 'Microsoft.Web/sites@2024-04-01' = {
     httpsOnly: true
   }
 }
-
 ```
 
 The template defines two Azure resources:
@@ -169,17 +169,17 @@ The template contains the following parameters that are predefined for your conv
 
 | Parameter | Type    | Default value                | Description |
 |------------|---------|------------------------------|-------------|
-| `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information about the value, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
-| `location`   | string  | `resourceGroup().location` | App region. For more information about the value, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
-| `sku`        | string  | `P1V3`                         | Instance size.  |
-| `appServicePlanName`        | string  | `toLower('ASP-${webAppName}')`              | App Service plan name.  |
-| `dockerContainerImage`    | string  | `mcr.microsoft.com/dotnet/framework/samples:aspnetapp`    | Container image sample. |
+| `webAppName` | string  | `webApp-<uniqueString>` | App name. For more information, see [String functions for ARM templates](../azure-resource-manager/templates/template-functions-string.md#uniquestring). |
+| `location`   | string  | `resourceGroup().location` | App region. For more information, see [Resource functions for ARM templates](../azure-resource-manager/templates/template-functions-resource.md#resourcegroup). |
+| `sku`        | string  | `P1V3`                         | Instance size |
+| `appServicePlanName`        | string  | `toLower('ASP-${webAppName}')`              | App Service plan name |
+| `dockerContainerImage`    | string  | `mcr.microsoft.com/dotnet/framework/samples:aspnetapp`    | Container image sample |
 
 ---
 
 ## Deploy the template
 
-Copy and paste the template to your preferred editor or IDE. Then save the file to your local working directory.
+Copy and paste the template to your preferred editor or IDE. Then save the file to your local working directory. Use the *.bicep* file extension.
 
 Here, you use the Azure CLI to deploy the template. You can also use the Azure portal, Azure PowerShell, or the REST API. To learn about other deployment methods, see [Deploy Bicep files with the Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 
@@ -196,7 +196,7 @@ az deployment group create --resource-group myResourceGroup --template-file <pat
 
 ## Validate the deployment
 
-Browse to `http://<app_name>.azurewebsites.net/` and verify that you created the app.
+Browse to your app's URL and verify that you created the app.
 
 ## Clean up resources
 
@@ -205,4 +205,4 @@ When you no longer need the resources that you created for this quickstart, [del
 ## Related content
 
 * [Bicep documentation](../azure-resource-manager/bicep/index.yml)
-* [Bicep samples for Azure App Service](./samples-bicep.md)
+* [Bicep files for Azure App Service](./samples-bicep.md)

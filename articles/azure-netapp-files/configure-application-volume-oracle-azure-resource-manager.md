@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.custom: devx-track-arm-template
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/20/2023
 ms.author: anfdocs
 ---

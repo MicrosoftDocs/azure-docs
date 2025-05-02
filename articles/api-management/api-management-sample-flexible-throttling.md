@@ -3,11 +3,9 @@ title: Advanced request throttling with Azure API Management
 description: Learn how to create and apply flexible quota and rate limiting policies with Azure API Management.
 services: api-management
 author: dlepow
-manager: erikre
-ms.assetid: fc813a65-7793-4c17-8bb9-e387838193ae
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 02/03/2018
+ms.date: 04/10/2025
 ms.author: danlep
 
 ---
@@ -58,7 +56,7 @@ The following policies restrict a single client IP address to only 10 calls ever
           counter-key="@(context.Request.IpAddress)" />
 ```
 
-If all clients on the Internet used a unique IP address, this might be an effective way of limiting usage by user. However, it is likely that multiple users are sharing a single public IP address due to them accessing the Internet via a NAT device. Despite this, for APIs that allow unauthenticated access the `IpAddress` might be the best option.
+If all clients on the internet used a unique IP address, this might be an effective way of limiting usage by user. However, it is likely that multiple users are sharing a single public IP address due to them accessing the internet via a NAT device. Despite this, for APIs that allow unauthenticated access the `IpAddress` might be the best option.
 
 ## User identity throttling
 If an end user is authenticated, then a throttling key can be generated based on information that uniquely identifies that user.
@@ -85,8 +83,15 @@ When the throttling key is defined using a [policy expression](./api-management-
 
 This enables the developer's client application to choose how they want to create the rate limiting key. The client developers could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
 
-## Summary
-Azure API Management provides rate and quota throttling to both protect and add value to your API service. The new throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, message size.
+## Considerations for multiple regions or gateways
 
-## Next steps
-Please give us your feedback as a GitHub issue for this topic. It would be great to hear about other potential key values that have been a logical choice in your scenarios.
+Rate limiting policies like `rate-limit`, `rate-limit-by-key`, `azure-openai-token-limit`, and `llm-token-limit` use counters at the level of the API Management gateway. This means that in [multi-region deployments](api-management-howto-deploy-multi-region.md) of API Management, each regional gateway has a separate counter, and rate limits are enforced separately for each region. Similarly, in API Management instances with [workspaces](workspaces-overview.md), limits are enforced separately for each workspace gateway. 
+
+Quota policies such as `quota` and `quota-by-key` are global, meaning that a single counter is used at the level of the API Management instance. 
+
+## Summary
+Azure API Management provides rate and quota throttling to both protect and add value to your API service. These throttling policies with custom scoping rules allow you finer grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these new policies by manufacturing rate limiting keys with client IP addresses, user identity, and client generated values. However, there are many other parts of the message that could be used such as user agent, URL path fragments, and message size.
+
+## Related content
+
+* [Rate limit and quota policies](api-management-policies.md#rate-limiting-and-quotas)

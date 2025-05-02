@@ -5,7 +5,7 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-heavy
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: shaas
 ---

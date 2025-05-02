@@ -4,11 +4,11 @@ ms.custom: devx-track-azurepowershell
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install the [Azure Az PowerShell Module](/powershell/azure/)
+- Install the [Azure Az PowerShell Module](/powershell/azure/).
 
 If you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
 
-## Create Azure Communication Services resource
+## Create an Azure Communication Services resource using PowerShell
 
 To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can create a resource through the terminal using the ```Connect-AzAccount``` command and providing your credentials.
 
@@ -18,7 +18,7 @@ First, install the Azure Communication Services module ```Az.Communication``` us
 PS C:\> Install-Module Az.Communication
 ```
 
-Run the following command to create the resource:
+To create the resource, run the following command:
 
 ```PowerShell
 PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -Name ContosoAcsResource1 -DataLocation UnitedStates -Location Global
