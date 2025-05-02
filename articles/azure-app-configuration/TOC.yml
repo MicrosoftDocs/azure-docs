@@ -222,6 +222,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Preview API Lifecycle
+    href: concept-preview-api-lifecycle.md
 - name: Security
   items:
   - name: Authentication
@@ -281,11 +283,7 @@
   - name: REST API
     items:
     - name: Control plane
-      items:
-      - name: Overview
-        href: /rest/api/appconfiguration/
-      - name: API Lifecycle
-        href: concept-preview-api-lifecycle.md
+      href: /rest/api/appconfiguration/
     - name: Data plane
       items:
       - name: Overview
