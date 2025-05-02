@@ -80,7 +80,7 @@ We can easily upgrade from any small update in one Kubernetes version to any sma
 
 Note the following important changes to make before you upgrade to any of the available minor versions:
 
-Note that the azure-arc-k8sagents version refers to the version of this feature shipped with the version bundle. The Arc-enabled Kubernetes agent is set to auto upgrade to the latest version of the agent whenever its available.
+Note that the azure-arc-k8sagents version refers to the version of this feature shipped with the version bundle. The Arc-enabled Kubernetes agent is set to auto upgrade to the latest version of the agent whenever it's available.
 
 |Kubernetes Version|Version Bundle|OS Image|azure-arc-k8sagents|cloud-provider-kubevirt|calico|metallb|multus|sriov-dp|csi-nfs|csi-volume|metrics-server|ipam-cni-plugin|node-local-dns|azure-arc-servers|pause image|etcd image|coredns image|kube-vip image|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
