@@ -22,7 +22,7 @@ WebJobs are a good fit when:
 - You want to deploy and manage background tasks together with your app.
 - You don't require a separate scaling model or event-based triggers beyond basic scheduling or queue polling.
 
-For more scalable, independently hosted, or event-driven workloads, consider using [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview).
+For more scalable, independently hosted, or event-driven workloads, consider using [Azure Functions](../azure-functions/functions-overview.md).
 
 ## Key capabilities
 
@@ -38,7 +38,7 @@ For more scalable, independently hosted, or event-driven workloads, consider usi
 WebJobs come in three main types:
 
 - **Triggered WebJobs**: Run on demand or in response to specific events. You can trigger them manually or from a service like Azure Storage.
-- **Scheduled WebJobs**: A specialized type of triggered WebJob that runs on a defined schedule using a `settings.job` file with [NCRONTAB expressions](https://learn.microsoft.com/en-us/azure/app-service/webjobs-create#schedule-a-triggered-webjob).
+- **Scheduled WebJobs**: A specialized type of triggered WebJob that runs on a defined schedule using a `settings.job` file with [NCRONTAB expressions](webjobs-create.md#schedule-a-triggered-webjob).
 - **Continuous WebJobs**: Run persistently in the background while your App Service app is running. Ideal for queue polling or background monitoring tasks.
 
 
@@ -80,7 +80,7 @@ WebJobs scale together with your App Service plan. If your app is configured to 
 - **Triggered WebJobs** will run on a single instance by default.
 - **Continuous WebJobs** can be configured to run on all instances or a single one using the `WEBJOBS_RUN_ONCE` setting.
 
-If you need independently scalable or event-driven execution, [Azure Functions](https://learn.microsoft.com/azure/azure-functions/functions-overview) may be more appropriate.
+If you need independently scalable or event-driven execution, [Azure Functions](../azure-functions/functions-overview) may be more appropriate.
 
 ## Best practices
 
@@ -102,8 +102,8 @@ If you need independently scalable or event-driven execution, [Azure Functions](
 
 ## Related guidance
 
-- [Background jobs best practices – Azure Architecture Center](https://learn.microsoft.com/azure/architecture/best-practices/background-jobs)
-- [Develop WebJobs using Visual Studio](develop-webjobs-vs.md)
+- [Background jobs best practices – Azure Architecture Center](../architecture/best-practices/background-jobs)
+- [Develop WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md)
 - [Get started with the WebJobs SDK](webjobs-sdk-get-started.md)
 - [Use the WebJobs SDK to build advanced jobs](webjobs-sdk-how-to.md)
 - [Kudu WebJobs reference on GitHub](https://github.com/projectkudu/kudu/wiki/WebJobs)
