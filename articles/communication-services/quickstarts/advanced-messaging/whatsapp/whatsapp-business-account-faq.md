@@ -1,6 +1,6 @@
 ---
 title: WhatsApp business account FAQ
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: Learn about Communication Service WhatsApp Business Accounts FAQ.
 author: darmour
 manager: sundraman
