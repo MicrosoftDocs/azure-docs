@@ -1,7 +1,7 @@
 ---
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/23/2025
 ---
 
@@ -81,6 +81,9 @@ node state. Support for `unverified` images isn't guaranteed.
 > the [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
 > [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM image selection.
+
+> [!TIP]
+> The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable is dependent upon if the VM has a local temporary disk or not. See [Batch root directory location](files-and-directories.md#batch-root-directory-location) for more information.
 
 ## Next steps
 

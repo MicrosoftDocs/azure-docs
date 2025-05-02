@@ -2,8 +2,8 @@
 title: Developer integration with multimedia redirection for WebRTC-based calling apps in a remote session
 description: Learn how to integrate a website with multimedia redirection for WebRTC-based calling apps in a remote session from Azure Virtual Desktop, a Windows 365 Cloud PC, or Microsoft Dev Box.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/04/2024
 ---
 
