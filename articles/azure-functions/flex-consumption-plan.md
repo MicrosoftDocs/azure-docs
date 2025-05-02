@@ -133,6 +133,7 @@ In Flex Consumption many of the standard application settings and site configura
 
 Keep these other considerations in mind when using Flex Consumption plan:
 
++ **Apps per Plan**: Only one app is allowed per Flex Consumption plan.  
 + **Host**: There's a 30-second time out for app initialization. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this time out. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
 + **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **Virtual network integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.

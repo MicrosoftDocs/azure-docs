@@ -33,9 +33,7 @@ When you configure Flex Consumption function apps as zone redundant, the platfor
 When zone redundancy is enabled for Flex Consumption, instance spreading is determined inside the following rules:
 - [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances will always be spread across zones in a round-robin fashion.
 - On-demand instances that are created based on event source volume as the app scales beyond always-ready will be distributed across availability zones on a best effort basis. I.e., for on-demand instances, faster scale out will be given preference over even distribution across availability zones. The platform will attempt even distribution over time.
-- To ensure zone resiliency with availability zones, when always-ready instance configurations are less than two for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), the platform automatically ensures 2 instances of the always-ready type exist for each per-function scaling function or group. Those instances are placed in different zones, are platform managed, and billed as always-ready instances. This does not change the configuration setting of always-ready.
--  When changing always-ready configuration numbers, no less than 2 always-ready instances will be allowed to be configured per function or function group when zone redundancy is enabled. If you set always-ready for a function or function group to more than 2, those instances will be spread across zones in a round-robin fashion.
-- During zonal outage the platform will attempt to restore balance on available zones.
+- To ensure zone resiliency with availability zones, the platform automatically ensures at least 2 instances of the always-ready type exist for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Instances created by the platform are platform managed, billed as always-ready instances, and won't change the always-ready configuration settings.
 
 ### Regional availability
 
@@ -180,7 +178,7 @@ Before updating your Flex Consumption plan to be zone-redundant, consider updati
 - Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
 - Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
 
-Once the storage account(s) associated with the app have been updated, you can update the Flex Consumption plan to be zone-redundant. This will cause the Flex Consumption app in the plan to restart. There are currently multiple ways to update a zone-redundant Flex Consumption app.
+Once the storage account(s) associated with the app have been updated, you can update the Flex Consumption plan to be zone-redundant. This will cause the Flex Consumption app in the plan to restart. There are currently multiple ways to update a zone-redundant Flex Consumption plan.
 
 # [Azure portal](#tab/azure-portal)
 Not currently supported.
@@ -200,7 +198,7 @@ Not currently supported.
 Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition.
 
 # [ARM template](#tab/arm-template)
-Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition..
+Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition.
 
 ---
 
