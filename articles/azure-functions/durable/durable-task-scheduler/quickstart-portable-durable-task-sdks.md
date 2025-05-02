@@ -705,4 +705,4 @@ logger.info("Output: {}", completedInstance.readOutputAs(int.class));
 Now that you've run the sample locally using the Durable Task Scheduler emulator, try creating a scheduler and task hub resource and deploying to Azure Container Apps.
 
 > [!div class="nextstepaction"]
-> [Deploy to Azure](./develop-with-durable-task-scheduler.md)
+> [Deploy Durable Task Scheduler hosted on Azure Container Apps to Azure](./quickstart-aca-azd-durable-task-sdk.md)

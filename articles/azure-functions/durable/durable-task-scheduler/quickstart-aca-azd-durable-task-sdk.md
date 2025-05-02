@@ -488,4 +488,5 @@ worker.start();
 
 ## Next steps
 
-Need
+> [!div class="nextstepaction"]
+> [Configure autoscaling](./durable-task-scheduler-auto-scaling.md)

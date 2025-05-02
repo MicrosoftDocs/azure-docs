@@ -12,7 +12,7 @@ You can implement autoscaling in container apps that use the Durable Task Schedu
 
 Control autoscaling by setting the range of application replicas deployed in response to an orchestration, activity, or entity being triggered. The scaler dynamically adjusts the number of container app replicas within that range, allowing your solution to handle spikes in the workload and prevent resource exhaustion. 
 
-## Scaler configuration in the Azure portal
+## Configure the autoscaler
 
 You can set the autoscaler configuration via the Azure portal, a Bicep template, and the Azure CLI. 
 
