@@ -33,7 +33,7 @@ For an overview of Azure Monitor monitoring and logging functionality, see [Diag
 
 Azure Redis emits many useful metrics, such as **Server Load** and **Connections per Second**. For a complete listing of Azure Redis metrics, see [Metrics](../redis/monitor-cache-reference.md#metrics).
 
-To log cache metrics, enable the **AllMetrics** option in your cache **Diagnostic settings** according to the instructions for your tier. You can configure how long metrics are retained. For more information about logging and exporting metrics, see [Azure Cache for Redis metrics](../redis/monitor-cache.md##azure-cache-for-redis-metrics).
+To log cache metrics, enable the **AllMetrics** option in your cache **Diagnostic settings** according to the instructions for your tier. You can configure how long metrics are retained. For more information about logging and exporting metrics, see [Azure Cache for Redis metrics](../redis/monitor-cache.md#azure-cache-for-redis-metrics).
 
 ## Connection logs
 
@@ -45,7 +45,7 @@ Azure Cache for Redis uses Azure diagnostic settings to log client connection in
 The connection log implementation and the logs produced are similar among Azure Redis tiers, but Basic, Standard, and Premium tiers have some differences from Enterprise and Enterprise Flash tiers.
 
 > [!IMPORTANT]
-> - In the Basic, Standard, and Premium tiers, connection logging *polls* the current client connections in the cache. The same client IP addresses can appear repeatedly as long as the connection lasts.
+> - In the Basic, Standard, and Premium tiers, connection logging *polls* the current client connections in the cache. The same client IP addresses can appear repeatedly as long as their connections last.
 > - In the Enterprise and Enterprise Flash tiers, logging focuses on connection *events*. Logging only occurs when the connection event or other connection-related event first happens.
 
 ## Requirements and limitations
@@ -90,7 +90,7 @@ When you enable diagnostic settings for your Azure Redis instance, you can send 
 - **Stream to an event hub**. The event hub must be in the same region as the cache.
 
   Diagnostic settings can't access event hub resources if virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall** setting in Azure Event Hubs to grant access to event hub resources. 
-- **Send to partner solution**. For a list of potential partner logging solutions, see [Extend Azure with Azure Native Integrations](/azure/partner-solutions/partners#data-and-storage).
+- **Send to partner solution**. For a list of potential partner logging solutions, see [Extend Azure with Azure Native Integrations - Data and storage](/azure/partner-solutions/partners#data-and-storage).
 
 When you send diagnostic logs to a storage account or event hub, you're charged normal data rates for either destination. You're billed under Azure Monitor, not Azure Cache for Redis. When you send logs to Log Analytics, you're charged only for Log Analytics data ingestion. For more pricing information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -114,7 +114,7 @@ When you send diagnostic logs to a storage account or event hub, you're charged 
 
 1. On the [Azure portal](https://portal.azure.com) page for your cache, under **Monitoring** in the left navigation pane, select either **Diagnostic Settings - Metrics** for metrics or **Diagnostic Settings - Auditing** for logs.
 
-1. On the **Diagnostic settings** page, select **Add diagnostic setting**.
+1. On the **Diagnostic Settings - Metrics** or **Diagnostic Settings - Auditing** page, select **Add diagnostic setting**.
 
    :::image type="content" source="media/cache-monitor-diagnostic-settings/cache-enterprise-auditing.png" alt-text="Screenshot that shows the Diagnostic Settings - Auditing page with Add diagnostic setting highlighted.":::
 
@@ -142,7 +142,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 - `Content-Type`: `application/json`
 - `name`: The name of your diagnostic setting
-- `resourceUri`: `subscriptions/<your subscription id>/resourceGroups/<cache resource group>/providers/Microsoft.Cache/Redis/<cache name>
+- `resourceUri`: `subscriptions/<your subscription id>/resourceGroups/<cache resource group>/providers/Microsoft.Cache/Redis/<cache name>`
 - `api-version`: `2017-05-01-preview`
 
 **Example body**
@@ -180,7 +180,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 - `Content-Type`: `application/json`
 - `name`: The name of your diagnostic setting
-- `resourceUri`: `subscriptions/<your subscription id>/resourceGroups/<cache resource group>/providers/Microsoft.Cache/RedisEnterprise/<cache name>
+- `resourceUri`: `subscriptions/<your subscription id>/resourceGroups/<cache resource group>/providers/Microsoft.Cache/RedisEnterprise/<cache name>`
 - `api-version`: `2017-05-01-preview`
 
 **Example body**
