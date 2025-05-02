@@ -68,7 +68,7 @@ Here's a mapping of the BMC slots to users.
 
 Using a Microsoft Entra group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in time-outs, blocking access and causing sign-in issues.
 
-## Creating a Bare Keyset
+## Creating a BMC Keyset
 
 The `bmckeyset create` command creates SSH access to the Bare Metal Machine in a Cluster for a group of users.
 
@@ -191,7 +191,7 @@ az networkcloud cluster bmckeyset create \
 
 For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md).
 
-## Deleting a Bare Keyset
+## Deleting a BMC Keyset
 
 The `bmckeyset delete` command removes SSH access to the BMC for a group of users. All members of the group lose SSH access to any of the BMCs in the Cluster.
 
