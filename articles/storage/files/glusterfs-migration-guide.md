@@ -38,6 +38,9 @@ Windows clients connecting to Azure Files via SMB should meet the following requ
 - SMB 3.0 protocol support for encryption features
 - SMB 3.1.1 protocol support for best security and performance
 
+> [!IMPORTANT]
+> We strongly recommend using SMB 3.1.1 protocol for Azure Files access. SMB 3.0 and 2.0 should only be used for legacy clients, and you must plan an OS upgrade to mitigate unpatched security vulnerabilities.
+
 For a complete list of requirements and setup instructions, see [Use an Azure file share with Windows](storage-how-to-use-files-windows.md#prerequisites).
 
 ### NFS requirements
@@ -64,7 +67,7 @@ Linux clients connecting via SMB should have:
 > [!IMPORTANT]
 > We strongly recommend using SMB 3.1.1 protocol for Azure Files access. SMB 3.0 and 2.0 should only be used for legacy clients, and you must plan an OS upgrade to mitigate unpatched security vulnerabilities.
 
-For specific distribution support and configuration steps, see [Use an Azure file share with Linux](storage-how-to-use-files-linux.md#prerequisites).
+For specific distribution support and configuration steps, see [Mount SMB Azure file shares on Linux clients](storage-how-to-use-files-linux.md#prerequisites).
 
 ### NFS requirements
 
@@ -184,7 +187,7 @@ sudo mount -t nfs <storage-account-name>.file.core.windows.net:/<storage-account
 
 ### Step 4: Perform data migration
 
-Once you've mounted the Azure file share, you can perform the data migration.
+After you've mounted the Azure file share, you can perform the data migration.
 
 # [Windows](#tab/windows)
 
@@ -232,7 +235,7 @@ For large datasets, consider using the `--exclude` parameter to perform the migr
 Follow these recommendations to optimize performance when migrating from GlusterFS to Azure Files. For detailed performance tuning, see [Azure Files scalability and performance targets](storage-files-scale-targets.md) and [Understand and optimize Azure file share performance](understand-performance.md).
 
 > [!NOTE]
-> Check VM size to ensure the VM network bandwidth isn't a bottleneck when your file shares are correctly sized for required throughput and IOPS. Different VM SKUs have different network bandwidth limits that can constrain overall file share performance. Select VM sizes that provide sufficient network throughput for your workload requirements. For more information, see [Azure virtual machine sizes](/azure/virtual-machines/sizes).
+> Check virtual machine (VM) size to ensure that VM network bandwidth isn't a bottleneck when your file shares are correctly sized for required throughput and IOPS. Different VM SKUs have different network bandwidth limits that can constrain overall file share performance. Select VM sizes that provide sufficient network throughput for your workload requirements. For more information, see [Azure virtual machine sizes](/azure/virtual-machines/sizes).
 
 # [Windows](#tab/windows)
 
@@ -247,10 +250,10 @@ Follow these recommendations to optimize performance when migrating from Gluster
 
 ### Optimize NFS performance
 
-- Always use Premium file shares for NFS workloads (required).
+- Always use Premium (SSD) file shares for NFS workloads (required).
 - Provision sufficient capacity based on your [throughput requirements](understand-performance.md).
 - Optimize client-side settings like read/write buffer sizes.
-- Use nconnect, a client-side mount option that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of nconnect=4.
+- Use nconnect, a client-side mount option that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4`.
 - Consider network latency between your clients and Azure.
 - Follow [Azure Files performance recommendations](nfs-performance.md) for NFS file shares.
 
