@@ -15,6 +15,7 @@ This article provides step-by-step guidance on relocating an Azure HDInsight clu
 Before starting the relocation process, ensure the following prerequisites are met:
 
 - **Identify dependent resources**: Gather all Azure HDInsight-dependent resources. Depending on your deployment, the following resources may need to be deployed and configured in the target region before relocation:
+
   - Compute (virtual machines)
   - Azure SQL Database (metastore)
   - [Storage Account or Data Lake Gen 2](./relocation-storage-account.md)
@@ -50,7 +51,8 @@ Understand potential downtimes involved in the relocation process. For more deta
 
 ## Prepare for Relocation
 
-[jgao: it is not clear to me whehter the steps in this section take place before "Redeploy the Cluster".]
+[jgao: it is not clear to me whether the steps in this section take place before "Redeploy the Cluster".]
+
 ### Export a Template
 
 Export an Azure Resource Manager (ARM) JSON template or a Bicep file for your HDInsight cluster. These templates define and automate the deployment of HDInsight clusters and their associated resources. Use one of the following methods to export the template:
