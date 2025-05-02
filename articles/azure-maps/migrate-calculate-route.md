@@ -82,8 +82,8 @@ Included in the body of the request:
       "type": "Feature",
       "geometry": {
         "coordinates": [
-          -122.201399,
-          47.608678
+          -122.204171,
+          47.610173
         ],
         "type": "Point"
       },
@@ -96,37 +96,17 @@ Included in the body of the request:
       "type": "Feature",
       "geometry": {
         "coordinates": [
-          -122.20687,
-          47.612002
+          -122.204171,
+          47.612440
         ],
         "type": "Point"
       },
       "properties": {
         "pointIndex": 1,
-        "pointType": "viaWaypoint"
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "coordinates": [
-          -122.201669,
-          47.615076
-        ],
-        "type": "Point"
-      },
-      "properties": {
-        "pointIndex": 2,
-        "pointType": "waypoint"
+        "pointType": "Waypoint"
       }
     }
-  ],
-  "optimizeRoute": "fastestWithTraffic",
-  "routeOutputOptions": [
-    "routePath"
-  ],
-  "maxRouteCount": 3,
-  "travelMode": "driving"
+  ]
 }
 ```
 
