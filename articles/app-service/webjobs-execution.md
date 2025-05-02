@@ -44,7 +44,8 @@ The WebJob runtime executes the **first valid script or binary** it finds based 
 8. `run.js`
 9. `run.fsx`
 
-> [!NOTE] The file must be named exactly `run.*` — not `start.sh` or `job.py`.
+> [!NOTE]
+> The file must be named exactly `run.*` — not `start.sh` or `job.py`.
 >
 
 The platform uses a run.* file (such as run.sh, run.py, or run.js) as the entry point for a WebJob. If no recognized run.* file is present, it may attempt to execute the first supported script file it finds in the archive. This fallback behavior can be unpredictable—especially when multiple script files are included—so it's strongly recommended to explicitly define a run.* file to ensure reliable execution. On Linux, `.sh` scripts must have a shebang (`#!`) and executable permissions.
