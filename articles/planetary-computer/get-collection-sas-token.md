@@ -38,18 +38,6 @@ def getBearerToken():
         _access_token = credential.get_token(f"{MPCPRO_APP_ID}/.default")
 
     return {"Authorization": f"Bearer {_access_token.token}"}
-
-# Helper to raise informative HTTP errors
-def raise_for_status(r: requests.Response) -> None:
-    try:
-        r.raise_for_status()
-    except requests.exceptions.HTTPError as e:
-        try:
-            print(json.dumps(r.json(), indent=2))
-        except Exception:
-            print(r.content)
-        finally:
-            raise
 ```
 
 ## 2. Request a SAS Token for a STAC Collection
