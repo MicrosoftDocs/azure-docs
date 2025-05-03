@@ -613,7 +613,7 @@ For more information about OpenTelemetry in .NET, see the [OpenTelemetry .NET do
 
 ## Next steps
 
-To learn how to use the JavaScript configuration provider, continue to the following tutorial.
+To learn how to use the .NET configuration provider, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration in an ASP.NET web app](./enable-dynamic-configuration-aspnet-netfx.md)
