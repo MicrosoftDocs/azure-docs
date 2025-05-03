@@ -703,11 +703,13 @@ or
 This example provides the configuration steps to send multiple requests whose variables are in Headers.
 
 **Multiple requests:**<br/>
+```
 RequestUrl: *https://example/table*<br/> 
 Request 1: `Header(id->0)`<br/>
 Request 2: `Header(id->10)`<br/>
 ......<br/>
 Request 100: `Header(id->100)`<br/>
+```
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
