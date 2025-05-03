@@ -33,19 +33,19 @@ sections:
         answer: |
           The Redis open-source project changed to a dual-license model, with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). For more information, see the [Redis press release](https://aka.ms/redis/licensingchangepressrelease). Also see the [Microsoft blog post](https://aka.ms/redis/licensechangeblog) on the Redis licensing change].
 
-    - question: Are Azure Cache for Redis or Azure Managed Redis covered by the RSALv2 and SSPLv1 licenses?
-      answer: |
+      - question: Are Azure Cache for Redis or Azure Managed Redis covered by the RSALv2 and SSPLv1 licenses?
+        answer: |
         No. The RSALv2 and SSPLv1 licenses don't apply to Azure Managed Redis or Azure Cache for Redis. Azure Managed Redis and Azure Cache for Redis remain under the Microsoft terms of service.
 
-    - question: Do I need to do anything as an Azure Managed Redis or Azure Cache for Redis customer in response to the Redis licensing change?
-      answer: |
+      - question: Do I need to do anything as an Azure Managed Redis or Azure Cache for Redis customer in response to the Redis licensing change?
+        answer: |
         No. No action is required for Azure customers as a result of this change.
       
-    - question: Will Azure Redis instances continue to receive patches and bug fixes?
-      answer: |
+      - question: Will Azure Redis instances continue to receive patches and bug fixes?
+        answer: |
         Yes. All Azure Managed Redis and Azure Cache for Redis tiers will continue to receive all future patches and bug fixes.
 
-    - question: Are there any deprecated Azure Cache for Redis services?
-      answer: |
+      - question: Are there any deprecated Azure Cache for Redis services?
+        answer: |
         The [Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) and [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) services were retired on November 30, 2016.
 
