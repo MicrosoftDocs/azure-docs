@@ -1,11 +1,11 @@
 ---
 title: Configure CI/CD to Custom Containers
-description: Set up continuous deployment to a custom Windows or Linux container in Azure App Service.
+description: Set up continuous integration and continuous delivery (CI/CD) to a custom Windows or Linux container in Azure App Service.
 keywords: azure app service, linux, docker, acr, oss
 author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: how-to
-ms.date: 11/18/2022
+ms.date: 05/02/2025
 ms.author: msangapu
 ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
@@ -13,18 +13,18 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 # Continuous deployment with custom containers in Azure App Service
 
-Learn how to configure continuous integration and continuous delivery (CI/CD) for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
+This article explains how to configure continuous integration and continuous delivery (CI/CD) for a custom container image from managed [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) repositories or [Docker Hub](https://hub.docker.com).
 
 ## 1. Go to the Deployment Center
 
 In the [Azure portal](https://portal.azure.com), go to the management pane for your Azure App Service app.
 
-From the left menu, select **Deployment Center** > **Settings**.
+In the sidebar menu under **Deployment**, select **Deployment Center**. Choose the **Settings** tab.
 
 ::: zone pivot="container-linux"
-## 2. Choose deployment source
+## 2. Select code source
 
-Choose the deployment source based on the following criteria:
+From the **Source** dropdown menu, select the deployment source based on the following criteria:
 
 * **Container registry** sets up CI/CD between your container registry and App Service.
 * Choose the **GitHub Actions** option if you maintain the source code for your container image in GitHub. New commits to your GitHub repository trigger the deploy action, which can run `docker build` and `docker push` directly to your container registry. It then updates your App Service app to run the new image. For more information, see [How CI/CD works with GitHub Actions](#how-cicd-works-with-github-actions).
@@ -50,7 +50,7 @@ To deploy a multi-container (Docker Compose) app, select **Docker Compose** in *
 If you don't see the **Container Type** dropdown list, scroll back up to **Source** and select **Container Registry**.
 ::: zone-end
 
-In **Registry source**, select where your container registry is. If it's not Azure Container Registry or Docker Hub, select **Private Registry**.
+In **Registry source**, select where your container registry is. If it's not Azure Container Registry or Docker Hub, select **Private registry**.
 
 ::: zone pivot="container-linux"
 > [!NOTE]
@@ -63,7 +63,7 @@ Follow the next steps by selecting the tab that matches your choice.
 
 The **Registry** dropdown list displays the registries in the same subscription as your app. Select the registry you want.
 
-To deploy from a registry in a different subscription, select **Private Registry** in **Registry source** instead.
+To deploy from a registry in a different subscription, select **Private registry** in **Registry source** instead.
 
 To use managed identities to lock down Azure Container Registry access, see: 
 
