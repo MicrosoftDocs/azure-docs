@@ -29,7 +29,11 @@ To use .NET configuration provider, install the package:
 dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 ```
 
-Connect to your Azure App Configuration store by calling the `Connect` method on the `AzureAppConfigurationOptions`. The configuration provider follows a builder pattern, accepting an `Action<AzureAppConfigurationOptions>` delegate parameter that allows you to configure the provider.
+You call `AddAzureAppConfiguration` extension method on `IConfigurationBuilder` to add Azure App Configuration as a configuration provider of your application.
+
+The configuration provider library implements a combined **Options Pattern** and **Builder Pattern** to provide a clean, declarative way to configure the `AzureAppConfigurationOptions`. The `AddAzureAppConfiguration` method accepts an `Action<AzureAppConfigurationOptions>` delegate parameter that lets you configure the provider through a fluent API.
+
+To connect to your Azure App Configuration store, call the `Connect` method on the `AzureAppConfigurationOptions` instance, which returns the same options object to enable method chaining.
 
 ### [Microsoft Entra ID](#tab/entra-id)
 
@@ -149,7 +153,7 @@ public class Settings
 builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
 ```
 
-### JSON Content Type Handling
+### JSON content type handling
 
 You can create JSON key-values in App Configuration. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
@@ -173,7 +177,7 @@ The `Select` method takes two parameters, the first parameter is a key filter th
 > [!NOTE]
 > When multiple `Select` calls include overlapping keys, later calls take precedence over earlier ones.
 
-#### Key Filter
+#### Key filter
 
 The key filter parameter determines which configuration keys to include:
 
@@ -185,7 +189,7 @@ The key filter parameter determines which configuration keys to include:
 > [!NOTE]
 > You cannot combine wildcard prefix matching with comma-separated filters in the same `Select` call. For example, `abc*,def` is not supported, but you can make separate `Select` calls with `abc*` and `def`.
 
-#### Label Filter
+#### Label filter
 
 The label filter parameter selects key-values with a specific label. If not specified, the built-in `LabelFilter.Null` will be used.
 
@@ -208,9 +212,404 @@ builder.AddAzureAppConfiguration(options =>
 
 For example, if your App Configuration store contains a key named `TestApp:Settings:Message`, it will be accessible in your application as `Settings:Message` after trimming the `TestApp:` prefix.
 
+### Configuration setting mapping
+
+When loading key-values from Azure App Configuration, the provider first retrieves them as `ConfigurationSetting` objects before adding them to the .NET configuration system. The `Map` API enables you to transform these settings during this pipeline, giving you control over how configurations appear in your application.
+
+The `Map` method accepts a delegate function that receives a `ConfigurationSetting` object, allows you to modify it, and returns a `ValueTask<ConfigurationSetting>`. This is particularly useful for key name transformations or value formatting based on runtime conditions.
+
+The following example demonstrates using the `Map` API to replace double underscores (`__`) with colons (`:`) in configuration keys. This transformation preserves the hierarchical structure expected by .NET configuration when keys need to use alternative characters in App Configuration:
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())
+        .Map((setting) =>
+        {
+            // Transform keys from format "App__Settings__Message" to "App:Settings:Message"
+            setting.Key = setting.Key.Replace("__", ":");
+            
+            return new ValueTask<ConfigurationSetting>(setting);
+        });
+});
+```
+
+> [!TIP] 
+> The `Map` operation is applied to all configuration settings retrieved from App Configuration, so ensure your transformation logic handles all possible key formats correctly.
+
+## Configuration refresh
+
+Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can call the `ConfigureRefresh` method to configure the key-value refresh.
+
+Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with TestApp: and having no label).
+
+You can add a call to the `SetRefreshInterval` method to specify the minimum time between configuration refreshes. If not set, the default refresh interval is 30 seconds.
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())
+        // Load all keys that start with `TestApp:` and have no label
+        .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+        .ConfigureRefresh(refreshOptions => {
+            // Trigger full configuration refresh when any selected key changes.
+            refreshOptions.RegisterAll()
+            // Check for changes no more often than every 10 seconds
+                .SetRefreshInterval(TimeSpan.FromSeconds(10));
+        });
+});
+```
+
+### Trigger refresh
+
+To trigger refresh, you need to call the `TryRefreshAsync` method of the `IConfigurationRefresher`. Azure App Configuration provides several patterns for implementation depending on your application architecture.
+
+#### 1. Direct access
+
+For applications not using dependency injection, you can obtain the refresher directly from the options:
+
+```csharp
+IConfigurationRefresher refresher = null;
+var builder = new ConfigurationBuilder();
+builder.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())            
+           .ConfigureRefresh(refreshOptions =>
+           {
+               refreshOptions.RegisterAll();
+           });
+
+    // Store the refresher for later use
+    refresher = options.GetRefresher();
+});
+
+IConfiguration config = builder.Build();
+
+// Later in your code, trigger refresh when needed
+if (refresher != null)
+{
+    await refresher.TryRefreshAsync()
+}
+
+Console.WriteLine(config["TestApp:Settings:Message"]);
+```
+
+#### 2. Dependency injection
+
+For applications using dependency injection (including ASP.NET Core and Worker Services), register the refresher service:
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())            
+           .ConfigureRefresh(refreshOptions =>
+           {
+                refreshOptions.RegisterAll()
+                    .SetRefreshInterval(TimeSpan.FromSeconds(10));
+           })
+});
+
+// Register refresher services with the DI container
+builder.Services.AddAzureAppConfiguration();
+```
+
+The `builder.Services.AddAzureAppConfiguration()` add the `IConfigurationRefreshProvider` service to the DI container. It will give you the access to the refreshers of all Azure App Configuration sources in the application's configuration.
+
+```csharp
+public class Worker : BackgroundService
+{
+    private readonly IConfiguration _configuration;
+    private readonly IEnumerable<IConfigurationRefresher> _refreshers;
+
+    public Worker(IConfiguration configuration, IConfigurationRefresherProvider refresherProvider)
+    {
+        _configuration = configuration;
+        _refreshers = refresherProvider.Refreshers;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        foreach (IConfigurationRefresher refresher in _refreshers)
+        {
+            refresher.TryRefreshAsync();
+        }
+
+        ...
+    }
+}
+```
+
+#### 3. ASP.NET Core
+
+You can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to use the `AzureAppConfigurationRefreshMiddleware` to achieve the request-driven configuration refresh. 
+
+```console
+dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+```
+
+The middleware will call the `TryRefreshAsync` method on the registered `IConfigurationRefresher` when there are new incoming requests to your application.
+
+```csharp
+var app = builder.Build();
+
+// Call the app.UseAzureAppConfiguration() method as early as appropriate in your request pipeline so another middleware won't skip it
+app.UseAzureAppConfiguration();
+
+// Continue with other middleware registration
+app.UseRouting();
+...
+
+```
+
+> [!NOTE] 
+> Even if the refresh call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling refresh is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+
+### Refresh on sentinel key
+
+A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
+
+This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())
+        // Load all keys that start with `TestApp:` and have no label
+        .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
+        .ConfigureRefresh(refreshOptions => {
+            // Trigger full configuration refresh only if the `SentinelKey` changes.
+            refreshOptions.Register("SentinelKey", refreshAll: true);
+        });
+});
+```
+
+> [!IMPORTANT] 
+> Key-values are not automatically registered for refresh monitoring. You must explicitly call `ConfigureRefresh` and then register keys using either the `RegisterAll` method (to monitor all loaded keys) or the `Register` method (to monitor an individual key).
+
+For more information about refresh configuration, go to [Tutorial: Use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
+
+## Feature flag
+
+[Feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration provide a modern way to control feature availability in your applications. Unlike regular configuration values, feature flags must be explicitly loaded using the `UseFeatureFlags` method. You can configure on `FeatureFlagOptions` to load specific feature flags using selectors and set feature flag refresh interval.
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())
+        .UseFeatureFlags(featureFlagOptions => {
+            // Load feature flags with prefix "TestApp:" and "dev" label
+            featureFlagOptions.Select("TestApp:*", "dev")
+            // Check for changes no more often than every 10 seconds
+                .SetRefreshInterval(TimeSpan.FromSeconds(10));
+        });
+});
+```
+
+Inside the `UseFeatureFlags` method, you call the `Select` method to selectively load feature flags. You can use [key filter](#key-filter) and [label filter](#label-filter) to select the feature flags you want to load. If no `Select` method is called, `UseFeatureFlags` will load all feature flags with no label by default.
+
+Different from key-values, feature flags will be automatically registered for refresh without requiring explicit `ConfigureRefresh` call. You can specify the minimum time between feature flag refreshes through the `SetRefreshInterval` method. The default refresh interval is 30 seconds.
+
+### Feature Management
+
+Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in conjunction with the configuration provider library. Install the [`Microsoft.FeatureManagement`](./feature-management-dotnet-reference.md) package:
+
+```console
+dotnet add package Microsoft.FeatureManagement
+```
+
+You can call `AddFeatureManagement` to register `IVariantFeatureManager` and related services in the DI container. This registration makes feature flag functionality available throughout your application through dependency injection.
+
+```csharp
+using Microsoft.FeatureManagement;
+
+...
+
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential());
+    // Use feature flags
+    options.UseFeatureFlags();
+});
+
+// Register feature management services
+builder.Services.AddFeatureManagement();
+```
+
+The following example demonstrating how to use the feature manager service through dependency injection:
+
+```csharp
+public class WeatherForecastController : ControllerBase
+{
+    private readonly IFeatureManager _featureManager;
+
+    public WeatherForecastController(IVariantFeatureManager featureManager)
+    {
+        _featureManager = featureManager;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Get()
+    {
+        // Check if a feature flag is enabled
+        if (await _featureManager.IsEnabledAsync("WeatherForecast"))
+        {
+            var forecast = GenerateWeatherForecast();
+            return Ok(forecast);
+        }
+        
+        return NotFound("Weather forecast feature is not available");
+    }
+}
+```
+
+For more information about how to use the feature management library, go to the [feature flag quickstart](./quickstart-feature-flag-aspnet-core.md).
+
+## Key Vault reference
+
+Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, you can create keys that map to secrets stored in Key Vault. The secrets are securely stored in Key Vault, but can be accessed like any other configuration once loaded.
+
+The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client will connect to Key Vault to retrieve their values for your application. 
+
+### Connect to Key Vault
+
+You need to call the `ConfigureKeyVault` method to configure how to connect the Key Vault. You can register a specified `SecretClient` instance to use to resolve key vault references for secrets from associated key vault or set the credential used to authenticate to key vaults that have no registered `SecretClient`.
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+
+...
+
+SecretClient secretClient = new SecretClient(new Uri(vaultUri), new DefaultAzureCredential());
+
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())  
+        .ConfigureKeyVault(kv =>
+        {
+            // Use DefaultAzureCredential to access Key Vault
+            kv.SetCredential(new DefaultAzureCredential());
+            // Register a SecretClient instance
+            kv.Register(secretClient);
+        });
+});
+```
+
+You can also call `SetSecretResolver` to add a custom secret resolver which will be used when no registered `SecretClient` is available or the provided credential fails to authenticate to Key Vault. This method accepts a delegate function that resolves a Key Vault URI to a secret value. The following example demostrates using a secret resolver to retrieve secret from environment variables in development.
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())  
+        .ConfigureKeyVault(kv =>
+        {
+            // Add a custom secret resolver function
+            kv.SetSecretResolver(async (Uri secretUri) =>
+            {                
+                if (builder.Environment.IsDevelopment())
+                {
+                    return Environment.GetEnvironmentVariable("KeyVaultSecret");
+                }
+
+                var secretClient = new SecretClient(
+                    new Uri(secretUri.GetLeftPart(UriPartial.Authority)),
+                    new ManagedIdentityCredential());
+                var secret = await secretClient.GetSecretAsync(secretName);
+                return secret.Value;
+            });
+        });
+});
+```
+
+> [!IMPORTANT]
+> If your application loads key-values containing Key Vault references without proper Key Vault configuration, an exception will be thrown at startup. Ensure you've properly configured Key Vault access or secret resolver.
+
+### Key Vault secret refresh
+
+Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+To ensure your application always uses the most current secret values, configure the `SetSecretRefreshInterval` method. This forces the provider to retrieve fresh secret values from Key Vault when:
+
+1. Your application calls `IConfigurationRefresher.TryRefreshAsync`
+2. The configured refresh interval for the secret has elapsed
+
+This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())
+        .ConfigureKeyVault(kv =>
+        {
+            kv.SetCredential(new DefaultAzureCredential());
+
+            // Option 1: Set refresh interval for specific secrets
+            kv.SetSecretRefreshInterval("ApiKey", TimeSpan.FromHours(12)); 
+            
+            // Option 2: Set a global refresh interval for all secrets with no refresh interval specified
+            kv.SetSecretRefreshInterval(TimeSpan.FromHours(24));
+        })
+        .ConfigureRefresh(refreshOptions => refreshOptions.RegisterAll());
+});
+```
+
+For more information about how to use Key Vault reference, go to the [Tutorial: Use Key Vault references in an ASP.NET Core app](./use-key-vault-references-dotnet-core.md).
+
+## Snapshot
+
+[Snapshot](./concept-snapshots.md) is a named, immutable subset of an App Configuration store's key-values. The key-values that make up a snapshot are chosen during creation time through the usage of key and label filters. Once a snapshot is created, the key-values within are guaranteed to remain unchanged.
+
+You can call `SelectSnapshot` to load key-values from a snapshot.
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential());
+    // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
+    options.SelectSnapshot("SnapshotName");
+});
+```
+
+For information about using snapshots, go to [Create and use snapshots](./howto-create-snapshots.md).
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior using the `ConfigureStartupOptions` method:
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())
+        .ConfigureStartupOptions(startupOptions =>
+        {
+            // Set the time-out for the initial configuration load
+            startupOptions.Timeout = TimeSpan.FromSeconds(60);
+        });
+});
+```
+
 ## Geo-replication
 
 For information about using geo-replication, go to [Enable geo-replication](./howto-geo-replication.md).
+
+## Distributed tracing
+
+The Azure App Configuration .NET provider includes built-in support for distributed tracing, allowing you to monitor and troubleshoot configuration operations across your application. The provider exposes an `ActivitySource` named `"Microsoft.Extensions.Configuration.AzureAppConfiguration"` that starts `Activity` for key operations like loading configuration and refreshing configuration.
+
+The following example demonstrates how to configure OpenTelemetry to capture and monitor distributed traces generated by the configuration provider:
+
+```csharp
+List<Activity> exportedActivities = new();
+builder.Services.AddOpenTelemetry()
+    .WithTracing(traceBuilder => {
+        traceBuilder.AddSource(["Microsoft.Extensions.Configuration.AzureAppConfiguration"]);
+            .AddInMemoryExporter(exportedActivities)
+    });
+```
+
+For more information about OpenTelemetry in .NET, see the [OpenTelemetry .NET documentation](https://github.com/open-telemetry/opentelemetry-dotnet).
 
 ## Next steps
 

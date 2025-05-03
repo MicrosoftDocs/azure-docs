@@ -118,7 +118,7 @@ The `AzureAppConfiguration` type extends the following interfaces:
     const fontSize2 = settingsObj.app.font.size; // object-style configuration representation
     ```
 
-### JSON Content Type Handling
+### JSON content type handling
 
 You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into object.
 
@@ -228,7 +228,7 @@ appConfig.refresh();
 disposer.dispose();
 ```
 
-### Refresh on sentinel key (Legacy)
+### Refresh on sentinel key
 
 A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
 
