@@ -164,6 +164,8 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | httpAutoCollectionOptions | n/a | See [applicationInsights.httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
 | snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
+For For more information about enableLiveMetricsFilters, see [Select and filter your metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/app/live-stream?tabs=otel#select-and-filter-your-metrics)
+
 ### applicationInsights.samplingSettings
 
 For more information about these settings, see [Sampling in Application Insights](/azure/azure-monitor/app/sampling). 
