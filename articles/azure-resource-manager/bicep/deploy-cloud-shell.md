@@ -3,7 +3,7 @@ title: Deploy Bicep files with Cloud Shell
 description: Use Azure Resource Manager and Azure Cloud Shell to deploy resources to Azure. The resources are defined in a Bicep file.
 ms.topic: how-to
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Deploy Bicep files from Azure Cloud Shell
@@ -28,7 +28,7 @@ To deploy a local Bicep file, you must first upload your Bicep file to your Clou
 1. Select the Bicep file you want to upload, and then select **Open**.
 1. To deploy the Bicep file, use the following commands:
 
-   # [Azure CLI](#tab/azure-cli)
+   ### [Azure CLI](#tab/azure-cli)
 
    ```azurecli-interactive
    az group create --name ExampleGroup --location "South Central US"
@@ -38,7 +38,7 @@ To deploy a local Bicep file, you must first upload your Bicep file to your Clou
      --parameters storageAccountType=Standard_GRS
    ```
 
-   # [PowerShell](#tab/azure-powershell)
+   ### [PowerShell](#tab/azure-powershell)
 
    ```azurepowershell-interactive
    New-AzResourceGroup -Name ExampleGroup -Location "Central US"

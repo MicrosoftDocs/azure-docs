@@ -72,13 +72,20 @@ items:
 - name: Customize dev boxes
   items:
   - name: What are Team Customizations
+    displayName: customizations, image definition, team customization
     href: concept-what-are-team-customizations.md
+  - name: Write an image definition file 
+    displayName: customizations, image definition, team customization
+    href: how-to-write-image-definition-file.md 
   - name: Write an individual customization file
+    displayName: customizations, image definition, personal customization, individual
     href: how-to-write-individual-customization-file.md
   - name: Configure imaging for Customizations
     href: how-to-configure-customization-imaging.md
   - name: Create customization tasks
     href: how-to-create-customization-tasks-catalog.md
+  - name: Use customization files to clone private repositories
+    href: how-to-use-secrets-customization-files.md 
 - name: Create & connect to dev boxes
   items:
   - name: Manage a dev box through developer portal

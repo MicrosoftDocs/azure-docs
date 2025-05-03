@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 02/07/2025
+ms.date: 04/28/2025
 ms.author: cshoe
 ms.topic: how-to
 ---
@@ -27,7 +27,7 @@ Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has s
 
 ## Prerequisites
 
-Enabling the managed OpenTelemetry agent to your environment doesn't automatically mean the agent collects data. Agents only send data based on your configuration settings and instrumenting your code correctly.
+Enabling the managed OpenTelemetry agent for your environment doesn't automatically mean the agent collects data. Agents only send data based on your configuration settings and instrumenting your code correctly.
 
 ### Configure source code
 
@@ -161,12 +161,16 @@ resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
 
 ## Datadog
 
-The Datadog agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
+You do not need to run the Datadog agent in your container app if you've enabled the managed OpenTelemetry agent for your environment.
 
-| Datadog agent property | Container Apps configuration property |
+The OpenTelemetry agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
+
+| Datadog instance property | OpenTelemetry agent configuration property |
 |---|---|
 | `DD_SITE` | `site` |
 | `DD_API_KEY` | `key` |
+
+If you created your Datadog instance in the Azure portal, see [API keys](/azure/partner-solutions/datadog/manage#api-keys) for more information.
 
 Once you have these configuration details, you can configure the agent via your container app's ARM or Bicep template or with Azure CLI commands.
 
@@ -305,7 +309,7 @@ Before you run this command, replace the `<PLACEHOLDERS>` with your values.
 az containerapp env telemetry data-dog set \
   --resource-group <RESOURCE_GROUP_NAME> \
   --name <ENVIRONMENT_NAME> \
-  --site  "<DATADOG_SUBDOMAIN>.datadoghq.com" \
+  --site "<DATADOG_SUBDOMAIN>.datadoghq.com" \
   --key <DATADOG_KEY> \
   --enable-open-telemetry-traces true \
   --enable-open-telemetry-metrics true
