@@ -3,7 +3,7 @@ title: Azure Storage Migration Program Details
 description: Overview of the Azure Storage Migration Program and how to use it
 author: karauten
 ms.author: karauten
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/24/2022
 ms.service: azure-storage
 ms.subservice: storage-partner-integration

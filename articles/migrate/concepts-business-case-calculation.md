@@ -1,7 +1,7 @@
 ---
 title: Business case in Azure Migrate 
 description: Learn about Business case in Azure Migrate 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 10/29/2024
 ms.custom: engagement-fy25
