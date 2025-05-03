@@ -24,7 +24,6 @@ This example shows how to request a collection-level SAS token from the `/sas/to
 from datetime import datetime, timedelta
 import requests
 from azure.identity import AzureCliCredential
-import json
 
 # Resource ID for Planetary Computer Pro Geocatalog
 MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
@@ -48,7 +47,7 @@ Access the endpoint that returns your temporary STAC collection-level sas token.
 geocatalog_url = "<your-geocatalog-url>"
 collection_id = "<your-collection-id>"
 
-    response = requests.get(
+response = requests.get(
         f"{geocatalog_url}/sas/token/{collection_id}",
         headers=getBearerToken(),
         params={"api-version": "2025-04-30-preview"}
