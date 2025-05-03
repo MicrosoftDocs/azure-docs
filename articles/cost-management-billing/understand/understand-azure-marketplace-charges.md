@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/22/2024
+ms.date: 05/01/2025
 ms.author: banders
 ---
 
