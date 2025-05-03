@@ -50,24 +50,29 @@ To create a default project policy:
 1. Under **Allow resources**, select the resources you want to allow for the project. You must select at least one resource for each category: images, networks, and SKUs. 
 
 1. Select **Select images**.
+ 
+   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-images.png" alt-text="Screenshot showing the Create project policy page, with Select images highlighted."::: 
 
 1. In the **Select images** pane, to allow all current and future images for projects, select **All current and future images**, and then select **Select**.
+
+   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-current-future-images.png" alt-text="Screenshot showing the Select images pane in the Azure portal, with All current and future images selected.":::
 
 1. Select **Select networks**.
 
 1. In the **Select networks** pane, to allow all current and future networks for projects, select **All current and future networks**, and then select **Select**. 
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-create.png" alt-text="Screenshot showing the Create button in the Azure portal to finalize a project policy.":::
-
 1. To allow specific SKU usage, select **Select SKUs**.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-skus.png" alt-text="Screenshot showing the Select SKUs pane in the Azure portal, with options to allow SKU usage for a project.":::
+   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-skus.png" alt-text="Screenshot showing the Create project policy page, with Select SKUs highlighted.":::
 
 1. In the **Select SKUs** pane, select **A specific SKU or group of SKUs**, and then select the SKUs you want to allow. In this example, you can select all the **16 vCPU** SKUs. To confirm your selection, select **Select**.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-multiple-skus.png" alt-text="Screenshot showing the Select SKUs pane in the Azure portal, with multiple SKUs selected for a project policy.":::
+   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-multiple-skus.png" alt-text="Screenshot showing the Select SKUs pane in the Azure portal, with multiple SKUs selected.":::
 
 1. When you finish selecting the resources, select **Create**.
+
+   :::image type="content" source="media/how-to-configure-project-policy/project-policy-create.png" alt-text="Screenshot showing the Create button in the Azure portal to finalize a project policy.":::
+
 1. To confirm that the default project policy applies the resources, expand **Default**.
 
    :::image type="content" source="media/how-to-configure-project-policy/project-policy-summary.png" alt-text="Screenshot showing the summary of a default project policy in the Azure portal.":::
