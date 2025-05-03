@@ -26,14 +26,14 @@ items:
 #        href: ./placeholder.md
     - name: Compute
       href: ./migrate-compute-from-aws.md
-    - name: Databases and data
+    - name: Databases
       href: ./migrate-databases-from-aws.md
     - name: Storage
       href: ./migrate-storage-from-aws.md
     - name: Networking
       href: ./migrate-networking-from-aws.md
     - name: Security
-      href: ./migrate-security-and-identity-from.aws.md
+      href: ./migrate-security-and-identity-from-aws.md
   - name: Migrate from Google Cloud
     items:
     - name: Getting started
