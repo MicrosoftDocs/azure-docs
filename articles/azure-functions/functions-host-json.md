@@ -157,14 +157,12 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | dependencyTrackingOptions | n/a | See [applicationInsights.dependencyTrackingOptions](#applicationinsightsdependencytrackingoptions). |
-| enableLiveMetrics | true | Enables live metrics collection. |
+| enableLiveMetrics | true | Enables live metrics collection. You can filter live metrics using [applicationInsights.samplingSettings.excludedTypes](#applicationinsightssamplingsettings), For more information, see see [Select and filter your metrics](../azure-monitor/app/live-stream.md#select-and-filter-your-metrics). |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
 | liveMetricsInitializationDelay | 00:00:15 | For internal use only. |
 | httpAutoCollectionOptions | n/a | See [applicationInsights.httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
 | snapshotConfiguration | n/a | See [applicationInsights.snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
-
-For For more information about enableLiveMetricsFilters, see [Select and filter your metrics](https://learn.microsoft.com/en-us/azure/azure-monitor/app/live-stream?tabs=otel#select-and-filter-your-metrics)
 
 ### applicationInsights.samplingSettings
 
