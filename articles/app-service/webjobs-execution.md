@@ -19,7 +19,7 @@ This article explains how WebJobs are discovered, how the runtime decides what t
 
 [!INCLUDE [webjob-types](./includes/webjobs-create/webjob-types.md)]
 
-[!IMPORTANT]
+>[!IMPORTANT]
 > WebJobs that are continuous, scheduled, or event-driven may stop running if the web app hosting them becomes idle. Web apps can time out after 20 minutes of inactivity, and only direct requests to the app reset this idle timer. Actions like viewing the portal or accessing the Kudu tools do not keep the app active.
 > To ensure WebJobs run reliably, enable the Always on setting in the Configuration pane of your App Service.
 > This setting is available only in the Basic, Standard, and Premium pricing tiers.
