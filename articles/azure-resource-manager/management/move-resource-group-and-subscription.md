@@ -487,6 +487,10 @@ To resolve this issue, move your resources to a resource group that doesn't have
 
 No, you can't move a resource group to a new subscription. But, you can move all resources in a resource group to a resource group in another subscription. Settings such as tags, role assignments, and policies don't transfer automatically from the original resource group to the destination resource group. You need to apply these settings manually to the new resource group. 
 
+**How much does it cost to move Azure resources to a new resource group or subscription within the same region, and what should I consider?**
+
+#INSERT ANSWER#
+
 ## Next steps
 
 To verify which Azure resources support move operations, see [Move operation support for resources](move-support-resources.md).
