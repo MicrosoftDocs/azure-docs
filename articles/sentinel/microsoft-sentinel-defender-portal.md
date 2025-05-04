@@ -20,7 +20,8 @@ Microsoft Defender provides a unified cybersecurity solution that integrates end
 
 Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
 
-This article describes the Microsoft Sentinel experience in the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified SecOps experience and the latest capabilities. For more information, see 
+This article describes the Microsoft Sentinel experience in the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified SecOps experience and the latest capabilities. For more information, see [Move your Microsoft Sentinel environment to the Defender portal](move-to-defender.md).
+
 
 ## New and improved capabilities
 
@@ -37,6 +38,22 @@ The following table describes the new or improved capabilities available in the 
 | **Cost and data optimization** | Customers can access both Microsoft Sentinel and Defender XDR data in a unified and consistent schema in the Defender portal. Advanced hunting raw logs are available for 30 days for hunting free of charge without needing to ingest them into Microsoft Sentinel. For more information, see [Plan costs and understand Microsoft Sentinel pricing and billing](billing.md).|
 
 <!--where else in the billing doc do we say this about the 30 days?-->
+
+## Limited or unavailable capabilities with Microsoft Sentinel only in the Defender portal
+
+When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following capabilities are limited or unavailable. 
+
+| Capability | Service required |
+| ---------- | ---------------- |
+| **Exposure management**    | [Microsoft Security Exposure Management](/security-exposure-management/) |
+| **Custom detection rules** | [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
+| **Action center**          | [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender)           |
+
+The following limitations also apply to Microsoft Sentinel in Defender portal without Defender XDR or other services enabled:
+
+- New Microsoft Sentinel customers aren't eligible to onboard a Log Analytics workspace that's created in the Israel region. To onboard to the Defender portal, create another workspace for Microsoft Sentinel in a different region. This additional workspace doesn't need to contain any data. <!--what does this mean and is it still true?-->
+- Customers that use Microsoft Sentinel user and entity behavior analytics (UEBA) are provided with a limited version of the [IdentityInfo table](ueba-reference.md#identityinfo-table). <!--is this still true after the unified identityinfo table?-->
+
 
 ## Quick reference
 
@@ -93,7 +110,7 @@ The following table lists the changes in navigation between the Azure and Defend
 | ----------------- | ---------------------------------------------------- |
 | Workspace manager | Not available                                        |
 | Data connectors   | Microsoft Sentinel > Configuration > Data connectors |
-| Analytics         | Microsoft Sentinel > Configuration > Analytics       |
+| Analytics         | Microsoft Sentinel > Configuration > Analytics<br>AND<br>Investigation and response -> Hunting -> Custom detection rules      |
 | Watchlists        | Microsoft Sentinel > Configuration > Watchlists      |
 | Automation        | Microsoft Sentinel > Configuration > Automation      |
 | Settings          | System > Settings > Microsoft Sentinel               |
