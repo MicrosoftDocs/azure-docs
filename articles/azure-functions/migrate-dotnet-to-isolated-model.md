@@ -310,20 +310,13 @@ using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
-    public class HttpTriggerCSharp
+    public class HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
     {
-        private readonly ILogger<HttpTriggerCSharp> _logger;
-
-        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
-        {
-            _logger = logger;
-        }
-
         [Function("HttpTriggerCSharp")]
         public IActionResult Run(
             [HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequest req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            logger.LogInformation("C# HTTP trigger function processed a request.");
 
             return new OkObjectResult($"Welcome to Azure Functions, {req.Query["name"]}!");
         }
@@ -341,19 +334,12 @@ using System.Net;
 
 namespace Company.Function
 {
-    public class HttpTriggerCSharp
+    public class HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
     {
-        private readonly ILogger<HttpTriggerCSharp> _logger;
-
-        public HttpTriggerCSharp(ILogger<HttpTriggerCSharp> logger)
-        {
-            _logger = logger;
-        }
-
         [Function("HttpTriggerCSharp")]
         public HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "get")] HttpRequestData req)
         {
-            _logger.LogInformation("C# HTTP trigger function processed a request.");
+            logger.LogInformation("C# HTTP trigger function processed a request.");
 
             var response = req.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
