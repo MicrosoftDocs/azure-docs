@@ -137,34 +137,49 @@ If you're using the Microsoft Sentinel `SecurityInsights` API to interact with M
 
 - [SOC optimizations in Microsoft Defender](https://aka.ms/defender_soc_optimization)
 - [Advanced hunting in Microsoft Defender](https://aka.ms/defender_hunting)
+- [Alert correlation in Microsoft Defender](https://aka.ms/defender_alertcorrelation)
 
 ### Update incident triage processes for the Defender portal
 
 If you've used Microsoft Sentinel in the Azure portal, you'll notice significant user experience enhancements in the Defender portal. While you may need to update SOC processes and retrain your analysts, the design consolidates all relevant information in a single place to provide more streamlined and efficient workflows.
 
+The unified incident queue in the Defender portal consolidates all incidents across products into a single view, impacting how analysts triage incidents that now contain multiple, cross-security domain alerts. For example:
 
+- Traditionally, analysts triage incidents based on specific security domains or expertise, often handling tickets per entity, such as a user or host. This approach can create blind spots, which the unified experience aims to address.
+- When an attacker moves laterally, related alerts might end up in separate incidents due to different security domains. The unified experience eliminates this issue by providing a comprehensive view, ensuring all related alerts are correlated and managed cohesively.
 
-Analysts can now view detection sources and product names, apply and share filters for more efficient triaging of incidents and alerts. The unified incident queue consolidates all incidents across products into a single view, offering a better single pane of glass. These changes impact how analysts triage incidents, as incidents may now contain multiple cross-security domain alerts. This helps reduce the analysts workload and potentially combines the roles of tier 1 and tier 2 analysts, however, it requires broader and deeper analyst knowledg, and the etraining on the new portal UI will ensure a smooth transition.
-Singleton incidents based on domains or specific entities 
+Analysts can also view detection sources and product names in the Defender portal, and apply and share filters for more efficient incident and alert triage.
 
-Traditionally, analysts triage incidents based on specific security domains or expertise, often handling tickets per entity, such as a user or host. This approach can create blind spots, which the unified experience aims to address. When an attacker moves laterally, related alerts might end up in separate incidents due to different security domains. The unified experience eliminates this issue by providing a comprehensive view, ensuring all related alerts are correlated and managed cohesively.
+The unified triage process can help reduce analyst workloads and even potentially combine the roles of tier 1 and tier 2 analysts. However, the unified triage process can also require broader and deeper analyst knowledge. We recommend training on the new portal interface to ensure a smooth transition.
 
-Alert correlation and incident merging in Defender
+For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview?branch=main&branchFallbackFrom=pr-en-us-294911&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
 
-When a new alert meets correlation criteria, Defender aggregates and correlates it with other related alerts from all the detection sources into a new incident. The unified incident queue reveals a more comprehensive attack, making analysts more efficient and providing a complete attack story. Learn more about the alert correlation behaviors. Watch the demo: Alert correlation in Microsoft Defender https://aka.ms/defender_alertcorrelation
-In multi-workspace scenarios, only alerts from a primary workspace are correlated with Microsoft Defender XDR data. For more information about alert correlation by workspace, refer to the documentation. 
+### Understand how alerts are correlated and incidents are merged in the Defender portal
 
-Defender’s correlation engine merges incidents when it recognizes common elements between alerts in separate incidents. Learn more about the criteria for merging incidents. There are scenarios, however, that incidents cannot be merged. Check out the specific scenarios when incidents aren't merged.
+Defender’s correlation engine merges incidents when it recognizes common elements between alerts in separate incidents. When a new alert meets correlation criteria, Microsoft Defender aggregates and correlates it with other related alerts from all the detection sources into a new incident. After onboarding Microsoft Sentinel to the Defender portal, the unified incident queue reveals a more comprehensive attack, making analysts more efficient and providing a complete attack story.
 
+In multi-workspace scenarios, only alerts from a primary workspace are correlated with Microsoft Defender XDR data. There are also specific scenarios in which incidents aren't merged.
 
-| Incidents: Adding alerts to incidents /<br>Removing alerts from incidents | Defender portal only | After onboarding Microsoft Sentinel to the Defender portal, you can no longer add alerts to, or remove alerts from, incidents in the Azure portal. <br><br>You can remove an alert from an incident in the Defender portal, but only by linking the alert to another incident (existing or new). |
+The following additional changes apply to incidents and alerts after onboarding Microsoft Sentinel to the Defender portal:
 
-| <a name="5min"></a>Incidents: Creation | After onboarding to the Defender portal: Incidents are created by the correlation engine in the Microsoft Defender portal. | Incidents created in the Defender portal for alerts generated by Microsoft Sentinel have <b>Incident provider name</b> = <b>Microsoft Defender XDR</b>. <br><br>Any active Microsoft security incident creation rules are deactivated to avoid creating duplicate incidents. The incident creation settings in other types of analytics rules remain as they were, but those settings are implemented in the Defender portal, not in Microsoft Sentinel.<br><br>It may take up to 5 minutes for Microsoft Defender incidents to show in Microsoft Sentinel. This doesn't affect features provided directly by Microsoft Defender, such as automatic attack disruption.<br><br>For more information, see the following articles: <br>- [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview) <br>- [Alert correlation and incident merging in the Microsoft Defender portal](/defender-xdr/alerts-incidents-correlation) |
+<!--adding alerts to an incident manually isn't supported in the Defender portal?
+Security incident creation rules - is this line correct?
+delay just after onboarding - is this correct, not the opposite?
+What about manual incidents? this seems odd - is it still true?
+tasks - still true?-->
 
-| Incidents: Editing comments | Azure portal only | After onboarding Microsoft Sentinel to the Defender portal, you can add comments to incidents in either portal, but you can't edit existing comments. <br><br>Edits made to comments in the Azure portal don't synchronize to the Defender portal. |
-| Incidents: Programmatic and manual creation of incidents | Azure portal only  | Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, aren't synchronized to the Defender portal. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md). |
-| Incidents: Reopening closed incidents | Azure portal only  | In the Defender portal, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents. |
-| Incidents: Tasks | Azure portal only | Tasks are unavailable in the Defender portal. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
+|Feature |Description |
+|---------|---------|
+|**Delay just after onboarding your workspace**  <a name="5min"></a>   | It may take up to 5 minutes for Microsoft Defender incidents to fully integrate with Microsoft Sentinel. This doesn't affect features provided directly by Microsoft Defender, such as automatic attack disruption.        |
+|**Security incident creation rules**     | Any active [Microsoft security incident creation rules](create-incidents-from-alerts.md) are deactivated to avoid creating duplicate incidents. The incident creation settings in other types of analytics rules remain as they were, and are configurable in the Defender portal.   |
+|**Incident provider name**     | In the Defender portal, the **Incident provider name** is always Microsoft Defender XDR.        |
+|**Adding / removing alerts from incidents**     | You can no longer add alerts to or remove alerts from incidents in the Azure portal. Removing alerts from incidents in the Defender portal is only supported by linking the alert to another incident, either existing or new.        |
+|**Editing comments**     |  Add comments to incidents in either the Defender or Azure portal, but editing existing comments isn't supported in the Defender portal. Edits made to comments in the Azure portal aren't synchronized to the Defender portal.       |
+|**Programmatic and manual creation of incidents**     |    Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, aren't synchronized to the Defender portal. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md).     |
+| **Reopening closed incidents** | In the Defender portal, you can't set alert grouping in Microsoft Sentinel analytics rules to reopen closed incidents if new alerts are added. <br>Closed incidents aren't reopened in this case, and new alerts trigger new incidents.|
+| **Tasks** | Incident tasks are unavailable in the Defender portal. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
+
+For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview) and [Alert correlation and incident merging in the Microsoft Defender portal](/defender-xdr/alerts-incidents-correlation).
 
 
 ### Note changes for investigations with Advanced hunting
@@ -176,41 +191,25 @@ Some differences exist, such as that bookmarks aren't supported in **Advanced hu
 For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender](/defender-xdr/advanced-hunting-microsoft-defender), especially the list of [known issues](/defender-xdr/advanced-hunting-microsoft-defender), and [Keep track of data during hunting with Microsoft Sentinel](/azure/sentinel/bookmarks).
 
 
-### Investigate entities with UEBA
+### Investigate with entities in the Defender portal
 
-Entities
-In the Microsoft Defender portal, entities generally fall into two main categories:
+In the Microsoft Defender portal, entities are generally either *assets*, such as accounts, hosts, or mailboxes, or *evidence*, such as IP addresses, files, or URLs. 
+
+After onboarding Microsoft Sentinel to the Defender portal, entity pages for [users](/defender-xdr/investigate-users), [devices](/defender-xdr/entity-page-device), and IP addresses are consolidated into a single view with a comprehensive view of the entity's activity and context and data from both Microsoft Sentinel and Microsoft Defender XDR.
+
+The Defender portal also provides a global search bar that centralizes results from all entities so that you can search across SIEM and XDR.
+
+For more information, see [Entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages?tabs=defender-portal).
+
  
-The entity pages for devices, users, IP addresses, and Azure resources in the Defender portal now consolidate both Microsoft Sentinel and Defender data sources.
-The user or device entity page provides expanded context for investigatiing  incidents and alerts in the Defender portal.including timeline and insights from the Sentinel events tab. The device entity page rnow supports  unified timelines to simplify investigations by providing a unified view of device activities.
- 
-At the top right of the Defender portal is an enhanced global search bar that centralizes the results from all entities so that you can search across SIEM and XDR .
-UEBA
-Most functionalities of User and Entity Behavior Analytics (UEBA) remain the same;  however, you need to be aware of the following changes:
-1.	The location to enable / disable or configure Entity behavior. With relevant permission, you can now access it via Defender portal -> Settings -> Microsoft Sentinel -> Entity behavior analytics -> Set UEBA.
-2.	As part of the unification, the dedicated page/menu for Entity Behavior is no longer available in the Defender portal but you can access entities as follows:
-•	User entity page: Assets > Identities > {user} > Sentinel events
-•	Device entity page: Assets > Devices > {device} > Sentinel events
-You can also find the entity pages for the user, device, IP, and Azure resource entity 	types from incidents and alerts as they appear or use the global search. 
-To see a list of top users, IPs, and hosts to investigate, you can leverage the User 	and Entity Behavior Analytics workbook available from the Content Hub. This 	workbook is based on the BehaviorAnalytics table.
-3.	IdentityInfo table in the Defender portal uses the Advanced hunting version of this table and the differences are documented here. We will soon release a unified version of this table, and all differences will be documented here. Depending on the type of Sentinel configuration scenarios, these may include breaking changes. Our recommendation is reviewing your existing content such as detection and hunting queries, workbooks, etc. and updating the content with the table changes accordingly. 
 
-| IdentityInfo table changes                                                                                                      |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| Sentinel on Azure portal                                                                                                          | XDR only customer                                                                                                                     | USX customers (Sentinel + Defender)                                                                                                                                                  | Sentinel Only in Defender (without UEBA)                                                    | Sentinel Only in Defender (with UEBA)                            |
-| Existing IdentityInfo table from Sentinel                                                                                         | New MDI / AH version of IdentityInfo table/ New fields + breaking changes (SourceProvider column replacement)                         | New unified IdentityInfo table including MDI and UEBA fields + breaking changes (SourceProvider column replacement)                                                                  | Light version of MDI IdentityInfo table which was not present before for Sentinel customers | Existing IdentityInfo table from Sentinel                        |
-| existing IdentityInfo table in Sentinel                                                                                           |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| On May 9th: comparison with the previous experience and detailed information will be published in the XDR documentation           |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| On May 9th: comparison with the previous experience and detailed information will be published in the Sentinel UEBA documentation |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| On May 9th: comparison with the previous experience and detailed information will be published in the XDR documentation           |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| existing IdentityInfo table in Sentinel                                                                                          |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| No change needed unless you have Playbooks that query the AH API                                                                  | Defender features such as Custom detections or Advanced Hunting queries needs to be updated with new fields from  IdentityInfo table. | Defender features such as Custom detections or Advanced Hunting queries needs to be updated with the new schema from the unified IdentityInfo table. Playbooks that query the AH API | No change needed                                                                            | No change needed unless you have Playbooks that query the AH API |
-|                                                                                                                                  |                                                                                                                                      | Sentinel features in Defender portal: no need to update queries in Analytic Rules, Workbook, Watchlist, Playbooks, Automation                                                        |                                                                                            |                                                                 |
-| Blog post will also be published in the Sentinel Tech Community                                                                  |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
-| Other communications includes announcement in Message Center, CCP, Support team (CSS), internal announcements                     |                                                                                                                                       |                                                                                                                                                                                      |                                                                                             |                                                                  |
+### Investigate with UEBA in the Defender portal
 
-| Entities: Add entities to threat intelligence from incidents | Azure portal only | This functionality is unavailable in the Defender portal. <Br><br>For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md). |
+Most functionalities of User and Entity Behavior Analytics (UEBA) remain the same in the Defender portal as they were in the Azure portal, with the following exceptions:
 
+- Adding entities to threat intelligence from incidents is supported only in the Azure portal. For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md).
+
+- After onboarding Microsoft Sentinel to the Defender portal, the `IdentityInfo` table used in the Defender portal includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that existed when used in the Azure portal are either renamed in the Defender portal, or aren't supported at all. We recommend that you check your queries for any references to these fields and update them as needed. For more information, see [IdentityInfo table](/azure/sentinel/ueba-reference?branch=pr-en-us-294911&tabs=unified-table#identityinfo-table).
 
 ### Update investigation processes to use Microsoft Defender threat intelligence
 
