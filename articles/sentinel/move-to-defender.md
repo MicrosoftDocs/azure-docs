@@ -12,17 +12,17 @@ ms.collection: usx-security
 
 # Move your Microsoft Sentinel environment to the Defender portal
 
-Microsoft Sentinel is generally available in the Microsoft Defender portal, either with [Microsoft Defender XDR](/microsoft-365/security/defender), or on its own, delivering a unified experience across SIEM and XDR for faster and more accurate threat detection and response, simplified workflows, and enhanced operational efficiency.
+Microsoft Sentinel is available in the Microsoft Defender portal with [Microsoft Defender XDR](/microsoft-365/security/defender) or on its own. It delivers a unified experience across SIEM and XDR for faster, more accurate threat detection and response, simpler workflows, and better operational efficiency.
 
-This article describes the process of moving your Microsoft Sentinel experience from the Azure portal to the Defender portal. We recommend that customers using Microsoft Sentinel in the Azure portal move into Microsoft Defender to take advantage of the unified SecOps experience and the latest capabilities. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+This article explains how to move your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, move to Microsoft Defender to get the unified SecOps experience and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
 ## Prerequisites
 
 Before you start, note:
 
-- This article is intended for customers with an existing workspace enabled for Microsoft Sentinel, who are moving their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) for information about creating a new workspace for Microsoft Sentinel to use in the Defender portal.
-- When relevant, detailed prerequisites are included in the linked articles for each step.
-- Understand the new locations of some Microsoft Sentinel features in the Defender portal. For more information, see [Quick reference](microsoft-sentinel-defender-portal.md#quick-reference).
+- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to move their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) to learn how to create a new workspace for Microsoft Sentinel in the Defender portal.
+- When relevant, detailed prerequisites are in the linked articles for each step.
+- Learn about the new locations of some Microsoft Sentinel features in the Defender portal. For more information, see [Quick reference](microsoft-sentinel-defender-portal.md#quick-reference).
 
 ## Plan and set up your transition environment
 
@@ -33,21 +33,21 @@ Before you start, note:
 - [Onboard a workspace enabled for Microsoft Sentinel to the Defender portal](https://aka.ms/onboardSentinel_in_Defender)
 - [Managing unified RBAC in Microsoft Defender](https://aka.ms/defender_RBAC)
 
-Make sure to review all planning guidance complete all prerequisites before you start onboarding your workspace to the Defender portal. For more information, see the following articles:
+Review all planning guidance and finish all prerequisites before you start onboarding your workspace to the Defender portal. For more information, see the following articles:
 
 - [Plan for unified security operations in the Defender portal](/unified-secops-platform/overview-plan)
 - [Unified security operations in the Defender portal for US government customers](/unified-secops-platform/gov-support)
-- [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy). While this article is aimed at new customers, who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, we also recommend using it as a reference for existing customers who are moving to the Defender portal.
-- [Connect Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard). This article includes detailed prerequisites for onboarding your workspace to the Defender portal. Note that if you're planning to use Microsoft Sentinel without Defender XDR, there's an extra step to trigger the connection between Microsoft Sentinel and Defender portal.
+- [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy). While this article is for new customers who don't yet have a workspace for Microsoft Sentinel or other services onboarded to the Defender portal, use it as a reference if you're moving to the Defender portal.
+- [Connect Microsoft Sentinel to the Defender portal](/unified-secops-platform/microsoft-sentinel-onboard). This article lists the prerequisites for onboarding your workspace to the Defender portal. If you plan to use Microsoft Sentinel without Defender XDR, you need to take an extra step to trigger the connection between Microsoft Sentinel and the Defender portal.
 
-Defender supports one or more workspaces across multiple tenants via the [multitenant portal](mto.security.microsoft.com), which services as a centralized place to manage incidents and alerts, hunt for threats across tenants, and for Managed Security Service Partners (MSSPs) to gain visibility across customers.
+Defender supports one or more workspaces across multiple tenants through the [multitenant portal](mto.security.microsoft.com), which serves as a central place to manage incidents and alerts, hunt for threats across tenants, and lets Managed Security Service Partners (MSSPs) see across customers.
 
-In multi-workspace scenarios, the multitenant portal supports connecting one primary workspace and multiple secondary workspaces per tenant. Each workspace must be onboarded to the Defender portal separately for each tenant, similar to onboarding for a single tenant.
+In multi-workspace scenarios, the multitenant portal lets you connect one primary workspace and multiple secondary workspaces per tenant. Onboard each workspace to the Defender portal separately for each tenant, just like onboarding for a single tenant.
 
 For more information, see:
 
-- [Azure Lighthouse documentation](/azure/lighthouse/how-to/manage-sentinel-workspaces). Azure Lighthouse is required to access other tenants’ Microsoft Sentinel data across onboarded workspaces. For example, this enables cross-workspace queries using the `workspace()` operator in Advanced hunting and analytics rules.
-- [Microsoft Entra B2B](/entra/identity/multi-tenant-organizations/overview#b2b-direct-connect). Microsoft Entra B2B is required to access data across tenant. GDAP isn't supported for Microsoft Sentinel data.
+- [Azure Lighthouse documentation](/azure/lighthouse/how-to/manage-sentinel-workspaces). Azure Lighthouse lets you use Microsoft Sentinel data from other tenants across onboarded workspaces. For example, you can run cross-workspace queries with the `workspace()` operator in Advanced hunting and analytics rules.
+- [Microsoft Entra B2B](/entra/identity/multi-tenant-organizations/overview#b2b-direct-connect). Microsoft Entra B2B lets you access data across tenants. GDAP isn't supported for Microsoft Sentinel data.
 - [Set up Microsoft Defender multitenant management](/unified-secops-platform/mto-requirements)
 
 ## Configure and review your settings and content
@@ -244,7 +244,7 @@ For more information, see [Visualize and monitor your data by using workbooks in
 
 ## Related content
 
-- Find all related demo videos at [https://aka.ms/Sentinel_in_Defender_demos](https://aka.ms/Sentinel_in_Defender_demos)
-- Watch our webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4)
-- Frequently asked questions: [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) | [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048)
+- Find related demo videos at [https://aka.ms/Sentinel_in_Defender_demos](https://aka.ms/Sentinel_in_Defender_demos)
+- Watch the webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4).
+- See frequently asked questions in the [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) or the [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048).
 
