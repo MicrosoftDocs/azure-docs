@@ -6,6 +6,7 @@ ms.service: azure-app-service
 author: msangapu-msft
 ms.author: msangapu
 ms.date: 05/01/2025
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # How WebJobs run in Azure App Service
@@ -13,6 +14,12 @@ ms.date: 05/01/2025
 Azure WebJobs allow you to run background tasks within your App Service app, without needing separate infrastructure. These tasks are discovered and managed by the **Kudu engine**, which handles execution, monitoring, and log collection.
 
 This article explains how WebJobs are discovered, how the runtime decides what to execute, and how you can configure behavior using the optional `settings.job` file.
+
+## Platform-specific notes
+
+[!INCLUDE [webjob-types](./includes/webjobs-create/webjob-types.md)]
+
+[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## Job discovery and folder structure
 
@@ -81,10 +88,6 @@ https://<your-app>.scm.azurewebsites.net/api/triggeredwebjobs/<job>/history
 For more advanced monitoring and querying capabilities, consider integrating with [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
 Triggered WebJobs include a full history of executions. Continuous WebJobs stream logs in real time.
-
-## Platform-specific notes
-
-[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## Troubleshooting tips
 
