@@ -49,7 +49,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](/azure/container-
 1. Depending on the type of account you use to deploy the module, you may need to customize which credentials are used. These credentials are needed to get the modules from the registry. By default, credentials are obtained from Azure CLI or Azure PowerShell. You can customize the precedence for getting the credentials in the _bicepconfig.json_ file. For more information, see [Credentials for restoring modules](bicep-config-modules.md#configure-profiles-and-credentials).
 
 > [!IMPORTANT]
-> The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure container registry using Azure Private Link](/azure/container-registry/container-registry-private-link).
+> The private container registry is only available to users with the required access. However, it's accessed through the public internet. For more security, you can require access through a private endpoint. See [Connect privately to an Azure Container Registry using Azure Private Link](/azure/container-registry/container-registry-private-link).
 > 
 > The private container registry must have the policy `azureADAuthenticationAsArmPolicy` set to `enabled`. If `azureADAuthenticationAsArmPolicy` is set to `disabled`, you'll get a 401 (Unauthorized) error message when publishing modules. See [Azure Container Registry introduces the Conditional Access policy](/azure/container-registry/container-registry-configure-conditional-access).
 
