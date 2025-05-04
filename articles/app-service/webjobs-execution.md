@@ -17,6 +17,8 @@ This article explains how WebJobs are discovered, how the runtime decides what t
 
 ## Platform-specific notes
 
+WebJobs support a variety of script and executable formats, depending on the App Service hosting environment. The types of files you can run—and the runtimes available—vary slightly based on whether you're using Windows code, Linux code, or custom containers. In general, built-in runtimes are available for common scripting languages, and additional file types are supported when they match the language runtime of your app or container.
+
 [!INCLUDE [webjob-types](./includes/webjobs-create/webjob-types.md)]
 
 >[!IMPORTANT]
