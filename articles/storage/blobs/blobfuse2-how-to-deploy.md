@@ -168,19 +168,19 @@ To configure BlobFuse2 for mounting:
 
 ### Configure caching
 
-BlobFuse2 provides native-like performance by using local file-caching techniques. The caching configuration and behavior varies, depending on whether you're streaming large files or accessing smaller files.
+BlobFuse2 provides native-like performance by using local file-caching techniques. The caching configuration and behavior varies, depending on whether you are streaming large files or accessing smaller files.
 
 #### Configure caching for streaming large files
 
-BlobFuse2 supports streaming for read and write operations as an alternative to disk caching for files. In streaming mode, BlobFuse2 caches blocks of large files in memory both for reading and writing. The configuration settings related to caching for streaming are under the `stream:` settings in your configuration file:
+BlobFuse2 supports block caching for read and write operations as an alternative to disk caching for files. In block cache mode, blobFuse2 caches blocks of large files in memory both for reading and writing. The configuration settings related to block caching are under the `block_cache:` settings in your configuration file:
 
 ```yml
-stream:
+block_cache:
     block-size-mb:
         For read only mode, the size of each block to be cached in memory while streaming (in MB)
         For read/write mode, the size of newly created blocks
-    max-buffers: The total number of buffers to store blocks in
-    buffer-size-mb: The size for each buffer
+     mem-size-mb: The total amount of memory to be preallocated for block cache (in MB).
+     path: The path to local disk cache where downloaded block will be stored.
 ```
 
 #### Configure caching for smaller files
@@ -191,6 +191,9 @@ Smaller files are cached to a temporary path that's specified under `file_cache:
 file_cache:
     path: <path to local disk cache>
 ```
+> [!NOTE]
+> BlobFuse2 supports either the use of block_cache or file_cache mode for caching purpose. Both these caching feature cannot co-exist and we have to use either of one mode for caching purpose.
+>
 
 > [!NOTE]
 > BlobFuse2 stores all open file contents in the temporary path. Make sure you have enough space to contain all open files.
