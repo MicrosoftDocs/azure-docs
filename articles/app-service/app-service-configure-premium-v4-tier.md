@@ -4,7 +4,7 @@ description: Learn how to better performance for your web, mobile, and API app i
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
-ms.date: 02/21/2025
+ms.date: 05/3/2025
 ms.author: msangapu
 author: msangapu-msft
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -12,6 +12,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure Premium V4 tier for Azure App Service
+
+> [!NOTE]
+> The Premium V4 tier for App Service is in preview.
+>
 
 The new Premium V4 pricing tier gives you faster processors, NVMe local storage, and memory-optimized options. It offers up to double the memory-to-core ratio of older pricing tiers. With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in Premium V4 tier or scale up an app to Premium V4 tier.
 
@@ -26,7 +30,7 @@ To scale-up an app to Premium V4:
 
 ## Premium V4 availability
 
-The Premium V4 tier is available for source code based applications on Windows, and both source code based applications and custom containers on Linux.  The Premium V4 tier is not available for Windows containers.
+The Premium V4 tier is available for source code based applications on Windows, and both source code based applications and custom containers on Linux.  The Premium V4 tier is not available for Windows containers. While Premium V4 is in public preview, it is supported for running customers' production workloads.
 
 > [!NOTE]
 > The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for "Outbound IP addresses" and "Additional Outbound IP addresses" information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](overview-nat-gateway-integration.md) to get a predictable IP address for outbound internet-facing traffic.
