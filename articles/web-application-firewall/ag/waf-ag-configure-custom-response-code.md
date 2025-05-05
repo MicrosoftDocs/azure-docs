@@ -9,7 +9,7 @@ ms.date: 03/11/2025
 ---
 
 
-# Configuring Custom Response code and body for Azure Application Gateway WAF
+# Configure custom response code and body for Azure Application Gateway WAF
 
 
 By default, when WAF on Application Gateway blocks a request due to a matched rule, it returns a 403 status code with the message "The request is blocked." You can customize the response by configuring a custom status code and message to better suit your use case.
