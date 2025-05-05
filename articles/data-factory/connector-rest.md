@@ -702,17 +702,18 @@ or
 
 This example provides the configuration steps to send multiple requests whose variables are in Headers.
 
-**Multiple requests:**<br/>
+**Multiple requests:**
+
 ```
-RequestUrl: *https://example/table*<br/> 
-Request 1: `Header(id->0)`<br/>
-Request 2: `Header(id->10)`<br/>
-......<br/>
-Request 100: `Header(id->100)`<br/>
+RequestUrl: *https://example/table*
+Request 1: `Header(id->0)`
+Request 2: `Header(id->10)`
+......
+Request 100: `Header(id->100)`
 ```
 
 *Step 1*: Input `{id}` in **Additional headers**.
-    
+
 *Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
