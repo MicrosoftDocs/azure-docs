@@ -705,11 +705,11 @@ This example provides the configuration steps to send multiple requests whose va
 **Multiple requests:**
 
 ```
-RequestUrl: *https://example/table*
-Request 1: `Header(id->0)`
-Request 2: `Header(id->10)`
+RequestUrl: https://example/table
+Request 1: Header(id->0)
+Request 2: Header(id->10)
 ......
-Request 100: `Header(id->100)`
+Request 100: Header(id->100)
 ```
 
 *Step 1*: Input `{id}` in **Additional headers**.
