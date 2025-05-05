@@ -1,6 +1,6 @@
 ---
 title: Migrate identity services from Amazon Web Services (AWS)
-description: Learn about replatforming identity services from AWS to Microsoft Cloud to support the security requirements of the workload. Discover key similarities and differences between the AWS and Microsoft.
+description: Learn about replatforming identity services from AWS to Microsoft Cloud to support the security requirements of the workload. Discover key similarities and differences between AWS and Microsoft.
 ms.author: joflore
 author: MicrosoftGuyJFlo
 
