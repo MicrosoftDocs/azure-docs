@@ -3,8 +3,8 @@ title: "Get started with Service Groups"
 description: "Learn how to use and manage resources with Service Groups."
 author: rthorn17
 ms.author: rithorn
-ms.service: Service Groups
-ms.topic: concept-article #Don't change
+ms.service: governance
+ms.topic: overview
 ms.date: 05/19/2025
 ---
 
@@ -99,15 +99,8 @@ Service Groups creates the Root Service Group on the first request received with
 Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
 
 
-## Next step -or- Related content
+## Related content
+* [Quickstart: Create a service group with REST API](service-groups\create-service-group-rest-api.md)
+* [How to: Manage Service Groups](manaage-service-groups.md)
+* [Connect service group members with REST API](create-service-group-member-rest-api.md)
 
-> [!div class="nextstepaction"]
-> [Getting Started: Service Groups](link.md)
-
--or-
-
-* [How to: Connect Service Group Members](link.md)
-* [How to:](link.md)
-* [Related article title](link.md)
-* [Service Group REST API Spec]()
-* [Service Group Member REST API Spec]()

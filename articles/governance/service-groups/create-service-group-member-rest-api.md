@@ -1,19 +1,21 @@
 ---
-title: Quickstart: Connect service group members with REST API
+title: "Quickstart: Connect Service Group members using the REST API"
 description: In this quickstart, you use REST API to connect a resource to a service group with a service group member relationship.
 author: rthorn17
 ms.author: rithorn
-ms.service: Azure Service Groups
-ms.topic: quickstart  #Don't change
+ms.service: azure-governance
+ms.topic: quickstart
 ms.date: 5/19/2025
 ---
 
 
 # Quickstart: Connect resources or resource containers to service groups with Service Group Member Relationships 
  
-Service Groups are designed to be flexible and scalable, allowing organizations to adapt their resource management strategies as their needs evolve. To connect resources, resource groups, or subscriptions to a Service Group, you need to create a new Service Group Member Relationship. For more information on service groups, see [Getting started with Service Groups](overview.md).
+To connect resources, resource groups, or subscriptions to a Service Group (preview), you need to create a new Service Group Member Relationship. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
-
+> [!IMPORTANT]
+> Azure Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -26,9 +28,9 @@ Service Groups are designed to be flexible and scalable, allowing organizations 
 ## Create in REST API
 
 For REST API, use the
-[Service Groups Member- Create or Update]() endpoint to create a new service group member. 
+[Service Groups Member- Create or Update]() endpoint to create a new service group member.
 
-In this example, we're connecting a Virtual Machine [VM1] to a Service Group [Contoso]. 
+In this example, we're connecting a Virtual Machine [VM1] to a Service Group [Contoso].
 
 1. Service Group: **groupId** is _Contoso_
 1. Virtual Machine: The **resourceID** is _VM1_
@@ -76,7 +78,7 @@ To remove the service group created in this document, use the
 - No Request Body
 
 
-## Next step -or- Related content
+## Next step
 
 In this quickstart, you created a service group to help create different views in Azure. The
 service group can have member subscriptions, resource groups, resources, or other service groups.
@@ -84,11 +86,5 @@ service group can have member subscriptions, resource groups, resources, or othe
 To learn more about service groups and how to manage your service group hierarchy, continue to:
 
 > [!div class="nextstepaction"]
-> [Manage your resources with service groups]()
+> [Manage your resources with service groups](manaage-service-groups.md)
 
-
--or-
-
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)

@@ -1,9 +1,9 @@
 ---
-title: Manage Resouces Across Subscriptions and Resource Groups with Azure Service Groups 
-description: "Learn how to create, update, read, and delete Azure Service Groups and its members"
+title: Manage resouces across subscriptions and resource groups with Azure Service Groups 
+description: "Learn how to create, update, read, and delete Azure Service Groups and members"
 author: rthorn17
 ms.author: rithorn
-ms.service: governance  ## is service-groups going to be an official service slug?
+ms.service: azure-governance  ## is service-groups going to be an official service slug?
 ms.topic: how-to
 ms.date: 05/19/2025
 ---
@@ -15,7 +15,7 @@ You can group resources, across subscriptions, by creating Azure Service Groups.
 For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
-> Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
+> Azure Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
@@ -345,30 +345,8 @@ The valid values are:
 * UserExplicitlyCreated: A user created the relationship.
 
 
-
-  
-
-
-
-
-
-
 ## Related content
-
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)
-
-<!-- Optional: Related content - H2
-
-Consider including a "Related content" H2 section that 
-lists links to 1 to 3 articles the user might find helpful.
-
--->
-
-<!--
-
-Remove all comments except the customer intent
-before you sign off or merge to the main branch.
-
---> 
+* [What are Azure Service Groups?](overview.md)
+* [Quickstart: Create a service group (preview) with REST API](create-service-group-rest-api.md)
+* [Quickstart: Connect resources or resource containers to service groups with Service Group Member Relationships](create-service-group-member-rest-api.md)
+* [Connect service group members with REST API](create-service-group-member-rest-api.md)
