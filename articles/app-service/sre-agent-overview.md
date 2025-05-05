@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ms.author: cshoe
 ---
 
@@ -53,6 +53,19 @@ An SRE Agent works to proactively monitor and maintain your Azure services. Each
 | Application down | ▪ **Application code issues**: Bugs or errors in the application code can lead to crashes or unresponsiveness.<br><br>▪ **Bad deployment**: Incorrect configurations or failed deployments can cause the application to go down.<br><br>▪ **High CPU/memory/thread issues**: Resource exhaustion due to high CPU, memory, or thread usage can affect application performance. | The Azure SRE Agent can detect these issues and provide actionable insights or automated fixes. For example, it can identify high CPU usage and recommend scaling up the resources or suggest code optimizations. |
 | Virtual machine RDP issues | ▪ **Network configuration problems**: Incorrect network settings can prevent Remote Desktop Protocol (RDP) access to virtual machines.<br><br> ▪ **Firewall rules**: Misconfigured firewall rules can block RDP access.<br><br> ▪ **Resource health**: Virtual machine health issues can affect RDP connectivity. | The Azure SRE Agent can monitor virtual machine health and network configurations, providing alerts and recommendations to resolve RDP issues. Agents can also automate the application of correct firewall rules to restore access. |
 | Container image pull failures | ▪ **Registry authentication issues**: Problems with authentication to the container registry can prevent image pulls.<br><br> ▪ **Network connectivity**: Network issues can disrupt the connection to the container registry.<br><br>▪ **Image availability**: The requested image might not be available or could be missing. | The Azure SRE Agent can detect container image pull failures and provide detailed diagnostics. It can recommend solutions such as verifying registry credentials, checking network connectivity, or ensuring the image is available. |
+
+An agent can provide detailed information about different aspects of your apps and resources. The following examples demonstrate the types of questions you could pose to your agent:
+
+- Which resource group is my app part of?
+- Which regions do I have apps deployed in?
+- Show me all web apps using .NET 6 runtime.
+- Which apps have diagnostic logging turned on?
+- What plan am I running, and who else shares it?
+- Are there any staging slots configured for this app?
+- What services or resources is my web app connected to?
+- Do any apps in my subscription have ARR affinity enabled?
+- Which apps have health checks enabled and what are their probe paths?
+- Are any of my web apps still running on deprecated or unsupported runtime versions?
 
 ## Security context
 
