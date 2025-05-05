@@ -24,13 +24,13 @@ Service groups in Azure are a low-privilege-based grouping of resources across s
 
 
 ### Flexible Membership
-Within the Resource Hierarchy, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
+Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
 
 #### Example Scenarios 
 * Aggregating Health Metrics
    * Organizations with multiple applications and environments can use Service Groups to aggregate health metrics across different environments. Member resources or resource containers could be from various environments within different management groups or subscriptions, can be linked to a single Service Group providing a unified view of health metrics.
 * Creating Inventory of a specific resource type
-    * Customers can connect all Virtual Machines or CosmosDBs to the same Service Groups to get a consolidated view of all the resources of that type in the entire environment. This capability allows a customer like a Virtual Machine Administrator to view aggregated data on all their resources no matter what subscription they live in.  
+    * Customers can connect all Virtual Machines or CosmosDBs to the same Service Groups to get a consolidated view of all the resources of that type in the entire environment. This capability allows a customer like a Virtual Machine Administrator to view aggregated data on all their resources no matter what subscription they live in.
 
 ![MGsandSGs](./media/sidebyside.png)
 
