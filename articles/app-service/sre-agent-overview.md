@@ -9,9 +9,9 @@ ms.date: 05/02/2025
 ms.author: cshoe
 ---
 
-# Azure SRE Agent overview
+# Azure SRE Agent overview (preview)
 
-An SRE Agent is AI-enabled service that works on your behalf as you build resilient and self-healing systems. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services.
 
 Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
 
@@ -35,6 +35,16 @@ The Azure SRE Agent offers several key features that enhance the reliability and
 - **Automated mitigation:** Automatic detection and mitigation of common issues, reducing downtime and improving resource health.
 
 - **Resource visualization**: Comprehensive views of your resource dependencies and health status
+
+An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports which provide insights into the health and status of your applications. Reports include:
+
+- **Actionable steps**: Measures you can take each day to reduce errors and harden security practices.
+
+- **Key insights**: Summaries of important details relevant to the health and maintenance of your Azure resources.
+
+- **Reasoning**: Summaries of analysis done by your agent helping surface possible problem areas in your apps.
+
+- **Actions already taken by the agent**: A list of tasks the agent did on your behalf for the day.
 
 ## Scenarios
 
