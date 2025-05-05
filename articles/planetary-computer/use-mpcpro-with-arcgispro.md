@@ -244,12 +244,12 @@ and STAC data connections.
 
   2. Construct the **Token API Endpoint** using this pattern
 
-> \<GeoCatalog URI\>/api/token/\<Collection
-> Name\>?api-version=2024-01-31-preview
+> \<GeoCatalog URI\>/sas/token/\<Collection
+> Name\>?api-version=2025-04-30-preview
 >
 > Example:
 >
-> https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/api/token/sentinel-2-l2a-turorial-1000?api-version=2024-01-31-preview
+> https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-turorial-1000?api-version=2025-04-30-preview
 
 3. Select on the collection name
 
@@ -300,7 +300,7 @@ and STAC data connections.
 8. Add the provider option **ARC_TOKEN_SERVICE_API** and set the value
     to your **Token API Endpoint** that you constructed earlier, for example:
 
-```https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/api/token/sentinel-2-l2a-turorial-1000?api=version=2024-01-31-preview```
+```https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/api/token/sentinel-2-l2a-turorial-1000?api=version=2025-04-30-preview```
 
 9. Add the provider option **ARC_TOKEN_OPTION_NAME** and set the value
     to AZURE_STORAGE_SAS_TOKEN
