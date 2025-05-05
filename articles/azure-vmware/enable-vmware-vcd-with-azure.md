@@ -7,16 +7,17 @@ ms.service: azure-vmware
 ms.date: 4/07/2025
 ---
 
-# Enable VMware Cloud Director (VCD) with Azure VMware Solution
+# Install VMware Cloud Director with Azure VMware Solution
 
-In this document you will learn about enabling and using VMware Cloud director on Azure VMware solution.
+This article explains how to install VMware Cloud Director to enable Enterprise and hosters to use Azure VMware Solution private cloud underlying resources for virtual datacenters.
 
 [VMware Cloud director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html) also referred to as VCD, is a cloud services platform that delivers secure, isolated, and elastic virtual data center compute, network, storage, and security in a self-service model. VMware Cloud Director obtains its resources from an underlying virtual infrastructure.
 
+> [!Note]
+> VMware Cloud Director on Azure VMware Solution is currently available for eligible hosters and select Enterprise customers only. Please contact your account team for more information.
+
 Eligible Enterprise and hoster can install VMware Cloud director on Azure VMware solution and integrate it with Azure VMware Solution private cloud datacenter to enable multi tenancy, using its underlying resources to deliver the secure, isolated virtual datacenters that VCD offers.
 
-## Audience and scope
-VMware Cloud Director on Azure VMware Solution is currently available for eligible hosters and select Enterprise customers only. Please contact your account team for more information.
 
 ## VCD on Azure VMware Solution Architecture Overview
 
@@ -70,7 +71,7 @@ VMware Cloud Director is deployed in two stages:
 - Stage 2: Configure VMware Cloud Director by logging in to the VAMI page. https://<VCD_FQDN_or_IP>:5480
 
 
-**Procedure:**
+#### Procedure
 
 1.	Deploy the VMware Cloud Director appliance as a primary cell. 
     - The primary cell is the first member in the VMware Cloud Director server group. The embedded database is configured as the VMware Cloud Director database. 
@@ -100,11 +101,11 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 > [!Note]
 > Review and complete the following pre-configuration steps before adding Azure VMware solution private cloud to VCD.
 
-### Pre-configuration steps
+### Prerequisites
 
 -	Retrieve Azure VMware solution vCenter VMCA certificate manually by going to https://<your vCenterFQDN> and then select **download trusted root CA certificate**. Locate the VMCA in the zip file contents and then add it to VCD’s trusted certificates. 
     - You must perform this task before adding Azure VMware Solution vCenter server is added to VCD, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads. Learn more using this link.
--	Please [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to perform customization on NSX-T before you integrate Azure VMware Solution NSX-T manager with VMware cloud director and create provider gateway.
+-	[Create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to perform customization on NSX-T before you integrate Azure VMware Solution NSX-T manager with VMware cloud director and create provider gateway.
     - You must perform this task before adding Azure VMware Solution NSX-T manager is added to VCD, else adding provide gateway will fail.
 -	Integrate Azure VMware Solution vCenter and NSX-T using credentials mapped with “CloudAdmin” role
     - CloudAdmin credentials can be found under your Azure private cloud portal. 
