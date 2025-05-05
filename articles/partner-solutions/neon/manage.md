@@ -39,11 +39,11 @@ Single sign-on (SSO) is already enabled when you create your Neon resource.
 
 ## Projects
 
-When you create your first Neon organization, a default project is created for you. You can create and view your projects from the Azure resource.
+When you create your first Neon organization, a default project is created for you. You can create and view your projects from the resource overview.
 
 ### View projects
 
-To view your projects, Choose the **Projects** from the sidebar.
+To view your projects, Choose **Projects** from the sidebar.
 
 To view a specific project, select the project's name.
 
