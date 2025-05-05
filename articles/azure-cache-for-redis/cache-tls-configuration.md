@@ -44,10 +44,6 @@ The TLS 1.3 cipher suites are as follows:
 
 ## How to enable or disable TLS
 
-Azure Cache for Redis 
-
-
-
 Enabling and disabling TLS is different for different Azure Redis tiers.
 
 ### Basic, Standard, and Premium tiers

@@ -16,7 +16,7 @@ Azure Cache for Redis is based on the Redis open-source, in-memory data store. R
 
 Each client library has its own API that calls Redis servers using Redis commands. The client libraries are built to communicate with any Redis server.
 
-Clients maintain reference documentation for their own libraries, and provides links to get support through the client library developer community. Microsoft and the Azure Redis team don't own the development or support for any client libraries.
+Clients maintain reference documentation for their own libraries, and provide links to get support through the client library developer community. Microsoft and the Azure Redis team don't own the development or support for any client libraries.
 
 Microsoft and Azure Redis do recommend some libraries, based on popularity and whether there's an active online support community to answer questions. These libraries are under active development and often release new versions with reliability and performance improvements. Microsoft recommends using the latest available version, and upgrading regularly as new versions become available.
 
@@ -74,7 +74,7 @@ Here are some recommended best practices for the [Redisson](https://redisson.pro
 
 - Reset the idle connection timeout if necessary. Redisson has a default 10-second idle connection timeout, which can lead to more closing and reopening of connections than ideal.
 
-- See [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache) for information about using Redisson with Java EE JCache to store HTTP session state on an Azure Kubernetes Service (AKS) cluster in IBM Libery.
+- For information about using Redisson with Java EE JCache to store HTTP session state on an Azure Kubernetes Service (AKS) cluster, see [Using Azure Redis as session cache for WebSphere Liberty or Open Liberty](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache).
 
 - Use the following recommended baseline configuration for cluster mode, and modify it as needed.
 
