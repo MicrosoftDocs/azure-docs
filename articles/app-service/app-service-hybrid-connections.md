@@ -60,11 +60,11 @@ To create a Hybrid Connection:
 1. In the [Azure portal], select your app. Select **Settings** > **Networking**.
 1. Next to **Hybrid connections**, select the **Not configured** link. Here you can see the Hybrid Connections that are configured for your app.
 
-  :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-portal.png" alt-text="Screenshot of Hybrid Connection list where you can add and manage connections.":::
+    :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-portal.png" alt-text="Screenshot of Hybrid Connection list where you can add and manage connections.":::
 
 1. To add a new Hybrid Connection, select **Add hybrid connection**. You see a list of the Hybrid Connections that you already created. To add one or more of them to your app, select the ones you want, and then select **Add selected Hybrid Connection**.
 
-  :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-add-hybrid-connection.png" alt-text="Screenshot of Hybrid Connection page where you can add a connection.":::
+    :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-add-hybrid-connection.png" alt-text="Screenshot of Hybrid Connection page where you can add a connection.":::
 
 If you want to create a new Hybrid Connection, select **Create new hybrid connection**. Specify the following values:
 
@@ -187,7 +187,7 @@ To add a Hybrid Connections to your Hybrid Connection Manager CLI:
 1. Start the Hybrid Connection Manager CLI.
 1. Run `hcm add` and wait for authentication to Azure to complete. If you haven't installed and logged into the Azure CLI, you need to complete this step first in order to use interactive mode. If you don't want to install the Azure CLI, follow the instructions for [manually adding a Hybrid Connection with the CLI](#manually-add-a-hybrid-connection).
 
-  :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-cli-add.png" alt-text="Screenshot of adding a Hybrid Connection with the CLI.":::
+    :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-cli-add.png" alt-text="Screenshot of adding a Hybrid Connection with the CLI.":::
 
 1. Choose a subscription. The Hybrid Connection Manager retrieves all of the Hybrid Connections in that subscription. This step can take up to one minute to complete.
 1. Select the Hybrid Connection that you want the Hybrid Connection Manager to relay.
