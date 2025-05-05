@@ -30,7 +30,7 @@ You can set the autoscaler configuration via the Azure portal, a Bicep template,
 | maxConcurrentWorkItemsCount | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | 1 |
 | taskhubName | The name of the task hub connected to the scheduler. | taskhub-ID |
 | workItemType | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | Orchestration |
-| Managed identity | The user assigned managed identity linked to the scheduler and task hub resource. Ensure the **Authenticate with a Managed Identity** checkbox is selected. | someone@microsoft.com |
+| Managed identity | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. Ensure the **Authenticate with a Managed Identity** checkbox is selected. | someone@microsoft.com |
 
 # [Bicep](#tab/bicep)
 
@@ -64,7 +64,7 @@ scale: {
 | `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | `1` |
 | `taskhubName` | The name of the task hub connected to the scheduler. | `myTaskHubName` |
 | `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | `Orchestration` |
-| `identity` | The user assigned managed identity linked to the scheduler and task hub resource. | `someone@microsoft.com` |
+| `identity` | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. | `someone@microsoft.com` |
 
 
 # [Azure CLI](#tab/cli)
@@ -89,7 +89,7 @@ az containerapp create \
 | `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | `1` |
 | `taskhubName` | The name of the task hub connected to the scheduler. | `myTaskHubName` |
 | `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | `Orchestration` |
-| `scale-rule-identity` | The user assigned managed identity linked to the scheduler and task hub resource. | `someone@microsoft.com` |
+| `scale-rule-identity` | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. | `someone@microsoft.com` |
 
 ---
 
