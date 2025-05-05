@@ -18,7 +18,7 @@ In this article, you'll learn how to deploy an Arc-enabled Managed SQL Instance 
 
 - [An Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) with an active subscription.
 - Access to an Extended Zone. For more information, see [Request access to an Azure Extended Zone](request-access.md).
-- Azure Cloud Shell or Azure CLI. Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 - Azure Data Studio
 - Azure Arc extension for Azure Data Studio
@@ -30,7 +30,7 @@ In this article, you'll learn how to deploy an Arc-enabled Managed SQL Instance 
 > [!NOTE] 
 > Use the intended Extended Location as your location variable. 
 
-## Getting Started	
+## Getting started	
 If you're already familiar with the subject, you may skip this paragraph. Here are important topics you may want read before you proceed with creation:
 -	[Requirements and limitations](/azure/container-apps/azure-arc-overview) of the public preview. Of particular importance are the cluster requirements.
 -	[Overview of Azure Arc-enabled data services](/azure/azure-arc/data/overview)
@@ -159,7 +159,7 @@ You can copy the external IP and port number from here and connect to SQL Manage
 
 When no longer needed, delete **my-aks-cluster-group** resource group and all of the resources it contains using the [az group delete](/cli/azure/group#az-group-delete) command.
 
-```azurecli-interactive
+```powershell
 az group delete --name my-aks-cluster-group
 ```
 
