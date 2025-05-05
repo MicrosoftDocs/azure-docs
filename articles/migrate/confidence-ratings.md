@@ -4,7 +4,7 @@ description: Describes how confidence ratings are calculated in an assessment.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
 ---
