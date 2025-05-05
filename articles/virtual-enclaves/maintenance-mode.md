@@ -12,7 +12,7 @@ ms.date: 04/08/2025
 
 Maintenance mode is a feature that allows enclave owners to temporarily place their enclaves into a "maintenance mode" state. This mode permits privileged users to make certain changes to the underlying managed resources in an enclave that are normally protected by Deny Assignments. This helps maintain the enclave isolation and network boundary.
 
-## Key Features
+## Key features
 The following are the key features of Maintenance Mode:
 - *Exclusion from Deny Assignments*: Enclave owners can temporarily exclude themselves from deny assignments, enabling them to perform necessary maintenance tasks or create complex workloads.
 - *Privileged action*: As this is considered a privileged action, Azure recommends only using maintenance mode when performing certain elevated actions. Privileged users making changes should understand changes they're making, and steps to undo or remediate those changes.
@@ -35,20 +35,20 @@ The following are the key features of Maintenance Mode:
 
 ### 1. Activate maintenance mode during enclave creation
 
-- Navigate to the Maintenance mode tab on the enclave create form.
-- Select the mode option [`Off` / `General` / `Advanced`].
-- Select the service principals that you want to include.
-- Select the justification for why you're entering maintenance mode [`OFF` / `NETWORKING` / `GOVERNANCE`].
-- Review and create enclave as normal.
+1. Navigate to the Maintenance mode tab on the enclave create form.
+2. Select the mode option [`Off` / `General` / `Advanced`].
+3. Select the service principals that you want to include.
+4. Select the justification for why you're entering maintenance mode [`OFF` / `NETWORKING` / `GOVERNANCE`].
+5. Review and create enclave as normal.
 
 ### 2. Activate maintenance mode for an existing enclave
 
-- Navigate to the enclave you're enabling maintenance mode.
-- Navigate to the "Maintenance mode" tab.
-- Select the mode option [`Advanced` / `General`].
-- Select the service principals that you want to include.
-- Select the justification for why you're entering maintenance mode [`NETWORKING` / `GOVERNANCE`].
-- Confirm and save.
+1. Navigate to the enclave you're enabling maintenance mode.
+2. Navigate to the "Maintenance mode" tab.
+3. Select the mode option [`Advanced` / `General`].
+4. Select the service principals that you want to include.
+5. Select the justification for why you're entering maintenance mode [`NETWORKING` / `GOVERNANCE`].
+6. Confirm and save.
 
 ### 3. Perform maintenance tasks
 
@@ -56,9 +56,9 @@ The following are the key features of Maintenance Mode:
 
 ### 4. Deactivate maintenance mode
 
-- After completing your tasks, navigate back to the Maintenance mode tab.
-- Select the `OFF` mode.
-- Confirm and save.
+1. After completing your tasks, navigate back to the Maintenance mode tab.
+2. Select the `OFF` mode.
+3. Confirm and save.
 
 ## Best practices
 
