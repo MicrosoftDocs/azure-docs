@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ms.author: cshoe
 ---
 
-# Azure SRE Agent overview (preview)
+# SRE Agent overview (preview)
 
-Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services.
 
 Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
 
@@ -21,14 +21,14 @@ Agents have access to every resource inside the resource groups associated to th
 
 - Provide a natural language interface to issue commands
 
-An Azure SRE Agent also integrates with [PagerDuty](https://www.pagerduty.com/) to support advanced notification solutions.
+An SRE Agent also integrates with [PagerDuty](https://www.pagerduty.com/) to support advanced notification solutions.
 
 > [!NOTE]
 > The SRE Agent feature is in limited preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
 ## Key features
 
-The Azure SRE Agent offers several key features that enhance the reliability and performance of your Azure resources:
+The SRE Agent offers several key features that enhance the reliability and performance of your Azure resources:
 
 - **Proactive monitoring**: Continuous resource monitoring with real-time alerts for potential issues and daily resource reports.
 
@@ -50,9 +50,9 @@ An SRE Agent works to proactively monitor and maintain your Azure services. Each
 
 | Scenario | Possible cause | Agent mitigation |
 |---|---|---|
-| Application down | ▪ **Application code issues**: Bugs or errors in the application code can lead to crashes or unresponsiveness.<br><br>▪ **Bad deployment**: Incorrect configurations or failed deployments can cause the application to go down.<br><br>▪ **High CPU/memory/thread issues**: Resource exhaustion due to high CPU, memory, or thread usage can affect application performance. | The Azure SRE Agent can detect these issues and provide actionable insights or automated fixes. For example, it can identify high CPU usage and recommend scaling up the resources or suggest code optimizations. |
-| Virtual machine RDP issues | ▪ **Network configuration problems**: Incorrect network settings can prevent Remote Desktop Protocol (RDP) access to virtual machines.<br><br> ▪ **Firewall rules**: Misconfigured firewall rules can block RDP access.<br><br> ▪ **Resource health**: Virtual machine health issues can affect RDP connectivity. | The Azure SRE Agent can monitor virtual machine health and network configurations, providing alerts and recommendations to resolve RDP issues. Agents can also automate the application of correct firewall rules to restore access. |
-| Container image pull failures | ▪ **Registry authentication issues**: Problems with authentication to the container registry can prevent image pulls.<br><br> ▪ **Network connectivity**: Network issues can disrupt the connection to the container registry.<br><br>▪ **Image availability**: The requested image might not be available or could be missing. | The Azure SRE Agent can detect container image pull failures and provide detailed diagnostics. It can recommend solutions such as verifying registry credentials, checking network connectivity, or ensuring the image is available. |
+| Application down | ▪ **Application code issues**: Bugs or errors in the application code can lead to crashes or unresponsiveness.<br><br>▪ **Bad deployment**: Incorrect configurations or failed deployments can cause the application to go down.<br><br>▪ **High CPU/memory/thread issues**: Resource exhaustion due to high CPU, memory, or thread usage can affect application performance. | The SRE Agent can detect these issues and provide actionable insights or automated fixes. For example, it can identify high CPU usage and recommend scaling up the resources or suggest code optimizations. |
+| Virtual machine RDP issues | ▪ **Network configuration problems**: Incorrect network settings can prevent Remote Desktop Protocol (RDP) access to virtual machines.<br><br> ▪ **Firewall rules**: Misconfigured firewall rules can block RDP access.<br><br> ▪ **Resource health**: Virtual machine health issues can affect RDP connectivity. | The SRE Agent can monitor virtual machine health and network configurations, providing alerts and recommendations to resolve RDP issues. Agents can also automate the application of correct firewall rules to restore access. |
+| Container image pull failures | ▪ **Registry authentication issues**: Problems with authentication to the container registry can prevent image pulls.<br><br> ▪ **Network connectivity**: Network issues can disrupt the connection to the container registry.<br><br>▪ **Image availability**: The requested image might not be available or could be missing. | The SRE Agent can detect container image pull failures and provide detailed diagnostics. It can recommend solutions such as verifying registry credentials, checking network connectivity, or ensuring the image is available. |
 
 ## Security context
 
