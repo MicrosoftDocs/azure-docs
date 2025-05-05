@@ -3,7 +3,7 @@ title: Monitor Azure Files using Azure Monitor
 description: Learn how to monitor Azure Files and analyze metrics and logs using Azure Monitor. 
 ms.date: 05/10/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage

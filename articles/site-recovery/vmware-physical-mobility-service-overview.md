@@ -415,6 +415,8 @@ Installer file | Operating system (64-bit only)
 
 ## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debian 9, Oracle Linux 6 and Ubuntu 14.04 server
 
+Oracle Linux 6 is supported for Mobility Service installation. You can follow the same steps as RHEL 5, as both distributions share a similar package structure and system dependencies. Ensure that required dependencies such as glibc and perl are present.
+
 ### SUSE 11 SP3 or SUSE 11 SP4 server
 
 As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 machines** from 9.36 version onwards:
