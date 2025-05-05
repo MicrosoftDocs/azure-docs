@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 03/28/2024
 ms.author: cwatson
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -42,14 +42,10 @@ After you or someone in your organization installs the solution that includes th
 1. Search for and select the connector. If you don't see the data connector you want, install the solution associated with it from the **Content Hub**.
 1. Select **Open connector page**.  
 
-   #### [Azure portal](#tab/azure-portal)
-
-   :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
-
    #### [Defender portal](#tab/defender-portal)
-
    :::image type="content" source="media/configure-data-connector/open-connector-page-option-defender-portal.png" alt-text="Screenshot of data connector details page in the Defender portal.":::
-
+   #### [Azure portal](#tab/azure-portal)
+   :::image type="content" source="media/configure-data-connector/open-connector-page-option.png" alt-text="Screenshot of data connector details page with open connector page button.":::
    ---
 
 1. Review the **Prerequisites**. To configure the data connector, fulfill all the prerequisites.
@@ -69,15 +65,15 @@ After you enable the connector successfully, the connector begins to stream data
 
 To view the data:
 
-   #### [Azure portal](#tab/azure-portal-1)
+#### [Defender portal](#tab/defender-portal-1)
 
-   Query the tables in the Microsoft Sentinel workspace linked to your Microsoft Sentinel workspace.
+See [Where to find your Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender#where-to-find-your-microsoft-sentinel-data).
 
-   #### [Defender portal](#tab/defender-portal-1)
-   
-   See [Where to find your Microsoft Sentinel data in Microsoft Defender portal](/defender-xdr/advanced-hunting-microsoft-defender#where-to-find-your-microsoft-sentinel-data).
+#### [Azure portal](#tab/azure-portal-1)
 
-   ---
+Query the tables in the Microsoft Sentinel workspace linked to your Microsoft Sentinel workspace.
+
+---
 
 ## Find support for a data connector
 
