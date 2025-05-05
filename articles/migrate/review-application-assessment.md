@@ -4,7 +4,7 @@ description: Learn about the concepts in an application assessment created using
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 monikerRange: migrate
 ---

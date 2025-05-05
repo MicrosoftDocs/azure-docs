@@ -2,7 +2,7 @@
 title: Azure SQL assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure SQL assessments in Azure Migrate Discovery and assessment tool
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
 ---

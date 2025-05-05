@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 04/06/2025
+ms.date: 05/05/2025
 ms.custom: enterprise-iot
 ---
 
@@ -20,7 +20,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ## On-premises management console retirement
 
-The legacy on-premises management console won't be available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
+The legacy on-premises management console isn't available for download after **January 1st, 2025**. We recommend transitioning to the new architecture using the full spectrum of on-premises and cloud APIs before this date. For more information, see [on-premises management console retirement](ot-deploy/on-premises-management-console-retirement.md).
 
 ## March 2025
 
