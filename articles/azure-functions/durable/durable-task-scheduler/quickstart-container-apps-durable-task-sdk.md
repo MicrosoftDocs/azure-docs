@@ -171,7 +171,7 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 1. Confirm the client container is logging the function chaining tasks.
 
-   :::image type="content" source="media/quickstart-aca-azd-durable-task-sdk/client-app-log-stream.png" alt-text="Screenshot of the client container's log stream in the Azure portal.":::
+   :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/client-app-log-stream.png" alt-text="Screenshot of the client container's log stream in the Azure portal.":::
 
 1. Navigate back to the resource group page to select the `worker` container. 
 
@@ -179,7 +179,7 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 1. Confirm the worker container is logging the function chaining tasks.
 
-   :::image type="content" source="media/quickstart-aca-azd-durable-task-sdk/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
+   :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
 
 ::: zone-end
 

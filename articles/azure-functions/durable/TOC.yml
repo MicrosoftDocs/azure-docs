@@ -43,7 +43,7 @@
     href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
   - name: Configure a container app with Durable Task SDK and Durable Task Scheduler
     displayName: get started, durable task scheduler
-    href: ./durable-task-scheduler/quickstart-aca-azd-durable-task-sdk.md
+    href: ./durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md
   - name: Configure Durable Functions app with MSSQL
     href: quickstart-mssql.md
   - name: Configure Durable Functions app with managed identity
@@ -133,7 +133,7 @@
     - name: How-to guides
       items:
       - name: Autoscaling with the Durable Task SDKs in Azure Container Apps
-        href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling-aca.md
+        href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot

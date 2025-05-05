@@ -65,7 +65,7 @@ Before you begin:
 
 ## Set up the Durable Task Scheduler emulator
 
-The application code looks for a deployed scheduler and task hub resource. If none are found, the code falls back to the emulator. The emulator simulates a scheduler and task hub in a Docker container, making it ideal for the local development required in this quickstart.
+The application code looks for a deployed scheduler and task hub resource. If none is found, the code falls back to the emulator. The emulator simulates a scheduler and task hub in a Docker container, making it ideal for the local development required in this quickstart.
 
 ::: zone-end
 
@@ -705,4 +705,4 @@ logger.info("Output: {}", completedInstance.readOutputAs(int.class));
 Now that you've run the sample locally using the Durable Task Scheduler emulator, try creating a scheduler and task hub resource and deploying to Azure Container Apps.
 
 > [!div class="nextstepaction"]
-> [Deploy Durable Task Scheduler hosted on Azure Container Apps to Azure](./quickstart-aca-azd-durable-task-sdk.md)
+> [Deploy Durable Task Scheduler hosted on Azure Container Apps to Azure](./quickstart-container-apps-durable-task-sdk.md)
