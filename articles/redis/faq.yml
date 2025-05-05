@@ -12,7 +12,7 @@ metadata:
   ms.date: 05/05/2025
 title: Azure Managed Redis (preview) and Azure Cache for Redis FAQ
 summary: |
-  This article covers some basic questions Azure Managed Redis and Azure Cache for Redis, and whether the latest Redis licensing changes affect Azure Redis.
+  This article covers some basic questions about Azure Managed Redis and Azure Cache for Redis, and whether the latest Redis licensing changes affect Azure Redis.
 
 sections:
   - name: Redis licensing change
@@ -20,7 +20,7 @@ sections:
       - question: |
           What are the Redis licensing changes?
         answer: |
-          The Redis open-source project changed to a dual-license model, with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). For more information, see the [Redis press release](https://aka.ms/redis/licensingchangepressrelease). Also see the [Microsoft blog post](https://aka.ms/redis/licensechangeblog) on the Redis licensing change].
+          The Redis open-source project changed to a dual-license model, with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). For more information, see the [Redis press release](https://aka.ms/redis/licensingchangepressrelease). Also see the [Microsoft blog post](https://aka.ms/redis/licensechangeblog) on the Redis licensing change.
 
       - question: |
           Are Azure Cache for Redis or Azure Managed Redis covered by the RSALv2 and SSPLv1 licenses?
