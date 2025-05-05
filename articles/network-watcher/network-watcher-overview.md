@@ -90,7 +90,7 @@ Network Watcher offers two traffic tools that help you log and visualize network
 ### Flow logs
 
 **Flow logs** allows you to log information about your Azure IP traffic and stores the data in Azure storage. You can log IP traffic flowing through a network security group or Azure virtual network. For more information, see:
-- [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-portal.md).
+- [Network security group flow logs](nsg-flow-logs-overview.md) and [Manage network security group flow logs](nsg-flow-logs-manage.md).
 - [Virtual network flow logs](vnet-flow-logs-overview.md) and [Manage virtual network flow logs](vnet-flow-logs-manage.md).
 
 [!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]

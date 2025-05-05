@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Recover items to Windows Server by using Azure Backup
-description: In this tutorial, learn how to use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from Azure to a Windows Server.
+title: Tutorial - Recover files from Azure to a Windows Server by using Azure Backup
+description: Learn how to use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from Azure to a Windows Server.
 ms.service: azure-backup
 ms.topic: tutorial
-ms.date: 04/19/2024
+ms.date: 04/30/2025
 ms.custom: mvc, engagement-fy24
 author: jyothisuri
 ms.author: jsuri
 ---
 # Tutorial: Recover files from Azure to a Windows Server
 
-This tutorial describes how to recover files from Azure to a Windows Server.
+This tutorial describes how to use the Microsoft Azure Recovery Services (MARS) agent to recover files from Azure to a Windows Server.
 
-Azure Backup enables the recovery of individual items from backups of your Windows Server. Recovering individual files is helpful if you must quickly restore files that are accidentally deleted. This tutorial covers how you can use the Microsoft Azure Recovery Services Agent (MARS) agent to recover items from backups you have already performed in Azure.
+Azure Backup allows you restore individual items from Windows Server backups. You can recover accidentally deleted files seamlessly and instantly.
 
 ## Before you start
 
@@ -44,7 +44,9 @@ To start recovery of individual items, follow these steps:
 
 ## Restore items from a recovery point
 
-1. Once the recovery volume is mounted, select **Browse** to open Windows Explorer and find the files and folders you wish to recover.
+To restore items from a recovery point, follow these steps:
+
+1. After you mount the recovery volume, select **Browse** to open Windows Explorer and find the files and folders you wish to recover.
 
     :::image type="content" source="./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png" alt-text="Screenshot shows how to select Browse." lightbox="./media/tutorial-backup-restore-files-windows-server/mars-browse-recover.png":::
 

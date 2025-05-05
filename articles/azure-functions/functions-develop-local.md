@@ -19,17 +19,17 @@ This article provides some shared guidance for local development, such as workin
 
 The way in which you develop functions on your local computer depends on your [language](supported-languages.md) and tooling preferences. Make sure to choose your preferred language at the [top of the article](#top).
 
->[!NOTE]  
->All local development environments rely on Azure Functions Core Tools to provide the Functions runtime for local debugging.
+>[!TIP]  
+>All local development relies on Azure Functions Core Tools to provide the Functions runtime for debugging in a local environment.
 
-These local development environments support function development in your chosen language:
+You can use these development environments to code functions locally in your preferred language:
 
 ::: zone pivot="programming-language-csharp"
 
 |Environment |Description|
 |------------|-----------|
 | [Visual Studio](functions-develop-vs.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio](https://www.visualstudio.com/vs/). Lets you compile and deploy your C# function code to Azure as a .NET class library. Includes the Core Tools for local testing. To learn more, see [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md)|
-|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-csharp.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-csharp.md). |
 | [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a C# function in Azure from the command line](create-first-function-cli-csharp.md).|
 
 ::: zone-end
@@ -38,7 +38,7 @@ These local development environments support function development in your chosen
 |Environment |Description|
 |------------|-----------|
 | [Maven](./create-first-function-cli-java.md) | Maven archetype uses Core Tools to enable development of Java functions. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function with Java and Maven](./create-first-function-cli-java.md). |
-|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-java.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-java.md). |
 | [IntelliJ IDEA](functions-create-maven-intellij.md) | Maven archetype and Core Tools lets you develop your functions using IntelliJ. For more information, see [Create your first Java function in Azure using IntelliJ](functions-create-maven-intellij.md). |
 | [Eclipse](functions-create-maven-eclipse.md) | Maven archetype and Core Tools lets you develop your functions using Eclipse. To learn more, see [Create your first Java function in Azure using Ecplise](functions-create-maven-eclipse.md). |
 
@@ -47,7 +47,7 @@ These local development environments support function development in your chosen
 
 |Environment |Description|
 |------------|-----------|
-|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-node.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-node.md). |
 | [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Node.js function in Azure from the command line](./create-first-function-cli-node.md).|
 
 ::: zone-end
@@ -55,7 +55,7 @@ These local development environments support function development in your chosen
 
 |Environment |Description|
 |------------|-----------|
-|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-powershell.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-powershell.md). |
 | [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a PowerShell function in Azure from the command line](./create-first-function-cli-powershell.md).|
 
 ::: zone-end
@@ -63,7 +63,7 @@ These local development environments support function development in your chosen
 
 |Environment |Description|
 |------------|-----------|
-|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to VS Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-python.md). |
+|[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./create-first-function-vs-code-python.md). |
 | [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Python function in Azure from the command line](./create-first-function-cli-python.md).|
 
 ::: zone-end
@@ -85,12 +85,12 @@ Other files in the project depend on your language and specific functions. For m
 
 ### Local settings file
 
-The local.settings.json file stores app settings and settings used by local development tools. Settings in the local.settings.json file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
+The `local.settings.json` file stores app settings and settings used by local development tools. Settings in the `local.settings.json` file are used only when you're running your project locally. When you publish your project to Azure, be sure to also add any required settings to the app settings for the function app.
 
 > [!IMPORTANT]  
-> Because the local.settings.json may contain secrets, such as connection strings, you should take care if committing to source control. Tools that support Functions provide ways to synchronize settings in the local.settings.json file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
+> Because the `local.settings.json` file might contain secrets, such as connection strings, you should use caution committing to source control. Tools that support Functions provide ways to synchronize settings in the `local.settings.json` file with the [app settings](functions-how-to-use-azure-function-app-settings.md#settings) in the function app to which your project is deployed.
 
-The local settings file has this structure:
+The `local.settings.json` file has this structure:
 
 ```json
 {
@@ -135,7 +135,7 @@ The following application settings can be included in the **`Values`** array whe
 
 ## Synchronize settings
 
-When you develop your functions locally, any local settings required by your app must also be present in app settings of the function app to which your code is deployed. You may also need to download current settings from the function app to your local project. While you can [manually configure app settings in the Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), the following tools also let you synchronize app settings with local settings in your project:
+When you develop your functions locally, any local settings required by your app must also be present in app settings of the function app to which your code is deployed. You might also need to download current settings from the function app to your local project. While you can [manually configure app settings in the Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings), the following tools also let you synchronize app settings with local settings in your project:
 
 + [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure)
 + [Visual Studio](functions-develop-vs.md#function-app-settings)

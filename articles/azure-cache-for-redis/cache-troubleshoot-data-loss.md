@@ -6,6 +6,9 @@ description: Learn how to resolve data-loss problems with Azure Cache for Redis,
 
 ms.topic: conceptual
 ms.date: 03/05/2025
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Troubleshoot data loss in Azure Cache for Redis
@@ -124,5 +127,5 @@ Consider using [Redis data persistence](https://redis.io/topics/persistence) and
 
 - [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
 - [Choosing the right tier](cache-overview.md#choosing-the-right-tier)
-- [Monitor Azure Cache for Redis](monitor-cache.md)
+- [Monitor Azure Cache for Redis](../redis/monitor-cache.md)
 - [How can I run Redis commands?](cache-development-faq.yml#how-can-i-run-redis-commands-)

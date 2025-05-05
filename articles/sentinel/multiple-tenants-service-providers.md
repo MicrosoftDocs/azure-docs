@@ -13,7 +13,7 @@ ms.author: yelevin
 
 # Manage multiple tenants in Microsoft Sentinel as an MSSP
 
-If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](/azure/lighthouse/overview) to offer security operations center (SOC) services to your customers, you can manage your customers' Microsoft Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant.
+If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](/azure/lighthouse/overview) to offer security operations center (SOC) services to your customers, you can manage your customers' Microsoft Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant. The Microsoft Sentinel technical playbook for MSSPs is a great source for best practices. For more information, download the technical playbook here at [https://aka.ms/mssentinelmssp](https://aka.ms/mssentinelmssp).
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ If you have registered Microsoft Sentinel in your tenant, and your customers in 
 1. Open Microsoft Sentinel, where you'll see all the workspaces in the selected subscriptions and can work with them seamlessly, just like any workspace in your own tenant.
 
 > [!NOTE]
-> You will not be able to deploy connectors in Microsoft Sentinel from within a managed workspace. To deploy a connector, you must directly sign into the tenant on which you want to deploy a connector, and authenticate there with the required permissions.
+> You will not be able to deploy connectors in Microsoft Sentinel from within a managed workspace configured with Azure Lighthouse alone. To deploy a connector in this manner, you must also configure GDAP. For detailed information on this topic, see (The Microsoft Sentinel technical playbook for MSSPs)(https://aka.ms/mssentinelmssp).
 
 ## Related content
 

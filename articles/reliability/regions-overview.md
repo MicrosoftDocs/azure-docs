@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 01/13/2025
+ms.date: 03/07/2025
 ms.author: anaharris
 ms.custom: subject-reliability, ai-video-concept
 ---
@@ -14,7 +14,7 @@ ms.custom: subject-reliability, ai-video-concept
 
 >[!VIDEO https://learn-video.azurefd.net/vod/player?id=d36b5b2d-8bd2-43df-a796-b0c77b2f82fc]
 
-Azure provides over 60 regions globally, that are located across many different *geographies*. Each geography represents a data residency boundary, for example the United States, or Europe, and may contain one or more regions. Each region is a set of physical facilities that include datacenters and networking infrastructure.
+Azure provides over 60 regions globally. Regions are located across many different *geographies*. Each geography represents a data residency boundary, for example the United States, or Europe, and may contain one or more regions. Each region is a set of physical facilities that include datacenters and networking infrastructure.
 
 Regions provide certain types of resiliency options. Many regions provide [availability zones](./availability-zones-overview.md), and some have a paired region while other regions are nonpaired. When you choose a region for your services, it's important to pay attention to the resiliency options that are available in that region. This article helps you understand Azure regions, and gives you an overview of the resiliency options that some Azure regions support, while offering links to more detailed information on each topic.
 
@@ -31,7 +31,7 @@ Every region is contained within a single *geography* that serves as a fixed dat
 
 ## List of regions
 
-Microsoft Azure maintains a dynamic list of all available regions, as well as regional information regarding data residency, availability zone support, and compliance. To see the list of regions, see [Microsoft Datacenters Map](https://datacenters.microsoft.com/globe/explore/).
+For a list of Azure regions, see [List of Azure regions](./regions-list.md). If you want more details on regions, including data residency and regulatory compliance, see the [Microsoft Datacenters Map](https://datacenters.microsoft.com/globe/explore/).
 
 ## Regional resiliency options
 
@@ -51,13 +51,19 @@ Some Azure regions are *paired* with another Azure region in order to form *regi
 
 Many newer regions aren't paired, and instead use availability zones as their primary means of redundancy. Many Azure services support geo-redundancy whether the regions are paired or not, and you can design a highly resilient solution whether you use paired regions, nonpaired regions, or a combination of both.
 
-To learn more about paired and nonpaired regions and how to use them, see [Azure region pairs and unpaired regions](./regions-paired.md).
+To learn more about paired and nonpaired regions and how to use them, see [Azure region pairs and nonpaired regions](./regions-paired.md).
 
 ## Using multiple Azure regions
 
 It's common to use multiple Azure regions, paired or nonpaired, when you design a solution. By using multiple regions, you can increase workload resilience to many types of failures, and you have many options for disaster recovery. Also, some Azure services are available in specific regions, so by designing a multi-region solution you can take advantage of the global and distributed nature of the cloud. 
 
-When you select regions that are geographically far apart, the latency of network connections between those regions increases. Latency can affect how you design a multi-region solution, and it can restrict the types of geo-replication and geo-redundancy you can use. For more information, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
+If you're using multiple regions together, you need to consider tradeoffs between the following factors:
+
+- **Physical isolation:** Consider whether you should use regions that are geographically distant from each other. The greater the distance, the greater the resiliency in the case of a major natural disaster in one of the regions. For information on the city or state that a region is located in, see [List of Azure regions](./regions-list.md) and [Microsoft Datacenters Map](https://datacenters.microsoft.com/globe/explore/).
+
+- **Latency:** When you select physically isolated regions, the latency of network connections between those regions increases. Latency can affect how you design a multi-region solution, and it can restrict the types of geo-replication and geo-redundancy you can use. To learn more about latency between Azure regions, see [Azure network round-trip latency statistics](/azure/networking/azure-network-latency). For more information about how to select regions, see [Recommendations for using availability zones and regions](/azure/well-architected/reliability/regions-availability-zones).
+
+- **Data residency:** Ensure that any regions you select are within a data residency boundary that your organization requires.
 
 ## Nonregional services
 

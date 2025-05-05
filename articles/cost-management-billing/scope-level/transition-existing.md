@@ -1,9 +1,9 @@
 ---
 title: Transition to centrally managed Azure Hybrid Benefit
 description: This article describes the changes and several transition scenarios to illustrate transitioning to centrally managed Azure Hybrid Benefit.
-author: bandersmsft
-ms.author: banders
-ms.date: 11/11/2024
+author: pri-mittal
+ms.author: primittal
+ms.date: 04/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: ahb

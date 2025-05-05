@@ -4,7 +4,7 @@ description: Understand the software and hardware requirements for Azure Import/
 author: stevenmatthew
 services: storage
 ms.service: azure-import-export
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/19/2022
 ms.author: shaas
 ---

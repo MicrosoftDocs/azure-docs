@@ -7,7 +7,6 @@ ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 03/07/2022
-ms.reviewer: wiassaf, whhender
 ---
 
 # Enable Azure Synapse workspace features for a dedicated SQL pool (formerly SQL DW)

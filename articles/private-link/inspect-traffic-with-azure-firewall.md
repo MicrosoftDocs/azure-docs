@@ -5,7 +5,7 @@ description: Learn about different scenarios to inspect traffic destined to a pr
 author: abell
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 02/18/2025
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-how-to
 ---

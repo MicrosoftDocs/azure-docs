@@ -4,7 +4,7 @@ description: Get basic information about the Azure Application Consistent Snapsh
 services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/20/2025
 ms.author: phjensen
 ---

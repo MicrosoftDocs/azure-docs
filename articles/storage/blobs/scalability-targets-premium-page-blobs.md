@@ -5,7 +5,7 @@ description: A premium performance page blob storage account is optimized for re
 author: akashdubey-ms
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/24/2021
 ms.author: akashdubey
 ---

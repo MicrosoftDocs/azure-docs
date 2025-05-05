@@ -1,6 +1,6 @@
 ---
 title: Service limits for Azure Communication Services
-titleSuffix: An Azure Communication Services how-to document
+titleSuffix: An Azure Communication Services article
 description: Learn how to handle service limits for Azure Communication Services APIs.
 author: tophpalmer
 manager: sundraman
@@ -19,7 +19,7 @@ This article explains the limitations of Azure Communication Services APIs and p
 
 ## Throttling patterns and architecture
 
-When you reach service limitations, you receive an HTTP status code 429 (too many requests). In general, the following best practices are used for throttling:
+When you reach service limitations, you receive an HTTP status code 429 (too many requests). In general, follow these best practices for throttling:
 
 - Reduce the number of operations per request.
 - Reduce the frequency of calls.
@@ -124,11 +124,11 @@ If the failure rate increases after a quota increase, Azure Communication Servic
 
 Azure Communication Services provides rich logs and analytics to help monitor and manage failure rates. For more information, see the following articles:
 
-- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md)
-- [Email Insights](./analytics/insights/email-insights.md)
-- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md)
-- [Quickstart: Handle Email events](../quickstarts/email/handle-email-events.md)
-- [Quickstart: Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md)
+- [Improve sender reputation in Azure Communication Services email](./email/sender-reputation-managed-suppression-list.md).
+- [Email Insights](./analytics/insights/email-insights.md).
+- [Enable logs via Diagnostic Settings in Azure Monitor](./analytics/enable-logging.md).
+- [Handle Email events](../quickstarts/email/handle-email-events.md).
+- [Manage domain suppression lists in Azure Communication Services using the management client libraries](../quickstarts/email/manage-suppression-list-management-sdks.md).
 
 > [!NOTE]
 > To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Higher quotas are only available for verified custom domains, not Azure-managed domains.
@@ -192,6 +192,7 @@ To increase your email quota, follow the instructions in [Quota increase for ema
 
 > [!NOTE]
 > Email quota increase requests might take up to 72 hours for evaluation and approval, especially for requests that come in on Friday afternoon.
+> The quota increase requests for the number of recipients in email of SMTP is not supported at this time.
 
 ## Chat
 
@@ -290,6 +291,19 @@ The following timeouts apply to the Azure Communication Services Calling SDKs:
 | PSTN call establishment timeout. | 115 |
 | Promote a 1:1 call to a group call timeout. | 115 |
 
+### Virtual Rooms 
+The throttling policies of rooms service are determined by grouping requests through **resource id**.
+
+| API | Threshold |
+|--|--|
+| Create Room | 20 req/sec |
+| Update Room | 20 req/sec |
+| Delete Room | 20 req/sec |
+| Get Room    | 40 req/sec |
+| List Rooms  | 10 req/sec |
+| Update participant   | 20 req/sec |
+| List participants    | 40 req/sec |
+
 ### Action to take
 
 For more information about the voice and video calling SDK and service, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md) or [Known issues in the SDKs and APIs](./known-issues.md). You can also submit a request to [Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits. Our vetting team reviews all requests.
@@ -320,6 +334,6 @@ When you implement error handling, use the HTTP error code 429 to detect throttl
 
 You can find more information about Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 
-## Related content
+## Related articles
 
 - [Help and support options](../support.md)
