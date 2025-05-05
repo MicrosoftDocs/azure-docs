@@ -40,5 +40,3 @@ Networking makes up only part of your workload. Explore other components that yo
 - [Databases](migrate-databases-from-aws.md)
 - [Storage](migrate-storage-from-aws.md)
 - [Security](migrate-security-and-identity-from-aws.md)
-
-Use the table of contents to explore other articles that relate to your workload's architecture.

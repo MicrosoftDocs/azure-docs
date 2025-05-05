@@ -42,5 +42,3 @@ Storage makes up only part of your workload. Explore other components that you m
 - [Databases](migrate-databases-from-aws.md)
 - [Networking](migrate-networking-from-aws.md)
 - [Security](migrate-security-and-identity-from-aws.md)
-
-Use the table of contents to explore other articles that relate to your workload's architecture.

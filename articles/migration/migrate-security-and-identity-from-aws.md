@@ -1,6 +1,6 @@
 ---
 title: Migrate identity services from Amazon Web Services (AWS)
-description: Learn about replatforming identity services from the AWS to Microsoft Cloud to support the security requirements of the workload. Discover key similarities and differences between the AWS and Microsoft.
+description: Learn about replatforming identity services from AWS to Microsoft Cloud to support the security requirements of the workload. Discover key similarities and differences between the AWS and Microsoft.
 ms.author: joflore
 author: MicrosoftGuyJFlo
 
@@ -29,13 +29,11 @@ Use the following migration guides as examples to help structure your migration 
 
 | Scenario | Key services | Description |
 |--|--|--|
-| [Microsoft Entra identity management and access management for AWS](/azure/architecture/reference-architectures/aws/aws-azure-ad-security) |  AWS IAM -> Microsoft Entra ID | Learn how Microsoft Entra ID can help secure and protect Amazon Web Services (AWS) identity management and account access. Discover Microsoft security solutions. |
-| [Microsoft Entra SSO integration with AWS IAM Identity Center](/entra/identity/saas-apps/aws-single-sign-on-tutorial) |  AWS IAM -> Microsoft Entra ID | Learn how to configure single sign-on between Microsoft Entra ID and AWS IAM Identity Center (successor to AWS Single Sign-On). |
-
+| [Migrate your SIEM in AWS to Microsoft Sentinel](/azure/sentinel/migration) |  SIEM data in AWS -> Microsoft Sentinel | Discover the reasons for migrating from a legacy SIEM, and learn how to plan out the different phases of your migration. |
 
 ## Related workload components
 
-Identity services make up only part of your cloud workload. Explore other components you might migrate
+Identity services make up only part of your cloud workload. Explore other components you might migrate:
 
 - [Compute](migrate-compute-from-aws.md)
 - [Databases](migrate-databases-from-aws.md)
