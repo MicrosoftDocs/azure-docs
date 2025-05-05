@@ -82,7 +82,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 138 | 159 | 160 | 141 |
 | Japan East | 120 | 108 | 100 | 112 |
 | Japan West | 128 | 116 | 108 | 120 |
-| Jio India West |  |  |  |  |
 | Korea Central | 144 | 131 | 123 | 135 |
 | Korea South | 137 | 124 | 116 | 129 |
 | Mexico Central | 44 | 55 | 66 | 41 |
@@ -134,8 +133,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 157 | 145 | 154 |
 | Italy North | 124 | 112 | 121 |
 | Japan East | 135 | 146 | 131 |
-| Japan West | 144 | 154 | 137 |
-| Jio India West |  |  |  |
+| Japan West | 144 | 154 | 137 |  |
 | Korea Central | 158 | 169 | 156 |
 | Korea South | 152 | 163 | 146 |
 | Mexico Central | 47 | 59 | 23 |
@@ -188,7 +186,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 92 | 96 |
 | Japan East | 164 | 161 |
 | Japan West | 172 | 167 |
-| Jio India West |  |  |
 | Korea Central | 183 | 185 |
 | Korea South | 179 | 177 |
 | Mexico Central | 54 | 50 |
@@ -241,7 +238,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 106 | 108 |
 | Japan East | 157 | 165 |
 | Japan West | 168 | 176 |
-| Jio India West |  |  |
 | Korea Central | 184 | 194 |
 | Korea South | 178 | 185 |
 | Mexico Central | 72 | 80 |
@@ -294,7 +290,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 193 | 143 |
 | Japan East | 262 | 150 |
 | Japan West | 270 | 158 |
-| Jio India West |  | 251 |
 | Korea Central | 285 | 172 |
 | Korea South | 279 | 166 |
 | Mexico Central | 157 |  |
@@ -346,8 +341,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 57 | 44 | 52 | 55 | 66 |
 | Italy North | 21 | 12 | 9 | 10 | 22 |
 | Japan East | 214 | 202 | 213 | 208 | 221 |
-| Japan West | 229 | 218 | 229 | 224 | 237 |
-| Jio India West |  |  |  |  |  |
+| Japan West | 229 | 218 | 229 | 224 | 237 |  |
 | Korea Central | 213 | 201 | 212 | 207 | 220 |
 | Korea South | 207 | 195 | 207 | 202 | 215 |
 | Mexico Central | 128 | 131 | 142 | 137 | 131 |
@@ -399,8 +393,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 57 | 59 | 50 | 59 |
 | Italy North | 20 | 14 |  | 27 |
 | Japan East | 225 | 220 | 211 | 234 |
-| Japan West | 241 | 235 | 227 | 249 |
-| Jio India West |  |  | 131 | 153 |
+| Japan West | 241 | 235 | 227 | 249 | 131 | 153 |
 | Korea Central | 224 | 219 | 211 | 232 |
 | Korea South | 219 | 213 | 205 | 227 |
 | Mexico Central | 140 | 140 | 140 | 148 |
@@ -452,8 +445,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 75 | 79 | 76 |
 | Italy North | 32 | 34 | 39 |
 | Japan East | 238 | 234 | 243 |
-| Japan West | 254 | 249 | 259 |
-| Jio India West |  |  |  |
+| Japan West | 254 | 249 | 259 |  |
 | Korea Central | 237 | 233 | 242 |
 | Korea South | 231 | 227 | 236 |
 | Mexico Central | 142 | 145 | 147 |
@@ -505,8 +497,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 77 | 61 | 65 |
 | Italy North | 37 | 26 | 32 |
 | Japan East | 236 | 219 | 225 |
-| Japan West | 244 | 235 | 241 |
-| Jio India West |  |  |  |
+| Japan West | 244 | 235 | 241 |  |
 | Korea Central | 229 | 218 | 224 |
 | Korea South | 224 | 212 | 219 |
 | Mexico Central | 120 | 126 | 130 |
@@ -559,7 +550,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 243 | 243 | 241 | 236 |
 | Japan East | 107 | 108 | 105 | 117 |
 | Japan West | 115 | 116 | 113 | 124 |
-| Jio India West |  |  |  |  |
 | Korea Central | 129 | 130 | 127 | 139 |
 | Korea South | 124 | 124 | 122 | 134 |
 | Mexico Central | 185 | 185 | 183 | 196 |
@@ -612,7 +602,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 211 | 228 |
 | Japan East |  | 14 |
 | Japan West | 13 |  |
-| Jio India West |  |  |
 | Korea Central | 27 | 21 |
 | Korea South | 21 | 16 |
 | Mexico Central | 148 | 156 |
@@ -665,7 +654,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 209 | 204 |
 | Japan East | 26 | 20 |
 | Japan West | 20 | 14 |
-| Jio India West |  |  |
 | Korea Central |  | 8 |
 | Korea South | 8 |  |
 | Mexico Central | 169 | 163 |
@@ -717,8 +705,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 149 | 159 | 143 |
 | Italy North | 117 | 127 | 110 |
 | Japan East | 122 | 104 | 117 |
-| Japan West | 132 | 113 | 127 |
-| Jio India West |  |  |  |
+| Japan West | 132 | 113 | 127 |  |
 | Korea Central | 117 | 97 | 110 |
 | Korea South | 110 | 91 | 105 |
 | Mexico Central | 235 | 253 | 229 |
@@ -771,7 +758,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 179 | 151 |
 | Japan East | 53 | 73 |
 | Japan West | 49 | 81 |
-| Jio India West |  |  |
 | Korea Central | 41 | 67 |
 | Korea South | 33 | 61 |
 | Mexico Central | 194 | 222 |
@@ -824,7 +810,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 52 | 122 | 109 | 112 |
 | Japan East | 245 | 153 | 145 | 149 |
 | Japan West | 261 | 164 | 156 | 159 |
-| Jio India West | 165 |  |  |  |
 | Korea Central | 244 | 146 | 139 | 142 |
 | Korea South | 238 | 141 | 133 | 137 |
 | Mexico Central | 173 | 239 | 229 | 231 |
@@ -877,7 +862,6 @@ Use the following tabs to view latency statistics for each region.
 | Italy North | 163 | 147 |
 | Japan East | 246 | 262 |
 | Japan West | 256 | 272 |
-| Jio India West |  |  |
 | Korea Central | 239 | 255 |
 | Korea South | 234 | 250 |
 | Mexico Central | 256 | 240 |
