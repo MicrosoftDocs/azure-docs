@@ -61,7 +61,7 @@ Try out configuring the Durable Task SDKs for your container app using the follo
 | Quickstart | Description | 
 | ---------- | ----------- |
 | [Configure a Durable Task SDK in your application](../azure-functions/durable/durable-task-scheduler/quickstart-portable-durable-task-sdks.md) | Learn how to create workflows that use the fan-out/fan-in Durable Functions application pattern. Currently available with the .NET, Python, and Java Durable Task SDKs. |
-| [Configure a Durable Task SDK in your container app][TODO] | Use the Azure Developer CLI to create Durable Task Scheduler resources and deploy them to Azure with two container apps running workflow tasks. Currently available with the .NET, Python, and Java Durable Task SDKs. |
+| [Configure a Durable Task SDK in your container app][../azure-functions/durable/durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md] | Use the Azure Developer CLI to create Durable Task Scheduler resources and deploy them to Azure with two container apps running workflow tasks. Currently available with the .NET, Python, and Java Durable Task SDKs. |
 
 ### Durable Functions 
 
