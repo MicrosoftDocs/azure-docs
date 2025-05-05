@@ -50,6 +50,8 @@ geocatalog_url = (
 )
 geocatalog_url = geocatalog_url.rstrip("/")  # Remove trailing slash if present
 
+api_version = "2025-04-30-preview"
+
 # User Selections for Demo
 
 # Collection within the Planetary Computer
@@ -70,9 +72,8 @@ param_max_items = 6
 Before you can create a STAC collection you need to import a few python packages and define helper functions to retrieve the required access token.
 
 
-```python
-# Install the required python packages via pip
-%pip install pystac-client, azure-identity, requests, pillow
+```shell
+pip install pystac-client azure-identity requests pillow
 ```
 
 
@@ -165,13 +166,13 @@ stac_collection.pop('assets')
 ```python
 # Create a STAC Collection by posting to the STAC collections API
 
-collections_endpoint = f"{geocatalog_url}/api/collections"
+collections_endpoint = f"{geocatalog_url}/stac/collections"
 
 response = requests.post(
     collections_endpoint,
     json=stac_collection,
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": api_version}
 )
 
 if response.status_code==201:
@@ -203,7 +204,7 @@ After reading the thumbnail, you can add it to our collection in by posting it t
 
 ```python
 # Define the GeoCatalog Collections API endpoint
-collection_assets_endpoint = f"{geocatalog_url}/api/collections/{collection_id}/assets"
+collection_assets_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/assets"
 
 # Read the example thumbnail from this collection from the Planetary Computer
 thumbnail = {"file": ("lulc.png", thumbnail_response.content)}
@@ -220,7 +221,7 @@ response = requests.post(
     data=asset,
     files=thumbnail,
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": api_version}
 )
 
 if response.status_code==201:
@@ -236,13 +237,13 @@ Refresh your browser and you should be able to see the thumbnail.  You can also 
 
 ```python
 # Request the collection JSON from your GeoCatalog
-collection_endpoint = f"{geocatalog_url}/api/collections/{stac_collection['id']}"
+collection_endpoint = f"{geocatalog_url}/stac/collections/{stac_collection['id']}"
 
 response = requests.get(
     collection_endpoint,
     json={'collection_id':stac_collection['id']},
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": api_version}
 )
 
 if response.status_code==200:
@@ -273,8 +274,8 @@ After creating this collection, you're ready to ingest new STAC items into your 
 
 
 ```python
-ingestion_sources_endpoint = f"{geocatalog_url}/api/ingestion-sources"
-ingestion_source_endpoint = lambda id: f"{geocatalog_url}/api/ingestion-sources/{id}"
+ingestion_sources_endpoint = f"{geocatalog_url}/inma/ingestion-sources"
+ingestion_source_endpoint = lambda id: f"{geocatalog_url}/inma/ingestion-sources/{id}"
 
 
 def find_ingestion_source(container_url: str) -> Optional[Dict[str, Any]]:
@@ -282,16 +283,16 @@ def find_ingestion_source(container_url: str) -> Optional[Dict[str, Any]]:
     response = requests.get(
         ingestion_sources_endpoint,
         headers=getBearerToken(),
-        params={"api-version": "2024-01-31-preview"},
+        params={"api-version": api_version},
     )
 
-    for source in response.json():
+    for source in response.json()["value"]:
         ingestion_source_id = source["id"]
 
         response = requests.get(
             ingestion_source_endpoint(ingestion_source_id),
             headers=getBearerToken(),
-            params={"api-version": "2024-01-31-preview"},
+            params={"api-version": api_version},
         )
         raise_for_status(response)
 
@@ -305,14 +306,14 @@ def create_ingestion_source(container_url: str, sas_token: str):
     response = requests.post(
         ingestion_sources_endpoint,
         json={
-            "sourceType": "SasToken",
+            "kind": "SasToken",
             "connectionInfo": {
                 "containerUrl": container_url,
                 "sasToken": sas_token,
             },
         },
         headers=getBearerToken(),
-        params={"api-version": "2024-01-31-preview"},
+        params={"api-version": api_version},
     )
     raise_for_status(response)
 
@@ -321,7 +322,7 @@ def remove_ingestion_source(ingestion_source_id: str):
     response = requests.delete(
         ingestion_source_endpoint(ingestion_source_id),
         headers=getBearerToken(),
-        params={"api-version": "2024-01-31-preview"},
+        params={"api-version": api_version},
     )
     raise_for_status(response)
 ```
@@ -415,7 +416,9 @@ Now that you registered an ingestion source or validated that a source exists yo
 ```python
 # Ingest Items
 
-items_endpoint = f"{geocatalog_url}/api/collections/{collection_id}/items"
+items_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/items"
+
+operation_ids = []
 
 for item in items:
 
@@ -431,8 +434,11 @@ for item in items:
         items_endpoint,
         json=item_json,
         headers=getBearerToken(),
-        params={"api-version": "2024-01-31-preview"}
+        params={"api-version": api_version}
     )
+
+    operation_ids.append(response.json()["operationId"])
+    print(f"Ingesting item {item_json['id']} with operation id {response.json()['operationId']}")
 
 ```
 
@@ -441,45 +447,49 @@ Given that Sentinel-2 item ingestion can take a little time, you can run this co
 
 ```python
 # Check the status of the operations
-operations_endpoint = f"{geocatalog_url}/api/operations"
-
+operations_endpoint = f"{geocatalog_url}/inma/operations"
+# Loop through all the operations ids until the status of each operation ids is "Finished"
 pending=True
 
 start = time.time()
 
-while pending==True:
-
-    response = requests.get(
-            operations_endpoint,
-            headers=getBearerToken(),
-            params={"api-version": "2024-01-31-preview"}
-    )
-
-    raise_for_status(response)
-
-
-    finished_count = len([i for i in response.json() if i['status']=="Finished"])
-    running_count = len([i for i in response.json() if i['status']=="Running"])
-    pending_count = len([i for i in response.json() if i['status']=="Pending"])
-    failed_count = len([i for i in response.json() if i['status']=="Failed"])
-
-    stop=time.time()
+while pending:
+    # Count the number of operation ids that are finished vs unfinished
+    num_running = 0
+    num_finished = 0
+    num_failed = 0
     clear_output(wait=True)
-
+    for operation_id in operation_ids:
+        response = requests.get(
+            f"{operations_endpoint}/{operation_id}",
+            headers=getBearerToken(),
+            params={"api-version": api_version},
+        )
+        raise_for_status(response)
+        status = response.json()["status"]
+        print(f"Operation id {operation_id} status: {status}")
+        if status == "Running":
+            num_running+=1
+        elif status == "Failed":
+            num_failed+=1
+        elif status == "Succeeded":
+            num_finished+=1
+    
+    num_running
+    stop=time.time()
+    # Print the sumary of num finished, num running and num failed
+    
     print("Ingesting Imagery:")
-    print("Finished Items:", finished_count)
-    print("Running Items:", running_count)
-    print("Pending Items:", pending_count)
-    print("Failed Items:", failed_count)
+    print(f"\tFinished: {num_finished}\n\tRunning: {num_running}\n\tFailed: {num_failed}")
     print("Time Elapsed (seconds):",str(stop-start))
+    
+    if num_running == 0:
+        pending=False
+        print(f"Ingestion Complete!\n\t{num_finished} items ingested.\n\t{num_failed} items failed.")
 
-    if pending_count==0 and running_count==0:
-        pending = False
-
-        print("Ingestion Complete! {} items ingested".format(finished_count))
-        break
-
-    time.sleep(10)
+    else:
+        print(f"Waiting for {num_running} operations to finish")
+        time.sleep(5)
 ```
 
 You should be able to refresh your web browser and click on the Items tab to see these newly uploaded items.
@@ -505,7 +515,7 @@ After reading this render options config from the Planetary Computer, you can en
 ```python
 # Post Render Options Config to GeoCatalog render-options API
 
-render_config_endpoint = f"{geocatalog_url}/api/collections/{collection_id}/config/render-options"
+render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
 
 for render_option in render_json['renderOptions']:
 
@@ -517,7 +527,7 @@ for render_option in render_json['renderOptions']:
         render_config_endpoint,
         json=render_option,
         headers=getBearerToken(),
-        params={"api-version": "2024-01-31-preview"}
+        params={"api-version": api_version}
     )
 ```
 
@@ -529,7 +539,7 @@ Similar to the Render Config discussed above, GeoCatalog's Explorer allows us to
 ```python
 # Post Mosaic Definition
 
-mosiacs_config_endpoint = f"{geocatalog_url}/api/collections/{collection_id}/config/mosaics"
+mosiacs_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/mosaics"
 
 response = requests.post(
     mosiacs_config_endpoint,
@@ -539,7 +549,7 @@ response = requests.post(
           "cql": []
     },
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": api_version}
 )
 ```
 
@@ -559,7 +569,7 @@ Unsurprisingly this query returns all the STAC items you previously placed withi
 
 
 ```python
-stac_search_endpoint = f"{geocatalog_url}/api/search"
+stac_search_endpoint = f"{geocatalog_url}/stac/search"
 
 response = requests.post(
     stac_search_endpoint,
@@ -567,7 +577,7 @@ response = requests.post(
           "bbox":bbox_aoi
     },
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview", "sign": "true"}
+    params={"api-version": api_version, "sign": "true"}
 )
 
 matching_items = response.json()['features']
@@ -578,7 +588,8 @@ In your prior query, you also provided another parameter: **sign:true**. This in
 
 
 ```python
-asset_href = matching_items[0]['assets']['rendered_preview']['href']
+# Download one of the assets bands, band 09
+asset_href = matching_items[0]['assets']['B09']['href']
 print(asset_href)
 
 response = requests.get(asset_href)
@@ -598,7 +609,7 @@ for item in matching_items:
     response = requests.delete(
         f"{items_endpoint}/{item['id']}",
         headers=getBearerToken(),
-        params={"api-version": "2024-01-31-preview"}
+        params={"api-version": api_version}
     )
 ```
 
@@ -606,13 +617,14 @@ You can confirm all of your items were deleted by running the next command. Note
 
 
 ```python
+# Confirm that all the items have been deleted
 response = requests.post(
     stac_search_endpoint,
     json={"collections":[stac_collection['id']],
           "bbox": bbox_aoi
     },
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview", "sign": "true"}
+    params={"api-version": api_version, "sign": "true"}
 )
 
 matching_items = response.json()['features']
@@ -625,10 +637,11 @@ Now as a final step, you may want to fully delete your collection from your GeoC
 
 
 ```python
+# Delete the collection
 response = requests.delete(
     f"{collections_endpoint}/{collection_id}",
     headers=getBearerToken(),
-    params={"api-version": "2024-01-31-preview"}
+    params={"api-version": api_version}
 )
 
 raise_for_status(response)
