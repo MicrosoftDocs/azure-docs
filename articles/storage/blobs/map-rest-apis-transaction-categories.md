@@ -4,7 +4,7 @@ description: Find the operation type of each REST operation so that you can iden
 services: storage
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/03/2024
 ms.author: normesta
 ms.custom: subject-cost-optimization
