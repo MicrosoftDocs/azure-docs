@@ -1,8 +1,8 @@
 ---
 title: Understanding Admin VMs in Azure Virtual Enclaves
 description: Understanding Admin VMs in Azure Virtual Enclaves.
-author: jadean-msft
-ms.author: jadean
+author: aserfass-msft
+ms.author: aserfass
 # ms.service: Azure Virtual Enclaves
 ms.topic: overview
 ms.date: 04/08/2025
@@ -10,24 +10,20 @@ ms.date: 04/08/2025
 
 # Understanding Admin VMs in Azure Virtual Enclaves (AVE)
 
-A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave.
+A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave and the enclave resources
 
-## Access
+## Create an Admin VM
+Use the [Admin VM](./deploy-admin-vm-service-catalog.md) to quickly create an VM that can access and configure your enclave resources.
+
+## Access Admin VM
 By default, AVE creates an Azure Bastion instance for community or enclave owners to access their enclaves.
 
-### Enable Enclave access to the Azure portal
+### Enable enclave access to the Azure portal
 Azure portal access is restricted by default for enclaves. This means you need to create endpoint rules and connections to access the Azure portal from within the Admin VM or enclave.
 
-1. [Create enclave endpoint in the Azure portal](./create-enclave-endpoint-portal.md)
-2. [Create community endpoint in the Azure portal](./create-community-endpoint-portal.md)
-3. [Create enclave in the Azure portal](./create-enclave-connection-portal.md)
-
-### Signing in to Admin VM
-Reset password
-If this is the first time using the Admin VM, reset the password with the instructions below. Otherwise continue to sign in to the Admin VM. Starting from the portal:
-1. Select the VM name to open that VM resource
-3. Scroll to the bottom of the blades and select "Reset Password"
-4. Enter the new password twice and select "Update"
+- [Create enclave endpoint in the Azure portal](./create-enclave-endpoint-portal.md)
+- [Create community endpoint in the Azure portal](./create-community-endpoint-portal.md)
+- [Create enclave in the Azure portal](./create-enclave-connection-portal.md)
 
 ### Accessing enclaves through Azure Bastion
 AVE natively uses existing Azure user interface controls to allow for access into Admin VMs. [Learn more on how to Connect to a Windows VM using RDP - Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md).
@@ -36,21 +32,39 @@ For certain community and enclave owners, this default access model might not be
 
 If the default behavior of Admin VMs or the configurations that AVE allows to be changed are insufficient for customer use-cases, AVE recommends [creating a workload, Virtual Machines in the workload, an Endpoint, and Connections that function similarly to how Admin VMs function](./create-azure-virtual-desktop-workloads.md).
 
+1. After you [create an Admin VM](#create-an-admin-vm), navigate to that Virtual Machine resource in the Azure portal.
+2. Select `Connect` and then select `Connect via Bastion`.
+
+![Screenshot showing virtual machine overview page with connect dropdown button highlighted.](./media/admin-vm-connect-bastion.png)
+
+3. Enter your credentials for the admin VM and select `Connect`.
+
+![Screenshot showing where to enter your credentials to login to the virtual machine.](./media/admin-vm-bastion-credentials.png)
+
+4. Once you see the desktop for the Admin VM, select the windows start menu icon and enter `RDC` in the search field.
+
+![Screenshot showing the admin VM desktop view with Remote Desktop Connection highlighted in the start menu.](./media/admin-vm-desktop-remote.png)
+
+5. Select the `Remote Desktop Connection` application from the list.
+6. Enter the IP address of the VM you want to access in the enclave.
+
+![Screenshot showing the login screen for the remote virtual machine.](./media/remote-desktop-connection.png)
+
+7. Perform the task you needed to on the remote VM.
+
+![Screenshot showing the remote connection to the virtual machine.](./media/admin-vm-connect-remote-machine.png)
+
+### Reset password
+You can reset the password with the instructions below. Starting from the portal:
+1. Select the VM name to open that VM resource
+3. Scroll to the bottom of the blades and select "Reset Password"
+4. Enter the new password twice and select "Update"
+
 ## Size
-The default VM size for AVE Admin VMs is Standard_D4s_v3. community and enclave owners are allowed to resize the VM size of these Admin VMs after an Enclave is created. Furthermore, community owners will be allowed to choose what VM size the Admin VMs are deployed when creating an Enclave.
-
-## Patching
-It is the community or enclave owner's (and therefore customer's) responsibility to [maintain and patch](/azure/virtual-machines/updates-maintenance-overview) the Admin VMs deployed in their Enclaves. Currently, AVE will not perform any patching on Admin VMs after they are deployed in an Enclave.
-
-Admin VMs are intended only for bootstrapping Enclaves and to provide initial entry for Enclave setup. Enclave owners and system administrators should either delete them after set-up, or continuously monitor, patch, and manage them just like any of their other enclave workloads or Azure resources. Admin VMs are deployed using known good images through Azure Marketplace but are not monitored or patched by AVE thereafter.
+You can adjust the VM size for AVE Admin VMs based on the number of users you expect to have on a VM at the same time.
 
 ## Image
-Community and enclave owners might also have concerns regarding the default VM image used for these VMs. Currently, AVE uses Azure Marketplace's Windows Server 2019 Datacenter image for Admin VMs. AVE does not currently support custom images for our Admin VMs.
-
-## Monitoring
-By default, Admin VMs are configured with [Data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to log certain resource and operating system logging.
-
-Should further troubleshooting be required to investigate Azure Virtual Machines, contact [Azure Support](https://azure.microsoft.com/support/).
+Community and enclave owners might also have concerns regarding the default VM image used for these VMs. Currently, AVE uses Azure Marketplace's Windows Server Datacenter image for Admin VMs. You can select a custom image of your own by providing the resource ID in the [Admin VM](./deploy-admin-vm-service-catalog.md) template advanced tab.
 
 ## References
 - [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
