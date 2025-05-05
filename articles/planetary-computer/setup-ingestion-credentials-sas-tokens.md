@@ -92,7 +92,7 @@ If your credential expires or you need to add credentials for a different Blob C
 
 ## Set up credentials through the API
 
-Credentials can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See ["POST /api/ingestion-sources."](https://studious-adventure-rr7p9rv.pages.github.io/#tag/IngestionSources/paths/~1api~1ingestion-sources/post)
+Credentials can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-source) API documentation.
 
 The following block of code imports required libraries and sets up key variables. 
 
