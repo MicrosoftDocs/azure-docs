@@ -9,22 +9,27 @@ ms.topic: how-to
 ms.custom: azure-operator-nexus, template-include
 ---
 
-# Azure Operator Nexus: Nexus Instance Deployment Template
+# Nexus Instance Deployment Template
 
-This how-to guide provides a step-by-step template for deploying a Nexus instance.
+This how-to guide provides a step-by-step template for deploying a Nexus Instance.
 
 ## Overview
-
+<details>
+<summary> Overview of Nexus Instance deployment template </summary>
+ 
 This template is designed to assist users in managing a reproducible end-to-end deployment through Azure APIs and standard operating procedures.
+
+</details>
 
 ## Prerequisites
 <details>
-<summary> Prerequisites for using this template to deploy a Nexus instance </summary>
+<summary> Prerequisites for using this template to deploy a Nexus Instance </summary>
 
 - Latest version of [Azure CLI](https://aka.ms/azcli).
+- Latest `managednetworkfabric` [CLI extension](howto-install-cli-extensions.md).
 - Latest `networkcloud` [CLI extension](howto-install-cli-extensions.md).
 - Subscription access to run the Azure Operator Nexus Network Fabric (NF) and Network Cloud (NC) CLI extension commands.
-- Nexus instance data for the [Telco Input Template](concepts-telco-input-template.md).
+- Nexus Instance data for the [Telco Input Template](concepts-telco-input-template.md).
 - [Platform Prerequisites](howto-platform-prerequisites.md).
 
 </details>
@@ -33,12 +38,11 @@ This template is designed to assist users in managing a reproducible end-to-end 
 <details>
 <summary> Parameters used in this document </summary>
 
-- \<ENVIRONMENT\>: - Instance name
-- <AZURE_REGION>: - Azure Region of Instance
+- \<ENVIRONMENT\>: Instance name
+- <AZURE_REGION>: Azure Region of Instance
 - <CUSTOMER_SUB_NAME>: Subscription name
 - <CUSTOMER_SUB_ID>: Subscription ID
 - <CUSTOMER_SUB_TENANT_ID>: Tenant ID (from `az account show`)
-- <DE_ID>: Deployment Engineer performing upgrade
 - \<NEXUS_VERSION\>: Nexus release version (for example, 2504.1)
 - <NNF_VERSION>: Nexus Network Fabric (NNF) release version (for example, 8.1) 
 - <NF_VERSION>: Network Fabric (NF) runtime version (for example, 5.0.0)
@@ -58,6 +62,8 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - <NF_DEVICE_INTERFACE_NAME>: NF Device Interface name
 - <NF_DEVICE_HOSTNAME>: NF Device hostname
 - <NF_DEVICE_SN>: NF Device serial number
+- <CM_NAME>: Associated Cluster Manager (CM)
+- <CM_RG>: CM Resource Group
 - <CLUSTER_NAME>: Associated Cluster name
 - <CLUSTER_RG>: Cluster Resource Group (RG)
 - <CLUSTER_RID>: Cluster ARM ID
@@ -66,17 +72,12 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - <CLUSTER_DEPLOY_GROUPING>: Cluster deployment grouping
 - <CLUSTER_DEPLOY_TYPE>: Cluster deployment type
 - <CLUSTER_DEPLOY_THRESHOLD>: Cluster deployment threshold
-- <NC_VERSION>: Runtime version for upgrade
 - <DEPLOYMENT_THRESHOLD>: Compute deployment threshold
 - <DEPLOYMENT_PAUSE_MINS>: Time to wait before moving to the next Rack once the current Rack meets the deployment threshold
-- <CM_NAME>: Associated Cluster Manager (CM)
-- <CM_RG>: CM Resource Group
-- <BMM_ISSUE_LIST>: List of BMM with provisioning issues after Cluster upgrade is complete
 - <MISE_CID>: Microsoft.Identity.ServiceEssentials (MISE) Correlation ID in debug output for Device updates
 - <CORRELATION_ID>: Operation Correlation ID in debug output for Device updates
 - <ASYNC_URL>: Asynchronous (ASYNC) URL in debug output for Device updates
-- <START_DATE>: Track deployment start date
-- <TARGET_DATE>: Track deployment expected end date
+- <LINK_TO_TELCO_INPUT>: Link to the Instance Telco Input file
 
 </details>
 
@@ -85,7 +86,6 @@ This template is designed to assist users in managing a reproducible end-to-end 
 <summary> Deployment data details </summary>
 
 ```
-<START_DATE> <ENVIRONMENT> <AZURE_REGION> <DE_ID> <TARGET_DATE>
 - Nexus: <NEXUS_VERSION>
 - NC: <NC_VERSION>
 - NF: <NF_VERSION>
@@ -456,11 +456,11 @@ BMM provisioning is complete when the following conditions are met:
 ### Review Operator Nexus release notes
 Review the Operator Nexus release notes for any version specific actions required post-deployment.
 
-### Validate Nexus instance
+### Validate Nexus Instance
 
-Validate the health and status of all the Nexus instance resources created during deployment with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
+Validate the health and status of all the Nexus Instance resources created during deployment with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
 
-To perform a resource validation of the Nexus instance components post-deployment through Azure CLI:
+To perform a resource validation of the Nexus Instance components post-deployment through Azure CLI:
 ```
 # NFC
 az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
@@ -483,27 +483,17 @@ az networkcloud cluster list --subscription <CUSTOMER_SUB_ID> -o table
 az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([]. {name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
 az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
 ```
+
 > [!Note]
-> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus instance. Simple validation does not provide functional tesing.
-
-</details>
-
-## Close out work items
-<details>
-<summary> Close out any work items in your ticketing system on deployment completion </summary>
-
-- Update task hours for deployment duration.
-- Set Nexus deployment work item to `Complete`.
-- Add any notes on support tickets and issues encountered during deployment.
-- List any BMM that failed to provision. 
+> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional tesing.
 
 </details>
 
 ## Links
 <details>
-<summary> Reference Links for Nexus Deployments </summary>
+<summary> Reference Links for Nexus Instance deployment </summary>
 
-Reference links for deploying a Nexus instance:
+Reference links for deploying a Nexus Instance:
 - Access the [Azure portal](https://aka.ms/nexus-portal)
 - Access the [Azure portal ARM Template Editor](https://portal.azure.com/#create/Microsoft.Template)
 - [Install Azure CLI](https://aka.ms/azcli)
@@ -516,5 +506,6 @@ Reference links for deploying a Nexus instance:
 - Reference the [Nexus Telco Input Template](concepts-telco-input-template.md)
 - Reference the [Nexus Platform Prerequisites](howto-platform-prerequisites.md)
 - Create a [Network Fabric ACL](howto-create-access-control-list-for-network-to-network-interconnects.md)
+- Reference the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md)
 
 </details>
