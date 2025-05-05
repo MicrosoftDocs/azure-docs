@@ -133,4 +133,4 @@ Walk through one of the following quickstarts to configure your applications to 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md) 
+> [Learn more about the Durable Task Scheduler](./durable-task-scheduler.md) 
