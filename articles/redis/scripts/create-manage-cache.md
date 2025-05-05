@@ -21,6 +21,9 @@ The scripts in this article use the following commands. Select the links in the 
 
 ::: zone pivot="azure-managed-redis"
 
+>[!NOTE]
+>The [az redisenterprise](/cli/azure/redisenterprise) commands are part of the `redisenterprise` extension for the Azure CLI, version 2.61.0 or higher. The extension automatically installs the first time you run an `az redisenterprise` command.
+
 | Command | Description |
 |---|---|
 | [az group create](/cli/azure/group) | Creates a resource group to store all resources in. |
@@ -28,9 +31,6 @@ The scripts in this article use the following commands. Select the links in the 
 | [az redisenterprise show](/cli/azure/redis) | Shows details of an Azure Managed Redis instance. |
 | [az redisenterprise list-keys](/cli/azure/redis) | Lists access keys for an Azure Managed Redis instance. |
 | [az redisenterprise delete](/cli/azure/redis) | Deletes an Azure Managed Redis instance. |
-
->[!NOTE]
->The [az redisenterprise](/cli/azure/redisenterprise) commands are part of the `redisenterprise` extension for the Azure CLI, version 2.61.0 or higher. The extension automatically installs the first time you run an `az redisenterprise` command.
 
 ::: zone-end
 
@@ -60,8 +60,6 @@ The scripts in this article use the following commands. Select the links in the 
 This sample is broken. When it is fixed, we can fix this include.
 -->
 
-The following example script sets variables, then creates a resource group and an Azure Managed Redis cache in the resource group. Putting all your app resources in the same resource group lets you easily manage or delete them together.
-
 The cache `name` must be a string of 1-63 characters that's unique in the region. The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
 
 The `location` should be an [Azure region](https://azure.microsoft.com/regions/) near other services that use your cache. Use a cache [sku](https://azure.microsoft.com/pricing/details/cache/) and `size` that have the appropriate features and performance for your cache. 
@@ -74,10 +72,12 @@ The `location` should be an [Azure region](https://azure.microsoft.com/regions/)
 >- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
 >- If you're using the [RediSearch](../redis-modules.md#redisearch) module, the Enterprise cluster policy is required, and No Eviction is the only eviction policy supported.
 
-For security reasons, Microsoft Entra authentication and Transport Layer Security (TLS) encryption are enabled by default for new caches. Access keys authentication is disabled. You can choose to to enable access key authentication or non-TLS connections during or after cache creation, but disabling TLS isn't recommended.
+For security reasons, Microsoft Entra authentication and Transport Layer Security (TLS) encryption are enabled by default for new caches. Access keys authentication is disabled. You can choose to to enable access key authentication or non-TLS connections during or after cache creation.
 
 >[!IMPORTANT]
 >Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+
+The following example script sets variables, then creates a resource group and an Azure Managed Redis cache in the resource group. Putting all your app resources in the same resource group lets you easily manage or delete them together.
 
 ```azurecli
 
@@ -148,8 +148,6 @@ az group delete --resource-group $resourceGroup -y
 This sample is broken. When it is fixed, we can fix this include.
 -->
 
-The following example script sets variables, then creates a resource group and an Azure Cache for Redis cache in the resource group. Putting all your app resources in the same resource group lets you easily manage or delete them together.
-
 The cache `name` must be a string of 1-63 characters that's unique in the region. It can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
 
 The `location` should be an [Azure region](https://azure.microsoft.com/regions/) near other services that use your cache. Use a cache [sku](https://azure.microsoft.com/pricing/details/cache/) and `size` that have the appropriate features and performance for your cache. 
@@ -157,8 +155,9 @@ The `location` should be an [Azure region](https://azure.microsoft.com/regions/)
 For security reasons, Microsoft Entra Authentication and TLS encryption are enabled by default for new caches. You can choose to enable access key authentication or non-TLS connections during or after cache creation.
 
 >[!IMPORTANT]
->
-Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+
+The following example script sets variables, then creates a resource group and an Azure Cache for Redis cache in the resource group. Putting all your app resources in the same resource group lets you easily manage or delete them together.
 
 ```azurecli
 
