@@ -10,9 +10,9 @@ ms.date: 04/09/2025
 #customer intent: As a user of geospatial data, I want to ingest STAC items so that I can efficiently query and access my geospatial data.
 ---
   
-# Quickstart: Add STAC items to a collection with Microsoft Planetary Computer Pro GeoCatalog using Python
+# Quickstart: Add a single STAC item to a collection with Microsoft Planetary Computer Pro GeoCatalog
 
-In this quickstart, you ingest SpatioTemporal Asset Catalog (STAC) items to a collection in Microsoft Planetary Computer Pro (MPC) Pro GeoCatalog. STAC items are the fundamental building block of STAC and contain properties for querying and links to the data assets.
+In this quickstart, you ingest SpatioTemporal Asset Catalog (STAC) items to a collection in Microsoft Planetary Computer Pro GeoCatalog using the single item ingestion API. STAC items are the fundamental building block of STAC and contain properties for querying and links to the data assets.
 
 ## Prerequisites
 
@@ -32,7 +32,12 @@ collection_id = "<your-collection-id>"
 
 ## Create item metadata
 
-The item metadata is unique to the assets you're cataloging. Use items and assets from the Planetary Computer's [10 m Annual Land Use Land Cover](https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02) collection.
+The STAC item metadata is unique to the assets you're cataloging. It contains all the information required to catalog the data, along with pointers to where the data is stored.
+
+>[!TIP]
+> Don't have STAC Items for your data? To accelerate the creation of STAC Items, we have a [detailed tutorial](./create-stac-item.md) and also have an open source tool called [STAC Forge](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/stacforge-functions).
+
+For this quick start, you use STAC Items and assets from the open Planetary Computer's [10 m Annual Land Use Land Cover](https://planetarycomputer.microsoft.com/dataset/io-lulc-annual-v02) collection. 
 
 ```python
 import requests
@@ -45,7 +50,7 @@ response = requests.get(
 item_collection = response.json()
 ```
 
-MPC Pro GeoCatalog copies the assets into its Blob Storage Container. Use the Planetary Computer's `sas` API to get short-lived SAS tokens for the assets.
+Use the open Planetary Computer's [SAS API](https://planetarycomputer.microsoft.com/docs/concepts/sas/) to get short-lived SAS tokens for the assets.
 
 ```python
 sas_token = requests.get(
@@ -57,7 +62,7 @@ for item in item_collection["features"]:
         asset["href"] = "?".join([asset["href"], sas_token])
 ```
 
-See [Ingestion sources](./ingestion-source.md) for more on how MPC Pro accesses data.
+This SAS Token is required to allow your GeoCatalog to copy the data from the open Planetary Computer. See [Ingestion sources](./ingestion-source.md) for more on how Planetary Computer Pro accesses data.
 
 STAC requires that the `collection` property on STAC items match the collection they're in. If necessary, update the items to match the collection ID you're using.
 
@@ -68,7 +73,7 @@ for item in item_collection["features"]:
 
 ## Get an access token
 
-MPC Pro GeoCatalog requires an access token to authenticate requests. Use the [Azure-identity](/python/api/overview/azure/identity-readme) client library for Python to get a token.
+Planetary Computer Pro requires an access token to authenticate requests via [Microsoft Entra](/entra/fundamentals/whatis). Use the [Azure-identity](/python/api/overview/azure/identity-readme) client library for Python to get a token.
 
 ```python
 import azure.identity
@@ -95,7 +100,7 @@ print(response.status_code)
 
 A `202` status code indicates that your items were accepted for ingestion. Check the response JSON if you get a 40x status code, for example, `print(response.json())`.
 
-MPC Pro asynchronously ingests the items into your GeoCatalog. The `location` header includes a URL that you can poll to monitor the status of the ingestion workflow.
+Planetary Computer Pro asynchronously ingests the items into your GeoCatalog. The `location` header includes a URL that you can poll to monitor the status of the ingestion workflow.
 
 ```python
 import time
@@ -135,7 +140,7 @@ search_response = requests.get(
 #print(search_response.json())
 ```
 
-You can view the items by visiting your GeoCatalog Data Explorer.
+You can view the items by visiting your [Data Explorer](./use-explorer.md) once the STAC Collection is [configured for visualization](./collection-config-concept.md).
 
 ## Delete Items from a Collection
 
@@ -155,3 +160,17 @@ print(delete.status_code)
 
 See [Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md) for steps to
 delete an entire Collection and all items and assets underneath it.
+
+## Next steps
+
+Now that you added a few items, you should configure the data for visualization.
+
+> [!div class="nextstepaction"]
+> [Collection configuration in Microsoft Planetary Computer Pro](./collection-config-concept.md)
+
+## Related Items
+
+- [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
+- [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md)
+- [Ingest data into Microsoft Planetary Computer Pro](./ingestion-overview.md)
+- [Ingestion source for Microsoft Planetary Computer Pro](./ingestion-source.md)

@@ -40,6 +40,12 @@ Before you continue with the deletion steps, make sure you're ready to delete th
   
     :::image type="content" source="media/delete-geocatalog-resource.png" alt-text="Screenshot of the Azure portal showing the GeoCatalog resource page. The 'Delete' button is highlighted, indicating where users can select to initiate the deletion process for the GeoCatalog resource.":::
 
+## Next Steps
+- [Get Started With Microsoft Planetary Computer Pro](./get-started-planetary-computer.md)
+
+## Related Content
+- [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md)
+
 # [REST API](#tab/restapi)
 ## Delete a GeoCatalog with the REST API
 
