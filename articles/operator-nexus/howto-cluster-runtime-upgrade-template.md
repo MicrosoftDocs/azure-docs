@@ -62,7 +62,6 @@ Runtime changes are categorized as follows:
 - <MISE_CID>: Microsoft.Identity.ServiceEssentials (MISE) Correlation ID in debug output for Device updates
 - <CORRELATION_ID>: Operation Correlation ID in debug output for Device updates
 - <ASYNC_URL>: Asynchronous (ASYNC) URL in debug output for Device updates
-- <LINK_TO_TELCO_INPUT>: Link to the Instance Telco Input file
 
 </details>
 
@@ -77,7 +76,6 @@ Runtime changes are categorized as follows:
 - Subscription Name: <CUSTOMER_SUB_NAME>
 - Subscription ID: <CUSTOMER_SUB_ID>
 - Tenant ID: <CUSTOMER_SUB_TENANT_ID>
-- Telco Input: <LINK_TO_TELCO_INPUT>
 ```
 
 </details>
@@ -345,7 +343,6 @@ Reference links for Cluster upgrade:
 - [Troubleshoot BMM provisioning](troubleshoot-bare-metal-machine-provisioning.md)
 - [Troubleshoot BMM degraded](troubleshoot-bare-metal-machine-degraded.md)
 - [Troubleshoot BMM warning](troubleshoot-bare-metal-machine-warning.md)
-- Reference the [Nexus Telco Input Template](concepts-telco-input-template.md)
 - Reference the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md)
 
 </details>
