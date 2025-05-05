@@ -26,7 +26,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
   >- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
 
 >[!Note]
->- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](/azure/backup/azure-kubernetes-service-backup-overview.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](/backup/azure-kubernetes-service-backup-overview.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 - Azure Disk Backup supports backup of Write Accelerator disk. However, during restore the disk would be restored as a normal disk. Write Accelerated cache can be enabled on the disk after mounting it to a VM.
 
