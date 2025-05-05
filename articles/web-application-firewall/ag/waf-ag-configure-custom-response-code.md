@@ -6,7 +6,6 @@ ms.author: edenyaakobi
 ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 03/11/2025
-zone_pivot_groups: 
 ---
 
 
