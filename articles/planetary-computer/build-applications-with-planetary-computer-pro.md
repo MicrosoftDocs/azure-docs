@@ -1,6 +1,6 @@
 ---
 title: Building Custom Applications with Microsoft Planetary Computer Pro
-description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (MPC Pro) to applications or build your application on top of MPC Pro's API services."
+description: "Learn the basics of how to connect Microsoft Planetary Computer Pro (Planetary Computer Pro) to applications or build your application on top of Planetary Computer Pro's API services."
 author: prasadko
 ms.author: prasadkomma
 ms.service: azure
@@ -11,177 +11,73 @@ ms.date: 04/29/2025
 
 ---
 
-# PLACEHOLDER Building applications with Microsoft Planetary Computer Pro
+# Building applications with Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro (MPC Pro) offers powerful APIs and services that enable developers to build applications that can access, analyze, and visualize large-scale geospatial datasets. This article provides an overview of the application development options available with MPC Pro and key concepts for integrating with its services.
+Microsoft Planetary Computer Pro offers APIs and connectors that enable developers to build applications that can access, analyze, and visualize large-scale geospatial datasets. This article provides an overview of the application development options available with Planetary Computer Pro and key concepts for integrating with its services.
 
 ## Prerequisites
 
-- Azure account with an active subscription
+- An Azure account and subscription [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Access to a Microsoft Planetary Computer Pro [GeoCatalog resource](./deploy-geocatalog-resource.md)
-- Basic understanding of geospatial data concepts and [STAC specification](./stac-overview.md)
-- Development experience with Python, JavaScript, or other programming languages
 
 ## Application integration approaches
 
-MPC Pro supports multiple integration approaches depending on your application's requirements. You can build applications that access MPC Pro's data and services in several ways:
+Planetary Computer Pro supports multiple integration approaches depending on your application's requirements. You can build applications that access Planetary Computer Pro's data and services in several ways:
+
+:::image type="content" source="media/build_apps_diagram.png" alt-text="Diagram illustrating how to build applications with Microsoft Planetary Computer Pro, showing integration points, APIs, and supported workflows.":::
 
 ### Direct API integration
 
-The primary way to integrate with MPC Pro is through its REST APIs. MPC Pro provides a comprehensive set of APIs that conform to the STAC API specification, allowing you to:
+The primary way to integrate with Planetary Computer Pro is through its REST APIs. Planetary Computer Pro provides a comprehensive set of APIs to build applications. These APIs are summarized in the next table:
 
-- Search and discover geospatial datasets
-- Access metadata about collections and items
-- Retrieve and visualize raster and vector data
-- Process geospatial data at scale
+| API Name      | Description                                                                                   |
+|---------------|----------------------------------------------------------------------------------------------|
+| STAC API      | Search, discover, and access geospatial data using the SpatioTemporal Asset Catalog (STAC) specification.                   |
+| Tiler API     | Serve map tiles and imagery for visualization in web maps and GIS apps.                      |
+| SAS API       | Generate secure, time-limited access tokens for sharing geospatial data.                     |
+| Ingestion API | Ingest and transform new geospatial datasets into the GeoCatalog.      |
 
-These APIs support standard authentication mechanisms including Microsoft Entra ID, enabling secure access to your resources.
+These APIs support [standard authentication through Microsoft Entra ID](/entra/architecture/guide-for-independent-software-developers), enabling secure access to your resources. Integrating your web application requires the use of [application authentication](./application-authentication.md). Once your app is registered with Microsoft Entra, it can securely use the APIs to access all data inside a GeoCatalog. 
 
-### Client libraries and SDKs
+The [REST API is detailed in the API reference](/rest/api/planetarycomputer).
 
-MPC Pro offers client libraries and SDKs for popular programming languages, simplifying the integration process:
+### Fist Party Application Support
 
-- **Python SDK**: Provides high-level interfaces for searching, accessing, and processing geospatial data
-- **JavaScript Library**: Enables web applications to interact with MPC Pro services
-- **REST API Clients**: Auto-generated clients for various languages based on OpenAPI specifications
+Planetary Computer Pro has a build-in application called Explorer which allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-config-concept.md), it can be [used in the explorer](./use-explorer.md).
 
-These libraries abstract away many complexities of working with the underlying APIs, allowing you to focus on building your application logic.
+In more, by using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2). 
 
 ### GIS application connectivity
 
-MPC Pro integrates with popular Geographic Information System (GIS) applications, including:
+Planetary Computer Pro integrates directly with the ESRI ArcGIS Pro desktop GIS application. 
 
-- **ArcGIS Pro**: Connect directly to MPC Pro from ESRI's professional desktop GIS application
-- **QGIS**: Access MPC Pro collections through QGIS plugins
-- **Web-based mapping libraries**: Integrate with Leaflet, Mapbox GL, or OpenLayers
+Integrating Microsoft Planetary Computer Pro with ESRI ArcGIS Pro provides a seamless workflow for geospatial professionals who rely on industry-standard desktop GIS tools. By connecting Planetary Computer Pro data directly to ArcGIS Pro, users can:
 
-For specific integration guidance with ArcGIS Pro, see [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arcgispro.md).
+- Access and analyze large-scale, cloud-hosted geospatial datasets without complex data transfers.
+- Use ArcGIS Pro’s advanced visualization, editing, and analysis capabilities on authoritative data from Planetary Computer Pro.
+- Streamline collaboration by combining enterprise GIS workflows with the latest planetary-scale datasets.
+- Accelerate decision-making by integrating cloud-based data with local projects, enabling richer insights and more informed outcomes.
+
+For more information on how to connect ArcGIS Pro to a GeoCatalog resource, see the [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arcgispro.md).
 
 ## Authentication and authorization
 
-All applications that interact with MPC Pro must authenticate properly. MPC Pro uses Microsoft Entra ID (formerly Azure AD) for authentication and Role-Based Access Control (RBAC) for authorization.
+All applications that interact with Planetary Computer Pro must authenticate properly using Microsoft Entra ID. 
 
-### Authentication options
+### Authentication options and recommendations:
 
-- **User authentication**: For applications that operate on behalf of a signed-in user
-- **Service principal**: For daemon or service-to-service scenarios
-- **Managed identities**: For applications running on Azure services
+| Application Hosting Environment | Access Type Required | Recommended Identity Type        | Explanation                                                                                                                               |
+| :------------------------------ | :------------------- | :------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | App-Only (Application acts as itself) | Managed Identity (User-assigned recommended) | **Security & Manageability:** Eliminates the need to store and manage credentials (secrets/certificates) in code or configuration. Azure handles credential rotation automatically. User-assigned is preferred for sharing across multiple resources. |
+| **Running on Azure** (VM, App Service, Functions, Container Apps, etc.) | Delegated (Application acts on behalf of a user) | Managed Identity (User-assigned recommended) | **Leverages Azure Integration:** Combines the security benefits of Managed Identity for the application itself with standard user authentication flows. Simplifies infrastructure setup within Azure. |
+| **Running Outside Azure** (On-premises, other cloud, developer machine) | App-Only (Application acts as itself) | Service Principal | **Standard for External Apps:** The established method for non-Azure applications to authenticate with Microsoft Entra ID. Requires managing credentials (secrets/certificates) securely. |
+| **Running Outside Azure** (On-premises, other cloud, developer machine) | Delegated (Application acts on behalf of a user) | Service Principal | **Standard for External Apps:** Enables standard OAuth 2.0 flows for user sign-in and consent for applications outside Azure, using the application's registered identity in Entra ID. |
+| **Running Outside Azure (Alternative)** | App-Only or Delegated | Managed Identity | **Brings Azure Benefits:** By hosting the application in an Azure compute service (like a VM or Container App), it can use the enhanced security and manageability of Managed Identities, avoiding credential management even though the *origin* might be considered non-Azure. |
 
-The recommended approach depends on your application scenario:
+For detailed authentication guidance, see [Set up application authentication for Planetary Computer Pro](./application-authentication.md).
 
-- For web applications with user interactions, implement user authentication
-- For background services or API-to-API communications, use service principals or managed identities
-
-For detailed authentication guidance, see [Set up application authentication for MPC Pro](./application-authentication.md).
-
-## Data access patterns
-
-When building applications with MPC Pro, consider these common data access patterns:
-
-### Search and discovery
-
-Applications typically need to search for relevant data before processing it. The STAC API enables powerful search capabilities:
-
-```python
-# Example of searching for Landsat imagery
-from planetary_computer import api
-
-# Search for Landsat imagery over Seattle from 2022
-items = api.search(
-    collections=["landsat-c2-l2"],
-    bbox=[-122.33, 47.5, -122.0, 47.75],
-    datetime="2022-01-01/2022-12-31",
-    query={"eo:cloud_cover": {"lt": 20}}
-)
-```
-
-### Data visualization
-
-Many applications need to visualize geospatial data on maps. MPC Pro provides tile services that enable efficient rendering:
-
-```javascript
-// Example of adding an MPC Pro layer to a web map
-import { Map } from 'maplibre-gl';
-
-const map = new Map({
-  container: 'map',
-  style: 'https://demotiles.maplibre.org/style.json',
-  center: [-122.33, 47.61],
-  zoom: 11
-});
-
-// Add MPC Pro tile layer
-map.on('load', () => {
-  map.addSource('landsat', {
-    type: 'raster',
-    tiles: [
-      'https://your-geocatalog.geocatalog.eastus.azureplanetary.microsoft.com/collections/landsat-c2-l2/items/{item_id}/tiles/{z}/{x}/{y}'
-    ],
-    tileSize: 256
-  });
-  
-  map.addLayer({
-    id: 'landsat-layer',
-    type: 'raster',
-    source: 'landsat',
-    paint: {}
-  });
-});
-```
-
-### Analysis and processing
-
-MPC Pro enables processing of geospatial data at scale:
-
-- **Cloud-optimized data formats**: Access data efficiently using Cloud-Optimized GeoTIFFs (COGs) and more
-- **Distributed computing**: Process large datasets using Azure's computational resources
-- **Raster and vector operations**: Perform common geospatial operations on both raster and vector data
-
-## Application patterns and examples
-
-Here are some common application patterns built on MPC Pro:
-
-### Web mapping application
-
-Create interactive web maps that visualize geospatial data from MPC Pro:
-
-1. Implement user authentication using Microsoft Entra ID
-2. Use MPC Pro's search API to find relevant data
-3. Visualize data using tile services and web mapping libraries
-4. Enable interactive analysis through client-side or server-side processing
-
-### Data processing pipeline
-
-Build automated workflows that process geospatial data:
-
-1. Use MPC Pro APIs to search for and identify new data
-2. Process data using Azure compute services
-3. Store results back in MPC Pro or other data stores
-4. Trigger notifications or additional workflows based on processing results
-
-### Mobile field collection application
-
-Create mobile apps that combine MPC Pro data with field-collected information:
-
-1. Cache relevant MPC Pro data for offline use
-2. Collect field observations with geolocation
-3. Synchronize and merge field data with MPC Pro datasets
-4. Perform analysis that combines multiple data sources
-
-## Best practices
-
-When building applications with MPC Pro, consider these best practices:
-
-- **Optimize data access**: Use filtering and spatial queries to limit data retrieval to what's needed
-- **Implement caching**: Cache frequently accessed data to improve performance
-- **Consider scale**: Design for the volume of data you'll be processing
-- **Handle authentication properly**: Securely manage tokens and implement token refresh
-- **Implement error handling**: Account for network issues and API rate limits
 
 ## Related content
 
-- [STAC specification overview](./stac-overview.md)
 - [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arcgispro.md)
 - [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)
-- [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md)
-- [Use a STAC collection SAS token](./get-collection-sas-token.md)

@@ -1,126 +1,350 @@
 ---
-title: ArcGIS Pro Integration with Microsoft Planetary Computer Pro
-description: "This article provides step-by-step instructions for connecting ESRI ArcGIS Pro to Microsoft Planetary Computer Pro and accessing geospatial data."
-author: prasadko
-ms.author: prasadkomma
+title: Using ArcGIS Pro with Microsoft Planetary Computer Pro
+description: Learn how to configure and authenticate ArcGIS Pro so that it can read STAC item data from Microsoft Planetary Computer (MPC) Pro. 
+author: aloverro
+ms.author: adamloverro
 ms.service: azure
-ms.topic: how-to #Don't change
-ms.date: 04/23/2025
+ms.topic: how-to
+ms.date: 05/02/2025
 
-#customer intent: As a GIS analyst or data scientist, I want to connect ArcGIS Pro to Microsoft Planetary Computer Pro so that I can access and analyze geospatial datasets.
-
+# customer intent: As a GeoCatalog user, I want to configure and authenticate ArcGIS pro to operate with Microsoft Planetary Computer Pro so that I can view imagery stored in my GeoCatalog within the ArcGIS Pro tool.
 ---
 
-# PLACEHOLDER Connect ArcGIS Pro to Microsoft Planetary Computer Pro
+# Configure ArcGIS Pro to access a GeoCatalog
 
-This article provides step-by-step instructions for connecting ESRI ArcGIS Pro to Microsoft Planetary Computer Pro (MPC Pro). By integrating ArcGIS Pro with MPC Pro, you can access, visualize, and analyze petabyte-scale geospatial datasets directly within your familiar GIS environment.
+This guide demonstrates how to configure ArcGIS Pro to access geospatial datasets from the Microsoft Planetary Computer (MPC) Pro GeoCatalog using OAuth 2.0 delegated authentication with Microsoft Entra ID. This requires registering two applications in Microsoft Entra ID (a Web API and a Desktop client), configuring delegated permissions with user_impersonation scope, and connecting ArcGIS Pro to Azure Blob Storage and SpatioTemporal Access Catalog (STAC) compliant datasets hosted in the MPC Pro environment.
+
+By the end of this guide, you'll be able to securely browse and access MPC-hosted data directly in ArcGIS Pro using Microsoft Entra ID user impersonation.
 
 ## Prerequisites
 
-- ESRI ArcGIS Pro (version 3.0 or later) installed on your workstation
-- An active ArcGIS Pro license
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- An existing [GeoCatalog resource](./deploy-geocatalog-resource.md)
-- [Role-based access](./manage-access.md) to your GeoCatalog
+- Access to a Microsoft Entra ID tenant
+- Azure subscription with permissions to manage app registrations
+- ArcGIS Pro installed on your machine
 
-## Configure authentication in ArcGIS Pro
+> [!TIP] 
+> Before you begin, review [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app) for background information on app registration.
 
-To connect ArcGIS Pro to Microsoft Planetary Computer Pro, you need to set up Microsoft Entra ID authentication:
+## Register Web API Application for ArcGIS Pro
 
-1. Open ArcGIS Pro on your workstation.
-2. Select the **Project** tab and click on **Options**.
-3. In the Options dialog, select **Connections** from the left sidebar.
-4. Click on **Add Connection** and select **Microsoft Planetary Computer Pro** from the dropdown.
-5. In the connection dialog, enter the following information:
-   - **Connection Name**: A descriptive name for your connection
-   - **GeoCatalog URI**: The URI of your GeoCatalog (format: `https://<your-geocatalog-name>.geocatalog.<region>.azureplanetary.microsoft.com`)
-   - **Authentication Type**: Select **Microsoft Entra ID**
-6. Click **Sign In** and follow the prompts to authenticate with your Microsoft Entra credentials.
-7. Click **Test Connection** to verify connectivity.
-8. Click **Save** to create the connection.
+1. Open the Azure Portal and go to **Microsoft Entra ID**.
+  :::image type="content" source="./media/Screenshot_showing_microsoft_entra_id.png" alt-text="Screenshot showing microsoft entra id":::
 
-## Access MPC Pro data in ArcGIS Pro
+1. Navigate to **App registrations** \> **New registration**.
+  :::image type="content" source="./media/Screenshot_showing_new_app_resigration.png" alt-text="Screenshot showing new app resigration":::
 
-After setting up the connection, you can access MPC Pro data in ArcGIS Pro:
+1. Register the Web API app. Suggested names:
+   - ArcGISPro-GeoCatalog-WebAPI or 
+   - ArcGIS Pro
 
-1. In ArcGIS Pro, create a new map or open an existing project.
-2. Open the **Catalog** pane.
-3. Expand the **Connections** section to find your MPC Pro connection.
-4. Expand your connection to browse available collections.
-5. Right-click on a collection or item and select **Add to Current Map** to visualize the data.
+1. Set **Multitenant** as the account type.
+  :::image type="content" source="./media/Screenshot_showing_register_an_app_arcgispro.png" alt-text="Screenshot showing register an app arcgispro":::
+  Here's the overview page of the new app registration ArcGIS Pro:
+  :::image type="content" source="./media/Screenshot_showing_new_app_registation_arcgis_pro.png" alt-text="Screenshot showing new app registation arcgis pro":::
 
-## Working with STAC collections
+1. After registration, complete the following configuration within the new app registration ArcGIS Pro:
 
-Microsoft Planetary Computer Pro organizes data using the Spatiotemporal Asset Catalog (STAC) specification:
+   - Go to the **Authentication** tab:
+   - Add platform: **Web**
 
-1. To search for specific data, right-click on your MPC Pro connection and select **Search STAC Catalog**.
-2. In the search dialog, you can filter by:
-   - Date range
-   - Geographical extent (drawn on map or coordinates)
-   - Cloud cover percentage
-   - Collection type
-   - Other STAC properties
-3. Click **Search** to find matching items.
-4. Select items from the results and click **Add to Map** to visualize them.
+   :::image type="content" source="./media/Screenshot_showing_add_web_platform.png" alt-text="Screenshot showing add web platform":::
 
-## Processing MPC Pro data in ArcGIS Pro
+- Set **Redirect URI**: <https://localhost>
+  :::image type="content" source="./media/Screenshot_showing_add_redirect_uri.png" alt-text="Screenshot showing add redirect uri":::
 
-You can perform analysis on MPC Pro data directly in ArcGIS Pro:
+- Add platform: **Mobile and Desktop applications**
 
-1. With MPC Pro data added to your map, navigate to the **Analysis** tab.
-2. Choose from available geoprocessing tools.
-3. Configure processing parameters as needed.
-4. Select **Run** to execute the analysis.
+  :::image type="content" source="./media/Screenshot_showing_add_mobile_desktop_app.png" alt-text="Screenshot showing add mobile desktop app":::
 
-> [!NOTE]
-> For large datasets, processing may be performed in the cloud on Azure, reducing the need to download large volumes of data to your local machine.
+- Set **Custom Redirect URI**: arcgis-pro://auth
 
-## Saving results
+  :::image type="content" source="./media/Screenshot_showing_configure_desktop_device.png" alt-text="Screenshot showing configure desktop device":::
 
-After analyzing MPC Pro data, you can save results:
+- Enable **ID tokens** under **Implicit grant and hybrid flows**,
 
-1. Right-click on the output layer in the **Contents** pane.
-2. Select **Save As**.
-3. Choose a destination:
-   - **File** - Save locally
-   - **Microsoft Planetary Computer Pro** - Save back to your GeoCatalog
-   - **ArcGIS Online** - Share with your organization
-4. Enter metadata and click **Save**.
+- Select **Save**
 
-## Automating workflows with ArcGIS Python API
+  :::image type="content" source="./media/Screenshot_showing_enable_id_tokens.png" alt-text="Screenshot showing enable id tokens":::
 
-You can automate MPC Pro workflows using the ArcGIS Python API:
+- Go to **API Permissions**:
 
-```python
-from arcgis.gis import GIS
-import arcpy
+  - Add and grant admin consent for:
+    - Azure Storage \> user_impersonation
+    - Microsoft Graph \> User.Read (This permission is enabled by default)
 
-# Connect to ArcGIS Pro
-gis = GIS("pro")
+  :::image type="content" source="./media/Screenshot_showing_add_api_permissions.png" alt-text="Screenshot showing add api permissions":::
 
-# Connect to MPC Pro
-mpc_connection = gis.connections.add_planetary_computer_connection(
-    name="My MPC Connection",
-    uri="https://my-geocatalog.geocatalog.eastus.azureplanetary.microsoft.com",
-    auth_type="entra"
-)
+- **Grant admin consent** after permissions are added.
 
-# Search for Landsat imagery
-landsat_items = mpc_connection.search(
-    collection="landsat-c2-l2",
-    datetime="2022-01-01/2022-12-31",
-    bbox=[-122.5, 37.5, -121.5, 38.5]
-)
+  :::image type="content" source="./media/Screenshot_showing_grant_admin_consent.png" alt-text="Screenshot showing grant admin consent":::
 
-# Add to map and perform analysis
-map_view = gis.map()
-landsat_layer = map_view.add(landsat_items[0])
-ndvi = arcpy.imagery.CalculateNDVI(landsat_layer)
-map_view.add(ndvi)
-```
+- Go to **Expose an API**:
 
-## Next steps
+  - Add **App ID URI**
 
-> [!div class="nextstepaction"]
-> [Visualize data in the Explorer](./use-explorer.md)
-> [Learn about STAC collections](./stac-overview.md)
+  :::image type="content" source="./media/Screenshot_showing_add_app_id_uri.png" alt-text="Screenshot showing add app id uri":::
+
+- Define scopes:
+
+  - user_authentication (Display name: ArcGISPro-API-User-Auth)
+
+  - user_impersonation (Display name: ArcGISPro-API-Impersonation)
+
+  :::image type="content" source="./media/Screenshot_showing_add_user_authentication_scope.png" alt-text="Screenshot showing add user authentication scope":::
+
+  :::image type="content" source="./media/Screenshot_showing_add_user_impersonation_scope.png" alt-text="Screenshot showing add user impersonation scope":::
+
+- Select **Add a client application** and note the App ID.
+
+  :::image type="content" source="./media/Screenshot_showing_add_a_client_app.png" alt-text="Screenshot showing add a client app":::
+
+## Register Desktop Client Application for ArcGIS Pro 
+
+Register a second application (with a distinct name) to represent ArcGIS
+Pro Desktop and configure its API permissions --- ensuring it includes
+access to the web API exposed by the first application.
+
+1. Create a second app registration for the ArcGIS Pro desktop client.
+
+- Suggested name: ArcGISPro-GeoCatalog-DesktopClient or
+  GeoCatalog-ArcGIS
+
+- Set account type: **Single tenant**
+
+  :::image type="content" source="./media/Screenshot_showing_register_second_app_arcgisprodesktopclient.png" alt-text="Screenshot showing register second app arcgisprodesktopclient":::
+
+Here's the overview page of the new app registration GeoCatalog-ArcGIS:
+
+  :::image type="content" source="./media/Screenshot_showing_new_app_registation_geocatalog_arcgis.png" alt-text="Screenshot showing new app registation geocatalog arcgis":::
+
+2. Configure the Desktop Client App
+
+> Complete the following configuration within the new App registration
+> GeoCatalog-ArcGIS:
+
+- **Authentication**? repeat the same steps as in Step 1:
+
+  - Add platform: **Web**
+
+  - Set **Redirect URI**: https://localhost
+
+  - Add platform: **Mobile and Desktop applications**
+
+  - Set **Redirect URI**: arcgis-pro://auth
+
+  - Enable **ID tokens** under **Implicit grant and hybrid flows**
+
+  - Select **Save**
+
+- **API Permissions**: Adding Access to the Web API App
+
+  - In the **API permissions** tab, select **Add a permission**.
+
+  - Go to the **APIs my organization uses** tab and search for the **Web
+    API app** created in Step 1 (for example, ArcGIS Pro).
+
+  - Select the app name to open the **Request API Permissions** screen.
+   :::image type="content" source="./media/Screenshot_showing_request_api____permissions.png" alt-text="Screenshot showing request api    permissions":::
+
+- Select both user_authentication and user_impersonation - the delegated
+  permissions defined in the first app
+
+- Select **Add permissions**
+
+  :::image type="content" source="./media/Screenshot_showing_add_api_permissions_arcgispro.png" alt-text="Screenshot showing add api permissions arcgispro":::
+
+- Continue to add the following delegated permissions:
+
+  - **Azure Storage** \> user_impersonation
+
+  - **Azure Orbital Spatio** \> user_impersonation
+
+  - **Microsoft Graph** \> User.Read (This permission is enabled by default)
+
+- Select **Add permissions**
+
+- **Grant admin consent**
+
+  :::image type="content" source="./media/Screenshot_showing_app_selection_on_request_api_permissions_screen.png" alt-text="Screenshot showing app selection on request api permissions screen":::
+
+  :::image type="content" source="./media/Screenshot_showing_grant_admin_consents__4_.png" alt-text="Screenshot showing grant admin consents (4)":::
+
+## Configure ArcGIS Pro (Desktop) for MPC Pro GeoCatalog Access
+
+This section outlines how to configure authentication and data access in
+the **ArcGIS Pro desktop application**, using OAuth 2.0 integration with
+**Microsoft Entra ID** and access to the **MPC Pro GeoCatalog**. It
+includes steps to add an authentication connection and create storage
+and STAC data connections.
+
+## Add an Authentication Connection
+
+1. Open the **ArcGIS Pro settings** page in one of the following ways:
+
+    - From an open project, select the **Project** tab on the ribbon.
+
+    - From the start page, select the **Settings** tab.
+
+2. In the side menu, select **Options**.
+
+3. In the **Options** dialog box, under **Application**, select
+    **Authentication**.
+
+4. Select **Add Connection** to add a new authentication connection.
+
+5. In the **Add Connection** dialog box:
+
+    - Enter a **Connection Name**
+
+    - For **Type**, select **Microsoft Entra ID**
+
+    - Enter your **Entra Domain** and **Client ID**
+
+    - Add the following **scopes**:
+
+      - <https://storage.azure.com/.default>
+
+      - <https://geocatalog.spatio.azure.com/.default>
+
+  :::image type="content" source="./media/Screenshot_showing_add_connection.png" alt-text="Screenshot showing add connection":::
+
+- Select **OK**
+
+- Sign in through the Authentication dialog and complete the prompts.
+
+  :::image type="content" source="./media/Screenshot_showing_sing_in.png" alt-text="Screenshot showing sing in":::
+
+> [!TIP] 
+> For more information, see the official ArcGIS Pro documentation [Connect to authentication providers from ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/connect-to-authentication-providers-from-arcgis-pro.htm)
+
+
+## Prepare and record GeoCatalog information
+
+1. Create an MPC Pro GeoCatalog in your Azure subscription (for example,
+    ArcGISProGeoCatalog), and locate it in the appropriate resource
+    group.
+
+  :::image type="content" source="./media/Screenshot_showing_find_hiddentype_geocatalog.png" alt-text="Screenshot showing find hiddentype geocatalog":::
+
+2. Select on the GeoCatalog (for example, ArcGISProGeoCatalog)
+
+3. Record the **GeoCatalog URI** (e.g.,
+    https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com)
+
+  :::image type="content" source="./media/Screenshot_showing_get_geocatalog_uri.png" alt-text="Screenshot showing get geocatalog uri":::
+
+4. Open the link to your GeoCatalog URI in the browser and select on the
+    **Collections** button
+
+  :::image type="content" source="./media/Screenshot_showing_mpc_pro_collections.png" alt-text="Screenshot showing mpc pro collections":::
+
+  1. Record the **Collection Name** (for example,
+      sentinel-2-l2a-turorial-1000)
+
+  2. Construct the **Token API Endpoint** using this pattern
+
+> \<GeoCatalog URI\>/sas/token/\<Collection
+> Name\>?api-version=2025-04-30-preview
+>
+> Example:
+>
+> https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-turorial-1000?api-version=2025-04-30-preview
+
+3. Select on the collection name
+
+  :::image type="content" source="./media/Screenshot_showing_click_on_collectionname.png" alt-text="Screenshot showing click on collectionname":::
+
+4. Select on **Edit collection** button
+
+  :::image type="content" source="./media/Screenshot_showing_edit_collection.png" alt-text="Screenshot showing edit collection":::
+
+5. In the resulting JSON display, locate the key
+    "**title:assets:thumbnail:href**" and copy the corresponding value.
+    for example:
+
+> https://\<unique-storage\>.blob.core.windows.net/sentinel-2-l2a-tutorial-1000-\<unique-id\>/collection-assets/thumbnail/lulc.png
+
+6. Record the value of Account Name and Container Name:
+
+    - **Account Name**: for example \<unique-storage\>
+
+    - **Container Name**: for example
+      sentinel-2-l2a-tutorial-1000-\<unique-id\>
+
+  :::image type="content" source="./media/Screenshot_showing_collection_jason_display.png" alt-text="Screenshot showing collection jason display":::
+
+## Set up a connection to Azure Blob 
+
+1. In ArcGIS Pro, open the **Create Cloud Storage Connection File**
+    geoprocessing tool to create a new ACS connection file. This tool can be
+    accessed in the main Ribbon on the Analysis Tab. Select the Tools
+    Button, then search for the tool by typing its name.
+
+2. Specify a Connection File Location for the ACS file
+
+3. Provide a Connection File Name for example, geocatalog_connection.acs
+
+4. For Service Provider select Azure
+
+5. For Authentication select the name of the auth profile that you
+    created in previous steps
+
+6. For **Access Key ID (Account Name)** use the **Account Name** value
+    that you recorded earlier: \<unique-storage\>
+
+7. For **Bucket (Container) Name** use the **Container Name** value
+    that you recorded earlier:
+    sentinel-2-l2a-tutorial-1000-\<unique-id\>
+
+8. Add the provider option **ARC_TOKEN_SERVICE_API** and set the value
+    to your **Token API Endpoint** that you constructed earlier, for example:
+
+```https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/api/token/sentinel-2-l2a-turorial-1000?api=version=2025-04-30-preview```
+
+9. Add the provider option **ARC_TOKEN_OPTION_NAME** and set the value
+    to AZURE_STORAGE_SAS_TOKEN
+
+  :::image type="content" source="./media/Screenshot_showing_create_cloud_storage_connection_file_sample.png" alt-text="Screenshot showing create cloud storage connection file sample":::
+
+## Create a STAC Connection to Microsoft Planetary Computer Pro
+
+1. Create a new STAC connection in ArcGIS Pro (desktop)
+
+> [!TIP] 
+> Refer to ArcGIS Pro documentation to [Create a STAC connection](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/create-a-stac-connection.htm)
+
+  :::image type="content" source="./media/Screenshot_showing_create_new_stac_connection.png" alt-text="Screenshot showing create new stac connection":::
+
+- Provide a name for the STAC Connection: For example, GeoCatalog_Connection
+
+- For Connection use the form```\<GeoCatalog URI\>/api```, for example
+  ```https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-storage\>.geocatalog.spatio.azure.com/api```
+
+- Reference the Authentication settings made in previous step
+
+- Add the ACS connection file that was created in previous step to the
+  STAC connection
+
+- Select the OK button
+
+  :::image type="content" source="./media/Screenshot_showing_create_stacconnection.png" alt-text="Screenshot showing create stacconnection":::
+
+2. Explore the STAC connection
+
+  > [!TIP] 
+  > Learn more about the ArcGIS [Explore STAC Pane](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/explore-stac.htm)
+
+  :::image type="content" source="./media/Screenshot_showing_explore_stac.png" alt-text="Screenshot showing explore stac":::
+
+- Search, fetch extensive STAC metadata, and view the browse images
+
+- Add selected images to Map or Scene
+
+  :::image type="content" source="./media/Screenshot_showing_explore_stacdata.png" alt-text="Screenshot showing explore stacdata":::
+
+
+## Related Content
+
+- [Create Cloud Storage Connection File](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-cloud-storage-connection-file.htm)
+- [Create a new GeoCatalog](./deploy-geocatalog-resource.md)
+- [Create a STAC Collection](./create-stac-collection.md)
