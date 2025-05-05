@@ -5,7 +5,7 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 06/20/2024
+ms.date: 05/02/2025
 ms.author: mbender
 ms.custom: references_regions,updatedFY24S2
 ---
@@ -22,7 +22,7 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *June 20th, 2024*, and it covers the 30-day period ending on *June 19th, 2024*.
+The current dataset was taken on *May 2nd, 2025*, and it covers the 30-day period ending on *May 1st, 2025*.
 
 For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 
