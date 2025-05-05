@@ -11,15 +11,15 @@ ms.date: 04/09/2025
 
 # Ingestion source for Microsoft Planetary Computer Pro
 
-Ingestion sources are representations of the location and authentication mechanisms required to [ingest data](./ingestion-overview.md) into a GeoCatalog resource. Listing and configuring ingestion sources can be accessed by selecting the **Settings** tab in the web portal. 
+Ingestion sources represent the location and authentication mechanisms required to [ingest data](./ingestion-overview.md) into a GeoCatalog resource. You can list and configure ingestion sources by selecting the **Settings** tab in the GeoCatalog web portal.
 
 :::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal showing where the Settings button is located.":::
 
-Once the ingestion source is set, data stored in that location is securely available to ingest from its original location into your GeoCatalog. 
+Once an ingestion source is set, your GeoCatalog will be able to securely ingest data from that ingestion source's location. 
 
 ## Ingestion source location
 
-Microsoft Planetary Computer Pro (MPC Pro) currently only supports secure ingestion of data from [Azure Blob Storage Containers](/azure/storage/blobs/blob-containers-portal). A [Blob Storage URI](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata), or link, follows the following URI structure:
+Microsoft Planetary Computer Pro (MPC Pro) currently only supports secure ingestion from [Azure Blob Storage Containers](/azure/storage/blobs/blob-containers-portal). When creating a new ingestion source, you will need to provide a Blob Storage URI for the Container where your data is stored. A [Blob Storage URI](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata), or link, follows the following URI structure:
 
 `https://{storage-account-name}.blob.core.windows.net/{container-name}`
 
@@ -39,7 +39,7 @@ Securely ingesting data requires users to provide an authentication mechanism wh
 - [Shared Access Signatures (SAS)](/azure/storage/common/storage-sas-overview) are cryptographic credentials used to access a resource, such as Azure Blob Storage.
 
 ## Next steps
-To securely ingest data, setup managed identity access:
+To securely ingest data, set up managed identity access:
 
 > [!div class="nextstepaction"]
 - [Configure an ingestion source for Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
