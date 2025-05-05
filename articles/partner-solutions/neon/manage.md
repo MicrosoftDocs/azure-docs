@@ -80,7 +80,7 @@ To create a new branch, open the project in the working pane.
 
     The **Create Branch** flyout appears in the right side of the working pane.
 
-    :::image type="content" source="media/manage/connect.png" alt-text="A screenshot of the + Create branch button emphasized inside the working pane with the Create branch flyout open.":::
+    :::image type="content" source="media/manage/create-branch.png" alt-text="A screenshot of the + Create branch button emphasized inside the working pane with the Create branch flyout open.":::
 
 1. Enter the values for each setting.
 
