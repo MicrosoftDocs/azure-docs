@@ -30,7 +30,7 @@ As you configure your cluster, you carry out these actions:
 
 - **A Container Apps connected environment**, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment.
 
-## Public preview limitations
+## Limitations
 
 The following public preview limitations apply to Azure Container Apps on Azure Arc enabled Kubernetes.
 
