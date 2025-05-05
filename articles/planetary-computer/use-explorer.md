@@ -30,16 +30,18 @@ Follow the instructions in [Create a collection with the Microsoft Planetary Com
 
 The Explorer can be opened in two ways:
 
-1. Select **Explorer** in the navigation bar, **or** select a valid collection to explore.
-1. From the collection's **Overview** page, select **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
+1. Select the **Explorer** tab in the navigation bar, **or** select a valid collection to explore from the **Collections** tab.
+2. From the collection's **Overview** tab, select **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
+:::image type="content" source="./media/launch-in-explorer-button.jpeg" alt-text="Screenshot of collections overview with launch in explorer button.":::
 
 > [!NOTE]
 > If the "Launch In Explorer" button is grey, you must [Create a Render Configuration](./render-configuration.md).
 
 ## Select a dataset to explore
 
-1. Select a dataset to visualize.
-2. Browse your available collections and select a collection.
+1. If you open the Explorer tab using the top navigation bar, you will need to select a dataset to visualize. If you select **Launch in Explorer** from the collection's **Overview** tab, the dataset is automatically selected.
+::image type="content" source="./media/select-dataset.png" alt-text="Screenshot of data selection dropdown in Explorer.":::
+1. Browse your available collections and select a collection.
 
 ## Filter a dataset
 
