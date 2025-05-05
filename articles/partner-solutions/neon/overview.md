@@ -37,4 +37,5 @@ Here are the key capabilities provided by the Neon integration:
 
 ## Next step
 
-- [Create a resource](create.md)
+> [!div class="nextstepaction"]
+> [Create a resource](create.md)
