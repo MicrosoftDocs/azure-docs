@@ -2,7 +2,7 @@
 title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 05/06/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
@@ -140,3 +140,44 @@ To trigger an on-demand backup for resources, follow these steps:
    You can also fetch a list of failed backup jobs in a given time period.
 
      :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png" alt-text="Screenshot shows the script to view failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png":::
+
+## Increase security level of Recovery Service vault and Backup vault
+
+Azure Business Continuity Center Copilot provides the option to enhance the security level of the vault. You can find this option on the vault pane.
+
+To increase the vault's security level, follow these steps:
+
+1. Go to the vault for which you want to increase the security level, and then select **Increase security level of this vault**.
+
+  The **Copilot** pane opens on which you can interact with Copilot to do the required security enhancements.
+
+   In the following screenshot, Copilot shows the vault's current security level and suggests the next level (Poor to Fair, Fair to Good, or Good to Excellent) along with recommended steps to upgrade it.
+
+   After you select the required security level (for example , **Good**), copilot asks to choose the prefered execution option - **Portal** or **Command tools (PowerShell/CLI)**.
+
+1. To use the Azure portal for security enhancement, select **Portal**. This selection guides you with the options to enhance [Soft delete](../backup/backup-azure-security-feature-cloud.md), [Immutability](../backup/backup-azure-immutable-vault-concept.md), and [Multi-user authorisation (MUA)](../backup/multi-user-authorization-concept.md) settings.
+
+   The **Command tools (PowerShell/CLI)** allows you to enable vault security features via command lines, with Copilot offering sample commands for activation.
+
+1. After you update the vault security level using Copilot, select **View properties** to check the updated values.
+
+## Analyse job failures for Recovery Service vault and Backup vault
+
+The vault page also provides the Azure Business Continuity Center Copilot feature to analyse the job failures for the selected vault. 
+
+To check the failed jobs, follow these steps:
+
+1. Go to the vault for which you want to review the failed jobs, and then select **Show job failures for this vault**.
+
+  The **Copilot** pane opens the **Select resources** pane with a summary of the top failed jobs from the last **24 hours** for the backup items, and then prompts to select the impacted resource to further analyse the error and check for recommended actions from Copilot.
+
+1. Choose the affected resource from the list, and then click **Select**.
+
+   Copilot shows the error code descriptions and recommendations with guided steps to fix issues.
+
+
+
+
+
+
+
