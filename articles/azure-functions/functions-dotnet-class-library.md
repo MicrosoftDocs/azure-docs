@@ -5,7 +5,7 @@ description: Understand how to use C# to develop and publish code as class libra
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 10/12/2022
+ms.date: 05/06/2025
 ---
 # Develop C# class library functions using Azure Functions
 
@@ -19,7 +19,7 @@ This article is an introduction to developing Azure Functions by using C# in .NE
 >This article supports .NET class library functions that run in-process with the runtime. Your C# functions can also run out-of-process and isolated from the Functions runtime. The isolated worker process model is the only way to run non-LTS versions of .NET and .NET Framework apps in current versions of the Functions runtime. To learn more, see [.NET isolated worker process functions](dotnet-isolated-process-guide.md). 
 >For a comprehensive comparison between isolated worker process and in-process .NET Functions, see [Differences between in-process and isolate worker process .NET Azure Functions](dotnet-isolated-in-process-differences.md).
 
-As a C# developer, you may also be interested in one of the following articles:
+As a C# developer, you might also be interested in one of the following articles:
 
 | Getting started | Concepts| Guided learning/samples |
 |--|--|--| 
@@ -42,9 +42,9 @@ Many apps can change the configuration of the function app in Azure without upda
 
 Support for .NET 8 still uses version 4.x of the Functions runtime, and no change to the configured runtime version is required.
 
-To update your local project, first make sure you are using the latest versions of local tools. Then ensure that the project references [version 4.4.0 or later of Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.4.0). You can then change your `TargetFramework` to "net8.0". You must also update `local.settings.json` to include both `FUNCTIONS_WORKER_RUNTIME` set to "dotnet" and `FUNCTIONS_INPROC_NET8_ENABLED` set to "1".
+To update your local project, first make sure you're using the latest versions of local tools. Then ensure that the project references [version 4.4.0 or later of Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/4.4.0). You can then change your `TargetFramework` to "net8.0". You must also update `local.settings.json` to include both `FUNCTIONS_WORKER_RUNTIME` set to "dotnet" and `FUNCTIONS_INPROC_NET8_ENABLED` set to "1".
 
-The following is an example of a minimal `project` file with these changes:
+The following example is a minimal `project` file with these changes:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -67,7 +67,7 @@ The following is an example of a minimal `project` file with these changes:
 </Project>
 ```
 
-The following is an example of a minimal `local.settings.json` file with these changes:
+The following example is a minimal `local.settings.json` file with these changes:
 
 ```json
 {
@@ -80,11 +80,11 @@ The following is an example of a minimal `local.settings.json` file with these c
 }
 ```
 
-If your app uses [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions), ensure it targets version 1.5.3 or later. Due to a behavior change in .NET 8, apps with older versions of the package will throw an ambiguous constructor exception.
+If your app uses [`Microsoft.Azure.DurableTask.Netherite.AzureFunctions`](https://www.nuget.org/packages/Microsoft.Azure.DurableTask.Netherite.AzureFunctions), ensure it targets version 1.5.3 or later. Due to a behavior change in .NET 8, apps with older versions of the package throw an ambiguous constructor exception.
 
 You might need to make other changes to your app based on the version support of its other dependencies.
 
-Version 4.x of the Functions runtime provides equivalent functionality for .NET 6 and .NET 8. The in-process model does not include additional features or updates that integrate with new .NET 8 capabilities. For example, the runtime doesn't support keyed services. To take full advantage of the latest .NET 8 capabilities and enhancements, you must [migrate to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
+Version 4.x of the Functions runtime provides equivalent functionality for .NET 6 and .NET 8. The in-process model doesn't include other features or updates that integrate with new .NET 8 capabilities. For example, the runtime doesn't support keyed services. To take full advantage of the latest .NET 8 capabilities and enhancements, you must [migrate to the isolated worker model](./migrate-dotnet-to-isolated-model.md).
 
 ## Functions class library project
 
@@ -108,7 +108,7 @@ When you build the project, a folder structure that looks like the following exa
 This directory is what gets deployed to your function app in Azure. The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are [added to the project as NuGet packages](./functions-develop-vs.md?tabs=in-process#add-bindings).
 
 > [!IMPORTANT]
-> The build process creates a *function.json* file for each function. This *function.json* file is not meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
+> The build process creates a *function.json* file for each function. This *function.json* file isn't meant to be edited directly. You can't change binding configuration or disable the function by editing this file. To learn how to disable a function, see [How to disable functions](disable-function.md).
 
 
 ## Methods recognized as functions
@@ -128,13 +128,13 @@ public static class SimpleExample
 } 
 ```
 
-The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The above example shows a static method being used, but functions aren't required to be static.
+The `FunctionName` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The preceding example shows a static method being used, but functions aren't required to be static.
 
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
 ## Method signature parameters
 
-The method signature may contain parameters other than the one used with the trigger attribute. Here are some of the other parameters that you can include:
+The method signature might contain parameters other than the one used with the trigger attribute. Here are some of the other parameters that you can include:
 
 * [Input and output bindings](functions-triggers-bindings.md) marked as such by decorating them with attributes.  
 * An `ILogger` or `TraceWriter` ([version 1.x-only](functions-versions.md#creating-1x-apps)) parameter for [logging](#logging).
@@ -164,7 +164,7 @@ public static class SimpleExampleWithOutput
 }
 ```
 
-Values assigned to output bindings are written when the function exits. You can use more than one output binding in a function by simply assigning values to multiple output parameters. 
+Values assigned to output bindings are written when the function exits. You can use more than one output binding in a function by assigning values to multiple output parameters.
 
 The binding reference articles ([Storage queues](functions-bindings-storage-queue.md), for example) explain which parameter types you can use with trigger, input, or output binding attributes.
 
@@ -268,7 +268,7 @@ You can compile your function app as [ReadyToRun binaries](/dotnet/core/deployin
 
 ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 of the Azure Functions runtime](functions-versions.md).
 
-To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following example is the configuration for publishing to a Windows 32-bit function app.
 
 ```xml
 <PropertyGroup>
@@ -280,7 +280,7 @@ To compile your project as ReadyToRun, update your project file by adding the `<
 ```
 
 > [!IMPORTANT]
-> Starting in .NET 6, support for Composite ReadyToRun compilation has been added.  Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
+> Starting in .NET 6, support for Composite ReadyToRun compilation has been added. Check out [ReadyToRun Cross platform and architecture restrictions](/dotnet/core/deploying/ready-to-run).
 
 You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
 
@@ -387,7 +387,7 @@ namespace ServiceBusCancellationToken
 
 ## Logging
 
-In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights. 
+In your function code, you can write output to logs that appear as traces in Application Insights. The recommended way to write to the logs is to include a parameter of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), which is typically named `log`. Version 1.x of the Functions runtime used `TraceWriter`, which also writes to Application Insights, but doesn't support structured logging. Don't use `Console.Write` to write your logs, since this data isn't captured by Application Insights.
 
 ### ILogger
 
@@ -401,7 +401,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
-To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data). Categories prefixed with `Function` assume you're using an `ILogger` instance. If you choose to instead use an `ILogger<T>`, the category name may instead be based on `T`.  
+To learn more about how Functions implements `ILogger`, see [Collecting telemetry data](functions-monitoring.md#collecting-telemetry-data). Categories prefixed with `Function` assume you're using an `ILogger` instance. If you choose to instead use an `ILogger<T>`, the category name might instead be based on `T`.  
 
 ### Structured logging
 
@@ -613,7 +613,7 @@ namespace functionapp0915
 ```
 ---
 
-Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
+Don't call `TrackRequest` or `StartOperation<RequestTelemetry>` because you see duplicate requests for a function invocation. The Functions runtime automatically tracks requests.
 
 Don't set `telemetryClient.Context.Operation.Id`. This global setting causes incorrect correlation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). This method ensures that the telemetry has the correct correlation details for the current function invocation.
 
@@ -703,7 +703,7 @@ defines the [Storage blob](functions-bindings-storage-blob.md) input or output b
 
 The preceding example gets the app setting for the function app's main Storage account connection string (which is `AzureWebJobsStorage`). You can specify a custom app setting to use for the Storage account by adding the
 [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
-and passing the attribute array into `BindAsync<T>()`. Use a `Binder` parameter, not `IBinder`.  For example:
+and passing the attribute array into `BindAsync<T>()`. Use a `Binder` parameter, not `IBinder`. For example:
 
 ```cs
 public static class IBinderExampleMultipleAttributes
