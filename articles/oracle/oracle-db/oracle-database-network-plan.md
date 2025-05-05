@@ -3,7 +3,7 @@ title: Network planning for Oracle Database@Azure
 description: Learn about network planning for Oracle Database@Azure. 
 author: jjaygbay1
 ms.author: jacobjaygbay
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23
 ms.date: 12/12/2023
