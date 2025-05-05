@@ -74,7 +74,7 @@ To view a specific project, select the project's name.
 
 A branch is a copy-on-write clone of your data.  You can create a branch from a current or past state.  Each Neon project is created with a root branch called main.  The first branch that you create is branched from the project's root branch.  Subsequent branches can branch off the root branch or from a previously created branch.
 
-1. To create a new branch, open the project in the working pane.
+To create a new branch, open the project in the working pane.
 
 1. Select **+ Create new Branch** from the menu bar in the working pane.
 
@@ -82,12 +82,21 @@ A branch is a copy-on-write clone of your data.  You can create a branch from a 
 
 1. Enter the values for each setting.
 
-    |Field              |Action                                                             |
-    |-------------------|-------------------------------------------------------------------|
-    |Branch name        |Specify a name for your Branch.                                    |
-    |Parent branch      |Select the parent branch for your new branch.                      |
-
 1. Select the **Create** button.
+
+### Connect to a database
+
+You can connect projects and branches to a Neon database.
+
+To connect to a database, open the project or branch in the working pane.
+
+1. Select **Connect to database** from the menu bar in the working pane. 
+
+1. Verify the default values or select new values from each dropdown.
+
+1. Select the copy icon next to the connection string to use it in your application stack.
+
+    :::image type="content" source="media/manage/connect.png" alt-text="A screenshot of the Connect to database options in the working pane with the copy icon emphasized.":::
 
 ## Delete a Neon resource
 
