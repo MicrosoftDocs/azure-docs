@@ -5,7 +5,7 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 05/02/2025
+ms.date: 05/05/2025
 ms.author: mbender
 ms.custom: references_regions,updatedFY24S2
 ---
@@ -910,7 +910,7 @@ Use the following tabs to view latency statistics for each region.
 
 Additionally, you can view all of the data in a single table.
 
-:::image type="content" source="media/azure-network-latency/azure-network-latency.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency-thumb.png":::
+:::image type="content" source="media/azure-network-latency/azure-network-latency-thumb.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency.png":::
 
 ## Next steps
 
