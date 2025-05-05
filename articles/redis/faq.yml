@@ -12,19 +12,10 @@ metadata:
   ms.date: 05/05/2025
 title: Azure Managed Redis (preview) and Azure Cache for Redis FAQ
 summary: |
-  Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis.
-  
-  * [Planning FAQs](planning-faq.yml)
-  * [Development FAQs](development-faq.yml)
-  * [Management FAQs](management-faq.yml)
-  * [Common monitoring and troubleshooting FAQs](monitor-troubleshoot-faq.yml)
+  This article covers some basic questions Azure Managed Redis and Azure Cache for Redis, and whether the latest Redis licensing changes affect Azure Redis.
 
 sections:
-
-  - name: Redis licensing changes
-  
-    This section addresses some basic questions about the latest Redis licensing changes and whether they affect Azure Managed Redis and Azure Cache for Redis.
-    
+  - name: Redis licensing change
     questions:
       - question: |
           What are the Redis licensing changes?
@@ -32,47 +23,43 @@ sections:
           The Redis open-source project changed to a dual-license model, with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). For more information, see the [Redis press release](https://aka.ms/redis/licensingchangepressrelease). Also see the [Microsoft blog post](https://aka.ms/redis/licensechangeblog) on the Redis licensing change].
 
       - question: |
-          Do the Redis RSALv2 and SSPLv1 licenses cover Azure Cache for Redis or Azure Managed Redis?
+          Are Azure Cache for Redis or Azure Managed Redis covered by the RSALv2 and SSPLv1 licenses?
         answer: |
           No. The RSALv2 and SSPLv1 licenses don't apply to Azure Managed Redis or Azure Cache for Redis. Azure Managed Redis and Azure Cache for Redis remain covered under the Microsoft terms of service.
 
       - question: |
           Do I need to do anything in response to the Redis licensing change?
         answer: |
-          No. No action is required for Azure Cache for Redis or Azure Managed Redis customers as a result of the Redis licensing change.
+          No. No action is required for Azure Managed Redis or Azure Cache for Redis customers as a result of this change.
       
       - question: |
           Will Azure Redis instances continue to receive patches and bug fixes?
         answer: |
           Yes. All Azure Managed Redis and Azure Cache for Redis tiers will continue to receive all future patches and bug fixes.
 
+  - name: General Azure Redis questions
+    questions:
       - question: |
           Are there any deprecated Azure Cache for Redis services?
         answer: |
           Yes. The [Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) and [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) services were retired on November 30, 2016.
 
-  - name: General Azure Managed Redis and Azure Cache for Redis questions
+      - question: |
+          Can I get answers to frequently asked questions about Azure Redis?
+        answer: |
+          Yes. For patterns, best practices, and answers to common questions about Azure Managed Redis and Azure Cache for Redis, see the following FAQs:
+          
+          - [Planning FAQs](planning-faq.yml)
+          - [Development FAQs](development-faq.yml)
+          - [Management FAQs](management-faq.yml)
+          - [Common monitoring and troubleshooting FAQs](monitor-troubleshoot-faq.yml)
   
-    This section answers frequently asked questions about Azure Managed Redis and Azure Cache for Redis.
-
-    questions:
       - question: |
-          How can I get answers to frequently asked questions about Azure Managed Redis and Azure Cache for Redis?
+          What if my question isn't listed or answered in the FAQs?
         answer: |
-          See the following articles for answers to common questions and information about patterns and best practices for Azure Managed Redis and Azure Cache for Redis.
-          
-            - [Planning FAQs](planning-faq.yml)
-            - [Development FAQs](development-faq.yml)
-            - [Management FAQs](management-faq.yml)
-            - [Common monitoring and troubleshooting FAQs](monitor-troubleshoot-faq.yml)
+          If the FAQs don't address your question, you can take the following actions:
+         
+         - To reach a wider audience, post your question on the [Microsoft Q&A question page for Azure Redis](/answers/topics/azure-cache-redis.html) and engage with the Azure Redis team and other members of the community.
+         - To make a feature request, submit your requests and ideas to [Azure Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
+         - To contact the Azure Redis team, send your question to [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
 
-      - question: |
-          What if my Azure Redis question isn't answered here?
-        answer: |
-          If your Azure Redis question isn't listed or answered in the FAQs, let us know so we can help you find an answer.
-          
-            - To reach a wider audience, you can post a question on the [Microsoft Q&A question page for Azure Redis](/answers/topics/azure-cache-redis.html) and engage with the Azure Redis team and other members of the community.
-            - If you want to make a feature request, you can submit your requests and ideas to [Azure Redis User Voice](https://feedback.azure.com/d365community/forum/a96a82f3-0c25-ec11-b6e6-000d3a4f07b8).
-            
-            - You can also send your question to us at [azurecache@microsoft.com](mailto:azurecache@microsoft.com).
-          
