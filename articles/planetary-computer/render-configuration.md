@@ -10,7 +10,7 @@ ms.date: 04/24/2025
 
 # How-To: Configure renders for visualizing data in Microsoft Planetary Computer Pro
 
-For the Microsoft Planetary Computer Pro data explorer and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#collection-item_assets-field)). 
+For the Microsoft Planetary Computer Pro data explorer and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#specify-item_assets-in-collection-json-to-enable-render)). 
 
 ## Prerequisites
 
@@ -230,7 +230,7 @@ Multiple assets can be combined into an expression, which can then be mapped ont
 
 When it comes to color, there are different options you must choose from depending on whether you're dealing with a single-band or three-band render. If you use an algorithm or expression that outputs three bands, consider it a three-band render for the sake of this section.
 
-* Single-band render - Provide a `colormap_name`, **or** a custom `colormap`, providing neither may either error out or use a greyscale colormap by default. Optionally, you can add rescaling to either case to control how values are mapped to the colormap. Reference [this graphic](media/colormaps.png) for all named colormaps available in MPC Pro.
+* One-band render - Provide a `colormap_name`, **or** a custom `colormap`, providing neither may either error out or use a greyscale colormap by default. Optionally, you can add rescaling to either case to control how values are mapped to the colormap. Reference [this graphic](media/colormaps.png) for all named colormaps available in MPC Pro.
 * Three-band render - A three-band render is already in RGB format so you don't need to provide anything, but you can optionally specify a `color_formula` to provide color correction. Specifying a colormap (`colormap` or `colormap_name`) isn't supported and doesn't make sense when there are already three bands corresponding to RGB. Rescaling can still be used, to specify how the values get mapped to RGB (especially if your three bands are floating point values).
 
 For other cases such as a render based on two asset bands, an expression or algorithm **must** be used to translate the two bands into either a single or three band-render.
@@ -327,9 +327,9 @@ Below we provide four different `options` values that show off various render pa
   * Any missing data is replaced with 0's.
   * Items that would show up completely under the previous items aren't skipped, and once the geometry of interest is fully covered, the rendered doesn't automatically exit.
   * After 8 seconds the renderer will finish, even if there are still assets left.
-  * Apply color correct, see [Colormaps, and Color Formula](#colormaps-and-color-formula) for details about how the formula is constructed.
+  * Apply color correct, see [Colormaps, and Color Formula](#consider-available-colormaps-and-color-formula-parameters) for details about how the formula is constructed.
 * Example using algorithm and algorithm_params: `assets=data&colormap_name=gray&algorithm=hillshade&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D`.
-  * This example shows how to use an algorithm, in this case the `hillshade` algorithm, which also requires setting a buffer size of at least 3, see [Algorithms](#algorithms) for details.
+  * This example shows how to use an algorithm, in this case the `hillshade` algorithm, which also requires setting a buffer size of at least 3, see [Algorithms](#convert-adjacent-pixels-into-new-values-using-algorithms) for details.
   * This example also uses a named colormap, `gray`, which goes from white to black.
 * Example using an expression and color_formula: `expression=C02_2km_wm;0.45*C02_2km_wm+0.1*C03_2km_wm+0.45*C01_2km_wm;C01_2km_wm&nodata=-1&rescale=1,2000&color_formula=Gamma RGB 2.5 Saturation 1.4 Sigmoidal RGB 2 0.7&asset_as_band=true`.
   * This example of an expression shows three bands being combined to form RGB.
