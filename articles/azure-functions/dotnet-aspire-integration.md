@@ -18,16 +18,16 @@ ms.date: 04/21/2025
 Set up your development environment for using Azure Functions with .NET Aspire:
 
 - Install the [.NET 9 SDK](https://dotnet.microsoft.com/download/dotnet/9.0) and [.NET Aspire 9.0 or later](/dotnet/aspire/fundamentals/setup-tooling). Although the .NET 9 SDK is required, .NET Aspire 9.0 supports the .NET 8 and .NET 9 frameworks.
-- If you use Visual Studio, update to version 17.12 or later. You must also have the latest version of the Functions tools for Visual Studio. To check for updates:
+- If you use Visual Studio, update to version 17.12 or later. You must also have the latest version of the Azure Functions tools for Visual Studio. To check for updates:
   1. Go to **Tools** > **Options**.
   1. Under **Projects and Solutions**, select **Azure Functions**.
   1. Select **Check for updates** and install updates as prompted.
 
 ## Solution structure
 
-A solution that uses Azure Functions and .NET Aspire has multiple projects, including an [app host project](/dotnet/aspire/fundamentals/app-host-overview) and one or more Azure Functions projects.
+A solution that uses Azure Functions and .NET Aspire has multiple projects, including an [app host project](/dotnet/aspire/fundamentals/app-host-overview) and one or more Functions projects.
 
-The app host project is the entry point for your application. It orchestrates the setup of the components of your application, including the Azure Functions project.
+The app host project is the entry point for your application. It orchestrates the setup of the components of your application, including the Functions project.
 
 The solution typically also includes a *service defaults* project. This project provides a set of default services and configurations to be used across projects in your application.
 
@@ -36,7 +36,7 @@ The solution typically also includes a *service defaults* project. This project 
 To successfully configure the integration, make sure that the app host project meets the following requirements:
 
 - The app host project must reference [Aspire.Hosting.Azure.Functions]. This package defines the necessary logic for the integration.
-- The app host project needs to have a project reference for each Azure Functions project that you want to include in the orchestration.
+- The app host project needs to have a project reference for each Functions project that you want to include in the orchestration.
 - In the app host's `Program.cs` file, you must include the project by calling `AddAzureFunctionsProject<TProject>()` on your `IDistributedApplicationBuilder` instance. You use this method instead of using the `AddProject<TProject>()` method that you use for other project types in .NET Aspire. If you use `AddProject<TProject>()`, the Functions project can't start properly.
 
 The following example shows a minimal `Program.cs` file for an app host project:
@@ -53,14 +53,14 @@ builder.Build().Run();
 
 To successfully configure the integration, make sure that the Azure Functions project meets the following requirements:
 
-- The Azure Functions project must reference the [2.x versions](./dotnet-isolated-process-guide.md#version-2x) of [Microsoft.Azure.Functions.Worker] and [Microsoft.Azure.Functions.Worker.Sdk]. You must also update any [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore] references to the 2.x version.
+- The Functions project must reference the [2.x versions](./dotnet-isolated-process-guide.md#version-2x) of [Microsoft.Azure.Functions.Worker] and [Microsoft.Azure.Functions.Worker.Sdk]. You must also update any [Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore] references to the 2.x version.
 - Your `Program.cs` file must use the `IHostApplicationBuilder` version of the [host instance startup](./dotnet-isolated-process-guide.md#start-up-and-configuration). This requirement means that you must use `FunctionsApplication.CreateBuilder(args)`.
 - If your solution includes a service defaults project, ensure that your Functions project is configured to use it:
 
-  - The Azure Functions project should include a project reference to the service defaults project.
+  - The Functions project should include a project reference to the service defaults project.
   - Before you build `IHostApplicationBuilder` in `Program.cs`, include a call to `builder.AddServiceDefaults()`.
 
-The following example shows a minimal `Program.cs` file for an Azure Functions project used in .NET Aspire:
+The following example shows a minimal `Program.cs` file for a Functions project used in .NET Aspire:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker.Builder;
@@ -79,8 +79,8 @@ This example doesn't include the default Application Insights configuration that
 
 To get the most out of the integration, consider the following guidelines:
 
-- Don't include any direct Application Insights integrations in the Azure Functions project. Monitoring in .NET Aspire is instead handled through its OpenTelemetry support. You can configure .NET Aspire to export data to Azure Monitor through the service defaults project.
-- Make sure that the Azure Functions project doesn't keep custom configuration in `local.settings.json`. The only setting that you need in `local.settings.json` is `FUNCTIONS_WORKER_RUNTIME`, which should be set to `dotnet-isolated`. Set all other configuration through the app host project.
+- Don't include any direct Application Insights integrations in the Functions project. Monitoring in .NET Aspire is instead handled through its OpenTelemetry support. You can configure .NET Aspire to export data to Azure Monitor through the service defaults project.
+- Make sure that the Functions project doesn't keep custom configuration in `local.settings.json`. The only setting that you need in `local.settings.json` is `FUNCTIONS_WORKER_RUNTIME`, which should be set to `dotnet-isolated`. Set all other configuration through the app host project.
 
 ## <a name = "connection-configuration-with-aspire"></a>Connection configuration with .NET Aspire
 
@@ -120,7 +120,7 @@ builder.Build().Run();
 ```
 
 > [!NOTE]
-> [Storage Blob Data Owner] is the role that we recommend for the [basic needs for the host storage connection][host-storage-identity]. Your app might encounter problems if the connection to the blob service has only the .NET Aspire default of [Storage Blob Data Contributor].
+> [Storage Blob Data Owner] is the role that we recommend for the [basic needs of the host storage connection][host-storage-identity]. Your app might encounter problems if the connection to the blob service has only the .NET Aspire default of [Storage Blob Data Contributor].
 >
 > For production scenarios, include calls to both `WithHostStorage()` and `WithRoleAssignments()`. You can then set this role explicitly, along with any others that you need.
 
