@@ -173,22 +173,20 @@ Offsets are committed to Event Hubs directly and offsets are replicated across r
 
 Here are the list of Apache Kafka clients that are supported - 
 
-TBD add versions.
-
 | Client name | Version |
 | ----------- | ------- |
-| Apache Kafka | |
-| Librdkafka and derived libraries | |
+| Apache Kafka | 2.1.0 or later |
+| Librdkafka and derived libraries | 2.1.0 or later |
 
 In the case of other libraries, these are supported based on the versioning of the specific definitions - 
 
-TBD add protocol versions.
-
-| Operation name | Version supported |
+| API name | Version supported |
 | -------------- | ----------------- |
-|||
-|||
-|||
+| Metadata API | 7 or later |
+| Fetch API | 9 or later|
+| ListOffset API| 4 or later |
+| OffsetFetch API | 5 or later |
+| OffsetForLeaderEpoch API | 0 or later |
 
 
 #### Event Hubs SDK/AMQP
@@ -197,15 +195,13 @@ In the case of AMQP, the checkpoint is managed by users with a checkpoint store 
 
 The latest version of the Event Hubs SDK has made some changes to checkpoint representation to supports failovers. We recommend using the [latest versions of the SDKs](sdks.md), but prior versions of the below SDKs are supported as well.
 
-TBD add other language package names
-
 | Language | Package name|
 | -------- | ----------- |
 | C# | [Azure.Messaging.EventHubs](https://www.nuget.org/packages/Azure.Messaging.EventHubs/) |
 | C# | [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) |
 
 > [!WARNING]
-> As part of the implementation, the checkpoint format is adapted when geo-replication is enabled on a namespace. Subsequent checkpoints after the geo-replication is complete will be written with a new format. If you promote a secondary region to primary right after the geo-replication pairing is done but before a new checkpoint is stored (this may happen in the case of forced promotion/failover), then a new data published post promotion may be lost.
+> As part of the implementation, the checkpoint format is adapted when geo-replication is enabled on a namespace. Subsequent checkpoints after the geo-replication is complete will be written with a new format. If you force promote a secondary region to primary right after the geo-replication pairing is done but before a new checkpoint is stored (this may happen in the case of forced promotion/failover), then a new data published post promotion may be lost.
 >
 > In such cases, it is preferred to start consuming from the last committed offset. Some data might have duplicate processing and must be handled on the client side.
 >
