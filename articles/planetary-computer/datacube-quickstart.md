@@ -14,7 +14,7 @@ ms.date: 4/24/2025
 ## Prerequisites
 
 * An Azure account with an active subscription; [create an account for free.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* A [Microsoft Planetary Computer Pro GeoCatalog](deploy-geocatalog-resource.md)
+* A [Microsoft Planetary Computer Pro GeoCatalog resource](deploy-geocatalog-resource.md)
 * A Blob Storage account [create a Blob Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
 * A Blob Storage container with data cube assets (NetCDF, HDF5, GRIB2), STAC Items, and static STAC Catalog. [Learn how to create STAC Items](create-stac-item.md).
 
@@ -28,11 +28,11 @@ Once your Ingestion Source is set up, you can create a Collection for your data 
 
 ## Ingest data cube assets
 
-The initiation of the ingestion process for data cube data, and other data types, can be followed in [Ingestion Overview](./ingestion-overview.md). As described in [Data Cube Overview](./datacube-overview.md), however, ingestion is the step in MPC Pro's data handling that differs for these file types. While GRIB2 data and associated STAC Items are ingested just like any other two-dimensional raster file, NetCDF and HDF5 assets undergo further data enrichment. The generation of Kerchunk Manifests is documented in [Data Cube Overview](./datacube-overview.md), but what is important to note is that Kerchunk assets will be added to your Blob Storage container alongside the original assets, and an additional `cube:variables` field are added to the STAC Item JSON. This is important when rendering these data types in the MPC Pro Explorer.
+The initiation of the ingestion process for data cube data, and other data types, can be followed in [Ingestion Overview](./ingestion-overview.md). As described in [Data Cube Overview](./datacube-overview.md), however, ingestion is the step in Planetary Computer Pro's data handling that differs for these file types. While GRIB2 data and associated STAC Items are ingested just like any other two-dimensional raster file, NetCDF and HDF5 assets undergo further data enrichment. The generation of Kerchunk Manifests is documented in [Data Cube Overview](./datacube-overview.md), but what is important to note is that Kerchunk assets will be added to your Blob Storage container alongside the original assets, and an additional `cube:variables` field are added to the STAC Item JSON. This is important when rendering these data types in the Planetary Computer Pro Explorer.
 
 ### Configure a data cube collection
 
-Configuration of your data cube collection is another step that will look slightly different from that of other data types. You can follow the steps described in [Mosaic Quickstart](mosaic-configurations-for-collections.md), [Queryables for Microsoft Planetary Computer Pro Explorer custom search filters](queryables-for-explorer-custom-search-filter.md), [Tile Settings for Microsoft Planetary Computer Pro](tile-settings.md), and [Render Configuration for Microsoft Planetary Computer Pro](render-configuration.md) to configure your data cube collection, but you'll need to be aware of the following differences when building your Render Configuration:
+Configuration of your data cube collection is another step that will look slightly different from that of other data types. You can follow the steps described in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md) to configure your data cube collection, but you'll need to be aware of the following differences when building your Render Configuration:
 
 #### Render configuration for NetCDF and HDF5 assets
 
@@ -75,4 +75,4 @@ More information about visualizing GRIB2 data can be found in the [Visualizing a
 
 ### Visualize data cube assets in the Explorer
 
-Once your data cube assets are ingested and configured, you can visualize them in the MPC Pro Explorer. A step-by-step guide for using the Explorer can be followed in [Quickstart: Use the Explorer in Microsoft Planetary Computer Pro](use-explorer.md).
+Once your data cube assets are ingested and configured, you can visualize them in the Planetary Computer Pro Explorer. A step-by-step guide for using the Explorer can be followed in [Quickstart: Use the Explorer in Microsoft Planetary Computer Pro](use-explorer.md).
