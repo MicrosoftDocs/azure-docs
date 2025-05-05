@@ -48,7 +48,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 Learn about [How to enable VMware Cloud Director on Azure VMware Solution](enable-vmware-vcd-with-azure.md)
 
-## Learn More
+## Learn more
 
 Learn about [VMware Cloud Director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html)
 
