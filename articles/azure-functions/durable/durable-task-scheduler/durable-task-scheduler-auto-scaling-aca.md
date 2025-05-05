@@ -30,7 +30,7 @@ You can set the autoscaler configuration via the Azure portal, a Bicep template,
 | maxConcurrentWorkItemsCount | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | 1 |
 | taskhubName | The name of the task hub connected to the scheduler. | taskhub-ID |
 | workItemType | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | Orchestration |
-| Managed identity | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. Ensure the **Authenticate with a Managed Identity** checkbox is selected. | user@microsoft.com |
+| Managed identity | The user assigned managed identity linked to the scheduler and task hub resource. Ensure the **Authenticate with a Managed Identity** checkbox is selected. | someone@microsoft.com |
 
 # [Bicep](#tab/bicep)
 
@@ -58,33 +58,40 @@ scale: {
 
 | Field | Description | Example |
 | ----- | ----------- | ------- |
-| `minReplicas` | Minimum number of replicas allowed for the container revision at any given time. | `containerMinReplicas` |
-| `maxReplicas` | Maximum number of replicas allowed for the container revision at any given time. | `containerMaxReplicas` |
-| `endpoint` | The Durable Task Scheduler endpoint that the scaler connects to. | `dtsEndpoint` |
+| `minReplicas` | Minimum number of replicas allowed for the container revision at any given time. | `1` |
+| `maxReplicas` | Maximum number of replicas allowed for the container revision at any given time. | `10` |
+| `endpoint` | The Durable Task Scheduler endpoint that the scaler connects to. | `https://dts-ID.centralus.durabletask.io` |
 | `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | `1` |
-| `taskhubName` | The name of the task hub connected to the scheduler. | `taskHubName` |
+| `taskhubName` | The name of the task hub connected to the scheduler. | `myTaskHubName` |
 | `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | `Orchestration` |
-| `identity` | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. | `scaleRuleIdentity` |
+| `identity` | The user assigned managed identity linked to the scheduler and task hub resource. | `someone@microsoft.com` |
 
 
 # [Azure CLI](#tab/cli)
 
 ```azurecli
-
+az containerapp create \
+  --resource-group <RESOURCE_GROUP> \
+  --name <APP_NAME> \
+  --environment <ENVIRONMENT_ID> \
+  --user-assigned <USER_ASSIGNED_IDENTITY_ID> \
+  --scale-rule-name dtsscaler-orchestration \
+  --scale-rule-type azure-durabletask-scheduler \
+  --scale-rule-metadata "endpoint=<DTS-ENDPOINT>" "maxConcurrentWorkItemsCount=1" "taskhubName=<TASKHUB-NAME> "workItemType=Orchestration" \
+  --scale-rule-identity <USER_ASSIGNED_IDENTITY_ID>
 ```
 
 | Field | Description | Example |
 | ----- | ----------- | ------- |
-| `minReplicas` | Minimum number of replicas allowed for the container revision at any given time. |  |
-| `maxReplicas` | Maximum number of replicas allowed for the container revision at any given time. |  |
-| `endpoint` | The Durable Task Scheduler endpoint that the scaler connects to. |  |
-| `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. |  |
-| `taskhubName` | The name of the task hub connected to the scheduler. |  |
-| `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. |  |
-| `identity` | The user assigned or system assigned managed identity linked to the scheduler and task hub resource. |  |
+| `minReplicas` | Minimum number of replicas allowed for the container revision at any given time. | `1` |
+| `maxReplicas` | Maximum number of replicas allowed for the container revision at any given time. | `10` |
+| `endpoint` | The Durable Task Scheduler endpoint that the scaler connects to. | `https://dts-ID.centralus.durabletask.io` |
+| `maxConcurrentWorkItemsCount` | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | `1` |
+| `taskhubName` | The name of the task hub connected to the scheduler. | `myTaskHubName` |
+| `workItemType` | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | `Orchestration` |
+| `scale-rule-identity` | The user assigned managed identity linked to the scheduler and task hub resource. | `someone@microsoft.com` |
 
 ---
-
 
 ## Experiment with the sample
 
@@ -238,3 +245,5 @@ Verify the autoscaling is functioning correctly in the deployed solution.
 
 ## Next steps
 
+> [!div class="nextstepaction"]
+> [Learn more about the Durable Task Scheduler](./durable-task-scheduler.md)
