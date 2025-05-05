@@ -25,22 +25,23 @@ Before you continue with the deletion steps, make sure you're ready to delete th
 - A Deployed GeoCatalog resource. Refer to [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md) for deployment instructions.
 - [Azure CLI](/cli/azure/install-azure-cli) (For using the REST API) 
 
-## Delete a GeoCatalog instance
 
-### Delete a GeoCatalog with the Azure portal
+# [Azure portal](#tab/azureportal)
+## Delete a GeoCatalog with the Azure portal
 
 1. Navigate to your GeoCatalog resource within the Azure portal. Remember to [reveal the GeoCatalog hidden resource type](https://aka.ms/geocatalogsprod).
 
-    ![Screenshot of the Azure portal showing the GeoCatalog resource page with the "Delete" button highlighted.](media/geocatalog-resource.png)
+    :::image type="content" source="media/geocatalog-resource.png" alt-text="Screenshot of the Azure portal showing the GeoCatalog resource page with the 'Delete' button highlighted.":::
 
 1. From within the GeoCatalog Azure portal page, select **Delete**. You're presented with a **Delete resource** confirmation dialog box. 
 
    > [!NOTE]
    > **Selecting "Yes" will *immediately* begin deleting this resource.**
   
-    ![Screenshot of the Azure portal showing the GeoCatalog resource page. The "Delete" button is highlighted, indicating where users can click to initiate the deletion process for the GeoCatalog resource.](media/delete-geocatalog-resource.png)
+    :::image type="content" source="media/delete-geocatalog-resource.png" alt-text="Screenshot of the Azure portal showing the GeoCatalog resource page. The 'Delete' button is highlighted, indicating where users can select to initiate the deletion process for the GeoCatalog resource.":::
 
-### Delete a GeoCatalog with the REST API
+# [REST API](#tab/restapi)
+## Delete a GeoCatalog with the REST API
 
 1. Sign in to your Azure portal
 1. Open up a cloud shell. 
