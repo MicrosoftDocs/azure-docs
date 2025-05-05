@@ -4,7 +4,7 @@ description: Describes how Azure Migrate provides sizing recommendations for the
 author: rashi-ms
 ms.author: v-uhabiba
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 monikerRange: migrate
 ---

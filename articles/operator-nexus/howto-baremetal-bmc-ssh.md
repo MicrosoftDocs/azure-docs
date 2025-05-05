@@ -52,17 +52,17 @@ When the command runs, it executes on each Bare Metal Machine in the Cluster wit
 
 ### BMC Keyset User limitations
 
-While the BMCs support a maximum number of 16 users, 5 are reserved for system use leaving 11 for BMC Keyset Users. BMC Keyset Users are defined on a per Cluster basis and applied to each Bare Metal Machine. Attempts to add more than 11 users results in an error. Delete a user before adding another one when 11 already exist.
+While the BMCs support a maximum number of 16 users, 6 are reserved for system use leaving 10 for BMC Keyset Users. BMC Keyset Users are defined on a per Cluster basis and applied to each Bare Metal Machine. Attempts to add more than 10 users results in an error. Delete a user before adding another one when 10 already exist.
+
+> [!CAUTION]
+> BMC users shouldn't be created or modified manually. Nexus fully manages the BMC users and their placement in the slots. Manual changes could cause the Bare Metal Machine to cease functioning and become unreachable. If there are questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 Here's a mapping of the BMC slots to users.
 
 | BMC Slot   | User                          |
 | ---------- | ----------------------------- |
-| slots 1-5  | Reserved for System Use       |
-| slots 6-16 | Reserved for BMC Keyset Users |
-
-> [!CAUTION]
-> BMC users shouldn't be created or modified manually. Nexus fully manages the BMC users and their placement in the slots. Manual changes could cause the Bare Metal Machine to cease functioning and become unreachable. If there are questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+| slots 1-6  | Reserved for System Use       |
+| slots 7-16 | Reserved for BMC Keyset Users |
 
 ### Microsoft Entra group user limitations
 

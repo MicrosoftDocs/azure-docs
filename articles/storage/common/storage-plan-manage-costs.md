@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure Blob Storage by us
 services: storage
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/10/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts

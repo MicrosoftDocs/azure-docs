@@ -3,7 +3,7 @@ title: Troubleshoot known issues with Azure Update Manager while migrating from 
 description: This article provides details on known issues and how to troubleshoot any problems when migrating from Automation Update Management to Azure Update Manager
 author: snehasudhirG
 ms.service: azure-update-manager
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/13/2024
 ms.author: sudhirsneha
 ---

@@ -4,7 +4,7 @@ description: Read a summary of compliance offerings on Azure Storage for nationa
 services: storage
 author: fhryo-msft
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2023
 ms.author: fryu
 ms.subservice: storage-common-concepts

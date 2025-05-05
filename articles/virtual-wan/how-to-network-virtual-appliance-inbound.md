@@ -65,11 +65,7 @@ The following section describes known issues, limitations, and considerations as
 
 ### Known Issues
 
-The following table describes known issues related to the internet inbound/DNAT feature.
-
-|Issue | Description| Mitigation|
-|--|--|--|
-| DNAT traffic isn't forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic isn't forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
+There are currently no known issues related to the destination NAT (DNAT) capability for NVAs deployed in the Virtual WAN hub.
 
 ### Limitations
 

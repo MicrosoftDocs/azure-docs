@@ -5,7 +5,7 @@ description: Optimize the performance of your Network File System (NFS) 3.0 stor
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/21/2023
 ms.author: normesta
 ms.reviewer: yzheng

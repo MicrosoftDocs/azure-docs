@@ -4,7 +4,7 @@ description: Provides a summary of support for the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/06/2025
 ms.custom: engagement-fy24

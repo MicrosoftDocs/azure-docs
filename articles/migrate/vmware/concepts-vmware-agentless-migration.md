@@ -4,7 +4,7 @@ description: Describes concepts related to agentless migration of VMware VMs in 
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 02/03/2025
 ms.custom: vmware-scenario-422, engagement-fy24

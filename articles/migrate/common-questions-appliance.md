@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: engagement-fy25
 ms.date: 09/03/2024
 ---

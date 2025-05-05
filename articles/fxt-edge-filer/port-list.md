@@ -4,7 +4,7 @@ description: List of the TCP/UDP ports used by FXT cluster environments
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/26/2021
 ---
 

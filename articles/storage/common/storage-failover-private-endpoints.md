@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/07/2021
 ms.author: shaas
 

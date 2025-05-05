@@ -3,7 +3,7 @@ title: Azure Files scalability and performance targets
 description: Learn about the scalability and performance targets for Azure Files and Azure File Sync, including file share storage, IOPS, and throughput.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/11/2025
 ms.author: kendownie
 ms.custom: references_regions

@@ -3,7 +3,7 @@ title: Monitor Azure Queue Storage
 description: Start here to learn how to monitor Azure Queue Storage.
 ms.date: 02/12/2024
 ms.custom: horz-monitor, devx-track-csharp, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-queue-storage

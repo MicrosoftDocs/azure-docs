@@ -6,7 +6,7 @@ description: List of Microsoft partner companies that build customer solutions f
 author: beber-msft
 ms.author: beber
 ms.date: 04/21/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---

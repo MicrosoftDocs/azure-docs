@@ -1,7 +1,7 @@
 ---
 title: Azure App Service assessments in Azure Migrate Discovery and assessment tool
 description: Learn about Azure App Service assessments in Azure Migrate Discovery and assessment tool
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/26/2024
 ms.custom: engagement-fy23, devx-track-extended-java

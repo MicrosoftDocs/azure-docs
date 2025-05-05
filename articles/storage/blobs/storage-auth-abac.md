@@ -5,7 +5,7 @@ description: Authorize access to Azure Blob Storage and Azure Data Lake Storage 
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/01/2024
 ms.reviewer: nachakra
 ---

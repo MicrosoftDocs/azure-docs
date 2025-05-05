@@ -5,7 +5,7 @@ description: Optimize the performance of your SSH File Transfer Protocol (SFTP) 
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta

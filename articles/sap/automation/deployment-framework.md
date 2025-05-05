@@ -7,7 +7,7 @@ ms.reviewer: kimforss
 ms.date: 12/21/2023
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # SAP Deployment Automation Framework
 

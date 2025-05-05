@@ -5,7 +5,7 @@ description: Learn about security recommendations for Blob storage. Implementing
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: normesta
 ms.custom: security-recommendations

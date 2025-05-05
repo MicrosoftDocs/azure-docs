@@ -3,7 +3,7 @@ title: Azure File Sync networking considerations
 description: Learn how to configure networking and connect your Windows Server to Azure File Sync to cache files on-premises.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/06/2024
 ms.author: kendownie
 ---

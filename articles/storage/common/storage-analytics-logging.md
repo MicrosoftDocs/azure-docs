@@ -4,7 +4,7 @@ description: Use Storage Analytics to log details about Azure Storage requests. 
 author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/04/2022
 ms.author: normesta
 ms.reviewer: fryu

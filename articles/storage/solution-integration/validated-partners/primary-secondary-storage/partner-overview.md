@@ -5,7 +5,7 @@ description: Microsoft partners who build customer solutions for primary and sec
 author: beber-msft
 ms.author: beber
 ms.date: 05/12/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---

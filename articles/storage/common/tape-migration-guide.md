@@ -3,7 +3,7 @@ title: Azure Storage tape migration overview
 description: Azure Storage tape migration overview provides basic guidance for tape migrations
 author: dukicn
 ms.author: nikoduki
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 06/07/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

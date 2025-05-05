@@ -17,6 +17,14 @@ ms.author: kesheth
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## April 2025
+**Enhanced error handling for READ operations with wrong cases on resource types**: Added validation on the resource type with wrong casing for READ operations (for example, GET /patient/ instead of GET /Patient/). In the past, a request with the wrong casing resource type was causing 500 status code (InternalServerError). After this change, a request with the wrong casing resource type will be rejected with 400 status code (ResourceNotSupported) as the resource type in any request should be validated in the case-sensitive manner.
+
+#### Bug fixes:
+**Custom search parameters with same "code" value on different resource types fix**: An issue was discovered when running a delete or update search parameter operation. All other matched related search parameters on the same "code" value were being removed, regardless of resource type. This issue was fixed, and users are now able to update and delete custom search parameters without affecting other search parameters or resource types with the same "code" value.
+
+**Fix for deleting and uploading custom search parameters**: An issue when deleting a custom search parameter and then using the PUT operation to reupload that same search parameter potentially causes a 424 Failed Dependency error. This issue is fixed. A check was added to ensure that if the previous version of the search parameter was already deleted, it's properly handled. Users are now able to delete a custom search parameter and then reupload that search parameter using PUT.
+
 ## March 2025
 
 **Improved Error Handling for $export**: Added retry logic for certain export queries that previously wouldn't be retried.

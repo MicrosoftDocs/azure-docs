@@ -3,7 +3,7 @@ title: Azure Spring Apps assessments in Azure Migrate Discovery and assessment t
 description: Learn about Azure Spring Apps assessments in Azure Migrate Discovery and assessment tool
 author: yangyizhe90
 ms.author: yangtony
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/26/2024
 ms.custom: engagement-fy25

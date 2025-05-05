@@ -5,7 +5,7 @@ description: Authorize access to Azure blobs using Microsoft Entra ID. Assign Az
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/10/2024
 
 ---

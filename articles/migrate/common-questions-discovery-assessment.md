@@ -1,7 +1,7 @@
 ---
 title: Questions about assessments in Azure Migrate
 description: Get answers to common questions about assessments in Azure Migrate.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 08/06/2024
 ms.custom: engagement-fy25

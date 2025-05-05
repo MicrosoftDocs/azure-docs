@@ -4,7 +4,7 @@ description: List of encryption standards used by FXT Edge Filer clusters.
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/20/2021
 ---
 

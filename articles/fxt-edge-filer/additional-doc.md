@@ -4,7 +4,7 @@ description: Additional reference documents help you understand and work with yo
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-fxt-edge-filer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/20/2019
 ---
 

@@ -4,7 +4,7 @@ description: Learn about types of assessments in Azure Migrate and its prerequis
 author: SnehaSudhir  
 ms.author: sudhirsneha 
 ms.service: azure-migrate 
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 04/24/2024 
 ms.custom: engagement-fy24 
 monikerRange: migrate

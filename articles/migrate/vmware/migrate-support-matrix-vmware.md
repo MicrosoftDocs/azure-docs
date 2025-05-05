@@ -4,7 +4,7 @@ description: Learn about Azure Migrate and Modernize discovery and assessment su
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/04/2025
 ms.custom:

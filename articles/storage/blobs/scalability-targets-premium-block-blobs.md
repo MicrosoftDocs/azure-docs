@@ -5,7 +5,7 @@ description: Learn about premium-performance block blob storage accounts. Block 
 author: akashdubey-ms
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/18/2019
 ms.author: akashdubey
 ---

@@ -6,7 +6,7 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-azurepowershell
 ms.date: 03/20/2024
 ---

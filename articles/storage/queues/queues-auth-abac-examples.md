@@ -5,7 +5,7 @@ description: Example role assignment conditions and Azure attribute-based access
 author: pauljewellmsft
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell

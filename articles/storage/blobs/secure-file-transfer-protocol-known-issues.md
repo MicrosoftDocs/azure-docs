@@ -5,7 +5,7 @@ description: Learn about limitations and known issues of SSH File Transfer Proto
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/03/2024
 ms.author: normesta
 

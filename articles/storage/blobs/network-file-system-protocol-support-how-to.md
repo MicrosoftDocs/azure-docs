@@ -5,7 +5,7 @@ description: Learn how to mount a container in Blob Storage from an Azure virtua
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: normesta
 

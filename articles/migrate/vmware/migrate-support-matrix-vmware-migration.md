@@ -4,7 +4,7 @@ description: Learn about support for VMware vSphere VM migration in Azure Migrat
 author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 04/02/2025
 ms.custom: vmware-scenario-422, engagement-fy25

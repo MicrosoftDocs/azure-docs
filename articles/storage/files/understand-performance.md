@@ -3,7 +3,7 @@ title: Understand Azure Files performance
 description: Learn about the factors that can impact Azure file share performance such as IOPS, throughput, latency, and queue depth.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/13/2024
 ms.author: kendownie
 ---

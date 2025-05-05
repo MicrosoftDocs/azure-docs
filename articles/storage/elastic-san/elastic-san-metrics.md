@@ -3,7 +3,7 @@ title: Metrics for Azure Elastic SAN
 description: Learn about the available metrics that can let you understand how your Azure Elastic SAN is performing.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: rogarana
 ---

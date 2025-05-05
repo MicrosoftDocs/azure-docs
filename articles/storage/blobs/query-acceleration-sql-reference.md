@@ -5,7 +5,7 @@ description: Learn how to use query acceleration sql syntax.
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/26/2024
 ms.author: normesta
 ms.reviewer: ereilebr

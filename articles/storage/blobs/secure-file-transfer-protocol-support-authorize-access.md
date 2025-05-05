@@ -5,7 +5,7 @@ description: Learn how to authorize access to Azure Blob Storage for an SSH File
 author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/30/2024
 ms.author: normesta
 ---

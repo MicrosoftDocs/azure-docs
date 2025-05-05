@@ -5,7 +5,7 @@ description: Learn how to configure container, directory, and file-level access 
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/03/2024
 ms.author: normesta
 ms.custom: engagement-fy23

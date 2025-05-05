@@ -5,7 +5,7 @@ description: Deployment guide for hybrid infrastructure using Tiger Bridge and A
 author: dukicn
 ms.author: nikoduki
 ms.date: 12/23/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---
