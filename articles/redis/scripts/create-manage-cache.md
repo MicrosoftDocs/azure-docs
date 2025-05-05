@@ -1,6 +1,6 @@
 ---
 title: Create, query, and delete a cache using Azure CLI
-description: These Azure CLI code samples show how to create an Azure Managed Redis or Azure Cache for Redis instance, get cache details like status, hostname, ports, and keys, and delete the cache.
+description: Use the Azure CLI to create an Azure Redis instance, get cache details like status, hostname, ports, and keys, and delete the cache.
 
 
 ms.devlang: azurecli
@@ -15,9 +15,9 @@ appliesto:
 
 # Create an Azure Redis cache using the Azure CLI
 
-This article describes how how to create or delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the CLI to get cache details including provisioning status, hostname, ports, and keys.
+This article describes how to create or delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the Azure CLI to get cache details including provisioning status, hostname, ports, and keys.
 
-The scripts in this article uses the following commands. Select the links in the table to access command-specific documentation.
+The scripts in this article use the following commands. Select the links in the table to access command documentation.
 
 ::: zone pivot="azure-managed-redis"
 
@@ -28,6 +28,9 @@ The scripts in this article uses the following commands. Select the links in the
 | [az redisenterprise show](/cli/azure/redis) | Shows details of an Azure Managed Redis instance. |
 | [az redisenterprise list-keys](/cli/azure/redis) | Lists access keys for an Azure Managed Redis instance. |
 | [az redisenterprise delete](/cli/azure/redis) | Deletes an Azure Managed Redis instance. |
+
+>[!NOTE]
+>The [az redisenterprise](/cli/azure/redisenterprise) commands are part of the `redisenterprise` extension for the Azure CLI, version 2.61.0 or higher. The extension automatically installs the first time you run an `az redisenterprise` command.
 
 ::: zone-end
 
@@ -46,7 +49,7 @@ The scripts in this article uses the following commands. Select the links in the
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ::: zone pivot="azure-managed-redis"
 
@@ -57,16 +60,33 @@ The scripts in this article uses the following commands. Select the links in the
 This sample is broken. When it is fixed, we can fix this include.
 -->
 
-The following example script sets variables, then creates a resource group and an Azure Managed Redis cache in the resource group.
+The following example script sets variables, then creates a resource group and an Azure Managed Redis cache in the resource group. Putting all your app resources in the same resource group lets you easily manage or delete them together.
+
+The cache `name` must be a string of 1-63 characters that's unique in the region. The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
+
+The `location` should be an [Azure region](https://azure.microsoft.com/regions/) near other services that use your cache. Use a cache [sku](https://azure.microsoft.com/pricing/details/cache/) and `size` that have the appropriate features and performance for your cache. 
+
+>[!IMPORTANT]
+>The following settings can be enabled or configured only at cache creation time. Gather the information you need to configure these settings before you create your cache.
+>
+>- You must enable modules at the time you create the cache instance. You can't change modules or enable module configuration after you create a cache.
+>- Managed Redis supports two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
+>- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
+>- If you're using the [RediSearch](../redis-modules.md#redisearch) module, the Enterprise cluster policy is required, and No Eviction is the only eviction policy supported.
+
+For security reasons, Microsoft Entra authentication and Transport Layer Security (TLS) encryption are enabled by default for new caches. Access keys authentication is disabled. You can choose to to enable access key authentication or non-TLS connections during or after cache creation, but disabling TLS isn't recommended.
+
+>[!IMPORTANT]
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
 
 ```azurecli
 
 # Variable block
 let "randomIdentifier=$RANDOM*$RANDOM"
 location="East US"
-resourceGroup="msdocs-redis-cache-rg-$randomIdentifier"
+resourceGroup="redis-cache-rg-$randomIdentifier"
 tag="create-manage-cache"
-cache="msdocs-redis-cache-$randomIdentifier"
+cache="redis-cache-$randomIdentifier"
 sku="Balanced_B1"
 
 # Create a resource group
@@ -128,16 +148,26 @@ az group delete --resource-group $resourceGroup -y
 This sample is broken. When it is fixed, we can fix this include.
 -->
 
-The following example script sets variables, then creates a resource group and an Azure Cache for Redis cache in the resource group.
+The following example script sets variables, then creates a resource group and an Azure Cache for Redis cache in the resource group. Putting all your app resources in the same resource group lets you easily manage or delete them together.
+
+The cache `name` must be a string of 1-63 characters that's unique in the region. It can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
+
+The `location` should be an [Azure region](https://azure.microsoft.com/regions/) near other services that use your cache. Use a cache [sku](https://azure.microsoft.com/pricing/details/cache/) and `size` that have the appropriate features and performance for your cache. 
+
+For security reasons, Microsoft Entra Authentication and TLS encryption are enabled by default for new caches. You can choose to enable access key authentication or non-TLS connections during or after cache creation.
+
+>[!IMPORTANT]
+>
+Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
 
 ```azurecli
 
 # Variable block
 let "randomIdentifier=$RANDOM*$RANDOM"
 location="East US"
-resourceGroup="msdocs-redis-cache-rg-$randomIdentifier"
+resourceGroup="redis-cache-rg-$randomIdentifier"
 tag="create-manage-cache"
-cache="msdocs-redis-cache-$randomIdentifier"
+cache="redis-cache-$randomIdentifier"
 sku="basic"
 size="C0"
 
@@ -177,7 +207,7 @@ echo "Secondary Key:" ${keys[1]}
 
 ## Clean up resources
 
-The following script deletes an Azure Managed Redis cache, and then deletes the resource group that contains all cache resources.
+The following script deletes an Azure Cache for Redis cache, and then deletes the resource group that contains all cache resources.
 
 ```azurecli
 # Delete a redis cache
