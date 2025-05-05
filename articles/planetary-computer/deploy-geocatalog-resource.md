@@ -11,7 +11,7 @@ ms.date: 04/24/2025
 
 # Deploy a GeoCatalog resource
 
-This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for Geospatial data stored using Microsoft Planetary Computer (MPC) Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into MPC Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
+This article guides the reader through the process of deploying a GeoCatalog resource. The GeoCatalog resource is the top-level container for Geospatial data stored using Microsoft Planetary Computer Pro. Once a GeoCatalog resource is deployed, the user can begin to ingest geospatial data into Planetary Computer Pro. Geospatial data stored in a GeoCatalog is indexed, queried, and retrieved using the SpatioTemporal Access Catalog (STAC) open-standard. For more information on STAC, see [STAC overview](./stac-overview.md).
 
 ## Prerequisites
 
@@ -20,10 +20,12 @@ This article guides the reader through the process of deploying a GeoCatalog res
 
 ## Methods
 
-This article describes two methods for deploying an MPC Pro GeoCatalog:
+This article describes two methods for deploying an Planetary Computer Pro GeoCatalog:
 
 1. Using the Azure portal.  
 1. Using the Azure REST API.  
+
+# [Azure portal](#tab/azureportal)
 
 ## Deploy GeoCatalog with the Azure portal
 
@@ -72,6 +74,17 @@ This article describes two methods for deploying an MPC Pro GeoCatalog:
 
    :::image type="content" source="media/geocatalog-deployment-complete.png" alt-text="Screenshot of the Your deployment is complete page in the Azure portal.":::
 
+## Next Steps
+- [Create a STAC Collection](./create-collection-ui.md)
+- [Create a STAC Collection from the API](./create-stac-collection.md)
+- [Manage Access to your GeoCatalog resource](./manage-access.md)
+- [Assign a user-assigned managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)
+
+## Related Content
+
+- [Delete a GeoCatalog](./delete-geocatalog-resource.md)
+
+# [REST API](#tab/restapi)
 ## Deploy GeoCatalog with the Azure REST API
 
 1. Sign in to your Azure portal and open up Cloud Shell.
