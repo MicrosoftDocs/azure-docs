@@ -50,10 +50,12 @@ This configuration applies to all references in this app.
 In addition to storing raw configuration values, App Configuration has its own format for storing [Azure Key Vault references][app-config-key-vault-references]. If the value of an App Configuration reference is a Key Vault reference in the App Configuration store, your app also must have permissions to access the key vault that's specified in the reference.
 
 > [!NOTE]
-> The concept of [App Configuration Key Vault references][app-config-key-vault-references] shouldn't be confused with the concept of [App Service and Azure Functions Key Vault references][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to latest versions, consider using the App Service and Azure Functions direct approach instead of using an App Configuration reference.
+> [App Configuration Key Vault references][app-config-key-vault-references] shouldn't be confused with [App Service and Azure Functions Key Vault references][app-service-key-vault-references]. Your app can use any combination of these references, but there are some important differences. If your vault needs to be network restricted or if you need the app to periodically update to the latest versions, consider using the App Service and Azure Functions  approach instead of using an App Configuration reference.
 
 [app-config-key-vault-references]: ../azure-app-configuration/use-key-vault-references-dotnet-core.md
 [app-service-key-vault-references]: app-service-key-vault-references.md
+
+To grant your app access to a key vault:
 
 1. Identify the identity that you used for the App Configuration reference. You must grant vault access to the same identity.
 
@@ -65,11 +67,11 @@ An App Configuration reference has the form `@Microsoft.AppConfiguration({refere
 
 > [!div class="mx-tdBreakAll"]
 >
-> | Reference string parts                                                           | Description                                                                                                                                                                                 |
-> |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | `Endpoint` = `<endpointURL>` | `Endpoint` is the required part of the reference string. The value for `Endpoint` should include the URL of your App Configuration resource. |
-> | `Key` = `<myAppConfigKey>` |  `Key` forms the required part of the reference string. The value for `Key` is the name of the key that you want to assign to the app setting. |
-> | `Label` = `<myKeyLabel>` | `Label` is optional in the reference string. `Label` should be the value of the key label specified in `Key`. |
+> | Reference string part | Description |
+> |--|----|
+> | `Endpoint` = `<endpointURL>` | `Endpoint` (required). The URL of your App Configuration resource. |
+> | `Key` = `<myAppConfigKey>` |  `Key` (required). The name of the key that you want to assign to the app setting. |
+> | `Label` = `<myKeyLabel>` | `Label` (optional). The value of the key label that's specified in `Key`. |
 
 Here's an example of a complete reference that includes `Label`:
 
@@ -86,13 +88,13 @@ Here's an example that doesn't include `Label`:
 Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key/value pairs from the App Configuration store.
 
 > [!NOTE]
-> Automatic refresh and refetch of these values when the key/value pairs are updated in App Configuration currently isn't supported.
+> Automatic refresh and refetch of these values when the key/value pairs are updated in App Configuration isn't currently supported.
 
 ## Source application settings from App Configuration
 
-You can use App Configuration references as values for [application settings](configure-common.md#configure-app-settings), so you can keep configuration data in App Configuration instead of in the site configuration settings. Application settings and App Configuration key/value pairs both are securely encrypted at rest. If you need centralized configuration management capabilities, add configuration data to App Configuration.
+You can use App Configuration references as values for [application settings](configure-common.md#configure-app-settings) so you can keep configuration data in App Configuration instead of in the site configuration settings. Application settings and App Configuration key/value pairs are both securely encrypted at rest. If you need centralized configuration management capabilities, add configuration data to App Configuration.
 
-To use an App Configuration reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the Configuration value through its key as usual. No code changes are required.
+To use an App Configuration reference for an [app setting](configure-common.md#configure-app-settings), set the reference as the value of the setting. Your app can reference the configuration value through its key as usual. No code changes are required.
 
 > [!TIP]
 > Most application settings that use App Configuration references should be marked as slot settings so that you have separate stores or labels for each environment.
@@ -106,13 +108,13 @@ If you use App Configuration references for this setting, this validation check 
 > [!CAUTION]
 > If you skip validation and either the connection string or the content share is invalid, the app can't start properly and serves only HTTP 500 errors.
 
-As part of creating the site, mounting the content share might fail if managed identity permissions aren't propagated or if the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate for the required setup. For more information, see [Azure Resource Manager deployment](#azure-resource-manager-deployment). App Service uses only a default file system until Azure Files is set up, and files aren't copied over. Ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+When you create a site, mounting the content share might fail if managed identity permissions aren't propagated or if the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate for the required setup. For more information, see [Azure Resource Manager deployment](#azure-resource-manager-deployment). App Service uses only a default file system until Azure Files is set up, and files aren't copied over. Ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Azure Resource Manager deployment
 
-If you automate resource deployments by using Azure Resource Manager templates, you might need to sequence your dependencies in a specific order to make this feature work. In that scenario, you must define your application settings as their own resource instead of using a `siteConfig` property in the site definition. The site must be defined first so that the system-assigned identity is created with the site. The managed identity is then used in the access policy.
+If you automate resource deployments by using Azure Resource Manager (ARM) templates, you might need to sequence your dependencies in a specific order to make App Configuration refercnces work. In that scenario, you must define your application settings as their own resource instead of using a `siteConfig` property in the site definition. The site must be defined first so that the system-assigned identity is created with the site. The managed identity is then used in the access policy.
 
-Here's a demonstration template for a function app that has App Configuration references:
+Here's a sample template for a function app that has App Configuration references:
 
 ```json
 {
@@ -237,13 +239,13 @@ Here's a demonstration template for a function app that has App Configuration re
 ```
 
 > [!NOTE]
-> In this example, source control deployment depends on the application settings. In most scenarios, this sequence is less secure because app settings updates asynchronously. But because we included the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. Source control deployment begins only after the application settings are fully updated. For more information about app settings, see [Environment variables and app settings in Azure App Service](reference-app-settings.md).
+> In this example, source control deployment depends on the application settings. In most scenarios, this sequence is less secure because app settings update asynchronously. But because the example includes the `WEBSITE_ENABLE_SYNC_UPDATE_SITE` application setting, the update is synchronous. Source control deployment begins only after the application settings are fully updated. For more information about app settings, see [Environment variables and app settings in Azure App Service](reference-app-settings.md).
 
 ## Troubleshoot app configuration references
 
-If a reference isn't resolved properly, the reference value is used instead. For an application setting in this scenario, an environment variable that uses the syntax `@Microsoft.AppConfiguration(...)` is created. The reference might cause an error because the application was expecting a configuration value.
+If a reference isn't resolved properly, the reference value is used instead. An environment variable that uses the syntax `@Microsoft.AppConfiguration(...)` is created. The reference might cause an error because the application was expecting a configuration value.
 
-This error most commonly is the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it also might occur if there's a syntax error in the reference or if the configuration key/value pair doesn't exist in the store.
+This error is most commonly the result of a misconfiguration of the [App Configuration access policy](#grant-app-access-to-app-configuration). But it might also occur if there's a syntax error in the reference or if the configuration key/value pair doesn't exist in the store.
 
 ## Related content
 
