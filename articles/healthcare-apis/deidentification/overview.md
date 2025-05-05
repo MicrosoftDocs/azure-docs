@@ -46,7 +46,7 @@ Consistent surrogation results enable organizations to retain relationships occu
 The de-identification service offers many benefits, including:
 
 - **Expanded PHI coverage:**
-The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types. It distinguishes between Doctor and Patient, and covers [27 PHI entities the service de-identifies](https://learn.microsoft.com/en-us/rest/api/health-dataplane/deidentify-text/deidentify-text?view=rest-health-dataplane-2024-11-15&tabs=HTTP#phicategory).
+The service expands beyond the 18 HIPAA Identifiers to provide stronger privacy protections and more fine-grained distinctions between entity types. It distinguishes between Doctor and Patient, and covers [27 PHI entities the service de-identifies](https://learn.microsoft.com/rest/api/health-dataplane/deidentify-text/deidentify-text?view=rest-health-dataplane-2024-11-15&tabs=HTTP#phicategory).
 
 - **PHI compliance**: The de-identification service is designed for protected health information (PHI). The service uses machine learning to identify PHI entities, including HIPAA’s 18 identifiers, using the “TAG” operation. The redaction and surrogation operations replace these identified PHI values with a tag of the entity type or a surrogate, or pseudonym. The service adheres to compliance requirements such as HIPAA and GDPR.
 
@@ -88,7 +88,7 @@ The following service limits are applicable:
 
 Pricing is based on the amount of data de-identified by our service. You are charge $0.05 per MB, for any of the three operations we offer, whether you are using the asynchronous or synchornous endpoint.
 
-This price is also displayed on our Pricing Tool page, where you can estimate the cost based on your use case: [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/)
+This price is also displayed on our Pricing Tool page, where you can estimate the cost based on your use case: [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
 You have also have a monthly allotment of 50 MB that enables you to try the product for free.
 
