@@ -18,10 +18,19 @@ Service groups in Azure are a low-privilege-based grouping of resources across s
 
 
 ## Key capabilities
-* **Flexible Membership**: Service Groups allow resources from different subscriptions to be grouped together, providing a unified view and management capabilities. They also allow the grouping of subscriptions, resource groups, and resources. 
-* **Low Privilege Management**: Service Groups are designed to operate with minimal permissions, ensuring that users can manage resources without needing excessive access rights.
-* **Multiple Hierarchies**: Service Groups live outside of the resource hierarchy enabling scenarios where the same resources need to be group for different purposes.   
+- **Multiple Hierarchies**: Service Groups live outside of the resource hierarchy enabling scenarios where the same resources need to be group for different purposes.*
+- **Flexible Membership**: Service Groups allow resources from different subscriptions to be grouped together, providing a unified view and management capabilities. They also allow the grouping of subscriptions, resource groups, and resources. 
+- **Low Privilege Management**: Service Groups are designed to operate with minimal permissions, ensuring that users can manage resources without needing excessive access rights.
 
+
+### Multiple Hierarchies 
+The same resources can be connected to many different service groups allowing different customer personas and scenarios to be created and used. With different Role Based Access Controls being assigned to the multiple Service Groups, customers can create many different views that support how they organize their resources.   
+
+#### Example Scenarios
+* Separate Personas 
+    * An issue that arose frequently when trying to adopt a strict hierarchy was who would own the parent items. With Service Groups, this situation no longer becomes an issue and the different personas can have their own individual views. Customers can use the same resources to be members of a Workload Service Group, a Department Service Group, and a Service Group with all Production resources. 
+
+![MultipleSGTree](./media/MultiSG.png)
 
 ### Flexible Membership
 Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
@@ -41,14 +50,6 @@ Service Groups don't have the same inheritance capabilities that other Azure Res
 * Aggregating monitoring metrics 
    * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources. 
 
-### Multiple Hierarchies 
-The same resources can be connected to many different service groups allowing different customer personas and scenarios to be created and used. With different Role Based Access Controls being assigned to the multiple Service Groups, customers can create many different views that support how they organize their resources.   
-
-#### Example Scenarios
-* Separate Personas 
-    * An issue that arose frequently when trying to adopt a strict hierarchy was who would own the parent items. With Service Groups, this situation no longer becomes an issue and the different personas can have their own individual views. Customers can use the same resources to be members of a Workload Service Group, a Department Service Group, and a Service Group with all Production resources. 
-
-![MultipleSGTree](./media/MultiSG.png)
 
 ## How it works
 Azure Service Groups are a separate hierarchy grouping resources that don't exist in the resource hierarchy with Resource Groups, Subscriptions, and Management Groups. The separation allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 

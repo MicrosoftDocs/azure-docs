@@ -40,6 +40,15 @@ productDirectory:
           text: Protect your resource hierarchy
         - url: ./management-groups/index.yml
           text: See more >
+    - title: Azure Service Groups
+      imageSrc: ./media/management-groups.svg
+      links:
+        - url: ./service-groups/overview.md
+          text: Manage Service Groups
+        - url: ./Manage Azure Service Groups/manage-service-groups.md
+          text: Protect your resource hierarchy
+        - url: ./management-groups/index.yml
+          text: See more >
     - title: Azure Policy
       imageSrc: ./media/azure-policy.svg
       links:

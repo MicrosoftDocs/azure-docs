@@ -1,24 +1,22 @@
 ---
-title: Manage Azure Service Groups 
+title: Manage Resouces Across Subscriptions and Resource Groups with Azure Service Groups 
 description: "Learn how to create, update, read, and delete Azure Service Groups and its members"
 author: rthorn17
 ms.author: rithorn
-ms.service: Service Groups
-ms.topic: overview #Don't change
+ms.service: governance  ## is service-groups going to be an official service slug?
+ms.topic: how-to
 ms.date: 05/19/2025
 ---
 
-# How to manage Azure Service Groups?
+# How to use Azure Service Groups to manage resources
 
-Service groups in Azure are a low-privilege-based grouping of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. This article helps you learn how to manage Service Groups and its members.  
+You can group resources, across subscriptions, by creating Azure Service Groups. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. This article helps you learn how to manage Service Groups and its members.  
 
 For more information on service groups, see [Getting started with Service Groups](overview.md).
 
-> ![IMPORTANT]
-> Service Groups are currently in a Limited Preview state and require Tenant onboarding before trial. To request for onboarding please see [TBD Link](). 
->
-> This documentation will show how to manage service groups and its members using the Azure portal and REST APIs in the Preview.  CLI/ PowerShell/ Terraform support will be announced in a later release.   
-
+> [!IMPORTANT]
+> Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
 ## Service Group Actions
@@ -32,7 +30,7 @@ This section shows you how to manage service group's actions create, read, updat
 - API Version: **2024-04-01-preview**
 - URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-04-01-preview
 
-Request Body: 
+Request Body:
 ```json
 {
     "kind":[kind],
@@ -192,9 +190,9 @@ Service group members are resources, resource groups, or subscriptions that are 
 |------|-------------------------|--------------------------------|
 |Structure| Hierarchical|Flexible and dynamic|
 |Inheritance|Yes|No|
-|Scope|Service Group property|	Extends resources, resource groups, and subscriptions as its own resource|
-|Use Case|	Governance management |	Aggregating resources across different scopes |
-|Flexibility| Rigid/Strict (One Parent, Many Children) |	Flexible (Many Parents, Many Children)|
+|Scope|Service Group property| Extends resources, resource groups, and subscriptions as its own resource|
+|Use Case| Governance management | Aggregating resources across different scopes |
+|Flexibility| Rigid/Strict (One Parent, Many Children) | Flexible (Many Parents, Many Children)|
 
 ### Child/Parent Relationship Using the "Parent" Property
 
