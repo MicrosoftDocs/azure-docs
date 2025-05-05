@@ -1,6 +1,6 @@
 ---
 title: Getting Started Guide for Microsoft Planetary Computer Pro
-description: "Learn how to get started with Microsoft Planetary Computer Pro by provisioning a GeoCatalog, organizing geospatial data using STAC collections, ingesting assets, and exploring datasets through APIs and visualization tools"
+description: "Get started with Microsoft Planetary Computer Pro: Deploy GeoCatalog, manage geospatial data with STAC collections, ingest assets, and explore datasets via APIs."
 author: prasadko
 ms.author: prasadkomma
 ms.service: azure
@@ -22,10 +22,10 @@ Microsoft Planetary Computer Pro (MPC Pro) is an Azure cloud service for storing
 | Get Started                     | Deeper Dive                                   |
 |-------------------------------------|-----------------------------------------|
 | [Deploy a GeoCatalog Resource in your Azure Subscription](#deploy-a-geocatalog-resource-in-your-azure-subscription) | [Quickstart: Deploy a GeoCatalog Resource](./deploy-geocatalog-resource.md)            |
-| [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | Create a STAC Collection to organize your data                |
+| [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | [Create a STAC Collection to organize your data](./create-collection-ui.md)                |
 | [Ingest Data into a STAC Collection](#ingest-data-into-a-stac-collection) | [Concept: Ingestion](./ingestion-overview.md)      |
 | [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-ui.md)  |
-| [Connect and Build Applications with your Data](#connect-and-build-applications-with-your-data) | Connect and Build Applications with Your Data |
+| [Connect and Build Applications with your Data](#connect-and-build-applications-with-your-data) | [Connect and Build Applications with Your Data](./build-applications-with-planetary-computer-pro.md) |
 
 ## Deploy a GeoCatalog Resource in your Azure Subscription
 
@@ -45,11 +45,13 @@ More details on the **GeoCatalog Administrator** and **GeoCatalog Reader** role 
 
 ## Create a STAC Collection to organize your data
 
-All data managed in Microsoft Planetary Computer Pro is organized into groupings conforming to the [STAC Collection standard](./stac-overview.md#stac-collections) 
+All data managed in Microsoft Planetary Computer Pro is organized into groupings conforming to the [STAC Collection standard.](./stac-overview.md#stac-collections) 
 
-<!-- TODO, Add Screenshot showing where to create collection and then link to Create Collection Quickstart
+To create a new STAC Collection, select the **Create collection** button from the GeoCatalog web interface:
 
--->
+:::image type="content" source="media/create-collection-button.png" alt-text="Screenshot of the Create collection button in the GeoCatalog web interface.":::
+
+More details setting up your STAC collection can be found in the [Create Collection from the Web Interface](./create-collection-ui.md) and [Create Collection from the API](./create-stac-collection.md) quickstarts. 
 
 ## Ingest Data into a STAC Collection
 
@@ -74,10 +76,14 @@ The recommended and most secure method for ingesting data is to have the data st
 
 ## Configure Your STAC Collection for Visualization
 
-Ingested data can be visualized both in the built-in [Data Explorer](./use-explorer.md) or through your own applications. Note, the STAC Collection must be configured to support visualization. 
+Ingested data can be visualized both in the built-in [Data Explorer](./use-explorer.md) or through your own applications. 
 
-<!-- TODO, Links to new Content
--->
+>[!NOTE]
+> The STAC Collection must be configured to support visualization. 
+
+MPC Pro's Tiler service [requires configuration](./collection-config-concept.md)] to properly display your ingested data. All of these configuration options are available under the **Configuration** tab in the STAC Collection view:
+
+:::image type="content" source="media/configure-collection-button.png" alt-text="Screenshot of the Configure collection button in the GeoCatalog web interface.":::
 
 ### Get your STAC Collection ready for Visualization
 > [!div class="checklist"]
@@ -89,18 +95,15 @@ Ingested data can be visualized both in the built-in [Data Explorer](./use-explo
 
 ## Connect and Build Applications with your Data
 
-Once data has been ingested, it's available for use in applications inside and outside of Microsoft Planetary Computer Pro. 
+Once data has been ingested, it's available for use in [applications inside and outside of Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md). 
 
 Data that is [configured for visualization](./configure-collection-ui.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
 
 :::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
 
-Data can also be accessed directly using the GeoCatalog API. For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
+Data can also be accessed directly using the [GeoCatalog API](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 
-<!-- TODO, Links to new Content
-
--->
-
+MPC Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arcgispro.md) to enable GIS-type work flows. 
 
 ## Get help
 
@@ -109,9 +112,6 @@ Data can also be accessed directly using the GeoCatalog API. For details on esta
 3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
 4. Contact the team at MPCProSupport@microsoft.com 
 
-<!-- TODO, Links to new Content
- Link to Tutorial and deployment. 
--->
 
 ## Next steps
 
