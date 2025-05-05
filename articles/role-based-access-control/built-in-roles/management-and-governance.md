@@ -1569,11 +1569,11 @@ Lets you read and perform actions on Managed Application resources
 }
 ```
 
-## Managed Applications Reader
+## Managed Application Publisher Operator
 
-Lets you read resources in a managed app and request JIT access.
+Allows the publisher to read resources in the managed resource group for Managed Application and request JIT access for additional operations. This role is only used by the Managed Application service to provide access to publishers.
 
-[!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
+This role was previously named Managed Applications Reader. [!INCLUDE [role-read-permissions.md](../includes/role-read-permissions.md)]
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1593,7 +1593,7 @@ Lets you read resources in a managed app and request JIT access.
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you read resources in a managed app and request JIT access.",
+  "description": "Allows the publisher to read resources in the managed resource group for Managed Application and request JIT access for additional operations. This role is only used by the Managed Application service to provide access to publishers.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/b9331d33-8a36-4f8c-b097-4f54124fdb44",
   "name": "b9331d33-8a36-4f8c-b097-4f54124fdb44",
   "permissions": [
@@ -1608,7 +1608,7 @@ Lets you read resources in a managed app and request JIT access.
       "notDataActions": []
     }
   ],
-  "roleName": "Managed Applications Reader",
+  "roleName": "Managed Application Publisher Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
