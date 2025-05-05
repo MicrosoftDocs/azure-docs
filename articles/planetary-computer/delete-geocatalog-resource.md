@@ -29,7 +29,7 @@ Before you continue with the deletion steps, make sure you're ready to delete th
 # [Azure portal](#tab/azureportal)
 ## Delete a GeoCatalog with the Azure portal
 
-1. Navigate to your GeoCatalog resource within the Azure portal. Remember to [reveal the GeoCatalog hidden resource type](https://aka.ms/geocatalogsprod).
+1. Navigate to your GeoCatalog resource within the Azure portal.
 
     :::image type="content" source="media/geocatalog-resource.png" alt-text="Screenshot of the Azure portal showing the GeoCatalog resource page with the 'Delete' button highlighted.":::
 
@@ -58,6 +58,11 @@ Before you continue with the deletion steps, make sure you're ready to delete th
    > **Running this command will *immediately* begin deleting this resource.**
 
    ```bash
+   # Replace the placeholder values below with your specific data
+   SUBSCRIPTION_ID="<your-subscription-id>"
+   RESOURCE_GROUP="<your-resource-group>"
+   CATALOG_NAME="<your-GeoCatalog-name>"
+
    az rest --method DELETE --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$CATALOG_NAME?api-version=2025-02-11-preview"
    ```
 
