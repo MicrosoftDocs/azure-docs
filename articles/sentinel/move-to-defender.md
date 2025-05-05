@@ -1,5 +1,5 @@
 ---
-title: Move Your Microsoft Sentinel Environment to the Defender Portal
+title: Transition Your Microsoft Sentinel Environment to the Defender Portal
 description: Move Microsoft Sentinel operations from the Azure portal to the Microsoft Defender portal.
 author: batamig
 ms.author: bagol
@@ -10,11 +10,11 @@ ms.collection: usx-security
 #Customer intent: As a security operations team member, I want to understand the process involved in moving our Microsoft Sentinel experience from the Azure portal to the Defender portal so that I can benefit from unified security operations across my entire environment.
 ---
 
-# Move your Microsoft Sentinel environment to the Defender portal
+# Transition your Microsoft Sentinel environment to the Defender portal
 
 Microsoft Sentinel is available in the Microsoft Defender portal with [Microsoft Defender XDR](/microsoft-365/security/defender) or on its own. It delivers a unified experience across SIEM and XDR for faster, more accurate threat detection and response, simpler workflows, and better operational efficiency.
 
-This article explains how to move your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, move to Microsoft Defender to get the unified SecOps experience and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+This article explains how to transition your Microsoft Sentinel experience from the Azure portal to the Defender portal. If you use Microsoft Sentinel in the Azure portal, transition to Microsoft Defender to get the unified SecOps experience and the latest features. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
 ## Prerequisites
 
@@ -114,7 +114,7 @@ When moving to the Defender portal, the following changes are important to note:
 
 ### Configure automation rules and playbooks
 
-Specific limitations and changes apply to Microsoft Sentinel automation rules and playbooks, which are specifically relevant when moving your Microsoft Sentinel experience from the Azure portal to the Defender portal. 
+Specific limitations and changes apply to Microsoft Sentinel automation rules and playbooks, which are specifically relevant when moving your Microsoft Sentinel experience from the Azure portal to the Defender portal.
 
 In Microsoft Sentinel, playbooks are based on workflows built in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), a cloud service that helps you schedule, automate, and orchestrate tasks and workflows across systems throughout the enterprise.
 

@@ -1099,8 +1099,12 @@
       href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
-  - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Microsoft Sentinel in the Defender portal
+    items:
+    - name: Transition your environment to the Defender portal
+      href: move-to-defender.md
+    - name: Connect Microsoft Sentinel to the Defender portal
+      href: unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspaces in the Defender portal 
