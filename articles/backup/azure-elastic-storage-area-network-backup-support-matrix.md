@@ -11,7 +11,7 @@ ms.author: jsuri
 
 # Support matrix for Azure Elastic SAN backup (preview)
 
-This article summarizes the regional availability, supported scenarios, and limitations for Azure Elastic Storage Area Network (SAN) backups (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for Azure Elastic storage area network (SAN) backups (preview).
 
 ## Supported regions
 
@@ -21,7 +21,7 @@ Backups of Azure Elastic SAN are available in the following regions: Australia E
 
 Azure Elastic SAN protection (preview) has the following supported and unsupported scenarios:
 
-- Operational-tier backup is supported for Elastic SAN; vault-tier isn't currently supported. So, the security-related settings (immutability, soft-delete, MUA, CMK) applicable for vault-tier aren't supported.
+- Operational-tier backup is supported for Elastic SAN; vault-tier isn't currently supported. So, the security-related settings ([immutability](backup-azure-immutable-vault-concept.md?tabs=backup-vault), [soft-delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multi-user authorization](multi-user-authorization-concept.md?tabs=backup-vault), and [customer-managed keys](encryption-at-rest-with-cmk.md?tabs=portal)) that are applicable for vault-tier aren't supported.
 - Same volume can't be protected multiple times as part of multiple backup instances.
 - Hourly backups aren't supported; only daily backups are available.
 - The Original Location Recovery (OLR) is currently not supported; only Alternate Location Recovery (ALR) is supported.

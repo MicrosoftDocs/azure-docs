@@ -9,7 +9,7 @@ ms.author: jsuri
 
 # Manage Azure Elastic SAN backups using Azure portal (preview)
 
-This article describes how to manage Azure Elastic Storage Area Network (SAN) backups (preview) using Azure portal.
+This article describes how to manage Azure Elastic storage area network (SAN) backups (preview) using Azure portal.
 
 Learn about the [supported scenarios, limitations, and region availability for Azure Elastic SAN backup/restore (preview)](azure-elastic-storage-area-network-backup-support-matrix.md).
 
@@ -50,13 +50,23 @@ To change the backup policy for Azure Elastic SAN backup instance (preview), fol
 >[!Note]
 >The retention duration set in the new backup policy is applied to the new and existing restore points.
 
-## Stop backups and retain data for an Azure Elastic SAN volume (preview)
+## Stop protection of Azure Elastic SAN (preview)
 
-To stop backups and retain data for an Azure Elastic SAN volume (preview), follow these steps:
+Azure Backup provides the following options to stop protection of Azure Elastic SAN (preview):
+
+- **Stop protection and retain backup data**: Azure Backup stops future backup jobs for Azure Elastic SAN but retains the existing recovery points. You must pay to keep them. See [Azure Backup pricing](https://azure.microsoft.com/pricing/details/managed-disks/) for details. If needed, you can restore the Elastic SAN. To resume protection, use the **Resume backup** option.
+- **Stop protection and delete backup data**: Azure Backup stops future backup jobs for Azure Elastic SAN and deletes all recovery points. You can't restore the Elastic SAN or use the **Resume backup** option.
+
+To stop protection for Azure Elastic SAN (preview), follow these steps:
 
 1. Go to **Business Continuity Center**, and then select **Protection Inventory** > **Protected items**.
 1. On the **Protected items** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**, and then select the Elastic SAN instance for which you want to stop protection.
 1. On the selected **Elastic SAN instance** pane, select **Stop Backup**.
+
+### Stop backups and retain data for an Azure Elastic SAN volume (preview)
+
+To stop backups and retain data for an Azure Elastic SAN volume (preview), follow these steps:
+
 1. On the **Stop Backup** pane, under **Stop backup level**, choose **Retain Backup Data**.
 
    Azure Backup stops future backup jobs for Elastic SAN instances and retains existing restore points. You can use these restore points to restore the Elastic SAN instance. This option allows you to resume the backup operation as required.
@@ -70,13 +80,10 @@ To stop backups and retain data for an Azure Elastic SAN volume (preview), follo
 1. Under **Comments**, enter more details for stopping backups.
 1. Select **Stop backup**, and then select **Confirm**. 
 
-## Stop backups and delete data for an Azure Elastic SAN volume (preview)
+### Stop backups and delete data for an Azure Elastic SAN volume (preview)
 
 To stop backups and delete data for an Azure Elastic SAN volume (preview), follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protection Inventory** > **Protected items**.
-1. On the **Protected items** pane, filter **Datasource type** by **Elastic SAN volumes (Preview)**, and then select the Elastic SAN instance for which you want to stop protection.
-1. On the selected **Elastic SAN instance** pane, select **Stop Backup**.
 1. On the **Stop Backup** pane, Under **Stop backup level**, choose **Delete Backup Data**.
 
    >[!Warning]

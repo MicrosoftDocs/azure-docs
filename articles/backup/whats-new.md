@@ -111,7 +111,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Operational backup support for Azure Elastic SAN (preview)
 
-Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution simplifies scheduling backups, removing expired restore points, and restoring to new Elastic SAN volumes.
+Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
 
 Key features include:
 
