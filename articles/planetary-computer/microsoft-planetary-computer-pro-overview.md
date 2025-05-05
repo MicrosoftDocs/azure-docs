@@ -20,20 +20,20 @@ MPC Pro helps users and organizations to easily store, organize, and retrieve th
 
 MPC Pro can speed users journey from raw data to insights for multiple user personas.
 
+### Geospatial Solution Developers
+
+ The quality and volume of Geospatial data is increasing constantly, spurring the development of new technologies. Geospatial insight and solution developers are leading this trend, providing value-added data processing solutions, powered by Artificial Intelligence (AI) and Machine Learning (ML). Solution developers use MPC Pro to manage both their processing pipeline data, and host their customer-facing geospatial data products as part of an application.
+
+### Enterprise Data Managers
+
+MPC Pro GeoCatalogs bring a standards-based organizational structure to the geospatial data required by the modern enterprise data system. The MPC Pro platform is compatible with enterprise and open-source geospatial data tooling, and delivers capabilities covered by the Azure Service Level Agreement (SLA), ensures high performance, security, and availability. All data is secured via [Microsoft Entra ID](/entra/fundamentals/whatis), unifying enterprise identity and access management of your geospatial data. 
+
 ### Geospatial Data Scientists
 
 Geospatial data scientists and research teams, operating as part of an academic institution or an enterprise research organization, use MPC Pro GeoCatalogs to focus less on data hosting, organization, and management, and spend more time on data interrogation and processing. 
 
-### Geospatial Solution Developers
-
- The quality and volume of GeoSpatial data is increasing constantly, spurring the development of new technologies. GeoSpatial insight and solution developers are leading this trend, providing value-added data processing solutions, powered by Artificial Intelligence (AI) and Machine Learning (ML). Solution developers use MPC Pro to manage both their processing pipeline data, and host their customer-facing geospatial data products.
-
-### Enterprise Data Managers
-
-MPC Pro GeoCatalogs bring a standards-based organizational structure to the geospatial data required by the modern enterprise data system. The MPC Pro platform is compatible with enterprise and open-source geospatial data tooling, and delivers capabilities covered by the Azure Service Level Agreement (SLA), ensures high performance and availability.
-
 ## Scenarios
-An MPC Pro GeoCatalog supports a wide range of capabilities to enhance the value and usability of your geospatial data.
+A MPC Pro GeoCatalog supports a wide range of capabilities to enhance the value and usability of your geospatial data.
 
 | If you want to...                                      | then...                                                                                     |
 |--------------------------------------------------------|--------------------------------------------------------------------------------------------|
@@ -44,7 +44,7 @@ An MPC Pro GeoCatalog supports a wide range of capabilities to enhance the value
 | Optimize query performance for large collections       | Configure Explorer [Queryables](./queryables-for-explorer-custom-search-filter.md) |
 
 ## Key Features
-- A **zone-redundant, managed storage** solution for raster, data cube, and vectorized (coming soon) data types
+- A **zone-redundant, managed storage** solution for raster, and [data cube](./datacube-overview.md) data types
 - Built-in, **cloud-optimization** for [Supported Data Types](./supported-data-types.md) performed upon ingestion
 - A **managed STAC API** for all stored data 
 - Built-in data [Explorer](./use-explorer.md) for visualizing all your geo
@@ -65,10 +65,10 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 1. **Query Data**: Use the Tiling API to read pixel-level information
 1. **Map Data**: Use the WMTS API to add data to a mapping application
 1. **Modify / Remove Data**: Use the STAC API to modify or delete Collections or Items.
-1. **GeoCatalog Deletion**: [Delete a GeoCatalog](./delete-geocatalog-resource.md) from an Azure Subscription
-At a high level, a GeoCatalog contains four major components:
 
-## Getting Started
+## Next steps
+
+> [!div class="nextstepaction"]
 Follow our [Getting Started](./get-started-planetary-computer.md) guide to begin using MPC Pro.
 
 ## Related Content
