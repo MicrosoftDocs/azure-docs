@@ -261,11 +261,12 @@ If an error appears on a successfully registered or deployed Virtual Instance fo
 The database list has not been passed on to the HnS script args. This results in the database status to be shown as unavailable.  
 
 This can happen in 2 scenarios: 
-1. SID of Database and HANA instance is not same. This would lead to db details not being discovered in the Discovery Workflow. 
-2. You have multi-db cluster which will also result in this error.
+- SID of Database and HANA instance is not same. This would lead to db details not being discovered in the Discovery Workflow. 
+- You have multi-db cluster which will also result in this error.
 
-**Solution**
-Ensure HANA instance and its database mapped to same SID
+**Solution:**
+
+- Ensure HANA instance and its database mapped to same SID
 
 ## Next steps
 
