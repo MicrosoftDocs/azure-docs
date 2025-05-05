@@ -23,7 +23,7 @@ By the end of this guide, you'll be able to securely browse and access MPC-hoste
 - ArcGIS Pro installed on your machine
 
 > [!TIP] 
-> Before you begin, review [Register an application in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app) for background information on app registration.
+> Before you begin, review [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app) for background information on app registration.
 
 ## Register Web API Application for ArcGIS Pro
 

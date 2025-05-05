@@ -115,5 +115,7 @@ MPC Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-
 
 ## Next steps
 
+To get started with an end-to-end workflow, try this interactive tutorial:
+
 > [!div class="nextstepaction"]
 > [Using the Planetary Computer Pro APIs to Ingest and Visualize Data](./api-tutorial.md)
