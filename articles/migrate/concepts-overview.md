@@ -4,7 +4,7 @@ description: Learn about types of assessments in Azure Migrate.
 author: SnehaSudhir  
 ms.author: v-uhabiba
 ms.service: azure-migrate 
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 04/09/2025 
 ms.custom: engagement-fy24 
 monikerRange: migrate
