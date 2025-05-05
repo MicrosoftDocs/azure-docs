@@ -26,7 +26,7 @@ You can set the autoscaler configuration via the Azure portal, a Bicep template,
 | ----- | ----------- | ------- |
 | Min replicas | Minimum number of replicas allowed for the container revision at any given time. | 1 |
 | Max replicas | Maximum number of replicas allowed for the container revision at any given time. | 10 |
-| endpoint | The Durable Task Scheduler endpoint that the scaler connects to. | https://dts-ID.centralus.durabletask.io |
+| endpoint | The Durable Task Scheduler endpoint that the scaler connects to. | `https://dts-ID.centralus.durabletask.io` |
 | maxConcurrentWorkItemsCount | The maximum concurrent work items dispatched as an event to your compute, such as telling your compute to run an orchestration. | 1 |
 | taskhubName | The name of the task hub connected to the scheduler. | taskhub-ID |
 | workItemType | The work item type that is being dispatched. Options include Orchestration, Activity, or Entity. | Orchestration |
@@ -95,7 +95,7 @@ az containerapp create \
 
 ## Experiment with the sample
 
-The [Autoscaling in Azure Container Apps sample]() demonstrates how to implement autoscaling with the Azure Durable Task Scheduler using the .NET SDK in Azure Container Apps. The function chaining application pattern showcases an orchestration workflow that benefits from dynamically scaling worker instances based on load.
+The [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/scenarios/AutoscalingInACA) demonstrates how to implement autoscaling with the Azure Durable Task Scheduler using the .NET SDK in Azure Container Apps. The function chaining application pattern showcases an orchestration workflow that benefits from dynamically scaling worker instances based on load.
 
 > [!NOTE]
 > Although this sample uses the Durable Task .NET SDK, autoscaling is language-agnostic.
