@@ -6,8 +6,8 @@ ms.topic: conceptual
 ms.date: 11/06/2024
 ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security engineer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
 ---
@@ -32,13 +32,13 @@ Microsoft Sentinel solutions provide packaged security content, including data c
 
 The Microsoft Sentinel **Data connectors** page lists the installed or in-use data connectors.
 
-#### [Azure portal](#tab/azure-portal)
-
-:::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
-
 #### [Defender portal](#tab/defender-portal)
 
 :::image type="content" source="media/connect-data-sources/data-connector-list-defender.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list-defender.png":::
+
+#### [Azure portal](#tab/azure-portal)
+
+:::image type="content" source="media/connect-data-sources/data-connector-list.png" alt-text="Screenshot of the data connectors gallery." lightbox="media/connect-data-sources/data-connector-list.png":::
 
 ---
 

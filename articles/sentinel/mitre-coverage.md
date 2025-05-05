@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 #Customer intent: As a security analyst, I want to use the MITRE ATT&CK framework in Microsoft Sentinel so that I can assess and enhance my organization's threat detection and response capabilities.
 
@@ -43,12 +43,6 @@ Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 1
 By default, both currently active scheduled query and near real-time (NRT) rules are indicated in the coverage matrix.
 
 1. Do one of the following, depending on the portal you're using:
- 
-    ### [Azure portal](#tab/azure-portal)
-
-    In the Azure portal, under **Threat management**, select **MITRE ATT&CK (Preview)**.
-
-    :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page." lightbox="media/mitre-coverage/mitre-coverage.png":::
 
     ### [Defender portal](#tab/defender-portal)
 
@@ -59,6 +53,12 @@ By default, both currently active scheduled query and near real-time (NRT) rules
     To filter the page by a specific threat scenario, toggle the **View MITRE by threat scenario** option on, and then select a threat scenario from the drop-down menu. The page is updated accordingly. For example:
 
     :::image type="content" source="media/mitre-coverage/mitre-by-threat-scenario.png" alt-text="Screenshot of the MITRE ATT&CK page filtered by a specific threat scenario.":::
+
+    ### [Azure portal](#tab/azure-portal)
+
+    In the Azure portal, under **Threat management**, select **MITRE ATT&CK (Preview)**.
+
+    :::image type="content" source="media/mitre-coverage/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page." lightbox="media/mitre-coverage/mitre-coverage.png":::
 
     ---
 

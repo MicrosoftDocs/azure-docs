@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 05/22/2024
 ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -43,11 +43,13 @@ Use a template installed from the content hub to create a workbook.
 
     To see which templates are relevant to the data types you connected, review the **Required data types** field in each workbook where available.
 
+    #### [Defender portal](#tab/defender-portal)
+    :::image type="content" source="media/monitor-your-data/workbook-template-defender-portal.png" alt-text="Screenshot of a workbook template in the Defender portal that shows the required data types." lightbox="media/monitor-your-data/workbook-template-defender-portal.png":::
+
     #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="media/monitor-your-data/workbook-template-azure-portal.png" alt-text="Screenshot of a workbook template with required data types shown in the details pane." lightbox="media/monitor-your-data/workbook-template-azure-portal.png":::
 
-    #### [Defender portal](#tab/defender-portal)
-    :::image type="content" source="media/monitor-your-data/workbook-template-defender-portal.png" alt-text="Screenshot of a workbook template in the Defender portal that shows the required data types." lightbox="media/monitor-your-data/workbook-template-defender-portal.png":::
+    ---
 
 1. Select **Save** from the template details pane and the location where you want to save the JSON file for the template. This action creates an Azure resource based on the relevant template and saves the JSON file of the workbook not the data.
 

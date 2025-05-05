@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 01/14/2025
 ms.author: cwatson
 appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
-    - Microsoft Sentinel in the Microsoft Defender portal.
 
 
 #Customer intent: As a security operations administrator, I want to discover, install, and centrally manage out-of-the-box content so that I can efficiently enhance and maintain my security monitoring capabilities.
@@ -43,7 +43,7 @@ For more information about other roles and permissions supported for Microsoft S
 
 The content hub offers the best way to find new content or manage the solutions you already installed.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
 
     The **Content hub** page displays a searchable grid or a list of solutions and standalone content.
 
@@ -57,11 +57,11 @@ The content hub offers the best way to find new content or manage the solutions 
 
     Expand a solution in the search or filter results to view the list of content items it includes. The information pane on the side presents detailed information about the content item.
 
-    #### [Azure portal](#tab/azure-portal)
-    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
-
     #### [Defender portal](#tab/defender-portal)
     :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list-defender.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Defender portal.":::
+
+    #### [Azure portal](#tab/azure-portal)
+    :::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub in the Azure portal.":::
 
     ----
 

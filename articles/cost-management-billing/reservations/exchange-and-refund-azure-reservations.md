@@ -17,6 +17,8 @@ Azure Reservations provide flexibility to help meet your evolving needs. Reserva
 
 You can also exchange a reservation to purchase another reservation of a similar type in a different region. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region.
 
+If you have a reservation with multiple quantities, you can choose to exchange fewer quantities than you originally reserved. For example, if you purchase 10 quantity, you can choose to only exchange 5 of that reservation quantity and so on.
+
 ## Reservation exchange policy changes
 
 > [!NOTE]

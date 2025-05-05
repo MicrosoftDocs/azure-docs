@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
 
@@ -50,13 +50,13 @@ This article describes how to create and manage Microsoft Sentinel playbooks. Yo
 
 Follow these steps to create a new playbook in Microsoft Sentinel:
 
-1. In the [Azure portal](https://portal.azure.com) or in the [Defender portal](https://security.microsoft.com/), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.
+1. In the [Defender portal](https://security.microsoft.com/) or in the [Azure portal](https://portal.azure.com), go to your Microsoft Sentinel workspace. On the workspace menu, under **Configuration**, select **Automation**.
+
+     #### [Defender portal](#tab/defender-portal)
+     :::image type="content" source="../media/create-playbooks/add-new-playbook-defender.png" alt-text="Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook-defender.png":::
 
      #### [Azure portal](#tab/azure-portal)
      :::image type="content" source="../media/create-playbooks/add-new-playbook.png" alt-text="Screenshot shows Azure portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook.png":::
-
-     #### [Defender portal](#tab/defender-portal)
-   :::image type="content" source="../media/create-playbooks/add-new-playbook-defender.png" alt-text="Screenshot shows Defender portal and Microsoft Sentinel Automation page with Create selected." lightbox="../media/create-playbooks/add-new-playbook-defender.png":::
 
      ---
 

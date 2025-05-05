@@ -7,8 +7,8 @@ ms.author: cwatson
 ms.topic: how-to
 ms.date: 3/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -40,17 +40,14 @@ You have two ways to upload a CSV file from your local machine to create a watch
 
 If you didn't use a watchlist template to create your file,
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Watchlist**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Watchlist**.
 
 1. Select **+ New**.
-   
-   #### [Azure portal](#tab/azure-portal)
-    
-   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
 
-   #### [Defender portal](#tab/defender-portal)
-
+   ### [Defender portal](#tab/defender-portal)
    :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new-defender.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new-defender.png":::
+   ### [Azure portal](#tab/azure-portal)
+   :::image type="content" source="./media/watchlists-create/sentinel-watchlist-new.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/watchlists-create/sentinel-watchlist-new.png":::
    ---
 
 1. On the **General** page, provide the name, description, and alias for the watchlist.

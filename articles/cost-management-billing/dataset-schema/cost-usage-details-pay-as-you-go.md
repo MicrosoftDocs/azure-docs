@@ -1,13 +1,13 @@
 ---
 title: Pay-as-you-go cost and usage details file schema
 description: Learn about the data fields available in the pay-as-you-go cost and usage details file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Pay-as-you-go cost and usage details file schema
