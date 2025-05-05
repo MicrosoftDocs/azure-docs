@@ -46,7 +46,6 @@ When you onboard Microsoft Sentinel to the Defender portal without Defender XDR 
 - [Microsoft Security Exposure Management](/security-exposure-management/)
 - [Custom detection rules](/defender-xdr/custom-detections-overview), provided by Microsoft Defender XDR
 - The [Action center](/defender-xdr/m365d-action-center), provided by Microsoft Defender XDR
-- [!INCLUDE [region-defender](includes/region-defender.md)]
 
 ## Quick reference
 
