@@ -27,7 +27,16 @@ The *Essentials* details include:
 To manage your resource, select the links next to corresponding details.
 
 Below the essentials, you can navigate to other details about your resource by selecting the links.
- 
+
+## Single sign-on
+
+Single sign-on (SSO) is already enabled when you create your Neon resource.
+
+[!INCLUDE [sso](../includes/sso.md)]
+
+> [!NOTE] 
+> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
+
 ## Projects
 
 When you create your first Neon organization, a default project is created for you. You can create and view your projects from the Azure resource.
@@ -44,7 +53,7 @@ To view a specific project, select the project's name.
 
     The **Create project** flyout appears in the right side of the working pane.
 
-    :::image type="content" source="media/manage/create-project.png" alt-text="":::
+    :::image type="content" source="media/manage/create-project.png" alt-text="The Neon Create project flyout in the Azure portal.":::
 
 1. Enter the values for each setting, or continue with the default values for your project.
 
@@ -79,15 +88,6 @@ A branch is a copy-on-write clone of your data.  You can create a branch from a 
     |Parent branch      |Select the parent branch for your new branch.                      |
 
 1. Select the **Create** button.
-
-## Single sign-on
-
-Single sign-on (SSO) is already enabled when you create your Neon resource.
-
-[!INCLUDE [sso](../includes/sso.md)]
-
-> [!NOTE] 
-> The first time you access this URL, depending on your Azure tenant settings, you might be asked to verify your email address on the Neon portal. Once the email address is verified, you can access the Neon portal.
 
 ## Delete a Neon resource
 
