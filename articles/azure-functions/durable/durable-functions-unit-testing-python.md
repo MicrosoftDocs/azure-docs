@@ -5,6 +5,9 @@ Unit testing Durable Functions is essential to ensure the correctness of individ
 
 This guide provides an overview of unit testing Durable Functions in Python, covering the key components: starter functions, orchestrators, activity functions, and entity functions. It includes best practices and sample test cases to help you write robust and maintainable tests for your Durable Functions.
 
+[!NOTE]
+This guide applies only to Durable Functions apps written in the [Python v2 programming model](../functions-reference-python.md). 
+
 ## Prerequisites
 The examples in this article require knowledge of the following concepts and frameworks:
 
@@ -14,7 +17,7 @@ The examples in this article require knowledge of the following concepts and fra
 * [unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
 
 ## Setting Up the Test Environment
-To test Durable Functions, it's crucial to set up a proper test environment. This includes creating a test directory and installing unittest into your Python environment. For more info, see the Azure Functions Python unit testing overview [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-python?tabs=get-started%2Casgi%2Capplication-level&pivots=python-mode-decorators#unit-testing).
+To test Durable Functions, it's crucial to set up a proper test environment. This includes creating a test directory and installing unittest into your Python environment. For more info, see the [Azure Functions Python unit testing overview](../functions-reference-python.md#unit-testing).
 
 ## Testing Durable Clients  
 Durable Client functions initiate orchestrations and external events. To test a client function:
@@ -145,7 +148,7 @@ class TestEntityFunction(unittest.TestCase):
 ```
 
 ## Testing Activity Functions
-Activity functions require no Durable-specific modifications to be tested. The guidance found in the Azure Functions Python unit testing overview [here](https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-python?tabs=get-started%2Casgi%2Capplication-level&pivots=python-mode-decorators#unit-testing) is sufficient for testing these functions. 
+Activity functions require no Durable-specific modifications to be tested. The guidance found in the [Azure Functions Python unit testing overview](../functions-reference-python.md#unit-testing) is sufficient for testing these functions. 
 
 ## Summary
 Testing Durable Functions effectively requires simulating their unique runtime behaviors while keeping tests isolated and deterministic. Here are some best practices to keep in mind:
@@ -165,6 +168,6 @@ By applying these practices, you can build a comprehensive test suite for your D
 
 For deeper insights into Durable Functions in Python, explore these resources:
 
-- [Durable Functions GitHub Samples](https://github.com/Azure/azure-functions-durable-python)
-- [Azure Functions Python Developer Guide](https://learn.microsoft.com/azure/azure-functions/functions-reference-python)
-- [Azure Durable Functions Documentation](https://learn.microsoft.com/azure/azure-functions/durable/durable-functions-overview)
+- [Improve throughput performance of Python apps in Azure Functions](../python-scale-performance-reference.md)
+- [Azure Functions Python Developer Guide](../functions-reference-python.md)
+- [Durable Functions best practices and diagnostic tools](./durable-functions-best-practice-reference.md)
