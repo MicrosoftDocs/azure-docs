@@ -47,7 +47,7 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 |**Asia and Middle East** | |• East Asia<br>• Southeast Asia |
 | | **China 21Vianet**| • China East 2<br>• China North 3|
 | | **India**| • Central India<br>• Jio India West<br>• Jio India Central|
-| | **Israel** | • Israel Central |
+| | **Israel** | • Israel Central[*](#israel) |
 | | **Japan** | • Japan East<br>• Japan West|
 | | **Korea**| • Korea Central<br>• Korea South| 
 | | **Qatar** | • Qatar Central|
@@ -62,6 +62,8 @@ Regions supported for Microsoft Sentinel raw data, and for processed and configu
 | | **UK**| • UK South<br>• UK West |
 |**Australia** | **Australia**| • Australia Central<br>Australia Central 2<br>• Australia East<br>• Australia Southeast	|
 |**Africa** | **South Africa**| • South Africa North |
+
+<a name=israel></a>* [!INCLUDE [region-defender](includes/region-defender.md)]
 
 ## Data retention
 
