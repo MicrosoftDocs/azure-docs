@@ -198,6 +198,8 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: SRE Agent overview
+      href: ../app-service/sre-agent-overview.md
     - name: Application logging
       href: logging.md
     - name: Real time data
