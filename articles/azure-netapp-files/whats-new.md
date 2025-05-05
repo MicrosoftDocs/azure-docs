@@ -18,7 +18,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](cross-region-replication-introduction.md) and [cross-zone replication](cross-zone-replication-introduction.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
 
-    Cross-zone and cross-region replication for application volume group for Oracle is only supported in the REST API. This feature is in preview. 
+    Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API. This feature is in preview. 
 
 ## April 2025
 

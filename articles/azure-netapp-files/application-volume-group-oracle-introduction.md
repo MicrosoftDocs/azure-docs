@@ -44,7 +44,7 @@ Application volume group for Oracle helps you simplify the deployment process an
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.   
     This deployment method provides better performance and throughput for the Oracle database.
 * Customer-managed keys support increased security and compliance. 
-* [Cross-zone](cross-zone-replication-introduction.md) and [cross-region](cross-region-replication-introduction.md) replication provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature is currently in preview and only supported with the [REST API](configure-application-volume-oracle-api.md#replication). 
+* [Cross-zone](cross-zone-replication-introduction.md) and [cross-region](cross-region-replication-introduction.md) replication provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature currently is in preview and only supported with the [REST API](configure-application-volume-oracle-api.md#replication). 
 
 ## Application volume group layout
 
