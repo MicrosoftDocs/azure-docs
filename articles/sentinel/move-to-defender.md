@@ -20,7 +20,7 @@ This article explains how to transition your Microsoft Sentinel experience from 
 
 Before you start, note:
 
-- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to move their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) to learn how to create a new workspace for Microsoft Sentinel in the Defender portal.
+- This article is for customers with an existing workspace enabled for Microsoft Sentinel who want to transition their Microsoft Sentinel experience to the Defender portal. If you're a new customer, see [Deploy unified security operations in the Defender portal](/unified-secops-platform/overview-deploy) to learn how to create a new workspace for Microsoft Sentinel in the Defender portal.
 - When relevant, detailed prerequisites are in the linked articles for each step.
 - Learn about the new locations of some Microsoft Sentinel features in the Defender portal. For more information, see [Quick reference](microsoft-sentinel-defender-portal.md#quick-reference).
 
