@@ -93,8 +93,8 @@ Walk through one of the following quickstarts or scenarios to configure your fun
 
 |   | Sample | Description |
 | - | ---------- | ----------- |
-| **Order processing workflow** | - [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/)<br>- [Python](/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/) | Configure a "hello world" Durable Functions app to use the Durable Task Scheduler as the backend storage provider, test locally, and publish to Azure. |
-| **Intelligent PDF summarizer** | - [.NET](samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/)<br>- [Python](samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/) | Locally create and test a "hello world" Durable Functions app and deploy to Azure. |
+| **Order processing workflow** | Create an order processing workflow with Durable Functions with Azure Storage:<br>- [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/)<br>- [Python](/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/) | Configure a "hello world" Durable Functions app to use the Durable Task Scheduler as the backend storage provider, test locally, and publish to Azure. |
+| **Intelligent PDF summarizer** | Create an intelligent application using Azure Durable Functions, Azure Storage, Azure Developer CLI, and more:<br>- [.NET](/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/)<br>- [Python](/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/) | Locally create and test a "hello world" Durable Functions app and deploy to Azure. |
 
 ### Durable Task SDKs with Durable Task Scheduler (preview)
 
@@ -133,4 +133,4 @@ Walk through one of the following quickstarts to configure your applications to 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the Durable Task Scheduler](../azure-functions/durable/durable-task-scheduler/durable-task-scheduler.md) 
+> [Learn more about the Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md) 
