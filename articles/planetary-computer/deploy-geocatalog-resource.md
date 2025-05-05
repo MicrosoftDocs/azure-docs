@@ -26,7 +26,6 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
 1. Using the Azure REST API.  
 
 # [Azure portal](#tab/azureportal)
-
 ## Deploy GeoCatalog with the Azure portal
 
 1. Navigate to the [Azure portal](https://portal.azure.com/)
