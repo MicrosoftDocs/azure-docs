@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy cross-tenant IP address management'
+title: 'Deploy cross-tenant IP address management'
 description: In this tutorial, you learn how to deploy a virtual network in a managed tenant that uses an IP address allocation from an Azure Virtual Network Manager IPAM pool in a management tenant.
 author: mbender-ms
 ms.author: mbender
@@ -8,18 +8,9 @@ ms.topic: tutorial
 ms.date: 05/05/2025
 ---
 
-# Tutorial: Deploy cross-tenant IP address management
+# Deploy cross-tenant IP address management
 
-In this tutorial, you learn how to deploy a virtual network in a managed tenant (Tenant B) that draws from an Azure Virtual Network Manager (AVNM) IP Address Management (IPAM) pool maintained in a management tenant (Tenant A). This process demonstrates how a parent organization can centrally manage IP address allocations across multiple child organizations that exist in different Azure tenants.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Understand the cross-tenant AVNM IPAM architecture 
-> * Create an IPAM allocation in the management tenant
-> * Associate a virtual network in a managed tenant with an IPAM pool from the management tenant
-> * Configure a multi-tenant service principal for programmatic cross-tenant IPAM management
-> * Deploy a virtual network using CLI/REST that references a cross-tenant IPAM pool
+In this article, you learn how to deploy a virtual network in a managed tenant (Tenant B) that draws from an Azure Virtual Network Manager (AVNM) IP Address Management (IPAM) pool maintained in a management tenant (Tenant A). This process demonstrates how a parent organization can centrally manage IP address allocations across multiple child organizations that exist in different Azure tenants.
 
 ## Prerequisites
 
@@ -57,6 +48,8 @@ In this example, the managed tenant (Tenant B) is a child organization that cons
 
 ## Deploy cross-tenant IPAM
 
+In thi
+
 # [Azure portal](#tab/azureportal)
 
 ### Create an IPAM allocation in the management tenant
@@ -69,35 +62,22 @@ In this example, the managed tenant (Tenant B) is a child organization that cons
 
 1. Select the IPAM pool where you want to create an allocation.
 
-1. Select **Allocate CIDR** to begin creating an allocation.
+1. Select **+ Create**>**Allocate resources**.
 
-1. When prompted to associate a resource, select **Associate a resource**, then choose **Cross-tenant resource** option.
+1. In the **Allocate resources** pane, select the **Tenant :** dropdown and choose choose the managed tenant (Tenant B) where you want to allocate IP addresses.
+1. Select **Apply** and then select **Authenticate**.
 
-### Select the managed tenant and authenticate
+    > [!NOTE]
+    > The authentication process requires you to sign in with a user or service principal that has the *Network Contributor* role in Tenant B at the subscription or resource level.
 
-1. When prompted to select a tenant, enter or select the tenant ID of Tenant B.
-
-1. The portal will prompt you to authenticate with credentials that have appropriate permissions in Tenant B.
-
-1. Sign in with credentials that have Network Contributor permissions in Tenant B.
-
-### Select the resource to manage
-
-1. After authentication, select the subscription in Tenant B where you want to create or manage resources.
-
-1. Choose the virtual network (or the resource group where you'll create a virtual network) that will use the IP allocation.
-
-1. Complete the allocation process by selecting the appropriate settings for the IP prefix allocation.
-
-1. Select **Create** to finalize the allocation.
+1. After authentication, select the virtual network you want to associate with the IP address pool and select **Associate**.
 
 ### Verify the cross-tenant association
 
-1. In Tenant A's portal view, navigate to the IPAM pool and verify that the cross-tenant resource appears in the list of allocations.
-
+1. In Tenant A's portal view, navigate to your IP address pool and select **Allocations** under **Settings**.
+1. Select **Resources** and verify that the virtual network from Tenant B is listed as an allocated resource.
 1. Switch to Tenant B's portal view and navigate to the virtual network that received the allocation.
-
-1. Verify that the virtual network shows the IP address space allocated from the management tenant's IPAM pool.
+1. Select **Subnets** under **Settings** and verify the name listed in the **IPAM pool** column matches the name of the IPAM pool in the management tenant (Tenant A).
 
 # [Azure CLI](#tab/azurecli)
 
