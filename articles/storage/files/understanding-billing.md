@@ -159,6 +159,10 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Sweden South
 - Australia Central
 - Australia Central 2
+- South Africa North
+- South Africa West
+- Switzerland North
+- Switzerland West
 
 Storage accounts in regions flagged with an asterisk (*) can only be created using Azure PowerShell or Azure CLI. See [create a storage account](./storage-how-to-create-file-share.md) for more information.
 
