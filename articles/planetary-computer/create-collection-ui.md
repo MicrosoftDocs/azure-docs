@@ -26,7 +26,7 @@ To complete this quickstart, you need:
 
 ## Navigating the Microsoft Planetary Computer Pro web interface
 
-The Microsoft Planetary Computer Pro web interface is a web-based interface that allows you to manage your geospatial data and collections. You can access the web interface by navigating to the URL of your GeoCatalog instance in a web browser, or by using the link provided in your GeoCatalog resource in Azure portal. 
+The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal: ![Screenshot of URI in GeoCatalog resource in Azure portal](./media/geocatalog-uri-example.jpeg) or by entering that URI directly into your browser's address bar: ![Alt text describing the image](./media/geocatalog-uri-link-portal.png)**
 
 Upon entry to the web interface, you'll find yourself on the Planetary Computer Pro landing page, which provides you with a list of your most recently created collections (if you already have some), and a button to create a new collection. 
 
