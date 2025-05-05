@@ -26,15 +26,19 @@ To complete this quickstart, you need:
 
 ## Navigating the Microsoft Planetary Computer Pro web interface
 
-The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal: ![Screenshot of URI in GeoCatalog resource in Azure portal](./media/geocatalog-uri-example.jpeg) or by entering that URI directly into your browser's address bar: ![Alt text describing the image](./media/geocatalog-uri-link-portal.png)**
+The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal: :::image type="content" source="./media/geocatalog-uri-example.jpeg" alt-text="Screenshot of URI in geocatalog resource in Azure portal."::: or by entering that URI directly into your browser's address bar: :::image type="content" source="./media/geocatalog-uri-link-portal.png" alt-text="Screenshot of URI in address bar.":::** 
 
-Upon entry to the web interface, you'll find yourself on the Planetary Computer Pro landing page, which provides you with a list of your most recently created collections (if you already have some), and a button to create a new collection. 
+Upon entry to the web interface, you'll find yourself on the Planetary Computer Pro landing page, which provides you with a list of your most recently created collections (if you already have some), and a button to create a new collection.
+:::image type="content" source="./media/landing-page.jpeg" alt-text="Screenshot of MPC Pro landing page.":::
 
 The **Collections** page provides you with a full list of your collections, including their names, descriptions, date created, and a collection thumbnail. You can also search for collections by name or description keywords, and create a new collection from this page. This quickstart provides guidance on how to create a collection.
+:::image type="content" source="./media/collections-page.jpeg" alt-text="Screenshot of MPC Pro collections page.":::
 
 The **Settings** page allows you to create and manage ingestion sources, which is a critical first step in data ingestion. You can learn more about ingestion in [Ingestion overview](./ingestion-overview.md).
+:::image type="content" source="./media/settings-page.jpeg" alt-text="Screenshot of MPC Pro settings page.":::
 
 The **Explorer** page is where you can visualize your data on a map. Here, you can search for collections, filter by STAC metadata, and visualize assets. Learn how to use the Explorer in [Quickstart: Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md).
+:::image type="content" source="./media/explorer-page.jpeg" alt-text="Screenshot of MPC Pro Explorer page.":::
 
 ## Create a collection
 
