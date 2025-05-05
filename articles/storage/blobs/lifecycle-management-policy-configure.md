@@ -5,7 +5,7 @@ description: Configure a lifecycle management policy to automatically move data 
 author: normesta
 
 ms.author: normesta
-ms.date: 08/30/2023
+ms.date: 05/05/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
@@ -42,9 +42,11 @@ You can use lifecycle management policies to transition blobs to cost-efficient 
 
   The **Last accessed** option is available only if you have enabled access time tracking and you've selected **Block blobs** as the blob type. See [Enable access time tracking](#enable-access-time-tracking).
 
-6. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs whose name begins with *log* in a container called *sample-container*.
+6. If you selected **Limit blobs with filters** on the **Details** page, select **Filter set** to add an optional filter. The following example filters on blobs whose name begins with *log* in a container called *sample-container*. 
 
   :::image type="content" source="media/lifecycle-management-policy-configure/lifecycle-management-filter-set.png" alt-text="Lifecycle management filter set page in Azure portal":::
+
+   If you encounter unexpected results, see the following FAQ entry: [The blob prefix match string didn't apply the policy to the expected blobs](storage-blob-faq.yml#the-blob-prefix-match-string-didn-t-apply-the-policy-to-the-expected-blobs).
 
 7. Select **Add** to add the new policy.
 

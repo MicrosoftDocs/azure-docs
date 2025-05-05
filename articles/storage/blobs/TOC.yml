@@ -222,6 +222,8 @@ items:
       items:
       - name: Overview
         href: lifecycle-management-overview.md
+      - name: Policy structure
+        href: lifecycle-management-policy-structure.md
       - name: Create and manage a policy
         href: lifecycle-management-policy-configure.md
       - name: 'Examples: Tiering blobs' 

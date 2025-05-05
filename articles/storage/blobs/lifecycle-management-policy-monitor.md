@@ -5,7 +5,7 @@ description: Learn how to monitor Azure Blob Storage lifecycle management policy
 author: normesta
 
 ms.author: normesta
-ms.date: 03/10/2025
+ms.date: 05/05/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual 
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 
 # Monitor lifecycle management policy runs
 
-You can monitor Azure Blob Storage lifecycle management policy run by using events, metrics, and logs. To determine when a lifecycle management run completes by subscribing to an event. You can use event properties to identify issues and then diagnose those issues by using metrics and logs. 
+You can monitor Azure Blob Storage lifecycle management policy run by using events, metrics, and logs. You can determine when a lifecycle management run completes by subscribing to an event. You can use event properties to identify issues and then diagnose those issues by using metrics and logs. 
 
 ## Receiving notifications when a run is complete
 
@@ -79,7 +79,9 @@ The following image shows an example of the query and the query result. The line
 
 ### Logs
 
-To find out why objects weren't successfully processed by the policy, you can look at resource logs. Narrow logs to the time frame of the failures. Then, look at entries where the **UserAgentHeader** field is set to **ObjectLifeCycleScanner** or **OLCMScanner**. If you configured a diagnostic setting to send logs to Azure Monitor Log Analytics workspace, then you can use a Kusto query to locate those log entries. The following example query finds log entries for failed delete operations that were initiated by a lifecycle management policy.
+To find out why objects weren't successfully processed by the policy, you can look at resource logs. Narrow logs to the time frame of the failures. Then, look at entries where the **UserAgentHeader** field is set to **ObjectLifeCycleScanner** or **OLCMScanner**. If you configured a diagnostic setting to send logs to Azure Monitor Log Analytics workspace, then you can use a Kusto query to locate those log entries. To learn more about how to configure a diagnostic setting, see [Monitor Blob Storage](monitor-blob-storage.md). 
+
+The following example query finds log entries for failed delete operations that were initiated by a lifecycle management policy.
 
 ```kusto
 StorageBlobLogs

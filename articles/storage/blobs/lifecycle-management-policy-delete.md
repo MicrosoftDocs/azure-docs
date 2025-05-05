@@ -5,7 +5,7 @@ description: This article shows examples of how to configure a lifecycle managem
 author: normesta
 
 ms.author: normesta
-ms.date: 03/10/2025
+ms.date: 05/05/2025
 ms.service: azure-blob-storage
 ms.topic: conceptual 
 
@@ -82,6 +82,9 @@ Some data should only be expired if explicitly marked for deletion. You can conf
     ]
 }
 ```
+
+> [!NOTE]
+> The **baseBlob** element in a lifecycle management policy refers to the current version of a blob.
 
 ## Manage previous versions
 

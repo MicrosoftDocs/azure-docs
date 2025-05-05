@@ -3,7 +3,7 @@ title: Lifecycle management performance characteristics
 
 titleSuffix: Azure Blob Storage
 author: vigneshgo
-ms.date: 02/11/2025
+ms.date: 05/05/2025
 description: Best practices and guidance on configuring Azure Blob Storage lifecycle management policies and factors influencing its performance.
 
 ms.author: normesta
