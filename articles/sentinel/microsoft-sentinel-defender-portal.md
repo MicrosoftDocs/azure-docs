@@ -57,9 +57,9 @@ The following limitations also apply to Microsoft Sentinel in Defender portal wi
 
 ## Quick reference
 
-Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in Microsoft's unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
+Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in Microsoft's unified security operations platform. Many other Microsoft Sentinel capabilities are available in the  Microsoft Sentinel  section of the Defender portal.
 
-The following image shows the **Microsoft Sentinel** menu in the Defender portal:
+The following image shows the  Microsoft Sentinel  menu in the Defender portal:
 
 :::image type="content" source="media/microsoft-sentinel-defender-portal/navigation-defender-portal.png" alt-text="Screenshot of the Defender portal left navigation with the Microsoft Sentinel section." lightbox="media/microsoft-sentinel-defender-portal/navigation-defender-portal.png":::
 
@@ -73,10 +73,10 @@ The following table lists the changes in navigation between the Azure and Defend
 
 | Azure portal  | Defender portal                                       |
 | ------------- | ----------------------------------------------------- |
-| Overview      | Overview                                              |
-| Logs          | Investigation & response > Hunting > Advanced hunting |
-| News & guides | Not available                                         |
-| Search        | Microsoft Sentinel > Search                           |
+| **Overview**      | **Overview**                                              |
+| **Logs**          | **Investigation & response** > **Hunting** > **Advanced hunting** |
+| **News & guides** | Not available                                         |
+| **Search**        | **Microsoft Sentinel** > **Search**                           |
 
 ### Threat management
 
@@ -84,13 +84,13 @@ The following table lists the changes in navigation between the Azure and Defend
 
 | Azure portal        | Defender portal                                              |
 | ------------------- | ------------------------------------------------------------ |
-| Incidents           | Investigation & response > Incidents & alerts > Incidents    |
-| Workbooks           | Microsoft Sentinel > Threat management> Workbooks            |
-| Hunting             | Microsoft Sentinel > Threat management >  Hunting            |
-| Notebooks           | Microsoft Sentinel > Threat management >  Notebooks          |
-| Entity behavior     | *User entity page:* Assets > Identities > *{user}* > Sentinel events<br>*Device entity page:* Assets > Devices > *{device}* > Sentinel events<br><br>Also, find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.                               |
-| Threat intelligence | Microsoft Sentinel > Threat management > Threat intelligence |
-| MITRE ATT&CK        | Microsoft Sentinel > Threat management > MITRE ATT&CK        |
+| **Incidents**           | **Investigation & response** > **Incidents & alerts** > **Incidents**    |
+| **Workbooks**           | **Microsoft Sentinel** > **Threat management** > **Workbooks**            |
+| **Hunting**             |**Microsoft Sentinel** > **Threat management** >  **Hunting**            |
+| **Notebooks**           |**Microsoft Sentinel** > **Threat management** >  **Notebooks**          |
+| **Entity behavior**     | *User entity page:* **Assets** > **Identities** > *{user}* > **Sentinel events**<br>AND<br>*Device entity page:* **Assets** > **Devices** > *{device}* > **Sentinel events**<br><br>Also, find the entity pages for the user, device, IP, and Azure resource entity types from incidents and alerts as they appear.                               |
+| **Threat intelligence** | **Threat intelligence** > **Intel management** |
+| **MITRE ATT&CK**        |**Microsoft Sentinel** > **Threat management** > **MITRE ATT&CK**        |
 
 ### Content management
 
@@ -98,9 +98,9 @@ The following table lists the changes in navigation between the Azure and Defend
 
 | Azure portal | Defender portal                                        |
 | ------------ | ------------------------------------------------------ |
-| Content hub  | Microsoft Sentinel > Content management > Content hub  |
-| Repositories | Microsoft Sentinel > Content management > Repositories |
-| Community    | Microsoft Sentinel > Content management > Community    |
+| **Content hub**  |**Microsoft Sentinel** > **Content management** > **Content hub**  |
+| **Repositories** |**Microsoft Sentinel** > **Content management** > **Repositories** |
+| **Community**    |**Microsoft Sentinel** > **Content management** > **Community**    |
 
 ### Configuration
 
@@ -108,12 +108,12 @@ The following table lists the changes in navigation between the Azure and Defend
 
 | Azure portal      | Defender portal                                      |
 | ----------------- | ---------------------------------------------------- |
-| Workspace manager | Not available                                        |
-| Data connectors   | Microsoft Sentinel > Configuration > Data connectors |
-| Analytics         | Microsoft Sentinel > Configuration > Analytics<br>AND<br>Investigation and response -> Hunting -> Custom detection rules      |
-| Watchlists        | Microsoft Sentinel > Configuration > Watchlists      |
-| Automation        | Microsoft Sentinel > Configuration > Automation      |
-| Settings          | System > Settings > Microsoft Sentinel               |
+| **Workspace manager** | Not available                                        |
+| **Data connectors**   |**Microsoft Sentinel** > **Configuration** > **Data connectors** |
+| **Analytics**         |**Microsoft Sentinel** > **Configuration** > **Analytics**<br>AND<br>**Investigation and response** > **Hunting** > **Custom detection rules**      |
+| **Watchlists**        |**Microsoft Sentinel** > **Configuration** > **Watchlists**      |
+| **Automation**        |**Microsoft Sentinel** > **Configuration** > **Automation**      |
+| **Settings**          | **System** > **Settings** >**Microsoft Sentinel**              |
 
 ## Related content
 

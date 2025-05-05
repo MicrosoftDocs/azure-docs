@@ -26,9 +26,9 @@ Before you start, note:
 
 ## Plan and set up your transition environment
 
-**Persona**: Security architects
+**Audience**: Security architects
 
-**Video demo**s:
+**Video demos**:
 
 - [Onboard a workspace enabled for Microsoft Sentinel to the Defender portal](https://aka.ms/onboardSentinel_in_Defender)
 - [Managing unified RBAC in Microsoft Defender](https://aka.ms/defender_RBAC)
@@ -52,7 +52,7 @@ For more information, see:
 
 ## Configure and review your settings and content
 
-**Persona**: Security engineers
+**Audience**: Security engineers
 
 **Video demos**:
 
@@ -131,7 +131,7 @@ If you're using the Microsoft Sentinel `SecurityInsights` API to interact with M
 
 ## Run operations in the Defender portal
 
-**Persona**: Security analysts
+**Audience**: Security analysts
 
 **Video demos**: 
 
