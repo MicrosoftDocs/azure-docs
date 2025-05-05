@@ -19,7 +19,7 @@ Once an ingestion source is set, your GeoCatalog will be able to securely ingest
 
 ## Ingestion source location
 
-Microsoft Planetary Computer Pro (MPC Pro) currently only supports secure ingestion from [Azure Blob Storage Containers](/azure/storage/blobs/blob-containers-portal). When creating a new ingestion source, you will need to provide a Blob Storage URI for the Container where your data is stored. A [Blob Storage URI](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata), or link, follows the following URI structure:
+Microsoft Planetary Computer Pro currently only supports secure ingestion from [Azure Blob Storage Containers](/azure/storage/blobs/blob-containers-portal). When creating a new ingestion source, you'll need to provide a Blob Storage URI for the Container where your data is stored. A [Blob Storage URI](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata), or link, follows the following URI structure:
 
 `https://{storage-account-name}.blob.core.windows.net/{container-name}`
 
@@ -32,7 +32,7 @@ Microsoft Planetary Computer Pro (MPC Pro) currently only supports secure ingest
 
 ## Ingestion source authentication mechanisms
 
-Securely ingesting data requires users to provide an authentication mechanism which permits a GeoCatalog to read the data from a specific location. MPC Pro supports two mechanisms to support secure ingestion:
+Securely ingesting data requires users to provide an authentication mechanism which permits a GeoCatalog to read the data from a specific location. Planetary Computer Pro supports two mechanisms to support secure ingestion:
 
 - [Managed identities](/entra/identity/managed-identities-azure-resources/overview) provide an automatically managed identity in Microsoft Entra ID for applications to use when connecting to resources that support Microsoft Entra authentication.
 
@@ -48,6 +48,6 @@ To securely ingest data, set up managed identity access:
 
 The following quickstarts are available to assist users in setting up ingestion sources using either the managed identity or SAS token approach:
 
-- [Setup Ingestion Credentials for MPC Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
+- [Setup Ingestion Credentials for Planetary Computer Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
 - [Adding an Item to a STAC Collection](./add-stac-item-to-collection.md)
 - [Ingest data into GeoCatalog with the Bulk Ingestion API](./add-stac-item-to-collection.md)
