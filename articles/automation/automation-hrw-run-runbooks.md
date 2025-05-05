@@ -487,7 +487,7 @@ To help troubleshoot issues with your runbooks running on an extension-based hyb
 
 * On Windows at `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows<version>` for detailed extension and job runtime process logging. High-level runbook job status events are written to the **Applications and Services Logs/Microsoft-SMA/Operational** event log.
 
-* On Linux, the extension-based hybrid worker logs can be found at  `/home/hweautomation/run/worker.log`, and /var/log/azure/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux.
+* On Linux, the extension-based hybrid worker logs can be found at  `/home/hweautomation/run/worker.log`, and `/var/log/azure/Microsoft.Azure.Automation.HybridWorker.`HybridWorkerForLinux`.
 
 ## Next steps
 
