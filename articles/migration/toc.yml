@@ -33,7 +33,7 @@ items:
     - name: Networking
       href: ./migrate-networking-from-aws.md
     - name: Security
-      href: ./migrate-security-and-identity-from-aws.md
+      href: ./migrate-security-from-aws.md
   - name: Migrate from Google Cloud
     items:
     - name: Getting started

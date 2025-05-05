@@ -47,4 +47,4 @@ Compute services make up only part of your workload. Explore other components th
 - [Databases](migrate-databases-from-aws.md)
 - [Storage](migrate-storage-from-aws.md)
 - [Networking](migrate-networking-from-aws.md)
-- [Security](migrate-security-and-identity-from-aws.md)
+- [Security](migrate-security-from-aws.md)
