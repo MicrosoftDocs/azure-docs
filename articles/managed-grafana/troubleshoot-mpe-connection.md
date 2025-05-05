@@ -22,7 +22,6 @@ Grafana is unable to connect to a private link service that exposes an Azure Kub
 The issue may occur due to one or more of the following reasons:
 
 - The managed private endpoint isn't approved.
-- The private DNS zone isn't configured correctly, leading to DNS resolution failures.
 - Network security group (NSG) rules are blocking the connection.
 - The private link service isn't properly configured to accept connections from the managed private endpoint.
 - The port configuration between the monitored service, the load balancer, and the private link service is inconsistent.
