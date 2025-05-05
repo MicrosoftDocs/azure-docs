@@ -11,7 +11,7 @@ ms.date: 04/22/2025
 
 # Get started with Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro (MPC Pro) is an Azure cloud service for storing, cataloging, and securely distributing geospatial data across an Enterprise. This Get Started guide assists you the basics of deploying the service and creating your first [SpatioTemporal Asset (STAC) Collection](./stac-overview.md). 
+Microsoft Planetary Computer Pro is an Azure cloud service for storing, cataloging, and securely distributing geospatial data across an enterprise. This Get Started guide assists you with the basics of deploying the service and creating your first [SpatioTemporal Asset Catalog (STAC) Collection](./stac-overview.md) to store and distribute your geospatial data. 
 
 ## Prerequisites
 
@@ -31,23 +31,23 @@ Microsoft Planetary Computer Pro (MPC Pro) is an Azure cloud service for storing
 
 A Microsoft Planetary Computer Pro deployment is called a GeoCatalog and is available to deploy through the Azure portal. 
 
-To deploy a GeoCatalog, navigate to the [Azure portal](https://portal.azure.com/), and search for "GeoCatalog"
+To deploy a GeoCatalog, navigate to the [Azure portal](https://portal.azure.com/) and search for "GeoCatalog"
 
 :::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of searching for GeoCatalogs in the Azure portal.":::
 
-Full details of the deployment process are available in the [Deploy GeoCatalog Quickstart](./deploy-geocatalog-resource.md)
+Full details of the deployment process are available in the [Deploy GeoCatalog Quickstart](./deploy-geocatalog-resource.md).
 
 Once the service is deployed, access to the GeoCatalog resource can be controlled through the **Access control (IAM)** tab in the left sidebar:
 
 :::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.":::
 
-More details on the **GeoCatalog Administrator** and **GeoCatalog Reader** role is available in [Manage Access](./manage-access.md) documentation.
+More details on the **GeoCatalog Administrator** and **GeoCatalog Reader** roles are available in [Manage Access](./manage-access.md) documentation.
 
 ## Create a STAC Collection to organize your data
 
 All data managed in Microsoft Planetary Computer Pro is organized into groupings conforming to the [STAC Collection standard.](./stac-overview.md#stac-collections) 
 
-To create a new STAC Collection, select the **Create collection** button from the GeoCatalog web interface:
+To create a new STAC Collection, open the GeoCatalog web interface by clicking on the GeoCatalog URI link on the Resource overview page in the Azure Portal. After opening the web interface, select the **Create collection** button:
 
 :::image type="content" source="media/create-collection-button.png" alt-text="Screenshot of the Create collection button in the GeoCatalog web interface.":::
 
@@ -55,12 +55,12 @@ More details setting up your STAC collection can be found in the [Create Collect
 
 ## Ingest Data into a STAC Collection
 
-[Ingestion](./ingestion-overview.md) is the process of copying your data from an external data store to your GeoCatalog resource and cataloging it. Data which isn't in a cloud-optimized data format is converted into cloud-optimized data format. 
+[Ingestion](./ingestion-overview.md) is the process of copying your data from an external data store to your GeoCatalog resource and cataloging it. Data that isn't in a cloud-optimized format is converted into cloud-optimized format during ingestion. 
 
 The recommended and most secure method for ingesting data is to have the data stored in Azure Blob Storage and for you to provide read access to Blob Storage container using Managed Identity. 
 
 >[!WARNING]
->All data ingested into MPC Pro requires [STAC Items](./stac-overview.md#introduction-to-stac-items). 
+>All data ingested into Planetary Computer Pro requires [STAC Items](./stac-overview.md#introduction-to-stac-items). 
 
 >[!TIP]
 > To accelerate the creation of STAC Items, we have a [detailed tutorial](./create-stac-item.md) and also have an open source tool called STAC Forge.
@@ -79,9 +79,9 @@ The recommended and most secure method for ingesting data is to have the data st
 Ingested data can be visualized both in the built-in [Data Explorer](./use-explorer.md) or through your own applications. 
 
 >[!NOTE]
-> The STAC Collection must be configured to support visualization. 
+> A STAC Collection must be configured to support visualization before it is visible in the Data Explorer. 
 
-MPC Pro's Tiler service [requires configuration](./collection-config-concept.md)] to properly display your ingested data. All of these configuration options are available under the **Configuration** tab in the STAC Collection view:
+Planetary Computer Pro's Tiler service [requires configuration](./collection-config-concept.md) to properly display your ingested data. All of these configuration options are available under the **Configuration** tab in the STAC Collection view:
 
 :::image type="content" source="media/configure-collection-button.png" alt-text="Screenshot of the Configure collection button in the GeoCatalog web interface.":::
 
@@ -101,9 +101,9 @@ Data that is [configured for visualization](./configure-collection-ui.md) can be
 
 :::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
 
-Data can also be accessed directly using the [GeoCatalog API](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
+Data can also be accessed directly using the [GeoCatalog APIs](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 
-MPC Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arcgispro.md) to enable GIS-type work flows. 
+Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arcgispro.md) to enable GIS-type work flows. 
 
 ## Get help
 
