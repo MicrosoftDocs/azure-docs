@@ -107,9 +107,9 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 </details>
 
-## Pre-Checks
+## Prechecks
 <details>
-<summary> Pre-checks before starting Cluster upgrade </summary>
+<summary> Prechecks before starting Cluster upgrade </summary>
 
 1. Validate the provisioning and detailed status for the CM and Cluster.
    
@@ -297,7 +297,7 @@ Review the Operator Nexus release notes for any version specific actions require
 
 Validate the health and status of all the Nexus Instance resources with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
 
-To perform a resource validation of the Nexus Instance components post-upgrade through Azure CLI:
+If not using IRT, perform resource validation of all Nexus Instance components with Azure CLI:
 ```
 # NFC
 az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
