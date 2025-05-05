@@ -116,10 +116,6 @@ When no longer needed, delete **my-aks-cluster** resource group and all of the r
 az group delete --name my-aks-cluster
 ```
 
-## Contact
-
-Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any questions, comments, or proposals.
-
 ## Related content
 
 - [Deploy Arc-enabled workloads in an Extended Zone: ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)

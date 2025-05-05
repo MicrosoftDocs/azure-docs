@@ -50,18 +50,11 @@ The following table lists key services that are available in Azure Extended Zone
 | **Arc-enabled PaaS** | [ContainerApps](/azure/extended-zones/arc-enabled-workloads-container-apps)* <br> [PostgreSQL](/azure/extended-zones/arc-enabled-workloads-postgre-sql)* <br> [ManagedSQL](/azure/extended-zones/arc-enabled-workloads-managed-sql)* |
 
 \* While these services are GA in Azure Regions, they are currently in Preview in Azure Extended Zones.  
-\** [Learn more about Virtual Machine family series here](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist) and feel free to ask your account executive for a detailed SKU list. 
-
-> [!NOTE]  
-> We're currently working with multiple third-party partners who are looking to add supportability of Azure Extended Zones to their platform. We will include in this article as they onboard support. You're always welcome to ask your Account Executive for the latest list.
+\** [Learn more about Virtual Machine family series here](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist). You can obtain a detailed VM list in the Azure Extended Zones environment. 
 
 ## Frequently asked questions (FAQ)
 
 To get answers to frequently asked questions about Azure Extended Zones, see [Azure Extended Zones FAQ](faq.md).
-
-## Contact
-
-Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any questions, comments, or proposals.
 
 ## Related content
 

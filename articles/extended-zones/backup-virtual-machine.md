@@ -95,10 +95,6 @@ When no longer needed, delete the resource group and the resources it contains:
 
 1. Select **Delete** to confirm the deletion of the resource group and all its resources.
 
-## Contact
-
-Feel free to reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any questions, comments, or proposals.
-
 ## Related content
 
 - [What is Azure Extended Zones?](overview.md)
