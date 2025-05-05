@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Include file
+description: Include file
 author: greg-lindsay
 ms.topic: include
 ms.date: 05/05/2025
@@ -32,7 +32,7 @@ Throttling does not affect health checks or traffic routing.
 | Create/update | 600 |
 | Get | 450 |
 | Delete | 150 |
-| List in resouce group or subscription | 450 |
+| List in resource group or subscription | 450 |
 | Check DNS name availability | 300 |
 
 ##### Endpoints
