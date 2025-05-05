@@ -14,7 +14,7 @@ ms.custom: UpdateFrequency3
 This article describes the baseline operating system functionality that's available to all Windows apps running in [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostics logs and events.
 
 > [!NOTE]
-> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. You have root access to the container but no access to the host operating system. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system.
+> Linux apps in App Service run in their own containers. You have root access to the container but no access to the host operating system. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system.
 
 <a id="tiers"></a>
 

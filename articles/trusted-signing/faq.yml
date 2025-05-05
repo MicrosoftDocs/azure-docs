@@ -34,29 +34,17 @@ sections:
           To register the Microsoft.CodeSigning app, go to the subscription **Resource providers** pane as shown in this example:
           
           :::image type="content" source="media/trusted-signing-resource-provider.png" alt-text="Screenshot of registering the Microsoft.CodeSigning resource provider." lightbox="media/trusted-signing-resource-provider.png":::
-
-      - question: What if Organization identity validation fails?
-        answer: | 
-          - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
-          - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
-          - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
-      - question: What if I need assistance with identity validation?
-        answer: | 
-          - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
       - question: What is the cost of using Trusted Signing?
         answer: | 
           - For pricing information, see [Trusted Signing pricing](https://azure.microsoft.com/pricing/details/trusted-signing/).
       - question: What are my support options when I set up Trusted Signing?
         answer: | 
           - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
-  - name: Certificate profiles and identity validation
+  - name: Identity validation
     questions:
       - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
-      - question: Does deleting a certificate profile revoke the certificates? 
-        answer: |
-          - No. If you delete a certificate profile, any certificates that were previously issued or used under that profile remain valid. The certificates aren't revoked.
       - question: Can I use a custom CN or a custom O with Trusted Signing? 
         answer: |
           - No, you can't use a custom Common Name (CN) or a custom Organization (O) with Trusted Signing. Currently, the Trusted Signing service doesn't support customization. Also, keep in mind that per the Certification Authority Browser Forum (CA/Browser Forum) in the Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must always be the legal entity's validated name (for example, `Microsoft Corporation`).
@@ -66,7 +54,34 @@ sections:
       - question: What if my identity validation expires?
         answer: |
           - If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Trusted Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
-       
+      - question: What if Organization identity validation fails?
+        answer: | 
+          - Currently, an organization that has a year-founded date of less than three years can't be onboarded, and identity validation fails. 
+          - An organization based out of US or Canada cannot be onboarded.
+          - If your organization has a year-founded date of more than three years, ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
+          - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentation when we request it, if we can't validate the information, we can't onboard you to Trusted Signing. In this scenario, we recommend that you delete your Trusted Signing account so that you aren't billed for unused resources.
+          - In cases where additional documents were required, you've exhausted all 3 attempts. Therefore, we cannot proceed further with the onboarding.
+      - question: What if I need assistance with identity validation?
+        answer: | 
+          - For questions about identity validation in Trusted Signing, contact us via Azure Support or by using [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**).
+          - Note: creating additional identity validation requests for the same entity that is in progress does not help. Identity Validation requests cannot be expedited.
+      - question: What if email validation link has expired?
+        answer: | 
+          - If you missed to click on the email verification within 7 dyas, you need to start a new identity validation request. A new link cannot be resent on the same request.
+      - question: What if email validation says "Failed" and you think you never received the email validation link?
+        answer: | 
+          - Create another identity validation request. Ensure that the email address used is not a distribution list and the email address can receive links from external email addresses.
+  - name: Certificate profiles
+    questions:
+      - question: What if my Trusted Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
+        answer: |
+          - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
+      - question: Does deleting a certificate profile revoke the certificates? 
+        answer: |
+          - Deleting a certificate profile does not revoke any previously issued certificates or invalidate their signatures; they remain valid.
+      - question: Can I add OU field to Public Trust or Public Trust Test or VBS enclave certificate profile? 
+        answer: |
+          - No. OU is only available for Private Trust and Private Trust CI Policy certificates.
   - name: Signing
     questions:
       - question: What types of files can we sign by using Trusted Signing?
@@ -158,6 +173,9 @@ sections:
        - question: Is the pricing pro-rated or it is full amount regardless of when you begin to use the service?
          answer: | 
           The pricing is not calculated on a pro rata basis. The invoice is generated with the full amount for the SKU that you selected when you created the account, regardless of when you begin to use the service after you create your account. 
+       - question: What does the signing quota include?
+         answer: | 
+          The signing quota encompasses all signing activities across any certificate profile within a Trusted Signing account. 
   - name: Unenroll from the Trusted Signing service
     questions:  
        - question: How do I unenroll from Trusted Signing?

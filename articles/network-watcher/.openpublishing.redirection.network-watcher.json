@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-portal.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-powershell.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/network-watcher/nsg-flow-logs-cli.md",
+            "redirect_url": "/azure/network-watcher/nsg-flow-logs-manage",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/network-watcher/network-watcher-alert-triggered-packet-capture.md",
             "redirect_url": "/azure/network-watcher/packet-capture-alert-triggered",
             "redirect_document_id": true

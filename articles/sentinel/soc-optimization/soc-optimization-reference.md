@@ -1,13 +1,13 @@
 ---
 title: SOC optimization reference
 description: Learn about the Microsoft Sentinel SOC optimization recommendations available to help you optimize your security operations.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orspod
 ms.collection:
   - usx-security
 ms.topic: reference
-ms.date: 12/18/2024
+ms.date: 04/08/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -23,10 +23,8 @@ Use SOC optimization recommendations to help you close coverage gaps against spe
 
 Microsoft Sentinel SOC optimizations include the following types of recommendations:
 
-- **Threat-based recommendations** suggest adding security controls that help you close coverage gaps.
-
 - **Data value recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
-
+- **Threat-based recommendations** suggest adding security controls that help you close coverage gaps.
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
 This article provides a detailed reference of the types of SOC optimization recommendations available.
@@ -35,7 +33,7 @@ This article provides a detailed reference of the types of SOC optimization reco
 
 ## Data value optimization recommendations
 
-To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables, and suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
+To optimize your cost/security value ratio, SOC optimization surfaces hardly used data connectors or tables. SOC optimization suggests ways to either reduce the cost of a table or improve its value, depending on your coverage. This type of optimization is also called *data value optimization*.
 
 Data value optimizations only look at billable tables that ingested data in the past 30 days.
 
@@ -48,6 +46,15 @@ The following table lists the available types of data value SOC optimization rec
 | The table was only used by Azure Monitor.     | Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace.       |
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
+
+### Unused columns (Preview)
+
+SOC optimization also surfaces unused columns in your tables. The following table lists the available types of columns available for SOC optimization recommendations:
+
+| Type of observation | Action |
+|---------|---------|
+| The **ConditionalAccessPolicies** column in the **SignInLogs** table or the **AADNonInteractiveUserSignInLogs** table isn't in use.  | Stop data ingestion for the column. |
+ 
 
 > [!IMPORTANT]
 > When making changes to ingestion plans, we recommend always ensuring that the limits of your ingestion plans are clear, and that the affected tables aren't ingested for compliance or other similar reasons.
@@ -70,17 +77,17 @@ The following table lists the available types of threat-based SOC optimization r
 
 ## Similar organizations recommendations
 
-SOC optimization uses advanced machine learning to identify tables that are missing from your workspace, but are used by organizations with similar ingestion trends and industry profiles to yours. It shows how other organizations use these tables and recommends to you the relevant data sources, along with related rules, to improve your security coverage.
+SOC optimization uses advanced machine learning to identify tables that are missing from your workspace, but are used by organizations with similar ingestion trends and industry profiles. It shows how other organizations use these tables and recommends the relevant data sources, along with related rules, to improve your security coverage.
 
 | Type of observation | Action |
 |---------|---------|
-| Log sources ingested by similar customers are missing   | Connect the suggested data sources. <br><br>This recommendation doesn't include: <ul><li>Custom connectors<li>Custom tables<li>Tables that are ingested by fewer than 10 workspaces <li>Tables that contain multiple log sources, like the `Syslog` or `CommonSecurityLog` tables   |
+| Log sources ingested by similar customers are missing   | Connect the suggested data sources. <br><br>This recommendation doesn't include: <ul><li>Custom connectors<li>Custom tables<li>Tables ingested by fewer than 10 workspaces <li>Tables that contain multiple log sources, like the `Syslog` or `CommonSecurityLog` tables   |
 
 ### Considerations
 
-- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are generally more likely to receive these recommendations than SOCs with a higher level of maturity.
+- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are more likely to receive these recommendations than SOCs with a higher level of maturity.
 
-- Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. The models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or End User Identifiable Information (EUII) is exposed to the analysis.
+- Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. The models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or personal data (EUII) is exposed to the analysis.
 
 ## Related content
 

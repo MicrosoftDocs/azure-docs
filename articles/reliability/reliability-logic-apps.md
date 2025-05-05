@@ -179,7 +179,6 @@ To prepare for availability zone failure, consider *over-provisioning* the capac
 
 This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and all availability zones are operational.
 
-
 ::: zone pivot="consumption"
 
 **Traffic routing between zones:**  During normal operations, workflow invocations can use compute resources in any of the availability zones within the region.
@@ -193,6 +192,8 @@ This section describes what to expect when Azure Logic Apps resources are config
 ::: zone-end
 
 ### Zone-down experience
+
+This section describes what to expect when Azure Logic Apps resources are configured for zone redundancy and there's an availability zone outage.
 
 - **Detection and response:** The Azure Logic Apps platform is responsible for detecting a failure in an availability zone. You don't need to do anything to initiate a zone failover.
 

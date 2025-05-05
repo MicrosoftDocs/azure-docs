@@ -26,7 +26,7 @@ The following table lists the open-source projects maintained by Azure Maps team
 | [react-azure-maps] | An Azure Maps Web SDK wrapper in react framework. For more information and interactive samples, see the Azure Maps React wrapper [Getting Started] guide. | [react-azure-maps][react-azure-maps-npm] |
 | [Azure Maps Animation module] | A rich library of animations for use with the Azure Maps Web SDK. | [@azure-maps/animations] |
 | [Azure Maps Gridded Data Source module] | A module for the Azure Maps Web SDK that provides a data source that clusters data points into cells of a grid area. This operation is also known by many names such as tessellations, data binning, or hex bins.  | [@azure-maps/gridded-data-source] |
-| [Azure maps selection control module] | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. | N/A |
+| [Azure Maps selection control module] | An Azure Maps Web SDK module that provides controls for selecting data in a data source using drawing tools or by requesting a route range polygon. | N/A |
 
 #### Contributed and maintained by Community
 
@@ -49,9 +49,7 @@ The following table lists the open-source projects contributed to, and maintaine
 |--------------------------------|-------------|
 | [Azure Maps Code Samples] | A collection of code samples for using Azure Maps in web-based apps. |
 | [React Azure Maps Playground] | A getting started guide to help you create your first map using the React wrapper for Azure Maps |
-| [Azure Maps & Microsoft Entra ID Samples] | A collection of samples that show how to use Microsoft Entra ID with Azure Maps. |
 | [Azure Maps Jupyter Notebook samples] | A collection of Python samples using the Azure Maps REST services. |
-| [Implement IoT spatial analytics using Azure Maps] | Tracking and capturing relevant events that occur in space and time is a common IoT scenario. |
 
 ## Supportability of open-source projects
 

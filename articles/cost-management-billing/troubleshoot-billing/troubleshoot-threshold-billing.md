@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot threshold billing
 description: Resolve threshold billing problems.
-author: bandersmsft
-ms.reviewer: ragrover
+author: Jkinma39
+ms.reviewer: Jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/20/2024
-ms.author: banders
+ms.date: 04/30/2025
+ms.author: Jkinma
 ---
 
 # Troubleshoot threshold billing
