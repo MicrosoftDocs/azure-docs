@@ -396,4 +396,4 @@ with DurableTaskSchedulerWorker(
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure autoscaling](./durable-task-scheduler-auto-scaling.md)
+> [Configure autoscaling](./durable-task-scheduler-auto-scaling-aca.md)
