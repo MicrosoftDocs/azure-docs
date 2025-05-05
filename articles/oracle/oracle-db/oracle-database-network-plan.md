@@ -72,6 +72,10 @@ The following table describes required configurations of supported network featu
 |Support for DNS Private resolver | No | Yes|
 |Load balancers for Oracle database cluster traffic|No| Yes|
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
+
+> [!NOTE]
+> When using NSGs (Network Security Groups) on the Azure side, please ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on > both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. > Misalignment between these policies could lead to unintended access issues or operational disruptions. 
+
 > [!NOTE]
 > For Traffic Destined to Oracle Database@Azure 
 >When routing traffic through a Network Virtual Appliance (NVA) or firewall to Oracle Database@Azure, the UDR prefix must be at least as specific as the delegated subnet of the instance.
