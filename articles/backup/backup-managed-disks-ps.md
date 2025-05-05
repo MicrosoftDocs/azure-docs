@@ -15,7 +15,7 @@ This article explains how to back up [Azure Managed Disk](/azure/virtual-machine
 Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
 >[!Note]
->- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](/azure/backup/azure-kubernetes-service-backup-overview.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](/backup/azure-kubernetes-service-backup-overview.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 
 ## Create a Backup vault
