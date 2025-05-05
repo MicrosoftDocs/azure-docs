@@ -6,7 +6,7 @@ ms.author: halkazwini
 author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 04/21/2025
 
 #CustomerIntent: As an administrator, I want to learn about the requirements to create a direct peering in Azure Peering Service, so I can provision and manage direct peerings.
 ---

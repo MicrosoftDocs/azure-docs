@@ -1,18 +1,33 @@
 ---
-title: What's new in Azure Reliability documentation
+title: What's new in Azure reliability documentation
 description: Learn about what's new in Azure reliability documentation
 ms.service: azure
 ms.topic: whats-new
-ms.date: 03/03/2025
+ms.date: 04/04/2025
 ms.author: anaharris
 author: anaharris-ms
 ms.custom: subject-reliability
 ---
 
-# What's new in Azure Reliability documentation
-
+# What's new in Azure reliability documentation
 
 This article provides a summary of the latest documentation updates for Azure Reliability. We update this page monthly to let you know about new articles, updated articles, and other changes to the documentation.
+
+## March 2025
+
+### New articles
+
+- [List of Azure regions](./regions-list.md): This article contains a list of all Azure regions, their paired region status, physical location, geography, and availability zone support.  The list replaces the previously separated lists for region pairs and nonpaired regions, and availability zones support.
+
+- [Nonregional Azure services](./regions-nonregional-services.md): This article explains the difference between global and geographic nonregional services, and provides a list of nonregional services that indicates whether each is a global or geographic service.
+
+### Reliability guides
+
+#### New guides
+
+- [Reliability in Azure Data Factory](./reliability-data-factory.md)
+- [Reliability in Azure Kubernetes Service (AKS)](./reliability-aks.md)
+
 ## February 2025
 
 ### New articles

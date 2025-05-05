@@ -12,6 +12,9 @@ ms.reviewer: mimckitt
 
 # Azure Cloud Services (extended support) definition schema (csdef file)
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The service definition file defines the service model for an application. The file contains the definitions for the roles that are available to a Cloud Service, specifies the service endpoints, and establishes configuration settings for the service. Configuration setting values are set in the service configuration file, as described by the [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md)).
 
 By default, the Azure Diagnostics configuration schema file is installed to the `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` directory. Replace `<version>` with the installed version of the [Azure SDK](https://www.windowsazure.com/develop/downloads/).

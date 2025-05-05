@@ -1004,6 +1004,8 @@
     items: 
     - name: Overview
       href: sentinel-security-copilot.md
+    - name: Summarize incidents in Azure portal
+      href: sentinel-security-copilot-incident-summary.md
     - name: Microsoft Copilot in Microsoft Defender
       items:
       - name: Overview

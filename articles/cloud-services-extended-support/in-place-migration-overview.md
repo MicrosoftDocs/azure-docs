@@ -13,6 +13,9 @@ ms.date: 07/24/2024
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 This document provides an overview for migrating Cloud Services (classic) to Cloud Services (extended support).     
 
 [Cloud Services (extended support)](overview.md) has the primary benefit of providing regional resiliency along with feature parity with Azure Cloud Services deployed using Azure Service Manager. It also offers some Azure Resource Manager capabilities such as role-based access control (RBAC), tags, policy, and supports deployment templates, private link. Both deployment models (extended support and classic) are available with [similar pricing structures](https://azure.microsoft.com/pricing/details/cloud-services/).

@@ -6,7 +6,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/01/2023
 ms.author: akashdubey
 ms.devlang: csharp

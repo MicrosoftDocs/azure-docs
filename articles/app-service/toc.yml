@@ -430,7 +430,7 @@ items:
     - name: Restore deleted app
       href: app-service-undelete.md
     - name: Relocate app to another region
-      href: ../operational-excellence/relocation-app-service.md?toc=/azure/app-service/toc.json
+      href: ../azure-resource-manager/management/relocation/relocation-app-service.md?toc=/azure/app-service/toc.json
     - name: Move app between subscriptions
       href: ../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/app-service/toc.json#checklist-before-moving-resources
     - name: About cost management
@@ -465,14 +465,27 @@ items:
       href: invoke-openapi-web-app-from-azure-ai-agent-service.md
 - name: WebJobs
   items:
-    - name: Create WebJobs
+    - name: Overview
+      href: overview-webjobs.md
+    - name: Background jobs best practices
+      href: /azure/architecture/best-practices/background-jobs?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
+      displayName: WebJobs overview
+    - name: WebJobs Quickstart
+      href: quickstart-webjobs.md
+      displayName: Create a scheduled WebJob
+    - name: WebJobs Tutorial
+      href: tutorial-webjobs.md
+      displayName: Prepare and schedule a WebJob      
+    - name: How to create WebJobs
       href: webjobs-create.md
+    - name: How WebJobs work
+      href: webjobs-execution.md
     - name: Develop WebJobs using VS
       href: webjobs-dotnet-deploy-vs.md
     - name: Get started with WebJobs SDK
       href: webjobs-sdk-get-started.md
     - name: Use WebJobs SDK
-      href: webjobs-sdk-how-to.md          
+      href: webjobs-sdk-how-to.md
 - name: Reliability
   items:
   - name: Reliability in Azure App Service

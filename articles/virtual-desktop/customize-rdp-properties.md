@@ -1,10 +1,10 @@
 ---
 title: Set custom RDP properties on a host pool in Azure Virtual Desktop
 description: Learn how to set custom RDP properties on a host pool that add to the default properties and values or override the default values.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 08/22/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 

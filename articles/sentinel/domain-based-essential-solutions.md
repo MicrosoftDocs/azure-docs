@@ -6,8 +6,8 @@ ms.topic: conceptual
 ms.date: 03/01/2024
 ms.author: cwatson
 appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
-    - Microsoft Sentinel in the Microsoft Defender portal.
 ms.collection: usx-security
 
 

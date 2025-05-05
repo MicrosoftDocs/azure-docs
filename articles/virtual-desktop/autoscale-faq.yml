@@ -2,10 +2,10 @@
 metadata:
   title: Azure Virtual Desktop autoscale FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: dknappettmsft
+  author: ErikjeMS
   ms.topic: faq
   ms.date: 11/19/2024
-  ms.author: daknappe
+  ms.author: avdcontent
   ms.custom: docs_inherited 
 title: Azure Virtual Desktop autoscale FAQ
 summary: This article answers frequently asked questions about how to use autoscale for Azure Virtual Desktop.
@@ -71,11 +71,6 @@ sections:
         answer: |
          Yes, autoscale still turns VMs in drain mode on or off, no matter who put it in drain mode. Autoscale overrides drain mode on all VMs included in scaling, so if you want to exclude a VM from scaling actions, you must use exclusion tags.
       
-      - question: |
-         How often does autoscale monitor the session hosts and perform scaling evaluations?
-        answer: |
-         Autoscale monitors for when users sign in or out of their session hosts and categorizes this activity as session change events. Session change events trigger a scaling evaluation that creates logs. If there aren't any session change events or the event service has an outage, autoscale then checks to see if it missed any events. When several session change events happen within a short time period, the feature batches the scaling evaluations. This batching allows autoscale to process large numbers of events quickly without overloading the system.
-
       - question: |
          Can forced sign out happen in any phase of the day?
         answer: |

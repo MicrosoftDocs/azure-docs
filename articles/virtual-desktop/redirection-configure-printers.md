@@ -3,8 +3,8 @@ title: Configure printer redirection over the Remote Desktop Protocol
 description: Learn how to redirect printers from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 07/02/2024
 ---
 

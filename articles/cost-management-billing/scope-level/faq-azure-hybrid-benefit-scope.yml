@@ -3,13 +3,13 @@ metadata:
   title: Centrally managed Azure Hybrid Benefit FAQ
   titleSuffix: Cost Management + Billing
   description: Frequently asked questions and answers.
-  author: bandersmsft
-  ms.reviewer: chrisrin
+  author: pri-mittal
+  ms.reviewer: primittal
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: faq
-  ms.date: 07/01/2024
-  ms.author: banders
+  ms.date: 04/07/2025
+  ms.author: primittal
 title: Centrally managed Azure Hybrid Benefit FAQ
 summary: |
 sections:

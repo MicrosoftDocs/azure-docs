@@ -2,8 +2,8 @@
 title: Supported RDP properties
 description: Learn about the supported RDP properties you can set to customize the behavior of a remote session, such as for device redirection, display settings, session behavior, and more.
 ms.topic: reference
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/06/2025
 ---
 
