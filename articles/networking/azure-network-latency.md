@@ -22,7 +22,7 @@ The latency measurements are collected from Azure cloud regions worldwide, and c
 
 The monthly Percentile P50 round trip times between Azure regions for a 30-day window are shown in the following tabs. The latency is measured in milliseconds (ms).
 
-The current dataset was taken on *May 2nd, 2025*, and it covers the 30-day period ending on *May 1st, 2025*.
+The current dataset was taken on *June 20th, 2024*, and it covers the 30-day period ending on *June 19th, 2024*.
 
 For readability, each table is split into tabs for groups of Azure regions. The tabs are organized by regions, and then by source region in the first column of each table. For example, the *East US* tab also shows the latency from all source regions to the two *East US* regions: *East US* and *East US 2*. 
 
@@ -133,7 +133,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 157 | 145 | 154 |
 | Italy North | 124 | 112 | 121 |
 | Japan East | 135 | 146 | 131 |
-| Japan West | 144 | 154 | 137 |  |
+| Japan West | 144 | 154 | 137 |
 | Korea Central | 158 | 169 | 156 |
 | Korea South | 152 | 163 | 146 |
 | Mexico Central | 47 | 59 | 23 |
@@ -341,7 +341,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 57 | 44 | 52 | 55 | 66 |
 | Italy North | 21 | 12 | 9 | 10 | 22 |
 | Japan East | 214 | 202 | 213 | 208 | 221 |
-| Japan West | 229 | 218 | 229 | 224 | 237 |  |
+| Japan West | 229 | 218 | 229 | 224 | 237 |
 | Korea Central | 213 | 201 | 212 | 207 | 220 |
 | Korea South | 207 | 195 | 207 | 202 | 215 |
 | Mexico Central | 128 | 131 | 142 | 137 | 131 |
@@ -393,7 +393,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 57 | 59 | 50 | 59 |
 | Italy North | 20 | 14 |  | 27 |
 | Japan East | 225 | 220 | 211 | 234 |
-| Japan West | 241 | 235 | 227 | 249 | 131 | 153 |
+| Japan West | 241 | 235 | 227 | 249 |
 | Korea Central | 224 | 219 | 211 | 232 |
 | Korea South | 219 | 213 | 205 | 227 |
 | Mexico Central | 140 | 140 | 140 | 148 |
@@ -445,7 +445,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 75 | 79 | 76 |
 | Italy North | 32 | 34 | 39 |
 | Japan East | 238 | 234 | 243 |
-| Japan West | 254 | 249 | 259 |  |
+| Japan West | 254 | 249 | 259 |
 | Korea Central | 237 | 233 | 242 |
 | Korea South | 231 | 227 | 236 |
 | Mexico Central | 142 | 145 | 147 |
@@ -497,7 +497,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 77 | 61 | 65 |
 | Italy North | 37 | 26 | 32 |
 | Japan East | 236 | 219 | 225 |
-| Japan West | 244 | 235 | 241 |  |
+| Japan West | 244 | 235 | 241 |
 | Korea Central | 229 | 218 | 224 |
 | Korea South | 224 | 212 | 219 |
 | Mexico Central | 120 | 126 | 130 |
@@ -705,7 +705,7 @@ Use the following tabs to view latency statistics for each region.
 | Israel Central | 149 | 159 | 143 |
 | Italy North | 117 | 127 | 110 |
 | Japan East | 122 | 104 | 117 |
-| Japan West | 132 | 113 | 127 |  |
+| Japan West | 132 | 113 | 127 |
 | Korea Central | 117 | 97 | 110 |
 | Korea South | 110 | 91 | 105 |
 | Mexico Central | 235 | 253 | 229 |
@@ -894,7 +894,7 @@ Use the following tabs to view latency statistics for each region.
 
 Additionally, you can view all of the data in a single table.
 
-:::image type="content" source="media/azure-network-latency/azure-network-latency-thumb.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency.png":::
+:::image type="content" source="media/azure-network-latency/azure-network-latency.png" alt-text="Screenshot of full region latency table" lightbox="media/azure-network-latency/azure-network-latency-thumb.png":::
 
 ## Next steps
 
