@@ -1,12 +1,12 @@
 ---
-title: Configuring managed identity for Azure Functions Durable Task Scheduler (preview)
+title: Configure managed identity for Azure Functions Durable Task Scheduler (preview)
 description: Learn about the roles available for managed identity in Durable Task Scheduler and how to configure them.
 ms.topic: how-to
 ms.date: 05/05/2025
 zone_pivot_groups: dts-devexp
 ---
 
-## Configuring managed identity for Durable Task Scheduler (preview)
+## Configure managed identity for Durable Task Scheduler (preview)
 
 Durable Task Scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
 
@@ -128,7 +128,7 @@ In this article, you learn how to grant permissions to an identity resource and 
 
 ### Assign managed identity to your app
 
-Now that the identity has the required RBAC to access Durable Task Scheduler, you need to assign it to your function app.
+Now that the identity has the required RBAC to access Durable Task Scheduler, you need to assign it to your app.
 
 ::: zone pivot="az-cli" 
 
@@ -138,13 +138,26 @@ Now that the identity has the required RBAC to access Durable Task Scheduler, yo
     ```
 
 1. Assign the identity to app.
+
+    # [Durable Functions](#tab/df)
+
     ```azurecli
     az functionapp identity assign --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --identities "$resource_id"
     ```
 
+    # [Azure Container Apps](#tab/aca)
+
+    ```azurecli
+    az containerapp identity assign --resource-group RESOURCE_GROUP_NAME --name CONTAINER_APP_NAME --identities "$resource_id"
+    ```
+
+    ---
+
 ::: zone-end 
 
 ::: zone pivot="az-portal"
+
+# [Durable Functions](#tab/df)
   
 1. From your app in the portal, select **Settings** > **Identity**. 
 
@@ -152,7 +165,19 @@ Now that the identity has the required RBAC to access Durable Task Scheduler, yo
 
 1. Click **+ Add**, then pick the identity created in the last section. Click the **Add** button.
 
-    :::image type="content" source="media/configure-durable-task-scheduler/assign-identity.png" alt-text="Screenshot of adding the user-assigned managed identity to your app in the portal.":::
+    :::image type="content" source="media/configure-durable-task-scheduler/assign-identity.png" alt-text="Screenshot of adding the user-assigned managed identity to your function app in the portal.":::
+
+# [Azure Container Apps](#tab/aca)
+
+1. From your app in the portal, select **Settings** > **Identity**. 
+
+1. Click the **User assigned** tab.
+
+1. Click **+ Add**, then pick the identity created in the last section. Click the **Add** button.
+
+    :::image type="content" source="media/configure-durable-task-scheduler/add-assignment-container-app.png" alt-text="Screenshot of adding the user-assigned managed identity to your container app in the portal.":::
+
+---
 
 ::: zone-end 
 
@@ -177,9 +202,20 @@ Add these two environment variables to app setting:
     ```
 
 1. Use the following command to add environment variable for the scheduler connection string to app. 
+
+    # [Durable Functions](#tab/df)
+
     ```azurecli
     az functionapp config appsettings set --resource-group RESOURCE_GROUP_NAME --name FUNCTION_APP_NAME --settings KEY_NAME=KEY_VALUE
     ```
+
+    # [Azure Container Apps](#tab/aca)
+
+    ```azurecli
+    az containerapp --resource-group RESOURCE_GROUP_NAME --name CONTAINER_APP_NAME --set-env-vars KEY=VALUE
+    ```
+    
+    ---
 
 1. Repeat previous step to add environment variable for task hub name. 
 
@@ -207,67 +243,6 @@ Add these two environment variables to app setting:
 
 > [!NOTE]
 > If you use system-assigned identity, your connection string would *not* need the client ID of the identity resource: `"Endpoint={scheduler endpoint};Authentication=ManagedIdentity"`.
-
-## Accessing Durable Task Scheduler dashboard
-
-Assign the required role to your *developer identity (email)* to gain access to the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
-
-::: zone pivot="az-cli" 
-
-1. Set the assignee to your developer identity.
-
-    ```azurecli
-    assignee=$(az ad user show --id "someone@microsoft.com" --query "id" --output tsv)
-    ```
-
-1. Set the scope. Granting access on the scheduler scope gives access to *all* task hubs in that scheduler.
-
-    **Task Hub**
-
-    ```bash
-    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/taskHubs/TASK_HUB_NAME"
-    ```
-   
-    **Scheduler**
-    ```bash
-    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME"
-    ```
-
-1. Grant access. Run the following command to create the role assignment and grant access.
-
-    ```azurecli
-    az role assignment create \
-      --assignee "$assignee" \
-      --role "Durable Task Data Contributor" \
-      --scope "$scope"
-    ```
-   
-    *Expected output*
-   
-    The following output example shows a developer identity assigned with the Durable Task Data Contributor role on the *scheduler* level:
-   
-    ```json
-    {
-      "condition": null,
-      "conditionVersion": null,
-      "createdBy": "YOUR_DEVELOPER_CREDENTIAL_ID",
-      "createdOn": "2024-12-20T01:36:45.022356+00:00",
-      "delegatedManagedIdentityResourceId": null,
-      "description": null,
-      "id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/YOUR_DTS_NAME/providers/Microsoft.Authorization/roleAssignments/ROLE_ASSIGNMENT_ID",
-      "name": "ROLE_ASSIGNMENT_ID",
-      "principalId": "YOUR_DEVELOPER_CREDENTIAL_ID",
-      "principalName": "YOUR_EMAIL",
-      "principalType": "User",
-      "resourceGroup": "YOUR_RESOURCE_GROUP",
-      "roleDefinitionId": "/subscriptions/YOUR_SUBSCRIPTION/providers/Microsoft.Authorization/roleDefinitions/ROLE_DEFINITION_ID",
-      "roleDefinitionName": "Durable Task Data Contributor",
-      "scope": "/subscriptions/YOUR_SUBSCRIPTION/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/YOUR_DTS_NAME",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "updatedBy": "YOUR_DEVELOPER_CREDENTIAL_ID",
-      "updatedOn": "2024-12-20T01:36:45.022356+00:00"
-    }
-    ```
 
 ## Next steps
 
