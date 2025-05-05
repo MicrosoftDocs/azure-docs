@@ -18,7 +18,7 @@ zone_pivot_groups: acs-js-csharp
 # Authentication service hero sample
 
 > [!IMPORTANT]
-> This sample is available on GitHub Azure Samples for [node.JS](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs) and [C#](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp).
+> This sample is available on GitHub Azure Samples for [Node.js](https://github.com/Azure-Samples/communication-services-authentication-hero-nodejs) and [C#](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp).
 
 Azure Communication Services requires developers to generate user and access token credentials inside of a trusted authentication service. Azure Communication Services is identity-agnostic, to learn more check out our [conceptual documentation](../concepts/identity-model.md).
 
@@ -44,7 +44,7 @@ To be able to run this sample, you need:
 - Update the Server (Web API) application with information from the app registrations.
  
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [NodeJS Auth Hero](./includes/node-auth-hero.md)]
+[!INCLUDE [Node.js Auth Hero](./includes/node-auth-hero.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

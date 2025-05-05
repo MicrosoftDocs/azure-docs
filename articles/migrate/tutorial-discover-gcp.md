@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/23/2024
+ms.date: 02/07/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy24
 ms.collection:
  - migration
@@ -14,7 +14,7 @@ ms.collection:
 #Customer intent: As a server admin I want to discover my GCP instances.
 ---
 
-# Tutorial: Discover Google Cloud Platform (GCP) instances with Azure Migrate: Discovery and assessment
+# Tutorial: Discover Google Cloud Platform (GCP) instances with Azure Migrate
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
@@ -77,7 +77,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 1. In the portal, go to **Microsoft Entra ID** > **Users**.
 
-1. Request the tenant or Privileged Role Administrator to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
 
 ## Prepare GCP instances
 
@@ -109,7 +109,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 4. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+5. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 6. Select **Create**.
 7. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
@@ -138,7 +138,7 @@ To set up the appliance, you:
 
 ### 1. Generate the project key
 
-1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen, etc.)**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of your GCP virtual servers. The name should be alphanumeric with 14 characters or fewer.
 4. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover servers page during the creation of resources.

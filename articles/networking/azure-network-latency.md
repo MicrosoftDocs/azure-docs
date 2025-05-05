@@ -629,7 +629,7 @@ Use the following tabs to view latency statistics for each region.
 | Brazil South        | 307           | 327         | 322        |
 | Canada Central      | 213           | 236         | 235        |
 | Canada East         | 218           | 240         | 239        |
-| Central India       |               | 24          | 29         |
+| Central India       |               | 21          | 5         |
 | Central US          | 233           | 232         | 254        |
 | East Asia           | 84            | 66          | 105        |
 | East US             | 200           | 224         | 222        |
@@ -653,7 +653,7 @@ Use the following tabs to view latency statistics for each region.
 | South Africa North  | 138           | 153         | 158        |
 | South Africa West   | 153           | 168         | 174        |
 | South Central US    | 230           | 230         | 252        |
-| South India         | 26            |             | 44         |
+| South India         | 21            |             | 17         |
 | Southeast Asia      | 55            | 36          | 77         |
 | Sweden Central      | 158           | 173         | 180        |
 | Switzerland North   | 141           | 164         | 161        |

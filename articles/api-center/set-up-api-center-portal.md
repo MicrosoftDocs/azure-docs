@@ -1,12 +1,13 @@
 ---
-title: Set up the API Center portal
+title: Set Up the API Center Portal
 description: How to set up the API Center portal, a managed website that enables discovery of the API inventory in your Azure API center.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/04/2025
+ms.date: 04/30/2025
 ms.author: danlep 
 ms.custom: 
+ms.collection: ce-skilling-ai-copilot
 # Customer intent: As an API program manager, I want to enable an Azure-managed portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
 ---
 
@@ -50,15 +51,44 @@ You can now access the API Center portal:
 
 ### API visibility
 
-API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center.
+API visibility settings control which APIs are discoverable (visible) to API Center portal users. The API Center portal uses the data plane API to retrieve and display APIs, and by default retrieves all APIs in your API center. Visibility settings apply to all users of the API Center portal.
 
 To make only specific APIs visible, go to the **API visibility** tab in the API Center portal settings. Here, add filter conditions for APIs based on built-in or custom API [metadata](metadata.md) properties. For instance, you can choose to display APIs only of certain types (like REST or GraphQL) or based on certain specification formats (such as OpenAPI). Additionally, you can select values of custom metadata properties that categorize your APIs.
 
-:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::
+:::image type="content" source="media/set-up-api-center-portal/add-visibility-condition.png" alt-text="Screenshot of adding API visibility conditions in the portal.":::.
 
 ## Enable sign-in to portal by Microsoft Entra users and groups 
 
 [!INCLUDE [api-center-portal-user-sign-in](includes/api-center-portal-user-sign-in.md)]
+
+## Enable access to test console for APIs
+
+You can configure user settings to granularly authorize access to APIs and their specific versions in your API center. For example, configure certain API versions to use API keys for authentication, and create an access policy that permits only specific users to authenticate using those keys. This policy also applies to the "Try this API" capability for APIs in the API Center portal, ensuring that only portal users with the appropriate access policy can use the test console for those API versions. [Learn more about authorizing access to APIs](authorize-api-access.md)
+
+## API discovery and consumption in the API Center portal
+
+The API Center portal supports and streamlines the work of developers who use and create APIs within your organization. Signed-in users can:
+
+* **Search for APIs** by name or using [AI-assisted semantic search](#search-with-ai) 
+
+* **Filter APIs** by type or lifecycle stage
+
+* **View API details and definitions** including endpoints, methods, parameters, and response formats
+
+* **Download API definitions** to a local computer or open them in Visual Studio Code
+
+* **Try out APIs** that support API key authentication or OAuth 2.0 authorization
+
+## Search with AI
+
+In the Standard plan of Azure API Center, the API Center portal supplements basic name-based API search with AI-assisted *semantic search* built on API names and descriptions. Users can search for APIs using natural language queries, making it easier to find APIs based on their intent. For example, if a developer searches for "I need an API for inventory management," the portal can suggest relevant APIs, even if their names or descriptions don't include those exact words.
+
+> [!TIP]
+> If you're using the Free plan of Azure API Center, you can [upgrade easily](frequently-asked-questions.yml#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan) to the Standard plan to enable full service features including semantic search in the API Center portal.
+
+To use AI-assisted search when signed in to the API Center portal, click in the search box, select **Search with AI**, and enter a query.
+
+:::image type="content" source="media/set-up-api-center-portal/semantic-search.png" alt-text="Screenshot of semantic search results in API Center portal.":::
 
 [!INCLUDE [api-center-portal-compare-apim-dev-portal](includes/api-center-portal-compare-apim-dev-portal.md)]
 
