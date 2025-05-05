@@ -20,7 +20,7 @@
 4. Choose the **Country/region** where you would like to provision the phone number. Country/region availability is based on the billing location for your Azure subscription. More information on what numbers are available for each country/region can be found [here](../../../concepts/numbers/sub-eligibility-number-capability.md). Next you'll choose the [number type](../../../concepts/telephony/plan-solution.md#phone-number-types-in-azure-communication-services). You can select from two phone number types: **Local**, and **Toll-free**.
 
 > [!NOTE]
-> - Bulk number orders or some countries, such as the Netherlands, require a special order for phone numbers. If special ordering is needed, you will be prompted to follow the below mentioned special order process.
+> - Bulk number orders or some countries/regions, such as the Netherlands, require a special order for phone numbers. If special ordering is needed, you will be prompted to follow the below mentioned special order process.
 > - Click "Request a Special Order" button in the Phone Numbers section.
 > - Open a [new case](https://aka.ms/ContactTNS).
 > - Select "Azure Communication Service" as your Customer Profile.

@@ -18,6 +18,8 @@ items:
     href: quickstarts/create-communication-resource.md
 #  - name: Geolocation
 #    href: /rest/api/maps/geolocation
+  - name: Managed applications
+    href: concepts/managed-apps.md
   - name: SDKs and APIs
     href: concepts/sdk-options.md
   - name: Service limits
