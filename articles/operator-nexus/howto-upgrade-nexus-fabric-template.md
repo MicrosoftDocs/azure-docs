@@ -63,7 +63,6 @@ Runtime changes are categorized as follows:
 - <MISE_CID>: Microsoft.Identity.ServiceEssentials (MISE) Correlation ID in debug output for Device updates
 - <CORRELATION_ID>: Operation Correlation ID in debug output for Device updates
 - <ASYNC_URL>: Asynchronous (ASYNC) URL in debug output for Device updates
-- <LINK_TO_TELCO_INPUT>: Link to the Instance Telco Input file
 
 </details>
 
@@ -78,7 +77,6 @@ Runtime changes are categorized as follows:
 - Subscription Name: <CUSTOMER_SUB_NAME>
 - Subscription ID: <CUSTOMER_SUB_ID>
 - Tenant ID: <CUSTOMER_SUB_TENANT_ID>
-- Telco Input: <LINK_TO_TELCO_INPUT>
 ```
 
 </details>
@@ -108,9 +106,9 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 </details>
 
-## Pre-Checks
+## Prechecks
 <details>
-<summary> Pre-checks before starting Fabric upgrade </summary>
+<summary> Prechecks before starting Fabric upgrade </summary>
   
 1. The following role permissions should be assigned to end users responsible for Fabric create, upgrade, and delete operations.
   
@@ -119,7 +117,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    * Microsoft.NexusIdentity/identitySets/write
    * Microsoft.NexusIdentity/identitySets/delete
    * Ensure that `Role Based Access Control Administrator` is successfully activated.
-   * Check in Azure portal from the following path: `Network Fabrics` -> <NF_NAME> -> `Access control (IAM)` -> `View my access`.
+   * Check in Azure portal from the following path: `Network Fabrics` -> `<NF_NAME>` -> `Access control (IAM)` -> `View my access`.
    * In current 'Role assignments', you should see the following two roles:
      - Nexus Contributor
      - Role Based Access Control Administrator
@@ -305,7 +303,7 @@ Review the Operator Nexus release notes for any version specific actions require
 
 Validate the health and status of all the Nexus Instance resources with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
 
-To perform a resource validation of the Nexus Instance components post-upgrade through Azure CLI:
+If not using IRT, perform resource validation of all Nexus Instance components with Azure CLI:
 ```
 # NFC
 az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
@@ -347,7 +345,6 @@ Reference links for Fabric upgrade:
 - [Install Azure CLI](https://aka.ms/azcli)
 - [Install CLI Extension](howto-install-cli-extensions.md)
 - Reference the [Network Fabric Upgrade](howto-upgrade-nexus-fabric.md)
-- Reference the [Nexus Telco Input Template](concepts-telco-input-template.md)
 - Reference the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md)
 
 </details>
