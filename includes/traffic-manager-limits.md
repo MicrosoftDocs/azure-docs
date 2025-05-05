@@ -17,13 +17,7 @@ ms.custom: include file
 
 <sup>1</sup>If you need to increase these limits, contact Azure Support.
 
-#### Default throttling limits
-
-To ensure reliable performance and fair usage, Azure Traffic Manager enforces throttling on control plane APIs. These limits are applied per Azure subscription, typically over a 20-second interval. 
-
-Exceeding limits returns an HTTP 429 (too many requests) with a `retry-after` header.  
-
-Throttling does not affect health checks or traffic routing. 
+#### Default throttling limits 
 
 ##### Profiles
 
