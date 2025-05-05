@@ -46,7 +46,8 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
 
 ::: zone-end 
 
-## Run durable task emulator
+## Run Durable Task emulator
+
 1. Pull the docker image containing the emulator. 
 
    ```bash
@@ -299,6 +300,7 @@ The following sections demonstrate how to grant permissions to an identity resou
     ```
    
     **Scheduler**
+
     ```bash
     scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP_NAME/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME"
     ```
