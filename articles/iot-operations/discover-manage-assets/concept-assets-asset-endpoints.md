@@ -1,8 +1,8 @@
 ---
 title: Understand assets and asset endpoint profiles
 description: Understand the Azure Device Registry resources that define assets and asset endpoint profiles.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 #ms.subservice:
 ms.topic: conceptual
 ms.date: 10/22/2024

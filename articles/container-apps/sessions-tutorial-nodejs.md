@@ -5,7 +5,7 @@ services: container-apps
 author: IshitaAsthana
 ms.service: azure-container-apps
 ms.topic: tutorial
-ms.date: 11/08/2024
+ms.date: 02/19/2025
 ms.author: iasthana
 ---
 
@@ -131,7 +131,7 @@ To interact with the session pool's API, you must use an identity with the `Azur
 
 ## Get a bearer token
 
-For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](./sessions.md?tabs=azure-cli#authentication) rules.
+For direct access to the session pool’s API, generate an access token to include in the `Authorization` header of your requests. Ensure the token contains an audience (`aud`) claim with the value `https://dynamicsessions.io`. For more information, see [authentication and authorization](./sessions-usage.md?tabs=azure-cli#authentication) rules.
 
 1. Get an access token.
 

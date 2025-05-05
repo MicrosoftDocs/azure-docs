@@ -14,7 +14,7 @@ metadata:
 
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 09/05/2024
+  ms.date: 03/31/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -27,8 +27,6 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-          - text: Azure Deployment Environments roadmap 
-            url: ade-roadmap.md
             
   # Card
   - title: Get started
@@ -41,7 +39,6 @@ landingContent:
             url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
-
   
   # Card
   - title: Configure the Deployment Environments service
@@ -88,6 +85,8 @@ landingContent:
         links:
           - text: Request a quota limit increase
             url: how-to-request-quota-increase.md
+          - text: Automatically delete an environment
+            url: how-to-schedule-environment-deletion.md  
        
   # Card
   - title: Provide access to create and manage environments

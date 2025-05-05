@@ -5,7 +5,7 @@ description: Learn how to connect to Azure Blob Storage by using an SSH File Tra
 author: normesta
 ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/18/2024
 ms.author: normesta
 ---
@@ -79,8 +79,9 @@ See the documentation of your SFTP client for guidance about how to connect and 
 
 ### Modify the ACL of a file or directory
 
-You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the ID of the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
-
+You can modify the permission level of the owning user, owning group, and all other users of an ACL by using an SFTP client. You can also change the owning user and the owning group. To learn more about ACL support for SFTP clients, see [ACLs](secure-file-transfer-protocol-support.md#access-control-lists-acls).
+> [!NOTE]
+> Owning users can now also modify owning group and permissions of a blob or directory without container permissions. This is a new feature enhancement added during the General Availability phase of ACLs for local users. For any user that is not the owning user, container permissions are still required. 
 #### Modify permissions
 
 To change the permission level of the owning user, owning group, or all other users of an ACL, the local user must have `Modify Permission` permission. See [Give permission to containers](secure-file-transfer-protocol-support-authorize-access.md#give-permission-to-containers).

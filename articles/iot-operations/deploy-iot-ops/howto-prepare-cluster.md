@@ -1,8 +1,8 @@
 ---
 title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 10/23/2024
@@ -199,7 +199,7 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    ```
 
    > [!NOTE]
-   >If you receive the error: "Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation", then your service principal might lack the necessary permissions to retrieve the object ID of the custom location. Log into Azure CLI with a Microsoft Entra user account that meets the prerequisites. For more information, see [Create and manage custom locations](https://aka.ms/enable-cl-sp).
+   >If you receive the error: "Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation," then your service principal might lack the necessary permissions to retrieve the object ID of the custom location. Log into Azure CLI with a Microsoft Entra user account that meets the prerequisites. For more information, see [Create and manage custom locations](https://aka.ms/enable-cl-sp).
 
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable the custom location feature on your Arc cluster. This command uses the OBJECT_ID environment variable saved from the previous step to set the value for the custom-locations-oid parameter. Run this command on the machine where you deployed the Kubernetes cluster: 
 
@@ -215,9 +215,11 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 ### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. 
+On multi-node Ubuntu clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
 
 If you want to enable fault tolerance during deployment, configure your clusters by following the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=ubuntu).
+
+If you're running your cluster on a Kubernetes distribution other than k3s, review the guidance to [Prepare Linux with other platforms](/azure/azure-arc/container-storage/multi-node-cluster-edge-volumes?pivots=other).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 

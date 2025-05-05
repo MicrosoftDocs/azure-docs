@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Export test results from Azure Load Testing for use in third-party tools
 
-In this article, you learn how to export your Azure Load Testing test results and reports. You can download the results by using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, or by copying the results from an Azure storage account. You can use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
+In this article, you learn how to export your Azure Load Testing test results and reports. You can download the results by using the Azure portal, as an artifact in your CI/CD workflow, in JMeter by using a backend listener, in Locust by using event hooks or listener plugins,  or by copying the results from an Azure storage account. You can use these results for reporting in third-party tools or for diagnosing test failures. Azure Load Testing generates the test results in comma-separated values (CSV) file format, and provides details of each application request for the load test.
 
 You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Diagnose failing load tests](./how-to-diagnose-failing-load-test.md).
 
@@ -45,7 +45,7 @@ timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success
 After a load test run finishes, you can access and download the load test results and the HTML report through the Azure portal, or as an artifact in your CI/CD workflow.
 
 >[!IMPORTANT]
->For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file is not available for download. You can [configure a JMeter Backend Listener to export the results](#export-test-results-using-jmeter-backend-listeners) to a data store of your choice or [copy the results from a storage account container](#copy-test-artifacts-from-a-storage-account-container).
+>For load tests with more than 45 engine instances or a greater than 3-hour test run duration, the results file is not available for download. You can [configure a JMeter Backend Listener to export the results](#export-test-results-using-listeners) to a data store of your choice or [copy the results from a storage account container](#copy-test-artifacts-from-a-storage-account-container).
 >For tests with samplers greater than 30, the downloaded HTML report will only have graphs for data aggregated over all samplers. Graphs will not show sampler-wise data. Additionally, the downloaded report doesn't support graphs corresponding to server-side metrics.
 
 # [Azure portal](#tab/portal)
@@ -144,9 +144,9 @@ When you run a load test as part of your CI/CD pipeline, Azure Load Testing gene
     :::image type="content" source="./media/how-to-export-test-results/azure-pipelines-run-summary.png" alt-text="Screenshot that shows the Azure Pipelines workflow summary page, highlighting the test results in the Stages section." lightbox="./media/how-to-export-test-results/azure-pipelines-run-summary.png":::
 ---
 
-## Export test results using JMeter backend listeners
+## Export test results using listeners
 
-You can use a [JMeter backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) to export test results to databases like InfluxDB, MySQL, or monitoring tools like Azure Application Insights.
+For JMeter-based tests, you can use a [JMeter backend listener](https://jmeter.apache.org/usermanual/component_reference.html#Backend_Listener) to export test results to databases like InfluxDB, MySQL, or monitoring tools like Azure Application Insights.
 
 You can use the default JMeter backend listeners, backend listeners from [jmeter-plugins.org](https://jmeter-plugins.org), or a custom backend listener in the form of a Java archive (JAR) file.
 
@@ -155,6 +155,8 @@ The following code snippet shows an example of how to use the backend listener f
 :::code language="xml" source="~/azure-load-testing-samples/jmeter-backend-listeners/sample-backend-listener-appinsights.jmx" range="85-126" :::
 
 You can download the full [example of using the Azure Application Insights backend listener](https://github.com/Azure-Samples/azure-load-testing-samples/tree/main/jmeter-backend-listeners).
+
+For Locust-based tests, you can use [event hooks](https://docs.locust.io/en/stable/extending-locust.html) or [listener plugins](https://github.com/SvenskaSpel/locust-plugins?tab=readme-ov-file#listeners).
 
 ## Copy test artifacts from a storage account container
 

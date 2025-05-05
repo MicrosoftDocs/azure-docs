@@ -2,8 +2,8 @@
 title: Custom authentication in Azure Static Web Apps
 description: Learn to configure custom authentication for Azure Static Web Apps
 services: static-web-apps
-author: aaronpowell
-ms.author: aapowell
+author: v1212
+ms.author: wujia
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 06/28/2024

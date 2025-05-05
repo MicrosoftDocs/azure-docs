@@ -2,13 +2,12 @@
 title: Microsoft Entra ID Free
 description: Learn about Microsoft Entra ID Free, a cloud-based identity management product included with your billing account, and how it helps manage your subscriptions.
 author: bandersmsft
-ms.reviewer: sasrin
+ms.reviewer: kenny.day
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 02/19/2025
-ms.author: banders
-#customer intent: As a billing administrator, I want to understand the Microsoft Entra ID Free subscription so that I can manage my billing account and subscriptions.
+ms.date: 02/24/2025
+ms.author: zainzaigham
 ---
 
 # Microsoft Entra ID Free
@@ -39,7 +38,7 @@ The following sections describe how Microsoft Entra ID Free works with your bill
 
 ### Where to find the Microsoft Entra ID Free subscription
 
-The Microsoft Entra ID Free subscription appears in your list of billing subscriptions under **All Billing Subscriptions** in the Microsoft Entra admin center and the Azure portal. It appears on the **Subscriptions** page in the Microsoft 365 admin center.
+The Microsoft Entra ID Free subscription appears in your list of billing subscriptions under **All Billing Subscriptions** in the Microsoft Entra admin center and the Azure portal. It appears on the **Your products** page in the Microsoft 365 admin center.
 
 ### A credit card is required for Microsoft Entra ID Free
 

@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 11/05/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a security operations team member, I want to monitor and protect SAP systems using Microsoft Sentinel so that I can detect, analyze, and respond to threats effectively across all layers of the SAP environment.
@@ -22,7 +22,7 @@ An SAP system breach could result in stolen files, exposed data, or a disrupted 
 
 To help close this gap, Microsoft Sentinel offers Microsoft Sentinel [solutions](../sentinel-solutions-deploy.md) for SAP applications, which use components at every level of Microsoft Sentinel to offer end-to-end detection, analysis, investigation, and response to threats in your SAP environment.
 
-## SIEM and SOAR features and sample architecture
+## SIEM and SOAR features
 
 The Microsoft Sentinel solution for SAP applications continuously monitor SAP systems for threats at all layers - business logic, application, database, and OS. It allows you to:
 
@@ -30,14 +30,7 @@ The Microsoft Sentinel solution for SAP applications continuously monitor SAP sy
 
 - **Security orchestration, automation and response (SOAR)**: Build automated response processes that interact with your SAP systems to stop active security threats.
 
-For example, the following image shows a sample environment where the Microsoft Sentinel solution for SAP applications is deployed. This sample architecture uses a multi-SID SAP landscape with a split between productive and nonproductive systems. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
-
-:::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
-
-Microsoft Sentinel also offers solutions for the following SAP environment configurations:
-
-- (Limited preview) The [Microsoft Sentinel SAP Agentless solution](deployment-overview.md#data-connector) offers threat monitoring and detection for the SAP Audit Log only, with an agentless data connector for simpler deployment.
-- The [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md) offers threat monitoring and detection for SAP Business Technology Platform (BTP).
+Microsoft Sentinel also offers the [Microsoft Sentinel solution for SAP BTP](sap-btp-solution-overview.md), which offers threat monitoring and detection for SAP Business Technology Platform (BTP).
 
 ## Threat detection coverage
 

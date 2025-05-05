@@ -2,9 +2,9 @@
 title: Use Java and Gradle to publish a function to Azure
 description: Create and publish an HTTP-triggered function to Azure with Java and Gradle.
 author: KarlErickson
+ms.author: karler
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
-ms.author: karler
 ms.topic: quickstart
 ms.date: 04/08/2020
 ---

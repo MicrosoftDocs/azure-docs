@@ -7,7 +7,7 @@ ms.subservice: sql-dw
 ms.date: 02/10/2025
 author: mstehrani
 ms.author: emtehran
-ms.reviewer: wiassaf
+
 ms.custom: azure-synapse
 ---
 

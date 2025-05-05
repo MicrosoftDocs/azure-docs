@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Sign and make requests to Azure Communication Services' SMS API with Postman
+title: Tutorial - Sign and Make Requests to the Communication Services SMS API with Postman
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign and makes requests for Azure Communication Services with Postman to send an SMS Message.
+description: Learn how to sign and make requests for Azure Communication Services with Postman to send an SMS message.
 author: tophpalmer
 services: azure-communication-services
 
@@ -11,70 +11,75 @@ ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
-# Tutorial: Sign and make requests with Postman
-In this tutorial, we'll be setting up and using Postman to make a request against Azure Communication Services using HTTP. By the end of this tutorial, you'll have successfully sent an SMS message using Communication Services and Postman. You'll then be able to use Postman to explore other APIs within Azure Communication Services.
 
-In this tutorial we'll be:
+# Tutorial: Sign and make requests with Postman
+
+In this tutorial, you set up and use Postman to make a request against Azure Communication Services by using HTTP. By the end of this tutorial, you successfully send a Short Message Service (SMS) message by using Communication Services and Postman. You can then use Postman to explore other APIs in Communication Services.
+
+In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Downloading Postman
-> * Setting up Postman to sign HTTP Requests
-> * Making a request against the Communication Services SMS API to send a message.
+> * Download Postman.
+> * Set up Postman to sign HTTP requests.
+> * Make a request against the Communication Services SMS API to send a message.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). The free account gives you $200 in Azure credits to try out any combination of services.
-- An active Communication Services resource and connection string. [Learn how to create a Communication Services resource](../quickstarts/create-communication-resource.md).
-- An Azure Communication Services Telephone number that can send SMS messages, see our [Get a phone number](../quickstarts/telephony/get-phone-number.md) to get one.
+- An Azure account with an active subscription. If you don't have an Azure subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). The free account gives you $200 in Azure credits to try out any combination of services.
+- An active Communication Services resource and connection string. If you don't have a resource, see [Create a Communication Services resource](../quickstarts/create-communication-resource.md).
+- A Communication Services telephone number that can send SMS messages. To get a telephone number, see [Get a phone number](../quickstarts/telephony/get-phone-number.md).
 
-## Downloading and installing Postman
+## Download and install Postman
 
-Postman, is a desktop application that is capable of making API requests against any HTTP API. It is commonly used for testing and exploring APIs. We'll be downloading the latest [Desktop version from Postman's website](https://www.postman.com/downloads/). Postman has versions for Windows, Mac, and Linux so download the version appropriate for your operating system. Once downloaded open the application. You will be presented with a start screen, which asks you to sign in or to create a Postman account. Creating an account is optional and can be skipped by clicking the "Skip and go to app" link. Creating an account will save your API request settings to Postman, which can then allow you to pick up your requests on other computers.
+Postman is a desktop application that's capable of making API requests against any HTTP API. Postman is commonly used for testing and exploring APIs. In this tutorial, you download the latest [desktop version from the Postman website](https://www.postman.com/downloads/). Postman has versions for Windows, Mac, and Linux, so download the version that's appropriate for your operating system.
 
-:::image type="content" source="media/postman/create-account-or-skip.png" alt-text="Postman's Start screen showing the ability to create an account or to skip and go to the app.":::
+After the download is finished, open the application. The start screen asks you to sign in or create a Postman account. Creating an account is optional, and you can skip it by selecting **Skip and go to app**. Creating an account saves your API request settings to Postman. You can then pick up your requests on other computers.
 
-Once you've created an account or skipped creating one, you should now see Postman's main window.
+:::image type="content" source="media/postman/create-account-or-skip.png" alt-text="Screenshot that shows the Postman start screen where you can create an account or go directly to the app.":::
 
-## Creating and configuring a Postman collection
+After you create an account or skip the step, you now see Postman's main screen.
 
-Postman, can organize requests in many ways. For the purposes of this tutorial. We'll be creating a Postman Collection. To do this, select the collections button on the left-hand side of the application:
+## Create and configure a Postman collection
 
-:::image type="content" source="media/postman/collections-tab.png" alt-text="Postman's main screen with the Collections tab highlighted.":::
+Postman can organize requests in many ways. For the purposes of this tutorial, you create a Postman collection. To do this task, on the left side of the application, select **Collections**.
 
-Once selected, click "Create new Collection", to start the collection creation process. A new tab will open in the center area of Postman. Name the collection whatever you'd like. Here the collection is named "Azure Communication Services":
+:::image type="content" source="media/postman/collections-tab.png" alt-text="Screenshot that shows the Postman main screen with the Collections tab highlighted.":::
 
-:::image type="content" source="media/postman/acs-collection.png" alt-text="Postman with a Communication Services Collection opened and the name of the collection highlighted.":::
+Select **Create a new Collection** to start the process of creating a collection. A new tab opens in the center area of Postman where you name the collection. Here, the collection is named **Azure Communication Services**.
 
-Once your collection is created and named, you are ready to configure it.
+:::image type="content" source="media/postman/acs-collection.png" alt-text="Screenshot that shows Postman with a Communication Services collection opened and the name of the collection highlighted.":::
 
-### Adding collection variables
+After you create and name your collection, you're ready to configure it.
 
-To handle authentication and to make requests easier, we'll be specifying two collection variables within the newly created Communication Services collection. These variables are available to all requests within your Communication Services collection. To get started in creating variables, visit the Collection's Variable's Tab.
+### Add collection variables
 
-:::image type="content" source="media/postman/variable-stab.png" alt-text="Postman with a Communication Services Collection's Variables Tab.":::
+To handle authentication and make requests easier, you specify two collection variables within the newly created Communication Services collection. These variables are available to all requests in your collection. To start creating variables, select the **Variables** tab.
 
-Once on the collection tab, create two variables:
-- key - This variable should be one of your keys from your Azure Communication Services' key page within the Azure portal. For example, `oW...A==`.
-- endpoint - This variable should be your Azure Communication Services' endpoint from the key page. **Ensure you remove the trailing slash**. For example, `https://contoso.communication.azure.com`.
+:::image type="content" source="media/postman/variable-stab.png" alt-text="Screenshot that shows Postman with the Communication Services Variables tab.":::
 
-Enter these values into the "Initial Value" column of the variables screen. Once entered, press the "Persist All" button just above the table on the right. When configured correctly your Postman screen should look something like this:
+On the **Collections** tab, create two variables:
 
-:::image type="content" source="media/postman/acs-variables-set.png" alt-text="Postman with a Communication Services Collection's variables set up correctly.":::
+- **key**: This variable should be one of your keys from your Communication Services **Key** page in the Azure portal. An example is `oW...A==`.
+- **endpoint**: This variable should be your Communication Services endpoints from the **Key** page. *Make sure that you remove the trailing slash.* An example is `https://contoso.communication.azure.com`.
 
-You can learn more about variables by reading [Postman's documentation on them](https://learning.postman.com/docs/sending-requests/variables).
+On the **Variables** tab, enter these values in the **Initial Value** column. Select **Persist All** in the upper-right corner. When configured correctly, your Postman pane should look something like the following image.
 
-### Creating a pre-request script
+:::image type="content" source="media/postman/acs-variables-set.png" alt-text="Screenshot that shows Postman with Communication Services collection variables set up correctly.":::
 
-The next step is to create a pre-request Script within Postman. A pre-request script, is a script that runs before each request in Postman and can modify or alter request parameters on your behalf. We'll be using this to sign our HTTP requests so that they can be authorized by Azure Communication Services. For more information about the Signing requirements, you can [read our guide on authentication](/rest/api/communication/authentication).
+To learn more about variables, see the [Postman documentation](https://learning.postman.com/docs/sending-requests/variables).
 
-We'll be creating this script within the Collection such that it runs on any request within the collection. To do this, within the collection tab click the "Pre-request Script" Sub-Tab.
+### Create a prerequest script
 
-:::image type="content" source="media/postman/start-pre-request-script.png" alt-text="Postman with a Communication Services Collection's pre-request Script Sub-Tab Selected.":::
+The next step is to create a prerequest script in Postman. A prerequest script runs before each request in Postman. It can modify or alter request parameters for you. You use this script to sign your HTTP requests so that Communication Services can authorize them. For more information about signing requirements, see [our guide on authentication](/rest/api/communication/authentication).
 
-On this Sub-Tab, you can create a pre-request script by entering it into the text area below. It may be easier to write this, within a full code editor such as [Visual Studio Code](https://code.visualstudio.com/) before pasting it in when complete. We'll be going through each part of the script in this tutorial. Feel free to skip to the end if you'd like to just copy it into Postman and get started. Let's start writing the script.
+You create this script in the collection so that it runs on any request in the collection. To do this step, on the **Collections** tab, select **Pre-request Script**.
 
-### Writing the pre-request script
+:::image type="content" source="media/postman/start-pre-request-script.png" alt-text="Screenshot that shows Postman with the Communication Services Collections Pre-request Script tab.":::
 
-The first thing we'll be doing is creating a Coordinated Universal Time (UTC) string and adding this to the "Date" HTTP Header. We also store this string in a variable to use it later when signing:
+Now you create a prerequest script by entering it in the text area. This step might be easier if you write it in a full code editor like [Visual Studio Code](https://code.visualstudio.com/) before you paste it in. This tutorial walks you through each part of the script process. Skip to the end if you want to copy the script into Postman and get started. Let's start writing the script.
+
+### Write the prerequest script
+
+The first step is to create a Coordinated Universal Time (UTC) string and add it to the `Date` HTTP header. Store this string in a variable to use it later when you sign.
 
 ```JavaScript
 // Set the Date header to our Date as a UTC String.
@@ -82,10 +87,10 @@ const dateStr = new Date().toUTCString();
 pm.request.headers.upsert({key:'Date', value: dateStr});
 ```
 
-Next, we'll hash the request body using SHA 256 and place it in the `x-ms-content-sha256` header. Postman includes some [standard libraries](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-external-libraries) for hashing and signing globally, so we don't need to install them or require them:
+Next, hash the request body by using SHA 256 and place it in the `x-ms-content-sha256` header. Postman includes some [standard libraries](https://learning.postman.com/docs/writing-scripts/script-references/postman-sandbox-api-reference/#using-external-libraries) for hashing and signing globally, so you don't need to install them or require them.
 
 ```JavaScript
-// Hash the request body using SHA256 and encode it as Base64
+// Hash the request body by using SHA256 and encode it as Base64
 const hashedBodyStr = CryptoJS.SHA256(pm.request.body.raw).toString(CryptoJS.enc.Base64)
 // And add that to the header x-ms-content-sha256
 pm.request.headers.upsert({
@@ -94,29 +99,29 @@ pm.request.headers.upsert({
 });
 ```
 
-Now, we'll use our previously specified endpoint variable to discern the value for the HTTP Host header. We need to do this as the Host header is not set until after this script is processed:
+Use your previously specified endpoint variable to discern the value for the HTTP Host header. The Host header isn't set until after this script is processed.
 
 ```JavaScript
-// Get our previously specified endpoint variable
+// Get our previously specified endpoint variable.
 const endpoint = pm.variables.get('endpoint')
-// Remove the https, prefix to create a suitable "Host" value
+// Remove the https prefix to create a suitable "Host" value.
 const hostStr = endpoint.replace('https://','');
 ```
 
-With this information created, we can now create the string, which we'll be signing for the HTTP Request, this is composed of several previously created values:
+With this information, you can now create the string, which you sign for the HTTP request. The string is composed of several previously created values.
 
 ```JavaScript
-// This gets the part of our URL that is after the endpoint, for example in https://contoso.communication.azure.com/sms, it will get '/sms'
+// This gets the part of our URL that is after the endpoint, for example, in https://contoso.communication.azure.com/sms, it will get '/sms'.
 const url = pm.request.url.toString().replace('{{endpoint}}','');
 
-// Construct our string which we'll sign, using various previously created values.
+// Construct our string, which we'll sign, by using various previously created values.
 const stringToSign = pm.request.method + '\n' + url + '\n' + dateStr + ';' + hostStr + ';' + hashedBodyStr;
 ```
 
-Lastly, we need to sign this string using our Communication Services key and then add that to our request in the `Authorization` header:
+Lastly, you sign this string by using your Communication Services key. Then add that key to your request in the `Authorization` header.
 
 ```JavaScript
-// Decode our access key from previously created variables, into bytes from base64.
+// Decode our access key from previously created variables into bytes from Base64.
 const key = CryptoJS.enc.Base64.parse(pm.variables.get('key'));
 // Sign our previously calculated string with HMAC 256 and our key. Convert it to Base64.
 const signature = CryptoJS.HmacSHA256(stringToSign, key).toString(CryptoJS.enc.Base64);
@@ -128,35 +133,35 @@ pm.request.headers.upsert({
 });
 ```
 
-### The final pre-request script
+### The final prerequest script
 
-The final pre-request script should look something like this:
+The final prerequest script should look something like this example:
 
 ```JavaScript
 // Set the Date header to our Date as a UTC String.
 const dateStr = new Date().toUTCString();
 pm.request.headers.upsert({key:'Date', value: dateStr});
 
-// Hash the request body using SHA256 and encode it as Base64
+// Hash the request body by using SHA256 and encode it as Base64.
 const hashedBodyStr = CryptoJS.SHA256(pm.request.body.raw).toString(CryptoJS.enc.Base64)
-// And add that to the header x-ms-content-sha256
+// And add that to the header x-ms-content-sha256.
 pm.request.headers.upsert({
     key:'x-ms-content-sha256',
     value: hashedBodyStr
 });
 
-// Get our previously specified endpoint variable
+// Get our previously specified endpoint variable.
 const endpoint = pm.variables.get('endpoint')
-// Remove the https, prefix to create a suitable "Host" value
+// Remove the https prefix to create a suitable "Host" value.
 const hostStr = endpoint.replace('https://','');
 
-// This gets the part of our URL that is after the endpoint, for example in https://contoso.communication.azure.com/sms, it will get '/sms'
+// This gets the part of our URL that is after the endpoint, for example, in https://contoso.communication.azure.com/sms, it will get '/sms'.
 const url = pm.request.url.toString().replace('{{endpoint}}','');
 
-// Construct our string which we'll sign, using various previously created values.
+// Construct our string, which we'll sign, by using various previously created values.
 const stringToSign = pm.request.method + '\n' + url + '\n' + dateStr + ';' + hostStr + ';' + hashedBodyStr;
 
-// Decode our access key from previously created variables, into bytes from base64.
+// Decode our access key from previously created variables into bytes from Base64.
 const key = CryptoJS.enc.Base64.parse(pm.variables.get('key'));
 // Sign our previously calculated string with HMAC 256 and our key. Convert it to Base64.
 const signature = CryptoJS.HmacSHA256(stringToSign, key).toString(CryptoJS.enc.Base64);
@@ -168,33 +173,33 @@ pm.request.headers.upsert({
 });
 ```
 
-Enter or paste this final script, into the text area within the Pre-request Script Tab:
+Enter or paste this final script in the text area on the **Pre-request Script** tab.
 
-:::image type="content" source="media/postman/finish-pre-request.png" alt-text="Postman with an Azure Communication Services Collection's Pre-request script entered.":::
+:::image type="content" source="media/postman/finish-pre-request.png" alt-text="Screenshot that shows Postman with a Communication Services collection prerequest script entered.":::
 
-Once entered, press CTRL + S or press the save button this will save the script to the collection. 
+After you enter it, select Ctrl+S or select **Save** to save the script to the collection.
 
-:::image type="content" source="media/postman/save-pre-request-script.png" alt-text="Postman's Save Pre-request script button.":::
+:::image type="content" source="media/postman/save-pre-request-script.png" alt-text="Screenshot that shows the Postman prerequest script Save button.":::
 
-## Creating a request in Postman
+## Create a request in Postman
 
-Now that everything is set up, we're ready to create a Communication Services request within Postman. To get started click the plus(+) icon next to the Communication Services Collection:
+Now that everything is set up, you're ready to create a Communication Services request in Postman. To get started, select the plus sign (+) next to the Communication Services collection.
 
-:::image type="content" source="media/postman/create-request.png" alt-text="Postman's plus button.":::
+:::image type="content" source="media/postman/create-request.png" alt-text="Screenshot that shows the Postman plus sign (+).":::
 
-This will create a new tab for our request within Postman. With it created we need to configure it. We'll be making a request against the SMS Send API so be sure to refer to the [documentation for this API for assistance](/rest/api/communication/sms/send). Let's configure Postman's request.
+You created a new tab for your request in Postman, and now you need to configure it. You make a request against the SMS Send API, so be sure to refer to the [documentation for this API for assistance](/rest/api/communication/sms/send). Let's configure the Postman request.
 
-Start by setting, the request type to `POST` and entering `{{endpoint}}/sms?api-version=2021-03-07` into the request URL field. This URL uses our previously created `endpoint` variable to automatically send it to your Communication Services resource.
+To start, set the request type to `POST` and enter `{{endpoint}}/sms?api-version=2021-03-07` in the request URL field. This URL uses your previously created `endpoint` variable to automatically send it to your Communication Services resource.
 
-:::image type="content" source="media/postman/post-request-and-url.png" alt-text="A Postman request, with the type set to POST and the URL set correctly.":::
+:::image type="content" source="media/postman/post-request-and-url.png" alt-text="Screenshot that shows a Postman request with the type set to POST and the URL set correctly.":::
 
-Now select the Body tab of the request and then change the radio button beneath to "raw". On the right, there is a dropdown that says "Text", change it to JSON:
+On the **Body** tab of the request, select **raw**. In the dropdown list on the right, select **JSON**.
 
-:::image type="content" source="media/postman/postman-json.png" alt-text="Setting the request body to raw and JSON":::
+:::image type="content" source="media/postman/postman-json.png" alt-text="Screenshot that shows setting the request body to raw and JSON.":::
 
-This will configure the request to send and receive information in a JSON format.
+You configured the request to send and receive information in a JSON format.
 
-In the text area below you'll need to enter a request body, it should be in the following format:
+In the text area, enter a request body in the following format:
 
 ```JSON
 {
@@ -208,38 +213,33 @@ In the text area below you'll need to enter a request body, it should be in the 
 }
 ```
 
-For the "from" value, you'll need to [get a telephone number](../quickstarts/telephony/get-phone-number.md) in the Azure Communication Services Portal as previously mentioned. Enter it without any spaces and prefixed by your country code. For example: `+15555551234`. Your "message" can be whatever you'd like to send but `Hello from Azure Communication Services` is a good example. The "to" value should be a phone you have access to that can receive SMS messages. Using your own mobile is a good idea.
+For the `from` value, you need to [get a telephone number](../quickstarts/telephony/get-phone-number.md) in the Communication Services portal, as previously mentioned. Enter it without any spaces and a prefix of your country code. An example is `+15555551234`. Your `message` can be whatever you want to send, but `Hello from Azure Communication Services` is a good example. The `to` value should be a phone to which you have access so that you can receive SMS messages. Using your own mobile phone is a good idea.
 
-Once entered, we need to save this request into the Communication Services Collection that we previously created. This will ensure that it picks up the variables and pre-request script that we previously created. To do, this click the "save" button in the top right of the request area.
+Save this request into the Communication Services collection that you previously created. This step ensures that it picks up the variables and prerequest script that you previously created. Select **Save** in the upper right of the request area.
 
-:::image type="content" source="media/postman/postman-save.png" alt-text="The save button for a Postman request.":::
+:::image type="content" source="media/postman/postman-save.png" alt-text="Screenshot that shows the Save button for a Postman request.":::
 
-This will make a dialog window appear that asks you, what you'd like to call the request and where you'd like to save it. You can name it anything you'd like but ensure you select your Communication Services collection in the lower half of the dialog:
+The dialog that appears asks you what you want to call the request and where you want to save it. You can name it anything you want, but ensure that you select your Communication Services collection in the lower half of the dialog.
 
-:::image type="content" source="media/postman/postman-save-to-acs.png" alt-text="The Postman save request dialog with the Communication Services collection selected.":::
+:::image type="content" source="media/postman/postman-save-to-acs.png" alt-text="Screenshot that shows the Postman Save Request dialog with the Communication Services collection selected.":::
 
-## Sending a request
+## Send a request
 
-Now that everything is set up, you should be able to send the request and get an SMS message on your phone. To do this, ensure your created request is selected and then press the "Send" button on the right:
+Now that everything is set up, you can send the request and get an SMS message on your phone. To do this step, ensure that your request is selected and then select **Send**.
 
-:::image type="content" source="media/postman/postman-send.png" alt-text="A Postman request, with the Send button highlighted.":::
+:::image type="content" source="media/postman/postman-send.png" alt-text="Screenshot that shows a Postman request with the Send button highlighted.":::
 
-If everything went well, you should now see the response from Communication Services, which should be 202 Status code:
+If everything went well, you see the response from Communication Services, which is a 202 status code.
 
-:::image type="content" source="media/postman/postman-202.png" alt-text="A Postman request, sent successfully with a 202 status code.":::
+:::image type="content" source="media/postman/postman-202.png" alt-text="Screenshot that shows a Postman request that sent successfully with a 202 status code.":::
 
-The Mobile phone, which owns the number you provided in the "to" value, should also have received an SMS message. You now have a functional Postman configuration that can talk to Azure Communication Services and send SMS messages.
+The mobile phone that owns the number you provided in the `to` value also received an SMS message. You now have a functional Postman configuration that can talk to Communication Services and send SMS messages.
 
+## Related content
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Explore Azure Communication Services APIs](/rest/api/communication/)
-> [Read more about Authentication](/rest/api/communication/authentication)
-> [Learn more about Postman](https://learning.postman.com/)
-
-You might also want to:
-
+- [Explore Azure Communication Services APIs](/rest/api/communication/)
+- [Read more about authentication](/rest/api/communication/authentication)
+- [Learn more about Postman](https://learning.postman.com/)
 - [Add chat to your app](../quickstarts/chat/get-started.md)
 - [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)

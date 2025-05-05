@@ -6,7 +6,7 @@ ms.service: azure-virtual-machines
 ms.topic: overview
 ms.custom:
   - ignite-2023
-ms.date: 11/07/2023
+ms.date: 03/18/2025
 ms.author: mattmcinnes
 ms.reviewer: mattmcinnes
 #Customer intent: I want to improve the security and performance of my Azure virtual machines
@@ -24,7 +24,7 @@ Azure Boost contains several features that can improve the performance and secur
 
 - **Networking:** Azure Boost includes a suite of software and hardware networking systems that provide a significant boost to both network performance (Up to 200-Gbps network bandwidth) and network security. Azure Boost compatible virtual machine hosts contain the new [Microsoft Azure Network Adapter (MANA)](../../articles/virtual-network/accelerated-networking-mana-overview.md). Learn more about [Azure Boost networking](../../articles/azure-boost/overview.md#networking).
 
-- **Storage:** Storage operations are offloaded to the Azure Boost FPGA. This offload provides leading efficiency and performance while improving security, reducing jitter, and improving latency for workloads. Local storage now runs at up to 26-GBps and 6.6 million IOPS with remote storage up to 14-GBps throughput and 750 K IOPS. Learn more about [Azure Boost Storage](../../articles/azure-boost/overview.md#storage).
+- **Storage:** Storage processing operations are offloaded to the Azure Boost FPGA. This offload to FPGA provides leading efficiency and performance while improving security, reducing jitter, and improving latency for workloads. Local storage now runs at up to 36GBps throughput and 6.6 million IOPS, and with remote storage up to 14GBps throughput and 750K IOPS. Learn more about [Azure Boost Storage](../../articles/azure-boost/overview.md#storage).
 
 - **Security:** Azure Boost uses [Cerberus](../security/fundamentals/project-cerberus.md) as an independent HW Root of Trust to achieve NIST 800-193 certification. Customer workloads can't run on Azure Boost powered architecture unless the firmware and software running on the system is trusted. Learn more about [Azure Boost Security](../../articles/azure-boost/overview.md#security).
 
@@ -52,11 +52,11 @@ Consistent updates and performance enhancements ensures you're always a step ahe
 ## Storage
 Azure Boost architecture offloads storage covering local, remote and cached disks that provide leading efficiency and performance while improving security, reducing jitter & improving latency for workloads. Azure Boost already provides acceleration for workloads in the fleet using remote storage including specialized workloads such as the Ebsv5 VM types. Also, these improvements provide potential cost saving for customers by consolidating existing workload into fewer or smaller sized VMs. 
 
-Azure Boost delivers industry leading throughput performance at up to 14-GBps throughput and 750K IOPS. This performance is enabled by accelerated storage processing and exposing NVMe disk interfaces to VMs. Storage tasks are offloaded from the host processor to dedicated programmable Azure Boost hardware in our dynamically programmable FPGA. This architecture allows us to update the FPGA hardware in the fleet enabling continuous delivery for our customers.
+Azure Boost delivers industry leading throughput performance at up to 14GBps throughput and 750K IOPS for remote disk access performance. This performance is enabled by accelerated storage processing and exposing NVMe disk interfaces to VMs. Storage processing tasks are offloaded from the host processor to dedicated programmable Azure Boost hardware in our dynamically programmable FPGA. This architecture allows us to update the FPGA hardware in the fleet enabling continuous delivery for our customers.
 
 :::image type="content" source="./media/boost-storage-nvme-vs-scsi.png" alt-text="Diagram showing the difference between managed SCSI storage and Azure Boost's managed NVMe storage.":::
 
-By fully applying Azure Boost architecture, we deliver remote, local, and cached disk performance improvements at up to 26-GBps throughput and 6.6M IOPS. Azure Boost SSDs are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
+With Azure Boost SSD architecture, we deliver local, and cached disk performance improvements at up to 36GBps throughput and 6.6M IOPS depending on the VM size of your choice. Azure Boost SSDs are designed to provide high performance optimized encryption at rest, and minimal jitter to NVMe local disks for Azure VMs with local disks.
 
 :::image type="content" source="./media/boost-storage-ssd-comparison.png" alt-text="Diagram showing the difference between local SCSI SSDs and Azure Boost's local NVMe SSDs.":::
 

@@ -4,7 +4,7 @@ description: Learn how to deploy a Network Virtual Appliance in the Virtual WAN 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 03/26/2025
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a Network Virtual Appliance (NVA) in my Virtual WAN hub.
 ---

@@ -2,7 +2,8 @@
 title: Introduction to the Java PetClinic AI Sample in Azure Container Apps
 description: Explains the architecture of AI applications deployed to Azure Container Apps.
 author: KarlErickson
-ms.author: sonwan
+ms.author: karler
+ms.reviewer: sonwan
 ms.service: azure-container-apps
 ms.topic: concept-article
 ms.date: 02/12/2025
@@ -112,4 +113,4 @@ For more information, see [Advisors API](https://docs.spring.io/spring-ai/refere
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy an AI-enabled instance of Spring PetClinic on Azure Container Apps](java-petclinic-ai-overview.md)
+> [Deploy an AI-enabled instance of the Spring PetClinic on Azure Container Apps](java-petclinic-ai-tutorial.md)

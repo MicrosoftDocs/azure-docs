@@ -1,7 +1,7 @@
 ---
-title: How to create authentication credentials for sending emails using SMTP
-titleSuffix: An Azure Communication Services Quickstart
-description: Learn about how to use a service principal to create authentication credentials for sending emails using SMTP.
+title: Set up SMTP authentication for sending emails
+titleSuffix: An Azure Communication Services article
+description: This article describes how to use a service principal to create authentication credentials for sending emails using Simple Mail Transfer Protocol (SMTP).
 author: ddouglas-msft
 services: azure-communication-services
 ms.author: ddouglas
@@ -85,8 +85,8 @@ When you assign the Microsoft Entra application a role for the Azure Communicati
     :::image type="content" source="../media/email-smtp-select-custom-role.png" alt-text="Screenshot that shows selecting the custom role.":::
 1. On the **Members** tab, choose **User, group, or service principal** and then click **+Select members**.
     :::image type="content" source="../media/email-smtp-select-members.png" alt-text="Screenshot that shows choosing select members.":::
-1. Use the search box to find the **Microsoft Entra** application that you'll use for authentication and select it. Then click **Select**.
-    :::image type="content" source="../media/email-smtp-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application.":::
+1. Use the search box to find the **Microsoft Entra** application that you use for authentication and select it. Then click **Select**.
+    :::image type="content" source="../media/email-smtp-select-entra.png" alt-text="Screenshot that shows selecting Microsoft Entra ID.":::
 1. After confirming the selection, click **Next**.
     :::image type="content" source="../media/email-smtp-select-review.png" alt-text="Screenshot that shows reviewing the assignment.":::
 1. After confirming the scope and members, click **Review + assign**.
@@ -119,7 +119,7 @@ The password is one of the Microsoft Entra application's client secrets.
 Enter the following settings directly on your device or in the application as their guide instructs (it might use different terminology than this article). Provided your scenario aligns with the prerequisites for SMTP AUTH client submission, these settings enable you to send emails from your device or application using SMTP Commands.
 
 | Device or Application setting | Value |
-|--|--|
+| --- | --- |
 |Server / smart host | smtp.azurecomm.net |
 |Port |Port 587 (recommended) or port 25|
 |TLS / StartTLS | Enabled|

@@ -19,6 +19,8 @@ ms.subservice: b2c
 
 # Manage user access in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 This article discusses how to manage user access to your applications by using Azure Active Directory B2C (Azure AD B2C). Access management in your application includes:
 
 - Identifying minors and controlling user access to your application.

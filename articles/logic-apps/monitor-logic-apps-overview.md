@@ -4,7 +4,7 @@ description: Start here to learn about monitoring workflows in Azure Logic Apps.
 ms.service: azure-logic-apps
 ms.topic: conceptual
 ms.custom: horz-monitor
-ms.date: 07/11/2024
+ms.date: 03/07/2025
 ---
 
 # Monitor workflows in Azure Logic Apps
@@ -17,11 +17,11 @@ For a detailed guide describing how to check Azure Logic Apps workflow status, v
 
 ### Application Insights
 
-You can set up Application Insights for a workspace or for a logic app after creation.
+You can set up Application Insights for a logic app or Log Analytics workspace after creation.
 
-[Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md) shows how to turn on enhanced telemetry collection for a Standard logic app in Application Insights and view the collected data after the workflow finishes a run.
+[Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps](enable-enhanced-telemetry-standard-workflows.md) shows how to turn on enhanced telemetry collection for a Standard logic app resource in Application Insights and view the collected data after the workflow finishes a run.
 
-If your logic app's creation and deployment settings support using Application Insights, you can optionally enable diagnostics logging and tracing for your logic app's workflow. For more information, see [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
+If your logic app creation and deployment settings support using Application Insights, you can optionally enable diagnostics logging and tracing for your logic app workflow. For more information, see [Enable or open Application Insights after deployment](create-single-tenant-workflows-azure-portal.md#enable-open-application-insights).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md).
@@ -39,14 +39,20 @@ For more information about the resource types for Azure Logic Apps, see [Azure L
 
 - To learn how to set up diagnostic logging and monitor logic apps in Microsoft Defender for Cloud, see [Set up logging to monitor logic apps in Microsoft Defender for Cloud](healthy-unhealthy-resource.md).
 
-- For the available resource log categories, their associated Log Analytics tables, and the log's schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
+- For the available resource log categories, their associated Log Analytics tables, and log schemas for Azure Logic Apps, see [Azure Logic Apps monitoring data reference](monitor-logic-apps-reference.md#resource-logs).
 
 ## Monitoring for B2B workflows
 
 Azure Logic Apps includes built-in tracking that you can enable for parts of your workflow. To help you monitor the successful delivery or receipt, errors, and properties for business-to-business (B2B) messages, you can create and use AS2, X12, and custom tracking schemas in your integration account.
 
-- To monitor an automated business-to-business (B2B) messaging workflow in Azure Logic Apps, see [Set up Azure Monitor logs and collect diagnostics data for B2B messages](monitor-b2b-messages-log-analytics.md).
-- For a reference guide to the syntax and attributes for the tracking schemas, see [Tracking schemas for monitoring B2B messages](tracking-schemas-as2-x12-custom.md).
+- To monitor a Consumption workflow that handles business-to-business (B2B) messages in Azure Logic Apps, see [Monitor and track B2B messages in Consumption workflows with Azure Monitor and Azure Logic Apps](monitor-track-b2b-messages-consumption.md).
+
+- To monitor a Standard workflow that handles business-to-business (B2B) messages in Azure Logic Apps, see [Monitor and track B2B transactions in Standard workflows](monitor-track-b2b-transactions-standard.md).
+
+- For a reference guide to the syntax and attributes for the tracking schemas, see the following documentation:
+
+  - [Tracking schemas for B2B messages in Consumption workflows](tracking-schemas-consumption.md)
+  - [Tracking schemas for B2B transactions in Standard workflows](tracking-schemas-standard.md)
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -120,7 +126,11 @@ AzureDiagnostics
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]
 
 > [!NOTE]
-> Available alert signals differ between Consumption and Standard logic apps. For example, Consumption logic apps have many trigger-related signals, such as **Triggers Completed** and **Triggers Failed**, while Standard workflows have the **Workflow Triggers Completed Count** and **Workflow Triggers Failure Rate** signals.
+>
+> Available alert signals differ between Consumption and Standard logic apps. For example, 
+> Consumption logic apps have many trigger-related signals, such as **Triggers Completed** 
+> and **Triggers Failed**, while Standard workflows have the **Workflow Triggers Completed Count** 
+> and **Workflow Triggers Failure Rate** signals.
 
 ### Azure Logic Apps alert rules
 

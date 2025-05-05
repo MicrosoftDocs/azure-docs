@@ -6,7 +6,8 @@ ms.author: cwatson
 ms.topic: how-to
 ms.date: 06/12/2024
 appliesto:
-- Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -60,7 +61,7 @@ Before finalizing your KQL queries, always review and tune the queries to improv
 
 For more information, see the following resources:
 
-- [KQL query best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
+- [KQL query best practices](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 - [Optimize queries in Azure Monitor Logs](/azure/azure-monitor/logs/query-optimization)
 - [Optimizing KQL performance (webinar)](https://youtu.be/jN1Cz0JcLYU)
 

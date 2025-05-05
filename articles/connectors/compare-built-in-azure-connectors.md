@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/04/2024
+ms.date: 02/20/2025
 # Customer intent: As a developer, I want to understand the differences between built-in and Azure connectors in Azure Logic Apps (Standard).
 ---
 

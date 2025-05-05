@@ -2,9 +2,9 @@
 title: Understand Azure IoT Hub quotas and throttling
 titleSuffix: Azure IoT Hub
 description: This article provides a description of the quotas that apply to IoT Hub and the expected throttling behavior.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 06/17/2024

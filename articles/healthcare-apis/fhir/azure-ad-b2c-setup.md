@@ -159,11 +159,11 @@ The B2C resource application handles authentication requests from your healthcar
 #### Configure API permissions for the app 
 1. On the **App registrations page** in the left pane, choose **Manifest**. 
 
-1. Scroll until you find the `oauth2Permissions` array. Replace the array with one or more values in the [oauth2Permissions.json](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/oauth2Permissions.json) file. Copy the entire array or individual permissions. 
+1. Scroll until you find the `oauth2PermissionScopes` array in `Microsoft Graph App Manifest (New)` tab. Replace the array with one or more values in the [oauth2Permissions.json](https://raw.githubusercontent.com/Azure-Samples/azure-health-data-and-ai-samples/main/samples/fhir-aad-b2c/oauth2Permissions.json) file. Copy the entire array or individual permissions. 
  
    If you add a permission to the list, any user in the B2C tenant can obtain an access token with the API permission. If a level of access isn't appropriate for a user within the B2C tenant, don't add it to the array because there isn't a way to limit permissions to a subset of users.
 
-1. After the **oauth2Permissions** array is populated, choose **Save**.
+1. After the **oauth2PermissionScopes** array is populated, choose **Save**.
 
    :::image type="content" source="media/azure-ad-b2c-setup/b2c-application-manifest.png" alt-text="Screenshot showing B2C application manifest." lightbox="media/azure-ad-b2c-setup/b2c-application-manifest.png":::
 

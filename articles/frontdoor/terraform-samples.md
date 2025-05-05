@@ -1,13 +1,12 @@
 ---
 title: Terraform samples - Azure Front Door
 description: Learn about Terraform samples for Azure Front Door, including samples for creating a basic Front Door profile.
-services: frontdoor
 author: johndowns
+ms.author: jodowns
 ms.service: azure-frontdoor
 ms.topic: sample
-ms.custom: devx-track-terraform
 ms.date: 11/22/2022
-ms.author: jodowns
+ms.custom: devx-track-terraform
 zone_pivot_groups: front-door-tiers
 ---
 # Terraform deployment model templates for Front Door

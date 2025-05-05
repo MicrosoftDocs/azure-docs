@@ -1,16 +1,17 @@
 ---
-title: Add and manage App Service certificates
-description: Create an App Service certificate and manage it. Renew, synchronize, and delete App Service certificates.
+title: Manage App Service certificates
+description: Learn how to purchase and manage App Service certificates for your custom domain in Azure App Service.
+keywords: App Service certificate, buy SSL certificate, Azure security, domain encryption
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 08/27/2024
+ms.date: 02/15/2025
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
 ---
 
-# Create and manage an App Service certificate for your web app
+# Buy and manage App Service certificates
 
 This article shows how to create an App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. Once you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options. 
 

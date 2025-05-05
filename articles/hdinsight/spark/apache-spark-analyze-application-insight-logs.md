@@ -4,6 +4,9 @@ description: Learn how to export Application Insight logs to blob storage, and t
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/15/2024
 ---
 

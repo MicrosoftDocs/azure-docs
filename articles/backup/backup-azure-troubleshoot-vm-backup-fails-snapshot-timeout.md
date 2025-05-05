@@ -1,8 +1,8 @@
 ---
-title: Troubleshoot Agent and extension issues
+title: Troubleshoot Azure Backup failures caused by agent or extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 04/08/2024
+ms.date: 04/15/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ms.reviewer: sooryar
@@ -10,7 +10,7 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Troubleshoot Azure Backup failure: Issues with the agent or extension
+# Troubleshoot Azure Backup failures caused by agent or extension issues
 
 This article provides troubleshooting steps that can help you resolve Azure Backup errors related to communication with the VM agent and extension.
 

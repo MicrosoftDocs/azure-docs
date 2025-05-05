@@ -42,7 +42,7 @@ This role is different from...
 
 #### Check current setup
 
-[!INCLUDE [digital-twins-setup-verify-role-assignment.md](../../includes/digital-twins-setup-verify-role-assignment.md)]
+[!INCLUDE [digital-twins-setup-verify-role-assignment.md](includes/digital-twins-setup-verify-role-assignment.md)]
 
 #### Fix issues 
 

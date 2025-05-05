@@ -1,11 +1,8 @@
 ---
 title: Assessment best practices in Azure Migrate Discovery and assessment tool
 description: Tips for creating assessments with Azure Migrate Discovery and assessment tool.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/11/2021
 ms.custom: engagement-fy23
 ---
@@ -16,7 +13,7 @@ ms.custom: engagement-fy23
 
 This article summarizes the best practices when creating assessments using the Azure Migrate Discovery and assessment tool.
 
-Assessments you create with Azure Migrate: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate: Discovery and assessment:
+Assessments you can create with Azure Migrate: Discovery and assessment tool are a point-in-time snapshot of data. There are four types of assessments you can create using Azure Migrate: Discovery and assessment:
 
 **Assessment Type** | **Details**
 --- | ---

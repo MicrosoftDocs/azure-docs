@@ -3,7 +3,7 @@ title: Develop Azure Functions locally using Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you deploy them to run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 02/23/2025
 ms.custom: devx-track-csharp, 80e4ff38-5174-43, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -229,6 +229,7 @@ func start
 npm install
 npm start     
 ```
+
 ::: zone-end
 ::: zone pivot="programming-language-python" 
 This command must be [run in a virtual environment](./create-first-function-cli-python.md).
@@ -243,6 +244,10 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 </pre>
+
+::: zone pivot="programming-language-typescript,programming-language-javascript"
+How your functions are loaded depends on your project configuration. To learn more, see [Registering a function](functions-reference-node.md#registering-a-function). 
+::: zone-end
 
 Keep in mind the following considerations when running your functions locally:
 
@@ -294,7 +299,7 @@ curl --request POST http://localhost:7071/api/MyHttpTrigger --data "{'name':'Azu
 
 The following considerations apply when calling HTTP endpoints locally:
 
-+ You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use a HTTP testing tool that also keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools). 
++ You can make GET requests from a browser passing data in the query string. For all other HTTP methods, you must use an HTTP testing tool that also keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools). 
 
 + Make sure to use the same server name and port that the Functions host is listening on. You see an endpoint like this in the output generated when starting the Function host. You can call this URL using any HTTP method supported by the trigger.
 

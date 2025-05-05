@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 12/11/2024
 ms.author: vvasic
-ms.reviewer: whhender, wiassaf
+
 ---
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
@@ -15,6 +15,7 @@ ms.reviewer: whhender, wiassaf
 In this section, you'll learn how to create and use [native external tables](develop-tables-external-tables.md) in Synapse SQL pools. Native external tables have better performance when compared to external tables with `TYPE=HADOOP` in their external data source definition. This is because native external tables use native code to access external data. 
 
 External tables are useful when you want to control access to external data in Synapse SQL pool. External tables are also useful if you want to use tools, such as Power BI, in conjunction with Synapse SQL pool. External tables can access two types of storage:
+
 - Public storage where users access public storage files.
 - Protected storage where users access storage files using SAS credential, Microsoft Entra identity, or Managed Identity of Synapse workspace.
 
@@ -31,32 +32,21 @@ The following table lists the data formats supported:
 |delta  |  Yes  |  No  |
 |Spark  |  Yes  | No |
 |Dataverse |  Yes | No  |
-|Azure Cosmos DB data formats (JSON, BSON etc.)  |  No (Alternatively, [create views](query-cosmos-db-analytical-store.md?tabs=openrowset-credential#create-view)) | No  |
+|Azure Cosmos DB data formats (JSON, BSON, etc.)  |  No (Alternatively, [create views](query-cosmos-db-analytical-store.md?tabs=openrowset-credential#create-view)) | No  |
 
 ## Prerequisites
 
-Your first step is to create a database where the tables will be created. Before creating a database scoped credential, the database must have a master key to protect the credential. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
-- DATABASE SCOPED CREDENTIAL `sqlondemand` that enables access to SAS-protected `https://sqlondemandstorage.blob.core.windows.net` Azure storage account.
+Your first step is to create a database where the tables will be created. The database must have a master key to protect the credentials. For more information on this, see [CREATE MASTER KEY &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-master-key-transact-sql). Then create the following objects that are used in this sample:
+- EXTERNAL DATA SOURCE `sqlondemanddemo` that references public demo storage account, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
 
     ```sql
-    CREATE DATABASE SCOPED CREDENTIAL [sqlondemand]
-    WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-    SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D'
-    ```
-
-- EXTERNAL DATA SOURCE `sqlondemanddemo` that references demo storage account protected with SAS key, and EXTERNAL DATA SOURCE `nyctlc` that references publicly available Azure storage account on location `https://azureopendatastorage.blob.core.windows.net/nyctlc/`.
-
-    ```sql
-    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
-        LOCATION = 'https://sqlondemandstorage.blob.core.windows.net',
-        CREDENTIAL = sqlondemand
-    );
+    CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (LOCATION = 'https://fabrictutorialdata.blob.core.windows.net/sampledata/Synapse');
     GO
     CREATE EXTERNAL DATA SOURCE nyctlc
     WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/')
     GO
     CREATE EXTERNAL DATA SOURCE DeltaLakeStorage
-    WITH ( location = 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/' );
+    WITH ( location = 'https://fabrictutorialdata.blob.core.windows.net/sampledata/Synapse/delta-lake' );
     ```
 
 - File formats `QuotedCSVWithHeaderFormat` and `ParquetFormat` that describe CSV and parquet file types.
@@ -80,10 +70,10 @@ The queries in this article will be executed on your sample database and use the
 
 You can create external tables that access data on an Azure storage account that allows access to users with some Microsoft Entra identity or SAS key. You can create external tables the same way you create regular SQL Server external tables.
 
-The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source and protected with database scoped credential called `sqlondemand`.
+The following query creates an external table that reads *population.csv* file from SynapseSQL demo Azure storage account that is referenced using `sqlondemanddemo` data source.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created.
+> Change the first line in the query, that is, [mydbname], so you're using the database you created.
 
 ```sql
 USE [mydbname];
@@ -129,7 +119,7 @@ CREATE EXTERNAL TABLE Taxi (
 You can specify the pattern that the files must satisfy in order to be referenced by the external table. The pattern is required only for Parquet and CSV tables. If you're using Delta Lake format, you need to specify just a root folder, and the external table will automatically find the pattern.
 
 > [!NOTE]
-> The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that do not satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md#partitioned-views).
+> The table is created on partitioned folder structure, but you cannot leverage some partition elimination. If you want to get better performance by skipping the files that don't satisfy some criterion (like specific year or month in this case), use [views on external data](create-use-views.md#partitioned-views).
 
 ## External table on appendable files
 
@@ -153,7 +143,7 @@ WITH (
 );
 ```
 
-The `ALLOW_INCONSISTENT_READS` read option will disable file modification time check during the query lifecycle and read whatever is available in the files that are referenced by the external table. In appendable files, the existing content isn't updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors.
+The `ALLOW_INCONSISTENT_READS` read option disables file modification time check during the query lifecycle and read whatever is available in the files that are referenced by the external table. In appendable files, the existing content isn't updated, and only new rows are added. Therefore, the probability of wrong results is minimized compared to the updateable files. This option might enable you to read the frequently appended files without handling the errors.
 
 This option is available only in the external tables created on CSV file format.
 
@@ -188,7 +178,7 @@ External tables can't be created on a partitioned folder. Review the other known
 External tables in serverless SQL pools don't support partitioning on Delta Lake format. Use [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) instead of tables if you have partitioned Delta Lake data sets. 
  
 > [!IMPORTANT]
-> Do not create external tables on partitioned Delta Lake folders even if you see that they might work in some cases. Using unsupported features like external tables on partitioned delta folders might cause issues or instability of the serverless pool. Azure support will not be able to resolve any issue if it is using tables on partitioned folders. You would be asked to transition to [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) and rewrite your code to use only the supported feature before proceeding with issue resolution.
+> Don't create external tables on partitioned Delta Lake folders even if you see that they might work in some cases. Using unsupported features like external tables on partitioned delta folders might cause issues or instability of the serverless pool. Azure support won't be able to resolve any issue if it's using tables on partitioned folders. You would be asked to transition to [Delta partitioned views](create-use-views.md#delta-lake-partitioned-views) and rewrite your code to use only the supported feature before proceeding with issue resolution.
 
 ## Use an external table
 
@@ -197,7 +187,7 @@ You can use [external tables](develop-tables-external-tables.md) in your queries
 The following query demonstrates this using the *population* external table we created in previous section. It returns country/region names with their population in 2019 in descending order.
 
 > [!NOTE]
-> Change the first line in the query, i.e., [mydbname], so you're using the database you created.
+> Change the first line in the query, that is, [mydbname], so you're using the database you created.
 
 ```sql
 USE [mydbname];

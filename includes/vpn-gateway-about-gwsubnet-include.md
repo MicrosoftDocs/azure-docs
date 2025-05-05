@@ -2,7 +2,7 @@
  ms.topic: include
  author: cherylmc
  ms.service: azure-vpn-gateway
- ms.date: 11/18/2024
+ ms.date: 03/10/2025
  ms.author: cherylmc
 ---
 

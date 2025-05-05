@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Sending with SMTP with PowerShell include file
+description: Send email with Simple Mail Transfer Protocol (SMTP) using PowerShell
 author: ddouglas-msft
 manager: koagbakp
 services: azure-communication-services
@@ -22,18 +22,19 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 > [!NOTE]
 > We can also send an email from our own verified domain. [Add custom verified domains to Email Communication Service](../../add-azure-managed-domains.md).
 
-In this quick start, you'll learn about how to send email with Azure Communication Services using SMTP.
+This article describes how to send email with Azure Communication Services using SMTP.
 
 ### Send an email using Send-MailMessage
 The credentials can be verified using the Microsoft PowerShell utility Send-MailMessage. See [Send-MailMessage](/powershell/module/microsoft.powershell.utility/send-mailmessage) for the syntax.
 
 To store the credentials in the required PSCredential format, use the following PowerShell commands:
+
 ```PowerShell
 $Password = ConvertTo-SecureString -AsPlainText -Force -String '<Entra Application Client Secret>'
 $Cred = New-Object -TypeName PSCredential -ArgumentList '<SMTP Username>', $Password
 ```
 
-The following PowerShell script can be used to send the email. The **From** value is the mail from address of your verified domain. The **To** value is the email address that you would like to send to.
+Use the following PowerShell script to send the email. The **From** value is the mail from address of your verified domain. The **To** value is the email address that you want to send to.
 
 ```PowerShell
 Send-MailMessage -From 'User01 <user01@fabrikam.com>' -To 'User02 <user02@fabrikam.com>' -Subject 'Test mail' -Body 'test' -SmtpServer 'smtp.azurecomm.net' -Port 587 -Credential $Cred -UseSsl

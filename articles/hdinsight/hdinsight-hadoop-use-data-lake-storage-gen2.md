@@ -4,6 +4,9 @@ description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/10/2024
 ---
 

@@ -2,10 +2,10 @@
 title: Azure custom roles - Azure RBAC
 description: Learn how to create Azure custom roles with Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 02/22/2024
+ms.date: 02/26/2025
 ms.author: rolyon
 ---
 
@@ -141,10 +141,10 @@ The following table describes what the custom role properties mean.
 
 | Property | Required | Type | Description |
 | --- | --- | --- | --- |
-| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Microsoft Entra tenant. This display name must be unique at the scope of the Microsoft Entra tenant. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 512. |
+| `Name`</br>`roleName` | Yes | String | The display name of the custom role. While a role definition is a management group or subscription-level resource, a role definition can be used in multiple subscriptions that share the same Microsoft Entra tenant. This display name must be unique at the scope of the Microsoft Entra tenant. Can include letters, numbers, spaces, and special characters. Recommended maximum: 256 characters. |
 | `Id`</br>`name` | Yes | String | The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role. |
 | `IsCustom`</br>`roleType` | Yes | String | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
-| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Maximum number of characters is 2048. |
+| `Description`</br>`description` | Yes | String | The description of the custom role. Can include letters, numbers, spaces, and special characters. Recommended maximum: 512 characters. |
 | `Actions`</br>`actions` | Yes | String[] | An array of strings that specifies the control plane actions that the role allows to be performed. For more information, see [Actions](role-definitions.md#actions). |
 | `NotActions`</br>`notActions` | No | String[] | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. For more information, see [NotActions](role-definitions.md#notactions). |
 | `DataActions`</br>`dataActions` | No | String[] | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. If you create a custom role with `DataActions`, that role can't be assigned at management group scope. For more information, see [DataActions](role-definitions.md#dataactions). |

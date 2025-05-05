@@ -4,6 +4,9 @@ description: Learn how to submit Apache Hadoop jobs to Azure HDInsight Apache Ha
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/23/2024
 ---
 

@@ -2,8 +2,8 @@
 title: How to connect a device to IoT Hub using a certificate (Java)
 titleSuffix: Azure IoT Hub
 description: Learn how to connect a device to IoT Hub using a certificate and the Azure IoT Hub SDK for Java.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: java
 ms.topic: include

@@ -1,5 +1,6 @@
 ---
 title: Azure role-based access control permissions required for Azure Network Security Perimeter usage
+titleSuffix: Azure Private Link
 description: Learn about the Azure role-based access control permissions required to use Azure Network Security Perimeter.
 author: mbender-ms
 ms.author: mbender

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure IoT Edge documentation
-summary: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
+summary: Azure IoT Edge extends IoT Hub. Analyze device data locally to reduce data sent to the cloud, respond to events quickly, and work offline.
 
 metadata:
   title: Azure IoT Edge documentation
@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: PatAltimore
   ms.author: patricka
-  ms.date: 04/08/2024
+  ms.date: 03/31/2025
   ms.custom: e2e-hybrid
 
 landingContent:
@@ -20,19 +20,19 @@ landingContent:
         links:
           - text: What is Azure IoT Edge?
             url: about-iot-edge.md
-          - text: What is Azure IoT Edge for Linux on Windows (EFLOW)?
+          - text: What is Azure IoT Edge for Linux on Windows?
             url: iot-edge-for-linux-on-windows.md
       - linkListType: concept
         links:
           - text: Understand the Azure IoT Edge runtime and its architecture
             url: iot-edge-runtime.md
-          - text: Azure IoT Edge versions and release notes
+          - text: Azure IoT Edge versions and release information
             url: version-history.md
           - text: Azure IoT Edge supported systems
             url: support.md
       - linkListType: how-to-guide
         links:
-          - text: How an IoT Edge device can be used as a gateway
+          - text: Use an IoT Edge device as a gateway
             url: iot-edge-as-gateway.md
   - title: Getting started using Linux devices
     linkLists:
@@ -42,7 +42,7 @@ landingContent:
             url: quickstart-linux.md
       - linkListType: tutorial
         links: 
-          - text: Develop Azure IoT Edge modules using Visual Studio Code
+          - text: Develop Azure IoT Edge modules with Visual Studio Code
             url: tutorial-develop-for-linux.md
       - linkListType: how-to-guide
         links:
@@ -74,5 +74,5 @@ landingContent:
             url: how-to-provision-single-device-linux-on-windows-symmetric.md
       - linkListType: reference
         links:
-          - text: IoT Edge for Linux on Windows open-source repository
+          - text: IoT Edge for Linux on Windows open source repository
             url: https://github.com/Azure/iotedge-eflow

@@ -1,7 +1,7 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 09/30/2024
+ms.date: 03/04/2025
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -12,7 +12,9 @@ Resources that are non-compliant to policies with `deployIfNotExists` or `modify
 
 ## How remediation access control works
 
-When Azure Policy starts a template deployment when evaluating `deployIfNotExists` policies or modifies a resource when evaluating `modify` policies, it does so using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) associated with the policy assignment. Policy assignments use managed identities for Azure resource authorization. You can use either a system-assigned managed identity created by the policy service or a user-assigned identity provided by the user. The managed identity needs to be assigned the minimum Azure role-based access control (Azure RBAC) role required to remediate resources. If the managed identity is missing roles, an error is displayed in the portal during the assignment of the policy or an initiative. When you use the portal, Azure Policy automatically grants the managed identity the listed roles once assignment starts. When you use an Azure software development kit (SDK), the roles must manually be granted to the managed identity. The _location_ of the managed identity doesn't affect its operation with Azure Policy.
+When Azure Policy starts a template deployment when evaluating `deployIfNotExists` policies or modifies a resource when evaluating `modify` policies, it does so using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) associated with the policy assignment. Note that while the assignment's identity is used for resource deployment or modification, it is not used for evaluation of the policy definition and its existence condition. Policy evalutation uses the identity of the caller that initiated the API request.
+
+Policy assignments use managed identities for Azure resource authorization during remediation. You can use either a system-assigned managed identity created by the policy service or a user-assigned identity provided by the user. The managed identity needs to be assigned the minimum Azure role-based access control (Azure RBAC) role required to remediate resources. If the managed identity is missing roles, an error is displayed in the portal during the assignment of the policy or an initiative. When you use the portal, Azure Policy automatically grants the managed identity the listed roles once assignment starts. When you use an Azure software development kit (SDK), the roles must manually be granted to the managed identity. The _location_ of the managed identity doesn't affect its operation with Azure Policy.
 
 > [!NOTE]
 > Changing a policy definition does not automatically update the assignment or the associated managed identity.

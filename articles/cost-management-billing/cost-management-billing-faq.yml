@@ -3,13 +3,13 @@ metadata:
   title: Cost Management + Billing frequently asked questions (FAQ)
   titleSuffix: Microsoft Cost Management
   description: Frequently asked questions and answers.
-  author: bandersmsft
-  ms.reviewer: adwise
+  author: maddieminn
+  ms.reviewer: maminn
   ms.service: cost-management-billing
   ms.subservice: common
   ms.topic: faq
   ms.date: 11/14/2024
-  ms.author: banders
+  ms.author: maminn
 title: Cost Management + Billing frequently asked questions (FAQ)
 summary: |
 sections:
@@ -72,11 +72,6 @@ sections:
       - question: How do I see costs for my EA enrollment?
         answer: |
           In the Azure portal, navigate to **Cost Management + Billing** > Overview. Select the **Breakdown** link.
-      - question: How can I view my Amazon Web Services (AWS) cost in Cost Management?
-        answer: |
-          See [Set up and configure AWS Cost and Usage report integration](costs/aws-integration-set-up-configure.md).  
-          >[!NOTE]
-          > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](costs/retire-aws-connector.md).
       - question: How do I create a budget?
         answer: |
           See the [Create and manage budgets](costs/tutorial-acm-create-budgets.md) tutorial.
@@ -85,7 +80,7 @@ sections:
           In the Create budget window, choose the scope for the budget you want to create. Choose **Add Filter** to choose any filters or a tag that you want to add for this budget. For more information, see the [Create and manage budgets](costs/tutorial-acm-create-budgets.md#create-a-budget-in-the-azure-portal) tutorial.
       - question: How do I export cost management data?
         answer: |
-          See the [Create and manage exported data](costs/tutorial-export-acm-data.md) tutorial.
+          See the [Create and manage exported data](costs/tutorial-improved-exports.md) tutorial.
       - question: How do I export cost management data as a partner if I don't have an Azure subscription in my tenant?
         answer: |
           See the [Export cost data with an Azure storage account SAS key](costs/export-cost-data-storage-account-sas-key.md) article.

@@ -22,6 +22,7 @@ This document provides the steps to execute those tasks.
 ## Before you begin
 
 - Install the latest version of the [appropriate CLI extensions](./howto-install-cli-extensions.md).
+- Onboarding permissions granted to the nc-platform-extension identity of the cluster. See [Grant MDE Onboarding Permissions](./howto-set-up-defender-for-cloud-security.md).
 
 ## Setting variables
 

@@ -4,7 +4,7 @@ description: How-to guide for restoring an existing dedicated SQL pool.
 author: realAngryAnalytics
 ms.author: stevehow
 manager: joannapea
-ms.reviewer: joanpo, wiassaf
+ms.reviewer: joanpo
 ms.date: 01/23/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql

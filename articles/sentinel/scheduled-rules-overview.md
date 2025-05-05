@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 # Scheduled analytics rules in Microsoft Sentinel
 
-By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](/kusto/query/kusto-sentinel-overview) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
+By far the most common type of analytics rule, **Scheduled** rules are based on [Kusto queries](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) that are configured to run at regular intervals and examine raw data from a defined "lookback" period. Queries can perform complex statistical operations on their target data, revealing baselines and outliers in groups of events. If the number of results captured by the query passes the threshold configured in the rule, the rule produces an alert.
 
 This article helps you understand how scheduled analytics rules are built, and introduces you to all the configuration options and their meanings. The information in this article is useful in two scenarios:
 
@@ -100,10 +100,10 @@ Everything you type into the rule query window is instantly validated, so you fi
 
    `project field1 = column_ifexists("field1","")`
 
-For more help building Kusto queries, see the following articles:
-- [Kusto Query Language in Microsoft Sentinel](/kusto/query/kusto-sentinel-overview)
+For more information, see:
+- [Kusto Query Language in Microsoft Sentinel](/kusto/query/?view=microsoft-sentinel&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 - [KQL quick reference guide](/kusto/query/kql-quick-reference?view=microsoft-sentinel&preserve-view=true)
-- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true)
+- [Best practices for Kusto Query Language queries](/kusto/query/best-practices?view=microsoft-sentinel&preserve-view=true&toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)
 
 ### Alert enhancement
 

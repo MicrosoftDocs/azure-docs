@@ -12,7 +12,7 @@ ms.service: azure-virtual-machines
 
 ms.subservice: azure-confidential-computing
 
-ms.topic: conceptual
+ms.topic: concept-article
 
 ms.date: 04/20/2023
 
@@ -62,6 +62,11 @@ _Data residency and sources:_ Customers have data stored in multiple clouds and 
 _Code integrity and confidential ledgers:_ With distributed ledger technology (DLT) running on Azure confidential computing, solutions can be built that run on a network across organizations. The code logic and analytic rules can be added only when there's consensus across the various participants. All updates to the code are recorded for auditing via tamper-proof logging enabled with Azure confidential computing.
 
 ## What are options to get started?
+
+### Azure Confidential Clean Rooms (Preview)
+[Azure Confidential Clean Rooms (ACCR)](./confidential-clean-rooms.md) is designed for organizations that need to share privacy sensitive data such as personally identifiable information (PII) or protected health information (PHI) securely with other organizations to derive business critical insights which can be securely fine-tuning your ML model with sensitive data from other organizations for improved accuracy or performing secure analytics on joint data with your partner organizations. ACCR uses confidential containers on Azure Container Instances to ensure that your data stays protected from other collaborators and from Azure operators. It has applications spanning multiple industries such as healthcare, advertising, banking and financial services and retail.
+
+You can enrol yourself for the ACCR preview by submititng this [form](https://aka.ms/ACCR-Preview-Onboarding).
 
 ### ACC platform offerings that help enable confidential cleanrooms
 Roll up your sleeves and build a data clean room solution directly on these confidential computing service offerings.

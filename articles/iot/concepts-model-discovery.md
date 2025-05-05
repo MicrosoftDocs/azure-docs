@@ -1,5 +1,5 @@
 ---
-title: Use IoT Plug and Play models in a solution | Microsoft Docs
+title: Use IoT Plug and Play models in a solution
 description: As a solution builder, learn about how you can use IoT Plug and Play models in your IoT solution.
 author: dominicbetts
 ms.author: dobett
@@ -119,7 +119,7 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](tutorial-service.md).
+1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](concepts-developer-guide-service.md).
 
 ### Resolve models
 
@@ -184,12 +184,4 @@ After you identify the model ID for a new device connection, follow these steps:
 
 1. Using the model definition of the connected device, you can enumerate the capabilities of the device.
 
-1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](tutorial-service.md).  
-
-## Next steps
-
-Now that you learned how to integrate IoT Plug and Play models in an IoT solution, some suggested next steps are:
-
-- [Interact with a device from your solution](tutorial-service.md)
-- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)
+1. Using the enumerated capabilities of the device, you can enable users to [interact with the device](concepts-developer-guide-service.md).  
