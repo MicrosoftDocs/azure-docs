@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: devx-track-terraform;build-2023-metadata-update
 ms.topic: quickstart
 ms.author: normesta
-ms.date: 03/26/2025
+ms.date: 05/05/2025
 #customer intent: As a Terraform user, I want to see how to create a storage task using Terraform.
 content_well_notification: 
   - AI-contribution

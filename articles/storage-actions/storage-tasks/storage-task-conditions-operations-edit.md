@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 02/05/2025
+ms.date: 05/05/2025
 ---
 
 # Define storage task conditions and operations

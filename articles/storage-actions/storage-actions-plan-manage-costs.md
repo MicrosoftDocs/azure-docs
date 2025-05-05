@@ -6,7 +6,7 @@ ms.author: normesta
 ms.custom: subject-cost-optimization
 ms.service: azure-storage-actions
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 05/05/2025
 ---
 
 # Plan to manage costs for Azure Storage Actions

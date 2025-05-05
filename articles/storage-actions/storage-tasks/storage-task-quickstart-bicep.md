@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.topic: quickstart-bicep
 ms.custom: subject-bicepqs
-ms.date: 01/15/2025
+ms.date: 05/05/2025
 ---
 
 # Quickstart: Create a storage task with Bicep

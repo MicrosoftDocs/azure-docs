@@ -7,7 +7,7 @@ ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: how-to
 ms.author: normesta
-ms.date: 01/17/2024
+ms.date: 05/05/2025
 ---
 
 # Create and manage a storage task assignment
@@ -15,6 +15,9 @@ ms.date: 01/17/2024
 An _assignment_ identifies a storage account and a subset of objects in that account that the task will target. An assignment also defines when the task runs and where execution reports are stored. 
 
 This article helps you create an assignment, and then enable that assignment to run. To learn more about storage task assignments, see [Storage task assignments](storage-task-assignment.md).
+
+> [!IMPORTANT]
+> Before you enable storage task assignment, make sure that you grant access to trusted Azure services in the network settings of each target storage account. To learn more, see [Grant access to trusted Azure services](./../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ## Create and manage an assignment
 

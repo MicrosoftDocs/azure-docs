@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: conceptual
-ms.date: 12/13/2024
+ms.date: 05/05/2025
 ms.author: normesta
 ---
 
@@ -59,14 +59,6 @@ The workaround is to delete the storage task assignment and then move the storag
 ## Restrictions on moving a storage task
 
 You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
-
-## Preview feature won't work for a storage account that is behind firewall
-
-If the target storage account has firewall rules enabled, make sure to configure the target storage account to allow access to the storage task by creating a resource instance rule in the network settings of the storage account.
-
-## Overlapping prefix for assignments
-
-Storage tasks don't prevent execution of task assignments on overlapping prefixes. If there are multiple task assignments with overlapping prefixes, blobs might be processed by these task assignments in any order. If the execution order of operations across these task assignments is important, then as you configure the task, ensure that the prefix for assignments doesn't overlap.
 
 ## Concurrency limit for execution
 

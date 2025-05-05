@@ -6,7 +6,7 @@ services: storage
 author: normesta
 ms.service: azure-storage-actions
 ms.topic: quickstart
-ms.date: 09/26/2024
+ms.date: 005/05/2025
 ms.author: normesta
 ---
 

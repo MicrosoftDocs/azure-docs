@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.topic: quickstart-arm
 ms.custom: subject-armqs
-ms.date: 01/09/2025
+ms.date: 05/05/2025
 ---
 
 # Create a storage task by using Azure Resource Manager template (ARM template)
