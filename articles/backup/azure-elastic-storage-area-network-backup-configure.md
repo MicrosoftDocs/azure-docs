@@ -83,7 +83,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 1. On the **Select resources to backup** pane, select an Elastic SAN instance from the dropdown list, and then select **Add**.
 
    >[!Note]
-   >Instances appear that belong to the same subscription and region as the vault.
+   >Only instances that share the same subscription and region as the vault appear.
 
    :::image type="content" source="./media/azure-elastic-storage-area-network-backup-configure/specify-backup-instance-name.png" alt-text="Screenshot shows how to select an instance for backup." lightbox="./media/azure-elastic-storage-area-network-backup-configure/specify-backup-instance-name.png":::
 

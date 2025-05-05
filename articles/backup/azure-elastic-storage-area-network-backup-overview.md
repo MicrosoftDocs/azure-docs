@@ -35,7 +35,7 @@ Azure Elastic SAN volume protection (preview) includes the following key feature
 - **Volume size limit**: Supports Elastic SAN volumes size of **<= 4 TB**.
 
 >[!Note]
->- Deletion of snapshots isn't possible if **Delete Lock** is enabled on the resource group. Ensure **Delete Lock** is disabled to use this feature.
+>- Deletion of snapshots isn't possible if **Delete Lock** is enabled on the resource group. Ensure that you disable  **Delete Lock** to use this feature.
 >- The feature is currently [available in specific regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions) only. 
 
 ## Workflow for Azure Elastic SAN protection (preview)
