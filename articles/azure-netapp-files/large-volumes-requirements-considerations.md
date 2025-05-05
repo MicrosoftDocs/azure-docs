@@ -24,7 +24,7 @@ The following requirements and considerations apply to large volumes. For perfor
 * Large volumes are currently not supported with Azure NetApp Files backup.
 * You can't create a large volume with application volume groups.
 * Currently, large volumes aren't suited for database (HANA, Oracle, SQL Server, etc.) data and log volumes. For database workloads requiring more than a single volume’s throughput limit, consider deploying multiple regular volumes. To optimize multiple volume deployments for databases, use [application volume groups](application-volume-group-concept.md).
-*	The throughput ceilings for the Standard, Premium, and Ultra service levels with large volumes is 12,800 MiB/s. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
+*	The throughput ceiling for the Standard, Premium, and Ultra service levels with large volumes is 12,800 MiB/s. You're able to grow to 1 PiB with the throughput ceiling per the following table:  
     
     <table><thead>
       <tr>
