@@ -3,7 +3,7 @@ title: Best practices for configuring an Elastic SAN
 description: Learn about the best practices for getting optimal performance when configuring an Azure Elastic SAN.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: rogarana
 ---

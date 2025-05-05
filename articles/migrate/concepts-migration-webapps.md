@@ -4,7 +4,7 @@ description: Support matrix for web apps migration
 author: SnehaSudhirG
 ms.author: sudhirsneha 
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: template-concept, engagement-fy23
 ---

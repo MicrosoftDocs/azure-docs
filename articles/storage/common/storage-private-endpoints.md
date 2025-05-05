@@ -6,7 +6,7 @@ services: storage
 author: normesta
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 ms.author: normesta
 ms.reviewer: santoshc
