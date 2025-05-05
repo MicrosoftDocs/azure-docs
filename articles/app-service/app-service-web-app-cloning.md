@@ -8,19 +8,19 @@ ms.custom: devx-track-azurepowershell
 author: msangapu-msft
 ms.author: msangapu
 ---
-# Clone an Azure App Service App by using PowerShell
+# Clone an Azure App Service app by using PowerShell
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-This article explains how you can clone an existing App Service app to a newly created app in a different region or in the same region. You can deploy multiple apps across different regions quickly and easily.
+This article explains how you can clone an existing App Service app to create a new app in a different region or in the same region. You can deploy multiple apps across different regions quickly and easily.
 
-App cloning is supported in **Standard**, **Premium**, **Premium V2**, and **Isolated** pricing tiers. The feature uses the same limitations as the App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
+App cloning is supported in **Standard**, **Premium**, **Premium V2**, and **Isolated** pricing tiers. The feature has the same limitations as the App Service Backup feature, see [Back up an app in Azure App Service](manage-backup.md).
 
 ## Clone an existing app
 
-Scenario: You want to clone the contents of an existing app in the South Central US region to a new app in the North Central US region. You can use the Azure Resource Manager version of the PowerShell cmdlet to create a new app with the `-SourceWebApp` option.
+Scenario: You want to clone the contents of an existing app in the South Central US region to a new app in the North Central US region. You can use the Azure Resource Manager version of the PowerShell cmdlet to create a new app by using the `-SourceWebApp` option.
 
-When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information (in this case named `source-webapp`):
+When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information, in this case named `source-webapp`:
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp
@@ -38,7 +38,7 @@ By using the `New-AzWebApp` command, you can create the new app in the North Cen
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp
 ```
 
-To clone an existing app, including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter. The `IncludeSourceWebAppSlots` parameter is supported only for cloning an entire app including all of its slots. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
+To clone an existing app, including all associated deployment slots, you need to use the `IncludeSourceWebAppSlots` parameter. This parameter is supported only for cloning an entire app including all of its slots. The following PowerShell command demonstrates the use of that parameter with the `New-AzWebApp` command:
 
 ```powershell
 $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name dest-webapp -Location "North Central US" -AppServicePlan DestinationAppServicePlan -SourceWebApp $srcapp -IncludeSourceWebAppSlots
@@ -54,7 +54,7 @@ $destapp = New-AzWebApp -ResourceGroupName NewAzureResourceGroup -Name dest-weba
 
 Scenario: You want to clone the contents of an existing app in the South Central US region to a new app in an existing App Service Environment.
 
-When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information (in this case named `source-webapp`):
+When you know the name of the resource group that contains the source app, you can use the following PowerShell command to get the source app's information, in this case named `source-webapp`:
 
 ```powershell
 $srcapp = Get-AzWebApp -ResourceGroupName SourceAzureResourceGroup -Name source-webapp

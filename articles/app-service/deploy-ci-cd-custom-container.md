@@ -43,7 +43,7 @@ After you authorize your Azure account with GitHub, select the **Organization**,
 ## 3. Configure registry settings
 
 > [!NOTE]
-> Sidecar containers (preview) will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom containers in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
+> Sidecar containers will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom containers in Azure App Service](tutorial-custom-container-sidecar.md).
 
 To deploy a multi-container (Docker Compose) app, select **Docker Compose** in **Container Type**.
 
@@ -144,25 +144,18 @@ To verify whether **Basic Auth Publishing Credentials** is enabled, go to your w
 
 For other private registries, you can post to the webhook manually or as a step in a CI/CD pipeline. In **Webhook URL**, select the **Copy** button to get the webhook URL.
 
+Select **Save** to save your settings.
+
 ::: zone pivot="container-linux"
 > [!NOTE]
 > Support for multi-container (Docker Compose) apps is limited. For Azure Container Registry, App Service creates a webhook in the selected registry with the registry as the scope. A `docker push` to any repository in the registry (including the ones not referenced by your Docker Compose file) triggers an app restart. You might want to [modify the webhook](/azure/container-registry/container-registry-webhook) to a narrower scope. Docker Hub doesn't support webhooks at the registry level. You must add the webhooks manually to the images specified in your Docker Compose file.
 ::: zone-end
 
-::: zone pivot="container-windows"
-## 4. Save your settings
-::: zone-end
-::: zone pivot="container-linux"
-## 5. Save your settings
-::: zone-end
-
-Select **Save**.
-
 ::: zone pivot="container-linux"
 
 ## How CI/CD works with GitHub Actions
 
-If you choose **GitHub Actions** in **Source** (see [Choose deployment source](#2-choose-deployment-source)), App Service sets up CI/CD in the following ways:
+If you choose **GitHub Actions** from the [Select code source](#2-select-code-source) dropdown menu, App Service sets up CI/CD in the following ways:
 
 * It deposits a GitHub Actions workflow file into your GitHub repository to handle build and deploy tasks to App Service.
 * It adds the credentials for your private registry as GitHub secrets. The generated workflow file runs the [`Azure/docker-login`](https://github.com/Azure/docker-login) action to sign in with your private registry, and then runs `docker push` to deploy to it.

@@ -9,11 +9,11 @@ ms.date: 05/02/2025
 ms.author: msangapu
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ---
-# High-density hosting on Azure App Service using per-app scaling
+# High-density hosting using per-app scaling
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-You can scale your apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are running in the same App Service plan, each scaled-out instance runs all the apps in the plan.
+You can scale your Azure App Service apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps run in the same App Service plan, each scaled-out instance runs all the apps in the plan.
 
 In contrast, *per-app scaling* can be enabled at the App Service plan level to scale an app independently from the
 App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five.
@@ -125,9 +125,12 @@ Per-app scaling is a feature that's enabled in both global Azure regions and [Ap
 Follow these steps to configure high-density hosting for your apps:
 
 1. Designate an App Service plan as the high-density plan and scale it out to the desired capacity.
+
 1. Set the `PerSiteScaling` flag to true on the App Service plan.
+
 1. New apps are created and assigned to that App Service plan with the `numberOfWorkers` property set to *1*.
    - Using this configuration yields the highest density possible.
+
 1. The number of workers can be configured independently per app to grant additional resources as needed. For example:
    - A high-use app can set `numberOfWorkers` to *3* to have more processing capacity for that app.
    - Low-use apps would set `numberOfWorkers` to *1*.
