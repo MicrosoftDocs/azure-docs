@@ -4,7 +4,7 @@ description: Learn how Azure NetApp Files benchmark tests are conducted.
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/31/2024
 ms.author: anfdocs
 ---

@@ -3,7 +3,7 @@ title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure Files. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/1/2025
 ms.author: kendownie
 ms.custom: references_regions
@@ -155,6 +155,10 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - New Zealand North
 - Italy North
 - Indonesia Central
+- Sweden Central
+- Sweden South
+- Australia Central
+- Australia Central 2
 
 Storage accounts in regions flagged with an asterisk (*) can only be created using Azure PowerShell or Azure CLI. See [create a storage account](./storage-how-to-create-file-share.md) for more information.
 

@@ -2,7 +2,7 @@
 title: Custom image templates - Azure Virtual Desktop
 description: Learn about custom image templates in Azure Virtual Desktop, where you can create custom images that you can use when deploying session host virtual machines.
 ms.topic: conceptual
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 05/29/2024
 ---
