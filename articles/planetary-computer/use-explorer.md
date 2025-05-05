@@ -24,10 +24,7 @@ This quickstart provides instructions on how to interact with the Microsoft Plan
 
 ## Open the Microsoft Planetary Computer Pro web interface
 
-1. Sign in to Azure portal
-1. In the Azure portal search box, enter GeoCatalogs. Select GeoCatalogs in the search results.
-1. In the GeoCatalogs page, select the GeoCatalog you want to explore.
-1. In the GeoCatalog's "Resource" page, under the Essentials section, follow the GeoCatalog URI link to open the Planetary Computer Pro web interface.
+Follow the instructions in [Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md) to open the Microsoft Planetary Computer Pro web interface.
 
 ## Launch the Planetary Computer Pro Explorer
 
