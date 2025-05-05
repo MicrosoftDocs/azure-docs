@@ -1,6 +1,6 @@
 ---
 title: STAC Framework in Microsoft Planetary Computer Pro
-description: This article provides an overview of the Spatiotemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro.
+description: This article provides an overview of the SpatioTemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro.
 author: beharris
 ms.author: brentharris
 ms.service: azure
@@ -9,18 +9,18 @@ ms.date: 04/09/2025
 #customer intent: As an Microsoft Planetary Computer Pro user, I want to understand the STAC Specification.
 ---
 
-# STAC overview for Microsoft Planetary Computer Pro
+# STAC Overview for Microsoft Planetary Computer Pro
 
-This article provides an overview of the Spatiotemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro (MPC Pro).
+This article provides an overview of the SpatioTemporal Asset Catalog (STAC) specification and how it's used by Microsoft Planetary Computer Pro.
 
 ## STAC specification
 
 The STAC specification is an open, community-driven standard that makes it easy to find, combine, and use geospatial data. STAC provides a common structure for describing and cataloging "spatiotemporal assets." This means you can use it to index and organize data across both space and time.
 
-As a result, STAC enables organizations to make their geospatial assets accessible to a broad range of users. STAC catalogs many types of geospatial asset data, including:
+As a result, STAC enables organizations to make their geospatial assets accessible to a broad range of users. STAC catalogs can be used to organize many types of geospatial asset data, including:
 
 - Satellite, aerial, and drone imagery
-- LiDAR and SAR data
+- LIDAR and SAR data
 - Full Motion Video
 - Hyperspectral data
 - Other derived data formats
@@ -29,14 +29,14 @@ Additionally, STAC can be used with existing and emerging cloud-native data form
 
 Since its release in 2018, many organizations quickly adopted STAC to organize their spatial data. These organizations include satellite operators, government agencies, civil society groups, and commercial companies.
 
-The STAC specification consists of four complimentary standards for describing geospatial assets, organizing those assets into groups, and making those assets searchable via common APIs. Specifically, these STAC standards include:
+The STAC specification consists of four complementary standards for describing geospatial assets, organizing those assets into groups, and making those assets searchable via common APIs. Specifically, these STAC standards include:
 
 - [STAC Catalog](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec)
-- [STAC collection](https://github.com/radiantearth/stac-spec/tree/master/collection-spec)
+- [STAC Collection](https://github.com/radiantearth/stac-spec/tree/master/collection-spec)
 - [STAC Items](https://github.com/radiantearth/stac-spec/tree/master/item-spec)
 - [STAC API](https://github.com/radiantearth/stac-api-spec/)
 
-MPC Pro uses the STAC specification across all aspects of data management.
+Planetary Computer Pro uses the STAC specification across all aspects of data management.
 
 ![Diagram showing the STAC specification components and their relationships, including STAC Catalog, STAC collection, STAC Items, and STAC API, with arrows showing how they interconnect.](media/stac_summary2.drawio.png)
 
@@ -44,9 +44,9 @@ MPC Pro uses the STAC specification across all aspects of data management.
 
 ### Introduction to GeoCatalogs
 
-MPC Pro allows you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md), to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets on Azure. A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically equivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items. You can see the STAC Catalog JSON for a specific MPC Pro GeoCatalog resource using the JSON web viewer by going to `https://<your geocatalog uri>/json-api?path=/`. Refer to [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec) to learn more about the STAC Catalog specification.
+The Planetary Computer Pro service allows you to [create a GeoCatalog resource](./deploy-geocatalog-resource.md) in your Azure subscription, to [ingest](./ingestion-overview.md), manage, search, and distribute geospatial datasets. A GeoCatalog is an Azure resource that, from a STAC API perspective, is logically equivalent to a STAC Catalog. A STAC Catalog is the top-level object in the STAC hierarchy that logically groups STAC collections and STAC Items. You can see the STAC Catalog JSON for a specific GeoCatalog using the JSON web viewer by going to `https://<your geocatalog uri>/json-api?path=/`. Refer to [STAC Catalog Spec](https://github.com/radiantearth/stac-spec/tree/master/catalog-spec) to learn more about the STAC Catalog specification.
 
-A GeoCatalog Azure resource is defined using the following information:
+A GeoCatalog is defined using the following information:
 
 | Field | Description |
 | ---------- | ---------- |
@@ -55,28 +55,28 @@ A GeoCatalog Azure resource is defined using the following information:
 | Name | Name of a GeoCatalog instance |
 | Region | Azure region where a GeoCatalog instance is deployed.|
 
-Currently MPC Pro can be deployed in the following Azure regions:
+Currently, Planetary Computer Pro can deploy GeoCatalogs in the following Azure regions:
 
 - East US
 - North Central US
 - West Europe
 - Canada Central
 
-A GeoCatalog can be provisioned using Azure portal, or the Azure Rest API. To learn how to deploy a GeoCatalog into your Azure subscription, read [create a GeoCatalog resource](./deploy-geocatalog-resource.md).
+A GeoCatalog can be provisioned using the Azure portal or the Azure Rest API. To learn how to deploy a GeoCatalog into your Azure subscription, read [create a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 ## STAC collections
 
 ### Introduction to collections
 
-MPC Pro allows you to create collections to store and organize geospatial datasets on Azure. A STAC collection is used to describe a group of STAC Items that share properties and metadata, such as a common geographic area or sensor. Refer to the [STAC collection Spec](https://github.com/radiantearth/stac-spec/tree/master/collection-spec) to learn more about the STAC collection concept.
+A GeoCatalog allows you to create collections to store and organize geospatial datasets on Azure. A STAC collection is used to describe a group of STAC Items that share properties and metadata, such as a common geographic area or sensor. Refer to the [STAC collection Spec](https://github.com/radiantearth/stac-spec/tree/master/collection-spec) to learn more about the STAC collection concept.
 
 ### Collection definition
 
-MPC Pro adheres to the STAC collection specification which defines a set of common fields to describe the dataset and included Items.
+Planetary Computer Pro adheres to the STAC collection specification which defines a set of common fields to describe the dataset and included Items.
 
-Within a collection, you can specify the type and structure of data stored in that collection. You can also add [render configuration settings](./render-configuration.md) to visualize data within the collection using MPC Pro's Explorer.
+Within a collection, you can specify the type and structure of data stored in that collection. You can also add [render configuration settings](./render-configuration.md) to visualize data within the collection using Planetary Computer Pro's Explorer.
 
-Collections in MPC Pro are defined in JSON format and include the following fields:
+Collections in GeoCatalog are defined in JSON format and include the following fields:
 
 | Field | Description |
 | ------------- | ------------- |
@@ -134,16 +134,16 @@ For a slightly more complex example JSON, check out [this example describing an 
 
 ### Collection configuration
 
-In order to visualize collections in the MPC Pro Explorer, there are several configurations that must be defined, including:
+In order to visualize collections in the GeoCatalog Explorer, there are several configurations that must be defined, including:
 
-- Mosaic definition
+- [Mosaic definition](./mosaic-configurations-for-collections.md)
 - [Render configuration](./render-configuration.md)
 - [Tile settings](./tile-settings.md)
-- Queryable fields
+- [Queryable fields](./queryables-for-explorer-custom-search-filter.md)
 
 ### Item assets
 
-The `item_assets` field, at the collection level, provides a way to determine what assets (datafiles) are available in any child Item. Otherwise a random Item would need to be examined to determine assets available, but that random Item might not be representative of the rest. Assets included at the collection level don't imply that all assets are available from all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in MPC Pro via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. Item Assets are required for MPC Pro collections to visualize Items in the Explorer.
+The `item_assets` field, at the collection level, provides a way to determine what assets (datafiles) are available in any child Item. Otherwise a random Item would need to be examined to determine assets available, but that random Item might not be representative of the rest. Assets included at the collection level doesn't imply that all assets are available for all Items (it should be the union of the available assets, not the intersection of the available assets). This field is enabled in a GeoCatalog via the [item_assets extension](https://github.com/stac-extensions/item-assets) of the STAC specification. The items assets extension is required if you want to visualize Items in the GeoCatalog Explorer.
 
 The `item_assets` field is itself an object, with at least two of the following fields:
 
@@ -158,11 +158,11 @@ The `item_assets` field is itself an object, with at least two of the following 
 
 ### Introduction to STAC items
 
-MPC Pro allows you to create Items to store and organize geospatial datasets on Azure. A STAC Item is the core object in a GeoCatalog's collection, containing metadata for a scene and links to assets (that is, files). An Item's metadata allows MPC Pro to search and query spatial assets. Refer to [STAC Item Spec](https://github.com/radiantearth/stac-spec/tree/master/item-spec) to learn more about the STAC Items.
+A GeoCatalog allows you to store and organize geospatial datasets into collections. A STAC Item is the core object in a GeoCatalog's collection, containing metadata for a scene and links to assets from that scene (such as a satellite image). An Item's metadata allows GeoCatalog to search and query spatial assets. Refer to [STAC Item Spec](https://github.com/radiantearth/stac-spec/tree/master/item-spec) to learn more about the STAC Items.
 
 ### Item definition
 
-MPC Pro adheres to the STAC Item Specification which defines a set of common fields to describe an Item, such as time range and the assets related to the Item. Items are defined in JSON format and can be flexibly expanded to include more metadata.
+The Planetary Computer Pro adheres to the STAC Item Specification which defines a set of common fields to describe an Item, such as time range and the assets related to the Item. Items are defined in JSON format and can be flexibly expanded to include more metadata.
 
 A valid STAC Item requires the following fields:
 
@@ -270,18 +270,18 @@ The following example shows a basic item JSON.
 
 ## STAC extensions
 
-Currently, MPC Pro automatically adds the following extensions to all ingested collections:
+Currently, a GeoCatalog automatically adds the following extensions to all ingested collections:
 
 - [item-assets](https://github.com/stac-extensions/item-assets)
 - [table](https://github.com/stac-extensions/table)
 
-Users are free to add any other STAC extensions they want, but MPC Pro doesn't currently validate the extensions.
+STAC extensions may also be used at the STAC Item level. Users are free to add any other STAC extensions they want, but GeoCatalog doesn't currently validate the extensions.
 
 For a full list of STAC extensions, including the maturity of each one, see [the STAC extensions page on GitHub](https://stac-extensions.github.io/).
 
 ## STAC API
 
-MPC Pro's APIs conform to the [STAC API specification](https://github.com/radiantearth/stac-api-spec/), making it possible for you to quickly and easily search petabyte-scale datasets to find specific data assets that meet your needs. Once these assets are identified, you can view or download the assets using MPC Pro APIs.
+The Planetary Computer Pro's APIs conform to the [STAC API specification](https://github.com/radiantearth/stac-api-spec/), making it possible for you to quickly and easily search petabyte-scale datasets to find specific data assets that meet your needs. Once these assets are identified, you can view or download the assets using GeoCatalog's APIs.
 
 ## Next steps
 
