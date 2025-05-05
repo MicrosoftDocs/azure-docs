@@ -45,7 +45,7 @@ To learn more about how MongoDB Atlas can help you make the most of your MongoDB
 
 - [MongoDB Community forums](https://www.mongodb.com/community/)
 
-## Developer Tools
+## Developer tools
 
 - [MongoDB Compass](https://www.mongodb.com/docs/compass/current/)
 

@@ -81,7 +81,7 @@ productDirectory:
       imageSrc: ./media/index/mongo-db.svg
       links:
         - url: ./mongo-db/overview.md
-          text: A fully-managed document database with native vector search support for AI applications.
+          text: A fully managed document database with native vector search support for AI applications.
     - title: NGINX
       imageSrc: ./media/index/nginx.svg
       links:

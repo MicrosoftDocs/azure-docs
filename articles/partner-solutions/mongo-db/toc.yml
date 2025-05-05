@@ -6,6 +6,8 @@ items:
   items:
   - name: What is MongoDB Atlas?
     href: overview.md 
+  - name: Resources and developer tools
+    href: tools.md 
 - name: Quickstart
   expanded: true
   items:
@@ -16,3 +18,5 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
+  - name: troubleshoot
+    href: troubleshoot.md

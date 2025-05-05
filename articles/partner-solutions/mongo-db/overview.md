@@ -7,8 +7,6 @@ ms.date: 04/03/2025
 
 # What is MongoDB Atlas (preview)?
 
-## Overview
-
 [!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and [MongoDB](https://www.mongodb.com/) developed this service and manage it together.
@@ -31,7 +29,7 @@ Azure Native MongoDB Atlas provides the following capabilities:
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
-## Next Step
+## Next step
 
 > [!div class"nextstepaction"]
 > [Create a resource](create.md)
