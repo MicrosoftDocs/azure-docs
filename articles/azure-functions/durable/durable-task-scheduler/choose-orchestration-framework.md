@@ -16,7 +16,7 @@ Azure offers two developer-oriented orchestration frameworks you can use to buil
 ## Scenarios requiring orchestration 
 
 Application or orchestration patterns that benefit from the statefulness offered by an orchestration framework include: 
-- **Function chaining:** For executing sequential workflo steps in order, passing data between steps with data transformations at each step, and building pipelines where each activity builds on the previous one.
+- **Function chaining:** For executing sequential workflow steps in order, passing data between steps with data transformations at each step, and building pipelines where each activity builds on the previous one.
 - **Fan-out/fan-in:** For batch jobs, ETL (extract, transfer, and load), and any scenario that requires parallel processing. 
 - **Human interactions:** For two-factor authentication, workflows that require human approval. 
 - **Asynchronous HTTP APIs:** For any scenario where a client doesn't want to wait for long-running tasks to complete. 
@@ -56,7 +56,7 @@ As a feature of Azure Functions, [Durable Functions](../durable-functions-overvi
 - Local development experience
 - Serverless pricing model, and more. 
 
-Aside from running on the Functions platform, Durable Functions apps can also be run on Azure App Service and Azure Container Apps, just like a regular Function app. 
+Aside from running on the Functions platform, Durable Functions apps can also be run on Azure App Service and Azure Container Apps. 
 
 Durable Functions includes a special feature called [Durable Entities](../durable-functions-entities.md), which are similar in concept to virtual actors or grains in the Orleans framework. *Entities* allow you to keep small pieces of states for objects in a distributed system. For example, you could use entities to model users of a microblogging app or the counter of an exercise app. 
 
@@ -112,7 +112,7 @@ The [Durable Task Scheduler](./durable-task-scheduler.md) (currently in preview)
 
 #### When to use Durable Task SDKs
 
-If your app only needs workflows, the Durable Task SDKs provide a lightweight and relatively un-opinionated programming model for authoring workflows. 
+If your app only needs workflows, the Durable Task SDKs provide a lightweight and relatively unopinionated programming model for authoring workflows. 
 
 When you need to run apps on Azure Kubernetes Services or VMs on-premises with official Microsoft support. While Durable Functions can be run on these platforms as well, there's no official support. 
 
@@ -122,13 +122,13 @@ Walk through one of the following quickstarts to configure your applications to 
 
 |   | Quickstart | Description |
 | - | ---------- | ----------- |
-| **Local development quickstart** | [Create an ap with Durable Task SDKs and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md) using either the .NET, Python, or Java SDKs. | Run a fan-in/fan-out orchestration locally using the Durable Task Scheduler emulator and review orchestration history using the dashboard. |
+| **Local development quickstart** | [Create an app with Durable Task SDKs and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md) using either the .NET, Python, or Java SDKs. | Run a fan-in/fan-out orchestration locally using the Durable Task Scheduler emulator and review orchestration history using the dashboard. |
 | **Deploy to Azure Container Apps using Azure Developer CLI** | [Configure Durable Task SDKs in your container app with Azure Functions Durable Task Scheduler][TODO] | Deploy a function chaining pattern solution using the Azure Developer CLI. |
 
 ## Limitations
  
 - **The Durable Task Framework (DTFx) support**
-   - DTFx is an open-source .NET orchestration framework similar to the .NET Durable Task SDK. While it *can* be used to build apps that run on platforms like Azure Kubernetes Services, **DTFx doesn't receive official Microsoft support**, so it's not recommended.
+   - DTFx is an open-source .NET orchestration framework similar to the .NET Durable Task SDK. While it *can* be used to build apps that run on platforms like Azure Kubernetes Services, **DTFx doesn't receive official Microsoft support**.
 
 ## Next steps
 
