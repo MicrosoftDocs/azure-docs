@@ -35,15 +35,15 @@ If the default behavior of Admin VMs or the configurations that AVE allows to be
 1. After you [create an Admin VM](#create-an-admin-vm), navigate to that Virtual Machine resource in the Azure portal.
 2. Select `Connect` and then select `Connect via Bastion`.
 
-![Screenshot showing virtual machine overview page with connect dropdown button highlighted.](./media/admin-vm-connect-bastion.png)
+[ ![Screenshot showing virtual machine overview page with connect dropdown button highlighted.](./media/admin-vm-connect-bastion.png) ](./media/admin-vm-connect-bastion.png#lightbox)
 
 3. Enter your credentials for the admin VM and select `Connect`.
 
-![Screenshot showing where to enter your credentials to login to the virtual machine.](./media/admin-vm-bastion-credentials.png)
+[ ![Screenshot showing where to enter your credentials to login to the virtual machine.](./media/admin-vm-bastion-credentials.png) ](./media/admin-vm-bastion-credentials.png#lightbox)
 
 4. Once you see the desktop for the Admin VM, select the windows start menu icon and enter `RDC` in the search field.
 
-![Screenshot showing the admin VM desktop view with Remote Desktop Connection highlighted in the start menu.](./media/admin-vm-desktop-remote.png)
+[ ![Screenshot showing the admin VM desktop view with Remote Desktop Connection highlighted in the start menu.](./media/admin-vm-desktop-remote.png) ](./media/admin-vm-desktop-remote.png#lightbox)
 
 5. Select the `Remote Desktop Connection` application from the list.
 6. Enter the IP address of the VM you want to access in the enclave.
@@ -52,7 +52,7 @@ If the default behavior of Admin VMs or the configurations that AVE allows to be
 
 7. Perform the task you needed to on the remote VM.
 
-![Screenshot showing the remote connection to the virtual machine.](./media/admin-vm-connect-remote-machine.png)
+[ ![Screenshot showing the remote connection to the virtual machine.](./media/admin-vm-connect-remote-machine.png) ](./media/admin-vm-connect-remote-machine.png#lightbox)
 
 ### Reset password
 You can reset the password with the instructions below. Starting from the portal:
