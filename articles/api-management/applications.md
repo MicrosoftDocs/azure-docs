@@ -39,11 +39,13 @@ This feature enables:
     > [!NOTE]
     > If you don't have access to an EUAP region, you can [request it](/troubleshoot/azure/general/region-access-request-process) through the Azure portal.
 
-- At least one product in your API Management instance, with at least one API assigned to it. If you haven't yet created a product, see [Create and publish a product](api-management-howto-add-products.md). For testing, you may use the default **Starter** product and the **Echo** API that's added to it.
+- At least one product in your API Management instance, with at least one API assigned to it. If you haven't yet created a product, see [Create and publish a product](api-management-howto-add-products.md). For testing, you may use the default **Starter** product and the **Echo** API that's added to it. The product should be in the **Published** state so that it can be accessed by developers through the developer portal.
 
 - Permissions to create an app registration in your Microsoft Entra tenant.
 
 - Permissions to assign the **Application Administrator** role, which requires at least the **Privileged Role Administrator** role in Microsoft Entra.
+
+- Optionally, one or more [users](api-management-howto-create-or-invite-developers.md) in your API Management instance. 
 
 
 [Any special considerations to access the preview - regions, special URLs, etc.]
@@ -58,6 +60,8 @@ The following are the high level configuration steps:
 
 1. After successful validation, Microsoft Entra ID issues the access/refresh token.
 
+
+<!-- Clarify personas for API Management and developer portal. -->
 
 
 
@@ -78,24 +82,25 @@ The following are the high level configuration steps:
 
 ## Enable application based access for product
 
-To enable OAuth 2.0 authorization for a product, can enable **Application based access** in the product settings. This setting automatically creates a client application in Microsoft Entra ID for this product.
+Follow these steps to enable **Application based access** for a product:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your API Management instance.
+2. In the left menu, under **APIs**, select **Products**.
+3. Choose the product you want to configure, such as the **Starter** product.
+4. In the left menu, under **Product**, select **Properties**.
+5. Enable the **Application based access** setting.
+6. Click **Save**.
+
+Enabling this setting automatically creates a client application in Microsoft Entra ID for the selected product.
+
+:::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
 
 > [!TIP]
 > You can also enable the **Application based access** setting when creating a new product. 
 
-1. Sign in to the Azure portal at the following URL () and navigate to your API Management instance.
-1. In the left menu, under **APIs**, select **Products**.
-1. Select the product you want to enable OAuth 2.0 authorization for. For this example, select the **Starter** product.
-1. In the left menu, under **Product**, select **Properties**.
-1. Enable **Application based access**.
-1. Select **Save**.
-
-:::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
-
+### Review application settings
 
 After you enable application based access, an enterprise application is created. 
-
-### Review application settings
 
 The application is named with the following format: **APIMProductApplication<product-name>**. For example, if the product name is **Starter**, the application name is **APIMProductApplicationStarter**. The application should have an **App role** defined.
 
@@ -110,21 +115,28 @@ You can review application settings in **App registrations**.
 
 ## Create application for multiple products
 
-You can also create an application that can access multiple products.
+You can also create an application directly in the portal that can access multiple products. Products must have **Application based access** enabled to have the application access them.
 
-1. Sign in to the Azure portal at the following URL () and navigate to your API Management instance.
+1. Sign in to the Azure portal at the following URL (`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`) and navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Applications** > **+ Register application**.
 1. In the **Register an application** pane, 
 1. Enter the following application settings:
-    * **Name**: Enter a name for the application. For example, **MyApp**.
-    * **Owner**: Select the owner of the application from the dropdown list. <!-- What are options here? -->
-    * **Grant access to selected products**: Select one or more products that you want the application to access. <!--Why were some product options greyed out? -->
+    * **Name**: Enter a name for the application. 
+    * **Owner**: Select the owner of the application from the dropdown list. This list includes all users in the API Management instance. 
+    * **Grant access to selected products**: Select one or more products that you want the application to access. You can select one or more products in the API Management instance that have **Application based access** enabled.
     * **Description**: Optionally enter a description.
 
     :::image type="content" source="media/applications/register-application.png" alt-text="Screenshot of application settings in the portal.":::
 1. Select **Register**.
 
+
+<!-- Should the application then appear in the list of applications? -->
+
+
+
 ## Add/remove products in application
+
+
 
 ## Create token and use with API call
 
