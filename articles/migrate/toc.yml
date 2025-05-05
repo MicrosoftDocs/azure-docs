@@ -69,6 +69,8 @@ items:
       href: resource-tagging.md
 - name: Create Business case
   items:
+  - name: Buisness case overview
+    href: concepts-business-case-calculation.md
   - name: Build a business case
     href: how-to-build-a-business-case.md
   - name: Review business case
