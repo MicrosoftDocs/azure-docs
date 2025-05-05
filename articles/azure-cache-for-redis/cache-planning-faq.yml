@@ -6,7 +6,7 @@ metadata:
   
   
   ms.topic: faq
-  ms.date: 04/30/2025
+  ms.date: 05/05/2025
   appliesto:
     - ✅ Azure Cache for Redis
 title: Azure Cache for Redis planning FAQs
@@ -37,19 +37,14 @@ sections:
           | US Government  | *.redis.cache.usgovcloudapi.net |
           | 21Vianet Cloud (China)   | *.redis.cache.chinacloudapi.cn  |
           
-          For other considerations about using Azure Redis with other clouds, see the following links:
+          The Azure Redis Enterprise and Enterprise Flash tiers are available only in the Public cloud.
+          
+          For more considerations about using Azure Redis with other clouds, see the following links:
           
           - [Azure Government Databases](/azure/azure-government/compare-azure-government-global-azure)
           - [Azure operated by 21Vianet Cloud](https://www.azure.cn/home/features/redis-cache/)
           
           For information about using Azure Redis with PowerShell in Azure Government Cloud and Azure operated by 21Vianet Cloud, see [How to connect to other clouds - PowerShell](../redis/how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
-          
-          The Azure Redis Enterprise and Enterprise Flash tiers are available only in the Public cloud.
-          
-      - question: |
-          What region should I locate my cache in?
-        answer: |
-          For best performance and lowest latency, locate your Azure Redis cache in the same Azure region as your cache client application.
           
       - question: |
           Where does my cached data reside?
@@ -64,6 +59,11 @@ sections:
             >The Enterprise Flash tier also stores data on an ephemeral NVMe flash disk. This disk is mounted to the cache instance VM and therefore resides in the same region as the instance.
           
           You need to explicitly configure Azure Redis to use the preceding features. You also have complete control over the region where the storage account or secondary cache is located.
+          
+      - question: |
+          Which region should I locate my cache in?
+        answer: |
+          For best performance and lowest latency, locate your Azure Redis cache in the same Azure region as your cache client application.
           
 additionalContent: |
 

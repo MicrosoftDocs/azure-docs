@@ -7,7 +7,7 @@ description: Learn about the TLS protocol configuration and how to use TLS to se
 ms.topic: overview
 ms.custom:
   - ignite-2024
-ms.date: 01/23/2024
+ms.date: 05/05/2025
 appliesto:
   - ✅ Azure Cache for Redis
 # Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
@@ -15,7 +15,9 @@ appliesto:
 
 # Azure Cache for Redis TLS protocol configuration settings
 
-Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Cache for Redis supports TLS on all tiers. When you create a service that uses an Azure Redis cache, it's best to connect using TLS.
+Transport Layer Security (TLS) is a cryptographic protocol that provides secure communication over a network. Azure Cache for Redis supports TLS on all tiers, and requires TLS encrypted communications by default. Using TLS is recommended as a best practice across virtually all Azure Redis use cases.
+
+The option to connect Azure Redis without TLS is included for backwards compatibility purposes. If your client library or tool doesn't support TLS, you can enable unencrypted connections through the [Azure portal](cache-configure.md#access-ports) or [management APIs](/rest/api/redis/redis/update). This article describes how to enable non-TLS access by using the Azure portal.
 
 > [!IMPORTANT]
 > TLS 1.0 and 1.1 are no longer supported. For more information, see [Remove TLS 1.0 and 1.1 from use with Azure Cache for Redis](cache-remove-tls-10-11.md),
@@ -41,6 +43,10 @@ The TLS 1.3 cipher suites are as follows:
 > The `TLS_CHACHA20_POLY1305_SHA256` cipher suite is no longer supported for TLS 1.3 connections. Use the `TLS_AES_128_GCM_SHA256` or `TLS_AES_256_GCM_SHA384` cipher suites instead.
 
 ## How to enable or disable TLS
+
+Azure Cache for Redis 
+
+
 
 Enabling and disabling TLS is different for different Azure Redis tiers.
 
