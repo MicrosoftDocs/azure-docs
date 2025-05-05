@@ -4,8 +4,15 @@ description: Describes the Azure NetApp Files application volume group creation 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
+<<<<<<< HEAD
 ms.topic: conceptual
 ms.date: 04/02/2025
+=======
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.topic: concept-article
+ms.date: 08/08/2024
+>>>>>>> 485e86738405f4a1755dd87cfdaa928cd9393f8c
 ms.author: anfdocs
 ---
 # Configure application volume group for Oracle using REST API

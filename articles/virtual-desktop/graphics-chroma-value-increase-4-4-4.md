@@ -2,7 +2,7 @@
 title: Increase the chroma value to 4:4:4 for Azure Virtual Desktop
 description: Learn how to increase the chroma value from 4:2:0 to 4:4:4.
 ms.topic: how-to
-author: ErikjeMS
+author: dougeby
 ms.author: avdcontent
 ms.date: 05/21/2024
 ---
