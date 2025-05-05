@@ -14,7 +14,7 @@ ms.date: 03/11/2025
 
 By default, when Web Application Firewall (WAF) on Application Gateway blocks a request due to a matched rule, it returns a 403 status code with the message "The request is blocked." You can customize the response by configuring a custom status code and message to better suit your use case.
 
-This article explains how to configure a custom response page when Azure Application Gateway's Web Application Firewall (WAF) blocks a request uaing the Azure Portal. You can also configure cutom responses using the [CLI](https://learn.microsoft.com/cli/azure/network/application-gateway/waf-policy/policy-setting) and [PowerShell](https://learn.microsoft.com/cli/azure/network/application-gateway/waf-policy/policy-setting) instructions. 
+This article shows you how to configure a custom response page when Azure Application Gateway's Web Application Firewall (WAF) blocks a request using the Azure Portal. You can also configure custom responses using the [Azure CLI](/cli/azure/network/application-gateway/waf-policy/policy-setting) and PowerShell. 
 
 ## Configure a custom response status code and message by using the portal
 
