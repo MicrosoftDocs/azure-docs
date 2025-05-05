@@ -4,13 +4,13 @@ description: Learn how to configure render settings for geospatial data visualiz
 author: 777arc
 ms.author: marclichtman
 ms.service: azure
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 04/24/2025
 ---
 
-# Render configuration in Microsoft Planetary Computer Pro
+# How-To: Configure renders for visualizing data in Microsoft Planetary Computer Pro
 
-For the Microsoft Planetary Computer Pro data explorer, and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#collection-item_assets-field)). 
+For the Microsoft Planetary Computer Pro data explorer and Tiler API to work together, a render configuration must be set up along with a definition of the **item assets** inside the collection JSON ([collection item assets](#collection-item_assets-field)). 
 
 ## Prerequisites
 
@@ -46,15 +46,9 @@ render_config =
 ]
 ```
 
-A single render config is a JSON string (or Python dict if using the Python API) that specifies an ID, name, description, type, minZoom, and "options."
+## Choose the render configurations' fields
 
-## One-band vs three-band renders
-
-Before diving into the render config options, it's important to identify whether you're rendering a single band of data or three bands of data. For each geospatial position, a three-band render combines three different datapoint values as the red, green, and blue pixel values of a natural image. In contrast, the datapoint values of a single band of data can be mapped onto corresponding colors through a colormap.
-
-## Options: colormap_name and rescale
-
-To demonstrate the `colormap_name` and `rescale` fields, consider the following example render configuration which maps the population density through the Midwest of the United States with a plasma colormap scaled from 0 through 1000:
+Consider the following example render configuration which maps the population density through the Midwest of the United States with a plasma colormap scaled from 0 through 1000:
 
 ```python
  {
@@ -70,6 +64,41 @@ To demonstrate the `colormap_name` and `rescale` fields, consider the following 
 The `id` field is used internally in MPC Pro. The `name` field is what appears in the Explore pulldown menu, and the `options` field contains the syntax used to generate the image. A transparent pixel indicates no people live there (or that no data was available), a deep indigo corresponds to fewer than 100 people, while a bright yellow means 1000 or more people within that pixel of the map, due to our `rescale=0,1000`.
 
 ![Screenshot of render configuration showing population density using a plasma colormap](media/pop_density_plasma.png)
+A single render config is a JSON string (or Python dict if using the Python API) that specifies an id, name, description, type, minZoom, and "options."
+
+## Specify item_assets in collection json to enable render
+
+Separately from the render config, each STAC collection JSON must have an `item_assets` field that describes where the assets that need to be visualized are identified. At least two fields are required to be provided. All or a subset of the assets need to be specified by name within the render config `options` param, either using the `assets` key or using an `expression`, so the renderer knows which assets to use.
+
+## Use the web interface to set a render configuration
+
+Within the MPC Pro web interface, under the collection of interest, you can configure the render config by selecting the "Configuration" button and then selecting the "Render" tab.
+
+![Screenshot of the render configuration web GUI displaying options for setting up render configurations](media/renderconfig_webgui.png)
+
+## Use the API to set a render configuration
+
+If using the Python API, as demonstrated in [Create a STAC collection](./create-stac-collection.md), you can register a new render config using the following POST:
+
+```python
+render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
+response = requests.post(
+    render_config_endpoint,
+    json=render_config,
+    headers=getBearerToken(),
+    params={"api-version": "2025-04-30-preview"}
+)
+```
+
+The remainder of this How-To focuses on the `options` field.
+
+## Determine render components: one-band vs three-band renders
+
+It's important to identify whether you're rendering a single band of data or three bands of data. For each geospatial position, a three-band render combines three different datapoint values as the red, green, and blue pixel values of a natural image. In contrast, the datapoint values of a single band of data can be mapped onto corresponding colors through a colormap.
+
+## Use colormap_name and rescale parameters under 'options' in one-band renders
+
+To demonstrate the `colormap_name` and `rescale` fields, 
 
 Using a red-to-purple (colormap_name=rdpu), micropolitan areas, which are small islands of population density, are more easily visible, as shown below.
 
@@ -100,7 +129,7 @@ A rescaled colormap (`rescale=0,300&colormap_name=rdpu`) better highlights areas
   }
 ```
 
-## Three-band renders, assets, asset_bidx
+## Specify assets and asset_bidx parameters under 'options' for three-band renders
 
 Three bands are treated as RGB by the renderer (R, G, and B respectively), while single-band renders require specifying a colormap so that the single channel of values can be mapped to RGB. If a single asset within the STAC item has multiple bands, those bands are referenced using `asset_bidx`.
 
@@ -167,7 +196,7 @@ The same collection also has a 'Color infrared' option, which uses band 4 (NIR),
   }
  ```
 
-## Options: three different assets
+## Repeat the assets parameter for three-band renders are made across three assets
 
 It's also possible to specify assets as bands for a three-band render, as for the sentinel-2-l2a dataset, where rather than having one asset with four eo:bands, each band of the 13 bands of data is represented by its own asset name (AOT, B01, B02, B03, B04, B05, B06, B07, B08, B8A, B09, B11, B12). Each asset is specified using separate `assets=myassetname` with `&` in between each one.
 
@@ -182,7 +211,7 @@ It's also possible to specify assets as bands for a three-band render, as for th
   }
 ```
 
-## Options: expression, asset_as_band, nodata
+## Combine different assets into a one-band render using expression, asset_as_band, nodata
 
 Multiple assets can be combined into an expression, which can then be mapped onto a colormap, as in the following example from the sentinel-2-l2a dataset, which calculates a vegetative index from the B04 and B08 assets. When using only a single expression from multi-asset data, you must specify `asset_as_band=true` in the option. In this example, `nodata=0` makes transparent any pixel for which the expression matches the nodata value.
 
@@ -197,93 +226,24 @@ Multiple assets can be combined into an expression, which can then be mapped ont
   }
 ```
 
-## All options parameters
-
-The `options` contain most of the render settings/behavior, and is assembled from one or more key-value pairs specifying the following 16 different possible parameters:
-
-| Parameter        | Type | Description |
-| ---------------- | ---- | ----------- |
-| assets           | str | Asset's names, multiple assets should be provided using the pattern `assets=data0&assets=data1&...`, assets must be specified either here or within `expression` |
-| colormap_name    | str | Colormap name for single-band renders, reference [this graphic](media/colormaps.png) of named colormaps available in MPC Pro |
-| colormap         | str | Use a custom colormap, instead of a `colormap_name`, for single-band renders |
-| color_formula    | str | Color correction for three-band (i.e., RGB) renders, specified using a color formula comprising of gamma, sigmoidal, and saturation levels |
-| exitwhenfull     | bool | Return as soon as the geometry is fully covered |
-| skipcovered      | bool| Skip any items that would show up completely under the previous items |
-| time_limit       | int | Return after N seconds to avoid long requests |
-| rescale          | int, int | Set the min and max value used by the colormap (single-band) or RGB (three-band) |
-| expression       | str | Math expression used to combine assets/bands either into one or three bands |
-| algorithm        | str | More complex operations, meant to overcome the limitation of expression |
-| algorithm_params | json | Parameters for the algorithm chosen |
-| buffer           | float | Buffer on each side of the given tile, must be a multiple of 0.5, output tilesize will be expanded to tilesize + 2 * buffer |
-| asset_as_band    | bool | Consider asset as a 1 band dataset, this is needed when you're doing an expression with multiple 1-band assets |
-| asset_bidx       | array[str] | Per-asset band indexes, see the following examples |
-| nodata           | str or int or float | Overwrite internal Nodata value with the provided value |
-| unscale          | bool | Apply internal scale/offset |
-
-## Setting your render configuration
-
-Within the MPC Pro web interface, under the collection of interest, you can configure the render config by selecting the "Configuration" button and then selecting the "Render" tab.
-
-![Screenshot of the render configuration web GUI displaying options for setting up render configurations](media/renderconfig_webgui.png)
-
-If using the Python API, as demonstrated in [Create a STAC collection](./create-stac-collection.md), you can register a new render config using the following POST:
-
-```python
-render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
-response = requests.post(
-    render_config_endpoint,
-    json=render_config,
-    headers=getBearerToken(),
-    params={"api-version": "2025-04-30-preview"}
-)
-```
-
-The remainder of this Quickstart focuses on the `options` field, as it contains the most flexibility, and thus, complexity.
-
-## Formatting
-
-The render config `options` field is always going to be a single string. Key-value pairs are separated within this string using `&`'s. Spaces are allowed, and they're used within the `color_formula` syntax. When one of the values is an array, such as `asset_bidx` which is an array of strings, the elements in the array are comma separated, but square brackets aren't used.
-
-## More examples
-
-Below we provide four different `options` values that show off various render parameters:
-
-* Example using asset_bidx: `assets=SWIR&asset_bidx=SWIR|1,3,5&nodata=0&skipcovered=False&exitwhenfull=False&time_limit=8&color_formula=gamma RGB 2.7, saturation 1.2, sigmoidal RGB 15 0.55`
-  * Uses the asset named `SWIR`, and band indexes 1, 3, and 5/
-  * Any missing data is replaced with 0's.
-  * Items that would show up completely under the previous items aren't skipped, and once the geometry of interest is fully covered, the rendered doesn't automatically exit.
-  * After 8 seconds the renderer will finish, even if there are still assets left.
-  * Apply color correct, see [Colormaps, and Color Formula](#colormaps-and-color-formula) for details about how the formula is constructed.
-* Example using algorithm and algorithm_params: `assets=data&colormap_name=gray&algorithm=hillshade&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D`.
-  * This example shows how to use an algorithm, in this case the `hillshade` algorithm, which also requires setting a buffer size of at least 3, see [Algorithms](#algorithms) for details.
-  * This example also uses a named colormap, `gray`, which goes from white to black.
-* Example using an expression and color_formula: `expression=C02_2km_wm;0.45*C02_2km_wm+0.1*C03_2km_wm+0.45*C01_2km_wm;C01_2km_wm&nodata=-1&rescale=1,2000&color_formula=Gamma RGB 2.5 Saturation 1.4 Sigmoidal RGB 2 0.7&asset_as_band=true`.
-  * This example of an expression shows three bands being combined to form RGB.
-  * Note how assets don't have to be specified using `assets=myassetname` if you use an expression, which contains the asset names.
-* An example of a custom colormap definition: `nodata=0&assets=lc&colormap={\"1\":[54,124,20,255],\"2\":[28,67,0,255],\"3\":[94, 91, 32, 255],\"4\":[234, 99, 32, 255],\"5\":[237, 232, 60, 255],\"6\":[236, 31, 175, 255],\"7\":[19, 0, 239, 255], \"8\":[209, 3, 0, 255]}.`
-
-## Collection item_assets field
-
-Separately from the render config, each STAC collection JSON must have an `item_assets` field that describes where the assets that need to be visualized are identified. At least two fields are required to be provided. All or a subset of the assets need to be specified by name within the render config `options` param, either using the `assets` key or using an `expression`, so the renderer knows which assets to use.
-
-## Colormaps and color formula
+## Consider available colormaps and color formula parameters
 
 When it comes to color, there are different options you must choose from depending on whether you're dealing with a single-band or three-band render. If you use an algorithm or expression that outputs three bands, consider it a three-band render for the sake of this section.
 
 * Single-band render - Provide a `colormap_name`, **or** a custom `colormap`, providing neither may either error out or use a greyscale colormap by default. Optionally, you can add rescaling to either case to control how values are mapped to the colormap. Reference [this graphic](media/colormaps.png) for all named colormaps available in MPC Pro.
 * Three-band render - A three-band render is already in RGB format so you don't need to provide anything, but you can optionally specify a `color_formula` to provide color correction. Specifying a colormap (`colormap` or `colormap_name`) isn't supported and doesn't make sense when there are already three bands corresponding to RGB. Rescaling can still be used, to specify how the values get mapped to RGB (especially if your three bands are floating point values).
 
-For other cases such as a two-band render, an expression or algorithm **must** be used to translate the two bands into either a single or three band-render.
+For other cases such as a render based on two asset bands, an expression or algorithm **must** be used to translate the two bands into either a single or three band-render.
 
-### Using `colormap_name` and rescaling
+### Specify `colormap_name` and rescaling
 
 During rendering of a single band, the colormap maps each value in your data (i.e., an int or float) to a specific color. A gradient colormap creates a continuous transition of color. For example red-to-blue, or white-to-gray-to-black, corresponding to the data's values. All you have to provide is the `colormap_name`. Cividis (blue-to-yellow), magma (black-purple-pink-yellow), and gray (white-gray-black) are common colormaps. The color may also indicate a classification, like green for forest, represented as a 1 in the data, and blue for water, represented as 4 in the data. This is why many of the colormaps have a few colors at specific values, and black elsewhere.
 
-### Custom colormaps
+### Define a custom colormap
 
 If none of the named colormaps are suitable, a custom colormap can be defined using the `colormap` field in options. The format uses a dictionary of indices starting at 1, where each index has an RGBA value. For example: `colormap={\"1\":[54,124,20,255],\"2\":[28,67,0,255],\"3\":[94, 91, 32, 255],\"4\":[234, 99, 32, 255],\"5\":[237, 232, 60, 255],\"6\":[236, 31, 175, 255],\"7\":[19, 0, 239, 255], \"8\":[209, 3, 0, 255]}`. Note that double quotes must be escaped.
 
-### Color correction using `color_formula`
+### Correct RGB color using `color_formula`
 
 For three-band renders, you can optionally perform a color correction step before rendering using the `color_formula` field. A color formula color-corrects an image using Gamma, Sigmoidal, and Saturation operations (the process can be thought of as RGB in, RGB out). Gamma brightens or darkens midtones, Sigmoidal alters overall brightness, and Saturation alters "colorfulness" between gray-like and vibrant hues. The formula is as follows and is encapsulated in a single string (with spaces), comprising of three parts: Gamma, Saturation, Sigmoidal: **Gamma BANDS VALUE Saturation PROPORTION Sigmoidal BANDS CONTRAST BIAS**.
 
@@ -295,7 +255,7 @@ Example `color_formula`: **Gamma RGB 2.5 Saturation 1.4 Sigmoidal RGB 2 0.7**.
 
 **Sigmoidal** adjusts the contrast and brightness in a nonlinear way that matches human's visual perception. It can help to increase contrast without blowing out the shadows or already-bright regions of an image. It requires specifying the list of bands (R, G, and/or B), the contrast level, and the bias level. A contrast level of 0 is no change, 3 is typical, and 20 is a lot. A typical bias level is 0.5. For example, `Sigmoidal B 2 0.5`. 
 
-## Expressions
+## Combine data across assets into expressions
 
 A render expression combines bands in your data into one or more new values, for visualization. For example, the sentinel-2-l2a dataset contains 13 spectral bands, including B8A at 0.86 micrometers, and B11 at 1.61 micrometers. The popular Normalized Difference Vegetation Index (NVDI), defined as (B8A-B11)/(B8A+B11), is sensitive to the abundance of chlorophyll and water in vegetation and indicates overall vegetation health, and we can represent this index as an expression in our render config using `expression=(B8A-B11)/(B8A+B11)` within our `options`. This takes two bands and outputs a single band, so we would need to use a colormap in this case.
 
@@ -305,7 +265,7 @@ Multi-band expressions use semicolons `;` as a separator for each output, for ex
 
 If you use an expression, you don't have to specify your assets also using `assets=myassetname`, they're instead provided as part of the expression.
 
-## Algorithms
+## Convert adjacent pixels into new values using algorithms
 
 Algorithms were added to offer more complex operations than what expressions can handle. For example, the `hillshade` algorithm converts elevation data into new values that illustrate terrain with shadows and highlights. The currently supported algorithms are as follows:
 
@@ -329,3 +289,62 @@ print(quote(algorithm_params_json))
 Which leads to the final string **algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D**.
 
 Specific `algorithm_params` can be referenced on [the Titiler GitHub](https://github.com/developmentseed/titiler/blob/725f857c735790e6c7783c4319f61804669b1980/src/titiler/core/titiler/core/algorithm/dem.py). Note that the hillshade algorithm requires that you also specify a buffer of at least 3, so that it has tiles adjacent to the edges to work with.
+
+
+## Review all possible options' parameters
+
+The `options` contain most of the render settings/behavior, and is assembled from one or more key-value pairs specifying the following 16 different possible parameters:
+
+| Parameter        | Type | Description |
+| ---------------- | ---- | ----------- |
+| assets           | str | Asset's names, multiple assets should be provided using the pattern `assets=data0&assets=data1&...`, assets must be specified either here or within `expression` |
+| colormap_name    | str | Colormap name for one-band renders, reference [this graphic](media/colormaps.png) of named colormaps available in MPC Pro |
+| colormap         | str | Use a custom colormap, instead of a `colormap_name`, for single-band renders |
+| color_formula    | str | Color correction for three-band (i.e., RGB) renders, specified using a color formula comprising of gamma, sigmoidal, and saturation levels |
+| exitwhenfull     | bool | Return as soon as the geometry is fully covered |
+| skipcovered      | bool| Skip any items that would show up completely under the previous items |
+| time_limit       | int | Return after N seconds to avoid long requests |
+| rescale          | int, int | Set the min and max value used by the colormap (single-band) or RGB (three-band) |
+| expression       | str | Math expression used to combine assets/bands either into one or three bands |
+| algorithm        | str | More complex operations, meant to overcome the limitation of expression |
+| algorithm_params | json | Parameters for the algorithm chosen |
+| buffer           | float | Buffer on each side of the given tile, must be a multiple of 0.5, output tilesize will be expanded to tilesize + 2 * buffer |
+| asset_as_band    | bool | Consider asset as a 1 band dataset, this is needed when you're doing an expression with multiple 1-band assets |
+| asset_bidx       | array[str] | Per-asset band indexes, see the following examples |
+| nodata           | str or int or float | Overwrite internal Nodata value with the provided value |
+| unscale          | bool | Apply internal scale/offset |
+
+## Format your render configuration's 'options' string
+
+The render config `options` field is always going to be a single string. Key-value pairs are separated within this string using `&`'s. Spaces are allowed, and they're used within the `color_formula` syntax. When one of the values is an array, such as `asset_bidx` which is an array of strings, the elements in the array are comma separated, but square brackets aren't used.
+
+## View examples to ensure proper render configuration syntax
+
+Below we provide four different `options` values that show off various render parameters:
+
+* Example using asset_bidx: `assets=SWIR&asset_bidx=SWIR|1,3,5&nodata=0&skipcovered=False&exitwhenfull=False&time_limit=8&color_formula=gamma RGB 2.7, saturation 1.2, sigmoidal RGB 15 0.55`
+  * Uses the asset named `SWIR`, and band indexes 1, 3, and 5/
+  * Any missing data is replaced with 0's.
+  * Items that would show up completely under the previous items aren't skipped, and once the geometry of interest is fully covered, the rendered doesn't automatically exit.
+  * After 8 seconds the renderer will finish, even if there are still assets left.
+  * Apply color correct, see [Colormaps, and Color Formula](#colormaps-and-color-formula) for details about how the formula is constructed.
+* Example using algorithm and algorithm_params: `assets=data&colormap_name=gray&algorithm=hillshade&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D`.
+  * This example shows how to use an algorithm, in this case the `hillshade` algorithm, which also requires setting a buffer size of at least 3, see [Algorithms](#algorithms) for details.
+  * This example also uses a named colormap, `gray`, which goes from white to black.
+* Example using an expression and color_formula: `expression=C02_2km_wm;0.45*C02_2km_wm+0.1*C03_2km_wm+0.45*C01_2km_wm;C01_2km_wm&nodata=-1&rescale=1,2000&color_formula=Gamma RGB 2.5 Saturation 1.4 Sigmoidal RGB 2 0.7&asset_as_band=true`.
+  * This example of an expression shows three bands being combined to form RGB.
+  * Note how assets don't have to be specified using `assets=myassetname` if you use an expression, which contains the asset names.
+* An example of a custom colormap definition: `nodata=0&assets=lc&colormap={\"1\":[54,124,20,255],\"2\":[28,67,0,255],\"3\":[94, 91, 32, 255],\"4\":[234, 99, 32, 255],\"5\":[237, 232, 60, 255],\"6\":[236, 31, 175, 255],\"7\":[19, 0, 239, 255], \"8\":[209, 3, 0, 255]}.`
+
+## Make render configurations for data cube assets (GRIB and NetCDF media types)
+All the previously discussed render configurations work on geotiffs (and cloud-optimized geotiffs), where each data point uniquely maps to 2D geospatial location.  Planetary Computer can also visualize GRIB and NetCDF media types [Visualize data cube assets](./visualize-assets.md).  These media types require specifying additional parameters.
+
+### Specify GRIB messages with the `subdataset_bands` parameter
+Planetary Computer uses the parameter `subdataset_bands` to identify which 2D array of data within a GRIB dataset to visualize as in `{"options": "assets=GRIB&nodata=0&scale=2&rescale=1,75&resampling=nearest&colormap_name=jet&subdataset_bands=1"}`
+
+### Specify NetCDF data using `subdataset_name` and `datetime`
+NetCDF data may contain many variables, each a 2D or 3D arrays.  Specify a variable to visualize using `subdataset_name`.  For 3D data with a time dimension, use the `datetime` parameter to find the 2D slice of data nearest the specified date and time.  `{"options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr&datetime=1950-07-07T00:00:00"}` would visualize the `pr` variable at the date and time nearest `1950-07-07T00:00:00`.  The `datetime` may also be an ordinal value, like a date within the year, and not a specific datetime in history.
+
+
+
+
