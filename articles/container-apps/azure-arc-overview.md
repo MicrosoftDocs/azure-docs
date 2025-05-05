@@ -30,7 +30,7 @@ As you configure your cluster, you carry out these actions:
 
 - **A Container Apps connected environment**, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment.
 
-## Public preview limitations
+## Limitations
 
 The following public preview limitations apply to Azure Container Apps on Azure Arc enabled Kubernetes.
 
@@ -42,6 +42,17 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
+
+The following features are supported:
+
+- Labels
+- Metrics
+- Easy auth
+- Log stream
+- Resilience
+- Custom domains
+- Revision Management
+- App container console
 
 > [!IMPORTANT]
 > If deploying onto **AKS on Azure Local** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
