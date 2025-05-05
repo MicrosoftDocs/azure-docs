@@ -1,10 +1,10 @@
 ---
 title: Manage the operating system of session hosts - Azure Virtual Desktop
 description: Recommended ways for you to manage your Azure Virtual Desktop session hosts, such as Microsoft Intune and Microsoft Configuration Manager.
-author: dknappettmsft
+author: dougeby
 ms.topic: conceptual
 ms.date: 04/11/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
