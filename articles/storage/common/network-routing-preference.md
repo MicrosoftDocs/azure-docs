@@ -5,7 +5,7 @@ description: Network routing preference enables you to specify how network traff
 services: storage
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/13/2023
 ms.author: normesta
 ms.reviewer: santoshc

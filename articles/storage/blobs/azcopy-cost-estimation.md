@@ -4,7 +4,7 @@ description: Learn how to estimate the cost to transfer data to, from, or betwee
 services: storage
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/06/2025
 ms.author: normesta
 ms.custom: subject-cost-optimization
