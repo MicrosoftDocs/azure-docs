@@ -1,7 +1,7 @@
 ---
 title: Configure custom responses for Web Application Firewall with Application Gateway 
 description: Learn how to configure a custom response code and body (message) when Azure Web Application Firewall blocks a request.
-author: edenYaakobi  
+author: YaakobiEden  
 ms.author: edenyaakobi
 ms.service: azure-web-application-firewall
 ms.topic: how-to
