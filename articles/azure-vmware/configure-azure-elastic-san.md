@@ -4,7 +4,7 @@ description: Learn how to use Elastic SAN  with Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
-ms.date: 3/22/2024
+ms.date: 05/05/2025
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -61,11 +61,13 @@ If you're planning on connecting an Elastic SAN datastore to multiple clusters, 
 
 ## Configure Private Endpoint
 
-Keeping in mind the guidance from the previous section, create as many private endpoints for your volume groups as you need.
+Using the guidance from the previous section, create as many private endpoints for your volume groups as you need.
 
-Edit your volume group, or create a new one. Then select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**.
+Edit your volume group, or create a new one. Then select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**. You don't need to configure a virtual network, since you're using private endpoint connections.
 
-Fill out the values in the menu that pops up, select the virtual network that has your [ExpressRoute connection configured](/azure/azure-vmware/tutorial-configure-networking#connect-expressroute-to-the-virtual-network-gateway), and the subnet that your applications are going to use to connect. When you're done, select **Add**, and **Save**. 
+Fill out the values in the menu that pops up, select the virtual network that has your [ExpressRoute connection configured](/azure/azure-vmware/tutorial-configure-networking#connect-expressroute-to-the-virtual-network-gateway), and the subnet that your applications are going to use to connect. When you're done, select **Add**, and **Save**.
+
+ Repeat these steps to create as many private endpoints as you need.
 
 :::image type="content" source="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="../storage/elastic-san/media/elastic-san-create/elastic-san-edit-volume-network.png":::
 
