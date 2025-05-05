@@ -175,17 +175,13 @@ For details on the connection formats that each binding supports, and the permis
 
 By default, when you publish an Azure Functions project to Azure, it's deployed to Azure Container Apps.
 
-### Azure Container Apps
-
-During the preview period, the container app resources don't support event-driven scaling. Azure Functions support is not available for apps deployed in this mode. If you need to open a support ticket, select the Azure Container Apps resource type.
+During the preview period, Container Apps resources resources don't support event-driven scaling. Azure Functions support is not available for apps deployed in this mode. If you need to open a support ticket, select the Container Apps resource type.
 
 ## Considerations and best practices
 
 Consider the following points when you're evaluating the integration of Azure Functions with .NET Aspire:
 
 - Support for the integration is currently in preview.
-
-- During the preview period, when you publish the .NET Aspire solution to Azure, Functions projects are deployed as Azure Container Apps resources without event-driven scaling. Azure Functions support is not available for apps deployed in this mode. For details, see [Hosting in Azure](#hosting-the-application) in this article.
 
 - Trigger and binding configuration through .NET Aspire is currently limited to specific integrations. For details, see [Connection configuration with .NET Aspire](#connection-configuration-with-net-aspire) in this article.
 
