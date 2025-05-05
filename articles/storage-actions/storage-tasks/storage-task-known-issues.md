@@ -87,6 +87,10 @@ You can't use string operators on container metadata, blob metadata, and blob in
 
 If you assign a storage task to a storage account that has a name, which starts with a digit, the storage task assignment fails.
 
+## Monitoring data doesn't appear unless the storage task and the storage account are in the same resource group
+
+If the storage task and the storage account specified in the task assignment are in different resource groups, the aggregated monitoring data for the storage account doesn't show up correctly in the monitoring tab of the storage task pane.
+
 ## Whitespace characters in Blob index tags and metadata aren't yet supported
 
 Whitespace characters in the key and value of blob tags are acceptable inputs. However, storage task conditions are unable to process the whitespace characters. If a key or value contains a whitespace character, an error appears when the task runs.
