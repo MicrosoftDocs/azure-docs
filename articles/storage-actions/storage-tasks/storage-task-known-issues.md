@@ -87,18 +87,6 @@ You can't use string operators on container metadata, blob metadata, and blob in
 
 If you assign a storage task to a storage account that has a name, which starts with a digit, the storage task assignment fails.
 
-## Monitoring data doesn't appear unless the storage task and the storage account are in the same resource group
-
-If the storage task and the storage account specified in the task assignment are in different resource groups, the aggregated monitoring data for the storage account doesn't show up correctly in the monitoring tab of the storage task pane.
-
-## Storage tasks assignment execution gets stuck in an in-progress state with no blobs processed
-
-In most cases, tasks execution progresses after 20 minutes. However, if the task gets stuck, then make sure that the target storage account has the necessary compatible configuration. For example, if the storage task sets the immutability policy, but the target account isn't configured with versioning support, the storage task won't progress and will eventually fail. Make sure to test each operation on the target storage account by using a mechanism other than a storage task to ensure that the operation succeeds. Then, add the operation to the storage task.  
-
-## Storage task fails with an internal error
-
-If incompatible storage task operations are tried out on storage accounts, the task execution can fail with an error, or it can be stuck in in-progress state. For example, an operation that attempts to set a blob index tag on an account that has a hierarchical namespace won't succeed. Make sure that the storage account configuration and the storage task operation are compatible.
-
 ## Whitespace characters in Blob index tags and metadata aren't yet supported
 
 Whitespace characters in the key and value of blob tags are acceptable inputs. However, storage task conditions are unable to process the whitespace characters. If a key or value contains a whitespace character, an error appears when the task runs.
@@ -114,18 +102,6 @@ If multiple filters are used in storage task assignments, not all directory pref
 ## Using whitespace characters in the path prefix during task assignment isn't supported
 
 Storage accounts that have a hierarchical namespace display location information as `container1 / subcontainer1` with a whitespace character between the string and the `/` character. An error appears if you copy and paste this information into the path prefix field during assignment.
-
-## Slow performance when processing blobs in accounts that have a hierarchical namespace
-
-Storage Actions operate on blobs in a hierarchical namespace-enabled account at a reduced capacity. This is a known issue that is being addressed. This issue reduces the rate at which blobs are processed by storage task run.
-
-## Operating on storage accounts in a private network is unsupported
-
-When you apply storage task assignments to storage accounts that have IP or network rules for access control, the task execution might fail. This is because the storage task assignments need to access the storage account through the public endpoint, which might be blocked by the firewall or virtual network rules. To avoid this issue, you need to configure the network access to your storage account properly.
-
-## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
-
-If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
 
 ## Moving storage tasks and task assignments
 Moving storage tasks and task assignments across different resource groups and subscriptions isn't supported. This limitation means that any storage tasks and their associated task assignments can't be transferred between resource groups or subscriptions.
