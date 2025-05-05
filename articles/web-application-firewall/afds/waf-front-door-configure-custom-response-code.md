@@ -1,13 +1,12 @@
 ---
-title: Configure custom responses for Web Application Firewall with Azure Front Door
+title: Configure custom responses for Azure Front Door WAF policy
 description: Learn how to configure a custom response code and message when Azure Web Application Firewall blocks a request.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 05/05/2025
 ms.custom: devx-track-azurepowershell
-zone_pivot_groups: front-door-tiers
 ---
 
 # Configure a custom response for Azure Web Application Firewall
@@ -22,7 +21,7 @@ By default, when Azure Web Application Firewall blocks a request because of a ma
 
 You can configure a custom response status code and body under **Policy settings** on the Azure Web Application Firewall portal.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings.":::
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
 
 In the preceding example, we kept the response code as 403 and configured a short "Please contact us" message, as shown in the following image:
 
@@ -106,17 +105,7 @@ Update-AzFrontDoorFireWallPolicy `
 > [!NOTE]
 > If you leave the block response body blank, the WAF returns a *403 Forbidden* response for normal WAF blocks and a *429 Too many requests* for rate limit blocks. 
 
-::: zone pivot="front-door-standard-premium"
-
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontdoorAccessLog` and `FrontdoorWebApplicationFirewallLog` logs.
-
-::: zone-end
+`{{azure-ref}}` inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
 
 ## Next step
 
