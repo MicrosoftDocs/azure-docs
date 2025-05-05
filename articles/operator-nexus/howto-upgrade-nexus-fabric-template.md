@@ -117,7 +117,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    * Microsoft.NexusIdentity/identitySets/write
    * Microsoft.NexusIdentity/identitySets/delete
    * Ensure that `Role Based Access Control Administrator` is successfully activated.
-   * Check in Azure portal from the following path: `Network Fabrics` -> `<NF_NAME>` -> `Access control (IAM)` -> `View my access`.
+   * Check in Azure portal from the following path: `Network Fabrics` -> \<NF_NAME\> -> `Access control (IAM)` -> `View my access`.
    * In current 'Role assignments', you should see the following two roles:
      - Nexus Contributor
      - Role Based Access Control Administrator
