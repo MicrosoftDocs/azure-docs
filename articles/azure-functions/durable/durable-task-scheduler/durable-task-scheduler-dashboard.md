@@ -1,13 +1,13 @@
 ---
-title: Debug and manage orchestrations using the Azure Functions durable task scheduler dashboard (preview)
-description: Learn how to debug and manage your orchestrations using the Azure Functions durable task scheduler.
+title: Debug and manage orchestrations using the Azure Functions Durable Task Scheduler dashboard (preview)
+description: Learn how to debug and manage your orchestrations using the Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
 ms.date: 03/17/2025
 ---
 
-# Debug and manage orchestrations using the Azure Functions durable task scheduler dashboard (preview)
+# Debug and manage orchestrations using the Azure Functions Durable Task Scheduler dashboard (preview)
 
-Observe, manage, and debug your task hub or scheduler's orchestrations effectively using the durable task scheduler dashboard. The dashboard is available when you run the [durable task scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. 
+Observe, manage, and debug your task hub or scheduler's orchestrations effectively using the Durable Task Scheduler dashboard. The dashboard is available when you run the [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) locally or create a scheduler resource on Azure. 
 - **Running locally** doesn't require authentication. 
 - **Creating a scheduler resource on Azure** requires that you [assign the *Durable Task Data Contributor* role to your identity](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard). You can then access the dashboard via either:
   - The task hub's dashboard endpoint URL in the Azure portal
@@ -57,4 +57,4 @@ Dashboard access is secured through [integration with Azure Role-Based Access Co
 
 ## Next steps
 
-[Try out the quickstart to see the durable task scheduler dashboard in action](./quickstart-durable-task-scheduler.md)
+[Try out the quickstart to see the Durable Task Scheduler dashboard in action](./quickstart-durable-task-scheduler.md)

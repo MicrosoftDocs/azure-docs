@@ -7,17 +7,15 @@ ms.date: 04/28/2025
 
 # Azure Functions Durable Task Scheduler (preview)
 
-The Durable Task Scheduler provides durable execution in Azure. Durable execution is a fault-tolerant approach to running code that handles failures and interruptions through automatic retries and state persistence. Scenarios where durable execution is required:
+The Durable Task Scheduler provides durable execution in Azure. Durable execution is a fault-tolerant approach to running code that handles failures and interruptions through automatic retries and state persistence. Durable execution helps with scenarios such as:
 - Distributed transactions
 - Multi-agent orchestration
 - Data processing
 - Infrastructure management, and others. 
 
-The Durable Task Scheduler, coupled with a developer orchestration framework like [Durable Functions](../durable-functions-overview.md) or the [Durable Task SDKs][todo], enables you to author stateful apps that run on any compute environment without the need to architect for fault tolerance.
-
 ## Orchestration frameworks
 
-You can use the Durable Task Scheduler with the following orchestration frameworks:
+Azure provides two developer-oriented orchestration frameworks you can use to build stateful apps that run on any compute environment, without the need to architect for fault tolerance. You can use the Durable Task Scheduler with the following orchestration frameworks:
 
 - Durable Functions
 - Durable Task SDKs, or "portable SDKs"
@@ -26,7 +24,7 @@ You can use the Durable Task Scheduler with the following orchestration framewor
 
 ## Architecture
 
-For all Durable Task Scheduler orchestration frameworks, you can create instances of the Durable Task Scheduler of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers) using Azure Resource Manager. Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
+For all Durable Task Scheduler orchestration frameworks, you can create scheduler instances of type [Microsoft.DurableTask/scheduler](/azure/templates/microsoft.durabletask/schedulers) using Azure Resource Manager. Each *scheduler* resource internally has its own dedicated compute and memory resources optimized for:
 
 - Dispatching orchestrator, activity, and entity work items
 - Storing and querying history at scale with minimal latency
@@ -70,28 +68,38 @@ The scheduler uses a combination of in-memory and persistent internal storage to
 
 ## Feature highlights
 
-When you implement any of the Durable Task Scheduler orchestration frameworks, you benefit from several key highlights.
+When you implement one of the Durable Task Scheduler orchestration frameworks, you benefit from several key highlights.
 
-### Durable task scheduler dashboard
+### Durable Task Scheduler dashboard
 
 When a scheduler resource is created, a corresponding dashboard is provided out-of-the-box. The dashboard provides an overview of all orchestrations and entity instances and allows you to:
 - Quickly filter by different criteria. 
 - Gather data about an orchestration instance, such as status, duration, input/output, etc. 
 - Drill into an instance to get data about sub-orchestrations and activities.
 
-Aside from monitoring, you can also perform management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance. For more information about the dashboard, see [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
+Aside from monitoring, you can also perform management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance. 
 
 Access to the dashboard is secured by identity and role-based access controls. 
 
+For more information about the dashboard, see [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
+
 ### Multiple task hubs
+
 > [!TIP]
-> One way to optimize cost when using the Durable Task Scheduler is to create multiple task hubs in the same scheduler instance so that multiple apps or environments can share one resource.  
+> Optimize cost when using the Durable Task Scheduler by creating multiple task hubs in the same scheduler instance so that multiple apps or environments can share one resource.  
 
-State is durably persisted in a *task hub*. A [task hub](../durable-functions-task-hubs.md) is a logical container for orchestration and entity instances and provides a way to partition the state store. With one scheduler instance, you can create multiple task hubs that can be used by different apps. To access a task hub, the caller's identity *must* have the required role-based access control (RBAC) permissions.
+State is durably persisted in a *task hub*. A [task hub](../durable-functions-task-hubs.md):
+- Is a logical container for orchestration and entity instances.
+- Provides a way to partition the state store. 
 
-Creating multiple task hubs isolates different workloads that can be managed independently. For example, you can create a task hub for each environment (dev, test, prod) or for different teams within your organization. You can also have multiple apps share the same scheduler instance by configuring them to use different task hubs in the scheduler. Each task hub gets its own monitoring dashboard and access is isolated and secured by RBAC. 
+With one scheduler instance, you can create multiple task hubs that can be used by different apps. Each task hub gets its own [monitoring dashboard](./durable-task-scheduler-dashboard.md). To access a task hub, the caller's identity *must* have the required role-based access control (RBAC) permissions. 
 
-Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. While there is no limit to how many task hubs can be created in one scheduler instance, be aware that task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it might affect the performance of the other task hubs.
+Creating multiple task hubs isolates different workloads that can be managed independently. For example, you can:
+- Create a task hub for each environment (dev, test, prod).
+- Create task hubs for different teams within your organization. 
+- Share the same scheduler instance across multiple apps. 
+
+Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. You can create an unlimited number of task hubs in one scheduler instance. However, task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it might affect the performance of the other task hubs.
 
 ### Emulator for local development
 
@@ -99,7 +107,7 @@ The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set
 - Develop and test your Durable Function app without needing to deploy it to Azure. 
 - Monitor and manage your orchestrations and entities just like you would in Azure.
 
-By default, the emulator exposes a single task hub named `default`. To expose multiple task hubs, specify the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names when starting the emulator. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
+By default, the emulator exposes a single task hub named `default`. To expose multiple task hubs, start the emulator and specify the `DTS_TASK_HUB_NAMES` environment variable with a comma-separated list of task hub names. For example, to enable two task hubs named `taskhub1` and `taskhub2`, you can run the following command:
 
 ```bash
 docker run -d -p 8080:8080 -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2 mcr.microsoft.com/dts/dts-emulator:latest
@@ -120,7 +128,7 @@ Large volumes of completed orchestration instance data can lead to storage bloat
 
 ## Limitations and considerations
 
-- **Available regions:** Durable task scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
+- **Available regions:** Durable Task Scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
 
     ```bash
     az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
