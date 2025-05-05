@@ -12,8 +12,9 @@ ms.date: 05/19/2025
 
 Service groups in Azure are a low-privilege-based grouping of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started. 
 
-> ![IMPORTANT]
-> Service Groups are currently in a Limited Preview state and require Tenant onboarding before trial. To request for onboarding please see [TBD Link](). 
+> [!IMPORTANT]
+> Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
 ## Key capabilities
