@@ -354,8 +354,10 @@
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
-          href: ingress-how-to.md
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
+          href: ingress-how- to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
         - name: Add client certificates
