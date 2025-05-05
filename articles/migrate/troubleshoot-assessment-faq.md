@@ -54,7 +54,7 @@ If any of the performance counters are missing, the Azure SQL assessment recomme
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. An assessment could get a low confidence rating for the following reasons:
+The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](assessment-report.md#confidence-ratings-performance-based) needed to compute the assessment. An assessment could get a low confidence rating for the following reasons:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a shorter period and recalculate the assessment.
 - The assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
@@ -66,8 +66,8 @@ The confidence rating is calculated for **Performance-based** assessments based 
 
     Recalculate the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and Azure VMware Solution assessments, few servers were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
-- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+- For Azure VM and Azure VMware Solution assessments, few servers were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./assessment-report.md#confidence-ratings-performance-based).
 
 ## Why is my RAM utilization greater than 100%?
 
@@ -105,11 +105,11 @@ Your assessment was created with an offer that is no longer valid and hence, the
 
 ## Why is my assessment showing a warning that it was created with a target Azure location that has been deprecated?
 
-Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more](concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
+Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more](concepts-assessment-overview.md#how-are-assessments-calculated).
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
-When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
+When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-overview.md#how-are-assessments-calculated).
 
 ## Why are some of my assessments marked as "to be upgraded to latest assessment version"? 
 
@@ -126,11 +126,11 @@ This issue can happen if the physical server has Hyper-V virtualization enabled.
 
 ## The recommended Azure VM SKU for my physical server is oversized
 
-This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. As a result, the number of network adapters discovered is higher than the actual number. The Azure VM assessment picks an Azure VM that can support the required number of network adapters, which can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of the number of network adapters on sizing. This product gap will be addressed going forward.
+This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. As a result, the number of network adapters discovered is higher than the actual number. The Azure VM assessment picks an Azure VM that can support the required number of network adapters, which can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of the number of network adapters on sizing. This product gap will be addressed going forward.
 
 ## The readiness category is marked "Not ready" for my physical server
 
-The readiness category might be incorrectly marked as **Not ready** in the case of a physical server that has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual adapters. As a result, the number of network adapters discovered is higher than the actual number. In both **As on-premises** and **Performance-based** assessments, the Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be higher than 32, the maximum number of NICs supported on Azure VMs, the server will be marked **Not ready**. [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of number of NICs on sizing.
+The readiness category might be incorrectly marked as **Not ready** in the case of a physical server that has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual adapters. As a result, the number of network adapters discovered is higher than the actual number. In both **As on-premises** and **Performance-based** assessments, the Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be higher than 32, the maximum number of NICs supported on Azure VMs, the server will be marked **Not ready**. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of number of NICs on sizing.
 
 ## The number of discovered NICs is higher than actual for physical servers
 

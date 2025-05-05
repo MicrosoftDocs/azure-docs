@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 04/01/2025
+ms.date: 04/23/2025
 ms.author: anfdocs
 ---
 
@@ -14,11 +14,20 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access. (Preview)
+* [Flexible service level](manage-cool-access.md#register-the-feature) now supports storage with cool access (Preview)
 
     You must be registered for the [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) preview before enrolling in the Flexible service level with cool access preview. 
 
 ## April 2025
+
+* [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) (preview)
+
+
+    Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is currently in preview. 
+
+* [New volume usage metrics:](azure-netapp-files-metrics.md#volumes) Volume Inodes Quota, Volume Inodes Total, Volume Inodes Used
+
+    Azure NetApp Files supports [new metrics](azure-netapp-files-metrics.md#volumes) to monitor consumption of [inodes (also known as maxfiles)](maxfiles-concept.md), which is the maximum number of files a volume can hold. These metrics are especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring these metrics, you can avoid running out of inodes thus keeping your storage running smoothly and making it easier to plan for future needs.
 
 * [File access logs](manage-file-access-logs.md) (preview)
 
@@ -30,9 +39,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
  
     The [Flexible service level](azure-netapp-files-service-levels.md) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 
     
-<<<<<<< HEAD
-    The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB. This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet their price-performance requirements. 
-=======
     The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB [per pool](azure-netapp-files-service-levels.md#flexible-service-level-throughput-examples). This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet your price-performance requirements. 
 
 * [Network security group (NSG) support for private link connectivity](azure-netapp-files-network-topologies.md) is now generally available (GA)
@@ -84,7 +90,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 * [New volume usage metric](azure-netapp-files-metrics.md#volumes): volume inodes percentage 
 
     The new ‘volume inodes percentage’ metric for Azure NetApp Files lets you keep an eye on [inodes](maxfiles-concept.md) usage (also known as `maxfiles`), which is the maximum number of files a volume can hold. This metric is especially useful for workloads with high file counts, such as high-performance compute (HPC) or electronic design automation (EDA), where you might have millions of small files. By monitoring this metric, you can avoid running out of inodes, keeping your storage running smoothly, and making it easier to plan for future needs.
->>>>>>> a0c8307d7c90b2559abbd7121b3bbbbb057a14d8
 
 ## January 2025 
 
@@ -215,7 +220,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files now supports the ability to transition an existing volume to use customer-managed keys for volume encryption. 
 
-* [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md#supported-regions) is now available in all US Gov regions
+* [Customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md) is now available in all US Gov regions
 
 * [Azure NetApp Files large volume enhancement:](large-volumes-requirements-considerations.md) increased throughput and maximum size limit of 2-PiB volume (preview)
 
@@ -237,7 +242,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## June 2024
 
-* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md#extension-1-features) (Preview)
+* [Application volume group for SAP HANA extension 1](application-volume-group-introduction.md) (Preview)
 
     Extension 1 of application volume group for SAP HANA improves your volume group deployment experience for SAP HANA with:
     - The use of [availability zone volume placement](use-availability-zones.md), eliminating the need for manual AVSet pinning with proximity placement groups.

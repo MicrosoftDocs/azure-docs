@@ -7,7 +7,7 @@ ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/25/2024
+ms.date: 04/02/2025
 ---
 
 # Copy data from an SAP table using Azure Data Factory or Azure Synapse Analytics
@@ -109,7 +109,7 @@ The following properties are supported for the SAP BW Open Hub linked service:
 |:--- |:--- |:--- |
 | `type` | The `type` property must be set to `SapTable`. | Yes |
 | `server` | The name of the server on which the SAP instance is located.<br/>Use to connect to an SAP application server. | No |
-| `systemNumber` | The system number of the SAP system.<br/>Use to connect to an SAP application server.<br/>Allowed value: A two-digit decimal number represented as a string. | No |
+| `systemNumber` | The system number of the SAP system.<br/>Use to connect to an SAP application server.<br/>Affects the PORT number used when communicating with the SAP table.<br/>Allowed value: A two-digit decimal number represented as a string. | No |
 | `messageServer` | The host name of the SAP message server.<br/>Use to connect to an SAP message server. | No |
 | `messageServerService` | The service name or port number of the message server.<br/>Use to connect to an SAP message server. | No |
 | `systemId` | The ID of the SAP system where the table is located.<br/>Use to connect to an SAP message server. | No |

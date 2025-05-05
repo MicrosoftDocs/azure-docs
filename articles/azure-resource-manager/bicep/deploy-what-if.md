@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/26/2024
+ms.date: 04/28/2025
 ---
 
 # Bicep deployment what-if operation
@@ -276,7 +276,7 @@ az deployment group create \
 After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one of the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
 
 ```bicep
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2024-05-01' = {
   name: 'vnet-001'
   location: resourceGroup().location
   tags: {

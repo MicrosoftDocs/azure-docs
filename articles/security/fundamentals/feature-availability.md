@@ -7,7 +7,7 @@ ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 06/27/2024
+ms.date: 04/30/2025
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -158,6 +158,7 @@ The following table displays the current Defender for Cloud feature availability
 | <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](/azure/defender-for-cloud/custom-dashboards-azure-workbooks)                               | GA             | GA                             |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
 | <li> [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction)                                                                                    | GA             | GA                             |
+| <li> [Microsoft Defender AI Services](/azure/defender-for-cloud/ai-threat-protection)                                                                                    | GA             | Not Available|
 | <li> [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  |
 | <li> [Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction)                                                                                            | Not available for new subscriptions | Not available for new subscriptions |
 | <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) <sup>[9](#footnote4)</sup>                                                  | GA                                   | GA                             |

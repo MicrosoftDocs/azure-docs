@@ -3,8 +3,8 @@ title: Configure plug and play MTP and PTP redirection over the Remote Desktop P
 description: Learn how to redirect MTP and PTP plug and play peripherals from a local device to a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and Remote PC connections.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 07/03/2024
 ---
 

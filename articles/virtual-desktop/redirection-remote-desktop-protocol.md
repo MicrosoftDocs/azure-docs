@@ -2,8 +2,8 @@
 title: Peripheral and resource redirection over the Remote Desktop Protocol
 description: Learn about redirection over the Remote Desktop Protocol, which enables users to share peripherals and resources between their local device and a remote session. It applies to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and Remote PC connections.
 ms.topic: concept-article
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 08/06/2024
 ---
 

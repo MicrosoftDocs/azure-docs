@@ -1,10 +1,10 @@
 ---
 title: Prepare and customize a VHD image of Azure Virtual Desktop - Azure
 description: How to prepare, customize and upload an Azure Virtual Desktop image to Azure.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 04/21/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Prepare and customize a VHD image for Azure Virtual Desktop

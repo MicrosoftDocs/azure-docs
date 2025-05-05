@@ -2,7 +2,7 @@
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
 ms.topic: how-to
-ms.date: 11/30/2024
+ms.date: 04/24/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -201,3 +201,11 @@ Different           | Same or different        | Same or different     | Same or
 ## Next steps
 
 For more information, see [Troubleshoot backups on a SQL Server database](backup-sql-server-azure-troubleshoot.md).
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

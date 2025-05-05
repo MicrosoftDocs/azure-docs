@@ -25,8 +25,9 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | -------------- | ----------------------- | ----------------------------- | -------------------------------- | ---------|
 | Australia East | Australia East (Sydney) | ✓         | ✓      |   Dual   |
 | Australia Southeast | Australia Southeast (Melbourne) | ✓         |      |   Dual   |
-| Japan East | Japan East (Tokyo) | ✓         |       |   Dual   |
-| Southeast Asia |Singapore (Singapore) | ✓         | ✓       |   Dual   |
+| Japan East | Japan East (Tokyo) | ✓         | ✓       |   Dual   |
+| Southeast Asia |Singapore (Singapore) | ✓         | ✓       |   Single   |
+
 
 
 ## Brazil

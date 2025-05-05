@@ -1,7 +1,7 @@
 ---
 title: Region optimization for Microsoft Azure customers
 description: Learn about the region optimization policy and how it might affect you.
-author: PreetiSGit
+author: preetione
 ms.reviewer: presharm
 ms.service: cost-management-billing
 ms.subservice: common

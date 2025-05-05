@@ -2,7 +2,7 @@
 title: Support Matrix for Azure files backup by using Azure Backup
 description: Provides a summary of support settings and limitations when backing up Azure files.
 ms.topic: reference
-ms.date: 03/24/2025
+ms.date: 04/30/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -140,7 +140,7 @@ Migration of  File Shares protected with snapshot backup to vaulted backup is su
 | Maximum size of a file (if the destination account is in a Vnet) | 1 TB |
 | Maximum  number of individual files or folders per restore, if ILR (Item level recovery)                         | 99      |
 | Maximum  recommended restore size per restore for large File Shares | 15  TiB |
-| Maximum duration of a restore job                           | 15 days
+| Maximum duration of a restore job                           | 7 days
 
 # [Vault-standard tier](#tab/vault-tier)
 
@@ -216,6 +216,18 @@ The following table lists the behavior of backups due to customer-initiated fail
 | --- | --- | --- | --- |
 | Customer-managed planned failover | Supported | Supported | Not supported |
 | Customer-managed unplanned failover | Not supported | Only cross-region restore from the vault is supported. | Not supported |
+
+## Permitted scope for copy operations(preview)
+
+The following table lists the scope for copy operation:
+
+| Configuration | Support |
+| --- | --- |
+| From any storage account | Supported |
+| From storage accounts in the same Microsoft Entra tenant | Supported |
+| From storage accounts with a private endpoint to the same virtual network | Unsupported |
+
+Azure Trusted Services are allowed, but private endpoints take priority; so, this won't work. 
 
 
 ## Next steps

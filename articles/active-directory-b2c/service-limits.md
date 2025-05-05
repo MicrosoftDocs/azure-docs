@@ -190,13 +190,13 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 221 | Senegal | 10 | 30 |
 | 223 | Mali | 20 | 100 |
 | 224 | Guinea | 20 | 100 |
-| 225 |	Ivory Coast|	10	| 30 |
+| 225 |	Côte d’Ivoire |	10	| 30 |
 | 226 |  Burina Faso   | 10  |  30  |
 | 228 |  Togo  | 10  |  30  |
 | 233 |	Ghana|	10	| 30 |
 | 234 | Nigeria | 20 | 100 |
 | 236 |	Central African Republic  |	10	| 30 |
-| 238 | Cape Verde | 10 | 30 |
+| 238 | Cabo Verde | 10 | 30 |
 | 249 |  Sudan | 10  |  30  |
 | 251 |	Ethiopia  |	10	| 30 |
 | 252 |  Somalia   | 10  |  30  |  
@@ -219,7 +219,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 60 | Malaysia | 50 | 200 |
 | 62 |  Indonesia | 50  |  200 |
 | 63 |  Philippines   | 50  |  200 |
-| 670 |	East Timor (Timor-Leste)  |	10	| 30 |
+| 670 |	Timor-Leste  |	10	| 30 |
 | 7 |  Russia | 100  |  1000 |
 | 84 |  Vietnam   | 150  |  500 |
 | 855 |  Cambodia  | 50  |  200 |
@@ -228,7 +228,7 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 92 |  Pakistan| 100  |  1000 |
 | 93 |	Afghanistan  |	10	| 30 |
 | 94 |  Sri Lanka | 100  |  500 |
-| 95 |	Myanmar (Burma) | 10	| 30 |
+| 95 |	Myanmar | 10	| 30 |
 | 961 |	Lebanon  |	10	| 30 |
 | 967 |	Yemen	|10	| 30 |
 | 970 |  State of Palestine| 10  |  30  |

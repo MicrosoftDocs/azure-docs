@@ -17,7 +17,7 @@ The following services support server-side encryption with customer managed keys
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
-| [Azure AI Search](/azure/search/) | Yes | | [Configure customer-managed keys for data encryption in Azure AI Search](/azure/search/search-security-manage-encryption-keys) |
+| [Azure AI Search](/azure/search/) | Yes | Yes | [Configure customer-managed keys for data encryption in Azure AI Search](/azure/search/search-security-manage-encryption-keys) |
 | [Azure AI services](/azure/ai-services/) | Yes | Yes | [Customer-managed keys for encryption](/azure/ai-services/encryption/cognitive-services-encryption-keys-portal) |
 | [Azure AI Foundry](/azure/ai-studio) | Yes | | [Encryption of data at rest in Azure AI services](/azure/ai-studio/concepts/encryption-keys-portal) |
 | [Azure Bot Service](/azure/bot-service/) | Yes | | [Encryption of bot data in Azure Bot Service](/azure/bot-service/bot-service-encryption) |
@@ -82,9 +82,9 @@ The following services support server-side encryption with customer managed keys
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
 | [Azure Cosmos DB](/azure/cosmos-db/) | Yes | Yes | [Configure customer-managed keys using Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk), [Configure customer-managed keys using Azure Key Vault Managed HSM](/azure/cosmos-db/how-to-setup-customer-managed-keys-mhsm) |
-| [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) | Yes | | [Data encryption with customer-managed keys in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-customer-managed-key) |
+| [Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/concepts-customer-managed-key) |
 | [Azure Database for MySQL - Single Server](/azure/mysql/single-server/) | Yes | | [Azure Database for MySQL data encryption with a customer-managed key](/previous-versions/azure/mysql/single-server/concepts-data-encryption-mysql) |
-| [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-data-encryption) |
+| [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-data-encryption) |
 | [Azure Database for PostgreSQL - Single Server](/azure/postgresql/) | Yes | Yes | [Data encryption with customer-managed keys in Azure Database for PostgreSQL - Single Server](/previous-versions/azure/postgresql/single-server/concepts-data-encryption-postgresql) |
 | [Azure Managed Instance for Apache Cassandra](/azure/managed-instance-apache-cassandra/) | Yes | | [Configure customer-managed keys for encryption](/azure/managed-instance-apache-cassandra/customer-managed-keys) |
 | [Azure SQL Database](/azure/azure-sql/database/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
@@ -104,10 +104,11 @@ The following services support server-side encryption with customer managed keys
 
 | Product, Feature, or Service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|---|
+| [Azure Fluid Relay](/azure/azure-fluid-relay/) | Yes | Yes | [Customer-managed keys for Azure Fluid Relay](/azure/azure-fluid-relay/concepts/customer-managed-keys) |
 | [Azure Health Data Services](/azure/healthcare-apis/) | Yes | | [Configure customer-managed keys for Azure Health Data Services DICOM](/azure/healthcare-apis/dicom/configure-customer-managed-keys), [Configure customer-managed keys for Azure Health Data Services FHIR](/azure/healthcare-apis/fhir/configure-customer-managed-keys) |
-| [Event Hubs](/azure/event-hubs/) | Yes | | [Configure customer-managed keys for encryption](/azure/event-hubs/configure-customer-managed-key) |
+| [Event Hubs](/azure/event-hubs/) | Yes | Yes | [Configure customer-managed keys for encryption](/azure/event-hubs/configure-customer-managed-key) |
 | [Logic Apps](/azure/logic-apps/) | Yes | |  |
-| [Service Bus](/azure/service-bus-messaging/) | Yes | | [Configure customer-managed keys for encryption](/azure/service-bus-messaging/configure-customer-managed-key) |
+| [Service Bus](/azure/service-bus-messaging/) | Yes | Yes | [Configure customer-managed keys for encryption](/azure/service-bus-messaging/configure-customer-managed-key) |
 
 ## IoT services
 
@@ -123,7 +124,7 @@ The following services support server-side encryption with customer managed keys
 | [App Configuration](/azure/azure-app-configuration/) | Yes | | [Use customer-managed keys to encrypt data](/azure/azure-app-configuration/concept-customer-managed-keys) |
 | [Automation](/azure/automation/) | Yes | | [Encryption of automation assets](/azure/automation/automation-secure-asset-encryption) |
 | [Azure Migrate](/azure/migrate/) | Yes | | [Tutorial: Migrate VMware VMs to Azure](/azure/migrate/tutorial-migrate-vmware) |
-| [Azure Monitor](/azure/azure-monitor) | Yes | | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
+| [Azure Monitor](/azure/azure-monitor) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 
 ## Media
 

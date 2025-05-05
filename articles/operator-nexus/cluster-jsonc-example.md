@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus - Example of cluster.jsonc template file"
 description: Example of cluster.jsonc template file to use with ARM template in creating a cluster.
-author: jeffreymason
-ms.author: jeffreymason
+author: bartpinto
+ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 05/08/2024
+ms.date: 03/31/2025
 ms.custom: template-how-to, devx-track-arm-template
 ---
 
@@ -20,7 +20,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "environment": {
       "type": "string",
       "metadata": {
-        "description": "Name of the environment"
+        "description": "Name of the Environment"
       }
     },
     "name": {
@@ -45,7 +45,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "managedResourceGroupName": {
       "type": "string",
       "metadata": {
-        "description": "Specify a managed resource group for the resource."
+        "description": "Specify a Managed Resource Group for the Resource."
       }
     },
     "clusterLawName": {
@@ -60,7 +60,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "clusterType": {
       "type": "string",
       "metadata": {
-        "description": "The type of the cluster, whether single or multi-rack"
+        "description": "The type of the Cluster, single or multi-rack"
       },
       "allowedValues": [
         "SingleRack",
@@ -70,7 +70,7 @@ ms.custom: template-how-to, devx-track-arm-template
     "clusterVersion": {
       "type": "string",
       "metadata": {
-        "description": "The version of the cluster to install"
+        "description": "The version of the Cluster to install"
       }
     },
     "clusterLocation": {
@@ -82,32 +82,39 @@ ms.custom: template-how-to, devx-track-arm-template
     "customLocation": {
       "type": "string",
       "metadata": {
-        "description": "The custom location of the cluster manager"
+        "description": "The Custom Location of the Cluster Manager"
       }
     },
     "aggregatorOrSingleRack": {
       "type": "object",
       "metadata": {
-        "description": "Aggregator rack or single rack definition"
+        "description": "Aggregator Rack or single Rack definition"
       }
     },
     "computeRacks": {
       "type": "array",
       "metadata": {
-        "description": "Compute rack definitions"
+        "description": "Compute Rack definitions"
       }
     },
     "clusterServicePrincipal": {
       "type": "secureobject",
       "metadata": {
-        "description": "Service principal account details used by the cluster to install the Arc Appliance.  This field is needed in the near-term for Arc enrollment"
+        "description": "Service principal account details used by the cluster to install the Arc Appliance. This field is needed in the near-term for Arc enrollment."
       }
     },
-    "secretArchive": {
+    "keyVaultId": {
       "type": "string",
       "metadata": {
         "description": "Secret KeyVault for credential rotation"
       }
+    },
+    "useKeyVault":{
+      "type": "string",
+      "metadata": {
+        "description": "The indicator if the specified key vault should be used to archive the secrets of the cluster"
+      },
+      "defaultValue": "True"
     }
   },
   "variables": {},
@@ -166,7 +173,7 @@ ms.custom: template-how-to, devx-track-arm-template
             "clusterType": {
               "type": "string",
               "metadata": {
-                "description": "The type of the cluster, whether single or multi-rack"
+                "description": "The type of the Cluster, single or multi-rack"
               },
               "allowedValues": [
                 "SingleRack",
@@ -176,7 +183,7 @@ ms.custom: template-how-to, devx-track-arm-template
             "clusterVersion": {
               "type": "string",
               "metadata": {
-                "description": "The version of the cluster to install"
+                "description": "The version of the Cluster to install"
               }
             },
             "clusterLocation": {
@@ -188,41 +195,42 @@ ms.custom: template-how-to, devx-track-arm-template
             "customLocation": {
               "type": "string",
               "metadata": {
-                "description": "The custom location of the cluster manager"
+                "description": "The Custom Location of the Cluster Manager"
               }
             },
             "aggregatorOrSingleRack": {
               "type": "object",
               "metadata": {
-                "description": "Aggregator rack or single rack definition"
+                "description": "Aggregator Rack or single Rack definition"
               }
             },
             "computeRacks": {
               "type": "array",
               "metadata": {
-                "description": "Compute rack definitions"
+                "description": "Compute Rack definitions"
               }
             },
             "clusterServicePrincipal": {
               "type": "secureobject",
               "metadata": {
-                "description": "Service principal account details used by the cluster to install the Arc Appliance. This field is needed for Arc enrollment."
+                "description": "Service principal account details used by the cluster to install the Arc Appliance. This field is needed in the near-term for Arc enrollment."
               }
             },
             "managedResourceGroupConfiguration": {
               "type": "object"
             },
-            "secretArchive": {
+            "keyVaultId": {
               "type": "string",
               "metadata": {
                 "description": "Secret KeyVault for credential rotation"
               }
             },
-            "sshKeyUrl": {
+            "useKeyVault": {
               "type": "string",
               "metadata": {
-                "description": "SSH Key URL that is used for to gather list of Public Keys"
-              }
+                "description": "The indicator if the specified key vault should be used to archive the secrets of the cluster"
+              },
+              "defaultValue": "True"
             }
           },
           "variables": {},
@@ -247,14 +255,10 @@ ms.custom: template-how-to, devx-track-arm-template
                 "[resourceId('Microsoft.OperationalInsights/workspaces/', parameters('clusterLawName'))]"
               ],
               "type": "Microsoft.NetworkCloud/clusters",
-              "apiVersion": "2023-07-01",
+              "apiVersion": "2024-07-01",
               "name": "[parameters('name')]",
               "location": "[parameters('location')]",
-              "tags": {
-                "LabEnvironment": "[parameters('environment')]",
-                "ResourceType": "cluster",
-                "sshKeyUrl": "[parameters('sshKeyUrl')]"
-              },
+              "tags": {},
               "extendedLocation": {
                 "name": "[parameters('customLocation')]",
                 "type": "CustomLocation"
@@ -268,7 +272,11 @@ ms.custom: template-how-to, devx-track-arm-template
                 "aggregatorOrSingleRackDefinition": "[parameters('aggregatorOrSingleRack')]",
                 "computeRackDefinitions": "[parameters('computeRacks')]",
                 "clusterServicePrincipal": "[parameters('clusterServicePrincipal')]",
-                "managedResourceGroupConfiguration": "[parameters('managedResourceGroupConfiguration')]"
+                "managedResourceGroupConfiguration": "[parameters('managedResourceGroupConfiguration')]",
+                "secretArchive": {
+                  "keyVaultId": "[parameters('keyVaultId')]",
+                  "useKeyVault": "[parameters('useKeyVault')]"
+                }
               }
             }
           ],
@@ -323,20 +331,16 @@ ms.custom: template-how-to, devx-track-arm-template
           "clusterServicePrincipal": {
             "value": "[parameters('clusterServicePrincipal')]"
           },
-          "secretArchive": {
-            "value": {
-              "keyVaultId": "[parameters('secretArchive')]",
-              "useKeyVault": "True"
-
+          "keyVaultId": {
+            "value": "[parameters('keyVaultId')]"
           },
-          "sshKeyUrl": {
-            "value": "[parameters('sshKeyUrl')]"
+          "useKeyVault": {
+            "value": "[parameters('useKeyVault')]"
           }
         }
       }
     }
-  }
-],
+  ],
   "outputs": {}
 }
 ```
