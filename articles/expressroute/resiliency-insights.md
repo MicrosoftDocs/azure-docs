@@ -4,7 +4,7 @@ description: Learn about the resiliency features of ExpressRoute gateway and how
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: ai-usage
