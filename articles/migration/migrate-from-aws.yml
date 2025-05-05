@@ -33,6 +33,8 @@ landingContent:
             url:  migrate-databases-from-aws.md
           - text: Migrate storage from AWS to Azure
             url:  migrate-storage-from-aws.md
+          - text: Migrate security from AWS to Azure
+            url:  migrate-security-from-aws.md            
 
   - title: Start with component comparisons
     linkLists:
