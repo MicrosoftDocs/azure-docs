@@ -2,7 +2,7 @@
 title: Build a migration plan with Azure Migrate
 description: Provides guidance on building a migration plan with Azure Migrate.
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ms.custom: engagement-fy23
 ---
