@@ -17,25 +17,25 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 > The Premium V4 tier for App Service is in preview.
 >
 
-The new Premium V4 pricing tier gives you faster processors, NVMe local storage, and memory-optimized options. It offers up to double the memory-to-core ratio of older pricing tiers. With the performance advantage, you could save money by running your apps on fewer instances. In this article, you learn how to create an app in Premium V4 tier or scale up an app to Premium V4 tier.
+The new Premium V4 pricing tier provides faster processors, NVMe local storage, and memory-optimized options. It offers up to double the memory-to-core ratio of previous tiers. This performance advantage can save money by running apps on fewer instances. This article explains how to create or scale up an app to the Premium V4 tier.
 
 ## Prerequisites
 
 To scale-up an app to Premium V4:
 
-- An Azure App Service app that runs in a pricing tier lower than Premium V4.
-- The app must run in an App Service deployment that supports Premium V4.
+- An Azure App Service app running in a tier lower than Premium V4.
+- The app must be in an App Service deployment supporting Premium V4.
 
 <a name="availability"></a>
 
 ## Premium V4 availability
 
-The Premium V4 tier is available for source code based applications on Windows, and both source code based applications and custom containers on Linux.  The Premium V4 tier is not available for Windows containers. While Premium V4 is in public preview, it is supported for running customers' production workloads.
+The Premium V4 tier is available for source code applications on Windows, and both source code applications and custom containers on Linux. The Premium V4 tier isn't available for Windows containers. While in public preview, Premium V4 supports production workloads.
 
 > [!NOTE]
-> The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for "Outbound IP addresses" and "Additional Outbound IP addresses" information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](overview-nat-gateway-integration.md) to get a predictable IP address for outbound internet-facing traffic.
+> The Premium V4 tier lacks stable outbound IP addresses. This behavior is intentional. Although Premium V4 apps can make outbound calls, the platform doesn't provide stable outbound IPs for this tier. This differs from previous App Service tiers. The portal shows "Dynamic" for outbound IP addresses for Premium V4 apps. ARM and CLI calls return empty strings for *outboundIpAddresses* and *possibleOutboundIpAddresses*. If Premium V4 apps need stable outbound IPs, use [Azure NAT Gateway](overview-nat-gateway-integration.md) for predictable outbound IPs.
 
-Premium V4 and specific Premium V4 SKUs are available in some Azure regions. Microsoft is adding availability in other regions continually. To see if a specific PremiumV4 offering is available in your region, run the following Azure CLI command in the [Azure Cloud Shell](../cloud-shell/overview.md). Substitute *P1V4* with the desired SKU:
+Premium V4 and its SKUs are available in select Azure regions. Microsoft continually adds availability to other regions. To check regional availability for a specific Premium V4 offering, run the following Azure CLI command in [Azure Cloud Shell](../cloud-shell/overview.md). Substitute *P1V4* with the desired SKU:
 
 **Windows** SKU availability
 
@@ -52,9 +52,9 @@ az appservice list-locations --linux-workers-enabled --sku P1V4
 
 ## Create an app in Premium V4 tier
 
-The pricing tier of an App Service app is defined in the [App Service plan](overview-hosting-plans.md) that it runs on. You can create an App Service plan by itself or create it as part of app creation.
+An App Service app's pricing tier is defined by its [App Service plan](overview-hosting-plans.md). You can create an App Service plan alone or during app creation.
 
-When you configure the new App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing plan** and choose one of the **Premium V4** tiers.
+When configuring the App Service plan in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, select **Pricing plan** and choose a **Premium V4** tier.
 
 To see all the Premium V4 options, select **Explore pricing plans**, then select one of the Premium V4 plans and select **Select**.
 
@@ -63,13 +63,13 @@ To see all the Premium V4 options, select **Explore pricing plans**, then select
 
 ## Scaling out an app service plan on the Premium V4 tier
 
-Although Premium V4 is fully integrated with auto-scale, during the public preview of Premium V4 is recommended to limit individual scale-out requests to low single digits (two or less instances for each synchronous scale out operation).  For scale-out scenarios with higher target counts, developers should iterate though incremental requests to reach the desired target count.  For example, if an additional ten instances are desired, loop through five separate scale-out requests of two instances each until all five scale-out requests succeed.  If an individual scale-out request fails, wait five minutes and then re-attempt the failed scale-out request.
+Although Premium V4 fully integrates with autoscale, during its public preview, limit individual scale-out requests to two or fewer instances per synchronous operation. For higher target counts, iterate through incremental requests. For example, to add 10 instances, loop through five separate scale-out requests of two instances each until all succeed. If a scale-out request fails, wait five minutes and retry.
 
 ## Scale up an existing app to Premium V4 tier
 
-Before you scale up an existing app to Premium V4 tier, make sure that Premium V4 is available. For more information, see [PremiumV4 availability](#availability). If it's not available, see [Scale up from an unsupported resource group and region combination](#unsupported).
+Before scaling up an existing app to the Premium V4 tier, ensure Premium V4 is available. See [PremiumV4 availability](#availability). If unavailable, see [Scale up from an unsupported resource group and region combination](#unsupported).
 
-Depending on your hosting environment, scaling up can require extra steps.
+Scaling up might require extra steps depending on your hosting environment.
 
 1. In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, open your App Service app page.
 
@@ -79,7 +79,7 @@ Depending on your hosting environment, scaling up can require extra steps.
 
 1. Select one of the Premium V4 plans and select **Select**.
 
-   If your operation finishes successfully, your app's overview page shows that it's now in a Premium V4 tier.
+   If the operation succeeds, your app's overview page shows it's now in a Premium V4 tier.
 
 ### If you get an error
 
@@ -132,19 +132,19 @@ Premium V4 is available in the following regions:
 
 ## Scale up from an unsupported resource group and region combination
 
-If your app runs in an App Service deployment where Premium V4 isn't available or in a region that doesn't support Premium V4, redeploy your app to take advantage of Premium V4. You have two options:
+If your app runs where Premium V4 isn't available (either the deployment or the region), redeploy it to use Premium V4. Two options exist:
 
-- Create an app in a new resource group and with a new App Service plan.
+- Create an app in a new resource group with a new App Service plan.
 
-  When creating the App Service plan, select the desired Premium V4 tier. This step ensures that the App Service plan is deployed into a deployment unit that supports Premium V4. Then, redeploy your application code into the newly created app. Even if you scale the new App Service plan down to a lower tier to save costs, you can always scale up again to Premium V4 and the desired SKU in Premium V4 because the deployment unit supports it.
+  When creating the plan, select the desired Premium V4 tier. This ensures the plan is in a deployment unit supporting Premium V4. Then, redeploy your application code to the new app. Even if you scale the new plan down to save costs, you can always scale back up to Premium V4 because the deployment unit supports it.
 
-- In the **Development tools** > **Clone app** page, you can create an App Service plan using Premium V4 in the region you want, and specify the app settings and configuration that you want to clone.
+- Use the **Development tools** > **Clone app** page to create an App Service plan with Premium V4 in your desired region, specifying the app settings and configuration to clone.
 
   :::image type="content" source="media/app-service-configure-premium-tier/clone-app.png" alt-text="Screenshot showing how to clone your app.":::
 
 ## Automate with scripts
 
-You can automate app creation in the Premium V4 tier with scripts, using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
+You can automate Premium V4 app creation using [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/) scripts.
 
 ### Azure CLI
 
