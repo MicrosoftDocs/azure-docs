@@ -19,7 +19,7 @@ If you require application-consistent backup of virtual machine including the da
 Azure Disk Backup is integrated into Azure Business Continuity Centre, which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale.
 
 >[!Note]
->- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](/azure/backup/azure-kubernetes-service-backup-overview.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](/backup/azure-kubernetes-service-backup-overview.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
 
 ## Key benefits of Disk Backup
 
