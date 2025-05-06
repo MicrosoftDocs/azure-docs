@@ -140,6 +140,7 @@ This list is temporary and will change over time as GA support continues to expa
 - Central US
 
 - France Central
+
 - Germany West Central
 
 - North Central US
