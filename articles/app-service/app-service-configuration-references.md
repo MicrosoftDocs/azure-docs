@@ -43,7 +43,7 @@ After you grant permissions to the user-assigned identity, complete these steps:
     az rest --method PATCH --uri "${appResourceId}?api-version=2021-01-01" --body "{'properties':{'keyVaultReferenceIdentity':'${userAssignedIdentityResourceId}'}}"
     ```
 
-This configuration applies to all references in this app.
+This configuration applies to all references in the app.
 
 ## Grant your app access to referenced key vaults
 
