@@ -68,7 +68,7 @@ The Bicep file defines multiple Azure resources:
 1. Sign into the Azure portal.
 1. Enter **Network security perimeter** in the search box at the top of the portal. Select **Network security perimeters** in the search results.
 1. Select the **networkPerimeter** resource from the list of network security perimeters.
-1. Verify that the **networkPerimeter** resource is created successfully. The **Overview** page shows the details of the network security perimeter, including the profiles, associated resources, and Policy assignments.
+1. Verify that the **networkPerimeter** resource is created successfully. The **Overview** page shows the details of the network security perimeter, including the profiles and associated resources.
 
 ## Clean up resources
 

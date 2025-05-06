@@ -3,7 +3,7 @@ title: Compare syntax for Azure Resource Manager templates in JSON and Bicep
 description: Compares Azure Resource Manager templates developed with JSON and Bicep, and shows how to convert between the languages.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 07/11/2024
+ms.date: 04/28/2025
 ---
 
 # Comparing JSON and Bicep for templates
@@ -213,11 +213,11 @@ For Bicep, you can set an explicit dependency but this approach isn't recommende
 The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `netSecurityGroup.id`.
 
 ```bicep
-resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2023-11-01' = {
+resource netSecurityGroup 'Microsoft.Network/networkSecurityGroups@2024-05-01' = {
   ...
 }
 
-resource nic1 'Microsoft.Network/networkInterfaces@2023-11-01' = {
+resource nic1 'Microsoft.Network/networkInterfaces@2024-05-01' = {
   name: nic1Name
   location: location
   properties: {
@@ -254,7 +254,7 @@ storageAccount.properties.primaryEndpoints.blob
 To get a property from an existing resource that isn't deployed in the template:
 
 ```bicep
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2024-01-01' existing = {
   name: storageAccountName
 }
 

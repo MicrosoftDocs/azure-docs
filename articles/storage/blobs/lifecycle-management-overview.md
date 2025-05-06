@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 02/10/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
 ---
 

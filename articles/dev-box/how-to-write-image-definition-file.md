@@ -17,6 +17,9 @@ ms.date: 04/18/2025
 
 # Write an image definition file for Dev Box team customizations
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
+
 The Dev Box customizations feature helps you streamline the setup of cloud-based development environments. Getting developers started on a new project or team can be complex and time-consuming. Customizations let you configure ready-to-code workstations with applications, tools, repositories, code libraries, packages, and build scripts. This article guides you through the process of creating, testing, and editing an image definition file for your dev box using Visual Studio Code (VS Code). 
 
 There are two ways to use customizations in Microsoft Dev Box. Team customizations create a shared configuration for a team of developers. Individual customizations create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
@@ -71,9 +74,9 @@ You must enable project-level catalogs at the dev center level before you can ad
 To enable the use of project-level catalogs at the dev center level:
 1. In the [Azure portal](https://portal.azure.com/), navigate to your dev center.
 1. In the left menu, under **Settings**, select **Dev center settings**.
-1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
+1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
 
-  :::image type="content" source="media/how-to-configure-team-customizations/enable-project-catalog.png" alt-text="Screenshot showing the Dev center settings page with the Project level catalogs pane open and the Enable catalogs per project option selected.":::
+   :::image type="content" source="media/how-to-configure-team-customizations/dev-center-settings-project-catalog.png" alt-text="Screenshot showing the Dev center settings page with the Project level catalogs pane open and the Enable catalogs per project option selected.":::
 
 For more information about adding catalogs to projects, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
