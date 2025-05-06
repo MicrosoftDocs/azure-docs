@@ -11,7 +11,7 @@ ms.date: 04/23/2025
 
 # Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface
 
-This quickstart explains how to configure a collection in Microsoft Planetary Computer Pro via the web interface. This approach is ideal if you're less comfortable using our APIs, and want to use a web interface to manage your geospatial data and navigate Planetary Computer Pro.
+This quickstart explains how to configure a collection in Microsoft Planetary Computer Pro via the web interface.
 
 ## Prerequisites
 
@@ -20,8 +20,8 @@ To complete this quickstart, you need:
 - An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An active GeoCatalog instance. Use the link to [Create a GeoCatalog](./deploy-geocatalog-resource.md).
 - An Azure blob storage container with:
-  - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
-  - Associated STAC metadata for the dataset. See [Create STAC Item](./create-stac-item.md) for more information.
+  - A geospatial dataset in a supported format. For more information, see [Supported data types.](./supported-data-types.md)
+  - Associated SpatioTemporal Asset Catalog (STAC) metadata for the dataset. For more information, see [Create STAC Item.](./create-stac-item.md)
 - A web browser to access the Planetary Computer Pro web interface.
 - A collection in Microsoft Planetary Computer Pro with at least one item in it. 
 
@@ -31,7 +31,9 @@ To configure a collection in the Microsoft Planetary Computer Pro web interface,
 
 1. Navigate to the **Overview** tab of your collection, and select the **Configuration** button.
    
-2. The **Configure collection** panel opens and you'll see tabs for **Mosaic**, **Render**, **Tile Settings**, and **Queryables**, each of which you can define in JSON format. You can either write your own JSON or load and modify a template. 
+2. The **Configure collection** panel opens and there are tabs for **Mosaic**, **Render**, **Tile Settings**, and **Queryables**, each of which you can define in JSON format. You can either write your own JSON or load and modify a template. 
+
+:::image type="content" source="./media/collection-config-ui.jpeg" alt-text="Screenshot of collection config in web interface."::: 
 
 | Configuration | Purpose | Quick Start |
 |--------------------|---------|-----------------|
@@ -41,16 +43,16 @@ To configure a collection in the Microsoft Planetary Computer Pro web interface,
 | **Queryables**     | Add custom search filters for Explorer. | [Queryables configuration](./queryables-for-explorer-custom-search-filter.md) |
 
 > [!NOTE]
-> While it's helpful to define configuration JSONs for all four tabs, only the Render configuration is required to visualize your data in the Explorer. The other three tabs are optional and can be used to customize the behavior of your collection in the Explorer.
-:::image type="content" source="./media/collection-config-ui.jpeg" alt-text="Screenshot of collection config in web interface."::: 
+> While it's helpful to define configuration JSONs for all four tabs, only the [Render configuration](./render-configuration.md) is required to visualize your data in the Explorer. The other three tabs are optional and can be used to customize the behavior of your collection in the Explorer.
+
 
 3. Once you define your configuration JSONs, select **Update** to save your changes.
    
-4. When you successfully configure your collection, you'll see a clickable **Launch in Explorer** button below the **Spatial Extent** basemap on the right-hand side of your collection's **Overview** tab. Select this button to open the Explorer and visualize your data.
+4. When you successfully configure your collection, there's a selectable **Launch in Explorer** button below the **Spatial Extent** basemap on the right-hand side of your collection's **Overview** tab. Select this button to open the Explorer and visualize your data.
  
 ## Next steps
 
 Now that your collection is ready to be visualized, it's time to view it in the Explorer.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md)
+> [Quickstart: Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md)
