@@ -161,8 +161,8 @@
       items:
       - name: Durable Functions
         href: /python/api/azure-functions-durable/azure.durable_functions
-      - name: Durable Task SDK
-        href: /python/api/azure-functions-durable/azure.durable_functions #placeholder
+      - name: Resource Management - Durable Task SDK
+        href: /python/api/azure-mgmt-durabletask/azure.mgmt.durabletask
     - name: Java API
       items:
        - name: Durable Functions
