@@ -32,7 +32,7 @@ As you configure your cluster, you carry out these actions:
 
 ## Limitations
 
-The following public preview limitations apply to Azure Container Apps on Azure Arc enabled Kubernetes.
+The following limitations apply to Azure Container Apps on Azure Arc enabled Kubernetes.
 
 | Limitation | Details |
 |---|---|
@@ -68,7 +68,7 @@ The following table describes the role of each revision created for you:
 | Pod | Description | Number of Instances | CPU | Memory | Type |
 |----|----|----|----|----|----|
 | `<extensionName>-k8se-activator` | Used as part of the scaling pipeline | 2 | 100 millicpu | 500 MB | ReplicaSet |
-| `<extensionName>-k8se-billing` | Billing record generation - Azure Container Apps on Azure Arc enabled Kubernetes is Free of Charge during preview | 3 | 100 millicpu | 100 MB | ReplicaSet | 
+| `<extensionName>-k8se-billing` | Billing record generation | 3 | 100 millicpu | 100 MB | ReplicaSet |
 | `<extensionName>-k8se-containerapp-controller` | The core operator pod that creates resources on the cluster and maintains the state of components. | 2 | 100 millicpu | 1 GB | ReplicaSet |
 | `<extensionName>-k8se-envoy` | A front-end proxy layer for all data-plane http requests. It routes the inbound traffic to the correct apps. | 3 | 1 Core | 1,536 MB | ReplicaSet |
 | `<extensionName>-k8se-envoy-controller` | Operator, which generates Envoy configuration | 2 | 200 millicpu | 500 MB | ReplicaSet |
@@ -86,7 +86,6 @@ The following table describes the role of each revision created for you:
 
 ## FAQ for Azure Container Apps on Azure Arc
 
-- [How much does it cost?](#how-much-does-it-cost)
 - [Which Container Apps features are supported?](#which-container-apps-features-are-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
@@ -95,13 +94,9 @@ The following table describes the role of each revision created for you:
 - [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
 - [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
 
-### How much does it cost?
-
-Azure Container Apps on Azure Arc-enabled Kubernetes is free during the public preview.
-
 ### Which Container Apps features are supported?
 
-During the preview period, certain Azure Container App features are being validated. When they're supported, their left navigation options in the Azure portal will be activated. Features that aren't yet supported remain grayed out.
+Check the portal for the most up to date list. Features not supported are grayed out in the portal.
 
 ### Are managed identities supported?
 
