@@ -151,13 +151,13 @@ To add operations that store the trigger outputs for subsequent actions to use a
           "employeeId": "E12345",
           "orders": [
               { 
-                  "name": "Dell Latitude 5540 Laptop",
+                  "name": "Adatum Streamline 5540 Laptop",
                   "description": "Ordered 15 units for Q1 IT onboarding",
                   "date": "2024/02/20"
               },
               {
                   "name": "Docking Station",
-                  "description": "Bulk purchase of 20 Dell WD19S docking stations",
+                  "description": "Bulk purchase of 20 Adatum AB99Z docking stations",
                   "date": "2024/01/10"
               }
           ]
@@ -181,13 +181,13 @@ To add operations that store the trigger outputs for subsequent actions to use a
       [
           {
               "id": "1",
-              "title": "Dell Latitude 5540 Laptop",
-              "content": "Intel i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding" 
+              "title": "Adatum Streamline 5540 Laptop",
+              "content": "i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding" 
           },
           {
               "id": "2",
               "title": "Docking Station",
-              "content": "Dell WD19S docking stations for dual monitor setup"
+              "content": "Adatum AB99Z docking stations for dual monitor setup"
           }
       ]
       ```
