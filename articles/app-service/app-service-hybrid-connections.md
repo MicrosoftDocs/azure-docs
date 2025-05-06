@@ -124,16 +124,15 @@ This tool runs on both Windows and Linux. On Windows, the Hybrid Connection Mana
 To install the Hybrid Connection Manager on Windows, download the MSI package and follow the installation instructions.
 
 > [!div class="nextstepaction"]
-> [Windows download](https://aka.ms/appservice/hcm/windows)
+> [Windows download](https://download.microsoft.com/download/HybridConnectionManager-Windows.msi)
 
 To install the Hybrid Connection Manager on Linux, from your terminal running as administrator:
 
-<!-- update download link when out of preview -->
 ```bash
 sudo apt update
 sudo apt install tar gzip build-essential
-wget "https://download.microsoft.com/download/HybridConnectionManager-Linux-preview.tar.gz"
-tar -xf HybridConnectionManager-Linux-preview.tar.gz
+wget "https://download.microsoft.com/download/HybridConnectionManager-Linux.tar.gz"
+tar -xf HybridConnectionManager-Linux.tar.gz
 cd HybridConnectionManager/
 sudo chmod 755 setup.sh
 sudo ./setup.sh
