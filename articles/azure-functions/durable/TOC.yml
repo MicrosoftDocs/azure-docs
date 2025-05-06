@@ -63,7 +63,7 @@
   - name: Publish to Event Grid
     href: durable-functions-event-publishing.md
   - name: Hosting in Azure Container Apps 
-    href: durable-functions-mssql-aca-hosting.md
+    href: durable-functions-mssql-container-apps-hosting.md
 - name: Samples
   items:
   - name: Code samples

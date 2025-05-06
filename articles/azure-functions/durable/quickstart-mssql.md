@@ -313,7 +313,7 @@ az functionapp config appsettings delete --name $functionApp --resource-group $r
 ### Apps hosted in Flex Consumption plan
 Authenticating to the MSSQL database using managed identity is not yet supported when hosting a Durable Functions app in the Flex Consumption plan. Instead, the MSSQL connection string should be used, which can be found by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
 
-:::image type="content" source="/media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+:::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
 The connection string should have this format: 
   ```bash
@@ -406,7 +406,7 @@ After you run a simple orchestrator, you should see at least one result, as show
 
 ## Next steps
 
-- Host a Durable Functions app using the MSSQL backend in [Azure Container Apps](./quickstart-durable-functions-mssql-aca.md).
+- Host a Durable Functions app using the MSSQL backend in [Azure Container Apps](./durable-functions-mssql-container-apps-hosting.md).
 - See the [MSSQL storage provider documentation](https://microsoft.github.io/durabletask-mssql/) for more information about this backend's architecture, configuration, and workload behavior. 
 
 
