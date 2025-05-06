@@ -304,9 +304,9 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
 
 1. Start by setting your developer identity as the database's admin.
   
-    The assignee is your identity, so change to your microsoft.com email:
+    The assignee is your identity, so change to your email:
     ```azurecli
-    assignee=$(az ad user show --id "someone@microsoft.com" --query "id" --output tsv)
+    assignee=$(az ad user show --id "someone@example.com" --query "id" --output tsv)
     ```
 
     Set assignee as admin of the Azure SQL database:
@@ -316,7 +316,7 @@ az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner
 
 1. Connect to the SQL database created previously using tools such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Management Server Studio](/ssms/download-sql-server-management-studio-ssms) to grant access to the managed identity. Or you can run the following [SQLCMD](/sql/tools/sqlcmd/sqlcmd-utility) command to connect:
     ```bash
-    sqlcmd -S <SQL_SERVER_NAME>.database.windows.net -d <DATABASE_NAME> -U <someone@microsoft.com> -P "ACCOUNT_PASSWORD" -G -l 30
+    sqlcmd -S <SQL_SERVER_NAME>.database.windows.net -d <DATABASE_NAME> -U <someone@example.com> -P "ACCOUNT_PASSWORD" -G -l 30
     ```
     Grant your identity _db_owner_ access by running the following query against the database. The `IDENTITY_OBJECT_ID` is the _PrincipalId_ from the identity creation step. 
     ```SQL
