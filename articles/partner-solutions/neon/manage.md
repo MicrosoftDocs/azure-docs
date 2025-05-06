@@ -88,9 +88,9 @@ To create a new branch, open the project in the working pane.
 
 ### Connect to a database
 
-You can connect clients and applications to a Neon database from a project or branch. 
+You can connect clients and applications to a Neon database.
 
-To connect to a database, open the project or branch in the working pane.
+To connect to a database, open your project or branch in the working pane.
 
 1. Select **Connect to database** from the menu bar in the working pane. 
 
