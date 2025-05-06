@@ -15,7 +15,7 @@ ms.author: normesta
 
 # What is Azure Storage Actions
 
-Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. You can use it perform common data operations on millions of objects across multiple storage accounts without provisioning extra compute capacity and without requiring you to write code.
+Azure Storage Actions is a fully managed platform designed to automate data management tasks for Azure Blob Storage and Azure Data Lake Storage. You can use it tp perform common data operations on millions of objects across multiple storage accounts without provisioning extra compute capacity and without requiring you to write code.
 
 You can use Azure Storage Actions to automate tasks such as moving data to more cost-effective tiers, manage the retention of versions, snapshots or sensitive data sets, rehydrating data from archive storage so that it is available for immediate use, or manage blob index tags and metadata for better organization and data retrieval.
 

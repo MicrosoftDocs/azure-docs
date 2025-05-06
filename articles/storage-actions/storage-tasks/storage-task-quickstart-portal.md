@@ -48,7 +48,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Project details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/project-details-section.png)
 
-5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that is supported by the of this service.
+5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that is supported by this service.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Instance details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/instance-details-section.png)
