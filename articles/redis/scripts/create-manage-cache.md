@@ -5,7 +5,7 @@ description: Use the Azure CLI to create an Azure Redis instance, get cache deta
 
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 zone_pivot_groups: redis-type
 ms.custom: devx-track-azurecli, ignite-2024
 appliesto:
@@ -13,9 +13,16 @@ appliesto:
   - ✅ Azure Cache for Redis
 ---
 
-# Create an Azure Redis cache using the Azure CLI
+# Manage an Azure Redis cache using the Azure CLI
 
 This article describes how to create or delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the Azure CLI to get cache details including provisioning status, hostname, ports, and keys.
+
+>[!NOTE]
+>Azure Cache for Redis Basic, Standard, and Premium tiers use the Azure CLI [az redis](/cli/azure/redis) commands. To manage Azure Cache for Redis Basic, Standard, or Premium instances, select the **Azure Cache for Redis** option at the top of this article and use the `az redis` commands.
+>
+>Azure Cache for Redis Enterprise tiers and Azure Managed Redis use the [az redisenterprise](/cli/azure/redisenterprise) commands. The commands are part of the `redisenterprise` extension for Azure CLI version 2.61.0 or higher, which automatically installs the first time you run an `az redisenterprise` command.
+>
+>To manage Azure Cache for Redis Enterprise or Azure Managed Redis instances, select the **Azure Managed Redis** option at the top of this article and use the `az redisenterprise` commands.
 
 ## Prerequisites
 
@@ -29,30 +36,35 @@ This article describes how to create or delete an Azure Redis cache instance by 
 :::code language="azurecli" source="~/azure_cli_scripts/redis-cache/create-cache/create-manage-cache.sh" id="FullScript"::: 
 This sample is broken. When it is fixed, we can fix this include.
 -->
-The cache `name` must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
-
-The `location` should be an Azure region near other services that use your cache. Use a [sku](https://azure.microsoft.com/pricing/details/cache/) and `size` that have the appropriate features and performance for your cache.
-
-Microsoft Entra authentication is enabled by default for new caches, and access keys authentication is disabled. You can enable access key authentication during or after cache creation, but for security and ease of use, Microsoft Entra authentication is recommended.
+Microsoft Entra authentication is enabled by default for new caches, and access keys authentication is disabled. You can enable access key authentication during or after cache creation, but Microsoft Entra authentication is recommended for better security.
 
 >[!IMPORTANT]
 >Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
 
 Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
 
+The cache `name` must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
+
+The `location` should be an Azure region near other services that use your cache. Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) that has the appropriate features and performance for your cache.
+
 ::: zone pivot="azure-managed-redis"
 
+You can use the following Azure CLI script to create an Azure Managed Redis or Azure Cache for Redis Enterprise cache. You can also use the following methods to create a cache:
+
+- [Azure portal (Azure Managed Redis)](../quickstart-create-managed-redis.md)
+- [Azure portal (Azure Cache for Redis Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
+- [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-managed-redis)
+- [ARM template](../redis-cache-arm-provision.md#azure-managed-redis-preview)
+- [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis-preview)
+
 >[!IMPORTANT]
->You can enable or configure the following settings only at Azure Managed Redis cache creation time. Gather the information you need to configure these settings before you begin, and make sure to configure them correctly during cache creation.
->- You must enable modules at the time you create the cache instance. You can't change modules or enable module configuration after you create a cache.
->- Azure Managed Redis supports two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
+>You can enable or configure the following settings only at cache creation time. Gather the information you need to configure these settings in advance, and make sure to configure them correctly during cache creation.
+>- You can enable modules only at the time you create the cache. You can't change modules or enable module configuration after you create a cache.
+>- Azure Managed Redis and Azure Cache for Redis Enterprise tiers support two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
 >- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
 >- The [RediSearch](../redis-modules.md#redisearch) module requires the Enterprise cluster policy and No Eviction eviction policy.
 
-The following script uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group and create an Azure Managed Redis Balanced B1 cache in the resource group.
-
->[!NOTE]
->The [az redisenterprise](/cli/azure/redisenterprise) commands are part of the `redisenterprise` extension for the Azure CLI, version 2.61.0 or higher. The extension automatically installs the first time you run an `az redisenterprise` command.
+This script sets variables, and then uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group with an Azure Managed Redis Balanced B1 cache in it.
 
 ```azurecli
 
@@ -75,7 +87,7 @@ az redisenterprise create --name $cache --resource-group $resourceGroup --locati
 
 ## Get details for an Azure Managed Redis cache
 
-The following script uses the [az redisenterprise show](/cli/azure/redisenterprise#az-redisenterprise-show) and [az redisenterprise list-keys](/cli/azure/redisenterprise#az-redisenterprise-list-keys) commands to get and display cache name, hostname, ports, and keys details.
+The following script uses the [az redisenterprise show](/cli/azure/redisenterprise#az-redisenterprise-show) and [az redisenterprise list-keys](/cli/azure/redisenterprise#az-redisenterprise-list-keys) commands to get and display the name, hostname, ports, and keys details for the preceding cache.
 
 ```azurecli
 # Get details of an Azure Managed Redis cache
@@ -100,7 +112,7 @@ echo "Secondary Key:" ${keys[1]}
 
 ## Clean up resources
 
-The following script uses the [az group delete](/cli/azure/group) and [az redisenterprise delete](/cli/azure/redisenterprise#az-redisenterprise-delete) commands to delete a cache, and then delete the resource group that contains all cache resources.
+The following script uses the [az group delete](/cli/azure/group) and [az redisenterprise delete](/cli/azure/redisenterprise#az-redisenterprise-delete) commands to delete the preceding cache, and then delete its resource group.
 
 ```azurecli
 # Delete a redis cache
@@ -115,7 +127,15 @@ az group delete --resource-group $resourceGroup -y
 
 ::: zone pivot="azure-cache-redis"
 
-The following script uses the [az group create](/cli/azure/group) and [az redis create](/cli/azure/redis#az-redis-create) commands to create a resource group and create an Azure Cache for Redis Basic C0 cache in the resource group.
+You can use the following Azure CLI script to create an Azure Cache for Redis Basic, Standard, or Premium-tier cache. To create an Enterprise-tier cache, use the [Azure Managed Redis](create-managed-cache.md?pivots=azure-managed-redis) script. You can also use the following methods to create a cache:
+
+- [Azure portal (Basic, Standard, or Premium)](../../azure-cache-for-redis/quickstart-create-redis.md)
+- [Azure portal (Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
+- [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-cache-redis)
+- [ARM template](../redis-cache-arm-provision.md#azure-cache-for-redis)
+- [Bicep template](../redis-cache-bicep-provision.md#azure-cache-for-redis)
+
+The following script uses the [az group create](/cli/azure/group) and [az redis create](/cli/azure/redis#az-redis-create) commands to create a resource group with an Azure Cache for Redis Basic C0 cache in it.
 
 ```azurecli
 
@@ -139,7 +159,7 @@ az redis create --name $cache --resource-group $resourceGroup --location "$locat
 
 ## Get details for an Azure Cache for Redis cache
 
-The following script uses the [az redis show](/cli/azure/redis#az-redis-show) and [az redis list-keys](/cli/azure/redis#az-redis-list-keys) commands to get and display name, hostname, ports, and keys details.
+The following script uses the [az redis show](/cli/azure/redis#az-redis-show) and [az redis list-keys](/cli/azure/redis#az-redis-list-keys) commands to get and display the name, hostname, ports, and keys details for the preceding cache.
 
 ```azurecli
 
@@ -164,7 +184,7 @@ echo "Secondary Key:" ${keys[1]}
 
 ## Clean up resources
 
-The following script uses the [az group delete](/cli/azure/group) and [az redis delete](/cli/azure/redis#az-redis-delete) commands to delete a cache, and then delete the resource group that contains all cache resources.
+The following script uses the [az group delete](/cli/azure/group) and [az redis delete](/cli/azure/redis#az-redis-delete) commands to delete the preceding cache, and then delete its resource group.
 
 ```azurecli
 # Delete an Azure Redis cache
@@ -173,7 +193,6 @@ az redis delete --name "$cache" --resource-group $resourceGroup -y
 
 # echo "Deleting all resources"
 az group delete --resource-group $resourceGroup -y
-
 ```
 
 ::: zone-end
@@ -181,4 +200,4 @@ az group delete --resource-group $resourceGroup -y
 ## Related content
 
 - For more information about the Azure CLI, see the [Azure CLI documentation](/cli/azure).
-- For an Azure Managed Redis CLI script sample that creates an Azure Managed Redis cache with clustering, see [Azure Managed Redis with clustering](../../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md).
+- For an Azure CLI script sample that creates an Azure Cache for Redis Premium cache with clustering, see [Create a Premium Azure Cache for Redis with clustering](../../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md).
