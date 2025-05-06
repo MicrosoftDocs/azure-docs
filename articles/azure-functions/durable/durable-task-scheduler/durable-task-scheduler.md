@@ -124,7 +124,7 @@ curl -s https://mcr.microsoft.com/v2/dts/dts-emulator/tags/list
 
 ### Autopurge retention policies
 
-Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage costs, and degrade performance. The autopurge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting autopurge retention policies for Azure Functions Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
+Large volumes of completed orchestration instance data can lead to storage bloat, incur higher storage costs, and degrade performance. The autopurge feature for Durable Task Scheduler provides a streamlined, configurable solution to manage orchestration instance clean-up automatically. [Learn more about setting autopurge retention policies for Durable Task Scheduler.](./durable-task-scheduler-auto-purge.md)
 
 ## Limitations and considerations
 
@@ -162,6 +162,8 @@ Large volumes of completed orchestration instance data can lead to storage bloat
 - **Supported hosting plans**: The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
 
   The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
+
+- **Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers:** Currently, migrating across providers isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the Durable Task Scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
 
 ## Next steps
 

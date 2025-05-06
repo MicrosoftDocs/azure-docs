@@ -1,26 +1,27 @@
 ---
-title: "Quickstart: Set a Durable Functions app to use Azure Functions Durable Task Scheduler (preview)"
+title: "Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler (preview)"
 description: Learn how to configure an existing Durable Functions app to use Azure Functions Durable Task Scheduler.
 ms.topic: how-to
 ms.date: 04/24/2025
 zone_pivot_groups: dts-runtime
 ---
 
-# Quickstart: Set a Durable Functions app to use Azure Functions Durable Task Scheduler (preview)
+# Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler (preview)
 
 Write stateful functions in a serverless environment using Durable Functions, a feature of [Azure Functions](../../functions-overview.md). Scenarios where Durable Functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
 
-Durable functions supports several [storage providers](../durable-functions-storage-providers.md), also known as *backends*, for storing orchestration and entity runtime state. 
+You can use the Durable Task Scheduler as a backend for your Durable Functions, to store orchestration and entity runtime state. 
 
-In this quickstart, you configure a Durable Functions app to use the [Durable Task Scheduler](../durable-functions-storage-providers.md#dts) as the backend and deploy the app to Azure using **Visual Studio Code**. 
+In this quickstart, you: 
+
+> [!div class="checklist"]
+> * Configure an existing Durable Functions app to use the Durable Task Scheduler. 
+> * Set up the Durable Task emulator for local development.
+> * Deploy your app to Azure on the App Service plan using Visual Studio Code.
+> * Monitor the status of your app and task hub on the Durable Task Scheduler dashboard. 
 
 > [!NOTE]
->
-> - To learn more about the benefit of using Durable Task Scheduler, see [Durable Functions backend providers overview](../durable-functions-storage-providers.md).
->
-> - Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers currently isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the Durable Task Scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
->
-> - Durable Task Scheduler currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
+> Durable Task Scheduler currently only supports Durable Functions running on **Functions Premium** and **App Service** plans. 
 
 ## Prerequisites
 
@@ -56,14 +57,14 @@ You also need:
 
 ::: zone pivot="csharp" 
 
-> [!NOTE] 
-> The Durable Task Scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
-
 Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
    ```bash
    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged --prerelease
    ```
+
+> [!NOTE] 
+> The Durable Task Scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
 ::: zone-end 
 
@@ -116,20 +117,18 @@ Add connection information for local development:
 }
 ```
 
-Get the Durable Task Scheduler emulator port number in [the next step](#set-up-durable-task-scheduler-emulator). 
-
-## Set up Durable Task Scheduler emulator 
+## Set up Durable Task emulator 
 
 1. Pull the docker image containing the emulator. 
 
    ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
    ```
 
 1. Run the emulator.
 
    ```bash
-   docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
    ```
    
    The following output indicates the emulator started successfully.

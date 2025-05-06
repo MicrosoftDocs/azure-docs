@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler (preview)"
-description: Learn how to configure an existing app for the Azure Functions Durable Task Scheduler using the Durable Task SDKs.
+description: Learn how to configure an existing app for the Durable Task Scheduler using the Durable Task SDKs.
 ms.topic: how-to
 ms.date: 04/23/2025
 zone_pivot_groups: df-languages
