@@ -9,14 +9,16 @@ ms.topic: how-to
 ms.date: 05/09/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
+
+#customer intent: As a developer, I want to set up mutual authentication so that I can restrict access to an App Service app. 
 ---
 
 # Configure TLS mutual authentication in Azure App Service
 
-You can restrict access to your Azure App Service app by enabling different types of authentication for the app. One way to set up authentication is to request a client certificate when the client request is sent by using Transport Layer Security (TLS)/Secure Sockets Layer (SSL) and to validate the certificate. This mechanism is called *mutual authentication* or *client certificate authentication*. This article shows you how to set up your app to use client certificate authentication.
+You can restrict access to your Azure App Service app by enabling various types of authentication for the app. One way to set up authentication is to request a client certificate when the client request is sent by using Transport Layer Security (TLS) / Secure Sockets Layer (SSL) and to validate the certificate. This mechanism is called *mutual authentication* or *client certificate authentication*. This article shows how to set up your app to use client certificate authentication.
 
 > [!NOTE]
-> Your app code is responsible for validating the client certificate. App Service doesn't do anything with this client certificate other than forward it to your app.
+> Your app code must validate the client certificate. App Service doesn't do anything with the client certificate other than forward it to your app.
 >
 > If you access your site over HTTP and not HTTPS, you don't receive any client certificates. If your application requires client certificates, you shouldn't allow requests to your application over HTTP.
 

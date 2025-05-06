@@ -10,7 +10,7 @@ ms.custom: "include file"
 
 ## Prepare your web app
 
-To create custom TLS/SSL bindings or to enable client certificates for your App Service app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the Basic, Standard, Premium, or Isolated tiers.
+If you want to create custom TLS/SSL bindings or to enable client certificates for your App Service app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the Basic, Standard, Premium, or Isolated tiers.
 
 To make sure that your web app is in the supported pricing tier:
 
@@ -18,9 +18,7 @@ To make sure that your web app is in the supported pricing tier:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **App Services** and then select it in the search results.
 
-   :::image type="content" source="./media/app-service-ssl-prepare-app/app-services.png" alt-text="Screenshot of the Azure portal search box and App Services selected.":::
-
-1. On the **App Services** pane, select your web app name.
+1. On the **App Services** page, select your web app name:
 
    :::image type="content" source="./media/app-service-ssl-prepare-app/select-app-service.png" alt-text="Screenshot of the App Services pane in the Azure portal showing a list of all running web apps, with the first app in the list highlighted.":::
 
