@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 05/06/2025
 ---
 
 # Comparison between Azure Front Door and Azure CDN services
@@ -15,8 +15,7 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 :::image type="content" source="./media/front-door-cdn-comparison/architecture.png" alt-text="Diagram of Azure Front Door architecture.":::
 
 > [!NOTE]
-> To switch between tiers, you will need to recreate the Azure Front Door profile. You can use the [**migration capability**](migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](tier-upgrade.md).
->
+> To switch between tiers, you must recreate the Azure Front Door profile. You can use the [**migration capability**](migrate-tier.md) to move your existing Azure Front Door profile to the new tier. For more information about upgrading from Standard to Premium, see [**upgrade capability**](tier-upgrade.md).
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
@@ -61,7 +60,6 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Bot protection |  | &check; | &check; - Only bot manager rule set 1.0 |  |
 | Private link connection to origin |  | &check; |  |  |
 | Geo-filtering | &check; | &check; | &check; | &check; |
-| Token authentication |  |  |  |  |
 | DDOS protection | &check; | &check; | &check; | &check; |
 | Domain Fronting Block | &check; | &check; | &check; | &check; |
 | **Analytics and reporting** | | | | |
@@ -90,7 +88,8 @@ The following table lists services that are on retirement path, frequently asked
 | Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|[FAQ](../cdn/edgio-retirement-faq.md) |
 | Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service retired | Service retired |
 
-## Next steps
+## Related content
 
-* Learn how to [create an Azure Front Door](create-front-door-portal.md).
-* Learn how about the [Azure Front Door architecture](front-door-routing-architecture.md). 
+- [Create an Azure Front Door](create-front-door-portal.md)
+- [Azure Front Door routing architecture](front-door-routing-architecture.md)
+- [Best practices for Front Door](best-practices.md)
