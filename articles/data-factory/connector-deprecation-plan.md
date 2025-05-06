@@ -22,18 +22,18 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- |:-- | :-- | 
 | [Azure Database for PostgreSQL (version 1.0)](connector-azure-database-for-postgresql.md)   | [Link](connector-azure-database-for-postgresql.md#upgrade-the-azure-database-for-postgresql-connector) | GA version available | To be determined | /  | 
-| [Cassandra (version 1.0)](connector-cassandra.md) |[Link](connector-cassandra.md#upgrade-the-cassandra-connector) | Preview version available | To be determined | / | 
+| [Cassandra (version 1.0)](connector-cassandra.md) |[Link](connector-cassandra.md#upgrade-the-cassandra-connector) | GA version available |July 31, 2025 | September 30, 2025 | 
 | [Google BigQuery (V1)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support and GA version available | October 31, 2024 | September 30, 2025| 
 | [Greenplum (version 1.0)](connector-greenplum.md)  | [Link](connector-greenplum.md#upgrade-the-greenplum-connector) |Preview version available | To be determined | /| 
 | [MariaDB (version 1.0)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support and GA version available | October 31, 2024 | September 30, 2025| 
 | [MySQL (version 1.0)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| September 30, 2025|
-| [Oracle (version 1.0)](connector-oracle.md) |[Link](connector-oracle.md#upgrade-the-oracle-connector) | GA version available | August 31, 2025| December 31, 2025 |  
+| [Oracle (version 1.0)](connector-oracle.md) |[Link](connector-oracle.md#upgrade-the-oracle-connector) | GA version available | July 31, 2025| October 31, 2025 |  
 | [PostgreSQL (V1)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support and GA version available |October 31, 2024 | September 30, 2025| 
 | [Presto (version 1.0)](connector-presto.md)   | [Link](connector-presto.md#upgrade-the-presto-connector)| Preview version available |To be determined | /  | 
-| [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | To be determined | /| 
-| [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | To be determined |/ | 
-| [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
-| [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
+| [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | June 30, 2025 | September 30, 2025| 
+| [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | June 30, 2025  |September 30, 2025 | 
+| [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | June 30, 2025 | September 30, 2025 | 
+| [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | June 30, 2025  | September 30, 2025  | 
 | [Spark (version 1.0)](connector-spark.md)   | [Link](connector-spark.md#upgrade-the-spark-connector)| Preview version available |To be determined | /  | 
 | [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | July 31, 2025 | September 30, 2025  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support |December 31, 2024 | December 31, 2024 | 
