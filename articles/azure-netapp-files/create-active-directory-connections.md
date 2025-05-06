@@ -1,5 +1,5 @@
 ---
-title: Create and manage Active Directory connections for Azure NetApp Files | Microsoft Docs
+title: Create and manage Active Directory connections for Azure NetApp Files
 description: This article shows you how to create and manage Active Directory connections for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
@@ -41,7 +41,7 @@ Several features of Azure NetApp Files require that you have an Active Directory
     * Enterprise Admins 
     * Administrators 
     * Account Operators 
-    * Microsoft Entra Domain Services Administrators _ (Microsoft Entra Domain Services Only)_
+    * Microsoft Entra Domain Services Administrators _(Microsoft Entra Domain Services Only)_
     * Alternatively, an AD domain user account with `msDS-SupportedEncryptionTypes` write permission on the AD connection admin account can also be used to set the Kerberos encryption type property on the AD connection admin account. 
 
     >[!NOTE]
@@ -316,7 +316,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 The Shared AD feature enables all NetApp accounts to share an AD connection created by one of the NetApp accounts that belong to the same subscription and the same region. For example, using this feature, all NetApp accounts in the same subscription and region can use the common AD configuration to create an [SMB volume](azure-netapp-files-create-volumes-smb.md), a [NFSv4.1 Kerberos volume](configure-kerberos-encryption.md), or a [dual-protocol volume](create-volumes-dual-protocol.md). When you use this feature, the AD connection is visible in all NetApp accounts that are under the same subscription and same region.
 
-With the introduction of the feature to [create an AD connection per NetApp account](#multi-ad), new feature registration for the Shared AD feature are not accepted.
+With the introduction of the feature to [create an AD connection per NetApp account](#multi-ad), new feature registration for the Shared AD feature aren't accepted.
 
 >[!NOTE]
 >You can register to use one AD connection per NetApp account if you're already enrolled in the preview for Shared AD. If you currently meet the maximum of 10 NetApp accounts per Azure region per subscription, you must initiate a [support request](azure-netapp-files-resource-limits.md#request-limit-increase) to increase the limit. You can confirm your configuration in your account overview page in the [AD type](#netapp-accounts-and-active-directory-type) field. 

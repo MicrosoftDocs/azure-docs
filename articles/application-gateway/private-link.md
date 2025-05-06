@@ -58,7 +58,6 @@ Four components are required to implement Private Link with Application Gateway:
 - The subnet used for PrivateLinkConfiguration can't be same as the Application Gateway subnet.
 - Private link configuration for Application Gateway doesn't expose the "Alias" property and must be referenced via resource URI.
 - Private Endpoint creation doesn't create a \*.privatelink DNS record or zone. All DNS records should be entered in existing zones used for your Application Gateway.
-- Azure Front Door and Application Gateway don't support chaining via Private Link.
 - Private Link Configuration for Application Gateway has an idle timeout of ~5 minutes (300 seconds). To avoid hitting this limit, applications connecting through private endpoints to Application Gateway must use TCP keepalive intervals of less than 300 seconds.
 
 ## Next steps

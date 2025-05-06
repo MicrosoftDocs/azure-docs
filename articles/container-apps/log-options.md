@@ -6,13 +6,14 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 04/10/2025
+ms.date: 04/28/2025
 ms.author: cshoe
+zone_pivot_groups: azure-cli-or-portal
 ---
 
 # Log storage and monitoring options in Azure Container Apps
 
-Azure Container Apps gives you options for storing and viewing your application logs. Logging options are configured in your Container Apps environment where you select the log destination.  
+Azure Container Apps gives you options for storing and viewing your application logs. You can configure logging options at the Container Apps environment level. If you select Azure Monitor as your logs destination, you can configure diagnostic settings at both the environment level and the container app level.
 
 Container Apps application logs consist of two different categories:
 
@@ -32,95 +33,160 @@ You can choose between these logs destinations:
 
 When *Don't save logs* or the *Azure Monitor* destination is selected, the **Logs** menu item providing the Log Analytics query editor in the Azure portal is disabled.
 
-## Configure options via the Azure portal
+::: zone pivot="azure-portal"
 
-Use these steps to configure the logging options for your Container Apps environment in the Azure portal:
+## Configure logging options
 
-1. Go to the **Logging Options** on your Container Apps environment window in the portal.
-    :::image type="content" source="media/observability/log-opts-screenshot-log-analytics.png" alt-text="Screenshot of logs destinations.":::
+Use these steps to configure the logging options for your environment in the Azure portal:
+
+1. Browse to your Container Apps environment in the portal.
+
+1. Select *Monitoring* > **Logging options**.
+
 1. You can choose from the following **Logs Destination** options:
-    - **Log Analytics**: With this option, you select a Log Analytics workspace to store your log data. Your logs can be viewed through Log Analytics queries. To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
+    - **Azure Log Analytics**: With this option, you select a Log Analytics workspace to store your log data. Your logs can be viewed through Log Analytics queries. To learn more about Log Analytics, see [Azure Monitor Log Analytics](log-monitoring.md).
     - **Azure Monitor**: Azure Monitor routes your logs to a destination. When you select this option, you must select **Diagnostic settings** to complete the configuration after you select **Save** on this page.
     - **Don't save logs**: This option disables the storage of log data.
+
 1. Select **Save**.
-    :::image type="content" source="media/observability/log-opts-screenshot-page-save-button.png" alt-text="Screenshot Logging options page.":::
-1. If you selected **Azure Monitor** as your logs destination, you must configure **Diagnostic settings**. The **Diagnostic settings** item appears below the **Logging options** menu item.
 
 ### Diagnostic settings
 
-When you select **Azure Monitor** as your logs destination, you must configure the destination details. Select **Diagnostic settings** from the left side menu of the Container Apps Environment window in the portal. You might need to refresh the page for **Diagnostic settings** to appear.
+If you selected **Azure Monitor** as your logs destination, you must also configure the diagnostic settings. You can configure the diagnostic settings at both the environment level and the container app level.
 
-:::image type="content" source="media/observability/log-opts-diag-setting-menu-item.png" alt-text="Screenshot Diagnostic setting menu item.":::
+#### Configure diagnostic settings at the environment level
 
-Destination details are saved as *diagnostic settings*. You can create up to five diagnostic settings for your container app environment. You can configure different log categories for each diagnostic setting. For example, create one diagnostic setting to send the system logs category to one destination, and another to send the container console logs category to another destination.
+Use these steps to configure the diagnostic settings for your environment:
+
+1. Browse to your environment in the portal.
+
+1. Select *Monitoring* > **Diagnostic settings**. If you've just set your environment's logs destination to **Azure Monitor**, you might need to refresh the page for this configuration item to appear.
+
+Destination details are saved as *diagnostic settings*. You can create up to five diagnostic settings for your environment. You can configure different log categories for each diagnostic setting. For example, create one diagnostic setting to send the system logs category to one destination, and another to send the container console logs category to another destination.
 
 To create a new *diagnostic setting*:
 
 1. Select **Add diagnostic setting**.
-    :::image type="content" source="media/observability/diag-setting-new-diag-setting.png" alt-text="Screenshot Diagnostic setting Add new diagnostic setting.":::
-1. Enter a name for your diagnostic setting.
-    :::image type="content" source="media/observability/diag-setting-dialog.png" alt-text="Screenshot Diagnostics settings dialog.":::
+
+1. In *Diagnostic setting name*, enter a name for your diagnostic setting.
+
 1. Select the log **Category groups** or **Categories** you want to send to this destination. You can select one or more categories. 
+
+1. If you want to send app-level [metrics](metrics.md), select *Metrics* > **AllMetrics**.
 
 1. Select one or more **Destination details**:
     - **Send to Log Analytics workspace**: Select from existing Log Analytics workspaces.
-    :::image type="content" source="media/observability/diag-setting-log-analytics-console-log.png" alt-text="Screenshot diagnostic settings Log Analytics destination.":::
     - **Archive to a storage account**: This option is deprecated.
-    - **Stream to an event hub**: Select from Azure event hubs. 
-    :::image type="content" source="media/observability/diag-settings-event-hub.png" alt-text="Screenshot Diagnostic settings event hub destination.":::
+    - **Stream to an event hub**: Select from Azure event hubs.
     - **Send to a partner solution**: Select from Azure partner solutions. 
+
 1. Select **Save**.
 
 For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
-## Configure options using the Azure CLI
+#### Configure diagnostic settings at the container app level
+
+Use these steps to configure the diagnostic settings for your container app:
+
+1. Browse to your container app in the portal.
+
+1. Select *Monitoring* > **Diagnostic settings**. If you've just set your container app environment's logs destination to **Azure Monitor**, you might need to refresh the page for this configuration item to appear.
+
+1. Select **Add diagnostic setting**.
+
+1. In **Diagnostic setting name**, enter a name for your diagnostic setting.
+
+1. Under *Metrics*, select **AllMetrics**.
+
+1. Select one or more **Destination details**:
+    - **Send to Log Analytics workspace**: Select from existing Log Analytics workspaces.
+    - **Archive to a storage account**: This option is deprecated.
+    - **Stream to an event hub**: Select from Azure event hubs.
+    - **Send to a partner solution**: Select from Azure partner solutions. 
+
+1. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="azure-cli"
+
+## Configure logging options
 
 Configure logs destination for your Container Apps environment using the Azure CLI `az containerapp create` and `az containerapp update` commands with the `--logs-destination` argument. 
 
-The destination values are: `log-analytics`, `azure-monitor`, and `none`.
+First, register the `Microsoft.Insights` namespace.
 
-For example, to create a Container Apps environment using an existing Log Analytics workspace as the logs destination, you must provide the `--logs-destination` argument with the value `log-analytics` and the `--logs-destination-id` argument with the value of the Log Analytics workspace resource ID. You can get the resource ID from the Log Analytics workspace page in the Azure portal or from the ```az monitor log-analytics workspace show``` command.
+```azurecli
+az provider register --namespace Microsoft.Insights
+```
 
-Replace \<PLACEHOLDERS\> with your values:
+### Send to a Log Analytics workspace
+
+To create a Container Apps environment using an existing Log Analytics workspace as the logs destination, run the following command. Replace the `<PLACEHOLDERS>` with your values. You can get the Log Analytics workspace resource ID from the Log Analytics workspace page in the Azure portal, or from the [`az monitor log-analytics workspace show`](/cli/azure/monitor/log-analytics/workspace#az-monitor-log-analytics-workspace-show) command.
 
 ```azurecli
 az containerapp env create \
   --name <ENVIRONMENT_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --resource-group <RESOURCE_GROUP_NAME> \
   --logs-destination log-analytics \
-  --logs-workspace-id <WORKSPACE_ID>
+  --logs-workspace-id <LOG_ANALYTICS_WORKSPACE_ID>
 ```
 
-To update an existing Container Apps environment to use Azure Monitor as the logs destination:
+The `--logs-destination` argument accepts the values `log-analytics`, `azure-monitor`, and `none`.
 
-Replace \<PLACEHOLDERS\> with your values:
+### Send to Azure Monitor
+
+To update an existing Container Apps environment to use Azure Monitor as the logs destination, run the following command. Replace the `<PLACEHOLDERS>` with your values:
 
 ```azurecli
 az containerapp env update \
   --name <ENVIRONMENT_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --resource-group <RESOURCE_GROUP_NAME> \
   --logs-destination azure-monitor
 ```
 
-When `--logs-destination` is set to `azure-monitor`, create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command. 
+#### Configure diagnostic settings
 
-To send app-level metrics to Log Analytics:
+When `--logs-destination` is set to `azure-monitor`, you must create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command. You can configure these diagnostic settings at both the environment level and the container app level.
 
-Replace \<PLACEHOLDERS\> with your values:
+To create diagnostic settings at the environment level, run the following command. Replace the `<PLACEHOLDERS>` with your values. You can get the environment ID from the Environment page in the Azure portal, or from the [`az containerapp env show`](/cli/azure/containerapp/env#az-containerapp-env-show) command.
+
+```azurecli
+az monitor diagnostic-settings create \
+  --name "AllMetricsToLogAnalytics" \
+  --resource <ENVIRONMENT_ID> \
+  --logs '[{"categoryGroup":"allLogs","enabled":true}]' \
+  --metrics '[{"category":"AllMetrics","enabled":true}]' \
+  --workspace <LOG_ANALYTICS_RESOURCE_ID>
+```
+
+Ensure there are no spaces in the JSON values provided to the `--logs` and `--metrics` parameters.
+
+For the `--logs` parameter, you can specify `category` or `categoryGroup`, but not both at once. For `categoryGroup`, the available values are `audit` and `allLogs`. For `category`, the available values are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
+
+For the `--metrics` parameter, the only available category is `AllMetrics`.
+
+For more information see [LogSettings](/rest/api/monitor/diagnostic-settings/create-or-update#logsettings) and [MetricSettings](/rest/api/monitor/diagnostic-settings/create-or-update#metricsettings).
+
+To create diagnostic settings at the container app level, run the following command. Replace the `<PLACEHOLDERS>` with your values. You can get the container app ID from the Azure portal, or from the [`az containerapp show`](/cli/azure/containerapp#az-containerapp-show) command. 
+
+When creating diagnostic settings at the container app level, the `--logs` parameter is not supported, and for the `--metrics` parameter, the only available category is `AllMetrics`.
 
 ```azurecli
 az monitor diagnostic-settings create \
 --name "AllMetricsToLogAnalytics" \
---resource <APP_ARM_RESOURCE_ID> \
---metrics '[{"category": "AllMetrics","enabled": true}]' \
---workspace <LOG_ANALYTICS_ARM_RESOURCE_ID>
+--resource <CONTAINER_APP_ID> \
+--metrics '[{"category":"AllMetrics","enabled":true}]' \
+--workspace <LOG_ANALYTICS_RESOURCE_ID>
 ```
 
-For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings). Container Apps log categories are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
+For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings).
+
+::: zone-end
 
 ## Limitations
 
-The following limitations exist as you set up your log options.
+The following limitations apply as you set up your log options.
 
 - **Private link**: Sending logs directly to a Log Analytics Workspace through Private Link isn't supported. However, you can use Azure Monitor and send your logs to the same Log Analytics Workspace. This indirection is required to prevent system log data loss.
 
