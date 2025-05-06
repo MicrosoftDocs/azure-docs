@@ -65,7 +65,26 @@ Serverless GPU compute in Dev Box uses Azure Container Apps (ACA) to provide GPU
 
 The following GPU options are currently supported:
 
-- NVIDIA T4 GPUs
+- **NVIDIA T4 GPUs**: Readily available with minimal quota concerns
+- **NVIDIA A100 GPUs**: More powerful but available in limited capacity
+
+### Regional availability
+
+Currently, GPU resources are available in the following Azure regions:
+
+- West US 3
+- Sweden North
+- Australia East
+
+Additional regions may be supported in the future based on demand.
+
+### vNet injection
+
+vNet injection allows customers to integrate their network and security protocols with the serverless GPU environment. While not required for the proof of concept (POC), this feature will be prioritized for public previews and general availability (GA). With vNet injection, customers can achieve tighter control over network and security configurations.
+
+### MOBO architecture model
+
+Serverless GPU compute adopts the MOBO architecture model for ACA integration. In this model, ACA instances are created and managed within the customer’s subscription, providing a more controlled and streamlined management experience. This ensures that the Dev Box service can securely manage ACA sessions without introducing additional complexity.
 
 ### Developer experience
 
@@ -75,6 +94,8 @@ Developers can access serverless GPU compute through:
 - **Visual Studio**: Access GPU compute from within the Visual Studio environment
 - **VS Code with AI Toolkit**: Use seamless GPU integration for AI development tasks
 
+The goal is to provide a seamless, native experience where GPU resources are accessible without requiring any setup from the developer.
+
 ## Administration and management
 
 Administrators control serverless GPU access at the project level through Dev Center. Key management capabilities include:
@@ -82,6 +103,10 @@ Administrators control serverless GPU access at the project level through Dev Ce
 - **Enable/disable GPU access**: Control whether projects can use serverless GPU resources
 - **Set concurrent GPU limits**: Specify the maximum number of GPUs that can be used simultaneously across a project
 - **Cost controls**: Manage GPU usage within subscription quotas
+
+Access to serverless GPU resources is managed through project-level properties. When the serverless GPU feature is enabled for a project, all Dev Boxes within that project automatically gain access to GPU compute. This simplifies the access model by removing the need for custom roles or pool-based configurations.
+
+Future iterations of the project policy infrastructure will provide even more granular control over GPU access and usage.
 
 ## Related content
 
