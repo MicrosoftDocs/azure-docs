@@ -148,7 +148,7 @@ SMB services in Azure NetApp Files are initially configured by setting up an [Ac
 - Active Directory DNS name*
 - Active Directory site name (for DC discovery) (required)
 - SMB server prefix name
-- Organizational unit (where where SMB server computer accounts are created)
+- Organizational unit (where SMB server computer accounts are created)
 - AES encryption enable/disable
 - LDAP signing enable/disable
 - LDAP configuration
