@@ -63,7 +63,7 @@ Now that you have configured an ingestion source, refer to the following steps t
 :::image type="content" source="./media/create-run.jpeg" alt-text="Screenshot of view create run panel.":::
 
 8. When the ingestion run is complete, the **STAC items** tab in your collection displays your list of STAC items that have been ingested, with columns for the item ID and acquisition date. 
-:::image type="content" source="./media/stac-items.jpeg" alt-text="Screenshot of STAC items tab.":::
+:::image type="content" source="./media/stac-items.jpeg" alt-text="Screenshot of STAC items tab."::
 
 
 ## Next steps
