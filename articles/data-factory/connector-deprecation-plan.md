@@ -137,7 +137,7 @@ Regular notifications are sent to you to help you upgrade related connectors, or
 
 Here's the steps to help you find the notification: 
 
-1. Navigate to [Service Health protal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues) or you can select **Service Health** icon on your Azure portal dashboard.
+1. Navigate to [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues) or you can select **Service Health** icon on your Azure portal dashboard.
 1. Go to **Health advisories** tab and you can see the notification related to your connectors in the list. You can also go to **Health history** tab to check historical notifications.
 
     :::image type="content" source="media/connector-deprecation-plan/service-health-health-advisories.png" alt-text="Screenshot of service health.":::
