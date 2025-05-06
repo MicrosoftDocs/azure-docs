@@ -24,7 +24,7 @@ The mosaic configuration can be set from the Mosaics tab, accessible from the **
 
 ## Example Mosaic Configurations used in Open Planetary Computer
 
-### 🌍 From Sentinel-2 L2A Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)
+### From Sentinel-2 L2A Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)
 
 A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton would enable three different ways to visualize Sentinel-2 imagery in the Explorer interface: 1. most recent search results (any cloud cover), 2. most recent search results with low cloud cover, and 3. June - August 2022 search results with low cloud cover.
 
@@ -56,7 +56,7 @@ A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton wou
 ]
 ```
 
-### 🌍 USDA Cropland Data Layers Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/usda-cdl)
+### USDA Cropland Data Layers Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/usda-cdl)
 
 Each collection may have its own set of properties that can be used in the cql for a specific search criteria. This mosaic configuration has a mosaic with cql that selects items based on their `usda_cdl` property.  In this case, the mosaic specifies a search filtering for cropland data. By default, the items returned from the search are sorted by recency. 
 
