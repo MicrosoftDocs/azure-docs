@@ -6,7 +6,7 @@ ms.date: 05/05/2025
 zone_pivot_groups: dts-devexp
 ---
 
-## Configure managed identity for Durable Task Scheduler (preview)
+# Configure managed identity for Durable Task Scheduler (preview)
 
 Durable Task Scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
 
@@ -23,7 +23,7 @@ You can grant the following Durable Task Scheduler related roles to an identity:
 
 In this article, you learn how to grant permissions to an identity resource and configure your compute app to use the identity for access to schedulers and task hubs. 
 
-### Assign role-based access control (RBAC) to a managed identity resource 
+## Assign role-based access control (RBAC) to a managed identity resource 
 
 ::: zone pivot="az-cli" 
 
@@ -106,11 +106,11 @@ In this article, you learn how to grant permissions to an identity resource and 
 
 1. Click **Add** to add a role assignment.
 
-    :::image type="content" source="../media/configure-durable-task-scheduler/add-assignment.png" alt-text="Screenshot of the adding the role assignment on the Access Control pane in the portal.":::
+    :::image type="content" source="./media/configure-durable-task-scheduler/add-assignment.png" alt-text="Screenshot of the adding the role assignment on the Access Control pane in the portal.":::
 
 1. Search for and select **Durable Task Data Contributor**. Click **Next**.
 
-    :::image type="content" source="../media/configure-durable-task-scheduler/data-contributor-role.png" alt-text="Screenshot of selecting the Durable Task Data Contributor role assignment in the portal.":::
+    :::image type="content" source="./media/configure-durable-task-scheduler/data-contributor-role.png" alt-text="Screenshot of selecting the Durable Task Data Contributor role assignment in the portal.":::
 
 1. On the **Members** tab, for **Assign access to**, select **Managed identity**.
 
@@ -118,7 +118,7 @@ In this article, you learn how to grant permissions to an identity resource and 
 
 1. In the **Select managed identities** pane, expand the **Managed identity** drop-down and select **User-assigned managed identity**.
 
-    :::image type="content" source="../media/configure-durable-task-scheduler/members-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type you're going to use in the portal.":::
+    :::image type="content" source="./media/configure-durable-task-scheduler/members-tab.png" alt-text="Screenshot of selecting the user-assigned managed identity type you're going to use in the portal.":::
 
 1. Pick the user-managed identity previously created and click the **Select** button.
 
@@ -126,7 +126,7 @@ In this article, you learn how to grant permissions to an identity resource and 
 
 ::: zone-end 
 
-### Assign managed identity to your app
+## Assign managed identity to your app
 
 Now that the identity has the required RBAC to access Durable Task Scheduler, you need to assign it to your app.
 
@@ -182,7 +182,7 @@ Now that the identity has the required RBAC to access Durable Task Scheduler, yo
 
 ::: zone-end 
 
-### Add environment variables to app
+## Add environment variables to app
 
 Add these two environment variables to app setting:
   - `TASKHUB_NAME`: name of task hub

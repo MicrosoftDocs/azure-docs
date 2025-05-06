@@ -141,10 +141,6 @@ The dashboard includes features for managing orchestrations on demand, such as s
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/manage-orchestration.png" alt-text="Screenshot of the dashboard showing the buttons you use to manage the orchestration.":::
 
-## Security 
-
-Dashboard access is secured through [integration with Azure Role-Based Access Control (RBAC)](./develop-with-durable-task-scheduler.md#accessing-durable-task-scheduler-dashboard).
-
 ## Next steps
 
 [Try out the quickstart to see the Durable Task Scheduler dashboard in action](./quickstart-durable-task-scheduler.md)
