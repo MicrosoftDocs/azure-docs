@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started connecting an AKS application to a cache"
 description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
-ms.date: 05/18/2025
+ms.date: 10/01/2024
 ms.topic: tutorial
 ms.custom:
   - ignite-2024

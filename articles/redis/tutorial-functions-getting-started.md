@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Get started with Azure Functions triggers and bindings in Azure Redis"
 description: In this tutorial, you learn how to use Azure Functions with Azure Cache for Redis or Azure Managed Redis.
-ms.date: 05/18/2025
+ms.date: 04/12/2024
 ms.topic: tutorial
 ms.custom:
   - ignite-2024

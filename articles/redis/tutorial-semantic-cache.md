@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Use Azure Cache for Redis as a semantic cache"
 description: In this tutorial, you learn how to use Azure Cache for Redis as a semantic cache.
-ms.date: 05/18/2025
+ms.date: 01/08/2024
 ms.topic: tutorial
 ms.collection:
   - ce-skilling-ai-copilot

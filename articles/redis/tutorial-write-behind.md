@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis"
 description: In this tutorial, you learn how to use Azure Functions and Azure Redis to create a write-behind cache.
-ms.date: 05/18/2025
+ms.date: 04/12/2024
 ms.topic: tutorial
 ms.custom:
   - ignite-2024

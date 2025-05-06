@@ -1,7 +1,7 @@
 ---
 title: Create an ASP.NET Core web app with an Azure Redis cache
 description: In this quickstart, you learn how to create an ASP.NET Core web app with an Azure Redis cache.
-ms.date: 05/18/2025
+ms.date: 12/20/2024
 ms.topic: quickstart
 ms.custom:
   - devx-track-csharp
