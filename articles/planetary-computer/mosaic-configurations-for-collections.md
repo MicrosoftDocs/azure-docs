@@ -37,21 +37,21 @@ A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton wou
     "cql": []
   },
   {
-  "id": "recent_low_cloud",
-  "name": "Most recent (low cloud)",
-  "description": "Less than 10% cloud cover",
-  "cql": [{"op":"<=",
-          "args": [{"property": "eo:cloud_cover"}, 10]}]
+    "id": "recent_low_cloud",
+    "name": "Most recent (low cloud)",
+    "description": "Less than 10% cloud cover",
+    "cql": [{"op":"<=",
+            "args": [{"property": "eo:cloud_cover"}, 10]}]
   },
   {
-  "id": "jun_aug2022_low_cloud",
-  "name": "Jun - Aug, 2022 (low cloud)",
-  "description": "",
-  "cql": [{"op":"anyinteracts",
-          "args": [ {"property": "datetime"},
-                    {"interval": ["2022-06-01", "2022-08-31T23:59:59Z"]} ]},
-          {"op": "<=",
-          "args": [{"property": "eo:cloud_cover"}, 10]}]
+    "id": "jun_aug2022_low_cloud",
+    "name": "Jun - Aug, 2022 (low cloud)",
+    "description": "",
+    "cql": [{"op":"anyinteracts",
+            "args": [ {"property": "datetime"},
+                      {"interval": ["2022-06-01", "2022-08-31T23:59:59Z"]} ]},
+            {"op": "<=",
+            "args": [{"property": "eo:cloud_cover"}, 10]}]
   }
 ]
 ```
