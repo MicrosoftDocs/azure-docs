@@ -1,14 +1,11 @@
 ---
 title: Monitoring data reference for Azure Cache for Redis
 description: This article contains important reference material you need when you monitor Azure Cache for Redis.
-ms.date: 05/13/2024
-ms.custom: horz-monitor, ignite-2024
+ms.date: 05/18/2025
 ms.topic: reference
-
-appliesto:
-  - ✅ Azure Managed Redis
-  - ✅ Azure Cache for Redis
-
+ms.custom:
+  - horz-monitor
+  - ignite-2024
 ---
 
 # Azure Cache for Redis monitoring data reference

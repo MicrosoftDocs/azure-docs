@@ -1,15 +1,11 @@
 ---
 title: Troubleshoot Azure Managed Redis server issues
 description: Learn how to resolve common server issues, such as memory pressure, high CPU, long running commands, or bandwidth limitations, when using Azure Managed Redis.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
 ---
 
 # Troubleshoot Azure Managed Redis server issues

@@ -1,14 +1,10 @@
 ---
 title: Best practices for Using and Monitoring the Server Load for Azure Managed Redis
 description: Learn how to use and monitor your server load for Azure Managed Redis.
-
-
+ms.date: 05/18/2025
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
 ---
 
 # Manage Server Load for Azure Managed Redis

@@ -1,15 +1,10 @@
 ---
-title: Deploy a machine learning model to Azure Functions with Azure Cache for Redis 
-description: In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.  
-
-
-
-ms.custom: devx-track-azurecli
+title: Deploy a machine learning model to Azure Functions with Azure Cache for Redis
+description: In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.
+ms.date: 05/18/2025
 ms.topic: conceptual
-ms.date: 06/09/2021
-appliesto:
-  - ✅ Azure Cache for Redis
-
+ms.custom:
+  - devx-track-azurecli
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis

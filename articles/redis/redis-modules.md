@@ -1,15 +1,12 @@
 ---
 title: Using Redis modules with Azure Managed Redis
 description: You can use Redis modules with your Azure Managed Redis instances to extend your caching use cases.
-
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.date: 11/15/2024
-ms.custom: template-concept, ignite-2024
-appliesto:
-  - ✅ Azure Managed Redis
+ms.custom:
+  - template-concept
+  - ignite-2024
 ---
 # Use Redis modules with Azure Managed Redis
 

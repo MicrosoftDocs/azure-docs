@@ -1,13 +1,10 @@
 ---
-title: What's new in Azure Managed Redis 
+title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-
-ms.custom: references_regions
-
+ms.date: 05/18/2025
 ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+ms.custom:
+  - references_regions
 ---
 
 # What's New in Azure Managed Redis

@@ -1,16 +1,17 @@
 ---
-title: 'Quickstart: Use an Azure Redis cache in .NET Framework'
+title: "Quickstart: Use an Azure Redis cache in .NET Framework"
 description: In this quickstart, learn how to access an Azure Redis cache from your .NET apps
-
-ms.devlang: csharp
+ms.date: 05/18/2025
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet, ignite-2024
-ms.date: 12/20/2024
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - mode-other
+  - devx-track-dotnet
+  - ignite-2024
+ms.devlang: csharp
 zone_pivot_groups: redis-type
-appliesto:
-  - ✅ Azure Managed Redis
-  - ✅ Azure Cache for Redis
-#Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
+# Customer intent: As a .NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
 # Quickstart: Use an Azure Redis caches in .NET Framework

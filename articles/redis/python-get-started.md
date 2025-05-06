@@ -1,19 +1,17 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Python'
+title: "Quickstart: Use Azure Cache for Redis in Python"
 description: In this quickstart, you learn how to create a Python script that uses Azure Redis.
-
-
-
-ms.date: 07/09/2024
+ms.date: 05/18/2025
 ms.topic: quickstart
-
+ms.custom:
+  - mvc
+  - devx-track-python
+  - mode-api
+  - py-fresh-zinc
+  - ignite-2024
 ms.devlang: python
-ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc, ignite-2024
 zone_pivot_groups: redis-type
-appliesto:
-  - ✅ Azure Managed Redis
-  - ✅ Azure Cache for Redis
-#customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
+# customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
 ---
 
 # Quickstart: Use Azure Redis in Python

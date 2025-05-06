@@ -2,12 +2,11 @@
 metadata:
   title: Azure Managed Redis management FAQs
   description: Learn the answers to common questions that help you manage Azure Managed Redis
-  ms.date: 11/15/2024
+  ms.date: 05/18/2025
   ms.topic: faq
-  ms.custom: devx-track-csharp, ignite-2024
-  appliesto:
-  - ✅ Azure Managed Redis
-  
+  ms.custom:
+    - devx-track-csharp
+    - ignite-2024
 title: Azure Managed Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Managed Redis.
 

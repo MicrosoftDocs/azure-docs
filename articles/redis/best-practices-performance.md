@@ -1,14 +1,11 @@
 ---
 title: Best practices for performance testing for Azure Managed Redis
 description: Learn how to test the performance of Azure Managed Redis.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
 ---
 
 # Performance testing with Azure Managed Redis

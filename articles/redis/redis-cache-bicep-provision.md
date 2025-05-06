@@ -1,15 +1,12 @@
 ---
 title: Deploy Azure Cache for Redis using Bicep
 description: Learn how to use Bicep to deploy an Azure Cache for Redis resource.
-
- 
-
+ms.date: 05/18/2025
 ms.topic: conceptual
-ms.custom: subject-armqs, devx-track-bicep, ignite-2024
-ms.date: 04/10/2024
-appliesto:
-  - ✅ Azure Managed Redis
-  - ✅ Azure Cache for Redis
+ms.custom:
+  - subject-armqs
+  - devx-track-bicep
+  - ignite-2024
 ---
 
 # Quickstart: Create an Azure Cache for Redis using Bicep

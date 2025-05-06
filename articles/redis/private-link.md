@@ -1,15 +1,13 @@
 ---
 title: Azure Managed Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal with a managed Redis cache.
-
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2024
 ---
 
 # What is Azure Managed Redis with Azure Private Link?

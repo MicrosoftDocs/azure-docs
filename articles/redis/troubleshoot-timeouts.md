@@ -1,14 +1,12 @@
 ---
 title: Troubleshoot Azure Managed Redis latency and timeouts
 description: Learn how to resolve common latency and timeout issues with Azure Managed Redis, such as Redis server patching and timeout exceptions.
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
 ms.topic: conceptual
-ms.custom: devx-track-csharp, ignite-2024
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+ms.custom:
+  - devx-track-csharp
+  - ignite-2024
 ---
 
 # Troubleshoot Azure Managed Redis latency and timeouts

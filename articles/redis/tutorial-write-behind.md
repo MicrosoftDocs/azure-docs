@@ -1,17 +1,11 @@
 ---
-title: 'Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis'
+title: "Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis"
 description: In this tutorial, you learn how to use Azure Functions and Azure Redis to create a write-behind cache.
-
-
+ms.date: 05/18/2025
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
-ms.date: 04/12/2024
-appliesto:
-  - ✅ Azure Cache for Redis
-
-
-#CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
+# CustomerIntent: As a developer, I want a practical example of using Azure Cache for Redis triggers with Azure Functions so that I can write applications that tie together a Redis cache and a database like Azure SQL.
 ---
 
 # Tutorial: Create a write-behind cache by using Azure Functions and Azure Redis

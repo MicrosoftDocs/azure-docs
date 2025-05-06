@@ -1,15 +1,11 @@
 ---
-title: 'Tutorial: Get started connecting an AKS application to a cache'
+title: "Tutorial: Get started connecting an AKS application to a cache"
 description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
+ms.date: 05/18/2025
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
-ms.date: 10/01/2024
-appliesto:
-  - ✅ Azure Cache for Redis
-  - ✅ Azure Managed Redis
-
-#CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
+# CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 ---
 
 # Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis from your application hosted on Azure Kubernetes Service

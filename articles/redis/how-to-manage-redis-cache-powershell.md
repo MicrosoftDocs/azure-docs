@@ -1,14 +1,12 @@
 ---
 title: Manage Azure Redis with Azure PowerShell
 description: Learn how to perform administrative tasks for Azure Redis using Azure PowerShell.
-
-
+ms.date: 05/18/2025
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.custom:
+  - devx-track-azurepowershell
+  - ignite-2024
 zone_pivot_groups: redis-type
-ms.custom: devx-track-azurepowershell, ignite-2024
-appliesto:
-  - ✅ Azure Managed Redis
 ---
 
 # Manage Azure Redis with Azure PowerShell

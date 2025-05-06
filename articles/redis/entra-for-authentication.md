@@ -1,12 +1,12 @@
 ---
 title: Use Microsoft Entra for cache authentication with Azure Managed Redis
 description: Learn how to use Microsoft Entra with Azure Managed Redis.
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: references_regions, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+ms.custom:
+  - references_regions
+  - ignite-2024
 ---
 
 # Use Microsoft Entra for cache authentication with Azure Managed Redis

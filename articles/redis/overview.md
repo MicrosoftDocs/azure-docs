@@ -1,14 +1,11 @@
 ---
 title: What is Azure Managed Redis?
 description: Learn about Azure Managed Redis to enable cache-aside, content caching, user session caching, job and message queuing, and distributed transactions.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: how-to
 ms.custom:
   - ignite-2024
-ms.topic: how-to
-ms.date: 04/28/2025
-appliesto:
-  - ✅ Azure Managed Redis
 ---
 
 # What is Azure Managed Redis?
