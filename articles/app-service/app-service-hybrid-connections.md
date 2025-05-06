@@ -4,7 +4,7 @@ description: Learn how to create and use hybrid connections in Azure App Service
 author: madsd
 ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.topic: article
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 ms.author: madsd
 ms.custom: "UpdateFrequency3, fasttrack-edit"
 #customer intent: As an app developer, I want to understand the usage of Hybrid Connections to provide access to apps in Azure App Service.
@@ -28,7 +28,6 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 
 > [!NOTE]
 > This fact means that you should try to always use a DNS name for your Hybrid Connection. Some client software doesn't do a DNS lookup if the endpoint uses an IP address instead.
->
 
 ### App Service Hybrid Connection benefits
 
@@ -121,10 +120,17 @@ This tool runs on both Windows and Linux. On Windows, the Hybrid Connection Mana
 
 ### Installation instructions
 
+# [Windows](#tab/windows)
+
 To install the Hybrid Connection Manager on Windows, download the MSI package and follow the installation instructions.
 
 > [!div class="nextstepaction"]
 > [Windows download](https://download.microsoft.com/download/HybridConnectionManager-Windows.msi)
+
+> [!NOTE]
+> Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of this requirement, the Hybrid Connection Manager isn't supported on systems earlier than Windows Server 2012.
+
+# [Linux](#tab/linux)
 
 To install the Hybrid Connection Manager on Linux, from your terminal running as administrator:
 
@@ -138,16 +144,17 @@ sudo chmod 755 setup.sh
 sudo ./setup.sh
 ```
 
+-----
+
 To support the Hybrid Connections it's configured with, the Hybrid Connection Manager requires:
 
 - TCP access to Azure over port 443.
 - TCP access to the Hybrid Connection endpoint.
 - The ability to do DNS look-ups on the endpoint host and the Service Bus namespace. In other words, the hostname in the Azure relay connection should be resolvable from the machine that hosts the Hybrid Connection Manager.
 
-> [!NOTE]
-> Azure Relay relies on Web Sockets for connectivity. This capability is only available on Windows Server 2012 or later. Because of this requirement, the Hybrid Connection Manager isn't supported on systems earlier than Windows Server 2012.
-
 ### Getting started with the Hybrid Connection Manager GUI
+
+# [Windows](#tab/windows)
 
 After you install the Hybrid Connection Manager, on Windows, search for *Hybrid Connection Manager GUI* in your search box. 
 
@@ -173,9 +180,23 @@ You can also select the configured Hybrid Connection to see details.
 
 :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-hcm-details.png" alt-text="Screenshot of Hybrid Connection Details.":::
 
+# [Linux](#tab/linux)
+
+The Hybrid Connection Manager GUI isn't supported on Linux. To use the Hybrid Connection Manager on Linux, see [Getting started with the Hybrid Connection Manager CLI](#getting-started-with-the-hybrid-connection-manager-cli).
+
+-----
+
 ### Getting started with the Hybrid Connection Manager CLI
 
-On Windows, you can use the Hybrid Connection Manager CLI by searching for and opening *Hybrid Connection Manager CLI*. On Linux, once installed, you can run `hcm help` to confirm the Hybrid Connection Manager is installed and to see the available commands.
+# [Windows](#tab/windows)
+
+On Windows, you can use the Hybrid Connection Manager CLI by searching for and opening *Hybrid Connection Manager CLI*.
+
+# [Linux](#tab/linux)
+
+On Linux, once installed, you can run `hcm help` to confirm the Hybrid Connection Manager is installed and to see the available commands.
+
+-----
 
 To use the interactive mode with the Hybrid Connection Manager CLI, which allows you to view your Azure subscription and Hybrid Connection details, you need to install and sign-in to the Azure CLI. For installation instructions, see [How to install the Azure CLI][install-azure-cli] and select the appropriate option for your client. Once installed, run `az login` and follow the prompts to complete your sign-in.
 
@@ -300,7 +321,7 @@ The status of **Connected** means that at least one Hybrid Connection Manager is
     G3-prod-sn3-010-sb.servicebus.windows.net  
     ...  
     G126-prod-sn3-010-sb.servicebus.windows.net  
-    G127-prod-sn3-010-sb.servicebus.windows.net
+    G127-prod-sn3-010-sb.servicebus.windows.net  
     GV0-prod-sn3-010-sb.servicebus.windows.net  
     GV1-prod-sn3-010-sb.servicebus.windows.net  
     GV2-prod-sn3-010-sb.servicebus.windows.net  
