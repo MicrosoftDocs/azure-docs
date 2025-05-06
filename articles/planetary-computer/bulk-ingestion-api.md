@@ -41,7 +41,14 @@ Microsoft Planetary Computer (MPC) Pro must have access to the Azure Blob Storag
 
 Creating an ingestion source defines for GeoCatalog which source to ingest geospatial data from, and which credential mechanism to use in the ingestion workflow.
 
-1. Import the required Python Modules
+1. Install the require Python modules using pip
+    
+    ```shell
+    pip install pystac-client azure-identity requests azure-storage-blob pyyaml
+    ```
+
+
+1. Import the required Python modules
 
     ```python
     import os
@@ -107,7 +114,7 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
     ```python
     # Payload for the POST request
     payload = {
-        "sourceType": "SasToken",
+        "Kind": "SasToken",
         "connectionInfo": {
             "containerUrl": CONTAINER_URI,
             "sasToken": sas_token,
@@ -139,7 +146,8 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
     else:
         print(f"Failed to create ingestion: {response.text}")
     ```
-**Note**: Running these steps more than once back-to-back results in a 409 response: 
+> [!NOTE]
+>  Running these steps more than once back-to-back results in a 409 response: 
 
 ```Container url <container uri> already contains a SAS token ingestion source with id <sas token id>```      
 
@@ -194,7 +202,8 @@ A STAC collection is the high-level container for STAC Items and their associate
         "msft:short_description": "An example collection",
     }
     ```
-    **Note**: This sample collection specification is a basic example of a collection. For more information on STAC collections and the STAC open standard, see the [STAC overview](./stac-overview.md). For a guide creating a complete STAC collection, see [Create STAC Collection](./create-stac-collection.md).
+    > [!NOTE]
+    >  This sample collection specification is a basic example of a collection. For more information on STAC collections and the STAC open standard, see the [STAC overview](./stac-overview.md). For a guide creating a complete STAC collection, see [Create STAC Collection](./create-stac-collection.md).
 
 1. Create the new collection with the Collection API
 

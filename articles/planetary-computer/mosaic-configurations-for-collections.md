@@ -20,7 +20,7 @@ A STAC collection's mosaic configuration is a list of individual specific search
 - `description`: Info about the mosaic  
 - `cql`: A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression that defines the search parameters for STAC items to be found and visualized
 
-The mosaic configuration can be set from the Mosaics tab, accessible from the **Configuration** button on the web interface for a STAC collection.  All items returned from a search are sorted such that most recent items appear first.  Mosaics that don't specify a `datetime` range are best titled 'most recent.'
+The mosaic configuration can be set from the Mosaics tab, accessible from the **Configuration** button on the web interface for a STAC collection. All items returned from a search are sorted such that most recent items appear first. Mosaics that don't specify a `datetime` range are best titled 'most recent.'
 
 ## Example Mosaic Configurations used in Open Planetary Computer
 
@@ -37,28 +37,28 @@ A mosaic configuration with these mosaics from the Sentinel-2 L2A colleciton wou
     "cql": []
   },
   {
-  "id": "recent_low_cloud",
-  "name": "Most recent (low cloud)",
-  "description": "Less than 10% cloud cover",
-  "cql": [{"op":"<=",
-          "args": [{"property": "eo:cloud_cover"}, 10]}]
+    "id": "recent_low_cloud",
+    "name": "Most recent (low cloud)",
+    "description": "Less than 10% cloud cover",
+    "cql": [{"op":"<=",
+            "args": [{"property": "eo:cloud_cover"}, 10]}]
   },
   {
-  "id": "jun_aug2022_low_cloud",
-  "name": "Jun - Aug, 2022 (low cloud)",
-  "description": "",
-  "cql": [{"op":"anyinteracts",
-          "args": [ {"property": "datetime"},
-                    {"interval": ["2022-06-01", "2022-08-31T23:59:59Z"]} ]},
-          {"op": "<=",
-          "args": [{"property": "eo:cloud_cover"}, 10]}]
+    "id": "jun_aug2022_low_cloud",
+    "name": "Jun - Aug, 2022 (low cloud)",
+    "description": "",
+    "cql": [{"op":"anyinteracts",
+            "args": [ {"property": "datetime"},
+                      {"interval": ["2022-06-01", "2022-08-31T23:59:59Z"]} ]},
+            {"op": "<=",
+            "args": [{"property": "eo:cloud_cover"}, 10]}]
   }
 ]
 ```
 
 ### USDA Cropland Data Layers Collection [View on Planetary Computer](https://planetarycomputer.microsoft.com/dataset/usda-cdl)
 
-Each collection may have its own set of properties that can be used in the cql for a specific search criteria. This mosaic configuration has a mosaic with cql that selects items based on their `usda_cdl` property.  In this case, the mosaic specifies a search filtering for cropland data. By default, the items returned from the search are sorted by recency. 
+Each collection may have its own set of properties that can be used in the `cql` for a specific search criteria. This mosaic configuration has a mosaic with `cql` that selects items based on their `usda_cdl` property. In this case, the mosaic specifies a search filtering for cropland data. By default, the items returned from the search are sorted by recency. 
 
 ```python
 [
