@@ -96,7 +96,7 @@ Service Groups creates the Root Service Group on the first request received with
 /providers/microsoft.management/servicegroups/<tenantId>
 ```
 
-Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](https://learn.microsoft.com/en-us/azure/role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
+Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](/azure/role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
 
 
 ## Related content
