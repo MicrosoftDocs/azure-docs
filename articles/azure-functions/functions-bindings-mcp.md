@@ -8,7 +8,7 @@ ms.custom:
 ai-usage: ai-assisted
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 
