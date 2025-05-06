@@ -83,7 +83,7 @@ public static async Task Run(
 {
     for (int i = 0; i < 10; i++)
     {
-        DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(1));
+        DateTime deadline = context.CurrentUtcDateTime.Add(TimeSpan.FromDays(i));
         await context.CreateTimer(deadline, CancellationToken.None);
         await context.CallActivityAsync("SendBillingEvent");
     }
@@ -101,7 +101,7 @@ const { DateTime } = require("luxon");
 
 module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
-        const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ days: 1 });
+        const deadline = DateTime.fromJSDate(context.df.currentUtcDateTime, {zone: 'utc'}).plus({ days: i });
         yield context.df.createTimer(deadline.toJSDate());
         yield context.df.callActivity("SendBillingEvent");
     }
@@ -116,7 +116,7 @@ from datetime import datetime, timedelta
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
     for i in range(0, 9):
-        deadline = context.current_utc_datetime + timedelta(days=1)
+        deadline = context.current_utc_datetime + timedelta(days=i)
         yield context.create_timer(deadline)
         yield context.call_activity("SendBillingEvent")
 
@@ -129,7 +129,7 @@ main = df.Orchestrator.create(orchestrator_function)
 param($Context)
 
 for ($num = 0 ; $num -le 9 ; $num++){    
-    $expiryTime =  New-TimeSpan -Days 1
+    $expiryTime =  New-TimeSpan -Days $num
     $timerTask = Start-DurableTimer -Duration $expiryTime
     Invoke-DurableActivity -FunctionName 'SendBillingEvent'
 }
@@ -142,7 +142,7 @@ for ($num = 0 ; $num -le 9 ; $num++){
 public String billingIssuer(
         @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
     for (int i = 0; i < 10; i++) {
-        ctx.createTimer(Duration.ofDays(1)).await();
+        ctx.createTimer(Duration.ofDays(i)).await();
         ctx.callActivity("SendBillingEvent").await();
     }
     return "done";
