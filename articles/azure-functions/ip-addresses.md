@@ -3,17 +3,17 @@ title: IP addresses in Azure Functions
 description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
 
 ms.topic: conceptual
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 ---
 
 # IP addresses in Azure Functions
 
 This article explains the following concepts related to IP addresses of function apps:
 
-* Locating the IP addresses currently in use by a function app.
-* Conditions that cause function app IP addresses to change.
-* Restricting the IP addresses that can access a function app.
-* Defining dedicated IP addresses for a function app.
+- Locating the IP addresses currently in use by a function app.
+- Conditions that cause function app IP addresses to change.
+- Restricting the IP addresses that can access a function app.
+- Defining dedicated IP addresses for a function app.
 
 IP addresses are associated with function apps, not with individual functions. Incoming HTTP requests can't use the inbound IP address to call individual functions; they must use the default domain name (functionappname.azurewebsites.net) or a custom domain name.
 
@@ -39,7 +39,7 @@ To find the outbound IP addresses available to a function app:
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
-1. Select **subscriptions > {your subscription} > providers > Microsoft.Web > sites**.
+1. Select **subscriptions** > {your subscription} > **providers** > **Microsoft.Web** > **sites**.
 1. In the JSON panel, find the site with an `id` property that ends in the name of your function app.
 1. See `outboundIpAddresses` and `possibleOutboundIpAddresses`.
 
@@ -117,8 +117,8 @@ If you need to control the outbound IP address of your function app, such as whe
 
 When a function app runs on Dedicated (App Service) plans, the set of available outbound IP addresses for a function app might change when you:
 
-* Take any action that can change the inbound IP address.
-* Change your Dedicated (App Service) plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
+- Take any action that can change the inbound IP address.
+- Change your Dedicated (App Service) plan pricing tier. The list of all possible outbound IP addresses your app can use, for all pricing tiers, is in the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ip-addresses).
 
 #### Forcing an outbound IP address change
 
