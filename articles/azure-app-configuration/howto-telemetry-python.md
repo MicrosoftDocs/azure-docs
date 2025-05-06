@@ -15,7 +15,8 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 ## Prerequisites
 
-- The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md). 
+- The variant feature flag with telemetry enabled from [Enable telemetry for feature flags](./howto-telemetry.md).
+- The application from [Use variant feature flags](./howto-variant-feature-flags-python.md).
 
 ## Add telemetry to your python application
 
