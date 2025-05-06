@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 06/05/2025
 ms.author: mapankra
 ---
+
 # Onboarding SAP Edge Integration Cell with Azure
 
 [SAP Edge Integration Cell](https://help.sap.com/docs/integration-suite/sap-integration-suite/what-is-sap-integration-suite-edge-integration-cell) is a hybrid integration runtime offered as part of SAP Integration Suite, which enables you to manage APIs and run integration scenarios within your private landscape.
