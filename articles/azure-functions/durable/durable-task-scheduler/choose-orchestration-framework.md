@@ -1,93 +1,136 @@
 ---
-title: Choosing your orchestration framework
-description: This article provides guidance to help developers pick an orchestration framework.
+title: Choosing an orchestration framework
+description: Learn which orchestration framework works for your scenario.
 ms.topic: conceptual
-ms.date: 04/28/2025
+ms.date: 05/05/2025
 ---
 
 # Choosing an orchestration framework
 
-The goal of this article is to provide information about two developer-oriented orchestration frameworks supported by Azure and considerations for when to choose which. The article also provides some context around scenarios that warrant the use of an orchestration framework. 
+Azure offers two developer-oriented orchestration frameworks you can use to build apps: **Durable Task SDKs** and **Durable Functions**. In this article, you learn:
+
+> [!div class="checklist"]
+> - The benefits of using an orchestration framework.
+> - Which framework works best for your scenario. 
 
 ## Scenarios requiring orchestration 
-Developers often find themselves creating solutions that involve multi-step operations, some of which may be long-running. These multiple-step operations are referred to as *orchestrations* or *workflows*. For example, an e-commerce website would need an order processing workflow, which has steps (implemented as microservices) that need to happen sequentially to:
+
+Application or orchestration patterns that benefit from the statefulness offered by an orchestration framework include: 
+- **Function chaining:** For executing sequential workflow steps in order, passing data between steps with data transformations at each step, and building pipelines where each activity builds on the previous one.
+- **Fan-out/fan-in:** For batch jobs, ETL (extract, transfer, and load), and any scenario that requires parallel processing. 
+- **Human interactions:** For two-factor authentication, workflows that require human approval. 
+- **Asynchronous HTTP APIs:** For any scenario where a client doesn't want to wait for long-running tasks to complete. 
+
+The two following scenarios share the commonly used *function chaining* pattern. 
+
+### Processing orders on an e-commerce website
+
+Let's say you create an e-commerce solution that involves multi-step operations, some of which may be long-running. These multiple-step operations are referred to as *orchestrations* or *workflows*. Your website needs an order processing workflow that includes steps happening sequentially to:
 - Check the inventory
 - Send order confirmation
 - Process payment
 - Generate invoice
 
-Another example would be an intelligent trip planner. The planner might suggest ideas based on user requirements, get preference confirmation, and then make required bookings. You can implement an agent for each task and orchestrate the steps for invoking these agents as a workflow.
+### Invoking AI agents for planning a trip
 
-Since orchestrations involve multiple or long-running steps, it's important that the framework tracks the application state so that execution can continue from the point of failure rather than the beginning. One way to ensure this statefulness is to continuously checkpoint orchestration states to a persistence layer while it runs. The next section demonstrates how orchestration frameworks maintain statefulness while also taking care automatic retries while you orchestrate your workflows without the burden of architecting for fault tolerance. 
+In this scenario, you created an intelligent trip planner. The planner:
+- Suggests ideas based on user requirements
+- Gets preference confirmation
+- Makes required bookings
 
-The two previous scenarios share a commonly used orchestration pattern, which is *sequential chaining* of operations. There are other patterns that benefit from the statefulness of an orchestration framework: 
-- *Fan-out/fan-in*: For batch jobs, ETL (extract, transfer, and load), and any scenario that requires parallel processing 
-- *Human interactions*: For two-factor authentication, workflows that require human approval 
-- *Asynchronous HTTP APIs*: For any scenario where a client doesn't want to wait for long-running tasks to complete 
-
-The next section covers the two orchestration frameworks supported by Azure: **Durable Functions** and **Durable Task SDKs (currently in public preview)**. 
+You can implement an agent for each task and orchestrate the steps for agent invocation as a workflow.
 
 ## Orchestration framework options 
-Both orchestrations frameworks described in this section are designed for developers, so they're code-centric and are available in various popular programming languages. 
 
-### Durable Functions 
+Since orchestrations involve multiple or long-running steps, it's important for orchestration frameworks to maintain application statefulness so that execution can continue from the point of failure rather than the beginning. One way to ensure this statefulness is to continuously checkpoint orchestration states to a persistence layer while it runs. 
+
+Both Durable Functions and the Durable Task SDKs maintain statefulness while also handling automatic retries while you orchestrate your workflows without the burden of architecting for fault tolerance. 
+
+> [!NOTE]
+> Durable Functions and the Durable Task SDKs are code-centric and available in various popular programming languages. 
+
+### Durable Functions
+ 
 As a feature of Azure Functions, [Durable Functions](../durable-functions-overview.md) inherits numerous assets, such as:
 - Integrations with other Azure services through the Functions extensions
 - Local development experience
 - Serverless pricing model, and more. 
 
-Other than running on the Functions platform, Durable Functions apps can also be run on Azure App Service and Azure Container App just like a regular Function app. 
+Aside from running on the Functions platform, Durable Functions apps can also be run on Azure App Service and Azure Container Apps. 
 
-Durable Functions has a special feature called [Durable Entities](../durable-functions-entities.md), which are similar in concept to virtual actors or grains in the Orleans framework. Entities allow you to keep small pieces of states for objects in a distributed system. For example, you could use entities to model users of a microblogging app or the counter of an exercise app. Learn more about Durable Entities. 
+Durable Functions includes a special feature called [Durable Entities](../durable-functions-entities.md), which are similar in concept to virtual actors or grains in the Orleans framework. *Entities* allow you to keep small pieces of states for objects in a distributed system. For example, you could use entities to model users of a microblogging app or the counter of an exercise app. 
 
-As mentioned earlier, orchestration frameworks need to persist state information. In the context of Durable Functions, states are persisted in something called a [storage backend](../durable-functions-storage-providers.md). Durable Functions supports two "bring-your-own" (BYO) backends - Azure Storage and Microsoft SQL - and an Azure managed backend called Durable Task Scheduler (more information about the scheduler in the next section). 
+Durable Functions persists states in a [storage backend](../durable-functions-storage-providers.md). Durable Functions supports:
+
+- Two "bring-your-own" (BYO) backends:
+  - Azure Storage 
+  - Microsoft SQL 
+- An Azure managed backend:
+  - [Durable Task Scheduler](#durable-task-sdks-with-durable-task-scheduler-preview) 
 
 #### When to use Durable Functions
-If you need to build event-driven apps with workflows, the recommendation would be to consider Durable Functions. The Azure Functions extensions that provide integrations with other Azure services makes building event-driven scenarios easy. For example, if you need to start a Durable Functions orchestration when a message comes into your Azure Service Bus or a file uploads to Azure Blob Storage, you can easily implement that with Durable Functions. Or if you need an orchestration to start periodically or in reaction to an HTTP request, then you can build that with the Azure Functions timer and HTTP trigger, respectively. 
 
-Another scenario for choosing Durable Functions would be when your solution benefits from using Durable Entities, since the Durable Task SDKs don't provide this feature. 
+Consider using Durable Functions if you need to build event-driven apps with workflows. The Azure Functions extensions that provide integrations with other Azure services makes building event-driven scenarios easy. For example, with Durable Functions:
 
-Lastly, if you're already writing Azure Function apps and realized that you need workflow, you probably want to use Durable Functions. Its programming model is very similar to Functions. You can accelerate your developer in this case. 
+- You can easily start a Durable Functions orchestration when a message comes into your Azure Service Bus or a file uploads to Azure Blob Storage. 
+- You can easily build an orchestration to start periodically or in reaction to an HTTP request with the Azure Functions timer and HTTP trigger, respectively. 
+- Your solution benefits from using Durable Entities, since the Durable Task SDKs don't provide this feature. 
+- You're already writing Azure Function apps and realized that you need workflow. Since its programming model is similar to Functions, you can accelerate your developer with Durable Functions. 
 
-**Quickstarts** 
-- Create a durable functions app with Azure Storage backend
-    - [.NET](../durable-functions-isolated-create-first-csharp.md)
-    - [Python](../quickstart-python-vscode.md)
-    - [JavaScript/TypeScript](../quickstart-js-vscode.md)
-    - [Java](../quickstart-java.md)
-    - [PowerShell](../quickstart-powershell-vscode.md)
-- [Configure a durable functions app with Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
-- [Configure a durable functions app with MSSQL](../quickstart-mssql.md)
+#### Try it out
 
-**Scenario samples**
-- Order processing workflow - [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/), [Python][TODO]
-- Intelligent PDF summarizer - [.NET][TODO], [Python][TODO]
+Walk through one of the following quickstarts or scenarios to configure your function apps with one of the storage backends available for Durable Functions.
 
-### Durable Task SDKs with Durable Task Scheduler (public preview)
-The Durable Task SDKs are client SDKs that allows the orchestrations you write to connect to the orchestration engine in Azure. Apps that use the Durable Task SDKs can be run on any compute platforms, including:
+##### Quickstarts
+
+|   | Quickstart | Description |
+| - | ---------- | ----------- |
+| **Durable Task Scheduler (preview)** | [Configure a durable functions app with Durable Task Scheduler](./quickstart-durable-task-scheduler.md) | Configure a "hello world" Durable Functions app to use the Durable Task Scheduler as the backend storage provider, test locally, and publish to Azure. |
+| **Azure Storage** | Create a durable functions app with Azure Storage backend:<br>- [.NET](../durable-functions-isolated-create-first-csharp.md)<br>- [Python](../quickstart-python-vscode.md)<br>- [JavaScript/TypeScript](../quickstart-js-vscode.md)<br>- [Java](../quickstart-java.md)<br>- [PowerShell](../quickstart-powershell-vscode.md) | Locally create and test a "hello world" Durable Functions app and deploy to Azure. |
+| **MSSQL** | [Configure a durable functions app with MSSQL](../quickstart-mssql.md) | Using an existing "hello world" Durable Functions app, configure the MSSQL backend storage provider, test locally, and publish to Azure. |
+ 
+##### Samples
+
+|   | Sample | Description |
+| - | ---------- | ----------- |
+| **Order processing workflow** | Create an order processing workflow with Durable Functions with Azure Storage:<br>- [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/)<br>- [Python](/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/) | Configure a "hello world" Durable Functions app to use the Durable Task Scheduler as the backend storage provider, test locally, and publish to Azure. |
+| **Intelligent PDF summarizer** | Create an intelligent application using Azure Durable Functions, Azure Storage, Azure Developer CLI, and more:<br>- [.NET](/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/)<br>- [Python](/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/) | Locally create and test a "hello world" Durable Functions app and deploy to Azure. |
+
+### Durable Task SDKs with Durable Task Scheduler (preview)
+
+The Durable Task SDKs are client SDKs that must be used with the Durable Task Scheduler. The Durable Task SDKs connect the orchestrations you write to the Durable Task Scheduler orchestration engine in Azure. Apps that use the Durable Task SDKs can be run on any compute platform, including:
 - Azure Kubernetes Service
 - Azure Container Apps
 - Azure App Service
-- VMs on-premises
+- Virtual Machines (VMs) on-premises
 
-The Durable Task SDKs must be used with the Durable Task Scheduler (currently in public preview), where the latter plays both the role of the orchestration engine and the storage backend for orchestration state persistence. As mentioned previously, the Azure-managed Durable Task Scheduler eliminates management overhead. The scheduler is also optimized to provide high orchestration throughput, offers an out-of-the-box dashboard for orchestrations monitoring and debugging, as well as a local emulator and more. Learn more about the [Durable Task Scheduler](./durable-task-scheduler.md). 
+The [Durable Task Scheduler](./durable-task-scheduler.md) (currently in preview) plays the role of both the orchestration engine and the storage backend for orchestration state persistence. The Azure-managed Durable Task Scheduler:
+- Eliminates management overhead
+- Provides high orchestration throughput
+- Offers an out-of-the-box dashboard for orchestration monitoring and debugging
+- Includes a local emulator
 
 #### When to use Durable Task SDKs
-Use the Durable Task SDKs when your app needs only workflows. The Durable Task SDKs provide a lightweight and relatively un-opinionated programming model for authoring workflows. 
 
-The other reason for using the Durable Task SDKs is when you need to run apps on Azure Kubernetes Services or VMs on-premises with official Microsoft support. While Durable Functions can be run on these platforms as well, there's no official support. 
+If your app only needs workflows, the Durable Task SDKs provide a lightweight and relatively unopinionated programming model for authoring workflows. 
 
-<!-- uncomment in quickstart PR 
-**Quickstarts** 
-- [.NET][TODO]
-- [Python][TODO]
-- [Java][TODO] 
--->
+When you need to run apps on Azure Kubernetes Services or VMs on-premises with official Microsoft support. While Durable Functions can be run on these platforms as well, there's no official support. 
 
-> [!NOTE]
-> The Durable Task Framework is an open-source .NET orchestration framework. Like the Durable Task SDKs, it can be used to build apps that run on platforms like the Azure Kubernetes Services. However, we don't recommend new customers to use Durable Task Framework because Microsoft doesn't officially support it. 
+#### Try it out
 
+Walk through one of the following quickstarts to configure your applications to use the Durable Task Scheduler with the Durable Task SDKs.
 
+|   | Quickstart | Description |
+| - | ---------- | ----------- |
+| **Local development quickstart** | [Create an app with Durable Task SDKs and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md) using either the .NET, Python, or Java SDKs. | Run a fan-in/fan-out orchestration locally using the Durable Task Scheduler emulator and review orchestration history using the dashboard. |
+| **Deploy to Azure Container Apps using Azure Developer CLI** | [Configure Durable Task SDKs in your container app with Azure Functions Durable Task Scheduler][./quickstart-container-apps-durable-task-sdk.md] | Deploy a function chaining pattern solution using the Azure Developer CLI. |
 
+## Limitations
+ 
+- **The Durable Task Framework (DTFx) support**
+   - DTFx is an open-source .NET orchestration framework similar to the .NET Durable Task SDK. While it *can* be used to build apps that run on platforms like Azure Kubernetes Services, **DTFx doesn't receive official Microsoft support**.
 
+## Next steps
 
+> [!div class="nextstepaction"]
+> [Learn more about the Durable Task Scheduler](./durable-task-scheduler.md) 
