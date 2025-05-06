@@ -162,7 +162,7 @@ The `McpToolPropertyAttribute` type supports these properties:
 | **Description** | (Optional) Description of what the tool property does.  |
 
 ::: zone-end  
-::: zone pivot="programming-language-java,pprogramming-language-python"  
+::: zone pivot="programming-language-java,programming-language-python"  
 Properties of a tool exposed by your MCP server are defined using tool properties. These properties are returned by the `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
 
 A `ToolProperty` object has this structure:
