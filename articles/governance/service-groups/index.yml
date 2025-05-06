@@ -21,7 +21,7 @@ landingContent:
             url: ./overview.md
           - text: What are Azure Management Groups?
             url: ./management-groups-overview.md
-    linkListType: how-to
+      - linkListType: how-to-guide 
         links:
           - text: Create a service group with REST API
             url: ./create-service-group-rest-api.md
