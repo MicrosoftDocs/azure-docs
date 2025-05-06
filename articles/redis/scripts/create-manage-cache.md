@@ -49,7 +49,7 @@ Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for new 
 >- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
 >- The [RediSearch](../redis-modules.md#redisearch) module requires the Enterprise cluster policy and No Eviction eviction policy.
 
-The following script sets variables, then uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group and create a Azure Managed Redis Balanced B1 cache in the resource group.
+The following script uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group and create an Azure Managed Redis Balanced B1 cache in the resource group.
 
 >[!NOTE]
 >The [az redisenterprise](/cli/azure/redisenterprise) commands are part of the `redisenterprise` extension for the Azure CLI, version 2.61.0 or higher. The extension automatically installs the first time you run an `az redisenterprise` command.
@@ -115,7 +115,7 @@ az group delete --resource-group $resourceGroup -y
 
 ::: zone pivot="azure-cache-redis"
 
-The following script sets variables, then uses the [az group create](/cli/azure/group) and [az redis create](/cli/azure/redis#az-redis-create) commands to create a resource group and create an Azure Cache for Redis Basic C0 cache in the resource group.
+The following script uses the [az group create](/cli/azure/group) and [az redis create](/cli/azure/redis#az-redis-create) commands to create a resource group and create an Azure Cache for Redis Basic C0 cache in the resource group.
 
 ```azurecli
 
