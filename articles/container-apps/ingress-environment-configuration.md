@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ An Azure Container Apps environment includes a scalable edge ingress proxy respo
 
 - [Transport Layer Security (TLS) termination](networking.md#http-edge-proxy-behavior), which decrypts TLS traffic as it enters the environment. This operation shifts the work of decryption away from your container apps, reducing their resource consumption and improving their performance.
 
-- [Splitting traffic](traffic-splitting.md) between active container app revisions. Having control over where you direct incoming traffic allows you to implement patterns like [blue-green deployment](blue-green-deployment.md) and conduct [A/B testing](https://wikipedia.org/wiki/A/B_testing).
+- [Load balancing and traffic splitting](traffic-splitting.md) between active container app revisions. Having control over where you direct incoming traffic allows you to implement patterns like [blue-green deployment](blue-green-deployment.md) and conduct [A/B testing](https://wikipedia.org/wiki/A/B_testing).
 
 - [Session affinity](./sticky-sessions.md), which helps you build stateful applications that require a consistent connection to the same container app replica.
 
@@ -31,7 +31,7 @@ By default, Azure Container Apps creates your container app environment with the
 
 With the default ingress mode, your Container Apps environment has two ingress proxy instances. Container apps creates more instances as needed, up to a maximum of 10. Each instance is allocated up to 1 vCPU core and 2 GB of memory.
 
-In the default ingress mode, no billing is applied for scaling the ingress proxy or for the vCPU cores and memory allocated to it. Default ingress mode doesn't change how your container apps function.
+In the default ingress mode, no billing is applied for scaling the ingress proxy or for the vCPU cores and allocated memory.
 
 ## Premium ingress mode
 
@@ -41,7 +41,7 @@ These features include:
 
 - Workload profile support: Ingress proxy instances run in a [workload profile](workload-profiles-overview.md) of your choice. You have control over the number of vCPU cores and memory resources available to the proxy.
 
-- Configurable scale rules: Proxy scale rules are configurable so you can make sure you have as many instances as your application requires.
+- Configurable scale range rules: Proxy scale range rules are configurable so you can make sure you have as many instances as your application requires.
 
 - Advanced settings: You can configure advanced settings such as idle time-outs for ingress proxy instances.
 
@@ -59,12 +59,7 @@ The workload profile:
 
 Running your ingress proxy in a workload profile is billed at the rate for that workload profile. For more information, see [billing](billing.md#consumption-dedicated).
 
-You can also configure the number of workload profile nodes. A workload profile is a scalable pool of nodes. Each node contains multiple ingress proxy instances. The number of nodes scales based on vCPU and memory utilization.
-
-| Setting | Limits |
-|---|---|
-| Minimum node instances | Minimum: 2 |
-| Maximum node instances |Maximum: 50 |
+You can also configure the number of workload profile nodes. A workload profile is a scalable pool of nodes. Each node contains multiple ingress proxy instances. The number of nodes scales based on vCPU and memory utilization. The minimum number of node instances is two.
 
 ### Scaling
 
@@ -74,7 +69,7 @@ When your ingress proxy reaches high vCPU or memory utilization, Container Apps 
 
 Your minimum and maximum ingress proxy instances are determined as follows:
 
-- Minimum: Your minimum node instances multiplied by your vCPU cores. For example, if you have a minimum of two node instances and 4 vCPU cores, you have a minimum of eight ingress proxy instances.
+- Minimum: There are a minimum of two node instances.
 
 - Maximum: Your maximum node instances multiplied by your vCPU cores. For example, if you have 50 maximum node instances and 4 vCPU cores, you have a maximum of 200 ingress proxy instances.
 
@@ -84,11 +79,11 @@ The ingress proxy instances are spread among the available workload profile node
 
 With the premium ingress mode enabled, you can also configure the following settings:
 
-| Setting | Minimum | Maximum | Default |
-|---|---|---|---|
-| Termination grace period in minutes. The amount of time (in seconds) for the container app to finish processing requests before they're canceled during shutdown. |0 | 60 | 8 |
-| Idle request time-out in minutes. | 1 | 60 | 4 |
-| Request header count. Increase this setting if you have clients that send a large number of request headers. | 1 | N/A | 100 |
+| Setting | Description | Minimum | Maximum | Default |
+|---|---|---|---|---|
+| `terminationGracePeriod` | The amount of time (in seconds) for the container app to finish processing requests before they're canceled during shutdown. | 0 | 60 | 8 |
+| `idleRequestTimeout` | Idle request time-out in minutes. | 1 | 60 | 4 |
+| `requestHeaderCount` | Increase this setting if you have clients that send a large number of request headers. | 1 | N/A | 100 |
 
 You should only increase these settings as needed, because raising them could lead to your ingress proxy instances consuming more resources for longer periods of time, becoming more vulnerable to resource exhaustion and denial of service attacks.
 
@@ -107,7 +102,7 @@ You can configure the ingress for your environment after you create it.
     | Workload profile size | Select a size from [**D4** to **D32**](#workload-profile). |
     | Minimum node instances | Enter the [minimum workload profile node instances](#workload-profile). |
     | Maximum node instances | Enter the [maximum workload profile node instances](#workload-profile). |
-    | Termination grace period|Enter the [termination grace period in minutes](#advanced-ingress-settings). |
+    | Termination grace period |Enter the [termination grace period in minutes](#advanced-ingress-settings). |
     | Idle request timeout| Enter the [idle request time-out in minutes](#advanced-ingress-settings). |
     | Request header count | Enter the [request header count](#advanced-ingress-settings). |
 
