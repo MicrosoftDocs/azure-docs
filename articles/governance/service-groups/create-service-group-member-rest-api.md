@@ -86,5 +86,5 @@ service group can have member subscriptions, resource groups, resources, or othe
 To learn more about service groups and how to manage your service group hierarchy, continue to:
 
 > [!div class="nextstepaction"]
-> [Manage your resources with service groups](manaage-service-groups.md)
+> [Manage your resources with service groups](manage-service-groups.md)
 
