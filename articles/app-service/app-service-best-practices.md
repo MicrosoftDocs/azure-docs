@@ -106,4 +106,4 @@ To get actionable best practices that are specific to your resource, use [App Se
 1. Open App Service diagnostics by selecting **Diagnose and solve problems** on the sidebar menu.
 1. In the search box, enter **Best Practices for Availability & Performance** or **Best Practices for Optimal Configuration** to view the current state of your app in regard to these best practices.
 
-:::image type="content" source="media/app-service-best-practices/portal-best-practices.png" alt-text="Screenshot that shows the best practices options in the search box.":::
+    :::image type="content" source="media/app-service-best-practices/portal-best-practices.png" alt-text="Screenshot that shows the best practices options in the search box.":::

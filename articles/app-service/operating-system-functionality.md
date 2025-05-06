@@ -11,7 +11,7 @@ ms.custom: UpdateFrequency3
 ---
 # Operating system functionality in Azure App Service
 
-This article describes the baseline operating system functionality that's available to all Windows apps running in [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostics logs and events.
+This article describes the baseline operating system functionality that's available to all Windows apps running in [Azure App Service](./overview.md). This functionality includes file, network, and registry access, along with diagnostic logs and events.
 
 > [!NOTE]
 > Linux apps in App Service run in their own containers. You have root access to the container but no access to the host operating system. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system.
@@ -20,7 +20,10 @@ This article describes the baseline operating system functionality that's availa
 
 ## App Service plan tiers
 
-App Service runs customer apps in a multitenant hosting environment. Apps deployed in the Free and Shared tiers run in worker processes on shared virtual machines (VMs). Apps deployed in the Standard and Premium tiers run on VMs dedicated specifically for the apps associated with a single customer.
+App Service runs customer apps in a multitenant hosting environment.
+
+- Apps deployed in the Free and Shared tiers run in worker processes on shared virtual machines (VMs).
+- Apps deployed in the Standard and Premium tiers run on VMs dedicated specifically for the apps associated with a single customer.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -62,7 +65,7 @@ It's important to monitor your disk utilization as your application grows. Reach
 
 <a id="NetworkDrives"></a>
 
-### Network drives
+### Network drives (UNC shares)
 
 One of the unique aspects of App Service that make app deployment and maintenance straightforward is that all content shares are stored on a set of Universal Naming Convention (UNC) shares. This model maps well to the common pattern of content storage used by on-premises web hosting environments that have multiple load-balanced servers.
 
@@ -150,7 +153,7 @@ Areas of diagnostic logging and tracing that aren't available to apps are Window
 
 ## Registry access
 
-Apps have read-only access to much, though not all, of the registry of the VM that they're running on. This access means that apps can access registry keys that allow read-only access to the Local Users group. One area of the registry that's currently not supported for either read or write access is the `HKEY\_CURRENT\_USER` hive.
+Apps have read-only access to much, though not all, of the registry of the VM that they're running on. This access means that apps can access registry keys that allow read-only access to the Local Users group. One area of the registry that's currently not supported for either read or write access is the `HKEY_CURRENT_USER` hive.
 
 Write access to the registry is blocked, including access to any per-user registry keys. From the app's perspective, it can't rely on write access to the registry in the Azure environment because apps can be migrated across VMs. The only persistent writeable storage that an app can depend on is the per-app content directory structure stored on the App Service UNC shares.
 

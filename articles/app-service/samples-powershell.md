@@ -18,7 +18,7 @@ The following table lists PowerShell scripts built for use with Azure PowerShell
 |-|-|
 |**Create app**||
 | [Create a web app and deploy code from GitHub](./scripts/powershell-deploy-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a web app in App Service that pulls code from GitHub. |
-| [Create a web app with continuous deployment from GitHub](./scripts/powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a web app in App Service, then sets up continuously deployment from GitHub. |
+| [Create a web app with continuous deployment from GitHub](./scripts/powershell-continuous-deployment-github.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creates a web app in App Service, then sets up continuous deployment from GitHub. |
 | [Upload files to a web app using FTP](./scripts/powershell-deploy-ftp.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a web app in App Service and upload files from a local directory using FTP. |
 | [Create a web app and deploy code from a local Git repository](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a web app in App Service, and then deploys code from a local Git repository. |
 | [Create a web app and deploy code to a staging environment](./scripts/powershell-deploy-staging-environment.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates a web app in App Service with a deployment slot for staging code changes. |
