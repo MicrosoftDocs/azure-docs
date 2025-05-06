@@ -1,11 +1,11 @@
 ---
 title: 'Virtual network enforcement with security admin rules in Azure Virtual Network Manager'
-description: This article covers using security admin rules Azure Virtual Network Manager to enforcement security policies across virtual networks along with creating exceptions for specific virtual networks.
+description: Learn how to use security admin rules in Azure Virtual Network Manager to enforce security policies and create exceptions for specific virtual networks. Discover flexible, scalable network security.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 03/22/2024
+ms.date: 05/06/2024
 ---
 # Virtual network enforcement with security admin rules in Azure Virtual Network Manager
 
@@ -19,7 +19,7 @@ With [network security groups (NSGs)](../virtual-network/network-security-group-
 
 [Security admin rules](concept-security-admins.md) aim to eliminate this sliding scale between enforcement and flexibility altogether by consolidating the pros of each of these models while reducing the cons of each. Central governance teams establish guard rails through security admin rules, while still leaving room for individual teams to flexibly pinpoint security as needed through NSG rules. Security admin rules aren't meant to override NSG rules. Instead, they work with NSG rules to provide enforcement and flexibility across your organization.
 
-## Enforcement Models
+## Enforcement models
 
 Let’s look at a few common models of security management without security admin rules, and their pros and cons:
 
@@ -35,14 +35,14 @@ In this model, individual teams within an organization without a centralized gov
 
 | Pros | Cons |
 | ---- | ---- |
-| The individual team has flexible control in tailoring security rules based on their service requirements. | The central governance team can't enforce critical security rules, such as blocking risky ports. </br> </br> Individual team might also misconfigure or forget to attach NSGs, leading to vulnerability exposures.|
+| The individual team has flexible control in tailoring security rules based on their service requirements. | The central governance team can't enforce critical security rules, such as blocking risky ports.</br></br> Individual team might also misconfigure or forget to attach NSGs, leading to vulnerability exposures.|
 
 ### Model 3 - NSGs are created through Azure Policy and managed by individual teams.
 In this model, individual teams still manage their NSGs. The difference is the NSGs are created using Azure Policy to set standard rules. Modifying these rules would trigger audit notifications.
 
 | Pros | Cons |
 | ---- | ---- |
-| The individual team has flexible control in tailoring security rules. </br></br> The central governance team can create standard security rules and receive notifications if rules are modified. | The central governance team still can't enforce the standard security rules, since NSG owners in teams can still modify them. </br></br> Notifications would also be overwhelming to manage. |
+| The individual team has flexible control in tailoring security rules.</br></br> The central governance team can create standard security rules and receive notifications if rules are modified. | The central governance team still can't enforce the standard security rules, since NSG owners in teams can still modify them.</br></br> Notifications would also be overwhelming to manage. |
 
 ## Network traffic enforcement and exceptions with security admin rules
 
@@ -54,7 +54,7 @@ The diagram shows how the administrator can achieve the following goals:
 - Enforce security admin rules across the organization.
 - Allow exceptions for the application team to handle SSH traffic.
 
-:::image type="content" source="media/concept-enforcement/sec-admin-scenario.png" alt-text="Diagram of security admin rules enforcement with network security groups.":::
+:::image type="content" source="media/concept-enforcement/sec-admin-scenario.png" alt-text="Diagram of security admin rules enforcement with network security groups in Azure Virtual Network Manager.":::
 
 
 #### Step 1: Create a network manager instance
@@ -73,7 +73,7 @@ In this step, two security admin rules are defined with the following security a
 
 #### Step 4: Deploy the security admin configuration
  
-After the deployment of the security admin configuration, all virtual networks in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify the deny rule, only the defined company administrator can. The App virtual networks have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). With a smaller priority number on the allow inbound SSH traffic rule for App network group, the rule is evaluated first. When inbound SSH traffic comes to an App VNet, the higher priority security admin rule allows the traffic. Assuming there are NSGs on the subnets of the App virtual networks, this inbound SSH traffic is next evaluated based on NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
+After the deployment of the security admin configuration, all virtual networks in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify the deny rule. They can only be defined by company administrator. The App virtual networks have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). With a smaller priority number on the allow inbound SSH traffic rule for App network group, the rule is evaluated first. When inbound SSH traffic comes to an App VNet, the higher priority security admin rule allows the traffic. Assuming there are NSGs on the subnets of the App virtual networks, this inbound SSH traffic is next evaluated based on NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
 
 ## Next steps
 

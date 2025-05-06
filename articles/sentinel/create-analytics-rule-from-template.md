@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: how-to
 ms.date: 07/02/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -28,20 +28,6 @@ This article shows you how to create a scheduled analytics rule using a template
 
 To view the installed analytics rules in Microsoft Sentinel, go to the **Analytics** page. The **Rule templates** tab displays all the installed rule templates. To find more rule templates, go to the **Content hub** in Microsoft Sentinel to install the related product solutions or standalone content.
 
-# [Azure portal](#tab/azure-portal)
-
-1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
-
-1. On the **Analytics** screen, select the **Rule templates** tab.
-
-1. If you want to filter the list for **Scheduled** templates:
-
-    1. Select **Add filter** and choose **Rule type** from the list of filters.
-
-    1. From the resulting list, select **Scheduled**. Then select **Apply**.
-
-    :::image type="content" source="media/create-analytics-rule-from-template/view-detections.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Azure portal." lightbox="media/create-analytics-rule-from-template/view-detections.png":::
-
 # [Defender portal](#tab/defender-portal)
 
 1. From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
@@ -56,19 +42,33 @@ To view the installed analytics rules in Microsoft Sentinel, go to the **Analyti
 
     :::image type="content" source="media/create-analytics-rule-from-template/view-detections-defender.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Defender portal." lightbox="media/create-analytics-rule-from-template/view-detections-defender.png":::
 
+# [Azure portal](#tab/azure-portal)
+
+1. From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
+
+1. On the **Analytics** screen, select the **Rule templates** tab.
+
+1. If you want to filter the list for **Scheduled** templates:
+
+    1. Select **Add filter** and choose **Rule type** from the list of filters.
+
+    1. From the resulting list, select **Scheduled**. Then select **Apply**.
+
+    :::image type="content" source="media/create-analytics-rule-from-template/view-detections.png" alt-text="Screenshot of scheduled analytics rule templates in Microsoft Azure portal." lightbox="media/create-analytics-rule-from-template/view-detections.png":::
+
 ---
 
 ## Create a rule from a template
 
 This procedure describes how to create an analytics rule from a template.
 
-# [Azure portal](#tab/azure-portal)
-
-From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
-
 # [Defender portal](#tab/defender-portal)
 
 From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+# [Azure portal](#tab/azure-portal)
+
+From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
 ---
 
