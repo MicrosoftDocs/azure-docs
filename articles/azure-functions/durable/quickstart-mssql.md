@@ -350,7 +350,7 @@ If you're using user-assigned managed identity to authenticate to the SQL databa
 
 If you're using a simple connection string to authenticate, you can find it by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
 
-  :::image type="content" source="/media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+  :::image type="content" source=./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
   The connection string should have this format:
   ```bash
