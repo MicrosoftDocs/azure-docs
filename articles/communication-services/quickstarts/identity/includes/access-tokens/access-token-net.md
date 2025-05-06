@@ -126,6 +126,7 @@ Store the received identity with mapping to your application users (for example,
 
 > [!IMPORTANT]  
 > This feature is available starting with the SDK version `1.4.0-beta1`.
+
 > [!NOTE]  
 > This feature is currently in preview.
 
@@ -141,6 +142,7 @@ Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 
 > [!IMPORTANT]  
 > This feature is available starting with the SDK version `1.4.0-beta1`.
+
 > [!NOTE]  
 > This feature is currently in preview.
 
@@ -204,6 +206,7 @@ Console.WriteLine(token);
 
 > [!IMPORTANT]  
 > This feature is available starting with the SDK version `1.4.0-beta1`.
+
 > [!NOTE]  
 > This feature is currently in preview.
 

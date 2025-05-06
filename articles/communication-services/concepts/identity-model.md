@@ -35,6 +35,7 @@ Managing a mapping between Azure Communication Services user identities and your
 
 > [!IMPORTANT]  
 > This feature is available starting with the SDK version `1.4.0-beta1`.
+
 > [!NOTE]  
 > This feature is currently in preview.
 

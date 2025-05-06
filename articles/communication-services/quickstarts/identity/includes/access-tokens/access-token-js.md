@@ -118,9 +118,10 @@ Store the received identity with mapping to your application's users (for exampl
 
 ## (Preview) Create an identity with an associated custom ID
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > This feature is available starting with the SDK version `1.4.0-beta1`.
-> [!NOTE]  
+
+> [!NOTE]
 > This feature is currently in preview.
 
 You can create an identity with an associated `customId` to map your application's user identities to Azure Communication Services identities. When you call `createUser` with the same `customId`, the service returns the same `communicationUserId`. This eliminates the need to store the mapping yourself.
@@ -135,6 +136,7 @@ console.log(`\nCreated an identity with ID: ${identityResponse.communicationUser
 
 > [!IMPORTANT]  
 > This feature is available starting with the SDK version `1.4.0-beta1`.
+
 > [!NOTE]  
 > This feature is currently in preview.
 
@@ -196,6 +198,7 @@ console.log(token);
 
 > [!IMPORTANT]  
 > This feature is available starting with the SDK version `1.4.0-beta1`.
+
 > [!NOTE]  
 > This feature is currently in preview.
 
