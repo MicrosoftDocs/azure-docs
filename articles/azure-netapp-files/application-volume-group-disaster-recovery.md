@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/06/2026
+ms.date: 05/06/2025
 ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
