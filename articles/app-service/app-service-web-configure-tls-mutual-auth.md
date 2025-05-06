@@ -6,10 +6,11 @@ keywords: TLS mutual authentication, Azure App Service security, secure client-s
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 05/09/2025
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
 ---
+
 # Configure TLS mutual authentication in Azure App Service
 
 You can restrict access to your Azure App Service app by enabling different types of authentication for the app. One way to set up authentication is to request a client certificate when the client request is sent by using Transport Layer Security (TLS)/Secure Sockets Layer (SSL) and to validate the certificate. This mechanism is called *mutual authentication* or *client certificate authentication*. This article shows you how to set up your app to use client certificate authentication.
