@@ -171,6 +171,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflows
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
