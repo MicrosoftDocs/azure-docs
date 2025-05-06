@@ -18,7 +18,7 @@ ms.date: 04/09/2025
 In the Microsoft Planetary Computer Pro, a **GeoCatalog** resource organizes datasets into **STAC Collections**. 
 Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items, and many of these items have metadata in their `properties`.
 
-**Queryables** allow customers to define which metadata fields should be exposed as custom filters in the Data Explorer for easy search.
+**Queryables** allow customers to define which metadata fields or `properties` should be appear as custom filters.  Custom filters are selectable in the Data Explorer and enable specifying values for `properties` during search.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items
 
 ## What is a Queryable?
 
-A queryable is a property from the STAC Item metadata that is promoted to be searchable in the Planetary Computer Data Explorer.
+A queryable is a property from the STAC Item metadata that is promoted in the Planetary Computer Data Explorer interface to be easily searchable.  **Queryables** appear under 'Custom filters,' which are accessible by clicking 'Advanced' in the 'Explore datasets' pane. 
 
 For example, from this `properties` block in a STAC Item:
 
@@ -38,11 +38,11 @@ For example, from this `properties` block in a STAC Item:
   ...
 }
 ```
-We can see that "gsd" (ground sample distance; the spatial resolution measured in meters/pixel) and "naip:year" (the year the image was acquired) are searchable properties in this collection. They can therefore be added as custom filters for ease of search in the Data Explorer. The "datetime" property is automatically included as a custom filter in the Data Explorer for all collections. 
+`Gsd` (ground sample distance; the spatial resolution measured in meters/pixel) and `naip:year` (the year the image was acquired) are searchable properties in this collection. They can therefore be added as custom filters for ease of search in the Data Explorer. The `datetime` property is automatically included as a custom filter in the Data Explorer for all collections. 
 
 ## Configuring Queryables from the Collection Page
 
-On a collection's landing page, select the ⚙️ **Configuration** button to open the _Edit Collection Config_ pane.
+On a collection's landing page, select the **Configuration** button to open the _Edit Collection Config_ pane.
 
 Inside this pane, navigate to the **Queryables** tab.
 
