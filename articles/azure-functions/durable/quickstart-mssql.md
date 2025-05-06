@@ -14,6 +14,8 @@ Use Durable Functions, a feature of [Azure Functions](../functions-overview.md),
 
 Durable Functions supports several [storage providers](durable-functions-storage-providers.md), also known as _backends_, for storing orchestration and entity runtime state. In this quickstart, you create a Durable Functions app to use the [Microsoft SQL Server (MSSQL) storage provider](durable-functions-storage-providers.md#mssql) using **Visual Studio Code**. 
 
+This quickstart creates a .NET (isolated model) app for demonstration purposes. Content provided in this article applies to other languages in similar ways. 
+
 > [!NOTE]
 >
 > - The MSSQL backend was designed to maximize application portability and control over your data. It uses [Microsoft SQL Server](https://www.microsoft.com/sql-server/) to persist all task hub data so that users get the benefits of a modern, enterprise-grade database management system (DBMS) infrastructure. To learn more about when to use the MSSQL storage provider, see the [storage providers overview](durable-functions-storage-providers.md).
@@ -21,8 +23,6 @@ Durable Functions supports several [storage providers](durable-functions-storage
 > - Migrating [task hub data](durable-functions-task-hubs.md) across storage providers currently isn't supported. Function apps that have existing runtime data start with a fresh, empty task hub after they switch to the MSSQL back end. Similarly, the task hub contents that are created by using MSSQL can't be preserved if you switch to a different storage provider.
 
 ## Prerequisites
-> [!NOTE]
-> This quickstart creates a .NET (isolated model) app for demonstration purposes. Content provided in this article applies to other languages in similar ways. 
 
 To complete this quickstart, you need:
 
@@ -67,7 +67,6 @@ In Visual Studio Code, create a local Azure Functions project.
 Visual Studio Code installs Azure Functions Core Tools if it's required to create the project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
 Another file, *HelloOrchestration.cs*, contains the basic building blocks of a Durable Functions app:
-
 | Method | Description |
 | -----  | ----------- |
 | `HelloOrchestration` | Defines the Durable Functions app orchestration. In this case, the orchestration starts, creates a list, and then adds the result of three functions calls to the list. When the three function calls finish, it returns the list. |
@@ -76,11 +75,10 @@ Another file, *HelloOrchestration.cs*, contains the basic building blocks of a D
 
 For more information about these functions, see [Durable Functions types and features](./durable-functions-types-features-overview.md).
 
-### Check for latest extension version
+#### Check for latest extension version
 For .NET apps, check the `.csproj` file and make sure the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) package is referenced.
 
-> [!NOTE]
-> Non-.NET apps references the extension bundles, which automatically uses the latest package.
+Non-.NET apps references the extension bundles, which automatically uses the latest package.
 
 ## Set up your database
 
@@ -147,14 +145,17 @@ DurableDB
 
 ```
 
+
 > [!NOTE]
-> If you run into *"Error response from daemon: OCI runtime exec failed"* when running `docker exec` to **create** the database, it's likely the folder `/opt/mssql-tools/bin/sqlcmd` does not exist. Open Docker Desktop, select your SQL Server Docker container, select Files and browse for the mssql-tools folder. Check if this folder has a different name, such as `/opt/mssql-tools18/bin/sqlcmd`. Update the command accordingly.
->
-> In ODBC Driver 18 for SQL Server, the Encrypt connection option is set to true by default. If you run into *"error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed:self signed certificate"* when running `docker exec` to perform database operations, append `-C`, which is equivalent to the ADO.net option `TRUSTSERVERCERTIFICATE = true`.
->
 > To stop and delete a running container, you can use `docker stop <containerName>` and `docker rm <containerName>` respectively. You can use these commands to re-create your container and to stop the container when you finish this quickstart. For more assistance, run `docker --help`.
 
-### Add your SQL connection string to local.settings.json
+#### Troubleshooting
+
+If you run into *"Error response from daemon: OCI runtime exec failed"* when running `docker exec` to **create** the database, it's likely the folder `/opt/mssql-tools/bin/sqlcmd` does not exist. Open Docker Desktop, select your SQL Server Docker container, select Files and browse for the mssql-tools folder. Check if this folder has a different name, such as `/opt/mssql-tools18/bin/sqlcmd`. Update the command accordingly.
+
+In ODBC Driver 18 for SQL Server, the Encrypt connection option is set to true by default. If you run into *"error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed:self signed certificate"* when running `docker exec` to perform database operations, append `-C`, which is equivalent to the ADO.net option `TRUSTSERVERCERTIFICATE = true`.
+
+### Add SQL connection string to local.settings.json
 
 The MSSQL backend needs a connection string to access your database. How to obtain a connection string depends primarily on your specific MSSQL server provider.
 
@@ -216,12 +217,12 @@ To run your app in Azure, you need to create various resources. For convenient c
 
 > [!NOTE]
 > If you already have an Azure SQL database or another publicly accessible SQL Server instance that you would like to use, you can go to the next section.
->
-> Enabling the **Allow Azure services and resources to access this server** setting is not a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). During creation:
 - Enable Azure services and resources to access this server (under _Networking_)
 - Set the value for _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+
+Enabling the **Allow Azure services and resources to access this server** setting is _not_ a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 ### Create an Azure Functions app and supporting resources
 
@@ -233,101 +234,74 @@ In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/dat
 1. Create the following resources in the same resource group and region as your SQL database:
     - A general-purpose storage account, which is used to store important app data, such as the application code itself. Storage account names must contain three to 24 characters numbers and lowercase letters only.
     - A premium function app plan
-    - A .NET function app
+    - A function app
 
-      ```azurecli
-      # Variables
-      location=<REGION>
-      resourceGroup=<RESOURCE_GROUP_NAME>
-      storage=<STORAGE_NAME>
-      planName=<PREMIUM_PLAN_NAME>
-      functionApp=<APP_NAME>
-      skuStorage="Standard_LRS"
-      skuPlan="EP1"
-      functionsVersion="4"
-
-      # Create an Azure storage account
-      echo "Creating $storage"
-      az storage account create --name $storage --location "$location" --resource-group $resourceGroup --sku $skuStorage --allow-blob-public-access false
-
-      # Create a premium plan
-      echo "Creating $premiumPlan"
-      az functionapp plan create --name $planName --resource-group $resourceGroup --location "$location" --sku $skuPlan
-
-      # Create a function app hosted in the premium plan
-      echo "Creating $functionApp"
-      az functionapp create --name $functionApp --storage-account $storage --plan $planName --resource-group $resourceGroup --functions-version $functionsVersion
-      ```
-
-### Create an Azure managed identity and grant access to Azure Storage
-Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. You can choose between [system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). This quickstart demonstrates setting up user-assigned managed identity, which is the recommended option as it is not tied to the app lifecycle.
-
-1. Create identity and assign it to the app:
     ```azurecli
     # Variables
-    subscription=<SUBSCRIPTION_ID>
-    identity=<IDENTITY_NAME>
+    location=<REGION>
+    resourceGroup=<RESOURCE_GROUP_NAME>
+    storage=<STORAGE_NAME>
+    planName=<PREMIUM_PLAN_NAME>
+    functionApp=<APP_NAME>
+    skuStorage="Standard_LRS"
+    skuPlan="EP1"
+    functionsVersion="4"
 
-    # Create a managed identity resource
-    echo "Creating $identity"
-    az identity create -g $resourceGroup -n $identity --location "$location"
+    # Create an Azure storage account
+    echo "Creating $storage"
+    az storage account create --name $storage --location "$location" --resource-group $resourceGroup --sku $skuStorage --allow-blob-public-access false
 
-    # Construct the identity resource ID 
-    resourceId="/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identity"
+    # Create a premium plan
+    echo "Creating $premiumPlan"
+    az functionapp plan create --name $planName --resource-group $resourceGroup --location "$location" --sku $skuPlan
 
-    # Assign the identity to the Azure Functions app
-    echo "Assigning $identity to app"
-    az functionapp identity assign -g $resourceGroup -n $functionApp --identities "$resourceId"
-
-    # Get the identity's ClientId and PrincipalId (also called ObjectId) for a later step. 
-    clientId=$(az identity show --name $identity --resource-group $resourceGroup --query 'clientId' --output tsv)
-
-    principalId=$(az identity show --name $identity --resource-group $resourceGroup --query 'principalId' --output tsv)
+    # Create a function app hosted in the premium plan
+    echo "Creating $functionApp"
+    az functionapp create --name $functionApp --storage-account $storage --plan $planName --resource-group $resourceGroup --functions-version $functionsVersion
     ```
 
-1. Assign the identity `Storage Blob Data Owner` role for access to the storage account. 
-    ```
-    # Set the scope of the access
-    scope="/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Storage/storageAccounts/$storage"
-    
-    # Assign the role
-    echo "Assign Storage Blob Data Owner role to identity"
-    az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner" --scope "$scope"
-    ```
+### Create an Azure managed identity 
+Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. You can choose between [system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). This quickstart demonstrates setting up user-assigned managed identity, which is the recommended option as it is not tied to the app lifecycle.
 
-### Set Azure Storage related app settings
-To finish configuring the app to access the Azure Storage account using identity-based authentication, set the following app settings:
-- `AzureWebJobsStorage__accountName`: <STORAGE_NAME>
-- `AzureWebJobsStorage__clientId`: <IDENTITY_CLIENT_ID>
-- `AzureWebJobsStorage__credential`: managedidentity
-
-Run the following command to set the settings:
+The following commands create the identity resource and assign it to the app:
 ```azurecli
-az functionapp config appsettings set --name $functionApp --resource-group $resourceGroup --settings AzureWebJobsStorage__accountName="$storage" AzureWebJobsStorage__clientId="$clientId" AzureWebJobsStorage__credential="managedidentity"
+# Variables
+subscription=<SUBSCRIPTION_ID>
+identity=<IDENTITY_NAME>
+
+# Create a managed identity resource
+echo "Creating $identity"
+az identity create -g $resourceGroup -n $identity --location "$location"
+
+# Construct the identity resource ID 
+resourceId="/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$identity"
+
+# Assign the identity to the Azure Functions app
+echo "Assigning $identity to app"
+az functionapp identity assign -g $resourceGroup -n $functionApp --identities "$resourceId"
+
+# Get the identity's ClientId and PrincipalId (also called ObjectId) for a later step. 
+clientId=$(az identity show --name $identity --resource-group $resourceGroup --query 'clientId' --output tsv)
+
+principalId=$(az identity show --name $identity --resource-group $resourceGroup --query 'principalId' --output tsv)
 ```
 
-Delete the existing `AzureWebJobsStorage` setting:
-```azurecli
-az functionapp config appsettings delete --name $functionApp --resource-group $resourceGroup --setting-names "AzureWebJobsStorage"
+### Grant access to Azure Storage and Azure SQL Database
+#### Azure Storage
+Assign the identity `Storage Blob Data Owner` role for access to the storage account. 
 ```
-### Apps hosted in Flex Consumption plan
-Authenticating to the MSSQL database using managed identity is not yet supported when hosting a Durable Functions app in the Flex Consumption plan. Instead, the MSSQL connection string should be used, which can be found by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
+# Set the scope of the access
+scope="/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Storage/storageAccounts/$storage"
 
-:::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+# Assign the role
+echo "Assign Storage Blob Data Owner role to identity"
+az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner" --scope "$scope"
+```
 
-The connection string should have this format: 
-  ```bash
-  dbserver=<SQL_SERVER_NAME>
-  sqlDB=<SQL_DB_NAME>
-  username=<DB_USER_LOGIN>
-  password=<DB_USER_PASSWORD>
+#### Azure SQL Database
+>[!NOTE]
+> Authenticating to the MSSQL database using managed identity is _not_ supported when hosting a Durable Functions app in the Flex Consumption plan. Use connection string for now. Thus, if your app is hosted in the Flex Consumption plan, skip to the [set app application settings](#set-required-app-settings) section. 
 
-  connStr="Server=tcp:$dbserver.database.windows.net,1433;Initial Catalog=$sqlDB;Persist Security Info=False;User ID=$username;Password=$password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-  ```
-
-You can skip to the [Add SQL connection string as an application setting](#add-sql-connection-string-as-an-application-setting) step. 
-
-### Grant identity access to Azure SQL Database 
 1. Start by setting your developer identity as the database's admin.
   
     The assignee is your identity, so change to your microsoft.com email:
@@ -358,24 +332,45 @@ You can skip to the [Add SQL connection string as an application setting](#add-s
     GO
     ```
 
-Your Azure SQL database's connection string has the following format when using user-assigned managed identity: 
+### Set required app settings
+You need to add the following app settings to your app: 
+  - `AzureWebJobsStorage__accountName`: Azure Storage account name
+  - `AzureWebJobsStorage__clientId`: ClientId of the managed identity
+  - `AzureWebJobsStorage__credential`: Credential type, which is _managedidentity_
+  - `SQLDB_Connection`: SQL database connection string
 
+If you're using user-assigned managed identity to authenticate to the SQL database, the connection string should look like the following:
   ```bash
-  # Variables
   dbserver=<SQL_SERVER_NAME>
   sqlDB=<SQL_DB_NAME>
   clientId=<IDENTITY_CLIENT_ID>
 
-  # Connection string format
-  connStr="Server=tcp:$dbserver.database.windows.net,1433;Initial Catalog=$sqlDB;Persist Security Info=False;User ID=$clientId;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication='Active Directory Managed Identity';"
+  sqlconnstr="Server=tcp:$dbserver.database.windows.net,1433;Initial Catalog=$sqlDB;Persist Security Info=False;User ID=$clientId;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication='Active Directory Managed Identity';"
   ```
 
-### Add SQL connection string as an application setting
-Add the appropriate SQL connection string to the app setting called `SQLDB_Connection`:
-  
-  ```azurecli
-  az functionapp config appsettings set --name $functionApp --resource-group $resourceGroup --settings SQLDB_Connection="$connStr"
+If you're using a simple connection string to authenticate, you can find it by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
+
+  :::image type="content" source="/media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+
+  The connection string should have this format:
+  ```bash
+  dbserver=<SQL_SERVER_NAME>
+  sqlDB=<SQL_DB_NAME>
+  username=<DB_USER_LOGIN>
+  password=<DB_USER_PASSWORD>
+
+  sqlconnstr="Server=tcp:$dbserver.database.windows.net,1433;Initial Catalog=$sqlDB;Persist Security Info=False;User ID=$username;Password=$password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
   ```
+
+Run the following command to set the settings:
+```azurecli
+az functionapp config appsettings set --name $functionApp --resource-group $resourceGroup --settings AzureWebJobsStorage__accountName="$storage" AzureWebJobsStorage__clientId="$clientId" AzureWebJobsStorage__credential="managedidentity" SQLDB_Connection=$sqlconnstr
+```
+
+Delete the existing `AzureWebJobsStorage` setting:
+```azurecli
+az functionapp config appsettings delete --name $functionApp --resource-group $resourceGroup --setting-names "AzureWebJobsStorage"
+```
 
 ### Deploy the local project to Azure and test
 Finally, in your root project folder, deploy your app to Azure by running: 
