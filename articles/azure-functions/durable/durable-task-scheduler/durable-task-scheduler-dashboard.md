@@ -143,4 +143,10 @@ The dashboard includes features for managing orchestrations on demand, such as s
 
 ## Next steps
 
-[Try out the quickstart to see the Durable Task Scheduler dashboard in action](./quickstart-durable-task-scheduler.md)
+For Durable Task Scheduler for Durable Functions:
+- [Quickstart: Configure a Durable Functions app to use the Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
+- [Create Durable Task Scheduler resources and view them in the dashboard](./develop-with-durable-task-scheduler.md)
+
+For Durable Task Scheduler for the Durable Task SDKs:
+- [Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md)
+- [Quickstart: Configure Durable Task SDKs in your container app](./quickstart-container-apps-durable-task-sdk.md)

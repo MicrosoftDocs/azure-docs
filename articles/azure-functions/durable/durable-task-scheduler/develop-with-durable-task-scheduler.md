@@ -46,24 +46,24 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
 
 ::: zone-end 
 
-## Run Durable Task emulator
+## Run the Durable Task emulator
 
 1. Pull the docker image containing the emulator. 
 
    ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
    ```
 
 1. Run the emulator.
 
    ```bash
-   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.6
    ```
 
     This command exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like in the following command:
 
     ```bash
-    docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+    docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.6
     ```
 
 ## Create a scheduler and task hub
@@ -109,10 +109,10 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
         "resourceGroup": "YOUR_RESOURCE_GROUP",
         "systemData": {
             "createdAt": "2025-01-06T21:22:59Z",
-            "createdBy": "YOUR_EMAIL@microsoft.com",
+            "createdBy": "YOUR_EMAIL@example.com",
             "createdByType": "User",
             "lastModifiedAt": "2025-01-06T21:22:59Z",
-            "lastModifiedBy": "YOUR_EMAIL@microsoft.com",
+            "lastModifiedBy": "YOUR_EMAIL@example.com",
             "lastModifiedByType": "User"
         },
         "tags": {}
@@ -266,80 +266,13 @@ Durable Task Scheduler **only** supports either *user-assigned* or *system-assig
 
 If you haven't already, [configure managed identity for your Durable Functions app](./durable-task-scheduler-identity.md).
 
-## Accessing the Durable Task Scheduler dashboard
+## Access the Durable Task Scheduler dashboard
 
-Assign the required role to your *developer identity (email)* to gain access to the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
-
-::: zone pivot="az-cli" 
-
-1. Set the assignee to your developer identity.
-
-    ```azurecli
-    assignee=$(az ad user show --id "someone@microsoft.com" --query "id" --output tsv)
-    ```
-
-1. Set the scope. Granting access on the scheduler scope gives access to *all* task hubs in that scheduler.
-
-    **Task Hub**
-
-    ```bash
-    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME/taskHubs/TASK_HUB_NAME"
-    ```
-   
-    **Scheduler**
-    ```bash
-    scope="/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/SCHEDULER_NAME"
-    ```
-
-1. Grant access. Run the following command to create the role assignment and grant access.
-
-    ```azurecli
-    az role assignment create \
-      --assignee "$assignee" \
-      --role "Durable Task Data Contributor" \
-      --scope "$scope"
-    ```
-   
-    *Expected output*
-   
-    The following output example shows a developer identity assigned with the Durable Task Data Contributor role on the *scheduler* level:
-   
-    ```json
-    {
-      "condition": null,
-      "conditionVersion": null,
-      "createdBy": "YOUR_DEVELOPER_CREDENTIAL_ID",
-      "createdOn": "2024-12-20T01:36:45.022356+00:00",
-      "delegatedManagedIdentityResourceId": null,
-      "description": null,
-      "id": "/subscriptions/YOUR_SUBSCRIPTION_ID/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/YOUR_DTS_NAME/providers/Microsoft.Authorization/roleAssignments/ROLE_ASSIGNMENT_ID",
-      "name": "ROLE_ASSIGNMENT_ID",
-      "principalId": "YOUR_DEVELOPER_CREDENTIAL_ID",
-      "principalName": "YOUR_EMAIL",
-      "principalType": "User",
-      "resourceGroup": "YOUR_RESOURCE_GROUP",
-      "roleDefinitionId": "/subscriptions/YOUR_SUBSCRIPTION/providers/Microsoft.Authorization/roleDefinitions/ROLE_DEFINITION_ID",
-      "roleDefinitionName": "Durable Task Data Contributor",
-      "scope": "/subscriptions/YOUR_SUBSCRIPTION/resourceGroups/YOUR_RESOURCE_GROUP/providers/Microsoft.DurableTask/schedulers/YOUR_DTS_NAME",
-      "type": "Microsoft.Authorization/roleAssignments",
-      "updatedBy": "YOUR_DEVELOPER_CREDENTIAL_ID",
-      "updatedOn": "2024-12-20T01:36:45.022356+00:00"
-    }
-    ```
-
-1. After granting access, go to `https://dashboard.durabletask.io/` and fill out the required information about your scheduler and task hub to see the dashboard. 
- 
-::: zone-end 
-
-::: zone pivot="az-portal" 
-
-[!INCLUDE [assign-dev-identity-role-based-access-control-portal](./includes/assign-dev-identity-role-based-access-control-portal.md)]
-
-::: zone-end 
+[Assign the required role to your *developer identity (email)*](./durable-task-scheduler-dashboard.md#access-the-durable-task-scheduler-dashboard) to gain access to the Durable Task Scheduler dashboard. 
 
 ## Auto scaling in Functions Premium plan 
 
-For Durable Task Scheduler apps on the Functions Premium plan, enable the *Runtime Scale Monitoring* setting to get auto scaling of the app. 
+For Durable Functions apps on the Functions Premium plan, you can enable autoscaling using the *Runtime Scale Monitoring* setting. 
 
 ::: zone pivot="az-portal"
 
@@ -353,8 +286,6 @@ For Durable Task Scheduler apps on the Functions Premium plan, enable the *Runti
 
 ::: zone pivot="az-cli" 
 
-Run the following command:
-
 ```azurecli
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
@@ -363,4 +294,5 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 ## Next steps
 
-Try out the [Durable Functions quickstart sample](quickstart-durable-task-scheduler.md).
+> [!div class="nextstepaction"]
+> [Run and deploy your Durable Functions app using the Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
