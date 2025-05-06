@@ -50,7 +50,7 @@ After you save the assignment, the managed identity is validated to ensure that 
 
 ## Network access to storage accounts
 
-You must grant access to trusted Azure services in the network settings of each target storage account. To learn more, see [Grant access to trusted Azure services](./../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
+You must grant access to trusted Azure services in the network settings of each target storage account. To learn more, see [Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
 ## See also
 
