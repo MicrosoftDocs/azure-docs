@@ -26,12 +26,6 @@ For successful creation of a Qumulo service, custom role-based access control (R
 
   - Microsoft.Network/virtualNetworks/subnets/join/action
 
-## Get support
-
-You can request support from the Azure portal, or go to the [Qumulo support page](https://aka.ms/partners/Qumulo/Support).
-
-[!INCLUDE [contact-support](../includes/contact-support.md)]
-
 ## Related content
 
 - [What is Azure Native Qumulo?](overview.md)
