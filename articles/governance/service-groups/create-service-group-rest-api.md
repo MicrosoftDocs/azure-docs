@@ -3,17 +3,19 @@ title: Quickstart: Create a service group with REST API
 description: In this quickstart, you use REST API to create a service group to organize your resources.
 author: rthorn17
 ms.author: rithorn
-ms.service: Azure Service Groups
-ms.topic: quickstart  #Don't change
+ms.service: azure-governance
+ms.topic: quickstart  
 ms.date: 5/19/2025
 ---
 
 
-# Quickstart: Create a service group with REST API
+# Quickstart: Create a service group (preview) with REST API
  
-Service groups in Azure are a low-privilege-based grouping of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. For more information on service groups, see [Getting started with Service Groups](overview.md).
+With Azure Service Groups (preview) you can create low-privilege-based groupings of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
-
+> [!IMPORTANT]
+> Azure Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -101,20 +103,7 @@ To remove the service group created in this document, use the
 
 - No Request Body
 
-
-## Next step -or- Related content
-
-In this quickstart, you created a service group to help create different views in Azure. The
-service group can have member subscriptions, resource groups, resources, or other service groups.
-
-To learn more about service groups and how to manage your service group hierarchy, continue to:
-
-> [!div class="nextstepaction"]
-> [Manage your resources with service groups]()
-
-
--or-
-
-- [Related article title](link.md)
-- [Related article title](link.md)
-- [Related article title](link.md)
+## Related content
+* [What are Azure Service Groups?](overview.md)
+* [How to: Manage Service Groups](manaage-service-groups.md)
+* [Connect service group members with REST API](create-service-group-member-rest-api.md)
