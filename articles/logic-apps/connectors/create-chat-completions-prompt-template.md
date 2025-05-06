@@ -3,6 +3,7 @@ title: Create chat interfaces with prompt templates
 description: Build an AI chat interface by using Standard workflows in Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
 ms.suite: integration
+ms.author: ecfan
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
@@ -12,7 +13,7 @@ ms.date: 05/06/2025
 
 # Create an AI chat interface by using prompt templates with Standard workflows in Azure Logic Apps (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 >
@@ -102,9 +103,9 @@ To follow the example, download the [sample prompt template and inputs](https://
     | **Active Directory OAuth** | 1. Set up your logic app resource for [OAuth 2.0 with Microsoft Entra ID authentication](/entra/architecture/auth-oauth2). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
     | **Managed identity** <br>(Recommended) | 1. Follow the [general steps to set up the managed identity with Microsoft Entra ID for your logic app](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
 
-    [!INCLUDE [highest-security-level-guidance](includes/highest-security-level-guidance.md)]
+    [!INCLUDE [highest-security-level-guidance](../includes/highest-security-level-guidance.md)]
 
-[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Add a trigger
 
@@ -302,7 +303,7 @@ When you're done, your workflow looks like the following example:
 
    - [**Request** trigger type](/azure/logic-apps/logic-apps-workflow-actions-triggers#request-trigger)
 
-   - [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](/azure/logic-apps/connectors-native-reqres?tabs=standard)
+   - [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres?tabs=standard)
 
    After workflow execution completes, the run history page opens to show the status for each action.
 
