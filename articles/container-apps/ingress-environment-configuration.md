@@ -35,11 +35,11 @@ In the default ingress mode, no billing is applied for scaling the ingress proxy
 
 ## Premium ingress mode
 
-The default ingress mode could lead to traffic routing bottlenecks in high scale environments. As an alternative, the premium ingress mode includes advanced features to ensure your routing keeps up with traffic demands.
+The default ingress mode could become a bottleneck in high scale environments. As an alternative, the premium ingress mode includes advanced features to ensure your ingress keeps up with traffic demands.
 
 These features include:
 
-- Workload profile support: Each ingress proxy instance runs in a [workload profile](workload-profiles-overview.md) of your choice. You have control over the number of vCPU cores and memory resources available to the proxy.
+- Workload profile support: Ingress proxy instances run in a [workload profile](workload-profiles-overview.md) of your choice. You have control over the number of vCPU cores and memory resources available to the proxy.
 
 - Configurable scale rules: Proxy scale rules are configurable so you can make sure you have as many instances as your application requires.
 
@@ -51,11 +51,11 @@ To decide between default and premium ingress mode, you evaluate the resources c
 
 You can select a workload profile to provide dedicated nodes for your ingress proxy instances that scale to your needs. The D4-D32 workload profile types are recommended. Each ingress proxy instance is allocated 1 vCPU core. For more information, see [Workload profiles in Azure Container Apps](workload-profiles-overview.md).
 
-You can't take the following actions:
+The workload profile:
 
-- Run your ingress proxy on the Consumption workload profile.
-- Share the ingress proxy workload profile with container apps or jobs.
-- Delete a workload profile that you're currently using for your ingress proxy.
+- Must not be the Consumption workload profile.
+- Must not be shared with container apps or jobs.
+- Must not be deleted while you're using it for your ingress proxy.
 
 Running your ingress proxy in a workload profile is billed at the rate for that workload profile. For more information, see [billing](billing.md#consumption-dedicated).
 
@@ -70,7 +70,7 @@ You can also configure the number of workload profile nodes. A workload profile 
 
 The ingress proxy scales independently from your container app scaling.
 
-When your ingress proxy reaches high vCPU or memory utilization, Container Apps creates more ingress proxy instances. When utilization decreases, the extra ingress proxy instances are deleted.
+When your ingress proxy reaches high vCPU or memory utilization, Container Apps creates more ingress proxy instances. When utilization decreases, the extra ingress proxy instances are removed.
 
 Your minimum and maximum ingress proxy instances are determined as follows:
 
@@ -82,7 +82,7 @@ The ingress proxy instances are spread among the available workload profile node
 
 ### Advanced ingress settings
 
-With the premium ingress mode, you can also configure the following settings:
+With the premium ingress mode enabled, you can also configure the following settings:
 
 | Setting | Minimum | Maximum | Default |
 |---|---|---|---|
@@ -90,7 +90,7 @@ With the premium ingress mode, you can also configure the following settings:
 | Idle request time-out in minutes. | 1 | 60 | 4 |
 | Request header count. Increase this setting if you have clients that send a large number of request headers. | 1 | N/A | 100 |
 
-You should only increase these settings as needed, because adjusting them could lead to your ingress proxy instances consuming more resources for longer periods of time. When the proxy uses resources extensively your application becomes more vulnerable to resource exhaustion and denial of service attacks.
+You should only increase these settings as needed, because raising them could lead to your ingress proxy instances consuming more resources for longer periods of time, becoming more vulnerable to resource exhaustion and denial of service attacks.
 
 ## Configure ingress
 
