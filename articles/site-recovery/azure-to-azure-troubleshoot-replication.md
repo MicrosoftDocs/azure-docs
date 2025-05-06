@@ -165,13 +165,13 @@ Restart the following services:
 
 #### Update TenantId and ClientId manually in source machine
 
-**How to fix**: To update the application TenantId and ClientId manually, follow these steps:
-
+**How to fix**: To fixnNo Mobility Service heartbeat error due to expired tenant, follow these steps:
+    
 1. Execute the **GET Protected item** API and retrieve the values for `mobilityAgentTenantIdToUpdate` and `mobilityAgentClientIdToUpdate` from the output.
     
       
     ```powershell
-    https:/management.azure.com/Subscriptions/41b6b0c9-3e3a-4701-811b-92135df8f9e3/resourceGroups/A2A-Tenant-Mig-RG/providers/Microsoft.RecoveryServices/vaults/A2A-Tenant-Mig-Vault1/replicationFabrics/asr-a2a-default-centraluseuap/replicationProtectionContainers/asr-a2a-default-centraluseuap-container/replicationProtectedItems/UYmJamTxe-lo-LELm6HMSytVMe6QqgIA53RyRwOjKrI?api-version=2025-01-01
+    GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{resourceName}/replicationFabrics/{fabricName}/replicationProtectionContainers/{protectionContainerName}/replicationProtectedItems/{replicatedProtectedItemName}?api-version=2025-01-01
     ```
 1.  Open the RCMInfo.conf file on the source machine. The location of the file is as follows:
 
