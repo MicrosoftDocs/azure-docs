@@ -4,7 +4,7 @@ description: Azure NetApp Files provides metrics on allocated storage, actual st
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/16/2025
 ms.author: anfdocs
 ---
@@ -250,7 +250,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The total number of bytes transferred as part of the last transfer. 
 
 - *Volume replication progress*    
-    The total amount of data transferred for the current transfer operation. 
+    The total amount of data in bytes transferred for the current transfer operation. 
 
 - *Volume replication total transfer*   
     The cumulative bytes transferred for the relationship. 

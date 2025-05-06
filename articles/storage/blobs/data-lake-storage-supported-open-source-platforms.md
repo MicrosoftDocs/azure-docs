@@ -5,7 +5,7 @@ description: Learn about which open source platforms that support Azure Data Lak
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/09/2023
 ms.author: normesta
 ---

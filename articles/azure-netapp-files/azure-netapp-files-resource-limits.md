@@ -1,11 +1,11 @@
 ---
-title: Resource limits for Azure NetApp Files | Microsoft Docs
+title: Resource limits for Azure NetApp Files
 description: Describes limits for Azure NetApp Files resources and how to request resource limit increase.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 04/17/2024
+ms.topic: concept-article
+ms.date: 04/23/2025
 ms.author: anfdocs
 ---
 # Resource limits for Azure NetApp Files
@@ -28,7 +28,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  2,048 TiB   |   No   |
 | Minimum throughput of a Flexible service level capacity pool | 128 MiB/second | No |
-| Maximum throughput of a Flexible service level capacity pool | [5 x 128 x Size of capacity pool in TiB](azure-netapp-files-set-up-capacity-pool.md#considerations) | No |
+| Maximum throughput of a Flexible service level capacity pool | [5 x 128 MiB/second/TiB x Size of capacity pool in TiB](azure-netapp-files-set-up-capacity-pool.md#considerations) | No |
 |  Minimum size of a single regular volume    |    50 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB |     No |
@@ -45,7 +45,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
 |  Number of cross-region replication data protection volumes (destination volumes)     |    500    |    Yes    |     
 |  Number of cross-zone replication data protection volumes (destination volumes)     |    500    |    Yes    |     
-|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 1 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 1 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
+|  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 0 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 0 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |
 |  Maximum size of protected volume  |  100 TiB  |  No  |
 |  Maximum number of volumes that can be backed up per subscription   |  500  |  No  |
 |  Maximum number of manual backups per volume per day |  5  |  No  |

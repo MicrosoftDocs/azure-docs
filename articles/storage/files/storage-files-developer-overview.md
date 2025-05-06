@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to develop applications and services that use Azure Files to store data.
 author: pauljewellmsft
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: pauljewell
 ---

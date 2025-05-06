@@ -35,6 +35,10 @@ An Azure Operator Nexus instance can have up to two storage appliances. The stor
 
 The Pure FlashArray contains a variety of data reduction features. The effective capacity of the storage appliance, which gives the amount of data that can be stored from the workload's perspective, is typically larger than the raw capacity. The effective capacity depends strongly on the data being stored. For example, pre-compressed or application-encrypted data achieves lower data reduction ratios on the storage appliance than data with high levels of duplication. Pure storage can model likely achievable data reduction ratios and effective capacity for a wide variety of workloads to help you choose a SKU with a suitable amount of storage capacity.
 
+### Encryption at rest
+
+All data stored on the Pure FlashArray is encrypted at rest using platform-managed storage server-side encryption. For more information, see [Pure's FlashArray Data Security Overview](https://support.purestorage.com/bundle/m_security_resources/page/repositories/production-branch/content/documents/Production/FlashArray/FlashArray_Security/FlashArray_Security_Guides_and_Manuals/topics/task/t_an_overview_of_flasharray_data_security.html) (sign in required).
+
 ## Storage connectivity
 
 This diagram shows the connectivity model followed by storage appliance in the near-edge offering.
