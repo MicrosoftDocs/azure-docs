@@ -196,9 +196,9 @@ For more information about color correction, see the [TiTiler documentation](htt
 
 | Parameter | Description | Format | Example |
 | :-------- | :---------- | :----- | :------ |
-| `colormap={json_string}` | Define a custom colormap | URL-encoded JSON mapping data values to RGBA lists `[R,G,B,Alpha]` | `colormap=%7B%221%22%3A%5B0%2C0%2C255%2C255%5D%2C%20%2210%22%3A%5B0%2C255%2C0%2C255%5D%2C%20%22100%22%3A%5B255%2C0%2C0%2C255%5D%7D` |
+| `colormap={json_string}` | Define a custom colormap | URL-encoded JSON mapping data values to RGBA lists `[R,G,B,Alpha]` | `colormap={\"1\":[54,124,20,255],\"2\":[28,67,0,255],\"3\":[94, 91, 32, 255],\"4\":[234, 99, 32, 255],\"5\":[237, 232, 60, 255],\"6\":[236, 31, 175, 255],\"7\":[19, 0, 239, 255], \"8\":[209, 3, 0, 255]}` |
 
-**Example decodes to:** Maps value 1 to Blue, 10 to Green, 100 to Red
+**Example decodes to:** Maps value 1 to dark green, 2 to very dark green, 3 to olive green, 4 to orange-red, 5 to yellow, 6 to pink/magenta, 7 to blue-violet, and 8 to red.
 
 ### 5. Data Handling
 
