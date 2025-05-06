@@ -296,7 +296,7 @@ This feature is supported for both Consumption and Dedicated plans in workload p
 - Private link connectivity with Azure Front Door is supported for Azure Container Apps. Refer to [create a private link with Azure Front Door](how-to-integrate-with-azure-front-door.md) for more information.
 
 #### Considerations
-- Private endpoints on Azure Container Apps only support inbound HTTP traffic. TCP traffic isn't supported.
+
 - To use a private endpoint with a custom domain and an *Apex domain* as the *Hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the container app environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up custom domain with existing certificate](custom-domains-certificates.md).
 - Your private endpoint's VNet can be separate from the VNet integrated with your container app.
 - You can add a private endpoint to both new and existing workload profile environments.
