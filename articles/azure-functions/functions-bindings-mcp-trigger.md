@@ -193,7 +193,7 @@ For more information, see [Examples](#example).
 
 ## host.json settings
 
-The host.json file contains settings that control MCP trigger behaviors. See the [host.json settings](functions-bindings-mcp.md#host-json) section for details regarding available settings.
+The host.json file contains settings that control MCP trigger behaviors. See the [host.json settings](functions-bindings-mcp.md#hostjson-settings) section for details regarding available settings.
 
 ## Related articles
 
