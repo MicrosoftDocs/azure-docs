@@ -1,6 +1,6 @@
 ---
-title: Create chat completions with prompt templates
-description: Add chat interactions to workflows by using Azure Logic Apps and Azure OpenAI prompt templates.
+title: Create chat completions in workflows with prompt templates
+description: Build workflows with chat interactions by using Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
 author: ecfan
 ms.suite: integration
