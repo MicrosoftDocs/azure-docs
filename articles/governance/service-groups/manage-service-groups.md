@@ -314,7 +314,7 @@ For example, if the customer created a REST API call to [Create a Service Group]
 
 To get the status of the operation to see if the Service Group was created or not, the customer makes a separate call. The status returned is for the entire operation.
 
-![OperationStatus](./media/operationStatus.png)
+:::image type="content" source="./media/operationStatus.png" alt-text="Image showing the operation status as succeeded or failed.":::
 
 ### How to get the operation status
 The URL used to get the operation status is returned as a header of the initial request's response. 
