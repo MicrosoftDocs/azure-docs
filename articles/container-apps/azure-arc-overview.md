@@ -86,7 +86,6 @@ The following table describes the role of each revision created for you:
 
 ## FAQ for Azure Container Apps on Azure Arc
 
-- [How much does it cost?](#how-much-does-it-cost)
 - [Which Container Apps features are supported?](#which-container-apps-features-are-supported)
 - [Are managed identities supported?](#are-managed-identities-supported)
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
