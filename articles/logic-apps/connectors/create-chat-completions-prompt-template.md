@@ -1,6 +1,6 @@
 ---
-title: Create chat interfaces with prompt templates
-description: Build an AI chat interface by using Standard workflows in Azure Logic Apps and Azure OpenAI prompt templates.
+title: Create chat completions with prompt templates
+description: Add chat interactions to workflows by using Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
 author: ecfan
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/06/2025
-# Customer intent: I want to create an AI chat interface by using a prompt template that makes answering questions easier. I want to know how to complete this task by building a Standard workflow that connects to an Azure OpenAI resource and uses the Azure OpenAI built-in chat completions operation with a prompt template in Azure Logic Apps.
+# Customer intent: I want to create chat completions in Standard workflows by using a prompt template to make answering questions easier. I want to connect to an Azure OpenAI resource and use built-in chat completions operation with the prompt template in Azure Logic Apps.
 ---
 
-# Create an AI chat interface by using prompt templates with Standard workflows in Azure Logic Apps (Preview)
+# Create chat completions with prompt templates in Standard workflows for Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
@@ -20,11 +20,11 @@ ms.date: 05/06/2025
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Suppose you want to automate the way that your enterprise or organization answers questions from various groups of people, such as employees, customers, investors, or the media. You can build a chat interface that responds to questions by using the **Azure OpenAI Service** action named **Get chat completions using Prompt Template** and data from your enterprise or organization.
+Suppose you want to automate the way that your enterprise or organization answers questions from various groups of people, such as employees, customers, investors, or the media. You can add chat interactions that respond to questions by using the **Azure OpenAI Service** action named **Get chat completions using Prompt Template** and data from your enterprise or organization.
 
 When you use your own data with the models in Azure OpenAI Service, you create an AI-powered conversation platform that provides faster communication and draws context from specific domain knowledge. To build a process that handles each question, accesses your data source, and returns a response, create a Standard workflow in Azure Logic Apps to automate the necessary steps - all without writing code.
 
-This guide shows how to build a chat interface by using a *prompt template* as the starting point. This template is a prebuilt reusable text-based structure that guides the interactions between the AI model and the questioners.
+This guide shows how to add chat interactions to a Standard workflow by using a *prompt template* as the starting point. This template is a prebuilt reusable text-based structure that guides the interactions between the AI model and the questioners.
 
 The following diagram shows the example workflow that this guide creates:
 
