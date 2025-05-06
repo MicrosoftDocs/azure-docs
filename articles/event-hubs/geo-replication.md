@@ -241,7 +241,7 @@ This section provides additional considerations when using Geo-Replication with 
 When implementing Geo-Replication for a Event Hubs namespace that uses private endpoints, it is important to create private endpoints for both the primary and secondary regions. These endpoints should be configured against virtual networks hosting both primary and secondary instances of your application. For example, if you have two virtual networks, VNET-1 and VNET-2, you need to create two private endpoints on the Event Hubs namespace, using subnets from VNET-1 and VNET-2 respectively. Moreover, the VNETs should be set up with [cross-region peering](/azure/virtual-network/virtual-network-peering-overview), so that clients can communicate with either of the private endpoints. Finally, the [DNS](/azure/private-link/private-endpoint-dns) needs to be managed in such a way that all clients get the DNS information, which should point the namespace endpoint (namespacename.servicebus.windows.net) to the IP address of the private endpoint in the current primary region.
 
 > [!IMPORTANT]
-> When [promoting](#promotion-flow) a secondary region for Event Hubs, the DNS entry also needs to be updated to point to the corresponding endpoint.
+> When promoting a secondary region for Event Hubs, the DNS entry also needs to be updated to point to the corresponding endpoint.
 
 :::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and a Event Hubs namespace.":::
 
