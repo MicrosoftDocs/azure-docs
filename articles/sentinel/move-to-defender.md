@@ -43,6 +43,25 @@ Review all planning guidance and finish all prerequisites before you start onboa
 
 - [**Connect Microsoft Sentinel to the Defender portal**](/unified-secops-platform/microsoft-sentinel-onboard). This article lists the prerequisites for onboarding your workspace to the Defender portal. If you plan to use Microsoft Sentinel without Defender XDR, you need to take an extra step to trigger the connection between Microsoft Sentinel and the Defender portal.
 
+### Review differences for data storage and privacy
+
+The following table provides information and links to more details about business continuity and disaster recovery (BCDR), data storage, data processing, data retention, data sharing, and researcher access so that you can compare between Microsoft Sentinel in the Azure portal and the unified experience in Microsoft Defender.
+
+|Area of support |Azure portal |Defender portal  |
+|---------|---------|---------|
+|**BCDR**     | Customers are responsible for replicating their data        |  Microsoft Defender uses automation for BCDR on control panes.       |
+|**Data storage and processing**<br><br>Note supported regions for both storage and processing    |   - [Data storage location](geographical-availability-data-residency.md#data-storage-location) <br>- [Supported regions](geographical-availability-data-residency.md#supported-regions)      |  [Data storage location](/defender-xdr/data-privacy#data-storage-location)       |
+|**Data retention**     |  [Data retention](geographical-availability-data-residency.md#data-retention)    | [Data retention](/defender-xdr/data-privacy#data-retention)      |
+|**Data sharing**     |  [Data sharing](geographical-availability-data-residency.md#data-sharing-for-microsoft-sentinel)       |  [Data sharing](/defender-xdr/data-privacy#data-sharing)       |
+|**Researcher access**     |    Available after customer opts in using the **Eyes on data** toggle     | The [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) [licenses Microsoft](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/EAEAS) to improve products and enhance user security, which brings a benefit back to the customer. <br><br>Internally, Microsoft employs strict controls for permissible processing when using customer data in this manner.  <br><br>[Product Terms](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/EAEAS) also permits sharing data between services that the customer subscribes to. |
+
+<!--need xref for eyes on data-->
+
+For more information, see:
+
+- [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md)
+- [Data security and retention in Microsoft Defender XDR](/defender-xdr/data-privacy)
+
 ### Configure multi-workspace and multitenant management
 
 Defender supports one or more workspaces across multiple tenants through the [multitenant portal](https://mto.security.microsoft.com), which serves as a central place to manage incidents and alerts, hunt for threats across tenants, and lets Managed Security Service Partners (MSSPs) see across customers.
