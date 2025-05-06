@@ -3,7 +3,7 @@ title: Set up Citrix XenDesktop/XenApp disaster recovery with Azure Site Recover
 description: This article describes how to set up disaster recovery fo Citrix XenDesktop and XenApp deployments using Azure Site Recovery.
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/06/2024
 ms.author: ankitadutta
 

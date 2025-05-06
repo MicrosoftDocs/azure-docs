@@ -3,7 +3,7 @@ title: Find your Azure Large Instances subscription ID
 titleSuffix: Azure Large Instances
 description: Explains how to find your Azure Large Instances subscription ID.
 ms.title: Find your subscription ID
-ms.topic: conceptual
+ms.topic: concept-article
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
