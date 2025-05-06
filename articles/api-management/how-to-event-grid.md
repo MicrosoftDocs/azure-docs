@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 11/2/2021
+ms.date: 05/06/2025
 ms.custom: devx-track-azurecli
 ---
 
@@ -14,6 +14,13 @@ ms.custom: devx-track-azurecli
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 API Management integrates with [Azure Event Grid](../event-grid/overview.md) so that you can send event notifications to other services and trigger downstream processes. Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks.
+
+You can subscribe to the following types of API Management events:
+
+* **Control plane events**: These events are generated when you create, update, or delete certain API Management resources. For example, you can receive an event when a new user or new product is created in your API Management instance.
+* **Data plane events** (preview): These events are generated  during operation of the API Management gateway. Currently, API Management can generate events for [backend circuit breakers](backends.md#circuit-breaker) and for the lifecycle of self-hosted gateway [authentication tokens](self-hosted-gateway-enable-azure-ad.md#).
+
+For a complete list of available events, see the [Event Grid schema for API Management](../event-grid/event-schema-api-management.md).
 
 For example, using integration with Event Grid, you can build an application that updates a database, creates a billing account, and sends an email notification each time a user is added to your API Management instance.
 
