@@ -155,5 +155,5 @@ az rest --method PUT \
     ./assign_identity.sh
     ```
 
-Once complete, proceed to the [Assign your managed identity the Storage Blob Data Reader role](#assign-your-managed-identity-the-storage-blob-data-reader-role) instructions. 
+Once complete, proceed to the [Assign your managed identity the Storage Blob Data Reader role](./setup-ingestion-credentials-managed-identity.md#assign-your-managed-identity-the-storage-blob-data-reader-role) instructions. 
 

@@ -11,14 +11,14 @@ ms.date: 04/09/2025
 
 ---
 
-# Setup ingestion credentials for Microsoft Planetary Computer Pro using SAS tokens
+# Setup an Ingestion Source for Microsoft Planetary Computer Pro using SAS tokens
 
-Loading new data into the Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion sources, to access data that is stored externally to the GeoCatalog resource.
+Loading new data into the Microsoft Planetary Computer Pro GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion sources, to access data that is stored externally to the GeoCatalog resource.
   
 In this guide, you learn how to:
 
-- Setup credentials through Azure portal
-- Setup credentials through the Microsoft Planetary Computer Pro API using the Azure Python SDK
+- Create a Ingestion Source through Azure portal
+- Create a Ingestion Source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
 
 ## Prerequisites
 
@@ -37,26 +37,26 @@ Managed identities are a more secure, automated mechanism for establishing persi
 Managed identities only work within a single Microsoft Entra tenant, therefore the SAS Token approach is useful when moving data from storage that is in a storage account outside of your tenant.
 Data ingestion is specific to a Blob Container, and SAS tokens from the root storage resource aren't permitted. 
 
-## Set up credentials through the UI
+## Set up an Ingestion Source through the UI
 
 SAS tokens can be obtained multiple ways; in this guide, we do so using the [Azure portal](https://portal.azure.com/).
 Azure Storage Explorer is also an alternative UI-driven approach which works on a local machine. See [Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer/?msockid=06a2c34a3959646b380ed330385d65fb)
 
 ### Navigate to your storage resource
 
-In the Azure portal, find the Storage Resource containing the Azure Blob Container with the data you wish to ingest into MPC Pro. In the Resource settings, select the **"Containers"** setting under **"Data Storage"**.
+In the Azure portal, find the Storage Resource containing the Azure Blob Container with the data you wish to ingest into Planetary Computer Pro. In the Resource settings, select the **"Containers"** setting under **"Data Storage"**.
 
-![Screenshot of the Azure portal showing the Containers section under Data Storage for a selected Storage Account.](media/select-containers.png)
+:::image type="content" source="media/select-containers.png" alt-text="Screenshot of the Azure portal showing the Containers section under Data Storage for a selected Storage Account.":::
 
 ### Select your blob container and request a SAS Token
 
 Select the specific container you wish to ingest, in this example we're selecting the "test" container. 
 
-![Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container.](media/select-test.png)
+:::image type="content" source="media/select-test.png" alt-text="Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container.":::
 
 Select the **"Shared access tokens"** setting and open the configuration settings.
 
-![Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container. The page includes fields for setting permissions, start and expiry times, and buttons to generate the SAS token and URL.](media/generate-sas-token.png)
+:::image type="content" source="media/generate-sas-token.png" alt-text="Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container. The page includes fields for setting permissions, start and expiry times, and buttons to generate the SAS token and URL.":::
 
 Ensure these settings are set up correctly:
 * Permissions = **Read** (verify no other options are selected)
@@ -66,39 +66,38 @@ Once the settings are verified, select the **"Generate SAS Token and URL"** butt
 
 ### Navigate to settings
 
-Use the URL of your MPC Pro to navigate to the landing page and select the **"Settings"** tab from the navigation bar. 
+Use the URL of your Planetary Computer Pro to navigate to the landing page and select the **"Settings"** tab from the navigation bar. 
 
-NEED NEW SCREENSHOT.
+:::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal showing where the Settings button is located.":::
 
-![Screenshot of the MPC Pro Settings page showing the Create Credential button and fields for entering the Container URL and Credential Token.](media/credentials_4.png)
+### Create your ingestion source
 
-### Create your credentials
-
-* Select the **Create Credential** button
+* Select the **Create ingestion source** button
 * Enter the URL of your Blob Container in the **Container URL** field
-    * Only include the URL and don't include the key. The format of the URL should be `https://(Storage Resource Name).blob.core.windows.net/(Blob Container Name)`
-* Cut and paste the SAS Token into the **Credential Token** field
+    * Only include the URL and don't include the key. The format of the URL should be:
+
+        `https://(Storage Resource Name).blob.core.windows.net/(Blob Container Name)`
+* Cut and paste the SAS Token into the **Credential Token** field.
+    * A SAS token looks like a query string. Include all the text starting with the `?` symbol: 
+    
+        *Example:* `?sv=<signed-version>&ss=<signed-services>&srt=<signed-resource-types>&sp=<signed-permissions>&se=<signed-expiry-time>&st=<signed-start-time>&spr=<signed-protocol>&sig=<signature>`
 * Select the **Create** button
 
-NEED NEW SCREENSHOT
+:::image type="content" source="media/sas_token_input.png" alt-text="Screenshot of the Planetary Computer Pro Settings page showing a successfully created an ingestion source. The page displays the Container URL, Credential Token, and an expiration date for the credential.":::
 
-![Screenshot of the MPC Pro Settings page showing a successfully created credential. The page displays the Container URL, Credential Token, and an expiration date for the credential.](media/credentials_5.png)
+Your ingestion source is now set up to support ingesting data!
 
-Your credential is now set up to support ingestions.
+If your ingestion expires or you need to add SAS tokens for a different Blob Container, repeat the previous process. 
 
-NEED NEW SCREENSHOT
+## Set up Ingestion Source for SAS Tokens through the API
 
-If your credential expires or you need to add credentials for a different Blob Container, repeat the previous process. 
+Ingestion sources can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-source) API documentation.
 
-## Set up credentials through the API
+The following block of code imports required libraries and sets up key variables.
 
-Credentials can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-source) API documentation.
-
-The following block of code imports required libraries and sets up key variables. 
-
-- Change **CONTAINER_URL** to be the Azure Blob Container URL containing the data you wish to ingest. 
-- Change **GEOCATALOG_URL** to be your MPC Pro resource endpoint. 
-- Change **EXPIRATION_HOURS** to how many hours you want the credential to be alive (default is 7 days / 168 hours)
+- Replace `<your_container_url>` with the Azure Blob Container URL containing the data you wish to ingest.
+- Replace `<your_geocatalog_url>` with your Planetary Computer Pro resource endpoint URL.
+- Replace `<token_duration_in_hours>` with how many hours you want the SAS token to be valid (default is 168 hours, which is 7 days).
 
 ```python
 import requests
@@ -110,20 +109,20 @@ from urllib.parse import urlparse
 ###################################
 
 # Set Key Variables Here
-## The MPC Pro App ID. Do not change.
+## The Planetary Computer Pro App ID. Do not change.
 MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
 
 ## The API version. Do not change.
 API_VERSION = "2025-04-30-preview"
 
-## The URL of the Blob Container, replace the default with your specific container url
-CONTAINER_URL = "https://datazoo.blob.core.windows.net/test"
+## Replace with the URL of the Blob Container
+CONTAINER_URL = "<your_container_url>" # e.g., "https://youraccount.blob.core.windows.net/yourcontainer"
 
-## The URL of your GeoCatalog Resource, replace the default with your specific url
-GEOCATALOG_URL = "https://tc-demo.bxfqdqh5dagmbgez.uksouth.geocatalog.spatio.azure.com/"
+## Replace with the URL of your GeoCatalog Resource
+GEOCATALOG_URL = "<your_geocatalog_url>" # e.g., "https://yourgeocatalog.randomid.region.geocatalog.spatio.azure.com/"
 
-## Set the duration of the token in hours, default 168 hours (7 days)
-EXPIRATION_HOURS = 7 * 24
+## Replace with the desired duration of the token in hours (default: 168 hours = 7 days)
+EXPIRATION_HOURS = <token_duration_in_hours> # e.g., 7 * 24
 ```
 
 The next block of code uses the Azure SDK to request a SAS token for the specified Blob Container.
@@ -161,7 +160,7 @@ sas_token = azure.storage.blob.generate_container_sas(
     expiry=now + timedelta(hours = EXPIRATION_HOURS),)
 ```
 
-The next block of code uses the MPC Pro API to post the credential.
+The next block of code uses the Planetary Computer Pro API to post the credential.
 
 ```python
 # Obtain an access token
@@ -195,6 +194,20 @@ else:
     print(f"Failed to create ingestion: {response.text}")
 ```
 
+## Next steps
+Now that you have setup managed identity, its time to ingest data. 
+
+For Single Item Ingestion:
+
+> [!div class="nextstepaction"]
+> [Adding an Item to a STAC Collection](./add-stac-item-to-collection.md)
+
+For Bulk Ingestion:
+> [!div class="nextstepaction"]
+> [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
+
 ## Related content
 
-- [Ingestion overview](./ingestion-source.md)
+- [Ingestion overview](./ingestion-overview.md)
+- [Ingestion sources](./ingestion-source.md)
+- [Set up ingestion credentials using SAS tokens](./setup-ingestion-credentials-sas-tokens.md)
