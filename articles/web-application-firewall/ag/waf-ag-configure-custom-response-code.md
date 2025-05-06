@@ -18,7 +18,16 @@ This article shows you how to configure a custom response page when Azure Applic
 
 ## Configure a custom response status code and message
 
-You can customize the response status code and body in the **Policy settings** section of the Azure Web Application Firewall portal.
+To customize the response status code and body, take the following steps:
+
+1. Go to your Application Gateway WAF policy in the Azure portal.
+
+1. Under **Settings**, select **Policy settings**.
+
+1. Enter the custom response status code and response body in **Block response status code** and **Block response body** respectively.
+
+1. Select **Save**.
+
 
 :::image type="content" source="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings.":::
 
