@@ -45,7 +45,9 @@ Review all planning guidance and finish all prerequisites before you start onboa
 
 ### Review differences for data storage and privacy
 
-The following table provides information and links to more details about business continuity and disaster recovery (BCDR), data storage, data processing, data retention, data sharing, and researcher access so that you can compare between Microsoft Sentinel in the Azure portal and the unified experience in Microsoft Defender.
+When working in the Azure portal, the [Microsoft Sentinel policies](geographical-availability-data-residency.md) for data storage, process, retention, and sharing apply. When working in the Defender portal, the [Microsoft Defender XDR policies](/defender-xdr/data-privacy) apply instead, even when you're working with Microsoft Sentinel data.
+
+The following table provides additional details and links so that you can compare experiences across the Azure and Defender portals.
 
 |Area of support |Azure portal |Defender portal  |
 |---------|---------|---------|
