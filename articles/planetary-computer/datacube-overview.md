@@ -11,17 +11,18 @@ ms.date: 04/24/2025
 ---
 # Data cubes in Microsoft Planetary Computer Pro
 
-As mentioned in [Supported Data Types](./supported-data-types.md), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with MPC Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
+As mentioned in [Supported Data Types](./supported-data-types.md), Microsoft Planetary Computer Pro supports ingestion, cloud optimization, and visualization of data cube files in NetCDF, HDF5, and GRIB2 formats. Though complex and historically cumbersome on local storage, these assets are optimized for cloud environments with Planetary Computer Pro, further empowering them as efficient tools to structure and store multidimensional data like satellite imagery and climate models.
 
-## Handling data cubes in MPC Pro
+## Handling data cubes in Planetary Computer Pro
 
-Data cube files can be ingested into MPC Pro in the same way as other raster data types. As with other date formats, assets and associated STAC Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, additional processing will occur upon ingestion of certain data cube formats (NetCDF and HDF5).
+Data cube files can be ingested into Planetary Computer Pro in the same way as other raster data types. As with other date formats, assets and associated Spatio Temporal Asset Catalog (STAC) Items must first be stored in Azure Blob Storage. Unlike other two-dimensional raster assets, however, additional processing will occur upon ingestion of certain data cube formats (NetCDF and HDF5).
 
-**NOTE:** GRIB2 data will be ingested in the same way as other two-dimensional raster data (with no additional enrichment), as they are essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments.
+> [!NOTE]
+> GRIB2 data will be ingested in the same way as other two-dimensional raster data (with no additional enrichment), as they are essentially a collection of 2D rasters with an associated index file that references the data efficiently in cloud environments.
 
 ## Enabling data cube enrichment of STAC assets
 
-When a SpatioTemporal Asset Catalog (STAC) item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with data cube functionality. When data cube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
+When a STAC Item containing NetCDF or HDF5 assets is ingested, those assets can be enriched with data cube functionality. When data cube functionality is enabled, a Kerchunk manifest is generated and stored in blob storage alongside the asset, enabling more efficient data access.
 
 ### Data cube enrichment and Kerchunk manifests  
 

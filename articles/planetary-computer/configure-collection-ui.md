@@ -40,7 +40,9 @@ To configure a collection in the Microsoft Planetary Computer Pro web interface,
 | **Tile Settings**  | Set map tile parameters for your collection. | [Tile settings](./tile-settings.md) |
 | **Queryables**     | Add custom search filters for Explorer. | [Queryables configuration](./queryables-for-explorer-custom-search-filter.md) |
 
-**NOTE:** While it's helpful to define configuration JSONs for all four tabs, only the Render configuration is required to visualize your data in the Explorer. The other three tabs are optional and can be used to customize the behavior of your collection in the Explorer.
+> [!NOTE]
+> While it's helpful to define configuration JSONs for all four tabs, only the Render configuration is required to visualize your data in the Explorer. The other three tabs are optional and can be used to customize the behavior of your collection in the Explorer.
+:::image type="content" source="./media/collection-config-ui.jpeg" alt-text="Screenshot of collection config in web interface."::: 
 
 3. Once you define your configuration JSONs, select **Update** to save your changes.
    

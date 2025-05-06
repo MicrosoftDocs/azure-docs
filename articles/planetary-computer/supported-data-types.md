@@ -6,16 +6,16 @@ ms.author: brentharris
 ms.service: azure
 ms.topic: concept-article
 ms.date: 4/9/2025
-#customer intent: As a user of an Microsoft Planetary Computer (MPC) Pro GeoCatalog, I want to understand which geospatial data formats are supported so that I can understand the capabilities of MPC Pro. 
+#customer intent: As a user of an Microsoft Planetary Computer Pro GeoCatalog, I want to understand which geospatial data formats are supported so that I can understand the capabilities of Planetary Computer Pro. 
 ---
 
 # Supported data types in Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds of data, but only certain file types enable you to take advantage of the full suite of Microsoft Planetary Computer (MPC) Pro features. The following file formats are supported, and automatically cloud optimized, indexed, and made available for visualization upon ingestion:
+Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds of data, but only certain file types enable you to take advantage of the full suite of Microsoft Planetary Computer Pro features. The following file formats are supported, and automatically cloud optimized, indexed, and made available for visualization upon ingestion:
 
 ## Use cases
 
-It's important to understand which geospatial data formats are supported in MPC Pro when performing the following actions:
+It's important to understand which geospatial data formats are supported in Planetary Computer Pro when performing the following actions:
 - Creating STAC (Spatio Temporal Asset Catalog) Collections and Ingesting STAC Items
 - Visualizing STAC Items in the Data Explorer UI
 
@@ -33,18 +33,10 @@ It's important to understand which geospatial data formats are supported in MPC 
 
 * NetCDF  
 * HDF5  
-* GRIB2  
-* Zarr (coming soon)
+* GRIB2
 
-### Vector Data Formats
-
-* GeoJSON (coming soon)
-
-### Future data types
-
-* Hyperspectral Data  
-* 3D/Point Cloud Data  
-* Drone Video & Imagery  
+### Other file formats and metadata files
+Beyond this list of supported data types, you may ingest STAC items that point to other data types as assets. For example, it is common for STAC items to list additional metadata files as assets in json, xml, csv, and other formats. When ingesting STAC items that include these other file types as assets the Planetary Computer Pro will ingest and store these files, but will not attempt to convert them to cloud optimized formats. After ingest, you will be able to access these non-supported asset types using the Planetary Computer Pro's STAC API, but you will not be able to visualize them within the Planetary Computer Pro's Explorer.
 
 ## Related Content
 
