@@ -48,10 +48,22 @@ The MCP server is created and the API operations are exposed as tools. The MCP s
 
 To verify that the MCP server is working, you can use a tool like MCP Inspector to send requests to the server's `sse` endpoint.
 
+To use MCP inspector:
 
+1. Start the MCP Inspector by running the following command in a terminal:
+
+    ```bash
+    npx @modelcontextprotocol/inspector
+    ```
+1. Select **Transport Type** of **SSE**.
+1. In **URL**, enter the MCP server URL that's configured in API Management.
+1. Under **Authentication**, provide credentials of the underlying API if required in API Management. For example, if a subscription key is required, enter  `Ocp-Apim-Subscription-Key` in **Header Name**, and provide the key value in **Bearer token**.
+1. Select **Connect** to connect to the MCP server. 
+1. In **Tools**, select **List Tools**, and select a tool configured in the MCP server. 
+1. Enter any required parameters for the tool, and select **Run Tool** to run the tool. The results are displayed in the **Tool Result** pane.
+
+:::image type="content" source="media/export-rest-mcp-server/test-mcp-inspector.png" alt-text="Screenshot of testing an MCP server tool in MCP Inspector.":::
 
 ## Related content
 
-* [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/enhanced-api-developer-experience-with-the-microsoft-postman/ba-p/3650304)
-* Learn more about [importing API definitions to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
-* Learn more about [authorizing requests in Postman](https://learning.postman.com/docs/sending-requests/authorization/).
+
