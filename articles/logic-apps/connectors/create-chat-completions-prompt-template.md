@@ -115,7 +115,7 @@ Add the trigger by following these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
-1. Follow the [general steps to add the trigger that you want](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-trigger).
+1. Follow the [general steps to add the trigger that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger).
 
    This example uses the **Request** trigger named **When an HTTP request is available**. For more information about this trigger, see [Receive and respond to inbound HTTPS calls](/azure/connectors/connectors-native-reqres?tabs=standard).
 
@@ -137,7 +137,7 @@ When you're done, your workflow looks like the following example:
 
 To add operations that store the trigger outputs for subsequent actions to use as inputs, follow these steps:
 
-1. Under the trigger, follow the [general steps to add the data operation named **Compose** action](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
+1. Under the trigger, follow the [general steps to add the data operation named **Compose** action](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
    The example adds three **Compose** actions and uses the following test data as inputs:
 
@@ -200,7 +200,7 @@ Now, add the Azure OpenAI action to the workflow.
 
 ## Add the Azure OpenAI action
 
-1. Under the last **Compose** action, follow the [general steps to add the **Azure OpenAI** action named **Get chat completions using Prompt Template**](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
+1. Under the last **Compose** action, follow the [general steps to add the **Azure OpenAI** action named **Get chat completions using Prompt Template**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
 1. After the action appears on the designer surface, the connection pane opens so that you can provide the following information:
 
