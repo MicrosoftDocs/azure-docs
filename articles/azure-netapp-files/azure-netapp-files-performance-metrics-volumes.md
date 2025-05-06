@@ -4,7 +4,7 @@ description: Learn about benchmark testing recommendations for volume performanc
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/31/2024
 ---
 # Performance benchmark test recommendations for Azure NetApp Files

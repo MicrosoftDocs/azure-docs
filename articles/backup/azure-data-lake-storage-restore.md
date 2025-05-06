@@ -1,19 +1,19 @@
 ---
-title: Restore Azure Data Lake Storage Gen2 using Azure Portal (preview)
-description: Learn how to restore Azure Data Lake Storage Gen2 vaulted  backups (preview) using Azure portal.
+title: Restore Azure Data Lake Storage using Azure Portal (preview)
+description: Learn how to restore Azure Data Lake Storage vaulted  backups (preview) using Azure portal.
 ms.topic: how-to
 ms.date: 04/16/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore Azure Data Lake Storage Gen2 using Azure portal (preview)
+# Restore Azure Data Lake Storage using Azure portal (preview)
 
-This article describes how to restore Azure Data Lake Storage Gen2 vaulted  backups (preview) using Azure portal.
+This article describes how to restore Azure Data Lake Storage vaulted  backups (preview) using Azure portal.
 
 ## Prerequisites
 
-Before you restore Azure Data Lake Storage Gen2, ensure the following prerequisites are met:
+Before you restore Azure Data Lake Storage, ensure the following prerequisites are met:
 
 - The Backup vault must have the **Storage account backup contributor** role assigned to the target storage account to which the backup data needs to be restored.
 - Cool and cold tier blobs are restored in hot tier.
@@ -23,11 +23,11 @@ Before you restore Azure Data Lake Storage Gen2, ensure the following prerequisi
 >[!Note]
 >Vaulted backups only support restoring data to another storage account, which is different from the one that was backed up.
 
-Learn more about the [supported scenarios, limitations, and region availability for Azure Data Lake Storage Gen2 backup/restore (preview)](azure-data-lake-storage-backup-support-matrix.md).
+Learn more about the [supported scenarios, limitations, and region availability for Azure Data Lake Storage backup/restore (preview)](azure-data-lake-storage-backup-support-matrix.md).
 
 ## Restore the storage data from vaulted backups
 
-To  restore Azure Data Lake Storage Gen2 from vaulted  backups, follow these steps:
+To  restore Azure Data Lake Storage from vaulted  backups, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **Backup Instances**.
 1. On the **Backup Instances** pane, select the storage account with Data Lake Storage, and then select **Restore**. 

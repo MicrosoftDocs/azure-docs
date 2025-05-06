@@ -4,7 +4,7 @@ description: Learn what attestation is and how to use it at Microsoft
 author: jl-pm
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/02/2023
 ms.author: joelinscott
 ---

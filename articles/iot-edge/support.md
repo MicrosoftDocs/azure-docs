@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/12/2025
+ms.date: 04/30/2025
 ms.topic: conceptual
 ms.service: azure-iot-edge
 services: iot-edge
@@ -115,8 +115,7 @@ IoT Edge uses the Microsoft.Azure.Devices.Client SDK. For more information, see 
 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
-| 1.5              | 1.42.x |
-| 1.4              | 1.36.6 |
+| 1.5              | 1.36.x |
 
 ## Virtual Machines
 

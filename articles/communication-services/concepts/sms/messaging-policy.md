@@ -1,6 +1,6 @@
 ---
 title: Messaging Policy
-titleSuffix: An Azure Communication Services concept document
+titleSuffix: An Azure Communication Services article
 description: This article describes Azure Communication Services messaging policy.
 author: prakulka
 manager: nmurav
@@ -30,7 +30,7 @@ We developed this messaging policy to help you satisfy regulatory requirements a
 
 ### What is consent?
 
-Consent is an agreement between you and the message recipient that allows you to send application to person (A2P) messages to them. You must obtain consent before sending the first message, and you should make clear to the recipient that they're agreeing to receive messages from you. This procedure is known as receiving "prior express consent" from the individual you intend to message.
+Consent is an agreement between you and the message recipient that allows you to send application to person (A2P) messages to them. You must obtain consent before sending the first message, and you should make clear to the recipient that they're agreeing to receive messages from you. This procedure is known as receiving *prior express consent* from the individual you intend to message.
 
 The messages that you send must be the same type of messages that the recipient agreed to receive and should only be sent to the number or email address that the recipient provided to you. If you intend to send informational messages, such as appointment reminders or alerts, then consent can be either written or oral. If you intend to send promotional messages, such as sales or marketing messages that promote a product or service, then consent must be written.
 
@@ -44,13 +44,13 @@ Consent can be obtained in various ways, such as:
  
 Regardless of how consent is obtained, you and your customers must ensure that the consent is unambiguous. The scope of the consent should clear to the recipient.
 
-### Consent requirements:
+### Consent requirements
 
-- Provide a “Call to Action” before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt-in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
+- Provide a *Call to Action* before obtaining consent. You and your customers should provide potential message recipients with a “call to action” that invites them to opt in to your messaging program. The call to action should include, at a minimum: (1) the identity of the message sender, (2) clear opt-in instructions, (3) opt-out instructions, and (4) any associated messaging fees.
 - Consent isn't transferable or assignable. Any consent that an individual provides to you can't be transferred or sold to an unaffiliated third party. If you collect an individual’s consent for a third party, then you must clearly identify the third party to the individual. You must also state that the consent you obtained applies only to communications from the third party.
 - Consent is limited in purpose. An individual who provides their number or an email address for a particular purpose consents to receive communications only for that specific purpose and from that specific message sender. Before obtaining consent, you should clearly notify the intended message recipient if you send recurring messages or messages from an affiliate.
 
-### Consent best practices:
+### Consent best practices
 
 In addition to the messaging requirements previously discussed, you may want to implement several common best practices, including: 
 
@@ -107,9 +107,9 @@ None of these messages may include solicitations or advertisements.
 
 Message recipients may revoke consent and opt-out of receiving future messages through any reasonable means. You may not designate an exclusive means for message recipients to revoke consent. 
 
-### Opt-out requirements:
+### Opt-out requirements
 
-Ensure that message recipients can opt-out of future messages at any time. You must also offer multiple opt-out options. After a message recipient opts out, don't send any new messages unless the individual provides renewed consent.
+Ensure that message recipients can opt out of future messages at any time. You must also offer multiple opt-out options. After a message recipient opts out, don't send any new messages unless the individual provides renewed consent.
 
 One of the most common opt-out mechanisms in SMS applications is to include a “STOP” keyword in the initial message of every new conversation. Be prepared to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.”  
 
@@ -117,7 +117,7 @@ For email, embed a link to unsubscribe in every email sent to the customer. If t
 
 After an individual revokes consent, you should remove them from all recurring messaging campaigns unless they expressly elect to continue receiving messages from a particular program.
 
-### Opt-out best practices:
+### Opt-out best practices
 
 In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe embedded in an email message you sent or available on your webpage. 
 
@@ -125,7 +125,7 @@ In addition to keywords, other common opt-out mechanisms include providing custo
 
 If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number or short code, then all further traffic from that number is automatically stopped. However, you must still ensure that you don't send any new messages for that messaging campaign from new or different numbers.
 
-If you separately obtained express consent for a different messaging campaign, then you must ask the customer to respond with a START message to resubscribe or may continue to send messages from a different number for that campaign. For alphanumeric sender ID, you're required to provide alternative mechanisms like email/call support or opt-out link for the customer to opt-out. Check out our FAQ section to learn more on [Opt-out handling](./sms-faq.md#opt-out-handling).
+If you separately obtained express consent for a different messaging campaign, then you must ask the customer to respond with a START message to resubscribe or may continue to send messages from a different number for that campaign. For alphanumeric sender ID, you're required to provide alternative mechanisms like email/call support or opt-out link for the customer to opt out. Check out our FAQ section to learn more on [Opt-out handling](./sms-faq.md#opt-out-handling).
 
 ### How we handle opt-out requests for email
 
@@ -133,13 +133,13 @@ If an individual requests to opt-out of future messages on Azure Communication S
 
 ## Message content
 
-### Adult content:
+### Adult content
 
 Message content that includes elements of sex, hate, alcohol, firearms, tobacco, gambling, or sweepstakes and contests can trigger more requirements. This content is expressly prohibited in some jurisdictions. If you send a message that includes this content, then it is your duty to abide by all applicable laws of the jurisdictions in which the communications are received. At the request of law enforcement or Azure Communication Services, you must be prepared to provide proof of consent with local laws that regulate adult content.
 
 Even where such content legal, you should include an age verification mechanism at opt-in to age-gate the intended message recipient from adult content. In the United States, more legal requirements apply to marketing communications directed at children under the age of 13. 
 
-### Prohibited practices:
+### Prohibited practices
 
 Both you and your customers are prohibited from using Azure Communication Services to evade reasonable opt-out requests. Additionally, you and your customers may not evade any measures implemented by Azure Communication Services or a communications service provider to ensure your compliance with messaging requirements and industry standards.
 
@@ -162,12 +162,12 @@ Spoofing is the act of causing a misleading or inaccurate originating number or 
 
 ## Final thoughts
 
-### Legal Responsibility:
+### Legal Responsibility
 
 This Messaging Policy doesn't constitute legal advice, and we reserve the right to modify the policy at any time. Azure Communication Services isn't responsible for ensuring that the content, timing, or recipients of our customers’ messages meet all applicable legal requirements. 
 
 Our customers are responsible for all messaging requirements. If you're a platform or software provider that uses Azure Communication Services for messaging purposes, then you should require that your customers also abide by all of the requirements discussed in this Messaging Policy. For further guidance, the CTIA's [Messaging Principles and Best Practices](https://api.ctia.org/wp-content/uploads/2019/07/190719-CTIA-Messaging-Principles-and-Best-Practices-FINAL.pdf) provides a helpful overview of the relevant industry standards.
 
-### Penalties:
+### Penalties
 
 We encourage our customers to develop and implement policies and procedures designed to ensure compliance with all messaging requirements. Violations of messaging requirements may lead to substantial fines that can balloon quickly. It's in your best interest to learn and abide by all applicable messaging requirements and develop effective mitigation safeguards to contain and eliminate violations before they spread. If you do breach our Messaging Policy or other legal requirements, then we'll work with you to ensure future compliance. However, we reserve the right to remove any customer from the Azure Communication Services platform who demonstrates a pattern of noncompliance with our Messaging Policy or legal requirements.

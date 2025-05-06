@@ -1,10 +1,10 @@
 ---
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
-author: sipastak
+author: dougeby
 ms.topic: release-notes
-ms.date: 04/07/2025
-ms.author: sipastak
+ms.date: 05/01/2025
+ms.author: avdcontent
 ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?
@@ -30,26 +30,46 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.10673.700 |
-| Validation | 1.0.11106.300 |
+| Production | 1.0.11106.400 |
+| Validation | 1.0.11212.600 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.11106.300 (validation)
+## Version 1.0.11212.600 (validation)
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Added messaging updates for the Remote Desktop client from the Microsoft Store.
+- Improved response handling during token refresh.
+- Resolved an issue causing App-V registration timeouts.
+
+## Version 1.0.11106.400
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Session hosts now indicate when they need help with specific Entra ID Join error codes.
+- Enhanced the process of debugging join failures.
+- Session hosts now show a **Needs Assistance** state when certain checks fail, preventing disconnections.
+
+## Version 1.0.11106.300
 
 *Published: April 2025*
 
 In this update, we made the following changes:
 
-- Session hosts will now indicate when they need help with specific Entra ID Join error codes. 
+- Session hosts now indicate when they need help with specific Entra ID Join error codes. 
 - Resolved an issue where the FPE service caused the session host to stay in an upgrading state. 
 - Improved the process for debugging join failures. 
-- Session hosts will now show a **Needs Assistance** state when certain checks fail, preventing disconnections. 
+- Session hosts now show a **Needs Assistance** state when certain checks fail, preventing disconnections. 
 - Added support for using Managed Service Identity (MSI) credentials to access external key vaults during session host provisioning. 
 - Addressed an issue with determining the initial version of RdrSxS after an agent restarts. 
   
-## Version 1.0.10806.600 (validation)
+## Version 1.0.10806.600
 
 *Published: March 2025*
 

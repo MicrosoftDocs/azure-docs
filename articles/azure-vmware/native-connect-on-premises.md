@@ -3,14 +3,14 @@ title: Connect to on-premises environment
 description: Learn how to connect your on-premises environment to Azure VMware Solution Gen 2 using ExpressRoute or Site-to-Site VPN for seamless integration.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 #customer intent: As an IT administrator, I want to connect my on-premises environment to my Azure VMware Solution Generation 2 private cloud so that I can extend my infrastructure seamlessly.
 ---
 
 # Connect to an on-premises environment
 
-You require network connectivity between the your Gen 2 private cloud and other networks you deployed in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or on the Internet. In this article, you learn how your Gen 2 private cloud gets connectivity to your on-premises environments.
+You require network connectivity between the your Azure VMware Solution Generation 2 (Gen 2) private cloud and other networks you deployed in an Azure Virtual Network, on-premises, other Azure VMware Solution private clouds, or on the Internet. In this article, you learn how your Gen 2 private cloud gets connectivity to your on-premises environments.
 
 ## Prerequisites
 
