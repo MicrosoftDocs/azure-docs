@@ -3,7 +3,7 @@ title: Manage resouces across subscriptions and resource groups with Azure Servi
 description: "Learn how to create, update, read, and delete Azure Service Groups and members"
 author: rthorn17
 ms.author: rithorn
-ms.service: azure-governance  ## is service-groups going to be an official service slug?
+ms.service: azure-policy 
 ms.topic: how-to
 ms.date: 05/19/2025
 ---
