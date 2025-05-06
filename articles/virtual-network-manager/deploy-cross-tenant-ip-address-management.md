@@ -184,16 +184,14 @@ In this section, you learn how to deploy a virtual network in Tenant B that uses
 To remove an IP allocation from a cross-tenant resource:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with credentials for Tenant A.
-
-1. Navigate to the IPAM pool in Azure Virtual Network Manager.
-
-1. Locate the allocation for the cross-tenant resource and select it.
-
-1. Select **Remove allocation** and confirm when prompted.
-
-1. You will be asked to authenticate to Tenant B to verify permissions.
-
-1. After authentication, the allocation will be removed and the resource in Tenant B will no longer have the assigned IP prefix.
+1. Navigate to **Azure Virtual Network Manager** and locate your network manager instance.
+1. Select **IP address pools** under **IP address management**.
+1. On the **IP address pools** page, select **Allocations** under **Settings**.
+1. Select the virtual network that you want to remove the IPAM allocation from.
+1. Select **X Remove**.
+1. Select **Authenticeate <managedTenantID>** to authenticate to Tenant B and complete authentication.
+1. Once authenticated, select **Yes** to remove the IPAM allocation.
+1. Refresh the page to verify that the IPAM allocation has been removed.
 
 # [Azure CLI](#tab/azurecli)
 
@@ -245,6 +243,3 @@ When you're done with cross-tenant IPAM, you may want to clean up the resources:
 - [Learn about IP address management in Azure Virtual Network Manager](./concept-ip-address-management.md)
 - [Add remote tenant scope in Azure Virtual Network Manager](./how-to-configure-cross-tenant-portal.md)
 - [Learn about security configuration in Azure Virtual Network Manager](./concept-security-admins.md)
-```
-
-This update restructures the document to use tabs for the Azure Portal and Azure CLI methods, following the format used in the reference document. The tabs are set at the H2 level and properly formatted with the markdown tab syntax. I've also added a "Remove IPAM allocation" section that follows the same tabbed structure for consistency.
