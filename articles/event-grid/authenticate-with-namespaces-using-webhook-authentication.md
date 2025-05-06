@@ -103,7 +103,7 @@ In this step, you configure custom webhook authentication settings on your Event
 1. In the **Custom Webhook authentication** section, specify values for the following properties: 
     1. Select **Managed identity** type.
     1. For **Webhook URL**, enter the value of the URL endpoint where the Event Grid service sends authenticated webhook requests using the specified managed identity. 
-    1. For **Token audience URI**, enter the value of Microsoft Entra application ID or URI to get the access token that will be included as the bearer token in delivery requests. 
+    1. For **Token audience URI**, enter the value of Microsoft Entra application ID or URI to get the access token to be included as the bearer token in delivery requests. 
     1. For **Microsoft Entra tenant ID**, enter the value of Microsoft Entra tenant ID used to acquire the bearer token for authenticated webhook delivery. 
     1. Select **Apply**. 
     
@@ -210,16 +210,18 @@ Content-Type: application/json
 ### Examples of supported attribute types: 
 
 ```json
-"bool_attr": true, 
-  "num_attr_pos": 1, 
-  "num_attr_neg": -1, 
-  "num_attr_to_big": 9223372036854775807, 
-  "num_attr_float": 1.23, 
-  "str_attr": "str_value", 
-  "str_list_attr": [ 
-    "str_value_1", 
-    "str_value_2"] 
+"num_attr_pos": 1, 
+"num_attr_neg": -1, 
+"str_attr": "str_value", 
+"str_list_attr": [ 
+    "str_value_1", 
+    "str_value_2" 
+] 
 ```
+
+All correct data types (number that fits int32, string, array of strings) are used as attributes. In the example, `num_attr_pos`, `num_attr_neg`, `str_attr`, `str_list_attr` claims have correct data types and are used as attributes. 
+
+
 
 ## Related content
 - [MQTT client authentication](mqtt-client-authentication.md)
