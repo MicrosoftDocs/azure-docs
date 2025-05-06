@@ -20,7 +20,7 @@ In this guide, you learn how to:
 
 > [!div class="checklist"]
 > - [Create a user assigned managed identity](#create-a-user-assigned-managed-identity)
-> - [Give a user assigned managed identity Storage Blob Data Reader to Azure Blob Storage](#give-a-user-assigned-managed-identity-storage-blob-data-reader-to-azure-blob-storage)
+> - [Assign your managed identity the Storage Blob Data Reader role](#assign-your-managed-identity-the-storage-blob-data-reader-role)
 > - [Associate a user assigned managed identity to a GeoCatalog](#associate-the-user-assigned-managed-identity-to-your-geocatalog-resource)
 > - [Configure an ingestion source](#configure-an-ingestion-source)
 

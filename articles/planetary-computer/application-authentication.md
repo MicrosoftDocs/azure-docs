@@ -52,7 +52,7 @@ In this access scenario, the application acts on its own with no user signed in 
 
 ## Delegated access
 
-In this access scenario, a user signed into a client application. The client application accesses the resource on behalf of the user. You need to ensure the users of the application are assigned proper RBAC roles as described under the section of [Users Access to MPC Pro](./manage-access.md#users-access). You also need to configure the application's API permissions with delegated permissions following these steps:  
+In this access scenario, a user signed into a client application. The client application accesses the resource on behalf of the user. You need to ensure the users of the application are assigned proper RBAC roles as described under the section of [Users Access to MPC Pro](./manage-access.md#create-and-manage-users). You also need to configure the application's API permissions with delegated permissions following these steps:  
 
 1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/)
 1. Browse to **Identity** > **Applications** > **App registrations**, and then select your client application

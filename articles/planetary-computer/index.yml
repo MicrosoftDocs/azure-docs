@@ -34,8 +34,6 @@ landingContent:
             url: stac-overview.md
           - text: Supported Data Types
             url: supported-data-types.md
-          - text: Service Limitations
-            url: service-limitations.md
 
   # Card
   - title: Deploy & Setup

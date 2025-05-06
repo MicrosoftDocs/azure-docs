@@ -10,8 +10,6 @@
     href: stac-overview.md
   - name: Supported Data Types
     href: supported-data-types.md
-  - name: Service Limitations
-    href: service-limitations.md
   expanded: true
 - name: Deploy & Setup
   items:

@@ -45,7 +45,7 @@ The [REST API is detailed in the API reference](/rest/api/planetarycomputer).
 
 Planetary Computer Pro has a build-in application called Explorer which allows users to visualize ingested data in a GeoCatalog resource from their browser. Once the data is [configured for visualization](./collection-config-concept.md), it can be [used in the explorer](./use-explorer.md).
 
-In more, by using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning?view=azureml-api-2). 
+In more, by using [the API services](#direct-api-integration), data in Planetary Computer Pro can be integrated with first party Microsoft applications such as [Fabric](/fabric) and [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning). 
 
 ### GIS application connectivity
 

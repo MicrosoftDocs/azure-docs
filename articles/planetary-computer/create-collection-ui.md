@@ -68,7 +68,7 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
 | `summaries`     | **Strongly recommended** | A map of property summaries, either a set or range of values.             |
 | `links`         | **Required**         | A list of links for your collection.                                        |
 | `assets`        |                      | A dictionary of asset objects for your collection, each with unique keys. |
-| `item_assets`   | [**Required for Visualization**](./render-configuration.md#collection-item_assets-field)                     | A dictionary of assets that can be found in member items.                   |
+| `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
 3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-config-concept.md).
 :::image type="content" source="./media/collection-overview.jpeg" alt-text="Screenshot of Collection overview page.":::
