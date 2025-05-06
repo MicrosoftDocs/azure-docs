@@ -117,7 +117,7 @@ Add connection information for local development:
 }
 ```
 
-## Set up Durable Task emulator 
+## Set up the Durable Task emulator 
 
 1. Pull the docker image containing the emulator. 
 

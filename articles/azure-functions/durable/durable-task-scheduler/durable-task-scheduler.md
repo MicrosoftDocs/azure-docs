@@ -103,7 +103,7 @@ Scheduler sharing is a great way to optimize cost when multiple teams have scena
 
 ### Emulator for local development
 
-The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-durable-task-scheduler-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. With it, you can:
+The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-the-durable-task-emulator) is a lightweight version of the scheduler backend that runs locally in a Docker container. With it, you can:
 - Develop and test your Durable Function app without needing to deploy it to Azure. 
 - Monitor and manage your orchestrations and entities just like you would in Azure.
 
