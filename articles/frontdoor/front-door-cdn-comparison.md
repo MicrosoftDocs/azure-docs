@@ -30,7 +30,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | **Delivery and acceleration** | | | | |
 | Static file delivery | &check; | &check; | &check; | &check; |
 | Dynamic site delivery | &check; | &check; | &check; |  |
-| **Domains and Certs** | | | | |
+| **Domains and certs** | | | | |
 | Custom domains | &check; - DNS TXT record based domain validation | &check; - DNS TXT record based domain validation | &check; - CNAME based validation | &check; - CNAME based validation |
 | Prevalidated domain integration with Azure PaaS Service | &check; | &check; |  |  |
 | HTTPS support | &check; | &check; | &check; | &check; |
