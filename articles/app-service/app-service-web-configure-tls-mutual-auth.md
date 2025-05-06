@@ -39,7 +39,7 @@ When you enable client certificates for your app, you should select your choice 
 To use the Azure portal to enable client certificates:
 
 1. Go to your app management page.
-1. In the left menu, select **Configuration** > **General Settings**.
+1. In the left menu, select **Configuration** > **General settings**.
 1. For **Client certificate mode**, select your choice.
 1. Select **Save**.
 
@@ -110,9 +110,9 @@ When you enable mutual authentication for your application, all paths under the 
 > [!NOTE]
 > Using any client certificate exclusion path triggers TLS renegotiation for incoming requests to the app.
 
-1. In the left menu of your app management page, select **Configuration** > **General Settings**.
+1. In the left menu of your app management page, select **Settings** > **Configuration**. Select the **General settings** tab.
 
-1. Next to **Certificate exclusion paths**, select the edit icon.
+1. Next to **Certificate exclusion paths**, select the pencil icon.
 
 1. Select **New path**, specify a path or a list of paths separated by `,` or `;`, and then select **OK**.
 
