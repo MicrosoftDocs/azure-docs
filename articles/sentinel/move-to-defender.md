@@ -55,8 +55,6 @@ The following table provides information and links to more details about busines
 |**Data sharing**     |  [Data sharing](geographical-availability-data-residency.md#data-sharing-for-microsoft-sentinel)       |  [Data sharing](/defender-xdr/data-privacy#data-sharing)       |
 |**Researcher access**     |    Available unless customers opt out using the **How do we use your data?** toggle in the Microsoft Sentinel **Settings** page.  | The [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) [licenses Microsoft](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/EAEAS) to improve products and enhance user security in ways that provide benefit back to the customer. <br><br>Internally, Microsoft employs strict controls for permissible processing when using customer data in this manner.  <br><br>[Product Terms](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/EAEAS) also permits sharing data between services that the customer subscribes to. |
 
-<!--need xref for eyes on data-->
-
 For more information, see:
 
 - [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md)
