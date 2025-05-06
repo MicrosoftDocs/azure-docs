@@ -76,3 +76,7 @@ More information about visualizing GRIB2 data can be found in the [Visualizing a
 ### Visualize data cube assets in the Explorer
 
 Once your data cube assets are ingested and configured, you can visualize them in the Planetary Computer Pro Explorer. A step-by-step guide for using the Explorer can be followed in [Quickstart: Use the Explorer in Microsoft Planetary Computer Pro](use-explorer.md).
+
+## Related content
+
+- [Access STAC collection data cube assets with a collection-level SAS token](./get-collection-sas-token.md)

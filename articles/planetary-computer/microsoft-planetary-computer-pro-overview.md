@@ -69,7 +69,7 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 ## Next steps
 
 > [!div class="nextstepaction"]
-Follow our [Getting Started](./get-started-planetary-computer.md) guide to begin using MPC Pro.
+> [Get Started with Microsoft Planetary Computer Pro](./get-started-planetary-computer.md)
 
 ## Related Content
 - [STAC overview](./stac-overview.md)

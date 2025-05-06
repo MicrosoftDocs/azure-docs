@@ -117,3 +117,7 @@ If you can't use `DefaultAzureCredentials()` and instead use other methods such 
 
 > [!div class="nextstepaction"]
 > [Build Applications with Microsoft Planetary Computer Pro](./use-explorer.md)
+
+## Related content
+
+- [Manage access for Microsoft Planetary Computer Pro](./manage-access.md)

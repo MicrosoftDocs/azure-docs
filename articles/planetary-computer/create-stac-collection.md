@@ -221,4 +221,10 @@ A status code of `204` indicates that your Collection was deleted.
 
 ## Next step
 
-[Add items to a STAC collection](./add-stac-item-to-collection.md)
+> [!div class="nextstepaction"]
+> [Add items to a STAC collection](./add-stac-item-to-collection.md)
+
+## Related content
+
+- [Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md)
+- [Configure your collection for visualization in the Explorer](./collection-config-concept.md)

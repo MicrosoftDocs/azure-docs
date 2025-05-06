@@ -21,6 +21,8 @@ In this tutorial, you:
 > * Configure the collection so the imagery in the collection can be visualized in the Planetary Computer Pro's web interface
 > * Query data from within the STAC collection using the Planetary Computer Pro's STAC API
 
+This tutorial shows and explains capabilities through code snippets, for an interactive notebook style experience, [download this tutorial as a Jupyter notebook](https://github.com/Azure/microsoft-planetary-computer-pro/blob/main/notebooks/GeoCatalog_Tutorial.ipynb). 
+
 ## Prerequisites
 
 Before running this tutorial, you need a Planetary Computer Pro GeoCatalog deployed in your Azure subscription. You also need an environment to execute this notebook and install the necessary packages. We suggest running this tutorial through an Azure Machine Learning Virtual Machine or Visual Studio Code's notebook integration in a Python virtual environment. However, this notebook should run wherever you can run Jupyter notebooks, provided the following requirements are met:

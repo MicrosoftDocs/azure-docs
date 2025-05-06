@@ -25,6 +25,8 @@ In this guide, you:
 - Validate and save the STAC catalog, collection, and items.
 - Add the STAC Items to Microsoft Planetary Computer Pro.
 
+This tutorial shows and explains capabilities through code snippets, for an interactive notebook style experience, [download this tutorial as a Jupyter notebook](https://github.com/Azure/microsoft-planetary-computer-pro/blob/main/notebooks/create-stac-items.ipynb). 
+
 ## Prerequisites
 
 To complete this quickstart, you need:
