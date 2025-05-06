@@ -116,6 +116,8 @@
     href: ./durable-task-scheduler/choose-orchestration-framework.md
   - name: Concepts
     items:
+    - name: Identity
+      href: ./durable-task-scheduler/durable-task-scheduler-identity.md
     - name: Monitoring dashboard
       href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
     - name: Auto-purge 
