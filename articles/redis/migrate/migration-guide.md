@@ -8,7 +8,7 @@ ms.custom:
   - ignite-2024
   - build-2025
 ---
-# Migrate to Azure Managed Redis
+# Migrate to Azure Managed Redis from other caches
 
 This article describes a number of approaches to migrate an existing Redis cache running on-premises or in another cloud service to Azure Managed Redis.
 

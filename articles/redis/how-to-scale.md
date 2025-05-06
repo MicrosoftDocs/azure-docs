@@ -27,7 +27,7 @@ Azure Managed Redis supports scaling in two dimensions:
 
 - **Memory** Increasing memory increases the size of the Redis instance, allowing you to store more data. When reducing the memory, you need to ensure that your current memory usage is less than new memory size you want to use.
 
-- **vCPUs** Azure Managed Redis offers three tiers (_Memory Optimized_, _Balanced_, and _Compute Optimized_) that have an increasing number of vCPUs for each level of memory. Scaling to a tier with more vCPUs increases the performance of your instance without requiring you to increase memory. Unlike the Basic, Standard, an Premium tiers of Azure Cache for Redis, which can only utilize a single vCPU, Azure Managed Redis uses the Redis Enterprise stack, which is able to use multiple vCPUs. This means that the number of vCPUs used by your Redis instance directly correlates with throughput and latency performance.
+- **vCPUs** Azure Managed Redis offers three tiers (_Memory Optimized_, _Balanced_, and _Compute Optimized_) that have an increasing number of vCPUs for each level of memory. Scaling to a tier with more vCPUs increases the performance of your instance without requiring you to increase memory. Unlike the Basic, Standard, and Premium tiers of Azure Cache for Redis that only utilize a single vCPU, Azure Managed Redis uses the Redis Enterprise stack. The Redis Enterprise stack is able to use multiple vCPUs, which means that the number of vCPUs used by your Redis instance directly correlates with throughput and latency performance.
 
 ## Performance tiers
 
@@ -62,7 +62,7 @@ You can monitor the following metrics to determine if you need to scale.
 - **CPU**
   - High CPU usage means that the Redis server is unable to keep pace with requests from all the clients. Scaling to more vCPUs helps distribute requests across multiple Redis processes. Scaling also helps distribute TLS encryption/decryption and connection/disconnection, speeding up cache instances using TLS.
 - **Memory Usage**
-  - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. When reducing the memory, you need to ensure that your memory usage or your current cache is lower than new memory size you want to use. You cannot put a large data set into a smaller cache size.
+  - High memory usage indicates that your data size is too large for the current cache size. Consider scaling to a cache size with larger memory. When reducing the memory, you need to ensure that your memory usage of your current cache is lower than new memory size you want to use. You can't put a large data set into a smaller cache size.
 - **Client connections**
   - Each cache size has a limit to the number of client connections it can support. If your client connections are close to the limit for the cache size, consider scaling to a larger memory size or a higher performance tier.
   - For more information on connection limits by cache size, see [Performance testing with Azure Managed Redis](best-practices-performance.md).
@@ -78,7 +78,7 @@ For more information on how to optimize the scaling process, see the [best pract
 ## Limitations of scaling Azure Managed Redis
 
 - You can't scale from the **Memory Optimized**, **Balanced**, or **Compute Optimized** tiers to the **Flash Optimized** tier, or vice-versa.
-- When reducing the memory for your Redis instance, the current memory usage of your Redis instance should be less than the intended new memory size. For more details, see [What will happen to my data if I scale to smaller memory size?](#what-will-happen-to-my-data-if-i-scale-to-smaller-memory-size).
+- When reducing the memory for your Redis instance, the current memory usage of your Redis instance should be less than the intended new memory size. For more information, see [What happens to my data if I scale to smaller memory size?](#what-will-happen-to-my-data-if-i-scale-to-smaller-memory-size).
 - When reducing the memory or vCPU for your Redis instance, you can only scale to SKUs which have a vCPU and shard configuration that is compatible with the configuration on your current instance.
 - In some cases when scaling, the underlying IP address of the Redis instance can change. The DNS record for the instance changes and is transparent to most applications. However, if you use an IP address to configure the connection to your Redis instance, or to configure NSGs, or firewalls allowing traffic to the Redis instance, your application might have trouble connecting sometime after the DNS record updates.
 - Scaling an instance in a geo-replication group has some more limitations. See [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication) for more information.
@@ -97,7 +97,7 @@ In this section, we describe how to scale an Azure Managed Redis Cache.
 1. To scale your vCPUs, choose a different **Cache type** and then choose **Save**.
 
    > [!IMPORTANT]
-   > If you select a SKU that cannot be scaled to, the **Save** option is disabled. Review the [Limitations of scaling Azure Managed Redis](#limitations-of-scaling-azure-managed-redis) section for details on which scaling options are allowed.
+   > If you select a SKU that can't be scaled to, the **Save** option is disabled. Review the [Limitations of scaling Azure Managed Redis](#limitations-of-scaling-azure-managed-redis) section for details on which scaling options are allowed.
 
    <!-- :::image type="content" source="media/how-to-scale/managed-redis-enterprise-scale-up.png" alt-text="Screenshot showing the Enterprise tiers in the working pane."::: -->
 
@@ -128,11 +128,11 @@ az redisenterprise update --cluster-name <your-cache-name> --resource-group <you
 The following list contains answers to commonly asked questions about Azure Managed Redis scaling.
 
 - [Can I scale within or across tiers?](#can-i-scale-within-or-across-tiers)
-- [What will happen to my data if I scale to smaller memory size?](#what-will-happen-to-my-data-if-i-scale-to-smaller-memory-size)
+- [What happens to my data if I scale to smaller memory size?](#what-happens-to-my-data-if-i-scale-to-smaller-memory-size)
 - [After scaling, do I have to change my cache name or access keys?](#after-scaling-do-i-have-to-change-my-cache-name-or-access-keys)
 - [How does scaling work?](#how-does-scaling-work)
 - [Do I lose data from my cache during scaling?](#do-i-lose-data-from-my-cache-during-scaling)
-- [Will my cache be available during scaling?](#will-my-cache-be-available-during-scaling)
+- [Is my cache be available during scaling?](#is-my-cache-be-available-during-scaling)
 - [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication)
 - [How long does scaling take?](#how-long-does-scaling-take)
 - [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
@@ -150,9 +150,9 @@ You can always scale to a higher performance tier at the same memory size or a l
 az redisenterprise list-skus-for-scaling --cluster-name <your-redis-instance> --resource-group <your-resource-group>
 ```
 
-### What will happen to my data if I scale to smaller memory size?
+### What happens to my data if I scale to smaller memory size?
 
-You can scale to a smaller memory size only if the current memory usage is less than the intended smaller memory size. If the current memory usage is higher than the intended smaller size, your scaling request will fail. You can reduce the current memory usage by deleted unwanted key value pairs or by running the flush operation.
+You can scale to a smaller memory size only if the current memory usage is less than the intended smaller memory size. If the current memory usage is higher than the intended smaller size, your scaling request fails. You can reduce the current memory usage by deleted unwanted key value pairs or by running the flush operation.
 
 ```azurecli
 az redisenterprise database flush --cluster-name <your-redis-instance> --resource-group <your-resource-group>
@@ -160,12 +160,12 @@ az redisenterprise database flush --cluster-name <your-redis-instance> --resourc
 
 ### After scaling, do I have to change my cache name or access keys?
 
-No, your cache name and access keys are not changed during a scaling operation.
+No, your cache name and access keys aren't changed during a scaling operation.
 
 ### How does scaling work?
 
-- When you scale a Redis instance, one of the nodes in the Redis cluster is shut down and reprovisioned to the new size. Then data transfers over, and the other node does a similar failover subsequently before it's reprovisioned. This is similar to the process that occurs during patching or a failure of one of the cache nodes.
-- When scaling to an instance with more vCPUs, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
+- When you scale a Redis instance, one of the nodes in the Redis cluster is shut down and reprovisioned to the new size. Then data transfers over, and the other node does a similar failover subsequently, before reprovisioning. This is similar to the process that occurs during patching or a failure of one of the cache nodes.
+- When you scale to an instance with more vCPUs, new shards are provisioned and added to the Redis server cluster. Data is then resharded across all shards.
 
 For more information on how Azure Managed Redis handles sharding, see [Sharding configuration](architecture.md#sharding-configuration).
 
@@ -176,7 +176,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 <!-- - add link -->
 - If high availability mode is disabled, all data is lost and the cache is unavailable during the scaling operation.
 
-### Will my cache be available during scaling?
+### Is my cache be available during scaling?
 
 - Azure Managed Redis instances with high availability mode enabled remain available during the scaling operation. However, connection blips can occur while scaling these caches. These connection blips are typically short and Redis clients can generally re-establish their connection instantly.
 - If high availability mode is disabled, the Azure Managed Redis instance is offline during scaling operations.
@@ -224,7 +224,7 @@ The largest cache size you can have is 4.5 TB, called Flash Optimized A4500 inst
 
 ### Why can only I scale down to a subset of smaller SKUs?
 
-To maintain compatibility with number of shards and vCPU, you're allowed to scale down to a certain SKUs only. To find out which SKUs your Redis instance can scale down to, you can review the list of SKUs that are populated in the Scale section of the resource menu in the Azure portal. You can also run the following CLI command
+To maintain compatibility with number of shards and vCPU, you're allowed to scale down only to certain SKUs. To find out which SKUs your Redis instance can scale down to, you can review the list of SKUs that are populated in the Scale section of the resource menu in the Azure portal. You can also run the following CLI command
 
 ```azurecli
 az redisenterprise list-skus-for-scaling --cluster-name <your-redis-instance> --resource-group <your-resource-group>
