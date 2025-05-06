@@ -1,111 +1,83 @@
 ---
-title: Error codes for gateway migration workflows
-titleSuffix: Azure ExpressRoute
-description: This article explains error codes and best practices for gateway migration
+title: Azure ExpressRoute gateway migration - Troubleshooting errors and best practices
+description: Learn how to address Azure ExpressRoute gateway migration errors and implement best practices for a seamless migration process. Resolve frequent challenges and prevent common mistakes.
 services: expressroute
-author: duongau
+author: mekaylamoore
 ms.service: azure-expressroute
-ms.custom: ignite-2023
 ms.topic: concept-article
-ms.date: 05/1/2025
+ms.date: 05/01/2025
 ms.author: duau
 ---
 
-This article provides an overview of error codes associated with gateway migration workflows, along with their causes and resolutions.
+# Azure ExpressRoute gateway migration - Troubleshooting errors and best practices
 
-## Best practices for avoiding errors
+This article provides an overview of error codes associated with gateway migration workflows, along with their causes and resolutions. Problems that commonly occur during each stage of the migration process: **Validate**, **Prepare**, **Migrate**, and **Commit or Abort**. 
 
-Before migrating, review your environment setup to avoid common issues. These are key practices to prevent errors when using the migration tool:
+The following table outlines common issues encountered during each migration stage and provides strategies to resolve them:
 
-* Ensure all resources remain in a **succeeded** state throughout the migration process. Avoid running updates on related resources.
-* Don't update properties like **FastPath** or **route weight** for connections, as this update might cause connection resources to fail.
-* Avoid updating properties like **traffic toggles** for gateways, as this update might cause gateway resources to fail.
-* Don't migrate gateways connected to the same circuit in parallel. Only one connection per circuit can be created at a time.
-* Avoid manually creating or deleting connections to gateways carrying traffic (admin state enabled) during migration.
-* Don't attempt to create connections to gateways undergoing maintenance. This operation fails, and the newly created connection must be deleted to proceed. Only one connection between a circuit and gateway is allowed.
+| Migration Stage | Issue | Resolution |
+|-----------------|-------|------------|
+| **Validate**    | Resources aren't in a succeeded state. | To resolve the issue, perform a GET and SET operation on the affected resources. |
+| **Prepare**     | Creation of new resources fails. | Retry the operation. If retries continue to fail, delete the newly created resources and attempt the operation again. |
+| **Migrate**     | Both gateways remain enabled after a migration failure. | Redirect traffic back to the old gateway and retry the migration process. |
+| **Commit**      | The old gateway remains enabled, and the commit step fails. | Retry the migration step. Once the old gateway is successfully disabled, delete the old gateway and its associated resources. |
+| **Abort**       | Cleanup of resources fails during the abort step. | Redirect traffic to the new gateway and retry the abort operation. |
+
+By applying these strategies, you can effectively address and resolve issues encountered during the migration process.
+
+| Migration Step | Problem | Solution |
+|----------------|---------|----------|
+| **Validate**   | Resources aren't in a succeeded state. | To resolve the issue Perform a GET and SET operation on the affected resources. |
+| **Prepare**    | Creation of new resources fails. | Retry the operation. If retries continue to fail, delete the newly created resources and attempt the operation again. |
+| **Migrate**    | Both gateways remain enabled after a migration failure. | Redirect traffic back to the old gateway and retry the migration process. |
+| **Commit**     | The old gateway remains enabled, and the commit step fails. | Retry the migration step. Once the old gateway is successfully disabled, proceed to delete the old gateway and its associated resources. |
+| **Abort**      | Cleanup of resources fails during the abort step. | Redirect traffic to the new gateway and retry the abort operation. |
+
+By following these recovery strategies, you can address and resolve errors encountered during the migration process.
+
+## Best practices for avoiding migration errors
+
+Follow these best practices to minimize errors during the gateway migration process:
+
+* **Maintain resource health**: Ensure all resources remain in a **succeeded** state throughout the migration. Avoid running updates on related resources during the process.
+* **Avoid property updates**: Refrain from updating properties like **FastPath**, **route weight**, or **traffic toggles** for connections and gateways, as these updates can cause resource failures.
+* **Sequential circuit migration**: Migrate gateways connected to the same circuit one at a time. Parallel migrations on the same circuit aren't supported.
+* **Avoid manual connection changes**: Don't manually create or delete connections for gateways actively carrying traffic (admin state enabled) during migration.
+* **Check for maintenance**: Avoid creating connections to gateways undergoing maintenance, as this operation fails. Any failed connections must be deleted before retrying.
+
+By adhering to these practices, you can reduce the likelihood of encountering errors during migration.
 
 ## Common error messages
 
-### Unsupported scenarios
-
-* **Max Gateway Count in VNet Reached**  
-  * **Error name**: MaxGatewayCountInVnetReached  
-  * **Message**: Operation failed for virtual network {0} as it already contains the maximum allowed number of gateways.  
-  * **Cause**: Deploying more than two ExpressRoute gateways in a virtual network isn't permitted.
-
-* **Connection Limits**  
-  * **Message**: Existing gateway has {connectionCount} connections. Connections exceed limit {circuitLimit} for gateway size {gatewaySize} for the new gateway.  
-  * **Cause**: A new gateway with fewer allowed connection limits than the existing gateway isn't permitted. Downgrading SKU type isn't allowed.
-
-* **FastPath Enabled Connections**  
-  * **Message**: ExpressRouteGatewayByPass isn't allowed on gateway size {gatewaySize}.  
-  * **Cause**: Gateways connected to FastPath-enabled connections can only migrate to UltraPerf or ERGW3AZ. Downgrading SKU type isn't allowed.
-
-* **Authorization Revoked**  
-  * **Message**: Operation failed for virtual network {0} as it already contains the maximum allowed number of gateways.  
-  * **Cause**: Gateways connected to circuits with revoked authorizations can't proceed with migration.
+The following table outlines common error messages encountered during the migration process, along with their causes and resolutions:
 
 ### Scenarios with conditional support
 
-* **Gateway Subnet Size**  
-  * **Message**: Virtual network {vnetName} doesn't have enough space for another gateway deployment.  
-  * **Resolution**: Add more address prefixes to the GatewaySubnet. For details, see [Create multiple prefixes for a subnet](https://learn.microsoft.com/azure/virtual-network/create-multiple-prefixes-for-subnet).
+These scenarios include solutions to prevent failures and ensure a successful migration.
 
-* **Legacy Mode**  
-  * **Error name**: ERGWMigrationIPInGREConnectionError  
-  * **Message**: The ExpressRoute connections associated with the gateway were created using Legacy Mode.  
-  * **Resolution**: Delete and recreate all connections before proceeding with migration. For more information, see [Convert legacy ExpressRoute gateway connections](https://learn.microsoft.com/azure/expressroute/convert-legacy-connections).
+| Error name | Message | Resolution |
+|------------|---------|------------|
+| **Insufficient gateway subnet size** | Virtual network `{vnetName}` doesn't have sufficient space for deploying another gateway. | Delete and recreate the GatewaySubnet as a /27 or smaller prefix. For guidance, see [Delete and recreate a subnet](../virtual-network/virtual-network-manage-subnet.md). |
+| **Legacy connection mode** | The ExpressRoute connections linked to the gateway were created before 2017 (Legacy mode). | Delete and recreate all connections before initiating migration. For detailed steps, see [Convert legacy ExpressRoute gateway connections](howto-recreate-connections.md). |
+| **Incompatible dedicated circuit** | Gateway migration can't proceed due to a dedicated Hardware Security Module (HSM) connected to the virtual network. | To proceed with the migration, deallocate the dedicated Hardware Security Module (HSM). For detailed troubleshooting steps, see [Troubleshoot Dedicated HSM](/azure/dedicated-hsm/troubleshoot). |
+| **Resources in failed state** | The **validate** stage fails if the gateway or any connected resource, such as circuits, connections, public IPs, VNets, or GatewaySubnet, is in a failed state. | Verify that all resources are in a succeeded state before initiating the migration process. For more information, see [Troubleshoot failed state](../networking/troubleshoot-failed-state.md).|
+| **Default gateway SKU limitation** | Default gateways must be upgraded to a Standard SKU before migration to ensure zone resiliency. | Change the gateway SKU to Standard before proceeding with the migration. For more information, see [Resize a gateway SKU](expressroute-howto-add-gateway-resource-manager.md#resize-a-gateway). |
+| **FastPath configuration restriction** | Enabling or disabling FastPath during migration isn't supported. | Ensure FastPath remains in its original configuration before proceeding with the migration. |
+| **Route weight modification restriction** | Adjusting the route weight during migration isn't permitted. | Revert the route weight to its original value before continuing with the migration process. |
 
-* **Unsupported Dedicated Circuit**  
-  * **Error name**: ERGWMigrationServerConnectedCircuitError  
-  * **Message**: To proceed with your gateway migration, deallocate your dedicated HSM. Virtual networks connected to dedicated HSM aren't supported for migration.  
-  * **Resolution**: For more information, see [Troubleshoot Dedicated HSM](https://learn.microsoft.com/azure/dedicated-hsm/troubleshoot).
+### Unsupported scenarios
 
-## Preventable errors with user action
+The following table outlines unsupported scenarios that may result in migration failures and don't have available resolutions:
 
-* **Failed State Resources**: If the gateway or any connected resource is in a failed state, the "Validate" stage fails. Connected resources include circuits, connections, public IPs, VNETs, and subnets (GatewaySubnet).  
-  * **Resolution**: Ensure all resources are in a succeeded state before proceeding.
-
-* **Default Gateway SKU**: Update default gateways to Standard gateways before migrating to make them zone-resilient.
-
-* **FastPath Update**: Updating connections to FastPath during migration isn't allowed.  
-  * **Message**: Update on an existing connection is blocked during gateway migration. Set GatewayByPass to {vnetConfigEntity.DirectTunnelsStatus} before proceeding.
-
-* **Route Weight Update**: Updating route weight during migration isn't allowed.  
-  * **Message**: Update on an existing connection is blocked during gateway migration. Set RoutingWeight to {vnetConfigEntity.RoutingWeight} before proceeding.
-
-## How to recover from errors
-
-The migration process includes the following steps: **Validate**, **Prepare**, **Migrate**, and **Commit/Abort**. Errors might occur at each step. These are recovery strategies:
-
-### Validate
-
-* **Issue**: Resources aren't in a succeeded state.  
-  * **Recovery**: Perform a GET and SET operation to resolve the issue.
-
-### Prepare
-
-* **Issue**: New resources fail during creation.  
-  * **Recovery**: Retry the operation. If retries fail, delete the newly created resources and try again.
-
-### Migrate
-
-* **Issue**: Both gateways remain enabled after migration fails.  
-  * **Recovery**: Revert traffic to the old gateway and retry the migration.
-
-### Commit
-
-* **Issue**: Both gateways remain enabled after commit fails.  
-  * **Recovery**: Revert traffic to the old gateway and retry the commit.
-
-### Abort
-
-* **Issue**: Both gateways remain enabled after abort fails.  
-  * **Recovery**: Revert traffic to the old gateway and retry the abort.
+| Error name | Message | Cause |
+|--|--|--|
+| **Max gateway count in VNet reached** | The operation failed for virtual network `{virtualNetworkName}` because it already contains the maximum number of allowed gateways. | A virtual network can't have more than two ExpressRoute gateways deployed. |
+| **Connection limit exceeded** | The existing gateway has `{connectionCount}` connections, which exceed the limit of `{circuitLimit}` connections for the new gateway size `{gatewaySize}`. | Migrating to a gateway with a lower connection limit than the existing gateway isn't allowed. Downgrading the SKU type is unsupported. |
+| **FastPath restriction** | ExpressRouteGatewayByPass isn't supported for gateway size `{gatewaySize}`. | Gateways connected to FastPath-enabled connections can only migrate to UltraPerf or ERGW3AZ SKUs. Downgrading the SKU type is unsupported. |
+| **Revoked circuit authorization** | The operation failed for virtual network `{virtualNetworkName}` because it already contains the maximum number of allowed gateways. | Gateways connected to circuits with revoked authorizations can't proceed with migration. |
 
 ## Next steps
 
-* Learn how to [migrate using the Azure portal](https://learn.microsoft.com/azure/expressroute/howto-gateway-migration-portal).
-* Learn how to [migrate using PowerShell](https://learn.microsoft.com/azure/expressroute/howto-gateway-migration-powershell).
-* Explore [best practices for high availability](https://learn.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute).
-* Plan for [disaster recovery](https://learn.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) and [using VPN as a backup](https://learn.microsoft.com/azure/expressroute/use-s2s-vpn-as-backup-for-expressroute-privatepeering).
+* Learn how to [migrate using the Azure portal](howto-gateway-migration-portal.md).
+* Learn how to [migrate using PowerShell](howto-gateway-migration-powershell.md).
+* Explore [best practices for high availability](designing-for-high-availability-with-expressroute.md).
