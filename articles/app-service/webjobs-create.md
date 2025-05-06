@@ -1,26 +1,25 @@
 ---
-title: Run Background Tasks with WebJobs
+title: How-to Run Background Tasks with WebJobs
 description: Learn how to use WebJobs to run background tasks in Azure App Service. Choose from various script formats and run them with CRON expressions.
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.topic: concept-article
+ms.service: azure-app-service
 ms.date: 4/17/2025
 author: msangapu-msft
 ms.author: msangapu
-ms.reviewer: cephalin;suwatch;pbatum;naren.soni;
-adobe-target: true
-adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
-adobe-target-experience: Experience B
-adobe-target-content: ./webjobs-create-ieux
+ms.reviewer: glenga;suwatch;pbatum;naren.soni;
+
 #Customer intent: As a web developer, I want to leverage background tasks to keep my application running smoothly.
 ---
 
-# Run background tasks with WebJobs in Azure App Service
+# Run background tasks with WebJobs
 
 This article explains how to deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. WebJobs is a feature of [Azure App Service](index.yml) that allows you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
-> [!NOTE]
-> WebJobs for *Windows container*, *Linux code*, and *Linux container* is in preview. WebJobs for Windows code is generally available and not in preview.
+## Overview
+
+WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
 If you're using Visual Studio instead of the Azure App Service to develop and deploy WebJobs, see [Develop and deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
 
@@ -28,57 +27,7 @@ Azure Functions provides another way to run programs and scripts. For a comparis
 
 ## WebJob types
 
-### <a name="acceptablefiles"></a>Supported file types for scripts or programs
-
-### [Windows code](#tab/windowscode)
-
-The following file types are supported:
-
-- Using Windows cmd: *.cmd*, *.bat*, *.exe*
-- Using PowerShell: *.ps1*
-- Using Bash: *.sh*
-- Using Node.js: *.js*
-- Using Java: *.jar*
-
-The necessary runtimes to run these file types are already installed on the web app instance.
-
-### [Windows container](#tab/windowscontainer)
-
-> [!NOTE]
-> WebJobs for Windows container is in preview.
->
-
-The following file types are supported using Windows cmd: *.cmd*, *.bat*, *.exe*
-
-In addition to these file types, WebJobs written in the language runtime of the Windows container app are supported.
-
-- Example: *.jar* and *.war* scripts are supported if the container is a Java app.
-
-### [Linux code](#tab/linuxcode)
-
-> [!NOTE]
-> WebJobs for Linux code is in preview. 
->
-
-*.sh* scripts are supported.
-
-In addition to shell scripts, WebJobs written in the language of the selected runtime are also supported.
-
-- Example: Python (*.py*) scripts are supported if the main site is a Python app.
-
-### [Linux container](#tab/linuxcontainer)
-
-> [!NOTE]
-> WebJobs for Linux container is in preview.
->
-
-*.sh* scripts are supported.
-
-In addition to shell scripts, WebJobs written in the language runtime of the Linux container app are also supported.
-
-- Example: Node (*.js*) scripts are supported if the site is a Node.js app.
-
----
+[!INCLUDE [webjob-types](./includes/webjobs-create/webjob-types.md)]
 
 ### Continuous vs. triggered WebJobs
 
@@ -92,8 +41,6 @@ The following table describes the differences between *continuous* and *triggere
 | Code is deployed under `\site\wwwroot\app_data\Jobs\Continuous`. | Code is deployed under `\site\wwwroot\app_data\Jobs\Triggered`. |
 
 [!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
-
-
 
 ## <a name="CreateContinuous"></a> Create a continuous WebJob
 
@@ -236,4 +183,4 @@ The following is a list of common WebJob states:
 
 ## <a name="NextSteps"></a> Next step
 
-The Azure WebJobs SDK can be used with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
+[Tutorial: Run background tasks with WebJobs](tutorial-webjobs.md)
