@@ -3,7 +3,7 @@ title: "Get started with Service Groups"
 description: "Learn how to use and manage resources with Service Groups."
 author: rthorn17
 ms.author: rithorn
-ms.service: governance
+ms.service: azure-policy
 ms.topic: overview
 ms.date: 05/19/2025
 ---
