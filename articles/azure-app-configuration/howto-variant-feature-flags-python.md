@@ -273,8 +273,6 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
         <form action="/" method="post">
         </form>
     </div>
-    <script>
-        function heartClicked(button) {
     {% endblock %}
     ```
 
@@ -452,8 +450,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 1. Open `routes.py` and add the following code to the end of it to refresh configuration and get the feature variant.
 
     ```python
-    from featuremanagement.azuremonitor import track_event
-    from . import azure_app_config, feature_manager
+    from . import feature_manager
 
     # Update greeting_message to variant
     greeting = feature_manager.get_variant("Greeting", user)
