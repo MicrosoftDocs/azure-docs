@@ -1,34 +1,34 @@
 ---
-title: Create AI chat assistants with prompt templates
-description: Build an AI chat assistant that answers questions by using Standard workflows in Azure Logic Apps and Azure OpenAI prompt templates.
+title: Create chat completions in workflows with prompt templates
+description: Build workflows with chat interactions by using Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
+author: ecfan
 ms.suite: integration
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 04/21/2025
-
-# CustomerIntent: I want to learn how to create an AI-powered chat assistant by using a prompt template that makes answering questions easier. I want to know how to complete this task by building a Standard workflow that connects to an Azure OpenAI resource and uses the Azure OpenAI built-in chat completions operation with a prompt template in Azure Logic Apps.
+ms.date: 05/06/2025
+# Customer intent: I want to create chat completions in Standard workflows by using a prompt template to make answering questions easier. I want to connect to an Azure OpenAI resource and use built-in chat completions operation with the prompt template in Azure Logic Apps.
 ---
 
-# Create an AI chat assistant by using prompt templates with Standard workflows in Azure Logic Apps (Preview)
+# Create chat completions with prompt templates in Standard workflows for Azure Logic Apps (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 >
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Suppose you want to automate the way that your enterprise or organization answers questions from various groups of people, such as employees, customers, investors, or the media. You can build a chat assistant that responds to questions by using data available from your enterprise or organization.
+Suppose you want to automate the way that your enterprise or organization answers questions from various groups of people, such as employees, customers, investors, or the media. You can add chat interactions that respond to questions by using the **Azure OpenAI Service** action named **Get chat completions using Prompt Template** and data from your enterprise or organization.
 
-When you use your own data with the models in Azure OpenAI Service, you create a powerful AI-powered conversational platform that provides faster communication and draws context from specific domain knowledge. To build the process that handles each question, accesses your data source, and returns a response, you can create a Standard workflow in Azure Logic Apps to automate the necessary steps - all without writing code.
+When you use your own data with the models in Azure OpenAI Service, you create an AI-powered conversation platform that provides faster communication and draws context from specific domain knowledge. To build a process that handles each question, accesses your data source, and returns a response, create a Standard workflow in Azure Logic Apps to automate the necessary steps - all without writing code.
 
-This guide shows how to build a chat assistant by using a *prompt template* as the starting point. This template is a prebuilt reusable text-based structure that guides the interactions between the AI model and the questioners.
+This guide shows how to add chat interactions to a Standard workflow by using a *prompt template* as the starting point. This template is a prebuilt reusable text-based structure that guides the interactions between the AI model and the questioners.
 
 The following diagram shows the example workflow that this guide creates:
 
-:::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/overview.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and operations that create an example chat assistant." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/overview.png":::
+:::image type="content" source="media/create-chat-completions-prompt-template/overview.png" alt-text="Screenshot shows Azure portal, Standard workflow designer, and operations that create an example chat assistant." lightbox="media/create-chat-completions-prompt-template/overview.png":::
 
 For more information about the operations in this workflow, see [Review the example scenario](#review-the-example-scenario).
 
@@ -87,15 +87,15 @@ To follow the example, download the [sample prompt template and inputs](https://
 
   To create this resource and workflow, see [Create an example Standard logic app workflow using the Azure portal](/azure/logic-apps/create-single-tenant-workflows-azure-portal).
 
-- An [Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) with a deployed GPT model such as GPT-3.5 or GP-4.
+- An [Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal) with a deployed model such as GPT-3.5 or GPT-4.
 
-    - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create an Azure AI Foundry project and add your own data source. For more information, see the following documentation:
+  - The example in this how-to guide provides test data that you can use to try out the workflow. To chat with your own data by using the Azure OpenAI Service models, you have to create an Azure AI Foundry project and add your own data source. For more information, see the following documentation:
 
-      - [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
+    - [Quickstart: Chat with Azure OpenAI models using your own data](/azure/ai-services/openai/use-your-data-quickstart)
 
-      - [Getting started with customizing a large language model (LLM)](/azure/ai-services/openai/concepts/customizing-llms)
+    - [Getting started with customizing a large language model (LLM)](/azure/ai-services/openai/concepts/customizing-llms)
 
-  - When you add the **Azure OpenAI** action to your workflow, you can create a connection to your Azure OpenAI Service resource. You need the endpoint URL for your **Azure OpenAI Service** resource and the following information, based on the selected [authentication type](/azure/logic-apps/connectors/built-in/reference/openai/#authentication):
+  - When you add the **Azure OpenAI** action to your workflow, you can create a connection to your Azure OpenAI Service resource. You need the endpoint URL from your **Azure OpenAI Service** resource and the following information, based on the selected [authentication type](/azure/logic-apps/connectors/built-in/reference/openai/#authentication):
 
     | Authentication type | Required values to find |
     |---------------------|-------------------------|
@@ -103,27 +103,25 @@ To follow the example, download the [sample prompt template and inputs](https://
     | **Active Directory OAuth** | 1. Set up your logic app resource for [OAuth 2.0 with Microsoft Entra ID authentication](/entra/architecture/auth-oauth2). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
     | **Managed identity** <br>(Recommended) | 1. Follow the [general steps to set up the managed identity with Microsoft Entra ID for your logic app](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard). <br><br>2. Go to your **Azure OpenAI Service** resource. <br><br>3. On the resource menu, under **Resource Management**, select **Keys and Endpoint**. <br><br>4. Copy the **Endpoint** URL. Store this value somewhere safe. |
 
-    [!INCLUDE [highest-security-level-guidance](includes/highest-security-level-guidance.md)]
+    [!INCLUDE [highest-security-level-guidance](../includes/highest-security-level-guidance.md)]
 
-[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Add a trigger
 
-To add the operation that starts your workflow when an event happens or a condition is met, follow these steps:
+Your workflow requires a trigger to control when to start running. You can use any trigger that fits your scenario. For more information, see [Triggers](/azure/connectors/introduction#triggers).
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
+Add the trigger by following these steps:
 
-1. Open your Standard logic app resource and blank workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
-1. Follow the [general steps to add the trigger you want](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-trigger).
+1. Follow the [general steps to add the trigger that you want](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger).
 
-   This example uses the built-in ("in app") trigger named **When an HTTP request is available**.
+   This example uses the **Request** trigger named **When an HTTP request is available**. For more information about this trigger, see [Receive and respond to inbound HTTPS calls](/azure/connectors/connectors-native-reqres?tabs=standard).
 
-   For more information, see [Receive and respond to inbound HTTPS calls](/azure/connectors/connectors-native-reqres?tabs=standard).
+1. Save the workflow. On the designer toolbar, select **Save**.
 
-1. Save your workflow. On the toolbar, select **Save**.
-
-   After you save your workflow, in the **Request** trigger, an automatically generated *callback URL* appears in the **HTTP URL** parameter. This endpoint URL is the location where external callers can send an HTTPS request to trigger the workflow and provide inputs for the workflow.
+   After you save the workflow, a URL appears in the **HTTP URL** parameter for the **Request** trigger. This URL belongs to an endpoint that is created for the **Request** trigger. To fire the trigger and start the workflow, callers outside the workflow can send HTTPS requests to the URL and include inputs for the trigger to pass along into the workflow.
 
    > [!WARNING]
    >
@@ -133,13 +131,13 @@ To add the operation that starts your workflow when an event happens or a condit
 
 When you're done, your workflow looks like the following example:
 
-:::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/request-trigger.png" alt-text="Screenshot shows the Standard workflow designer and the Request trigger." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/request-trigger.png":::
+:::image type="content" source="media/create-chat-completions-prompt-template/request-trigger.png" alt-text="Screenshot shows the Standard workflow designer and the Request trigger." lightbox="media/create-chat-completions-prompt-template/request-trigger.png":::
 
 ## Add the Compose actions
 
 To add operations that store the trigger outputs for subsequent actions to use as inputs, follow these steps:
 
-1. Under the trigger, follow the [general steps to add the data operation named **Compose** action](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
+1. Under the trigger, follow the [general steps to add the data operation named **Compose** action](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
    The example adds three **Compose** actions and uses the following test data as inputs:
 
@@ -153,13 +151,13 @@ To add operations that store the trigger outputs for subsequent actions to use a
           "employeeId": "E12345",
           "orders": [
               { 
-                  "name": "Dell Latitude 5540 Laptop",
+                  "name": "Adatum Streamline 5540 Laptop",
                   "description": "Ordered 15 units for Q1 IT onboarding",
                   "date": "2024/02/20"
               },
               {
                   "name": "Docking Station",
-                  "description": "Bulk purchase of 20 Dell WD19S docking stations",
+                  "description": "Bulk purchase of 20 Adatum AB99Z docking stations",
                   "date": "2024/01/10"
               }
           ]
@@ -183,26 +181,26 @@ To add operations that store the trigger outputs for subsequent actions to use a
       [
           {
               "id": "1",
-              "title": "Dell Latitude 5540 Laptop",
-              "content": "Intel i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding" 
+              "title": "Adatum Streamline 5540 Laptop",
+              "content": "i7, 16GB RAM, 512GB SSD, standard issue for IT new hire onboarding" 
           },
           {
               "id": "2",
               "title": "Docking Station",
-              "content": "Dell WD19S docking stations for dual monitor setup"
+              "content": "Adatum AB99Z docking stations for dual monitor setup"
           }
       ]
       ```
 
 When you're done, your workflow looks like the following example:
 
-:::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/compose-actions.png" alt-text="Screenshot shows the Standard workflow designer, Request trigger, and three renamed Compose actions." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/compose-actions.png":::
+:::image type="content" source="media/create-chat-completions-prompt-template/compose-actions.png" alt-text="Screenshot shows the Standard workflow designer, Request trigger, and three renamed Compose actions." lightbox="media/create-chat-completions-prompt-template/compose-actions.png":::
 
 Now, add the Azure OpenAI action to the workflow.
 
 ## Add the Azure OpenAI action
 
-1. Under the last **Compose** action, follow the [general steps to add the **Azure OpenAI** action named **Get chat completions using Prompt Template**](/azure/logic-apps/create-workfklow-with-trigger-or-action?tabs=standard#add-action).
+1. Under the last **Compose** action, follow the [general steps to add the **Azure OpenAI** action named **Get chat completions using Prompt Template**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-action).
 
 1. After the action appears on the designer surface, the connection pane opens so that you can provide the following information:
 
@@ -283,19 +281,19 @@ Now, add the Azure OpenAI action to the workflow.
 
    1. From the dynamic content list, under **Employee**, select **Outputs**.
 
-      :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png" alt-text="Screenshot shows an action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variable.png":::
+      :::image type="content" source="media/create-chat-completions-prompt-template/template-variable.png" alt-text="Screenshot shows an action named Get chat completions using Prompt Template, Prompt Template Variable table, open dynamic content list, and selected Outputs value in the Question section." lightbox="media/create-chat-completions-prompt-template/template-variable.png":::
 
    1. Repeat the same steps on the next row and following row for **Question** and **Products**.
 
    When you're done, the table looks like the following example:
 
-   :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/template-variables-complete.png" alt-text="Screenshot shows completed Prompt Template Variable table with Question, Product catalog, and Employee outputs." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/template-variables-complete.png":::
+   :::image type="content" source="media/create-chat-completions-prompt-template/template-variables-complete.png" alt-text="Screenshot shows completed Prompt Template Variable table with Question, Product catalog, and Employee outputs." lightbox="media/create-chat-completions-prompt-template/template-variables-complete.png":::
 
 1. For other parameters, see [Get chat completions using Prompt Template](/azure/logic-apps/connectors/built-in/reference/openai/#get-chat-completions-using-prompt-template-(preview)).
 
 When you're done, your workflow looks like the following example:
 
-:::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/chat-completions-prompt-template.png" alt-text="Screenshot shows the Standard workflow designer, Request trigger, three renamed Compose actions, and the Azure OpenAI built-in action, Get chat completions using Prompt Template." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/chat-completions-prompt-template.png":::
+:::image type="content" source="media/create-chat-completions-prompt-template/chat-completions-prompt-template.png" alt-text="Screenshot shows the Standard workflow designer, Request trigger, three renamed Compose actions, and the Azure OpenAI built-in action, Get chat completions using Prompt Template." lightbox="media/create-chat-completions-prompt-template/chat-completions-prompt-template.png":::
 
 ## Test your workflow
 
@@ -305,11 +303,11 @@ When you're done, your workflow looks like the following example:
 
    - [**Request** trigger type](/azure/logic-apps/logic-apps-workflow-actions-triggers#request-trigger)
 
-   - [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](/azure/logic-apps/connectors-native-reqres?tabs=standard)
+   - [Receive and respond to inbound HTTPS calls to workflows in Azure Logic Apps](/azure/connectors/connectors-native-reqres?tabs=standard)
 
    After workflow execution completes, the run history page opens to show the status for each action.
 
-   :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/run-history.png" alt-text="Screenshot shows run history for most recently complete workflow with status for each operation." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/run-history.png":::
+   :::image type="content" source="media/create-chat-completions-prompt-template/run-history.png" alt-text="Screenshot shows run history for most recently complete workflow with status for each operation." lightbox="media/create-chat-completions-prompt-template/run-history.png":::
 
    1. To find the run history page for a specific workflow run at a later time, follow these steps:
 
@@ -323,7 +321,7 @@ When you're done, your workflow looks like the following example:
 
 1. On the opened pane, scroll to the **Outputs** section.
 
-   :::image type="content" source="media/create-chat-assistant-prompt-template-standard-workflow/chat-response.png" alt-text="Screenshot shows the run history for most recently complete workflow with status for each operation and selected Azure OpenAI action with inputs and outputs." lightbox="media/create-chat-assistant-prompt-template-standard-workflow/chat-response.png":::
+   :::image type="content" source="media/create-chat-completions-prompt-template/chat-response.png" alt-text="Screenshot shows the run history for most recently complete workflow with status for each operation and selected Azure OpenAI action with inputs and outputs." lightbox="media/create-chat-completions-prompt-template/chat-response.png":::
 
    The response is entirely based on the structured context that is passed into your workflow—no extra fine-tuning needed.
 
