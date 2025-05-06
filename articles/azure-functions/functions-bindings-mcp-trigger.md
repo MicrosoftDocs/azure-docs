@@ -71,11 +71,11 @@ For the complete code example, see [snippetsMcpTool.ts](https://github.com/Azure
 ::: zone pivot="programming-language-python"  
 This code uses the `generic_trigger` decorator to create an endpoint to expose a tool named `get_snippet` that tries to retrieve a code snippet by name from blob storage.
  
-:::code language="java" source="~/remote-mcp-functions-python/src/function_app.py" range="61-82" :::
+:::code language="python" source="~/remote-mcp-functions-python/src/function_app.py" range="61-82" :::
 
 This code uses the `generic_trigger` decorator to create an endpoint to expose a tool named `save_snippet` that tries to persist a named code snippet to blob storage.
 
-:::code language="java" source="~/remote-mcp-functions-python/src/function_app.py" range="85-106" :::
+:::code language="python" source="~/remote-mcp-functions-python/src/function_app.py" range="85-106" :::
 
 For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/function_app.py).  
 ::: zone-end  
