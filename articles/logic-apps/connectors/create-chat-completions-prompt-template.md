@@ -2,8 +2,8 @@
 title: Create chat interfaces with prompt templates
 description: Build an AI chat interface by using Standard workflows in Azure Logic Apps and Azure OpenAI prompt templates.
 services: logic-apps
+author: ecfan
 ms.suite: integration
-ms.author: ecfan
 ms.reviewers: estfan, shahparth, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
