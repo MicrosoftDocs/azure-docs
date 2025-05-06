@@ -15,7 +15,7 @@ This article guides you to troubleshoot and fix issues related to connecting Azu
 
 ## Symptom
 
-Grafana is unable to connect to a private link service that exposes a service running in an Azure Kubernetes Service (AKS) cluster. Users may encounter errors such as **504 Gateway Time-out** when attempting to connect.
+Grafana is unable to connect to a private link service that exposes a service running in an Azure Kubernetes Service (AKS) cluster.
 
 ## Possible causes
 
