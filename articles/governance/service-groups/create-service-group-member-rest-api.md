@@ -3,7 +3,7 @@ title: "Quickstart: Connect Service Group members using the REST API"
 description: In this quickstart, you use REST API to connect a resource to a service group with a service group member relationship.
 author: rthorn17
 ms.author: rithorn
-ms.service: azure-governance
+ms.service: azure-policy
 ms.topic: quickstart
 ms.date: 5/19/2025
 ---
