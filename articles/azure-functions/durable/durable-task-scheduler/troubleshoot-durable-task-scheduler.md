@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Functions durable task scheduler (preview)
 description: Learn how to troubleshoot error messages and issues you encounter while using the Azure Functions durable task scheduler.
 ms.topic: conceptual
-ms.date: 03/18/2025
+ms.date: 05/06/2025
 ---
 
 # Troubleshoot the Azure Functions durable task scheduler (preview)

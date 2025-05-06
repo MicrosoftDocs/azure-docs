@@ -2,7 +2,7 @@
 title: Configure managed identity for Azure Functions Durable Task Scheduler (preview)
 description: Learn about the roles available for managed identity in Durable Task Scheduler and how to configure them.
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 zone_pivot_groups: dts-devexp
 ---
 
