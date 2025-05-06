@@ -22,8 +22,7 @@ Before you can configure rendering, ensure the following prerequisite steps are 
 2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
 3.  **`item_assets` Defined in Collection:** Your STAC collection's JSON definition *must* include a well-defined [`item_assets`](./stac-overview.md#item-assets) section. These properties inform the rendering engine about the common data assets (and their properties like data type or bands) available across the items in the collection. Render configurations reference the asset keys defined here.
 
-## Configuring Render Configuration Process
-
+## Process to build a Render Configuration
 | Step | Title                                                                                             | Description                                                                                                |
 | :--- | :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
 | 1    | [Define `item_assets` in your Collection JSON](#step-1-define-item_assets-in-your-collection-json) | First, you need to ensure your STAC collection JSON includes a well-defined `item_assets` section that describes the common assets within your items. |
