@@ -236,7 +236,7 @@ To use that string in the Hybrid Connection Manager CLI, run `hcm add` with eith
 
 ### Upgrade
 
-There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a dialog box appears in the Hybrid Connection Manager GUI and the Hybrid Connection Manager CLI command responses. Applying the upgrade applies the changes and restarts the Hybrid Connection Manager.
+There are periodic updates to the Hybrid Connection Manager to fix issues or provide improvements. When upgrades are released, a dialog box appears in the Hybrid Connection Manager GUI at startup. To check for available upgrades with the Hybrid Connection Manager CLI, run `hcm version` and `hcm upgrade`. Applying the upgrade applies the changes and restarts the Hybrid Connection Manager.
 
 ## Adding a Hybrid Connection to your app programmatically
 
