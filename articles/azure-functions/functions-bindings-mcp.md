@@ -14,11 +14,11 @@ zone_pivot_groups: programming-languages-set-functions
 
 # MCP bindings for Azure Functions overview
 
-The [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and leverage external data sources and tools. 
+The [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
 
 [!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
 
-The Azure Functions MCP extension allows you to use Azure Functions to create custom MCP servers. When acting as an MCP server, your function app defines a set of function endpoints that are MCP triggers, which LLMs and agents can access to do specific tasks, such as storing or accessing code snippets. These MCP clients can also subscribe to your MCP server app to receive notifications about changes to the exposed APIs. 
+The Azure Functions MCP extension allows you to use Azure Functions to create custom MCP servers. Your function app implements an MCP server by defining a set of MCP tool endpoints that are MCP trigger functions. MCP clients, such as language models and agents, can query and access these tools to do specific tasks, such as storing or accessing code snippets. MCP clients can also subscribe to your app to receive notifications about changes to the exposed tools. 
 
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
 ::: zone pivot="programming-language-csharp"
@@ -72,7 +72,7 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 
 | Property | Description |
 | ----- | ----- |
-| **instructions** | Decribes to clients how to access the server. |
+| **instructions** | Describes to clients how to access the server. |
 | **serverName** | A friendly name for the server. |
 | **serverVersion** | Current version of the server. |
 

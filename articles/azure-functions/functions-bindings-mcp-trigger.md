@@ -1,6 +1,6 @@
 ---
 title: MCP trigger for Azure Functions
-description: Learn how you can use a trigger endpoint to expose a functions as a model content protocol (MCP) server tool in Azure Functions.
+description: Learn how you can use a trigger endpoint to expose functions as a model content protocol (MCP) server tools in Azure Functions.
 ms.topic: reference
 ms.date: 05/06/2025
 ms.custom: 
@@ -13,7 +13,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # MCP trigger for Azure Functions
 
-Use the MCP trigger to create endpoints in a [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) server that are accessed by client LLMs and agents to do specific tasks, such as storing or accessing code snippets. These MCP clients can also subscribe to your MCP server (your function app) to receive notifications about changes to the exposed APIs. 
+Use the MCP trigger to tool endpoints in a [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) server that are accessed by client language models and agents to do specific tasks, such as storing or accessing code snippets. MCP clients can also subscribe to your function app to receive notifications about changes to the exposed tools. 
 
 [!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
 
@@ -136,7 +136,7 @@ The trigger supports these binding options, which are defined in your code:
 
 | Options | Description |
 |-----------------------|-------------|
-| **type** | Must be `mcpToolTrigger`. Only used with generic definitions. |
+| **type** | Must be set to `mcpToolTrigger`. Only used with generic definitions. |
 | **toolName** | (Required) The name of the MCP server tool exposed by the function endpoint. |
 | **description**  | A description of the MCP server tool exposed by the function endpoint.  |
 | **toolProperties** | An array of `toolProperty` objects that expose properties of the tool to clients.  |
@@ -151,7 +151,7 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp"  
 
-The MCP protocol enables an MCP server to make known to clients additional properties of a tool endpoint. In C#, you can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
+The MCP protocol enables an MCP server to make known to clients other properties of a tool endpoint. In C#, you can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
 
 The `McpToolPropertyAttribute` type supports these properties:
 
