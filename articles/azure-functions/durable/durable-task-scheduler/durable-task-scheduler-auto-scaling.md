@@ -245,5 +245,4 @@ Verify the autoscaling is functioning correctly in the deployed solution.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about the Durable Task Scheduler](./durable-task-scheduler.md)
+Currently, autoscaling container apps using Durable Functions for Durable Task Scheduler isn't available. In the meantime, [try autoscaling container apps using the Microsoft SQL (MSSQL) backend](../durable-functions-mssql-container-apps-hosting.md).
