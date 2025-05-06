@@ -35,21 +35,21 @@ The `location` should be an Azure region near other services that use your cache
 
 Microsoft Entra authentication is enabled by default for new caches, and access keys authentication is disabled. You can enable access key authentication during or after cache creation, but for security and ease of use, Microsoft Entra authentication is recommended.
 
-Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
-
 >[!IMPORTANT]
 >Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+
+Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
 
 ::: zone pivot="azure-managed-redis"
 
 >[!IMPORTANT]
->The following settings can be enabled or configured only at cache creation time. Gather the information you need to configure these settings and make sure to configure them correctly during cache creation.
+>You can enable or configure the following settings only at Azure Managed Redis cache creation time. Gather the information you need to configure these settings before you begin, and make sure to configure them correctly during cache creation.
 >- You must enable modules at the time you create the cache instance. You can't change modules or enable module configuration after you create a cache.
->- Managed Redis supports two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
+>- Azure Managed Redis supports two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
 >- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
 >- The [RediSearch](../redis-modules.md#redisearch) module requires the Enterprise cluster policy and No Eviction eviction policy.
 
-The following script sets variables, then uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group and create a Balanced B1 Azure Managed Redis cache in the resource group.
+The following script sets variables, then uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group and create a Azure Managed Redis Balanced B1 cache in the resource group.
 
 >[!NOTE]
 >The [az redisenterprise](/cli/azure/redisenterprise) commands are part of the `redisenterprise` extension for the Azure CLI, version 2.61.0 or higher. The extension automatically installs the first time you run an `az redisenterprise` command.
