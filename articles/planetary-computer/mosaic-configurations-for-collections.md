@@ -20,7 +20,7 @@ A STAC collection's mosaic configuration is a list of individual specific search
 - `description`: Info about the mosaic  
 - `cql`: A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression that defines the search parameters for STAC items to be found and visualized
 
-The mosaic configuration can be set from the Mosaics tab, accessible from the **Configuration** button on the web interface for a STAC collection.  All items returned from a search are sorted such that most recent items appear first.  So all mosaics can be titled 'most recent.'
+The mosaic configuration can be set from the Mosaics tab, accessible from the **Configuration** button on the web interface for a STAC collection.  All items returned from a search are sorted such that most recent items appear first.  Mosaics that don't specify a `datetime` range are best titled 'most recent.'
 
 ## Example Mosaic Configurations used in Open Planetary Computer
 
