@@ -171,7 +171,7 @@ To trigger Cross Subscription Restore to a Private Endpoint enabled vault, follo
    - Select the subscription of the target vault in which you want to restore.
    - Select the VNet of the target VM that you want to restore across subscription.
 
-1. After the Private Endpoint is created, [trigger restore](#restore-sap-ase-databases-on-azure-vms).
+1. After the Private Endpoint is created, [trigger restore](#restore-a-user-database).
 
 >[!Note]
 >By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to the **Recovery Services vault** > **Properties** > **Cross Subscription Restore** and then select **Update** to implement the required changes.

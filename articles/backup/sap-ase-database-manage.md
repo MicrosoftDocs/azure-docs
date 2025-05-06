@@ -2,7 +2,7 @@
 title: Manage and monitor backed-up SAP ASE database using Azure portal
 description: In this article, learn the common tasks for managing and monitoring SAP ASE databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024

@@ -16,16 +16,13 @@ This quickstart describes how to run the preregistration script to prepare an SA
 
 The preregistration script for SAP ASE database backup using Azure Backup ensures the system is properly configured by setting up authentication, validating network connectivity, and installing necessary packages. It also supports private endpoints and prepares the database for seamless backup operations.
 
->[!Note]
->- Currently, the SAP ASE is available only in non-US public regions. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
->- Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
+Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
 
 ## Prerequisites
 
 Before you run the preregistration script, ensure that the following prerequisites are met:
 
-- [Download the latest preregistration script](https://aka.ms/preregscriptsapase) for Multiple Components on One System (MCOS)
- and Multi System Identifier (SID) support.
+- [Download the latest preregistration script](https://aka.ms/preregscriptsapase) for [Multi System Identifier (SID) support](sap-ase-backup-support-matrix.md#support-for-multiple-sap-ase-instances-on-a-single-host).
 - Run the SAP ASE backup configuration script on the virtual machine where ASE is installed.
 - Check if you're the root user for proper configuration and access.
 - Use the `-sn` or `--skip-network-checks` parameter when running the script, if your ASE setup uses Private Endpoints.

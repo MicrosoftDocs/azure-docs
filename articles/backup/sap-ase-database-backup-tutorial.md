@@ -2,7 +2,7 @@
 title: Tutorial - Back up SAP ASE (Sybase) database using Azure Business Continuity Center
 description: In this tutorial, learn how to back up an SAP ASE (Sybase) database that's running on an Azure virtual machine using Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 05/14/2025
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -14,9 +14,7 @@ ms.author: jsuri
 
 This tutorial describes how to back up an SAP Adaptive Server Enterprise (ASE) (Sybase) database that's running on an Azure Virtual Machine (VM) using [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md).
 
->[!Note]
->- Currently, the SAP ASE is available only in non-US public regions. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
->- Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
+Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
 
 ## Prerequisites
 
