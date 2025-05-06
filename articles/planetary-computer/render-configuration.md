@@ -86,7 +86,8 @@ Before building the configuration, determine how you want to visualize your data
 | :------------------------ | :----------------------------------------------------------------------- | :------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------- |
 | **Single-Band Data**      | Each pixel has one value.                                                | elevation, temperature, land cover classification, calculated index  | Map these single values to a color range or discrete colors using a **colormap**.                              |
 | **Multi-Band Data**       | Data has multiple bands per pixel.                                       | RGB satellite imagery, multi-spectral data                           | Combine three specific bands to represent the Red, Green, and Blue channels of the output image.               |
-| **Derived Data (Expressions)** | Calculate a new value on-the-fly from one or more bands/assets.        | NDVI from Red and NIR bands                                          | Define a mathematical **expression** and visualize the result (single-band with colormap or multi-band directly). |
+| **Derived Data (Expressions)** | Calculate a new value  from one or more bands/assets.        | NDVI from Red and NIR bands                                          | Define a mathematical **expression** and visualize the result (single-band with colormap or multi-band directly). |
+| **Derived Data (Algorithms)** | Calculate a new value across pixels.        | Hillshade shows contours of elevation data                                          | Use a mathematical **algorithm** to transform data into a visualization. |
 | **Data Cubes (GRIB/NetCDF)** | Data stored in GRIB or NetCDF formats with multiple variables and dimensions. | time, pressure levels                                                | Select a specific variable and potentially a slice through other dimensions (like time) for 2D visualization. |
 
 ## Step 3: Construct the Render Configuration Object
@@ -176,7 +177,7 @@ Beyond the basics, TiTiler offers many advanced parameters via the `options` str
 
 **Full example:** `assets=elevation&algorithm=hillshade&colormap_name=gray&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D`
 
-For details on specific algorithms, see the [TiTiler Algorithm documentation](https://developmentseed.org/titiler/examples/notebooks/Working_with_Algorithm/).
+For details on specific algorithms, see the [TiTiler Algorithm documentation](https://developmentseed.org/titiler/examples/notebooks/Working_with_Algorithm/) and [Mapbox algorithms](https://docs.mapbox.com/data/tilesets/guides/access-elevation-data/)
 
 ### 3. Color Correction (for RGB / Three-band output)
 
@@ -188,7 +189,6 @@ For details on specific algorithms, see the [TiTiler Algorithm documentation](ht
 - `Gamma {BANDS} {VALUE}` - Adjust brightness 
 - `Saturation {PROPORTION}` - Adjust color intensity
 - `Sigmoidal {BANDS} {CONTRAST} {BIAS}` - Adjust contrast
-- `{BANDS}` can be `R`, `G`, `B`, `RG`, `RB`, `GB`, or `RGB`
 
 For more information about color correction, see the [TiTiler documentation](https://developmentseed.org/titiler/endpoints/cog/#color-correction).
 
@@ -202,10 +202,10 @@ For more information about color correction, see the [TiTiler documentation](htt
 
 ### 5. Data Handling
 
-| Parameter | Description | Format | Example |
-| :-------- | :---------- | :----- | :------ |
-| `nodata={value}` | Specify pixel value to make transparent | Numeric or `nan` | `nodata=0` or `nodata=-9999` or `nodata=nan` |
-| `unscale={true\|false}` | Apply scale/offset from GeoTIFF metadata | `true` or `false` | `unscale=true` |
+| Parameter | Description | Example |
+| :-------- | :---------- | :------ |
+| `nodata={value}` | Specify pixel value to make transparent | `nodata=0` or `nodata=-9999` or `nodata=nan` |
+| `unscale={true\|false}` | Apply scale/offset from GeoTIFF metadata | `unscale=true` |
 
 ### 6. Performance / Tiling Behavior
 
@@ -249,15 +249,21 @@ Use an HTTP POST request to the collection's render options endpoint.
 ```python
 import requests
 import json
+import azure.identity
 
-# Assume geocatalog_url, collection_id, and getBearerToken() are defined
-# Assume render_config is your list of render configuration dictionaries
-render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
+geocatalog_url = <your geocatalog url>
+collection_id = <your collection id>
+
+credential = azure.identity.AzureCliCredential()
+token = credential.get_token("https://geocatalog.spatio.azure.com")
+headers = {
+    "Authorization": f"Bearer {token.token}"
+}
 
 response = requests.post(
-    render_config_endpoint,
+    f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options",
     json=render_config, # Your list of render config dicts
-    headers=getBearerToken(),
+    headers=headers,
     params={"api-version": "2025-04-30-preview"} # Use the appropriate API version
 )
 
@@ -275,16 +281,16 @@ else:
 
 Here are various examples of the `options` string and the full render configuration object:
 
-**1. Single-Band Elevation with Colormap and Rescale:**
+**1. Single-Band Biomass Change with Colormap and Rescale:**
 
 ```json
  {
-    "id": "elevation-viridis",
-    "name": "Elevation (Viridis)",
-    "description": "Elevation data mapped from 0m to 3000m.",
+    "id": "biomass-change",
+    "name": "Biomass Change from prior year (tonnes)",
+    "description": "Annual estimates of changes (gains and losses) in aboveground woody biomass.",
     "type": "raster-tile",
-    "options": "assets=elevation&colormap_name=viridis&rescale=0,3000&nodata=-9999",
-    "minZoom": 7
+    "options": 'assets=biomass_change_wm&colormap_name=spectral&rescale=-5000,5000',
+    "minZoom": 2
   }
 ```
 
@@ -292,11 +298,11 @@ Here are various examples of the `options` string and the full render configurat
 
 ```json
  {
-    "id": "natural-color-bands",
-    "name": "Natural Color (B04, B03, B02)",
-    "description": "True color composite using Sentinel-2 bands 4, 3, 2.",
+    "id": "natural-color",
+    "name": "Natural color",
+    "description": "True color composite of visible bands (B04, B03, B02)",
     "type": "raster-tile",
-    "options": "assets=B04&assets=B03&assets=B02&nodata=0&rescale=0,3000&color_formula=Gamma RGB 2.2 Saturation 1.1 Sigmoidal RGB 15 0.35",
+    "options": "assets=B04&assets=B03&assets=B02&nodata=0&color_formula=Gamma RGB 3.2 Saturation 0.8 Sigmoidal RGB 25 0.35",
     "minZoom": 9
   }
 ```
@@ -305,9 +311,9 @@ Here are various examples of the `options` string and the full render configurat
 
 ```json
 {
-    "id": "color-infrared-naip",
-    "name": "Color Infrared (NAIP)",
-    "description": "Highlights vegetation (red) using NIR, Red, Green bands.",
+    "id": "color-infrared",
+    "name": "Color infrared",
+    "description": "Highlights healthy (red) and unhealthy (blue/gray) vegetation.",
     "type": "raster-tile",
     "options": "assets=image&asset_bidx=image|4,1,2&color_formula=Sigmoidal RGB 15 0.35",
     "minZoom": 12
@@ -318,11 +324,11 @@ Here are various examples of the `options` string and the full render configurat
 
 ```json
 {
-    "id": "ndvi",
+    "id": "normalized-difference-veg-inde",
     "name": "Normalized Difference Veg. Index (NDVI)",
-    "description": "Calculated as (B08-B04)/(B08+B04). Greener indicates healthier vegetation.",
+    "description": "Normalized Difference Vegetation Index (B08-B04)/(B08+B04), darker green indicates healthier vegetation.",
     "type": "raster-tile",
-    "options": "expression=(B08-B04)/(B08+B04)&asset_as_band=true&nodata=nan&rescale=-0.2,1&colormap_name=rdylgn",
+    "options": "nodata=0&expression=(B08-B04)/(B08+B04)&rescale=-1,1&colormap_name=rdylgn&asset_as_band=true",
     "minZoom": 9
   }
 ```
@@ -335,7 +341,7 @@ Here are various examples of the `options` string and the full render configurat
     "name": "Hillshade",
     "description": "Terrain visualization based on elevation.",
     "type": "raster-tile",
-    "options": "assets=elevation&algorithm=hillshade&colormap_name=gray&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D&nodata=-9999",
+    "options": "assets=data&colormap_name=gray&algorithm=hillshade&buffer=3&algorithm_params=%7B%22azimuth%22%3A%20315%2C%20%22angle_altitude%22%3A%2045%7D",
     "minZoom": 7
   }
 ```
@@ -344,11 +350,11 @@ Here are various examples of the `options` string and the full render configurat
 
 ```json
 {
-    "id": "temp-2023-10-26",
-    "name": "Temperature (2023-10-26 12:00)",
-    "description": "Air temperature from NetCDF data.",
+    "id": "pr-1950-07-07",
+    "name": "Precipitation (1950-07-07)",
+    "description": "Precipitation from NetCDF data.",
     "type": "raster-tile",
-    "options": "assets=netcdf_data&subdataset_name=air_temp_2m&datetime=2023-10-26T12:00:00Z&colormap_name=plasma&rescale=270,310",
+    "options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr&datetime=1950-07-07T00:00:00",
     "minZoom": 4
   }
 ```
