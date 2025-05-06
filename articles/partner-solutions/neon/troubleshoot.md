@@ -10,7 +10,7 @@ ms.date: 04/23/2025
 
 You can get support for your Neon Serverless Postgres deployment through a New Support request. For further assistance, visit [Neon Support]. In addition, this article includes troubleshooting for problems you might experience in creating and using a Neon resource. 
 
-## Getting support 
+## Get support 
 
 To contact support about a Neon resource, select the resource in the Resource menu. 
 
