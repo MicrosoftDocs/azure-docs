@@ -171,6 +171,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflows
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -506,6 +508,8 @@
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

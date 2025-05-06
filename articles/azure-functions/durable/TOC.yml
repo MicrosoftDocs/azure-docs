@@ -41,6 +41,9 @@
   - name: Configure Durable Functions app with Durable Task Scheduler
     displayName: get started, durable task scheduler
     href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
+  - name: Configure a container app with Durable Task SDK and Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md
   - name: Configure Durable Functions app with MSSQL
     href: quickstart-mssql.md
   - name: Configure Durable Functions app with managed identity
@@ -113,6 +116,8 @@
     href: ./durable-task-scheduler/choose-orchestration-framework.md
   - name: Concepts
     items:
+    - name: Identity
+      href: ./durable-task-scheduler/durable-task-scheduler-identity.md
     - name: Monitoring dashboard
       href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
     - name: Auto-purge 
@@ -127,12 +132,10 @@
             href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
   - name: Durable Task SDKs
     items:
-    - name: Scheduler API
-      href: ./durable-task-scheduler/durable-task-scheduler.md #placeholder
     - name: How-to guides
       items:
-      - name: Run app on Azure Container Apps
-        href: ./durable-task-scheduler/durable-task-scheduler.md #placeholder
+      - name: Autoscaling with the Durable Task SDKs in Azure Container Apps
+        href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot
