@@ -1,6 +1,6 @@
 ---
 title: Azure Firewall Draft + Deployment (preview)
-decription: Learn how to use Azure Firewall's Draft and Deployment feature to make and apply bulk updates to your firewall policies efficiently. This article provides step-by-step guidance on creating, updating, and deploying drafts, along with supported scenarios and limitations.
+description: Learn how to use Azure Firewall's Draft and Deployment feature to make and apply bulk updates to your firewall policies efficiently. This article provides step-by-step guidance on creating, updating, and deploying drafts, along with supported scenarios and limitations.
 services: firewall
 author: vekannan
 ms.service: azure-firewall
@@ -11,7 +11,7 @@ ms.author: duau
 
 # Azure Firewall Draft + Deployment (preview)
 
-Organizations often need to update their Azure Firewall Policy for various reasons, such as onboarding new applications or workloads, addressing security vulnerabilities, performing maintenance, or optimizing policies by merging or removing unused rules. These updates may involve multiple contributors, and each change can take several minutes to deploy.
+Organizations often need to update their Azure Firewall Policy for various reasons, such as onboarding new applications or workloads, addressing security vulnerabilities, performing maintenance, or optimizing policies by merging or removing unused rules. These updates can involve multiple contributors, and each change can take several minutes to deploy.
 
 [!IMPORTANT]
 > **Azure Firewall Draft + Deployment** is currently in PREVIEW.
@@ -29,13 +29,13 @@ The Draft and Deployment feature is designed for specific use cases and has cert
 
 ### Supported scenarios
 
-- This feature is exclusively available for Azure Firewall Policies. It does not support firewalls configured with classic rules.
+- This feature is exclusively available for Azure Firewall Policies. It doesn't support firewalls configured with classic rules.
 
 ### Limitations
 
-- A draft is created as a clone of the currently applied policy. Any changes made to the applied policy after the draft's creation will not be reflected in the draft unless manually updated.
-- Deploying a draft replaces the entire applied policy. Any modifications made to the applied policy after the draft's creation will be lost unless they are included in the draft.
-- Creating a new Rule Collection Group (RCG) is not supported directly within a policy draft.
+- A draft is created as a clone of the currently applied policy. Any changes made to the applied policy after the creation of the draft isn't reflected in the draft unless manually updated.
+- Deploying a draft replaces the entire applied policy. Changes made to the applied policy after the draft is created aren't preserved unless they're also added to the draft.
+- Creating a new Rule Collection Group (RCG) isn't supported directly within a policy draft.
 - Only one draft can exist for a policy at any given time.
 
 ## Prerequisites
@@ -54,7 +54,7 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
 
 1. In the Azure portal, navigate to your existing firewall policy or create a new one.
 
-1. On the **Azure Firewall Policy** blade, under the **Management** section, select **Draft & Deployment**, then select **Create a new draft**. This creates a draft that is an exact copy of your current applied policy.
+1. On the **Azure Firewall Policy** page, under the **Management** section, select **Draft & Deployment**, then select **Create a new draft**. This creates a draft that is an exact copy of your current applied policy.
 
 1. On the draft page, make changes or additions to your rules or settings. These pages are identical to those in the deployed policy. The changes will only take effect when you deploy the draft.
 
@@ -74,13 +74,13 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
     az login
     ```
 
-1. Create a draft using [az network firewall policy draft create](/cli/azure/network/firewall/policy/draft/create) command. This command creates a draft of the current applied policy. You can use the `--policy-name` and `--resource-group` parameters to specify the name and resource group of your firewall policy:
+1. Create a draft using [az network firewall policy draft create](/cli/azure/network/firewall/policy/draft#az-network-firewall-policy-draft-create) command. This command creates a draft of the current applied policy. You can use the `--policy-name` and `--resource-group` parameters to specify the name and resource group of your firewall policy:
 
     ```azurecli-interactive
     az network firewall policy draft create --policy-name fw-policy --resource-group test-rg
     ```
 
-1. Update the settings using [az network firewall policy draft update](/cli/azure/network/firewall/policy/draft/update) command. You can use the `--threat-intel-mode` and `--idps-mode` parameters to specify the threat intelligence mode and IDPS mode for the draft:
+1. Update the settings in the draft using the [az network firewall policy draft update](/cli/azure/network/firewall/policy/draft#az-network-firewall-policy-draft-update) command. This command allows you to modify the threat intelligence mode and IDPS mode for the draft. Use the `--threat-intel-mode` parameter to set the desired threat intelligence mode and the `--idps-mode` parameter to configure the intrusion detection and prevention system (IDPS) mode:
 
     ```azurecli-interactive
     az network firewall policy draft update --policy-name fw-policy --resource-group test-rg --threat-intel-mode Off --idps-mode Deny
@@ -88,7 +88,7 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
 
 1. Update Draft Rules
 
-    - Create a New Rule Collection Group (RCG) using [az network firewall policy rule-collection-group draft create](/cli/azure/network/firewall/policy/rule-collection-group/draft/create) command:
+    - Create a New Rule Collection Group (RCG) using [az network firewall policy rule-collection-group draft create](/cli/azure/network/firewall/policy/rule-collection-group/draft#az-network-firewall-policy-rule-collection-group-draft-create) command:
 
       ```azurecli-interactive
       az network firewall policy rule-collection-group draft create --rule-collection-group-name rcg-b --policy-name fw-policy --resource-group test-rg --priority 303
@@ -114,19 +114,19 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
             --ip-protocols TCP UDP
       ```
 
-1. View the details of the draft using [az network firewall policy draft show](/cli/azure/network/firewall/policy/draft/show) command:
+1. View the details of the draft using [az network firewall policy draft show](/cli/azure/network/firewall/policy/draft#az-network-firewall-policy-rule-collection-group-draft-show) command:
 
     ```azurecli-interactive
     az network firewall policy draft show --policy-name fw-policy --resource-group test-rg
     ```
 
-1. Deploy the draft to apply the changes using [az network firewall policy deploy](/cli/azure/network/firewall/policy/deploy) command:
+1. Deploy the draft to apply the changes using [az network firewall policy deploy](/cli/azure/network/firewall/policy#az-network-firewall-policy-deploy) command:
 
     ```azurecli-interactive
     az network firewall policy deploy --name fw-policy --resource-group test-rg
     ```
 
-1. Discard the draft if you no longer need it using [az network firewall policy draft delete](/cli/azure/network/firewall/policy/draft/delete) command:
+1. Discard the draft if you no longer need it using [az network firewall policy draft delete](/cli/azure/network/firewall/policy/draft#az-network-firewall-policy-rule-collection-group-draft-delete) command:
 
     ```azurecli-interactive
     az network firewall policy draft delete --policy-name fw-policy --resource-group test-rg
@@ -147,7 +147,8 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
     Set-AzFirewallPolicyDraft -AzureFirewallPolicyName fw-policy -ResourceGroupName test-rg -ThreatIntelWhitelist $threatIntelWhitelist
     ```
 
-1. Update draft rules:  
+1. Update draft rules with the following cmdlets:
+
     - Use the [New-AzFirewallPolicyRuleCollectionGroupDraft](/powershell/module/az.network/new-azfirewallpolicyrulecollectiongroupdraft) cmdlet to create a new rule collection group (RCG) in the draft. Specify the RCG name, resource group, and policy name:
 
     ```powershell-interactive
