@@ -75,7 +75,7 @@ az redisenterprise create --name $cache --resource-group $resourceGroup --locati
 
 ## Get details for an Azure Managed Redis cache
 
-The following script uses the [az redisenterprise show](/cli/azure/redisenterprise#az-redisenterprise-show) and [az redisenterprise list-keys](/cli/azure/redisenterprise#az-redisenterprise-list-keys) commands to get and display name, hostname, ports, and keys details for an Azure Managed Redis cache.
+The following script uses the [az redisenterprise show](/cli/azure/redisenterprise#az-redisenterprise-show) and [az redisenterprise list-keys](/cli/azure/redisenterprise#az-redisenterprise-list-keys) commands to get and display cache name, hostname, ports, and keys details.
 
 ```azurecli
 # Get details of an Azure Managed Redis cache
@@ -100,7 +100,7 @@ echo "Secondary Key:" ${keys[1]}
 
 ## Clean up resources
 
-The following script uses the [az group delete](/cli/azure/group) and [az redisenterprise delete](/cli/azure/redisenterprise#az-redisenterprise-delete) commands to delete an Azure Managed Redis cache, and then delete the resource group that contains all cache resources.
+The following script uses the [az group delete](/cli/azure/group) and [az redisenterprise delete](/cli/azure/redisenterprise#az-redisenterprise-delete) commands to delete a cache, and then delete the resource group that contains all cache resources.
 
 ```azurecli
 # Delete a redis cache
@@ -139,7 +139,7 @@ az redis create --name $cache --resource-group $resourceGroup --location "$locat
 
 ## Get details for an Azure Cache for Redis cache
 
-The following script uses the [az redis show](/cli/azure/redis#az-redis-show) and [az redis list-keys](/cli/azure/redis#az-redis-list-keys) commands to get and display name, hostname, ports, and keys details for an Azure Cache for Redis cache.
+The following script uses the [az redis show](/cli/azure/redis#az-redis-show) and [az redis list-keys](/cli/azure/redis#az-redis-list-keys) commands to get and display name, hostname, ports, and keys details.
 
 ```azurecli
 
@@ -164,7 +164,7 @@ echo "Secondary Key:" ${keys[1]}
 
 ## Clean up resources
 
-The following script uses the [az group delete](/cli/azure/group) and [az redis delete](/cli/azure/redis#az-redis-delete) commands to delete an Azure Cache for Redis cache, and then delete the resource group that contains all cache resources.
+The following script uses the [az group delete](/cli/azure/group) and [az redis delete](/cli/azure/redis#az-redis-delete) commands to delete a cache, and then delete the resource group that contains all cache resources.
 
 ```azurecli
 # Delete an Azure Redis cache
