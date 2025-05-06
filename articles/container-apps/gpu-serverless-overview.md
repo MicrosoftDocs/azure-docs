@@ -93,7 +93,11 @@ Serverless GPUs are run on consumption GPU workload profiles. You manage a consu
 
 ## Improve GPU cold start
 
-You can significantly improve cold start times by [enabling artifact streaming](cold-start.md#use-artifact-streaming) and locating large files, like large language models, in a [storage mount](cold-start.md#manage-large-downloads).
+You can significantly improve cold start times by enabling artifact streaming and locating large files, like large language models, in a storage mount.
+
+- [Artifact streaming](/azure/container-registry/container-registry-artifact-streaming): Azure Container Registry offers image streaming which can significantly speed up image startup times. To use artifact streaming, your container images must be hosted in a premium Azure Container Registry.
+
+- [Storage mounts](cold-start.md#manage-large-downloads): Reduce the effects of network latency by storing large files in an Azure storage account associated with your container app.
 
 ## Submit feedback
 
