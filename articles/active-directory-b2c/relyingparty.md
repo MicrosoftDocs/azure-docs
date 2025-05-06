@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 03/21/2025
+ms.date: 04/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -17,6 +17,7 @@ ms.subservice: b2c
 ---
 
 # RelyingParty
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -46,7 +47,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
       <SingleSignOn Scope="Tenant" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>900</SessionExpiryInSeconds>
-      <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+      <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="your-application-insights-connection-string" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       <ContentDefinitionParameters>
         <Parameter Name="campaignId">{OAUTH-KV:campaignId}</Parameter>
       </ContentDefinitionParameters>
@@ -143,7 +144,7 @@ The **UserJourneyBehaviors** element contains the following elements:
 | SingleSignOn | 0:1 | The scope of the single sign-on (SSO) session behavior of a user journey. |
 | SessionExpiryType |0:1 | The authentication behavior of the session. Possible values: `Rolling` or `Absolute`. The `Rolling` value (default) indicates that the user remains signed in as long as the user is continually active in the application. The `Absolute` value indicates that the user is forced to reauthenticate after the time period specified by application session lifetime. |
 | SessionExpiryInSeconds | 0:1 | The lifetime of Azure AD B2C's session cookie specified as an integer stored on the user's browser upon successful authentication. The default is 86,400 seconds (24 hours). The minimum is 900 seconds (15 minutes). The maximum is 86,400 seconds (24 hours). |
-| JourneyInsights | 0:1 | The Azure Application Insights instrumentation key to be used. |
+| JourneyInsights | 0:1 | The Azure Application Insights connection string to be used. |
 | ContentDefinitionParameters | 0:1 | The list of key value pairs to be appended to the content definition load URI. |
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 | ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
@@ -168,7 +169,7 @@ The **JourneyInsights** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | TelemetryEngine | Yes | The value must be `ApplicationInsights`. |
-| InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
+| ConnectionString | Yes | The string that contains the connection string for the application insights element. |
 | DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes. The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for personal data collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
 | ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. |
 | ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |

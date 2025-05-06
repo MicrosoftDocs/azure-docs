@@ -1,10 +1,10 @@
 ---
 title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 12/02/2024
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
@@ -46,7 +46,7 @@ Media optimization for Microsoft Teams is only available for the following clien
 
 - [Remote Desktop client for Windows](users/connect-windows.md) or the [Azure Virtual Desktop app](users/connect-windows-azure-virtual-desktop-app.md), version 1.2.1026.0 or later, including ARM64-based devices.
 
-- [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later.
+- [Remote Desktop client for macOS](users/connect-macos.md), version 10.7.7 or later. Teams optimizations on macOS aren't supported when using Teams as a RemoteApp.
 
 - [Windows App](/windows-app/get-started-connect-devices-desktops-apps).
 

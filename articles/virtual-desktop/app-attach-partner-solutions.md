@@ -1,10 +1,10 @@
 ---
 title: Deliver applications from partner solutions with app attach - Azure Virtual Desktop
 description: Learn how to deliver applications to your remote desktop or app using partner solutions with app attach.
-author: sipastak
+author: dougeby
 ms.topic: how-to
 ms.date: 12/12/2024
-ms.author: sipastak
+ms.author: avdcontent
 ---
 
 # Deliver applications from partner solutions to Azure Virtual Desktop with app attach

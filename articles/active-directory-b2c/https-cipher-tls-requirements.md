@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Azure Active Directory B2C TLS and cipher suite requirements
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) connects to your endpoints through [API connectors](api-connectors-overview.md) and [identity providers](oauth2-technical-profile.md) within [user flows](user-flow-overview.md). This article discusses the TLS and cipher suite requirements for your endpoints.
 

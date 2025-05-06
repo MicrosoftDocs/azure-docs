@@ -1,16 +1,16 @@
 ---
 title: Connectivity to an Azure Virtual Network
 description: Learn about key concepts and use cases on connectivity to Azure Virtual Networks.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 4/18/2025
+ms.date: 4/21/2025
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to learn about connectivity to Azure Virtual Networks so that I can understand the features and benefits of this offering.
 ---
 
 # Connectivity to an Azure Virtual Network
 
-After you deploy Azure VMware Solution Generation (Gen) 2 private cloud, you need network connectivity between the private cloud and other networks you have in an Azure Virtual Network. In this article, you learn how to connect the Gen 2 private cloud to Azure Virtual Networks.
+After you deploy Azure VMware Solution Generation 2 (Gen 2) private cloud, you need network connectivity between the private cloud and other networks you have in an Azure Virtual Network. In this article, you learn how to connect the Gen 2 private cloud to Azure Virtual Networks.
 
 ## Prerequisites
 

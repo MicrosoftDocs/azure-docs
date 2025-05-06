@@ -5,7 +5,7 @@ description: Security considerations for Azure role assignment conditions and Az
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/09/2023
 ms.reviewer: nachakra
 ---
