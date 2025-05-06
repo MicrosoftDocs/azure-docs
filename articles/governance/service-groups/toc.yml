@@ -1,15 +1,18 @@
+toc:
 - name: Azure Service Groups documentation
   href: index.yml
 - name: What are Azure Service Groups?
   href: overview.md
 - name: What are Management Groups?
   href: management-groups-overview.md
-- name: Create a service group with REST API
-  href: create-service-group-rest-api.md
-- name: Connect Service Group members using the REST API
-  href: create-service-group-member-rest-api.md
-- name: How to use Service Groups to manage resources
-  href: manage-service-groups.md
+- name: Get started
+  items:
+  - name: Create a service group
+    href: create-service-group-rest-api.md
+  - name: Connect Service Group members 
+    href: create-service-group-member-rest-api.md
+  - name: How to use Service Groups to manage resources
+    href: manage-service-groups.md
 
   
   
