@@ -7,7 +7,7 @@ manager: orspod
 ms.collection:
   - usx-security
 ms.topic: reference
-ms.date: 04/28/2025
+ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -27,8 +27,8 @@ Microsoft Sentinel SOC optimizations include the following types of recommendati
 
 - **Coverage based recommendations** suggest adding controls to prevent coverage gaps that can lead to vulnerability to attacks or scenarios that can lead to financial loss.
     - **Threat-based recommendations** suggest adding security controls that help you detect coverage gaps to prevent attacks and vulnerabilities.
-
-    - **Risk-based recommendations** suggest adding controls to detect coverage gaps that correlate with use cases that could lead to business risks and financial loss, including Operational, Financial, Reputational, Compliance and Legal business risks. 
+    - **AI MITRE ATT&CK tagging recommendations (Preview)** increase security coverage using artificial intelligence to automatically tag security detections with MITRE ATT&CK tactics and techniques.
+    - **Risk-based recommendations (Preview)** suggest adding controls to detect coverage gaps that correlate with use cases that could lead to business risks and financial loss, including Operational, Financial, Reputational, Compliance, and Legal business risks. 
 
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
@@ -48,7 +48,7 @@ The following table lists the available types of data value SOC optimization rec
 |---------|---------|
 | The table wasn't used by analytics rules or detections in the last 30 days but was used by other sources, such as workbooks, log queries, hunting queries.     | Turn on analytics rule templates <br>OR<br>Move the table to a [basic logs plan](../billing.md#auxiliary-logs) if the table is eligible.   |
 | The table wasn’t used at all in the last 30 days.     | Turn on analytics rule templates <br>OR<br> Stop data ingestion and remove the table or move the table to long term retention.       |
-| The table was only used by Azure Monitor.     | Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a non-security Log Analytics workspace.       |
+| The table was only used by Azure Monitor.     | Turn on any relevant analytics rule templates for tables with security value <br>OR<br>Move to a nonsecurity Log Analytics workspace.       |
 
 If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics) or a [threat intelligence matching analytics rule](/azure/sentinel/use-matching-analytics-to-detect-threats), SOC optimization doesn't recommend any changes in ingestion.
 
@@ -71,7 +71,7 @@ Coverage-based optimization recommendations help you close coverage gaps against
 
 To optimize data value, SOC optimization recommends adding security controls to your environment in the form of extra detections and data sources, using a threat-based approach. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research.
 
-To provide threat-based recommendations, SOC optimization looks at your ingested logs and enabled analytics rules, and compares them to the logs and detections that are required to protect, detect, and respond to specific types of attacks.
+SOC optimization provides threat-based recommendations by analyzing your ingested logs and enabled analytics rules, then comparing them to the logs and detections needed to address specific types of attacks.
 
 Threat-based optimizations consider both predefined and user-defined detections.
 
@@ -83,14 +83,25 @@ The following table lists the available types of threat-based SOC optimization r
 | Templates are turned on, but data sources are missing.     | Connect new data sources.     |
 | There are no existing detections or data sources.     | Connect detections and data sources or install a solution.      |
 
-### Risk-based optimization recommendations
+### AI MITRE ATT&CK tagging recommendations (Preview)
 
-Risk-based optimizations consider real world security scenarios with a set of business risks associated with it, including Operational, Financial, Reputational, Compliance and Legal risks. The recommendations are based on the Microsoft Sentinel risk-based approach to security.
+The AI MITRE ATT&CK Tagging feature uses artificial intelligence to automatically tag security detections. The AI model runs on the customer's workspace to create tagging recommendations for untagged detections with relevant MITRE ATT&CK tactic and techniques.
+
+Customers can apply these recommendations to ensure their security coverage is thorough and precise. This ensures complete and accurate security coverage, enhancing threat detection and response capabilities.
+
+These are 3 ways to apply the AI MITRE ATT&CK tagging recommendations:
+- Apply the recommendation to a specific analytics rule.
+- Apply the recommendation to all analytics rules in the workspace.
+- Don't apply the recommendation to any analytics rules.
+
+### Risk-based optimization recommendations (Preview)
+
+Risk-based optimizations consider real world security scenarios with a set of business risks associated with it, including Operational, Financial, Reputational, Compliance, and Legal risks. The recommendations are based on the Microsoft Sentinel risk-based approach to security.
 
 To provide risk-based recommendations, SOC optimization looks at your ingested logs and analytics rules, and compares them to the logs and detections that are required to protect, detect, and respond to specific types of attacks that may cause business risks.
 Risk-based recommendations optimizations consider both predefined and user-defined detections.
 
-The following table lists the available types of threat-based SOC optimization recommendations:
+The following table lists the available types of risk-based SOC optimization recommendations:
 
 | Type of observation | Action |
 |---------|---------|
@@ -108,9 +119,9 @@ SOC optimization uses advanced machine learning to identify tables that are miss
 
 ### Considerations
 
-- Not all workspaces get similar organizations recommendations. A workspace receives these recommendations only if our machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are more likely to receive these recommendations than SOCs with a higher level of maturity.
+- A workspace only receives similar organization recommendations if the machine learning model identifies significant similarities with other organizations and discovers tables that they have but you don't. SOCs in their early or onboarding stages are more likely to receive these recommendations than SOCs with a higher level of maturity. Not all workspaces get similar organizations recommendations.
 
-- Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. The models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or personal data (EUII) is exposed to the analysis.
+- The machine learning models never access or analyze the content of customer logs or ingest them at any point. No customer data, content, or personal data (EUII) is exposed to the analysis. Recommendations are based on machine learning models that rely solely on Organizational Identifiable Information (OII) and system metadata. 
 
 ## Related content
 

@@ -1,13 +1,13 @@
 ---
 title: Optimize security operations
 description: Use Microsoft Sentinel SOC optimization recommendations to optimize your security operations center (SOC) team activities.
-ms.author: bagol
-author: batamig
-manager: raynew
+ms.author: abbyweisberg
+author: AbbyMSFT
+manager: orpsod
 ms.collection:
   - usx-security
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 05/06/2025
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
@@ -107,8 +107,9 @@ SOC optimization recommendations are calculated every 24 hours. Each optimizatio
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
-- **Coverage**: Includes threat-based recommendations for adding security controls to help close coverage gaps for various types of attacks, and risk-based recommendations for adding security controls to help close coverage gaps for various types of business risks.
-- 
+- **Coverage** : Includes recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. Includes:
+    - **Threat-based recommendations** for adding security controls to help close coverage gaps for various types of attacks.
+    - **AI MITRE ATT&CK recommendations** for adding tagging recommendations to help close coverage gaps for various types of attacks, based on the MITRE ATT&CK framework.    - **Risk-based recommendations** for adding security controls to help close coverage gaps for various types of business risks.
 - **Data value**: Includes recommendations that suggest ways to improve your data usage for maximizing security value from ingested data, or suggest a better data plan for your organization.
 
 ### View optimization details and take action
