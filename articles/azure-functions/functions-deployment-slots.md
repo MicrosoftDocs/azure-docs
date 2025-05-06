@@ -236,7 +236,7 @@ Use these steps to remove a slot from your app in the portal:
 
 1. Close the confirmation pane.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Screenshot shows teh deployment slot delete confirmation." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Screenshot shows the deployment slot deletion confirmation." border="true":::
 
 ### [Azure CLI](#tab/azure-cli)
 
