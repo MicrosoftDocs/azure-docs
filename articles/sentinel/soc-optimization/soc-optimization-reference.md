@@ -26,10 +26,9 @@ Microsoft Sentinel SOC optimizations include the following types of recommendati
 - **Data value recommendations** suggest ways to improve your data use, such as a better data plan for your organization.
 
 - **Coverage based recommendations** suggest adding controls to prevent coverage gaps that can lead to vulnerability to attacks or scenarios that can lead to financial loss. Coverage recommendations include:
-    - **Threat-based recommendations** suggest adding security controls that help you detect coverage gaps to prevent attacks and vulnerabilities.
-    - **AI MITRE ATT&CK tagging recommendations (Preview)** uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
-    - **Risk-based recommendations (Preview)** suggest adding controls to detect coverage gaps that correlate with use cases that could lead to business risks and financial loss, including Operational, Financial, Reputational, Compliance, and Legal business risks. 
-
+    - **Threat-based recommendations**: Recommends adding security controls that help you detect coverage gaps to prevent attacks and vulnerabilities.
+    - **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
+    - **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 
 - **Similar organizations recommendations** suggest ingesting data from the types of sources used by organizations which have similar ingestion trends and industry profiles to yours.
 
 This article provides a detailed reference of the types of SOC optimization recommendations available.

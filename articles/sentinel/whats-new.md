@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: batamig
 ms.author: bagol
 ms.topic: concept-article
-ms.date: 04/28/2025
+ms.date: 05/06/2025
 
 #Customer intent: As a security team member, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
@@ -17,6 +17,13 @@ This article lists recent features added for Microsoft Sentinel, and new feature
 The listed features were released in the last three months. For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## May 2025
+SOC optimization support for: 
+ - **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
+ - **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 
+ 
+For more information, see [SOC optimization reference](soc-optimization/soc-optimization-reference.md).
 
 ## April 2025
 
