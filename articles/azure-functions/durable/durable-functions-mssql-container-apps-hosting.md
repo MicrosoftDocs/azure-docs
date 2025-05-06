@@ -171,7 +171,8 @@ Your Durable Functions also needs an Azure SQL Database as its storage backend. 
 - Enable Azure services and resources to access this server (under **Networking**)
 - Set the value for **Database collation** (under **Additional settings**) to `Latin1_General_100_BIN2_UTF8`.
 
-> [!NOTE] Enabling the **Allow Azure services and resources to access this server** setting isn't a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
+> [!NOTE] 
+> Enabling the **Allow Azure services and resources to access this server** setting isn't a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 ### Configure identity-based authentication
 Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. You can choose between [system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). This article demonstrates setting up user-assigned managed identity, which is the recommended option as it isn't tied to the app lifecycle.
@@ -210,7 +211,7 @@ Managed identities make your app more secure by eliminating secrets from your ap
 ### Set up app settings
 1. Start by storing the SQL database's connection string as a [secret](../../container-apps/manage-secrets.md) in the container app. Find the connection string by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
 
-    :::image type="content" source="/media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
+    :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
     The connection string should have this format: 
     ```bash
@@ -226,7 +227,7 @@ Managed identities make your app more secure by eliminating secrets from your ap
 > Authenticating to the MSSQL database using managed identity isn't yet supported when hosting a Durable Functions app in Azure Container Apps. Only connection string is supported today. 
 >
 > If you forget the password from the previous database creation step, you can reset it on the SQL server resource:
-> :::image type="content" source="/media/quickstart-mssql/mssql-azure-reset-pass-2.png" alt-text="Screenshot showing reset password button.":::
+> :::image type="content" source="./media/quickstart-mssql/mssql-azure-reset-pass-2.png" alt-text="Screenshot showing reset password button.":::
 
 1. Store the connection string as a secret:
 
@@ -242,7 +243,7 @@ Managed identities make your app more secure by eliminating secrets from your ap
 1. Add these settings required by the app:
     - `AzureWebJobsStorage__accountName`: <STORAGE_NAME>
     - `AzureWebJobsStorage__clientId`: <IDENTITY_CLIENT_ID>
-    - `AzureWebJobsStorage__credential`: <managedidentity>
+    - `AzureWebJobsStorage__credential`: <MANAGED_IDENTITY>
     - `SQLDB_Connection`: <SQLDB_CONNECTION_STRING>
     - `FUNCTIONS_WORKER_RUNTIME`: <APP_LANGUAGE>
 
