@@ -19,6 +19,9 @@ Azure Storage Actions is a fully managed platform designed to automate data mana
 
 You can use Azure Storage Actions to automate tasks such as moving data to more cost-effective tiers, manage the retention of versions, snapshots or sensitive data sets, rehydrating data from archive storage so that it is available for immediate use, or manage blob index tags and metadata for better organization and data retrieval.
 
+> [!IMPORTANT]
+> Azure Storage Actions is generally available in these [regions](#supported-regions). Some regions remain in PREVIEW. For a list, see [Regions supported at the preview level](#regions-supported-at-the-preview-level).
+
 ## Terms and definitions
 
 The resource that you provision to perform data operations is called a _storage task_. A _storage task_ can perform operations on blobs in Azure Storage accounts based on a set of conditions that you define.
@@ -74,6 +77,86 @@ See the [Azure Storage Actions events schema](../event-grid/event-schema-storage
 Pricing is based on the execution of storage task assignments. Each time your storage task assignment executes, you're billed a task execution instance charge. You also incur a charge based on the count of objects scanned and evaluated against the conditions of the storage task. That charge is based on a single price per million objects scanned. The final meter applies to the count of operations performed on objects in the storage account. This charge is also based on a single price per million objects. Meters are applied to each executing instance. If a storage task assignment is scheduled to execute repeatedly, then you're billed for each separate instance. 
 
 At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all Azure Storage Actions costs. There's a separate line item for each meter. These charges appear in the subscription of the storage account where the task assignment is configured. To learn more about Azure Storage Actions billing meters along with example calculations for common scenarios, see [Plan to manage costs for Azure Storage Actions](storage-actions-plan-manage-costs.md)
+
+## Supported Regions
+
+Azure Storage tasks are generally available in the following public regions:
+
+- West US 3
+
+- West Central US
+
+- UK West
+
+- UK South
+
+- UAE North
+
+- Sweden Central
+
+- Spain Central
+
+- South India
+
+- South Africa North
+
+- Norway East
+
+- Korea South
+
+- Korea Central
+
+- Jio India Central
+
+- Japan West
+
+- Japan East
+
+- Italy North
+
+- Israel Central
+
+- East US 2
+
+- Australia Central
+
+## Regions supported at the preview level
+
+Azure Storage Actions is currently in PREVIEW and is available in the following region.
+See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+This list is temporary and will change over time as GA support continues to expand.
+
+- Australia East
+
+- Australia Southeast
+
+- Brazil south
+
+- Canada Central
+
+- Central India
+
+- Central US
+
+- France Central
+- Germany West Central
+
+- North Central US
+
+- North Europe
+
+- South Central Us
+
+- Southeast Asia
+
+- Switzerland North
+
+- West Europe
+
+- West US
+
+- West US 2
 
 ## Next steps
 
