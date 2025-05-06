@@ -6,7 +6,7 @@ ms.service: azure-app-configuration
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 05/06/2025
 ---
 
 # Tutorial: Enable telemetry for feature flags in a Python application (preview)
@@ -50,19 +50,38 @@ In this tutorial, you use telemetry in your Python application to track feature 
     ```python
     from featuremanagement import track_event
     
-    @bp.route("/", methods=["GET", "POST"])
-    def index():
-        context = {}
-        user = ""
+    @bp.route("/heart", methods=["POST"])
+    def heart():
         if current_user.is_authenticated:
             user = current_user.username
-            context["user"] = user
-        else:
-            context["user"] = "Guest"
-        if request.method == "POST":
-            # Update the post request to track liked events
+            
+            # Track the appropriate event based on the action
             track_event("Liked", user)
-            return redirect(url_for("pages.index"))
+        return jsonify({"status": "success"})
+    ```
+
+1. Open `index.html` and update the code to implement the like button. The like button sends a POST request to the `/heart` endpoint when clicked.
+
+    ```html
+    <script>
+        function heartClicked(button) {
+            var icon = button.querySelector('i');
+            
+            // Toggle the heart icon appearance
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+            
+            // Only send a request to the dedicated heart endpoint when it's a like action
+            if (icon.classList.contains('fas')) {
+                fetch('/heart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+            }
+        }
+    </script>
     ```
 
 ## Build and run the app
