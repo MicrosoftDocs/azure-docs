@@ -4,7 +4,7 @@ description: Learn about the Azure Migrate replication appliance for agent-based
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 09/26/2024
 ms.custom: engagement-fy25
