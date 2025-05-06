@@ -35,9 +35,6 @@
   - name: Create a Durable Functions app - Java
     displayName: get started, chaining
     href: quickstart-java.md
-  - name: Create an app with Durable Task SDK and Durable Task Scheduler
-    displayName: get started, durable task scheduler
-    href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
   - name: Configure Durable Functions app with Durable Task Scheduler
     displayName: get started, durable task scheduler
     href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
@@ -126,16 +123,12 @@
     items:
       - name: Throughput benchmark
         href: ./durable-task-scheduler/durable-task-scheduler-work-item-throughput.md
-      - name: How-to guides
-        items:
-          - name: Create Durable Task Scheduler 
-            href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
+      - name: Create Durable Task Scheduler resources
+        href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
   - name: Durable Task SDKs
     items:
-    - name: How-to guides
-      items:
-      - name: Autoscaling with the Durable Task SDKs in Azure Container Apps
-        href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
+    - name: Autoscale with the Durable Task SDKs in Azure Container Apps
+      href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot

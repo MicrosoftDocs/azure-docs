@@ -2,7 +2,7 @@
 title: Choosing an orchestration framework
 description: Learn which orchestration framework works for your scenario.
 ms.topic: conceptual
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 ---
 
 # Choosing an orchestration framework
@@ -132,5 +132,10 @@ Walk through one of the following quickstarts to configure your applications to 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about the Durable Task Scheduler](./durable-task-scheduler.md) 
+For Durable Task Scheduler for Durable Functions:
+- [Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
+- [Develop with the Azure Functions Durable Task Scheduler](./develop-with-durable-task-scheduler.md)
+
+For Durable Task Scheduler for the Durable Task SDKs:
+- [Quickstart: Create an app with Durable Task SDK and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md)
+- [Quickstart: Configure a container app with Durable Task SDK and Durable Task Scheduler](./quickstart-container-apps-durable-task-sdk.md)
