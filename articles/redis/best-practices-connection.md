@@ -13,6 +13,8 @@ appliesto:
 
 # Connection resilience with Azure Managed Redis
 
+In this article, we discuss how to make resilient connections to your cache.
+
 ## Retry commands
 
 Configure your client connections to retry commands with exponential backoff. For more information, see [retry guidelines](/azure/architecture/best-practices/retry-service-specific#azure-cache-for-redis).
@@ -29,7 +31,7 @@ We recommend these TCP settings:
 |---------|---------|
 | `net.ipv4.tcp_retries2`   | 5 |
 
-For more information about the scenario, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the _StackExchange.Redis_ library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
+For more information about the scenario, see [Connection doesn't re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the _StackExchange.Redis_ library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
 
 ## Using ForceReconnect with StackExchange.Redis
 
@@ -66,7 +68,7 @@ Avoid creating many connections at the same time when reconnecting after a conne
 If you're reconnecting many client instances, consider staggering the new connections to avoid your new connections from being throttled.
 
 > [!NOTE]
-> When you use the _StackExchange.Redis_ client library, set `abortConnect` to `false` in your connection string.  We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [_StackExchange.Redis_ best practices](management-faq.yml#stackexchangeredis-best-practices).
+> When you use the _StackExchange.Redis_ client library, set `abortConnect` to `false` in your connection string. We recommend letting the `ConnectionMultiplexer` handle reconnection. For more information, see [_StackExchange.Redis_ best practices](management-faq.yml#stackexchangeredis-best-practices).
 
 ## Avoid leftover connections
 

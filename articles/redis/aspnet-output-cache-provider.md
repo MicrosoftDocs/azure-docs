@@ -50,8 +50,6 @@ The NuGet package downloads and adds the required assembly references and adds t
 </caching>
 ```
 
-[aad](/azure/azure-cache-for-redis/cache-configure?tabs=access-keys)
-
 Configure the attributes in the first column with the values from your cache in the Microsoft Azure portal. Also, configure the other values you want. For instructions on accessing your cache properties, see  [Configure Azure Managed Redis settings](configure.md#configure-azure-managed-redis-settings).
 
 | Attribute | Type | Default | Description |

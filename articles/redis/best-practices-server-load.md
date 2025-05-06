@@ -13,6 +13,8 @@ appliesto:
 
 # Manage Server Load for Azure Managed Redis
 
+In this article, we discuss how to use and monitor the load of an Azure Managed Redis cache.
+
 ## Value sizes
 
 The design of your client application determines whether you should store many small values or a smaller number of larger values. From a Redis server perspective, smaller values give better performance. We recommend keeping value size smaller than 100 kB.

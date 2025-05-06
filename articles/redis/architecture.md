@@ -11,13 +11,13 @@ appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Azure Managed Redis Architecture
+# Azure Managed Redis architecture
 
 Azure Managed Redis runs on the [Redis Enterprise](https://redis.io/technology/advantages/) stack, which offers significant advantages over the community edition of Redis. The following information provides greater detail about how Azure Managed Redis is architected, including information that can be useful to power users.
 
 ## Comparison with Azure Cache for Redis
 
-The Basic, Standard, and Premium tiers of Azure Cache for Redis were built on the community edition of Redis. This version of Redis has several significant limitations, including being single-threaded by design. This reduces performance significantly and makes scaling less efficient as more vCPUs aren't fully utilized by the service. A typical Azure Cache for Redis instance uses an architecture like this:
+The Basic, Standard, and Premium tiers of Azure Cache for Redis were built on the community edition of Redis. This community edition of Redis has several significant limitations, including being single-threaded. This reduces performance significantly and makes scaling less efficient as more vCPUs aren't fully utilized by the service. A typical Azure Cache for Redis instance uses an architecture like this:
 
 :::image type="content" source="media/architecture/cache-architecture.png" alt-text="Diagram showing the architecture of the Azure Cache for Redis offering.":::
 
@@ -39,7 +39,7 @@ This architecture enables both higher performance and also advanced features lik
 
 ## Clustering
 
-Each Azure Managed Redis instance is internally configured to use clustering, across all tiers and SKUs, because it is based on Redis Enterprise, which is able to use multiple shards per node. That includes smaller instances that are only set up to use a single shard. Clustering is a way to divide the data in the Redis instance across the multiple Redis processes, also called "sharding." Azure Managed Redis offers three [cluster policies](#cluster-policies) that determine which protocol is available to Redis clients for connecting to the cache instance.
+Each Azure Managed Redis instance is internally configured to use clustering, across all tiers and SKUs. Azure Managed Redis is based on Redis Enterprise, which is able to use multiple shards per node. That includes smaller instances that are only set up to use a single shard. Clustering is a way to divide the data in the Redis instance across the multiple Redis processes, also called "sharding." Azure Managed Redis offers three [cluster policies](#cluster-policies) that determine which protocol is available to Redis clients for connecting to the cache instance.
 
 ### Cluster policies
 
@@ -51,22 +51,22 @@ OSS clustering policy can't be used with the [RediSearch module](redis-modules.m
 
 The OSS clustering protocol requires the client to make the correct shard connections. The initial connection is through port 10000. Connecting to individual nodes is done using ports in the 85XX range. The 85xx ports can change over time, and shouldn't be hardcoded into your application. Redis clients that support clustering use the [CLUSTER NODES](https://redis.io/commands/cluster-nodes/) command to determine the exact ports used for the primary and replica shards and make the shard connections for you.
 
-The **Enterprise clustering policy** is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that is then used as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that it makes Azure Managed Redis look non-clustered to users. That means that Redis client libraries don’t need to support Redis Clustering to gain some of the performance advantages of Redis Enterprise, boosting backwards compatibility and making the connection simpler. The downside is that the single node proxy can be a bottleneck, in either compute utilization or network throughput.
+The **Enterprise clustering policy** is a simpler configuration that utilizes a single endpoint for all client connections. Using the Enterprise clustering policy routes all requests to a single Redis node that is then used as a proxy, internally routing requests to the correct node in the cluster. The advantage of this approach is that it makes Azure Managed Redis look non-clustered to users. That means that Redis client libraries don’t need to support Redis Clustering to gain some of the performance advantages of Redis Enterprise. Using a single end point boosts backwards compatibility and makes connection simpler. The downside is that the single node proxy can be a bottleneck, in either compute utilization or network throughput.
 
 The Enterprise clustering policy is the only one that can be used with the [RediSearch module](redis-modules.md). While the Enterprise cluster policy makes an Azure Managed Redis instance appear to be non-clustered to users, it still has some limitations with [Multi-key commands](#multi-key-commands).
 
 The **Non-Clustered (preview)** clustering policy stores data on each node without sharding. It applies only to caches sized 25 GB and smaller. Scenarios for using Non-Clustered (preview) clustering policy include:
 
-- If you are migrating from a Redis environment that’s non-sharded. For example Basic, Standard, and Premium non-sharded topologies of Azure Cache for Redis.
-- If you need to run cross slot commands extensively and dividing data into shards would cause failures. For example, the MULTI commands.
-- If you use Redis as message broker and does not need sharding.
+- When migrating from a Redis environment that’s non-sharded. For example, the non-sharded topologies of Basic, Standard, and Premium SKUs of Azure Cache for Redis.
+- When running cross slot commands extensively and dividing data into shards would cause failures. For example, the MULTI commands.
+- When using Redis as message broker and doesn't need sharding.
 
 The considerations for using Non-Clustered (Preview) policy are:
 
 - It only applies to Azure Managed Redis tiers less than or equal to 25 GB.
 - It’s not as performant as other clustering policies because CPUs can only multi-thread with Redis Enterprise software when it’s sharded.
 - If you want to scale up your Azure Managed Redis cache, you must firs change the cluster policy.
-- If you are moving from Basic, Standard, or Premium non-clustered topology, consider to using OSS clusters to accelerate performance. Non-clustered should only be considered if the application program can't work with either OSS or Enterprise topologies.
+- If you're moving from Basic, Standard, or Premium non-clustered topology, consider to using OSS clusters to accelerate performance. Non-clustered should only be considered if the application program can't work with either OSS or Enterprise topologies.
 
 ### Scaling out or adding nodes
 
@@ -85,7 +85,7 @@ In Active-Active databases, multi-key write commands (`DEL`, `MSET`, `UNLINK`) c
 Each SKU of Azure Managed Redis is configured to run a specific number of Redis server processes, _shards_ in parallel. The relationship between throughput performance, the number of shards, and number of vCPUs available on each instance is complicated. Adding shards generally increases performance as Redis operations can be run in parallel. However, if shards aren't able to run commands because no vCPUs are available to execute commands, performance can actually drop. The following table shows the sharding configuration for each Azure Managed Redis SKU. These shards are mapped to optimize the usage of each vCPU while reserving vCPU cycles for Redis Enterprise proxy, management agent, and OS system tasks which also affect performance.
 
 >[!NOTE]
-> The number of shards and vCPUs used on each SKU can change over time as performance is optimized by the Azure Managed Redis team.
+> Azure Managed Redis optimizes performance over time by changing the number of shards and vCPUs used on each SKU.
 >
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
@@ -123,7 +123,7 @@ On each Azure Managed Redis Instance, approximately 20% of the available memory 
 
 ## Scaling down
 
-Scaling down is not currently supported on Azure Managed redis. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
+Scaling down isn't currently supported on Azure Managed redis. For more information, see [Limitations of scaling Azure Managed Redis](how-to-scale.md#limitations-of-scaling-azure-managed-redis).
 
 ## Flash Optimized tier
 

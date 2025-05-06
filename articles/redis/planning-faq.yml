@@ -33,7 +33,7 @@ sections:
         answer: |
          In Azure Managed Redis, your application data is stored in the RAM of the VM or VMs (depending on the tier and size configuration) that host your Redis instance. Your data resides strictly in the Azure region you've selected by default. 
          If you set up [active geo-replication](how-to-active-geo-replication.md), however, your data is replicated to each Redis instance in the geo-replication group. If Redis instances in the geo-replication group reside in other regions (as is typical), then your data is replicated to that region.
-         You need to explicitly configure Azure Managed Redis to use this feature and have complete control over the region(s) chosen. 
+         You need to explicitly configure Azure Managed Redis to use this feature and have complete control over one or more regions chosen. 
           
           >[!NOTE] 
           >The Flash Optimized tier also stores data on an ephemeral NVMe flash disk. This disk is mounted to the cache instance VM and therefore resides in the same region as the instance.
@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I use Azure Managed Redis with Azure Government Cloud or Azure operated by 21Vianet Cloud?
         answer: |
-          Azure Managed Redis is only available in the Public Azure cloud during preview. 
+          Azure Managed Redis is only available in the global Azure cloud during preview. 
           
 additionalContent: |
 

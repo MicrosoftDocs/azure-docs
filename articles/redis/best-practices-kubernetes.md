@@ -24,7 +24,7 @@ Ensure that the pod running your client application is given enough CPU and memo
 
 ## Sufficient node resources
 
-A pod running the client application can be affected by other pods running on the same node and throttle Redis connections or IO operations. So always ensure that the node on which your client application pods run have enough memory, CPU, and network bandwidth. Running low on any of these resources could result in connectivity issues.
+Other pods running on the same node might affect the pod running the client application to throttle Redis connections or IO operations. Always ensure that the node on which your client application pods run have enough memory, CPU, and network bandwidth. Running low on any of these resources could result in connectivity issues.
 
 ## Linux-hosted client applications and TCP settings
 

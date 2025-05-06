@@ -13,6 +13,8 @@ appliesto:
 
 # Best Practices for Scaling in Azure Managed Redis
 
+In this article, we discuss concepts of when and why to scale your Azure Managed Redis cache.
+
 ## Scale before load is too high
 
 Start scaling before the CPU or memory usage gets too high. If it's too high, that means Redis server is busy. The busy Redis server doesn't have enough resources to scale and redistribute data. For more information, see [When to scale](how-to-scale.md#when-to-scale).
