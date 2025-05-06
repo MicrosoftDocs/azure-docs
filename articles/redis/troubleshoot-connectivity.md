@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - template-concept
   - ignite-2024
+  - build-2025
 ---
 
 # Connectivity troubleshooting with Azure Managed Redis

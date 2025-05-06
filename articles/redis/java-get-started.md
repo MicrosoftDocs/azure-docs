@@ -13,6 +13,7 @@ ms.custom:
   - mvc
   - devx-track-extended-java
   - ignite-2024
+  - build-2025
 ms.devlang: java
 zone_pivot_groups: redis-type
 ---

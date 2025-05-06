@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - linux-related-content
   - ignite-2024
+  - build-2025
 ---
 
 # Kubernetes-hosted client application with Azure Managed Redis

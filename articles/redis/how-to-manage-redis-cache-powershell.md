@@ -6,6 +6,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2024
+  - build-2025
 zone_pivot_groups: redis-type
 ---
 

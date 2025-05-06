@@ -9,6 +9,7 @@ ms.custom:
   - mode-api
   - py-fresh-zinc
   - ignite-2024
+  - build-2025
 ms.devlang: python
 zone_pivot_groups: redis-type
 # customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.

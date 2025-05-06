@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-csharp
   - ignite-2024
+  - build-2025
 ---
 
 # Troubleshoot Azure Managed Redis latency and timeouts

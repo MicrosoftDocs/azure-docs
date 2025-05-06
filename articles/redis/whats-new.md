@@ -5,6 +5,7 @@ ms.date: 05/18/2025
 ms.topic: conceptual
 ms.custom:
   - references_regions
+  - build-2025
 ---
 
 # What's New in Azure Managed Redis

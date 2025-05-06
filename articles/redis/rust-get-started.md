@@ -6,6 +6,7 @@ ms.topic: quickstart
 ms.custom:
   - mode-other
   - ignite-2024
+  - build-2025
 ms.devlang: rust
 # Customer intent: As a Rust developer new to Azure Cache for Redis, I want to learn how to use it with Azure Cache for Redis.
 ---

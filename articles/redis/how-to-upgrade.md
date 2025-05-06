@@ -6,6 +6,7 @@ ms.service: azure-managed-redis
 ms.topic: how-to
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 # How to upgrade the version of your Azure Managed Redis instance

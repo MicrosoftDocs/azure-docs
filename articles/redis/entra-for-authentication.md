@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - references_regions
   - ignite-2024
+  - build-2025
 ---
 
 # Use Microsoft Entra for cache authentication with Azure Managed Redis

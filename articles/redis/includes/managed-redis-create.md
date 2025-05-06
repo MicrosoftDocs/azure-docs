@@ -3,6 +3,7 @@ ms.date: 05/18/2025
 ms.topic: include
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 1. To create an Azure Managed Redis instance, sign in to the Azure portal and select **Create a resource**.

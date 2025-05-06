@@ -8,6 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
   - ignite-2024
+  - build-2025
 ---
 
 # What is Azure Managed Redis with Azure Private Link?

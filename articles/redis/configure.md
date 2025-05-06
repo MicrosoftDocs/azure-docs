@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - engagement-fy23
   - ignite-2024
+  - build-2025
 ---
 
 # How to configure Azure Managed Redis

@@ -15,6 +15,7 @@ ms.custom:
   - devx-track-extended-java
   - devx-track-javaee
   - ignite-2024
+  - build-2025
 ms.devlang: java
 zone_pivot_groups: redis-type
 # Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.

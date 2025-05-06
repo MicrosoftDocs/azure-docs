@@ -5,6 +5,8 @@ ms.date: 05/18/2025
 ms.topic: tutorial
 ms.collection:
   - ce-skilling-ai-copilot
+ms.custom:
+  - build-2025
 # CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
 ---
 

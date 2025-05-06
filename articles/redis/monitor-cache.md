@@ -5,6 +5,7 @@ ms.date: 05/18/2025
 ms.topic: conceptual
 ms.custom:
   - horz-monitor
+  - build-2025
 ---
 
 # Monitor Azure Cache for Redis

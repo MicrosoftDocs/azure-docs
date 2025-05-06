@@ -6,6 +6,7 @@ ms.topic: sample
 ms.custom:
   - devx-track-azurecli
   - ignite-2024
+  - build-2025
 ms.devlang: azurecli
 zone_pivot_groups: redis-type
 ---

@@ -9,6 +9,7 @@ ms.custom:
   - mode-api
   - engagement-fy23
   - ignite-2024
+  - build-2025
 ms.devlang: javascript
 zone_pivot_groups: redis-type
 # Customer intent: As a Node.js developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.

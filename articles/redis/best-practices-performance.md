@@ -6,6 +6,7 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 # Performance testing with Azure Managed Redis

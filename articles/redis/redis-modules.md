@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - template-concept
   - ignite-2024
+  - build-2025
 ---
 # Use Redis modules with Azure Managed Redis
 

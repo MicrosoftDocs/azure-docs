@@ -8,6 +8,7 @@ ms.custom:
   - template-how-to
   - devx-track-azurecli
   - ignite-2024
+  - build-2025
 ms.devlang: azurecli
 ---
 

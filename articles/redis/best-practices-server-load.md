@@ -5,6 +5,7 @@ ms.date: 05/18/2025
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 # Manage Server Load for Azure Managed Redis

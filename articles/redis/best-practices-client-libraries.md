@@ -11,6 +11,7 @@ ms.custom:
   - devx-track-javaee-liberty-aks
   - devx-track-extended-java
   - ignite-2024
+  - build-2025
 ---
 
 # Azure Managed Redis Client libraries

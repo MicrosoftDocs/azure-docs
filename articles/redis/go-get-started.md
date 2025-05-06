@@ -7,6 +7,7 @@ ms.custom:
   - mode-api
   - devx-track-go
   - ignite-2024
+  - build-2025
 ms.devlang: golang
 ---
 

@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - references_regions
   - ignite-2024
+  - build-2025
 ---
 # High availability and disaster recovery with Azure Managed Redis
 

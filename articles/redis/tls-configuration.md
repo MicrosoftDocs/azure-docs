@@ -6,6 +6,7 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
+  - build-2025
 # Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
 ---
 

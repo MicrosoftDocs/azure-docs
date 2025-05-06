@@ -8,6 +8,7 @@ ms.custom:
   - devx-track-azurepowershell
   - devx-track-azurecli
   - ignite-2024
+  - build-2025
 ms.devlang: csharp
 ---
 

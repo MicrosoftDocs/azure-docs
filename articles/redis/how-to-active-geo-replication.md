@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-azurecli
   - ignite-2024
+  - build-2025
 ---
 
 # Configure active geo-replication for Azure Managed Redis instances

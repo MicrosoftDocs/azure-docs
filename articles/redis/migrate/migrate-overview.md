@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.custom:
   - ignite-2024
   - references_regions
+  - build-2025
 # CustomerIntent: As a developer, I want to see how to move from Azure Cache for Redis to Azure Managed Redis.
 ---
 # Move from Azure Cache for Redis to Azure Managed Redis

@@ -8,6 +8,7 @@ ms.custom:
   - mvc
   - mode-other
   - ignite-2024
+  - build-2025
 ms.devlang: csharp
 zone_pivot_groups: redis-type
 # Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.

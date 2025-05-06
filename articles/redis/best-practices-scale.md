@@ -6,6 +6,7 @@ ms.service: azure-managed-redis
 ms.topic: conceptual
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 # Best Practices for Scaling in Azure Managed Redis

@@ -5,6 +5,7 @@ ms.date: 05/18/2025
 ms.topic: tutorial
 ms.custom:
   - "devx-track-csharp, mvc"
+  - build-2025
 ms.devlang: csharp
 ---
 # Tutorial: Create a cache-aside leaderboard on ASP.NET

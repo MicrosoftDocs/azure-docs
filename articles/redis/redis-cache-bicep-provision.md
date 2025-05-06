@@ -7,6 +7,7 @@ ms.custom:
   - subject-armqs
   - devx-track-bicep
   - ignite-2024
+  - build-2025
 ---
 
 # Quickstart: Create an Azure Cache for Redis using Bicep

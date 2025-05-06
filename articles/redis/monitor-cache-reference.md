@@ -6,6 +6,7 @@ ms.topic: reference
 ms.custom:
   - horz-monitor
   - ignite-2024
+  - build-2025
 ---
 
 # Azure Cache for Redis monitoring data reference

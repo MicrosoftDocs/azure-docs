@@ -7,6 +7,7 @@ ms.collection:
   - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2024
+  - build-2025
 ---
 
 # What are Vector Embeddings and Vector Search in Azure Cache for Redis?
