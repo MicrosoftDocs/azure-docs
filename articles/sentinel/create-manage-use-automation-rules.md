@@ -118,7 +118,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
         If you selected one of the incident triggers and you want the automation rule to take effect only on incidents created in Microsoft Sentinel, or alternatively, only on those imported from Microsoft Defender XDR, specify the source in the **If Incident provider equals** condition. (This condition is displayed only if an incident trigger is selected.)
 
-    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition isn't displayed if Microsoft Defender XDR is selected as the incident provider.)
+    - **Analytic rule name**: For all trigger types, if you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name contains** condition. (This condition isn't displayed if Microsoft  XDR is selected as the incident provider.)
 
     Then, continue by selecting one of the following operators:
 

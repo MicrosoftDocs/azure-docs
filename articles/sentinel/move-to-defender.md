@@ -142,6 +142,8 @@ The following table lists fields that are important in the response snippets, an
 |Link to the incident     |    `incidentUrl`, links to the incident in Microsoft Sentinel in the Azure portal     |  `providerIncidentUrl`, links to the incident in the Defender portal       |
 |The name of the alert provider     |   `providerName`      |   `providerName` always shows as `Microsoft XDR`      |
 
+<!--is this microsoft xdr or microsoft defender xdr? check with ed-->
+
 The following table lists all elements that are added or changed in the Microsoft Sentinel `SecurityInsights` API after onboarding your workspace to the Defender portal:
 
 | Field     | Change Description     |
@@ -195,7 +197,7 @@ tasks - still true?-->
 |---------|---------|
 |**Delay just after onboarding your workspace**  <a name="5min"></a>   | It may take up to 5 minutes for Microsoft Defender incidents to fully integrate with Microsoft Sentinel. This doesn't affect features provided directly by Microsoft Defender, such as automatic attack disruption.        |
 |**Security incident creation rules**     | Any active [Microsoft security incident creation rules](create-incidents-from-alerts.md) are deactivated to avoid creating duplicate incidents. The incident creation settings in other types of analytics rules remain as they were, and are configurable in the Defender portal.   |
-|**Incident provider name**     | In the Defender portal, the **Incident provider name** is always Microsoft Defender XDR.        |
+|**Incident provider name**     | In the Defender portal, the **Incident provider name** is always Microsoft XDR.        |
 |**Adding / removing alerts from incidents**     | Adding or removing Microsoft Sentinel alerts to or from incidents is supported only in the Defender portal. To remove an alert from an incident in the Defender portal, you must [add the alert to another incident](/defender-xdr/move-alert-to-another-incident).        |
 |**Editing comments**     |  Add comments to incidents in either the Defender or Azure portal, but editing existing comments isn't supported in the Defender portal. Edits made to comments in the Azure portal aren't synchronized to the Defender portal.       |
 |**Programmatic and manual creation of incidents**     |    Incidents created in Microsoft Sentinel through the API, by a Logic App playbook, or manually from the Azure portal, aren't synchronized to the Defender portal. These incidents are still supported in the Azure portal and the API. See [Create your own incidents manually in Microsoft Sentinel](create-incident-manually.md).     |

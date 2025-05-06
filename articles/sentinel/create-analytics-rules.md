@@ -179,7 +179,7 @@ In the **Incident settings** tab, choose whether Microsoft Sentinel turns alerts
      >
      > - In this scenario, incidents are created by Microsoft Defender XDR, not by Microsoft Sentinel.
      > - These incidents appear in the incidents queue in both the Azure and Defender portals.
-     > - In the Azure portal, new incidents are displayed with "Microsoft Defender XDR" as the **incident provider name**.
+     > - In the Azure portal, new incidents are displayed with "Microsoft XDR" as the **incident provider name**.
 
    - If you want a single incident to be created from a group of alerts, instead of one for every single alert, see the next step.
 
