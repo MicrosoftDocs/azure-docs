@@ -9,9 +9,9 @@ ms.date: 04/24/2025
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
 ---
 
-# Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog using Python
- 
-This quickstart guide teaches the user how to create a SpatioTemporal Asset Catalog (STAC) collection and add it to the Microsoft Planetary Computer (MPC) Pro GeoCatalog using Python. It's ideal for users with familiarity with Python, and who wish to learn how to use the MPC Pro and STAC catalogs to organize their geospatial data.
+# Quickstart: Create a STAC Collection in Microsoft Planetary Computer Pro GeoCatalog with Python
+
+This quickstart guides you to create a SpatioTemporal Asset Catalog (STAC) collection and add it to a Microsoft Planetary Computer (MPC) Pro GeoCatalog using Python.
 
 ## Prerequisites
 
@@ -19,16 +19,18 @@ To complete this quickstart, you need:
 
 - An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Your environment configured to access Azure, for example with [`az login`](/cli/azure/authenticate-azure-cli).
-- Completion of [Create a GeoCatalog](./deploy-geocatalog-resource.md).
-- A Python environment with ``requests`` and ``azure-identity``.
+- Access to a Planetary Computer Pro GeoCatalog. If you don't already have access you can [create a new GeoCatalog](./deploy-geocatalog-resource.md).
+- A Python environment with ``requests`` and ``azure-identity`` installed.
 
 ```console
 python3 -m pip install requests azure-identity
 ```
 
-## Create collection metadata
+## Create a STAC Collection JSON
 
-Fist, get the metadata for the STAC collection you want to create. This example gets the collection metadata from the MPC Pro's STAC API. If you already have a STAC collection, you can skip to the next section.
+In order to create a STAC collection you first need a json file that defines the collection properties. Some properties are required when creating STAC Collections as described in the [STAC Collection Overview](/stac-overview#stac-collections). Other properties can be added depending on your use case and data type.
+
+For this tutorial, read the *io-lulc-annual-v02* STAC collection from the Planetary Computer Pro's STAC API. If you already this as STAC collection in your GeoCatalog you can skip to the next section.
 
 ```python
 import requests
@@ -37,18 +39,17 @@ collection = requests.get(
     "https://planetarycomputer.microsoft.com/api/stac/v1/collections/io-lulc-annual-v02"
 ).json()
 collection.pop("assets", None)  # remove unused collection-level assets
-collection["id"] = "spatio-quickstart"
-collection["title"] += " (Spatio Quickstart)"
+collection["id"] = "mpc-quickstart"
+collection["title"] += " (Planetary Computer Quickstart)"
 ```
 
 If you're using a different ID for your collection, make sure to replace the `id` field with the correct value.
 
-To visualize the data assets in the Explorer, the collection metadata should include the [Item Assets](https://github.com/stac-extensions/item-assets) extension and have at least one item asset whose media type can be visualized.
+To visualize the data assets within this collection in the Explorer, the collection metadata should include the [Item Assets](https://github.com/stac-extensions/item-assets) extension and have at least one item asset whose media type can be visualized.
 
 ## Get an access token
 
-MPC Pro GeoCatalog requires an access token to authenticate requests. Using the
-[Azure-identity](/python/api/overview/azure/identity-readme) client library for Python.
+Accessing a GeoCatalog requires a token to authenticate requests. Use the [Azure-identity](/python/api/overview/azure/identity-readme) client library for Python to retrieve a token:
 
 ```python
 import azure.identity
@@ -60,14 +61,14 @@ headers = {
 }
 ```
 
-This credential can be provided as a Bearer token in the `Authorization` header in requests made to the service.
+This credential can be provided as a Bearer token in the `Authorization` header in requests made to your GeoCatalog.
 
 ## Add a collection to a GeoCatalog
 
 With the STAC metadata, a token, and the URL to your GeoCatalog, make a request to the STAC API to add the Collection.
 
 ```python
-# Put the URL to your MPC Pro GeoCatalog (not including '/stac' or a trailing '/' ) here
+# Put the URL to your Planetary Computer Pro GeoCatalog (not including '/stac' or a trailing '/' ) here
 geocatalog_url = "<your-geocatalog-url>"
 
 response = requests.post(
@@ -81,7 +82,7 @@ print(response.status_code)
 
 A status code of `201` indicates that your Collection was created. A status code of `409` indicates that a collection with that ID already exists. See [Update a collection](#update-a-collection) for how to update an existing collection.
 
-You can now get this collection at the `/stac/collections/{collection_id}` endpoint.
+You can now read this collection at the `/stac/collections/{collection_id}` endpoint.
 
 ```python
 geocatalog_collection = requests.get(
@@ -91,13 +92,13 @@ geocatalog_collection = requests.get(
 ).json()
 ```
 
-You can also visit your GeoCatalog in your Explorer to see the new collection.
+You can also view your GeoCatalog in your browser to see the new collection.
 
 ## Configure a collection
 
-Each collection in a GeoCatalog includes some configuration that controls how the Item metadata is stored, indexed, and visualized.
+Each collection in a GeoCatalog includes some configuration that controls how the STAC items and their data assets is stored, indexed, and visualized. To configure a collection:
 
-1. Define a render configuration for the collection. This render configuration controls how the assets are rendered when visualized in the Explorer. The specific parameters used here depend on the assets in your collection.
+1. Define a render configuration for the collection. This render configuration controls how the STAC item assets within the collection are rendered when visualized in the GeoCatalog Explorer. The specific parameters used here depend on the assets in your collection.
 
     ```python
     import json
@@ -136,7 +137,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
     print(response.status_code)
     ```
 
-1. Define a mosaic for the collection. The mosaic configuration controls how items are queried, filtered, and combined to create a single view of the data on the Data Explorer map. The following sample mosaic configuration doesn't apply any extra query parameters or filters. As a result, when this configuration is selected within the  Data Explorer map, all the items within the collection are shown, with the most recent items listed first.
+2. Define a mosaic for the collection. The mosaic configuration controls how items are queried, filtered, and combined to create a single view of the data on the GeoCatalog Explorer. The following sample mosaic configuration doesn't apply any extra query parameters or filters. As a result, when this configuration is selected within the GeoCatalog Explorer, all the items within the collection are shown, with the most recent items displayed first.
 
     ```python
     mosaic = {
@@ -160,7 +161,7 @@ Each collection in a GeoCatalog includes some configuration that controls how th
     "cql": [{"op": "<=", "args": [{"property": "eo:cloud_cover"}, 10]}]
     ```
 
-1. Define Tile Settings for the collection. This controls the things like the minimum zoom level.
+3. Define Tile Settings for the collection. This controls the things like the minimum zoom level.
 
     ```python
     tile_settings = {
