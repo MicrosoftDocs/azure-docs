@@ -3,7 +3,7 @@ title: Overview of Assessments for Migration to Azure Database for MySQL (previe
 description: Learn how to assess your on-premises MySQL database instances for migration to Azure Database for MySQL using the Azure Migrate Discovery and Assessment tool. This article provides an overview of the assessment process, types of assessments, and key criteria for evaluating readiness, sizing, and cost.
 author: ankitsurkar06
 ms.author: ankitsurkar
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/24/2025
 monikerRange: migrate-classic
 ---
