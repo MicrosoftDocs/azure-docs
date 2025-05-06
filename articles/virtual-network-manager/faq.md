@@ -95,7 +95,7 @@ See [Dynamic membership](concept-network-groups.md#dynamic-membership).
 
 ### How does the deployment of configuration differ for dynamic membership and static membership?
 
-See [Configuration deployments in Azure Virtual Network Manager](concept-deployments.md#deployment).
+See [Configuration deployments in Azure Virtual Network Manager](concept-deployments.md).
 
 ### How do I delete an Azure Virtual Network Manager component?
 
