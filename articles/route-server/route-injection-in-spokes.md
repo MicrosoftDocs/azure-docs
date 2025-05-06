@@ -60,6 +60,10 @@ A particular case of the previous design is when customers insert the Azure Fire
 
 The Azure Firewall subnet learns the routes coming from both ExpressRoute and the VPN/SDWAN NVA, and decides whether sending traffic one way or the other. As described in the previous section, if the NVA appliance advertises more than 1000 routes to the Route Server, it should send its BGP routes marked with the BGP community `no-advertise`. This way, the SDWAN prefixes won't be injected back to on-premises via Express-Route.
 
+
+> [!NOTE]
+> For any traffic from on-premises destined for Private Endpoints, this traffic will bypass the Firewall NVA or Azure Firewall in the hub. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed.
+
 ## Traffic symmetry
 
 If multiple NVA instances are used in active/active scenario for better resiliency or scalability, traffic symmetry is a requirement if the NVAs need to keep the state of the connections. This is, for example, the case of Next Generation Firewalls.
@@ -70,33 +74,8 @@ If multiple NVA instances are used in active/active scenario for better resilien
 
 Multiple NVA instances can be deployed in an active/passive setup as well, for example if one of them advertises worse routes (with a longer AS path) than the other. In this case, Azure Route Server will only inject the preferred route in the VNet virtual machines, and the less preferred route will only be used when the primary NVA instance stops advertising over BGP.
 
-## Different Route Servers to advertise routes to Virtual Network Gateways and to VNets
+It is also important to note that Route Server does not support datapath traffic. When advertising routes to Route Server, the NVA needs to advertise routes with next hop as itself, a load balancer in front of the NVA, or an NVA/Firewall in the same VNet as the NVA. 
 
-As the previous sections have shown, Azure Route Server has a double role:
-
-- It learns and advertises routes to/from virtual network gateways (VPN and ExpressRoute)
-- It configures learned routes on its VNet, and on directly peered VNets
-
-This dual functionality often is interesting, but at times it can be detrimental to certain requirements. For example, if the Route Server is deployed in a VNet with an NVA advertising a 0.0.0.0/0 route and an ExpressRoute gateway advertising prefixes from on-premises, it will configure all routes (both the 0.0.0.0/0 from the NVA and the on-premises prefixes) on the virtual machines in its VNet and directly peered VNets. As a consequence, since the on-premises prefixes will be more specific than 0.0.0.0/0, traffic between on-premises and Azure will bypass the NVA. If this isn't desired, the previous sections in this article have shown how to disable BGP propagation in the VM subnets and configure UDRs.
-
-However, there's an alternative, more dynamic approach. It's possible using different Azure Route Servers for different functionality: one of them will be responsible for interacting with the virtual network gateways, and the other one for interacting with the virtual network routing. The following diagram shows a possible design for this:
-
-:::image type="content" source="./media/route-injection-in-spokes/route-injection-split-route-server.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute and two Route Servers.":::
-
-Route Server 1 in the hub is used to inject the prefixes from the SDWAN into ExpressRoute. Since the spoke VNets are peered with the hub VNet without the ***Use the remote virtual network's gateway or Route Server*** (in the spoke VNet peering) and ***Use this virtual network's gateway or Route Server*** (***Gateway transit*** in the hub VNet peering), the spoke VNets don't learn these routes (neither the SDWAN prefixes nor the ExpressRoute prefixes).
-
-To propagate routes to the spoke VNets, the NVA uses Route Server 2, deployed in a new auxiliary VNet. The NVA will only propagate a single `0.0.0.0/0` route to Route Server 2. Since the spoke VNets are peered with this auxiliary VNet with ***Use the remote virtual network's gateway or Route Server*** (in the spoke VNet peering) and ***Use this virtual network's gateway or Route Server*** (***Gateway transit*** in the hub VNet peering), the `0.0.0.0/0` route will be learned by all the virtual machines in the spokes.
-
-The next hop for the `0.0.0.0/0` route is the NVA, so the spoke VNets still need to be peered to the hub VNet. Another important aspect to notice is that the hub VNet needs to be peered to the VNet where Route Server 2 is deployed, otherwise it won't be able to create the BGP adjacency.
-
-If traffic from ExpressRoute to the spoke VNets is to be sent to a firewall NVA for inspection, a route table in the GatewaySubnet is still required, otherwise the ExpressRoute virtual network gateway will send packets to the virtual machines using the routes learnt from VNet peering. The routes in this route table should match the spoke prefixes, and the next hop should be the IP address of the firewall NVA (or the load balancer in front of the firewall NVAs, for redundancy). The firewall NVA can be the same as the SDWAN NVA in the diagram above, or it can be a different device such as Azure Firewall, since the SDWAN NVA can advertise routes with the next-hop pointing to other IP addresses. The following diagram shows this design with the addition of Azure Firewall:
-
-> [!NOTE]
-> For any traffic from on-premises destined for Private Endpoints, this traffic will bypass the Firewall NVA or Azure Firewall in the hub. However, this results in asymmetric routing (which can lead to loss of connectivity between on-premises and Private Endpoints) as Private Endpoints forward on-premises traffic to the Firewall. To ensure routing symmetry, enable [Route Table network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md) on the subnets where Private Endpoints are deployed.
-
-:::image type="content" source="./media/route-injection-in-spokes/route-injection-split-route-server-with-firewall.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via ExpressRoute, an Azure Firewall, and two Route Servers.":::
-
-This design allows automatic injection of routes in spoke VNets without interference from other routes learned from ExpressRoute, VPN or an SDWAN environment, and the addition of firewall NVAs for traffic inspection.
 
 ## Related content
 
