@@ -17,18 +17,16 @@ appliesto:
 
 This article describes how to create or delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the Azure CLI to get cache details including provisioning status, hostname, ports, and keys.
 
->[!NOTE]
->Azure Cache for Redis Basic, Standard, and Premium tiers use the Azure CLI [az redis](/cli/azure/redis) commands. To manage Azure Cache for Redis Basic, Standard, or Premium instances, select the **Azure Cache for Redis** option at the top of this article and use the `az redis` commands.
->
->Azure Cache for Redis Enterprise tiers and Azure Managed Redis use the [az redisenterprise](/cli/azure/redisenterprise) commands. The commands are part of the `redisenterprise` extension for Azure CLI version 2.61.0 or higher, which automatically installs the first time you run an `az redisenterprise` command.
->
->To manage Azure Cache for Redis Enterprise or Azure Managed Redis instances, select the **Azure Managed Redis** option at the top of this article and use the `az redisenterprise` commands.
-
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - Make sure you're signed in to Azure with the subscription you want to create your cache under. To use a different subscription than the one you're signed in with, run `az account set -s <subscriptionId>`, replacing `<subscriptionId>` with the subscription ID you want to use.
+
+>[!NOTE]
+>Azure Cache for Redis Basic, Standard, and Premium tiers use the Azure CLI [az redis](/cli/azure/redis) commands.
+>
+>Azure Cache for Redis Enterprise tiers and Azure Managed Redis use the [az redisenterprise](/cli/azure/redisenterprise) commands. The `redisenterprise` extension for Azure CLI version 2.61.0 or higher automatically installs the first time you run an `az redisenterprise` command.
 
 ## Create an Azure Redis cache
 
@@ -49,7 +47,9 @@ The `location` should be an Azure region near other services that use your cache
 
 ::: zone pivot="azure-managed-redis"
 
-You can use the following Azure CLI script to create an Azure Managed Redis or Azure Cache for Redis Enterprise cache. You can also use the following methods to create a cache:
+### Create an Azure Managed Redis or Azure Redis Enterprise cache
+
+You can use the following Azure CLI script to create an Azure Managed Redis or Azure Cache for Redis Enterprise cache. You can also use the following other ways to create a cache:
 
 - [Azure portal (Azure Managed Redis)](../quickstart-create-managed-redis.md)
 - [Azure portal (Azure Cache for Redis Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
@@ -58,7 +58,7 @@ You can use the following Azure CLI script to create an Azure Managed Redis or A
 - [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis-preview)
 
 >[!IMPORTANT]
->You can enable or configure the following settings only at cache creation time. Gather the information you need to configure these settings in advance, and make sure to configure them correctly during cache creation.
+>You can enable or configure the following settings for Azure Managed Redis or Azure Cache for Redis Enterprise only at cache creation time. Gather the information you need to configure these settings in advance, and make sure to configure them correctly during cache creation.
 >- You can enable modules only at the time you create the cache. You can't change modules or enable module configuration after you create a cache.
 >- Azure Managed Redis and Azure Cache for Redis Enterprise tiers support two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
 >- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
@@ -127,7 +127,11 @@ az group delete --resource-group $resourceGroup -y
 
 ::: zone pivot="azure-cache-redis"
 
-You can use the following Azure CLI script to create an Azure Cache for Redis Basic, Standard, or Premium-tier cache. To create an Enterprise-tier cache, use the [Azure Managed Redis](create-managed-cache.md?pivots=azure-managed-redis) script. You can also use the following methods to create a cache:
+### Create an Azure Cache for Redis Basic, Standard, or Premium cache
+
+You can use the following Azure CLI script to create an Azure Cache for Redis Basic, Standard, or Premium-tier cache. To create and manage an Azure Cache for Redis Enterprise-tier cache, use the [Azure Managed Redis](create-manage-cache.md?pivots=azure-managed-redis) scripts.
+
+You can also use the following other ways to create a cache:
 
 - [Azure portal (Basic, Standard, or Premium)](../../azure-cache-for-redis/quickstart-create-redis.md)
 - [Azure portal (Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
