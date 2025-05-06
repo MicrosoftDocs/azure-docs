@@ -105,7 +105,7 @@ SOC optimization recommendations are calculated every 24 hours. Each optimizatio
 
 Filter the optimizations based on optimization type, or search for a specific optimization title using the search box on the side. Optimization types include:
 
-- **Coverage** : Includes recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. Includes:
+- **Coverage** : Includes recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. Coverage recommendations include:
     - **Threat-based recommendations** for adding security controls to help close coverage gaps for various types of attacks.
     - **AI MITRE ATT&CK recommendations** for adding tagging recommendations to help close coverage gaps for various types of attacks, based on the MITRE ATT&CK framework.
     - **Risk-based recommendations** for adding security controls to help close coverage gaps for various types of business risks.
