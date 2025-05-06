@@ -7,7 +7,7 @@ The hybrid deployment model of Edge Integration Cell enables you to:
 - Design and monitor your SAP integration content in the cloud.
 - Deploy and run your SAP integration content in your private landscape.
 
-Using [Azure Kubernetes Service (AKS)](azure/aks/) SAP Edge Integration Cell may natively run on Azure. Enriching AKS with Azure ARC extends the scenario to on-premises and other cloud providers. Govern from Azure but deploy anywhere.
+Using [Azure Kubernetes Service (AKS)](azure/aks/) SAP Edge Integration Cell may natively run on Azure. Enriching AKS with [Azure ARC](azure/azure-arc/kubernetes/overview) extends the scenario to on-premises and other cloud providers. Govern from Azure but deploy anywhere.
 
 :::image type="content" source="media/sap-eic/overview.png" alt-text="SAP Edge Integration Cell architecture with Azure and Azure ARC":::
 
