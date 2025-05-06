@@ -1,6 +1,6 @@
 ---
 title: Supported data types in Microsoft Planetary Computer Pro
-description: Discover the supported data types in Microsoft Planetary Computer Pro, including raster, data cubes, and future formats like Zarr and 3D data.
+description: Discover the supported data types in Microsoft Planetary Computer Pro including raster and data cubes.
 author: beharris
 ms.author: brentharris
 ms.service: azure
@@ -16,7 +16,7 @@ Microsoft Planetary Computer Pro allows for ingestion and storage of all kinds o
 ## Use cases
 
 It's important to understand which geospatial data formats are supported in Planetary Computer Pro when performing the following actions:
-- Creating STAC (Spatio Temporal Asset Catalog) Collections and Ingesting STAC Items
+- Creating STAC (SpatioTemporal Asset Catalog) Collections and Ingesting STAC Items
 - Visualizing STAC Items in the Data Explorer UI
 
 ## Supported geospatial data types
@@ -36,7 +36,7 @@ It's important to understand which geospatial data formats are supported in Plan
 * GRIB2
 
 ### Other file formats and metadata files
-Beyond this list of supported data types, you may ingest STAC items that point to other data types as assets. For example, it is common for STAC items to list additional metadata files as assets in json, xml, csv, and other formats. When ingesting STAC items that include these other file types as assets the Planetary Computer Pro will ingest and store these files, but will not attempt to convert them to cloud optimized formats. After ingest, you will be able to access these non-supported asset types using the Planetary Computer Pro's STAC API, but you will not be able to visualize them within the Planetary Computer Pro's Explorer.
+Beyond this list of supported data types, you may ingest STAC items that point to other data types as assets. For example, it's common for STAC items to list other metadata files as assets in json, xml, csv, and other formats. When ingesting STAC items that include these other file types as assets the Planetary Computer Pro stores these files, but doesn't attempt to convert them to cloud optimized formats. After ingest, you'll be able to access these nonsupported asset types using the Planetary Computer Pro's STAC API, but you won't be able to visualize them within Planetary Computer Pro's Explorer.
 
 ## Related Content
 
