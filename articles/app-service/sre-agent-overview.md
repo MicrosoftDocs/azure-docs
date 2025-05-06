@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # SRE Agent overview (preview)
 
-Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
 Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
 
@@ -32,7 +32,7 @@ The SRE Agent offers several key features that enhance the reliability and perfo
 
 - **Proactive monitoring**: Continuous resource monitoring with real-time alerts for potential issues and daily resource reports.
 
-- **Automated mitigation:** Automatic detection and mitigation of common issues, reducing downtime and improving resource health.
+- **Automated mitigation:** Automatic detection and mitigation of common issues, reducing downtime and improving resource health. While agents attempt to work on your behalf, all automation requires your approval.
 
 - **Resource visualization**: Comprehensive views of your resource dependencies and health status.
 
