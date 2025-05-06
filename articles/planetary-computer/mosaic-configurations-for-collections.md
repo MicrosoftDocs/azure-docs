@@ -13,6 +13,8 @@ ms.date: 04/09/2025
 
 For any STAC (SpatioTemporal Asset Catalog) collection, you can define a configuration of multiple mosaics. Each **mosaic** specifies search criteria that return and visualize STAC items within the Explorer web interface. For example, a mosaic might be configured to only return items that are from a specified date range or have less than a particular percentage cloud cover.
 
+## Components in a Mosaic
+
 A STAC collection's mosaic configuration is a list of individual specific search criteria, each called a mosaic. Each individual mosaic includes:
 
 - `id`: A unique identifier for the mosaic  
@@ -20,7 +22,13 @@ A STAC collection's mosaic configuration is a list of individual specific search
 - `description`: Info about the mosaic  
 - `cql`: A [CQL2](https://github.com/stac-api-extensions/filter) (Common Query Language) expression that defines the search parameters for STAC items to be found and visualized
 
-The mosaic configuration can be set from the Mosaics tab, accessible from the **Configuration** button on the web interface for a STAC collection. All items returned from a search are sorted such that most recent items appear first. Mosaics that don't specify a `datetime` range are best titled 'most recent.'
+## Configuring Mosaics from the Collection Page
+
+On a collection's landing page, select the **Configuration** button to open the _Edit Collection Config_ pane.
+
+Inside this pane, navigate to the **Mosaics** tab.
+
+List individual mosaics to create a mosaic configuration. All items returned from a search are sorted such that most recent items appear first. For this reason, mosaics that don't specify a `datetime` range are best named 'most recent.'
 
 ## Example Mosaic Configurations used in Open Planetary Computer
 

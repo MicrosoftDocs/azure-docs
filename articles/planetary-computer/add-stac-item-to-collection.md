@@ -10,15 +10,13 @@ ms.date: 04/09/2025
 #customer intent: As a user of geospatial data, I want to ingest STAC items so that I can efficiently query and access my geospatial data.
 ---
   
-# Quickstart: Add a single STAC item to a collection with Microsoft Planetary Computer Pro GeoCatalog
+# Quickstart: Ingest a Single STAC Item into a Collection in a Microsoft Planetary Computer Pro GeoCatalog
 
-In this quickstart, you ingest SpatioTemporal Asset Catalog (STAC) items to a collection in Microsoft Planetary Computer Pro GeoCatalog using the single item ingestion API. STAC items are the fundamental building block of STAC and contain properties for querying and links to the data assets.
+In this quickstart, you ingest SpatioTemporal Asset Catalog (STAC) items to a collection in Microsoft Planetary Computer Pro GeoCatalog using the single item ingestion API. STAC items are the fundamental building block of STAC that contain properties for querying and links to the data assets.
 
 ## Prerequisites
 
-To complete this quickstart, you should:
-
-- First complete the quickstart to [Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md), or have a GeoCatalog with a STAC collection for the items you intend to ingest.
+Before starting this quickstart, you should first complete the quickstart to [Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md), or have a GeoCatalog with a STAC collection for the items you intend to ingest.
 
 **Skip the following code snippet if you created the STAC collection within the current terminal/script**, otherwise you must set the geocatalog_url and collection_id using the following Python code:
 
