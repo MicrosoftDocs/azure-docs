@@ -101,6 +101,6 @@ Access to the root has to be given from a user with "microsoft.authorization/rol
 
 ## Related content
 * [Quickstart: Create a service group with REST API](create-service-group-rest-api.md)
-* [How to: Manage Service Groups](manaage-service-groups.md)
+* [How to: Manage Service Groups](manage-service-groups.md)
 * [Connect service group members with REST API](create-service-group-member-rest-api.md)
 
