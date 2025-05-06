@@ -43,6 +43,9 @@ The Draft and Deployment feature is designed for specific use cases and has cert
 - If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to get started.
 - To use this feature with the Azure CLI, ensure that you have the Azure Firewall extension installed and updated to version [1.2.3 or later](https://github.com/Azure/azure-cli-extensions/releases/tag/azure-firewall-1.2.3).
 
+> [!NOTE]
+> When using this feature through Azure PowerShell or Azure REST API, you must first download the current policy and manually create a draft based on it. In contrast, using the Azure portal or CLI automatically generates a draft from the existing policy.
+
 ## Use Draft + Deployment
 
 Azure Firewall Draft + Deployment allows you to make bulk updates to your firewall policy before applying them to production.
@@ -62,9 +65,6 @@ Azure Firewall Draft + Deployment allows you to make bulk updates to your firewa
     :::image type="content" source="media/draft-deploy/verify and deploy changes.png" alt-text="Screenshot showing verification and deployment of changes.":::
 
 1. Repeat this process as needed to make further updates to your firewall policy.
-
-> [!NOTE]
-> When using this feature through Azure PowerShell or Azure REST API, you must first download the current policy and manually create a draft based on it. In contrast, using the Azure portal or CLI automatically generates a draft from the existing policy.
 
 # [CLI](#tab/CLI)
 
