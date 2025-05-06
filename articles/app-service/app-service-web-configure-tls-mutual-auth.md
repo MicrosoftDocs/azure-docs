@@ -118,7 +118,7 @@ When you enable mutual authentication for your application, all paths under the 
 
 1. Select **Save**.
 
-The following screenshot shows how to set a certificate exclusion path. Any path for the app that starts with `/public` doesn't request a client certificate. Path matching isn't case specific.
+The following screenshot shows how to set a certificate exclusion path. In this example, any path for the app that starts with `/public` doesn't request a client certificate. Path matching isn't case specific.
 
 :::image type="content" source="media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png" alt-text="Screenshot that shows how to set a certificate exclusion path." lightbox="media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png":::
 
