@@ -19,11 +19,13 @@ Use [the accelerator project](https://github.com/Azure/sap-edge-integration-cell
 
 Find the latest info on supported Azure services for SAP Edge Integration Cell on SAP note [3247839 | Prerequisites for installing SAP Integration Suite Edge Integration Cell](https://me.sap.com/notes/3247839). In addition, follow SAP's [onboarding guide](https://help.sap.com/docs/integration-suite/sap-integration-suite/before-you-start).
 
-Consider the following Microsoft Learn resources for a successful deployment in production. These apply independently of the SAP workload.
+Consider the following Microsoft Learn resources for AKS for a successful deployment in production. These apply independently of the SAP workload.
 
 - [Architecture best practices and design checklists for Azure Kubernetes Service (AKS) | Well Architected Framework](azure/well-architected/service-guides/azure-kubernetes-service)
 - [Baseline architecture for an Azure Kubernetes Service (AKS) cluster | Architecture Center](azure/architecture/reference-architectures/containers/aks/baseline-aks)
 
+> [!NOTE]
+> Be aware that network traffic between SAP BTP services deployed on Azure and other Azure services like AKS remains on the Microsoft backbone. This means that even the SAP Edge Integration Cell heartbeat stays private. Learn more [here](azure/virtual-network/virtual-networks-udr-overview#default-route).
 
 ### Deployment Options
 
