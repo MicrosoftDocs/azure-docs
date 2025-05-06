@@ -4,7 +4,7 @@ description: Understanding what the TEE is and what it includes
 author: vinfnet
 ms.author: sgallagher
 ms.service: azure
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/09/2023
 ms.custom: template-concept
 ms.subservice: confidential-computing
