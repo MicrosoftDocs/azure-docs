@@ -108,11 +108,11 @@ If you use App Configuration references for this setting, this validation check 
 > [!CAUTION]
 > If you skip validation and either the connection string or the content share is invalid, the app can't start properly and serves only HTTP 500 errors.
 
-When you create a site, mounting the content share might fail if managed identity permissions aren't propagated or if the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate for the required setup. For more information, see [Azure Resource Manager deployment](#azure-resource-manager-deployment). App Service uses only a default file system until Azure Files is set up, and files aren't copied over. Ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
+When you create a site, mounting the content share might fail if managed identity permissions aren't propagated or if the virtual network integration isn't set up. You can defer setting up Azure Files until later in the deployment template to accommodate for the required setup. For more information, see the Azure Resource Manager deployment in the next section. App Service uses only a default file system until Azure Files is set up, and files aren't copied over. Ensure that no deployment attempts occur during the interim period before Azure Files is mounted.
 
 ### Azure Resource Manager deployment
 
-If you automate resource deployments by using Azure Resource Manager (ARM) templates, you might need to sequence your dependencies in a specific order to make App Configuration refercnces work. In that scenario, you must define your application settings as their own resource instead of using a `siteConfig` property in the site definition. The site must be defined first so that the system-assigned identity is created with the site. The managed identity is then used in the access policy.
+If you automate resource deployments by using Azure Resource Manager (ARM) templates, you might need to sequence your dependencies in a specific order to make App Configuration references work. In that scenario, you must define your application settings as their own resource instead of using a `siteConfig` property in the site definition. The site must be defined first so that the system-assigned identity is created with the site. The managed identity is then used in the access policy.
 
 Here's a sample template for a function app that has App Configuration references:
 
