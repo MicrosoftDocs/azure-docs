@@ -30,11 +30,11 @@ To use a Job activity for Azure Databricks in a pipeline, complete the following
 1. Select the new Job activity on the canvas if it isn't already selected.
 1. Select the  **Azure Databricks** tab to select or create a new Azure Databricks linked service that executes the Job activity.
 
-   :::image type="content" source="media/transform-data-databricks-job/job-activity.png" alt-text="Shows the UI for a Job activity.":::
+   :::image type="content" source="media/transform-data-databricks-job/job-activity.png" lightbox="media/transform-data-databricks-job/job-activity.png" alt-text="Shows the UI for a Job activity.":::
    
 1. Select the **Settings** tab and specify the job to be executed on Azure Databricks, optional base parameters to be passed to the job, and any other libraries to be installed on the cluster to execute the job.
 
-    :::image type="content" source="media/transform-data-databricks-job/job-settings.png" alt-text="Shows the UI for the Settings tab for a Job activity.":::
+    :::image type="content" source="media/transform-data-databricks-job/job-settings.png" lightbox="media/transform-data-databricks-job/job-settings.png" alt-text="Shows the UI for the Settings tab for a Job activity.":::
 
 ## Databricks Job activity definition
 
