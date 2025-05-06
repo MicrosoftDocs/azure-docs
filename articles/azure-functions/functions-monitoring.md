@@ -99,7 +99,7 @@ HTTP requests and database calls using `SqlClient` are also captured. For the co
 
 Application Insights generates an _application map_ of collected dependency data. The following is an example of an application map of an HTTP trigger function with a Queue storage output binding.  
 
-![Application map with dependency](./media/functions-monitoring/app-map.png)
+:::image type="content" source="./media/functions-monitoring/app-map.png" alt-text="Screenshot shows an application map with dependency in the Azure portal.":::
 
 Dependencies are written at the `Information` level. If you filter at `Warning` or above, you don't see the dependency data. Also, automatic collection of dependencies happens at a non-user scope. To capture dependency data, make sure the level is set to at least `Information` outside the user scope (`Function.<YOUR_FUNCTION_NAME>.User`) in your host.
 
