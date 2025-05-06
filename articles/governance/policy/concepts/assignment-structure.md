@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 09/05/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 
@@ -371,6 +371,12 @@ Assignments using a system-assigned managed identity must also specify a top-lev
   }
 },
 ```
+
+> [!NOTE]
+>
+> For a `deployIfNotExists` policy, the assignment identity is always used for the ARM Template deployment. However, when the target resource is created or updated, the requestor's identity is used for the evaluation. 
+>
+> For example, imagine a policy which deploys `Microsoft.Insights/diagnosticSettings` on `Microsoft.KeyVault/vaults`. When a key vault is created, the caller identity will be used to get the `Microsoft.Insights/diagnosticSettings` resources to evaluate the existence condition of the policy definition. If the conditions are met, then the policy assignment's identity will be used to deploy the diagnostic settings on the key vault. This means that the caller would need `Microsoft.Insights/diagnosticSettings/read permissions`, and the assignment would need `Microsoft.Insights/diagnosticSettings/write permissions`.
 
 ## Next steps
 

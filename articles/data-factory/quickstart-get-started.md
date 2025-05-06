@@ -1,103 +1,125 @@
 ---
-title: Get started and try out your first data factory pipeline
-description: Get started with your first data factory to copy data from one blob storage to another.
-author: pennyzhou-msft
+title: Get Started and Try Out Your First Data Factory Pipeline
+description: Get started with your first data factory to copy data from one Azure Blob Storage folder to another.
+author: whhender
 ms.subservice: data-movement
 ms.devlang: bicep
-ms.topic: quickstart
-ms.date: 05/15/2024
-ms.author: xupzhou
+ms.topic: get-started
+ms.date: 02/13/2025
+ms.author: whhender
+ms.reviewer: xupzhou
 ms.custom: subject-armqs
 ---
 
-# Quickstart: Get started with Azure Data Factory
+# Get started with Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Welcome to Azure Data Factory!  This getting started article will let you create your first data factory and pipeline within 5 minutes. The ARM template below will create and configure everything you need to try it out.  Then you only need to navigate to your demo data factory and make one more click to trigger the pipeline, which moves some sample data from one Azure blob storage to another.
+Welcome to Azure Data Factory! This article helps you create your first data factory and pipeline within five minutes.
+
+The Azure Resource Manager template (ARM template) in this article creates and configures everything you need. Then you can go to your demo data factory and trigger the pipeline, which moves some sample data from one Azure Blob Storage folder to another.
 
 ## Prerequisites
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Video summary
 
-The following video provides a walkthrough of the sample:
+The following video provides a walkthrough of the sample in this article:
 
 > [!VIDEO https://learn-video.azurefd.net/vod/player?id=0550df36-bfe6-407b-b00b-1b60fa700e94]
 
-## Try your first demo with one click
-In your first demo scenario you will use the [Copy activity](copy-activity-overview.md) in a data factory to copy an Azure blob named moviesDB2.csv from an input folder on an Azure Blob Storage to an output folder. In a real world scenario this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
+## Step 1: Use the demo to create resources
 
-Try it now with one click!  After clicking the button below, the following objects will be created in Azure:
-- A data factory account
-- A pipeline within the data factory with one copy activity
-- An Azure blob storage with [moviesDB2.csv](https://raw.githubusercontent.com/kromerm/adfdataflowdocs/master/sampledata/moviesDB2.csv) uploaded into an input folder as source
-- A linked service to connect the data factory to the Azure blob storage
+In this demo scenario, you use the [copy activity](copy-activity-overview.md) in a data factory to copy a blob named moviesDB2.csv from an input folder in Azure Blob Storage to an output folder. In a real-world scenario, this copy operation could be between any of the many supported data sources and sinks available in the service. It could also involve transformations in the data.
 
-## Step 1: Click the button to start
+1. Select the following button.
 
-Select the button below to try it out!  (If you clicked the one above already, you don't need to do it again.)
+   [![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
 
-[![Try your first data factory demo](./media/quickstart-get-started/try-it-now.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.datafactory%2Fdata-factory-get-started%2Fazuredeploy.json)
+   Selecting the button creates the following Azure resources:
 
-You will be redirected to the configuration page shown in the image below to deploy the template.  Here, you only need to create a **new resource group**. (You can leave all the other values with their defaults.) Then click **Review + create** and click **Create** to deploy the resources.
+   - An Azure Data Factory account
+   - A data factory that contains a pipeline with one copy activity
+   - An Azure Blob Storage account with [moviesDB2.csv](https://raw.githubusercontent.com/kromerm/adfdataflowdocs/master/sampledata/moviesDB2.csv) uploaded into an input folder as a source
+   - A linked service to connect the data factory to Blob Storage
+
+1. You're directed to the configuration page to deploy the template. On this page:
+
+   1. For **Resource group**, select **Create new** to create a resource group. You can leave all the other values with their defaults.
+
+   1. Select **Review + create**, and then select **Create** to deploy the resources.
+
+   :::image type="content" source="media/quickstart-get-started/deploy-template.png" alt-text="Screenshot of the page for deploying a template for the creation of resources.":::
 
 > [!NOTE]
-> The user deploying the template needs to assign a role to a managed identity.  This requires permissions that can be granted through the Owner, User Access Administrator or Managed Identity Operator roles.
+> The user who deploys the template needs to assign a role to a managed identity. This step requires permissions that can be granted through the Owner, User Access Administrator, or Managed Identity Operator role.
 
-All of the resources referenced above will be created in the new resource group, so you can easily clean them up after trying the demo.    
-
-:::image type="content" source="media/quickstart-get-started/deploy-template.png" alt-text="A screenshot of the deployment template creation dialog.":::
+All the resources in this demo are created in the new resource group, so you can easily clean them up later.
 
 ## Step 2: Review deployed resources
 
-1. Select **Go to resource group** after your deployment is complete.
-   :::image type="content" source="media/quickstart-get-started/deployment-complete.png" alt-text="A screenshot of the deployment complete page in the Azure portal after successfully deploying the template.":::
+1. In the message that shows successful completion of your deployment, select **Go to resource group**.
 
-1. In the resource group, you will see the new data factory, Azure blob storage account, and managed identity that were created by the deployment.
-   :::image type="content" source="media/quickstart-get-started/resource-group-contents.png" alt-text="A screenshot of the contents of the resource group created for the demo.":::
+   :::image type="content" source="media/quickstart-get-started/deployment-complete.png" alt-text="Screenshot of the Azure portal page that shows successful deployment of the demo template.":::
 
-1. Select the data factory in the resource group to view it. Then select the **Launch Studio** button to continue.
-   :::image type="content" source="media/quickstart-get-started/launch-adf-studio.png" alt-text="A screenshot of the Azure portal on the newly created data factory page, highlighting the location of the Open Azure Data Factory Studio button.":::
+1. The resource group includes the new data factory, Blob Storage account, and managed identity that the deployment created. Select the data factory in the resource group to view it.
 
-1. Select on the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/> and then the **Pipeline** created by the template.  Then check the source data by selecting **Open**.
+   :::image type="content" source="media/quickstart-get-started/resource-group-contents.png" alt-text="Screenshot of the contents of the resource group created for the demo, with the data factory highlighted.":::
 
-   :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of the Azure Data Factory Studio showing the pipeline created by the template.":::
+1. Select the **Launch studio** button.
 
-1. In the source dataset that you will see, select **Browse**, and note the moviesDB2.csv file, which has been uploaded into the input folder already.
+   :::image type="content" source="media/quickstart-get-started/launch-adf-studio.png" alt-text="Screenshot of the Azure portal that shows details for the newly created data factory, with the button for opening Azure Data Factory Studio highlighted.":::
 
-   :::image type="content" source="media/quickstart-get-started/source-dataset-browse.png" alt-text="Screenshot of the source dataset highlighting the Browse button where the user can see the input file created for the demo.":::
+1. In Azure Data Factory Studio:
 
-   :::image type="content" source="media/quickstart-get-started/input-contents.png" alt-text="Screenshot of the contents of the input folder showing the moviesDB2.csv file used in the demo.":::
+   1. Select the **Author** tab <img src="media/quickstart-get-started/author-button.png" alt="Author tab"/>.
+   1. Select the pipeline that the template created.
+   1. Check the source data by selecting **Open**.
+
+   :::image type="content" source="media/quickstart-get-started/view-pipeline.png" alt-text="Screenshot of Azure Data Factory Studio that shows the pipeline created by the template.":::
+
+1. In the source dataset, select **Browse** to view the input file created for the demo.
+
+   :::image type="content" source="media/quickstart-get-started/source-dataset-browse.png" alt-text="Screenshot of the source dataset, with the Browse button highlighted.":::
+
+   Note the moviesDB2.csv file, which was already uploaded into the input folder.
+
+   :::image type="content" source="media/quickstart-get-started/input-contents.png" alt-text="Screenshot of the contents of the input folder, showing the input file used in the demo.":::
 
 ## Step 3: Trigger the demo pipeline to run
 
-1. Select **Add Trigger**, and then **Trigger Now**.
-   :::image type="content" source="media/quickstart-get-started/trigger-now.png" alt-text="Screenshot of the Trigger Now button for the pipeline in the demo.":::
-1. In the right pane under **Pipeline run**, select **OK**.
+1. Select **Add trigger**, and then select **Trigger now**.
+
+   :::image type="content" source="media/quickstart-get-started/trigger-now.png" alt-text="Screenshot of the button for the triggering the demo pipeline to run.":::
+1. On the right pane, under **Pipeline run**, select **OK**.
 
 ## Monitor the pipeline
 
-1. Select the **Monitor** tab <img src="media/quickstart-get-started/monitor-button.png" alt="Monitor tab"/>.
-1. You can see an overview of your pipeline runs in the Monitor tab, such as run start time, status, etc.
-   
-   :::image type="content" source="media/quickstart-get-started/monitor-overview.png" alt-text="Screenshot of the data factory monitoring tab.":::
+1. Select the **Monitor** tab <img src="media/quickstart-get-started/monitor-button.png" alt="Monitor tab"/>. This tab provides an overview of your pipeline runs, including the start time and status.
+  
+   :::image type="content" source="media/quickstart-get-started/monitor-overview.png" alt-text="Screenshot of the tab for monitoring pipeline runs in a data factory.":::
 
-1. In this quickstart, the pipeline has only one activity type: Copy. Click on the pipeline name and you can see the details of the copy activity's run results.
+1. In this quickstart, the pipeline has only one activity type: **Copy data**. Select the pipeline name to view the details of the copy activity's run results.
 
-   :::image type="content" source="media/quickstart-get-started/copy-activity-run-results.png" alt-text="Screenshot of the run results of a copy activity in the data factory monitoring tab.":::
+   :::image type="content" source="media/quickstart-get-started/copy-activity-run-results.png" alt-text="Screenshot of the run results of a copy activity on the tab for monitoring a data factory.":::
 
-1. Click on details, and the detailed copy process is displayed.  From the results, data read and written size are the same, and 1 file was read and written, which also proves all the data has been successfully copied to the destination.
+1. Select the **Details** icon to display the detailed copy process. In the results, the **Data read** and **Data written** sizes are the same, and one file was read and written. This information proves that all the data was successfully copied to the destination.
 
-   :::image type="content" source="media/quickstart-get-started/copy-activity-detailed-run-results.png" alt-text="Screenshot of the detailed copy activity run results.":::
+   :::image type="content" source="media/quickstart-get-started/copy-activity-detailed-run-results.png" alt-text="Screenshot of detailed run results for a copy activity.":::
 
 ## Clean up resources
 
-You can clean up all the resources you created in this quickstart in either of two ways. You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.  Or if you want to keep some resources intact, browse to the resource group and delete only the specific resources you want, keeping the others.  For example, if you are using this template to create a data factory for use in another tutorial, you can delete the other resources but keep only the data factory.
+You can clean up all the resources that you created in this article in either of two ways:
+
+- You can [delete the entire Azure resource group](../azure-resource-manager/management/delete-resource-group.md), which includes all the resources created in it.
+- If you want to keep some resources intact, go to the resource group and delete only the specific resources that you want to remove.
+
+  For example, if you're using this template to create a data factory for use in another tutorial, you can delete the other resources but keep only the data factory.
 
 ## Related content
 
-In this quickstart, you created an Azure Data Factory containing a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the article and Learn module below.
+In this article, you created a data factory that contained a pipeline with a copy activity. To learn more about Azure Data Factory, continue on to the following article and training module:
 
-- [Hello World - How to copy data](quickstart-hello-world-copy-data-tool.md)
-- [Learn module: Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory/)
+- [Quickstart: Use the copy data tool in the Azure Data Factory Studio to copy data](quickstart-hello-world-copy-data-tool.md)
+- [Training module: Introduction to Azure Data Factory](/learn/modules/intro-to-azure-data-factory/)

@@ -35,6 +35,7 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 | West US 2 | Switzerland North | | | |
 | West US 3 | UK South | | | |
 || West Europe ||||
+||Spain Central ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
 

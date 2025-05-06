@@ -2,7 +2,7 @@
 title: "Tenable Identity Exposure connector for Microsoft Sentinel"
 description: "Learn how to install the connector Tenable Identity Exposure to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 07/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

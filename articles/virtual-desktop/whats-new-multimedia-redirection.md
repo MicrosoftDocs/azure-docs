@@ -1,10 +1,10 @@
 ---
 title: What's new in multimedia redirection? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: release-notes
-ms.date: 08/12/2024
-ms.author: daknappe
+ms.date: 02/19/2025
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 
@@ -18,7 +18,19 @@ The following table shows the latest available version of multimedia redirection
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public | 1.0.2404.4003 | [Multimedia redirection](https://aka.ms/avdmmr/msi) |
+| Public | 1.0.2501.28001 | [Multimedia redirection](https://aka.ms/avdmmr/msi) |
+
+## Updates for version 1.0.2501.28001
+
+*Published: February 19, 2025*
+
+In this release, we've made the following changes:
+
+- Improvements to the installer experience.
+- Added support for additional codecs (VP9, AV1, and HEVC, along with WebM parser).
+- Added framework to support GainNode for call redirection.
+- Better handling when switching between supported and unsupported clients.
+- Telemetry improvements.
 
 ## Updates for version 1.0.2404.4003
 

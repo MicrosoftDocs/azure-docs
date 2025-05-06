@@ -155,8 +155,6 @@ This section includes questions related to management for Oracle Database@Azure.
 
 Oracle manages and hosts the data on OCI hosted in Azure datacenters. Your data resides in the provisioned Oracle Exadata infrastructure in Azure, and within the Azure Virtual Network boundary.
 
-If you enable backup to Azure, the data resides in the respective Azure storage, such as Azure NetApp Files and Azure Blob Storage.
-
 We ensure compliance with both companies’ data privacy and compliance policies through physical isolation of systems in Azure datacenters and through enforced access assignment policies. For more information about compliance, see [Overview of Oracle Database@Azure](database-overview.md) and [Oracle Cloud compliance](https://docs.oracle.com/iaas/Content/multicloud/compliance.htm).
 
 ### How is data security managed? Is the data encrypted in transit and at rest?
@@ -165,7 +163,7 @@ Data is encrypted at rest. All traffic between sites, including to the Oracle Da
 
 ### Can I use Azure Monitor with Oracle Database@Azure?
 
-Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-monitoring-exadata-services.html) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-autonomous/odadb-monitoring-autonomous-database-services.html).
+Yes. Metrics are published for the Oracle Exadata infrastructure, for VM clusters, and for Oracle databases. The database metrics are listed under VM metrics. You can create custom dashboards for Azure Monitor to use with your application monitoring for a unified view. For more information, see [Exadata metrics](https://docs.oracle.com/en-us/iaas/odexa/odexa-monitoring-exadata-services.html#ODEXA-GUID-A508A302-B8EC-4A78-B187-1237C6869A4B) and [metrics for autonomous database](https://docs.oracle.com/en-us/iaas/odadb/odadb-monitoring-autonomous-database-services.html#ODADB-GUID-871C7EA1-5CCC-4EF8-8C4D-396DD4CAEB32).
 
 ### What are the different options for backup on Oracle Database@Azure?
 

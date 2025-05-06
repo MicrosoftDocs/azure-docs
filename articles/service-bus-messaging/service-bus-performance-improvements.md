@@ -2,7 +2,7 @@
 title: Best practices for improving performance using Azure Service Bus
 description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
 ms.topic: article
-ms.date: 04/02/2024
+ms.date: 04/29/2025
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
@@ -26,9 +26,9 @@ Service Bus offers various pricing tiers. It's recommended to pick the appropria
 * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput are required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) and can be enabled to accommodate spikes in throughput.
 
 > [!NOTE]
-> If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).
+> If the right tier isn't picked, there's a risk of overwhelming the Service Bus namespace which might lead to [throttling](service-bus-throttling.md).
 >
-> Throttling does not lead to loss of data. Applications leveraging the Service Bus SDK can utilize the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) to ensure that the data is eventually accepted by Service Bus.
+> Throttling doesn't lead to loss of data. Applications using the Service Bus SDK can utilize the default [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) to ensure that the data is eventually accepted by Service Bus.
 >
 
 ### Calculating throughput for Premium
@@ -47,7 +47,7 @@ The benchmarking sample doesn't use any advanced features, so the throughput you
 
 #### Compute considerations
 
-Service Bus operates several background processes that can affect compute utilization. These include, but are not limited to, timers, schedules, and metrics emission. Additionally, using certain Service Bus features require compute utilization that can decrease the expected throughput. Some of these features are -
+Service Bus operates several background processes that can affect compute utilization. These include, but aren't limited to, timers, schedules, and metrics emission. Additionally, using certain Service Bus features require compute utilization that can decrease the expected throughput. Some of these features are -
 
 1. Sessions.
 2. Fanning out to multiple subscriptions on a single topic.
@@ -58,7 +58,7 @@ Service Bus operates several background processes that can affect compute utiliz
 7. Deduplication & look back time window.
 8. Forward to (forwarding from one entity to another).
 
-If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It is recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
+If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It's recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
 
 ### Sharding across namespaces
 
@@ -236,7 +236,7 @@ Service Bus doesn't support transactions for receive-and-delete operations. Also
 
 [Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load extra messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `ServiceBusReceiver.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
 
-When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy receives an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock timeout interval.
+When a message is prefetched, the service locks the prefetched message. With the lock, the prefetched message can't be received by a different receiver. If the receiver can't complete the message before the lock expires, the message becomes available to other receivers. The prefetched copy of the message remains in the cache. The receiver that consumes the expired cached copy receives an exception when it tries to complete that message. By default, the message lock expires after 60 seconds. This value can be extended to 5 minutes. To prevent the consumption of expired messages, set the cache size smaller than the number of messages that a client can consume within the lock time-out interval.
 
 When you use the default lock expiration of 60 seconds, a good value for `PrefetchCount` is 20 times the maximum processing rates of all receivers of the factory. For example, a factory creates three receivers, and each receiver can process up to 10 messages per second. The prefetch count shouldn't exceed 20 X 3 X 10 = 600. By default, `PrefetchCount` is set to 0, which means that no extra messages are fetched from the service.
 
@@ -288,7 +288,7 @@ When you use [partitioned premium tier namespaces](service-bus-partitioning.md),
 
 ## Scenarios
 
-The following sections describe typical messaging scenarios and outline the preferred Service Bus settings. Throughput rates are classified as small (less than 1 message/second), moderate (1 message/second or greater but less than 100 messages/second) and high (100 messages/second or greater). The number of clients are classified as small (5 or fewer), moderate (more than 5 but less than or equal to 20), and large (more than 20).
+The following sections describe typical messaging scenarios and outline the preferred Service Bus settings. Throughput rates are classified as small (less than 1 message/second), moderate (1 message/second or greater but less than 100 messages/second) and high (100 messages/second or greater). The number of clients is classified as small (5 or fewer), moderate (more than 5 but less than or equal to 20), and large (more than 20).
 
 ### High-throughput queue
 

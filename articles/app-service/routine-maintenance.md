@@ -1,20 +1,20 @@
 ---
-title: Routine maintenance for Azure App Service
+title: Routine Maintenance for Azure App Service
 description: Learn more about routine, planned maintenance to help keep the App Service platform up to date and secure.
 author: msangapu-msft
 tags: app-service
 
 ms.topic: article
-ms.date: 02/08/2023
+ms.date: 04/29/2025
 ms.author: msangapu
 ---
 
-# Routine (planned) maintenance for Azure App Service
+# Routine planned maintenance for Azure App Service
 
-Routine maintenance covers behind-the-scenes updates to Azure App Service. Types of maintenance can be performance improvements, bug fixes, new features, or security updates. App Service maintenance can be on the service itself or the underlying operating system.
+Routine maintenance covers behind-the-scenes updates to Azure App Service. Types of maintenance can be performance improvements, bug fixes, new features, or security updates. App Service maintenance can be on the service itself or on the underlying operating system.
 
 > [!IMPORTANT]
-> A breaking change or deprecation of functionality is not a part of routine maintenance. For more information, see [Modern Lifecycle Policy](/lifecycle/policies/modern).
+> A breaking change or deprecation of functionality isn't a part of routine maintenance. For more information, see [Modern Lifecycle Policy](/lifecycle/policies/modern).
 
 Microsoft service quality and uptime guarantees continue to apply during maintenance periods. Notifications mention maintenance periods to help customers get visibility into platform changes.
 
@@ -24,21 +24,38 @@ Like personal computers, mobile phones, and other devices, machines in the cloud
 
 Because a typical cloud solution consists of multiple applications, databases, storage accounts, functions, and other resources, parts of your solutions can undergo maintenance at different times. Some of this coordination is related to geography, region, datacenters, and availability zones. It can also be due to the cloud, where not everything is touched simultaneously. For more information, see [Safe deployment practices](/devops/operate/safe-deployment-practices).
 
-The following screenshot shows an example of a maintenance event.
+To find maintenance events, search for **Service Health** in the Azure portal. Under **Active Events**, select **Planned maintenance**.
 
-:::image type="content" source="./media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure portal.":::
+:::image type="content" source="media/routine-maintenance/routine-maintenance.png" alt-text="Screenshot of a maintenance event in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance.png":::
 
-In order from top to bottom, the example shows:
+From top to bottom, the example shows:
 
 - A descriptive title of the maintenance event.
 - Affected regions and subscriptions.
 - The expected maintenance window.
 
+The following screenshots show additional information available through the **Impacted Resources** tab:
+
+:::image type="content" source="media/routine-maintenance/routine-maintenance-first-page.png" alt-text="Screenshot of the Impacted Resources section in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance-first-page.png":::
+
+From left to right, the example shows:
+
+- Selecting the **Impacted Resources** tab.
+- The **More info** option.
+
+:::image type="content" source="./media/routine-maintenance/routine-maintenance-more.png" alt-text="Screenshot of more info for a maintenance event in the Azure portal." lightbox="media/routine-maintenance/routine-maintenance-more.png":::
+
+This example shows:
+
+- The state of the maintenance, which can be pending, started, or completed.
+- Once maintenance starts, timestamps can be viewed under **More info**.
+
+
 ## Frequently asked questions
 
 ### Why is the maintenance taking so long?
 
-Fundamentally, routine maintenance delivers the latest updates to the platform and service. It's hard to predict how the maintenance will affect individual apps down to a specific time, so notifications tend to be more general. The time ranges in notifications don't reflect the experiences at the app level, but rather the overall operation across all resources. Apps that undergo maintenance instantly restart on freshly updated machines and continue working. There's no downtime when requests and traffic aren't served.
+Fundamentally, routine maintenance delivers the latest updates to the platform and service. It's hard to predict how the maintenance affects individual apps down to a specific time, so notifications tend to be more general. The time ranges in notifications don't reflect the experiences at the app level, but rather the overall operation across all resources. Apps that undergo maintenance instantly restart on freshly updated machines and continue working. There's no downtime when requests and traffic aren't served.
 
 ### Why am I getting so many notifications?
 
@@ -60,7 +77,7 @@ Maintenance operations upgrade machines iteratively while App Service monitors t
 
 ### Are business hours reflected?
 
-Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). If resources are still upgrading by 9 AM in a given region, the upgrade will safely pause before the next critical step and until the end of business hours. 
+Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). App Service maintenance makes a best effort to reduce maintenance operations during these business hours. If resources are still upgrading by 9 AM in a given region, the upgrade continues until reaching a safe stopping point, pausing before the next critical step and until the end of business hours.
 
 ### What are my options to control routine maintenance?
 
@@ -76,6 +93,6 @@ You can use health check to inform the platform that your application isn't read
 
 Updates and maintenance events have been happening to the platform since its inception. The frequency of updates decreased over time, so the number of interruptions also decreased and uptime increased. However, you now have more visibility into all changes. Increased visibility might cause the perception that more changes are happening.
 
-## Next steps
+## Related content
 
-Get more information about maintenance notifications by reading the blog post [Routine Planned Maintenance Notifications for Azure App Service](https://azure.github.io/AppService/2022/02/01/App-Service-Planned-Notification-Feature.html).
+- [Routine Planned Maintenance Notifications for Azure App Service](https://azure.github.io/AppService/2022/02/01/App-Service-Planned-Notification-Feature.html)

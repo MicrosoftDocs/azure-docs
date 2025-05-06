@@ -6,7 +6,7 @@ description: This article provides information for using Azure Blob storage with
 author: karauten
 ms.author: karauten
 ms.date: 10/15/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
 ---

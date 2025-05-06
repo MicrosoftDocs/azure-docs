@@ -1,8 +1,7 @@
 ---
-title: Create a user account by using Azure Active Directory B2C custom policy
+title: Create a user account by using Azure AD B2C custom policy
 titleSuffix: Azure AD B2C
-description: Learn how to create a user account in Azure AD B2C storage by using a custom policy. 
-
+description: Learn how to create and read user accounts in Azure AD B2C using custom policies. Store and retrieve user information from Microsoft Entra ID storage.
 author: kengaderdus
 manager: CelesteDG
 
@@ -10,25 +9,26 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
 
 
-#Customer intent: As a developer using Azure Active Directory B2C, I want to create and read user accounts using custom policies, so that I can store and retrieve user information from Microsoft Entra ID storage and issue JWT tokens.
+#Customer intent: As a developer using Azure Active Directory B2C, I want to create and read user accounts using custom policies, so that I can store and retrieve user information from Microsoft Entra ID storage and issue JWTs.
 
 ---
 
 # Create and read a user account by using Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) is built on Microsoft Entra ID, and so it uses Microsoft Entra ID storage to store user accounts. Azure AD B2C directory user profile comes with a built-in set of attributes, such as given name, surname, city, postal code, and phone number, but you can [extend the user profile with your own custom attributes](user-flow-custom-attributes.md) without requiring an external data store. 
 
-Your custom policy can connect to Microsoft Entra ID storage by using [Microsoft Entra ID technical profile](active-directory-technical-profile.md) to store, update or delete user information. In this article, you learn how to configure a set of Microsoft Entra ID technical profiles to store and read a user account before a JWT token is returned. 
+Your custom policy can connect to Microsoft Entra ID storage by using [Microsoft Entra ID technical profile](active-directory-technical-profile.md) to store, update or delete user information. In this article, you learn how to configure a set of Microsoft Entra ID technical profiles to store and read a user account before a JWT is returned. 
 
 ## Scenario overview
 
-In [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md) article, we collect information from the user, validated the data, called a REST API, and finally returned a JWT without storing a user account. We must store the user information so that we don't lose the information once the policy finishes execution. This time, once we collect the user information and validate it, we need to store the user information in Azure AD B2C storage, and then read before we return the JWT token. The complete process is shown in the following diagram.
+In [Call a REST API by using Azure Active Directory B2C custom policy](custom-policies-series-call-rest-api.md) article, we collect information from the user, validated the data, called a REST API, and finally returned a JWT without storing a user account. We must store the user information so that we don't lose the information once the policy finishes execution. This time, once we collect the user information and validate it, we need to store the user information in Azure AD B2C storage, and then read before we return the JWT. The complete process is shown in the following diagram.
 
 
 :::image type="content" source="media/custom-policies-series-store-user/screenshot-create-user-record.png" alt-text="A flowchart of creating a user account in Azure AD.":::   
@@ -156,7 +156,7 @@ After we collect user details by using the `UserInformationCollector` self-asser
 
 In the `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` technical profile, and then add `AAD-UserWrite` technical profile as a validation technical profile in the `ValidationTechnicalProfiles` collection. You need to add this after the `CheckCompanyDomain` validation technical profile. 
 
-We'll use the `AAD-UserRead` technical profile in the user journey orchestration steps to read the user details before issuing a JWT token.
+We'll use the `AAD-UserRead` technical profile in the user journey orchestration steps to read the user details before issuing a JWT.
 
 ## Step 4 - Update the ClaimGenerator technical profile 
 
@@ -189,7 +189,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
             </OutputClaimsTransformations>
         </TechnicalProfile>
     ```
-    We've broken the technical profile into two separate technical profiles. The *UserInputMessageClaimGenerator* technical profile generates the message sent as claim in the JWT token. The *UserInputDisplayNameGenerator* technical profile generates the `displayName` claim. The `displayName` claim value must be available before the `AAD-UserWrite` technical profile writes the user record into Microsoft Entra ID storage. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the `objectId` is created and returned by Microsoft Entra ID after an account is created, so we don't need to generate it ourselves within the policy.
+    We've broken the technical profile into two separate technical profiles. The *UserInputMessageClaimGenerator* technical profile generates the message sent as claim in the JWT. The *UserInputDisplayNameGenerator* technical profile generates the `displayName` claim. The `displayName` claim value must be available before the `AAD-UserWrite` technical profile writes the user record into Microsoft Entra ID storage. In the new code, we remove the *GenerateRandomObjectIdTransformation* as the `objectId` is created and returned by Microsoft Entra ID after an account is created, so we don't need to generate it ourselves within the policy.
 
 1. In the `ContosoCustomPolicy.XML` file, locate the `UserInformationCollector` self-asserted technical profile, and then add the `UserInputDisplayNameGenerator` technical profile as a validation technical profile. After you do so, the `UserInformationCollector` technical profile's `ValidationTechnicalProfiles` collection should look similar to the following code:
 
@@ -249,9 +249,9 @@ Locate your `HelloWorldJourney` user journey and replace all the orchestration s
     <!--</OrchestrationSteps>-->
 ```
 
-In orchestration step `4`, we execute the `AAD-UserRead` technical profile to read the user details (to be included in the JWT token) from the created user account. 
+In orchestration step `4`, we execute the `AAD-UserRead` technical profile to read the user details (to be included in the JWT) from the created user account. 
 
-Since we don't store the `message` claim, in orchestration step `5`, we execute the `UserInputMessageClaimGenerator` to generate the `message` claim for inclusion on the JWT token.
+Since we don't store the `message` claim, in orchestration step `5`, we execute the `UserInputMessageClaimGenerator` to generate the `message` claim for inclusion on the JWT.
  
 ## Step 6 - Upload policy 
 
@@ -421,7 +421,7 @@ You can configure a Microsoft Entra ID technical profile to update a user accoun
 
 In this article, you've learned how to store user details using [built-in user profile attributes](user-profile-attributes.md). However, you often need to create your own custom attributes to manage your specific scenario. To do so, follow the instructions in  [Define custom attributes in Azure Active Directory B2C](user-flow-custom-attributes.md) article.
 
-## Next steps 
+## Related content
 
 - Learn how to [Set up a sign-up and sign-in flow for a local account by using Azure Active Directory B2C custom policy](custom-policies-series-sign-up-or-sign-in.md).
 

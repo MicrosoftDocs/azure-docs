@@ -25,7 +25,7 @@ Azure Load Testing uses the customer-managed key to encrypt the following data i
 - Environment variables
 
 > [!NOTE]
-> Azure Load Testing does not encrypt metrics data for a test run with your customer-managed key, including the JMeter metrics sampler names that you specify in the JMeter script. Microsoft has access to this metrics data.
+> Azure Load Testing does not encrypt metrics data for a test run with your customer-managed key, including the JMeter metrics sampler names that you specify in the JMeter script and the request names that you specify in the Locust script. Microsoft has access to this metrics data.
 
 ## Prerequisites
 

@@ -6,7 +6,8 @@ ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions
-ms.author: yili7
+ms.author: karler
+ms.reviewer: yili7
 ---
 
 # Quickstart: Deploy your first Java Native Image application to Azure Spring Apps

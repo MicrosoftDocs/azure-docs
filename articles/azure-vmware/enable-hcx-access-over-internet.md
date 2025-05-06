@@ -2,7 +2,7 @@
 title: Enable HCX access over the internet
 description: This article describes how to access HCX over a public IP address using Azure VMware solution.
 ms.topic: how-to
-ms.date: 01/08/2025
+ms.date: 02/26/2025
 ms.custom: engagement-fy23
 ---
 # Enable HCX access over the internet
@@ -135,4 +135,4 @@ After the network is extended to destination site, VMs can be migrated over Laye
 ## Next steps
 [Enable Public IP to the NSX Edge for Azure VMware Solution](./enable-public-ip-nsx-edge.md)
 
-For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/preparing-for-hcx-installations/network-underlay-minimum-requirements.html).
+For detailed information on HCX network underlay minimum requirements, see [Network Underlay Minimum Requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/preparing-for-hcx-installations/network-underlay-minimum-requirements.html).

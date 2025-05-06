@@ -307,7 +307,10 @@ When you create a containerized function app in an environment that has workload
 ::: zone-end  
 ## Application settings
 
-Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).  
+Azure Functions lets you work with application settings for containerized function apps in the standard way. For more information, see [Use application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+
+>[!TIP]  
+>By default, a containerized function app monitors port 80 for incoming requests. If your app must use a different port, use the [`WEBSITES_PORT` application setting](../app-service/reference-app-settings.md#custom-containers) to change this default port.    
 
 :::zone pivot="container-apps"
 ## Enable continuous deployment to Azure

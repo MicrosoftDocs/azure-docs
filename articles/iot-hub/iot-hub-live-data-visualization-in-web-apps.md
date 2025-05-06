@@ -2,12 +2,12 @@
 title: Tutorial - Visualize IoT data in a web app
 titleSuffix: Azure IoT Hub
 description: This tutorial uses a web application to visualize temperature and humidity data that is collected from a sensor and sent to your IoT hub.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
+ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: tutorial
-ms.date: 05/23/2023
+ms.date: 03/26/2025
 ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurecli]
 ---
 
@@ -15,8 +15,7 @@ ms.custom: ['Role: Cloud Development', 'Role: Data Analytics', devx-track-azurec
 
 In this article, you learn how to visualize real-time sensor data that your IoT hub receives with a Node.js web app running on your local computer. After running the web app locally, you can host the web app in Azure App Service.
 
-
-![End-to-end diagram](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png" alt-text="Diagram that shows end-to-end flow of data visualization.":::
 
 ## Prerequisites
 
@@ -30,7 +29,7 @@ The web application sample for this tutorial is written in Node.js. The steps in
 
 * A simulated device that sends telemetry messages to your IoT hub. Use the [Raspberry Pi online simulator](raspberry-pi-get-started.md) to get a simulated device that sends temperature data to IoT Hub.
 
-* [Node.js](https://nodejs.org) version 14 or later. To check your node version run `node --version`.
+* [Node.js](https://nodejs.org) version 14 or later. To check your Node.js version run `node --version`.
 
 * [Git](https://www.git-scm.com/downloads).
 
@@ -45,7 +44,6 @@ Run the following command to add a consumer group to the built-in endpoint of yo
 ```azurecli-interactive
 az iot hub consumer-group create --hub-name YOUR_IOT_HUB_NAME --name YOUR_CONSUMER_GROUP_NAME
 ```
-
 Note down the name you choose, you need it later in this tutorial.
 
 ## Get a service connection string for your IoT hub
@@ -74,7 +72,7 @@ Download or clone the web app sample from GitHub: [web-apps-node-iot-hub-data-vi
 
 On your development machine, navigate to the **web-apps-node-iot-hub-data-visualization** directory, then open the web app in your favorite editor. The following shows the file structure viewed in Visual Studio Code:
 
-![Screenshot that shows the web app file structure.](./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png)
+:::image type="content" source="./media/iot-hub-live-data-visualization-in-web-apps/web-app-files.png" alt-text="Screenshot that shows the web app file structure, with four files highlighted.":::
 
 Take a moment to examine the following files:
 
@@ -110,7 +108,7 @@ set EventHubConsumerGroup=YOUR_CONSUMER_GROUP_NAME
    npm start
    ```
 
-3. You should see output in the console that indicates that the web app has successfully connected to your IoT hub and is listening on port 3000:
+3. You should see output in the console that indicates that the web app successfully connected to your IoT hub and is listening on port 3000:
 
    :::image type="content" source="./media/iot-hub-live-data-visualization-in-web-apps/web-app-console-start.png" alt-text="Screenshot showing the web app sample successfully running in the console.":::
 
@@ -129,7 +127,7 @@ You should also see output in the console that shows the messages that your web 
 
 ## Host the web app in App Service
 
-The [Azure App Service](../app-service/overview.md) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in App Service can benefit from powerful Azure features like security, load balancing, and scalability as well as Azure and partner DevOps solutions like continuous deployment, package management, and so on. App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
+The [Azure App Service](../app-service/overview.md) provides a platform as a service (PAAS) for hosting web applications. Web applications hosted in App Service can benefit from Azure features like security, load balancing, and scalability. Web applications can also benefit from Azure and partner DevOps solutions like continuous deployment, package management, and so on. App Service supports web applications developed in many popular languages and deployed on Windows or Linux infrastructure.
 
 In this section, you provision a web app in App Service and deploy your code to it by using Azure CLI commands. You can find details of the commands used in the [az webapp](/cli/azure/webapp) documentation.
 
@@ -141,10 +139,10 @@ In this section, you provision a web app in App Service and deploy your code to 
    az appservice plan create --name NEW_NAME_FOR_YOUR_APP_SERVICE_PLAN --resource-group YOUR_RESOURCE_GROUP_NAME --sku FREE
    ```
 
-2. Use the [az webapp create](/cli/azure/webapp#az-webapp-create) command to provision a web app in your App Service plan. The `--deployment-local-git` parameter enables the web app code to be uploaded and deployed from a Git repository on your local machine. Your web app name must be globally unique and can contain upper and lower case letters, numbers, and hyphens. Be sure to specify Node version 14 or later for the `--runtime` parameter, depending on the version of the Node.js runtime you're using. You can use the `az webapp list-runtimes` command to get a list of  supported runtimes.
+2. Use the [az webapp create](/cli/azure/webapp#az-webapp-create) command to provision a web app in your App Service plan. The `--deployment-local-git` parameter enables the web app code to be uploaded and deployed from a Git repository on your local machine. Your web app name must be globally unique and can contain upper and lower case letters, numbers, and hyphens. Be sure to specify Node.js version 16 or later for the `--runtime` parameter, depending on the version of the Node.js runtime you're using. You can use the `az webapp list-runtimes` command to get a list of  supported runtimes.
 
    ```azurecli-interactive
-   az webapp create -n NEW_NAME_FOR_YOUR_WEB_APP -g YOUR_RESOURCE_GROUP_NAME -p YOUR_APP_SERVICE_PLAN_NAME --runtime "NODE:14LTS" --deployment-local-git
+   az webapp create -n NEW_NAME_FOR_YOUR_WEB_APP -g YOUR_RESOURCE_GROUP_NAME -p YOUR_APP_SERVICE_PLAN_NAME --runtime "NODE:16LTS" --deployment-local-git
    ```
 
 3. Use the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set) command to add application settings for the environment variables that specify the IoT hub connection string and the Event hub consumer group. Individual settings are space-delimited in the `-settings` parameter. Use the service connection string for your IoT hub and the consumer group you created previously in this tutorial.
@@ -160,7 +158,7 @@ In this section, you provision a web app in App Service and deploy your code to 
    az webapp update -n YOUR_WEB_APP_NAME -g YOUR_RESOURCE_GROUP_NAME --https-only true
    ```
 
-5. To deploy the code to App Service, you use [user-level deployment credentials](../app-service/deploy-configure-credentials.md). Your user-level deployment credentials are different from your Azure credentials and are used for Git local and FTP deployments to a web app. Once set, they're valid across all of your App Service apps in all subscriptions in your Azure account. If you've previously set user-level deployment credentials, you can use them.
+5. To deploy the code to App Service, you use [user-level deployment credentials](../app-service/deploy-configure-credentials.md). Your user-level deployment credentials are different from your Azure credentials and are used for Git local and FTP deployments to a web app. Once set, they're valid across all of your App Service apps in all subscriptions in your Azure account. If you previously set user-level deployment credentials, you can use them.
 
    If you haven't previously set user-level deployment credentials or you can't remember your password, run the [az webapp deployment user set](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) command. Your deployment user name must be unique within Azure, and it must not contain the ‘\@’ symbol for local Git pushes. When you're prompted, enter and confirm your new password. The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
 
@@ -215,25 +213,25 @@ If you come across any issues with this sample, try the steps in the following s
 
 * In the browser, open the developer tools (in many browsers the F12 key opens it), and find the console. Look for any warnings or errors printed there.
 
-* You can debug client-side script in /js/chat-device-data.js.
+* You can debug client-side script in /js/chart-device-data.js.
 
 ### Local website issues
 
-* Watch the output in the window where you launched node for console output.
+* Watch the output in the window where you launched Node.js for console output.
 
-* Debug the server code, specifically server.js and /scripts/event-hub-reader.js.
+* Debug the server code, specifically code in server.js and /scripts/event-hub-reader.js.
 
 ### Azure App Service issues
 
 * In Azure portal, go to your web app. Under **Monitoring** in the left pane, select **App Service logs**. Turn **Application Logging (File System)** to on, set **Level** to Error, and then select **Save**. Then open **Log stream** (under **Monitoring**).
 
-* From your web app in Azure portal, under **Development Tools**  select  **Console** and validate node and npm versions with `node -v` and `npm -v`.
+* From your web app in Azure portal, under **Development Tools**  select  **Console** and validate Node.js and npm versions with `node -v` and `npm -v`.
 
-* If you see an error about not finding a package, you may have run the steps out of order. When the site is deployed (with `git push`) the app service runs `npm install`, which runs based on the current version of node it has configured. If that is changed in configuration later, you need to make a meaningless change to the code and push again.
+* If you see an error about not finding a package, you might have run the steps out of order. When the site is deployed (with `git push`) the app service runs `npm install`, which runs based on the currently configured version of Node.js. If that is changed in configuration later, you need to make a meaningless change to the code and push again.
 
 ## Next steps
 
-You've successfully used your web app to visualize real-time sensor data from your IoT hub.
+You successfully used your web app to visualize real-time sensor data from your IoT hub.
 
 For another way to interact with data from Azure IoT Hub, see the following tutorial:
 

@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 02/28/2028
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ### Update home page

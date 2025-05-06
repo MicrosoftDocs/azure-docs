@@ -7,7 +7,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.date: 10/14/2021
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 
@@ -127,7 +127,7 @@ In some cases, we've seen partners use multiple standard storage accounts to sto
 
 IoT has become a significant part of our daily lives. IoT is used to track car movements, control lights, and monitor our health. It also has industrial applications. For example, companies use IoT to enable their smart factory projects, improve agricultural output, and on oil rigs for predictive maintenance. Premium block blob storage accounts add significant value to these scenarios.
 
-We have partners in the mining industry. They use a Data Lake Storage enable premium block blob storage account along with HDInsight (Hbase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. Premium block blob storage has helped to satisfy their need for high sample rate ingestion. It's also cost effective, because premium block blob storage is cost optimized for workloads that perform a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).
+We have partners in the mining industry. They use a Data Lake Storage enable premium block blob storage account along with HDInsight (HBase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. Premium block blob storage has helped to satisfy their need for high sample rate ingestion. It's also cost effective, because premium block blob storage is cost optimized for workloads that perform a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).
 
 ### Machine Learning
 

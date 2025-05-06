@@ -1,9 +1,6 @@
 ---
 title: Troubleshooting supported scenarios for Assessments
 description: Get help for resolving issues with assessments in supported scenarios using Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
 ms.date: 08/20/2024
@@ -69,7 +66,7 @@ We have an on-premises VM with 4 cores and 8 GB of memory, with 50% CPU utilizat
 
 - If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
 - If the assessment is **Performance-based**, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8 GB memory * 1.3 = 5.2 GB memory), the cheapest VM SKU of 4 cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) is recommended.
-- [Learn more](concepts-assessment-calculation.md#types-of-assessments) about assessment sizing.
+- [Learn more](concepts-assessment-overview.md#assessment-types) about assessment sizing.
 
 
 ## Next steps

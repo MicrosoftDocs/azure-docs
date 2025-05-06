@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure the Azure VPN Client on macOS for Virtual WAN P2S configurations that use Microsoft Entra ID authentication.
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 02/11/2025
+ms.date: 03/07/2025
 ms.author: cherylmc
 author: cherylmc
 ---
@@ -32,7 +32,7 @@ This article assumes that you've already performed the following prerequisites:
 
 ## Optional client configuration settings
 
-You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations-windows.md).
+You can configure the Azure VPN Client with optional configuration settings such as additional DNS servers, custom DNS, forced tunneling, custom routes, and other additional settings. For a description of the available optional settings and configuration steps, see [Azure VPN Client optional settings](azure-vpn-client-optional-configurations.md).
 
 ## Next steps
 

@@ -83,7 +83,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
+> You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
@@ -92,7 +92,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
    | **Field** | **Value** |
    | --- | --- |
    | **VMName** | Name of the target VM. |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **changeVMStoragePolicy**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -104,7 +104,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 Run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies on all VMs in a location where a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in Cluster-3, supplying "Cluster-3" would change the storage policy on all three VMs.
 
 > [!NOTE]
-> You cannot use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
+> You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
 
@@ -113,7 +113,7 @@ Run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies
    | **Field** | **Value** |
    | --- | --- |
    | **Location** | Name of the target VM. |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **changeVMStoragePolicy**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -134,20 +134,24 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage poli
    | **Field** | **Value** |
    | --- | --- |
    | **ClusterName** | Name of the cluster. |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **Set-ClusterDefaultStoragePolicy-Exec1**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
+> [!NOTE]
+> Changing the default cluster policy will only affect new VMs.  Existing VMs will retain the policy they're currently configured/deployed with.
 
 ## Create custom AVS storage policy
 
 Run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy.
 This function creates a new or overwrites an existing vSphere Storage Policy. Non vSAN-Based, vSAN Only, VMEncryption Only, Tag Only based and/or any combination of these policy types are supported.
 > [!NOTE]
-> You cannot modify existing AVS default storage policies.
+> You can't modify existing AVS default storage policies.
 > Certain options enabled in storage policies will produce warnings to associated risks.
+> Modifying existing storage policies will make existing associated vsan objects (vms/vmdks/iso/etc) appear as 'out of compliance'.
+> This simply means existing objects are running against premodified policy settings.  Reapply storage policy to objects to update to match modified policy settings.
 
 1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
 
@@ -168,7 +172,7 @@ This function creates a new or overwrites an existing vSphere Storage Policy. No
    | **vSANFailuresToTolerate** | Number of vSAN Hosts failures to Tolerate. <br>- Default is "R1FTT1". <br>- Valid values are "None", "R1FTT1", "R1FTT2", "R1FTT3", "R5FTT1", "R6FTT2", "R1FTT3" <br>- None = No Data Redundancy<br>- R1FTT1 = 1 failure - RAID-1 (Mirroring)<br>- R1FTT2 = 2 failures - RAID-1 (Mirroring)<br>- R1FTT3 = 3 failures - RAID-1 (Mirroring)<br>- R5FTT1 = 1 failure - RAID-5 (Erasure Coding),<br>- R6FTT2 = 2 failures - RAID-6 (Erasure Coding) <br>- No Data Redundancy options aren't covered under Microsoft SLA.|
    | **vSANSiteDisasterTolerance** | Only valid for stretch clusters. <br>-  Default is "None". <br>- Valid Values are "None", "Dual", "Preferred", "Secondary", "NoneStretch"  <br>- None = No Site Redundancy (Recommended Option for Non-Stretch Clusters, NOT recommended for Stretch Clusters)  <br>- Dual = Dual Site Redundancy (Recommended Option for Stretch Clusters)  <br>- Preferred = No site redundancy - keep data on Preferred (stretched cluster)  <br>- Secondary = No site redundancy -  Keep data on Secondary Site (stretched cluster)  <br>- NoneStretch = No site redundancy - Not Recommended (https://kb.vmware.com/s/article/88358)|
    | **Description** | Description of Storage Policy you're creating, free form text. |
-   | **Name** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **Name** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **New-AVSStoragePolicy-Exec1**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |

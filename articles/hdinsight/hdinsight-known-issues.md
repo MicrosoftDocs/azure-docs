@@ -3,6 +3,9 @@ title: Azure HDInsight known issues
 description: Track known issues for Azure HDInsight, along with troubleshooting steps, actions, and frequently asked questions.
 ms.service: azure-hdinsight
 ms.topic: troubleshooting-known-issue
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ms.date: 03/28/2024
 ---
 

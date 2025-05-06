@@ -2,7 +2,8 @@
 title: Compare Available Plans in Azure Spring Apps
 description: Understand and compare all plans in the Azure Spring Apps.
 author: karlerickson
-ms.author: taoxu
+ms.author: karler
+ms.reviewer: taoxu
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 01/05/2024

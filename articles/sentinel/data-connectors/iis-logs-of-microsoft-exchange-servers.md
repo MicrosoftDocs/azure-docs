@@ -2,7 +2,7 @@
 title: "IIS Logs of Microsoft Exchange Servers connector for Microsoft Sentinel"
 description: "Learn how to install the connector IIS Logs of Microsoft Exchange Servers to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 12/24/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson

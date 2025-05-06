@@ -37,7 +37,7 @@ This diagram shows the IPsec tunnels in transit in ExpressRoute private peering.
 ### Working with IPsec policy
 
 In Windows, encryption is associated with IPsec policy. IPsec policy determines which IP traffic is secured and the security mechanism applied to the IP packets.
-**IPSec policies** are composed of the following items: **Filter Lists**, **Filter Actions**, and **Security Rules**.
+**IPsec policies** are composed of the following items: **Filter Lists**, **Filter Actions**, and **Security Rules**.
 
 When configuring IPsec policy, it's important to understand the following IPsec policy terminology:
 

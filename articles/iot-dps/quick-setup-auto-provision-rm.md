@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template)
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Azure Resource Manager template (ARM template).
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 04/06/2023    
 ms.topic: quickstart
 ms.service: azure-iot-hub
@@ -13,7 +13,7 @@ ms.subservice: azure-iot-hub-dps
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with an ARM template
 
-You can use an [Azure Resource Manager](../azure-resource-manager/management/overview.md) template (ARM template) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service with an ARM template. The Iot Hub is also linked to the DPS resource using the template. This linking allows the DPS resource to assign devices to the hub based on allocation policies you configure.
+You can use an [Azure Resource Manager](../azure-resource-manager/management/overview.md) template (ARM template) to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service with an ARM template. The IoT Hub is also linked to the DPS resource using the template. This linking allows the DPS resource to assign devices to the hub based on allocation policies you configure.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -53,14 +53,14 @@ Two Azure resources are defined in the previous template:
 
     ![ARM template deployment parameters on the portal](./media/quick-setup-auto-provision-rm/arm-template-deployment-parameters-portal.png)    
 
-    Unless otherwise specified for the following fields, use the default value to create the Iot Hub and DPS resource.
+    Unless otherwise specified for the following fields, use the default value to create the IoT Hub and DPS resource.
 
     | Field | Description |
     | :---- | :---------- |
     | **Subscription** | Select your Azure subscription. |
     | **Resource group** | Select **Create new**, and enter a unique name for the resource group, and then select **OK**. |
     | **Region** | Select a region for your resources. For example, **East US**.  For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md). |
-    | **Iot Hub Name** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
+    | **IoT Hub Name** | Enter a name for the IoT Hub that must be globally unique within the *.azure-devices.net* namespace. You need the hub name in the next section when you validate the deployment. |
     | **Provisioning Service Name** | Enter a name for the new Device Provisioning Service (DPS) resource. The name must be globally unique within the *.azure-devices-provisioning.net* namespace. You need the DPS name in the next section when you validate the deployment. |
 
 3. On the next screen, read the terms. If you agree to all terms, select **Create**. 

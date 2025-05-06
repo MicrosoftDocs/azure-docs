@@ -6,15 +6,13 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 02/05/2025
-ms.custom: vmware-scenario-422, mvc, engagement-fy24
+ms.date: 02/07/2025
+ms.custom: vmware-scenario-422, mvc, engagement-fy23
 ---
 
 # Migrate VMware VMs to Azure (agentless)
 
 This article shows you how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agentless migration. You can also migrate VMware VMs using agent-based migration. [Compare](server-migrate-overview.md#compare-migration-methods) the methods.
-
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 This tutorial is the third in a series that demonstrates how to assess and migrate VMware VMs to Azure.
 
@@ -37,24 +35,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Complete the first tutorial](tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
+1. [Complete the first tutorial](./tutorial-discover-vmware.md) to prepare Azure and VMware for migration.
 2. We recommend that you complete the second tutorial to [assess VMware VMs](./tutorial-assess-vmware-azure-vm.md) before migrating them to Azure, but you don't have to.
 3. Go to the already created project or [create a new project](../create-manage-projects.md)
 4. Verify permissions for your Azure account - Your Azure account needs permissions to create a VM, and write to an Azure managed disk.
-
-> [!NOTE]
-> To use Azure Hybrid Benefit for Linux, perform the following depending on your operating system type:
->
-> For **SLES**, run the following commands:
->
-> `wget --no-check-certificate https://52.188.224.179/late_instance_offline_update_azure_SLE15.tar.gz`
-> `sha1sum late_instance_offline_update_azure_SLE15.tar.gz`
-> `tar -xvf late_instance_offline_update_azure_SLE15.tar.gz`
-> `cd x86_64`
-> `zypper --no-refresh --no-remote --non-interactive in *.rpm`
->
-> For **RHEL**, set SELinux mode to `Permissive` or disabled.
-
 
 > [!NOTE]
 > If you're planning to upgrade your Windows operating system, Azure Migrate may download the Windows SetupDiag for error details in case upgrade fails. Ensure the VM created in Azure post the migration has access to [SetupDiag](https://go.microsoft.com/fwlink/?linkid=870142). In case there is no access to SetupDiag, you may not be able to get detailed OS upgrade failure error codes but the upgrade can still proceed.
@@ -80,7 +64,7 @@ After setting up the appliance and completing discovery, you can begin replicati
 
 Enable replication as follows:
 
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration and modernization**, select **Replicate**.
+1. In the Azure Migrate project > **Execute** > **Migration**, select **Replicate**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/select-replicate.png" alt-text="Screenshot on selecting Replicate option.":::
 
@@ -113,21 +97,22 @@ Enable replication as follows:
    > [!NOTE]
    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
 
-10. In **Azure Hybrid Benefit**, specify whether you already have a Windows Server license or Enterprise Linux subscription (RHEL and SLES). If you do and they're covered with active Software Assurance of Windows Server or Enterprise Linux Subscriptions (RHEL and SLES), you can apply for the Azure Hybrid Benefit when you bring licenses to Azure. Then select **Next**. You can also select **I have an Enterprise Linux license** in the **Azure Hybrid benefit** section of the **Compute and Network** screen. 
+10. In **Azure Hybrid Benefit**:
+
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/target-settings.png" alt-text="Screenshot on target settings.":::
 
-11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](../migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
+11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**.
-    - **OS Type**: Select the type of OS used (Windows or Linux).
-    - **Operating System**: Select the operating system version for Linux machines to apply the correct license type.
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer.
     - **Availability Zone**: Specify the Availability Zone to use.
     - **Availability Set**: Specify the Availability Set to use.
 
     > [!NOTE]
-    > If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
+    > If you want to select a different availability option for a set of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines.
 
 12. In **Disks**, indicate whether the VM disks should be replicated to Azure, and specify the disk type (standard SSD/HDD or Premium-managed disks) in Azure. Then select **Next**.
 
@@ -172,7 +157,8 @@ When delta replication begins, you can run a test migration for the VMs, before 
 
 Do a test migration as follows:
 
-1. In **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
+
+1. In **Migration goals** > **Servers, databases and web apps** > **Migration and modernization**, select the numerical value next to **Azure VM**.
 
     :::image type="content" source="../media/tutorial-migrate-vmware/test-migrated-servers.png" alt-text="Screenshot of Test migrated servers.":::
 
@@ -210,7 +196,7 @@ After you've verified that the test migration works as expected, you can migrate
     - If you don't want to shut down the VM, select **No**
 1. You have an option to upgrade the Windows Server OS during migration. To upgrade, select the **Upgrade available** option. In the pane that appears, select the target OS version that you want to upgrade to and select **Apply**. [Learn more](../how-to-upgrade-windows.md).
 4. A migration job starts for the VM. Track the job in Azure notifications.
-1. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
+5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
 ## Complete the migration
 
@@ -223,13 +209,6 @@ After you've verified that the test migration works as expected, you can migrate
 1. Remove the on-premises VMs from your local VM inventory.
 1. Remove the on-premises VMs from local backups.
 1. Update any internal documentation to show the new location and IP address of the Azure VMs.
-
-### Linux Support updates
-
-- To receive OS updates on your end of support VM that was migrated to Azure, upgrade to the latest version by following the steps [here](https://access.redhat.com/support/policy/updates/errata/).
-- To extend support for your end of support VM that was migrated to Azure with the existing OS version, update the [license option](/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions) to get extended support.
-- To receive specialized OS updates on your migrated VM, update the license option as described [here](/azure/virtual-machines/linux/azure-hybrid-benefit-linux?tabs=ahbNewPortal%2CahbExistingPortal%2Clicenseazcli%2CslesAzcliByosConv%2Cslesazclipaygconv%2Crhelpaygconversion%2Crhelcompliance#byos-to-payg-conversions).
-
 
 ## Post-migration best practices
 

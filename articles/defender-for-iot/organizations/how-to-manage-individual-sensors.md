@@ -79,7 +79,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 Each OT sensor is onboarded as a cloud-connected or locally managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
 
-You need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a recent software version](update-ot-software.md?tabs=portal#update-ot-sensors). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
+You need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a recent software version](update-ot-software.md?tabs=portal#update-ot-sensors-with-the-latest-ot-monitoring-software). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
@@ -416,7 +416,7 @@ After clearing data on a cloud-connected sensor:
 
 **To clear system data**:
 
-1. Sign in to the OT sensor as the *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
+1. Sign into the OT sensor as the *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users). 
 
 1. Select **Support** > **Clear data**.
 

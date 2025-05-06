@@ -1,10 +1,10 @@
 ---
 title: Analyze connection quality in Azure Virtual Desktop - Azure
 description: Connection quality for Azure Virtual Desktop users.
-author: dknappettmsft
+author: dougeby
 ms.topic: conceptual
 ms.date: 01/05/2023
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: engagement-fy23, docs_inherited
 ---
 # Analyze connection quality in Azure Virtual Desktop

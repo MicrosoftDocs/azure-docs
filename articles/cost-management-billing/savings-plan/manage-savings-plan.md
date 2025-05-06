@@ -2,13 +2,13 @@
 title: Manage Azure savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how to manage savings plans. See steps to change the plan's scope, split a plan, and optimize its use.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Manage Azure savings plans

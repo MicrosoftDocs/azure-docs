@@ -4,7 +4,7 @@ description: Learn how to use a pre- and post-deployment script with continuous 
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.topic: conceptual
 ms.date: 01/29/2025
 ms.custom: devx-track-azurepowershell

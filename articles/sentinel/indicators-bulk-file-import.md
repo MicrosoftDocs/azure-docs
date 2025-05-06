@@ -8,8 +8,8 @@ ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -40,12 +40,14 @@ Add multiple threat intelligence objects with a specially crafted CSV or JSON fi
 
 1. Select **Import** > **Import using a file**.
 
+    #### [Defender portal](#tab/defender-portal)
+
+    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
+
     #### [Azure portal](#tab/azure-portal)
 
     :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-fixed.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu." lightbox="media/indicators-bulk-file-import/import-using-file-menu-fixed.png":::
-    
-    #### [Defender portal](#tab/defender-portal)
-    :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import threat intelligence by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
+
     ---
 
 1. On the **File format** dropdown menu, select **CSV** or **JSON**.
@@ -69,7 +71,7 @@ The templates provide all the fields you need to create a single valid indicator
 
 1. Drag your bulk threat intelligence file to the **Upload a file** section, or browse for the file by using the link.
 
-1. Enter a source for the threat intelligence in the **Source** text box. This value is stamped on all the indicators included in that file. View this property as the `SourceSystem` field. The source is also displayed in the **Manage file imports** pane. For more information, see [Work with threat indicators](work-with-threat-indicators.md#find-and-view-your-indicators-with-queries). 
+1. Enter a source for the threat intelligence in the **Source** text box. This value is stamped on all the indicators included in that file. View this property as the `SourceSystem` field. The source is also displayed in the **Manage file imports** pane. For more information, see [Work with threat indicators](work-with-threat-indicators.md#find-and-view-threat-intelligence-with-queries). 
 
 1. Choose how you want Microsoft Sentinel to handle invalid entries by selecting one of the buttons at the bottom of the **Import using a file** pane:
 

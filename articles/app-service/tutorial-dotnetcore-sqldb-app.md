@@ -3,7 +3,7 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 01/31/2025
+ms.date: 04/17/2025
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
@@ -524,7 +524,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png"::::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-clean-up-resources-3.png":::
     :::column-end:::
 :::row-end:::
 

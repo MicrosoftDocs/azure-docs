@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Troubleshoot resource health
 titleSuffix: Azure Digital Twins
 description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 11/1/2022
 ms.topic: how-to
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Troubleshoot Azure Digital Twins resource health

@@ -5,7 +5,7 @@ description: Learn about limitations and known issues of Network File System (NF
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: normesta
 ---
