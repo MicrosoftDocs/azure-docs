@@ -105,5 +105,5 @@ To remove the service group created in this document, use the
 
 ## Related content
 * [What are Azure Service Groups?](overview.md)
-* [How to: Manage Service Groups](manage-service-groups.md)
+* [How to Manage Service Groups](manage-service-groups.md)
 * [Connect service group members with REST API](create-service-group-member-rest-api.md)
