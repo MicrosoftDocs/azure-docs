@@ -14,6 +14,10 @@ This article explains how to back up [Azure Managed Disk](/azure/virtual-machine
 
 Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
 
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+
+
 ## Create a Backup vault
 
 A Backup vault is a storage entity in Azure that holds backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.

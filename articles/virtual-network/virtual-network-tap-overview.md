@@ -55,8 +55,8 @@ Following are limitations during our preview.
 
 ### Coming soon
 
-- UK South (May 5)
-- US East (May 15)
+- UK South
+- US East
 
 ## Virtual network TAP partner solutions
 

@@ -14,7 +14,7 @@ ms.date: 03/18/2025
 
 This article describes reliability support in [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft. This article covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 ## Production deployment recommendations
 

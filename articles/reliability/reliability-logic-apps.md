@@ -16,7 +16,7 @@ zone_pivot_groups: logic-app-hosting-types
 
 This article describes reliability support in [Azure Logic Apps](/azure/logic-apps/logic-apps-overview), covering intra-regional resiliency via [availability zones](#availability-zone-support) and [multi-region deployments](#multi-region-support).
 
-Resiliency is a shared responsibility between you and Microsoft, and so this article also covers ways for you to create a resilient solution that meets your needs.
+[!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
 Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for resiliency, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
 

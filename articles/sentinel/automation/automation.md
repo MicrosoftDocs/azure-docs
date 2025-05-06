@@ -4,7 +4,7 @@ description: Learn about Microsoft Sentinel security orchestration, automation, 
 ms.topic: conceptual
 author: batamig
 ms.author: bagol
-ms.date: 02/12/2025
+ms.date: 04/28/2025
 appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
     - Microsoft Sentinel in the Azure portal
@@ -68,6 +68,8 @@ After onboarding your Microsoft Sentinel workspace to the Defender portal, note 
 | **Running playbooks manually on demand** | The following procedures aren't currently supported in the Defender portal:  <br><li>[Run a playbook manually on an alert](run-playbooks.md#run-a-playbook-manually-on-an-alert)<br><li>[Run a playbook manually on an entity](run-playbooks.md#run-a-playbook-manually-on-an-entity)    |
 | **Running playbooks on incidents requires Microsoft Sentinel sync** | If you try to run a playbook on an incident from the Defender portal and see the message *"Can't access data related to this action. Refresh the screen in a few minutes."* message, this means that the incident isn't yet synchronized to Microsoft Sentinel. <br><br>Refresh the incident page after the incident is synchronized to run the playbook successfully. |
 | **Incidents: Adding alerts to incidents / <br>Removing alerts from incidents** | Since adding alerts to, or removing alerts from incidents isn't supported after onboarding your workspace to the Defender portal, these actions are also not supported from within playbooks. For more information, see [Capability differences between portals](../microsoft-sentinel-defender-portal.md#capability-differences-between-portals). |
+|**Microsoft Defender XDR integration in multiple workspaces**|If you've integrated XDR data with more than one workspace in a single tenant, the data will now only be ingested into the primary workspace in the Defender portal. Transfer automation rules to the relevant workspace to keep them running.|
+|**Automation and the Correlation engine** |The correlation engine may combine alerts from multiple signals into a single incident, which could result in automation receiving data you didn’t anticipate. We recommend reviewing your automation rules to ensure you're seeing the expected results.|
  
 ## Related content
 
