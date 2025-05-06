@@ -24,7 +24,7 @@ HTTP route configurations support custom domains, allowing you to route traffic 
 > [!NOTE]
 > To set up your own custom domain and certificate, see [Custom domain names and free managed certificates](./custom-domains-managed-certificates.md).
 >
-> If you set `bindingType: "Auto"`, you don't need a `certificateId`. Container Apps creates the certificate for you based on the domain.
+> If you set `bindingType: "Auto"`, you don't need a `certificateId`. Once you provision the certificate, Container Apps will automatically add it to the route spec and bind it to the domain. The site will only be accessible over HTTP, not HTTPS, until the provisioning is completed.
 
 ## Configuration
 
