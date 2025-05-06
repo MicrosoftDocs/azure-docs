@@ -83,6 +83,9 @@ The following table lists the required parameters for adding/removing SAP ASE in
 
 ## Next steps
 
-- [Back up SAP ASE (Sybase) databases on Azure VMs](sap-ase-database-backup.md).
-- [Restore SAP ASE (Sybase) databases on Azure VMs](sap-ase-database-restore.md).
-- [Manage SAP ASE (Sybase) databases backup](sap-ase-database-manage.md).
+- [Configure backup for SAP ASE (Sybase) databases on Azure VMs using Azure portal](sap-ase-database-backup.md).
+- [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
+- [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
+- [Quickstart: Run the preregistration script for SAP ASE (Sybase) database backup in Azure Cloud Shell](sap-ase-database-backup-run-preregistration-quickstart.md).
+- [Tutorial: Back up SAP ASE (Sybase) database using Azure Business Continuity Center](sap-ase-database-backup-tutorial.md).
+- [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

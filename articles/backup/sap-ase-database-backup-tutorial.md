@@ -407,5 +407,6 @@ To run on-demand backups for SAP ASE database, follow these steps:
 
 ## Next steps
 
-- [Restore the SAP ASE database on Azure VMs](sap-ase-database-restore.md).
-- [Manage the SAP ASE database on Azure VMs](sap-ase-database-manage.md).
+- [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
+- [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
+- [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

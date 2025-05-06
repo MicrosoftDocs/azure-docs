@@ -1,8 +1,8 @@
 ---
-title: Configure SAP ASE (Sybase) database backup on Azure VMs using Azure Backup
+title: Configure backup for SAP ASE (Sybase) database on Azure VMs using Azure portal
 description: In this article, learn how to configure backup for SAP ASE (Sybase) databases that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -10,13 +10,11 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Back up SAP ASE (Sybase) database on Azure VMs via Azure Backup
+# Configure backup for SAP ASE (Sybase) database on Azure VMs using Azure portal
 
-This article describes how to configure backup for SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on Azure Virtual Machines (VMs) on the Azure portal.
+This article describes how to configure backup for SAP Adaptive Server Enterprise (ASE) (Sybase) databases (running on Azure Virtual Machines) using Azure portal.
 
->[!Note]
->- Currently, the SAP ASE is available only in non-US public regions. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
->- Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
+Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure Virtual Machines (VMs).
 
 ## Prerequisites
 
@@ -163,5 +161,6 @@ After the backup configuration is complete, Azure Backup takes backup of the SAP
 
 ## Next steps
 
-- [Restore the SAP ASE database on Azure VMs](sap-ase-database-restore.md).
-- [Manage the SAP ASE database on Azure VMs](sap-ase-database-manage.md).
+- [Restore SAP ASE database on Azure VMs using Azure portal](sap-ase-database-restore.md).
+- [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
+- [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).

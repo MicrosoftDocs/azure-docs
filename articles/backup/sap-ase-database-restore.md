@@ -1,8 +1,8 @@
 ---
-title: Restore SAP ASE databases on Azure VMs
+title: Restore SAP ASE database on Azure VMs using Azure portal
 description: In this article, learn how to restore SAP ASE databases that are running on Azure virtual machines. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -10,9 +10,9 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Restore SAP ASE databases on Azure VMs
+# Restore SAP ASE database on Azure VMs using Azure portal
 
-This article describes how to restore SAP ASE databases that are running on Azure virtual machines (VMs). You can use the restored data to create copies for development and test scenarios or to return to a previous state.
+This article describes how to restore SAP ASE databases (running on Azure virtual machines) using Azure portal. You can use the restored data to create copies for development and test scenarios or to return to a previous state.
 
 >[!Note]
 >The master database can't be restored using original or alternate locations directly because the SAP ASE instance must be started in single-user/single-server mode. Instead, you should use the **restore as files** method to recover and apply the dump files. 
@@ -42,7 +42,7 @@ To recover the SAP ASE (Sybase) database, follow these steps:
 
 ## Restore to a point in time or to a recovery point 
 
-Azure Backup restores SAP ASE user databases that are running on Azure VMs. It can: 
+Azure Backup restores SAP ASE user databases that are running on Azure Virtual Machines (VMs). It can: 
 
 - Restore them to a specific date or time (to the second) by using log backups. Azure Backup automatically determines the appropriate full backups, differential backups, and chain of log backups that are required to restore based on the selected time. 
 
@@ -180,5 +180,6 @@ To trigger Cross Subscription Restore to a Private Endpoint enabled vault, follo
 
 ## Next steps
 
-[Manage SAP ASE databases by using Azure Backup](sap-ase-database-manage.md).
+- [Manage and monitor backed-up SAP ASE database using Azure portal](sap-ase-database-manage.md).
+- [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).
 

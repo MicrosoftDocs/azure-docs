@@ -1,5 +1,5 @@
 ---
-title: Manage backed-up SAP ASE databases on Azure VMs
+title: Manage and monitor backed-up SAP ASE database using Azure portal
 description: In this article, learn the common tasks for managing and monitoring SAP ASE databases that are running on Azure virtual machines.
 ms.topic: how-to
 ms.date: 05/14/2025
@@ -10,11 +10,10 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-# Manage and monitor backed-up SAP ASE databases
+# Manage and monitor backed-up SAP ASE database using Azure portal
 
-This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases that are running on an Azure virtual machine (VM) by using the [Azure Backup](./backup-overview.md) service. 
-
-Azure Backup allows you to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a VM from backups.
+This article describes how to manage the SAP Adaptive Server Enterprise (ASE) (Sybase) databases (running on an Azure virtual machines) using Azure portal.
+Azure Backup allows you to monitor jobs and alerts, trigger an on-demand backup, edit policies, stop and resume database protection, and unregister a Virtual Machine (VM) from backups.
 
 If the  backup isn't configured for your SAP ASE databases, see [Back up SAP ASE databases on Azure VMs](sap-ase-database-backup.md). To learn more about the supported configurations and scenarios, see [Support matrix for backup of SAP ASE databases on Azure VMs](sap-ase-backup-support-matrix.md).
 
@@ -178,3 +177,7 @@ There are two ways to update the compression level:
 
 >[!Note]
 > If you set the given ASE parameters, the memory and CPU utilization increase. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other ASE operations.
+
+## Next steps
+
+[Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).
