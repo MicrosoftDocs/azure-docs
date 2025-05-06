@@ -81,11 +81,18 @@ Within the MPC Pro web interface, under the collection of interest, you can conf
 If using the Python API, as demonstrated in [Create a STAC collection](./create-stac-collection.md), you can register a new render config using the following POST:
 
 ```python
-render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
+import azure.identity
+
+credential = azure.identity.DefaultAzureCredential()
+token = credential.get_token("https://geocatalog.spatio.azure.com")
+headers = {
+    "Authorization": f"Bearer {token.token}"
+}
+
 response = requests.post(
-    render_config_endpoint,
+    f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options",
     json=render_config,
-    headers=getBearerToken(),
+    headers=headers,
     params={"api-version": "2025-04-30-preview"}
 )
 ```
