@@ -83,7 +83,7 @@ If using the Python API, as demonstrated in [Create a STAC collection](./create-
 ```python
 import azure.identity
 
-credential = azure.identity.DefaultAzureCredential()
+credential = azure.identity.AzureCliCredential()
 token = credential.get_token("https://geocatalog.spatio.azure.com")
 headers = {
     "Authorization": f"Bearer {token.token}"
