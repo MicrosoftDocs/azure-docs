@@ -145,22 +145,16 @@ The unified experience in the Defender portal introduces notable changes to inci
 The [Microsoft Sentinel API](/rest/api/securityinsights/api-versions) continues to support actions against Microsoft Sentinel resources, like analytics rules, automation rules and more.   For interacting with unified incidents and alerts, we recommend that you use the Microsoft Graph REST API.
 If you're using the Microsoft Sentinel `SecurityInsights` API to interact with Microsoft Sentinel incidents, you may need to update your automation conditions and trigger criteria due to changes in the response body. The following fields are important in the response snippets:
 
-+ `alertProductNames`: The source that triggered the detection 
-+ `incidentUrl`: The direct URL to the incident in the Microsoft Sentinel portal
-+ `providerName`: The name of the provider 
- 
-After transitioning to the unified experience, the following sections are added and changed: 
-+ `providerIncidentUrl` : This new field provides the direct URL to the incident in the unified portal.
-+ `providerName` : The providerName field value has been changed from *"Azure Sentinel"* to *"Microsoft XDR"*.
+The following table lists fields that are important in the response snippets, and compares them across the Azure and Defender portals:
 
-When using an HTTP GET command for a specific unified incident with the Microsoft Graph REST API, the body response has the following differences:
-
-+ The `incidentWebUrl` field provides a direct link to the incident, which can be used to synchronize this information with a third-party ticketing system like ServiceNow. 
-+ If the response doesn't contain the `alertProductNames` array, you can retrieve it by updating the initial HTTP GET command to add `?$expand=alerts` after the GET command. For example: `https://graph.microsoft.com/v1.0/security/incidents/368?$expand=alerts`
-
-The following new fields have been added to the response body:
-+ `serviceSource` : The service or product that created the alert 
-+ `detectionSource` : Detection technology or sensor that identified the notable component or activity 
+| Functionality | Azure portal | Defender portal |
+|----------------|--------------|----------------|
+| Link to the incident| `incidentUrl`: The direct URL to the incident in the Microsoft Sentinel portal | `providerIncidentUrl` : This additional field provides a direct link to the incident, which can be used to synchronize this information with a third-party ticketing system like ServiceNow. `incidentUrl` is still available, but it points to the Microsoft Sentinel portal. |
+| The sources that triggered the detection and published the alert | `alertProductNames` | `alertProductNames`: Requires adding `?$expand=alerts` to the GET. For example, `https://graph.microsoft.com/v1.0/security/incidents/368?$expand=alerts`|
+| The name of the alert provider| `providerName` = "Azure Sentinel" | `providerName` = "Microsoft XDR" |
+| The service or product that created the alert | |`serviceSource` For example, "microsoftDefenderForCloudApps" | 
+| The detection technology or sensor that identified the notable component or activity | | `detectionSource` For example, "cloudAppSecurity"|
+| The name of the product which published this alert. | |`productName` For example, "Microsoft Defender for Cloud Apps" |
 
 
 ## Related content
