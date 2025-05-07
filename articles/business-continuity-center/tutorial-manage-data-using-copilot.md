@@ -149,16 +149,15 @@ To increase the vault's security level, follow these steps:
 
 1. Go to the vault for which you want to increase the security level, and then select **Increase security level of this vault**.
 
-  The **Copilot** pane opens on which you can interact with Copilot to do the required security enhancements.
+   The **Copilot** pane opens on which you can interact with Copilot to do the required security enhancements.
 
    In the following screenshot, Copilot shows the vault's current security level and suggests the next level (Poor to Fair, Fair to Good, or Good to Excellent) along with recommended steps to upgrade it.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/increase-security-level.png" alt-text="Screenshot shows the Copilot option to increase security level of the vault." lightbox="./media/tutorial-manage-data-using-copilot/increase-security-level.png":::
 
-   After you select the required security level (for example, **Good**), copilot asks to choose the preferred execution option - **Portal** or **Command tools (PowerShell/CLI)**.
+1. After you select the required security level (for example, **Good**), copilot asks to choose the preferred execution option - **Portal** or **Command tools (PowerShell/CLI)**.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/execution-options.png" alt-text="Screenshot shows the execution options in the Copilot pane." lightbox="./media/tutorial-manage-data-using-copilot/execution-options.png":::
-
 
 1. To use the Azure portal for security enhancement, select **Portal**. This selection guides you with the options to enhance [Soft delete](../backup/backup-azure-security-feature-cloud.md), [Immutability](../backup/backup-azure-immutable-vault-concept.md), and [Multi-user authorization (MUA)](../backup/multi-user-authorization-concept.md) settings.
 
@@ -176,7 +175,7 @@ To check the failed jobs, follow these steps:
 
 1. Go to the vault for which you want to review the failed jobs, and then select **Show job failures for this vault**.
 
-  The **Copilot** pane opens with the prompt to view the impacted resources.
+   The **Copilot** pane opens with the prompt to view the impacted resources.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-impacted-resources.png" alt-text="Screenshot shows how to view the impacted resources using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/view-impacted-resources.png":::
 
