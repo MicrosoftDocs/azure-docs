@@ -229,7 +229,20 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 
 ## Generate callback URL with secondary access key
 
-A workflow has two *Access Keys*: Primary and Seconday. By default the HTTP webhook callback URL is generated with the Primary key. If you want it to be generated with the Secondary key, you can specify it in *accessKeyType* property in the code view.
+A logic app workflow has two access keys: primary and secondary. By default, Azure Logic Apps uses the primary key to generate the callback URL for the HTTP webhook trigger.
+
+To use the secondary key instead for callback URL generation, follow these steps:
+
+1. From the workflow designer, switch to code view.
+
+1. In the **`HttpWebhook`** trigger definition. find the **`accessKeyType`** parameter.
+
+1. Specify the word **`Secondary`** as the parameter value.
+
+1. Remember to save your changes.
+
+The following example shows the webhook trigger definition with the **`accessKeyType`** parameter set to **`Secondary`**:
+
 
 ```
 {
