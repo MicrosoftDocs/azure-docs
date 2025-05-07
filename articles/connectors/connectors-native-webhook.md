@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 02/09/2024
+ms.date: 05/07/2025
 ---
 
 # Subscribe and wait for events to run workflows using HTTP webhooks in Azure Logic Apps
@@ -226,6 +226,27 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | 403 | Forbidden |
 | 404 | Not Found |
 | 500 | Internal server error. Unknown error occurred. |
+
+## Using the Secondary Access Key
+
+A workflow has two *Access Keys*: Primary and Seconday. By default the HTTP webhook callback URL is generated with the Primary key. If you want it to be generated with the Secondary key, you can specify it in *accessKeyType* property in the code view.
+
+```
+{
+  "type": "HttpWebhook",
+  "inputs": {
+    "subscribe": {
+      "method": "POST",
+      "uri": "<subscription url>",
+      "body": "@listCallbackUrl()"
+    },
+    "accessKeyType": "Secondary"
+  },
+  "runAfter": {}
+}
+
+```
+
 
 ## Next steps
 
