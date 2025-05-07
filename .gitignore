@@ -44,3 +44,5 @@ articles/planetary-computer/interesting_stats.py
 articles/planetary-computer/locate_text.py
 articles/planetary-computer/image_syntax_checker.py
 articles/planetary-computer/image-file-fixer.py
+articles/planetary-computer/orphaned-media.py
+articles/planetary-computer/orphaned_media_files.txt
