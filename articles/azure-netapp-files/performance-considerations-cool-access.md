@@ -4,7 +4,7 @@ description: Understand use cases for cool access and the effect it can have on 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/24/2024
 ms.author: anfdocs
 ---

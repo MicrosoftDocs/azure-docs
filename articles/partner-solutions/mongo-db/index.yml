@@ -1,0 +1,42 @@
+### YamlMime:Landing
+
+title: MongoDB Atlas
+summary: A fully managed document database with native vector search support for AI applications.
+
+metadata:
+  title: MongoDB Atlas
+  description: MongoDB Atlas integrates with Azure to combine the benefits of MongoDB Atlas with the Azure cloud.
+  ms.topic: landing-page
+  ms.date: 04/15/2025
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About MongoDB Atlas
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is MongoDB Atlas?
+            url: overview.md
+
+  # Card
+  - title: Get started with MongoDB Atlas
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a resource
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage a resource
+            url: manage.md
+          - text: Troubleshoot
+            url: troubleshoot.md
+
+  #Card
+  - title: Tools
+    linkLists:
+      - linkListType: reference 
+        links:
+        - text: MongoDB Atlas developer tools 
+          url: tools.md
