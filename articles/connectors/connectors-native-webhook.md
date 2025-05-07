@@ -244,7 +244,7 @@ To use the secondary key instead for callback URL generation, follow these steps
 The following example shows the webhook trigger definition with the **`accessKeyType`** parameter set to **`Secondary`**:
 
 
-```
+```json
 {
   "type": "HttpWebhook",
   "inputs": {
