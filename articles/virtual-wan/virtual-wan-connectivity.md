@@ -20,10 +20,10 @@ Because the virtual network gateway ASN is always 65515, you can't have BGP over
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-vpn-gateway.png" alt-text="Diagram shows virtual WAN connectivity using virtual network gateways." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-vpn-gateway.png":::
 
-This option is good for you if you want to connect two virtual WANs together using virtual network gateways, but it has the following limitations:
+This option is ideal if you want to connect two virtual WANs using virtual network gateways. However, it has the following limitations:
 
-- No BGP support
-- Max throughput per tunnel is 2.4 Gbps, depending on ciphers. You can add more tunnels to achieve higher throughput.
+- No BGP support.
+- Max throughput per tunnel is 2.4 Gbps, depending on ciphers (you can add more tunnels to achieve higher throughput).
 
 ## IPsec tunnels using SD-WAN devices
 
@@ -33,9 +33,19 @@ In this scenario, you must replace 65520 and 65515 ASNs with the SD-WAN ones to 
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-sdwan-nva.png" alt-text="Diagram shows virtual WAN connectivity using SD-WAN devices in the virtual hubs." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-sdwan-nva.png":::
 
+This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs. However, it comes with the following limitations:
+
+- Only certain SD-WAN NVAs are supported inside the virtual hub.
+- SD-WAN NVAs can't be combined with NVAs inside a virtual hub.
+- SD-WAN NVAs can be more expensive than virtual network gateways.
 
 ## IPsec tunnels using SD-WAN devices in peered spokes
 
-This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network (VNet) that is peered to the virtual hub instead of placing it in the virtual hub. This scenario allows you to configure BGP peering between the SD-WAN NVA and the Route Server inside the virtual hub. This approach is a good for scenarios where users have SD-WAN NVAs that can't be deployed inside virtual hubs, but still support BGP. Like in the second option, you must replace 65520 and 65515 ASNs with the SD-WAN ones to avoid BGP loop prevention.
+This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network that is peered to the virtual hub, instead of placing it in the virtual hub. This scenario allows you to configure BGP peering between the SD-WAN NVA and the Route Server inside the virtual hub. This approach is a good for scenarios where users have SD-WAN NVAs that can't be deployed inside virtual hubs, but still support BGP. Like in the second option, you must replace 65520 and 65515 ASNs with the SD-WAN ones to avoid BGP loop prevention.
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png" alt-text="Diagram shows virtual WAN connectivity using SD-WAN devices in spoke virtual networks." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png":::
+
+This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs in the spoke virtual networks because virtual hub doesn't support them. However, this option comes with the following limitations:
+
+- Complexity to setup and maintain.
+- SD-WAN NVAs can be more expensive than virtual network gateways.
