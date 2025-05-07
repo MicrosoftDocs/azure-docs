@@ -163,7 +163,7 @@ export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
 
 1. Run the cmdlet: df -Th
 
-   ![A screen shot of a computer  AI-generated content may be incorrect.](media/image2.png)
+   ![Screenshot of Powershell screen to test if EiT is applied](media/powershell-capture.png)
 
 This shows that the client is connected through local port 127.0.0.1 and not any external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel **intercepts** this traffic and securely forwards it over **TLS** to the actual Azure Files NFS server on Azure.
 
@@ -173,7 +173,7 @@ sudo tcpdump -i any port 2049 -w nfs_traffic.pcap
 
 Open the capture in Wireshark, the payload will appear as "Application Data" rather than readable text. 
 
-![](media/image3.png)
+![Screenshot of Wireshark screen to test if EiT is applied](media/wireshark-capture.png)
 
 ## Troubleshooting
 
