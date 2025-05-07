@@ -2,7 +2,7 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 04/17/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -10,6 +10,8 @@ ms.author: jsuri
 # Restore Azure Blobs
 
 This article describes how to use the Azure portal to perform restores for Azure Blob from operational or vaulted backups. With operational backups, you can restore all block blobs in storage accounts with operational backup configured or a subset of blob content to any point-in-time within the retention range. With vaulted backups, you can perform restores using a recovery point created, based on your backup schedule.
+
+You can also [restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 
 ## Before you start
 

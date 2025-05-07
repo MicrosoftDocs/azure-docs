@@ -5,7 +5,7 @@ tags: optional
 
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: conceptual
-ms.date: 04/04/2025
+ms.date: 04/17/2025
 ms.custom: UpdateFrequency3
 ms.author: msangapu
 author: msangapu-msft
@@ -42,7 +42,7 @@ Apps running with a local cache benefit in these ways:
 - They experience fewer app restarts from changes in the storage share.
 
 > [!NOTE]
-> The local cache feature isn't supported in function apps or containerized App Service apps, such as in [Windows containers](quickstart-custom-container.md?pivots=container-windows) or in [App Service on Linux](overview.md#app-service-on-linux). A version of the feature that's available for these app types is [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
+> The local cache feature isn't supported in function apps or containerized App Service apps, such as in [Windows containers](quickstart-custom-container.md?pivots=container-windows) or in built-in or custom Linux containers. A version of the feature that's available for these app types is [App Cache](https://github.com/Azure-App-Service/KuduLite/wiki/App-Cache).
 >
 > The local cache feature also isn't supported in the F1 and D1 pricing tiers of App Service.
   

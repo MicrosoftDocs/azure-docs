@@ -1,7 +1,7 @@
 ---
 title: View Azure Maps API usage metrics
 titleSuffix: Microsoft Azure Maps
-description: Learn how to view Azure Maps API usage metrics, such as total requests, total errors, and availability. See how to filter data and split results.
+description: Discover how to monitor Azure Maps API usage metrics, including total requests, total errors, and availability. Learn how to filter data and break down results for better insights.
 author: sinnypan
 ms.author: sipa
 ms.date: 03/31/2025
@@ -12,15 +12,15 @@ ms.subservice: general
 
 # View Azure Maps API usage metrics
 
-This article shows you how to view the API usage metrics, for your Azure Maps account, in the [Azure portal]. The metrics are shown in a convenient graph format along a customizable time duration.
+This article guides you on how to view API usage metrics for your Azure Maps account in the [Azure portal]. The metrics are displayed in an easy-to-read graph format over a customizable time period.
 
 ## View metric snapshot
 
-You can see some common metrics on the **Overview** page of your Maps account. It currently shows *Total Requests*, *Total Errors*, and *Availability* over a selectable time duration.
+The **Overview** page of your Maps account displays key metrics such as *Total Requests*, *Total Errors*, and *Availability* over a selectable time period.
 
 ![Azure Maps usage metrics overview](media/how-to-view-api-usage/portal-overview.png)
 
-Continue to the next section if you need to customize these graphs for your particular analysis.
+Proceed to the next section to customize these graphs for your specific analysis needs.
 
 ## View detailed metrics
 
@@ -30,30 +30,34 @@ Continue to the next section if you need to customize these graphs for your part
 
 3. Once your Maps account is open, select the **Metrics** menu on the left.
 
-4. On the **Metrics** pane, choose one of the following options:
+4. In the **Metrics** pane, choose one of the following options:
 
-   1. **Availability** - which shows the *Average* of API availability over a period of time.
-   2. **Usage** - which shows how the usage *Count* for your account.
+   1. **Availability** - displays the Average API availability over a specified time period.
+   2. **Usage** - displays the usage count for your account.
 
       ![Azure Maps usage metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Next, you may select the *Time range* by selecting **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you'll see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
+5. The default time range is **Last 24 hours (Automatic)**. To change this, select the default value to open the _Time Range_ pop-up, which displays all available settings. You can change the *Time granularity* and show the time as *local* or *GMT*. Once the desired options are chosen, select **Apply**.
 
     ![Azure Maps metrics time range](media/how-to-view-api-usage/time-range.png)
 
-6. Once you add your metric, you can **Add filter** from the properties relevant to that metric. Then, select the value of the property that you want to see reflected on the graph.
+    > [!NOTE]
+    > Metrics are stored for 93 days, but you can only query up to 30 days' worth of data at a time. If you encounter a blank chart or partial metric data, ensure the start and end dates in the time picker don't exceed a 30-day interval. Once you've selected a 30-day interval, you can pan the chart to view other metrics. For more information, see [Troubleshooting metrics charts](/azure/azure-monitor/essentials/data-platform-metrics).
+
+6. After adding your metric, you can apply a filter based on the properties relevant to that metric. Then, choose the value of the property you want to display on the graph.
 
     ![Azure Maps usage metrics Filter](media/how-to-view-api-usage/filter.png)
 
-7. You may also **Apply splitting** for your metric based on your selected metric property. It allows the graph to be split into multiple graphs, for each value of that property. In the following picture, the color of each graph corresponds to the property value shown at the bottom of the graph.
+7. You can also **Apply splitting** for your metric based on your selected metric property. This feature allows the graph to be divided into multiple graphs, each representing a different value of that property. In the following example, the color of each graph corresponds to the property value displayed at the bottom.
 
     ![Azure Maps usage metrics splitting](media/how-to-view-api-usage/splitting.png)
 
-8. You may also observe multiple metrics on the same graph, by selecting the **Add metric** button.
+8. You can also view multiple metrics on the same graph by selecting the **Add metric** button.
 
 ## Next steps
 
-Learn more about the Azure Maps APIs you want to track usage for:
+Discover more about the Azure Maps APIs you wish to monitor:
+
 > [!div class="nextstepaction"]
 > [Azure Maps Web SDK How-To]
 
