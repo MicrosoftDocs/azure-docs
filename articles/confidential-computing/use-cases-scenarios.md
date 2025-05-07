@@ -75,7 +75,7 @@ In this use case, the primary goal is to allow analysis of occupancy data and te
 
 Confidential computing is used here by placing the analysis application inside a TEE where the in-use data is protected by encryption. In this example, the application is running on confidential containers on Azure Container Instances.
 
-The aggregate datasets from many types of sensors and data feeds are managed in an Azure SQL Database with the feature Always Encrypted with secure enclaves. This feature protects in-use queries by encrypting them in memory. The server administrator is prevented from accessing the aggregate dataset while it's being queried and analyzed.
+The aggregate datasets from many types of sensors and data feeds are managed in an Azure SQL database with the feature Always Encrypted with secure enclaves. This feature protects in-use queries by encrypting them in memory. The server administrator is prevented from accessing the aggregate dataset while it's being queried and analyzed.
 
 [![Diagram that shows diverse sensors that feed an analysis solution inside a TEE. Operators have no access to in-use data inside the TEE.](media/use-cases-scenarios/iot-sensors.jpg)](media/use-cases-scenarios/iot-sensors.jpg#lightbox)
 
@@ -149,6 +149,6 @@ Secrets that are being transferred never exist outside an HSM in plaintext form.
 
 ## Secure blockchain
 
-A blockchain network is a decentralized network of nodes. These nodes are run and maintained by operators or validators who want to ensure integrity and reach consensus on the state of the network. The nodes are replicas of ledgers and are used to track blockchain transactions. Each node has a full copy of the transaction history, which ensures integrity and availability in a distributed network.
+A blockchain network is a decentralized network of nodes. These nodes are run and maintained by operators or validators who want to ensure integrity and reach consensus on the state of the network. The nodes are replicas of ledgers and are used to track blockchain transactions. Each node has a full copy of the transaction history, which helps ensure integrity and availability in a distributed network.
 
 Blockchain technologies built on top of confidential computing can use hardware-based privacy to enable data confidentiality and secure computations. In some cases, the entire ledger is encrypted to safeguard data access. Sometimes the transaction can occur within a compute module inside the enclave within the node.
