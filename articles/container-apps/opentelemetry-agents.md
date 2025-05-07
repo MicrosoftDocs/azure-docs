@@ -44,7 +44,7 @@ The managed OpenTelemetry agent accepts the following destinations:
 - Any OTLP endpoint (For example: New Relic or Honeycomb)
 
 > [!NOTE]
-> Microsoft provides support for data sent to Azure Monitor Application Insights. Once data is stored in any non-Microsoft system, then data-related support is the responsibility of the endpoint's organization.
+> Microsoft provides support for data sent to Azure Monitor Application Insights. Once data is stored in any non-Microsoft system, data-related support is the responsibility of the endpoint's organization.
 
 The following table shows you what type of data you can send to each destination:
 
