@@ -227,7 +227,7 @@ Here is more information about the outputs from an HTTP Webhook trigger or actio
 | 404 | Not Found |
 | 500 | Internal server error. Unknown error occurred. |
 
-## Using the Secondary Access Key
+## Generate callback URL with secondary access key
 
 A workflow has two *Access Keys*: Primary and Seconday. By default the HTTP webhook callback URL is generated with the Primary key. If you want it to be generated with the Secondary key, you can specify it in *accessKeyType* property in the code view.
 
