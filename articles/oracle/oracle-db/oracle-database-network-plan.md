@@ -11,7 +11,9 @@ ms.date: 12/12/2023
 # Network planning for Oracle Database@Azure
 In this article, learn about network topologies and constraints in Oracle Database@Azure.
 After you purchase an offer through Azure Marketplace and provision the Oracle Exadata infrastructure, the next step is to create your virtual machine cluster to host your instance of Oracle Exadata Database@Azure. The Oracle database clusters are connected to your Azure virtual network via a virtual network interface card (virtual NIC) from your delegated subnet (delegated to `Oracle.Database/networkAttachment`).  
+
 ## Network features
+
 There are two types of network features: default and advance.
 
 ### Default network features
@@ -25,21 +27,25 @@ Advanced network features enhance the virtual networking experience, offering im
 * US West  
 * UK South 
 * UK West
->[!NOTE]
->Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
+
+> [!NOTE]
+> Advanced network features are currently supported only for new Oracle Database@Azure deployments. 
 > Existing virtual networks with previously created Oracle Database@Azure delegated subnets will not support these features at this time. Support for existing deployments is planned for later this year. 
->Registration Required: 
-> To use advanced network features, you must first register using the commands below before creating your virtual network for the Oracle Database@Azure deployment. 
->```
-> Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" 
-> ```
-> ```
-> Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" 
-> ```
- 
+
+
+### Registration required
+
+To use advanced network features, you must first register using the commands below before creating your virtual network for the Oracle Database@Azure deployment.
+
+```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
+
+```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
+
 ## Supported topologies
-The following table describes the network topologies that are supported by each configuration of network features for Oracle Database@Azure:
-|Topology |Default Network Features  | Advanced Network Features |
+
+The following table describes the network topologies that are supported by each configuration of network features for Oracle Database@Azure.
+
+|Topology |Default network features | Advanced network features |
 | :------------------- |---------------:| ---------------:|
 |Connectivity to an Oracle database cluster in a local virtual network| Yes | Yes |
 |Connectivity to an Oracle database cluster in a peered virtual network (in the same region)|Yes |Yes |
@@ -57,10 +63,12 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity to an Oracle database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|Yes|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle database cluster on Oracle Database@Azure nodes to Azure resources|Yes|Yes|
-\* You can overcome this limitation by using a site-to-site VPN.
+
 ## Constraints
-The following table describes required configurations of supported network features:
-|Features |Default network features  | Advanced Network Features |
+
+The following table describes required configurations of supported network features.
+
+|Features |Default network features | Advanced network features |
 | :------------------- | -------------------: | -------------------: |
 |Delegated subnet per virtual network |1| 1|
 |[Network security groups](../../virtual-network/network-security-groups-overview.md) on Oracle Database@Azure delegated subnets|No| Yes |
@@ -86,7 +94,7 @@ The following table describes required configurations of supported network featu
 > x.x.x.x/24  (too broad) ❌ 
 
   
-## FAQ: 
+## FAQ 
 ### What are advanced network features? 
 Advanced network features enhance your virtual networking experience by providing better security, performance, and control—similar to standard Azure virtual machines. With this feature, customers can use native VNet integrations like Network Security Groups (NSG), User-Defined Routes (UDR), Private Link, Global VNet Peering, and ExpressRoute FastPath without needing any workarounds. 
 ### Will advanced network features work for existing deployments? 
