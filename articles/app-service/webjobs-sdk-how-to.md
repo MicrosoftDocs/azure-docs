@@ -6,7 +6,7 @@ author: ggailey777
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
-ms.date: 06/24/2021
+ms.date: 05/12/2025
 ms.author: glenga
 #Customer intent: As an Azure App Service developer, I want use the WebJobs SDK to execute event-driven code in Azure.
 ---
