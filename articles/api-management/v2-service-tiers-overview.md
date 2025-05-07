@@ -90,7 +90,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 **Gateway**
 * Self-hosted gateway
-* Quota by key policy
 * Cipher configuration
 * Client certificate renegotiation
 * Free, managed TLS certificate
