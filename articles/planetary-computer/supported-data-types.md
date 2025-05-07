@@ -43,4 +43,4 @@ Beyond this list of supported data types, you may ingest STAC items that point t
 - Learn more about STAC collections and items: [STAC Overview](./stac-overview.md)
 - Learn more about visualizing these assets: [Visualize data cube Assets](./visualize-assets.md)
 - Get started ingesting GeoTIFF STAC Items [Add STAC items to a Collection](./add-stac-item-to-collection.md)
-- Get started with Data Cubes: [Data Cube Quickstart](./datacube-quickstart.md)
+- Get started with Data Cubes: [Data Cube Quickstart](./data-cube-quickstart.md)

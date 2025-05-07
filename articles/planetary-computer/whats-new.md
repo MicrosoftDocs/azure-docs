@@ -28,7 +28,7 @@ Microsoft Planetary Computer Pro is currently in preview.
 
 | Feature | Details |
 | --- | --- |
-| **Data Cube Support** | Microsoft Planetary Computer Pro now supports [data cubes for multi-dimensional geospatial data analysis](./datacube-quickstart.md). This feature enables users to efficiently analyze and visualize time-series data across multiple variables and dimensions, making it easier to identify patterns and trends in complex environmental datasets. |
+| **Data Cube Support** | Microsoft Planetary Computer Pro now supports [data cubes for multi-dimensional geospatial data analysis](./data-cube-quickstart.md). This feature enables users to efficiently analyze and visualize time-series data across multiple variables and dimensions, making it easier to identify patterns and trends in complex environmental datasets. |
 | **Managed Identity Ingestion** | The new [Managed Identity Ingestion capability](./assign-managed-identity-geocatalog-resource.md) allows secure authentication for data ingestion workflows without storing credentials. This Microsoft Entra integration simplifies the process of moving data into Microsoft Planetary Computer Pro while maintaining enterprise-grade security standards and compliance requirements. |
 
 

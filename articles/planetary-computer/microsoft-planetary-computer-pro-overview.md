@@ -40,11 +40,11 @@ A GeoCatalog supports a wide range of capabilities to enhance the value and usab
 | Organize your geospatial datasets into collections          | Use the [Create a STAC Collection](./create-stac-collection.md) guide. |
 | Visualize all your geospatial data in one place | Use the GeoCatalog data [Explorer](./use-explorer.md) |
 | Control and manage access to your geospatial data                       | Follow the steps in [Manage access to Microsoft Planetary Computer Pro](./manage-access.md).                        |
-| Work with cloud-optimized 3D datasets | Follow our [Data Cube Quickstart](./datacube-quickstart.md)
+| Work with cloud-optimized 3D datasets | Follow our [Data Cube Quickstart](./data-cube-quickstart.md)
 | Optimize query performance for large collections       | Configure Explorer [Queryables](./queryables-for-explorer-custom-search-filter.md) |
 
 ## Key Features
-- A **zone-redundant, managed storage** solution for raster, and [data cube](./datacube-overview.md) data types
+- A **zone-redundant, managed storage** solution for raster, and [data cube](./data-cube-overview.md) data types
 - Built-in, **cloud-optimization** for [Supported Data Types](./supported-data-types.md) performed upon ingestion
 - A **managed STAC API** for all stored data 
 - Built-in data [Explorer](./use-explorer.md) for visualizing all your geo
@@ -80,6 +80,6 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 - [Bulk Ingestion API](./bulk-ingestion-api.md)
 - [Supported Data Types](./supported-data-types.md)
 - [Use Explorer](./use-explorer.md)
-- [Data Cube Quickstart](./datacube-quickstart.md)
+- [Data Cube Quickstart](./data-cube-quickstart.md)
 - [Queryables for Explorer Custom Search Filter](./queryables-for-explorer-custom-search-filter.md)
 - [Delete a GeoCatalog](./delete-geocatalog-resource.md)

@@ -52,7 +52,7 @@ During the ingestion process, GEOTIFF, JPEG, JPEG2000, PNG, and TIFF files are t
 >[!NOTE]
 > Data already in COG format isn't transformed.
 
-Ingestion also supports cloud optimization for various data cube formats; see [Data cube Overview](./datacube-overview.md) Users can also select to skip certain items in the catalog. 
+Ingestion also supports cloud optimization for various data cube formats; see [Data cube Overview](./data-cube-overview.md) Users can also select to skip certain items in the catalog. 
 
 There are two available ingestion methods depending on use case: [bulk ingestion](#bulk-ingestion) and [single item ingestion](#single-item-ingestion). Each can be done through the web interface or the API.
 

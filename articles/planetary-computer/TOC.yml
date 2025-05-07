@@ -84,9 +84,9 @@
 - name: Working with Data Cubes
   items:
   - name: Data cube Overview
-    href: datacube-overview.md
+    href: data-cube-overview.md
   - name: Get Started with Data Cubes
-    href: datacube-quickstart.md
+    href: data-cube-quickstart.md
   - name: Visualize Data Cubes
     href: visualize-assets.md
   - name: Get a Collection SAS Token

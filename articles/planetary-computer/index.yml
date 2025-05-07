@@ -148,11 +148,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Data cube Overview
-            url: datacube-overview.md
+            url: data-cube-overview.md
       - linkListType: quickstart
         links:
           - text: Get Started with Data Cubes
-            url: datacube-quickstart.md
+            url: data-cube-quickstart.md
       - linkListType: how-to-guide
         links:
           - text: Visualize Data Cubes
