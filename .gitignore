@@ -41,3 +41,4 @@ articles/planetary-computer/check_orphaned_docs.py
 *.pyc
 __pycache__/
 articles/planetary-computer/interesting_stats.py
+articles/planetary-computer/locate_text.py

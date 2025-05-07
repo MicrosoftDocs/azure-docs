@@ -28,7 +28,7 @@ python3 -m pip install requests azure-identity
 
 ## Create a STAC Collection JSON
 
-In order to create a STAC collection you first need a json file that defines the collection properties. Some properties are required when creating STAC Collections as described in the [STAC Collection Overview](./stac-overview#stac-collections). Other properties can be added depending on your use case and data type.
+In order to create a STAC collection you first need a json file that defines the collection properties. Some properties are required when creating STAC Collections as described in the [STAC Collection Overview](./stac-overview.md#stac-collections). Other properties can be added depending on your use case and data type.
 
 For this tutorial, read the *io-lulc-annual-v02* STAC collection from the Planetary Computer Pro's STAC API. If you already this as STAC collection in your GeoCatalog you can skip to the next section.
 

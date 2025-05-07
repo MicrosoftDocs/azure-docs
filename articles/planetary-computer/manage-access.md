@@ -11,7 +11,7 @@ ms.date: 04/09/2025
 
 # Manage access for Microsoft Planetary Computer Pro
 
-This article shows you how to manage identities in [Microsoft Entra ID](/entra/fundamentals/whatis), and how to configure role-based access control (RBAC) for Microsoft Planetary Computer (MPC) Pro. This process allows the user to assign specific MPC Pro access permissions to Microsoft Entra identities.
+This article shows you how to manage identities in [Microsoft Entra ID](/entra/fundamentals/whatis), and how to configure role-based access control (RBAC) for Microsoft Planetary Computer Pro. This process allows the user to assign specific GeoCatalog resource access permissions to Microsoft Entra identities.
 
 ## Prerequisites
 
@@ -20,9 +20,9 @@ This article shows you how to manage identities in [Microsoft Entra ID](/entra/f
 
 ## Create and Manage Users
 
-Create and manage your users list by following the Microsoft Entra ID [create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users) how-to article. Once your users are created, you need to grant proper permissions to them to access MPC Pro resource with the assignment of one or more RBAC roles. 
+Create and manage your users list by following the Microsoft Entra ID [create, invite, and delete users](/entra/fundamentals/how-to-create-delete-users) how-to article. Once your users are created, you need to grant proper permissions to them to access a GeoCatalog resource with the assignment of one or more RBAC roles. 
 
-MPC Pro defines two resource specific roles, in addition to Azure built in roles:
+Planetary Computer Pro defines two GeoCatalog resource specific roles, in addition to Azure built in roles:
 
 | **Role**                          | **Description**                                                                                     | **Allows RBAC Management?** |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|----------------------|
@@ -37,9 +37,9 @@ MPC Pro defines two resource specific roles, in addition to Azure built in roles
 
 ## Assigning Role Based Access Control to a user
 
-You can use the Azure portal to assign RBAC roles to MPC Pro users. This section demonstrates how to use the MPC Pro **Access Control (IAM)** controls to assign the **GeoCatalog Administrator** role to one or more users.
+You can use the Azure portal to assign RBAC roles to Planetary Computer Pro users. This section demonstrates how to use the GeoCatalog **Access Control (IAM)** controls to assign the **GeoCatalog Administrator** role to one or more users.
 
-1. Within Azure portal, go to MPC Pro resource **Access control (IAM)** tab in the left sidebar:
+1. Within Azure portal, go to your GeoCatalog resource **Access control (IAM)** tab in the left sidebar:
 
     :::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing role assignment options.":::
 
@@ -59,7 +59,7 @@ You can use the Azure portal to assign RBAC roles to MPC Pro users. This section
 1. Select **Next** at the bottom of the page.
 1. Verify the information, then complete the assignment by selecting **review + assign**.
 
-Now the selected users are able to access MPC Pro resource, either through Azure portal or APIs.
+Now the selected users are able to access the GeoCatalog resource, either through Azure portal or APIs.
 
 ## Related content
 
