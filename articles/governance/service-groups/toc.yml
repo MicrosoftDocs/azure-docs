@@ -2,8 +2,6 @@
   href: index.yml
 - name: What are Azure Service Groups?
   href: overview.md
-- name: What are Management Groups?
-  href: management-groups-overview.md
 - name: Get started
   items:
   - name: Create a service group
