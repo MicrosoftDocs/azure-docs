@@ -28,8 +28,7 @@ The [sample code](https://github.com/Azure-Samples/explore-iot-operations/tree/m
     var mqttClient = mqttFactory.CreateMqttClient();
     ```
 
-1. The [Kubernetes pod specification](#pod-specification) mounts the service account on the container file system, and the file contents are read:
-##3. The mounted token is used as the password with the well known username `K8S-SAT`:
+1. The [Kubernetes pod specification](#pod-specification) mounts the service account on the container file system, and the file contents are read. The mounted token is used as the password with the well known username `K8S-SAT`:
 
     ```csharp
     static string sat_auth_file = "/var/run/secrets/tokens/mqtt-client-token";
