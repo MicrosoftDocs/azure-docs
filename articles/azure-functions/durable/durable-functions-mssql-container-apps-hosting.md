@@ -279,7 +279,7 @@ Authenticating to the MSSQL database using managed identity isn't supported when
 
     :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
-    The connection string should a format similar to: 
+    The connection string should be a format similar to: 
 
     ```bash
     dbserver=<SQL_SERVER_NAME>

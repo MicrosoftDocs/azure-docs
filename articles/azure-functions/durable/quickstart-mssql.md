@@ -79,7 +79,7 @@ For more information about these functions, see [Durable Functions types and fea
 #### Check for latest extension version
 For .NET apps, check the `.csproj` file and make sure the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) package is referenced.
 
-Non-.NET apps references the extension bundles, which automatically uses the latest package.
+"Non-.NET apps" references the extension bundles, which automatically use the latest package.
 
 ## Set up your database
 
