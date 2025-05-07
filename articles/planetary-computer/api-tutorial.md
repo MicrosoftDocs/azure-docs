@@ -11,15 +11,15 @@ ms.date: 4/25/2025
 
 ---
 
-# Tutorial: Using the Microsoft Planetary Computer Pro APIs to Ingest and Visualize Data
+# Tutorial: Using the Microsoft Planetary Computer Pro APIs to ingest and visualize data
 
 STAC (SpatioTemporal Asset Catalog) Collections are used within a GeoCatalog to index and store related spatiotemporal assets. In this end-to-end tutorial, you'll create a new STAC collection, ingest Sentinel-2 images into the collection, and query those images via GeoCatalog's APIs.
 
 In this tutorial, you:
-> * Will create your very own STAC collection within a Planetary Computer Pro GeoCatalog
-> * Ingest satellite imagery into that collection from the European Space Agency
-> * Configure the collection so the imagery in the collection can be visualized in the Planetary Computer Pro's web interface
-> * Query data from within the STAC collection using the Planetary Computer Pro's STAC API
+* Will create your very own STAC collection within a Planetary Computer Pro GeoCatalog
+* Ingest satellite imagery into that collection from the European Space Agency
+* Configure the collection so the imagery in the collection can be visualized in the Planetary Computer Pro's web interface
+* Query data from within the STAC collection using the Planetary Computer Pro's STAC API
 
 This tutorial shows and explains capabilities through code snippets, for an interactive notebook style experience, [download this tutorial as a Jupyter notebook](https://github.com/Azure/microsoft-planetary-computer-pro/blob/main/notebooks/GeoCatalog_Tutorial.ipynb). 
 
@@ -31,7 +31,7 @@ Before running this tutorial, you need a Planetary Computer Pro GeoCatalog deplo
 * Azure CLI is installed, and you have run az login to log into your Azure account
 * The necessary requirements listed in the Tutorial Options section are installed
 
-## Open a Jupyter Notebook in Azure Machine Learning or VS Code
+## Open a Jupyter notebook in Azure Machine Learning or VS Code
 
 ### Log in to Azure with the Azure CLI
 The following command logs you into Azure using the Azure CLI. Run the command and follow the instructions to log in.
@@ -40,7 +40,7 @@ The following command logs you into Azure using the Azure CLI. Run the command a
 !az login
 ```
 
-## Select Tutorial Options
+## Select tutorial options
 
 Before running this tutorial, you need contributor access to an existing GeoCatalog instance. Enter the url of your GeoCatalog instance in the geocatalog_url variable. In this tutorial, you'll create a collection for Sentinel-2 imagery provided by the European Space Agency (ESA) that is currently stored in Microsoft's Planetary Computer Data Catalog.
 
@@ -54,7 +54,7 @@ geocatalog_url = geocatalog_url.rstrip("/")  # Remove trailing slash if present
 
 api_version = "2025-04-30-preview"
 
-# User Selections for Demo
+# User selections for demo
 
 # Collection within the Planetary Computer
 pc_collection = "sentinel-2-l2a"
@@ -69,7 +69,7 @@ param_date_range = "2024-02-04/2024-02-11"
 param_max_items = 6
 ```
 
-### Import the Required Packages
+### Import the required packages
 
 Before you can create a STAC collection you need to import a few python packages and define helper functions to retrieve the required access token.
 
@@ -120,14 +120,14 @@ def raise_for_status(r: requests.Response) -> None:
         finally:
             raise
 ```
-## Create a STAC Collection
+## Create a STAC collection
 
 ### Define a STAC Collection JSON
 Next, you define a STAC collection as a JSON item.  For this tutorial, use an existing STAC collection JSON for the Sentinel-2-l2a collection within Microsoft's Planetary Computer. Your collection is assigned a random ID and title so as not to conflict with other existing collections.
 
 
 ```python
-# Load example STAC Collection JSON
+# Load example STAC collection JSON
 
 response = requests.get(
     f"https://planetarycomputer.microsoft.com/api/stac/v1/collections/{pc_collection}"
@@ -148,7 +148,7 @@ pc_collection_asset_container = (
     f"https://{pc_storage_account}.blob.core.windows.net/{pc_storage_container}"
 )
 
-# View your STAC Collection JSON
+# View your STAC collection JSON
 stac_collection
 ```
 
@@ -166,7 +166,7 @@ stac_collection.pop('assets')
 
 
 ```python
-# Create a STAC Collection by posting to the STAC collections API
+# Create a STAC collection by posting to the STAC collections API
 
 collections_endpoint = f"{geocatalog_url}/stac/collections"
 
@@ -185,7 +185,7 @@ else:
 
 Open your GeoCatalog web interface and you should see your new collection listed under the "Collections" tab.
 
-### Access Collection Thumbnail
+### Access collection thumbnail
 
 Next you want to add a thumbnail to our collection to be displayed along with our collection. For the purposes of this demo, use the thumbnail from the existing Sentinel-2 collection within Microsoft's Planetary Computer.
 
@@ -199,19 +199,19 @@ img = Image.open(BytesIO(thumbnail_response.content))
 img
 ```
 
-### Add Thumbnail to your Planetary Computer Pro GeoCatalog
+### Add thumbnail to your Planetary Computer Pro GeoCatalog
 
 After reading the thumbnail, you can add it to our collection in by posting it to your GeoCatalogs's collection assets API endpoint along with the required asset json.
 
 
 ```python
-# Define the GeoCatalog Collections API endpoint
+# Define the GeoCatalog collections API endpoint
 collection_assets_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/assets"
 
 # Read the example thumbnail from this collection from the Planetary Computer
 thumbnail = {"file": ("lulc.png", thumbnail_response.content)}
 
-# Define the STAC Collection asset type - thumbnail in this case
+# Define the STAC collection asset type - thumbnail in this case
 asset = {
     "data": '{"key": "thumbnail", "href":"", "type": "image/png", '
     '"roles":  ["test_asset"], "title": "test_asset"}'
@@ -264,7 +264,7 @@ You can view your collection by visiting the GeoCatalog Explorer: {geocatalog_ur
 """)
 ```
 
-## Ingest STAC Items & Assets
+## Ingest STAC items & assets
 
 After creating this collection, you're ready to ingest new STAC items into your STAC collection using your GeoCatalog's Items API! Accomplish this process by:
 
@@ -340,7 +340,7 @@ By performing this search, you can see the matching STAC items are found within 
 
 
 ```python
-# Search Criteria
+# Search criteria
 print("Using the below parameters to search the Planetary Computer:\n")
 print("Collection:", pc_collection)
 print("Bounding box for area of interest:",bbox_aoi)
@@ -372,7 +372,7 @@ if total_items==0:
 items[0]
 ```
 
-### Register an Ingestion Source
+### Register an ingestion source
 Before you can ingest these STAC items and their related assets (images) into a GeoCatalog collection you need to determine if you need to register a new ingestion source. Ingestion Sources are used by GeoCatalog to track which storage locations (Azure Blob Storage containers) it has access to. 
 
 Registering an ingestion source is accomplished by providing GeoCatalog the location of the storage container and a SAS token with read permissions to access the container. If STAC items or their related assets are located in a storage container your GeoCatalog hasn't been given access to the ingest will fail.
@@ -381,7 +381,7 @@ To start this process, you first request a SAS token from the Planetary Computer
 
 
 ```python
-# Request API Token from the Planetary Computer
+# Request API token from the Planetary Computer
 
 pc_token = requests.get("https://planetarycomputer.microsoft.com/api/sas/v1/token/{}".format(pc_collection)).json()
 print(f"Planetary Computer API Token will expire {pc_token['msft:expiry']}")
@@ -389,7 +389,8 @@ print(f"Planetary Computer API Token will expire {pc_token['msft:expiry']}")
 
 Next attempt to register this Azure Blob Storage container and associated SAS token as an ingestion source with GeoCatalog. There's the potential that an ingestion source already exists for this storage container. If so, find the ID of the existing ingestion source.
 
-**Warning** - If a duplicate ingestion source is found with a token that expires in the next 15 minutes, it's deleted and replaced. Deleting an ingestion source that is in use by currently running ingestions may break those ingestions.
+> [!Warning]
+> If a duplicate ingestion source is found with a token that expires in the next 15 minutes, it's deleted and replaced. Deleting an ingestion source that is in use by currently running ingestions may break those ingestions.
 
 
 ```python
@@ -411,12 +412,12 @@ else:
 
 ```
 
-### Ingest STAC Items using GeoCatalog's Items API
+### Ingest STAC items using GeoCatalog's Items API
 Now that you registered an ingestion source or validated that a source exists you'll ingest the STAC items you found within the Planetary Computer using GeoCatalog's Items API. Accomplish this by posting each item to the Items API which creates a new ingestion operation within GeoCatalog.
 
 
 ```python
-# Ingest Items
+# Ingest items
 
 items_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/items"
 
@@ -496,16 +497,16 @@ while pending:
 
 You should be able to refresh your web browser and click on the Items tab to see these newly uploaded items.
 
-## Collection Management
+## Collection management
 
 Now that you ingested these STAC items and their associated assets (images) into the STAC collection, you need to provide you GeoCatalog with some other configuration files before you can visualize these items in the GeoCatalog web interface.
 
-### Collection Render Config
+### Collection render config
 First download a render configuration file for this collection from the Planetary Computer. This config file can be read by GeoCatalog to render images in different ways within the Explorer. This is because STAC items may contain many different assets (images) that can be combined to create entirely new images of a given area that highlight visible or nonvisible features. For instance, Sentinel-2 STAC items have over 12 different images from different portions of the electromagnetic spectrum. This render config instructs GeoCatalog on how to combine these images so it can display images in Natural Color or False Color (Color Infrared).
 
 
 ```python
-# Read Render JSON from Planetary Computer
+# Read render JSON from Planetary Computer
 
 render_json = requests.get("https://planetarycomputer.microsoft.com/api/data/v1/mosaic/info?collection={}".format(pc_collection)).json()
 render_json['renderOptions']
@@ -515,7 +516,7 @@ After reading this render options config from the Planetary Computer, you can en
 
 
 ```python
-# Post Render Options Config to GeoCatalog render-options API
+# Post render options config to GeoCatalog render-options API
 
 render_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options"
 
@@ -524,7 +525,7 @@ for render_option in render_json['renderOptions']:
     # Rename render configs such that they can be stored by GeoCatalog
     render_option['id'] = render_option['name'].translate(str.maketrans('', '', string.punctuation)).lower().replace(" ","-")[:30]
 
-    # Post Render Definition
+    # Post render definition
     response = requests.post(
         render_config_endpoint,
         json=render_option,
@@ -533,13 +534,13 @@ for render_option in render_json['renderOptions']:
     )
 ```
 
-### Mosaic Definitions
+### Mosaic definitions
 
 Similar to the Render Config discussed above, GeoCatalog's Explorer allows us to specify one or more mosaic definitions for the collection. These mosaic definitions enable us to instruct GeoCatalog's Explorer on how to filter which items are displayed within the Explorer. For example, one basic render configuration (shown in the next cell) instructs GeoCatalog to display the most recent image for any given area. More advanced render configurations allow us to render different views such as the least cloudy image for a given location captured in October 2023.
 
 
 ```python
-# Post Mosaic Definition
+# Post mosaic definition
 
 mosiacs_config_endpoint = f"{geocatalog_url}/stac/collections/{collection_id}/configurations/mosaics"
 
@@ -561,7 +562,7 @@ Congrats! You created a collection, added STAC items and assets, and updated you
 
 **Navigate back to the GeoCatalog Explorer in the web interface to view your collection!**
 
-## Query Collection via STAC API
+## Query collection via STAC API
 
 Now that viewed your collection in the GeoCatalog Explorer, you'll walk through how to use GeoCatalog's STAC APIs to search for and retrieve STAC items and assets for further analysis.
 
@@ -599,7 +600,7 @@ img = Image.open(BytesIO(response.content))
 img
 ```
 ## Clean up resources
-### Delete Items
+### Delete items
 
 At this point, you have created a GeoCatalog Collection, added items and assets to the collection, and retrieved those items and assets using GeoCatalog's STAC API. For the final phase of this tutorial, you're going to remove these items and delete your collection.
 
@@ -633,7 +634,7 @@ matching_items = response.json()['features']
 print(len(matching_items))
 ```
 
-### Delete Collection
+### Delete collection
 
 Now as a final step, you may want to fully delete your collection from your GeoCatalog instance.
 
@@ -655,7 +656,7 @@ print(f"STAC Collection deleted: {collection_id}")
 > [!div class="nextstepaction"]
 > [Create a STAC Collection through the web interface](./create-collection-ui.md)
 
-## Related Content
+## Related content
 In this end-to-end tutorial, you walked through the process of creating a new STAC collection, ingesting Sentinel-2 images into the collection, and querying those images via GeoCatalog's APIs. If you would like to learn more about each of these topics, explore these other materials:
 
 * [Create a GeoCatalog](./deploy-geocatalog-resource.md)
