@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: dougeby
 ms.topic: release-notes
-ms.date: 04/29/2025
+ms.date: 05/07/2025
 ms.author: avdcontent
 ms.custom: references_regions
 ---
@@ -40,7 +40,7 @@ Here's information about the SxS Network Stack.
 
 In this release, we've made the following changes:
 
-- Fix for high RemoteApp CPU usage caused by `rdpshell.exe`.
+- Fixed high RemoteApp CPU usage caused by `rdpshell.exe`.
 
 ## Version 1.0.2502.25400
 
