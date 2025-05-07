@@ -36,14 +36,14 @@ Two passport scenarios are presented in this section.
 	- The issuer of the birth certificate is trusted.
 	- The individual isn't part of a restricted list.
 1. If the host country/region decides that the evidence meets their policies, the host country/region issues a passport for the citizen.
-1. The citizen travels to a foreign nation, but first must present their passport to the foreign country/region Border Patrol Agent for evaluation.
-1. The foreign country/region Border Patrol Agent checks a series of rules on the passport before trusting it:
+1. The citizen travels to a foreign nation, but first must present their passport to the foreign country/region's border patrol agent for evaluation.
+1. The foreign country/region's border patrol agent checks a series of rules on the passport before trusting it:
 
 	- The passport is authentic and wasn't altered.
 	- A trusted country/region produced the passport.
 	- The passport isn't expired or revoked.
 	- The passport conforms to the policy of a visa or age requirement.
-1. The foreign country/region Border Patrol Agent approves the passport and the citizen can enter the foreign country/region.
+1. The foreign country/region's border patrol agent approves the passport and the citizen can enter the foreign country/region.
 
 ![Diagram that shows remote attestation with the passport model for an immigration desk.](media/attestation-solutions/passport-model-immigration.png)
 
