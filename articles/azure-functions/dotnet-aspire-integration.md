@@ -80,7 +80,7 @@ This example doesn't include the default Application Insights configuration that
 To get the most out of the integration, consider the following guidelines:
 
 - Don't include any direct Application Insights integrations in the Functions project. Monitoring in .NET Aspire is instead handled through its OpenTelemetry support. You can configure .NET Aspire to export data to Azure Monitor through the service defaults project.
-- Make sure that the Functions project doesn't keep custom configuration in `local.settings.json`. The only setting that you need in `local.settings.json` is `FUNCTIONS_WORKER_RUNTIME`, which should be set to `dotnet-isolated`. Set all other configuration through the app host project.
+- Don't define custom app settings in the `local.settings.json`  file for the Functions project. The only setting that should be in `local.settings.json` is `"FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated"`. Set all other app configurations through the app host project.
 
 ## <a name = "connection-configuration-with-aspire"></a>Connection configuration with .NET Aspire
 
