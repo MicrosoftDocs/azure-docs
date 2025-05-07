@@ -90,9 +90,6 @@ The following table shows the language versions supported for Node.js functions.
 | ---- | ---- |--- |
 | [Node.js 22](https://endoflife.date/nodejs) | GA (Linux) <br> Preview (Windows) | April 30, 2027 |
 | [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
-| [Node.js 18](https://endoflife.date/nodejs) | GA | April 30, 2025|
-
-Node.js 22 isn't currently supported when running in a Flex Consumption plan.
 
 TypeScript is supported through transpiling to JavaScript. For more information, see the [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 ::: zone-end  
@@ -110,7 +107,7 @@ The following table shows the language versions supported for Python functions.
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| Python 3.12 | Preview | October 2028 |
+| Python 3.12 | GA | October 2028 |
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 | Python 3.9 | GA | October 2025 |
