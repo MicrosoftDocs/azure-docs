@@ -1,6 +1,6 @@
 ---
 title: Virtual WAN to Virtual WAN connectivity
-description: Learn about the different available options for connecting your Azure Virtual WAN to other Virtual WANs.
+description: Learn about the different available options for connecting your Azure Virtual WAN to another Virtual WAN.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-virtual-wan
@@ -41,11 +41,11 @@ This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs. 
 
 ## IPsec tunnels using SD-WAN devices in peered spokes
 
-This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network that is peered to the virtual hub, instead of placing it in the virtual hub. This scenario allows you to configure BGP peering between the SD-WAN NVA and the Route Server inside the virtual hub. This approach is a good for scenarios where users have SD-WAN NVAs that can't be deployed inside virtual hubs, but still support BGP. Like in the second option, you must replace 65520 and 65515 ASNs with the SD-WAN ones to avoid BGP loop prevention.
+This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network that is peered to the virtual hub, rather than placing it in the virtual hub. This scenario allows you to configure BGP peering between the SD-WAN NVA and the virtual hub route server. This approach is suitable for scenarios where users have SD-WAN NVAs that can't be deployed into Virtual WAN hubs, but still support BGP. Like in the second option, you must replace 65520 and 65515 ASNs with the SD-WAN ones to avoid BGP loop prevention.
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png" alt-text="Diagram shows virtual WAN connectivity using SD-WAN devices in spoke virtual networks." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png":::
 
 This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs in the spoke virtual networks because virtual hub doesn't support them. However, this option comes with the following limitations:
 
-- Complexity to setup and maintain.
+- Complexity to set up and maintain.
 - SD-WAN NVAs can be more expensive than virtual network gateways.
