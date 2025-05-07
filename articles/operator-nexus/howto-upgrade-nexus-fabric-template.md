@@ -109,10 +109,10 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 ## Prechecks
 <details>
 <summary> Prechecks before starting Fabric upgrade </summary>
-  
+
 1. The following role permissions should be assigned to end users responsible for Fabric create, upgrade, and delete operations.
-  
-   These permissions can be granted temporarily, limited to the duration required to perform the upgrade. 
+
+   These permissions can be granted temporarily, limited to the duration required to perform the upgrade.
    * Microsoft.NexusIdentity/identitySets/read
    * Microsoft.NexusIdentity/identitySets/write
    * Microsoft.NexusIdentity/identitySets/delete
@@ -124,9 +124,9 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
      - Role Based Access Control Administrator
 
 2. Validate the provisioning status for the Network Fabric Controller (NFC), Fabric, and Fabric Devices.
-   
+
    Log in to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
-   ```  
+   ```
    az login
    az account set --subscription <CUSTOMER_SUB_ID>
    ```
@@ -137,7 +137,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
    Check the NF status:
-   ```  
+   ```
    az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
    Record down the `fabricVersion` and `provisioningState`.
@@ -176,7 +176,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
    ```
 
    Contact Microsoft support if there isn't enough space to perform the upgrade. Archived Extensible Operating System (EOS) images and support bundle files can be removed at the direction of support.
-   
+
 5. Check the Fabric's Network Packet Broker (NPB) for any orphaned `Network Taps` in Azure portal.
    * Select `Network Fabrics` under `Azure Services` and then select the <NF_NAME>.
    * Click on the `Resource group` for the Fabric.
@@ -188,7 +188,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
    >[!Note]
    > If any Taps show `Not Found`, `Failed`, or `Error` status, stop the upgrade until issues are cleared. Provide this information to Microsoft Support when opening a support ticket for Tap issues.
-   
+
 6. Run and validate the Fabric cable validation report.
    Follow [Validate Cables for Nexus Network Fabric](how-to-validate-cables.md) to set up and run the report
 
@@ -198,11 +198,11 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 7. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
 
 </details>
-   
+
 ## Upgrade Procedure
 <details>
 <summary> Fabric runtime upgrade procedure details </summary>
-  
+
 ### Verify current Fabric runtime version
 [How to check current cluster runtime version.](./howto-check-runtime-version.md#check-current-fabric-runtime-version)
 
@@ -210,7 +210,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 az networkfabric fabric list -g <NF_RG> --query "[].{name:name,fabricVersion:fabricVersion,configurationState:configurationState,provisioningState:provisioningState}" -o table --subscription <CUSTOMER_SUB_ID>
 az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID>
 ```
-   
+
 ### Initiate Fabric upgrade
 Start the upgrade with the following command:
 ```Azure CLI
