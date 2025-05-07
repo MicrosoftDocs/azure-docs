@@ -4,7 +4,7 @@ description: Describes how to connect to Azure VMs after failover from on-premis
 author: ankitaduttaMSFT
 manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/26/2022
 ms.author: ankitadutta
 
