@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Create, assign, and run a storage task'
-titleSuffix: Azure Storage Actions Preview
+titleSuffix: Azure Storage Actions
 description: Learn how to create your first storage task. You'll also assign that task to a storage account, queue the task to run, and then view the results of the run.
 services: storage
 author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
 ms.topic: quickstart
-ms.date: 01/17/2024
+ms.date: 05/05/2025
 ms.author: normesta
 ---
 
@@ -15,21 +15,17 @@ ms.author: normesta
 
 In this quickstart, you learn how to use the [Azure portal](https://portal.azure.com/) to create a storage task and assign it to an Azure Storage account. Then, you'll review the results of the run. The storage task applies a time-based immutability policy any Microsoft Word documents that exist in the storage account.
 
-> [!IMPORTANT]
-> Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Prerequisites
 
 - An Azure subscription. See [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - An Azure storage account. See [create a storage account](../../storage/common/storage-account-create.md). As you create the account, make sure to enable version-level immutability support and that you don't enable the hierarchical namespace feature.
   
-   During the public preview, you can target only storage accounts that are in the same region as the storage tasks.
+   During the public, you can target only storage accounts that are in the same region as the storage tasks.
 
 - The [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role is assigned to your user identity in the context of the storage account or resource group.
 
-- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles.md#permission-for-a-task-to-perform-operations).
+- A custom role assigned to your user identity in the context of the resource group which contains the RBAC actions necessary to assign a task to a storage account. See [Permissions required to assign a task](storage-task-authorization-roles-assign.md#permission-for-a-task-to-perform-operations).
 
 - A blob container with one or more Microsoft Word documents stored in that container.
 
@@ -52,7 +48,7 @@ In this quickstart, you learn how to use the [Azure portal](https://portal.azure
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Project details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/project-details-section.png)
 
-5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that is supported by the preview of this service.
+5. Under **Instance details**, enter *mystoragetask* for the **Storage task name**, and select any region that is supported by this service.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Instance details section of the Basics tab.](../media/storage-tasks/storage-task-quickstart-portal/instance-details-section.png)
@@ -112,7 +108,7 @@ A storage task _assignment_ specifies a storage account. After you enable the st
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Role assignment section of the assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-role.png)
 
-4. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you are using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
+4. In the **Filter objects** section, make sure that the **Blob prefix** option is selected. Then, in the **Blob prefixes** box, enter the prefix of the container that you're using to complete this quickstart followed by the `/` character. For example, if your test container is named `mycontainer`, then enter `mycontainer/`.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot of the Filter objects section of the Add assignment pane.](../media/storage-tasks/storage-task-quickstart-portal/assignment-pane-filter-prefix.png)

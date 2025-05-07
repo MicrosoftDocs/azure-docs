@@ -2,7 +2,7 @@
 title: Selective disk backup and restore for Azure virtual machines
 description: In this article, learn about selective disk backup and restore using the Azure virtual machine backup solution.
 ms.topic: how-to
-ms.date: 02/10/2025
+ms.date: 05/07/2025
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -329,7 +329,8 @@ Selective disk restore is an added functionality you get when you enable the sel
 
 - The OS disk is included by default in the VM backup and restore, and can't be excluded.
 - Selective disk restore is supported only for recovery points created after the disk exclusion capability is enabled.
-- Backups with the disk exclude setting **ON** only support the **Disk restore** option. **VM restore** or **Replace Existing** restore options aren't supported in this case.
+- Backups with the disk exclude setting **ON** only support the **Disk restore** option. **VM restore** or **Replace Existing** restore options aren't supported in this case, and the options during restore becomes unavailable. If you choose a Restore Point (RP) containing all disks before configuring disk exclusion during restore, VM restore and replace existing options become available.
+ 
 
 ![The option to restore VM and replace existing aren't available during the restore operation](./media/selective-disk-backup-restore/options-not-available.png)
 

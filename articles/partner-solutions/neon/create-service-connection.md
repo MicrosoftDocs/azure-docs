@@ -1,15 +1,15 @@
 ---
-title: Connect apps to Neon Serverless Postgres (Preview)
-description: Learn how to connect apps to your Neon Serverless Postgres (Preview) service using Service Connector in Azure.
-# customerIntent: As a developer I want connect apps deployed to Azure services, to a Neon Serverless Postgres (Preview) resource.
+title: Connect apps to Neon Serverless Postgres
+description: Learn how to connect apps to your Neon Serverless Postgres service using Service Connector in Azure.
+# customerIntent: As a developer I want connect apps deployed to Azure services, to a Neon Serverless Postgres resource.
 ms.topic: how-to
 ms.date: 03/28/2025
 ms.custom: service-connector
 ---
 
-# Connect apps to Neon Serverless Postgres (Preview)
+# Connect apps to Neon Serverless Postgres
 
-In this guide, learn how to connect your app to a database within a Neon Serverless Postgres (Preview) resource using Service Connector.
+In this guide, learn how to connect your app to a database within a Neon Serverless Postgres resource using Service Connector.
 
 Service Connector is an Azure service designed to simplify the process of connecting Azure resources together. Service Connector manages your connection's network and authentication settings to simplify the operation.
 
@@ -23,7 +23,7 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 ## Create a new connection
 
-Follow these steps to connect an app to Neon Serverless Postgres (Preview):
+Follow these steps to connect an app to Neon Serverless Postgres:
 
 1. Open the App Service, Container Apps, or AKS resource where your app is deployed.
 
@@ -63,5 +63,5 @@ Follow these steps to connect an app to Neon Serverless Postgres (Preview):
 
 ## Related content
 
-- [Troubleshoot Neon Serverless Postgres (Preview)](troubleshoot.md)
-- [Manage the New Relic resource in the Azure portal](manage.md)
+- [Troubleshoot Neon Serverless Postgres](troubleshoot.md)
+- [Manage the resource in the Azure portal](manage.md)

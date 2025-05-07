@@ -7,7 +7,7 @@ ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: reference
-ms.date: 10/02/2024
+ms.date: 05/06/2025
 ms.author: danlep
 ---
 
@@ -36,7 +36,7 @@ More information about policies:
 | [Limit call rate by subscription](rate-limit-policy.md) | Prevents API usage spikes by limiting call rate, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
 | [Limit call rate by key](rate-limit-by-key-policy.md) | Prevents API usage spikes by limiting call rate, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Set usage quota by subscription](quota-policy.md) | Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis. | Yes | Yes | Yes | Yes | Yes |
-| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | No | No | Yes | Yes |
+| [Set usage quota by key](quota-by-key-policy.md) |  Allows you to enforce a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. | Yes | Yes | No | Yes | Yes |
 | [Limit concurrency](limit-concurrency-policy.md) | Prevents enclosed policies from executing by more than the specified number of requests at a time. | Yes | Yes | Yes | Yes | Yes |
 | [Limit Azure OpenAI Service token usage](azure-openai-token-limit-policy.md) | Prevents Azure OpenAI API usage spikes by limiting large language model tokens per calculated key. | Yes | Yes | No | Yes | Yes |
 | [Limit large language model API token usage](llm-token-limit-policy.md) | Prevents large language model (LLM) API usage spikes by limiting LLM tokens per calculated key. | Yes | Yes | No | Yes | Yes |

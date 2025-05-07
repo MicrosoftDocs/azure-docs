@@ -2,7 +2,7 @@
 title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 05/06/2025
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2024
@@ -61,7 +61,7 @@ To enhance protection of your resources, follow these steps:
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/enhance-protection-select-item.png" alt-text="Screenshot shows how to enhance protection using the Copilot." lightbox="./media/tutorial-manage-data-using-copilot/enhance-protection-select-item.png":::
 
-3. On the selected *VM* blade, Copilot shows the current solution with which the VM is protected. Select **Enhance Protection** to proceed with protection enhancement. 
+3. On the selected *VM* blade, Copilot shows the current solution with which the Virtual Machine (VM) is protected. Select **Enhance Protection** to proceed with protection enhancement. 
 
     Copilot redirects to the blade from where you can configure protection with other solutions.
 
@@ -115,7 +115,7 @@ To increase the security configuration, follow these steps:
 
 ## Trigger backup for resources
 
-Copilot can help you get a list of datasources that don’t have any Recovery Point in a specified duration. This helps to monitor any backup failures and maintain service level agreement (SLA) for recovery.
+Copilot can help you get a list of datasources that don’t have any Recovery Point in a specified duration. This feature helps to monitor any backup failures and maintain service level agreement (SLA) for recovery.
 
 To trigger an on-demand backup for resources, follow these steps:
 
@@ -140,3 +140,75 @@ To trigger an on-demand backup for resources, follow these steps:
    You can also fetch a list of failed backup jobs in a given time period.
 
      :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png" alt-text="Screenshot shows the script to view failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png":::
+
+## Increase security level of Recovery Service vault and Backup vault
+
+Azure Business Continuity Center Copilot provides the option to enhance the security level of the vault. You can find this option on the vault pane.
+
+To increase the vault's security level, follow these steps:
+
+1. Go to the vault for which you want to increase the security level, and then select **Increase security level of this vault**.
+
+   The **Copilot** pane opens on which you can interact with Copilot to do the required security enhancements.
+
+   In the following screenshot, Copilot shows the vault's current security level and suggests the next level (Poor to Fair, Fair to Good, or Good to Excellent) along with recommended steps to upgrade it.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/increase-security-level.png" alt-text="Screenshot shows the Copilot option to increase security level of the vault." lightbox="./media/tutorial-manage-data-using-copilot/increase-security-level.png":::
+
+1. After you select the required security level (for example, **Good**), copilot asks to choose the preferred execution option - **Portal** or **Command tools (PowerShell/CLI)**.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/execution-options.png" alt-text="Screenshot shows the execution options in the Copilot pane." lightbox="./media/tutorial-manage-data-using-copilot/execution-options.png":::
+
+1. To use the Azure portal for security enhancement, select **Portal**. This selection guides you with the options to enhance [Soft delete](../backup/backup-azure-security-feature-cloud.md), [Immutability](../backup/backup-azure-immutable-vault-concept.md), and [Multi-user authorization (MUA)](../backup/multi-user-authorization-concept.md) settings.
+
+   The **Command tools (PowerShell/CLI)** allows you to enable vault security features via command lines, with Copilot offering sample commands for activation.
+
+1. After you update the vault security level using Copilot, select **View properties** to check the updated values.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-properties.png" alt-text="Screenshot shows the option to view the updated security enhancement for the vault." lightbox="./media/tutorial-manage-data-using-copilot/view-properties.png":::
+
+## Analyze job failures for Recovery Service vault and Backup vault
+
+The vault page also provides the Azure Business Continuity Center Copilot feature to analyze the job failures for the selected vault. 
+
+To check the failed jobs, follow these steps:
+
+1. Go to the vault for which you want to review the failed jobs, and then select **Show job failures for this vault**.
+
+   The **Copilot** pane opens with the prompt to view the impacted resources.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-impacted-resources.png" alt-text="Screenshot shows how to view the impacted resources using Copilot." lightbox="./media/tutorial-manage-data-using-copilot/view-impacted-resources.png":::
+
+1. Select **Yes**.
+
+   The **Select resources** pane opens with a summary of the top failed jobs from the last **24 hours** for the backup items, and then prompts to select the impacted resource to further analyze the error and check for recommended actions from Copilot.
+
+1. Choose the affected resource from the list, and then click **Select**.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/impacted-resources.png" alt-text="Screenshot shows the impacted resources that you can fix." lightbox="./media/tutorial-manage-data-using-copilot/impacted-resources.png":::
+
+1. On the **Copilot** pane, select **Open Backup Item** to view the error code descriptions and recommendations with guided steps to fix issues.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-backup-item.png" alt-text="Screenshot shows the option to view the backup item of the selected resource." lightbox="./media/tutorial-manage-data-using-copilot/view-backup-item.png":::
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-error-code.png" alt-text="Screenshot shows the error code and recommended action for resolution." lightbox="./media/tutorial-manage-data-using-copilot/view-error-code.png":::
+
+## Troubleshoot error codes for Recovery service vaults and Backup vaults 
+
+You can use Copilot to troubleshoot the job failures associated with a Recovery Services vault or a Backup vault.
+
+To troubleshoot the error codes, follow these steps:
+
+1. Go to the vault > **Backup jobs**.
+
+   The **Backup jobs** pane opens with the list of jobs and their status. You can further analyze the job failures for the vault.
+
+1. Filter by resource type, and then select the failed job to open the job details or properties pane for troubleshooting steps based on the error code.
+
+   In the following screenshot, the job details show the cause of the error and Copilot provides the options to troubleshoot the error.
+
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/troubleshoot-error.png" alt-text="Screenshot shows the cause of the error and the options to troubleshoot." lightbox="./media/tutorial-manage-data-using-copilot/troubleshoot-error.png":::
+
+
+
+

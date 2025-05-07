@@ -116,6 +116,8 @@
       href: how-to-manage-ip-addresses-network-manager.md
 - name: Troubleshoot
   items:
+    - name: Common issues 
+      href: common-issues.md
     - name: Event Log Options for Azure Virtual Network Manager
       href: concept-event-logs.md
     - name: Configure Event Logs for Azure Virtual Network Manager
