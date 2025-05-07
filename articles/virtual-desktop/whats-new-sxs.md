@@ -3,7 +3,7 @@ title: What's new in the Azure Virtual Desktop SxS Network Stack? - Azure
 description: New features and product updates for the Azure Virtual Desktop SxS Network Stack.
 author: dougeby
 ms.topic: release-notes
-ms.date: 04/29/2025
+ms.date: 05/07/2025
 ms.author: avdcontent
 ms.custom: references_regions
 ---
@@ -31,8 +31,26 @@ Here's information about the SxS Network Stack.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.2409.29850  |
-| Validation | 1.0.2501.05600  |
+| Production | 1.0.2502.25400  |
+| Validation | 1.0.2502.25700  |
+
+## Version 1.0.2502.25700
+
+*Published May 2025*
+
+In this release, we've made the following changes:
+
+- Fixed high RemoteApp CPU usage caused by `rdpshell.exe`.
+
+## Version 1.0.2502.25400
+
+*Published May 2025*
+
+In this release, we've made the following changes:
+
+- Resolved issues affecting the performance monitoring of UDP connections, ensuring accurate and reliable metrics in Performance Monitor.
+- Improved connection time for VMs with the **Always prompt for password** group policy setting enabled.
+- Enhanced connection reliability and implemented security fixes to ensure stable and secure connections. 
 
 ## Version 1.0.2501.05600
 
