@@ -8,13 +8,13 @@ ms.author: cephalin
 
 ## Frequently asked questions
 
-## How does pricing tier affect the performance of the SLM sidecar?
+### How does pricing tier affect the performance of the SLM sidecar?
 
 Since AI models consume considerable resources, choose the pricing tier that gives you sufficient vCPUs and memory to run your specific model. For this reason, the built-in AI sidecar extensions only appear when the app is in a suitable pricing tier. If you build your own SLM sidecar container, you should also use a CPU-optimized model, since the App Service pricing tiers are CPU-only tiers.
 
 For example, the [Phi-3 mini model with a 4K context length from Hugging Face](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-onnx) is designed to run with limited resources and provides strong math and logical reasoning for many common scenarios. It also comes with a CPU-optimized version. In App Service, we tested the model on all premium tiers and found it to perform well in the [P2mv3](https://azure.microsoft.com/pricing/details/app-service/linux/) tier or higher. If your requirements allow, you can run it on a lower tier.
 
-### How use my own SLM sidecar?
+### How to use my own SLM sidecar?
 
 The sample repository contains a sample SLM container that you can use as a sidecar. It runs a FastAPI application that listens on port 8000, as specified in its [Dockerfile](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/bring_your_own_slm/src/phi-3-sidecar/Dockerfile). The application uses [ONNX Runtime](https://onnxruntime.ai/docs/) to load the Phi-3 model, then forwards the HTTP POST data to the model and streams the response from the model back to the client. For more information, see [model_api.py](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/src/phi-3-sidecar/model_api.py).
 
