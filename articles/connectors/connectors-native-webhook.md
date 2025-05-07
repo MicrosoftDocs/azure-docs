@@ -260,7 +260,6 @@ The following example shows the webhook trigger definition with the **`accessKey
 
 ```
 
-
 ## Next steps
 
 * [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
