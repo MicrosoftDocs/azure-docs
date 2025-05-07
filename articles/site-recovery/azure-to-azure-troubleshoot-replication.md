@@ -165,7 +165,7 @@ Restart the following services:
 
 #### Update TenantId and ClientId manually in source machine
 
-**How to fix**: To fixnNo Mobility Service heartbeat error due to expired tenant, follow these steps:
+**How to fix**: To fix no Mobility Service heartbeat error due to expired tenant, follow these steps:
     
 1. Execute the **GET Protected item** API and retrieve the values for `mobilityAgentTenantIdToUpdate` and `mobilityAgentClientIdToUpdate` from the output.
     
