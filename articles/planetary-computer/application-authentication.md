@@ -73,19 +73,19 @@ Below is a step-by-step example showing how to configure Role-Based Access Contr
 
 1. On Azure portal go to Microsoft Planetary Computer Pro resource IAM tab on the left.
 
-    :::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the IAM blade in the Azure portal for configuring RBAC.":::
+    :::image type="content" source="media/role-based-access-control-identity-access-management-blade.png" alt-text="Screenshot of the IAM blade in the Azure portal for configuring RBAC.":::
 
 1. Select on **Add role Assignment** and then select **GeoCatalog Administrator** under "Job function roles"
 
-    :::image type="content" source="media/RBAC_role_assignment.png" alt-text="Screenshot of the role assignment selection in the Azure portal.":::
+    :::image type="content" source="media/role-based-access-control-role-assignment.png" alt-text="Screenshot of the role assignment selection in the Azure portal.":::
 
 1. Select the **Next** button and then select radio button of **Managed identity**
 
-    :::image type="content" source="media/RBAC_managed_id.png" alt-text="Screenshot of the managed identity selection in the Azure portal.":::
+    :::image type="content" source="media/role-based-access-control-managed-id.png" alt-text="Screenshot of the managed identity selection in the Azure portal.":::
 
 1. Select on **Select members** and select the subscription and the User-assigned managed identity on the **Select managed identities** pane on the right-hand side.
 
-    :::image type="content" source="media/RBAC_selected_members.png" alt-text="Screenshot of the selected members pane in the Azure portal.":::
+    :::image type="content" source="media/role-based-access-control-selected-members.png" alt-text="Screenshot of the selected members pane in the Azure portal.":::
 
 1. Select on **Next** to verify the information and finish **review + assign**.
 

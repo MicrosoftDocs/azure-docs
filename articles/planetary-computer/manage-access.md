@@ -41,16 +41,16 @@ You can use the Azure portal to assign RBAC roles to Planetary Computer Pro user
 
 1. Within Azure portal, go to your GeoCatalog resource **Access control (IAM)** tab in the left sidebar:
 
-    :::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing role assignment options.":::
+    :::image type="content" source="media/role-based-access-control-identity-access-management-blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing role assignment options.":::
 
 1. Select **Add** > **Add role Assignment**. 
 1. Select **GeoCatalog Administrator** from the list of **Job function roles**, and then select the **Next** button at the bottom of the page:
 
-    :::image type="content" source="media/RBAC_role_assignment.png" alt-text="Screenshot showing the RBAC role assignment options in the Azure portal.":::
+    :::image type="content" source="media/role-based-access-control-role-assignment.png" alt-text="Screenshot showing the RBAC role assignment options in the Azure portal.":::
 
 1. Select the radio button of **User, group, or service principal**:
 
-    :::image type="content" source="media/RBAC_members_section.png" alt-text="Screenshot showing the members section during RBAC role assignment in the Azure portal.":::
+    :::image type="content" source="media/role-based-access-control-members-section.png" alt-text="Screenshot showing the members section during RBAC role assignment in the Azure portal.":::
 
 1. Select **Select members**
 1. Search for the user on the **Select members** pane that appears on the right-hand side. Select a name or identity from the list to add it to the list of **Selected Members**. Repeat this step for each of the users that need to be assigned this role. 
