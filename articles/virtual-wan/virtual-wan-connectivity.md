@@ -49,3 +49,8 @@ This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs i
 
 - Complexity to set up and maintain.
 - SD-WAN NVAs can be more expensive than virtual network gateways.
+
+## Related content
+
+- [NVAs in a Virtual WAN hub](about-nva-hub.md)
+- [SD-WAN connectivity architecture with Azure Virtual WAN](sd-wan-connectivity-architecture.md)
