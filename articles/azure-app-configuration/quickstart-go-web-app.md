@@ -15,7 +15,7 @@ ms.author: linglingye
 
 In this quickstart, you use Azure App Configuration to centralize storage and management of application settings for a Go web application using the [Gin framework](https://gin-gonic.com/) and the [Azure App Configuration Go provider](https://github.com/Azure/AppConfiguration-GoProvider).
 
-The App Configuration provider for Go simplifies application configuration management for web applications by offering features like configuration composition from multiple labels, hierarchical configuration with key prefix trimming, and automatic resolution of Key Vault references.
+The App Configuration provider for Go simplifies the effort of applying key-values from Azure App Configuration to Go application. It enables binding settings to Go struct. It offers features like configuration composition from multiple labels, key prefix trimming, automatic resolution of Key Vault references, and many more.
 
 ## Prerequisites
 

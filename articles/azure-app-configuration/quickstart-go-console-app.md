@@ -11,11 +11,11 @@ ms.date: 03/31/2025
 ms.author: linglingye
 #Customer intent: As a Go developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create a Go app with Azure App Configuration
+# Quickstart: Create a Go console app with Azure App Configuration
 
 In this quickstart, you use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration Go provider client library](https://github.com/Azure/AppConfiguration-GoProvider).
 
-The App Configuration provider for Go simplifies application configuration management by offering features like configuration composition from multiple labels, hierarchical configuration with key prefix trimming, and automatic resolution of Key Vault references.
+The App Configuration provider for Go simplifies the effort of applying key-values from Azure App Configuration to Go application. It enables binding settings to Go struct. It offers features like configuration composition from multiple labels, key prefix trimming, automatic resolution of Key Vault references, and many more.
 
 ## Prerequisites
 
@@ -59,7 +59,7 @@ Add the following key-values to the App Configuration store. For more informatio
 
 The following examples demonstrate how to retrieve configuration data from Azure App Configuration. You can connect to your App Configuration store using Microsoft Entra ID (recommended) or a connection string.
 
-### Sample 1: Using Unmarshal with strongly typed configuration
+### Sample 1: Unmarshal key-values into target configuration struct
 
 In this sample, you load configuration values into a strongly-typed structure using the `Unmarshal` method. This provides a type-safe way to access your configuration.
 
@@ -101,7 +101,7 @@ func main() {
 	// Get the endpoint from environment variable
 	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
 	if endpoint == "" {
-		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable not set")
+		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
 	}
 
 	// Create a credential using DefaultAzureCredential
@@ -190,7 +190,7 @@ func main() {
 	// Get the connection string from environment variable
 	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
 	if connectionString == "" {
-		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable not set")
+		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
 	}
 
 	// Set up authentication options with connection string
@@ -239,7 +239,7 @@ func main() {
 
 ---
 
-### Sample 2: Using GetBytes with existing JSON configuration
+### Sample 2: Get key-values as constructed JSON bytes.
 
 In this sample, you retrieve configuration as JSON bytes using the `GetBytes` method. This approach is ideal for integrating with existing code that uses built-in library `encoding/json` or third-party packages like [`viper`](https://github.com/spf13/viper).
 
@@ -282,7 +282,7 @@ func main() {
 	// Get the endpoint from environment variable
 	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
 	if endpoint == "" {
-		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable not set")
+		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
 	}
 
 	// Create a credential using DefaultAzureCredential
@@ -329,32 +329,12 @@ func main() {
 	fmt.Println("------------------------")
 	fmt.Println(string(jsonBytes))
 
-	// Parse the JSON into our configuration struct
-	var config Config
-	if err := json.Unmarshal(jsonBytes, &config); err != nil {
-		log.Fatalf("Failed to parse configuration JSON: %v", err)
-	}
-
-	// Display the configuration values
-	fmt.Println("\nParsed Configuration Values:")
-	fmt.Println("----------------------------")
-	fmt.Printf("Message: %s\n", config.Message)
-	fmt.Printf("App Name: %s\n", config.App.Name)
-	fmt.Printf("Debug Mode: %t\n", config.App.Debug)
-	fmt.Printf("Timeout: %d seconds\n", config.App.Settings.Timeout)
-	fmt.Printf("Retry Count: %d\n", config.App.Settings.RetryCount)
-
-	// Example: Integration with other libraries (pseudocode)
-	fmt.Println("\nIntegration Example (pseudocode):")
-	fmt.Println("----------------------------------")
-	fmt.Println("// Using with standard library json.Unmarshal:")
-	fmt.Println("jsonBytes, _ := provider.GetBytes(nil)")
-	fmt.Println("json.Unmarshal(jsonBytes, &config)")
-	fmt.Println("")
-	fmt.Println("// Using with viper:")
-	fmt.Println("jsonBytes, _ := provider.GetBytes(nil)")
-	fmt.Println("viper.ReadConfig(bytes.NewBuffer(jsonBytes))")
-	fmt.Println("viper.Get(\"App.Name\") // Go Console App")
+	// Integration with other libraries
+	// Using with standard library json.Unmarshal:
+	// 	json.Unmarshal(jsonBytes, &config)
+	//
+	// Using with viper:
+	// 	viper.ReadConfig(bytes.NewBuffer(jsonBytes))
 }
 ```
 
@@ -394,7 +374,7 @@ func main() {
 	// Get the connection string from environment variable
 	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
 	if connectionString == "" {
-		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable not set")
+		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
 	}
 
 	// Set up authentication options with connection string
@@ -434,32 +414,12 @@ func main() {
 	fmt.Println("------------------------")
 	fmt.Println(string(jsonBytes))
 
-	// Parse the JSON into our configuration struct
-	var config Config
-	if err := json.Unmarshal(jsonBytes, &config); err != nil {
-		log.Fatalf("Failed to parse configuration JSON: %v", err)
-	}
-
-	// Display the configuration values
-	fmt.Println("\nParsed Configuration Values:")
-	fmt.Println("----------------------------")
-	fmt.Printf("Message: %s\n", config.Message)
-	fmt.Printf("App Name: %s\n", config.App.Name)
-	fmt.Printf("Debug Mode: %t\n", config.App.Debug)
-	fmt.Printf("Timeout: %d seconds\n", config.App.Settings.Timeout)
-	fmt.Printf("Retry Count: %d\n", config.App.Settings.RetryCount)
-
-	// Example: Integration with other libraries (pseudocode)
-	fmt.Println("\nIntegration Example (pseudocode):")
-	fmt.Println("----------------------------------")
-	fmt.Println("// Using with standard library json.Unmarshal:")
-	fmt.Println("jsonBytes, _ := provider.GetBytes(nil)")
-	fmt.Println("json.Unmarshal(jsonBytes, &config)")
-	fmt.Println("")
-	fmt.Println("// Using with viper:")
-	fmt.Println("jsonBytes, _ := provider.GetBytes(nil)")
-	fmt.Println("viper.ReadConfig(bytes.NewBuffer(jsonBytes))")
-	fmt.Println("viper.Get(\"App.Name\") // Go Console App")
+	// Integration with other libraries
+	// Using with standard library json.Unmarshal:
+	// 	json.Unmarshal(jsonBytes, &config)
+	//
+	// Using with viper:
+	// 	viper.ReadConfig(bytes.NewBuffer(jsonBytes))
 }
 ```
 
@@ -557,25 +517,6 @@ func main() {
     Raw JSON Configuration:
     ------------------------
     {"App":{"Debug":true,"Name":"Go Console App","Settings":{"retryCount":3,"timeout":30}},"Message":"Hello World!"}
-
-    Parsed Configuration Values:
-    ----------------------------
-    Message: Hello World!
-    App Name: Go Console App
-    Debug Mode: true
-    Timeout: 30 seconds
-    Retry Count: 3
-
-    Integration Example (pseudocode):
-    ----------------------------------
-    // Using with standard library json.Unmarshal:
-    jsonBytes, _ := provider.GetBytes(nil)
-    json.Unmarshal(jsonBytes, &config)
-
-    // Using with viper:
-    jsonBytes, _ := provider.GetBytes(nil)
-    viper.ReadConfig(bytes.NewBuffer(jsonBytes))
-    viper.Get("App.Name") // Go Console App
     ```
 
 ## Clean up resources
