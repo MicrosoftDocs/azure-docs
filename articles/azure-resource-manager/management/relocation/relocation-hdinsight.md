@@ -31,19 +31,8 @@ Before starting the relocation process, ensure the following prerequisites are m
 - **Prepare the target landing zone**: Ensure the target landing zone is ready and matches the assessed architecture.
 - **Document network settings**: Record network configurations, including firewalls and isolation settings.
 - **Identify metastore databases**: List all metastore databases configured in the source cluster.
-- **Review installed applications**: Document installed HDInsight applications and action scripts.
-- **Check availability zone support**: Verify that the target region supports availability zones. HDInsight clusters can currently be created using availability zones in the following regions:
-
-  | Americas           | Europe               | Africa              | Asia Pacific     |
-  |--------------------|----------------------|---------------------|------------------|
-  | Brazil South       | France Central       | South Africa North  | Australia East   |
-  | Canada Central     | Germany West Central |                     | Japan East       |
-  | Central US         | North Europe         |                     | Southeast Asia   |
-  | East US            | UK South             |                     |                  |
-  | East US 2          | West Europe          |                     |                  |
-  | South Central US   |                      |                     |                  |
-  | US Gov Virginia    |                      |                     |                  |
-  | West US 2          |                      |                     |                  |
+- **Review installed applications**: Document installed HDInsight applications and action scripts performed.
+- **Check availability zone support**: Verify that the target region supports availability zones. For more information, see [Region availability](../../../hdinsight/hdinsight-use-availability-zones.md#prerequisites-and-region-availability).
 
 ## Downtime Considerations
 
@@ -75,9 +64,8 @@ Relocate the source storage account to the target region. For detailed steps, se
 Relocate jobs associated with the HDInsight cluster to the target region. Follow the appropriate guidance based on your HDInsight implementation:
 
 - **Oozie pipeline/workflow**: Use the Hue import/export method. See [Migrate pipelines using Hue UI](https://gethue.com/exporting-and-importing-oozie-workflows/).
-- **Storm topology**: Transfer Storm event hub spout checkpoint information. See [Transfer Storm event hub spout checkpoint information](../../../hdinsight/storm/apache-troubleshoot-storm#how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another).
-- **HBase workload**: Use backup and replication. See [Backup and replication method](../../../hdinsight/hbase/apache-hbase-backup-replication).
-- **Hive workload & Interactive Query**: Follow the steps in [Migrate Azure HDInsight Hive workloads](../../../hdinsight/interactive-query/apache-hive-migrate-workloads#steps-to-upgrade).
+- **HBase workload**: Use backup and replication. See [Backup and replication method](../../../hdinsight/hbase/apache-hbase-backup-replication.md).
+- **Hive workload & Interactive Query**: Follow the steps in [Migrate Azure HDInsight Hive workloads](../../../hdinsight/interactive-query/apache-hive-migrate-workloads.md#steps-to-upgrade).
 - **Kafka workload**: Use Mirror Maker. See [Mirror Maker](../../../hdinsight/kafka/apache-kafka-mirroring).
 
 ### Sync Data
