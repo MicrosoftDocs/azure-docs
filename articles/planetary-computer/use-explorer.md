@@ -11,7 +11,7 @@ ms.date: 04/09/2025
 
 # Quickstart: Use the Microsoft Planetary Computer Pro Explorer
 
-In this Quickstart, you learn how to interact with the Microsoft Planetary Computer (MPC) Pro Explorer. The Explorer is the easiest way for MPC Pro GeoCatalog users to visualize and interact with their data. 
+In this Quickstart, you learn how to interact with the Microsoft Planetary Computer Pro Explorer. The Explorer is the easiest way for Planetary Computer Pro users to visualize and interact with their data. 
 
 ## Prerequisites
 

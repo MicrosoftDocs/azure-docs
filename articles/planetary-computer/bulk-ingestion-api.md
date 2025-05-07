@@ -32,10 +32,10 @@ In your local / development environment:
 1. [Azure CLI](/cli/azure/install-azure-cli)
 1. You're [signed in to Azure](/cli/azure/authenticate-azure-cli-interactively)
 
-Microsoft Planetary Computer (MPC) Pro must have access to the Azure Blob Storage container. In this article, we create and use a temporary SAS token credential to grant this access. Alternatively, you can use these guides to set up Managed Identity or hard-coded SAS Tokens.
+Microsoft Planetary Computer Pro must have access to the Azure Blob Storage container. In this article, we create and use a temporary SAS token credential to grant this access. Alternatively, you can use these guides to set up Managed Identity or hard-coded SAS Tokens.
 
-- [Setup Ingestion Credentials for MPC Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
-- [Setup Ingestion Credentials for MPC Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
+- [Setup Ingestion Credentials for Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
+- [Setup Ingestion Credentials for Microsoft Planetary Computer Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
 
 ## Create Ingestion Source
 

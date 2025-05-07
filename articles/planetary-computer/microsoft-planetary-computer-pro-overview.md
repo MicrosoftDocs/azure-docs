@@ -12,34 +12,34 @@ ms.date: 04/30/2025
 
 # What is Microsoft Planetary Computer Pro?
 
-Microsoft Planetary Computer's vision is to empower every organization to unlock the full potential of geospatial data. Microsoft Planetary Computer (MPC) Pro is a geospatial data management service built on top of Azure's hyperscale infrastructure and ecosystem. The MPC Pro GeoCatalog is a new Azure resource that provides foundational capabilities to ingest, manage, search, and distribute geospatial datasets. GeoCatalogs use the SpatioTemporal Asset Catalog (STAC) open specification and standard, enabling geospatial software interoperability. Learn more about STAC and how it relates to MPC Pro GeoCatalogs in the [STAC overview](./stac-overview.md).
+Microsoft Planetary Computer's vision is to empower every organization to unlock the full potential of geospatial data. Microsoft Planetary Computer Pro is a geospatial data management service built on top of Azure's hyperscale infrastructure and ecosystem. The Microsoft Planetary Computer Pro GeoCatalog is a new Azure resource that provides foundational capabilities to ingest, manage, search, and distribute geospatial datasets. GeoCatalogs use the SpatioTemporal Asset Catalog (STAC) open specification and standard, enabling geospatial software interoperability. Learn more about STAC and how it relates to Microsoft Planetary Computer Pro GeoCatalogs in the [STAC overview](./stac-overview.md).
 
 ## Why Use Planetary Computer Pro?
 
-MPC Pro helps users and organizations to easily store, organize, and retrieve their geospatial data in the hyperscale cloud. The GeoCatalog technology is both easy to manage and quickly scalable, deploying in less than 10 minutes, and handling geospatial data workloads from gigabytes to tens of petabytes.
+Microsoft Planetary Computer Pro helps users and organizations to easily store, organize, and retrieve their geospatial data in the hyperscale cloud. The GeoCatalog technology is both easy to manage and quickly scalable, deploying in less than 10 minutes, and handling geospatial data workloads from gigabytes to tens of petabytes.
 
-MPC Pro can speed users journey from raw data to insights for multiple user personas.
+Microsoft Planetary Computer Pro can speed users journey from raw data to insights for multiple user personas.
 
 ### Geospatial Solution Developers
 
- The quality and volume of Geospatial data is increasing constantly, spurring the development of new technologies. Geospatial insight and solution developers are leading this trend, providing value-added data processing solutions, powered by Artificial Intelligence (AI) and Machine Learning (ML). Solution developers use MPC Pro to manage both their processing pipeline data, and host their customer-facing geospatial data products as part of an application.
+ The quality and volume of Geospatial data is increasing constantly, spurring the development of new technologies. Geospatial insight and solution developers are leading this trend, providing value-added data processing solutions, powered by Artificial Intelligence (AI) and Machine Learning (ML). Solution developers use Microsoft Planetary Computer Pro to manage both their processing pipeline data, and host their customer-facing geospatial data products as part of an application.
 
 ### Enterprise Data Managers
 
-MPC Pro GeoCatalogs bring a standards-based organizational structure to the geospatial data required by the modern enterprise data system. The MPC Pro platform is compatible with enterprise and open-source geospatial data tooling, and delivers capabilities covered by the Azure Service Level Agreement (SLA), ensures high performance, security, and availability. All data is secured via [Microsoft Entra ID](/entra/fundamentals/whatis), unifying enterprise identity and access management of your geospatial data. 
+Microsoft Planetary Computer Pro GeoCatalogs bring a standards-based organizational structure to the geospatial data required by the modern enterprise data system. The Microsoft Planetary Computer Pro platform is compatible with enterprise and open-source geospatial data tooling, and delivers capabilities covered by the Azure Service Level Agreement (SLA), ensures high performance, security, and availability. All data is secured via [Microsoft Entra ID](/entra/fundamentals/whatis), unifying enterprise identity and access management of your geospatial data. 
 
 ### Geospatial Data Scientists
 
-Geospatial data scientists and research teams, operating as part of an academic institution or an enterprise research organization, use MPC Pro GeoCatalogs to focus less on data hosting, organization, and management, and spend more time on data interrogation and processing. 
+Geospatial data scientists and research teams, operating as part of an academic institution or an enterprise research organization, use Microsoft Planetary Computer Pro to focus less on data hosting, organization, and management, and spend more time on data interrogation and processing. 
 
 ## Scenarios
-A MPC Pro GeoCatalog supports a wide range of capabilities to enhance the value and usability of your geospatial data.
+A GeoCatalog supports a wide range of capabilities to enhance the value and usability of your geospatial data.
 
 | If you want to...                                      | then...                                                                                     |
 |--------------------------------------------------------|--------------------------------------------------------------------------------------------|
 | Organize your geospatial datasets into collections          | Use the [Create a STAC Collection](./create-stac-collection.md) guide. |
 | Visualize all your geospatial data in one place | Use the GeoCatalog data [Explorer](./use-explorer.md) |
-| Control and manage access to your geospatial data                       | Follow the steps in [Manage access to MPC Pro](./manage-access.md).                        |
+| Control and manage access to your geospatial data                       | Follow the steps in [Manage access to Microsoft Planetary Computer Pro](./manage-access.md).                        |
 | Work with cloud-optimized 3D datasets | Follow our [Data Cube Quickstart](./datacube-quickstart.md)
 | Optimize query performance for large collections       | Configure Explorer [Queryables](./queryables-for-explorer-custom-search-filter.md) |
 
@@ -74,7 +74,7 @@ The end-to-end GeoCatalog product lifecycle traverses the following stages:
 ## Related Content
 - [STAC overview](./stac-overview.md)
 - [Deploy the GeoCatalog](./deploy-geocatalog-resource.md)
-- [Manage access to MPC Pro](./manage-access.md)
+- [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)
 - [Create a STAC Collection](./create-stac-collection.md)
 - [Create a STAC Item](./create-stac-item.md)
 - [Bulk Ingestion API](./bulk-ingestion-api.md)
