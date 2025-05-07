@@ -6855,23 +6855,43 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-functions/migration/migrate-lambda-workloads-overview.md",
+      "source_path": "/articles/azure-functions/migration/migrate-lambda-workloads-overview.md",
       "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-functions/migration/discover-lambda-workloads.md",
+      "source_path": "/articles/azure-functions/migration/discover-lambda-workloads.md",
       "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-functions/migration/assess-lambda-workloads.md",
+      "source_path": "/articles/azure-functions/migration/assess-lambda-workloads.md",
       "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-functions/migration/migrate-lambda-workloads.md",
+      "source_path": "/articles/azure-functions/migration/migrate-lambda-workloads.md",
       "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-assess.md",
+      "redirect_url": "/azure/azure-functions/migration/assess-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-discover.md",
+      "redirect_url": "/azure/azure-functions/migration/discover-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-migrate.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/lambda-functions-migration-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
       "redirect_document_id": false
     },
     {
