@@ -187,7 +187,7 @@ public class Startup
         // Configure the application to use the client certificate forwarded by the front-end load balancer.
         services.AddCertificateForwarding(options => { options.CertificateHeader = "X-ARR-ClientCert"; });
 
-        // Add certificate authentication so that  when authorization is performed the user will be created from the certificate.
+        // Add certificate authentication so that when authorization is performed the user will be created from the certificate.
         services.AddAuthentication(CertificateAuthenticationDefaults.AuthenticationScheme).AddCertificate();
     }
 
@@ -443,7 +443,7 @@ public class ClientCertValidator {
 
     /**
      * Check certificate's timestamp.
-     * @return returns True if the certificate isn't expired. It returns False if it is expired.
+     * @return True if the certificate isn't expired. It returns False if it is expired.
      */
     private boolean certificateHasNotExpired() {
         Date currentTime = new java.util.Date();
@@ -457,7 +457,7 @@ public class ClientCertValidator {
 
     /**
      * Check whether the certificate's thumbprint matches the given one.
-     * @return returns True if the thumbprints match. False otherwise.
+     * @return True if the thumbprints match. False otherwise.
      */
     private boolean thumbprintIsValid() throws NoSuchAlgorithmException, CertificateEncodingException {
         MessageDigest md = MessageDigest.getInstance("SHA-1");
