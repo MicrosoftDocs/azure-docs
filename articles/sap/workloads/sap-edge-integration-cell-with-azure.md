@@ -25,6 +25,8 @@ Using [Azure Kubernetes Service (AKS)](/azure/aks/) SAP Edge Integration Cell ma
 
 This article builds on top of SAP's documentation and walks you through the deployment considerations and Azure best practices.
 
+## Getting Started
+
 Use [the accelerator project](https://github.com/Azure/sap-edge-integration-cell-on-azure-accelerator) for SAP Edge Integration Cell with Azure to get started quickly and discover blue prints for production-ready deployments. It uses terraform as common language to deploy the Azure infrastructure and the SAP Business Technology Platform (BTP) footprint at the same time.
 
 ## Setup Considerations
@@ -48,6 +50,15 @@ Consider the following Microsoft Learn resources for AKS for a successful deploy
 | **Dev/Test** | Azure Kubernetes Service (single node pool) | none | Use SAP's built-in PostgreSQL and Cache option for quickest deployment; not suitable for production |
 
 It's recommended to use Azure PaaS services for a fully platform-managed experience and optimal Service Level Agreement.
+
+### Supported Kubernetes Versions
+
+Verify matching Kubernetes versions and release calendars as per SAP's requirements (SAP Note [3247839](https://me.sap.com/notes/3247839)) from the following source:
+
+- [Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions)
+- [Azure ARC-enabled Kubernetes Service](/azure/aks/aksarc/supported-kubernetes-versions)
+
+Familiarize yourself with the mentioned support policy, [Long-term support](/azure/aks/long-term-support) options, and deprecation process to choose the right version for you scenario.
 
 ## Next Steps
 
