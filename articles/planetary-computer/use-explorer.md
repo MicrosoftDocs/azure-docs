@@ -30,14 +30,14 @@ Open the Microsoft Planetary Computer Pro web interface by following the instruc
 
 The Explorer can be opened in two ways:
 
-1. Select the **Explorer** tab in the navigation bar, **or** 
-1. Select a valid collection to explore from the **Collections** tab.
+* Select the **Explorer** tab in the navigation bar, **or** 
+* Select a valid collection to explore from the **Collections** tab.
     
     From the collection's **Overview** tab, select **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
     :::image type="content" source="./media/launch-in-explorer-button.jpeg" alt-text="Screenshot of collections overview with launch in explorer button.":::
 
 > [!NOTE]
-> If the "Launch In Explorer" button is grey, you must first [create a render configuration](./render-configuration.md).
+> If the "Launch In Explorer" button is gray, you must first [create a render configuration](./render-configuration.md).
 
 ## Select a dataset to explore
 
@@ -56,8 +56,9 @@ The Explorer dynamically filters your collections items and displays them in the
 
 You can filter the resulting items based on location.
 
-1. To find items in a general geographic area, pan and zoom in or out on the map. Items appear in the results pane according to the geographic extent of the map.
-2. To find items near a specific location or address, select the magnifying glass icon on the right-side of the map to reveal the **Place Finder** search tool.
+* To find items in a general geographic area, pan and zoom in or out on the map. Items appear in the results pane according to the geographic extent of the map.
+* To find items near a specific location or address, select the magnifying glass icon on the right-side of the map to reveal the **Place Finder** search tool.
+
 :::image type="content" source="./media/search.jpeg" alt-text="Screenshot of search navigation in Explorer.":::
 
 ### Apply a mosaic definition
@@ -94,6 +95,7 @@ For example, this screen capture shows the **Acquired** queryable is set to a ra
 ### Use map controls
 
 The Explorer supports native map controls on the top right side of the map to rotate, zoom in and out, change the basemap style, search for a location, and update map settings.
+
 :::image type="content" source="./media/zoom.jpeg" alt-text="Screenshot of map controls available in Explorer.":::
 
 ### Pin an item layer to the map
@@ -102,6 +104,7 @@ You can visualize multiple query results at once by pinning layers to the map.
 
  1. After querying and filtering the collection items to your desired results, select the pin icon to the right of the dataset name in the **Explore Datasets** side-panel.
  2. Once pinned, this layer is added to the list of map layers, displayed in the lower right corner of the map, and your query results are cleared.
+ 
  :::image type="content" source="./media/pin.jpeg" alt-text="Screenshot of how to pin layers in Explorer.":::
 
 ### Manipulate the map layers
