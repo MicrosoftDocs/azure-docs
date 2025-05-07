@@ -1,9 +1,9 @@
 ---
 title: How to install Azure Data Manager for Agriculture
 description: Provides step by step guidance to install Data Manager for Agriculture
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
 ms.topic: quickstart
 ms.date: 04/05/2023
 ms.custom: template-quickstart

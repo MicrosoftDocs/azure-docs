@@ -1,11 +1,11 @@
 ---
 title: Understand Azure role assignments - Azure RBAC
 description: Learn about Azure role assignments in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-author: johndowns
+author: rolyon
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 10/03/2022
-ms.author: jodowns
+ms.date: 11/11/2024
+ms.author: rolyon
 ---
 # Understand Azure role assignments
 
@@ -152,3 +152,4 @@ For more information about conditions, see [What is Azure attribute-based access
 
 - [Delegate Azure access management to others](delegate-role-assignments-overview.md)
 - [Steps to assign an Azure role](role-assignments-steps.md)
+- [Eligible and time-bound role assignments in Azure RBAC](./pim-integration.md)

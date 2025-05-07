@@ -12,8 +12,8 @@ This article describes the **DELL XE4 SFF** appliance deployment and installatio
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
-|**Performance** | Max bandwidth: 25 Mbps <br> 1x RJ45 monitoring port |
-|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors|
+|**Performance** | Max bandwidth: 25 Mbps <br> Max devices: 1,000 |
+|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors <br> 1x RJ45 monitoring port|
 |**Status** | Supported, available preconfigured |
 
 The following image shows a sample of the DELL XE4 SFF front panel:
@@ -27,6 +27,10 @@ The following image shows a sample of the DELL XE4 SFF back panel:
 The following image shows the DELL XE4 SFF dust filter installation and maintenance:
 
 :::image type="content" source="../media/tutorial-install-components/dell-xe4-sff-dust-filter.png" alt-text="Picture of the dust filter of the DELL XE4 SFF." border="false":::
+
+> [!Note]
+>
+> For this appliance to operate properly, install a seconday NIC. For more information, see [optional port expansion](#optional-port-expansion).
 
 ## Specifications
 
@@ -48,7 +52,7 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |Shock |Bottom/Right half-sine pulse 40G, 2 ms |
 |EMC |Product Safety, EMC and Environmental Datasheets <br><https://www.dell.com/learn/us/en/uscorp1/product-info-datasheets-safety-emc-environmental> |
 
-## DELL XE4 SFF - Bill of Materials
+## DELL XE4 SFF - Bill of materials
 
 |Type|Description|PN|Quantity|
 |----|---|----|----|
@@ -99,6 +103,8 @@ The following image shows the DELL XE4 SFF dust filter installation and maintena
 |Dell Services: GCP/ OEM PM |CSO OEM Solution Client Program Support, EMEA |683-17925 |1 |
 
 ## Optional port expansion
+
+For this appliance to operate properly, install one of these secondary NICs.
 
 Optional modules for port expansion include:
 
@@ -161,4 +167,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

@@ -4,7 +4,7 @@ titleSuffix: Azure DNS Private Resolver architecture guidance
 description: Configure the Azure DNS Private Resolver for a centralized or noncentralized architecture
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: greglin

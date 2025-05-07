@@ -43,9 +43,16 @@ It also provides features like these:
 
 ## RBAC permissions required to access Kudu
 
-To access Kudu in the browser by using Microsoft Entra authentication, you need to be a member of a built-in or custom role.
+To access Kudu in the browser by using Microsoft Entra authentication, you need to be assigned an appropriate built-in or custom role over the scope of the application. The assigned role must include permission for the `Microsoft.Web/sites/publish/Action` resource provider operation. The following table shows example built-in roles that include this permission.
 
-If you're using a built-in role, you must be a member of Website Contributor, Contributor, or Owner. If you're using a custom role, you need the resource provider operation: `Microsoft.Web/sites/publish/Action`.
+| Role type | Example built-in roles | 
+|-|-|
+| Job function roles | [Website Contributor](../role-based-access-control//built-in-roles/web-and-mobile.md#website-contributor)<br/>[Logic Apps Standard Developer (Preview)](../role-based-access-control//built-in-roles/integration.md#logic-apps-standard-developer-preview)  |
+| Privileged administrator roles<sup>1</sup> | [Owner](../role-based-access-control//built-in-roles/privileged.md#owner)<br/>[Contributor](../role-based-access-control//built-in-roles/privileged.md#contributor) |
+
+<sup>1</sup> Privileged administrator roles grant much more permission than is needed to access Kudu. If need to create a new role assignment, consider if a job function role with less access can be used instead.
+
+See the [role-based access control overview](../role-based-access-control/overview.md) to learn more about creating role assignments.
 
 ## More resources
 

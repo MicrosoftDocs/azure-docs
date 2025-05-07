@@ -3,7 +3,7 @@ title: Monitor with RAN Metrics in Azure portal
 description: Learn about RAN basic metrics 
 author: delnas
 ms.author: delnas
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: concept-article 
 ms.date: 5/28/2024
 

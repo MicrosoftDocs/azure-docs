@@ -9,8 +9,8 @@ ms.author: kengaderdus
 ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: how-to
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C with a native client application, I want to register the client resources in my tenant, so that my application can communicate with Azure Active Directory B2C.
@@ -18,6 +18,8 @@ ms.subservice: B2C
 ---
 
 # Add a native client application to your Azure Active Directory B2C tenant
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Native client resources need to be registered in your tenant before your application can communicate with Azure Active Directory B2C.
 

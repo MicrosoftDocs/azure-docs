@@ -1,9 +1,8 @@
 ---
  title: List of event sources in Azure Event Grid
  description: An include file that has the list of event sources supported by Azure Event Grid.
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 02/27/2023
  ms.author: spelluru

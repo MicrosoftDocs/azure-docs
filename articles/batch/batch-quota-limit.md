@@ -1,7 +1,7 @@
 ---
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints. Also learn how to request quota increases.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/05/2024
 ---
 
@@ -17,7 +17,7 @@ A quota is a limit, not a capacity guarantee. If you have large-scale capacity n
 
 Also note that quotas aren't guaranteed values. Quotas can vary based on changes from the Batch service or a user request to change a quota value.
 
-[!INCLUDE [azure-batch-limits](~/reusable-content/ce-skilling/azure/includes/azure-batch-limits.md)]
+[!INCLUDE [azure-batch-limits](../../includes/azure-batch-limits.md)]
 
 ## Core quotas
 

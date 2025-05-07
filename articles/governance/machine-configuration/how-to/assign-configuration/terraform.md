@@ -11,11 +11,6 @@ ms.custom: devx-track-terraform
 
 You can use [Terraform][01] to [deploy][02] machine configuration assignments.
 
-> [!IMPORTANT]
-> The Terraform provider [azurerm_policy_virtual_machine_configuration_assignment][03] hasn't been
-> updated to support the **assignmentType** property so only configurations that perform audits are
-> supported.
-
 ## Assign a custom configuration
 
 The following example assigns a custom configuration.
@@ -77,4 +72,4 @@ resource "azurerm_virtual_machine_configuration_policy_assignment" "AzureWindows
 <!-- Link reference definitions -->
 [01]: https://www.terraform.io/
 [02]: /azure/developer/terraform/get-started-windows-powershell
-[03]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_machine_configuration_policy_assignment
+[03]: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/policy_virtual_machine_configuration_assignment

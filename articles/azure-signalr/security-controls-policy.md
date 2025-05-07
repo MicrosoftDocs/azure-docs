@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure SignalR

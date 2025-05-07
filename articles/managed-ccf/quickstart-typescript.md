@@ -4,9 +4,9 @@ description: Learn to use the Azure SDK for JavaScript and TypeScript library fo
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/11/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
-ms.custom: mode-api, devx-track-js
+ms.custom: mode-api, devx-track-js, devx-track-ts
 ---
 
 # Quickstart: Create an Azure Managed CCF resource using the Azure SDK for JavaScript and TypeScript

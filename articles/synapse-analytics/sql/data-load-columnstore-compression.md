@@ -1,10 +1,10 @@
 ---
 title: Improve columnstore index performance
 description: Reduce memory requirements or increase the available memory to maximize the number of rows a columnstore index compresses into each rowgroup.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: azaricstefan
+ms.author: stefanazaric
 ms.date: 10/18/2021
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ms.custom: azure-synapse

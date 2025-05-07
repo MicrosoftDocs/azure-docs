@@ -1,8 +1,8 @@
 ---
 author: msmbaldwin
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: include
-ms.date: 03/25/2022
+ms.date: 04/16/2025
 ms.author: msmbaldwin
 
 # Generic CLI create resource group include for quickstarts.

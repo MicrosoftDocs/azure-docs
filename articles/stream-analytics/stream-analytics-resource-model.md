@@ -3,7 +3,7 @@ title: Azure Stream Analytics resource model
 description: This article describes Azure Stream Analytics resource model which includes the Azure Stream Analytics input, output, and query. 
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/08/2022
 ---

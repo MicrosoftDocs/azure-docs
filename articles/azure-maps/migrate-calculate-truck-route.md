@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Calculate a Truck Route API to Azure Maps Route Directions API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Calculate a Truck Route API to the Azure Maps Route Directions API.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui 
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: routing
 ---
 
 # Migrate Bing Maps Calculate a Truck Route API
@@ -94,7 +94,7 @@ Included in the body of the request:
 Azure Maps _Route Directions_ API POST request:
 
 ``` http
-https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 Included in the body of the request:
@@ -151,7 +151,7 @@ The following table lists the fields that can appear in the HTTP response when r
 |------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | actualEnd              | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = last_ defines the routable end location.                              |
 | actualStart            | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = 0_ defines the routable start location.                               |
-| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
+| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure Maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
 | compassDegrees         | Not supported             |                                                                                                                                     |
 | compassDirection       | Not supported             |                                                                                                                                     |
 | description            | Not supported             |                                                                                                                                     |

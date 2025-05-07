@@ -21,6 +21,8 @@ In this quickstart guide, we learn about the event system of Web PubSub so that 
 
 :::image type="content" source="media/quickstarts-event-notifications-from-clients/notification.gif" alt-text="GIF of application server receiving client events.":::
 
+[!INCLUDE [Connection string security](includes/web-pubsub-connection-string-security.md)]
+
 ## Prerequisites
 - A Web PubSub resource. If you haven't created one, you can follow the guidance: [Create a Web PubSub resource](./howto-develop-create-instance.md)
 - A code editor, such as Visual Studio Code
@@ -142,6 +144,9 @@ npm install -g @azure/web-pubsub-tunnel-tool
 ```
 
 #### 2. Use the service connection string and run
+
+[!INCLUDE [Connection string security comment](includes/web-pubsub-connection-string-security-comment.md)]
+
 ```bash
 export WebPubSubConnectionString="<your connection string>"
 awps-tunnel run --hub myHub1 --upstream http://localhost:8080

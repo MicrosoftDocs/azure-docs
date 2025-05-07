@@ -4,7 +4,7 @@ description: How to configure CORS to enable the Azure API Management developer 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 12/22/2023
 ms.author: danlep

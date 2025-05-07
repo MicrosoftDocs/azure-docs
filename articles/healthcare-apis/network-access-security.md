@@ -3,11 +3,11 @@ title: Manage network access security in Azure Health Data Services
 description: Learn about network access security and outbound connections for the FHIR, DICOM, and MedTech services in Azure Health Data Services.
 services: healthcare-apis
 author: timritzer
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/06/2024
-ms.author: jasteppe
+ms.date: 09/12/2024
+ms.author: kesheth
 ---
 
 # Manage network access security in Azure Health Data Services
@@ -16,7 +16,7 @@ Azure Health Data Services provides multiple options for securing network access
 
 ## Private Link
 
-[Private Link](../private-link/index.yml) is a network isolation technique that allows access to Azure services, including Azure Health Data Services. Private Link allows data to flow over private Microsoft networks instead of the public internet. By using Private Link, you can allow access only to specified virtual networks, and lock down access to provisioned services. For more information, see [Configure Private Link](healthcare-apis-configure-private-link.md).
+[Private Link](../private-link/index.yml) is a network isolation technique that allows access to Azure services, including Azure Health Data Services. Private Link allows data to flow over private Microsoft networks instead of the public internet. By using Private Link, you can allow access only to specified virtual networks, and lock down access to provisioned services. For more information, see [Configure Private Link](configure-private-link.md).
 
 ## Microsoft Trusted Services
 
@@ -28,19 +28,23 @@ Here's a list of features that can make outbound connections from Azure Health D
 
 - **Export**: [Allow FHIR service export as a Microsoft Trusted Service](fhir/configure-export-data.md)
 - **Import**: [Allow FHIR service import as a Microsoft Trusted Service](fhir/configure-import-data.md)
-- **Convert**: [Allow trusted services access to Azure Container Registry](../container-registry/allow-access-trusted-services.md)
+- **Convert**: [Allow trusted services access to Azure Container Registry](/azure/container-registry/allow-access-trusted-services)
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
-- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)
+- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints)
 
 ### DICOM service
 
 - **Import, export, and analytical support**: [Allow trusted services access to Azure Storage accounts](../storage/common/storage-network-security.md)
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
-- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md)
+- **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints)
 
 ### MedTech service
 
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
+
+### De-identification service (preview)
+
+- **De-identify documents in Azure Storage**: [Allow trusted services access to Azure Storage accounts](../storage/common/storage-network-security.md)
 
 ## Service tags
 

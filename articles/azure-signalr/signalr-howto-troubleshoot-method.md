@@ -2,7 +2,7 @@
 title: "Troubleshooting practice for Azure SignalR Service"
 description: Learn how to troubleshoot connectivity and message delivery issues
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei
@@ -74,7 +74,7 @@ With the client-side network trace in hand, check which request fails with what 
 
 SignalR *Server* maintains the *Server Connection* between *Server* and *Service*. When the app server starts, it starts the **WebSocket** connection to Azure SignalR service. All the client traffics are routed through Azure SignalR service to these *Server Connection*s and then dispatched to the `Hub`. When a *Server Connection* drops, the clients routed to this *Server Connection* will be impacted. Our Azure SignalR SDK has a logic "Always Retry" to reconnect the *Server Connection* with at most 1-minute delay to minimize the effects.
 
-*Server Connection*s can drop because of network instability or regular maintenance of Azure SignalR Service, or your hosted app server updates/maintainance. As long as client-side has the disconnect/reconnect mechanism, the effect is minimal like any client-side caused disconnect-reconnect.
+*Server Connection*s can drop because of network instability or regular maintenance of Azure SignalR Service, or your hosted app server updates/maintenance. As long as client-side has the disconnect/reconnect mechanism, the effect is minimal like any client-side caused disconnect-reconnect.
 
 View the server-side network trace to find the status code and error detail why *Server Connection* drops or is rejected by the *Service*. Look for the root cause inside [Troubleshooting Guide](./signalr-howto-troubleshoot-guide.md).
 

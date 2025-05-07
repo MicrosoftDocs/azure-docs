@@ -6,7 +6,6 @@ ms.date: 05/21/2024
 ms.author: zehangzheng
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
-[!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include-document.md)]
 
 Capabilities feature is an extended feature of the core `Call` API and allows you to obtain the capabilities of the local participant in the current call.
 
@@ -59,3 +58,4 @@ public class CapabilitiesCallDelegate : CapabilitiesCallFeatureDelegate
 - *CustomBackground*: Ability to apply a custom background
 - *StartLiveCaptions*: Ability to start live captions
 - *RaiseHand*: Ability to raise hand
+- *MuteOthers*: Ability to soft mute remote participant(s) in the meeting 

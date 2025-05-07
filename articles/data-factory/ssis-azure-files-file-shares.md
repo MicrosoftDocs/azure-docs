@@ -3,11 +3,10 @@ title: Open and save files with SSIS packages deployed in Azure
 description: Learn how to open and save files on premises and in Azure when you lift and shift SSIS packages that use local file systems into SSIS in Azure
 ms.date: 01/05/2024
 ms.topic: conceptual
-ms.service: data-factory
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Open and save files on premises and in Azure with SSIS packages deployed in Azure

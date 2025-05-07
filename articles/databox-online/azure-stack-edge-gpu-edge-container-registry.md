@@ -2,8 +2,7 @@
 title: Enable an Edge container registry on Azure Stack Edge Pro GPU device
 description: Describes how to enable a local Edge container registry on Azure Stack Edge Pro GPU device.
 author: alkohli
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
@@ -16,7 +15,7 @@ This article describes how to enable the Edge container registry and use it from
 
 ### About Edge container registry
 
-Containerized compute applications run on container images and these images are stored in registries. Registries can be public such as Docker Hub, private, or cloud provider managed such as Azure Container Registry. For more information, see [About registries, repositories, and images](../container-registry/container-registry-concepts.md).
+Containerized compute applications run on container images and these images are stored in registries. Registries can be public such as Docker Hub, private, or cloud provider managed such as Azure Container Registry. For more information, see [About registries, repositories, and images](/azure/container-registry/container-registry-concepts).
 
 An Edge container registry provides a repository at the Edge, on your Azure Stack Edge Pro device. You can use this registry to store and manage your private container images.
 

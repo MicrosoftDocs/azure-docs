@@ -1,7 +1,6 @@
 ---
 title: Configure a virtual network for injection of Azure-SSIS integration runtime
 description: Learn how to configure a virtual network for injection of Azure-SSIS integration runtime. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 01/05/2024
@@ -18,6 +17,9 @@ When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or
 ## <a name="compare"></a>Compare the standard and express virtual network injection methods
 
 Here’s a table highlighting the differences between standard and express virtual network injection methods:
+
+> [!NOTE]
+> The Azure-SSIS IR starting duration usually applies to most situations. However, the actual startup time might be longer in some cases, such as if the SSIS-IR has a custom setup that requires extra processing time or uses specific node types.
 
 | Comparison | Standard virtual network injection | Express virtual network injection |
 |------------|------------------------------------|-----------------------------------|

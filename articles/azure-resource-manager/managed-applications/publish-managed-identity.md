@@ -2,14 +2,14 @@
 title: Managed app with managed identity
 description: Configure an Azure Managed Application with managed identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
 ms.topic: conceptual
-ms.date: 07/19/2023
+ms.date: 02/10/2025
 ms.custom: subject-rbac-steps
 ---
 
 # Azure Managed Application with managed identity
 
 > [!NOTE]
-> Managed identity support for Azure Managed Applications is currently in preview. Please use the 2018-09-01-preview api version to utilize managed identity.
+> Managed identity support for Azure Managed Applications is currently in preview. Use the 2018-09-01-preview api version to utilize managed identity.
 
 Learn how to configure a managed application to contain a managed identity. A managed identity can be used to allow the customer to grant the managed application access to existing resources. The Azure platform manages the identity and doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -35,7 +35,7 @@ Creating a managed application with a managed identity requires another property
   "identity": {
     "type": "SystemAssigned, UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity": {}
     }
   }
 }
@@ -232,16 +232,16 @@ When you link the deployment of the managed application to existing resources, b
             "name": "networkInterfaceId",
             "type": "Microsoft.Common.TextBox",
             "label": "Network interface resource ID",
-            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Network/networkInterfaces/existingnetworkinterface",
-            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifer format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
+            "defaultValue": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.Network/networkInterfaces/existingnetworkinterface",
+            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.Network/networkInterfaces/networkinterface1",
             "visible": true
           },
           {
             "name": "userAssignedId",
             "type": "Microsoft.Common.TextBox",
             "label": "User-assigned managed identity resource ID",
-            "defaultValue": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
-            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifer format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
+            "defaultValue": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testRG/providers/Microsoft.ManagedIdentity/userassignedidentites/myuserassignedidentity",
+            "toolTip": "Must represent the identity as an Azure Resource Manager resource identifier format ex. /subscriptions/sub1/resourcegroups/myGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1",
             "visible": true
           }
         ]
@@ -305,7 +305,7 @@ Once the managed application package is created, the managed application can be 
 
 ## Accessing the managed identity token
 
-The token of the managed application can now be accessed through the `listTokens` api from the publisher tenant. An example request might look like:
+The token of the managed application can now be accessed through the `listTokens` API from the publisher tenant. An example request might look like:
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
@@ -358,6 +358,72 @@ The response contains an array of tokens under the `value` property:
 | `authorizationAudience` | The `aud` (audience) the access token was request for. This value is the same as what was provided in the `listTokens` request. |
 | `resourceId` | The Azure resource ID for the issued token. This value is either the managed application ID or the user-assigned managed identity ID. |
 | `token_type` | The type of the token. |
+
+## Create a managed identity and role assignment for managed applications
+
+This section describes how to create a managed identity and assign a role as part of a managed application using publisher access mode.
+
+1. Create a managed identity using an Azure Resource Manager template.
+
+    ```json
+    {
+      "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "resources": [
+        {
+          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+          "apiVersion": "2018-11-30",
+          "name": "myManagedIdentity",
+          "location": "[resourceGroup().location]"
+        }
+      ]
+    }
+    ```
+
+1. To allow for managed identity propagation, create a sleep time of 30 seconds.
+
+    Since the managed identity is not in the home tenant of the target scope, you must apply a delay between creating the managed identity and assigning the role to allow the managed identity to propagate between tenants. Without this delay, Azure Resource Manager might not recognize this identity when used in the template and fail within a future deployment script.
+
+    ```json
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2020-10-01",
+      "name": "sleepScript",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "azPowerShellVersion": "2.0",
+        "scriptContent": "Start-Sleep -Seconds 30",
+        "timeout": "PT1H",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D"
+      },
+      "dependsOn": [
+        "myManagedIdentity"
+      ]
+    }
+    ```
+
+1. Assign the Contributor role to the managed identity at the scope of the managed resource group.
+
+    ```json
+    {
+      "type": "Microsoft.Authorization/roleAssignments",
+      "apiVersion": "2020-04-01-preview",
+      "name": "[guid(resourceGroup().id, 'Contributor')]",
+      "properties": {
+        "roleDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', 'myManagedIdentity'), '2018-11-30').principalId]",
+        "scope": "[resourceGroup().id]",
+        "delegatedManagedIdentityResourceId": "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities','myManagedIdentity')]"
+      },
+      "dependsOn": [
+        "myManagedIdentity",
+        "sleepScript"
+      ]
+    }
+    ```
+
+   The `delegatedManagedIdentityResourceId` property is used to properly assign roles to managed identities across different tenants. This is particularly useful when dealing with managed applications published in the Azure Marketplace, where the publisher and the customer exist in separate tenants. Learn more about [delegatedManagedIdentityResourceId](concepts-delegated-managed-identity-resource-id.md).
 
 ## Next steps
 

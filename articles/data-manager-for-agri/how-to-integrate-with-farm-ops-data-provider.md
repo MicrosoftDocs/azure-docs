@@ -1,9 +1,9 @@
 ---
 title: How to integrate with Farm Activities data provider
 description: Learn how to integrate with Farm Activities data provider
-author: lbpudi
-ms.author: lbethapudi
-ms.service: data-manager-for-agri
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 08/14/2023
 ms.custom: template-how-to

@@ -1,10 +1,12 @@
 ---
-title: 'Deploy an application that uses OpenAI on Azure App Service'
-description: Get started with OpenAI on Azure App Service
+title: Deploy an Application that Uses OpenAI
+description: Get started with OpenAI on Azure App Service.
 author: jefmarti
 ms.author: jefmarti
-ms.date: 04/10/2024
-ms.topic: article
+ms.date: 04/17/2025
+ms.topic: how-to
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-python, linux-related-content
+ms.collection: ce-skilling-ai-copilot
 zone_pivot_groups: app-service-openai
 ---
 
@@ -20,4 +22,8 @@ zone_pivot_groups: app-service-openai
 
 :::zone pivot="openai-java"
 [!INCLUDE [deploy-intelligent-apps-linux-java-pivot.md](includes/deploy-intelligent-apps/deploy-intelligent-apps-linux-java-pivot.md)]
+::: zone-end
+
+:::zone pivot="openai-node"
+[!INCLUDE [deploy-intelligent-apps-linux-node-pivot.md](includes/deploy-intelligent-apps/deploy-intelligent-apps-linux-node-pivot.md)]
 ::: zone-end

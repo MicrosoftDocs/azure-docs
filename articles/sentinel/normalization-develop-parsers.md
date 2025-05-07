@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to develop custom ASIM parsers so that I can normalize and analyze security event data from various sources in a consistent format.
+
 --- 
 
 # Develop Advanced Security Information Model (ASIM) parsers (Public preview)
@@ -106,7 +110,7 @@ Event | where Source == "Microsoft-Windows-Sysmon" and EventID == 1
 ```
 
 > [!IMPORTANT]
-> A parser should not filter by time. The query which uses the parser will apply a time range. 
+> A parser should not filter by time. The query that uses the parser will apply a time range. 
 
 #### Filtering by source type using a Watchlist
 
@@ -116,7 +120,7 @@ For example, Infoblox DNS events are sent as Syslog messages, and are hard to di
 
 To use the ASimSourceType watchlist in your parsers, use the `_ASIM_GetSourceBySourceType` function in the parser filtering section. For example, the Infoblox DNS parser includes the following in the filtering section:
 
-```KQL
+```kusto
   | where Computer in (_ASIM_GetSourceBySourceType('InfobloxNIOS'))
 ```
 
@@ -142,8 +146,11 @@ srcipaddr=='*' or ClientIP==srcipaddr
 array_length(domain_has_any) == 0 or Name has_any (domain_has_any)
 ```
 
-#### <a name="optimization"></a>Filtering optimization
+See more information on the following items in the Kusto documentation:
+- [***array_length*** function](/kusto/query/array-length-function?view=microsoft-sentinel&preserve-view=true)
+- [***has_any*** operator](/kusto/query/has-any-operator?view=microsoft-sentinel&preserve-view=true)
 
+#### <a name="optimization"></a>Filtering optimization
 
 To ensure the performance of the parser, note the following filtering recommendations:
 
@@ -171,17 +178,16 @@ Once the query selects the relevant records, it may need to parse them. Typicall
 
 The KQL operators that perform parsing are listed below, ordered by their performance optimization. The first provides the most optimized performance, while the last provides the least optimized performance.
 
-|Operator  |Description  |
-|---------|---------|
-|[split](/azure/data-explorer/kusto/query/splitfunction)     |    Parse a string of delimited values.     |
-|[parse_csv](/azure/data-explorer/kusto/query/parsecsvfunction)     |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
-|[parse-kv](/azure/data-explorer/kusto/query/parse-kv-operator)     |     Extracts structured information from a string expression and represents the information in a key/value form.    |
-|[parse](/azure/data-explorer/kusto/query/parseoperator)     |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
-|[extract_all](/azure/data-explorer/kusto/query/extractallfunction)     | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
-|[extract](/azure/data-explorer/kusto/query/extractfunction)     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
-|[parse_json](/azure/data-explorer/kusto/query/parsejsonfunction)  | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
-|[parse_xml](/azure/data-explorer/kusto/query/parse-xmlfunction)     |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
-
+| Operator/function()  | Description  |
+| --------- | --------- |
+| [split()](/kusto/query/split-function) function    |    Parse a string of delimited values.     |
+| [parse_csv()](/kusto/query/parse-csv-function) function    |     Parse a string of values formatted as a CSV (comma-separated values) line.    |
+| [parse-kv](/kusto/query/parse-kv-operator) operator    |     Extracts structured information from a string expression and represents the information in a key/value form.    |
+| [parse](/kusto/query/parse-operator) operator    |    Parse multiple values from an arbitrary string using a pattern, which can be a simplified pattern with better performance, or a regular expression.     |
+| [extract_all()](/kusto/query/extract-all-function) function    | Parse single values from an arbitrary string using a regular expression. `extract_all` has a similar performance to `parse` if the latter uses a regular expression.        |
+| [extract()](/kusto/query/extract-function) function     |    Extract a single value from an arbitrary string using a regular expression. <br><br>Using `extract` provides better performance than `parse` or `extract_all` if a single value is needed. However, using multiple activations of `extract` over the same source string is less efficient than a single `parse` or `extract_all` and should be avoided.      |
+| [parse_json()](/kusto/query/parse-json-function) function | Parse the values in a string formatted as JSON. If only a few values are needed from the JSON, using `parse`, `extract`, or `extract_all` provides better performance.        |
+| [parse_xml()](/kusto/query/parse-xml-function) function    |    Parse the values in a string formatted as XML. If only a few values are needed from the XML, using `parse`, `extract`, or `extract_all` provides better performance.     |
 
 ### Normalizing
 
@@ -189,7 +195,7 @@ The KQL operators that perform parsing are listed below, ordered by their perfor
 
 The simplest form of normalization is renaming an original field to its normalized name. Use the operator `project-rename` for that. Using project-rename ensures that the field is still managed as a physical field and handling the field is more performant. For example:
 
-```KQL
+```kusto
  | project-rename
     ActorUserId = InitiatingProcessAccountSid,
     ActorUserAadId = InitiatingProcessAccountObjectId,
@@ -204,7 +210,7 @@ Also, ensuring that parser output fields matches type defined in the schema is c
 
 For example, the original unique event ID may be sent as an integer, but ASIM requires the value to be a string, to ensure broad compatibility among data sources. Therefore, when assigning the source field use `extend` and `tostring` instead of `project-rename`:
 
-```KQL
+```kusto
   | extend EventOriginalUid = tostring(ReportId),
 ```
 
@@ -214,13 +220,13 @@ The value of the source field, once extracted, may need to be mapped to the set 
 
 For example, the Microsoft DNS parser assigns the `EventResult` field based on the Event ID and Response Code using an `iff` statement, as follows:
 
-```KQL
+```kusto
    extend EventResult = iff(EventId==257 and ResponseCode==0 ,'Success','Failure')
 ```
 
 To map several values, define the mapping using the `datatable` operator and use `lookup` to perform the mapping. For example, some sources report numeric DNS response codes and the network protocol, while the schema mandates the more common text labels representation for both. The following example demonstrates how to derive the needed values using `datatable` and `lookup`:
 
-```KQL
+```kusto
    let NetworkProtocolLookup = datatable(Proto:real, NetworkProtocol:string)[
         6, 'TCP',
         17, 'UDP'
@@ -241,7 +247,7 @@ Notice that lookup is useful and efficient also when the mapping has only two po
 
 When the mapping conditions are more complex combine `iff`, `case`, and `lookup`. The example below shows how to combine `lookup` and `case`. The `lookup` example above returns an empty value in the field `DnsResponseCodeName` if the lookup value is not found. The `case` example below augments it by using the result of the `lookup` operation if available, and specifying additional conditions otherwise. 
 
-```KQL
+```kusto
    | extend DnsResponseCodeName = 
       case (
         DnsResponseCodeName != "", DnsResponseCodeName,
@@ -253,7 +259,7 @@ When the mapping conditions are more complex combine `iff`, `case`, and `lookup`
 
 Microsoft Sentinel provides handy functions for common lookup values. For example, the `DnsResponseCodeName` lookup above, can be implemented using one of the following functions:
 
-```KQL
+```kusto
 
 | extend DnsResponseCodeName = _ASIM_LookupDnsResponseCode(DnsResponseCode)
 
@@ -269,7 +275,7 @@ For a full list of ASIM help functions, refer to [ASIM functions](normalization-
 
 In addition to the fields available from the source, a resulting ASIM event includes enrichment fields that the parser should generate. In many cases, the parsers can assign a constant value to the fields, for example:
 
-```KQL
+```kusto
   | extend                  
      EventCount = int(1),
      EventProduct = 'M365 Defender for Endpoint',
@@ -282,13 +288,13 @@ Another type of enrichment fields that your parsers should set are type fields, 
 
 In most cases, types are also assigned a constant value. However, in some cases the type has to be determined based on the actual value, for example:
 
-```KQL
+```kusto
    DomainType = iif (array_length(SplitHostname) > 1, 'FQDN', '')
 ```
 
 <a name="resolvefqnd"></a>Microsoft Sentinel provides useful functions for handling enrichment. For example, use the following function to automatically assign the fields `SrcHostname`, `SrcDomain`, `SrcDomainType` and `SrcFQDN` based on the value in the field `Computer`. 
 
-```KQL
+```kusto
   | invoke _ASIM_ResolveSrcFQDN('Computer')
 ```
 
@@ -300,7 +306,7 @@ This function will set the fields as follows:
 | server1.microsoft.com | SrcHostname: server1<br>SrcDomain: microsoft.com<br> SrcDomainType: FQDN<br>SrcFQDN:server1.microsoft.com |
 
 
-The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields.For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
+The functions `_ASIM_ResolveDstFQDN` and `_ASIM_ResolveDvcFQDN` perform a similar task populating the related `Dst` and `Dvc` fields. For a full list of ASIM help functions, refer to [ASIM functions](normalization-functions.md)
 
 ### Select fields in the result set
 
@@ -315,7 +321,7 @@ The following KQL operators are used to select fields in your results set:
 
 For example, when parsing a custom log table, use the following to remove the remaining original fields that still have a type descriptor:
 
-```KQL
+```kusto
     | project-away
         *_d, *_s, *_b, *_g
 ``` 
@@ -355,13 +361,13 @@ To avoid duplicate events and excessive processing, make sure each function star
 
 ## Deploy parsers
 
-Deploy parsers manually by copying them to the Azure Monitor Log page and saving the query as a function. This method is useful for testing. For more information, see [Create a function](../azure-monitor/logs/functions.md).
+Deploy parsers manually by copying them to the Azure Monitor Log page and saving the query as a function. This method is useful for testing. For more information, see [Create a function](/azure/azure-monitor/logs/functions).
 
 To deploy a large number of parsers, we recommend using parser ARM templates, as follows:
 
 1. Create a YAML file based on the relevant template for each schema and include your query in it. Start with the [YAML template](https://aka.ms/ASimYamlTemplates) relevant for your schema and parser type, filtering or parameter-less.
 
-1. Use the [ASIM Yaml to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
+1. Use the [ASIM YAML to ARM template converter](https://aka.ms/ASimYaml2ARM) to convert your YAML file to an ARM template. 
 
 1. If deploying an update, delete older versions of the functions using the portal or the [function delete PowerShell tool](https://aka.ms/ASimDelFunctionScript). 
 
@@ -388,7 +394,7 @@ To test ASIM, [deploy the ASIM testing tool](https://aka.ms/ASimTestingTools) to
 
 To make sure that your parser produces a valid schema, use the ASIM schema tester by running the following query in the Microsoft Sentinel **Logs** page:
 
-  ```KQL
+  ```kusto
   <parser name> | getschema | invoke ASimSchemaTester('<schema>')
   ```
 
@@ -403,7 +409,7 @@ Handle the results as follows:
 | Missing recommended alias [\<Field\>] aliasing existing column [\<Field\>] | Add the alias to your parser |
 | Missing optional alias [\<Field\>] aliasing existing column [\<Field\>] | Add the alias to your parser |
 | Missing mandatory alias [\<Field\>] aliasing missing column [\<Field\>] | This error accompanies a similar error for the aliased field. Correct the aliased field error and add this alias to your parser. |
-| Type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`. |
+| Type mismatch for field [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>] | Make sure that the type of normalized field is correct, usually by using a [conversion function](/kusto/query/scalar-functions?view=microsoft-sentinel&preserve-view=true#conversion-functions) such as `tostring`. |
 
 | Info | Action |
 | ----- | ------ |
@@ -424,7 +430,7 @@ Handle the results as follows:
 
 To make sure that your parser produces valid values, use the ASIM data tester by running the following query in the Microsoft Sentinel **Logs** page:
 
-  ```KQL
+  ```kusto
   <parser name> | limit <X> | invoke ASimDataTester ('<schema>')
   ```
 
@@ -440,7 +446,7 @@ Handle the results as follows:
 
 | Message | Action |
 | ------- | ------ |
-| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/azure/data-explorer/kusto/query/scalarfunctions#conversion-functions) such as `tostring`.  |
+| **(0) Error: type mismatch for column  [\<Field\>]. It is currently [\<Type\>] and should be [\<Type\>]** | Make sure that the type of normalized field is correct, usually by using a [conversion function](/kusto/query/scalar-functions?view=microsoft-sentinel&preserve-view=true#conversion-functions) such as `tostring`.  |
 | **(0) Error: Invalid value(s) (up to 10 listed) for field [\<Field\>] of type [\<Logical Type\>]** | Make sure that the parser maps the correct source field to the output field. If mapped correctly, update the parser to transform the source value to the correct type, value or format. Refer to the [list of logical types](normalization-about-schemas.md#logical-types) for more information on the correct values and formats for each logical type. <br><br>Note that the testing tool lists only a sample of 10 invalid values.   |
 | **(1) Warning: Empty value in mandatory field [\<Field\>]** | Mandatory fields should be populated, not just defined. Check whether the field can be populated from other sources for records for which the current source is empty. |
 | **(2) Info: Empty value in recommended field [\<Field\>]** | Recommended fields should usually be populated. Check whether the field can be populated from other sources for records for which the current source is empty. |
@@ -493,7 +499,7 @@ To submit the event samples, use the following steps:
 
 - In the `Logs` screen, run a query that will extract from the source table only the events selected by the parser. For example, for the [Infoblox DNS parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/ASimDns/Parsers/ASimDnsInfobloxNIOS.yaml), use the following query:
 
-``` KQL
+```kusto
     Syslog
     | where ProcessName == "named"
 ```
@@ -502,14 +508,14 @@ To submit the event samples, use the following steps:
 
 - In the `Logs` screen, run a query that will output the schema or the parser input table. For example, for the same Infoblox DNS parser, the query is:
 
-``` KQL
+```kusto
     Syslog
     | getschema
 ```
 
 - Export the results using the **Export to CSV** option to a file named `<TableName>_schema.csv`, where `TableName` is the name of source table the parser uses.
 
-- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHanlde>.csv`
+- Include both files in your PR in the folder `/Sample Data/ASIM`. If the file already exists, add your GitHub handle to the name, for example: `<EventVendor>_<EventProduct>_<EventSchema>_SchemaTest_<GitHubHandle>.csv`
 
 ### Test results submission guidelines
 

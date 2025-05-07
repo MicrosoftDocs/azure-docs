@@ -2,7 +2,7 @@
 title: "NXLog DNS Logs connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog DNS Logs to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -77,11 +77,3 @@ ASimDnsMicrosoftNXLog
 
 
 Follow the step-by-step instructions in the *NXLog User Guide* Integration Topic [Microsoft Sentinel](https://docs.nxlog.co/userguide/integrate/microsoft-azure-sentinel.html) to configure this connector.
-
-
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nxlogltd1589381969261.nxlog_dns_logs?tab=Overview) in the Azure Marketplace.

@@ -9,6 +9,8 @@ ms.topic: reference
 
 If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Service status 
 
 To view the status of the service: 

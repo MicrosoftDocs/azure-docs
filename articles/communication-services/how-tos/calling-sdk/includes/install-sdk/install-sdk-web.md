@@ -52,7 +52,7 @@ The `Call Agent` instance helps you manage calls (to join or start calls). In or
 
 **Disconnected** - A `Call Agent` connectionStatue value of `Disconnected` states there's an issue that is preventing the SDK it from properly connecting. `Call Agent` should be re-created.
 - `invalidToken`: If a token is expired or is invalid `Call Agent` instance disconnects with this error.
-- `connectionIssue`:  If there's an issue with the client connecting to Microsoft infrascture, after many retries `Call Agent` exposes the `connectionIssue` error.
+- `connectionIssue`:  If there's an issue with the client connecting to Microsoft infrastructure, after many retries `Call Agent` exposes the `connectionIssue` error.
 
 You can check if your local `Call Agent` is connected to Microsoft infrastructure by inspecting the current value of `connectionState` property. During an active call you can listen to the `connectionStateChanged` event to determine if `Call Agent` changes from **Connected** to **Disconnected** state.
 

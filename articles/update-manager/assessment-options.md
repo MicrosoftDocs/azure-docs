@@ -2,8 +2,8 @@
 title: Assessment options in Update Manager.
 description: The article describes the assessment options available in Update Manager.
 ms.service: azure-update-manager
-ms.date: 02/03/2024
-ms.topic: conceptual
+ms.date: 12/06/2024
+ms.topic: overview
 author: snehasudhirG
 ms.author: sudhirsneha
 ---
@@ -18,12 +18,13 @@ Update Manager provides you with the flexibility to assess the status of availab
 
 ## Periodic assessment
  
- Periodic assessment is an update setting on a machine that allows you to enable automatic periodic checking of updates by Update Manager. We recommend that you enable this property on your machines as it allows Update Manager to fetch latest updates for your machines every 24 hours and enables you to view the latest compliance status of your machines. You can enable this setting using update settings flow as detailed [here](manage-update-settings.md#configure-settings-on-a-single-vm) or enable it at scale by using [Policy](periodic-assessment-at-scale.md). Learn more on [Azure VM extensions](overview.md#vm-extensions).
+ Periodic assessment is an update setting on a machine that allows you to enable automatic periodic checking of updates by Update Manager. We recommend that you enable this property on your machines as it allows Update Manager to fetch latest updates for your machines every 24 hours and enables you to view the latest compliance status of your machines. You can enable this setting using update settings flow as detailed [here](manage-update-settings.md#configure-settings-on-a-single-vm) or enable it at scale by using [Policy](periodic-assessment-at-scale.md). Learn more on [Azure VM extensions](prerequisites.md#vm-extensions).
 
 :::image type="content" source="media/updates-maintenance/periodic-assessment-inline.png" alt-text="Screenshot showing periodic assessment option." lightbox="media/updates-maintenance/periodic-assessment-expanded.png":::
 
 > [!NOTE]
-> For Arc-enabled servers, ensure that the subscription in which the Arc-server is onboarded is registered to Microsoft.Compute resource provider. For more information on how to register to the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+> - For Arc-enabled servers, ensure that the subscription in which the Arc-server is onboarded is registered to Microsoft.Compute resource provider. For more information on how to register to the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+> - Assessments retrieve the latest updates only for Azure Virtual Machines in the **Running** state. Machines in the **Stopped** or **Stopped (deallocated)** states are not scanned for missing updates.
 
 ## Check for updates now/On-demand assessment
 

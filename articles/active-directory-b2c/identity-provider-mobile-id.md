@@ -6,12 +6,12 @@ description: Provide sign-up and sign-in to customers with Mobile ID in your app
 author: garrodonnell
 manager: celestedg
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 04/08/2022
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer integrating Azure Active Directory B2C, I want to set up sign-up and sign-in with Mobile ID, so that I can provide a strong multi-factor authentication solution for my customers and protect access to company data and applications.
@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with Mobile ID using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -46,7 +48,7 @@ To enable sign-in for users with Mobile ID in Azure AD B2C, you need to create a
 
     |Key  |Note  |
     |---------|---------|
-    | Client ID | The Mobile ID client ID. For example, 11111111-2222-3333-4444-555555555555. |
+    | Client ID | The Mobile ID client ID. For example, 00001111-aaaa-2222-bbbb-3333cccc4444. |
     | Client Secret| The Mobile ID client secret.| 
 
 

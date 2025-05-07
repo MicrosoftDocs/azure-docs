@@ -2,7 +2,7 @@
 title: Move an Azure HPC Cache to a different region
 description: Information about how to move or recreate an Azure HPC Cache in another region
 author: ronhogue
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 03/03/2022

@@ -5,17 +5,17 @@ description: Learn how to use Azure Virtual WAN to create a User VPN (point-to-s
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/27/2025
 ms.author: cherylmc
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - PowerShell
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using PowerShell. This type of connection requires the native VPN client to be configured on each connecting client computer. Most of the steps in this article can be performed using Azure Cloud Shell, except for uploading certificates for certificate authentication.
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Prerequisites
 
@@ -23,11 +23,11 @@ This article shows you how to use Virtual WAN to connect to your resources in Az
 
 ### Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="openvwan"></a>Create a virtual WAN
 

@@ -108,7 +108,10 @@ For full details, refer to the article: [Disaster Recovery with Azure NetApp Fil
 - [Azure Blob Storage account](../storage/common/storage-account-create.md) created using either Standard or Premium Performance tier. For [access tier, select **Hot**](../storage/blobs/access-tiers-overview.md). 
 
    >[!NOTE]
-   >The **Enable hierarchical namespace** option on the blob isn't supported.   
+   >The **Enable hierarchical namespace** option on the blob isn't supported.
+   
+   >[!NOTE]
+   >Protecting a **shared disk** (eg WFC) is not supported.   
 
 - An NSX-T network segment configured on Azure VMware Solution private cloud with DHCP enabled on the segment for the transient JetStream Virtual appliances is employed during recovery or failover.  
 
@@ -146,7 +149,7 @@ For more on-premises JetStream DR prerequisites, see the [JetStream Pre-Installa
  
 You can follow these steps for both supported scenarios. 
  
-1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://jetstreamsoft.com/portal/online-docs/jsdr-admin_4.2/installation.html).  
+1. In your on-premises data center, install JetStream DR following the [JetStream documentation](https://openjournalsystems.com/ojs-2-user-guide/installation/).  
 
 1. In your Azure VMware Solution private cloud, install JetStream DR using a Run command. From the [Azure portal](https://portal.azure.com),select **Run command** > **Packages** > **JSDR.Configuration**.  
     
@@ -324,7 +327,7 @@ This cmdlet disables JetStream DR only on one of the clusters and doesn't comple
  
 JetStream DR is a solution that [JetStream Software](https://www.jetstreamsoft.com/) supports. For any product or support issues with JetStream, contact support-avs@jetstreamsoft.com.  
  
-Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for support. 
+Azure VMware Solution uses the Run command to automate both the install and uninstall of JetStream DR. Contact Microsoft support for any issue with the run commands. For issues with JetStream install and uninstall cmdlets, contact JetStream for [support](https://jetstreamsoft.com/portal/online-docs/contactJS/ContactJetStreamSoftware.html). 
 
 
 

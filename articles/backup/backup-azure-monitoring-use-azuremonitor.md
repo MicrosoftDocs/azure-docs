@@ -1,24 +1,32 @@
 ---
-title: Monitor Azure Backup with Azure Monitor
+title: Azure Monitor Logs in Azure Backup
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-ms.topic: conceptual
-ms.date: 08/01/2023
+ms.topic: how-to
+ms.date: 12/30/2024
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ms.custom: engagement-fy24
 ---
 
-# Monitor at scale by using Azure Monitor
+# Azure Monitor Logs
 
-Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any additional management infrastructure. But this built-in service is limited in the following scenarios:
+Azure Backup provides [built-in monitoring and alerting capabilities](backup-azure-monitoring-built-in-monitor.md) in a Recovery Services vault. These capabilities are available without any additional management infrastructure. The only pre-requisite for this capability is to have Log Analytics workspace configured. This feature is supported in the following scenarios:
 
-- If you monitor data from multiple Recovery Services vaults across subscriptions
-- If the preferred notification channel is *not* email
-- If users want alerts for more scenarios
-- If you want to view information from an on-premises component such as System Center Data Protection Manager in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center) or [**Backup Alerts**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
+- Monitoring data from multiple Recovery Services vaults across Subscriptions
+- Visibility into custom scenarios
+- Configuring alerts for custom scenarios
+- Viewing information from an on-premises component.  For example, System Center Data Protection Manager information  in Azure, which the portal doesn't show in [**Backup Jobs**](backup-azure-monitoring-built-in-monitor.md#backup-jobs) or [**Backup Alerts**](move-to-azure-monitor-alerts.md#backup-alerts-in-recovery-services-vault)
 
 ## Using Log Analytics workspace
+
+### Prerequisites for using Log Analytics workspace
+
+Before you use Log Analytics for monitoring, consider the following prerequisites:
+
+- Ensure that you have a Log Analytics workspace set up. If not available, [create one](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal).
+- [Configure Diagnostic Settings](backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) to push data to Log Analytics.
+- [Configure the retention](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2) of the tables or the Log Analytics workspace based on the desired historical retention.
 
 ### Create alerts by using Log Analytics
 
@@ -54,7 +62,7 @@ Use an action group to specify a notification channel. To see the available noti
 
 You can satisfy all alerting and monitoring requirements from Log Analytics alone, or you can use Log Analytics to supplement built-in notifications.
 
-For more information, see [Create, view, and manage log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-log.md) and [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
+For more information, see [Create, view, and manage log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-log) and [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 ### Sample Kusto queries
 
@@ -218,7 +226,7 @@ To identify the appropriate log and create an alert:
 
 2. Select the operation name to see the relevant details.
 3. Select **New alert rule** to open the **Create rule** page.
-4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md).
+4. Create an alert by following the steps in [Create, view, and manage activity log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-activity-log).
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -231,8 +239,8 @@ You can view all alerts created from activity logs and Log Analytics workspaces 
 Although you can get notifications through activity logs, we highly recommend using Log Analytics rather than activity logs for monitoring at scale. Here's why:
 
 - **Limited scenarios**: Notifications through activity logs apply only to Azure VM backups. The notifications must be set up for every Recovery Services vault.
-- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
-- **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Microsoft Azure operated by 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](../azure-monitor/essentials/activity-log.md), these logs don't appear.
+- **Definition fit**: The scheduled backup activity doesn't fit with the latest definition of activity logs. Instead, it aligns with [resource logs](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace). This alignment causes unexpected effects when the data that flows through the activity log channel changes.
+- **Problems with the activity log channel**: In Recovery Services vaults, activity logs that are pumped from Azure Backup follow a new model. Unfortunately, this change affects the generation of activity logs in Azure Government, Azure Germany, and Microsoft Azure operated by 21Vianet. If users of these cloud services create or configure any alerts from activity logs in Azure Monitor, the alerts aren't triggered. Also, in all Azure public regions, if a user [collects Recovery Services activity logs into a Log Analytics workspace](/azure/azure-monitor/essentials/activity-log), these logs don't appear.
 
 Use a Log Analytics workspace for monitoring and alerting at scale for all your workloads that are protected by Azure Backup.
 

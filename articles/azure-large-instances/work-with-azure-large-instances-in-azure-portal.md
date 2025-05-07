@@ -2,7 +2,7 @@
 title: Work with Azure Large Instances in the Azure portal
 titleSuffix: Azure Large Instances
 description: Shows how to what you can do in the Azure portal with Azure Large Instances.
-ms.topic: conceptual
+ms.topic: how-to
 author: jjaygbay1
 ms.title: Work with Azure Large Instances in the Azure portal
 ms.author: jacobjaygbay
@@ -114,7 +114,7 @@ On the right, you see the name of the Azure Large Instances, operating system (O
 You also see the power state and hardware version (revision of the Azure Large Instances stamp).
 The power state indicates whether the hardware unit is powered on or off. The operating system details, however, don't indicate whether it's up and running. 
 
-Also on the right is the  [Azure proximity placement group's name](../virtual-machines/co-location.md).
+Also on the right is the  [Azure proximity placement group's name](/azure/virtual-machines/co-location).
 The placement group's name is created automatically for each deployed Azure Large Instances tenant. 
 Reference the proximity placement group when you deploy the Azure VMs that host the application layer. 
 Use the proximity placement group associated with the Azure Large Instances to ensure the Azure VMs are deployed close to the Azure Large Instances. 

@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: digital-twins
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 11/11/2020
 author: deepakpalled

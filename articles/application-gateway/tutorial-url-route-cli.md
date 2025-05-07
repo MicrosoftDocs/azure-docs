@@ -3,7 +3,7 @@ title: Route web traffic based on the URL - Azure CLI
 description: In this article, learn how to route web traffic based on the URL to specific scalable pools of servers using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: greglin

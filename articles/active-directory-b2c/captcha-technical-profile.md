@@ -6,17 +6,18 @@ description: Define a CAPTCHA technical profile custom policy in Azure Active Di
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer integrating a customer-facing application with Azure AD B2C, I want to define a CAPTCHA technical profile, so that I can secure sign-up and sign-in flows from automated attacks.
 ---
 
 # Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

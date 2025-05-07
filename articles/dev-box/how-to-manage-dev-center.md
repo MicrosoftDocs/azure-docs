@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/12/2024
+ms.date: 10/14/2024
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.
 ---
@@ -35,45 +35,7 @@ You can create as many or as few dev centers as you need, depending on how you o
 
 To create a dev center in the Azure portal: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the search box, enter **dev centers**. In the search results, select **Dev centers** from the **Services** list.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/search-dev-center.png" alt-text="Screenshot that shows the Azure portal with the search box and the result for dev centers." lightbox="./media/how-to-manage-dev-center/search-dev-center.png":::
-
-1. On the **Dev centers** page, select **Create**.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center.png" alt-text="Screenshot that shows the Azure portal with the Create button on the page for dev centers." lightbox="./media/how-to-manage-dev-center/create-dev-center.png":::
-
-1. On the **Create a dev center** pane, on the **Basics** tab, enter the following values:
-
-   | Setting | Value |
-   |---|---|
-   | **Subscription** | Select the subscription in which you want to create the dev center. |
-   | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
-   | **Name** | Enter a name for your dev center. |
-   | **Location** | Select the location or region where you want the dev center to be created. |
-   | **Attach a quick start catalog** | Clear both checkboxes. |
-
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-basics-not-selected.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/how-to-manage-dev-center/create-dev-center-basics-not-selected.png":::
-
-   For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
-
-   The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. You can attach a quick start catalog to a dev center later. For more information, see [Create reusable dev box customizations](./how-to-customize-dev-box-setup-tasks.md).
-
-1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/create-dev-center-tags.png" alt-text="Screenshot that shows the Tags tab on the page for creating a dev center." lightbox="./media/how-to-manage-dev-center/create-dev-center-tags.png":::
-
-1. Select **Review + Create**.
-
-1. On the **Review** tab, select **Create**.
-
-1. Monitor the progress of the dev center creation from any page in the Azure portal by opening the **Notifications** pane.
-
-   :::image type="content" source="./media/how-to-manage-dev-center/azure-notifications.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal." lightbox="./media/how-to-manage-dev-center/azure-notifications.png":::
-
-1. When the deployment completes, select **Go to resource**. Confirm that the dev center page appears.
+[!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
 ## Delete a dev center
 

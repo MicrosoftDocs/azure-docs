@@ -3,9 +3,9 @@ title: Authentication and authorization in Azure Container Apps
 description: Use built-in authentication in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/20/2022
+ms.date: 01/30/2025
 ms.author: cshoe
 ---
 
@@ -19,7 +19,7 @@ For details surrounding authentication and authorization, refer to the following
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
 * [Google](authentication-google.yml)
-* [Twitter](authentication-twitter.md)
+* [X](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)
 
 ## Why use the built-in authentication?
@@ -32,7 +32,7 @@ The benefits include:
 
 * Azure Container Apps provides access to various built-in authentication providers.
 * The built-in auth features don’t require any particular language, SDK, security expertise, or even any code that you have to write.
-* You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and Twitter.
+* You can integrate with multiple providers including Microsoft Entra ID, Facebook, Google, and X.
 
 ## Identity providers
 
@@ -44,7 +44,7 @@ Container Apps uses [federated identity](https://en.wikipedia.org/wiki/Federated
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` | [Facebook](authentication-facebook.md) |
 | [GitHub](https://docs.github.com/en/developers/apps/building-oauth-apps/authorizing-oauth-apps) | `/.auth/login/github` | [GitHub](authentication-github.md) |
 | [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` | [Google](authentication-google.yml) |
-| [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` | [Twitter](authentication-twitter.md) |
+| [X](https://developer.x.com/en/docs/basics/authentication) | `/.auth/login/x` | [X](authentication-twitter.md) |
 | Any [OpenID Connect](https://openid.net/connect/) provider | `/.auth/login/<providerName>` | [OpenID Connect](authentication-openid.md) |
 
 When you use one of these providers, the sign-in endpoint is available for user authentication and authentication token validation from the provider. You can provide your users with any number of these provider options.
@@ -105,7 +105,7 @@ In the [Azure portal](https://portal.azure.com), you can edit your container app
   With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](#access-user-claims-in-application-code)).
 
   > [!CAUTION]
-  > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications.
+  > Restricting access to your application applies to all requests to your app. These restrictions may not be preferable for apps with a publicly available web page, as is typical in many single-page applications.
 
   > [!NOTE]
   > By default, any user in your Microsoft Entra tenant can request a token for your application from Microsoft Entra ID. You can [configure the application in Microsoft Entra ID](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) if you want to restrict access to your app to a defined set of users.
@@ -116,7 +116,7 @@ Container Apps Authentication provides built-in endpoints for sign in and sign o
 
 ### Use multiple sign-in providers
 
-The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and Twitter). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
+The portal configuration doesn't offer a turn-key way to present multiple sign-in providers to your users (such as both Facebook and X). However, it isn't difficult to add the functionality to your app. The steps are outlined as follows:
 
 First, in the **Authentication / Authorization** page in the Azure portal, configure each of the identity provider you want to enable.
 
@@ -128,10 +128,13 @@ In the sign-in page, or the navigation bar, or any other location of your app, a
 <a href="/.auth/login/aad">Log in with the Microsoft Identity Platform</a>
 <a href="/.auth/login/facebook">Log in with Facebook</a>
 <a href="/.auth/login/google">Log in with Google</a>
-<a href="/.auth/login/twitter">Log in with Twitter</a>
+<a href="/.auth/login/x">Log in with X</a>
 ```
 
 When the user selects on one of the links, the UI for the respective providers is displayed to the user.
+
+> [!WARNING]
+> For client-side apps, the client's route manager may intercept the `/.auth/login/` routes, preventing the auth side-car from receiving requests. Ensure your client-side routing configuration allows the server to process these routes.
 
 To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_uri` query string parameter (not to be confused with the Redirect URI in your identity provider configuration). For example, to navigate the user to `/Home/Index` after sign-in, use the following HTML code:
 
@@ -160,7 +163,7 @@ The token format varies slightly according to the provider. See the following ta
 | `microsoftaccount` | `{"access_token":"<ACCESS_TOKEN>"}` or `{"authentication_token": "<TOKEN>"`| `authentication_token` is preferred over `access_token`. The `expires_in` property is optional. <br/> When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<ID_TOKEN>"}` | The `authorization_code` property is optional. Providing an `authorization_code` value adds an access token and a refresh token to the token store. When specified, `authorization_code` can also optionally be accompanied by a `redirect_uri` property. |
 | `facebook`| `{"access_token":"<USER_ACCESS_TOKEN>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCES_TOKEN_SECRET>"}` | |
+| `twitter` | `{"access_token":"<ACCESS_TOKEN>", "access_token_secret":"<ACCESS_TOKEN_SECRET>"}` | |
 | | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
@@ -215,7 +218,7 @@ For all language frameworks, Container Apps makes the claims in the incoming tok
 Code that is written in any language or framework can get the information that it needs from these headers.
 
 > [!NOTE]
-> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+> Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
 
 ## Next steps
 
@@ -225,5 +228,5 @@ Refer to the following articles for details on securing your container app.
 * [Facebook](authentication-facebook.md)
 * [GitHub](authentication-github.md)
 * [Google](authentication-google.yml)
-* [Twitter](authentication-twitter.md)
+* [X](authentication-twitter.md)
 * [Custom OpenID Connect](authentication-openid.md)

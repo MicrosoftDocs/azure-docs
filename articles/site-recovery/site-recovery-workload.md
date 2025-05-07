@@ -1,8 +1,8 @@
 ---
 title: About disaster recovery for on-premises apps with Azure Site Recovery
 description: Describes the workloads that can be protected using disaster recovery with the Azure Site Recovery service.
-ms.topic: conceptual
-ms.service: site-recovery
+ms.topic: concept-article
+ms.service: azure-site-recovery
 ms.date: 01/10/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -137,7 +137,7 @@ Use Site Recovery to protect your SAP deployment, as follows:
 
 Use Site Recovery to protect your Internet Information Services (IIS) deployment, as follows:
 
-Azure Site Recovery provides disaster recovery by replicating the critical components in your environment to a cold remote site or a public cloud like Microsoft Azure. Since the virtual machines with the web server and the database are replicated to the recovery site, there's no requirement for a separate backup for configuration files or certificates. The application mappings and bindings dependent on environment variables that are changed post failover can be updated through scripts integrated into the disaster recovery plans. Virtual machines are brought up on the recovery site only during a failover. Azure Site Recovery also helps you orchestrate the end-to-end failover by providing you the following capabilities:
+Azure Site Recovery provides disaster recovery by replicating the critical components in your environment to a cold remote site or a public cloud like Microsoft Azure. Since the virtual machines with the web server and the database are replicated to the recovery site, there's no requirement for a separate backup for configuration files or certificates. The application mappings and bindings dependent on environment variables that are changed post failover can be updated through scripts integrated into the disaster recovery plans. Virtual machines are brought up on the recovery site only during a failover. Azure Site Recovery also helps you orchestrate the end-to-end failover by providing you with the following capabilities:
 
 - Sequencing the shutdown and startup of virtual machines in the various tiers.
 - Adding scripts to allow updates of application dependencies and bindings on the virtual machines after they've started. The scripts can also be used to update the DNS server to point to the recovery site.

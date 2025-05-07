@@ -3,7 +3,7 @@ title: Blue-Green Deployment in Azure Container Apps
 description: Minimize downtime and reduce the risks associated with new releases by using Blue/Green deployment in Azure Container Apps.
 services: container-apps
 author: ruslany
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-bicep
 ms.topic: how-to
 ms.date: 06/23/2023
@@ -282,10 +282,10 @@ export APP_DOMAIN=$(az containerapp env show -g $RESOURCE_GROUP -n $APP_ENVIRONM
 #Test the production FQDN
 curl -s https://$APP_NAME.$APP_DOMAIN/api/env | jq | grep COMMIT
 
-#Test the blue lable FQDN
+#Test the blue label FQDN
 curl -s https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
 
-#Test the green lable FQDN
+#Test the green label FQDN
 curl -s https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 ```
 

@@ -5,8 +5,8 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-storage
-ms.topic: conceptual
-ms.date: 12/12/2019
+ms.topic: concept-article
+ms.date: 03/04/2025
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -49,7 +49,7 @@ Built-in roles that grant permissions to call storage management operations incl
 | **User Access Administrator** | Can manage access to the storage account.   | Yes, permits a security principal to assign any permissions to themselves and others. |
 | **Virtual Machine Contributor** | Can manage virtual machines, but not the storage account to which they are connected.   | Yes, provides permissions to view and regenerate the storage account keys. |
 
-The third column in the table indicates whether the built-in role supports the **Microsoft.Storage/storageAccounts/listkeys/action**. This action grants permissions to read and regenerate the storage account keys. Permissions to access Azure Storage management resources do not also include permissions to access data. However, if a user has access to the account keys, then they can use the account keys to access Azure Storage data via Shared Key authorization.
+The third column in the table indicates whether the built-in role supports the **Microsoft.Storage/storageAccounts/listkeys/action**. This action grants permissions to read and regenerate the storage account keys. Permissions to access Azure Storage management resources do not also include permissions to access data. Azure RBAC provides separate [built-in roles](../blobs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-blobs) for authorizing data access. However, if a user has access to the account keys, then they can use the account keys to access Azure Storage data via Shared Key authorization.
 
 ### Custom roles for management operations
 
@@ -63,12 +63,6 @@ For code examples that show how to authorize and call management operations from
 - [Java](https://github.com/Azure-Samples/storage-java-manage-storage-accounts)
 - [Node.js](https://github.com/Azure-Samples/storage-node-resource-provider-getting-started)
 - [Python](https://github.com/Azure-Samples/azure-samples-python-management/tree/main/samples/storage)
-
-## Azure Resource Manager versus classic deployments
-
-The Resource Manager and classic deployment models represent two different ways of deploying and managing your Azure solutions. Microsoft recommends using the Azure Resource Manager deployment model when you create a new storage account. If possible, Microsoft also recommends that you recreate existing classic storage accounts with the Resource Manager model. Although you can create a storage account using the classic deployment model, the classic model is less flexible and will eventually be deprecated.
-
-For more information about Azure deployment models, see [Resource Manager and classic deployment](../../azure-resource-manager/management/deployment-models.md).
 
 ## Next steps
 

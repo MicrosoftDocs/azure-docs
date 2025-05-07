@@ -1,10 +1,11 @@
 ---
 title: Apache Ambari Metrics Collector issues in Azure HDInsight
 description: Troubleshooting Apache Ambari Metrics Collector issues in Azure HDInsight
-ms.service: hdinsight
-ms.author: sairamyeturi
-author: yeturis
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 03/23/2024
 ---
 

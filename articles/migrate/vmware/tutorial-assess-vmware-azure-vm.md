@@ -1,9 +1,6 @@
 ---
 title: Assess VMware servers for migration to Azure VMs in Azure Migrate
 description: Learn how to assess VMware servers for migration to Azure VMs with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 02/26/2024
 ms.service: azure-migrate
@@ -11,11 +8,13 @@ ms.custom: vmware-scenario-422, MVC, engagement-fy24
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure.
 ---
 
-# Tutorial: Assess VMware VMs for migration to Azure VMs
+# Assess VMware VMs for migration to Azure VMs
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
 This article shows you how to assess discovered servers from your VMware environment in preparation for migration to Azure VMs, using the Azure Migrate: Discovery and assessment tool.
+
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 
 In this tutorial, you learn how to:
@@ -47,12 +46,11 @@ Decide whether you want to run an assessment using sizing criteria based on serv
 **As-is on-premises** | Assess based on server configuration data/metadata.  | Recommended Azure VM size is based on the on-premises VM size.<br/><br> The recommended Azure disk type is based on what you select in the storage type setting in the assessment.
 **Performance-based** | Assess based on collected dynamic performance data. | Recommended Azure VM size is based on CPU and memory utilization data.<br/><br/> The recommended disk type is based on the IOPS and throughput of the on-premises disks.
 
-
 ## Run an assessment
 
 Run an assessment as follows:
 
-1. On the **Get started** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
 
    ![Screenshot of Get started screen.](../media/tutorial-assess-vmware-azure-vm/assess.png)
 
@@ -73,7 +71,7 @@ Run an assessment as follows:
 1. In **Assessment properties** > **Target Properties**:
    - In **Target location**, specify the Azure region to which you want to migrate.
    - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you will be prompted to specify **Reserved Instances** and **VM series**.
-   - In Azure Government, you can target assessments in [these regions](../migrate-support-matrix.md#azure-government).
+   - In Azure Government, you can target assessments in [these regions](../supported-geographies.md#azure-government).
    - In **Storage type**,
      - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on disk IOPS and throughput.
      - Alternatively, select the storage type you want to use for VM when you migrate it.
@@ -190,7 +188,7 @@ Confidence ratings are as follows.
 61%-80% | 4 stars
 81%-100% | 5 stars
 
-[Learn more](../concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
+[Learn more](../assessment-report.md#confidence-ratings-performance-based) about confidence ratings.
 
 ### Review issues
 

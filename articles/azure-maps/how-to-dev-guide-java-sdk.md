@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 01/25/2023
 ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-extended-java
-services: azure-maps
+ms.subservice: rest-sdk
+ms.custom: devx-track-java
 ---
 
 # Java REST SDK Developers Guide (preview)
@@ -86,7 +86,7 @@ Once the maven project is created, there should be a `pom.xml` file with basic i
 </dependency> 
 ```
 
-Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure maps into the file:
+Run `mvn clean install` on your project, then create a java file named `demo.java` and import what you need from Azure Maps into the file:
 
 ```powershell
 cd DemoProject

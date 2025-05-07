@@ -8,13 +8,14 @@ author: RoseHJM
 ms.date: 09/30/2023
 ---
 
-# Move DevTest Labs and schedules to another region
+# Move DevTest Labs and Schedules
 
-You can move DevTest Labs and their associated schedules to another region. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules.
+You can move DevTest Labs and their associated schedules to another region or resource group. You can move resource groups through the Azure Portal. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules..
 
 In this article, you learn how to:
 > [!div class="checklist"]
 > >
+> - Move resources to different resource groups.
 > - Export an Azure Resource Manager (ARM) template of your lab.
 > - Modify the template by adding or updating the target region and other parameters.
 > - Deploy the template to create the new lab in the target region.
@@ -39,11 +40,18 @@ In this article, you learn how to:
 
 ## Move a lab
 
-The following section describes how to create and customize an ARM template to move a lab from one region to another. 
+The following section describes how to move resources to a different resource group and create and customize an ARM template to move a lab from one region to another.  
 
 You can move a schedule without moving a lab, if you have a VM in the target region. If you want to move a schedule without moving a lab, see [Move a schedule](#move-a-schedule).
 
-### Prepare to move a lab
+### Move Resource Groups using Azure Portal
+Moving resources between resource groups in different locations is now seamlessly enabled in DevTest Labs. You can effortlessly transfer any resource from one group to another within the same subscription.
+
+To begin, select the resource you wish to move. On the resource's **Overview** page, you'll find the current **Resource Group** displayed at the top. Next to the resource group name, you'll see the word `(move)` in parentheses.
+
+Click the hyperlinked `move` text, which will direct you to a new page where you can relocate the resource to any other resource group within the same subscription. Please note that moving the resource will not change its location, even if the destination resource group is in a different location. If you're not moving resources through the Azure Portal or if you're transferring to a resource group in a different subscription, alternative methods using ARM are outlined below.
+
+### Move Labs to a Different Region
 
 When you move a lab, there are some steps you must take to prepare for the move. You need to:
 
@@ -264,7 +272,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
      After that, you'll have a new disk under the new region.
 
-   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](../virtual-machines/windows/os-disk-swap.md)".
+   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/azure/virtual-machines/windows/os-disk-swap)".
 
 ## Move a schedule
 
@@ -314,7 +322,7 @@ Use the following steps to export and redeploy your schedule in another Azure re
 
 ## Discard or clean up
 
-After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#prepare-to-move-a-lab) and [Move](#deploy-the-template-to-move-the-lab) sections of this article.
+After the deployment, if you want to start over, you can delete the target lab, and repeat the steps described in the [Prepare](#move-labs-to-a-different-region) and [Move](#deploy-the-template-to-move-the-lab) sections of this article.
 
 To commit the changes and complete the move, you must delete the original lab.
 

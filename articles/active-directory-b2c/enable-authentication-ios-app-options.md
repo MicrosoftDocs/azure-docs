@@ -4,12 +4,12 @@ description:  This article discusses several ways to enable iOS Swift mobile app
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication options in an iOS Swift app by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes ways you can enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your iOS Swift application. 
 

@@ -99,7 +99,7 @@ If your private cloud prevalidations check failed (before deployment), a correla
 
 ## Create your support request
 
-For general information about creating a support request, see [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+For general information about creating a support request, see [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 To create a support request for an Azure VMware Solution deployment or provisioning failure:
 

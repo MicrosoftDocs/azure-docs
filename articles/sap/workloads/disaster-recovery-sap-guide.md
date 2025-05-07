@@ -7,8 +7,8 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
-ms.date: 05/08/2024
+ms.topic: concept-article
+ms.date: 04/29/2025
 ---
 
 # Disaster recovery guidelines for SAP application
@@ -86,7 +86,7 @@ Irrespective of the operating system (SLES or RHEL) and its version, pacemaker r
 | Azure fence agent             | Enable Managed System Identities (MSI) on DR VMs.</br>Assign custom roles.</br> Update the fence agent resource in cluster. |
 | SBD using Azure shared disk*  | Configure new Azure Shared Disk on DR region. Attach Azure Shared Disk to DR VMs after failover.</br>[Set up Azure shared disk SBD device](high-availability-guide-suse-pacemaker.md#set-up-an-azure-shared-disk-sbd-device). |
 
-*ZRS for Azure shared disk is available in [limited regions](../../virtual-machines/disks-redundancy.md#limitations).
+*ZRS for Azure shared disk is available in [limited regions](/azure/virtual-machines/disks-redundancy#limitations).
 
 > [!NOTE]
 >
@@ -121,11 +121,7 @@ On Windows, the high availability configuration of SAP central services (ASCS an
 | ------------------------- | ------------------------------------------------------------ |
 | SMB on Azure Files        | [Robocopy](../../storage/files/storage-files-migration-robocopy.md) |
 | SMB on Azure NetApp Files | [Cross Region Replication](../../azure-netapp-files/cross-region-replication-introduction.md) |
-| Azure Shared Disk         | [Azure Site Recovery with Shared Disks (preview)](../../site-recovery/shared-disk-support-matrix.md) |
-
-> [!NOTE]
->
-> Azure Site Recovery with shared disk is currently in public preview. So, we don't recommend implementing the scenario for most critical SAP production workloads
+| Azure Shared Disk         | [Azure Site Recovery with Shared Disks](../../site-recovery/shared-disk-support-matrix.md) |
 
 ---
 
@@ -140,7 +136,7 @@ For databases running SAP workload, use the native DBMS replication technology t
 | Database      | DR recommendation                                            |
 | ------------- | ------------------------------------------------------------ |
 | SAP HANA      | [HANA System Replication (HSR)](sap-hana-availability-across-regions.md) |
-| Oracle        | [Oracle Data Guard (FarSync)](../../virtual-machines/workloads/oracle/oracle-reference-architecture.md#disaster-recovery-for-oracle-databases) |
+| Oracle        | [Oracle Data Guard (FarSync)](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture#disaster-recovery-for-oracle-databases) |
 | IBM DB2       | [High availability disaster recovery (HADR)](dbms-guide-ha-ibm.md) |
 | Microsoft SQL | [Microsoft SQL Always On](dbms-guide-sqlserver.md#sql-server-always-on) |
 | SAP ASE       | [ASE HADR Always On](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/installation-procedure-for-sybase-16-3-patch-level-3-always-on/ba-p/368199) |
@@ -162,7 +158,7 @@ Backup and restore is other solution you can use to achieve disaster recovery fo
 | Storage  | Azure NetApp Files                                           | Not Supported        |
 | Database | [SAP HANA database in Azure VMs](../../backup/sap-hana-backup-support-matrix.md) | Supported            |
 | Database | [SQL server in Azure VMs](../../backup/sql-support-matrix.md) | Supported            |
-| Database | [Oracle](../../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md) | Supported*           |
+| Database | [Oracle](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup) | Supported*           |
 | Database | IBM DB2, SAP ASE                                             | Not Supported        |
 
 >[!Note]

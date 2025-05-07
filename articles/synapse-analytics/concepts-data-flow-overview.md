@@ -4,24 +4,22 @@ description: An overview of data flows in Azure Synapse Analytics
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: pipeline
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 12/16/2020
+ms.date: 12/11/2024
 ---
 
-# Data flows in Azure Synapse Analytics
-
-## What are data flows?
+# What are data flows in Azure Synapse Analytics?
 
 Data flows are visually designed data transformations in Azure Synapse Analytics. Data flows allow data engineers to develop data transformation logic without writing code. The resulting data flows are executed as activities within Azure Synapse Analytics pipelines that use scaled-out Apache Spark clusters. Data flow activities can be operationalized using existing Azure Synapse Analytics scheduling, control, flow, and monitoring capabilities.
 
 Data flows provide an entirely visual experience with no coding required. Your data flows run on Synapse-managed execution clusters for scaled-out data processing. Azure Synapse Analytics handles all the code translation, path optimization, and execution of your data flow jobs.
 
-## Getting started
+## Get started
 
-Data flows are created from the Develop pane in Synapse studio. To create a data flow, select the plus sign next to **Develop**, and then select **Data Flow**. 
+Data flows are created from the **Develop** pane in Synapse studio. To create a data flow, select the plus sign next to **Develop**, and then select **Data Flow**. 
 
 ![New data flow](media/data-flow/new-data-flow.png)
 
@@ -29,7 +27,7 @@ This action takes you to the data flow canvas, where you can create your transfo
 
 ## Authoring data flows
 
-Data flow has a unique authoring canvas designed to make building transformation logic easy. The data flow canvas is separated into three parts: the top bar, the graph, and the configuration panel. 
+Data flow has a unique authoring canvas designed to make building transformation logic easy. The data flow canvas is separated into three parts: the top bar, the graph, and the configuration panel.
 
 ![Screenshot shows the data flow canvas with top bar, graph, and configuration panel labeled.](media/data-flow/canvas-1.png)
 
@@ -63,7 +61,7 @@ The **Inspect** tab provides a view into the metadata of the data stream that yo
 
 ![Inspect tab](media/data-flow/inspect.png)
 
-As you change the shape of your data through transformations, you'll see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata won't be visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
+As you change the shape of your data through transformations, you see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata isn't visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
 
 #### Data preview
 
@@ -91,7 +89,7 @@ Data flow integrates with existing Azure Synapse Analytics monitoring capabiliti
 
 The Azure Synapse Analytics team has created a [performance tuning guide](../data-factory/concepts-data-flow-performance.md?context=/azure/synapse-analytics/context/context) to help you optimize the execution time of your data flows after building your business logic.
 
-## Next steps
+## Related content
 
 * Learn how to create a [source transformation](../data-factory/data-flow-source.md?context=/azure/synapse-analytics/context/context).
 * Learn how to build your data flows in [debug mode](../data-factory/concepts-data-flow-debug-mode.md?context=/azure/synapse-analytics/context/context).

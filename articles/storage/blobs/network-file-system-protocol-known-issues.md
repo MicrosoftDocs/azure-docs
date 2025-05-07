@@ -5,7 +5,7 @@ description: Learn about limitations and known issues of Network File System (NF
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2024
 ms.author: normesta
 ---
@@ -15,7 +15,7 @@ ms.author: normesta
 This article describes limitations and known issues of Network File System (NFS) 3.0 protocol support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> Because you must enable the hierarchical namespace feature of your account to use NFS 3.0, all of the known issues that are described in the [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.
+> Because you must enable the hierarchical namespace feature of your account to use NFS 3.0, all of the known issues that are described in the [Known issues with Azure Data Lake Storage](data-lake-storage-known-issues.md) article also apply to your account.
 
 ## NFS 3.0 support
 

@@ -1,8 +1,8 @@
 ---
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: include
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 11/29/2022
 ---
 

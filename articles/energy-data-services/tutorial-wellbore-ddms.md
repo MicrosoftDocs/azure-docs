@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Data Manager for Energy
 description: Learn how to work with well data records in your Azure Data Manager for Energy instance by using Wellbore Domain Data Management Services (DDMS) APIs in Postman.
 author: vkamani21
 ms.author: vkamani
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 09/07/2022
 ms.custom: template-tutorial
@@ -39,7 +39,7 @@ The first step is to get the following information from your [Azure Data Manager
 
 | Parameter          | Value             | Example                               |
 | ------------------ | ------------------------ |-------------------------------------- |
-| `client_id`          | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  |
+| `client_id`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  |
 | `client_secret`      | Client secrets           |  `_fl******************`                |
 | `tenant_id`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  |
 | `base_url`           | URL                      | `https://<instance>.energy.azure.com` |

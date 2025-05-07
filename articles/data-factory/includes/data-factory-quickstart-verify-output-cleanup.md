@@ -1,5 +1,4 @@
 ---
-ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 author: jianleishen

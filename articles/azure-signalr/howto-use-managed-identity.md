@@ -2,7 +2,7 @@
 title: Managed identities in Azure SignalR Service
 description: Learn how managed identities work in Azure SignalR Service, and how to use a managed identity in serverless scenarios.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: lianwei
@@ -80,10 +80,17 @@ After you add a [system-assigned identity](#add-a-system-assigned-identity) or [
 1. In the managed identity authentication settings, for **Audience in the issued token**, you can specify the target **resource**. The **resource** will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be in one of the following formats:
 
    - Application (client) ID of the service principal.
+
+     When using Application (client) ID, the application has to be in the same tenant that the Azure SignalR resource is in. If your application is in a different tenant, please follow these steps:
+     1. [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps) to convert your application to a multitenant application.
+     2. [Create an enterprise application from a multitenant application in Microsoft Entra ID](/entra/identity/enterprise-apps/create-service-principal-cross-tenant?pivots=admin-consent-url) to provision your application in the current tenant.
+     
+     Then you'll be able to find the enterprise application by clicking the "Or select from existing applications".
+   
    - Application ID URI of the service principal.
 
    > [!IMPORTANT]
-   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
+   > Using empty resource actually acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
 
 #### Authentication in a function app
 
@@ -120,7 +127,7 @@ Libraries and code samples that show how to handle token validation are availabl
 Azure SignalR Service can access Key Vault to get secrets by using the managed identity.
 
 1. Add a [system-assigned identity](#add-a-system-assigned-identity) or [user-assigned identity](#add-a-user-assigned-identity) to your Azure SignalR Service instance.
-1. Grant secret read permission for the managed identity in the access policies in Key Vault. See [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+1. Grant secret read permission for the managed identity in the access policies in Key Vault. See [Assign a Key Vault access policy by using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 
 Currently, you can use this feature to [reference a secret in the upstream URL pattern](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings).
 

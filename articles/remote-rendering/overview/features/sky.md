@@ -18,7 +18,7 @@ The sky only affects the rendering of [PBR materials](../../overview/features/pb
 
 ## Object lighting
 
-Azure Remote Rendering employs *physically based rendering* (PBR) for realistic lighting computations. Although you can add [light sources](lights.md) to your scene, using a good sky texture has the greatest impact.
+Azure Remote Rendering employs *physically based rendering (PBR)* for realistic lighting computations. Although you can add [light sources](lights.md) to your scene, using a good sky texture has the greatest impact.
 
 The images below show results of lighting different surfaces only with a sky texture:
 

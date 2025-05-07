@@ -267,7 +267,7 @@ Now that the back-end SCM site is publicly accessible, you need to lock it down 
 
 ## 7. Use a service principal for GitHub Actions deployment
 
-Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Add the workflow file to your GitHub repository](deploy-github-actions.md?tabs=userlevel#3-add-the-workflow-file-to-your-github-repository).
+Your Deployment Center configuration has created a default workflow file in each of your sample repositories, but it uses a publish profile by default, which uses basic auth. Since you've disabled basic auth, if you check the **Logs** tab in Deployment Center, you'll see that the automatically triggered deployment results in an error. You must modify the workflow file to use the service principal to authenticate with App Service. For sample workflows, see [Add the workflow file to your GitHub repository](deploy-github-actions.md?tabs=userlevel#add-the-workflow-file-to-your-github-repository).
 
 1. Open one of your forked GitHub repositories and go to the `<repo-name>/.github/workflows/` directory.
 

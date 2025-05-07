@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart using the Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW

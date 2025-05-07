@@ -1,12 +1,12 @@
 ---
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 02/28/2024
+ ms.date: 01/15/2025
  ms.author: cherylmc
 ---
-| **Deployment model/method** | **Azure portal** | **PowerShell** | 
-| --- | --- | --- |
-| Resource Manager | **Supported** | [Tutorial](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|
-| Classic (legacy deployment model)| **Not Supported** | [Tutorial](../articles/expressroute/expressroute-howto-coexist-classic.md) |
+
+| Connection | Article |
+|---|---|
+|Coexisting connections | [Portal](../articles/expressroute/how-to-configure-coexisting-gateway-portal.md)<br>[PowerShell](../articles/expressroute/expressroute-howto-coexist-resource-manager.md)|

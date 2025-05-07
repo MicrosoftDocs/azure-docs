@@ -8,7 +8,7 @@
         "environment_id": {
             "type": "String"
         },
-        "queue-connection-string": {
+        "key_vault_secret_uri": {
             "type": "String"
         }
     },
@@ -27,7 +27,8 @@
                 "secrets": [
                 {
                     "name": "queue-connection-string",
-                    "value": "[parameters('queue-connection-string')]"
+                    "keyVaultUrl": "[parameters('key_vault_secret_uri')",
+                    "identity": "system"
                 }]
             },
             "template": {

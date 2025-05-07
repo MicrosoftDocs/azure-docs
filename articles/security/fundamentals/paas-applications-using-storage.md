@@ -2,13 +2,13 @@
 title: Securing PaaS applications using Azure Storage | Microsoft Docs
 description: "Learn about Azure Storage security best practices for securing your PaaS web and mobile applications."
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/23/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 # Best practices for securing PaaS web and mobile applications using Azure Storage
@@ -58,7 +58,7 @@ To learn more about Azure RBAC see:
 ## Use client-side encryption for high value data
 Client-side encryption enables you to programmatically encrypt data in transit before uploading to Azure Storage, and programmatically decrypt data when retrieving it. Client-side encryption provides encryption of data in transit but it also provides encryption of data at rest. Client-side encryption is the most secure method of encrypting your data but it does require you to make programmatic changes to your application and put key management processes in place.
 
-Client-side encryption also enables you to have sole control over your encryption keys. You can generate and manage your own encryption keys. It uses an envelope technique where the Azure storage client library generates a content encryption key (CEK) that is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in [Azure Key Vault](../../key-vault/general/overview.md).
+Client-side encryption also enables you to have sole control over your encryption keys. You can generate and manage your own encryption keys. It uses an envelope technique where the Azure storage client library generates a content encryption key (CEK) that is then wrapped (encrypted) using the key encryption key (KEK). The KEK is identified by a key identifier and can be an asymmetric key pair or a symmetric key and can be managed locally or stored in [Azure Key Vault](/azure/key-vault/general/overview).
 
 Client-side encryption is built into the Java and the .NET storage client libraries. See [Client-side encryption and Azure Key Vault for Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md) for information on encrypting data within client applications and generating and managing your own encryption keys.
 

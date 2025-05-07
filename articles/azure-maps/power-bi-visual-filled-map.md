@@ -4,15 +4,15 @@ titleSuffix: Microsoft Azure Maps
 description: This article demonstrates using the Filled map feature in Azure Maps Power BI Visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 07/19/2023
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: power-bi-visual
 ---
 
 # Filled map in Azure Maps Power BI visual
 
-Filled maps use varying degrees of shading, tinting or different patterns to provide a visual display that quickly shows differences in values across a geography or region. Showing these relative differences with shading that ranges from light (less-frequent/lower) to dark (more-frequent/more) is a useful way to quickly convey pertinent information to viewers.
+Filled maps use varying degrees of shading, tinting, or different patterns to provide a visual display that quickly shows differences in values across a geography or region. Showing these relative differences with shading that ranges from light (less-frequent/lower) to dark (more-frequent/more) is a useful way to quickly convey pertinent information to viewers.
 
 :::image type="content" source="media/power-bi-visual/filled-map-us-teal.png" lightbox="media/power-bi-visual/filled-map-us-teal.png" alt-text="A screenshot showing a map of America with states colored in varying degrees depending on the amount of sales attained in each.":::
 
@@ -33,11 +33,14 @@ Some common uses for filled maps include:
 
 * Visualize sales or revenue results by country/region or state.
 * Visualize election results where the color represents the party that won and the shading represent the margin of victory.
-* Visualize unemployment rates  by region, state or county.
+* Visualize unemployment rates  by region, state, or county.
 
 ## Prerequisites
 
 This article uses [Sales and Marketing Sample PBIX] as the data source for demonstration purposes. You can create a new report using this data before continuing if you wish to follow along.
+
+> [!NOTE]
+> To ensure the highest level of accuracy in geocoding results within Filled Map, it's crucial to correctly set the data category. See [Categorize geographic fields in Power BI](./power-bi-visual-geocode.md#categorize-geographic-fields-in-power-bi).
 
 ## Filled map settings
 
@@ -49,7 +52,7 @@ There are two places where you can adjust filled maps settings: Build and format
 |--------------|---------------------------------------------------------------------|---------------------------------------------------------------------|
 | Shape        | Configure fill transparency in a geometry on the map                | 0-100%                                                              |
 | Colors       | Use meters or pixels as unit to visualize the data. Default: Pixels | Set colors for different data category or gradient for numeric data.|
-| Border       | Sets the border color, width and transparency                       | Color picker<BR>Width 1-10 pixels<BR>Transparency 0-100%            |
+| Border       | Sets the border color, width, and transparency                       | Color picker<BR>Width 1-10 pixels<BR>Transparency 0-100%            |
 | Min zoom     | Minimum zoom level the layer is visible at. Default: 0              | Integer (0 - 22)                                                    |
 | Max zoom     | Maximum zoom level the layer is visible at. Default: 22             | Integer (0 - 22)                                                    |
 | Options      | Specify the position of the layer relative to other map layers      | Drop down menu:<BR>Above labels<BR>Below labels<BR>Below roads      |
@@ -61,7 +64,7 @@ There are two places where you can adjust filled maps settings: Build and format
 
 | Bucket               | Description                                                      |
 |----------------------|------------------------------------------------------------------|
-| Location | Geospatial area with a boundary, such as country/region, state, city, county or postal code. Street and address aren't supported in filled map. |
+| Location | Geospatial area with a boundary, such as country/region, state, city, county, or postal code. Street and address aren't supported in filled map. |
 | Legend               | Categorical data that is used to shade the map.                  |
 | Tool Tips (optional) | Determined the data/columns that would be shown in tool tips.    |
 

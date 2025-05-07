@@ -3,14 +3,16 @@ title: Troubleshoot lab creation
 titleSuffix: Azure Lab Services
 description: Learn how to resolve common issues with creating a lab in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: troubleshooting
 ms.date: 01/19/2023
 ---
 
 # Troubleshoot lab creation in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In this article, you learn how to resolve common issues with creating a lab in Azure Lab Services. The options that are available to a lab creator for creating a lab on a lab plan depend on the lab plan configuration settings. For example, in the lab plan you can specify which virtual machine images or sizes are available.
 

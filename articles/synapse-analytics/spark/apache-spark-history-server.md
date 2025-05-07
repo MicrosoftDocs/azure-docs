@@ -3,7 +3,7 @@ title: Use the extended Spark history server to debug apps
 description: Use the extended Spark history server to debug and diagnose Spark applications in Azure Synapse Analytics.
 author: juluczni
 ms.author: juluczni
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 02/15/2022
@@ -139,6 +139,18 @@ The job graph node displays the following information of each stage:
 Send feedback with issues by selecting **Provide us feedback**.
 
 ![Screenshot showing Spark application and job graph feedback.](./media/apache-spark-history-server/sparkui-graph-feedback.png)
+
+### Stage number limit
+
+For performance consideration, by default the graph is only available when the Spark application has less than 500 stages. If there are too many stages, it will fail with an error like this:
+
+`` The number of stages in this application exceeds limit (500), graph page is disabled in this case.``
+
+As a workaround, before starting a Spark application, please apply this Spark configuration to increase the limit:
+
+`` spark.ui.enhancement.maxGraphStages 1000 ``
+
+But please notice that this may cause bad performance of the page and the API, because the content can be too large for browser to fetch and render.
 
 ## Explore the Diagnosis tab in Apache Spark history server
 

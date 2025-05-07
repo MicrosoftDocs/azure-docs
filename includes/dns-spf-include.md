@@ -1,6 +1,6 @@
 ---
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: include
 ms.date: 11/21/2023
 ms.author: greglin

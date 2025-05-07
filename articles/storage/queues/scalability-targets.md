@@ -6,7 +6,7 @@ author: akashdubey-ms
 services: storage
 ms.author: akashdubey
 ms.date: 12/18/2019
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-queue-storage
 ---
 
@@ -16,7 +16,7 @@ ms.service: azure-queue-storage
 
 ## Scale targets for Queue Storage
 
-[!INCLUDE [storage-queues-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-queues-scale-targets.md)]
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
 
 ## See also
 

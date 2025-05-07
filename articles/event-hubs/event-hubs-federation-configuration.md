@@ -7,7 +7,7 @@ ms.date: 09/28/2021
 
 # Configured replication tasks - Azure Event Hubs
 
-[!INCLUDE [messaging-configured-functions](~/reusable-content/ce-skilling/azure/includes/messaging-configured-functions.md)]
+[!INCLUDE [messaging-configured-functions](../../includes/messaging-configured-functions.md)]
 
 ## Next Steps
 

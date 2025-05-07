@@ -2,9 +2,9 @@
 title: Working with VMs and NSGs in Azure Bastion
 description: Learn about using network security groups with Azure Bastion.
 author: cherylmc
-ms.service: bastion
-ms.topic: conceptual
-ms.date: 04/05/2024
+ms.service: azure-bastion
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion

@@ -2,7 +2,7 @@
 title: "NXLog AIX Audit connector for Microsoft Sentinel"
 description: "Learn how to install the connector NXLog AIX Audit to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -32,7 +32,7 @@ NXLog_parsed_AIX_Audit_view
 
    | summarize count() by EventType
 
-   | render piechart title="AIX Audit event type distributon"
+   | render piechart title="AIX Audit event type distribution"
    ```
 
 **Highest event per second (EPS) AIX Audit event types**

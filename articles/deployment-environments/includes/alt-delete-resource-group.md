@@ -1,5 +1,5 @@
 ---
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.topic: include
 author: RoseHJM
 ms.author: rosemalcolm

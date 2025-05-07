@@ -1,22 +1,22 @@
 ---
 title: Configure customer-managed keys (CMK) for the DICOM service in Azure Health Data Services
 description: Use customer-managed keys (CMK) to encrypt data in the DICOM service. Create and manage CMK in Azure Key Vault and update the encryption key with a managed identity.
-author: mmitrik
-ms.service: healthcare-apis
+author: varunbms
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 11/20/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Configure customer-managed keys for the DICOM service
 
-By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the DICOM&reg; service. 
+By using customer-managed keys (CMK), you can protect and control access to your organization's data with keys that you create and manage. You use [Azure Key Vault](/azure/key-vault/) to create and manage CMK and then use the keys to encrypt the data stored by the DICOM&reg; service. 
 
 ## Prerequisites
 - Make sure you're familiar with [best practices for customer-managed keys](customer-managed-keys.md).
 
-- Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](../../key-vault/keys/quick-create-portal.md#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
+- Add a key for the DICOM service in Azure Key Vault. For steps, see [Add a key in Azure Key Vault](/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault). Customer-managed keys must meet these requirements:
 
    - The key is versioned.
   
@@ -52,7 +52,7 @@ For steps to add a user-assigned managed identity, see [Manage user-assigned man
 
 ## Assign the Key Vault Crypto Service Encryption User role
 
-The system-assigned managed identity needs the [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md) role to access keys and use them to encrypt and decrypt data.  
+The system-assigned managed identity needs the [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide) role to access keys and use them to encrypt and decrypt data.  
 
 1. In the Azure portal, go to the key vault and then select **Access control (IAM)** from the left pane.
 
@@ -292,7 +292,7 @@ For the DICOM service to operate properly, it must always have access to the key
 
 - The DICOM service system-assigned managed identity loses access to the key vault.
 
-In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](../../service-health/overview.md) view for the DICOM service helps you diagnose key access issues.
+In any scenario where the DICOM service can't access the key, API requests return with `500` errors and the data is inaccessible until access to the key is restored. The [Azure Resource health](/azure/service-health/overview) view for the DICOM service helps you diagnose key access issues.
 
 If key access is lost for more than 30 minutes, make sure you update the DICOM service to refresh the key access. For more information, see [Update the DICOM service with the encryption key](#update-the-dicom-service-with-the-encryption-key). If you don't also update the DICOM service, it continues to be unavailable even when key access is restored.
 

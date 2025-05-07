@@ -4,7 +4,7 @@ description: Describes the technology and provides a performance comparison betw
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/04/2022
 ms.author: anfdocs
 ---
@@ -51,4 +51,4 @@ You can enhance the performance of Oracle dNFS with the Azure NetApp Files servi
 ## Next steps
 
 - [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-- [Overview of Oracle Applications and solutions on Azure](../virtual-machines/workloads/oracle/oracle-overview.md)
+- [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview)

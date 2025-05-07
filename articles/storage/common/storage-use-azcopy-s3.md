@@ -8,6 +8,9 @@ ms.topic: how-to
 ms.date: 04/02/2021
 ms.author: normesta
 ms.subservice: storage-common-concepts
+ms.collection:
+ - migration
+ - aws-to-azure
 ---
 
 # Copy data from Amazon S3 to Azure Storage by using AzCopy

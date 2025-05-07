@@ -3,7 +3,7 @@ title: 'Tutorial - Web app accesses SQL Database as the user'
 description: Secure database connectivity with Microsoft Entra authentication from .NET web app, using the signed-in user. Learn how to apply it to other Azure services.
 author: cephalin
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity
@@ -88,7 +88,7 @@ First, enable Microsoft Entra authentication to SQL Database by assigning a Micr
 1. Restrict the database server authentication to Active Directory authentication. This step effectively disables SQL authentication.
 
     ```azurecli-interactive
-    az sql server ad-only-auth enable --resource-group <group-name> --server-name <server-name>
+    az sql server ad-only-auth enable --resource-group <group-name> --name <server-name>
     ```
 
 For more information on adding an Active Directory admin, see [Provision Microsoft Entra admin (SQL Database)](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-database).
@@ -141,7 +141,7 @@ az webapp auth set --resource-group <group-name> --name <app-name> --body "$auth
 The commands effectively add a `loginParameters` property with extra custom scopes. Here's an explanation of the requested scopes:
 
 - `openid`, `profile`, and `email` are requested by App Service by default already. For information, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
-- `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT token that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
+- `https://database.windows.net/user_impersonation` refers to Azure SQL Database. It's the scope that gives you a JWT that includes SQL Database as a [token audience](https://wikipedia.org/wiki/JSON_Web_Token).
 - [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access) is included here for convenience (in case you want to [refresh tokens](#what-happens-when-access-tokens-expire)).
 
 > [!TIP]

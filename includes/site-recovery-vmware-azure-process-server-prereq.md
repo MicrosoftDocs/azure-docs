@@ -1,6 +1,6 @@
 ---
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: include
 ms.date: 11/28/2019
 ms.author: ankitadutta

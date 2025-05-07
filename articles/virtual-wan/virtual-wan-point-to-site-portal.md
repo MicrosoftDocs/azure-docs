@@ -1,16 +1,16 @@
 ---
 
-title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN'
+title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN - Certificate or  RADIUS authentication'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
-ms.date: 08/09/2023
+ms.date: 12/12/2024
 ms.author: cherylmc
 
 ---
-# Tutorial: Create a P2S User VPN connection using Azure Virtual WAN
+# Tutorial: Create a P2S User VPN connection using Azure Virtual WAN - Certificate or RADIUS authentication
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure. In this tutorial, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using the Azure portal. This type of connection requires the native VPN client to be configured on each connecting client computer.
 
@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > * View your virtual WAN
 > * Modify settings
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ## <a name="wan"></a>Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="p2sconfig"></a>Create a User VPN configuration
 
@@ -59,7 +59,7 @@ The instructions you follow depend on the authentication method you want to use.
 
 ### Basics page
 
-[!INCLUDE [Create hub basics page](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create hub basics page](../../includes/virtual-wan-hub-basics.md)]
 
 ### Point to site page
 
@@ -84,18 +84,15 @@ Once you have finished configuring your client, you can connect.
 
 ## <a name="connect-vnet"></a>Connect VNet to hub
 
-In this section, you create a connection between your virtual hub and your VNet. For this tutorial, you don't need to configure the routing settings.
+In this section, you create a connection between your virtual hub and your virtual network. For this tutorial, you don't need to configure the routing settings.
 
 [!INCLUDE [Connect virtual network](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="viewwan"></a>Point to site sessions dashboard
 
 1. To view your active point to site sessions, click on **Point-to-site Sessions**. This will show you all active point to site users that are connected to your User VPN gateway.
-  :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png" alt-text="Screenshot shows point to site blade in Virtual WAN." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-button.png":::
 
 1. To disconnect users from the User VPN gateway, click the ... context menu and click "Disconnect".	
-
- :::image type="content" source="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-disconnect.png" alt-text="Screenshot shows point to site sessions dashboard." lightbox="../../includes/media/virtual-wan-p2s-sessions-dashboard/point-to-site-sessions-disconnect.png":::
 
 ## Modify settings
 

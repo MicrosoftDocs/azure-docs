@@ -2,7 +2,7 @@
 title: Azure Functions error handling and retry guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 04/24/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -33,6 +33,9 @@ To avoid loss of data or missed messages, it's important to practice good error 
 | **Use structured error handling** | Capturing and logging errors is critical to monitoring the health of your application. The top-most level of any function code should include a try/catch block. In the catch block, you can capture and log errors. For information about what errors might be raised by bindings, see [Binding error codes](#binding-error-codes). Depending on your specific retry strategy, you might also raise a new exception to run the function again.  |
 | **Plan your retry strategy** | Several Functions bindings extensions provide built-in support for retries and others let you define retry policies, which are implemented by the Functions runtime. For triggers that don't provide retry behaviors, you should consider implementing your own retry scheme. For more information, see [Retries](#retries).|
 | **Design for idempotency** | The occurrence of errors when you're processing data can be a problem for your functions, especially when you're processing messages. It's important to consider what happens when the error occurs and how to avoid duplicate processing. To learn more, see [Designing Azure Functions for identical input](functions-idempotent.md). |
+
+>[!TIP]  
+> When using output bindings, you aren't able to handle errors that occur when accessing the remote service. Because of this, you should validate all data passed to your output bindings to avoid raising any known exceptions. If you must be able to handle such exceptions in your function code, you should access the remote service by using the client SDK instead of relying on output bindings.
 
 ## Retries
 

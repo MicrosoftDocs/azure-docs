@@ -3,9 +3,9 @@ title: Configure Apple Push Notification Service in Azure Notification Hubs | Mi
 description: Learn how to configure an Azure notification hub with Apple Push Notification Service (APNS) settings.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 06/22/2020
 ms.author: sethm

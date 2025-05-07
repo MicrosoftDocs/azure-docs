@@ -2,13 +2,13 @@
 title: Data encryption in Azure Fluid Relay
 description: Better understand the data encryption in Fluid Relay Server
 ms.date: 10/08/2021
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: reference
 ---
 
 # Data encryption in Azure Fluid Relay
 
-Azure Fluid Relay leverages the encryption-at-rest capability of [Azure Kubernetes Service](../../aks/enable-host-encryption.md), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) and [Azure Blob Storage](../../storage/common/storage-service-encryption.md). The service-to-service communication between Azure Fluid Relay and these resources is TLS encrypted and is enclosed in with the Azure Virtual Network boundary, protected from external interference by Network Security Rules.
+Azure Fluid Relay leverages the encryption-at-rest capability of [Azure Kubernetes Service](/azure/aks/enable-host-encryption), [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) and [Azure Blob Storage](../../storage/common/storage-service-encryption.md). The service-to-service communication between Azure Fluid Relay and these resources is TLS encrypted and is enclosed in with the Azure Virtual Network boundary, protected from external interference by Network Security Rules.
 
 The diagram below shows at a high level how Azure Fluid Relay is implemented and how it handles data storage.
 

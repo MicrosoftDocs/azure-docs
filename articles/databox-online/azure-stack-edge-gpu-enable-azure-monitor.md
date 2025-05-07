@@ -4,8 +4,7 @@ description: Describes how to enable Azure Monitor on an Azure Stack Edge Pro GP
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/28/2022
 ms.author: alkohli
@@ -20,7 +19,7 @@ Monitoring containers on your Azure Stack Edge Pro GPU device is critical, speci
 This article describes the steps required to enable Azure Monitor on your device and gather container logs in Log Analytics workspace. The Azure Monitor metrics store is currently not supported with your Azure Stack Edge Pro GPU device. 
 
 > [!NOTE]
-> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) to set up container monitoring.
+> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) to set up container monitoring.
 
 
 ## Prerequisites
@@ -50,7 +49,7 @@ Take the following steps to create a log analytics workspace. A log analytics wo
 
         ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 
 
@@ -58,7 +57,7 @@ For more information, see the detailed steps in [Create a Log Analytics workspac
 
 Take the following steps to enable Container Insights on your workspace. 
 
-1. Follow the detailed steps in [Add the Azure Monitor Containers solution](../azure-monitor/containers/container-insights-hybrid-setup.md#add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
+1. Follow the detailed steps in [Add the Azure Monitor Containers solution](/azure/azure-monitor/containers/container-insights-hybrid-setup#add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
 
     ```yml
     {
@@ -132,7 +131,7 @@ Take the following steps to enable Container Insights on your workspace.
         "contentVersion": "1.0.0.0",
         "parameters": {
         "workspaceResourceId": {
-            "value": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
+            "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
         },
         "workspaceRegion": {
         "value": "westus"
@@ -150,18 +149,18 @@ Take the following steps to enable Container Insights on your workspace.
     VERBOSE: Authenticating to Azure ...
     VERBOSE: Building your Azure drive ...
     
-    PS /home/myaccount> az account set -s fa68082f-8ff7-4a25-95c7-ce9da541242f
+    PS /home/myaccount> az account set -s aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     PS /home/myaccount> ls
     clouddrive  containerSolution.json
     PS /home/myaccount> ls
     clouddrive  containerSolution.json  containerSolutionParams.json
     PS /home/myaccount> az deployment group create --resource-group myaserg --name Testdeployment1 --template-file containerSolution.json --parameters containerSolutionParams.json
     {- Finished ..
-        "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.Resources/deployments/Testdeployment1",
+        "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg/providers/Microsoft.Resources/deployments/Testdeployment1",
         "location": null,
         "name": "Testdeployment1",
         "properties": {
-        "correlationId": "3a9045fe-2de0-428c-b17b-057508a8c575",
+        "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
         "debugSetting": null,
         "dependencies": [],
         "duration": "PT11.1588316S",
@@ -170,7 +169,7 @@ Take the following steps to enable Container Insights on your workspace.
         "onErrorDeployment": null,
         "outputResources": [
             {
-            "id": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/myaserg/providers/Microsoft.OperationsManagement/solutions/ContainerInsights(myaseloganalyticsws)",
+            "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myaserg/providers/Microsoft.OperationsManagement/solutions/ContainerInsights(myaseloganalyticsws)",
             "resourceGroup": "myaserg"
             }
         ],
@@ -182,7 +181,7 @@ Take the following steps to enable Container Insights on your workspace.
             },
             "workspaceResourceId": {
             "type": "String",
-            "value": "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
+            "value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/myaserg/providers/microsoft.operationalinsights/workspaces/myaseloganalyticsws"
             }
         },
         "parametersLink": null,

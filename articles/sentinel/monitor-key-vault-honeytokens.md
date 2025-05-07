@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 01/09/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to deploy and monitor Azure Key Vault honeytokens using Microsoft Sentinel so that I can detect and respond to potential security threats effectively.
+
 ---
 
 # Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel (Community supported)

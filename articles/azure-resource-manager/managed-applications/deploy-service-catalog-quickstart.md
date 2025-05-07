@@ -2,7 +2,7 @@
 title: Deploy a service catalog managed application
 description: Describes how to deploy a service catalog's managed application for an Azure Managed Application using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
-ms.date: 05/28/2024
+ms.date: 09/22/2024
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -26,7 +26,7 @@ The examples use the resource groups names created in the _quickstart to publish
 
 ### Get managed application definition
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To get the managed application's definition with Azure PowerShell, run the following commands.
 
@@ -107,7 +107,7 @@ To get the managed application's definition from the Azure portal, use the follo
 
 ### Create resource group and parameters
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Create a resource group for the managed application deployment.
 
@@ -140,17 +140,13 @@ For readability, the completed JSON string uses the backtick for line continuati
 
 ```powershell
 $params="{ `"appServicePlanName`": {`"value`":`"demoAppServicePlan`"}, `
-`"appServiceNamePrefix`": {`"value`":`"demoApp`"}, `
-`"storageAccountNamePrefix`": {`"value`":`"demostg1234`"}, `
-`"storageAccountType`": {`"value`":`"Standard_LRS`"} }"
+`"appServiceNamePrefix`": {`"value`":`"demoApp`"} }"
 ```
 
 The parameters to create the managed resources:
 
 - `appServicePlanName`: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
 - `appServiceNamePrefix`: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
-- `storageAccountNamePrefix`: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-- `storageAccountType`: The options are Premium_LRS, Standard_LRS, and Standard_GRS.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -186,17 +182,13 @@ For readability, the completed JSON string uses the backslash for line continuat
 
 ```azurecli
 params="{ \"appServicePlanName\": {\"value\":\"demoAppServicePlan\"}, \
-\"appServiceNamePrefix\": {\"value\":\"demoApp\"}, \
-\"storageAccountNamePrefix\": {\"value\":\"demostg1234\"}, \
-\"storageAccountType\": {\"value\":\"Standard_LRS\"} }"
+\"appServiceNamePrefix\": {\"value\":\"demoApp\"} }"
 ```
 
 The parameters to create the managed resources:
 
 - `appServicePlanName`: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
 - `appServiceNamePrefix`: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
-- `storageAccountNamePrefix`: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-- `storageAccountType`: The options are Premium_LRS, Standard_LRS, and Standard_GRS.
 
 # [Portal](#tab/azure-portal)
 
@@ -217,18 +209,11 @@ The parameters to create the managed resources:
    - **App Service plan name**: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
    - **App Service name prefix**: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
 
-1. Enter a prefix for the storage account name and select the storage account type. Select **Next**.
-
-   :::image type="content" source="./media/deploy-service-catalog-quickstart/storage-settings.png" alt-text="Screenshot that shows the information needed to create a storage account.":::
-
-   - **Storage account name prefix**: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-   - **Storage account type**: Select **Change type** to choose a storage account type. The default is Standard_LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
-
 ---
 
 ### Deploy the managed application
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Run the following command to deploy the managed application.
 
@@ -294,7 +279,7 @@ After the service catalog managed application is deployed, you have two new reso
 
 After the deployment is finished, you can check your managed application's status.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Run the following command to check the managed application's status.
 
@@ -338,7 +323,7 @@ Select the managed application's name to get more information like the link to t
 
 You can view the resources deployed to the managed resource group.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To display the managed resource group's resources, run the following command. You created the `$mrgname` variable when you created the parameters.
 
@@ -415,7 +400,7 @@ The role assignment gives the application's publisher access to manage the stora
 
 When you're finished with the managed application, you can delete the resource groups and that removes all the resources you created. For example, in this quickstart you created the resource groups _applicationGroup_ and a managed resource group with the prefix _mrg-sampleManagedApplication_.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The command prompts you to confirm that you want to remove the resource group.
 

@@ -3,7 +3,7 @@
  description: include file
  services: virtual-network
  author: genlin
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
  ms.date: 04/13/2018
  ms.author: genli

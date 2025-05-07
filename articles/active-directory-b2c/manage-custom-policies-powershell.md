@@ -5,18 +5,20 @@ description: Use the Microsoft Graph PowerShell cmdlets for programmatic managem
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.custom: has-azure-ad-ps-ref, azure-ad-ref-level-one-done
+ms.service: azure-active-directory
+ms.custom: no-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 #Customer intent: As an Azure AD B2C administrator, I want to manage custom policies using Microsoft Graph PowerShell, so that I can review, update, and delete policies in my Azure AD B2C tenant.
 ---
 
 # Manage Azure AD B2C custom policies with Microsoft Graph PowerShell
 
-Microsoft Graph PowerShell provides several cmdlets for command line- and script-based custom policy management in your Azure AD B2C tenant. Learn how to use the Azure AD PowerShell module to:
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+Microsoft Graph PowerShell provides several cmdlets for command line- and script-based custom policy management in your Azure AD B2C tenant. Learn how to use the Microsoft Graph PowerShell SDK to:
 
 * List the custom policies in an Azure AD B2C tenant
 * Download a policy from a tenant

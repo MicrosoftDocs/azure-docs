@@ -18,7 +18,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 ::: zone pivot="csharp,javascript,python"
 > [!NOTE]
-> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java.
+> Entity functions and related functionality are only available in [Durable Functions 2.0](durable-functions-versions.md#migrate-from-1x-to-2x) and above. They are currently supported in .NET in-proc, .NET isolated worker, JavaScript, and Python, but not in PowerShell or Java. Furthermore, entity functions for .NET Isolated are supported when using the Azure Storage or Netherite state providers, but not when using the MSSQL state provider.
 ::: zone-end  
 ::: zone pivot="powershell,java"  
 >[!IMPORTANT]
@@ -451,10 +451,10 @@ public static async Task<HttpResponseData> Run(
 
     if (entity is null)
     {
-        return request.CreateResponse(HttpStatusCode.NotFound);
+        return req.CreateResponse(HttpStatusCode.NotFound);
     }
     
-    HttpResponseData response = request.CreateResponse(HttpStatusCode.OK);
+    HttpResponseData response = req.CreateResponse(HttpStatusCode.OK);
     await response.WriteAsJsonAsync(entity);
 
     return response;

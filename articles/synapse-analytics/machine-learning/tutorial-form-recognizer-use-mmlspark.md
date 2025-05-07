@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Document Intelligence with Azure AI services'
 description: Learn how to use Azure AI Document Intelligence in Azure Synapse Analytics.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 11/02/2021
@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Document Intelligence with Azure AI services
 
-[Azure AI Document Intelligence](../../ai-services/document-intelligence/index.yml) is an [Azure AI service](../../ai-services/index.yml) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](../../ai-services/document-intelligence/index.yml) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
+[Azure AI Document Intelligence](/azure/ai-services/document-intelligence/) is an [Azure AI service](/azure/ai-services/) that enables you to build automated data processing application using machine learning technology. In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics. You'll use [Document Intelligence](/azure/ai-services/document-intelligence/) to analyze your forms and documents, extracts text and data, and returns a structured JSON output. You quickly get accurate results that are tailored to your specific content without excessive manual intervention or extensive data science expertise. 
 
 This tutorial demonstrates using Document Intelligence with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -193,6 +193,6 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 
 ## Next steps
 
-* [Train a custom Document Intelligence model](../../ai-services/document-intelligence/label-tool.md)
+* [Train a custom Document Intelligence model](/azure/ai-services/document-intelligence/label-tool)
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/microsoft/SynapseML)

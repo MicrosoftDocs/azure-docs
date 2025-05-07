@@ -3,12 +3,14 @@ title: Configure Canvas to use Azure Lab Services
 description: Learn how to configure Canvas to use Azure Lab Services.
 ms.topic: how-to
 ms.date: 12/16/2022
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.custom: engagement-fy23
 ---
 
 # Configure Canvas to use Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [Canvas Learning Management System](https://canvaslms.com/) (LMS) is a cloud-based learning management system that provides one place for course content, quizzes, and grades for both educators and students. In this article, you learn how to add the Azure Lab Services app to [Canvas](https://www.instructure.com/canvas). Educators can create labs from within Canvas and students will see their lab VMs alongside their other material for a course.
 

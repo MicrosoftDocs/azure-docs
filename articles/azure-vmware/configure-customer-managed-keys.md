@@ -33,10 +33,10 @@ The following diagram shows how Azure VMware Solution uses Microsoft Entra ID an
 
 Before you begin to enable CMK functionality, ensure that the following requirements are met:
 
-- You need a key vault to use CMK functionality. If you don't have a key vault, you can create one by using [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
-- If you enabled restricted access to Key Vault, you need to allow Microsoft Trusted Services to bypass the Key Vault firewall. Go to [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-portal) to learn more.
+- You need a key vault to use CMK functionality. If you don't have a key vault, you can create one by using [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+- If you enabled restricted access to Key Vault, you need to allow Microsoft Trusted Services to bypass the Key Vault firewall. Go to [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
     >[!NOTE]
-    >After firewall rules are in effect, users can only perform Key Vault [data plane](../key-vault/general/security-features.md#privileged-access) operations when their requests originate from allowed VMs or IPv4 address ranges. This restriction also applies to accessing Key Vault from the Azure portal. It also affects the Key Vault Picker by Azure VMware Solution. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine or the user doesn't have list permission in Key Vault.
+    >After firewall rules are in effect, users can only perform Key Vault [data plane](/azure/key-vault/general/security-features#privileged-access) operations when their requests originate from allowed VMs or IPv4 address ranges. This restriction also applies to accessing Key Vault from the Azure portal. It also affects the Key Vault Picker by Azure VMware Solution. Users might be able to see a list of key vaults, but not list keys, if firewall rules prevent their client machine or the user doesn't have list permission in Key Vault.
 
 - Enable System Assigned identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined datacenter (SDDC) provisioning.
 
@@ -98,7 +98,7 @@ Before you begin to enable CMK functionality, ensure that the following requirem
     az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey
     ```
 
-    Learn more about how to [assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-portal).
+    Learn more about how to [assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
 ## Customer-managed key version lifecycle
 
@@ -151,7 +151,7 @@ Go to your Key Vault instance and provide access to the SDDC on Key Vault by usi
 
 # [Azure CLI](#tab/azure-cli)
 
-To configure CMKs for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption&preserve-view=true). Get the key vault URL and save it to a variable. You need this value in the next step to enable CMK.
+To configure CMKs for an Azure VMware Solution private cloud with automatic updating of the key version, call [az vmware private-cloud enable-cmk-encryption](/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-enable-cmk-encryption&preserve-view=true). Get the key vault URL and save it to a variable. You need this value in the next step to enable CMK.
     
 ```azurecli-interactive
 keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)
@@ -164,7 +164,7 @@ The following options 1 and 2 demonstrate the difference between not providing a
 This example shows the customer not providing a specific key version.
     
 ```azurecli-interactive
-az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
+az vmware private-cloud enable-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
 ```
 
 ### Option 2
@@ -172,7 +172,7 @@ az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> 
 Supply the key version as an argument to use CMKs with a specific key version, as previously mentioned in the Azure portal option 2. The following example shows the customer providing a specific key version.
     
 ```azurecli-interactive
-az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
+az vmware private-cloud enable-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>
 ```
 ---
 
@@ -219,5 +219,5 @@ If you accidentally delete the MSI associated with a private cloud, you need to 
 
 ## Next steps
 
-- Learn about [Azure Key Vault backup and restore](../key-vault/general/backup.md?tabs=azure-cli).
-- Learn about [Azure Key Vault recovery](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).
+- Learn about [Azure Key Vault backup and restore](/azure/key-vault/general/backup?tabs=azure-cli).
+- Learn about [Azure Key Vault recovery](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#list-recover-or-purge-a-soft-deleted-key-vault).

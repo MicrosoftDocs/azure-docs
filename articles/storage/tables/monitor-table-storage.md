@@ -3,7 +3,7 @@ title: Monitor Azure Table Storage
 description: Start here to learn how to monitor Azure Table Storage.
 ms.date: 02/13/2024
 ms.custom: horz-monitor, devx-track-csharp, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-table-storage
@@ -178,7 +178,7 @@ The following example shows how to list a metric definition at the account level
 
         foreach (var metricDefinition in metricDefinitions)
         {
-            // Enumrate metric definition:
+            // Enumerate metric definition:
             //    Id
             //    ResourceId
             //    Name
@@ -225,7 +225,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
         foreach (var metric in Response.Value)
         {
-            // Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type
@@ -278,7 +278,7 @@ The following example shows how to read metric data on the metric supporting mul
 
         foreach (var metric in Response.Value)
         {
-            //Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type
@@ -326,7 +326,7 @@ Requests made by the Table Storage service itself, such as log creation or delet
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Table Storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md). For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Table Storage. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview). For more information, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 * To list the 10 most common errors over the last three days.
 

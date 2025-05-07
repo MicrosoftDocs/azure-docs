@@ -2,11 +2,11 @@
 title: Create an Azure notification hub using Bicep
 description: Learn how to create an Azure notification hub using Bicep.
 services: notification-hubs
-author: femila
-ms.author: femila
+author: sethmanheim
+ms.author: sethm
 ms.date: 05/24/2022
 ms.topic: quickstart
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 

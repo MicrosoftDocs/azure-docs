@@ -1,10 +1,10 @@
 ---
 title: Watermarking in Azure Virtual Desktop
 description: Learn how to enable watermarking in Azure Virtual Desktop to help prevent sensitive information from being captured on client endpoints.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
-ms.date: 04/29/2024
-ms.author: daknappe
+ms.date: 10/08/2024
+ms.author: avdcontent
 ---
 
 # Watermarking in Azure Virtual Desktop
@@ -41,6 +41,8 @@ You'll need the following things before you can use watermarking:
    - Windows App for:
       - Windows
       - macOS
+      - iOS and iPadOS
+      - Android/Chrome OS (preview)
       - Web browser
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
@@ -109,9 +111,9 @@ To enable watermarking using Microsoft Intune:
 
 To enable watermarking using Group Policy:
 
-1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain) available.
+1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain) available in Group Policy.
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain, then create or edit a policy that targets the computers providing a remote session you want to configure.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain, then create or edit a policy that targets the computers providing a remote session you want to configure.
 
 1. Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Azure Virtual Desktop**.
 

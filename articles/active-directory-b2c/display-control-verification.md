@@ -6,13 +6,13 @@ description: Learn how to use Azure AD B2C display controls to verify the claims
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a user completing a verification process, I want to enter my email address or phone number and receive a verification code, so that I can verify my identity and proceed to the next step.
@@ -20,6 +20,7 @@ ms.subservice: B2C
 ---
 
 # Verification display control
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Use a verification [display control](display-controls.md) to verify a claim, for example an email address or phone number, with a verification code sent to the user.
 

@@ -3,14 +3,12 @@
  description: include file
  services: load-balancer
  author: mbender-ms
- ms.service: load-balancer
+ ms.service: azure-load-balancer
  ms.topic: include
  ms.date: 10/31/2023
  ms.author: mbender
  ms.custom: include file
 ---
-
-## Create a virtual network and bastion host
 
 The following procedure creates a virtual network with a resource subnet, an Azure Bastion subnet, and an Azure Bastion host.
 
@@ -57,7 +55,7 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Starting address | Enter **10.0.0.0**. |
     | Subnet size | Enter **/24(256 addresses)**. |
     | **Security** |   |
-    | NAT Gateway | Select **lb-nat-gateway**. |
+    | NAT Gateway | Select **None**. |
 
     :::image type="content" source="./media/load-balancer-create-no-gateway/edit-subnet-window.png" alt-text="Screenshot of default subnet rename and configuration.":::
 

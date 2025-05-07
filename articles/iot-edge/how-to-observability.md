@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: iefedore
 ms.date: 06/03/2024
 ms.topic: how-to
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -156,11 +156,11 @@ The La Niña service uses [OpenTelemetry](https://opentelemetry.io) to produce a
 
 IoT Edge modules `Temperature Sensor` and `Filter` export the logs and tracing data via OTLP (OpenTelemetry Protocol) to the [OpenTelemetryCollector](https://opentelemetry.io/docs/collector/) module, running on the same edge device. The `OpenTelemetryCollector` module, in its turn, exports logs and traces to Azure Monitor Application Insights service.
 
-The Azure .NET Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](../azure-monitor/app/opentelemetry-enable.md). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
+The Azure .NET Function sends the tracing data to Application Insights with [Azure Monitor Open Telemetry direct exporter](/azure/azure-monitor/app/opentelemetry-enable). It also sends correlated logs directly to Application Insights with a configured ILogger instance.
 
-The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](../azure-monitor/app/opentelemetry-enable.md?tabs=java) to produce and export tracing data and correlated logs to the Application Insights instance.
+The Java backend function uses [OpenTelemetry auto-instrumentation Java agent](/azure/azure-monitor/app/opentelemetry-enable?tabs=java) to produce and export tracing data and correlated logs to the Application Insights instance.
 
-By default, IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the [logging level](/aspnet/core/fundamentals/logging) is set to `Information`. The amount of produced tracing data is regulated by a [ratio based sampler](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35). The sampler is configured with a desired [probability](https://github.com/open-telemetry/opentelemetry-dotnet/blob/bdcf942825915666dfe87618282d72f061f7567e/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35) of a given activity to be included in a trace. By default, the probability is set to 0. With that in place, the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
+By default, IoT Edge modules on the devices of the La Niña service are configured to not produce any tracing data and the [logging level](/aspnet/core/fundamentals/logging) is set to `Information`. The amount of produced tracing data is regulated by a [ratio based sampler](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry/Trace/Sampler/TraceIdRatioBasedSampler.cs). The sampler is configured with a desired [probability](https://github.com/open-telemetry/opentelemetry-dotnet/blob/bdcf942825915666dfe87618282d72f061f7567e/src/OpenTelemetry/Trace/TraceIdRatioBasedSampler.cs#L35) of a given activity to be included in a trace. By default, the probability is set to 0. With that in place, the devices don't flood the Azure Monitor with the detailed observability data if it's not requested.
 
 We've analyzed the `Information` level logs of the `Filter` module and realized that we need to dive deeper to locate the cause of the issue. We're going to update properties in the `Temperature Sensor` and `Filter` module twins and increase the `loggingLevel` to `Debug` and change the `traceSampleRatio` from `0` to `1`:
 

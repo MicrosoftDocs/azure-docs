@@ -1,7 +1,7 @@
 ---
 title: Use Machine Learning Studio (classic) endpoints in Azure Stream Analytics
 description: This article describes how to use Machine Learning user-defined functions in Azure Stream Analytics.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
 ---
@@ -22,11 +22,11 @@ Machine Learning Studio (classic) provides a collaborative, drag-and-drop tool t
 * **Endpoint**: An object that you use to take features as input, apply a specified machine learning model, and return scored output.
 * **Scoring web service**: A collection of endpoints.
 
-Each endpoint has APIs for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is called a [request/response service](../machine-learning/classic/consume-web-services.md) in Machine Learning Studio (classic).
+Each endpoint has APIs for batch execution and synchronous execution. Stream Analytics uses synchronous execution. The specific service is called a [request/response service](/azure/machine-learning/classic/consume-web-services) in Machine Learning Studio (classic).
 
 ## Machine Learning Studio (classic) resources needed for Stream Analytics jobs
 
-For the purposes of Stream Analytics job processing, a request/response endpoint, an [API key](../machine-learning/classic/consume-web-services.md), and a Swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the URL for a Swagger endpoint, looks up the interface, and returns a default UDF definition to the user.
+For the purposes of Stream Analytics job processing, a request/response endpoint, an [API key](/azure/machine-learning/classic/consume-web-services), and a Swagger definition are all necessary for successful execution. Stream Analytics has an additional endpoint that constructs the URL for a Swagger endpoint, looks up the interface, and returns a default UDF definition to the user.
 
 ## Configure a Stream Analytics and Machine Learning Studio (classic) UDF via REST API
 

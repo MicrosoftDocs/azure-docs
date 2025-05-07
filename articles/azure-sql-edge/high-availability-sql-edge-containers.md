@@ -3,8 +3,8 @@ title: High availability for Azure SQL Edge containers - Azure SQL Edge
 description: Learn about high availability for Azure SQL Edge containers
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -13,7 +13,9 @@ keywords:
 ---
 # High availability for Azure SQL Edge containers
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Create and manage your Azure SQL Edge instances natively in Kubernetes. Deploy Azure SQL Edge to containers managed by [Kubernetes](https://kubernetes.io/). In Kubernetes, a container with an Azure SQL Edge instance can automatically recover in case a cluster node fails. You can configure the SQL Edge container image with a Kubernetes persistent volume claim (PVC). Kubernetes monitors the Azure SQL Edge process in the container. If the process, pod, container, or node fail, Kubernetes automatically bootstraps another instance and reconnects to the storage.
@@ -38,7 +40,7 @@ In the following diagram, the node hosting the `azure-sql-edge` container has fa
 
 To create a container in Kubernetes, see [Deploy a Azure SQL Edge container in Kubernetes](deploy-Kubernetes.md)
 
-## Next steps
+## Related content
 
 To deploy Azure SQL Edge containers in Azure Kubernetes Service (AKS), see the following articles:
 - [Deploy an Azure SQL Edge container in Kubernetes](deploy-Kubernetes.md)

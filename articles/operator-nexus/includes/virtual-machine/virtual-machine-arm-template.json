@@ -62,7 +62,7 @@
             "type": "int",
             "defaultValue": 4,
             "metadata": {
-                "description": "The memory size of the virtual machine in GB (max 224 GB)"
+                "description": "The memory size of the virtual machine in GiB (max 224 GiB)"
             }
         },
         "networkAttachments": {
@@ -152,7 +152,8 @@
             "type": "object",
             "metadata": {
                 "description": "Credentials used to login to the image repository."
-            }
+            },
+            "defaultValue": {}
             /*
                 "password": "string",
                 "registryUrl": "string",
@@ -163,7 +164,7 @@
     "resources": [
         {
             "type": "Microsoft.NetworkCloud/virtualMachines",
-            "apiVersion": "2023-07-01",
+            "apiVersion": "2025-02-01",
             "name": "[parameters('vmName')]",
             "location": "[parameters('location')]",
             "extendedLocation": {
@@ -176,7 +177,6 @@
                 "bootMethod": "[if(empty(parameters('bootMethod')), json('null'), parameters('bootMethod'))]",
                 "cloudServicesNetworkAttachment": {
                     "attachedNetworkId": "[parameters('cloudServicesNetworkId')]",
-                    "defaultGateway": "False",
                     "ipAllocationMethod": "Dynamic"
                 },
                 "cpuCores": "[parameters('cpuCores')]",

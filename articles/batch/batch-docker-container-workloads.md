@@ -2,15 +2,12 @@
 title: Container workloads on Azure Batch
 description: Learn how to run and scale apps from container images on Azure Batch. Create a pool of compute nodes that support running container tasks.
 ms.topic: how-to
-ms.date: 06/04/2024
+ms.date: 06/10/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, linux-related-content
 ---
 
 # Use Azure Batch to run container workloads
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 Azure Batch lets you run and scale large numbers of batch computing jobs on Azure. Batch tasks can run directly on virtual machines (nodes) in a Batch pool, but you can also set up a Batch pool to run tasks in Docker-compatible containers on the nodes. This article shows you how to create a pool of compute nodes that support running container tasks, and then run container tasks on the pool.
 
@@ -86,8 +83,6 @@ without the need for a custom image.
 Currently there are other images published by `microsoft-azure-batch` that support container workloads:
 
 - Publisher: `microsoft-azure-batch`
-  - Offer: `centos-container`
-  - Offer: `centos-container-rdma` (For use exclusively on VM SKUs with Infiniband)
   - Offer: `ubuntu-server-container`
   - Offer: `ubuntu-server-container-rdma` (For use exclusively on VM SKUs with Infiniband)
 
@@ -97,7 +92,6 @@ Currently there are other images published by `microsoft-azure-batch` that suppo
 
 #### Notes
   The docker data root of the above images lies in different places:
-  - For the Azure Batch published `microsoft-azure-batch` images (Offer: `centos-container-rdma`, etc.), the docker data root is mapped to _/mnt/batch/docker_, which is located on the temporary disk.
   - For the HPC image, or `microsoft-dsvm` (Offer: `ubuntu-hpc`, etc.), the docker data root is unchanged from the Docker default, which is _/var/lib/docker_ on Linux and _C:\ProgramData\Docker_ on Windows. These folders are located on the OS disk.
 
   For non-Batch published images, the OS disk has the potential risk of being filled up quickly as container images are downloaded.
@@ -144,7 +138,7 @@ More considerations for using a custom Linux image:
 
 To enable a Batch pool to run container workloads, you must specify [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) settings in the pool's [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) object. This article provides links to the Batch .NET API reference. Corresponding settings are in the [Batch Python](/python/api/overview/azure/batch) API.
 
-You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](../container-registry/container-registry-intro.md) in the same region as the Batch account.
+You can create a container-enabled pool with or without prefetched container images, as shown in the following examples. The pull (or prefetch) process lets you preload container images from either Docker Hub or another container registry on the Internet. For best performance, use an [Azure container registry](/azure/container-registry/container-registry-intro) in the same region as the Batch account.
 
 The advantage of prefetching container images is that when tasks first start running, they don't have to wait for the container image to download. The container configuration pulls container images to the VMs when the pool is created. Tasks that run on the pool can then reference the list of container images and container run options.
 
@@ -152,8 +146,8 @@ The advantage of prefetching container images is that when tasks first start run
 > Docker Hub limits the number of image pulls. Ensure that your workload doesn't
 > [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
 > Hub-based images. It's recommended to use
-> [Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
-> [Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+> [Azure Container Registry](/azure/container-registry/container-registry-intro) directly or leverage
+> [Artifact cache in ACR](/azure/container-registry/container-registry-artifact-cache).
 
 ### Pool without prefetched container images
 
@@ -251,8 +245,7 @@ ImageReference imageReference = new ImageReference(
 
 ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "https://hub.docker.com",
-    userName: "UserName",
-    password: "YourPassword"
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
 );
 
 // Specify container configuration, prefetching Docker images
@@ -292,10 +285,14 @@ image_ref_to_use = batch.models.ImageReference(
     version='latest')
 
 # Specify a container registry
+subscription_id = "yyyy-yyy-yyy-yyy-yyy"
+resource_group_name = "TestRG"
+user_assigned_identity_name = "testUMI"
+resource_id = f"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user_assigned_identity_name}"
+
 container_registry = batch.models.ContainerRegistry(
         registry_server="myRegistry.azurecr.io",
-        user_name="myUsername",
-        password="myPassword")
+        identity_reference = ComputeNodeIdentityReference(resource_id = resource_id))
 
 # Create container configuration, prefetching Docker images from the container registry
 container_conf = batch.models.ContainerConfiguration(
@@ -316,8 +313,8 @@ new_pool = batch.models.PoolAddParameter(
 // Specify a container registry
 ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
-    userName: "myUserName",
-    password: "myPassword");
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
+);
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration();
@@ -343,7 +340,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ### Managed identity support for ACR
 
 When you access containers stored in [Azure Container Registry](https://azure.microsoft.com/services/container-registry),
-either a username/password or a managed identity can be used to authenticate with the service. To use a managed identity,
+a managed identity can be used to authenticate with the service. To use a managed identity,
 first ensure that the identity has been [assigned to the pool](managed-identity-pools.md) and that the identity has the
 `AcrPull` role assigned for the container registry you wish to access. Then, instruct Batch with which identity to use
 when authenticating with ACR.

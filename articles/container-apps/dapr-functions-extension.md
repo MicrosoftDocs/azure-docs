@@ -1,18 +1,18 @@
 ---
-title: Deploy the Dapr extension for Azure Functions in Azure Container Apps (preview)
+title: Deploy the Dapr extension for Azure Functions in Azure Container Apps
 titleSuffix: "Azure Container Apps"
 description: Learn how to use and deploy the Azure Functions with Dapr extension in your Dapr-enabled container apps.
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: paulyuk
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 11/21/2024
 ms.custom: references_regions
 # Customer Intent: I'm a developer who wants to use the Dapr extension for Azure Functions in my Dapr-enabled container app
 ---
 
-# Deploy the Dapr extension for Azure Functions in Azure Container Apps (preview)
+# Deploy the Dapr extension for Azure Functions in Azure Container Apps
 
 The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md) allows you to easily interact with the Dapr APIs from an Azure Function using triggers and bindings. In this guide, you learn how to:
 
@@ -30,7 +30,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 
 ## Set up the environment
 
-1. In the terminal, log into your Azure subscription.
+1. In the terminal, log in to your Azure subscription.
 
    ```azurecli
    az login
@@ -49,18 +49,6 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
    ```
 
 ## Create resource group
-
-> [!NOTE]
-> Azure Container Apps support for Functions is currently in preview and available in the following regions.
-> - Australia East
-> - Central US
-> - East US
-> - East US 2
-> - North Europe
-> - South Central US
-> - UK South
-> - West Europe
-> - West US 3
 
 Specifying one of the available regions, create a resource group for your container app.
 

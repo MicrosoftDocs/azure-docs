@@ -2,10 +2,10 @@
 title: 'Tutorial: Multiple Azure VM backup with PowerShell'
 description: This tutorial details backing up multiple Azure VMs to a Recovery Services vault using Azure PowerShell.
 ms.topic: tutorial
-ms.date: 03/05/2019
+ms.date: 04/30/2025
 ms.custom: mvc, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up Azure VMs with PowerShell
@@ -14,15 +14,7 @@ ms.author: v-abhmallick
 
 This tutorial describes how to deploy an [Azure Backup](backup-overview.md) Recovery Services vault to back up multiple Azure VMs using PowerShell.  
 
-In this tutorial you learn how to:
-
-> [!div class="checklist"]
->
-> * Create a Recovery Services vault and set the vault context.
-> * Define a backup policy
-> * Apply the backup policy to protect multiple virtual machines
-> * Trigger an on-demand backup job for the protected virtual machines
-Before you can back up (or protect) a virtual machine, you must complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
+Before you back up (or protect) a virtual machine, complete the [prerequisites](backup-azure-arm-vms-prepare.md) to prepare your environment for protecting your VMs.
 
 > [!IMPORTANT]
 > This tutorial assumes you've already created a resource group and an Azure virtual machine.
@@ -48,7 +40,7 @@ A [Recovery Services vault](backup-azure-recovery-services-vault-overview.md) is
 * In this tutorial, you create the vault in the same resource group and location as the VM you want to back up.
 * Azure Backup automatically handles storage for backed up data. By default the vault uses [Geo-Redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). Geo-redundancy ensures that backed up data is replicated to a secondary Azure region, hundreds of miles away from the primary region.
 
-Create the vault as follows:
+To create the vault, run the following cmdlets:
 
 1. Use the  [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) to create the vault. Specify the resource group name and location of the VM you want to back up.
 
@@ -78,7 +70,7 @@ Backups run in accordance with the schedule specified in the backup policy. When
 * The default protection policy triggers a backup job once a day at a specified time.
 * The default retention policy retains the daily recovery point for 30 days.
 
-To enable and backup up the Azure VM in this tutorial, we do the following:
+To enable and backup up the Azure VM, follow these steps:
 
 1. Specify a container in the vault that holds your backup data with [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer).
 2. Each VM for backup is an item. To start a backup job, you obtain information about the VM with [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem).
@@ -95,11 +87,11 @@ $item = Get-AzRecoveryServicesBackupItem -Container $namedContainer -WorkloadTyp
 $job = Backup-AzRecoveryServicesBackupItem -Item $item
 ```
 
-## Troubleshooting
+## Troubleshoot Azure Virtual Machine backup errors
 
 If you run into issues while backing up your virtual machine, review this [troubleshooting article](backup-azure-vms-troubleshoot.md).
 
-### Deleting a Recovery Services vault
+### Deletion of a Recovery Services vault
 
 If you need to delete a vault, first delete recovery points in the vault, and then unregister the vault, as follows:
 

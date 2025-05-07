@@ -6,7 +6,7 @@ summary: Learn how to generate high-scale loads, identify app performance bot
 metadata:
   title: Azure Load Testing documentation
   description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub Actions, Azure Pipelines, and more. 
-  ms.service: load-testing
+  ms.service: azure-load-testing
   ms.topic: landing-page
   ms.author: ninallam
   author: ninallam
@@ -34,6 +34,10 @@ landingContent:
             url: quickstart-create-and-run-load-test.md
           - text: Create a load test with a JMeter script
             url: how-to-create-and-run-load-test-with-JMeter-script.md
+          - text: Create a load test with a Locust script
+            url: quickstart-create-run-load-test-with-locust.md
+          - text: Create and run a load test with Visual Studio Code and GitHub Copilot
+            url: quickstart-create-run-load-tests-from-visual-studio-code.md                   
           - text: Automate load tests with Azure Pipelines
             url: quickstart-add-load-test-cicd.md
       - linkListType: tutorial

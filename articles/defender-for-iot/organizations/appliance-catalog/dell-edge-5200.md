@@ -36,7 +36,7 @@ The following image shows the hardware elements on the Dell Edge 5200 that are u
 |Device access|	6x USB 3.0|
 |Power|	DC Input 12–24 V (±10% tolerance) <br>AC Input Optional: 180 W / 220 W, 60 W (for PoE) external AC/DC adapter|
 
-## Appliance BOM
+## Dell Edge 5200 Bill of materials
 
 |Quantity|PN|Description|
 |:----|:----|:----|
@@ -55,4 +55,3 @@ Continue understanding system requirements for physical or virtual appliances. F
 Then, use any of the following procedures to continue:
 
 - [Download software for an OT sensor](../ot-deploy/install-software-ot-sensor.md#download-software-files-from-the-azure-portal)
-- [Download software files for an on-premises management console](../legacy-central-management/install-software-on-premises-management-console.md#download-software-files-from-the-azure-portal)

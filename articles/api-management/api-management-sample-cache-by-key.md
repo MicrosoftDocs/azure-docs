@@ -4,7 +4,7 @@ description: Learn how to cache items by key in Azure API Management. You can mo
 services: api-management
 author: dlepow
 ms.topic: how-to
-ms.service: api-management
+ms.service: azure-api-management
 ms.date: 05/19/2022
 ms.author: danlep
 

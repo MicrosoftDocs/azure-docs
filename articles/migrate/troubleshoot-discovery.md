@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 04/20/2023
-ms.custom: engagement-fy23
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
@@ -24,7 +24,7 @@ If the servers don't appear in the portal, wait for a few minutes because it tak
 
 If the state still doesn't change:
 
-- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
+- Select **Refresh** on the **Servers, databases and web apps** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
 
 If the preceding step doesn't work and you're discovering VMware servers:
 
@@ -196,7 +196,7 @@ Make sure that the user account provided in the appliance has access to WMI name
 1. Select **Security** to open the **Security for ROOT** dialog.
 1. Select **Advanced** to open the **Advanced Security Settings for Root** dialog.
 1. Select **Add** to open the **Permission Entry for Root** dialog.
-1. Click **Select a principal** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
+1. Select **Select a principal** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
 1. Select the usernames or groups you want to grant access to the WMI, and select **OK**.
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialogs.

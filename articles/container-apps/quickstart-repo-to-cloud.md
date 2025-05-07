@@ -3,12 +3,12 @@ title: "Quickstart: Build and deploy from a repository to Azure Container Apps"
 description: Build your container app from a code repository and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/26/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -67,7 +67,7 @@ export ACR_NAME="acaalbums"$GITHUB_USERNAME
 ```
 ::: zone-end
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 Define the following variables in your PowerShell console.
 
@@ -246,7 +246,7 @@ az containerapp up \
 ::: zone-end
 
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ::: zone pivot="with-dockerfile"
 
@@ -306,7 +306,7 @@ If you're not going to continue on to the [Deploy a frontend](communicate-betwee
 az group delete --name $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az group delete --name $RESOURCE_GROUP

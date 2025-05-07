@@ -4,7 +4,7 @@ description: This article describes how to set up rules to control autoscale beh
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/06/2024
 ms.author: danlep
@@ -15,13 +15,16 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
-An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale).
+An Azure API Management service instance can scale automatically based on a set of rules. This behavior can be enabled and configured through [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale).
 
 The article walks through the process of configuring autoscale and suggests optimal configuration of autoscale rules.
 
 > [!NOTE]
 > * In service tiers that support multiple scale units, you can also [manually scale](upgrade-and-scale.md) your API Management instance.
 > * An API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
+> * Currently, autoscale is not supported for the [workspace gateway](workspaces-overview.md#workspace-gateway) in API Management workspaces.
+
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
 
 ## Prerequisites
 
@@ -37,7 +40,6 @@ To follow the steps from this article, you must:
 Certain limitations and consequences of scaling decisions need to be considered before configuring autoscale behavior.
 
 + The [pricing tier](api-management-features.md) of your API Management instance determines the [maximum number of units](upgrade-and-scale.md#upgrade-and-scale) you may scale to. For example, the **Standard tier** can be scaled to 4 units. You can add any number of units to the **Premium** tier.
-+ The scaling process takes at least 20 minutes.
 + If the service is locked by another operation, the scaling request will fail and retry automatically.
 + If your service instance is deployed in multiple regions (locations), only units in the **Primary location** can be autoscaled with Azure Monitor autoscale. Units in other locations can only be scaled manually.
 + If your service instance is configured with [availability zones](zone-redundancy.md) in the **Primary location**, be aware of the number of zones when configuring autoscaling. The number of API Management units in autoscale rules and limits must be a multiple of the number of zones. 
@@ -72,7 +74,7 @@ Follow these steps to configure autoscale for an Azure API Management service:
     |*Action*              |                   |                                                                                                                                                                                                                                                                                 |
     | Operation             | Increase count by |                                                                                                                                                                                                                                                                                 |
     | Instance count        | 1                 | Scale out the Azure API Management instance by 1 unit.                                                                                                                                                                                                                          |
-    | Cool down (minutes)   | 60                | It takes at least 20 minutes for the API Management service to scale out. In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
+    | Cool down (minutes)   | 60                | In most cases, the cool down period of 60 minutes prevents from triggering many scale-outs.                                                                                                  |
 
 1. Select **Add** to save the rule.
 1. To add another rule, select **Add a rule**.

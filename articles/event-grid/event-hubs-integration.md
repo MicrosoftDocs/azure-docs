@@ -34,7 +34,7 @@ To complete this tutorial, you must have:
 
 - This article assumes that you are familiar with Event Grid and Event Hubs (especially the Capture feature). If you aren't familiar with Azure Event Grid, see [Introduction to Azure Event Grid](overview.md). To learn about the Capture feature of Azure Event Hubs, see [Capture events through Azure Event Hubs in Azure Blob Storage or Azure Data Lake Storage](../event-hubs/event-hubs-capture-overview.md).
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual studio](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
+- [Visual Studio](https://www.visualstudio.com/vs/) with workloads for: .NET desktop development, Azure development, ASP.NET and web development, Node.js development, and Python development.
 - Download the [EventHubsCaptureEventGridDemo sample project](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) to your computer.
     - WindTurbineDataGenerator – A simple publisher that sends sample wind turbine data to an event hub with the Capture feature enabled.
     - FunctionDWDumper – An Azure function that receives a notification from Azure Event Grid when an Avro file is captured to the Azure Storage blob. It receives the blob’s URI path, reads its contents, and pushes this data to Azure Synapse Analytics (dedicated SQL pool).
@@ -237,6 +237,12 @@ You've finished setting up your event hub, dedicate SQL pool (formerly SQL Data 
     ```
 
     :::image type="content" source="media/event-hubs-functions-synapse-analytics/query-results.png" alt-text="Screenshot showing the query results.":::
+
+
+
+> [!IMPORTANT]
+> We use connection string to authenticate to Azure Event Hubs namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments. When using an application, you can enable managed identity for the application and assign the identity an appropriate role (Azure Event Hubs Owner, Azure Event Hubs Data Sender, or Azure Event Hubs Data Receiver) on the Event Hubs namespace. For more information, see [Authorize access to Event Hubs using Microsoft Entra ID](../event-hubs/authorize-access-azure-active-directory.md).
+
 
 ## Monitor the solution
 This section helps you with monitoring or troubleshooting the solution.

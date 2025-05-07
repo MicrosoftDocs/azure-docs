@@ -31,6 +31,7 @@ This article provides information about limitations and known issues related to 
 - In-band Dual-tone multi-frequency (DTMF) isn't supported. Use RFC 2833 DTMF instead.
 - Multiple IP addresses mapped with the same FQDN on the SBC side aren't supported.
 - Maximum call duration is 30 hours.
+- Early media isn't supported for group calls.
 
 ## Next steps
 

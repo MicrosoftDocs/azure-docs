@@ -4,7 +4,7 @@ description: Learn to update the JavaScript application on a Microsoft Azure Man
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/10/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.custom: devx-track-js
 ms.topic: how-to
 ---

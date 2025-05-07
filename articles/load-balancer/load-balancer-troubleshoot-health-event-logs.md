@@ -3,7 +3,7 @@ title: Troubleshoot load balancer health event logs
 titleSuffix: Azure Load Balancer
 description: Learn how to troubleshoot load balancer health event log types.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 05/24/2024
 ms.author: mbender

@@ -3,7 +3,7 @@ title: Use managed identities to access Event Hubs from an Azure Stream Analyt
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Event Hubs input and output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2023
 ms.custom: subject-rbac-steps

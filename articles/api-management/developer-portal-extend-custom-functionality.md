@@ -5,7 +5,7 @@ description: How to customize the managed API Management developer portal with c
 author: dlepow
 ms.author: danlep
 ms.date: 10/27/2023
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.custom: devx-track-extended-azdevcli
 ---
@@ -28,6 +28,7 @@ The following table summarizes two options, with links to more detail.
 > [!NOTE]
 > [Self-hosting the developer portal](developer-portal-self-host.md) is an extensibility option for customers who need to customize the source code of the entire portal core. It gives complete flexibility for customizing portal experience, but requires advanced configuration. With self-hosting, you're responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade.
 
+[!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
 
 
 ## Use Custom HTML code widget
@@ -59,7 +60,7 @@ For more advanced use cases, you can create and upload a custom widget to the de
 
 ### Prerequisites 
  
-* Install [Node.JS runtime](https://nodejs.org/en/) locally 
+* Install [Node.js runtime](https://nodejs.org/en/) locally 
 * Basic knowledge of programming and web development
 
 ### Create widget

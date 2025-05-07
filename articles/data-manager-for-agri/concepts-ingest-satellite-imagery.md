@@ -1,9 +1,9 @@
 ---
 title: Ingest satellite data in Azure Data Manager for Agriculture
 description: Get step-by-step guidance on how to ingest satellite data.
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 11/17/2023
 ms.custom: template-concept

@@ -3,13 +3,15 @@ title: Track data changes in Azure SQL Edge
 description: Learn about change tracking and change data capture in Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Track data changes in Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge supports the two SQL Server features that track changes to data in a database: [change tracking](/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) and [change data capture](/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). These features enable applications to determine the data modification language changes (insert, update, and delete operations) that were made to user tables in a database. You can enable change data capture and change tracking on the same database. No special considerations are required.
@@ -55,7 +57,7 @@ In addition to these period columns, a temporal table also contains a reference 
 
 For more information, see [Temporal tables](/sql/relational-databases/tables/temporal-tables).
 
-## Next steps
+## Related content
 
 - [Data streaming in Azure SQL Edge](stream-data.md)
 - [Machine learning and AI with ONNX in Azure SQL Edge](onnx-overview.md)

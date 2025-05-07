@@ -1,11 +1,11 @@
 ---
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
-ms.topic: conceptual
-ms.date: 01/24/2024
-ms.service: backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.topic: how-to
+ms.date: 04/24/2025
+ms.service: azure-backup
+author: jyothisuri
+ms.author: jsuri
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -35,6 +35,8 @@ Before you restore a database, note the following:
 - We strongly recommended to restore the "master" database using the [Restore as files](#restore-as-files) option and then restore [using T-SQL commands](/sql/relational-databases/backup-restore/restore-the-master-database-transact-sql).
 - For all system databases (model, msdb), stop the SQL Server Agent service before you trigger the restore.
 - Close any applications that might try to take a connection to any of these databases.
+- For the **master databases**, the **Alternate Location** option for restore isn't supported. We recommend you to restore the **master database** using the **Restore as files** option, and then restore using the `T-SQL` commands.
+- For `msdb` and `model`, the **Alternate Location** option for restore is supported only when the **Restored database name** is different from the **target database** name. If you want to restore the same name with the **target database**, we  recommend you to restore using the **Restore as files** option, and then restore using the `T-SQL` commands.
 
 ## Restore a database
 
@@ -298,3 +300,11 @@ By default, CSR is enabled on the Recovery Services vault. To update the Recover
 ## Next steps
 
 [Manage and monitor](manage-monitor-sql-database-backup.md) SQL Server databases that are backed up by Azure Backup.
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

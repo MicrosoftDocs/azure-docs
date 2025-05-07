@@ -3,14 +3,18 @@ title: MedTech service scenario-based mappings samples - Azure Health Data Servi
 description: Learn about the MedTech service scenario-based mappings samples.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: sample
 ms.date: 07/25/2023
 ms.author: chrupa
 ---
 
 # Overview of the MedTech service scenario-based mappings samples
+
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 
 The [MedTech service](overview.md) scenario-based [samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/tree/main/samples/medtech-service-mappings) provide conforming and valid [device](overview-of-device-mapping.md) and [FHIR&reg; destination](overview-of-fhir-destination-mapping.md) mappings and test device messages. Theses samples can be used to help with the authoring and troubleshooting of your own MedTech service mappings.
 

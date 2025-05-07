@@ -5,12 +5,15 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 08/02/2024
+zone_pivot_groups: appconfig-data-plane-api-version
+
 ---
+:::zone target="docs" pivot="v1,v23-10,v23-11"
 
 # Locks
 
-This API (version 1.0) provides lock and unlock semantics for the key-value resource. It supports the following operations:
+This API provides lock and unlock semantics for the key-value resource. It supports the following operations:
 
 - Place lock
 - Remove lock
@@ -108,3 +111,5 @@ The following request applies the operation only if the current key-value repres
 PUT|DELETE /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
 If-None-Match: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
+
+:::zone-end

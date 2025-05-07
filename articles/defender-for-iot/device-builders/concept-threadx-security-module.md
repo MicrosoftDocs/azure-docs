@@ -9,6 +9,8 @@ ms.date: 04/17/2024
 
 Use this article to get a better understanding of the Defender-IoT-micro-agent for Eclipse ThreadX, including features and benefits as well as links to relevant configuration and reference resources. 
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Eclipse ThreadX IoT Defender-IoT-micro-agent
 
 Defender-IoT-micro-agent for Eclipse ThreadX provides a comprehensive security solution for Eclipse ThreadX devices as part of the NetX Duo offering. Within the NetX Duo offering, Eclipse ThreadX ships with the Azure IoT Defender-IoT-micro-agent built-in, and provides coverage for common threats on your real-time operating system devices once activated.

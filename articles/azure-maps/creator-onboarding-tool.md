@@ -2,22 +2,27 @@
 title: Create indoor map with onboarding tool
 titleSuffix: Azure Maps Creator
 description: This article describes how to create an indoor map using the onboarding tool
-author: brendansco
-ms.author: Brendanc
-ms.date: 08/15/2023
+author: faterceros
+ms.author: aterceros
+ms.date: 09/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: creator
 ---
 
 # Create indoor map with the onboarding tool
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 This article demonstrates how to create an indoor map using the Azure Maps Creator onboarding tool.
 
 ## Prerequisites
 
-- A basic understanding of Creator. For an overview, see [What is Azure Maps Creator?]
+- A basic understanding of Creator. For an overview, see [Creator for indoor maps].
 - A drawing package. For more information, see [Drawing package requirements].
 
 > [!NOTE]
@@ -85,4 +90,4 @@ Integrate the indoor map into your applications using the Web SDK.
 [The Map Configuration ID]: #the-map-configuration-id
 [tileset]: creator-indoor-maps.md#tilesets
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md
-[What is Azure Maps Creator?]: about-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md

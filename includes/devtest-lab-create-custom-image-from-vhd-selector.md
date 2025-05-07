@@ -1,5 +1,5 @@
 ---
-ms.service: devtest-lab
+ms.service: azure-devtest-labs
 ms.topic: include
 ms.author: rosemalcolm
 author: RoseHJM

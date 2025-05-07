@@ -6,13 +6,13 @@ ms.service: azure
 ms.topic: reliability-article
 ms.date: 10/24/2023
 ms.author: anaharris
-ms.custom: references_regions, subject-reliability
+ms.custom: subject-reliability
 CustomerIntent: As a cloud architect/engineer, I need general guidance reliability in Defender for DevOps
 ---
 
 # Reliability in Microsoft Defender for Cloud DevOps security
 
-This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](../defender-for-cloud/defender-for-devops-introduction.md), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](/azure/defender-for-cloud/defender-for-devops-introduction), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 This article is specific to recover in the case of a region outage.  If you are looking to move your existing DevOps connector to a new region, please see [Common questions about Defender for DevOps](/azure/defender-for-cloud/faq-defender-for-devops#can-i-migrate-the-connector-to-a-different-region-)
 
@@ -59,7 +59,7 @@ To request recovery of a connector created in a downed region:
    resources
     | extend connectorType = tostring(parse_json(properties["environmentName"]))
     | where type == "microsoft.security/securityconnectors"
-    | where connectorType in ("AzureDevOps", "Github", "GitLab")
+    | where connectorType in ("AzureDevOps", "GitHub", "GitLab")
     | project connectorResourceId = id, region = location
 
 1. Once the DevOps resources have been released from the old connector and appear for the new connector, [reconfigure the pull request annotations](/azure/defender-for-cloud/enable-pull-request-annotations) as needed.

@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 05/20/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a security analyst, I want to monitor the health of my automation rules and playbooks so that I can ensure the proper functioning and performance of my security orchestration and response operations.
+
 ---
 
 # Monitor the health of your automation rules and playbooks
@@ -48,7 +52,7 @@ For the **Automation rule run** status, you may see the following statuses:
 
 - **Success**: rule executed successfully, triggering all actions.
 - **Partial success**: rule executed and triggered at least one action, but some actions failed.
-- *Failure*: automation rule did not run any action due to one of the following reasons:
+- **Failure**: automation rule did not run any action due to one of the following reasons:
 
     - Conditions evaluation failed.
     - Conditions met, but the first action failed.
@@ -69,6 +73,7 @@ For the **Playbook was triggered** status, you may see the following statuses:
 | Error description                 | Suggested actions                         |
 | --------------------------------- | ----------------------------------------- |
 | **Could not add task: *\<TaskName>*.**<br>Incident/alert was not found. | Make sure the incident/alert exists and try again. |
+| **Could not add task: *\<TaskName>*.**<br>Incident already contains the maximum allowed number of tasks. | If this task is required, see if there are any tasks that can be removed or consolidated, then try again. |
 | **Could not modify property: *\<PropertyName>*.**<br>Incident/alert was not found. | Make sure the incident/alert exists and try again. |
 | **Could not modify property: *\<PropertyName>*.**<br>Too many requests, exceeding throttling limits. |  |
 | **Could not trigger playbook: *\<PlaybookName>*.**<br>Incident/alert was not found. | If the error occurred when trying to trigger a playbook on demand, make sure the incident/alert exists and try again. |
@@ -129,6 +134,16 @@ SentinelHealth
     playbookName,
     playbookRunStatus
 ```
+
+See more information on the following items used in the preceding examples, in the Kusto documentation:
+- [***where*** operator](/kusto/query/where-operator?view=microsoft-sentinel&preserve-view=true)
+- [***mv-expand*** operator](/kusto/query/mv-expand-operator?view=microsoft-sentinel&preserve-view=true)
+- [***extend*** operator](/kusto/query/extend-operator?view=microsoft-sentinel&preserve-view=true)
+- [***join*** operator](/kusto/query/join-operator?view=microsoft-sentinel&preserve-view=true)
+- [***project*** operator](/kusto/query/project-operator?view=microsoft-sentinel&preserve-view=true)
+- [***tostring()*** function](/kusto/query/tostring-function?view=microsoft-sentinel&preserve-view=true)
+
+[!INCLUDE [kusto-reference-general-no-alert](includes/kusto-reference-general-no-alert.md)]
 
 ## Use the health monitoring workbook
 

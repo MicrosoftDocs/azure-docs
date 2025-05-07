@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 10/02/2023
 ---
@@ -27,7 +27,7 @@ Use the following steps to delete the entire resource group, including the newly
 
 1. On the navigation menu, select **Resource groups**. Then, select the name of your resource group - for example, **myresourcegroup**.
 
-1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, *myresourcegroup*. Then, select **Delete**.
+1. On your resource group page, select **Delete**. Enter the name of your resource group in the text box to confirm deletion - for example, **myresourcegroup**. Then, select **Delete**.
 
 ### [Azure CLI](#tab/Azure-CLI)
 

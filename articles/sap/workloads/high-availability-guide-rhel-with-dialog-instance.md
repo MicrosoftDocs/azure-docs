@@ -7,7 +7,7 @@ manager: rdeltcheva
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 01/21/2024
+ms.date: 06/19/2024
 ms.author: depadia
 ---
 
@@ -111,9 +111,6 @@ This article assumes that you already configured the load balancer for the SAP A
    1. **Enable Floating IP**: Select this option.
 
 The health probe configuration property `numberOfProbes`, otherwise known as **Unhealthy threshold** in the Azure portal, isn't respected. To control the number of successful or failed consecutive probes, set the property `probeThreshold` to `2`. It's currently not possible to set this property by using the Azure portal. Use either the [Azure CLI](/cli/azure/network/lb/probe) or the [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
-
-> [!IMPORTANT]
-> Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For more information, see [Azure Load Balancer limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need more IP addresses for the VMs, deploy a second NIC.
 
 When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure Load Balancer instance, there's no outbound internet connectivity unless more configuration is performed to allow routing to public endpoints. For steps on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
 

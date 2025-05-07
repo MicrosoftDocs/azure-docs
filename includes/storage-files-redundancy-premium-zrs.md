@@ -2,7 +2,7 @@
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: include
-ms.date: 12/14/2023
+ms.date: 08/19/2024
 ms.author: kendownie
 ---
 
@@ -16,7 +16,6 @@ ZRS for premium file shares is available for a subset of Azure regions:
 - (Asia Pacific) East Asia
 - (Asia Pacific) Japan East
 - (Asia Pacific) Central India
-- (Asia Pacific) South India
 - (Canada) Canada Central 
 - (Europe) France Central
 - (Europe) Germany West Central
@@ -25,6 +24,7 @@ ZRS for premium file shares is available for a subset of Azure regions:
 - (Europe) UK South
 - (Europe) Poland Central
 - (Europe) Norway East
+- (Europe) Spain Central
 - (Europe) Sweden Central
 - (Europe) Switzerland North
 - (Europe) Italy North
@@ -36,5 +36,6 @@ ZRS for premium file shares is available for a subset of Azure regions:
 - (North America) West US 2
 - (North America) West US 3
 - (North America) South Central US
+- (North America) Mexico Central
 - (South America) Brazil South
 - (US Government) US Gov Virginia

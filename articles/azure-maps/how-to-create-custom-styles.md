@@ -2,26 +2,32 @@
 title: Create custom styles for indoor maps
 titleSuffix: Azure Maps Creator
 description: Learn how to use Maputnik with Azure Maps Creator to create custom styles for your indoor maps.
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 9/23/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Create custom styles for indoor maps (preview)
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 When you create an indoor map using Azure Maps Creator, default styles are applied. This article discusses how to customize these styling elements.
 
 ## Prerequisites
 
 - Understanding of [Creator concepts].
-- An Azure Maps Creator [tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
+- An Azure Maps Creator [tileset].
 
 ## Create custom styles using Creators visual editor
 
-While it's possible to modify your indoor maps styles using [Creators Rest API], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article focuses exclusively on creating custom styles using this style editor.
+While it's possible to modify your indoor maps styles using [Creators REST API], Creator also offers a [visual style editor][style editor] to create custom styles that doesn't require coding. This article focuses exclusively on creating custom styles using this style editor.
 
 ### Open style
 
@@ -241,7 +247,7 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 
 [categories]: https://atlas.microsoft.com/sdk/javascript/indoor/0.2/categories.json
 [Creator concepts]: creator-indoor-maps.md
-[Creators Rest API]: /rest/api/maps-creator/
+[Creators REST API]: /rest/api/maps-creator/
 [custom styling]: creator-indoor-maps.md#custom-styling-preview
 [Instantiate the Indoor Manager]: how-to-use-indoor-module.md#instantiate-the-indoor-manager
 [manifest]: drawing-requirements.md#manifest-file-requirements
@@ -251,5 +257,4 @@ Now when you select that unit in the map, the pop-up menu has the new layer ID, 
 [tileset get]: /rest/api/maps-creator/tileset/get?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [tileset]: /rest/api/maps-creator/tileset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [unitProperties]: drawing-requirements.md#unitproperties
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Use the Azure Maps Indoor Maps module]: how-to-use-indoor-module.md

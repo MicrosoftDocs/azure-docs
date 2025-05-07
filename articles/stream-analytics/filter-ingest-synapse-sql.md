@@ -3,7 +3,7 @@ title: Filter and ingest to Azure Synapse SQL using the Stream Analytics no code
 description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from your Event Hubs, filters the incoming data, and then writes the results continuously to a Synapse SQL table.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 10/12/2022
@@ -55,6 +55,8 @@ Use the following steps to develop a Stream Analytics job to filter and ingest r
     You can also see the job under the Process Data section on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
     :::image type="content" source="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/filter-ingest-synapse-sql/no-code-list-jobs.png" :::
+
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 

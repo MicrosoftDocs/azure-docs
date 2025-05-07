@@ -2,13 +2,13 @@
 title: Common cost analysis uses in Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/21/2024
+author: shasulin
+ms.author: shasulin
+ms.date: 01/07/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: shasulin
 ---
 
 # Common cost analysis uses
@@ -22,6 +22,8 @@ Forecast costs are shown in cost analysis areas for area and stacked column view
 In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 
 In the default view, the top chart has the Actual/Amortized cost and forecast cost sections. The solid color of the chart shows your Actual/Amortized cost. The shaded color shows the forecast cost.
+
+For more information about forecasting costs, see [Forecasting costs in Cost Analysis](quick-acm-cost-analysis.md#forecasting-costs-in-cost-analysis).
 
 :::image type="content" border="true" source="./media/cost-analysis-common-uses/enrollment-forecast.png" lightbox="./media/cost-analysis-common-uses/enrollment-forecast.png" alt-text="Screenshot showing Forecast cost in cost analysis.":::
 
@@ -53,19 +55,6 @@ You can add more customizations to the view.
 1. Group by **Resource** to see the specific resources that are accruing cost. The forecast cost isn't calculated for each service. It's projected for the **Total** of all your resources.
 
 :::image type="content" border="true" source="./media/cost-analysis-common-uses/forecast-by-service.png" lightbox="./media/cost-analysis-common-uses/forecast-by-service.png" alt-text="Screenshot showing Forecast and resource cost.":::
-
-## View your Azure and AWS costs together
-
-> [!NOTE]
-> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
-
-To view Azure and AWS costs together, you use management group scopes in Azure.
-
-1. Create a management group or select an existing one.
-1. Assign the existing Azure subscriptions that you need to the management group.
-1. Assign the *same* management group to the linked account of the connector.
-1. Go to cost analysis and select **Accumulated costs**.
-1. Select **Group by** - **Provider**.
 
 ## View New Commerce license and consumption costs
 

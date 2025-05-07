@@ -3,7 +3,7 @@ title: Capture data from Event Hubs into Azure Data Lake Storage Gen2 in Delta L
 description: Learn how to use the node code editor to automatically capture the streaming data in Event Hubs in an Azure Data Lake Storage Gen2 account in Delta Lake format.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 2/17/2023
@@ -64,6 +64,8 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 Verify that the parquet files with Delta lake format are generated in the Azure Data Lake Storage container. 
 
 :::image type="content" source="./media/capture-event-hub-data-delta-lake/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the Azure Data Lake Storage (ADLS) container." lightbox="./media/capture-event-hub-data-delta-lake/verify-captured-data.png" :::
+
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 

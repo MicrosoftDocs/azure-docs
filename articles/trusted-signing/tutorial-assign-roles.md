@@ -44,7 +44,7 @@ The Trusted Signing Identity Verifier role is *required* to manage identity vali
    ```azurecli
    az role assignment create --assignee <objectId of user/service principle> 
    --role "Trusted Signing Certificate Profile Signer" 
-   --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.CodeSigning/trustedSigningAccounts/<trustedsigning-account-name>/certificateProfiles/<profileName>" 
+   --scope "/subscriptions/<subscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.CodeSigning/codeSigningAccounts/<trustedsigning-account-name>/certificateProfiles/<profileName>" 
    ```
 
 ## Related content

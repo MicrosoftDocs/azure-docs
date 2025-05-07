@@ -3,7 +3,7 @@ title: Troubleshoot Azure Stream Analytics queries
 description: This article describes techniques to troubleshoot your queries in Azure Stream Analytics jobs.
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ---
@@ -37,7 +37,7 @@ This article describes common issues with developing Azure Stream Analytics quer
 5.  Ensure event ordering policies are configured as expected. Go to **Settings** and select [**Event Ordering**](./stream-analytics-time-handling.md). The policy is *not* applied when you use the **Test** button to test the query. This result is one difference between testing in-browser versus running the job in production. 
 
 6. Debug by using activity and resource logs:
-    - Use [Activity Logs](../azure-monitor/essentials/activity-log.md), and filter to identify and debug errors.
+    - Use [Activity Logs](/azure/azure-monitor/essentials/activity-log), and filter to identify and debug errors.
     - Use [job resource logs](stream-analytics-job-diagnostic-logs.md) to identify and debug errors.
 
 ## Resource utilization is high

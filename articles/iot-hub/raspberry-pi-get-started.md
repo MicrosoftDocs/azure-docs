@@ -2,12 +2,12 @@
 title: Connect Raspberry Pi to Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Connect a Raspberry Pi to Azure IoT Hub and test sample scenarios that send data to the Azure cloud.
-author: kgremban
+author: SoniaLopezBravo
 
-ms.author: kgremban
-ms.service: iot-hub
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 03/20/2025
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub
@@ -19,7 +19,8 @@ This article provides basic steps for getting starting with connecting a Raspber
 Have the following prerequisites prepared before starting this article:
 
 * An Azure subscription.
-* An IoT hub with a device registered to it. If you don't have a hub with a registered device already, see [Create an IoT hub using the Azure portal](./iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
+* A device registered in your IoT hub. If you don't have devices in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
 ## Use the online simulator
 
@@ -69,7 +70,7 @@ The following sections walk through setting up a Raspberry Pi solution, includin
 * A Raspberry Pi device
 
   >[!NOTE]
-  >The steps in this article have been tested on Raspberry Pi 2 and Raspberry Pi 3 boards.
+  >The steps in this article are tested on Raspberry Pi 2 and Raspberry Pi 3 boards.
 
 * A monitor, a USB keyboard, and mouse that connects to Pi.
 
@@ -95,7 +96,7 @@ Prepare the microSD card for installation of the Raspberry Pi OS image.
 
 2. Install Raspberry Pi OS with desktop to the microSD card.
 
-   a. [Download and install the Etcher SD card burner utility](https://etcher.io/).
+   a. [Download and install the Etcher SD card burner utility](https://etcher.balena.io/).
 
    b. Run Etcher and select the Raspberry Pi OS with desktop image that you extracted in step 1.
 

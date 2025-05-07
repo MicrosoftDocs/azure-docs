@@ -1,9 +1,9 @@
 ---
 title: View resource changes in the Azure portal (preview)
-description: View resource changes via the Azure Resource Graph Change Analysis in the Azure portal.
+description: View resource changes with Azure Resource Graph Change Analysis in the Azure portal.
 author: iancarter-msft
 ms.author: iancarter
-ms.date: 03/15/2024
+ms.date: 06/14/2024
 ms.topic: how-to
 ---
 
@@ -11,7 +11,7 @@ ms.topic: how-to
 
 [!INCLUDE [preview](../../includes/resource-graph/preview/change-analysis.md)]
 
-Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. In addition to [querying Resource Graph for resource changes](./get-resource-changes.md), you can also view all changes to your applications via the Azure portal. 
+Change Analysis provides data for various management and troubleshooting scenarios, helping you understand which changes to your application caused which breaking issues. In addition to [querying Resource Graph for resource changes](./get-resource-changes.md), you can also view all changes to your applications via the Azure portal.
 
 In this guide, you learn where to find Change Analysis in the portal and how to view, filter, and query changes.
 
@@ -21,13 +21,13 @@ Change Analysis automatically collects snapshots of change data for all Azure re
 
 :::image type="content" source="./media/view-resource-changes/all-resources-menu.png" alt-text="Screenshot of finding All Resources in the portal menu.":::
 
-Select the **Changed resources** card. In this example, all Azure resources are returned with no specific subscription selected. 
+Select **Changed resources**. In this example, all Azure resources are returned with no specific subscription selected.
 
-:::image type="content" source="./media/view-resource-changes/change-analysis-card.png" alt-text="Screenshot of the All Resources page and highlighting the Changed resources card.":::
+:::image type="content" source="./media/view-resource-changes/change-analysis-card.png" alt-text="Screenshot of the All Resources page and highlighting the Changed resources.":::
 
-Review the results in the **Changed resources** blade.
+Review the results in **Changed resources**.
 
-:::image type="content" source="./media/view-resource-changes/change-history-results.png" alt-text="Screenshot of the Azure Resource Graph Change Analysis resources blade.":::
+:::image type="content" source="./media/view-resource-changes/change-history-results.png" alt-text="Screenshot of the Azure Resource Graph Change Analysis resources.":::
 
 ## Filter and sort Change Analysis results
 
@@ -35,13 +35,13 @@ Realistically, you only want to see the change history results for the resources
 
 ### Filter
 
-Use any of the filters available at the top of the Change Analysis blade to narrow down the change history results to your specific needs.
+Use any of the filters available at the top of **Change Analysis** to narrow down the change history results to your specific needs.
 
-:::image type="content" source="./media/view-resource-changes/changes-filter.png" alt-text="Screenshot of the filters available on the Change Analysis blade that help narrow down the Change Analysis results.":::
+:::image type="content" source="./media/view-resource-changes/changes-filter.png" alt-text="Screenshot of the filters available for Change Analysis that help narrow down the Change Analysis results.":::
 
-You may need to reset filters set on the **All resources** blade in order to use the resource changes filters.
+You might need to reset filters set on **All resources** in order to use the resource changes filters.
 
-:::image type="content" source="./media/view-resource-changes/reset-filters.png" alt-text="Screenshot of the banner indicating that you may need to reset filters from the All Resources blade.":::
+:::image type="content" source="./media/view-resource-changes/reset-filters.png" alt-text="Screenshot of the banner that indicates you might need to reset filters from All Resources.":::
 
 | Filter | Description |
 | ------ | ----------- |
@@ -59,7 +59,7 @@ You may need to reset filters set on the **All resources** blade in order to use
 
 ### Sort
 
-In the **Change Analysis** blade, you can organize the results into groups using the **Group by...** drop-down menu.
+In **Change Analysis**, you can organize the results into groups using the **Group by...** drop-down menu.
 
 :::image type="content" source="./media/view-resource-changes/change-grouping.png" alt-text="Screenshot of the drop-down for selecting how to group Change Analysis results.":::
 
@@ -70,16 +70,16 @@ In the **Change Analysis** blade, you can organize the results into groups using
 | Resource Group | Groups resources based on their resource group. |
 | Type | Groups resources based on their Azure service type.  |
 | Resource | Sorts resources per their resource name. |
-| Change Type | Organizes resources based on the collected change type. Values include "Create", "Update", and "Delete". |
-| Client Type | Sorts by how the change is initiated and performed. Values include "CLI" and "ARM template". |
+| Change Type | Organizes resources based on the collected change type. Values include _Create_, _Update_, and _Delete_. |
+| Client Type | Sorts by how the change is initiated and performed. Values include _CLI_ and _ARM template_. |
 | Changed By | Groups resource changes by who made the change. Values include user email ID or subscription ID. |
-| Changed By Type | Groups resource changes based on the descriptor of who made the change. Values include "User", "Application".  |
+| Changed By Type | Groups resource changes based on the descriptor of who made the change. Values include _User_, _Application_.  |
 | Operation | Groups resources based on [their resource provider operations](../../../role-based-access-control/resource-provider-operations.md). |
 | Correlation ID | Organizes the resource changes by [the operation's unique identifier](../../../expressroute/get-correlation-id.md). |
 
 ### Edit columns
 
-You can add and remove columns, or change the column order in the Change Analysis results. In the **Change Analysis** blade, select **Manage view** > **Edit columns**.
+You can add and remove columns, or change the column order in the Change Analysis results. In **Change Analysis** select **Manage view** > **Edit columns**.
 
 :::image type="content" source="./media/view-resource-changes/manage-results-view.png" alt-text="Screenshot of the drop-down for selecting the option for editing columns for the results.":::
 
@@ -89,7 +89,7 @@ In the **Edit columns** pane, make your changes and then select **Save** to appl
 
 #### Add a column
 
-Click **+ Add column**. 
+Select **+ Add column**.
 
 :::image type="content" source="./media/view-resource-changes/add-column-button.png" alt-text="Screenshot of selecting the button for adding a new column.":::
 
@@ -99,9 +99,9 @@ Select a column property from the dropdown in the new column field.
 
 #### Delete a column
 
-Select the trashcan icon to delete a column.
+To delete a column, select the trash can icon.
 
-:::image type="content" source="./media/view-resource-changes/delete-column.png" alt-text="Screenshot of the trashcan icon for deleting a column.":::
+:::image type="content" source="./media/view-resource-changes/delete-column.png" alt-text="Screenshot of the trash can icon to delete a column.":::
 
 #### Reorder columns
 

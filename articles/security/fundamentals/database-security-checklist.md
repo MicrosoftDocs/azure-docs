@@ -2,14 +2,14 @@
 title: Azure database security checklist| Microsoft Docs
 description: Use the Azure database security checklist to make sure that you address important cloud computing security issues.
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/29/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 ---
 
 # Azure database security checklist
@@ -43,7 +43,7 @@ We recommend that you read the [Azure Database Security Best Practices](/azure/a
 |<br> Database Access | <ul><li>[Authentication](/azure/azure-sql/database/logins-create-manage) (Microsoft Entra authentication) AD authentication uses identities managed by Microsoft Entra ID.</li><li>[Authorization](/azure/azure-sql/database/logins-create-manage) grant users the least privileges necessary.</li></ul> |
 |<br>Application Access| <ul><li>[Row level Security](/sql/relational-databases/security/row-level-security) (Using Security Policy, at the same time restricting row-level access  based on a user's identity,role, or execution context).</li><li>[Dynamic Data Masking](/azure/azure-sql/database/dynamic-data-masking-overview) (Using Permission & Policy, limits sensitive data exposure by masking it to non-privileged users)</li></ul>|
 |**Proactive Monitoring**||  
-| <br>Tracking & Detecting| <ul><li>[Auditing](/azure/azure-sql/database/auditing-overview) tracks database events and writes them to an Audit log/ Activity log in your [Azure Storage account](../../storage/common/storage-account-create.md).</li><li>Track Azure Database health using [Azure Monitor Activity Logs](../../azure-monitor/essentials/platform-logs-overview.md).</li><li>[Threat Detection](/azure/azure-sql/database/threat-detection-configure) detects anomalous database activities indicating potential security threats to the database. </li></ul> |
+| <br>Tracking & Detecting| <ul><li>[Auditing](/azure/azure-sql/database/auditing-overview) tracks database events and writes them to an Audit log/ Activity log in your [Azure Storage account](../../storage/common/storage-account-create.md).</li><li>Track Azure Database health using [Azure Monitor Activity Logs](/azure/azure-monitor/essentials/platform-logs-overview).</li><li>[Threat Detection](/azure/azure-sql/database/threat-detection-configure) detects anomalous database activities indicating potential security threats to the database. </li></ul> |
 |<br>Microsoft Defender for Cloud| <ul><li>[Data Monitoring](../../security-center/security-center-remediate-recommendations.md) Use Microsoft Defender for Cloud as a centralized security monitoring solution for SQL and other Azure services.</li></ul>|        
 
 ## Conclusion

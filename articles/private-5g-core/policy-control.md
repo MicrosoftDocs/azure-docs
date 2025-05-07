@@ -2,9 +2,9 @@
 title: Policy control
 titleSuffix: Azure Private 5G Core
 description: Information on Azure Private 5G Core's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
-author: robswain
-ms.author: robswain
-ms.service: private-5g-core
+author: anzaman
+ms.author: alzam
+ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 01/16/2022
 ms.custom: template-concept

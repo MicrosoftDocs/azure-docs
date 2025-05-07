@@ -1,28 +1,22 @@
 ---
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 03/18/2024
+ms.topic: concept-article
+ms.date: 02/06/2025
 ms.custom: engagement-fy24
 ---
 
 # Assessment overview (migrate to Azure VMs)
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
-This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
+This article provides an overview of assessments in the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. The tool can assess on-premises servers in VMware virtual and Hyper-V environment, and physical servers for migration to Azure.
 
 ## What's an assessment?
 
 An assessment with the Discovery and assessment tool measures the readiness and estimates the effect of migrating on-premises servers to Azure.
 
 > [!NOTE]
-> In Azure Government, review the [supported target](migrate-support-matrix.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
+> In Azure Government, review the [supported target](supported-geographies.md#azure-government) assessment locations. Note that VM size recommendations in assessments will use the VM series specifically for Government Cloud regions. [Learn more](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) about VM types.
 
 ## Types of assessments
 
@@ -36,7 +30,7 @@ There are three types of assessments you can create using Azure Migrate: Discove
 **Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type. [Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, click on the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
+> If the number of Azure VM or AVS assessments are incorrect on the Discovery and assessment tool, select the total number of assessments to navigate to all the assessments and recalculate the Azure VM or AVS assessments. The Discovery and assessment tool will then show the correct count for that assessment type. 
 
 Assessments you create with Azure Migrate are a point-in-time snapshot of data. An Azure VM assessment provides two sizing criteria options:
 
@@ -161,7 +155,7 @@ For an Azure VM Assessment, the assessment reviews the following properties of a
 --- | --- | ---
 **Boot type** | Azure supports UEFI boot type for OS mentioned [here](./common-questions-server-migration.md#which-operating-systems-are-supported-for-migration-of-uefi-based-machines-to-azure)| Not ready if the boot type is UEFI and Operating System running on the VM is: Windows Server 2003/Windows Server 2003 R2/Windows Server 2008/Windows Server 2008 R2
 **Cores** | Each server must have no more than 128 cores, which is the maximum number an Azure VM supports.<br><br> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br><br> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
-**RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md).<br><br> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br><br> If there's no history, the allocated RAM is used to apply a comfort factor.<br><br> | Ready if the amount of RAM is within the limit
+**RAM** | Each server must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](/azure/virtual-machines/sizes).<br><br> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br><br> If there's no history, the allocated RAM is used to apply a comfort factor.<br><br> | Ready if the amount of RAM is within the limit
 **Storage disk** | The allocated size of a disk must be no more than 64 TB.<br><br> The number of disks attached to the server, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
 **Networking** | A server must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit
 
@@ -184,10 +178,10 @@ Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Az
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
 Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
-Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
-Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
+Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](/azure/virtual-machines/windows/client-images) | Conditionally ready for Azure.
+Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Conditionally ready for Azure.
 Windows Vista and Windows XP Professional | These operating systems have passed their end-of-support dates. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
-Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br><br>Conditionally ready if the version isn't endorsed.
+Linux | See the [Linux operating systems](/azure/virtual-machines/linux/endorsed-distros) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br><br>Conditionally ready if the version isn't endorsed.
 Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The server might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
 OS specified as **Other** in vCenter Server | Azure Migrate can't identify the OS in this case. | Unknown readiness. Ensure that Azure supports the OS running inside the VM.
 32-bit operating systems | The server might start in Azure, but Azure might not provide full support. | Conditionally ready for Azure. Consider upgrading to a 64-bit OS before migrating to Azure.
@@ -205,7 +199,6 @@ Assessments also determine readiness of the recommended target for Microsoft Def
    - SUSE Linux Enterprise Server 12, 15+
    - Debian 9, 10, 11
    - Oracle Linux 7.2+, 8
-   - CentOS Linux 7.2+
    - Amazon Linux 2
 - For other Operating Systems, the server is marked as **Ready with Conditions**.
 If a server is not ready to be migrated to Azure, it is marked as **Not Ready** for Microsoft Defender for Servers.
@@ -236,17 +229,25 @@ If you use performance-based sizing in an Azure VM assessment, the assessment ma
 - If you don't want to use the performance data, reset the sizing criteria to as-is on-premises, as described in the previous section.
 
 
-#### Calculate storage sizing
+#### Storage sizing in Azure VM Assessment
 
-For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the server to an Azure disk. Sizing works as follows:
+Azure Migrate maps each disk attached to a server to an Azure disk. The sizing process is as follows:
 
-1. Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
+1. **IOPS and Throughput Calculation**
+    - The assessment calculates total IOPS and throughput by adding the read and write IOPS and throughput values of each disk.
+1. **Import-based assessments**
+    - You can provide the total IOPS, total throughput, and total number of disks in the imported file without specifying individual disk settings.
+    - If this option is used, individual disk sizing is skipped and the supplied data is used directly to compute sizing and select an appropriate VM SKU.
+1. **Disk selection criteria and recommendations**
+   - If there is no disk that meets the required IOPS and throughput, the server is marked as unsuitable for Azure.
+   - If suitable disks are found, the assessment selects disks that support the specified location in the assessment settings.
+   - Among multiple eligible disks, the assessment selects the disk with the lowest cost.
+   - If the performance data for any disk is unavailable, the configured disk size is used to find a disk based on your preference.
+   > [!NOTE]
+   >- For all the new assessments if Premium disks are selected during assessment creation, we recommend using Premium managed disks for your OS disks and Premium V2 SSD (preview) for your data disks. 
+   >- If you don't see Premium V2 SSD (preview) recommendations for data disks, recalculate your assessment and check the assessment settings for Storage type. 
+   >- Currently, the Premium V2 SSD (preview) migration is applicable only for VMware environments even though, the assessments are previewed for all environments.
 
-1. Disks are selected as follows:
-    - If assessment can't find a disk with the required IOPS and throughput, it marks the server as unsuitable for Azure.
-    - If assessment finds a set of suitable disks, it selects the disks that support the location specified in the assessment settings.
-    - If there are multiple eligible disks, assessment selects the disk with the lowest cost.
-    - If performance data for any disk is unavailable, the configuration disk size is used to find a Standard SSD disk in Azure.
 
 ##### Ultra disk sizing
 
@@ -256,7 +257,7 @@ For Ultra disks, there is a range of IOPS and throughput that is allowed for a p
     - One disk (Disk 2) is found that can satisfy total IOPS requirement
         - IOPS to be provisioned =  (source disk throughput) *1024/256
     - One disk (Disk 3) is found that can satisfy total throughput requirement
-1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](../virtual-machines/disks-types.md#ultra-disks). This is the provisioned Ultra disk size.
+1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size.
 1. Provisioned IOPS is calculated using the following logic:
     - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS
     - Else, provisioned IOPS is calculated using IOPS to be provisioned =  (source disk throughput) *1024/256
@@ -317,57 +318,95 @@ Here are a few reasons why an assessment could get a low confidence rating:
     - Outbound connections on ports 443 are allowed
     - For Hyper-V servers, dynamic memory is enabled 
     
-    **Recalculate** the assessment to reflect the latest changes in confidence rating.
-
-- Some servers were created during the time for which the assessment was calculated. For example, assume you created an assessment for the performance history of the last month, but some servers were created only a week ago. In this case, the performance data for the new servers will not be available for the entire duration and the confidence rating would be low.
-
-> [!NOTE]
-> If the confidence rating of any assessment is less than five stars, we recommend that you wait at least a day for the appliance to profile the environment and then recalculate the assessment. Otherwise, performance-based sizing might be unreliable. In that case, we recommend that you switch the assessment to on-premises sizing.
-
-## Calculate monthly costs
-
-After sizing recommendations are complete, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration.
-
-### Compute cost
-Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server.
-
-The calculation takes into account the:
-- Operating system
-- Software assurance
-- Reserved instances
-- VM uptime
-- Location
-- Currency settings
-
-The assessment aggregates the cost across all servers to calculate the total monthly compute cost.
-
-### Storage cost
-The monthly storage cost for a server is calculated by aggregating the monthly cost of all disks that are attached to the server.
-
-#### Standard and Premium disk
-The cost for Standard or Premium disks is calculated based on the selected/recommended disk size. 
-
+    Three Ultra disk sizes are calculated: 
+ 
+    - One disk (Disk 1) is found that can satisfy the disk size requirement.  
+    - One disk (Disk 2) is found that can satisfy total IOPS requirement. IOPS to be provisioned = (source disk throughput) *1024/256. 
+    - One disk (Disk 3) is found that can satisfy total throughput requirement/ 
+ 
+    Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering (Azure managed disk types)](/azure/virtual-machines/disks-types#ultra-disks). This is the provisioned Ultra disk size.
+ 
+    Provisioned IOPS are calculated using the following logic:  
+ 
+    - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS are equal to source disk IOPS  
+    - Else, provisioned IOPS are calculated using IOPS to be provisioned = (source disk throughput) *1024/256  
+    - Provisioned throughput range is dependent on provisioned IOPS  
+ 
+### Network sizing 
+ 
+For an Azure VM assessment, assessment tries to find an Azure VM that supports the number and required performance of network adapters attached to the on-premises server.  
+ 
+- To get the effective network performance of the on-premises server, assessment aggregates the data transmission rate out of the server (network out) across all network adapters. It then applies the comfort factor. It uses the resulting value to find an Azure VM that can support the required network performance.  
+ 
+- Along with network performance, assessment also considers whether the Azure VM can support the required number of network adapters.  
+ 
+- If network performance data is unavailable, assessment considers only the network adapter count for VM sizing.  
+ 
+ 
+### Compute-sizing 
+ 
+After it calculates storage and network requirements, the assessment considers CPU and RAM requirements to find a suitable VM size in Azure.  
+ 
+- Azure Migrate looks at the effective utilized cores (including processor benchmark) and RAM to find a suitable Azure VM size.  
+ 
+- If no suitable size is found, the server is marked as unsuitable for Azure.  
+ 
+- If a suitable size is found, Azure Migrate applies the storage and networking calculations. It then applies location and pricing-tier settings for the final VM size recommendation.  
+ 
+- If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.  
+ 
+### Monthly costs 
+ 
+After sizing recommendations are done, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration.  
+ 
+#### Compute cost 
+ 
+Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the server.  
+ 
+The calculation considers the following:  
+ 
+- Operating system  
+- Software assurance 
+- Reserved instances  
+- VM uptime  
+- Location  
+- Currency settings  
+ 
+The assessment aggregates the cost across all servers to calculate the total monthly compute cost.  
+ 
+#### Storage cost 
+ 
+The monthly storage cost for a server is calculated by aggregating the monthly cost of all disks that are attached to the server. 
+ 
+#### Standard and Premium disk 
+ 
+The cost for Standard or Premium disks is calculated based on the selected/recommended disk size.  
+ 
 #### Ultra disk 
-
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/)
-
+ 
+The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+ 
 Cost is calculated using the following logic: 
-- Cost of disk size is calculated by multiplying provisioned disk size by hourly price of disk capacity
-- Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price
-- Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price
-- The Ultra disk VM reservation fee is not added in the total cost. [Learn More](https://azure.microsoft.com/pricing/details/managed-disks/)
-
-Assessment calculates the total monthly storage costs by aggregating the storage costs of all servers. Currently, the calculation doesn't consider offers specified in the assessment settings.
-
-### Security cost
-For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.
-
-Costs are displayed in the currency specified in the assessment settings.
-
-## Next steps
-
-[Review](best-practices-assessment.md) best practices for creating assessments. 
-
-- Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md).
-- Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md).
-- Learn about setting up [dependency visualization](concepts-dependency-visualization.md).
+ 
+- Cost of disk size is calculated by multiplying provisioned disk size by hourly price of disk capacity. 
+ 
+- Cost of provisioned IOPS is calculated by multiplying provisioned IOPS by hourly provisioned IOPS price.  
+ 
+- Cost of provisioned throughput is calculated by multiplying provisioned throughput by hourly provisioned throughput price.  
+ 
+- The Ultra disk VM reservation fee isn.t added in the total cost. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/). 
+ 
+ 
+#### Security cost 
+ 
+For servers recommended for Azure VM, if they're ready to run Defender for Server, the Defender for Server cost (Plan 2) per server for that region is added. The assessment aggregates the cost across all servers to calculate the total monthly security cost.  
+ 
+Costs are displayed in the currency specified in the assessment settings.  
+ 
+  
+## Next steps 
+ 
+- Review [best practices for creating assessments](best-practices-assessment.md).  
+- Learn about running assessments for servers running in [VMware](./tutorial-discover-vmware.md) and [Hyper-V ](./tutorial-discover-hyper-v.md) environment, and [physical servers](./tutorial-discover-physical.md). 
+- Learn about assessing servers [imported with a CSV file](./tutorial-discover-import.md). 
+- Learn about setting up [dependency visualization](concepts-dependency-visualization.md). 

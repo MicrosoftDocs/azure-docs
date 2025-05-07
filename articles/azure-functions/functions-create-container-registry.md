@@ -3,7 +3,7 @@ title: Create Azure Functions in a local Linux container
 description: Get started with Azure Functions by creating a containerized function app on your local computer and publishing the image to a container registry.
 ms.date: 06/23/2023
 ms.topic: how-to
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -15,7 +15,6 @@ For a complete example of deploying containerized functions to Azure, which incl
 
 + [Create your first containerized Azure Functions on Azure Container Apps](functions-deploy-container-apps.md)
 + [Create your first containerized Azure Functions](functions-deploy-container.md)
-+ [Create your first containerized Azure Functions on Azure Arc (preview)](create-first-function-arc-custom-container.md)
 
 You can also create a function app in the Azure portal by using an existing containerized function app from a container registry. For more information, see [Azure portal create using containers](functions-how-to-custom-container.md#azure-portal-create-using-containers). 
 

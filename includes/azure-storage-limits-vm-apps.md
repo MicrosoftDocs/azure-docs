@@ -1,6 +1,6 @@
 ---
 author: ericd-mst-github
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: include
 ms.date: 08/14/2023
 ms.author: erd
