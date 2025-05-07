@@ -289,7 +289,7 @@ Review the Operator Nexus release notes for any version specific actions require
 Validate the health and status of all the Nexus Instance resources with the [Nexus Instance Readiness Test (IRT)](howto-run-instance-readiness-testing.md).
 
 If not using IRT, perform resource validation of all Nexus Instance components with Azure CLI:
-``````
+```
 # Check `ProvisioningState = Succeeded` in all resources
 
 # NFC
