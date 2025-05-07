@@ -157,9 +157,8 @@ App Service Environment v3 has a specific pricing model for zone redundancy. For
 
 - **Migration.**  If you have an existing App Service plan that supports zone-redundancy, and you are on a stamp that supports availability zones, you can enable zone redundancy by setting `-zoneRedundant` to `true`. However, if you are on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan on a new stamp, accordingly.
 
-    To learn how to migrate your App Service plan, see [Migrate an App Service plan to another region](../app-service/manage-move.md).
 
-- **Disable zone redundancy.** To disable zone redundancy, you can set the `zoneRedundant` property to `false`. To learn how to do this, see [Create an App Service plan with zone redundancy](../app-service/manage-availability-zones.md#enable-zone-redundancy).
+- **Disable zone redundancy.** To disable zone redundancy, you can set the `zoneRedundant` property to `false`. 
 
 ::: zone pivot="premium,isolated"
 
