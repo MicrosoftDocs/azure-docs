@@ -60,13 +60,13 @@ There are two available ingestion methods depending on use case: [bulk ingestion
 
 Bulk ingestion allows users to automatically ingest an existing STAC Collection, including its collection JSON file,  associated STAC Items, and the underlying STAC assets (images, data, etc.). Bulk ingestion quickly moves these artifacts into a GeoCatalog by specifying the data source (for example, Blob Storage), connection URL, and item type. Bulk Ingestion uses these inputs and parameters to execute an ingestion workflow. For more information about bulk ingestion, see [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md). 
 
-:::image type="content" source="media/dpui-collections-ingestions.png" alt-text="screenshot of bulk ingestion gui":::
+:::image type="content" source="media/dpui-collections-ingestions.png" alt-text="Screenshot of bulk ingestion gui.":::
 
 ### Single Item Ingestion
 
 Given a preexisting STAC collection within a GeoCatalog, users can ingest new or update existing STAC items and their associated assets using Planetary Computer Pro's web interface, or the API. In contrast to Planetary Computer Pro's Bulk Ingestion feature, Single Item ingestion is intended for low-latency imports or updates vs large data migrations. For more information about bulk ingestion, see [Add STAC Items to a Collection](./add-stac-item-to-collection.md).
 
-:::image type="content" source="media/dpui-collections-items.png" alt-text="screenshot of single-item ingestion gui":::
+:::image type="content" source="media/dpui-collections-items.png" alt-text="Screenshot of single-item ingestion gui.":::
 
 ## Next steps
 Learn more about how to setup an Ingestion Source:

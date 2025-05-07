@@ -166,7 +166,7 @@ From looking at the data and the file name, we can already see the key pieces of
 
 For the sample, the file name is **OR_ABI-L2-LSTC-M6_G18_s20232080101177_e20232080103550_c20232080104570_DQF**, based on the product guide, this means:
 
-### Detailed Components:
+### Detailed Components
 
 | Field | Description | Purpose |
 |-------|-------------|---------|
@@ -177,7 +177,7 @@ For the sample, the file name is **OR_ABI-L2-LSTC-M6_G18_s20232080101177_e202320
 | M6    | Mode 6 scan (Full Disk scan) | Describes the scanning mode, covering the full disk of the Earth |
 | G18   | GOES-18 satellite (also known as GOES-West) | Identifies the satellite from which the data was collected |
 
-### Observation Time Details:
+### Observation Time Details
 
 #### Start of Observation (s20232080201177)-
 
@@ -925,12 +925,15 @@ Validating collection and items...
 ✅ STAC item saved at: stac_catalog/goes-18-ABI-L2-LSTC/items/OR_ABI-L2-LSTC-M6_G18_s20232080001177_e20232080003550_c20232080004568_DQF.json
 ```
 
-## Add your new STAC Items to MPC Pro
+## Next steps
+Now that you have created some STAC Items, it's time to ingest the data into Microsoft Planetary Computer Pro. 
 
-We can now add the STAC Collection and STAC Item we created to MPC Pro.
+For Single Item Ingestion:
+> [!div class="nextstepaction"]
+> [Adding an Item to a STAC Collection](./add-stac-item-to-collection.md)
 
-- To add the entire catalog, follow the [Bulk Ingestion Quickstart](bulk-ingestion-api.md)
-
-- To add a single item, follow the [Add STAC Items to a Collection](./add-stac-item-to-collection.md)
+For Bulk Ingestion:
+> [!div class="nextstepaction"]
+> [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
 
 We also offer the [STAC Forge tool](https://github.com/Azure/microsoft-planetary-computer-pro/tree/main/tools/stacforge-functions) which provides increased automation using templates around data. 

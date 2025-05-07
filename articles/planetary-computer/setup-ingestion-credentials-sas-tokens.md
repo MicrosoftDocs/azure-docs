@@ -11,14 +11,14 @@ ms.date: 04/09/2025
 
 ---
 
-# Setup an Ingestion Source for Microsoft Planetary Computer Pro using SAS tokens
+# Set up an ingestion source for Microsoft Planetary Computer Pro using SAS tokens
 
 Loading new data into the Microsoft Planetary Computer Pro GeoCatalog resource is called **ingestion.** A GeoCatalog needs permissions, or ingestion sources, to access data that is stored externally to the GeoCatalog resource.
   
 In this guide, you learn how to:
 
-- Create a Ingestion Source through Azure portal
-- Create a Ingestion Source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
+- Create a ingestion source through Azure portal
+- Create a ingestion source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Managed identities are a more secure, automated mechanism for establishing persi
 Managed identities only work within a single Microsoft Entra tenant, therefore the SAS Token approach is useful when moving data from storage that is in a storage account outside of your tenant.
 Data ingestion is specific to a Blob Container, and SAS tokens from the root storage resource aren't permitted. 
 
-## Set up an Ingestion Source through the UI
+## Set up an ingestion source through the UI
 
 SAS tokens can be obtained multiple ways; in this guide, we do so using the [Azure portal](https://portal.azure.com/).
 Azure Storage Explorer is also an alternative UI-driven approach which works on a local machine. See [Azure Storage Explorer](https://azure.microsoft.com/products/storage/storage-explorer/?msockid=06a2c34a3959646b380ed330385d65fb)
@@ -89,7 +89,7 @@ Your ingestion source is now set up to support ingesting data!
 
 If your ingestion expires or you need to add SAS tokens for a different Blob Container, repeat the previous process. 
 
-## Set up Ingestion Source for SAS Tokens through the API
+## Set up ingestion source for SAS Tokens through the API
 
 Ingestion sources can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-source) API documentation.
 

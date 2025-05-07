@@ -8,9 +8,9 @@ ms.topic: quickstart
 ms.date: 04/29/2025
 #customer intent: help customers get a sas token for a collection. 
 ---
-# 📄 Quickstart: Request a Collection SAS Token
+# Quickstart: Request a STAC collection SAS Token
 
-In this quickstart, you will retrieve a collection-level SAS token that can be used by other applications to access STAC collection assets in a managed storage account.
+In this quickstart, you will retrieve a collection-level SAS token that can be used by other applications to access STAC collection assets in a managed storage account within a Microsoft Planetary Computer Pro GeoCatalog resource.
 
 In some applications, you need to pass a **collection-level SAS token** to enable authenticated access to assets stored in a managed storage account.  
 
@@ -18,7 +18,7 @@ For example, when retrieving **collection-level assets** such as Zarr data, a SA
 
 This example shows how to request a collection-level SAS token from the `/sas/token/{collection_id}` route.
 
-## 1. Get Access Token for Authorization to MPC Pro Endpoints
+## 1. Get Access Token for Authorization to a GeoCatalog
 
 ```python
 from datetime import datetime, timedelta
@@ -41,7 +41,7 @@ def getBearerToken():
 
 ## 2. Request a SAS Token for a STAC Collection
 
-Access the endpoint that returns your temporary STAC collection-level sas token.
+Access the endpoint that returns your temporary STAC collection-level SAS token.
 
 ```python
 geocatalog_url = "<your-geocatalog-url>"

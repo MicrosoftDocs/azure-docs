@@ -110,7 +110,6 @@ Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Ser
 1. Review the [rest of the documentation](/azure/planetary-computer) for relevant articles
 2. [Check out Microsoft Q&A](https://learn.microsoft.com/answers/tags/133/azure) to ask a question or find answers from others
 3. [File a Support Ticket](https://azure.microsoft.com/support/create-ticket)
-4. Contact the team at MPCProSupport@microsoft.com 
 
 
 ## Next steps

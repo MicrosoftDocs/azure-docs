@@ -162,7 +162,7 @@ Beyond the basics, TiTiler offers many advanced parameters via the `options` str
 | `expression={formula}` | Define a mathematical formula using asset keys as variables | Standard operators (`+`, `-`, `*`, `/`) and parentheses | `expression=(B08-B04)/(B08+B04)` |
 | `asset_as_band=true` | Required when expression uses multiple *single-band* assets | `true` or `false` | `expression=(B08-B04)/(B08+B04)&asset_as_band=true` |
 
-**Notes:**
+Other details:
 - Single-band result example: `expression=(B08-B04)/(B08+B04)&asset_as_band=true&colormap_name=rdylgn&rescale=-1,1`
 - Multi-band expressions use semicolons: `expression=B04*1.5;B03*1.1;B02*1.3&asset_as_band=true`
 - When using `expression`, you generally don't need `assets` or `asset_bidx`
@@ -196,7 +196,7 @@ For more information about color correction, see the [TiTiler documentation](htt
 
 | Parameter | Description | Format | Example |
 | :-------- | :---------- | :----- | :------ |
-| `colormap={json_string}` | Define a custom colormap | URL-encoded JSON mapping data values to RGBA lists `[R,G,B,Alpha]` | `colormap={\"1\":[54,124,20,255],\"2\":[28,67,0,255],\"3\":[94, 91, 32, 255],\"4\":[234, 99, 32, 255],\"5\":[237, 232, 60, 255],\"6\":[236, 31, 175, 255],\"7\":[19, 0, 239, 255], \"8\":[209, 3, 0, 255]}` |
+| `colormap={json_string}` | Define a custom colormap | URL-encoded JSON mapping data values to RGBA lists `[R,G,B,Alpha]` | `colormap={\"1\":[54,124,20,255],\"2\":[28,67,0,255],\"3\":[94, 91, 32, 255],\"4\":[234, 99, 32, 255],\"5\":[237, 232, 60, 255],\"6\":[236, 31, 175, 255],\"7\":[19, 0,239, 255], \"8\":[209, 3, 0, 255]}` |
 
 **Example decodes to:** Maps value 1 to dark green, 2 to very dark green, 3 to olive green, 4 to orange-red, 5 to yellow, 6 to pink/magenta, 7 to blue-violet, and 8 to red.
 
@@ -238,7 +238,7 @@ Once you construct your render configuration list (one or more JSON objects), ad
 4.  Paste your JSON list into the editor or use the UI fields to build it.
 5.  Save the changes.
 
-![Screenshot of the render configuration web GUI displaying options for setting up render configurations](media/renderconfig_webgui.png)
+:::image type="content" source="media/renderconfig_webgui.png" alt-text="Screenshot of the render configuration web GUI displaying options for setting up render configurations.":::
 
 For more information on configuring collections, see [Configure a collection with the web interface](./configure-collection-ui.md). 
 
@@ -275,7 +275,7 @@ else:
     print(response.text)
 
 ```
-*(Self-link:* See [Create a STAC collection (API examples)](./create-stac-collection.md) for authentication and base URL details.)*
+For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md). 
 
 ## Examples
 

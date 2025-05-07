@@ -11,15 +11,15 @@ ms.author: emiliod
 
 # Quickstart: Use Microsoft Planetary Computer Pro GeoCatalog in Azure Batch
 
-In this quickstart, you learn how to use Microsoft Planetary Computer Pro (MPC Pro) GeoCatalog in Azure Batch to process geospatial data. MPC Pro GeoCatalog is a geospatial data catalog that provides a unified view of your geospatial data assets across your organization. You can use MPC Pro GeoCatalog to discover, manage, and analyze your geospatial data.
+In this quickstart, you learn how to use Microsoft Planetary Computer Pro GeoCatalog resource in Azure Batch to process geospatial data. Planetary Computer Pro GeoCatalog is a geospatial data catalog that provides a unified view of your geospatial data assets across your organization. You can use Planetary Computer Pro GeoCatalog to discover, manage, and analyze your geospatial data.
 
 ## Prerequisites
 
 Before you begin, ensure you meet the following requirements to complete this quickstart:
 
-1. An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-2. A MPC Pro GeoCatalog resource.
-3. A Linux machine with the following tools installed:
+- An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- A Microsoft Planetary Computer Pro GeoCatalog resource.
+ A Linux machine with the following tools installed:
     - [Azure CLI](/cli/azure/install-azure-cli)
     - `perl` package.
 
