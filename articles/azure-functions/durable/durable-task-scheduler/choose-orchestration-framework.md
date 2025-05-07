@@ -127,10 +127,9 @@ Walk through one of the following quickstarts to configure your applications to 
 | **Local development quickstart** | [Create an app with Durable Task SDKs and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md) using either the .NET, Python, or Java SDKs. | Run a fan-in/fan-out orchestration locally using the Durable Task Scheduler emulator and review orchestration history using the dashboard. |
 | **Deploy to Azure Container Apps using Azure Developer CLI** | [Configure Durable Task SDKs in your container app with Azure Functions Durable Task Scheduler][./quickstart-container-apps-durable-task-sdk.md] | Deploy a function chaining pattern solution using the Azure Developer CLI. |
 
-## Limitations
- 
-- **The Durable Task Framework (DTFx) support**
-   - DTFx is an open-source .NET orchestration framework similar to the .NET Durable Task SDK. While it *can* be used to build apps that run on platforms like Azure Kubernetes Services, **DTFx doesn't receive official Microsoft support**.
+
+> [!NOTE]
+> The Durable Task Framework (DTFx) is an open-source .NET orchestration framework similar to the .NET Durable Task SDK. While it *can* be used to build apps that run on platforms like Azure Kubernetes Services, **DTFx doesn't receive official Microsoft support**.
 
 ## Next steps
 

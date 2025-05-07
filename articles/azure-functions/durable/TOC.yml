@@ -116,23 +116,23 @@
     href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Choosing an orchestration framework
     href: ./durable-task-scheduler/choose-orchestration-framework.md
-  - name: Concepts
-    items:
-    - name: Identity
-      href: ./durable-task-scheduler/durable-task-scheduler-identity.md
-    - name: Monitoring dashboard
-      href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
-    - name: Auto-purge 
-      href: ./durable-task-scheduler/durable-task-scheduler-auto-purge.md
+  - name: Create Durable Task Scheduler resources
+    href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
+  - name: Identity
+    href: ./durable-task-scheduler/durable-task-scheduler-identity.md
+  - name: Monitoring dashboard
+    href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
+  - name: Auto-purge 
+    href: ./durable-task-scheduler/durable-task-scheduler-auto-purge.md
   - name: Durable Functions
     items:
       - name: Throughput benchmark
         href: ./durable-task-scheduler/durable-task-scheduler-work-item-throughput.md
-      - name: Create Durable Task Scheduler resources
-        href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
+      - name: Durable Task Scheduler in Durable Functions
+        href: ./durable-task-scheduler/develop-with-durable-task-scheduler-functions.md
   - name: Durable Task SDKs
     items:
-    - name: Autoscale with the Durable Task SDKs in Azure Container Apps
+    - name: Configure autoscale for Azure Container Apps hosting
       href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
@@ -166,7 +166,7 @@
       items:
       - name: Durable Functions
         href: /python/api/azure-functions-durable/azure.durable_functions
-      - name: Resource Management - Durable Task SDK
+      - name: Durable Task SDK - Management APIs
         href: /python/api/azure-mgmt-durabletask/azure.mgmt.durabletask
     - name: Java API
       items:

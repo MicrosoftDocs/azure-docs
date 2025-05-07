@@ -7,7 +7,7 @@ ms.date: 05/06/2025
 
 # Set autopurge retention policies for Azure Functions Durable Task Scheduler (preview)
 
-Orchestration history data should be purged periodically to free up storage resources. Otherwise, the app observes performance degradation as history data accumulates overtime. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
+To prevent reaching the memory limit of a [capacity unit (CU)](./durable-task-scheduler-dedicated-sku.md#dedicated-sku-concepts), it's best practice to periodically purge orchestration history data. The Durable Task Scheduler offers a lightweight, configurable autopurge feature that helps you manage orchestration data clean-up without manual intervention.
 
 Autopurge operates asynchronously in the background, optimized to minimize system resource usage and prevent interference with other Durable Task operations. Although autopurge doesn't adhere to a strict schedule, its clean-up rate generally aligns with your orchestration scheduling rate.
 

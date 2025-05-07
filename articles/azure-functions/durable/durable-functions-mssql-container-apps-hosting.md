@@ -1,23 +1,21 @@
 ---
-title: "Host a Durable Functions app in Azure Container Apps"
+title: Host a Durable Functions app in Azure Container Apps (preview)
 description: Learn how to host a Durable Functions app using the MSSQL backend in Azure Container Apps.
 ms.topic: how-to
 ms.date: 05/06/2025
 ---
 
-# Host a Durable Functions app in Azure Container Apps (.NET isolated)
+# Host a Durable Functions app in Azure Container Apps (preview)
 
-While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling of the app is only available when using the Microsoft SQL (MSSQL) backend. If another backends is used, you need to [manually set up scaling](../functions-container-apps-hosting.md#event-driven-scaling) today.
+While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the Microsoft SQL (MSSQL) backend. If another backend is used, you need to [manually set up scaling](../functions-container-apps-hosting.md#event-driven-scaling).
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
 >
-> - Create a local Durable Functions project with a cusom Dockerfile. 
-> - Run the worker and client projects.
-> - Review orchestration status and history via the Durable Task Scheduler dashboard.
-
- shows how to host a Durable Functions app in Azure Container Apps. 
+> - Create a Docker image from a local Durable Functions project. 
+> - Create an Azure Container App and related resources.
+> - Deploy the image to the Azure Container App and set up authentication.
 
 ## Prerequisites 
 
@@ -31,7 +29,7 @@ In this article, you learn how to:
 
 ## Create a local Durable Functions project
 
-In Visual Studio Code, [create a .NET isolated Durable Functions project configured to use the MSSQL backend](./quickstart-mssql.md). 
+In Visual Studio Code, [create a **.NET isolated** Durable Functions project configured to use the MSSQL backend](./quickstart-mssql.md). 
 
 [Test the app locally](./quickstart-mssql.md#test-locally) and return to this article. 
 
@@ -213,17 +211,15 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
 
 ### Create databases
 
-The function app requires an Azure Storage account and an Azure SQL Database as its storage backend. The Azure SQL Database backend persists state information as your orchestrations run. 
-
 1. Create an Azure Storage account, which is required by the function app.
 
    ```azurecli
    az storage account create --name $storage --location $location --resource-group $resourceGroup --sku Standard_LRS
    ```
 
-1. In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). During creation:
-    - Enable Azure services and resources to access this server (under _Networking_)
-    - Set the value for _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+1. In the Azure portal, [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart) to persist state information. During creation:
+    - Enable Azure services and resources to access this server (under **Networking**)
+    - Set the value for **Database collation** (under **Additional settings**) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE] 
 > Refrain from enabling the **Allow Azure services and resources to access this server** setting for production scenarios. Production applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
