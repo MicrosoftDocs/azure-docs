@@ -1,5 +1,5 @@
 ---
-title: Tile Settings Configuration in Microsoft Planetary Computer Pro
+title: Tile settings configuration in Microsoft Planetary Computer Pro
 description: This article provides an overview of the tile settings for Microsoft Planetary Computer Pro. It explains how to configure mosaic behavior, such as default location and zoom levels, using JSON settings.
 author: 777arc
 ms.author: marclichtman
@@ -10,7 +10,7 @@ ms.date: 04/09/2025
 
 # Tile settings in Microsoft Planetary Computer Pro
 
-For each collection in Microsoft Planetary Computer Pro, you can configure the tile settings, which determine mosaic behavior such as the default location, and minimum zoom level.
+For each collection in Microsoft Planetary Computer Pro, you can configure the tile settings, which determine mosaic behavior such as the default location and minimum zoom level.
 
 In this article, see where to find and modify tile settings for Microsoft Planetary Computer Pro.
 
@@ -47,7 +47,7 @@ The settings are in the form of a JSON object.
 High resolution imagery should have a high min zoom level to avoid experiencing latency when using the explorer. Low resolution imagery can have lower min zoom levels without issue.
 
 > [!NOTE]
-> Currently, zoom needs to be an integer, even though the UX supports zoom levels between integers.
+> Planetary Computer tile settings zoom must be configured as integers, even though the Explorer interface supports zooming to non-integer levels.
  
 ### Default location
 
