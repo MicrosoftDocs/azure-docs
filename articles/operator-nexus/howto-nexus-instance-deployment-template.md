@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: azure-operator-nexus, template-include
 ---
 
-# Nexus Instance Deployment Template
+# Nexus Instance deployment template
 
 This how-to guide provides a step-by-step template for deploying a Nexus Instance.
 
@@ -33,8 +33,8 @@ This template is designed to assist users in managing a reproducible end-to-end 
 - [Platform Prerequisites](howto-platform-prerequisites.md).
 
 </details>
- 
-## Required Parameters
+
+## Required parameters
 <details>
 <summary> Parameters used in this document </summary>
 
@@ -485,7 +485,7 @@ az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_
 ```
 
 > [!Note]
-> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional tesing.
+> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional testing.
 
 </details>
 
