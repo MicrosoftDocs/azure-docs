@@ -105,9 +105,9 @@ You must use the [Premium v2, Premium v3, or Isolated v2 plan types](/azure/app-
 
     The scale units you're assigned to is based on the resource group you deploy an App Service plan to. To ensure that your workloads land on a scale unit that supports availability zones, you might need to create a new resource group and then create a new App Service plan and App Service app within the new resource group.
 
-- You must deploy a minimum of two instances of your plan.
+    To see if your App Service plan is on a stamp that supports availability zones, go to the **Properties** blade of your App Service plan in the Azure portal and check the `MaximumNumberOfZones` setting. If the value is greater than 1, your stamp supports zones and you can be zone-redundant.
 
-To see if your App Service plan is on a stamp that supports availability zones, go to the **Properties** blade of your App Service plan in the Azure portal and check the `MaximumNumberOfZones` setting. If the value is greater than 1, your stamp supports zones and you can be zone-redundant.
+- You must deploy a minimum of two instances of your plan.
 
 ::: zone-end
 
