@@ -34,16 +34,9 @@ If you receive this message, there are two possible solutions:
 > Remember that a remediation request should only be submitted to Microsoft support if there is a clear requirement for deploying resources to the Azure region. Otherwise, please choose a different Azure region for your deployment.
 
 1. Sign in to the Azure portal by selecting [this link](https://portal.azure.com/#create/Microsoft.Support/Parameters/%7B%0A%09%22subId%22%3A%20%22%22%2C%0A%09%22pesId%22%3A%20%2206bfd9d3-516b-d5c6-5802-169c800dec89%22%2C%0A%09%22supportTopicId%22%3A%20%22de9828b5-622d-15db-8ad0-b4fe9590cef8%22%2C%0A%09%22contextInfo%22%3A%20%22Unable%20to%20access%20Azure%20regions%22%2C%0A%09%22caller%22%3A%20%22accessazureregionsdeeplink%22%2C%0A%09%22severity%22%3A%20%222%22%0A%7D).
-1. Navigate to **Help + support** and select **Create a support request**.
-1. In **Describe your issue**, enter **region access**, and then select **Go**.
-
-    :::image type="content" source="./media/error-region-access-policy/azure-support-troubleshooting-service-and-subscription-limits.png" alt-text="Screenshot of opening Azure support ticket for service and subscription limits.":::
-
-1. Select **Service and subscription limits (quotas)**, and then select **Next**.
+1. In **How can we help you?**, enter **region access**, and then select **Go**.
+1. In **Which service are you having an issue with?**, select **Service and subscription limits (quotas)**, and then select **Next**.
 1. Select **Create a support request**.
-
-    :::image type="content" source="./media/error-region-access-policy/azure-support-troubleshooting-create-a-support-request.png" alt-text="Screenshot of creating a support request.":::
-
 1. Select your **Subscription**, and in **Quota type**, select **Unable to access West Europe region**, and then select **Next**
 
     :::image type="content" source="./media/error-region-access-policy/azure-support-troubleshooting-new-support-request.png" alt-text="Screenshot of new support request.":::
