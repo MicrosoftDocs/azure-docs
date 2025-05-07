@@ -3,7 +3,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: include
-ms.date: 06/19/2023
+ms.date: 05/07/2025
 ms.custom: include file
 ---
 
@@ -120,4 +120,4 @@ ms.custom: include file
 - Maximum ETag header size: 128 bytes
 - Maximum endpoint name for Standard and Premium: 46 characters.
 
-For more information about limits that apply to Rules Engine configurations, see [rules engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)
+For more information about limits that apply to Rules Engine configurations, see [rules engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology).
