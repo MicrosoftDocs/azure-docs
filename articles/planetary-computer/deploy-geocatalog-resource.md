@@ -6,6 +6,7 @@ ms.author: adamloverro
 ms.service: azure
 ms.topic: install-set-up-deploy #Don't change
 ms.date: 04/24/2025
+ms.custom: reference_regions
 # customer intent: As an Azure user I want to deploy a GeoCatalog resource so that I can use a GeoCatalog to organize, query, visualize and retrieve my geospatial data assets
 ---
 
@@ -22,8 +23,8 @@ This article guides the reader through the process of deploying a GeoCatalog res
 
 This article describes two methods for deploying an Planetary Computer Pro GeoCatalog:
 
-1. Using the Azure portal.  
-1. Using the Azure REST API.  
+- Using the Azure portal.  
+- Using the Azure REST API.  
 
 # [Azure portal](#tab/azureportal)
 ## Deploy GeoCatalog with the Azure portal
@@ -53,7 +54,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
 1. From the "Networking" tab, select your networking options. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
-   > Only *Enable public access from all networks** option is supported in Preview.
+   > Only **Enable public access from all networks** option is supported in Preview.
 
    :::image type="content" source="media/enable-public-access-from-networks.png" alt-text="Screenshot of the Networking tab in the Create GeoCatalog Resource workflow.":::
 
