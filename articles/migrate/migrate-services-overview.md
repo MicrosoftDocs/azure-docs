@@ -12,7 +12,10 @@ ms.custom: mvc, engagement-fy25
 
 # What is Azure Migrate?
 
-Azure Migrate is a service that helps you decide on, plan, and execute your migration to Azure. Azure Migrate helps you find the best migration path, assess for Azure readiness and cost of hosting workloads on Azure, and perform the migration with minimal downtime and risk. Azure Migrate provides support for servers, databases, web apps, virtual desktops, and large-scale offline migration by using Azure Data Box.  
+Azure Migrate is a service that helps you decide on, plan, and execute your migration to Azure. Azure Migrate helps you find the best migration path, assess for Azure readiness and cost of hosting workloads on Azure, and perform the migration with minimal downtime and risk. Azure Migrate provides support for servers, databases, web apps, virtual desktops, and large-scale offline migration by using Azure Data Box.
+
+> [!NOTE]
+> *Azure Migrate Classic* is the classic Azure Migrate experience where you can discover, plan, and migrate workloads. This view doesn't support application and cross-workload views.
 
 ## Migration phases
 
