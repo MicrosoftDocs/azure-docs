@@ -85,11 +85,7 @@ ms.custom: include file
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<<<<<<< HEAD
-<sup>2</sup> There is currently a 5,000 requests per second per POP limit for each Front Door profile. Beyond this limit, the POP location will drop connections. As a workaround, you can distribute requests across multiple POPs. You can also request a higher quota limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
-=======
-<sup>2</sup>Azure Front Door currently has a 5,000 request per seconds per POP limit for each subscription profile.
->>>>>>> 026c8fddfacd1c73e48f87108e379bab22154a3c
+<sup>2</sup> There's currently a 5,000 requests per second per POP limit for each Front Door profile. Beyond this limit, the POP location will drop connections. As a workaround, you can distribute requests across multiple POPs. You can also request a higher quota limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
 <sup>3</sup> If you need more than 3,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
