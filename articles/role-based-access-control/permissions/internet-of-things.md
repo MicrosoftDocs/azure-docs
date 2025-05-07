@@ -411,8 +411,8 @@ Azure service: [IoT security](/azure/iot/iot-security-architecture)
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | Microsoft.IoTSecurity/unregister/action | Unregisters the subscription for Azure Defender for IoT |
-> | Microsoft.IoTSecurity/register/action | Registers the subscription for Azure Defender for IoT |
+> | Microsoft.IoTSecurity/unregister/action | Unregisters the subscription for Microsoft Defender for IoT |
+> | Microsoft.IoTSecurity/register/action | Registers the subscription for Microsoft Defender for IoT |
 > | Microsoft.IoTSecurity/defenderSettings/read | Gets IoT Defender Settings |
 > | Microsoft.IoTSecurity/defenderSettings/write | Creates or updates IoT Defender Settings |
 > | Microsoft.IoTSecurity/defenderSettings/delete | Deletes IoT Defender Settings |
