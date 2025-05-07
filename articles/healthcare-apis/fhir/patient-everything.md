@@ -27,7 +27,7 @@ GET {FHIRURL}/Patient/{ID}/$everything
 FHIR service validates that it can find the patient matching the provided patient ID. If a result is found, the response is a bundle of type `searchset` with the following information:
  
 * [Patient resource](https://www.hl7.org/fhir/patient.html).
-* Resources that are directly referenced by the patient resource, except [link](https://www.hl7.org/fhir/patient-definitions.html#Patient.link) references that aren't of [see also](https://www.hl7.org/fhir/codesystem-link-type.html#content) or if the `seealso` link references a `RelatedPerson`.
+* Resources that are directly referenced by the patient resource
 * If there are `seealso` link references to other patients, the results include Patient-everything operation against the `seealso` patients listed.
 * Resources in the [Patient Compartment](https://www.hl7.org/fhir/compartmentdefinition-patient.html).
 * [Device resources](https://www.hl7.org/fhir/device.html) that reference the patient resource. 

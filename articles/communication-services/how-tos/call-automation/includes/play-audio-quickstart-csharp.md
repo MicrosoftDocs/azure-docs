@@ -7,7 +7,6 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/20/2023
 ms.topic: include
-ms.topic: include file
 ms.author: kpunjabi
 ---
 
@@ -144,7 +143,7 @@ var playResponse = await callAutomationClient.GetCallConnection(callConnectionId
 ```
 
 ### Support for barge-in
-During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the ongoing audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
 
 ```csharp
 var GoodbyePlaySource = new TextSource("Good bye")

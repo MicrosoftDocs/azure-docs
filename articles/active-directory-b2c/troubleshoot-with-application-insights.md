@@ -6,7 +6,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: troubleshooting
-ms.date: 01/22/2024
+ms.date: 04/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -16,6 +16,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Collect Azure Active Directory B2C logs with Application Insights
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -49,7 +50,7 @@ To use an existing instance of Application Insights in your subscription, follow
 1. Make sure you're using the Microsoft Entra directory that has your Azure subscription, and not your Azure AD B2C directory. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Microsoft Entra directory in the **Directory name** list, and then select **Switch**.
 1. Open the Application Insights resource that you created earlier.
-1. On the **Overview** page, and record the **Instrumentation Key**
+1. On the **Overview** page, and record the **Connection String**
 
 To create an instance of Application Insights in your subscription, follow these steps:
 
@@ -61,7 +62,7 @@ To create an instance of Application Insights in your subscription, follow these
 1. Complete the form, select **Review + create**, and then select **Create**.
 1. Once the deployment completes, select **Go to resource**.
 1. Under **Configure** in Application Insights menu, select **Properties**.
-1. Record the **INSTRUMENTATION KEY** for use in a later step.
+1. Record the **Connection String** for use in a later step.
 
 ## Configure the custom policy
 
@@ -74,10 +75,10 @@ To create an instance of Application Insights in your subscription, follow these
    ```
 
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`. See [RelyingParty schema reference](./relyingparty.md) for a complete order of the **RelyingParty** child elements.
-1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Instrumentation Key** that you recorded earlier.
+1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Connection String** that you recorded earlier.
 
     ```xml
-    <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+    <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="{Your Application Insights ConnectionString}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
     * `DeveloperMode="true"` tells ApplicationInsights to expedite the telemetry through the processing pipeline. Good for development, but constrained at high volumes. In production, set the `DeveloperMode` to `false`.
@@ -102,7 +103,7 @@ To create an instance of Application Insights in your subscription, follow these
          <Endpoint Id="Token" UserJourneyReferenceId="RedeemRefreshToken" />
       </Endpoints>
       <UserJourneyBehaviors>
-        <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+        <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="{Your Application Insights ConnectionString}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
       </UserJourneyBehaviors>
       ...
     </TrustFrameworkPolicy>
@@ -144,7 +145,7 @@ We recommend you to install the [Azure AD B2C extension](https://marketplace.vis
 After you set up the Application Insights, and configure the custom policy, you need to get your Application Insights **API ID**, and create **API Key**. Both the API ID and API key are used by Azure AD B2C extension to read the Application Insights events (telemetries). Your API keys should be managed like passwords. Keep it secret.
 
 > [!NOTE]
-> Application Insights instrumentation key that your create earlier is used by Azure AD B2C to send telemetries to Application Insights. You use the instrumentation key only in your Azure AD B2C policy, not in the VS Code extension.
+> Application Insights Connection String that your create earlier is used by Azure AD B2C to send telemetries to Application Insights. You use the Connection String only in your Azure AD B2C policy, not in the VS Code extension.
 
 To get Application Insights ID and key:
 
@@ -195,7 +196,7 @@ To improve your production environment performance and better user experience, i
 
    ```xml
    <UserJourneyBehaviors>
-     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
+     <JourneyInsights TelemetryEngine="ApplicationInsights" ConnectionString="{Your Application Insights ConnectionString}" DeveloperMode="false" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
    </UserJourneyBehaviors>
    ```
    

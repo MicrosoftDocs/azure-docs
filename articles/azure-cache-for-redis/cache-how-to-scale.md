@@ -348,7 +348,7 @@ While Standard, Premium, Enterprise, and Enterprise Flash caches have a SLA for 
 
 With [passive geo-replication](cache-how-to-geo-replication.md) configured, you might notice that you can’t scale a cache or change the shards in a cluster. A geo-replication link between two caches prevents you from scaling operation or changing the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 
-With [active geo-replication](cache-how-to-active-geo-replication.md) configured, you can't scale a cache. All caches in a geo replication group must be the same size and capacity.
+With [active geo-replication](cache-how-to-active-geo-replication.md) configured, you can scale a cache with some limitations. All caches in a geo-replication group must be the same size and capacity. For more information, see [Configure active geo-replication for Enterprise Azure Cache for Redis instances](cache-how-to-active-geo-replication.md).
 
 ### Operations that aren't supported
 
