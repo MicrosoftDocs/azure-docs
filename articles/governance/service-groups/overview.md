@@ -10,7 +10,7 @@ ms.date: 05/19/2025
 
 # What are Azure Service Groups?
 
-Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They are ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started.
+Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started.
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in PREVIEW. 
@@ -19,17 +19,17 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 
 ## Key capabilities
-- **Multiple Hierarchies**: Service Groups live outside of the resource hierarchy enabling scenarios where the same resources need to be group for different purposes.*
+- **Multiple Hierarchies**: Service Groups enable scenarios where the resources can be grouped in different views for multiple purposes.
 - **Flexible Membership**: Service Groups allow resources from different subscriptions to be grouped together, providing a unified view and management capabilities. They also allow the grouping of subscriptions, resource groups, and resources. 
 - **Low Privilege Management**: Service Groups are designed to operate with minimal permissions, ensuring that users can manage resources without needing excessive access rights.
 
 
 ### Multiple Hierarchies 
-The same resources can be connected to many different service groups allowing different customer personas and scenarios to be created and used. With different Role Based Access Controls being assigned to the multiple Service Groups, customers can create many different views that support how they organize their resources.   
+The same resources can be connected to many different service groups allowing different customer personas and scenarios to be created and used. Customers can create many different views that support how they organize their resources.   
 
 #### Example Scenarios
-* Separate Personas 
-    * An issue that arose frequently when trying to adopt a strict hierarchy was who would own the parent items. With Service Groups, this situation no longer becomes an issue and the different personas can have their own individual views. Customers can use the same resources to be members of a Workload Service Group, a Department Service Group, and a Service Group with all Production resources. 
+* Varying Personas 
+    * With Service Groups, organizations have the ability to manage multiple hierarchies over the same resources for different personas and their own individual views. Customers can use the same resources to be members of a Workload Service Group, a Department Service Group, and a Service Group with all Production resources. 
 
 ![MultipleSGTree](./media/MultiSG.png)
 
@@ -44,16 +44,13 @@ Within the hierarchy of resources, there's a limitation of one parent resource c
 
 ![MGsandSGs](./media/sidebyside.png)
 
-### Low Privilege Management
-Service Groups don't have the same inheritance capabilities that other Azure Resource Manager groups have today so that they can use minimal permissions and oversight over resources. This low privilege allows customers to assign only the required permissions needed to manage the Service Groups and its members. The [Azure Role Based Access Controls Permissions]() required to add resources can be assigned separately than the permissions to manage the Service Group itself allowing separation of duties to be defined. 
-
 #### Example Scenarios 
 * Aggregating monitoring metrics 
    * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources. 
 
 
 ## How it works
-Azure Service Groups are a separate hierarchy grouping resources that don't exist in the resource hierarchy with Resource Groups, Subscriptions, and Management Groups. The separation allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 
+Azure Service Groups are a parallel hierarchy that allows the grouping of resources that don't exist in the resource hierarchy with Resource Groups, Subscriptions, and Management Groups. The separation allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 
 
 Information about Service Groups 
 * A Service Group is created within the Microsoft.Management Resource Provider, the same Resource Provider that owns Management Groups.  
@@ -61,7 +58,8 @@ Information about Service Groups
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
 * There's a limit of 2000 service group members coming from within the same subscription. This means that within one subscription, resources, or resource groups, there can only be 2,000 memberships to Service Groups. 
 * Within the Preview window, there's a Limit of 10,000 Service Groups in a single tenant.   
-* Service Groups Names support up to 250 characters. They can be alphanumeric and special characters: - _ ( ) . ~
+* Service Groups Names support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
+* Service Groups require a globally unique name/ID. Two Microsoft Entra tenants can't have a Service Group with identical names.  
 
 
 
@@ -101,13 +99,13 @@ Access to the root has to be given from a user with "microsoft.authorization/rol
 role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
 
 ### Role Based Access Controls 
-Three built in roles have been created to support Service Groups in the preview.  
+There are three built-in roles definitions to support Service Groups in the preview.  
 
 > [!NOTE]
-> Custom Role Based Access Controls (RBAC) are not supported within the Preview. 
+> Custom Role Based Access Controls aren't supported within the Preview. 
 
 #### Service Group Administrator 
-This role has been created to mange all aspects of Service Groups and Relationships. It will only allow the assignment of Service Group Roles to other Service Groups.  
+This role manages all aspects of Service Groups and Relationships. It only allows the assignment of Service Group Roles to other Service Groups.  
 
 **ID**: '/providers/Microsoft.Authorization/roleDefinitions/4e50c84c-c78e-4e37-b47e-e60ffea0a775"  
 
@@ -155,7 +153,7 @@ This role has been created to mange all aspects of Service Groups and Relationsh
 }
 ```
 #### Service Group Contributor 
-The Service Group Contributor role is the default built-in role given to users when they create a new Service Group.  This role allows fro all actions except for Role Assignment capabilities.  
+The Service Group Contributor role is the default built-in role given to users when they create a new Service Group. This role allows fro all actions except for Role Assignment capabilities.  
 ```json
 {
   "assignableScopes": [

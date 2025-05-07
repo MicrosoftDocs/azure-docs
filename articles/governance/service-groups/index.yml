@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: Create a service group with REST API
             url: ./create-service-group-rest-api.md
+          - text: Create a service group in Azure portal
+            url: ./create-service-group-portal.md
           - text: Connect Service Group members using the REST API
             url: ./create-service-group-member-rest-api.md
           - text: How to use Service Groups to manage resources
