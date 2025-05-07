@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: azure-operator-nexus, template-include
 ---
 
-# Cluster Runtime Upgrade Template
+# Cluster runtime upgrade template
 
 This how-to guide provides a step-by-step template for upgrading a Nexus Cluster designed to assist users in managing a reproducible end-to-end upgrade through Azure APIs and standard operating procedures. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
 
@@ -111,27 +111,20 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 1. Validate the provisioning and detailed status for the CM and Cluster.
    
-   Set up the subscription, CM, and Cluster parameters:
+   Login to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
    ```  
-   export SUBSCRIPTION_ID=<CUSTOMER_SUB_ID>
-   export CM_RG=<CM_RG>
-   export CM_NAME=<CM_NAME>
-   export CLUSTER_RG=<CLUSTER_RG>
-   export CLUSTER_NAME=<CLUSTER_NAME>
-   export CLUSTER_RID=<CLUSTER_RID>
-   export CLUSTER_MRG=<CLUSTER_MRG>
-   export THRESHOLD=<DEPLOYMENT_THRESHOLD>
-   export PAUSE_MINS=<DEPLOYMENT_PAUSE_MINS>
+   az login
+   az account set --subscription <CUSTOMER_SUB_ID>
    ```
 
    Check that the CM is in `Succeeded` for `Provisioning state`:
    ```
-   az networkcloud clustermanager show -g $CM_RG --resource-name $CM_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkcloud clustermanager show -g <CM_RG> --resource-name <CM_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
    Check the Cluster status `Detailed status` is `Running`:
    ```  
-   az networkcloud cluster show -g $CLUSTER_RG --resource-name $CLUSTER_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkcloud cluster show -g <CLUSTER_RG> --resource-name <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
    >[!Note]
@@ -139,7 +132,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 2. Check the Bare Metal Machine (BMM) status `Detailed status` is `Running`:
    ```
-   az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+   az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
    ```
 
    Validate the following resource states for each BMM (except spare):
@@ -158,8 +151,8 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 3. Collect a profile of the tenant workloads:
    ```
-   az networkcloud virtualmachine list --sub $SUBSCRIPTION_ID --query "reverse(sort_by([?clusterId=='$CLUSTER_RID'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
-   az networkcloud kubernetescluster list --sub $SUBSCRIPTION_ID --query "[?clusterId=='$CLUSTER_RID'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
+   az networkcloud virtualmachine list --sub <CUSTOMER_SUB_ID> --query "reverse(sort_by([?clusterId=='<CLUSTER_RID>'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+   az networkcloud kubernetescluster list --sub <CUSTOMER_SUB_ID> --query "[?clusterId=='<CLUSTER_RID>'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
    ```
 
 4. Review Operator Nexus Release notes for required checks and configuration updates not included in this document.
@@ -190,20 +183,20 @@ If `updateStrategy` isn't set, the default values are as follows:
 
 ### Set a deployment threshold and wait time different than default
 ```
-az networkcloud cluster update -n $CLUSTER_NAME -g $CLUSTER_RG --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=$THRESHOLD wait-time-minutes=$PAUSE_MINS --subscription $SUBSCRIPTION_ID
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> wait-time-minutes=<DEPLOYMENT_PAUSE_MINS> --subscription <CUSTOMER_SUB_ID>
 ```
 >[!Important]
 > If 100% threshold is required, review the BMM status reported during pre-checks and make sure all BMM are healthy before proceeding with the upgrade.
 
 Verify update:
 ```
-az networkcloud cluster show -n $CLUSTER_NAME -g $CLUSTER_RG --subscription $SUBSCRIPTION_ID| grep -A5 updateStrategy
+az networkcloud cluster show -n <CLUSTER_NAME> -g <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID>| grep -A5 updateStrategy
 "updateStrategy": {
    "maxUnavailable": 32767,
    "strategyType": "Rack",
    "thresholdType": "PercentSuccess",
-   "thresholdValue": $THRESHOLD,
-   "waitTimeMinutes": $PAUSE_MINS
+   "thresholdValue": <DEPLOYMENT_THRESHOLD>,
+   "waitTimeMinutes": <DEPLOYMENT_PAUSE_MINS>
 }
 ```
 
@@ -212,7 +205,7 @@ az networkcloud cluster show -n $CLUSTER_NAME -g $CLUSTER_RG --subscription $SUB
 
 To configure strategy to use `PauseAfterRack`:
 ```
-az networkcloud cluster update -n $CLUSTER_NAME -g $CLUSTER_RG --update-strategy strategy-type="PauseAfterRack" wait-time-minutes=0 threshold-type="PercentSuccess" threshold-value=$THRESHOLD --subscription $SUBSCRIPTION_ID
+az networkcloud cluster update -n <CLUSTER_NAME> -g <CLUSTER_RG> --update-strategy strategy-type="PauseAfterRack" wait-time-minutes=0 threshold-type="PercentSuccess" threshold-value=<DEPLOYMENT_THRESHOLD> --subscription <CUSTOMER_SUB_ID>
 ```
 
 Verify update:
@@ -222,7 +215,7 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <C
     "maxUnavailable": 32767,
     "strategyType": "PauseAfterRack",
     "thresholdType": "PercentSuccess",
-    "thresholdValue": $THRESHOLD,
+    "thresholdValue": <DEPLOYMENT_THRESHOLD>,
     "waitTimeMinutes": 0
 ```
 
@@ -230,7 +223,7 @@ az networkcloud cluster show -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <C
 * To start upgrade from Azure portal, go to Cluster resource, click `Update`, select <CLUSTER_VERSION>, then click `Update`
 * To run upgrade from Azure CLI, run the following command:
   ```
-  az networkcloud cluster update-version --subscription $SUBSCRIPTION_ID --cluster-name $CLUSTER_NAME --target-cluster-version $CLUSTER_VERSION --resource-group $CLUSTER_RG --no-wait --debug
+  az networkcloud cluster update-version --subscription <CUSTOMER_SUB_ID> --cluster-name <CLUSTER_NAME> --target-cluster-version <CLUSTER_VERSION> --resource-group <CLUSTER_RG> --no-wait --debug
   ```
 
   Gather ASYNC URL and Correlation ID info for further troubleshooting if needed.
@@ -246,19 +239,19 @@ Once a compute Rack meets the success threshold, the upgrade pauses until the us
 
 Use the following command to continue upgrade once a Compute Rack is paused after meeting the deployment threshold for the Rack:
 ```
-az networkcloud cluster continue-update-version -g $CLUSTER_RG -n $CLUSTER_NAME$ --subscription $SUBSCRIPTION_ID
+az networkcloud cluster continue-update-version -g <CLUSTER_RG> -n <CLUSTER_NAME> --subscription <CUSTOMER_SUB_ID>
 ```
 
 ### Monitor status of Cluster
 ```
-az networkcloud cluster list -g $CLUSTER_RG --subscription $SUBSCRIPTION_ID -o table
+az networkcloud cluster list -g <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID> -o table
 ```
 The Cluster `Detailed status` shows `Running` and the `Detailed status message` shows 'Cluster is up and running.` when the upgrade is complete.
 
 ### Monitor status of Bare Metal Machines
 ```
-az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID -o table
-az networkcloud baremetalmachine list -g $CLUSTER_MRG --subscription $SUBSCRIPTION_ID --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
+az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,kubernetesVersion:kubernetesVersion,machineClusterVersion:machineClusterVersion,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
 ```
 
 Validate the following states for each BMM (except spare):
@@ -319,12 +312,12 @@ az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_
 az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
 
 # Tenant Workloads
-az networkcloud virtualmachine list --sub $SUBSCRIPTION_ID --query "reverse(sort_by([?clusterId=='$CLUSTER_RID'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
-az networkcloud kubernetescluster list --sub $SUBSCRIPTION_ID --query "[?clusterId=='$CLUSTER_RID'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
+az networkcloud virtualmachine list --sub <CUSTOMER_SUB_ID> --query "reverse(sort_by([?clusterId=='<CLUSTER_RID>'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+az networkcloud kubernetescluster list --sub <CUSTOMER_SUB_ID> --query "[?clusterId=='<CLUSTER_RID>'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
 ```
 
 > [!Note]
-> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional tesing.
+> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional testing.
 
 </details>
 
