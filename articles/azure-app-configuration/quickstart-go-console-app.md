@@ -479,7 +479,7 @@ func main() {
     
     ---
 
-2. After the environment variable is properly set, run the following command to run the Unmarshal example:
+2. After the environment variable is properly set, run the following command to run the *Unmarshal* example:
 
     ```bash
     go run unmarshal_sample.go
@@ -501,13 +501,13 @@ func main() {
     Retry Count: 3
     ```
 
-3. Run the GetBytes example:
+3. Run the *GetBytes* example:
 
     ```bash
     go run getbytes_sample.go
     ```
 
-    You should see output that includes the raw JSON and parsed values:
+    You should see output similar to the following:
 
     ```Output
     Azure App Configuration - GetBytes Example
