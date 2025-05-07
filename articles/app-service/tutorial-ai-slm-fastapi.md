@@ -25,7 +25,7 @@ Hosting your own small language model (SLM) offers several advantages:
 
 ## Deploy the sample application
 
-1. In the browser, navigate to the [sample application repository](https://github.com/cephalin/sidecar-samples).
+1. In the browser, navigate to the [sample application repository](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar).
 2. Start a new Codespace from the repository.
 1. Log in with your Azure account:
 
@@ -36,38 +36,20 @@ Hosting your own small language model (SLM) offers several advantages:
 1. Open the terminal in the Codespace and run the following commands:
 
     ```azurecli
-    cd fastapiapp
+    cd use_sidecar_extension/fastapiapp
     az webapp up --sku P3MV3
     az webapp config set --startup-file "gunicorn -w 4 -k uvicorn.workers.UvicornWorker app.main:app"
     ```
 
 This startup command is a common setup for deploying FastAPI applications to Azure App Service. For more information, see [Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service](quickstart-python.md).
 
-## Add the Phi-3 sidecar extension
-
-In this section, you add the Phi-3 sidecar extension to your FastAPI application hosted on Azure App Service.
-
-1. Navigate to the Azure portal and go to your app's management page.
-2. In the left-hand menu, select **Deployment** > **Deployment Center**.
-3. On the **Containers** tab, select **Add** > **Sidecar extension**.
-4. In the sidecar extension options, select **AI: phi-3-mini-4k-instruct-q4-gguf (Experimental)**.
-5. Provide a name for the sidecar extension.
-6. Select **Save** to apply the changes.
-7. Wait a few minutes for the sidecar extension to deploy. Keep selecting **Refresh** until the **Status** column shows **Running**.
-
-## Test the chatbot
-
-1. In your app's management page, in the left-hand menu, select **Overview**.
-1. Under **Default domain**, select the URL to open your web app in a browser.
-1. Verify that the chatbot application is running and responding to user inputs.
-
-    :::image type="content" source="media/tutorial-ai-slm-dotnet/fashion-store-assistant-live.png" alt-text="screenshot showing the fashion assistant app running in the browser.":::
+[!INCLUDE [phi-3-extension-create-test](includes/tutorial-ai-slm/phi-3-extension-create-test.md)]
 
 ## How the sample application works
 
 The sample application demonstrates how to integrate a FastAPI-based service with the SLM sidecar extension. The `SLMService` class encapsulates the logic for sending requests to the SLM API and processing the streamed responses. This integration enables the application to generate conversational responses dynamically.
 
-Looking in https://github.com/cephalin/sidecar-samples/blob/webstacks/fastapiapp/app/services/slm_service.py, you see that:
+Looking in [use_sidecar_extension/fastapiapp/app/services/slm_service.py](https://github.com/Azure-Samples/ai-slm-in-app-service-sidecar/blob/main/use_sidecar_extension/fastapiapp/app/services/slm_service.py), you see that:
 
 - The service sends a POST request to the SLM endpoint `http://localhost:11434/v1/chat/completions`.
 
@@ -116,4 +98,8 @@ Looking in https://github.com/cephalin/sidecar-samples/blob/webstacks/fastapiapp
                             yield content
     ```
 
+[!INCLUDE [faq](includes/tutorial-ai-slm/faq.md)]
+
 ## Next steps
+
+[Tutorial: Configure a sidecar container for a Linux app in Azure App Service](tutorial-sidecar.md)
