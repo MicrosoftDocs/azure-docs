@@ -13,28 +13,6 @@ ms.author: duau
 
 This article provides an overview of error codes associated with gateway migration workflows, along with their causes and resolutions. Problems that commonly occur during each stage of the migration process: **Validate**, **Prepare**, **Migrate**, and **Commit or Abort**. 
 
-The following table outlines common issues encountered during each migration stage and provides strategies to resolve them:
-
-| Migration Stage | Issue | Resolution |
-|-----------------|-------|------------|
-| **Validate**    | Resources aren't in a succeeded state. | To resolve the issue, perform a GET and SET operation on the affected resources. |
-| **Prepare**     | Creation of new resources fails. | Retry the operation. If retries continue to fail, delete the newly created resources and attempt the operation again. |
-| **Migrate**     | Both gateways remain enabled after a migration failure. | Redirect traffic back to the old gateway and retry the migration process. |
-| **Commit**      | The old gateway remains enabled, and the commit step fails. | Retry the migration step. Once the old gateway is successfully disabled, delete the old gateway and its associated resources. |
-| **Abort**       | Cleanup of resources fails during the abort step. | Redirect traffic to the new gateway and retry the abort operation. |
-
-By applying these strategies, you can effectively address and resolve issues encountered during the migration process.
-
-| Migration Step | Problem | Solution |
-|----------------|---------|----------|
-| **Validate**   | Resources aren't in a succeeded state. | To resolve the issue Perform a GET and SET operation on the affected resources. |
-| **Prepare**    | Creation of new resources fails. | Retry the operation. If retries continue to fail, delete the newly created resources and attempt the operation again. |
-| **Migrate**    | Both gateways remain enabled after a migration failure. | Redirect traffic back to the old gateway and retry the migration process. |
-| **Commit**     | The old gateway remains enabled, and the commit step fails. | Retry the migration step. Once the old gateway is successfully disabled, proceed to delete the old gateway and its associated resources. |
-| **Abort**      | Cleanup of resources fails during the abort step. | Redirect traffic to the new gateway and retry the abort operation. |
-
-By following these recovery strategies, you can address and resolve errors encountered during the migration process.
-
 ## Best practices for avoiding migration errors
 
 Follow these best practices to minimize errors during the gateway migration process:
@@ -46,6 +24,19 @@ Follow these best practices to minimize errors during the gateway migration proc
 * **Check for maintenance**: Avoid creating connections to gateways undergoing maintenance, as this operation fails. Any failed connections must be deleted before retrying.
 
 By adhering to these practices, you can reduce the likelihood of encountering errors during migration.
+
+## Common issues during migration stages and their resolutions
+The following table outlines common issues encountered during each migration stage and provides strategies to resolve them:
+
+| Migration Stage | Issue | Resolution |
+|-----------------|-------|------------|
+| **Validate**    | Resources aren't in a succeeded state. | To resolve the issue, perform a GET and SET operation on the affected resources. |
+| **Prepare**     | Creation of new resources fails. | Retry the operation. If retries continue to fail, delete the newly created resources and attempt the operation again. |
+| **Migrate**     | Both gateways remain enabled after a migration failure. | Redirect traffic back to the old gateway and retry the migration process. |
+| **Commit**      | The old gateway remains enabled, and the commit step fails. | Retry the migration step. Once the old gateway is successfully disabled, delete the old gateway and its associated resources. |
+| **Abort**       | Cleanup of resources fails during the abort step. | Redirect traffic to the new gateway and retry the abort operation. |
+
+By applying these strategies, you can effectively address and resolve issues encountered during the migration process.
 
 ## Common error messages
 
