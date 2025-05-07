@@ -4,7 +4,7 @@ description: Learn how to migrate your existing function apps running on version
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-azurecli, ignite-2023, linux-related-content, devx-track-ts
 ms.topic: how-to
-ms.date: 05/08/20253
+ms.date: 05/08/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
