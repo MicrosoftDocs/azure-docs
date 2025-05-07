@@ -56,7 +56,6 @@ There is no specific program as such, but partners can reach out to the team for
 
 Yes, the Extended Zone shares the same marketplace for using third-party products.
 
-## What if my Azure Extended Zones question is not answered here?
 You can reach out to [aez-support@microsoft.com](mailto:aez-support@microsoft.com) with any further questions.
 
 ## Related content
