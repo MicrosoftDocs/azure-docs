@@ -25,7 +25,7 @@ The VM Network Troubleshooter checks for the following ports:
 
 Customers can access the VM Network Troubleshooter from the Monitor tab on the VM Overview blade. With a single click, customers can start the troubleshooter and check if the ports for RDP, HTTP, and HTTPs are blocked. 
 
-:::image type="content" source="./media/vm-network-troubleshooter/vm-network-troubleshooter.gif" alt-text="Video of customers navigating to the VM Network Troubleshooter from the VM Overview blade in the Azure Portal.":::
+:::image type="content" source="./media/vm-network-troubleshooter/vm-network-troubleshooter.gif" alt-text="Video of customers navigating to the VM Network Troubleshooter from the VM Overview blade in the Azure portal.":::
 
 
 ## How does the VM Network Troubleshooter work? 
