@@ -13,8 +13,8 @@ ms.author: adamloverro
 
 This article shows you how to delete an existing GeoCatalog resource. This article documents the two methods used to delete a Microsoft Planetary Computer Pro GeoCatalog:
 
-1. Using the Azure portal.
-1. Using the Azure Rest API.
+- Using the Azure portal.
+- Using the Azure Rest API.
  
 Before you proceed with deleting your GeoCatalog resource, download a backup of any data, assets, SpatioTemporal Asset Catalog (STAC) Items, or render configurations that you wish to preserve. After deletion is complete, it won't be possible to access any data within your GeoCatalog Configuration or Collections.
 
