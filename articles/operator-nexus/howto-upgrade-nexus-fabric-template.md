@@ -125,7 +125,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 2. Validate the provisioning status for the Network Fabric Controller (NFC), Fabric, and Fabric Devices.
    
-   Login to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
+   Log in to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
    ```  
    az login
    az account set --subscription <CUSTOMER_SUB_ID>
