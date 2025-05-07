@@ -68,6 +68,6 @@ The following table outlines unsupported scenarios that may result in migration 
 
 ## Next steps
 
-* Learn how to [migrate using the Azure portal](howto-gateway-migration-portal.md).
-* Learn how to [migrate using PowerShell](howto-gateway-migration-powershell.md).
+* Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migration-portal.md).
+* Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 * Explore [best practices for high availability](designing-for-high-availability-with-expressroute.md).
