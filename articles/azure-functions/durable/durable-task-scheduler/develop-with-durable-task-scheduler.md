@@ -1,14 +1,15 @@
 ---
-title: Develop with the Azure Functions Durable Task Scheduler (preview)
-description: Learn how to develop with the Azure Functions Durable Task Scheduler and task hub resources.
+title: Develop with Durable Task Scheduler (preview)
+description: Learn how to develop with the Durable Task Scheduler using the Azure CLI for both Durable Functions and Durable Task Scheduler.
 ms.topic: how-to
 ms.date: 05/06/2025
-zone_pivot_groups: dts-devexp
 ---
 
-# Develop with the Azure Functions Durable Task Scheduler (preview)
+# Develop with Durable Task Scheduler (preview)
 
-The Azure Functions Durable Task Scheduler is a highly performant, fully managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). In this article, you learn how to:
+The Durable Task Scheduler is a highly performant, fully managed backend provider for Durable Functions with an [out-of-the-box monitoring dashboard](./durable-task-scheduler-dashboard.md). Azure offers two developer-oriented orchestration frameworks that work with Durable Functions to build apps: Durable Task SDKs and Durable Functions. 
+
+In this article, you use the Azure CLI and the Durable Task extension to:
 
 > [!div class="checklist"]
 > * Create a scheduler and task hub. 
@@ -17,7 +18,8 @@ The Azure Functions Durable Task Scheduler is a highly performant, fully managed
 
 Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#feature-highlights), [supported regions](./durable-task-scheduler.md#limitations-and-considerations), and [plans](./durable-task-scheduler.md#limitations-and-considerations).
 
-::: zone pivot="az-cli"  
+> [!NOTE]
+> Durable Task Scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans only.  
 
 ## Prerequisites
 
@@ -44,8 +46,6 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
     az extension add --upgrade --name durabletask
     ```
 
-::: zone-end 
-
 ## Run the Durable Task emulator
 
 1. Pull the docker image containing the emulator. 
@@ -67,11 +67,6 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
     ```
 
 ## Create a scheduler and task hub
-
-::: zone pivot="az-cli"
-
-> [!NOTE]
-> Durable Task Scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans only.  
 
 1. Create a resource group.
 
@@ -147,44 +142,7 @@ Learn more about Durable Task Scheduler [features](./durable-task-scheduler.md#f
     }
     ```
 
-::: zone-end 
-
-::: zone pivot="az-portal" 
-
-You can create a scheduler and task hub on Azure portal via two ways: 
-- **Function app integrated creation:** *(recommended)* automatically creates the managed identity resource and RBAC assignment, plus configures required environment variables for your app to access Durable Task Scheduler.
-- **Top-level creation:** Requires you to [manually assign RBAC permission](#configure-identity-based-authentication-for-app-to-access-durable-task-scheduler) to configure scheduler access for your app.
-
-> [!NOTE]
-> Durable Task Scheduler currently supports apps hosted in the **App Service** and **Functions Premium** plans, so this experience is available only when either of these plan types is picked. 
-
-# [Function app integrated creation](#tab/function-app-integrated-creation)  
-
-You can create a scheduler and a task hub as part of the Function app creation on Azure portal. 
-
-[!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
-
-# [Top-level creation](#tab/top-level-creation) 
-
-1. In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
-
-    :::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the Durable Task Scheduler in the portal.":::
-
-1. Click **Create** to open the **Azure Functions: Durable Task Scheduler (preview)** pane.
-
-    :::image type="content" source="media/create-durable-task-scheduler/top-level-create-form.png" alt-text="Screenshot of the create page for the Durable Task Scheduler.":::
-
-1. Fill out the fields in the **Basics** tab. Click **Review + create**. Once the validation passes, click **Create**. 
-
-    Deployment may take around 15 to 20 minutes. 
-
----
-
-::: zone-end 
-
 ## View all Durable Task Scheduler resources in a subscription
-
-::: zone pivot="az-cli" 
 
 1. Get a list of all scheduler names within a subscription by running the following command.
 
@@ -198,21 +156,7 @@ You can create a scheduler and a task hub as part of the Function app creation o
     az durabletask scheduler list --subscription <SUBSCRIPTION_ID> --resource-group <RESOURCE_GROUP_NAME>
     ```
 
-::: zone-end 
-
-::: zone pivot="az-portal"
-
-In the Azure portal, search for **Durable Task Scheduler** and select it from the results. 
-
-:::image type="content" source="media/create-durable-task-scheduler/search-for-durable-task-scheduler.png" alt-text="Screenshot of searching for the Durable Task Scheduler service in the portal.":::
-
-You can see the list of scheduler resources created in all subscriptions you have access to. 
-
-::: zone-end 
-
 ## View all task hubs in a Durable Task Scheduler
-
-::: zone pivot="az-cli" 
 
 Retrieve a list of task hubs in a specific scheduler by running: 
 
@@ -220,19 +164,7 @@ Retrieve a list of task hubs in a specific scheduler by running:
 az durabletask taskhub list --resource-group <RESOURCE_GROUP_NAME> --scheduler-name <SCHEDULER_NAME>
 ```
 
-::: zone-end 
-
-::: zone pivot="az-portal"
-
-You can see all the task hubs created in a scheduler on the **Overview** of the resource on Azure portal. 
-
-:::image type="content" source="media/create-durable-task-scheduler/durable-task-scheduler-overview-portal.png" alt-text="Screenshot of overview tab of Durable Task Scheduler in the portal.":::
-
-::: zone-end 
-
 ## Delete the scheduler and task hub
-
-::: zone pivot="az-cli" 
 
 1. Delete the scheduler:
 
@@ -246,20 +178,6 @@ You can see all the task hubs created in a scheduler on the **Overview** of the 
     az durabletask taskhub delete --resource-group YOUR_RESOURCE_GROUP --scheduler-name YOUR_SCHEDULER --name YOUR_TASKHUB
     ```
 
-::: zone-end 
-
-::: zone pivot="az-portal"
-
-1. Open the scheduler resource on Azure portal and click **Delete**: 
-
-    :::image type="content" source="media/create-durable-task-scheduler/durable-task-scheduler-delete-portal.png" alt-text="Screenshot of scheduler resource in the portal highlighting delete button.":::
-
-1. Find the scheduler with the task hub you want to delete, then click into that task hub. Click **Delete**:
-
-    :::image type="content" source="media/create-durable-task-scheduler/task-hub-delete-portal.png" alt-text="Screenshot of task hub resource in the portal highlighting delete button.":::
-
-::: zone-end 
-
 ## Configure identity-based authentication for app to access Durable Task Scheduler
 
 Durable Task Scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
@@ -270,29 +188,11 @@ If you haven't already, [configure managed identity for your Durable Functions a
 
 [Assign the required role to your *developer identity (email)*](./durable-task-scheduler-dashboard.md#access-the-durable-task-scheduler-dashboard) to gain access to the Durable Task Scheduler dashboard. 
 
-## Auto scaling in Functions Premium plan 
-
-For Durable Functions apps on the Functions Premium plan, you can enable autoscaling using the *Runtime Scale Monitoring* setting. 
-
-::: zone pivot="az-portal"
-
-1. In the portal overview of your function app, navigate to **Settings** > **Configuration**.
-
-1. Under the **Function runtime settings** tab, turn on **Runtime Scale Monitoring**. 
-
-    :::image type="content" source="media/develop-with-durable-task-scheduler/runtime-scale-monitoring.png" alt-text="Screenshot of searching for Durable Task Scheduler in the portal.":::
-
-::: zone-end 
-
-::: zone pivot="az-cli" 
-
-```azurecli
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
-```
-
-::: zone-end 
-
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Run and deploy your Durable Functions app using the Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
+For Durable Task Scheduler for Durable Functions:
+- [Quickstart: Configure a Durable Functions app to use Azure Functions Durable Task Scheduler](./quickstart-durable-task-scheduler.md)
+
+For Durable Task Scheduler for the Durable Task SDKs:
+- [Quickstart: Create an app with Durable Task SDKs and Durable Task Scheduler](./quickstart-portable-durable-task-sdks.md)
+- [Quickstart: Host a Durable Task SDK app on Azure Container Apps](./quickstart-container-apps-durable-task-sdk.md)

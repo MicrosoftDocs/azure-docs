@@ -161,18 +161,6 @@ Large volumes of completed orchestration instance data can lead to storage bloat
     > [!NOTE]
     > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
 
-### Specific to Durable Task Scheduler for Durable Functions
-
-- **Supported hosting plans:** 
-
-   The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
-
-   The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
-
-- **Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers:** 
-
-   Currently, migrating across providers isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the Durable Task Scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
-
 ## Next steps
 
 > [!div class="nextstepaction"]
