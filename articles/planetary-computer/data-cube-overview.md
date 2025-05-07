@@ -32,15 +32,16 @@ For STAC assets in **NetCDF** or **HDF5** formats, Planetary Computer can apply 
 
 Data cube enrichment is **enabled** for applicable assets in the STAC item JSON. For each asset, enrichment is triggered if both of the following conditions are met:  
 
-1. The asset format is one of the following types:
+* The asset format is one of the following types:
     - `application/netcdf`
     - `application/x-netcdf`
     - `application/x-hdf5`
-2. The asset has a `roles` field that includes either `data` or `visual` within its list of roles. 
+* The asset has a `roles` field that includes either `data` or `visual` within its list of roles. 
 
 If these conditions are met, a **Kerchunk manifest** (`assetid-kerchunk.json`) is generated in blob storage alongside the asset. 
 
-**Note**: The asset format type`application/x-hdf` often corresponds to HDF4 assets. GeoCatalog ingestion doesn't currently support creating virtual kerchunk manifests for HDF4 due to its added complexity and multiple variants.
+> [!NOTE]
+> The asset format type`application/x-hdf` often corresponds to HDF4 assets. GeoCatalog ingestion doesn't currently support creating virtual kerchunk manifests for HDF4 due to its added complexity and multiple variants.
 
 ### Data cube enrichment modifies the STAC item JSON  
 
