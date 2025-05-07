@@ -14,7 +14,7 @@ ms.author: kendownie
 
 At its core, DFS Namespaces provides a mapping between a user-friendly UNC path, like `\\contoso\shares\ProjectX` and the underlying UNC path of the SMB share like `\\Server01-Prod\ProjectX` or `\\storageaccount.file.core.windows.net\projectx`. When the end user wants to navigate to their file share, they type in the user-friendly UNC path, but their SMB client accesses the underlying SMB path of the mapping. You can also extend this basic concept to take over an existing file server name, such as `\\MyServer\ProjectX`. You can use this capability to achieve the following scenarios:
 
-- Provide a migration-proof name for a logical set of data. For example, you can mapp `\\contoso\shares\Engineering` to `\\OldServer\Engineering`. When you complete your migration to Azure Files, you can change the mapping to `\\storageaccount.file.core.windows.net\engineering`, such that when an end user accesses the user-friendly UNC path, they are seamlessly redirected to the Azure file share path.
+- Provide a migration-proof name for a logical set of data. For example, you can map `\\contoso\shares\Engineering` to `\\OldServer\Engineering`. When you complete your migration to Azure Files, you can change the mapping to `\\storageaccount.file.core.windows.net\engineering`, such that when an end user accesses the user-friendly UNC path, they are seamlessly redirected to the Azure file share path.
 
 - Establish a common name for a logical set of data that is distributed to multiple servers at different physical sites, such as through Azure File Sync. In this example, a name such as `\\contoso\shares\FileSyncExample` is mapped to multiple UNC paths such as `\\FileSyncServer1\ExampleShare`, `\\FileSyncServer2\DifferentShareName`, `\\FileSyncServer3\ExampleShare`. When the user accesses the user-friendly UNC, they are given a list of possible UNC paths and choose the one closest to them based on Windows Server Active Directory (AD) site definitions.
 
@@ -74,7 +74,7 @@ In the **Server Roles** section, select and check the **DFS Namespaces** role un
 After you check the **DFS Namespaces** role, you can select **Next** on all subsequent screens, and select **Install** as soon as the wizard enables the button. When the installation is complete, you may configure your namespace.
 
 # [PowerShell](#tab/azure-powershell)
-From an elevated PowerShell session (or using PowerShell remoting), execute the following commands.
+From an elevated PowerShell session (or using PowerShell remoting), execute the following command.
 
 ```PowerShell
 Install-WindowsFeature -Name "FS-DFS-Namespace", "RSAT-DFS-Mgmt-Con"
@@ -207,7 +207,7 @@ In the DFS Management console, select the namespace you just created and select 
 
 ![A screenshot of the **New Folder** dialog.](./media/files-manage-namespaces/dfs-folder-targets.png)
 
-In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you are adding a UNC path to an Azure file share, you might receive a message reporting that the server `storageaccount.file.core.windows.net` can't be contacted. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
+In the textbox labeled **Name** provide the name of the folder. Select **Add...** to add folder targets for this folder. The resulting **Add Folder Target** dialog provides a textbox labeled **Path to folder target** where you can provide the UNC path to the desired folder. Select **OK** on the **Add Folder Target** dialog. If you're adding a UNC path to an Azure file share, you might receive a message reporting that the server `storageaccount.file.core.windows.net` can't be contacted. This is expected; select **Yes** to continue. Finally, select **OK** on the **New Folder** dialog to create the folder and folder targets.
 
 # [PowerShell](#tab/azure-powershell)
 ```PowerShell
@@ -222,7 +222,7 @@ New-DfsnFolder -Path $sharePath -TargetPath $targetUNC
 
 ---
 
-Now that you've created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. If you're using a domain-based namespace, the full path for your share should be `\\<domain-name>\<namespace>\<share>`. If you are using a standalone namespace, the full path for your share should be `\\<DFS-server>\<namespace>\<share>`. If you're using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
+Now that you've created a namespace, a folder, and a folder target, you should be able to mount your file share through DFS Namespaces. If you're using a domain-based namespace, the full path for your share should be `\\<domain-name>\<namespace>\<share>`. If you're using a standalone namespace, the full path for your share should be `\\<DFS-server>\<namespace>\<share>`. If you're using a standalone namespace with root consolidation, you can access directly through your old server name, such as `\\<old-server>\<share>`.
 
 ## Access-Based Enumeration (ABE)
 

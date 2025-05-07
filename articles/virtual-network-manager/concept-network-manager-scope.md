@@ -1,18 +1,18 @@
 ---
-title: Understand and work with Azure Virtual Network Manager scopes
-description: Learn about Azure Virtual Network Manager scopes and the effects that they have on managing virtual networks.
+title: "Azure Virtual Network Manager Scopes: Understand and Work with Them"
+description: Learn how Azure Virtual Network Manager scopes simplify virtual network management. Discover their role, benefits, and key features.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 03/22/2024
+ms.date: 05/02/2025
 ---
 
 # Understand and work with Azure Virtual Network Manager scopes
 
-In this article, you learn how scopes enable management groups or subscriptions to use certain features of Azure Virtual Network Manager. You also learn about the concept of hierarchy and how it can affect Azure Virtual Network Manager users.
+Azure Virtual Network Manager simplifies the management of virtual networks by organizing resources into scopes, enabling efficient configuration and control. This article explains how scopes work, their role in managing resources, and how they interact with Azure's hierarchical structure. You'll also learn about key concepts like network groups, configurations, and features, as well as how to manage cross-tenant scopes and resolve configuration conflicts.
 
-## Virtual Network Manager resources
+## Virtual Network Manager resources overview
 
 An Azure Virtual Network Manager instance includes the following resources:
 
@@ -33,13 +33,13 @@ A *scope* within Azure Virtual Network Manager represents the level of access gr
 >
 > When you're specifying a scope at the management group level, you need to register the Azure Virtual Network provider at the management group scope before you deploy a Virtual Network Manager instance. This process is included as part of [creating a Virtual Network Manager instance in the Azure portal](./create-virtual-network-manager-portal.md), but not with programmatic methods such as the Azure CLI and Azure PowerShell. [Learn more about registering providers at the management group scope](/rest/api/resources/providers/register-at-management-group-scope).
 
-### Scope applicability
+### How scope applicability works
 
 When you deploy configurations, the Virtual Network Manager instance applies features only to resources within its scope. If you try to add a resource to a network group that's out of scope, it's added to the group to represent your intent. But the Virtual Network Manager instance doesn't apply the changes to the configurations.
 
 You can update the scope of the Virtual Network Manager instance. Updates trigger an automatic, scope-wide reevaluation, and they potentially add features with a scope addition or remove features with a scope removal.
 
-### Cross-tenant scope
+### Managing cross-tenant scope
 
 The scope of a Virtual Network Manager instance can span across tenants, although a separate approval flow is required to establish this scope.
 
