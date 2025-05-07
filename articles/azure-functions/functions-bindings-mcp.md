@@ -1,6 +1,6 @@
 ---
-title: MCP bindings for Azure Functions
-description: Learn how you can expose your functions as a model content protocol (MCP) server using bindings in Azure Functions.
+title: MCP tool bindings for Azure Functions
+description: Learn how you can expose your functions as model content protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
 ms.date: 05/03/2025
 ms.custom: 
@@ -12,18 +12,19 @@ zone_pivot_groups: programming-languages-set-functions
 ---
 
 
-# MCP bindings for Azure Functions overview
+# MCP tool bindings for Azure Functions overview
 
 The [Model Content Protocol (MCP)](https://github.com/modelcontextprotocol) is a client-server protocol intended to enable language models and agents to more efficiently discover and use external data sources and tools. 
 
 [!INCLUDE [functions-mcp-extension-preview-note](../../includes/functions-mcp-extension-preview-note.md)]
 
-The Azure Functions MCP extension allows you to use Azure Functions to create custom MCP servers. Your function app implements an MCP server by defining a set of MCP tool endpoints that are MCP trigger functions. MCP clients, such as language models and agents, can query and access these tools to do specific tasks, such as storing or accessing code snippets. MCP clients can also subscribe to your app to receive notifications about changes to the exposed tools. 
+The Azure Functions MCP extension allows you to use Azure Functions to create remote MCP servers. Your function app implements a remote MCP server by exposing a set of endpoints that are implemented as MCP tool trigger functions. MCP clients, such as language models and agents, can query and access these tools to do specific tasks, such as storing or accessing code snippets. MCP clients can also subscribe to your app to receive notifications about changes to the exposed tools. 
 
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
-::: zone pivot="programming-language-csharp"
 ## Prerequisites 
 
++ The MCP tool trigger relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using managed identities, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).   
+::: zone pivot="programming-language-csharp"
 + Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.  
 
 ## Install extension
@@ -72,14 +73,14 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 
 | Property | Description |
 | ----- | ----- |
-| **instructions** | Describes to clients how to access the server. |
-| **serverName** | A friendly name for the server. |
-| **serverVersion** | Current version of the server. |
+| **instructions** | Describes to clients how to access the remote MCP server. |
+| **serverName** | A friendly name for the remote MCP server. |
+| **serverVersion** | Current version of the remote MCP server. |
 
 
 ## Related articles
 
-[Create a tool endpoint in your MCP server](./functions-bindings-mcp-trigger.md) 
+[Create a tool endpoint in your remote MCP server](./functions-bindings-mcp-trigger.md) 
 
 
 [extension bundle]: ./functions-bindings-register.md#extension-bundles

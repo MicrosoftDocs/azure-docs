@@ -22,7 +22,7 @@ For information on setup and configuration details, see the [overview](functions
 ## Example
 
 ::: zone pivot="programming-language-csharp"  
->[!TIP]  
+>[!NOTE]  
 >The Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
 
 This code creates an endpoint to expose a tool named `GetSnippet` that tries to retrieve a code snippet by name from blob storage.
@@ -47,7 +47,7 @@ This code creates an endpoint to expose a tool named `SaveSnippets` that tries t
 For the complete code example, see [Snippets.java](https://github.com/Azure-Samples/remote-mcp-functions-java/blob/main/src/main/java/com/function/Snippets.java).  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Example code for JavaScript isn't currently available.
+Example code for JavaScript isn't currently available. See the TypeScript examples for general guidance using Node.js.
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 This code creates an endpoint to expose a tool named `getsnippet` that tries to retrieve a code snippet by name from blob storage.
@@ -99,7 +99,7 @@ See [Usage](#usage) to learn how to define properties of the endpoint as input p
 
 ## Annotations
 
-The `McpTrigger` annotation creates a function that exposes a tool endpoint in your MCP server. 
+The `McpTrigger` annotation creates a function that exposes a tool endpoint in your remote MCP server. 
 
 The annotation supports the following configuration options:
 
@@ -151,7 +151,11 @@ See the [Example section](#example) for complete examples.
 
 ::: zone pivot="programming-language-csharp"  
 
-The MCP protocol enables an MCP server to make known to clients other properties of a tool endpoint. In C#, you can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
+The MCP protocol enables an MCP server to make known to clients other properties of a tool endpoint. In C#, you can define properties of your tools as either input parameters using the `McpToolProperty` attribute to your trigger function code or by using the `FunctionsApplicationBuilder` when the app starts. 
+
+### [`McpToolPropertyAttribute`](#tab\attribute)
+
+You can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
 
 The `McpToolPropertyAttribute` type supports these properties:
 
@@ -161,9 +165,21 @@ The `McpToolPropertyAttribute` type supports these properties:
 | **PropertyType** | The data type of the tool property, such as `string`.  |
 | **Description** | (Optional) Description of what the tool property does.  |
 
+You can see these attributes used in the `SaveSnippet` tool in the [Examples](#example).
+
+### [`FunctionsApplicationBuilder`](#tab\builder)
+
+You can define tool properties in your entry point (program.cs) file by using the `McpToolBuilder` returned by the `ConfigureMcpTool` method on `FunctionsApplicationBuilder`. This examples calls the `WithProperty` method on the builder for the `GetSnippet` tool to set the properties of the tool:
+
+:::code language="csharp" source="~/remote-mcp-functions-dotnet/src/Program.cs" range="5-15" ::: 
+
+For the complete example, see the [program.cs file](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/blob/main/src/Program.cs).
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-java,programming-language-python"  
-Properties of a tool exposed by your MCP server are defined using tool properties. These properties are returned by the `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
+Properties of a tool exposed by your remote MCP server are defined using tool properties. These properties are returned by the `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
 
 A `ToolProperty` object has this structure:
 
@@ -176,7 +192,7 @@ A `ToolProperty` object has this structure:
 ``` 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Properties of a tool exposed by your MCP server are defined using tool properties. These properties are returned by the `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
+Properties of a tool exposed by your remote MCP server are defined using tool properties. These properties are returned by the `toolProperties` field, which is a string representation of an array of `ToolProperty` objects. 
 
 A `ToolProperty` object has this structure:
 
