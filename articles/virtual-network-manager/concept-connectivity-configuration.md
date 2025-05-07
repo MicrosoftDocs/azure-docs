@@ -1,20 +1,20 @@
 ---
-title: 'Connectivity configuration in Azure Virtual Network Manager'
-description: Learn about different types network topology you can create with a connectivity configuration in Azure Virtual Network Manager.
+title: Connectivity Configuration in Azure Virtual Network Manager
+description: Learn about network topologies you can create with connectivity configurations in Azure Virtual Network Manager to optimize performance and security.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 04/08/2025
+ms.date: 05/06/2025
 ---
 
-# Connectivity configuration in Azure Virtual Network Manager
+# Connectivity Configuration in Azure Virtual Network Manager
 
-In this article, you learn about the different types of configurations you can create and deploy using Azure Virtual Network Manager. There are two types of configurations currently available: *Connectivity* and *Security Admins*. 
+Azure Virtual Network Manager simplifies the management of virtual network connectivity and security across your Azure environment. This article provides an in-depth look at connectivity configurations, including mesh and hub-and-spoke topologies, to help you optimize network performance and security. Also, You'll also learn about features like high-scale connected groups and global mesh connectivity, as well as explore use cases and configuration steps for each topology.
 
 ## Connectivity configuration
 
-*Connectivity* configurations allow you to create different network topologies based on your network needs. You have two topologies to choose from, a *mesh network* and a *hub and spoke*. Connectivity between virtual networks is defined within the configuration settings.
+With *Connectivity* configurations, you can create different network topologies based on your network needs. You have two topologies to choose from, a *mesh network* and a *hub and spoke*. Connectivity between virtual networks is defined within the configuration settings.
 
 ## Mesh network topology
 
@@ -25,7 +25,7 @@ A common use case of a mesh network topology is to allow some spoke virtual netw
 
 By default, the mesh is a regional mesh, therefore only virtual networks in the same region can communicate with each other. **Global mesh** can be enabled to establish connectivity of virtual networks across all Azure regions. A virtual network can be part of up to two connected groups. Virtual network address spaces can overlap in a mesh configuration, unlike in virtual network peerings. However, traffic to the specific overlapping subnets is dropped, since routing is nondeterministic.
 
-:::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Diagram of a mesh network topology.":::
+:::image type="content" source="./media/concept-configuration-types/mesh-topology.png" alt-text="Image of a mesh network topology diagram showing virtual networks connected in a bi-directional mesh.":::
 
 ## Connected group
 
@@ -35,13 +35,13 @@ When you create a mesh topology or direct connectivity in the hub and spoke topo
 > * If you have conflicting subnets in two or more virtual networks, resources in those subnets *won't* be able to communicate to each other even if they're part of the same mesh network.
 > * A virtual network can be part of up to **two** mesh configurations.
 
-### Enable a high scale connected group in Azure Virtual Network Manager
+### Enable high scale connected groups in Azure Virtual Network Manager
 
 Azure Virtual Network Manager's high scale connected group feature allows you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group:
 
 #### Prepare Each Virtual Network in the Connected Group
 
-1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-virtual network-limits.md) for detailed guidance on increasing Private Endpoint virtual network limits. Note that enabling or disabling this feature will trigger a one-time connection reset. It's recommended to perform these changes during a maintenance window.
+1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md) for detailed guidance on increasing Private Endpoint virtual network limits. Enabling or disabling this feature initiates a one-time connection reset. It's recommended to perform these changes during a maintenance window.
 1. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance or a virtual network in your connected group. This registration is essential for unlocking the extended private endpoint capacity. For more information, see [How to enable Azure preview features documentation](../azure-resource-manager/management/preview-features.md).
 1. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high scale functionality. For detailed guidance, see [Manage network policies for private endpoints documentation](../private-link/disable-private-endpoint-network-policy.md).
 
@@ -55,26 +55,26 @@ Azure Virtual Network Manager's high scale connected group feature allows you to
 
 A hub-and-spoke is a network topology in which you have a virtual network selected as the hub virtual network. This virtual network gets bi-directionally peered with every spoke virtual network in the configuration. This topology is useful for when you want to isolate a virtual network but still want it to have connectivity to common resources in the hub virtual network. 
 
-:::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Diagram of a hub and spoke topology.":::
+:::image type="content" source="./media/concept-configuration-types/hub-and-spoke.png" alt-text="Image of a hub and spoke topology diagram showing a hub virtual network connected to multiple spoke networks.":::
 
 In this configuration, you have settings you can enable such as *direct connectivity* between spoke virtual networks. By default, this connectivity is only for virtual networks in the same region. To allow connectivity across different Azure regions, you need to enable *Global mesh*. You can also enable *Gateway* transit to allow spoke virtual networks to use the VPN or ExpressRoute gateway deployed in the hub.
 
-If checked, any peerings that do not match the contents of this configuration can by removed, even if these peerings were manually created after this configuration is deployed. If you remove a VNet from a network group used in the configuration, your virtual manager removes only peerings it created.
+If checked, any peerings that don't match the contents of this configuration can be removed, even if these peerings were manually created after this configuration is deployed. If you remove a virtual network from a network group used in the configuration, your virtual manager removes only peerings it created.
 
 ### Direct connectivity
 
-Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connected-group) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke VNet to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
+Enabling *Direct connectivity* creates an overlay of a [*connected group*](#connected-group) on top of your hub and spoke topology, which contains spoke virtual networks of a given group. Direct connectivity allows a spoke virtual network to talk directly to other VNets in its spoke group, but not to VNets in other spokes.
 
 
 For example, you create two network groups. You enable direct connectivity for the *Production* network group but not for the *Test* network group. This set up only allows virtual networks in the *Production* network group to communicate with one another but not the ones in the *Test* network group. 
 
 :::image type="content" source="./media/concept-configuration-types/hub-spoke-connected.png" alt-text="Diagram of a hub and spoke topology with two network groups.":::
 
-When you look at effective routes on a VM, the route between the hub and the spoke virtual networks will have the next hop type of  *VNetPeering* or *GlobalVNetPeering*. Routes between spokes virtual networks will show up with the next hop type of *ConnectedGroup*. With the example above, only the *Production* network group would have a *ConnectedGroup* because it has *Direct connectivity* enabled.
+When you look at effective routes on a virtual machine, the route between the hub and the spoke virtual networks will have the next hop type of  *VNetPeering* or *GlobalVNetPeering*. Routes between spokes virtual networks will show up with the next hop type of *ConnectedGroup*. With the example above, only the *Production* network group would have a *ConnectedGroup* because it has *Direct connectivity* enabled.
 
 ### Discovering network group topology with Topology View
 
-To assist you in understanding the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that shows the connectivity between network groups and their member virtual networks.  You can view the topology of your network group during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create-a-configuration) with the following steps:
+To assist you in understanding the topology of your network group, Azure Virtual Network Manager provides a **Topology View** that shows the connectivity between network groups and their member virtual networks. You can view the topology of your network group during the [creation of your connectivity configuration](create-virtual-network-manager-portal.md#create-a-configuration) with the following steps:
 
   1. Navigate to the **Configurations** page and create a connectivity configuration.
   1. On the **Topology** tab, select your desired topology type, add one or more network groups to the topology, and configure other desired connectivity settings.
@@ -87,7 +87,7 @@ You can review the current topology of a network group by selecting **Visualizat
 
 ### Use cases
 
-Enabling direct connectivity between spokes virtual networks can be helpful when you want to have an NVA or a common service in the hub virtual network but the hub doesn't need to be always accessed. But rather you need your spoke virtual networks in the network group to communicate with each other. Compared to traditional hub and spoke networks, this topology improves performance by removing the extra hop through the hub virtual network.
+Enabling direct connectivity between spokes virtual networks can be helpful when you want to have a network virtual appliance (NVA) or a common service in the hub virtual network but the hub doesn't need to be always accessed. But rather you need your spoke virtual networks in the network group to communicate with each other. Compared to traditional hub and spoke networks, this topology improves performance by removing the extra hop through the hub virtual network.
 
 #### Global mesh
 
