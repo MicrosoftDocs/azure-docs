@@ -1,9 +1,9 @@
 ---
 title: Create a Containerized Network Function (CNF) Site Network Service with Nginx
 description: Learn how to create a Containerized Network Function (CNF) Site Network Service (SNS) with Nginx.
-author: HollyCl
-ms.author: hollycl
-ms.date: 09/07/2023
+author: msftadam
+ms.author: adamdor
+ms.date: 03/06/2023
 ms.topic: quickstart
 ms.service: azure-operator-service-manager
 ---
@@ -61,7 +61,7 @@ ms.service: azure-operator-service-manager
         "deployParameters": [{}],
         "customLocationId": "<resource id of your custom location>",
         "nfdv": "1.0.0",
-        "managedIdentity": "<managed-identity-resource-id>"
+        "managedIdentityId": "<managed-identity-resource-id>"
     },
 
     }

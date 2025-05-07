@@ -144,7 +144,3 @@ The following policies aren't supported by and can't be applied to the onHandsha
 > If you applied the policies at higher scopes (for example, global or product) and they're inherited by a WebSocket API through the policy, they are skipped at runtime.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Related content
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

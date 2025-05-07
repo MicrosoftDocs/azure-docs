@@ -156,10 +156,10 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. Select **Settings** and complete the form in **Repositories** to add a new entry with the following information:
 
-   - Name: `default`
-   - Patterns: `api-gateway,customers-service`
-   - URI: `https://github.com/Azure-Samples/spring-petclinic-microservices-config`
-   - Label: `master`
+   - Name: **default**
+   - Patterns: **api-gateway,customers-service**
+   - URI: **https://github.com/Azure-Samples/spring-petclinic-microservices-config**
+   - Label: **master**
 
    :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of the Azure portal showing the Settings tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
 
@@ -212,7 +212,7 @@ For more information, see [Use Application Configuration Service for Tanzu](../e
 
 ## Using Service Registry for Tanzu
 
-[Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/3.1/spring-cloud-services/GUID-service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
+[Service Registry](https://techdocs.broadcom.com/us/en/vmware-tanzu/spring/spring-cloud-services-for-cloud-foundry/3-2/scs-tanzu/service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key concepts of a microservice-based architecture. In the Enterprise plan, Service Registry for Tanzu provides service registry and discover support for your apps. Managed Spring Cloud Eureka is available only in the Basic and Standard plan and isn't available in the Enterprise plan.
 
 | Component        | Standard plan                                                        | Enterprise plan                                                                   |
 |------------------|----------------------------------------------------------------------|-----------------------------------------------------------------------------------|

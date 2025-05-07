@@ -37,6 +37,8 @@ For CLR 2 runtime versions (.NET Framework 3.5 and below):
 ls "D:\Program Files (x86)\Reference Assemblies\Microsoft\Framework"
 ```
 
+If the runtime your application requires isn't supported, you can deploy it with a custom container.
+
 ## Show current .NET Framework runtime version
 
 Run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -54,6 +56,8 @@ By default, App Service uses the latest supported .NET Framework version to run 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --net-framework-version v2.0
 ```
+
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
 
 ## Access environment variables
 

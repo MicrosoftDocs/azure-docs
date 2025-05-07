@@ -3,8 +3,8 @@ ms.service: azure-policy
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
 ms.date: 02/25/2025
-author: davidsmatlak
-ms.author: davidsmatlak
+author: jasongroce
+ms.author: jasongroce
 ---
 
 ### Compliance by policy assignment

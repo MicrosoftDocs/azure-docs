@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 04/26/2022
 ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -29,13 +29,13 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 1. Enter the **Analytics** page in the portal through which you access Microsoft Sentinel:
 
-    # [Azure portal](#tab/azure)
-
-    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
-
     # [Defender portal](#tab/defender)
 
     From the Microsoft Defender navigation menu, expand **Microsoft Sentinel**, then **Configuration**. Select **Analytics**.
+
+    # [Azure portal](#tab/azure)
+
+    From the **Configuration** section of the Microsoft Sentinel navigation menu, select **Analytics**.
 
     ---
 

@@ -53,7 +53,8 @@ tmpfs                            3.9G  299M  3.6G   8% /tmp
 /dev/sda1                        222M   49M  158M  24% /boot
 ```
 
-Ensure at least **5 GB** of free space is available on the Terminal Server before beginning the upgrade process.  
+
+Ensure at least **5 GB** of free space is available in the '/tmp' folder on the Terminal Server before beginning the upgrade process.
 
 ## Verifying OS download integrity using SHA1 checksum  
 
@@ -61,10 +62,10 @@ After downloading the OS image, verify its integrity using SHA1 checksum validat
 
 ### Step 1: Download the SHA checksum file  
 
-Use `wget` or any other utility to download the checksum file corresponding to the OS version:  
+Use `wget` or any other utility to download the checksum file corresponding to the OS version 24.11.2.
 
 ```bash
-wget https://ftp.opengear.com/download/opengear_appliances/OM/current/SHASUMS
+wget https://ftp.opengear.com/download/opengear_appliances/OM/archive/24.11.2/SHASUMS
 ```
 
 ### Step 2: Compute and compare the SHA1 checksum 

@@ -44,11 +44,11 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 
 | Feature                           | Azure Government | Microsoft Azure operated by 21Vianet (Preview) |
 |-----------------------------------|:----------------:|:----------------------------------------------:|
-| Private link                      |   Not supported  |                  Not supported                 |
-| Managed private endpoint          |   Not supported  |                  Not supported                 |
+| Private link                      |     Supported    |                    Supported                   |
+| Managed private endpoint          |     Supported    |                    Supported                   |
 | Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
 | Enterprise plugins                |   Not supported  |                  Not supported                 |
-| Essential plan                    |     Supported    |                  Not supported                 |
+| Essential plan                    |   Not supported  |                  Not supported                 |
 | MemoryUsagePercentage metric      |   Not supported  |                  Not supported                 |
 
 ## Throttling limits and quotas

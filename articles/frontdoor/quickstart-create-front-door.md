@@ -1,14 +1,14 @@
 ---
 title: 'Quickstart: Create an Azure Front Door (classic) using the Azure portal'
 description: In this quickstart, you learn how to use the Azure portal to set up Azure Front Door (classic) for your web application that requires high availability and high performance across the globe.
-services: front-door
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
-ms.date: 11/13/2024
-ms.topic: quickstart
 ms.service: azure-frontdoor
-ms.custom: template-tutorial, mode-ui, engagement-fy23
+ms.topic: quickstart
+ms.date: 11/13/2024
+ms.custom: mode-ui
+
 #Customer intent: As an IT admin, I want to manage user traffic to ensure high availability of web applications.
 ---
 

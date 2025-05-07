@@ -5,7 +5,7 @@ author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: concept-article
 ms.author: ankitadutta
-ms.date: 03/07/2024
+ms.date: 03/17/2025
 ---
 
 # Add Azure Automation runbooks to recovery plans
@@ -223,7 +223,7 @@ We do this by specifying multiple values, using Azure PowerShell.
 4. Use this variable in your runbook. If the indicated VM GUID is found in the recovery plan context, apply the NSG on the VM:
 
     ```powershell
-    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
+    $VMDetailsObj = (Get-AzAutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. In your runbook, loop through the VMs of the recovery plan context. Check whether the VM exists in **$VMDetailsObj**. If it exists, access the properties of the variable to apply the NSG:

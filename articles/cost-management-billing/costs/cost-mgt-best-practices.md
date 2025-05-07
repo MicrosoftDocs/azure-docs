@@ -2,13 +2,13 @@
 title: Optimize your cloud investment with Cost Management
 titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
-author: bandersmsft
-ms.author: banders
+author: sdoultani
+ms.author: sadoulta
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: sadoulta
 ---
 
 # How to optimize your cloud investment with Cost Management
@@ -176,7 +176,7 @@ For more information, see [cost analysis](quick-acm-cost-analysis.md).
 
 Do you need to import your billing data into an external system, like a dashboard or financial system? Set up automated exports to Azure Storage and avoid manually downloading files every month. You can then easily set up automatic integrations with other systems to keep your billing data in sync.
 
-For more information about exporting billing data, see [Create and manage exported data](tutorial-export-acm-data.md).
+For more information about exporting billing data, see [Create and manage exported data](tutorial-improved-exports.md).
 
 ### Create budgets
 

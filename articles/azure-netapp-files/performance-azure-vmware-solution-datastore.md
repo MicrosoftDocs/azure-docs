@@ -4,7 +4,7 @@ description: Describes considerations for Azure VMware Solution datastore design
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/22/2024
 ms.author: anfdocs
 ---
@@ -18,7 +18,7 @@ Azure NetApp Files provides an instantly scalable, high performance, and highly 
  
 ## Achieving higher storage performance for Azure VMware Solution using Azure NetApp Files   
 
-Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from Azure VMware Solution hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://aka.ms/anfavscalc) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
+Provisioning multiple, potentially larger, datastores at one service level may cost less while also providing increased performance. The reason is due to the distribution of load across multiple TCP streams from Azure VMware Solution hosts to several datastores. You can use the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://azure.github.io/azure-netapp-files/avs-calc/) to calculate potential cost savings  by uploading an RVTools report or entering manual average VM sizing. 
 
 When you determine how to configure datastores, the easiest solution from a management perspective is to create a single Azure NetApp Files datastore, mount it, and put all your VMs in. This strategy works well for many situations, until more throughput or IOPS is required. To identify the different boundaries, the tests used a synthetic workload generator, the program [`fio`](https://github.com/axboe/fio) , to evaluate a range of workloads for each of these scenarios. This analysis can help you determine how to provision Azure NetApp Files volumes as datastores to maximize performance and optimize costs. 
 

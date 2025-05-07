@@ -13,8 +13,6 @@ ms.date: 03/03/2025
 
 In this article, you learn how to convert an existing legacy Direct peering to an Azure resource by using the Azure portal.
 
-If you prefer, you can complete this guide using [PowerShell](howto-legacy-direct-powershell.md).
-
 ## Prerequisites
 
 - Complete the [Prerequisites to set up peering with Microsoft](prerequisites.md) before you begin configuration.

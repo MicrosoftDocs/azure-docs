@@ -126,6 +126,7 @@ The following settings available in the **View** section enable the user to spec
 | Setting          | Description   |
 |------------------|---------------|
 | Auto zoom        | Automatically zooms the map into the data loaded through the **Fields** pane of the visual. As the data changes, the map updates its position accordingly. When **Auto zoom** is set to **Off**, the remaining settings in this section become active that enable to user to define the default map view. |
+| Include reference layer | Includes reference layer data when the map automatically zooms. This option is only available when **Auto zoom** is set to **On**. |
 | Zoom             | The default zoom level of the map. Can be a number between 0 and 22. |
 | Center latitude  | The default latitude of the center of the map. |
 | Center longitude | The default longitude of the center of the map. |
@@ -156,8 +157,10 @@ The Azure Maps Power BI visual is available in the following services and applic
 | Power BI publish to web                  | Yes          |
 | Power BI Embedded                        | Yes          |
 | Power BI service embedding (PowerBI.com) | Yes          |
+| Power BI export                          | No           |
+| Power BI subscriptions                   | No           |
 
-**Where is Azure Maps available?**
+**Where is Azure Maps Visual for Power BI available?**
 
 At this time, Azure Maps is currently available in all countries and regions except:
 

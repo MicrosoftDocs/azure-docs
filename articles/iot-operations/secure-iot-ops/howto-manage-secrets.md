@@ -49,5 +49,7 @@ You can use **Manage secrets** for asset endpoints and data flow endpoints to ma
 
 You can delete synced secrets as well in manage secrets. When you delete a synced secret, it only deletes the synced secret from the edge, and doesn't delete the contained secret reference from key vault. 
 
-> [!NOTE]
+> [!WARNING]
+> Directly editing **SecretProviderClass** and **SecretSync** custom resources in your Kubernetes cluster can break the secrets flow in Azure IoT Operations. For any operations related to secrets, use the operations experience web UI.
+>
 > Before deleting a synced secret, make sure that all references to the secret from Azure IoT Operations components are removed.

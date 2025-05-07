@@ -6,7 +6,7 @@ services: storage
 author: stevenmatthew
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/23/2024
 ms.author: shaas
 ms.subservice: storage-common-concepts
@@ -124,10 +124,11 @@ Read access to the new secondary region isn't available again until the issue ca
 >
 > **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
 
-After the issue causing the original outage is resolved, you can initiate failback to the original primary region. This process is described in the following image:
+After the issue causing the original outage is resolved, you can initiate failback to the original primary region. The failback process is the same as the original failover process previously explained.
 
-1. The current primary region becomes read only.
-1. With customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back.
+Important points to consider:
+
+1. With customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. 
 1. The DNS entries for the storage service endpoints are switched. The endpoints within the secondary region become the new primary endpoints for your storage account.
 
 :::image type="content" source="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-redundant.png" alt-text="Diagram that shows how the customer initiates account failback to original primary region." lightbox="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-redundant.png":::
@@ -191,11 +192,12 @@ Read access to the new secondary region isn't available again until the original
 >
 > **To avoid a major data loss**, check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. Compare the last sync time to the last times that data was written to the new primary to evaluate potential data loss.
 
-After the issue causing the original outage is resolved, you can initiate failback to the original primary region. This process is described in the following image:
+After the issue causing the original outage is resolved, you can initiate failback to the original primary region. The failback process is the same as the original failover process previously explained.
 
-1. The current primary region becomes read only.
-1. During customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back.
-1. The DNS entries for the storage service endpoints are switched. The secondary endpoints become the new primary endpoints for your storage account.
+Important points to consider:
+
+1. With customer-initiated failover and failback, your data isn't allowed to finish replicating to the secondary region during the failback process. Therefore, it's important to check the value of the [**Last Sync Time**](last-sync-time-get.md) property before failing back. 
+1. The DNS entries for the storage service endpoints are switched. The endpoints within the secondary region become the new primary endpoints for your storage account.
 
 :::image type="content" source="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-zone-redundant.png" alt-text="Diagram that shows the customer initiating account failback to the original primary region." lightbox="media/storage-failover-customer-managed-unplanned/failback-to-primary-geo-zone-redundant.png":::
 

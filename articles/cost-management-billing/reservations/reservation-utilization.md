@@ -1,13 +1,13 @@
 ---
 title: View Azure reservation utilization
 description: Learn how to get reservation utilization and details.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # View reservation utilization after purchase

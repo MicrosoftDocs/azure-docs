@@ -407,11 +407,6 @@ The following code snippets show how to set up a VNet and create an Azure NetApp
 
 :::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/main.tf" range="21-46,64-84":::
 
-> [!IMPORTANT]
-> To prevent accidental deletion of the volume, set `prevent_destroy` to **true** when declaring the provider.
-
-:::code language="terraform" source="~/terraform_samples/quickstart/101-azure-netapp-files/providers.tf" highlight="19":::
-
 ---
 
 ## Clean up resources
@@ -478,7 +473,7 @@ Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.
 
 # [Terraform](#tab/terraform)
 
-Use the Azure portal, Azure PowerShell, or the Azure CLI to delete the resource group.
+[!INCLUDE [Terraform destroy](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
 
 ---
 

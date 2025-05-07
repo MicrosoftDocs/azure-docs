@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 08/10/2023
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Best practices for using blob access tiers

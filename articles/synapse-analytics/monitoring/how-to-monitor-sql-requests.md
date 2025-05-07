@@ -1,12 +1,12 @@
 ---
 title: How to monitor SQL requests in Synapse Studio
 description: Learn how to monitor your SQL requests by using Synapse Studio.
-author: matt1883
+author: gillharmeet
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
 ms.date: 11/30/2020
-ms.author: mahi
+ms.author: harmeetgill
 ms.reviewer: mahi
 ---
 

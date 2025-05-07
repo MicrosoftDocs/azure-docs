@@ -9,6 +9,9 @@ metadata:
   ms.devlang: csharp
   ms.custom: devx-track-csharp, ignite-2024
   ms.date: 04/18/2024
+  appliesto:
+    - ✅ Azure Cache for Redis
+
 title: Azure Cache for Redis development FAQs
 summary: This article provides answers to common questions about how to develop for Azure Cache for Redis.
 
@@ -21,7 +24,7 @@ sections:
         answer: |
           There are several ways you can get started with Azure Cache for Redis.
           
-          * You can check out one of our tutorials available for [.NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node.js](cache-nodejs-get-started.md), and [Python](cache-python-get-started.md).
+          * You can check out one of our tutorials available for [.NET](../redis/dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](../redis/web-app-cache-howto.md), [Java](../redis/java-get-started.md), [Node.js](../redis/nodejs-get-started.md), and [Python](../redis/python-get-started.md).
           * You can watch [How to Build High-Performance Apps Using Microsoft Azure Cache for Redis](https://azure.microsoft.com/resources/videos).
           * You can check out the client documentation for the example clients that match the development language you use in your project. There are many Redis clients that can be used with Azure Cache for Redis. For a list of Redis clients, see [https://redis.io/clients](https://redis.io/clients).
           
@@ -64,7 +67,7 @@ sections:
       - question: |
           What Azure Cache for Redis clients can I use?
         answer: |
-          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/connect/clients/). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md).
+          One of the great things about Redis is that there are many clients supporting many different development languages. For a current list of clients, see [Redis clients](https://redis.io/docs/connect/clients/). For tutorials that cover several different languages and clients, see [How to use Azure Cache for Redis](../redis/dotnet-how-to-use-azure-redis-cache.md).
           
           [!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
           
@@ -107,7 +110,7 @@ sections:
         answer: |
           Microsoft Azure Cache for Redis is based on the popular open-source in-memory data store, Redis. You can use a wide variety of [Redis clients](https://redis.io/docs/connect/clients/) for many programming languages. Each client has its own API that makes calls to the Azure Cache for Redis instance using [Redis commands](https://redis.io/commands).
           
-          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) and its sibling articles in the table of contents.
+          Because each client is different, you can't find one centralized class reference on MSDN. Each client maintains its own reference documentation. Besides the reference documentation, there are several tutorials showing how to get started with Azure Cache for Redis using different languages and cache clients. To access these tutorials, see [How to use Azure Cache for Redis](../redis/dotnet-how-to-use-azure-redis-cache.md) and its sibling articles in the table of contents.
           
       - question: |
           Can I use Azure Cache for Redis as a PHP session cache?
@@ -135,4 +138,4 @@ sections:
 additionalContent: |
 
   ## Related content
-     Learn about other [Azure Cache for Redis FAQs](cache-faq.yml).
+     Learn about other [Azure Cache for Redis FAQs](../redis/faq.yml).

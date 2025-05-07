@@ -130,8 +130,3 @@ To define a wildcard SOAP action:
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

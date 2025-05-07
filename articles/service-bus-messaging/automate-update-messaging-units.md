@@ -146,7 +146,7 @@ The previous section shows you how to add a default condition for the autoscale 
     > [!NOTE]
     > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down. As Service Bus Premium is charged per hour, scaling down quickly will not reduce the costs for that hour. Instead, it is recoomended to give enough time to ensure the reduced workload is stable before scaling down to ensure that there are enough messaging units to process spiky workloads.
     >
-    > When scaling down, set the threshold to less than half of the scale-up threshold. For instance, if the scale-up threshold is 80%, set the scale-down threshold to 30-35% (something below 40%) to prevent continuous scaling up and down.This will prevent autoscale to switch between scaling up and down continously.
+    > When scaling down, set the threshold to less than half of the scale-up threshold. For instance, if the scale-up threshold is 80%, set the scale-down threshold to 30-35% (something below 40%) to prevent continuous scaling up and down.This will prevent autoscale to switch between scaling up and down continuously.
     > 
     > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us. Capacity fulfillment is subject to the constraints of the environment and is carried out to our best effort.
 

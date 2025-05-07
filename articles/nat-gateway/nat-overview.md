@@ -36,6 +36,7 @@ Azure NAT Gateway provides outbound connectivity for many Azure resources, inclu
 * [Azure App Services instances](/azure/app-service/networking/nat-gateway-integration) (web applications, REST APIs, and mobile backends) through [virtual network integration](/azure/app-service/overview-vnet-integration).
 
 * [Azure Databricks](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-default-managed-vnet) or with [virtual network injection](/azure/databricks/security/network/secure-cluster-connectivity#egress-with-vnet-injection).
+* [Azure HDInsight](/azure/hdinsight/load-balancer-migration-guidelines#new-cluster-creation).
 
 ## Azure NAT Gateway benefits
 

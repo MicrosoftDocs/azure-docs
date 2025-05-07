@@ -1,6 +1,6 @@
 ---
 title: Migrate an Azure Service Fabric cluster to availability zone support 
-description: Learn how to migrate both managed and non-managed Azure Service Fabric clusters to availability zone support.
+description: Learn how to migrate both managed and nonmanaged Azure Service Fabric clusters to availability zone support.
 author: tomvcassidy
 ms.service: azure-service-fabric
 ms.topic: conceptual
@@ -14,9 +14,9 @@ ms.custom: subject-reliability
  
 This guide describes how to migrate Service Fabric clusters from non-availability zone support to availability support. We'll take you through the different options for migration. A Service Fabric cluster distributed across availability Zones ensures high availability of the cluster state.
 
-You can migrate both managed and non-managed clusters. Both are covered in this article.
+You can migrate both managed and nonmanaged clusters. Both are covered in this article.
 
-For non-managed clusters, we discuss two different scenarios:
+For nonmanaged clusters, we discuss two different scenarios:
 
   * Migrating a cluster with a Standard SKU load balancer and IP resource. This configuration supports availability zones without needing to create new resources.
   * Migrating a cluster with a Basic SKU load balancer and IP resource. This configuration doesn't support availability zones and requires the creation of new resources.
@@ -24,7 +24,7 @@ For non-managed clusters, we discuss two different scenarios:
 See the appropriate sections under each header for your Service Fabric cluster scenario.
 
 > [!NOTE]
-> The benefit of spanning the primary node type across availability zones is only seen for three zones and not just two. This is true for both managed and non-managed clusters.
+> The benefit of spanning the primary node type across availability zones is only seen for three zones and not just two. This is true for both managed and nonmanaged clusters.
 
 Sample templates are available at [Service Fabric cross availability zone templates](https://github.com/Azure-Samples/service-fabric-cluster-templates).
 
@@ -35,7 +35,7 @@ Sample templates are available at [Service Fabric cross availability zone templa
 Required:
 
 * Standard SKU cluster.
-* Three [availability zones in the region](availability-zones-region-support.md).
+* Three [availability zones in the region](regions-list.md).
 
 
 Recommended:
@@ -44,7 +44,7 @@ Recommended:
 * Primary node type should have at least nine nodes for best resiliency, but supports minimum number of six.
 * Secondary node type(s) should have at least six nodes for best resiliency, but supports minimum number of three.
 
-### Service Fabric non-managed clusters
+### Service Fabric nonmanaged clusters
 
 Required: N/A.
 
@@ -73,16 +73,16 @@ There are no prerequisites for this scenario, as it assumes you have the existin
 
 Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but won't affect cluster health. The loss of external connectivity occurs when a new Public IP needs to be created in order to make the networking resilient to zone failures. Plan the migration accordingly.
 
-### Service Fabric non-managed cluster
+### Service Fabric nonmanaged cluster
 
-Downtime for migrating Service Fabric non-managed clusters vary widely based on the number of VMs and Upgrade Domains (UDs) in your cluster. UDs are logical groupings of VMs that determine the order in which upgrades are pushed to the VMs in your cluster. The downtime is also affected by the upgrade mode of your cluster, which handles how upgrade tasks for the UDs in your cluster are processed. The `sfZonalUpgradeMode` property, which controls the upgrade mode, is covered in more detail in the following sections.
+Downtime for migrating Service Fabric nonmanaged clusters vary widely based on the number of VMs and Upgrade Domains (UDs) in your cluster. UDs are logical groupings of VMs that determine the order in which upgrades are pushed to the VMs in your cluster. The downtime is also affected by the upgrade mode of your cluster, which handles how upgrade tasks for the UDs in your cluster are processed. The `sfZonalUpgradeMode` property, which controls the upgrade mode, is covered in more detail in the following sections.
 
 ## Migration for Service Fabric managed clusters
 
 Follow steps in [Migrate Service Fabric managed cluster to zone resilient](/azure/service-fabric/how-to-managed-cluster-availability-zones#migrate-an-existing-nonzone-resilient-cluster-to-zone-resilient-preview).
 
 
-## Migration options for Service Fabric non-managed clusters
+## Migration options for Service Fabric nonmanaged clusters
 
 ### Migration option 1: enable multiple Availability Zones in a single Virtual Machine Scale Set
 
@@ -92,9 +92,9 @@ This solution allows users to span three Availability Zones in the same node typ
 
 A full sample template is available on [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 
-You should use this option when you have an existing Service Fabric non-managed cluster with the Standard SKU load balancer and IP Resources that you want to migrate. If your existing non-managed cluster has Basic SKU resources, you should see the Basic SKU migration option below.
+You should use this option when you have an existing Service Fabric nonmanaged cluster with the Standard SKU load balancer and IP Resources that you want to migrate. If your existing nonmanaged cluster has Basic SKU resources, you should see the Basic SKU migration option below.
 
-#### How to migrate your Service Fabric non-managed cluster with existing Standard SKU load balancer and IP resources
+#### How to migrate your Service Fabric nonmanaged cluster with existing Standard SKU load balancer and IP resources
 
 **To enable zones on a Virtual Machine Scale Set:**
 
@@ -193,7 +193,7 @@ To support multiple availability zones, the Service Fabric node type must be ena
 For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
 The [Scale up a Service Fabric cluster primary node type](/azure/service-fabric/service-fabric-scale-up-primary-node-type) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
 
-* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#how-to-migrate-your-service-fabric-non-managed-cluster-with-basic-sku-load-balancer-and-ip-resources) for the solution with one node type per Availability Zone.
+* Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a subsection below](#how-to-migrate-your-service-fabric-nonmanaged-cluster-with-basic-sku-load-balancer-and-ip-resources) for the solution with one node type per Availability Zone.
 
   For the new node type, the only difference is that there's only one Virtual Machine Scale Set and one node type for all Availability Zones instead of one each per Availability Zone.
 * Migration from a node type that uses the Standard SKU load balancer and IP resources with an NSG: Follow the same procedure described previously. However, there's no need to add new load balancer, IP, and NSG resources. The same resources can be reused in the new node type.
@@ -213,9 +213,9 @@ The recommended topology for the primary node type requires this:
   * Each node type should be mapped to its own Virtual Machine Scale Set located in a different zone.
   * Each Virtual Machine Scale Set should have at least five nodes (Silver Durability).
 
-You should use this option when you have an existing Service Fabric non-managed cluster with the Standard SKU load balancer and IP Resources that you want to migrate. If your existing non-managed cluster has Basic SKU resources, you should see the Basic SKU migration option below.
+You should use this option when you have an existing Service Fabric nonmanaged cluster with the Standard SKU load balancer and IP Resources that you want to migrate. If your existing nonmanaged cluster has Basic SKU resources, you should see the Basic SKU migration option below.
 
-#### How to migrate your Service Fabric non-managed cluster with existing Standard SKU load balancer and IP resources
+#### How to migrate your Service Fabric nonmanaged cluster with existing Standard SKU load balancer and IP resources
 
 ##### Enable zones on a Virtual Machine Scale Set
 
@@ -331,13 +331,13 @@ To set one or more node types as primary in a cluster resource, set the `isPrima
 
 If you run into any problems reach out to support for assistance.
 
-### Migration option: Service Fabric non-managed cluster with Basic SKU load balancer and IP resources
+### Migration option: Service Fabric nonmanaged cluster with Basic SKU load balancer and IP resources
 
 #### When to use this option
 
-You should use this option when you have an existing Service Fabric non-managed cluster with the Basic SKU load balancer and IP Resources that you want to migrate. If your existing non-managed cluster has Standard SKU resources, you should see the migration options above. If you have not yet created your non-managed cluster but know you will want it to be AZ-enabled, create it with Standard SKU resources.
+You should use this option when you have an existing Service Fabric nonmanaged cluster with the Basic SKU load balancer and IP Resources that you want to migrate. If your existing nonmanaged cluster has Standard SKU resources, you should see the migration options above. If you have not yet created your nonmanaged cluster but know you will want it to be AZ-enabled, create it with Standard SKU resources.
 
-#### How to migrate your Service Fabric non-managed cluster with Basic SKU load balancer and IP resources
+#### How to migrate your Service Fabric nonmanaged cluster with Basic SKU load balancer and IP resources
 
 To migrate a cluster that's using a load balancer and IP with a basic SKU, you must first create an entirely new load balancer and IP resource using the standard SKU. It isn't possible to update these resources.
 
@@ -425,6 +425,6 @@ If you run into any problems reach out to support for assistance.
 
 ## Next steps
 
-- [Scale up a Service Fabric non-managed cluster primary node type](/azure/service-fabric/service-fabric-scale-up-primary-node-type)
+- [Scale up a Service Fabric nonmanaged cluster primary node type](/azure/service-fabric/service-fabric-scale-up-primary-node-type)
 
 - [Add, remove, or scale Service Fabric managed cluster node types](/azure/service-fabric/how-to-managed-cluster-modify-node-type)

@@ -81,7 +81,7 @@ When importing a GeoJSON package, the `ID` and `Geometry` fields must be supplie
 
 :::image type="content" source="./media/creator-indoor-maps/geojson.png" alt-text="A screenshot showing the geometry and ID fields in a GeoJSON file.":::
 
-For more information, see [Create a dataset using a GeoJson package].
+For more information, see [Create a dataset using a GeoJSON package].
 
 ---
 
@@ -585,7 +585,7 @@ Learn more about Creator for indoor maps by reading:
 [Polygon]: /rest/api/maps-creator/wfs/get-features?tabs=HTTP#geojsonpolygon
 
 <!---------   learn.microsoft.com links     --------------->
-[Create a dataset using a GeoJson package]: how-to-dataset-geojson.md
+[Create a dataset using a GeoJSON package]: how-to-dataset-geojson.md
 [Creator for indoor maps]: creator-indoor-maps.md
 
 <!---------   External Links     --------------->

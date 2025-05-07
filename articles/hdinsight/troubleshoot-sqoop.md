@@ -4,6 +4,9 @@ description: Sqoop import/export command fails.
 ms.service: azure-hdinsight
 ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/23/2024
 ---
 

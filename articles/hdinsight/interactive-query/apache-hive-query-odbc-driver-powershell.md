@@ -4,6 +4,9 @@ description: Use the Microsoft Hive ODBC driver and PowerShell to query Apache H
 keywords: hive,hive odbc,powershell
 ms.service: azure-hdinsight
 ms.topic: tutorial
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---

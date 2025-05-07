@@ -4,7 +4,7 @@ description: Learn how to enable cross-subscription patching in Azure Update Man
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 02/04/2025
+ms.date: 03/13/2025
 ms.topic: how-to
 ---
 

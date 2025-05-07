@@ -3,15 +3,11 @@ title: Create endpoints
 titleSuffix: Azure Digital Twins
 description: Learn how to set up endpoints for Azure Digital Twins data
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/08/2023
 ms.topic: how-to
 ms.service: azure-digital-twins
 ms.custom: devx-track-azurecli
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Create endpoints in Azure Digital Twins
