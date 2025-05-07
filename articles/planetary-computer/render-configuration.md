@@ -76,7 +76,7 @@ The item_assets field in your collection JSON is essential for rendering because
 ```
 For more information about `item_assets`, see the [Item Assets section in the STAC Overview](./stac-overview.md#item-assets). Also refer to the official [STAC Item Assets Extension specification](https://github.com/stac-extensions/item-assets).
 
-Ensure your STAC collection JSON includes this section before proceeding. You can update your collection definition via the [API](./create-stac-collection.md) or the [web interface](./configure-collection-ui.md).
+Ensure your STAC collection JSON includes this section before proceeding. You can update your collection definition via the [API](./create-stac-collection.md) or the [web interface](./configure-collection-web-interface.md).
 
 ## Step 2: Understand Your Data and Visualization Goal
 
@@ -238,7 +238,7 @@ Once you construct your render configuration list (one or more JSON objects), ad
 4.  Paste your JSON list into the editor or use the UI fields to build it.
 5.  Save the changes.
 
-:::image type="content" source="media/renderconfig_webgui.png" alt-text="Screenshot of the render configuration web GUI displaying options for setting up render configurations.":::
+:::image type="content" source="media/render-configuration-web-interface.png" alt-text="Screenshot of the render configuration web interface displaying options for setting up render configurations.":::
 
 For more information on configuring collections, see [Configure a collection with the web interface](./configure-collection-web-interface.md). 
 
