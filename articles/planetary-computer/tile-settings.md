@@ -10,7 +10,7 @@ ms.date: 04/09/2025
 
 # Tile settings in Microsoft Planetary Computer Pro
 
-For each collection in Microsoft Planetary Computer Pro, you can configure the tile settings, which determine mosaic behavior such as the default location and minimum zoom level.
+For each collection in Microsoft Planetary Computer Pro, you can configure the tile settings, which determine the default location and minimum zoom level when visualizing mosaics in the Data Explorer.
 
 In this article, see where to find and modify tile settings for Microsoft Planetary Computer Pro.
 
@@ -51,7 +51,7 @@ High resolution imagery should have a high min zoom level to avoid experiencing 
  
 ### Default location
 
-The `defaultLocation` field allows specifying the default zoom level and coordinates. For example:
+The `defaultLocation` field lets you specify the zoom level and center coordinates used when your collection first opens in the Data Explorer. For example:
 
 ```JSON
 {
