@@ -145,7 +145,7 @@ Review the settings for the client application in Microsoft Entra ID.
 
 The application is named with the following format: **APIMApplication\<product-name\>**. For example, if the product name is **Starter**, the application name is similar to **APIMApplicationStarter**. 
 
-Review application settings in **App registrations**.
+Review application settings in **App registrations**:
 
 1. Sign in to the Azure portal and navigate to **Microsoft Entra ID** > **Manage** > **App registrations**.
 1. Select **All applications**.
@@ -189,7 +189,6 @@ $body = @{
 }
 $response = Invoke-RestMethod -Method Post -Uri "https://login.microsoftonline.com/$tenantId/oauth2/v2.0/token" -ContentType "application/x-www-form-urlencoded" -Body $body
 $token = $response.access_token
-$token
 ```
 
 ### Call product API using token
@@ -198,16 +197,16 @@ The token generated in the previous step is used to call a product API. The toke
 
 ```powershell
 
-# $token = "...token here..."
 # Gatewate endpoint to call. Update with URI of API operation you want to call.
 $uri = "https://<gateway-hostname>/echo/resource?param1=sample"
-#
+# $token is the token generated in the previous step.
 $headers = @{
    "Authorization" = "Bearer $token"
 }
 $body = @{
     "hello" = "world"
 } | ConvertTo-Json -Depth 5
+
 $getresponse = Invoke-RestMethod -Method Post -Uri $uri -ContentType "application/x-www-form-urlencoded" -Headers $headers -Body $body
 Write-Host "Response:"
 $getresponse | ConvertTo-Json -Depth 5
