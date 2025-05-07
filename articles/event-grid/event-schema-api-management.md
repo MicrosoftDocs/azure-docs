@@ -43,8 +43,8 @@ API Management emits the following event types:
 | Microsoft.ApiManagement.GatewayHostnameConfigurationCreated | Raised when a hostname configuration is created for a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayHostnameConfigurationDeleted | Raised when a hostname configuration is deleted for a self-hosted gateway. |
 | Microsoft.ApiManagement.GatewayHostnameConfigurationUpdated | Raised when a hostname configuration is updated for a self-hosted gateway. |
-| Microsoft.ApiManagement.GatewayTokenNearExpiry (preview)| Raised when a self-hosted gateway authentication token is near expiry. |
-| Microsoft.ApiManagement.GatewayTokenExpired (preview) | Raised when a self-hosted gateway authentication token is expired. |
+| Microsoft.ApiManagement.GatewayTokenNearExpiry (preview)| Raised when a self-hosted gateway access token is near expiry. |
+| Microsoft.ApiManagement.GatewayTokenExpired (preview) | Raised when a self-hosted gateway access token is expired. |
 | Microsoft.ApiManagement.CircuitBreaker.Opened (preview) | Raised when a backend circuit breaker is opened. |
 | Microsoft.ApiManagement.CircuitBreaker.Closed (preview)  | Raised when a backend circuit breaker is closed. |
 
