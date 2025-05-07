@@ -11,7 +11,7 @@ ms.date: 05/07/2025
 
 # VM Network Troubleshooter overview
 
-Blocked ports on their VMS are one of the most common connectivity issues faced by Azure customers. 
+Blocked ports on their Virtual Machines are one of the most common connectivity issues faced by Azure customers. 
 The VM Network Troubleshooter helps customers quickly check if commonly used ports are blocked on a their Azure virtual machine.
 
 ## What ports are check by the VM Network Troubleshooter?
