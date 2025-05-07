@@ -21,7 +21,7 @@ The hybrid deployment model of Edge Integration Cell enables you to:
 
 Using [Azure Kubernetes Service (AKS)](/azure/aks/) SAP Edge Integration Cell may natively run on Azure. Enriching AKS with [Azure ARC](/azure/azure-arc/kubernetes/overview) extends the scenario to on-premises and other cloud providers. Govern from Azure but deploy anywhere.
 
-:::image type="content" source="media/sap-eic/overview.png" alt-text="SAP Edge Integration Cell architecture with Azure and Azure ARC":::
+:::image type="content" source="media/sap-eic/overview.png" alt-text="Screenshot of SAP Edge Integration Cell architecture with Azure and Azure ARC.":::
 
 This article builds on top of SAP's documentation and walks you through the deployment considerations and Azure best practices.
 
@@ -58,7 +58,7 @@ Verify matching Kubernetes versions and release calendars as per SAP's requireme
 - [Azure Kubernetes Service (AKS)](/azure/aks/supported-kubernetes-versions)
 - [Azure ARC-enabled Kubernetes Service](/azure/aks/aksarc/supported-kubernetes-versions)
 
-Familiarize yourself with the mentioned support policy, [Long-term support](/azure/aks/long-term-support) options, and deprecation process to choose the right version for you scenario.
+Familiarize yourself with the mentioned support policy, [Long-term support](/azure/aks/long-term-support) options, and deprecation process to choose the right version for your scenario.
 
 ## Next Steps
 
