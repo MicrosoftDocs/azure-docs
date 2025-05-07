@@ -143,11 +143,11 @@ Client certificate configurations that use TLS renegotiation can't support incom
 
 To address the 100-KB limit, consider these solutions:
 
-1. Disable TLS renegotiation. Take the following actions in your app's client certificate configurations:
+- Disable TLS renegotiation. Take the following actions in your app's client certificate configurations:
     - Set the client certificate mode to **Required** or **Optional**.
     - Remove all client certificate exclusion paths.
-1. Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
-1. Add the header `Expect: 100-Continue` to your request. This header causes the client to wait until the server responds with a `100 Continue` before sending the request body, and the buffers are bypassed.
+- Send a HEAD request before the PUT/POST request. The HEAD request handles the client certificate.
+- Add the header `Expect: 100-Continue` to your request. This header causes the client to wait until the server responds with a `100 Continue` before sending the request body, and the buffers are bypassed.
 
 ## Access the client certificate
 
