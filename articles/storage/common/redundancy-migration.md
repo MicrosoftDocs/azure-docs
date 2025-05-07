@@ -469,9 +469,9 @@ Azure Storage offers several options for configuring replication. These options,
 
 - LRS
 - ZRS
-- GRS 
-- RA-GRS
+- GRS
 - GZRS
+- RA-GRS
 - RA-GZRS
 
 The costs associated with changing how data is replicated in your storage account depend on which [aspects of your redundancy configuration](#options-for-changing-the-replication-type) you change. A combination of data storage and egress bandwidth pricing determines the cost of making a change. For details on pricing, see [Azure Storage Pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/).
