@@ -7,7 +7,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/08/2024
+ms.date: 04/30/2025
 ms.author: lishepar
 ---
 
