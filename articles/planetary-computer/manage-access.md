@@ -6,7 +6,7 @@ ms.author: prasadkomma
 ms.service: azure
 ms.topic: how-to
 ms.date: 04/09/2025
-#customer intent: As a GeoCatalog user, I want to manager user access to my Geocatalog so that I can assigned the appropriate permissions to authorized users of Microsoft Planetary Computer Pro.
+#customer intent: As a GeoCatalog user, I want to manager user access to my GeoCatalog so that I can assigned the appropriate permissions to authorized users of Microsoft Planetary Computer Pro.
 ---
 
 # Manage access for Microsoft Planetary Computer Pro

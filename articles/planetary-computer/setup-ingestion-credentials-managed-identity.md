@@ -56,7 +56,7 @@ Select the **Create** button to begin the process. In the dialogue, assign the m
 
 :::image type="content" source="media/ingestion-source-MI-create.png" alt-text="Screenshot of the Azure portal showing the managed identity creation form with subscription and region fields.":::
 
-Next, you need to associate this managed identity to your Geocatalog. 
+Next, you need to associate this managed identity to your GeoCatalog. 
 
 ## Assign your managed identity the Storage Blob Data Reader role
 

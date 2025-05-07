@@ -7,7 +7,7 @@ ms.service: azure
 ms.topic: concept-article
 ms.date: 04/24/2025
 
-# customer intent: As a Geocatalog User I want to undertand how Data Cubes are supported in Microsoft Planetary Computer Pro so that I can ingest, manage, and visualize data cube data formats.
+# customer intent: As a GeoCatalog User I want to undertand how Data Cubes are supported in Microsoft Planetary Computer Pro so that I can ingest, manage, and visualize data cube data formats.
 ---
 # Data cubes in Microsoft Planetary Computer Pro
 
