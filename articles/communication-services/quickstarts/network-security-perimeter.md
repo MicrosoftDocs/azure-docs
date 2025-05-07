@@ -39,15 +39,13 @@ This article provides a comprehensive guide to set up a Network Security Perimet
 
 Complete and submit the form at  [Network Security Perimeter for Azure Communication Services](https://aka.ms/acs-nsp). You need to provide a company name, subscription ID, and scenario.
 
-1. Enable the Azure Feature Exposure Control (AFEC) flag `AllowNetworkSecurityPerimeter` and `AcsNspPreview` for your subscription.
-
-2. Register for the Azure Network Security Perimeter public preview. To register, add the `AllowNSPInPublicPreview` feature flag to your subscription.
+1. Register for the Azure Network Security Perimeter public preview. To register, add the `AllowNSPInPublicPreview` feature flag to your subscription.
 
    :::image type="content" source="media/allow-nsp-public-preview.png" alt-text="Screen capture of Preview features page showing AllowNSPInPublicPreview for Azure Subscription and the display name Feature flag to approve creation of Network Security Perimeter.":::
 
    For more information on adding feature flags, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
 
-3. After adding the feature flag, you need to re-register the `Microsoft.Network` resource provider in your subscription.
+2. After adding the feature flag, you need to re-register the `Microsoft.Network` resource provider in your subscription.
 
    `az provider register --namespace Microsoft.Network`
 
