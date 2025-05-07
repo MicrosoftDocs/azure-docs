@@ -4,8 +4,7 @@ description: Describes how Kubernetes Storage management occurs on an Azure Stac
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/25/2021
 ms.author: alkohli

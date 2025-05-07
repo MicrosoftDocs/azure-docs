@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 08/05/2024
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-java, devx-track-extended-java
 ---
@@ -134,5 +134,6 @@ During a download, the Storage client libraries split a given download request i
 
 ## Next steps
 
+- This article is part of the Blob Storage developer guide for Java. See the full list of developer guide articles at [Build your app](storage-blob-java-get-started.md#build-your-app).
 - To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).
 - To see a list of design considerations to optimize performance for apps using Blob storage, see [Performance and scalability checklist for Blob storage](storage-performance-checklist.md).

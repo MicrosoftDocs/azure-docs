@@ -2,15 +2,15 @@
 title: Quickstart - Back up blobs in a storage account via ARM template using Azure Backup
 description: Learn how to back up blobs in a storage account with an ARM template.
 ms.topic: quickstart
-ms.custom: devx-track-azurecli
-ms.date: 05/30/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.custom: devx-track-arm-template
+ms.date: 02/12/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 
-# Quickstart: Back up a storage account with Blob data using an ARM template (preview)
+# Quickstart: Back up a storage account with Blob data using an ARM template
 
-This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using an ARM template.
+This quickstart describes how to back up a storage account with Azure Blob data with a vaulted backup policy using an ARM template. You can also [configure backup using REST API](backup-azure-dataprotection-use-rest-api-backup-blobs.md).
 
 [!INCLUDE [blob-vaulted-backup-introduction.md](../../includes/blob-vaulted-backup-introduction.md)]
 

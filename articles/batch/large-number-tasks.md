@@ -2,7 +2,7 @@
 title: Submit a large number of tasks to a Batch job
 description: Learn how to efficiently submit a very large number of tasks in a single Azure Batch job.
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 06/13/2024
 ms.devlang: csharp
 # ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-csharp, devx-track-dotnet

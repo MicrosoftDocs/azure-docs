@@ -6,12 +6,12 @@ description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipelin
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to automate the deployment of Azure Active Directory B2C custom policies using GitHub Actions, so that I can easily manage and deploy my custom policies without manual intervention.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Deploy custom policies with GitHub Actions
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [GitHub Actions](https://docs.github.com/actions/quickstart) allows you to create custom continuous integration (CI) and continuous deployment (CD) workflows directly in your GitHub repository. This article describes how to automate the deployment of Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using GitHub Actions.
 
@@ -85,7 +86,7 @@ To create a workflow, follow these steps:
     on: push
 
     env:
-      clientId: 00000000-0000-0000-0000-000000000000
+      clientId: 00001111-aaaa-2222-bbbb-3333cccc4444
       tenant: your-tenant.onmicrosoft.com
     
     jobs:

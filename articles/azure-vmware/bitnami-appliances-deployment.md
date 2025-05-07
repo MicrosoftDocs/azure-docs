@@ -3,13 +3,13 @@ title: Deploy Bitnami virtual appliances
 description: Learn about the virtual appliances packed by Bitnami to deploy in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 12/24/2024
 ms.custom: engagement-fy23
 ---
 
 # Bitnami appliance deployment
 
-Bitnami by VMware provides a rich catalog of turnkey virtual appliances. You can deploy any vSphere compatible appliance by Bitnami available in the [VMware Marketplace](https://marketplace.cloud.vmware.com/), including many of the most common open-source software projects.
+Bitnami by VMware provides a rich catalog of turnkey virtual appliances. You can deploy any vSphere compatible appliance by Bitnami available in the [VMware Marketplace](https://vcf.broadcom.com/vsc/), including many of the most common open-source software projects.
 
 In this article, learn how to install and configure the following virtual appliances packaged by Bitnami on your Azure VMware Solution private cloud:
 
@@ -36,15 +36,15 @@ In this article, learn how to install and configure the following virtual applia
 ## Step 1: Download the Bitnami virtual appliance OVA/OVF file
 
 
-1. Go to the [VMware Marketplace](https://marketplace.cloud.vmware.com/) and download the virtual appliance you want to install on your Azure VMware Solution private cloud:
+1. Go to the [VMware Marketplace](https://vcf.broadcom.com/vsc/) and download the virtual appliance you want to install on your Azure VMware Solution private cloud:
 
-   - [LAMP virtual appliance packaged by Bitnami](https://marketplace.cloud.vmware.com/services/details/lampstack?slug=true)
+   - [LAMP virtual appliance packaged by Bitnami](https://vcf.broadcom.com/vsc/services/details/lampstack?slug=true)
 
-   - [Jenkins](https://marketplace.cloud.vmware.com/services/details/jenkins?slug=true)
+   - [Jenkins](https://vcf.broadcom.com/vsc/services/details/jenkins?slug=true)
 
-   - [PostgreSQL](https://marketplace.cloud.vmware.com/services/details/postgresql?slug=true)
+   - [PostgreSQL](https://vcf.broadcom.com/vsc/services/details/postgresql?slug=true)
 
-   - [NGINX](https://marketplace.cloud.vmware.com/services/details/nginxstack?slug=true)
+   - [NGINX](https://vcf.broadcom.com/vsc/services/details/nginxstack?slug=true)
 
    - [RabbitMQ](https://marketplace.cloud.vmware.com/services/details/rabbitmq?slug=true)
 
@@ -64,7 +64,7 @@ In this article, learn how to install and configure the following virtual applia
 
 1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
 
-1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
+1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine) for details.
 
 1. In the VM, open a browser and navigate to the vCenter URL. 
 

@@ -111,7 +111,7 @@ SET WebPubSubConnectionString=<your connection string>
       npm start
       ```
 
-1. Now switch to **Client** tab, select `Connect` to start a test WebSocket connection to the Azure Web PubSub service. You would see the traffic goes through Web PubSub to Local Tunnel and finally reaches the upstream server. The tunnel tab provides the details of the request and responses, providing you with a vivid view of what is requesting your upstream server and what is reponding from the upstream server.
+1. Now switch to **Client** tab, select `Connect` to start a test WebSocket connection to the Azure Web PubSub service. You would see the traffic goes through Web PubSub to Local Tunnel and finally reaches the upstream server. The tunnel tab provides the details of the request and responses, providing you with a vivid view of what is requesting your upstream server and what is responding from the upstream server.
 
    :::image type="content" alt-text="Screenshot of starting the test WebSocket connection and send message." source="media\howto-web-pubsub-tunnel-tool\overview-client.png" :::
 

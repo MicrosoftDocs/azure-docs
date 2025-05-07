@@ -31,7 +31,7 @@ Before you begin, you must have the following:
 
 + The [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
-+ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 [!INCLUDE [functions-install-core-tools](../../includes/functions-install-core-tools.md)]
 

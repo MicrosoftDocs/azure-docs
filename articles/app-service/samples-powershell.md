@@ -40,4 +40,3 @@ The following table includes links to PowerShell scripts built using the Azure P
 | [Restore a backup across subscriptions](./scripts/powershell-backup-restore-diff-sub.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Restores a web app from a backup in another subscription. |
 |**Monitor app**||
 | [Monitor an app with web server logs](./scripts/powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
-| | |

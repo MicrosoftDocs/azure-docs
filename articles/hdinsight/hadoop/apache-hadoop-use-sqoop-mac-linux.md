@@ -1,10 +1,13 @@
 ---
 title: Apache Sqoop with Apache Hadoop - Azure HDInsight
 description: Learn how to use Apache Sqoop to import and export between Apache Hadoop on HDInsight and Azure SQL Database.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 08/21/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 09/06/2024
 ---
 
 # Use Apache Sqoop to import and export data between Apache Hadoop on HDInsight and Azure SQL Database
@@ -38,7 +41,7 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 
 
     export SERVER_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD"
-    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DABATASE"
+    export SERVER_DB_CONNECT="jdbc:sqlserver://$SQL_SERVER.database.windows.net:1433;user=sqluser;password=$PASSWORD;database=$DATABASE"
     ```
 
 ## Sqoop export
@@ -138,13 +141,13 @@ From SQL to Azure storage.
 
 * Both HDInsight and SQL Server must be on the same Azure Virtual Network.
 
-    For an example, see the [Connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
+    For an example, see [How to connect HDInsight to your on-premises network](./../connect-on-premises-network.md) document.
 
-    For more information on using HDInsight with an Azure Virtual Network, see the [Extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
+    For more information on using HDInsight with an Azure Virtual Network, see [how to extend HDInsight with Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md) document. For more information on Azure Virtual Network, see the [Virtual Network Overview](../../virtual-network/virtual-networks-overview.md) document.
 
 * SQL Server must be configured to allow SQL authentication. For more information, see the [Choose an Authentication Mode](/sql/relational-databases/security/choose-an-authentication-mode) document.
 
-* You may have to configure SQL Server to accept remote connections. For more information, see the [How to troubleshoot connecting to the SQL Server database engine](https://fleet-maintenance.com/public_downloads/How%20to%20Troubleshoot%20Connecting%20to%20the%20SQL%20Server%20Database%20Engine.pdf) document.
+* You may have to configure SQL Server to accept remote connections.
 
 ## Next steps
 

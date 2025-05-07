@@ -5,7 +5,7 @@ description: This article helps you connect cross-tenant virtual networks to a v
 services: virtual-wan
 author: wtnlee
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/24/2023
@@ -15,7 +15,7 @@ ms.author: wellee
 
 This article helps you use Azure Virtual WAN to connect a virtual network to a virtual hub in a different tenant. This architecture is useful if you have client workloads that must be connected to be the same network but are on different tenants. For example, as shown in the following diagram, you can connect a non-Contoso virtual network (the remote tenant) to a Contoso virtual hub (the parent tenant).
 
-:::image type="content" source="./media/cross-tenant-vnet/connectivity.png" alt-text="Diagram that shows a routing configuration with a parent tenant and a remote tenant." :::
+:::image type="content" source="./media/cross-tenant-vnet/connectivity.png" alt-text="Diagram that shows a routing configuration with a parent tenant and a remote tenant." lightbox="./media/cross-tenant-vnet/connectivity.png":::
 
 In this article, you learn how to:
 
@@ -25,7 +25,7 @@ In this article, you learn how to:
 The steps for this configuration use a combination of the Azure portal and PowerShell. However, the feature itself is available in PowerShell and the Azure CLI only.
 
 >[!NOTE]
-> You can manage cross-tenant virtual network connections only through PowerShell or the Azure CLI. You *cannot* manage cross-tenant virtual network connections in the Azure portal.
+> You can manage cross-tenant virtual network connections only through PowerShell or the Azure CLI installed on your local machine. Because Azure Portal does not support cross-tenant operations, you can't manage cross-tenant virtual network connections through Azure portal or Azure portal CloudShell (both PowerShell and CLI).
 
 ## Before you begin
 
@@ -40,7 +40,7 @@ Make sure that the virtual network address space in the remote tenant doesn't ov
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ## <a name="rights"></a>Assign permissions
 
@@ -81,7 +81,13 @@ In the following steps, you'll use commands to switch between the context of the
    $remote = Get-AzVirtualNetwork -Name "[vnet name]" -ResourceGroupName "[resource group name]"
    ```
 
-1. Switch back to the parent account:
+1. Connect to parent account:
+
+   ```azurepowershell-interactive
+   Connect-AzAccount -TenantID "[parent tenant ID]"
+   ```
+
+1. Select the parent subscription:
 
    ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionId "[parent ID]"
@@ -160,6 +166,8 @@ In the following steps, you'll use commands to add a static route to the virtual
 * Verify that the metadata in `$remote` (from the [preceding section](#connect)) matches the information from the Azure portal.
 * Verify permissions by using the IAM settings of the remote tenant resource group, or by using Azure PowerShell commands (`Get-AzSubscription`).
 * Make sure quotes are included around the names of resource groups or any other environment-specific variables (for example, `"VirtualHub1"` or `"VirtualNetwork1"`).
+* If utilizing the Azure Network SDK or a direct Rest API request, it is required that the primary "Hub" Tenant's authorization token be passed in the "Authorization" header and an additional authorization token for the second "VNet" Tenant be passed in the special "x-ms-authorization-auxiliary" header.
+    * See documentation: [Authenticate requests across tenants](../azure-resource-manager/management/authenticate-multi-tenant.md)
 
 ## Next steps
 

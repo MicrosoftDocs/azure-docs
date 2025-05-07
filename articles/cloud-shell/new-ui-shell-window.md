@@ -1,7 +1,7 @@
 ---
 description: Overview of how to use the new user interface for Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 01/23/2024
+ms.date: 01/28/2025
 ms.topic: how-to
 tags: azure-resource-manager
 title: How to use the new user interface for Azure Cloud Shell
@@ -41,9 +41,13 @@ font, choose a different color scheme, or reset your user settings. Your selecti
 across sessions unless you select **Reset User Settings**.
 
 When you select **Reset User Settings**, the current session is closed and your settings are reset.
-You're prompted to restart as if this is your first time using Cloud Shell.
+Cloud Shell restarts the session and takes you through the first time user experience.
 
 [![Screenshot of the Settings menu.][07i]][07x]
+
+When you select **Go to Classic version**, Cloud Shell restarts your session in the Classic user
+experience. For a description of the Classic user experience, see
+[Using the Azure Cloud Shell window][13].
 
 ## Manage files menu
 
@@ -133,13 +137,13 @@ When you select the **Close** button, the Cloud Shell session is terminated.
 
 - Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy is supported but use
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
-  - The FireFox browser might not support clipboard permissions properly.
+  - The Firefox browser might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
 - Linux: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to paste.
 
 > [!NOTE]
-> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>c</kbd>, Cloud Shell sends the `Ctrl C`
-> character to the shell. This could terminate the currently running command.
+> If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>c</kbd>, Cloud Shell sends the `Ctrl-C`
+> character to the shell. Sending `Ctrl-C` can terminate the currently running command.
 
 ## Resize Cloud Shell window
 
@@ -182,3 +186,4 @@ minutes without interaction.
 [10x]: media/new-ui-shell-window/web-preview.png#lightbox
 [11x]: media/new-ui-shell-window/help-menu.png#lightbox
 [12]: using-cloud-shell-editor.md
+[13]: using-the-shell-window.md

@@ -15,7 +15,7 @@ Azure Programmable Connectivity (APC) is a platform that revolutionizes how deve
    
 APC ensures a smooth Azure experience by offering a single interface across different operator networks worldwide, hiding the complexities of Network APIs. This guarantees consistent and reliable code, regardless of network changes. Developers can concentrate on building apps without concerns about underlying network adjustments. With APC, networks change, but the code does not.  
   
-   :::image type="content" source="media/apc.jpg" alt-text="Graphic showing APC architerture." lightbox="media/apc.jpg"::: 
+   :::image type="content" source="media/apc.jpg" alt-text="Graphic showing APC architecture." lightbox="media/apc.jpg"::: 
 
 The APC Gateway handles API calls and credentials, ensuring they're directed to the right mobile operator. Its user-friendly interface lets developers easily select and subscribe to network APIs from various operators and regions. This makes APC a convenient marketplace that streamlines procurement without sacrificing user experience.
   

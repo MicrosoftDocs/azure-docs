@@ -2,13 +2,13 @@
 title: Identify anomalies and unexpected changes in cost
 titleSuffix: Microsoft Cost Management
 description: Learn how to identify anomalies and unexpected changes in cost.
-author: bandersmsft
-ms.reviewer: micflan
+author: shasulin
+ms.reviewer: shasulin
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 03/19/2024
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: shasulin
 ---
 
 # Identify anomalies and unexpected changes in cost
@@ -82,6 +82,55 @@ Here's an example email generated for an anomaly alert.
 
 :::image type="content" source="./media/analyze-unexpected-charges/anomaly-alert-email.png" alt-text="Screenshot showing an example anomaly alert email." lightbox="./media/analyze-unexpected-charges/anomaly-alert-email.png" :::
 
+## Automate responses to anomaly alerts
+
+Cost Management anomaly alerts are delivered via email notifications. You can automate responses by integrating these alerts into workflows. Here are common patterns for automating actions when an anomaly alert is triggered:
+
+### Use Azure Logic Apps to automate workflows
+
+Azure Logic Apps can monitor an Office 365 Outlook mailbox. When a new anomaly alert email is detected, Logic Apps can parse the content and trigger workflows, such as:
+
+- Posting a notification to Microsoft Teams or Slack
+- Running a Cost Management Query API call to gather detailed usage data
+- Logging the anomaly into an internal FinOps dashboard
+- Initiating approval workflows or escalation procedures
+
+This approach enables highly customizable, low-code automation to streamline FinOps operations. For more information, see [Connect to Office 365 Outlook from Azure Logic Apps](/azure/connectors/connectors-create-api-office365-outlook?tabs=consumption). 
+
+### Integrate anomaly alerts with Microsoft Sentinel
+
+You can route anomaly alert emails to a monitored mailbox and ingest them into Microsoft Sentinel using the Microsoft 365 data connector. Once ingested:
+
+- Create analytics rule to detect anomaly alert emails based on subject lines or recipients.
+
+- Automatically create incidents in Microsoft Sentinel.
+- Trigger playbooks (Logic Apps) to investigate costs, notify teams, or open ITSM tickets.
+
+This approach centralizes monitoring of cost anomalies alongside operational and security events, enabling automated triage and response workflows.
+
+For more information, see [Microsoft 365 connector for Microsoft Sentinel](/azure/sentinel/data-connectors/microsoft-365).
+
+### Integrate anomaly alerts with Copilots or Azure OpenAI Service
+
+Organizations can also integrate anomaly alerts with custom Copilots.
+
+- Monitor a mailbox for new anomaly alert emails using Logic Apps.
+- Parse key details from the alert (such as scope, resource group, and cost change).
+- Send parsed data to a language model for intelligent analysis.
+- Dynamically suggest causes, recommend actions, or trigger follow-up queries to Cost Management APIs.
+
+This approach enables intelligent, context-aware responses to anomalies, moving beyond static rules toward dynamic, FinOps-driven workflows.
+
+### Monitor a shared mailbox and trigger ITSM workflows
+
+You can configure anomaly alerts to be sent to a monitored shared mailbox. IT service management (ITSM) tools such as ServiceNow, Jira, or Zendesk can monitor the mailbox and automatically create incident tickets when a new alert arrives. You can also use Microsoft Power Automate with Office 365 Outlook triggers for email-to-ticket automation.
+
+This approach ensures that cost anomalies are logged, assigned, and tracked through established operational processes.
+
+> [!TIP]  
+> Set up mailbox rules or connectors that prioritize anomaly alerts to ensure fast triage.
+
+
 ## Manually find unexpected cost changes
 
 Let's look at a more detailed example of finding a change in cost. When you navigate to Cost analysis and then select a subscription scope, you start with the **Accumulated costs** view. The following screenshot shows an example of what you might see.
@@ -122,7 +171,7 @@ Continue reading the following sections for more techniques to determine who own
 
 ### Analyze the audit logs for the resource
 
-If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log).
+If you have permission to view a resource, you should be able to access its audit logs. Review the logs to find the user who was responsible for the most recent changes to a resource. To learn more, see [View and retrieve Azure Activity log events](/azure/azure-monitor/essentials/activity-log-insights#view-the-activity-log).
 
 ### Analyze user permissions to the resource's parent scope
 
@@ -157,6 +206,12 @@ Try the following steps:
 - Anomaly alert rules can only be created at the subscription scope. Ensure that the correct scope is selected.
 - Verify that you have the Owner, Contributor, or Cost Management Contributor role on the subscription.
 - If you got an error message indicating that you reached the limit of five alerts per subscription, consider editing an existing anomaly alert rule. Add yourself as a recipient instead of creating a new rule in case you exhausted the limit.
+
+- Anomaly alerts are currently available only in the Azure public cloud. If you are using a government cloud or any of the sovereign clouds, this service is not yet available. 
+
+### How can I automate the creation of an anomaly alert rule?
+
+You can automate the creation of anomaly alert rules using the [Scheduled Action API](/rest/api/cost-management/scheduled-actions/create-or-update-by-scope?view=rest-cost-management-2023-11-01&tabs=HTTP), specifying the scheduled action kind as **`InsightAlert.`**
 
 ## Get help to identify charges
 

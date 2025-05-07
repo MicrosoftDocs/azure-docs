@@ -9,9 +9,9 @@ metadata:
   ms.service: role-based-access-control
   ms.topic: landing-page
   author: rolyon
-  manager: amycolannino
+  manager: femila
   ms.author: rolyon
-  ms.date: 03/24/2024
+  ms.date: 02/18/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,6 +25,8 @@ landingContent:
             url: overview.md
           - text: Understand the different roles
             url: rbac-and-directory-admin-roles.md
+          - text: "What's new in docs"
+            url: whats-new.md
       - linkListType: video
         links: 
           - text: "Microsoft Ignite: Lock down access to Azure"

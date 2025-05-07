@@ -2,7 +2,7 @@
 title: Sample projects
 description: Provides a summary of sample projects that are available for Azure Managed Applications.
 ms.topic: sample
-ms.date: 09/04/2019
+ms.date: 06/24/2024
 ---
 
 # Sample projects for Azure managed applications

@@ -5,7 +5,6 @@ description: Learn about optimizing sink performance and best practices in mappi
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023
@@ -23,7 +22,7 @@ With Azure SQL Database, the default partitioning should work in most cases. The
 
 Here's a video walk-through of how to use data flows with exists, alter row, and sink transformations to achieve this common pattern: 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=45ca63d6-06e0-4d90-bf2d-437220de663b]
 
 ### Impact of error row handling to performance
 

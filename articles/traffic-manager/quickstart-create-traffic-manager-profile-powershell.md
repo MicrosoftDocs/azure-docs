@@ -7,7 +7,7 @@ ms.author: greglin
 manager: kumud
 ms.date: 02/18/2023
 ms.topic: quickstart
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.custom: template-quickstart, devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---

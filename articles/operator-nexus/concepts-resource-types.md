@@ -1,8 +1,8 @@
 ---
 title: Azure Operator Nexus resource types
 description: Operator Nexus platform and tenant resource types
-author: jashobhit
-ms.author: shobhitjain
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 03/06/2023

@@ -18,6 +18,6 @@ Cosmos DB does not use Azure RBAC for data operations. Instead, it uses a [Cosmo
 
 <sup>2</sup> When using identity, Cosmos DB treats container creation as a management operation. It is not available as a data-plane operation for the trigger. You will need to ensure that you create the containers needed by the trigger (including the lease container) before setting up your function.
 
-[Cosmos DB built-in RBAC system]: ../articles/cosmos-db/how-to-setup-rbac.md
-[Cosmos DB Built-in Data Reader]: ../articles/cosmos-db/how-to-setup-rbac.md#built-in-role-definitions
-[Cosmos DB Built-in Data Contributor]: ../articles/cosmos-db/how-to-setup-rbac.md#built-in-role-definitions
+[Cosmos DB built-in RBAC system]: /azure/cosmos-db/how-to-setup-rbac
+[Cosmos DB Built-in Data Reader]: /azure/cosmos-db/how-to-setup-rbac#built-in-role-definitions
+[Cosmos DB Built-in Data Contributor]: /azure/cosmos-db/how-to-setup-rbac#built-in-role-definitions

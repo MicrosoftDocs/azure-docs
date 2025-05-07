@@ -3,7 +3,7 @@ title: Run load test in debug mode
 titleSuffix: Azure Load Testing
 description: 'Learn how you can run a load test in debug mode in Azure Load Testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 05/23/2024
@@ -34,8 +34,6 @@ A test can be run in a debug mode to validate the test plan configuration and ap
 - The test run has debug logs enabled.
 
 - The test run has request and response data for every failed request during the test run.
-
-- This is applicable only for URL based and JMeter based tests. Locust tests don't support debug mode.
 
 - A test run in debug mode can't be marked as baseline test run.
 

@@ -51,9 +51,9 @@ Use the following procedure to set up this scenario.
 
 1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
 
-1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime to securely store the [functions' access keys](../security-concepts.md#function-access-keys).
+1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection of a shared storage account. This storage account connection is used by the Azure Functions runtime to securely store the [functions' access keys](../function-keys-how-to.md). For the highest level of security, you should use a [managed identity connection](../../app-service/overview-managed-identity.md) to your storage account.
 
-1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](./durable-functions-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
+1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](./durable-functions-orchestrations.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting. Again, managed identity-based connections are the most secure.
 
 1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `connectionStringName` (Durable 2.x) or `azureStorageConnectionStringName` (Durable 1.x) as the name of the app setting you created in step 3.
 

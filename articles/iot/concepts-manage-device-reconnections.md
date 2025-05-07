@@ -2,12 +2,12 @@
 title: Manage device reconnections to create resilient applications
 titleSuffix: Azure IoT
 description: Manage the device connection and reconnection process to ensure resilient applications by using the Azure IoT Hub device SDKs.
-services: iot-develop
-author: timlt
-ms.author: timlt
-ms.date: 04/04/2024
+services: azure-iot
+author: dominicbetts
+ms.author: dobett
+ms.date: 1/10/2025
 ms.topic: conceptual
-ms.service: iot
+ms.service: azure-iot
 ms.custom: [amqp, mqtt, devx-track-csharp]
 ---
 

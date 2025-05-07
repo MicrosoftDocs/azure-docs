@@ -45,6 +45,7 @@ Message types received by the client can be:
 * ack - The response to a request containing an `ackId`.
 * message - Messages from the group or server.
 * system - Messages from the Web PubSub service.
+* pong - The response to a `ping` message.
 
 ### Ack response
 
@@ -142,7 +143,19 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 ### System response
 
-The Web PubSub service sends system-related messages to clients. 
+The Web PubSub service sends system-related messages to clients.
+
+### Pong response
+
+The Web PubSub service sends a `pong` message to the client when it receives a `ping` message from the client.
+
+Format:
+
+```json
+{
+    "type": "pong",
+}
+```
 
 #### Connected
 

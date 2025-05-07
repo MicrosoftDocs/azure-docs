@@ -3,7 +3,7 @@ title: Azure Data Explorer output from Azure Stream Analytics
 description: This article describes using Azure Data Explorer as an output for Azure Stream Analytics.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 06/01/2023
 ---

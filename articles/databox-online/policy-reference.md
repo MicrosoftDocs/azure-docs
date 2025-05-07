@@ -4,8 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Stack Edge
 ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 author: alkohli
 ms.author: alkohli
 ---

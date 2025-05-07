@@ -15,6 +15,14 @@ ms.custom: template-how-to
 ## Safari Desktop
 ___
 
+### On macOS Safari 18 and up, the user is unable to share the screen for ~1 minute after canceling the action in a call. During this time, some of the options do not work while screen share recovers
+
+**Browser version:** Safari 18 and up. <br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** After canceling a screen sharing attempt, the user is unable to start sharing the screen again for approximately 1 minute. During this period, some options become unresponsive, such as the ability to turn the camera on/off. After ~1 minute, the user is able to start screen sharing and use all available options in the call again.<br>
+**Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=278915).<br>
+**Recommended workaround:**  It is recommended to avoid using the “Cancel” option during screen sharing to prevent delays in restarting screen sharing. If sharing needs to be stopped, it’s advised to either complete the sharing action or wait for the recovery time before trying again.<br>
+
 ### On macOS Safari 17 and up, audio could become broken if macOS users connects Bluetooth headphones for during a call
 
 **Browser version:** Safari 17 and up. <br>
@@ -59,7 +67,7 @@ ___
 ### Web calling participants hearing PSTN call audio when answered on macOS with iPhone integration
 **Browser version:** All.<br>
 **Azure Communication Service calling SDK version:** All.<br>
-**Description:** When a MacOS user, who is in an active ACS call using a browser, accepts an incoming PSTN call on their MacBook that is linked to their iPhone (using the same iCloud account), audio from the PSTN call is shared among web call participants. This results in participants of the call hearing the PSTN call audio.<br>
+**Description:** When a macOS user, who is in an active ACS call using a browser, accepts an incoming PSTN call on their MacBook that is linked to their iPhone (using the same iCloud account), audio from the PSTN call is shared among web call participants. This results in participants of the call hearing the PSTN call audio.<br>
 **Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=256593).<br>
 **Recommended workaround:** Currently, no direct workaround is available. Users are advised to use separate devices for PSTN and web calls to prevent that audio shared with other call participants in a separate call.<br>
 
@@ -82,6 +90,12 @@ ___
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** Users may experience an issue where the camera preview is shown in an incorrect resolution and appears cropped when iOS user joins a call using iOS Safari mobile  with the camera enabled. The issue is not observed anymore if user re-enables camera during the call. The issue has been fixed with iOS 17.4+.<br>
 **Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.4) where this issue has been resolved.<br>
+
+### Telemetry data for *audioInputLevel* and *frameRateInput* missing in video calls on iOS 16 to iOS 17.4
+**iOS version:** iOS versions from 16.0 up to 17.4.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** `audioInputLevel` and `frameRateInput` telemetry data are not captured during video calls on iOS versions 16 to 17.4, affecting the ability to monitor and optimize audio and video settings in real-time. This issue has been fixed with iOS 17.5+.<br>
+**Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.5) where this issue has been resolved.<br>
 
 ### Audio and video recovery issue on iOS 16 to 16.3.1 during web calls with incoming Third-party or PSTN calls
 **iOS version:** iOS versions 16 up to 16.3.1.<br>

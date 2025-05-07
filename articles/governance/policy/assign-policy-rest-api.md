@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment with REST API"
 description: In this quickstart, you use REST API to create an Azure Policy assignment to identify non-compliant resources.
-ms.date: 03/26/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ---
 
@@ -10,6 +10,8 @@ ms.topic: quickstart
 The first step in understanding compliance in Azure is to identify the status of your resources. In this quickstart, you create a policy assignment to identify non-compliant resources using REST API. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
 
 This guide uses REST API to create a policy assignment and to identify non-compliant resources in your Azure environment. The examples in this article use PowerShell and the Azure CLI `az rest` commands. You can also run the `az rest` commands from a Bash shell like Git Bash.
+
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
 ## Prerequisites
 

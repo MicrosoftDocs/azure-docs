@@ -2,13 +2,15 @@
 title: Cost management guide for Azure Lab Services
 description: Understand the different ways to view costs for Lab Services.
 author: RogerBestMSFT
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.date: 07/04/2022
 ms.topic: how-to
 ms.custom: devdivchpfy22
 ---
 
 # Cost management for Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 For Azure Lab Services, cost management can be broken down into two distinct areas: cost estimation and cost analysis. Cost estimation occurs when you're setting up the lab to make sure that the initial structure of the lab will fit within the expected budget. Cost analysis usually occurs at the end of the month to determine the necessary actions for the next month.
 
@@ -73,7 +75,7 @@ To get the cost for the entire lab, don't forget to include external resources. 
 
 Since cost entries are tied to the lab account, some schools use the lab account and the resource group as ways to separate the classes. Each class has its own lab plan and resource group.
 
-In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
+In the cost analysis pane, add a filter based on the resource group name for the class. Then, only the costs for that class will be visible. Grouping by resource group allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-improved-exports.md) feature of the cost analysis to download the costs of each class in separate files.
 
 With [lab plans](concept-lab-accounts-versus-lab-plans.md):
 

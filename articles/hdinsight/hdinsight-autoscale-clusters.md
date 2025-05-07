@@ -1,9 +1,12 @@
 ---
 title: Automatically scale Azure HDInsight clusters
 description: Use the Autoscale feature to automatically scale Azure HDInsight clusters based on a schedule or performance metrics.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 05/22/2024
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -41,7 +44,9 @@ Autoscale continuously monitors the cluster and collects the following metrics:
 |Used Memory per Node|The load on a worker node. A worker node on which 10 GB of memory is used, is considered under more load than a worker with 2 GB of used memory.|
 |Number of Application Masters per Node|The number of Application Master (AM) containers running on a worker node. A worker node that is hosting two AM containers, is considered more important than a worker node that is hosting zero AM containers.|
 
-The above metrics are checked every 60 seconds. Autoscale makes scale-up and scale-down decisions based on these metrics. 
+The above metrics are checked every 60 seconds. Autoscale makes scale-up and scale-down decisions based on these metrics.
+
+For a complete list of cluster metrics, see [Supported metrics for Microsoft.HDInsight/clusters](monitor-hdinsight-reference.md#supported-metrics-for-microsofthdinsightclusters).
 
 ### Load-based scale conditions
 

@@ -3,9 +3,9 @@ title: How to migrate from Azure Application Gateway Ingress Controller Helm to 
 description: This article provides instructions on how to migrate from AGIC deployed through Helm to AGIC deployed as an AKS add-on
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.topic: article
-ms.date: 07/28/2023
+ms.service: azure-application-gateway
+ms.topic: how-to
+ms.date: 2/28/2025
 ms.author: greglin
 ---
 
@@ -14,7 +14,7 @@ ms.author: greglin
 If you already have AGIC deployed through Helm but want to migrate to AGIC deployed as an AKS add-on, the following steps help to guide you through the migration process. 
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Prerequisites 
 Before you start the migration process, there are a few things to check. 
@@ -40,7 +40,11 @@ You can now enable the AGIC add-on in your AKS cluster to target your existing A
 ```azurecli-interactive
 az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id $appgwId
 ```
+Alternatively, you can navigate to your [AKS cluster in the Azure portal](https://portal.azure.com/?feature.aksagic=true) and enable the AGIC add-on in the **Virtual network integration** tab of your cluster. Select your existing Application Gateway when you choose which Application Gateway that the add-on should target. 
+
+![Application Gateway Ingress Controller Portal](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## Next Steps
-- [**Application Gateway Ingress Controller Troubleshooting**](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
-- [**Application Gateway Ingress Controller Annotations**](ingress-controller-annotations.md): List of annotations on AGIC 
+- [Application Gateway Ingress Controller Troubleshooting](ingress-controller-troubleshoot.md): Troubleshooting guide for AGIC 
+- [Application Gateway Ingress Controller Annotations](ingress-controller-annotations.md): List of annotations on AGIC
+- [Application Gateway for Containers](for-containers/overview.md)

@@ -1,11 +1,14 @@
 ---
 title: Azure Cache for Redis Event Grid Overview 
 description: Use Azure Event Grid to publish Azure Cache for Redis events.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.date: 12/21/2020
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ms.topic: conceptual
-ms.service: cache
+
 ---
 
 # Azure Cache for Redis Event Grid Overview 

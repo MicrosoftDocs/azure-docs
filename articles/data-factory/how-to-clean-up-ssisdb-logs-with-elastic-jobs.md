@@ -1,7 +1,6 @@
 ---
 title: How to clean up SSISDB logs automatically 
 description: This article describes how to clean up SSIS project deployment and package execution logs stored in SSISDB by invoking the relevant SSISDB stored procedure automatically via Azure Data Factory, Azure SQL Managed Instance Agent, or Elastic Database Jobs.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 05/15/2024
@@ -151,7 +150,7 @@ The following sections describe how to invoke the relevant SSISDB stored procedu
 
 ### Configure Elastic Database Jobs using Azure PowerShell
 
-[!INCLUDE [requires-azurerm](~/reusable-content/ce-skilling/azure/includes/requires-azurerm.md)]
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 The following Azure PowerShell scripts create a new Elastic Job that invokes your selected SSISDB log clean-up stored procedure. For more info, see [Create an Elastic Job agent using PowerShell](/azure/azure-sql/database/elastic-jobs-powershell-create).
 

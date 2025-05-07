@@ -1,11 +1,11 @@
 ---
 title: Create and manage Azure services with Azure CLI
 description: Use Azure CLI to create and manage Azure services for Azure Backup.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/21/2021
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 07/30/2024
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Create and manage Azure Backup services using Azure CLI

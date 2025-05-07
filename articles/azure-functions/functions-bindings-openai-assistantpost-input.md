@@ -2,9 +2,15 @@
 title: Azure OpenAI assistant post input binding for Azure Functions
 description: Learn how to use the Azure OpenAI assistant post input binding to query chat bots during function execution in Azure Functions.
 ms.topic: reference
-ms.custom:
+ms.custom: 
   - build-2024
-ms.date: 05/20/2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
+ms.date: 01/07/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -33,23 +39,18 @@ This example demonstrates the creation process, where the HTTP POST function tha
 :::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="83-103":::
 
 ::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript" 
+This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
+::: zone-end  
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="6-7,36-60":::
 
-:::code language="javascript" source="~/functions-openai-extension/samples/{{link to the correct sample.js}}" range="{{named is better than range}}":::
-
-{{Add more examples if available}}
--->
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="6-7,36-60":::
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/nodejs/src/functions/assistantApis.ts" range="32-50":::
-
- ::: zone-end  
+::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.

@@ -1,12 +1,11 @@
 ---
 title: 'Azure Front Door POP locations by region'
 description: This article lists Azure Front Door POP locations, sorted by regions.
-services: frontdoor
-author: duongau
-ms.service: frontdoor
-ms.topic: conceptual
-ms.date: 05/30/2023
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 08/12/2024
 ms.custom: references_regions
 ---
 
@@ -19,7 +18,7 @@ This article lists current metro cities with Azure Front Door point-of-presence 
 > [!NOTE]
 > A location may contain more than one POP, noted by the number in parentheses.
 
-[!INCLUDE [front-door-edge-locations](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations.md)]
+[!INCLUDE [front-door-edge-locations](../../includes/front-door-edge-locations.md)]
 
 ## Next steps
 

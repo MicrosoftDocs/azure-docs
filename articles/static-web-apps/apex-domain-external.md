@@ -2,11 +2,11 @@
 title: Set up an apex domain in Azure Static Web Apps
 description: Configure the root domain in Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
-ms.service: static-web-apps
+author: v1212
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 02/11/2022
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Set up an apex domain in Azure Static Web Apps
@@ -30,6 +30,12 @@ This guide demonstrates three options for configuring an apex domain.
 * Use the steps in [forward to www subdomain](#forward-to-www-subdomain) if your domain registrar doesn't support the `ALIAS` DNS record.
 
 * Use the steps to [set up with an A Record](#set-up-with-an-a-record) if the above options do not suit you. With an `A` record, your traffic is directed to a single Static Web Apps host, and your app no longer benefit from the performance improvements provided by global distribution.
+
+> [!NOTE]  
+> `CNAME` record maps a domain name to another domain (or subdomain) whereas `A` record maps a domain name to an IP address. If the IP address changes, a `CNAME` entry is still valid, unlike `A` record.
+
+> [!NOTE]
+> Apex domain changes can take up to 72 hours to propagate.
 
 ## Set up with an ALIAS record
 

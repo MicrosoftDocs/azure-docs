@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: peiliu
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 04/27/2023
+ms.date: 02/27/2025
 ms.topic: include
 ms.custom: include file
-ms.author: peiliu
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -79,7 +79,7 @@ rooms_client = RoomsClient.from_connection_string(connection_string)
 ## Create a room
 
 ### Set up room participants
-In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-python) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`.
+In order to set up who can join a room, you'll need to have the list of the identities of those users. You can follow the instructions [here](../../identity/access-tokens.md?pivots=programming-language-python) for creating users and issuing access tokens. Alternatively, if you want to create the users on demand, you can create them using the `CommunicationIdentityClient`. ACS Rooms currently supports a room participant of type CommunicationUserIdentifier only, using other types of CommunicationIdentity will result in a runtime error.
 
 To use the `CommunicationIdentityClient`, install the following package:
 
@@ -218,7 +218,7 @@ try:
     participants.append(RoomParticipant(communication_identifier=user2, role=ParticipantRole.ATTENDEE))
 
     # Add new participant user3
-    participants.append(RoomParticipant(communication_identifier=user3, role=ParticipantRole.CONSUMER))
+    participants.append(RoomParticipant(communication_identifier=user3, role=ParticipantRole.COLLABORATOR))
     rooms_client.add_or_update_participants(room_id=room_id, participants=participants)
     print("\nAdd or update participants in room")
 
@@ -305,7 +305,7 @@ Add or update participants in room
 Participants in Room Id : 99445276259151407
 8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-6042-a166-563a0d0051c1 Presenter
 8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-6136-a166-563a0d0051c2 Consumer
-8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-61fd-a166-563a0d0051c3 Attendee
+8:acs:42a0ff0c-356d-4487-a288-ad0aad95d504_00000018-ef00-61fd-a166-563a0d0051c3 Collaborator
 
 Removed participants from room
 

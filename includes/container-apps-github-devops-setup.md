@@ -1,10 +1,10 @@
 ---
-author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 11/09/2022
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 1. Change into the *src* folder of the cloned repository.
 
@@ -38,8 +38,7 @@ ms.author: cshoe
     az containerapp identity assign \
       --name my-container-app \
       --resource-group my-container-app-rg \
-      --system-assigned \
-      --output tsv
+      --system-assigned
     ```
 
     Note the principal ID of the managed identity in the command output.

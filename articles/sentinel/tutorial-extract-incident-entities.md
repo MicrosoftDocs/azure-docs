@@ -6,9 +6,13 @@ author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+
+
+
+#Customer intent: As a security analyst, I want to extract and use non-native entity information from incidents so that I can enhance my investigative and remedial actions.
 
 ---
 # Tutorial: Extract incident entities with non-native actions 
@@ -51,7 +55,7 @@ To complete this tutorial, make sure you have:
 
 ## Create a playbook with an incident trigger
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page.
 
 1. On the **Automation** page, select **Create** > **Playbook with incident trigger**.
 1. In the **Create playbook** wizard, under **Basics**, select the subscription and resource group, and give the playbook a name. 

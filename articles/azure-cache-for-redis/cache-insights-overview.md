@@ -1,11 +1,13 @@
 ---
 title: Azure Monitor insights for Azure Cache for Redis | Microsoft Docs
 description: This article describes Azure Monitor insights for Azure Cache for Redis, which provides cache owners with a quick understanding of performance and utilization.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.topic: conceptual
-ms.service: cache
+
 ms.date: 03/25/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.custom: subject-monitoring
 ---
 
@@ -13,7 +15,7 @@ ms.custom: subject-monitoring
 
 Azure Monitor insights for Azure Cache for Redis provide a unified, interactive view of cache performance, failures, capacity, and operational health. This article shows you how to view Azure Cache for Redis insights across all of your subscriptions, and how to modify and adapt insights to fit the unique needs of your organization.
 
-For more information about Azure Monitor for Azure Cache for Redis, see [Monitor Azure Cache for Redis](monitor-cache.md). For a full list of the metric definitions that form these insights, see [Supported metrics for Microsoft.Cache/redis](monitor-cache-reference.md#supported-metrics-for-microsoftcacheredis).
+For more information about Azure Monitor for Azure Cache for Redis, see [Monitor Azure Cache for Redis](../redis/monitor-cache.md). For a full list of the metric definitions that form these insights, see [Supported metrics for Microsoft.Cache](../redis/monitor-cache-reference.md#supported-metrics-for-microsoftcacheredis).
 
 ## View insights from Azure Monitor
 
@@ -25,7 +27,7 @@ To view the utilization and performance of your Azure Cache for Redis instances 
 
 1. Search for **Monitor**, and select **Monitor**.
 
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/insights-overview/search-monitor.png" alt-text="Search box with the word 'Monitor' and the Services search result that shows 'Monitor' with a speedometer symbol":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/search-monitor.png" alt-text="Search box with the word 'Monitor' and the Services search result that shows 'Monitor' with a speedometer symbol":::
 
 1. Select **Azure Cache for Redis**. If this option isn't present, select **More** > **Azure Cache for Redis**.
 
@@ -33,13 +35,13 @@ To view the utilization and performance of your Azure Cache for Redis instances 
 
 Azure Cache for Redis insights are based on the [workbooks feature of Azure Monitor](/azure/azure-monitor/visualize/workbooks-overview) that provides rich visualizations for metrics and other data. Azure Cache for Redis insights provides two workbooks by default:
 
-   :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
+   :::image type="content" source="media/cache-insights-overview/cache-monitoring-workbook.png" alt-text="Screenshot showing the workbooks selected in the Resource menu.":::
 
 - **Azure Cache For Redis Resource Overview** combines many of the most commonly used metrics so that the health and performance of the cache instance can be viewed at a glance.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
+    :::image type="content" source="media/cache-insights-overview/cache-monitoring-resource-overview.png" alt-text="Screenshot of graphs showing a resource overview for the cache.":::
 
-- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replcation health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
-    :::image type="content" source="media/cache-how-to-monitor/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
+- **Geo-Replication Dashboard** pulls geo-replication health and status metrics from both the geo-primary and geo-secondary cache instances to give a complete picture of geo-replication health. Using this dashboard is recommended, as some geo-replication metrics are only emitted from either the geo-primary or geo-secondary.
+    :::image type="content" source="media/cache-insights-overview/cache-monitoring-geo-dashboard.png" alt-text="Screenshot showing the geo-replication dashboard with a geo-primary and geo-secondary cache set.":::
 
 ### Overview
 
@@ -141,29 +143,29 @@ Selecting any of the other tabs for **Performance** or **Operations** opens that
 
 ## Pin, export, and expand
 
-To pin any metric section to an [Azure dashboard](../azure-portal/azure-portal-dashboards.md), select the pushpin symbol in the section's upper right.
+To pin any metric section to an [Azure dashboard](/azure/azure-portal/azure-portal-dashboards), select the pushpin symbol in the section's upper right.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/insights-overview/pin.png" alt-text="Screenshot of metrics with the pushpin symbol highlighted.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/pin.png" alt-text="Screenshot of metrics with the pushpin symbol highlighted.":::
 
 To export your data into an Excel format, select the down arrow symbol to the left of the pushpin symbol.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/insights-overview/export.png" alt-text="Screenshot showing a highlighted export-workbook symbol.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/export.png" alt-text="Screenshot showing a highlighted export-workbook symbol.":::
 
 To expand or collapse all views in a workbook, select the expand symbol to the left of the export symbol.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/insights-overview/expand.png" alt-text="Screenshot of  highlighted expand-workbook symbol.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/expand.png" alt-text="Screenshot of  highlighted expand-workbook symbol.":::
 
 ## Customize Azure Monitor insights for Azure Cache for Redis
 
 Because this experience is built atop Azure Monitor workbook templates, you can select **Customize** > **Edit** > **Save** to save a copy of your modified version into a custom workbook.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/insights-overview/customize.png" alt-text="Screenshot of command bar with customize highlighted.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/customize.png" alt-text="Screenshot of command bar with customize highlighted.":::
 
 Workbooks are saved within a resource group in either the **My Reports** section or the **Shared Reports** section. **My Reports** is available only to you. **Shared Reports** is available to everyone with access to the resource group.
 
 After you save a custom workbook, go to the workbook gallery to open it.
 
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/insights-overview/gallery.png" alt-text="Screenshot of a command bar with Gallery highlighted.":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/cosmos-db/gallery.png" alt-text="Screenshot of a command bar with Gallery highlighted.":::
 
 ## Related content
 

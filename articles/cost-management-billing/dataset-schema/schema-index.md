@@ -1,13 +1,13 @@
 ---
 title: Cost Management dataset schema index
 description: Learn about the dataset schemas available in Cost Management.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 05/02/2024
-ms.author: banders
+ms.date: 01/24/2025
+ms.author: jojoh
 ---
 
 # Cost Management dataset schema index
@@ -37,7 +37,7 @@ For for more information about each agreement type and what's included, see [Sup
 |Cost and usage details|Microsoft Partner Agreement (MPA)|[2023-12-01-preview](cost-usage-details-mca-partner.md)
 |Cost and usage details|Cloud Service Provider (CSP) subscription|[2023-12-01-preview](cost-usage-details-mca-partner-subscription.md)
 |Cost and usage details|Pay-as-you-go (MOSA)|[2019-11-01](cost-usage-details-pay-as-you-go.md)
-|Cost and usage details (FOCUS)|EA and MCA|[1.0-preview(v1)](cost-usage-details-focus.md)
+|Cost and usage details (FOCUS)|EA and MCA|[1.0](cost-usage-details-focus.md)
 |Price sheet|EA|[2023-05-01](price-sheet-ea.md)
 |Price sheet|MCA|[2023-05-01](price-sheet-mca.md)
 |Reservation details|EA|[2023-03-01](reservation-details-ea.md)

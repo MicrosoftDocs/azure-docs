@@ -4,17 +4,19 @@ titleSuffix: Azure AD B2C
 description: Learn how Grit's app proxy can migrate your applications to Azure AD B2C with no code change
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C 
+ms.subservice: b2c
 
 # Customer intent: I'm an application developer using header-based authentication, and I want to migrate my legacy application to Azure Active Directory B2C with Grit app proxy. I need to enable modern authentication experiences, enhance security, and save on licensing costs.
 ---
 
 # Migrate applications using header-based authentication to Azure Active Directory B2C with Grit's app proxy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this sample tutorial, learn how to migrate a legacy application using header-based authentication to Azure Active Directory B2C (Azure AD B2C) with [Grit's app proxy](https://www.gritiam.com/appProxy.html).
 

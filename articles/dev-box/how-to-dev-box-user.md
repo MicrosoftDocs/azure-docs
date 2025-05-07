@@ -1,30 +1,39 @@
 ---
-title: Grant user access to dev box projects
+title: Grant Access to Dev Box Projects for Developers
 titleSuffix: Microsoft Dev Box
-description: Learn how to grant user-level access to projects in Microsoft Dev Box to enable developers to create and manage dev boxes.
+description: Grant developers access to Microsoft Dev Box projects to create and manage dev boxes using Azure RBAC. Learn how to assign roles effectively.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/21/2023
+ms.date: 03/23/2025
 ms.topic: how-to
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:03/23/2025
+  - ai-gen-description
+
+#customer intent: As a platform engineer, I want to know how to assign roles in the Azure portal so that I can grant access to specific users or groups.  
 ---
 
 # Grant user-level access to projects in Microsoft Dev Box
 
-In this article, you learn how to grant developers access to create and manage a dev box in the Microsoft Dev Box developer portal. Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to functionality in the service.
+This article explains how to grant developers access to create and manage a dev box in the Microsoft Dev Box developer portal. Microsoft Dev Box uses Azure role-based access control (Azure RBAC) to grant access to service functionality.
 
-Team members must have access to a specific Microsoft Dev Box project before they can create dev boxes. By using the built-in DevCenter Dev Box User role, you can assign permissions to Active Directory users or groups. You assign the role at the project level in Microsoft Dev Box.
+Team members must have access to a specific Microsoft Dev Box project before they can create dev boxes. Use the built-in DevCenter Dev Box User role to assign permissions to Active Directory users or groups. You assign the role at the project level in Microsoft Dev Box.
+
+Grant user access to create and manage dev boxes by assigning the DevCenter Dev Box User role at the project level.
 
 [!INCLUDE [supported accounts note](./includes/note-supported-accounts.md)]
 
 A DevCenter Dev Box User can:
 
-- View pools within a project.
-- Create dev boxes.
-- Connect to a dev box.
-- Manage dev boxes that they created.
-- Delete dev boxes that they created.
+- View pools within a project.  
+- Create dev boxes.  
+- Connect to a dev box.  
+- Manage dev boxes they created.  
+- Delete dev boxes they created.
 
 ## Assign permissions to dev box users
 
@@ -52,7 +61,7 @@ To grant a user access to create and manage a dev box in Microsoft Dev Box, you 
 
     :::image type="content" source="media/how-to-dev-box-user/add-role-assignment-user.png" alt-text="Screenshot that shows the pane for adding role assignments." lightbox="media/how-to-dev-box-user/add-role-assignment-user.png":::
 
-The users can now view the project and all the pools within it. Dev box users can create dev boxes from any of the pools and manage those dev boxes from the [developer portal](https://aka.ms/devbox-portal).
+Users can now view the project and all pools within it. Dev box users can create dev boxes from any pool and manage them from the [developer portal](https://aka.ms/devbox-portal).
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 

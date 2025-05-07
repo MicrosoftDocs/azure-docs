@@ -24,7 +24,7 @@ other artifacts such as:
 - Resource Groups
 
 The Azure Blueprints service is backed by the globally distributed
-[Azure Cosmos DB](../../cosmos-db/introduction.md). Blueprint objects are replicated to multiple
+[Azure Cosmos DB](/azure/cosmos-db/introduction). Blueprint objects are replicated to multiple
 Azure regions. This replication provides low latency, high availability, and consistent access to
 your blueprint objects, regardless of which region Azure Blueprints deploys your resources to.
 

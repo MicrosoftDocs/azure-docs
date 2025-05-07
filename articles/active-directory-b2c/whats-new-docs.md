@@ -1,54 +1,43 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 06/05/2024
-ms.service: active-directory
-ms.subservice: B2C
+ms.date: 04/01/2025
+ms.service: azure-active-directory
+ms.subservice: b2c
 ms.topic: whats-new
 
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
 
-
 #Customer intent: As a developer using Azure Active Directory B2C, I want to stay updated on the latest documentation changes and new features, so that I can effectively use and implement the B2C service in my applications.
-
 ---
 
 # Azure Active Directory B2C: What's new
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
+Welcome to what's new in Azure Active Directory B2C documentation. This article lists new and significantly updated docs from the past three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
-## May 2024
-
-### New articles
-
-- [Configure Transmit Security with Azure Active Directory B2C for risk detection and prevention](partner-transmit-security.md)
+## April 2025
 
 ### Updated articles
 
-- [Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C](identity-provider-linkedin.md) - Updated LinkedIn instructions
-- [Page layout versions](page-layout.md) - Updated page layout versions
+This month, we added an important note to our articles stating that starting May 1, 2025, new customers can't purchase Azure AD B2C.  
 
-## February 2024
+- [Manage administrator accounts in Azure Active Directory B2C](tenant-management-manage-administrator.md) - Updated the User page information
+- [Track user behavior in Azure AD B2C by using Application Insights](analytics-with-application-insights.md) - Replaced instrumentation key with connection string
 
-### New articles
+## March 2025
 
-- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md)
-- [Define a CAPTCHA technical profile in an Azure Active Directory B2C custom policy](captcha-technical-profile.md)
-- [Verify CAPTCHA challenge string using CAPTCHA display control](display-control-captcha.md)
+### Updated articles
+- [Error codes: Azure Active Directory B2C](error-codes.md) - Updated error messages
+
+## February 2025
 
 ### Updated articles
 
-- [Enable custom domains in Azure Active Directory B2C](custom-domain.md) - Updated steps to block the default B2C domain
-- [Manage Azure AD B2C custom policies with Microsoft Graph PowerShell](manage-custom-policies-powershell.md) - Microsoft Graph PowerShell updates 
-- [Localization string IDs](localization-string-ids.md) - CAPTCHA updates
-- [Page layout versions](page-layout.md) - CAPTCHA updates
+- [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md) - Added SMS pricing
+- [Page layout versions](page-layout.md) - Updated the latest versions of the self-asserted and MFA pages
+- [Azure AD B2C: Frequently asked questions (FAQ)](faq.yml) - Added billing name change for SMS phone
+- [Enable CAPTCHA in Azure Active Directory B2C](add-captcha.md) - Added CAPTCHA feature flag
 
-## January 2024
-
-### Updated articles
-
-- [Tutorial: Configure Nok Nok Passport with Azure Active Directory B2C for passwordless FIDO2 authentication](partner-nok-nok.md) - Updated Nok Nok instructions 
-- [Configure Transmit Security with Azure Active Directory B2C for passwordless authentication](partner-bindid.md) - Updated Transmit Security instructions
-- [About claim resolvers in Azure Active Directory B2C custom policies](claim-resolver-overview.md) - Updated claim resolvers and user journey

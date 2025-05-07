@@ -3,9 +3,9 @@ title: Delegate a subdomain - Azure DNS
 description: With this learning path, get started delegating an Azure DNS subdomain.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 06/07/2024
 ms.author: greglin
 ---
 
@@ -24,7 +24,7 @@ To delegate an Azure DNS subdomain, the parent public domain must first be deleg
 
 ## Delegate a subdomain
 
-The **engineering.adatum.com** subdomain can already exist. If it doesn't exist, it is created.
+The **engineering.adatum.com** subdomain can already exist. If it doesn't exist, it is created. The parent domain (in this example: **adatum.com**) must already exist as an Azure-hosted domain.
 
 To delegate the **engineering** subdomain under **adatum.com**:
 
@@ -39,7 +39,7 @@ To delegate the **engineering** subdomain under **adatum.com**:
 
    [ ![A screenshot showing contents of the child zone.](./media/delegate-subdomain/child-zone-contents.png) ](./media/delegate-subdomain/child-zone-contents.png#lightbox)
 
-6. Select the parent **adatum.com** zone again and notice that an **NS** record has been added with the name **engineering** and contents the same as NS records in the child zone. You might need to refresh the page. These are the Azure DNS nameservers that are authoritative for the subdomain (child zone).
+6. Select the parent **adatum.com** zone again and then select **Recordsets**. Notice that an **NS** record has been added with the name **engineering** and contents the same as NS records in the child zone. These are the Azure DNS nameservers that are authoritative for the subdomain (child zone).
 
    [ ![A screenshot showing contents of the parent zone.](./media/delegate-subdomain/parent-zone-contents.png) ](./media/delegate-subdomain/parent-zone-contents.png#lightbox)
 

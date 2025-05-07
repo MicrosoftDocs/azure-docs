@@ -4,8 +4,7 @@ description: Describes assumptions, available features when using Azure Stack Ed
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 02/24/2022
 ms.author: alkohli

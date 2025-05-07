@@ -110,7 +110,7 @@ npm install @azure/communication-react@1.5.1-beta.1 @azure/communication-calling
 ```
 
 > [!NOTE]
-> If you are installing the communication packages into an existing App, `@azure/communication-react` currently does not support React v18. To downgrade to React v17 or less follow [these instructions](https://azure.github.io/communication-ui-library/?path=/docs/setup-communication-react--page).
+> If you are installing the communication packages into an existing App, `@azure/communication-react` currently does not support React v18. To downgrade to React v17 or less follow [these instructions](https://azure.github.io/communication-ui-library/?path=/docs/setup--docs).
 
 ### Initial App Setup
 
@@ -118,7 +118,7 @@ To get us started, we replace the create-react-app default `App.tsx` content wit
 
 - Registers the necessary icons we use in this tutorial
 - Sets a theme provider that can be used to set a custom theme
-- Create a [`StatefulCallClient`](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) with a provider that gives child components access to the call client
+- Create a [`StatefulCallClient`](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-overview--docs) with a provider that gives child components access to the call client
 
 `src/App.tsx`
 

@@ -1,6 +1,6 @@
 ---
 author: madsd
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 04/08/2022
 ms.author: madsd

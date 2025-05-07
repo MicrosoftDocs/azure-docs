@@ -2,8 +2,8 @@
 title: Access a storage account using SFTP over an Azure Firewall static public IP address
 description: In this article, you use Azure PowerShell to deploy Azure Firewall to access a storage account container via SFTP.
 services: firewall
-author: vhorne
-ms.service: firewall
+author: duongau
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: harjsing 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 You can use Azure Firewall to access a storage account container via SFTP. Azure PowerShell is used to deploy a firewall in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
 
-:::image type="content" source="media/firewall-sftp/accessing-storage-using-sftp.png" alt-text="Diagram showing SFTP to firewall to access a storage account container.":::
+:::image type="content" source="media/firewall-sftp/accessing-storage-using-sftp.png" alt-text="Diagram showing SFTP to firewall to access a storage account container." lightbox="media/firewall-sftp/accessing-storage-using-sftp.png":::
 
 In this article, you:
 
@@ -95,7 +95,7 @@ $natrulecollectiongroup.Properties.RuleCollection = $natrulecollection
 Set-AzFirewallPolicyRuleCollectionGroup -Name "rcg-01 " -FirewallPolicyObject $policy -Priority 200 -RuleCollection $natrulecollectiongroup.Properties.rulecollection
 
 ```
-## Deploy the firewall and configure the default route
+## Deploy the firewall
 
 ```azurepowershell
 
@@ -107,22 +107,6 @@ $firewall = New-AzFirewall `
     -VirtualNetwork $testvnet `
     -PublicIpAddress $pip `
     -FirewallPolicyId $policy.id
-
-# Create the route table
-$routeTableDG = New-AzRouteTable `
-  -Name Firewall-rt-table `
-  -ResourceGroupName "$rg" `
-  -location $location `
-  -DisableBgpRoutePropagation
-
-# Add the default route
-Add-AzRouteConfig `
-  -Name "DG-Route" `
-  -RouteTable $routeTableDG `
-  -AddressPrefix 0.0.0.0/0 `
-  -NextHopType "VirtualAppliance" `
-  -NextHopIpAddress $pip.ipaddress `
- | Set-AzRouteTable
 
 ```
 

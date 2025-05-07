@@ -1,15 +1,15 @@
 ---
-title: Understand the use of LDAP with Azure NetApp Files | Microsoft Learn
+title:  Understand lightweight directory access protocol (LDAP) basics in Azure NetApp Files
 description: This article helps you understand how Azure NetApp Files uses lightweight directory access protocol (LDAP).
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 08/05/2023
+ms.topic: concept-article
+ms.date: 02/18/2025
 ms.author: anfdocs
 ---
 
-# Understand the use of LDAP with Azure NetApp Files
+# Understand lightweight directory access protocol (LDAP) basics in Azure NetApp Files
 
 Lightweight directory access protocol (LDAP) is a standard directory access protocol that was developed by an international committee called the Internet Engineering Task Force (IETF). LDAP is intended to provide a general-purpose, network-based directory service that you can use across heterogeneous platforms to locate network objects. 
 
@@ -32,7 +32,7 @@ LDAP can store the following information that is used in dual-protocol NAS acces
 * Netgroups, DNS names, and IP addresses
 * Group membership
 
-Currently, Azure NetApp Files only uses LDAP for user and group information – no netgroup or host information.
+Currently, Azure NetApp Files only uses LDAP for user and group information, not netgroup or host information.
 
 LDAP offers various benefits for your UNIX users and groups as an identity source.
 
@@ -57,13 +57,13 @@ LDAP offers various benefits for your UNIX users and groups as an identity sourc
 The following section discusses the basics of LDAP as it pertains to Azure NetApp Files.
 
 * LDAP information is stored in flat files in an LDAP server and is organized by way of an LDAP schema. You should configure LDAP clients in a way that coordinates their requests and lookups with the schema on the LDAP server.
-* LDAP clients initiate queries by way of an LDAP bind, which is essentially a login to the LDAP server using an account that has read access to the LDAP schema. The LDAP bind configuration on the clients is configured to use the security mechanism that is defined by the LDAP server. Sometimes, they are user name and password exchanges in plain text (simple). In other cases, binds are secured through Simple Authentication and Security Layer methods (`sasl`) such as Kerberos or LDAP over TLS. Azure NetApp Files uses the SMB machine account to bind using SASL authentication for the best possible security.
+* LDAP clients initiate queries by way of an LDAP bind, which is essentially a login to the LDAP server using an account that has read access to the LDAP schema. The LDAP bind configuration on the clients is configured to use the security mechanism that is defined by the LDAP server. Sometimes, they're user name and password exchanges in plain text (simple). In other cases, binds are secured through Simple Authentication and Security Layer methods (`sasl`) such as Kerberos or LDAP over TLS. Azure NetApp Files uses the SMB machine account to bind using SASL authentication for the best possible security.
 * User and group information that is stored in LDAP is queried by clients by using standard LDAP search requests as defined in [RFC 2307](https://datatracker.ietf.org/doc/html/rfc2307). In addition, newer mechanisms, such as [RFC 2307bis](https://datatracker.ietf.org/doc/html/draft-howard-rfc2307bis-02), allow more streamlined user and group lookups. Azure NetApp Files uses a form of RFC 2307bis for its schema lookups in Windows Active Directory. 
 * LDAP servers can store user and group information and netgroup. However, Azure NetApp Files currently can't use netgroup functionality in LDAP on Windows Active Directory.
-* LDAP in Azure NetApp Files operates on port 389. This port currently cannot be modified to use a custom port, such as port 636 (LDAP over SSL) or port 3268 (Active Directory Global Catalog searches).
+* LDAP in Azure NetApp Files operates on port 389. This port currently can't be modified to use a custom port, such as port 636 (LDAP over SSL) or port 3268 (Active Directory Global Catalog searches).
 * Encrypted LDAP communications can be achieved using [LDAP over TLS](configure-ldap-over-tls.md#considerations) (which operates over port 389) or LDAP signing, both of which can be configured on the Active Directory connection.
-* Azure NetApp Files supports LDAP queries that take no longer than 3 seconds to complete. If the LDAP server has many objects, that timeout may be exceeded, and authentication requests can fail. In those cases, consider specifying an [LDAP search scope](https://ldap.com/the-ldap-search-operation/) to filter queries for better performance.
-* Azure NetApp Files also supports specifying preferred LDAP servers to help speed up requests. Use this setting if you want to ensure the LDAP server closest to your Azure NetApp Files region is being used.
+* Azure NetApp Files supports LDAP queries that take no longer than 3 seconds to complete. If the LDAP server has many objects, that time out might be exceeded, and authentication requests can fail. In those cases, consider specifying an [LDAP search scope](https://ldap.com/the-ldap-search-operation/) to filter queries for better performance.
+* Azure NetApp Files also supports specifying preferred LDAP servers to help accelerate requests. Use this setting if you want to ensure the LDAP server closest to your Azure NetApp Files region is being used.
 * If no preferred LDAP server is set, the Active Directory domain name is queried in DNS for LDAP service records to populate the list of LDAP servers available for your region located within that SRV record. You can manually query LDAP service records in DNS from a client using [`nslookup`](/troubleshoot/windows-server/networking/verify-srv-dns-records-have-been-created) or [`dig`](https://www.cyberciti.biz/faq/linux-unix-dig-command-examples-usage-syntax/) commands. 
 
     For example: 
@@ -110,62 +110,16 @@ The following section discusses the basics of LDAP as it pertains to Azure NetAp
     contoso.com      internet address = x.x.x.x
     contoso.com      internet address = y.y.y.y
     ```
-* LDAP servers can also be used to perform custom name mapping for users. For more information, see [Custom name mapping using LDAP](#custom-name-mapping-using-ldap). 
-* LDAP query timeouts 
+* LDAP servers can also be used to perform custom name mapping for users. For more information, see [Understand name mapping using LDAP](lightweight-directory-access-protocol-name-mapping.md). 
+* LDAP query time outs 
 
-    By default, LDAP queries time out if they cannot be completed in a timely fashion. If an LDAP query fails due to a timeout, the user and/or group lookup will fail and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query timeout settings.
+    By default, LDAP queries time out if they can't be completed. If an LDAP query fails due to a time out, the user and/or group lookup fails, and access to the Azure NetApp Files volume may be denied, depending on the permission settings of the volume. Refer to [Create and manage Active Directory connections](create-active-directory-connections.md#ldap-query-timeouts) to understand Azure NetApp Files LDAP query time out settings.
 
-## Name mapping types
+## Next steps 
 
-Name mapping rules can be broken down into two main types: *symmetric* and *asymmetric*.
-
-* *Symmetric* name mapping is implicit name mapping between UNIX and Windows users who use the same user name. For example, Windows user `CONTOSO\user1` maps to UNIX user `user1`.  
-* *Asymmetric* name mapping is name mapping between UNIX and Windows users who use **different** user names. For example, Windows user `CONTOSO\user1` maps to UNIX user `user2`.
-
-By default, Azure NetApp Files uses symmetric name mapping rules. If asymmetric name mapping rules are required, consider configuring the LDAP user objects to use them.
-
-## Custom name mapping using LDAP
-
-LDAP can be a name mapping resource, if the LDAP schema attributes on the LDAP server have been populated. For example, to map UNIX users to corresponding Windows user names that don't match one-to-one (that is, *asymmetric*), you can specify a different value for `uid` in the user object than what is configured for the Windows user name.
-
-In the following example, a user has a Windows name of `asymmetric` and needs to map to a UNIX identity of `UNIXuser`. To achieve that in Azure NetApp Files, open an instance of the [Active Directory Users and Computers MMC](/troubleshoot/windows-server/system-management-components/remote-server-administration-tools). Then, find the desired user and open the properties box. (Doing so requires [enabling the Attribute Editor](http://directoryadmin.blogspot.com/2019/02/attribute-editor-tab-missing-in-active.html)). Navigate to the Attribute Editor tab and find the UID field, then populate the UID field with the desired UNIX user name `UNIXuser` and click **Add** and **OK** to confirm.
-
-:::image type="content" source="./media/lightweight-directory-access-protocol/asymmetric-properties.png" alt-text="Screenshot that shows the Asymmetric Properties window and Multi-valued String Editor window." lightbox="./media/lightweight-directory-access-protocol/asymmetric-properties.png":::
-
-After this action is done, files written from Windows SMB shares by the Windows user `asymmetric` will be owned by `UNIXuser` from the NFS side.
-
-The following example shows Windows SMB owner `asymmetric`:
-
-:::image type="content" source="./media/lightweight-directory-access-protocol/windows-owner-asymmetric.png" alt-text="Screenshot that shows Windows SMB owner named Asymmetric." lightbox="./media/lightweight-directory-access-protocol/windows-owner-asymmetric.png":::
-
-The following example shows NFS owner `UNIXuser` (mapped from Windows user `asymmetric` using LDAP):
-
-```
-root@ubuntu:~# su UNIXuser
-UNIXuser@ubuntu:/root$ cd /mnt
-UNIXuser@ubuntu:/mnt$ ls -la
-total 8
-drwxrwxrwx  2 root     root   4096 Jul  3 20:09 .
-drwxr-xr-x 21 root     root   4096 Jul  3 20:12 ..
--rwxrwxrwx  1 UNIXuser group1   19 Jul  3 20:10 asymmetric-user-file.txt
-```
-
-## LDAP schemas
-
-LDAP schemas are how LDAP servers organize and collect information. LDAP server schemas generally follow the same standards, but different LDAP server providers might have variations on how schemas are presented. 
-
-When Azure NetApp Files queries LDAP, schemas are used to help speed up name lookups because they enable the use of specific attributes to find information about a user, such as the UID. The schema attributes must exist in the LDAP server for Azure NetApp Files to be able to find the entry. Otherwise, LDAP queries might return no data and authentication requests might fail.
-
-For example, if a UID number (such as root=0) must be queried by Azure NetApp Files, then the schema attribute RFC 2307 `uidNumber Attribute` is used. If no UID number `0` exists in LDAP in the `uidNumber` field, then the lookup request fails.
-
-The schema type currently used by Azure NetApp Files is a form of schema based on RFC 2307bis and can't be modified.
-
-[RFC 2307bis](https://tools.ietf.org/html/draft-howard-rfc2307bis-02) is an extension of RFC 2307 and adds support for `posixGroup`, which enables dynamic lookups for auxiliary groups by using the `uniqueMember` attribute, rather than by using the `memberUid` attribute in the LDAP schema. Instead of using just the name of the user, this attribute contains the full distinguished name (DN) of another object in the LDAP database. Therefore, groups can have other groups as members, which allows nesting of groups. Support for RFC 2307bis also adds support for the object class `groupOfUniqueNames`.
-
-This RFC extension fits nicely into how Microsoft Active Directory manages users and groups through the usual management tools. This is because when you add a Windows user to a group (and if that group has a valid numeric GID) using the standard Windows management methods, LDAP lookups will pull the necessary supplemental group information from the usual Windows attribute and find the numeric GIDs automatically.
-
-## Next steps
-
+- [Understand name mapping using LDAP](lightweight-directory-access-protocol-name-mapping.md)
+- [Understand allow local NFS users with LDAP option](lightweight-directory-access-protocol-local-users.md)
+- [Understand LDAP schemas](lightweight-directory-access-protocol-schemas.md)
 * [Configure AD DS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Understand NFS group memberships and supplemental groups](network-file-system-group-memberships.md)
 * [Azure NetApp Files NFS FAQ](faq-nfs.md)

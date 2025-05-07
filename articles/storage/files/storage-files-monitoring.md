@@ -3,7 +3,7 @@ title: Monitor Azure Files using Azure Monitor
 description: Learn how to monitor Azure Files and analyze metrics and logs using Azure Monitor. 
 ms.date: 05/10/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage
@@ -94,7 +94,7 @@ Requests made by the Azure Files service itself, such as log creation or deletio
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure file shares. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure file shares. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - View SMB errors over the last week.
 

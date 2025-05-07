@@ -20,6 +20,11 @@ Learn how to access Apache Kafka on Confluent Cloud for a Spring Boot applicatio
 > * Build and deploy the Spring Boot app
 > * Connect Apache Kafka on Confluent Cloud to Azure Spring Apps using Service Connector
 
+[!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -75,7 +80,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 ### Create an Azure Spring Apps instance
 
-Create an instance of Azure Spring Apps by following [the Azure Spring Apps quickstart](../spring-apps/enterprise/quickstart.md) in Java. Make sure your Azure Spring Apps instance is created in [a region that has Service Connector support](concept-region-support.md).
+Create an instance of Azure Spring Apps by following [the Azure Spring Apps quickstart](../spring-apps/basic-standard/quickstart.md) in Java. Make sure your Azure Spring Apps instance is created in [a region that has Service Connector support](concept-region-support.md).
 
 ## Build and deploy the app
 

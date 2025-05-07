@@ -2,7 +2,7 @@
 title: "Tutorial: Authentication with Azure Functions - Azure SignalR Service"
 description: In this tutorial, you learn how to authenticate Azure SignalR Service clients for Azure Functions binding.
 author: Y-Sindo
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: tutorial
 ms.date: 03/18/2024
 ms.author: zityang
@@ -31,10 +31,12 @@ In this step-by-step tutorial, you build a chat room with authentication and pri
 
 ---
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, you can [create one for free](https://azure.microsoft.com/free/).
-- [Node.js](https://nodejs.org/en/download/) (version 20.x).
+- [Node.js](https://nodejs.org/en/download/package-manager/) (version 20.x).
 - [Azure Functions Core Tools](../azure-functions/functions-run-local.md?#install-the-azure-functions-core-tools) (version 4).
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
@@ -107,6 +109,8 @@ By default, the generated project includes a _host.json_ file that contains the 
 ### Configure application settings
 
 When you run and debug the Azure Functions runtime locally, the function app reads application settings from _local.settings.json_. Update this file with the connection strings of the Azure SignalR Service instance and the storage account that you created earlier.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
 Replace the content of _local.settings.json_ with the following code:
 
@@ -542,7 +546,7 @@ The `--publish-local-settings` option publishes your local settings from the _lo
 
 ### Enable App Service authentication
 
-Azure Functions supports authentication with Microsoft Entra ID, Facebook, Twitter, Microsoft account, and Google. You'll use Microsoft as the identity provider for this tutorial.
+Azure Functions supports authentication with Microsoft Entra ID, Facebook, X, Microsoft account, and Google. You'll use Microsoft as the identity provider for this tutorial.
 
 1. In the Azure portal, go to the resource page of your function app.
 1. Select **Settings** > **Authentication**.
@@ -560,7 +564,7 @@ For more information about the supported identity providers, see the following a
 
 - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
-- [Twitter](../app-service/configure-authentication-provider-twitter.md)
+- [X](../app-service/configure-authentication-provider-twitter.md)
 - [Microsoft account](../app-service/configure-authentication-provider-microsoft.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
 

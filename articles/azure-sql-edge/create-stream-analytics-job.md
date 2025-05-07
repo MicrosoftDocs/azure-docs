@@ -3,13 +3,15 @@ title: Create a T-SQL streaming job in Azure SQL Edge
 description: Learn about creating Stream Analytics jobs in Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Create a data streaming job in Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 This article explains how to create a T-SQL streaming job in Azure SQL Edge. You create the external stream input and output objects, and then you define the streaming job query as part of the streaming job creation.
@@ -244,7 +246,7 @@ The streaming job can have any one of the following statuses:
 > [!NOTE]  
 > Since the streaming job is executed asynchronously, the job might encounter errors at runtime. In order to troubleshoot a streaming job failure, use the `sys.sp_get_streaming_job` stored procedure, or review the Docker log from the Azure SQL Edge container, which can provide the error details from the streaming job.
 
-## Next steps
+## Related content
 
 - [View metadata associated with streaming jobs in Azure SQL Edge](streaming-catalog-views.md)
 - [Create an external stream](create-external-stream-transact-sql.md)

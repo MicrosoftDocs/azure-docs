@@ -2,7 +2,7 @@
 title: "Datalake2Sentinel connector for Microsoft Sentinel"
 description: "Learn how to install the connector Datalake2Sentinel to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 04/26/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -39,7 +39,7 @@ ThreatIntelligenceIndicator
 
 Installation and setup instructions
 
-Use the documentation from this Github repository to install and configure the Datalake to Microsoft Sentinel connector. 
+Use the documentation from this GitHub repository to install and configure the Datalake to Microsoft Sentinel connector. 
 
 https://github.com/cert-orangecyberdefense/datalake2sentinel
 

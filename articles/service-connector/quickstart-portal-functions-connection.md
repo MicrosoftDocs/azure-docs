@@ -5,7 +5,7 @@ author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
-ms.date: 10/25/2023
+ms.date: 10/22/2024
 ---
 # Quickstart: Create a service connection in a function app from the Azure portal
 

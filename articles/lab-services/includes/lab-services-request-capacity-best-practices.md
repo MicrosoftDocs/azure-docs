@@ -1,5 +1,5 @@
 ---
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.topic: include
 ms.date: 12/01/2022
 ---

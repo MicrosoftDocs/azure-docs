@@ -3,16 +3,14 @@ title: How to switch Azure DDoS Protection tiers using Azure portal
 description: In this guide, we walk through the steps to switch Azure DDoS Protection tiers using Azure portal.
 author: abell
 ms.author: abell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: how-to 
-ms.date: 06/21/2023
-ms.custom: template-how-to-pattern 
+ms.date: 03/17/2025
 ---
 
 # How to switch Azure DDoS Protection tiers using Azure portal
 
 In this guide, we walk through the steps to switch between Network Protection and IP Protection tiers using Azure portal. This guide follows the *Application running on load-balanced virtual machines* architecture. To learn more about the different architectures, see [Azure DDoS Protection reference architectures](./ddos-protection-reference-architectures.md#application-running-on-load-balanced-virtual-machines).
-
 
 ## Prerequisites
 
@@ -31,12 +29,7 @@ Services must be added to the DDoS protection plan to be protected by Network Pr
 1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
 1. In the **Settings** pane, select the **Protected Resources** tab, then select **Add**. 
 
-    :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-add-protected-resources.png" alt-text="Screenshot of adding protected resources to DDoS protection plan.":::
-
 1. In the **Add virtual network to DDoS plan** pane, select the **Subscription** and **Resource group** that contains the virtual network, then select the **Virtual network** that contains the protected resources. Select **Add**.
-
-    :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-add-virtual-network.png" alt-text="Screenshot of adding virtual network to DDoS protection plan.":::
-
 
 #### [IP Protection](#tab/ip-protection)
 
@@ -53,8 +46,6 @@ You can switch from Network Protection to IP Protection using the Azure portal. 
 
 1. In the **Configure DDoS protection** pane, under **Protection type**, select  **IP**, then select **Save**.
 
-    :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-protection-select-status.png" alt-text="Screenshot of selecting IP Protection in Public IP Properties.":::
-
 
 ### Disable Network Protection
 
@@ -64,9 +55,7 @@ The DDoS protection plan must be disassociated from the protected resources befo
 >To maintain DDoS Protection during migration, ensure IP protection is enabled on all public IPs protected by Network Protection.
 
 1. In the search box at the top of the portal, enter **DDoS protection plans**. Select your DDoS protection plan.
-1. In the **Settings** page, select the **Protected Resources** tab, then select the **Dissociate** icon next to the virtual network that contains the resources you are protecting. When prompted, select **Yes** to confirm.
-
-    :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-remove-protected-resources.png" alt-text="Screenshot of removing protected resources to DDoS protection plan.":::
+1. In the **Settings** page, select the **Protected Resources** tab, then select the **Dissociate** icon next to the virtual network that contains the resources you're protecting. When prompted, select **Yes** to confirm.
 
 --- 
 
@@ -79,8 +68,6 @@ To validate the status of your protected resource follow the steps below.
 1. Select your public IP Address from the list.
 1. In the **Overview** page, select the **Properties** tab in the middle of the page, then select **DDoS protection**. 
 1. View **Protection status** and verify your public IP is protected.
-
-    :::image type="content" source="./media/ddos-switch-ddos-protection/ddos-protection-view-status.png" alt-text="Screenshot showing view of Public IP Properties." lightbox="./media/ddos-switch-ddos-protection/ddos-protection-view-status.png":::
 
 ## Next steps
 

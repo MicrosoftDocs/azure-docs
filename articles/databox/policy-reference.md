@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure Data Box. 
 ms.date: 02/06/2024
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.service: databox
+ms.service: azure-databox
 author: stevenmatthew
 ms.author: shaas
 ---

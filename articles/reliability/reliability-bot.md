@@ -5,7 +5,7 @@ author: hibrenda
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: bot-service
+ms.service: azure-ai-bot-service
 ms.date: 01/06/2022 
 ---
 
@@ -45,4 +45,4 @@ Azure Bot Service runs in active-active mode for both global and regional servic
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/availability-zones/overview)
+> [Reliability in Azure](/azure/reliability/overview)

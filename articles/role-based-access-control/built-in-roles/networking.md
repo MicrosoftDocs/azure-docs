@@ -2,12 +2,12 @@
 title: Azure built-in roles for Networking - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Networking category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
@@ -597,7 +597,7 @@ Lets you manage DNS zones and record sets in Azure DNS, but does not let you con
 
 ## Network Contributor
 
-Lets you manage networks, but not access to them.
+Lets you manage networks, but not access to them. This role does not grant you permission to deploy or manage Virtual Machines.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

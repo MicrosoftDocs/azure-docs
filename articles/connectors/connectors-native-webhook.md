@@ -10,7 +10,7 @@ ms.date: 02/09/2024
 
 # Subscribe and wait for events to run workflows using HTTP webhooks in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Rather than use a trigger that regularly checks or *polls* a service endpoint or action that calls that endpoint, you can use an **HTTP Webhook** trigger or action that subscribes to a service endpoint, waits for specific events, and runs specific actions in your workflow.
 
@@ -82,7 +82,7 @@ This built-in trigger calls the subscribe endpoint on the target service and reg
 
    > [!NOTE]
    >
-   > For the **Unsubsubscribe - Method** and **Unsubscribe - URI** properties, add them 
+   > For the **Unsubscribe - Method** and **Unsubscribe - URI** properties, add them 
    > to your action by opening the **Advanced parameters** list.
 
    For example, the following trigger includes the methods, URIs, and message bodies to use when performing the subscribe and unsubscribe operations.
@@ -159,7 +159,7 @@ This example uses the **HTTP Webhook** trigger as the first step.
 
    > [!NOTE]
    >
-   > For the **Unsubsubscribe - Method** and **Unsubscribe - URI** properties, add them 
+   > For the **Unsubscribe - Method** and **Unsubscribe - URI** properties, add them 
    > to your action by opening the **Advanced parameters** list.
 
    For example, the following action includes the methods, URIs, and message bodies to use when performing the subscribe and unsubscribe operations.

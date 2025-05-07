@@ -1,7 +1,6 @@
 ---
 author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: include
 ms.date: 02/27/2024
 ms.author: greglin

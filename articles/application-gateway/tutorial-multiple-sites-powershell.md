@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that hosts multiple web sites using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: greglin

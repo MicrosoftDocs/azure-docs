@@ -125,6 +125,12 @@ An Event Grid notification `Microsoft.Communication.RecordingFileStatusUpdated` 
                    "sampleRate": <number>,       // sample rate for audio recording
                    "bitRate": <number>,          // bitrate for audio recording
                    "channels": <number>          // number of audio channels in output recording
+                                     },
+               "videoConfiguration": {
+                   "longerSideLength": <number>,        // longerSideLength for video recording
+                   "shorterSideLength": <number>,       // shorterSideLength for video recording
+                   "frameRate": <number>,               // frameRate for video recording
+                   "bitRate": <number>                  // bitrate for video recording
                                      }
                     },
   "participants": [

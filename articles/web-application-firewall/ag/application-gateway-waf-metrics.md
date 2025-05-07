@@ -1,13 +1,12 @@
 ---
 title: Monitoring metrics for Azure Application Gateway Web Application Firewall metrics
 description: This article describes the Azure Application Gateway WAF monitoring metrics.
-services: appgateway
 author: tobystic
-manager: gunjan.jain 
-ms.service: web-application-firewall
+ms.author: olotolor
+ms.manager: gunjan.jain 
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 07/14/2022
-ms.author: olotolor
 ---
 
 # Azure Web Application Firewall Monitoring and Logging
@@ -16,13 +15,11 @@ Azure Web Application Firewall (WAF) monitoring and logging are provided through
 
 ## Azure Monitor
 
-WAF with Application Gateway log is integrated with [Azure Monitor](../../azure-monitor/overview.md). Azure Monitor allows you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
+WAF with Application Gateway log is integrated with [Azure Monitor](/azure/azure-monitor/overview). Azure Monitor allows you to track diagnostic information including WAF alerts and logs. You can configure WAF monitoring within the Application Gateway resource in the portal under the **Diagnostics** tab or through the Azure Monitor service directly.
 
 ## Logs and diagnostics
 
 WAF with Application Gateway provides detailed reporting on each threat it detects. Logging is integrated with Azure Diagnostics logs and alerts are recorded in a json format. These logs can be integrated with [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
-
-![WAFDiag](../media/waf-appgateway-metrics/waf-appgateway-diagnostic.png)
 
 For more information about diagnostics logs, see [Application Gateway WAF resource logs](../ag/web-application-firewall-logs.md).  If logging is enabled and a WAF rule is triggered, any matching patterns are logged in plain text to help you analyze and debug the WAF policy behavior. You can use exclusions to fine tune rules and exclude any data that you want to be excluded from the logs. For more information, see [Web application firewall exclusion lists in Azure Application Gateway](../ag/application-gateway-waf-configuration.md).
 
@@ -38,8 +35,11 @@ New WAF metrics are only available for Core Rule Set 3.2 or greater, or with bot
 |**WAF Managed Rule Matches**|Count of total managed rule matches| Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Group, Rule ID, Rule Set Name|
 |**WAF Custom Rule Matches**|Count of custom rule matches| Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Name|
 |**WAF Bot Protection Matches**<sup>1</sup>|Count of total bot protection rule matches that have been blocked or logged from malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed.| Action, Country/Region, Bot Type, Mode, Policy Name, Policy Scope|
+|**WAF JS Challenge Request Count**|Count the number of requests that match JS Challenge WAF rules.|Action, Policy Name, Policy Scope, Rule<sup>2</sup>|
 
 <sup>1</sup> Only Bot Manager Rule Set 0.1 will be displayed under “WAF Bot Protection Matches”. Requests matching Bot Manager Rule Set 1.0 will increase “WAF Total Requests” metrics, not “WAF Bot Protection Matches”.
+
+<sup>2</sup> Rule name for custom rules and Rule ID for the Bot Manager Rule Set.
 
 For metrics supported by Application Gateway V2 SKU, see [Application Gateway v2 metrics](../../application-gateway/application-gateway-metrics.md#metrics-supported-by-application-gateway-v2-sku)
 
@@ -76,7 +76,7 @@ For metrics supported by Application Gateway V1 SKU, see [Application Gateway v1
 
 1. Select **New alert rule** for metrics listed in Metrics section.
 
-Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../../azure-monitor/alerts/alerts-overview.md).
+Alert will be charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
 
 ## Next steps
 

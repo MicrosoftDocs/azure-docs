@@ -4,8 +4,7 @@ description: Learn about the supported versions for APIs, SDKs, and client libra
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 10/21/2020
 ms.author: alkohli
@@ -33,7 +32,7 @@ The following versions of Azure Storage service APIs are supported with Azure St
 
 ### Azure Stack Edge 2.1.1377.2170 onwards
 
-[!INCLUDE [data-box-rest-supported-api-versions](~/reusable-content/ce-skilling/azure/includes/data-box-rest-supported-api-versions.md)]
+[!INCLUDE [data-box-rest-supported-api-versions](../../includes/data-box-rest-supported-api-versions.md)]
 
 ## Supported Azure client libraries
 
@@ -43,7 +42,7 @@ For Azure Stack Edge Blob storage, there are specific client libraries and speci
 
 The following Azure client library versions are supported for Azure Stack Edge Blob storage.
 
-[!INCLUDE [data-box-rest-supported-azure-client-libraries](~/reusable-content/ce-skilling/azure/includes/data-box-rest-supported-azure-client-libraries.md)]
+[!INCLUDE [data-box-rest-supported-azure-client-libraries](../../includes/data-box-rest-supported-azure-client-libraries.md)]
 
 ### Install the PHP client via Composer - Current
 

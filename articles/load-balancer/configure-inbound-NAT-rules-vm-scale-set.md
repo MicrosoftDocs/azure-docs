@@ -3,7 +3,7 @@ title: Configure Inbound NAT Rules for Virtual Machine Scale Sets
 description: Learn how to configure, update, and delete inbound NAT Rules for Virtual Machine Scale Set instances. Azure offers two options for Inbound NAT rules.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 02/14/2024
 ms.custom: template-how-to, devx-track-azurecli

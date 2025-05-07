@@ -2,8 +2,8 @@
 title: Azure Virtual Desktop service architecture and resilience
 description: Learn about the service architecture of Azure Virtual Desktop and how it has been designed to be resilient.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/19/2023
 ---
 
@@ -37,7 +37,7 @@ This high-level diagram shows the components and responsibilities:
 When a user wants to access their desktops and apps in Azure Virtual Desktop, multiple components are involved in making that connection successful. There are two separate sequences:
 
 1. Feed discovery. The feed is the list of desktops and apps that are available to the user.
-1. A connection using the Remote Desktop Protocol to a session host.
+1. A connection over the Remote Desktop Protocol to a session host.
 
 ### Feed discovery
 

@@ -4,8 +4,7 @@ description: Describes how to configure MetalLB via Border Gateway Protocol for 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 09/24/2021
 ms.author: alkohli

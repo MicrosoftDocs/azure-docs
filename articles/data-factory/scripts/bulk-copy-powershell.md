@@ -3,7 +3,6 @@ title: Copy data in bulk using PowerShell
 description: This PowerShell script shows how to use Azure Data Factory to copy data from a source data store to a destination data store in bulk.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: article
 ms.custom: devx-track-azurepowershell
@@ -16,7 +15,7 @@ This sample PowerShell script copies data from multiple tables in Azure SQL Data
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 See [tutorial: bulk copy](../tutorial-bulk-copy.md#prerequisites) for the prerequisites for running this sample.
 

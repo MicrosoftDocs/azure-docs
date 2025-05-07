@@ -2,11 +2,11 @@
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Resource Manager template'
 description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager.
 services: firewall-manager
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.date: 08/28/2020
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 

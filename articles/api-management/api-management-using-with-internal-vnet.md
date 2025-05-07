@@ -3,7 +3,7 @@ title: Deploy Azure API Management instance to internal VNet
 description: Learn how to deploy (inject) your Azure API instance to a virtual network in internal mode and access API backends through it.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: danlep
@@ -40,6 +40,8 @@ For configurations specific to the *external* mode, where the API Management end
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
 [!INCLUDE [api-management-virtual-network-prerequisites](../../includes/api-management-virtual-network-prerequisites.md)]
 
 ## Enable VNet connection
@@ -58,8 +60,6 @@ For configurations specific to the *external* mode, where the API Management end
    :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-using-with-internal-vnet.png" alt-text="Set up internal VNet in Azure portal":::
 1. Continue configuring VNet settings for the remaining locations of your API Management instance.
 1. In the top navigation bar, select **Save**.
-
-    It can take 15 to 45 minutes to update the API Management instance. The Developer tier has downtime during the process. The Basic and higher SKUs don't have downtime during the process.
 
 After successful deployment, you should see your API Management service's **private** virtual IP address and **public** virtual IP address on the **Overview** blade. For more information about the IP addresses, see [Routing](#routing) in this article.
 
@@ -164,7 +164,7 @@ This section has moved. See [Virtual network configuration reference](virtual-ne
 [!INCLUDE [api-management-virtual-network-troubleshooting](../../includes/api-management-virtual-network-troubleshooting.md)]
 
 
-## Next steps
+## Related content
 
 Learn more about:
 

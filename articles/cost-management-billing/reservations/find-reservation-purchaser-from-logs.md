@@ -1,13 +1,13 @@
 ---
 title: Find a reservation purchaser from Azure Monitor logs
 description: This article helps find a reservation purchaser with information from Azure Monitor logs.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: troubleshooting
-ms.date: 11/17/2023
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Find a reservation purchaser from Azure logs

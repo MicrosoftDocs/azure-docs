@@ -1,12 +1,13 @@
 ---
+ROBOTS: NOINDEX
 title: Microsoft POP locations by abbreviation for Azure CDN
 description: This article lists Microsoft POP locations, sorted by POP abbreviation, for Azure CDN.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
-ms.topic: article
-ms.date: 03/20/2024
-ms.author: duau
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.custom: references_regions
 ---
 
@@ -15,13 +16,12 @@ ms.custom: references_regions
 > [!div class="op_single_selector"]
 > - [POP locations by region](cdn-pop-locations.md)
 > - [Microsoft POP locations by abbreviation](microsoft-pop-abbreviations.md)
-> - [Edgio POP locations by abbreviation](cdn-pop-abbreviations.md)
 
 This article lists Microsoft POP locations, sorted by POP abbreviation, for **Azure CDN**.
 
 ## Microsoft POP locations
 
-[!INCLUDE [front-door-edge-locations-by-abbreviation](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations-by-abbreviation.md)]
+[!INCLUDE [front-door-edge-locations-by-abbreviation](../../includes/front-door-edge-locations-by-abbreviation.md)]
 
 ## Next steps
 

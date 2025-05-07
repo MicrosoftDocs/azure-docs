@@ -3,7 +3,7 @@ title: Azure Private 5G Core 2303 release notes
 description: Discover what's new in the Azure Private 5G Core 2303 release
 author: liumichelle
 ms.author: limichel
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 03/29/2023
 ---

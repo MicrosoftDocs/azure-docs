@@ -1,9 +1,9 @@
 ---
 title: Creating a private endpoint for Azure Data Manager for Agriculture
 description: Learn how to use private links in Azure Data Manager for Agriculture
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 03/22/2023
 ms.custom: template-how-to

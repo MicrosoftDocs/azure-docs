@@ -1,14 +1,13 @@
 ---
 title: Review your Azure Enterprise Agreement bill
 description: Learn how to read and understand your usage and bill for Azure Enterprise Agreements.
-author: bandersmsft
-ms.reviewer: prsaini
+author: racheg
+ms.reviewer: racheg
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 03/08/2024
-ms.author: banders
-
+ms.date: 04/02/2025
+ms.author: racheg
 ---
 # Understand your Azure Enterprise Agreement bill
 
@@ -53,6 +52,8 @@ You receive an Azure invoice when any of the following events occur during your 
 - **Marketplace charges**: Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
 Your invoice shows Azure usage charges with costs associated to them first, followed by any marketplace charges. If you have a credit balance, it gets applied to Azure usage and your invoice shows Azure usage and marketplace usage without any cost, last in the list.
+
+If an invoice includes over 1,000 line items, it gets split into multiple invoices.
 
 Compare your combined total amount shown in the Azure portal in **Usage & Charges** with your Azure invoice. The amounts in the **Total Charges** don't include tax.
 

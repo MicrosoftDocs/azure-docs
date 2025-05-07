@@ -2,9 +2,8 @@
 title: Deliver events using private link service
 description: This article describes how to work around push delivery's limitation to deliver events using private link service.
 ms.topic: how-to
-ms.custom:
-  - ignite-2023
-ms.date: 11/15/2023
+ms.date: 12/16/2024
+# Customer intent: I would like to know if delivering events using private link service is supported in the Push model. 
 ---
 
 # Deliver events using private link service
@@ -50,5 +49,5 @@ If there's no firewall or virtual network rules configured for the destination S
 
 If a firewall or virtual network rule is configured for the destination Storage account, Event Hubs namespace, or Service Bus namespace, you can use only the system-assigned managed identity if **Allow Azure services on the trusted service list to access the storage account** is also enabled on the destinations. You can't use user-assigned managed identity whether this option is enabled or not. 
 
-## Next steps
+## Related content
 For more information about delivering events using a managed identity, see [Event delivery using a managed identity](managed-service-identity.md).

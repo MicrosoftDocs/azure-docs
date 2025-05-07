@@ -3,7 +3,7 @@ title: Rotate customer-managed keys for Azure confidential virtual machines
 description: Learn how to rotate customer-managed keys for confidential virtual machines (confidential VMs) in Azure.
 author: prasadmsft
 ms.author: reprasa
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: how-to
 ms.date: 07/06/2022
 ms.custom: template-how-to

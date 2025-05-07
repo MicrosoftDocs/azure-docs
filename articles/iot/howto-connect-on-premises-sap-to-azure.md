@@ -1,149 +1,186 @@
 ---
-title: "Connecting on-premises SAP systems to Azure"
-description: "Step by step guide about that shows how to connect an on-premises SAP Enterprise Resource Planning system to Azure."
+title: "Connect an on-premises SAP system to Azure"
+description: "Step by step guide that shows how to connect an on-premises SAP Enterprise Resource Planning system to Azure."
 author: barnstee
 ms.author: erichb
-ms.service: iot
+ms.service: azure-iot
 ms.topic: how-to #Don't change.
-ms.date: 4/14/2024
+ms.date: 12/10/2024
 
-#customer intent: As an ower of on-prem SAP systems, I want connect them to Azure so that I can add data from these SAP systems to my cloud analytics.
+#customer intent: As an owner of on-premises SAP systems, I want connect them to Azure so that I can add data from these SAP systems to my cloud analytics.
 
 ---
 
-# Connect on-premises SAP systems to Azure 
+# Connect on-premises SAP systems to Azure
 
 Many manufacturers use on-premises SAP Enterprise Resource Planning (ERP) systems. Often, manufacturers connect SAP systems to Industrial IoT solutions, and use the connected system to retrieve data for manufacturing processes, customer orders, and inventory status. This article describes how to connect these SAP-based ERP systems.
 
+This solution uses [IEC 62541. Open Platform Communications (OPC) Unified Architecture (UA)](https://opcfoundation.org) for all operational technology data.
 
-## Prerequisites
-
-The following prerequisites are required to complete the SAP connection as described in this article.
-
-- An Azure Industrial IoT solution deployed in an Azure subscription as described in [Azure Industrial IoT reference architecture](tutorial-iot-industrial-solution-architecture.md)
-
- 
-## IEC 62541 Open Platform Communications Unified Architecture (OPC UA)
-
-This solution uses IEC 62541 Open Platform Communications (OPC) Unified Architecture (UA) for all Operational Technology (OT) data. This standard is described [here](https://opcfoundation.org). 
-
-
-## Reference Solution Architecture
+The following diagram shows an overview of the solution:
 
 :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/architecture-iiot-sap.png" alt-text="Diagram of a simple IIoT architecture that shows all components." lightbox="media/howto-connect-on-premises-sap-to-azure/architecture-iiot-sap.png" border="false" :::
 
+To learn more about the components in the solution, see the [Azure Industrial IoT reference architecture](tutorial-iot-industrial-solution-architecture.md) tutorial.
 
-## Components
+## Prerequisites
 
-For a list of components, refer to [Azure Industrial IoT reference architecture](tutorial-iot-industrial-solution-architecture.md).
+To complete the SAP connection as described in this article, you need an Azure Industrial IoT solution deployed in an Azure subscription as described in [Azure Industrial IoT reference architecture](tutorial-iot-industrial-solution-architecture.md)
 
+## Connect the reference solution to on-premises SAP systems
 
-## Connect the reference solution to on-premises SAP Systems
-
-The Azure services handling connectivity to your on-premises SAP systems is called Azure Logic Apps. Azure Logic Apps is a no-code Azure service to orchestrate workflows that can trigger actions.
+The Azure Logic Apps service handles connectivity to your on-premises SAP systems. Azure Logic Apps is a no-code Azure service that orchestrates workflows that can trigger actions.
 
 > [!NOTE]
-> If you want to try out SAP connectivity before connecting your real SAP system, you can deploy an `SAP S/4 HANA Fully-Activated Appliance` to Azure from [here](https://cal.sap.com/catalog#/applianceTemplates) and use that instead.
+> If you want to try out SAP connectivity before connecting your real SAP system, you can deploy and use an [SAP S/4 HANA Fully-Activated Appliance](https://cal.sap.com/catalog#/applianceTemplates) in your Azure subscription.
 
-### Configure Azure Logic Apps to receive data from on-premises SAP systems
+### Configure Azure Logic Apps
 
-The Azure Logic Apps workflow is from your on-premises SAP system to Azure Logic Apps. It also stores the data sent from SAP in your Azure Storage Account. To create a new Azure Logic Apps workflow, follow these steps:
+The Azure Logic Apps workflow moves data from your on-premises SAP system to Azure Logic Apps. The workflow also stores the data the SAP system sends to your Azure Storage account. To create a new Azure Logic Apps workflow, follow these steps:
 
-1. Deploy an instance of Azure Logic Apps in the same region you picked during deployment of this reference solution via the Azure portal. Select the consumption-based version.
-1. From the Azure Logic App Designer, select the trigger template `When a HTTP request is received`.
-1. Select `+ New step`, select `Azure File Storage`, and select `Create file`. Give the connection a name and select the storage account name of the Azure Storage Account. For `Folder path`, enter `sap`, for `File name` enter `IDoc.xml` and for `File content` select `Body` from the dynamic content. In the Azure portal, navigate to your storage account, select `Storage browser`, select `File shares` > `Add file share`. Enter `sap` for the name and select `Create`.
-1. Hover over the arrow between your trigger and your create file action, select the `+` button, then select `Add a parallel branch`. Select `Azure Data Explorer` and add the action `Run KQL query` from the list of Azure Data Explorer (ADX) actions available. Specify the ADX instance (Cluster URL) name and database name of your Azure Data Explorer service instance. In the query field, enter `.create table SAP (name:string, label:string)`.
+1. In the Azure portal, create a new Azure Storage account. Make a note of the name of your account, you use it later when you configure the workflow.
+
+1. In your storage account, select **Storage browser**, select **File shares > Add file share**. Enter *sap* as the name and select **Create**.
+
+1. Deploy an instance of Azure Logic Apps in the same region as your reference solution deployment. Select the consumption-based hosting option.
+
+1. Navigate to the **Logic app designer**, select **Add trigger**, and then select the **When a HTTP request is received** trigger template.
+
+1. To add a new step, select **+ > Add an action**, select **Azure File Storage**, and then select **Create file**. Enter a name for the connection, the name of the storage account you created previously, and the storage account key.
+
+1. On the next page, for **Folder path** enter *sap*, for **File name** enter *IDoc.xml*, and for **File content** select **Body** from the dynamic content.
+
 1. Save your workflow.
-1. Select `Run Trigger` and wait for the run to complete. Verify that there are green check marks on all three components of your workflow. If you see any red exclamation marks, select the component for more information regarding the error.
 
-Copy the `HTTP GET URL` from your HTTP trigger in your workflow. You'll need it when configuring SAP in the next step.
+1. Select **Run** and wait for the run to complete. Verify that there are green check marks on both components of your workflow. If you see any red exclamation marks, select the component for more information about the error.
 
-### Configure an on-premises SAP system to send data to Azure Logic Apps
+Copy the **HTTP URL** from the HTTP trigger in your workflow. You need it when you configure your SAP system in the next step.
 
-1.	Sign in to the SAP Windows Virtual Machine
-2.	Once at the Virtual Machine desktop, select on `SAP Logon` 
-3.	Select `Log On` in the top left corner of the app
+### Create a table in Azure Data Explorer
+
+To store the data from your SAP system, create a table in your Azure Data Explorer database. To create the table, follow these steps:
+
+1. In the Azure portal, navigate to your Azure Data Explorer database. You can use the **ontologies** database that's part of the Azure Industrial IoT reference solution.
+
+1. Run the following Azure Data Explorer query:
+
+    ```kusto
+    .create table SAP (name:string, label:string)
+    ```
+
+    This query creates a table named **SAP** with two columns: **name** and **label**.
+
+### Configure an on-premises SAP system
+
+To configure an on-premises SAP system to send data to your Logic Apps workflow, follow these steps:
+
+1. Sign in to the SAP Windows virtual machine.
+
+1. On the virtual machine desktop, select **SAP Logon**.
+
+1. Select **Log On** and sign in with your username and password:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/log-on.png" alt-text="Screenshot that shows an SAP sign-in form." lightbox="media/howto-connect-on-premises-sap-to-azure/log-on.png" border="false" :::
 
-4.	Sign in with the `BPINST` user name, and `Welcome1` password
-5.	In the top right corner, search for `SM59`. This should bring up the `Configuration of RFC Connections` screen. 
+1. In the search box, enter **SM59**. This displays the **Configuration of RFC Connections** screen:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/sm95-search.png" alt-text="Screenshot that shows configuration of RFC connections and search for SM95." lightbox="media/howto-connect-on-premises-sap-to-azure/sm95-search.png" border="false" :::
 
-6.	Select on `Edit` and `Create` at the top of the app. 
-7.	Enter `LOGICAPP` in the `Destination` field
-8.	From the `Connection Type` dropdown, select `HTTP Connection to external server`
-9.	Select The green check at the bottom of the window. 
+1. Select **Edit > Create** in the application menu.
+
+1. Enter *LOGICAPP* in the **Destination** field.
+
+1. In the **Connection Type** dropdown, select **HTTP Connection to external server**. To save your changes, select the green check mark:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/connection-logic-app.png" alt-text="Screenshot that shows the details of a connection logic app." lightbox="media/howto-connect-on-premises-sap-to-azure/connection-logic-app.png" border="false" :::
 
-10.	In the `Description 1` box, put `LOGICAPP`
-11.	Select the `Technical Settings` tab and fill in the `Host` field with the `HTTP GET URL` from the logic app you copied (for example prod-51.northeurope.logic.azure.com). In `Port` put `443`. And in `Path Prefix` enter the rest of the `HTTP GET URL` starting with `/workflows/...`
+1. Enter *LOGICAPP* in **Description 1**.
+
+1. Select the **Technical Settings** tab and enter the first part of **HTTP GET URL** from your Logic app workflow in the **Host** field. For example: `https://example-18.westeurope.logic.azure.com`. Enter *41* as the **Port**. In **Path Prefix** enter the rest of the **HTTP GET URL** starting with */workflows/...*:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" alt-text="Screenshot that shows how to add a get url." lightbox="media/howto-connect-on-premises-sap-to-azure/add-get-url.png" border="false" :::
 
-12.	Select the `Login & Security` tab. 
-13.	Scroll down to `Security Options`  and set `SSL` to `Active`
-14.	Select `Save`
-15.	In the main app from step 5, search for `WE21`. This brings up the `Ports in IDoc processing`.
-16.	Select the `XML HTTP` folder and select `Create`. 
-17.	In the `Port` field, input `LOGICAPP`
-18.	In the `RFC destination`, select `LOGICAPP`. 
-19.	Select `Green Check` to `Save`
+1. Select the **Login & Security** tab.
+
+1. Scroll down to **Security Options** and set **SSL** to **Active**.
+
+1. Select **Save**.
+
+1. In the search box, enter **WE21**. The **Ports in IDoc processing** screen displays.
+
+1. Select the **XML HTTP** folder and select **Create**.
+
+1. In the **Port** field, enter *LOGICAPP*.
+
+1. In the **RFC destination**, select **LOGICAPP**.
+
+1. To save your changes, select the green check mark:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/port-select-logic-app.png" alt-text="Screenshot that shows port selection for a Logic App." lightbox="media/howto-connect-on-premises-sap-to-azure/port-select-logic-app.png" border="false" :::
 
-20. Create a partner profile for your Azure Logic App in your SAP system by entering `WE20` from the SAP system's search box, which will bring up the `Partner profiles` screen. 
-21. Expand the `Partner Profiles` folder and select the `Partner Type LS` (Logical System) folder. 
-21. Select on the `S4HCLNT100` partner profile. 
-23. Select on the `Create Outbound Parameter` button below the `Outbound` table. 
+1. In the search box, enter **WE20**. The **Partner profiles** screen displays.
+
+1. Expand the **Partner Profiles** folder and select the **Partner Type LS** folder.
+
+1. In the **Partner No.** field, select the **S4HCLNT100** partner profile.
+
+1. Select the **Create Outbound Parameter** button:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/outbound.png" alt-text="Screenshot that shows creation of an outbound parameter." lightbox="media/howto-connect-on-premises-sap-to-azure/outbound.png" border="false":::
 
-24. In the `Partner Profiles: Outbound Parameters` dialog, enter `INTERNAL_ORDER` for `Message Type`. In the `Outbound Options` tab, enter `LOGICAPP` for `Receiver port`. Select the `Pass IDoc Immediately` radio button. For `Basic type` enter `INTERNAL_ORDER01`. Select the `Save` button.
+1. In the **Partner Profiles: Outbound Parameters** dialog, enter *INTERNAL_ORDER* as the **Message Type**. In the **Outbound Options** tab, enter **LOGICAPP** in the **Receiver port** field. Select the **Pass IDoc Immediately** radio button. For the **Basic type**, enter *INTERNAL_ORDER01*. Select the **Save** button:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/outbound-parameters.png" alt-text="Screenshot that shows outbound parameters." lightbox="media/howto-connect-on-premises-sap-to-azure/outbound-parameters.png" border="false" :::
 
-### Testing your SAP to Azure Logic App Workflow
+### Test your SAP to Azure Logic App Workflow
 
-To try out your SAP to Azure Logic App workflow, follow these steps:
+To test your SAP to Azure Logic App workflow, follow these steps:
 
-1.	In the main app, search for `WE19`. This should bring up the `Test Tool for IDoc Processing` screen.  
-2.	Select `Using message type` and enter `INTERNAL_ORDER` 
-3.	Select `Create` at the top left corner of the screen. 
-4.	Select the `EDICC` field. 
-5.	A `Edit Control Record Fields`  screen should open up. 
-6.	In the `Receiver` section: `PORT` enter `LOGICAPP`, `Partner No.` enter `S4HCLNT100`, `Part. Type` enter `LS`
-7.	In the `Sender` section: `PORT` enter `SAPS4H`, `Partner No.` enter `S4HCLNT100`, `Part. Type` enter `LS`
-8.	Select the green check at the bottom of the window. 
+1. In the search box, enter **WE19**. This displays the **Test Tool for IDoc Processing** screen.
+
+1. Select **Using message type** and enter *INTERNAL_ORDER*.
+
+1. Select **Create**.
+
+1. Select the **EDICC** field to open the **Edit Control Record Fields** screen.
+
+1. In the **Receiver** section, enter *LOGICAPP* as the  **PORT**, enter *S4HCLNT100* as the **Partner No.** , and enter *LS* as the **Part. Type**.
+
+1. In the **Sender** section, enter *SAPS4H* as the  **PORT**, enter *S4HCLNT100* as the **Partner No.** , and enter *LS* as the **Part. Type**.
+
+1. To save your changes, select the green check mark:
 
     :::image type="content" source="media/howto-connect-on-premises-sap-to-azure/test-tool-idoc-processing.png" alt-text="Screenshot that shows the test tool for IDoc processing." lightbox="media/howto-connect-on-premises-sap-to-azure/test-tool-idoc-processing.png" border="false" :::
 
-9.	Select `Standard Outbound Processing` tab at the top of the screen. 
-10.	In the `Outbound Processing of IDoc` dialog, select the green check button to start the IDoc message processing.
-11. Open the Storage browser of your Azure Storage Account, select Files shares and check that a new `IDoc.xml` file was created in the `sap` folder.
+1. Select **Standard Outbound Processing** tab at the top of the screen.
+
+1. In the **Outbound Processing of IDoc** dialog, select the green check button to start the IDoc message processing.
+
+1. Open the storage browser in your Azure Storage account, select **File shares**, and check that there's a new **IDoc.xml** file in the **sap** folder.
 
     > [!NOTE]
-    > To check for IDoc message processing errors, entering `WE09` from the SAP system's search box, select a time range and select the `execute` button. This brings up the `IDoc Search for Business Content` screen and you can select each IDoc for processing errors in the table displayed.
+    > To check for IDoc message processing errors, enter **WE09** in the SAP application search box, select a time range, and then select the **execute** button. The **IDoc Search for Business Content** screen opens and you can select each IDoc for processing errors in the table displayed.
 
-### Microsoft on-premises Data Gateway
+### Microsoft on-premises data gateway
 
-Microsoft provides an on-premises data gateway for sending data **to** on-premises SAP systems from Azure Logic Apps.
+To send data to on-premises SAP systems from Azure Logic Apps, Microsoft provides an on-premises data gateway.
 
 > [!NOTE]
-> To receive data **from** on-premises SAP systems to Azure Logic Apps in the cloud, the SAP connector and on-premises data gateway are **not** required.
+> The SAP connector and on-premises data gateway aren't required to receive data from on-premises SAP systems into Azure Logic Apps in the cloud.
 
-To install the on-premises data gateway, complete the following steps:
+To install the on-premises data gateway:
 
-1. Download and install the on-premises data gateway from [here](https://aka.ms/on-premises-data-gateway-installer). Pay special attention to the [prerequisites](/azure/logic-apps/logic-apps-gateway-install#prerequisites)! For example, if your Azure account has access to more than one Azure subscription, you need to use a different Azure account to install the gateway and to create the accompanying on-premises data gateway Azure resource. If so, create a new user in your Azure Active Directory.
-1. If not already installed, download and install the Visual Studio 2010 (Visual C++ 10.0) redistributable files from [here](https://download.microsoft.com/download/1/6/5/165255E7-1014-4D0A-B094-B6A430A6BFFC/vcredist_x64.exe).
-1. Download and install the SAP Connector for Microsoft .NET 3.0 for Windows x64 from [here](https://support.sap.com/en/product/connectors/msnet.html?anchorId=section_512604546). SAP download access for the SAP portal is required. Contact SAP support if you don't have this.
-1. Copy the four libraries libicudecnumber.dll, rscp4n.dll, sapnco.dll, and sapnco_utils.dll from the SAP Connector's installation location (by default this is `C:\Program Files\SAP\SAP_DotNetConnector3_Net40_x64`) to the installation location of the data gateway (by default this is `C:\Program Files\On-premises data gateway`).
-1. Restart the data gateway through the `On-premises data gateway` configuration tool that came with the on-premises data gateway installer package installed earlier.
-1. Create the on-premises data gateway Azure resource in the same Azure region as selected during the data gateway installation in the previous step and select the name of your data gateway under `Installation Name`.
+1. Follow the steps [Install on-premises data gateway for Azure Logic Apps](/azure/logic-apps/logic-apps-gateway-install).
 
-    You can access more details about the configuration steps [here](/azure/logic-apps/logic-apps-using-sap-connector?tabs=consumption).
+1. Follow the steps in [SAP Connector for Microsoft .NET](https://support.sap.com/en/product/connectors/msnet.html) to install the SAP Connector for Microsoft .NET 3.0 for Windows x64. SAP download access for the SAP portal is required. Contact SAP support if you don't have access.
+
+1. Copy the four libraries *libicudecnumber.dll*, *rscp4n.dll*, *sapnco.dll*, and *sapnco_utils.dll* from the SAP Connector installation location (typically **C:\Program Files\SAP\SAP_DotNetConnector3_Net40_x64**) to the installation location of the data gateway (typically **C:\Program Files\On-premises data gateway**).
+
+1. Restart the data gateway through the **On-premises data gateway** configuration tool included with the on-premises data gateway installer package you installed previously.
+
+1. Create the on-premises data gateway Azure resource in the same Azure region as selected during the data gateway installation in the previous step. Select the name of your data gateway under **Installation Name**.
+
+    To learn more, see [Connect to SAP from workflows in Azure Logic Apps](/azure/logic-apps/logic-apps-using-sap-connector).
 
     > [!NOTE]
-    > If you run into errors with the Data Gateway or the SAP Connector, you can enable debug tracing by following [these steps](/archive/blogs/david_burgs_blog/enable-sap-nco-library-loggingtracing-for-azure-on-premises-data-gateway-and-the-sap-connector).
+    > If you encounter errors with the data gateway or the SAP connector, [enable debug tracing](/archive/blogs/david_burgs_blog/enable-sap-nco-library-loggingtracing-for-azure-on-premises-data-gateway-and-the-sap-connector).

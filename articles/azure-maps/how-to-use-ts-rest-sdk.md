@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom: devx-track-js
+ms.subservice: web-sdk
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # Use Azure Maps TypeScript REST SDK
@@ -44,11 +44,11 @@ Azure Maps provides a collection of npm modules for the [Azure TypeScript REST S
     import { InteractiveBrowserCredential } from "@azure/identity";
 
     // Enter your Azure AD client and tenant ID.
-    const clientId = "<Your Azure Active Directory Client Id>";
-    const tenantId = "<Your Azure Active Directory Tenant Id>";
+    const clientId = "<Your Azure Active Directory Client ID>";
+    const tenantId = "<Your Azure Active Directory Tenant ID>";
 
     // Enter your Azure Maps client ID.
-    const mapsClientId = "<Your Azure Maps Client Id>";
+    const mapsClientId = "<Your Azure Maps Client ID>";
 
     // Use InteractiveBrowserCredential with Azure AD client and tenant ID.
     const credential = new InteractiveBrowserCredential({

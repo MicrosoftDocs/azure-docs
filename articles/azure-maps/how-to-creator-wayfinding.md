@@ -2,29 +2,35 @@
 title: Indoor Maps wayfinding service
 titleSuffix: Microsoft Azure Maps Creator
 description: How to use the wayfinding service to plot and display routes for indoor maps in Microsoft Azure Maps Creator
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 10/25/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Indoor maps wayfinding service (preview)
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 The Azure Maps Creator [wayfinding service] allows you to navigate from place to place anywhere within your indoor map. The service utilizes stairs and elevators to navigate between floors and provides guidance to help you navigate around physical obstructions. This article describes how to generate a path from a starting point to a destination point in a sample indoor map.
 
 ## Prerequisites
 
 - Understanding of [Creator concepts].
-- An Azure Maps Creator [dataset] and [tileset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
+- An Azure Maps Creator [dataset] and [tileset].
 
 >[!IMPORTANT]
 >
 > - This article uses the `us.atlas.microsoft.com` geographical URL. If your Creator service wasn't created in the United States, you must use a different geographical URL. For more information, see [Access to Creator services].
 > - In the URL examples in this article you will need to:
 >   - Replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
->   - Replace `{datasetId`} with your `datasetId`. For more information, see the [Check the dataset creation status] section of the *Use Creator to create indoor maps* tutorial.
+>   - Replace `{datasetId`} with your `datasetId`.
 
 ## Create a routeset
 
@@ -127,11 +133,9 @@ The wayfinding service calculates the path through specific intervening points. 
 [Get the facility ID]: #get-the-facility-id
 <!---------   learn.microsoft.com links     --------------->
 [Access to Creator services]: how-to-manage-creator.md#access-to-creator-services
-[Check the dataset creation status]: tutorial-creator-indoor-maps.md#check-the-dataset-creation-status
 [Creator concepts]: creator-indoor-maps.md
 [dataset]: creator-indoor-maps.md#datasets
 [tileset]: creator-indoor-maps.md#tilesets
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [wayfinding service]: creator-indoor-maps.md#wayfinding-preview
 [wayfinding]: creator-indoor-maps.md#wayfinding-preview
 <!---------   REST API Links     --------------->

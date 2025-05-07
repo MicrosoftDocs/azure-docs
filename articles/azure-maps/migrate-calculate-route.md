@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Calculate a Route API to Azure Maps Route Directions API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Calculate a Route API to the Azure Maps Route Directions API.
-author: FarazGIS
+author: farazgis
 ms.author: fsiddiqui 
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: routing
 ---
 
 # Migrate Bing Maps Calculate a Route API
@@ -69,42 +69,44 @@ http://dev.virtualearth.net/REST/V1/Routes/driving?wp.0=47.610173,-122.204171&wp
 Azure Maps _Route Directions_ API POST request:
 
 ``` http
-https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 Included in the body of the request:
 
 ```json
-{ 
-  "type": "FeatureCollection",` 
-  "features": [ 
-    { 
-      "type": "Feature", 
-      "geometry": { 
-        "coordinates": [ 
-         -122.204171,47.610173 
-        ], 
-        "type": "Point" 
-      }, 
-      "properties": { 
-        "pointIndex": 0, 
-        "pointType": "waypoint" 
-      } 
-    }, 
-    { 
-      "type": "Feature", 
-      "geometry": { 
-        "coordinates": [ 
-          -122.204171,47.612440 
-        ], 
-        "type": "Point" 
-      }, 
-      "properties": { 
-        "pointIndex": 1, 
-        "pointType": "waypoint" 
-      } 
-    } 
-  ] 
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.204171,
+          47.610173
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "pointIndex": 0,
+        "pointType": "waypoint"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "coordinates": [
+          -122.204171,
+          47.612440
+        ],
+        "type": "Point"
+      },
+      "properties": {
+        "pointIndex": 1,
+        "pointType": "Waypoint"
+      }
+    }
+  ]
 }
 ```
 
@@ -116,7 +118,7 @@ The following table lists the fields that can appear in the HTTP response when r
 |------------------------|---------------------------|----------------------------------------------------------------------------------------------------|
 | actualStart            | Point feature object      | Point feature object with type=”waypoint” and inputIndex = 0 defines the routable start location.  |
 | actualEnd              | Point feature object      | Point feature object with type=”waypoint” and inputIndex = last defines the routable end location. |
-| alternateVias          | alternativeRoutes         | Bing Maps alternateVias identifies the separate routes. In Azure maps, alternate routes are returned as a new feature collection under alternativeRoutes. |
+| alternateVias          | alternativeRoutes         | Bing Maps alternateVias identifies the separate routes. In Azure Maps, alternate routes are returned as a new feature collection under alternativeRoutes. |
 | compassDegrees         | compassDegrees            ||
 | compassDirection       | compassDirection          ||
 | description            | Not supported             ||

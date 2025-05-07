@@ -2,9 +2,15 @@
 title: Azure OpenAI text completion input binding for Azure Functions
 description: Learn how to use the Azure OpenAI text completion input binding to access Azure OpenAI text completion APIs during function execution in Azure Functions.
 ms.topic: reference
-ms.custom:
+ms.custom: 
   - build-2024
-ms.date: 05/23/2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
+ms.date: 07/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -14,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI text completion input binding allows you to bring the results text completion APIs into your code executions. You can define the binding to use both predefined prompts with parameters or pass through an entire prompt.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI completions, see [Learn how to generate or manipulate text](../ai-services/openai/how-to/completions.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI completions, see [Learn how to generate or manipulate text](/azure/ai-services/openai/how-to/completions).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -42,14 +48,16 @@ This example takes a prompt as input, sends it directly to the completions API, 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
+This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response.  
+
+:::code language="javascript" source="~/functions-openai-extension/samples/textcompletion/javascript/src/functions/whois.js" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
 This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response.  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/nodejs/src/functions/whois.ts" :::
+:::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/typescript/src/functions/whois.ts" :::
  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -69,11 +77,11 @@ The code simply returns the text from the completion API as the response:
 ::: zone pivot="programming-language-python"  
 This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response.  
 
-:::code language="java" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="7-11" :::
+:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="7-11" :::
 
 This example takes a prompt as input, sends it directly to the completions API, and returns the response as the output.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="14-18" ::: 
+:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="14-18" ::: 
 
 ::: zone-end  
 <!--- End code examples section -->  

@@ -1,12 +1,12 @@
 ---
 title: Recovering Synapse Analytics workspace after transferring a subscription to a different Microsoft Entra directory 
 description: This article provides steps to recover the Synapse Analytics workspace after moving a subscription to a different Microsoft Entra directory (tenant)
-ms.service:  synapse-analytics 
+ms.service: azure-synapse-analytics 
 ms.topic: how-to
 ms.date: 04/11/2022
-author: matt1883
-ms.author: mahi
-ms.reviewer: wiassaf
+author: gillharmeet
+ms.author: harmeetgill
+
 ---
 
 # Recovering Synapse Analytics workspace after transferring a subscription to a different Microsoft Entra directory (tenant)

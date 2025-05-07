@@ -3,9 +3,9 @@ title: Network security using private endpoints in IoT Central
 description: Use private endpoints to limit and secure device connectivity to your IoT Central application instead of using public URLs.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/22/2023
+ms.date: 10/22/2024
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 
@@ -51,7 +51,7 @@ IoT Central creates multiple customer visible FQDNs as part of a private endpoin
 
 :::image type="content" source="media/concepts-private-endpoints/visible-fqdns.png" alt-text="Screenshot from the Azure portal that shows the customer visible FQDNs.":::
 
-The IoT Central private endpoint uses multiple IP addresses from your virtual network and subnet. Also, based on application's load profile, IoT Central [autoscales its underlying IoT Hubs](/azure/iot-central/core/concepts-scalability-availability) so the number of IP addresses used by a private endpoint may increase. Plan for this possible increase when you determine the size for the subnet.
+The IoT Central private endpoint uses multiple IP addresses from your virtual network and subnet. Also, based on application's load profile, IoT Central [autoscales its underlying IoT Hubs](/azure/iot-central/core/concepts-scalability-availability) so the number of IP addresses used by a private endpoint might increase. Plan for this possible increase when you determine the size for the subnet.
 
 Use the following information to help determine the total number of IP addresses required in your subnet:
 

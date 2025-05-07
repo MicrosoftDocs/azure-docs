@@ -147,4 +147,4 @@ The following table describes the billing behavior for a blob that is soft-delet
 
 - [Blob versioning](versioning-overview.md)
 - [Create and manage a blob snapshot in .NET](snapshots-manage-dotnet.md)
-- [Back up Azure unmanaged VM disks with incremental snapshots](../../virtual-machines/windows/incremental-snapshots.md)
+- [Back up Azure unmanaged VM disks with incremental snapshots](/azure/virtual-machines/windows/incremental-snapshots)

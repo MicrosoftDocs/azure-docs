@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to create an application gateway that redirects internal web traffic to the appropriate backend pool of servers using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: greglin 

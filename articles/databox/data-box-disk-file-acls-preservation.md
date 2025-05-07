@@ -4,10 +4,9 @@ description: ACLs, timestamps, and attributes preserved during data copy to Azur
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/22/2022
 ms.author: shaas
 ---

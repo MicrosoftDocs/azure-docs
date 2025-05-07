@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using ARM template"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using an Azure Resource Manager template (ARM template).
-ms.date: 03/19/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -16,6 +16,8 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Screenshot of the Deploy to Azure button to assign a policy with an Azure Resource Manager template." link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.authorization%2Fazurepolicy-builtin-vm-managed-disks%2Fazuredeploy.json":::
+
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
 ## Prerequisites
 

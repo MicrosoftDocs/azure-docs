@@ -9,6 +9,7 @@ ms.service: azure-health-insights
 ms.topic: reliability-article
 ms.date: 02/06/2024
 ms.author: adishachar
+ms.custom: subject-reliability
 ---
 
 
@@ -47,4 +48,4 @@ If your solution needs to always be available, then you should design it to eith
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Reliability in Azure](/azure/availability-zones/overview)
+> [Reliability in Azure](/azure/reliability/overview)

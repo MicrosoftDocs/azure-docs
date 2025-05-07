@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to manage bandwidth schedules
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli

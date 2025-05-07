@@ -3,7 +3,7 @@ title: 'Tutorial: Create an Azure DNS alias record to refer to an Azure public I
 description: In this tutorial, you learn how to configure an Azure DNS alias record to reference an Azure public IP address.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 11/30/2023
 ms.author: greglin

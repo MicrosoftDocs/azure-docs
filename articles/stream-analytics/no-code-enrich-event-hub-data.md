@@ -3,7 +3,7 @@ title: Enrich data and ingest to event hub using the Stream Analytics no code ed
 description: Learn how to use the no code editor to easily create a Stream Analytics job to enrich the data and ingest to event hub.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/12/2022
 ---
@@ -68,6 +68,8 @@ This article describes how you can use the no code editor to easily create a Str
     You can also see the job under the Process Data section on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
     :::image type="content" source="./media/no-code-enrich-event-hub-data/no-code-list-jobs.png" alt-text="Screenshot of the Stream Analytics jobs tab where you view the running jobs status." lightbox="./media/no-code-enrich-event-hub-data/no-code-list-jobs.png" :::
+
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 

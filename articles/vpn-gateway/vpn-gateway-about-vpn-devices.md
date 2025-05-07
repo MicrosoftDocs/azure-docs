@@ -3,9 +3,9 @@ title: 'About VPN devices for connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about VPN devices and IPsec parameters for Site-to-Site cross-premises connections. Links are provided to configuration instructions and samples.
 author: cherylmc
-ms.service: vpn-gateway
-ms.topic: article
-ms.date: 10/06/2023
+ms.service: azure-vpn-gateway
+ms.topic: concept-article
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---
@@ -13,13 +13,10 @@ ms.author: cherylmc
 
 A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN connection using a VPN gateway. Site-to-Site connections can be used to create a hybrid solution, or whenever you want secure connections between your on-premises networks and your virtual networks. This article provides a list of validated VPN devices and a list of IPsec/IKE parameters for VPN gateways.
 
-> [!IMPORTANT]
-> If you are experiencing connectivity issues between your on-premises VPN devices and VPN gateways, refer to [Known device compatibility issues](#known).
->
 
 ### Items to note when viewing the tables:
 
-* There has been a terminology change for Azure VPN gateways. Only the names have changed. There's no functionality change.
+* There have been terminology changes for Azure VPN gateways. Only the names changed. There's no functionality change.
   * Static Routing = PolicyBased
   * Dynamic Routing = RouteBased
 * Specifications for HighPerformance VPN gateway and RouteBased VPN gateway are the same, unless otherwise noted. For example, the validated VPN devices that are compatible with RouteBased VPN gateways are also compatible with the HighPerformance VPN gateway.
@@ -49,7 +46,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and later |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://community.f5.com/t5/technical-articles/connecting-to-windows-azure-with-the-big-ip/ta-p/282476) |[Configuration guide](https://community.f5.com/t5/technical-articles/big-ip-to-azure-dynamic-ipsec-tunneling/ta-p/282665) |
 | Fortinet |FortiGate |FortiOS 5.6 | Not tested |[Configuration guide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
-| Fujitsu | Si-R G series | V04: V04.12<br>V20: V20.14 | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) |
+| Fsas Technologies | Si-R G series | V04: V04.12<br>V20: V20.14 | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) | [Configuration guide](https://www.fujitsu.com/jp/products/network/router/sir/example/#cloud00) |
 | Hillstone Networks | Next-Gen Firewalls (NGFW) | 5.5R7  | Not tested | [Configuration guide](https://www.hillstonenet.com/wp-content/uploads/How-to-setup-Site-to-Site-VPN-between-Microsoft-Azure-and-an-on-premise-Hillstone-Networks-Security-Gateway.pdf) |
 | HPE Aruba | EdgeConnect SDWAN Gateway | ECOS Release v9.2<br>Orchestrator OS v9.2 | [Configuration guide](https://www.arubanetworks.com/website/techdocs/sdwan-PDFs/integrations/int_Azure-EC-IPSec_latest.pdf) | [Configuration guide](https://www.arubanetworks.com/website/techdocs/sdwan-PDFs/integrations/int_Azure-EC-IPSec_latest.pdf)|
 | Internet Initiative Japan (IIJ) |SEIL Series |SEIL/X 4.60<br>SEIL/B1 4.60<br>SEIL/x86 3.20 |[Configuration guide](https://www.iij.ad.jp/biz/seil/ConfigAzureSEILVPN.pdf) |Not compatible |
@@ -112,8 +109,6 @@ After you download the provided VPN device configuration sample, you’ll need t
 
 The following tables contain the combinations of algorithms and parameters Azure VPN gateways use in default configuration (**Default policies**). For route-based VPN gateways created using the Azure Resource Management deployment model, you can specify a custom policy on each individual connection. Refer to [Configure IPsec/IKE policy](vpn-gateway-ipsecikepolicy-rm-powershell.md) for detailed instructions.
 
-Additionally, you must clamp TCP **MSS** at **1350**. Or if your VPN devices don't support MSS clamping, you can alternatively set the **MTU** on the tunnel interface to **1400** bytes instead.
-
 In the following tables:
 
 * SA = Security Association
@@ -141,6 +136,15 @@ In the following tables:
 | SA Lifetime (Bytes)           |102,400,000 KB |102,400,000 KB                               |
 | Perfect Forward Secrecy (PFS) |No             |[RouteBased QM SA Offers](#RouteBasedOffers) |
 | Dead Peer Detection (DPD)     |Not supported  |Supported                                    |
+
+### Azure VPN Gateway TCP MSS Clamping
+
+MSS clamping is done bidirectionally on the Azure VPN Gateway. The following table lists the packet size under different scenarios.
+
+| **Packet Flow**               |**IPv4**        | **IPv6**   |
+| ---                           | ---            | ---        |
+| Over Internet                 | 1340 bytes     | 1360 bytes |
+| Over Express Route Gateway    | 1250 bytes     | 1250 bytes |
 
 
 ### <a name ="RouteBasedOffers"></a>RouteBased VPN IPsec Security Association (IKE Quick Mode SA) Offers
@@ -192,18 +196,5 @@ The following table lists IPsec SA (IKE Quick Mode) Offers. Offers are listed th
 * You can specify IPsec ESP NULL encryption with RouteBased and HighPerformance VPN gateways. Null based encryption doesn't provide protection to data in transit, and should only be used when maximum throughput and minimum latency is required. Clients might choose to use this in VNet-to-VNet communication scenarios, or when encryption is being applied elsewhere in the solution.
 * For cross-premises connectivity through the Internet, use the default Azure VPN gateway settings with encryption and hashing algorithms listed in the preceding tables to ensure security of your critical communication.
 
-## <a name="known"></a>Known device compatibility issues
 
-> [!IMPORTANT]
-> These are the known compatibility issues between third-party VPN devices and Azure VPN gateways. The Azure team is actively working with the vendors to address the issues listed here. Once the issues are resolved, this page will be updated with the most up-to-date information. Please check back periodically.
->
->
-
-### Feb. 16, 2017
-
-**Palo Alto Networks devices with version prior to 7.1.4** for Azure route-based VPN: If you're using VPN devices from Palo Alto Networks with PAN-OS version prior to 7.1.4 and are experiencing connectivity issues to Azure route-based VPN gateways, perform the following steps:
-
-1. Check the firmware version of your Palo Alto Networks device. If your PAN-OS version is older than 7.1.4, upgrade to 7.1.4.
-2. On the Palo Alto Networks device, change the Phase 2 SA (or Quick Mode SA) lifetime to 28,800 seconds (8 hours) when connecting to the Azure VPN gateway.
-3. If you're still experiencing connectivity issues, open a support request from the Azure portal.
 

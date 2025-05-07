@@ -5,7 +5,7 @@ author: dramasamy
 ms.author: dramasamy
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 08/17/2023 
+ms.date: 01/21/2025 
 ms.custom: template-how-to-pattern, devx-track-azurecli
 ---
 
@@ -120,6 +120,7 @@ Establish direct access to the cluster's CNI (Container Network Interface) from 
 
 Reach out to your network administrator to set up this direct connection to the cluster's CNI network.
 
+
 ## IP address of the cluster nodes
 
 Before you can connect to the cluster nodes, you need to find the IP address of the nodes. The IP address of the nodes can be found using the Azure portal or the Azure CLI.
@@ -182,6 +183,16 @@ To find the IP address of the VM for SSH, follow these steps:
 7. Check the 'Attached Networks' tab to find the IP address of the node's 'Layer 3 Network' that used as CNI network.
 
 :::image type="content" source="media/nexus-kubernetes/control-plane-network-attachment.png" lightbox="media/nexus-kubernetes/control-plane-network-attachment.png" alt-text="Screenshot of browsing Nexus Kubernetes cluster node networks.":::
+
+## Retrieve the Subject Alternative Name (SAN) for the cluster
+
+Run the following commands to retrieve the list of Subject Alternative Names (SAN) accepted by the Kubernetes API server certificate. First, access the control plane node either [using Azure Arc for servers](#access-to-cluster-nodes-via-azure-arc-for-servers) or using the [interactive shell using IP address](#create-an-interactive-shell-connection-to-a-node-using-the-ip-address). This gives you access to the certificate used by the API server. You can inspect the content of the certificate using the following command with sudo privileges:
+
+```bash
+sudo openssl x509 -in /etc/kubernetes/pki/apiserver.crt -text -noout
+```
+Each of the SANs is identified by the prefix "DNS:". Only choose the SANs that follow the specified naming convention "\<clusterName\>-\<resourceGroup\>", as this is unique compared to other SANs like "kubernetes.default.svc.cluster.local".
+
 
 ## Next steps
 

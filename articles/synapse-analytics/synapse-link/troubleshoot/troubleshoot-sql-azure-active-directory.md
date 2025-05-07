@@ -1,10 +1,9 @@
 ---
 title: Troubleshooting guide for Azure Synapse Link for Azure SQL Database and Microsoft Entra user impersonation
 description: Learn how to troubleshoot user impersonation issues with Azure Synapse Link for Azure SQL Database and Microsoft Entra ID 
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: imotiwala 
-ms.service: synapse-analytics
+author: im-microsoft
+ms.author: imotiwala
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/09/2022

@@ -30,7 +30,7 @@ A typical workflow using the service is shown as below:
 
 As illustrated by the above workflow graph:
 
-1. A *client* connects to the service `/client` endpoint using WebSocket transport. Service forward every WebSocket frame to the configured upstream(server). The WebSocket connection can connect with any custom subprotocol for the server to handle, or it can connect with the service-supported subprotocols (e.g. `json.webpubsub.azure.v1`) that enable the clients to do pub/sub directly. Details are described in [client protocols](concept-service-internals.md#client-protocol).
+1. A *client* connects to a hub in the service using WebSocket transport. The service may forward the messages to the configured upstream(server), or handle the messages on its own and allow the clients to do pub/sub directly, depending on the protocol the client uses. Details are described in [client protocols](concept-service-internals.md#client-protocol).
 
 2. The service invokes the server using **CloudEvents protocol** on different client events. [**CloudEvents**](https://github.com/cloudevents/spec/blob/v1.0.1/spec.md) is a standardized and protocol-agnostic definition of the structure and metadata description of events hosted by the Cloud Native Computing Foundation (CNCF). Details are described in [server protocol](concept-service-internals.md#server-protocol).
 

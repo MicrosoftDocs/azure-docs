@@ -19,15 +19,15 @@ For more information, see [Manage users on the Azure portal](manage-users-portal
 
 ## On-premises users for Defender for IoT
 
-When working with OT networks, Defender for IoT services and data is available also from on-premises OT network sensors and the on-premises sensor management console, in addition to the Azure portal.
+When working with OT networks, Defender for IoT services and data is available also from on-premises OT network sensors in addition to the Azure portal.
 
-You'll need to define on-premises users on both your OT network sensors and the on-premises management console, in addition to Azure. Both the OT sensors and the on-premises management console are installed with a set of default, privileged users, which you can use to define other administrators and users.
+You'll need to define on-premises users on your OT network sensors, in addition to Azure. The OT sensors are installed with a set of default, privileged users, which you can use to define other administrators and users.
 
-Sign into the OT sensors to [define sensor users](manage-users-sensor.md), and sign into the on-premises management console to [define on-premises management console users](legacy-central-management/manage-users-on-premises-management-console.md).
+Sign into the OT sensors to [define sensor users](manage-users-sensor.md).
 
 For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
 
-### Microsoft Entra ID support on sensors and on-premises management consoles
+### Microsoft Entra ID support on sensors
 
 You might want to configure an integration between your sensor and Microsoft Entra ID to allow Microsoft Entra ID users to sign in to your sensor, or to use Microsoft Entra ID groups, with collective permissions assigned to all users in the group.
 
@@ -61,14 +61,13 @@ For example, the following diagram shows how you can allow security analysts fro
 For more information, see [Define global access permission for on-premises users](legacy-central-management/manage-users-on-premises-management-console.md#define-global-access-permission-for-on-premises-users).
 
 > [!TIP]
-> Access groups and rules help to implement Zero Trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors and the on-premises management console. For more information, see [Zero Trust and your OT/IoT networks](concept-zero-trust.md).
+> Access groups and rules help to implement Zero Trust strategies by controlling where users manage and analyze devices on Defender for IoT sensors. For more information, see [Zero Trust and your OT/IoT networks](concept-zero-trust.md).
 >
 
 ## Next steps
 
 - [Manage Azure subscription users](../../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](legacy-central-management/manage-users-on-premises-management-console.md)
 
 For more information, see:
 

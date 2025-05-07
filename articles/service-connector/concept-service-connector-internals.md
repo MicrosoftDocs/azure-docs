@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.custom: engagement-fy23
 ms.topic: conceptual
-ms.date: 01/17/2023
+ms.date: 10/22/2024
 ---
 # Service Connector internals
 
@@ -26,7 +26,7 @@ The concept of *service connection* is a key concept in the resource model of Se
 | Property            | Description                                                                                                                                                                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Connection Name     | The unique name of the service connection.                                                                                                                                                                                                   |
-| Source Service Type | Source services are services you can connect to target services.  They are usually Azure compute services and they include Azure App Service, Azure Functions, Azure Container Apps and Azure Spring Apps. 
+| Source Service Type | Source services are services you can connect to target services.  They are usually Azure compute services and they include Azure App Service, Azure Container Apps, Azure Functions, Azure Kubernetes Service (AKS) and Azure Spring Apps. 
 | Target Service Type | Target services are backing services or dependency services that your compute services connect to. Service Connector supports various target service types including major databases, storage, real-time services, state, and secret stores. |
 | Client Type         | Client type refers to your compute runtime stack, development framework, or specific type of client library that accepts the specific format of the connection environment variables or properties.                                          |
 | Authentication Type | The authentication type used for the service connection. It could be a secret/connection string, a managed identity, or a service principal.                                                                                                 |

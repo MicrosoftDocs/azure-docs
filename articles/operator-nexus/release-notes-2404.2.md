@@ -3,8 +3,8 @@ title: Azure Operator Nexus Release Notes 2404.2
 description: Release notes for Operator Nexus 2404.2 release.
 ms.topic: article
 ms.date: 05/06/2024
-author: jashobhit
-ms.author: shobhitjain
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ---
 

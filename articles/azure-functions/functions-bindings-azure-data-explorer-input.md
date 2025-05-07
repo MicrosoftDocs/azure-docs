@@ -20,7 +20,7 @@ The Azure Data Explorer input binding retrieves data from a database.
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -623,6 +623,8 @@ The following table explains the binding configuration properties that you set i
 The attribute's constructor takes the database and the attributes `KQLCommand` and `KQLParameters` and the connection setting name. The KQL command can be a KQL statement or a KQL function. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example: `"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. Queries executed by the input binding are parameterized. The values provided in the KQL parameters are used at runtime.
 
 ::: zone-end
+
+[!INCLUDE [functions-azure-data-explorer-authentication-note](../../includes/functions-azure-data-explorer-authentication-note.md)]
 
 ## Next steps
 

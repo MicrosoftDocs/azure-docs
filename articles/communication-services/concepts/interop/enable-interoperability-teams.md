@@ -8,7 +8,7 @@ ms.date: 4/15/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other
 ---
 
 # Enable interoperability between Azure Communication Services and a Microsoft Teams tenant

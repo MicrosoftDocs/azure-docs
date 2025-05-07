@@ -4,9 +4,9 @@ description: Reference for the rate-limit policy available for use in Azure API 
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 03/18/2024
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 03/31/2025
 ms.author: danlep
 ---
 
@@ -80,13 +80,15 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
 * This policy can be used only once per policy definition.
 * This policy is only applied when an API is accessed using a subscription key.
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+* [!INCLUDE [api-management-rate-limit-gateway-calls](../../includes/api-management-rate-limit-gateway-calls.md)]
+
 
 
 ## Example

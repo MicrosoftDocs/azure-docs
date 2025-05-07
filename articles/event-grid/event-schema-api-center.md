@@ -3,8 +3,8 @@ title: Azure API Center as Event Grid source
 description: Describes the properties that are provided for Azure API Center events with Azure Event Grid
 ms.topic: conceptual
 ms.date: 03/05/2024
-author: dlepow
-ms.author: danlep
+author: spelluru
+ms.author: spelluru
 ---
 
 # Azure API Center as an Event Grid source (Preview)
@@ -165,7 +165,7 @@ The data object has the following properties:
 
 |Title  |Description  |
 |---------|---------|
-| [Enable linting and analysis for API governance in your API center](https://aka.ms/apicenter/docs/linting)| Use Event Grid events to trigger linting to analyze API definitions in your API center. |
+| [Enable linting and analysis for API governance in your API center](../api-center/enable-api-analysis-linting.md)| Use Event Grid events to trigger linting to analyze API definitions in your API center. |
 
 ## Related content
 

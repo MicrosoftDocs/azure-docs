@@ -7,12 +7,14 @@ ms.date: 09/11/2020
 
 # Attach or detach a shared image gallery to a lab account in Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [preview note](./includes/lab-services-labaccount-focused-article.md)]
 
 This article shows you how to attach or detach a shared image gallery to a lab account.
 
 > [!NOTE]
-> When you save a template image of a lab in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a specialized image. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
+> When you save a template image of a lab in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a specialized image. [Specialized images](/azure/virtual-machines/shared-image-galleries#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
 >
 > A lab creator can create a template VM based on both generalized and specialized images in Azure Lab Services.
 
@@ -23,7 +25,7 @@ Here are the couple of scenarios supported by this feature:
 - A lab account admin attaches a shared image gallery to the lab account.  The VM image is uploaded to the shared image gallery outside the context of a lab.  The lab admin has to enable the use of the image on the lab account. Lab creators can use that image from the shared image gallery when creating labs.
 - A lab account admin attaches a shared image gallery to the lab account. A lab creator (educator) saves the customized image of their lab to the shared image gallery. Then, other lab creators can select this image from the shared image gallery to create a template for their labs.
 
-    When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Azure Compute Gallery – Billing](../virtual-machines/azure-compute-gallery.md#billing).
+    When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Azure Compute Gallery – Billing](/azure/virtual-machines/azure-compute-gallery#billing).
 
 > [!IMPORTANT]
 > While using a Shared Image Gallery, Azure Lab Services supports only images with less than 128 GB of OS Disk Space. Images with more than 128 GB of disk space or multiple disks will not be shown in the list of virtual machine images during lab creation.
@@ -47,7 +49,7 @@ After the lab account is created, you can do the following tasks:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** on the left menu. Select **Lab Services** in the **DEVOPS** section. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
 
-    ![All Services -> Lab Services](./media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+    ![All Services -> Lab Services](./media/how-to-attach-detach-shared-image-gallery/select-lab-accounts-service.png)
 3. Select your lab account to see the **Lab Account** page.
 4. Select **Shared image gallery** on the left menu, and select **+ Create** on the toolbar.  
 
@@ -96,4 +98,4 @@ To learn about how to save a lab image to the shared image gallery or use an ima
 
 To explore other options for bringing custom images to shared image gallery outside of the context of a lab, see [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md).
 
-For more information about shared image galleries in general, see [shared image gallery](../virtual-machines/shared-image-galleries.md).
+For more information about shared image galleries in general, see [shared image gallery](/azure/virtual-machines/shared-image-galleries).

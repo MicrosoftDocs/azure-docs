@@ -1,13 +1,13 @@
 ---
 title: Understand Azure reservations usage for Enterprise Agreement and Microsoft Customer Agreement
 description: Learn how to read your usage information to understand how an Azure reservation applies to Enterprise Agreement and Microsoft Customer Agreement usage.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/14/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Get Enterprise Agreement and Microsoft Customer Agreement reservation costs and usage
@@ -164,8 +164,8 @@ If you have questions or need help, [create a support request](https://go.micros
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
 - [Windows software costs not included with Reservations](reserved-instance-windows-software-costs.md)
 - [Use service principal to get cost data](../manage/assign-roles-azure-service-principals.md)
-- [Use cost management exports](../costs/tutorial-export-acm-data.md)
+- [Use cost management exports](../costs/tutorial-improved-exports.md)

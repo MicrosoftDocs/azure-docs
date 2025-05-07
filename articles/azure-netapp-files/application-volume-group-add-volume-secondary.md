@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 04/22/2025
 ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a secondary database in HSR
@@ -18,14 +18,14 @@ The HANA System Replication (HSR) functionality enables SAP HANA databases to sy
 
 * Both the primary and the secondary SAP HANA databases have the same SAP ID (SID), but their volume names need to be different.
 
-* The secondary SAP HANA system might be in a different location, typically a different zone or region.  As such, the proximity placement group (PPG, availability set) is different.
+* The secondary SAP HANA system might be in a different location, typically a different zone or region. As such, the proximity placement group (PPG, availability set) is different.
 
 The following diagram illustrates the concept of HSR: 
 
  ![Diagram that explains HANA System Replication.](./media/application-volume-group-add-volume-secondary/application-hana-system-replication.png) 
 
 
-To enable HSR, the configuration of the secondary SAP HANA system must be identical to the primary SAP HANA system. That is, if the primary system is a single-host HANA system, then the secondary SAP HANA system also needs to be a single-hosts system. The same applies for multiple host systems.
+To enable HSR, the configuration of the secondary SAP HANA system must be identical to the primary SAP HANA system. That is, if the primary system is a single-host HANA system, then the secondary SAP HANA system also needs to be a single-host system. The same applies for multiple host systems.
 
 The workflow for creating a secondary SAP HANA system is similar to the workflow for creating the primary SAP HANA system. However, a key difference is that you need to select the **HSR secondary** option in the SAP HANA tab to indicate that you are creating a replication secondary system for the SAP HANA system.
 
@@ -33,7 +33,9 @@ The workflow for creating a secondary SAP HANA system is similar to the workflow
 
 This section shows an example of creating a single-host, secondary SAP HANA system.
 
-1. From your NetApp account, select **Application volume groups**, and click **+Add Group**. Then, in Deployment Type, select **SAP HANA** and click **Next**. 
+1. From your NetApp account, select **Application volume groups**, and select **+Add Group**. In Deployment Type, select **SAP HANA** then **Next**. 
+
+    :::image type="content" source="./media/application-volume-group-add-volume-secondary/extension-one-create.png" alt-text="Screenshot of application volume group creation menu." lightbox="./media/application-volume-group-add-volume-secondary/extension-one-create.png":::
 
 2. In the **SAP HANA** tab, provide HANA-specific information. 
 
@@ -58,38 +60,48 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
         Selecting **HSR secondary** also triggers the naming convention for the volume group name to include `"-HA-"` to indicate the HA setup.   
 
-    Click **Next: Volume Group** to continue.
+    Select **Next: Volume Group** to continue.
 
     [ ![Screenshot that shows the HANA section in HSR configuration.](./media/application-volume-group-add-volume-secondary/application-secondary-sap-hana.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-sap-hana.png#lightbox)
 
 3.	In the **Volume group** tab, provide information for creating the volume group:  
 
-    * **Proximity placement group (PPG)**:  
-        Specifies that the data, log, and shared volumes are to be created close to the VMs.
+    * **Availability option**:
+        Select either **Availability zone** or **Proximity placement group**. 
+        When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
+        * **Proximity placement group (PPG)**:  
+            Specifies that the data, log, and shared volumes are to be created close to the VMs.
+        * **Availability Zone**: 
+            This option lets you deploy the volumes in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+    * **Network features**: 
+        Standard network features is the default, however you can still use Basic network features. 
+        See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
     * **Capacity pool**:  
-        All volumes will be placed in a single manual QoS capacity pool.  
+        All volumes are placed in a single manual QoS capacity pool. 
         If you want to create the log-backup and data-backup volumes in a separate capacity pool, you can choose not to add those volumes to the volume group.
     * **Virtual network**:  
         Specify an existing VNet where the VMs are placed. 
     * **Subnet**:  
-        Specify the delegated subnet where the IP addresses for the NFS exports will be created. Ensure that you have a delegated subnet with enough free IP addresses.
+        Specify the delegated subnet where the IP addresses for the NFS exports are created. Ensure that you have a delegated subnet with enough free IP addresses.
+    
+    Select **Next: Protocol**.
 
-    Click **Next: Protocol**.
+    :::image type="content" source="./media/application-volume-group-add-volume-secondary/application-volume-group-create-extension-one.png" alt-text="Screenshot of create application volume group interface." lightbox="./media/application-volume-group-add-volume-secondary/application-volume-group-create-extension-one.png":::
 
 4. In the **Protocols** section of the Volume Group tab, you can modify the **Export Policy**, which should be common to all volumes.  
 
-    Click **Next: Tags**.
+    Select **Next: Tags**.
 
 5. Because the **HSR secondary** option is selected, the **Tags** section of the Volume Group tab is populated with the tag `HSRPartnerStorageResourceId`. 
 
     This tag marks the volume resource ID of the corresponding primary volume in the HSR setup, so that the primary volume can be identified for each secondary volume that will be created. 
 
-    You will be able to modify this tag for each volume. 
+    You can modify this tag for each volume. 
 
     > [!IMPORTANT]
     > At the group level, filling the tag will populate all the volumes in the group with the same volume ID. You will need to change the volume ID for each individual volume later in the workflow or when you update the volumes. Using this tag is optional; it’s for documentation purposes only.
 
-    Click **Next: Volumes**.
+    Select **Next: Volumes**.
 
     [ ![Screenshot that shows the Tags section of the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volume-group-tags.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volume-group-tags.png#lightbox)
 
@@ -97,7 +109,7 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     The volume naming convention includes an `"HA-"` prefix to indicate that the volume belongs to the secondary system of an HSR setup.
 
-    [ ![Screenshot that shows the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags.png#lightbox)
+    [ ![Screenshot that shows the Volume Group tab.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags-extension-one.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tags-extension-one.png#lightbox)
 
 7. In the **Volumes** tab, you can select each volume to view or change the volume details, including the protocol and tag for the volume.
 
@@ -105,9 +117,12 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
 
     [ ![Screenshot that shows the tag details.](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tag-details.png) ](./media/application-volume-group-add-volume-secondary/application-secondary-volumes-tag-details.png#lightbox)
 
-    Click **Volumes** to return to the Volumes overview page.  
+    Select **Volumes** to return to the Volumes overview page.  
 
-8. Click **Review + Create** to list all volumes that will be created. Click **Create Volume Group** to start the volume group creation. 
+8. Select **Review + Create** to list all volumes to be created. Select **Create Volume Group** to start the volume group creation. 
+
+
+---
 
 To add more HANA hosts for a multiple-host SAP HANA system, follow steps in [Add hosts to a multiple-host SAP HANA system](application-volume-group-add-hosts.md). Be sure to select the **HSR secondary** option in the SAP HANA tab to indicate the replication secondary system.   
 

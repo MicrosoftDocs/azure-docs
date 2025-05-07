@@ -12,6 +12,8 @@ ms.service: azure-communication-services
 
 Get started with Azure Communication Services by using the Communication Services Python Email SDK to send Email messages.
 
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
+
 > [!TIP]
 > Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
 
@@ -50,9 +52,10 @@ message = {
     "senderAddress": "str",  # Sender email address from a verified domain. Required.
     "attachments": [
         {
-            "contentInBase64": "str",  # Base64 encoded contents of the attachment. Required.
-            "contentType": "str",  # MIME type of the content being attached. Required.
             "name": "str"  # Name of the attachment. Required.
+            "contentType": "str",  # MIME type of the content being attached. Required.
+            "contentInBase64": "str",  # Base64 encoded contents of the attachment. Required.
+            "contentId": "str" # Unique identifier (CID) to reference an inline attachment. Optional
         }
     ],
     "userEngagementTrackingDisabled": bool,  # Optional. Indicates whether user engagement tracking should be disabled for this request if the resource-level user engagement tracking setting was already enabled in the control plane.
@@ -183,7 +186,7 @@ email_client = EmailClient(endpoint, DefaultAzureCredential())
 
 #### [AzureKeyCredential](#tab/azurekeycredential)
 
-Email clients can also be authenticated using an [AzureKeyCredential](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-core/latest/azure.core.html#azure.core.credentials.AzureKeyCredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
+Email clients can also be authenticated using an [AzureKeyCredential](/python/api/azure-core/azure.core.credentials.azurekeycredential). Both the `key` and the `endpoint` can be founded on the "Keys" pane under "Settings" in your Communication Services Resource.
 
 ```python
 from azure.communication.email import EmailClient

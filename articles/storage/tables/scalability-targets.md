@@ -6,7 +6,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-table-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/09/2020
 ms.author: akashdubey
 ---
@@ -17,7 +17,7 @@ ms.author: akashdubey
 
 ## Scale targets for Table storage
 
-[!INCLUDE [storage-table-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-tables-scale-targets.md)]
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 ## See also
 

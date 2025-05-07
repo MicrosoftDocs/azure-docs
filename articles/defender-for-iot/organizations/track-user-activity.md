@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Audit user activity
 
-After you've set up your user access for the [Azure portal](manage-users-portal.md), on your [OT network sensors](manage-users-sensor.md) and an [on-premises management consoles](legacy-central-management/install-software-on-premises-management-console.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
+After you've set up your user access for the [Azure portal](manage-users-portal.md), on your [OT network sensors](manage-users-sensor.md), you'll want to be able to track and audit user activity across all of Microsoft Defender for IoT.
 
 ## Audit Azure user activity
 
@@ -38,45 +38,6 @@ Audit and track user activity on a sensor's **Event timeline**. The **Event time
 
     For more information on the event timeline, see [Track network and sensor activity with the event timeline](how-to-track-sensor-activity.md)
 
-## Audit user activity on an on-premises management console
-
-[!INCLUDE [on-premises-management-deprecation](includes/on-premises-management-deprecation.md)]
-
-To audit and track user activity on an on-premises management console, use the on-premises management console audit logs, which record key activity data at the time of occurrence. Use on-premises management console audit logs to understand changes that were made on the on-premises management console, when, and by whom.
-
-**To access on-premises management console audit logs**:
-
-Sign in to the on-premises management console and select **System Settings > System Statistics** > **Audit log**.
-
-The dialog displays data from the currently active audit log. For example:
-
-For example:
-
-:::image type="content" source="media/how-to-create-and-manage-users/view-audit-logs.png" alt-text="Screenshot of the on-premises management console showing audit logs." lightbox="media/how-to-create-and-manage-users/view-audit-logs.png":::
-
-New audit logs are generated at every 10 MB. One previous log is stored in addition to the current active log file.
-
-Audit logs include the following data:
-
-| Action | Information logged |
-|--|--|
-| **Learn, and remediation of alerts** | Alert ID |
-| **Password changes** | User, User ID |
-| **Login** | User |
-| **User creation** | User, User role |
-| **Password reset** | User name |
-| **Exclusion rules-Creation**| Rule summary |
-| **Exclusion rules-Editing**| Rule ID, Rule Summary |
-| **Exclusion rules-Deletion** | Rule ID |
-| **Management Console Upgrade** | The upgrade file used |
-| **Sensor upgrade retry** | Sensor ID |
-| **Uploaded TI package** | No additional information recorded. |
-
-
-> [!TIP]
-> You may also want to export your audit logs to send them to the support team for extra troubleshooting. For more information, see [Export logs from the on-premises management console for troubleshooting](legacy-central-management/how-to-troubleshoot-on-premises-management-console.md#export-logs-from-the-on-premises-management-console-for-troubleshooting).
->
-
 ## Next steps
 
 For more information, see:
@@ -85,4 +46,3 @@ For more information, see:
 - [Azure user roles and permissions for Defender for IoT](roles-azure.md)
 - [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md)

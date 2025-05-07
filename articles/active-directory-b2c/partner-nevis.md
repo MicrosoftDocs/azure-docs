@@ -5,16 +5,18 @@ description: Learn how to integrate Azure AD B2C authentication with Nevis for p
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to configure Nevis with Azure Active Directory B2C for passwordless authentication. I need to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements.
 ---
 
 # Tutorial to configure Nevis with Azure Active Directory B2C for passwordless authentication
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn to enable passwordless authentication in Azure Active Directory B2C (Azure AD B2C) with the Nevis Access app to enable customer authentication and comply with Payment Services Directive 2 (PSD2) transaction requirements. PSD2 is a European Union (EU) directive, administered by the European Commission (Directorate General Internal Market) to regulate payment services and payment service providers throughout the EU and European Economic Area (EEA).  
 

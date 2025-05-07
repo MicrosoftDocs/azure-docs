@@ -2,11 +2,11 @@
 title: Enable Azure Key Vault for airflow
 titleSuffix: Azure Data Factory
 description: This article explains how to enable Azure Key Vault as the secret back end for a Workflow Orchestration Manager instance.
-ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
-ms.date: 08/29/2023
+ms.date: 10/03/2024
+ms.subservice: security
 ---
 
 # Enable Azure Key Vault for Workflow Orchestration Manager

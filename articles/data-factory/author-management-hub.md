@@ -1,7 +1,6 @@
 ---
 title: Management hub
 description: Manage your connections, source control configuration and global authoring properties in the Azure Data Factory management hub
-ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
 author: kromerm
@@ -51,7 +50,7 @@ To override the generated Resource Manager template parameters when publishing f
 
 ### Triggers
 
-Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-execution-with-json). In the management hub, you can create, edit, delete, or view the current state of a trigger.
+Triggers determine when a pipeline run should be kicked off. Currently triggers can be on a wall clock schedule, operate on a periodic interval, or depend on an event. For more information, learn about [trigger execution](concepts-pipeline-execution-triggers.md#trigger-types). In the management hub, you can create, edit, delete, or view the current state of a trigger.
 
 :::image type="content" source="media/author-management-hub/management-hub-triggers.png" alt-text="Screenshot that shows where to create, edit, delete, nor view the current state of a trigger.":::
 

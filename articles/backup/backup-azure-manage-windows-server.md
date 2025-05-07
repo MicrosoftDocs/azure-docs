@@ -1,10 +1,10 @@
 ---
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
-ms.topic: conceptual
-ms.date: 07/08/2019
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.topic: how-to
+ms.date: 03/07/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -15,6 +15,8 @@ This article explains how to use the Recovery Services vault **Overview** dashbo
 The prerequisites for this article are: an Azure subscription, a Recovery Services vault, and that there's at least one backup item configured for the vault.
 
 [!INCLUDE [learn-about-deployment-models](~/reusable-content/ce-skilling/azure/includes/learn-about-deployment-models-rm-include.md)]
+
+Learn how to  create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md).
 
 ## Open a Recovery Services vault
 
@@ -42,6 +44,8 @@ The Recovery Services vault **Overview** dashboard provides tiles for Monitoring
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
+[!INCLUDE [Classic alerts deprecation for Azure Backup.](../../includes/backup-azure-classic-alerts-deprecation.md)]
+
 The Monitoring section shows the results of predefined **Backup Alerts** and **Backup Jobs** queries. The Monitoring tiles provide up-to-date information about:
 
 * Critical and Warning alerts for Backup jobs (in the last 24 hours)
@@ -53,11 +57,14 @@ The Usage tiles provide:
 * The number of Backup items configured for the vault.
 * The Azure storage (separated by LRS and GRS) consumed by the vault.
 
-Select the tiles (except Backup Storage) to open the associated menu. In the image above, the Backup Alerts tile shows three Critical alerts. Selecting the Critical alerts row in the Backup Alerts tile, opens the Backup Alerts filtered for Critical alerts.
+Select the tiles (except Backup Storage) to open the associated menu. In the image above, the Backup Alerts tile shows three Critical alerts. Select the Critical alerts row in the Backup Alerts tile to open the Backup Alerts filtered for Critical alerts.
 
 ![Backup alerts menu filtered for critical alerts](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
-The Backup Alerts menu, in the image above, is filtered by: Status is Active, Severity is Critical, and time is the previous 24 hours.
+You can see the details of classic alerts by selecting the **Backup Alerts** tile.
+
+>[!Important]
+>Classic alerts for Azure Backup will be deprecated on 31 March 2026. We recommend you to [migrate to Azure Monitor Alerts](backup-azure-monitoring-alerts.md#migrate-from-classic-alerts-to-built-in-azure-monitor-alerts) for a seamless experience. View **Azure Monitor alerts** on the **Alerts** blade in the Recovery Services Vault.
 
 ### Backup Pre-Check Status
 
@@ -85,80 +92,8 @@ The Backup Alerts report lists the alerts for the vault.
 
 ![Backup alerts report](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-### Alerts
-
-The Backup Alerts list displays the selected information for the filtered alerts. In the Backup Alerts menu, you can filter for Critical or Warning alerts.
-
-| Alert Level | Events that generate alerts |
-| ----------- | ----------- |
-| Critical | You receive critical alerts when: Backup jobs fail, recovery jobs fail, and when you stop protection on a server, but retain the data.|
-| Warning | You receive warning alerts when: Backup jobs complete with warnings. For example, when fewer than 100 files aren't backed up because of corruption issues, or when greater than 1,000,000 files are successfully backed up). |
-| Informational | currently, no informational alerts are in use. |
-
-### Viewing alert details
-
-The Backup Alerts report tracks eight details about each alert. Use the **Choose columns** button to edit the details in the report.
-
-![Backup alerts choose columns button](./media/backup-azure-manage-windows-server/backup-alerts.png)
-
-By default, all details, except **Latest Occurrence Time**, appear in the report.
-
-* Alert
-* Backup Item
-* Protected Server
-* Severity
-* Duration
-* Creation Time
-* Status
-* Latest Occurrence Time
-
-### Change the details in alerts report
-
-1. To change the report information, in the **Backup Alerts** menu, select **Choose columns**.
-
-   ![Select choose columns](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
-
-   The **Choose columns** menu opens.
-
-2. In the **Choose columns** menu, choose the details you want to appear in the report.
-
-    ![Choose columns menu](./media/backup-azure-manage-windows-server/choose-columns-menu.png)
-
-3. Select **Done** to save your changes and close the Choose columns menu.
-
-   If you make changes, but don't want to keep the changes, select **Reset** to return the selected to the last saved configuration.
-
-### Change the filter in alerts report
-
-Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts.
-
-> [!NOTE]
-> Editing the Backup Alerts filter doesn't change the Critical or Warning alerts in the vault Overview dashboard.
->  
-
-1. To change the Backup Alerts filter, in the Backup Alerts menu, select **Filter**.
-
-   ![Choose filter menu](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
-
-   The Filter menu appears.
-
-   ![Filter alert menu](./media/backup-azure-manage-windows-server/filter-alert-menu.png)
-
-2. Edit the Severity, Status, Start time, or End time, and select **Done** to save your changes.
-
-## Configuring notifications for alerts
-
-Configure notifications to generate emails when a Warning or Critical alert occurs. You can send email alerts each hour, or when a particular alert occurs.
-
-   ![Filter alerts](./media/backup-azure-manage-windows-server/configure-notification.png)
-
-By default, Email notifications are **On**. Select **Off** to stop the email notifications.
-
-On the **Notify** control, choose **Per Alert** if don't want grouping or don't have many items that could generate alerts. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
-
-If you select **Hourly Digest**, an email is sent to the recipients explaining the unresolved alerts generated in the last hour. A resolution email is sent out at the end of the hour.
-
-Choose the alert severity (Critical or Warning) used to generate email. Currently there are no Information alerts.
+>[!Important]
+>Backup Alerts (Classic) will be deprecated by 31st March, 2026. Migrate to Azure Monitor alerts for a seamless experience. View **Azure Monitor Alerts** on the **Alerts** tab.
 
 ## Manage Backup items
 
@@ -170,11 +105,11 @@ The list of Backup Items, organized by Backup Management Type, opens.
 
 ![List of Backup items](./media/backup-azure-manage-windows-server/list-backup-items.png)
 
-To explore a specific type of protected instance, select the item in the Backup Management Type column. For example, in the above image, there are two Azure virtual machines protected in this vault. Selecting **Azure Virtual Machine**, opens the list of protected virtual machines in this vault.
+To explore a specific type of protected instance, select the item in the Backup Management Type column. For example, in the above image, there are two Azure virtual machines protected in this vault. Select **Azure Virtual Machine** to open the list of protected virtual machines in this vault.
 
 ![List of protected virtual machines](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns, is different for each backup type.
+The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns is different for each backup type.
 
 ![Open ellipsis menu for common tasks](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -259,6 +194,9 @@ Use **Export jobs** to create a spreadsheet containing all Jobs menu information
 
 To export the jobs information to a spreadsheet, select **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
 
+>[!Note]
+>Azure Backup currently doesn't support exporting jobs with a filter applied, triggerring this operation fails for SQL and SAP HANA workload types. Alternatively, enable a Log Analytics workspace and [export workload-specific jobs](backup-azure-monitoring-use-azuremonitor.md#queries-specific-to-recovery-services-vault-workloads).
+
 ## Monitor Backup usage
 
 The Backup Storage tile in the dashboard shows the storage consumed in Azure. Storage usage is provided for:
@@ -266,22 +204,8 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-## Troubleshooting monitoring issues
-
-**Issue:** Jobs and/or alerts from the Azure Backup agent don't appear in the portal.
-
-**Troubleshooting steps:** The process, ```OBRecoveryServicesManagementAgent```, sends the job and alert data to the Azure Backup service. Occasionally this process can become stuck or shutdown.
-
-1. To verify the process isn't running, open **Task Manager**, and check ```OBRecoveryServicesManagementAgent``` is running.
-
-2. If the process isn't running, open **Control Panel**, and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
-
-    For further information, browse the logs at:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
-    For example:<br/>
-   `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
-
 ## Next steps
 
-* [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
-* To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md)
+* [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md).
+* [Troubleshoot monitoring issues](backup-azure-monitor-troubleshoot.md).
+* To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md).

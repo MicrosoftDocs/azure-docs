@@ -3,7 +3,7 @@ title: Azure Load Balancer health event logs
 titleSuffix: Azure Load Balancer
 description: Learn what health event logs are available for Azure Load Balancer including severity definitions, health event types, and publishing frequency.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: concept-article
 ms.date: 05/21/2024
 ms.author: mbender
@@ -16,9 +16,6 @@ ms.custom: references_regions
 Azure Load Balancer supports health event logs to help you identify and troubleshoot ongoing issues affecting your load balancer resource’s health. These events are provided through the Azure Monitor resource log category LoadBalancerHealthEvent.
 
 These logs are supported for Standard (regional and global tier) and Gateway Load Balancers.
-
-[!INCLUDE [load-balancer-health-event-logs-preview](../../includes/load-balancer-health-event-logs-preview.md)]
-
 
 ## Severity definitions 
 
@@ -40,11 +37,11 @@ Each event log is published with a timestamp that indicates the time that Azure 
 
 | **Status** | **LoadBalancerHealthEventType** | **Severity** | **Description** | **Detection window** | **Re-detection interval** | **Supported properties** |
 | --- | --- | --- | --- | --- | --- | --- |
-| **Preview** | *DataPathAvailabilityWarning* | Warning | This event is published per affected Load Balancer frontend IP, when the Data Path Availability metric of the frontend IP is less than 90% due to platform issues | 1 minute | 5 minutes | Frontend IP address, List of frontend ports associated with affected load balancing rules |
-| **Preview** | *DataPathAvailabilityCritical* | Critical | This event is published per affected Load Balancer frontend IP, when the Data Path Availability metric of the frontend IP is less than 25% due to platform issues | 1 minute | 5 minutes | Frontend IP address, List of frontend ports associated with affected load balancing rules |
-| **Preview** | *NoHealthyBackends* | Critical | This event is published per Load Balancer frontend IP, when an associated backend pool has no backend instances responding to the configured health probes. As a result, the load balancer has no healthy backends to distribute traffic to. | On-demand | 60 minutes | Frontend IP address, Pairwise list of protocol and frontend ports associated with affected load balancing rules |
-| **Preview** | *HighSnatPortUsage* | Warning | This event is published on a per backend instance-level, when a backend instance utilizes more than 75% of its allocated ports from a single frontend IP. | On-demand | 5 minutes | Backend IP address, Frontend IP address |
-| **Preview** | *SnatPortExhaustion* | Critical | This event is published on a per backend instance-level. Publication occurs when a backend instance exhausts all allocated ports and fails any further outbound connections. This event continues until ports are released or more ports are allocated. | On-demand | 5 minutes | Backend IP address, Frontend IP address |
+| **GA** | *DataPathAvailabilityWarning* | Warning | This event is published per affected Load Balancer frontend IP, when the Data Path Availability metric of the frontend IP is less than 90% due to platform issues | 1 minute | 5 minutes | Frontend IP address, List of frontend ports associated with affected load balancing rules |
+| **GA** | *DataPathAvailabilityCritical* | Critical | This event is published per affected Load Balancer frontend IP, when the Data Path Availability metric of the frontend IP is less than 25% due to platform issues | 1 minute | 5 minutes | Frontend IP address, List of frontend ports associated with affected load balancing rules |
+| **GA** | *NoHealthyBackends* | Critical | This event is published per Load Balancer frontend IP, when an associated backend pool has no backend instances responding to the configured health probes. As a result, the load balancer has no healthy backends to distribute traffic to. | On-demand | 60 minutes | Frontend IP address, Pairwise list of protocol and frontend ports associated with affected load balancing rules |
+| **GA** | *HighSnatPortUsage* | Warning | This event is published on a per backend instance-level, when a backend instance utilizes more than 75% of its allocated ports from a single frontend IP. | On-demand | 5 minutes | Backend IP address, Frontend IP address |
+| **GA** | *SnatPortExhaustion* | Critical | This event is published on a per backend instance-level. Publication occurs when a backend instance exhausts all allocated ports and fails any further outbound connections. This event continues until ports are released or more ports are allocated. | On-demand | 5 minutes | Backend IP address, Frontend IP address |
 
 For more information on the properties published with each health event log, refer to the Azure Log Analytics reference documentation for the log table [*ALBHealthEvent*](/azure/azure-monitor/reference/tables/albhealthevent).
 

@@ -1,12 +1,12 @@
 ---
 title: Monitor Azure Data Share
 description: Start here to learn how to monitor Azure Data Share.
-ms.date: 03/05/2024
+ms.date: 02/12/2025
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ---
 
 # Monitor Azure Data Share

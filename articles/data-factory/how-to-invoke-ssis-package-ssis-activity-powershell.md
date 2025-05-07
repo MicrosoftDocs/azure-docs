@@ -1,7 +1,6 @@
 ---
 title: Use the Execute SSIS Package activity with PowerShell
 description: This article describes how to run a SQL Server Integration Services (SSIS) package with PowerShell in an Azure Data Factory pipeline using the Execute SSIS Package activity.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual

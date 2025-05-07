@@ -39,9 +39,9 @@ This Azure Communication Services Call Automation AI sample demonstrates how to 
     - `connectionstring`: Azure Communication Service resource's connection string.
     - `basecallbackuri`: Base url of the app. For local development use dev tunnel url.
     - `cognitiveServicesUrl`: The Azure AI services endpoint
-    - `azureOpenAiServiceKey`: Open AI's Service Key
-    - `azureOpenAiServiceEndpoint`: Open AI's Service Endpoint
-    - `openAiModelName`: Open AI's Model name
+    - `azureOpenAiServiceKey`: Azure OpenAI Service Key
+    - `azureOpenAiServiceEndpoint`: Azure OpenAI Service Endpoint
+    - `openAiModelName`: Azure OpenAI Model name
 
 
 ### Setup and host your Azure DevTunnel

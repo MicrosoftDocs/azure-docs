@@ -4,8 +4,8 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Provides an overview of the BareMetal Infrastructure on Azure.
 ms.custom: references_regions
-ms.topic: conceptual
-ms.date: 07/01/2023
+ms.topic: concept-article
+ms.date: 08/15/2024
 ---
 
 #  What is BareMetal Infrastructure on Azure?

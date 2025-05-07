@@ -1,15 +1,15 @@
 ---
 title: Best practices for network security - Microsoft Azure
 description: This article provides a set of best practices for network security using built in Azure capabilities.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 03/27/2024
-ms.author: terrylan
+ms.date: 09/27/2024
+ms.author: mbaldwin
 
 ---
 # Azure best practices for network security
@@ -47,7 +47,7 @@ Best practices for logically segmenting subnets include:
 **Detail**: Use [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)-based subnetting principles to create your subnets.
 
 **Best practice**: Create network access controls between subnets. Routing between subnets happens automatically, and you don't need to manually configure routing tables. By default, there are no network access controls between the subnets that you create on an Azure virtual network.   
-**Detail**: Use a [network security group](../../virtual-network/manage-network-security-group.md) to protect against unsolicited traffic into Azure subnets. Network security groups (NSGs) are simple, stateful packet inspection devices. NSGs use the 5-tuple approach (source IP, source port, destination IP, destination port, and layer 4 protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
+**Detail**: Use a [network security group](../../virtual-network/manage-network-security-group.md) to protect against unsolicited traffic into Azure subnets. Network security groups (NSGs) are simple, stateful packet inspection devices. NSGs use the 5-tuple approach (source IP, source port, destination IP, destination port and protocol) to create allow/deny rules for network traffic. You allow or deny traffic to and from a single IP address, to and from multiple IP addresses, or to and from entire subnets.
 
 When you use network security groups for network access control between subnets, you can put resources that belong to the same security zone or role in their own subnets.
 
@@ -80,18 +80,16 @@ When you put a virtual machine on an Azure virtual network, the VM can connect t
 
 Although the default system routes are useful for many deployment scenarios, there are times when you want to customize the routing configuration for your deployments. You can configure the next-hop address to reach specific destinations.
 
-We recommend that you configure [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) when you deploy a security appliance for a virtual network. We talk about this recommendation in a later section titled [secure your critical Azure service resources to only your virtual networks](network-best-practices.md#secure-your-critical-azure-service-resources-to-only-your-virtual-networks).
+We recommend that you configure [user-defined routes](../../virtual-network/virtual-networks-udr-overview.md#custom-routes) when you deploy a security appliance for a virtual network. We talk about this recommendation in a later section titled [secure your critical Azure service resources to only your virtual networks](#secure-your-critical-azure-service-resources-to-only-your-virtual-networks).
 
 > [!NOTE]
 > User-defined routes aren't required, and the default system routes usually work.
->
->
+
 
 ## Use virtual network appliances
 Network security groups and user-defined routing can provide a certain measure of network security at the network and transport layers of the [OSI model](https://en.wikipedia.org/wiki/OSI_model). But in some situations, you want or need to enable security at high levels of the stack. In such situations, we recommend that you deploy virtual network security appliances provided by Azure partners.
 
 Azure network security appliances can deliver better security than what network-level controls provide. Network security capabilities of virtual network security appliances include:
-
 
 * Firewalling
 * Intrusion detection/intrusion prevention
@@ -105,6 +103,7 @@ Azure network security appliances can deliver better security than what network-
 To find available Azure virtual network security appliances, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for "security" and "network security."
 
 ## Deploy perimeter networks for security zones
+
 A [perimeter network](/azure/architecture/vdc/networking-virtual-datacenter) (also known as a DMZ) is a physical or logical network segment that provides an extra layer of security between your assets and the internet. Specialized network access control devices on the edge of a perimeter network allow only desired traffic into your virtual network.
 
 Perimeter networks are useful because you can focus your network access control management, monitoring, logging, and reporting on the devices at the edge of your Azure virtual network. A perimeter network is where you typically enable [distributed denial of service (DDoS) protection](../../ddos-protection/ddos-protection-overview.md), intrusion detection/intrusion prevention systems (IDS/IPS), firewall rules and policies, web filtering, network antimalware, and more. The network security devices sit between the internet and your Azure virtual network and have an interface on both networks.
@@ -166,7 +165,7 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 For example, if the user makes a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
 ## Disable RDP/SSH Access to virtual machines
-It's possible to reach Azure virtual machines by using [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
+It's possible to reach Azure virtual machines by using [Remote Desktop Protocol (RDP)](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
 
 The potential security problem with using these protocols over the internet is that attackers can use [brute force](https://en.wikipedia.org/wiki/Brute-force_attack) techniques to gain access to Azure virtual machines. After the attackers gain access, they can use your VM as a launch point for compromising other machines on your virtual network or even attack networked devices outside Azure.
 

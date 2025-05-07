@@ -2,7 +2,7 @@
 title: Service Bus queues and topics as event handlers for Azure Event Grid events
 description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
 ms.topic: conceptual
-ms.date: 01/17/2024
+ms.date: 04/29/2024
 ---
 
 # Service Bus queues and topics as event handlers for Azure Event Grid events
@@ -18,7 +18,7 @@ In the Azure portal, while creating an event subscription, select **Service Bus 
 :::image type="content" source="./media/handler-service-bus/queue.png" lightbox="./media/handler-service-bus/queue.png" alt-text="Screenshot showing the configuration of a Service Bus queue handler.":::
 
 > [!NOTE]
-> Session enabled queues are not supported as event handlers for Azure Event Grid events
+> If you are using session enabled queue/topic subscription as the destination, you need to set the session property on the event using Delivery Property with the header name 'SessionId'.
  
 ### Use Azure CLI
 Use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription) command with `--endpoint-type` set to `servicebusqueue` and `--endpoint` set to `/subscriptions/{AZURE SUBSCRIPTION}/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<NAMESPACE NAME>/queues/<QUEUE NAME>`. Here's an example:
@@ -205,7 +205,7 @@ For more information, see [Custom delivery properties](delivery-properties.md).
 ```
 
 > [!NOTE]
-> When a failover occurs for a Service Bus namespace that's Geo-DR enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace. 
+> When a failover occurs for a Service Bus namespace that's [Geo-Disaster Recovery](../service-bus-messaging/service-bus-geo-dr.md) enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace. 
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 

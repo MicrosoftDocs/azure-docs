@@ -1,9 +1,9 @@
 ---
 title: API throttling guidance for Azure Data Manager for Agriculture
 description: This article provides information on API throttling limits to plan usage in Azure Data Manager for Agriculture.
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual
 ms.date: 11/15/2023
 ms.custom: template-concept

@@ -4,9 +4,8 @@ description: Describes security features implemented for Azure Data Box Disk, a 
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
-ms.topic: conceptual
+ms.service: azure-data-box-disk
+ms.topic: concept-article
 ms.date: 04/16/2024
 ms.author: shaas
 ---

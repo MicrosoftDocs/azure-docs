@@ -18,9 +18,6 @@ Call Automation uses a REST API interface to receive requests for actions and pr
 
 Call Automation supports various other actions to manage call media and recording that have separate guides.
 
-> [!NOTE]
-> Call Automation currently doesn't support [Rooms](../../concepts/rooms/room-concept.md) calls.
-
 As a prerequisite, we recommend you to read these articles to make the most of this guide:
 
 1. Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
@@ -169,6 +166,91 @@ The response provides you with CallConnection object that you can use to take fu
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 ![Sequence diagram for placing an outbound call.](media/make-call-flow.png)
 
+In the case where the call fails, you will receive a `CallDisconnected` and `CreateCallFailed` event with error codes for further troubleshooting (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on error codes).
+
+## Connect to a call
+
+Connect action enables your service to establish a connection with an ongoing call and take actions on it. This is useful to manage a Rooms call or when client applications started a 1:1 or group call that Call automation isn't part of. Connection is established using the CallLocator property and can be of types: ServerCallLocator, GroupCallLocator, and RoomCallLocator. These IDs can be found when the call is originally established or a Room is created, and also published as part of [CallStarted](./../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationcallstarted) event. 
+
+To connect to any 1:1 or group call, use the ServerCallLocator. If you started a call using GroupCallId, you can also use the GroupCallLocator. 
+### [csharp](#tab/csharp)
+
+```csharp
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
+CallLocator serverCallLocator = new ServerCallLocator("<ServerCallId>");
+ConnectCallResult response = await client.ConnectCallAsync(serverCallLocator, callbackUri);
+```
+
+### [Java](#tab/java)
+
+```java
+String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
+CallLocator serverCallLocator =  new ServerCallLocator("<ServerCallId>");
+ConnectCallResult response = client.connectCall(serverCallLocator, callbackUri).block();
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const serverCallLocator = { kind: "serverCallLocator", id: "<serverCallId>" };
+const response = await client.connectCall(serverCallLocator, callbackUri);
+```
+
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+server_call_locator = ServerCallLocator("<server_call_id>")
+call_connection_properties = client.connect_call(call_locator=server_call_locator, callback_url=callback_uri)
+```
+
+-----
+
+To connect to a Rooms call, use RoomCallLocator which takes RoomId. Learn more about [Rooms](./../../concepts/rooms/room-concept.md) and how Call Automation API can be used to [manage ongoing Rooms call](./../../quickstarts/rooms/manage-rooms-call.md).  
+ 
+### [csharp](#tab/csharp)
+
+```csharp
+Uri callbackUri = new Uri("https://<myendpoint>/Events"); //the callback endpoint where you want to receive subsequent events
+CallLocator roomCallLocator = new RoomCallLocator("<RoomId>");
+ConnectCallResult response = await client.ConnectCallAsync(roomCallLocator, callbackUri);
+```
+
+### [Java](#tab/java)
+
+```java
+String callbackUri = "https://<myendpoint>/Events"; //the callback endpoint where you want to receive subsequent events
+CallLocator roomCallLocator =  new RoomCallLocator("<RoomId>");
+ConnectCallResult response = client.connectCall(roomCallLocator, callbackUri).block();
+```
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const roomCallLocator = { kind: "roomCallLocator", id: "<RoomId>" };
+const callbackUri = "https://<myendpoint>/Events"; // the callback endpoint where you want to receive subsequent events 
+const response = await client.connectCall(roomCallLocator, callbackUri);
+```
+
+### [Python](#tab/python)
+
+```python
+callback_uri = "https://<myendpoint>/Events"  # the callback endpoint where you want to receive subsequent events
+room_call_locator = RoomCallLocator("<room_id>")
+call_connection_properties = client.connect_call(call_locator=room_call_locator, callback_url=callback_uri)
+```
+
+-----
+
+A successful response provides you with CallConnection object that you can use to take further actions on this call. Two events are published to the callback endpoint you provided earlier:
+1. `CallConnected` event notifying that you successfully connect to the call.
+2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
+   
+At any point after a successful connection, if your service is disconnected from this call you will be notified via a CallDisconnected event. Failure to connect to the call in the first place results in ConnectFailed event.  
+
+![Sequence diagram for connecting to call.](media/connect-call-flow.png)
+
 ## Answer an incoming call
 
 Once you've subscribed to receive [incoming call notifications](../../concepts/call-automation/incoming-call-notification.md) to your resource, you will answer an incoming call. When answering a call, it's necessary to provide a callback url. Communication Services post all subsequent events about this call to that url.  
@@ -220,6 +302,8 @@ The response provides you with CallConnection object that you can use to take fu
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 
 ![Sequence diagram for answering an incoming call.](media/answer-flow.png)
+
+In the case where answer operation fails, you will receive a `AnswerFailed` event with error codes for further troubleshooting (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on error codes).
 
 ## Reject a call
 
@@ -405,7 +489,7 @@ voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     voip_headers=voip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 ```
@@ -464,7 +548,7 @@ options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 
 // Transfer Pstn User
-CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<taget_phoneNumber>");
+CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
 CommunicationIdentifier transferee = new PhoneNumberIdentifier("<transferee_phoneNumber>"); 
 TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
 options.setTransferee(transferee);
@@ -494,7 +578,7 @@ options.customCallingContext = customCallingContext;
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 
 // Transfer pstn User
-const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
+const transferDestination = { phoneNumber: "<target_phoneNumber>" };
 const transferee = { phoneNumber: "<transferee_phoneNumber>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 
@@ -512,7 +596,7 @@ const result = await callConnection.transferCallToParticipant(transferDestinatio
 ```python
 # Transfer to user
 transfer_destination = CommunicationUserIdentifier("<user_id>")
-transferee = CommnunicationUserIdentifer("transferee_user_id")
+transferee = CommunicationUserIdentifier("transferee_user_id")
 call_connection_client = call_automation_client.get_call_connection("<call_connection_id_from_ongoing_call>")
 
 # create custom context
@@ -522,13 +606,13 @@ result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
     voip_headers=voip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 
 # Transfer to PSTN user
-transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
-transferee = PhoneNumberIdentifer("transferee_phoneNumber")
+transfer_destination = PhoneNumberIdentifier("<target_phoneNumber>")
+transferee = PhoneNumberIdentifier("transferee_phoneNumber")
 
 # create custom context
 sip_headers={}
@@ -540,7 +624,7 @@ result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
     sip_headers=sip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 ```
@@ -653,7 +737,7 @@ call_connection_client = call_automation_client.get_call_connection(
 result = call_connection_client.add_participant(
     target,
     voip_headers=voip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 
@@ -672,7 +756,7 @@ call_connection_client = call_automation_client.get_call_connection(
 result = call_connection_client.add_participant(
     target,
     sip_headers=sip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>",
     source_caller_id_number=caller_id_number
 )
@@ -749,7 +833,7 @@ call_connection_client = call_automation_client.get_call_connection(
 result = call_connection_client.add_participant(target)
 
 # cancel the request
-call_connection_client.cancel_add_participant_operation(result.invitation_id, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+call_connection_client.cancel_add_participant_operation(result.invitation_id, operation_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 -----
 
@@ -797,7 +881,7 @@ remove_this_user = CommunicationUserIdentifier("<user_id>")
 call_connection_client = call_automation_client.get_call_connection(
     "<call_connection_id_from_ongoing_call>"
 )
-result = call_connection_client.remove_participant(remove_this_user, opration_context="Your context", operationCallbackUrl="<url_endpoint>")
+result = call_connection_client.remove_participant(remove_this_user, operation_context="Your context", operationCallbackUrl="<url_endpoint>")
 ```
 
 -----

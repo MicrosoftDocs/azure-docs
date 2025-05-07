@@ -5,6 +5,7 @@ author: cachai2
 ms.topic: conceptual
 ms.custom:
   - build-2024
+  - ignite-2024
 ms.date: 05/05/2024
 ms.author: cachai
 ---
@@ -12,8 +13,6 @@ ms.author: cachai
 # Concurrency in Azure Functions
 
 This article describes the concurrency behaviors of event-driven triggers in Azure Functions. It also compares the static and dynamic concurrency models. 
-
-[!INCLUDE [functions-flex-preview-note](../../includes/functions-flex-preview-note.md)]
 
 In Functions, you can have multiple executing processes of a given function running concurrently on a single compute instance. For example, consider a case where you have three different functions in your function app that is scaled-out to multiple instances to handle an increased load. In this scenario, each function is executing in response to individual invocations across all three instances, and a given instance can handle multiple invocations of the same type. Keep in mind that the function executions on a single instance share the same memory, CPU, and connection resources. Because multiple function executions can run on each instance concurrently, each function needs to have a way to manage the number of concurrent executions.
 

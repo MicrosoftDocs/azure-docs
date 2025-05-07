@@ -5,7 +5,7 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/18/2019
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
@@ -20,7 +20,7 @@ The service-level agreement (SLA) for Azure Storage accounts is available at [SL
 
 ## Scale targets for the resource provider
 
-[!INCLUDE [azure-storage-limits-azure-resource-manager](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-azure-resource-manager.md)]
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## See also
 

@@ -10,7 +10,7 @@ ms.date: 01/21/2024
 
 # Create or join parallel branches with workflow actions in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 By default, your actions in a logic app workflow run sequentially. To organize actions into separate branches and run those branches at the same time, you can create [parallel branches](#parallel-branches), and then [join those branches](#join-branches) later in your workflow.
 
@@ -21,7 +21,7 @@ This guide shows how to create parallel branches in a workflow and rejoin those 
 > [!TIP]
 >
 > If your workflow trigger receives an array, and you want to run a workflow instance 
-> instance for each item in the array, rather than create parallel branches, you can 
+> for each item in the array, rather than create parallel branches, you can 
 > [*debatch* that array instead by using the **SplitOn** trigger property](logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## Prerequisites

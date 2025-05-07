@@ -110,5 +110,5 @@ For the Azure Storage Queues destination, you can only configure the time-to-liv
 For more information about event delivery, see the following article:
 
 - [Delivery and retry](delivery-and-retry.md)
-- [Webhook event delivery](webhook-event-delivery.md)
+- [Endpoint validation](end-point-validation-cloud-events-schema.md)
 - [Event filtering](event-filtering.md)

@@ -2,11 +2,11 @@
 title: Azure permissions for Databases - Azure RBAC
 description: Lists the permissions for the Azure resource providers in the Databases category.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
@@ -195,12 +195,14 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Microsoft.DBforMySQL/register/action | Register MySQL Resource Provider |
 > | Microsoft.DBforMySQL/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
+> | Microsoft.DBforMySQL/acceleratedLogsFeatureSwitches/read |  |
 > | Microsoft.DBforMySQL/flexibleServers/read | Returns the list of servers or gets the properties for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/write | Creates a server with the specified parameters or updates the properties or tags for the specified server. |
 > | Microsoft.DBforMySQL/flexibleServers/delete | Deletes an existing server. |
 > | Microsoft.DBforMySQL/flexibleServers/validateEstimateHighAvailability/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/detachVNet/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/getReplicationStatusForMigration/action | Return whether the replication is able to migration. |
+> | Microsoft.DBforMySQL/flexibleServers/selfHeal/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/resetGtid/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/checkServerVersionUpgradeAvailability/action |  |
 > | Microsoft.DBforMySQL/flexibleServers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
@@ -249,6 +251,7 @@ Azure service: [Azure Database for MySQL](/azure/mysql/)
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for MySQL servers |
 > | Microsoft.DBforMySQL/flexibleServers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for databases |
 > | Microsoft.DBforMySQL/flexibleServers/replicas/read | Returns the list of read replicas for a MySQL server |
+> | Microsoft.DBforMySQL/flexibleServers/supportAcceleratedLogs/read |  |
 > | Microsoft.DBforMySQL/flexibleServers/supportedFeatures/read | Return the list of the MySQL Server Supported Features |
 > | Microsoft.DBforMySQL/locations/checkVirtualNetworkSubnetUsage/action | Checks the subnet usage for speicifed delegated virtual network. |
 > | Microsoft.DBforMySQL/locations/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
@@ -369,6 +372,8 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/advisors/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/advisors/recommendedActions/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/backups/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/backups/write |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/backups/delete |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/capabilities/read | Gets the capabilities for this subscription in a given location |
 > | Microsoft.DBforPostgreSQL/flexibleServers/configurations/read | Returns the list of  PostgreSQL server configurations or gets the configurations for the specified server. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/configurations/write | Updates the configuration of a PostgreSQL server. |
@@ -381,6 +386,9 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/logFiles/read | Return a list of server log Files for a PostgreSQL Flexible server with File download links |
 > | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read | Returns the PostgreSQL server long term backup operation tracking by backup name. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read | Returns the list of  PostgreSQL server long term backup operation tracking. |
+> | Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/write | Creates a Major Version Upgrade Precheck operation |
+> | Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/read | Gets a Major Version Upgrade Precheck Operation |
+> | Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/read | Lists the Major Version Upgrade Precheck Operations Performed |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/write | Creates a migration with the specified parameters. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | Gets the properties for the specified migration workflow. |
 > | Microsoft.DBforPostgreSQL/flexibleServers/migrations/read | List of migration workflows for the specified database server. |
@@ -402,11 +410,23 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | Microsoft.DBforPostgreSQL/flexibleServers/queryTexts/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/replicas/read |  |
 > | Microsoft.DBforPostgreSQL/flexibleServers/topQueryStatistics/read |  |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read | Returns the list of Tuning Options available for the Azure Database for PostgreSQL Flexible Server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/read | Returns a tuning option |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/startSession/action | Starts a server configuration tuning session on a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/stopSession/action | Stops the server configuration tuning session on a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/enable/action | Enables server configuration tuning feature on the server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/disable/action | Disables server configuration tuning feature on the server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/recommendations/read | Returns the list of recommended indexes for the Azure Database for PostgreSQL Flexible Server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/sessionDetails/read | Gets the list of iterations for a specified server configuration tuning session on a server |
+> | Microsoft.DBforPostgreSQL/flexibleServers/tuningOptions/sessions/read | Gets the list of server configuration tuning sessions on a server |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Creates or Updates VirtualEndpoint |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/write | Patches the VirtualEndpoint. Currently patch does a full replace |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/delete | Deletes the VirtualEndpoint |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/read | Gets the VirtualEndpoint details |
 > | Microsoft.DBforPostgreSQL/flexibleServers/virtualendpoints/read | Lists the VirtualEndpoints |
+> | Microsoft.DBforPostgreSQL/locations/getAutoMigrationFreeSlots/action | Returns the list of free / available slots for auto migration of PostgreSQL server |
+> | Microsoft.DBforPostgreSQL/locations/getLatestAutoMigrationSchedule/action | Returns the instance of the latest auto migration schedule for PostgreSQL server |
+> | Microsoft.DBforPostgreSQL/locations/updateAutoMigrationSchedule/action | Update auto migration schedule for the PostgreSQL server |
 > | Microsoft.DBforPostgreSQL/locations/administratorAzureAsyncOperation/read | Gets in-progress operations on PostgreSQL server administrators |
 > | Microsoft.DBforPostgreSQL/locations/administratorOperationResults/read | Return PostgreSQL Server administrator operation results |
 > | Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read | Return PostgreSQL Server Operation Results |
@@ -534,6 +554,7 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/databaseAccounts/joinPerimeter/action | Joins a database account to a Network Security Perimeter |
 > | Microsoft.DocumentDB/databaseAccounts/restore/action | Submit a restore request |
 > | Microsoft.DocumentDB/databaseAccounts/backup/action | Submit a request to configure backup |
+> | Microsoft.DocumentDB/databaseAccounts/chaosFault/action | Enable, Disable and GetStatus of Chaos Fault |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/write | (Deprecated. Please use resource paths without '/apis/' segment) Create a database. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/read | (Deprecated. Please use resource paths without '/apis/' segment) Read a database or list all the databases. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
 > | Microsoft.DocumentDB/databaseAccounts/apis/databases/delete | (Deprecated. Please use resource paths without '/apis/' segment) Delete a database. Only applicable to API types: 'sql', 'mongodb', 'gremlin'. |
@@ -616,6 +637,12 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings/migrateToAutoscale/operationResults/read | Read status of the asynchronous operation. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings/migrateToManualThroughput/operationResults/read | Read status of the asynchronous operation. |
 > | Microsoft.DocumentDB/databaseAccounts/cassandraKeyspaces/views/throughputSettings/operationResults/read | Read status of the asynchronous operation. |
+> | Microsoft.DocumentDB/databaseAccounts/copyJobs/read | Read container copy job or List all container copy jobs in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/copyJobs/write | Create container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/copyJobs/pause/action | Pause a container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/copyJobs/resume/action | Resume container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/copyJobs/cancel/action | Cancel container copy job in a database account |
+> | Microsoft.DocumentDB/databaseAccounts/copyJobs/complete/action | Complete an online container copy job in a database account |
 > | Microsoft.DocumentDB/databaseAccounts/databases/collections/metricDefinitions/read | Reads the collection metric definitions. |
 > | Microsoft.DocumentDB/databaseAccounts/databases/collections/metrics/read | Reads the collection metrics. |
 > | Microsoft.DocumentDB/databaseAccounts/databases/collections/partitionKeyRangeId/metrics/read | Read database account partition key level metrics |
@@ -788,6 +815,9 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/databaseAccounts/tables/throughputSettings/migrateToManualThroughput/operationResults/read | Read status of the asynchronous operation. |
 > | Microsoft.DocumentDB/databaseAccounts/tables/throughputSettings/operationResults/read | Read status of the asynchronous operation. |
 > | Microsoft.DocumentDB/databaseAccounts/usages/read | Reads the database account usages. |
+> | Microsoft.DocumentDB/fleets/read | Reads the Fleet resource |
+> | Microsoft.DocumentDB/fleets/write | Create/Update a Fleet resource |
+> | Microsoft.DocumentDB/fleets/delete | Deletes the Fleet resource |
 > | Microsoft.DocumentDB/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notifies Microsoft.DocumentDB that updates are available for networksecurityperimeter |
 > | Microsoft.DocumentDB/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.DocumentDB that VirtualNetwork or Subnet is being deleted |
 > | Microsoft.DocumentDB/locations/read | Read the metadata of a location or List all location metadata |
@@ -795,6 +825,9 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/locations/operationsStatus/read | Reads Status of Asynchronous Operations |
 > | Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read | Read a restorable database account or List all the restorable database accounts |
 > | Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action | Submit a restore request |
+> | Microsoft.DocumentDB/managedResources/read | Reads the managed resource |
+> | Microsoft.DocumentDB/managedResources/write | Create/Update a managed resource |
+> | Microsoft.DocumentDB/managedResources/delete | Deletes the managed resource |
 > | Microsoft.DocumentDB/mongoClusters/read | Reads a Mongo Cluster or list all Mongo Clusters. |
 > | Microsoft.DocumentDB/mongoClusters/write | Create or Update the properties or tags of the specified Mongo Cluster. |
 > | Microsoft.DocumentDB/mongoClusters/delete | Deletes the specified Mongo Cluster. |
@@ -816,8 +849,10 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | Microsoft.DocumentDB/mongoClusters/users/delete | Deletes an existing user for the specified Mongo Cluster. |
 > | Microsoft.DocumentDB/operationResults/read | Read status of the asynchronous operation |
 > | Microsoft.DocumentDB/operations/read | Read operations available for the Microsoft DocumentDB  |
-> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/read | Read throughputPool account in throughputPool |
-> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/write | Create throughputPool account in throughputPool |
+> | Microsoft.DocumentDB/throughputPool/throughputPoolAccounts/write | Create/Update/Delete throughputPool account in throughputPool |
+> | Microsoft.DocumentDB/throughputPools/read | Read/List throughputPool |
+> | Microsoft.DocumentDB/throughputPools/write | Create/Update/Delete throughputPool |
+> | Microsoft.DocumentDB/throughputPools/throughputPoolAccounts/read | Read/List throughputPool account in throughputPool |
 
 ## Microsoft.Sql
 
@@ -835,6 +870,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/instancePools/read | Gets an instance pool |
 > | Microsoft.Sql/instancePools/write | Creates or updates an instance pool |
 > | Microsoft.Sql/instancePools/delete | Deletes an instance pool |
+> | Microsoft.Sql/instancePools/operations/read | Get instance pool operations |
 > | Microsoft.Sql/instancePools/usages/read | Gets an instance pool's usage info |
 > | Microsoft.Sql/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action | Notify of NSP Update |
 > | Microsoft.Sql/locations/deleteVirtualNetworkOrSubnets/action | Deletes Virtual network rules associated to a virtual network or subnet |
@@ -1101,6 +1137,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/managedInstances/startStopSchedules/write | Creates Azure SQL Managed Instance's Start-Stop schedule with the specified parameters or updates the properties of the schedule for the specified instance. |
 > | Microsoft.Sql/managedInstances/startStopSchedules/delete | Deletes Azure SQL Managed Instance's Start-Stop schedule. |
 > | Microsoft.Sql/managedInstances/startStopSchedules/read | Get properties for specified Start-Stop schedule for the Azure SQL Managed Instance or a List of all Start-Stop schedules. |
+> | Microsoft.Sql/managedInstances/topdatabases/read | Get top resource consuming databases of a managed instance |
 > | Microsoft.Sql/managedInstances/topqueries/read | Get top resource consuming queries of a managed instance |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/write | Change the vulnerability assessment for a given managed instance |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | Remove the vulnerability assessment for a given managed instance |
@@ -1386,6 +1423,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Return types of metrics that are available for servers |
 > | Microsoft.Sql/servers/recommendedElasticPools/read | Retrieve recommendation for elastic database pools to reduce cost or improve performance based on historical resource utilization |
 > | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Retrieve metrics for recommended elastic database pools for a given server |
+> | Microsoft.Sql/servers/recommendedElasticPools/metrics/read | Retrieve metrics for recommended elastic database pools for a given server |
 > | Microsoft.Sql/servers/recoverableDatabases/read | Return the list of recoverable databases or gets the properties for the specified recoverable database. |
 > | Microsoft.Sql/servers/replicationLinks/read | Return the list of replication links or gets the properties for the specified replication links. |
 > | Microsoft.Sql/servers/restorableDroppedDatabases/read | Get a list of databases that were dropped on a given server that are still within retention policy. |
@@ -1444,6 +1482,8 @@ Azure service: [SQL Server on Azure Virtual Machines](/azure/azure-sql/virtual-m
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/write | Create a new or changes properties of existing SQL availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/availabilityGroupListeners/delete | Delete existing availability group listener |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/sqlVirtualMachines/read | List Sql virtual machines by a particular sql virtual virtual machine group |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/PostUpdateValidation/action |  |
+> | Microsoft.SqlVirtualMachine/sqlVirtualMachines/PreUpdateValidation/action |  |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/startAssessment/action | Start SQL best practices Assessment on SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/redeploy/action | Redeploy existing SQL virtual machine |
 > | Microsoft.SqlVirtualMachine/sqlVirtualMachines/read | Retrieve details of SQL virtual machine |

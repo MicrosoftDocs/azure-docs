@@ -4,7 +4,7 @@ description: How to enable CORS policies in Azure API Management and Power Platf
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: danlep
@@ -77,7 +77,7 @@ For details about editing settings of a custom connector, see [Create a custom c
 
 1. After setting the policy, go to the **5. Test** page to test the custom connector.
 
-## Next steps
+## Related content
 
 * [Learn more about the Power Platform](https://powerplatform.microsoft.com/)
 * [Learn more about creating and using custom connectors](/connectors/custom-connectors/)

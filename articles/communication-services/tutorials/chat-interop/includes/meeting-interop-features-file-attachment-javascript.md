@@ -197,7 +197,7 @@ That's all you need for handling file attachments. Next, let's run the code.
 
 ## Run the code
 
-For Webpack, you can use the `webpack-dev-server` property to build and run your app. Run the following command to bundle your application host on a local web server:
+For webpack, you can use the `webpack-dev-server` property to build and run your app. Run the following command to bundle your application host on a local web server:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -233,26 +233,28 @@ First, inject an `image` tag into message content whenever there's an image atta
 
 ```js
 async function renderReceivedMessage(event) {
-    messages += '<div class="container lighter">' + event.message + '</div>';
+    messages += `<div class="container lighter"> ${event.message} </div>`;
     messagesContainer.innerHTML = messages;
-
+    console.log(event);
+    // Filter out inline images from attachments
+    const imageAttachments = event.attachments?.filter(
+        (attachment) =>
+        attachment.attachmentType === "image" && !messages.includes(attachment.id)
+    );
     // Inject image tag for all image attachments
-    var imageAttachmentHtml = event.attachments
-        .filter(attachment => attachment.attachmentType === "image" && !messages.includes(attachment.id))
-        .map(attachment => renderImageAttachments(attachment))
-        .join('');
+    var imageAttachmentHtml =
+        imageAttachments
+        .map((attachment) => renderImageAttachments(attachment))
+        .join("") ?? "";
     messagesContainer.innerHTML += imageAttachmentHtml;
 
-    // Get a list of attachments and calls renderFileAttachments to construct a file attachment card
-    var attachmentHtml = event.attachments
-        .filter(attachment => attachment.attachmentType === "file")
-        .map(attachment => renderFileAttachments(attachment))
-        .join('');
+    // Get list of attachments and calls renderFileAttachments to construct a file attachment card
+    var attachmentHtml =
+        event.attachments
+        ?.filter((attachment) => attachment.attachmentType === "file")
+        .map((attachment) => renderFileAttachments(attachment))
+        .join("") ?? "";
     messagesContainer.innerHTML += attachmentHtml;
-
-    // Filter out inline images from attachments
-    const imageAttachments = event.attachments.filter((attachment) =>
-        attachment.attachmentType === "image" && messages.includes(attachment.id));
 
     // Fetch and render preview images
     fetchPreviewImages(imageAttachments);
