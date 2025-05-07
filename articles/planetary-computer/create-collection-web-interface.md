@@ -22,7 +22,7 @@ To complete this quickstart, you need:
 
 ## Navigating the Microsoft Planetary Computer Pro web interface
 
-The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal: 
+The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal:*** 
 
 :::image type="content" source="./media/geocatalog-uri-example.jpeg" alt-text="Screenshot of URI in geocatalog resource in Azure portal."::: 
 
@@ -50,25 +50,25 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
     OR
     * Upload a collection JSON from your local machine 
 
-[!NOTE] 
+> [!NOTE] 
 > Whichever method you use to create your STAC collection, your JSON file must include the following fields:
-
-| Field           | Required             | Description                                                                 |
-|-----------------|----------------------|-----------------------------------------------------------------------------|
-| `type`          | **Required**         | The type of the STAC object, which should be set to `Collection`.           |
-| `stac_version`  | **Required**         | The version of the STAC specification that your collection adheres to.      |
-| `stac_extensions`|                      | A list of STAC extensions that your collection uses.                        |
-| `id`            | **Required**         | A unique identifier for your collection.                                    |
-| `title`         |                      | A one-line title for your collection.                                       |
-| `description`   | **Required**         | A description of your collection.                                           |
-| `keywords`      |                      | A list of keywords that describe your collection.                           |
-| `license`       | **Required**         | The license under which your collection is published.                       |
-| `providers`     |                      | A list of providers capturing or processing the data for your collection.   |
-| `extent`        | **Required**         | The spatial and temporal extent of your collection.                         |
-| `summaries`     | **Strongly recommended** | A map of property summaries, either a set or range of values.             |
-| `links`         | **Required**         | A list of links for your collection.                                        |
-| `assets`        |                      | A dictionary of asset objects for your collection, each with unique keys. |
-| `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
+> 
+> | Field           | Required             | Description                                                                 |
+> |-----------------|----------------------|-----------------------------------------------------------------------------|
+> | `type`          | **Required**         | The type of the STAC object, which should be set to `Collection`.           |
+> | `stac_version`  | **Required**         | The version of the STAC specification that your collection adheres to.      |
+> | `stac_extensions`|                      | A list of STAC extensions that your collection uses.                        |
+> | `id`            | **Required**         | A unique identifier for your collection.                                    |
+> | `title`         |                      | A one-line title for your collection.                                       |
+> | `description`   | **Required**         | A description of your collection.                                           |
+> | `keywords`      |                      | A list of keywords that describe your collection.                           |
+> | `license`       | **Required**         | The license under which your collection is published.                       |
+> | `providers`     |                      | A list of providers capturing or processing the data for your collection.   |
+> | `extent`        | **Required**         | The spatial and temporal extent of your collection.                         |
+> | `summaries`     | **Strongly recommended** | A map of property summaries, either a set or range of values.             |
+> | `links`         | **Required**         | A list of links for your collection.                                        |
+> | `assets`        |                      | A dictionary of asset objects for your collection, each with unique keys. |
+> | `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
 3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-configuration-concept.md).
 :::image type="content" source="./media/collection-overview.jpeg" alt-text="Screenshot of Collection overview page.":::
