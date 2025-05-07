@@ -480,7 +480,7 @@ These binding-specific settings are equivalent to settings in the [`host.json` p
 You can configure the following bindings:
 
 * [Azure Cosmos DB trigger](#azure-cosmos-db-trigger-configuration-version-3x)
-* [Event Hubs trigger](#event-hubs-trigger-configuration-version-3x)
+* [Event Hubs trigger](#azure-event-hubs-trigger-configuration-version-3x)
 * [Queue storage trigger](#queue-storage-trigger-configuration)
 * [SendGrid binding](#sendgrid-binding-configuration-version-3x)
 * [Service Bus trigger](#service-bus-trigger-configuration-version-3x)
