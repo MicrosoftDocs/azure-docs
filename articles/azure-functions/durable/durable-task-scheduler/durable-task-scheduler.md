@@ -18,7 +18,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 Azure provides two developer-oriented orchestration frameworks you can use to build stateful apps that run on any compute environment, without the need to architect for fault tolerance. You can use the Durable Task Scheduler with the following orchestration frameworks:
 
 - Durable Functions
-- Durable Task SDKs, or "portable SDKs"
+- Durable Task SDKs
 
 [Learn which orchestration works better for your project.](./choose-orchestration-framework.md)
 
@@ -41,16 +41,16 @@ The following diagram shows the architecture of the Durable Task Scheduler backe
 The Durable Task Scheduler runs in Azure as a separate resource from your app. This isolation is important for several reasons:
 
 - **Reduced resource consumption**  
-    Using a managed scheduler like Durable Task Scheduler reduces CPU and memory resource consumption caused by the overhead of managing partitions and other complex state store interactions. Using a managed scheduler (instead of a BYO storage provider, for example) allows your app instances to run more efficiently with less resource contention.
+    Using a managed scheduler like Durable Task Scheduler (instead of a BYO storage provider) reduces CPU and memory resource consumption caused by the overhead of managing partitions and other complex state store interactions. 
 
 - **Fault isolation**  
-    When Durable Task Scheduler experiences stability or availability issues, it won't affect the stability or availability of your connected apps. By separating the scheduler from the app, you can reduce the risk of cascading failures and improve overall reliability.
+    Separating the scheduler from the app reduces the risk of cascading failures and improves overall reliability in your connected apps. 
 
 - **Independent scaling**  
-    The scheduler resource can be scaled independently of the app, allowing for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, improving overall resource utilization. This capability is especially useful for organizations with multiple teams or projects.
+    The scheduler resource can be scaled independently of the app for better infrastructure resource management and cost optimization. For example, multiple apps can share the same scheduler resource, which is helpful for organizations with multiple teams or projects.
 
 - **Improved support experience**  
-    The Durable Task Scheduler is a managed service, providing a more streamlined support and diagnostics for issues regarding the underlying infrastructure.
+    The Durable Task Scheduler is a managed service, providing streamlined support and diagnostics for issues regarding the underlying infrastructure.
 
 ### App connectivity
 
@@ -60,7 +60,7 @@ Work items are streamed from the scheduler to the app using a push model, improv
 
 ### State management
 
-The Durable Task Scheduler manages the state of orchestrations and entities internally, without a separate storage account for state management. The internal state store is highly optimized for use with Durable Functions and the portable SDKs, resulting in better durability and reliability and reduced latency.
+The Durable Task Scheduler manages the state of orchestrations and entities internally, without a separate storage account for state management. The internal state store is highly optimized for use with Durable Functions and the Durable Task SDKs, resulting in better durability and reliability and reduced latency.
 
 The scheduler uses a combination of in-memory and persistent internal storage to manage state. 
 - The in-memory store is used for short-lived state.
@@ -76,30 +76,26 @@ When a scheduler resource is created, a corresponding dashboard is provided out-
 - Quickly filter by different criteria. 
 - Gather data about an orchestration instance, such as status, duration, input/output, etc. 
 - Drill into an instance to get data about sub-orchestrations and activities.
+- Perform management operations, such as pausing, terminating, or restarting an orchestration instance. 
 
-Aside from monitoring, you can also perform management operations on the dashboard, such as pausing, terminating, or restarting an orchestration instance. 
+Access to the dashboard is secured by [identity and role-based access controls](./durable-task-scheduler-identity.md). 
 
-Access to the dashboard is secured by identity and role-based access controls. 
-
-For more information about the dashboard, see [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
+For more information, see [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md).
 
 ### Multiple task hubs
-
-> [!TIP]
-> Optimize cost when using the Durable Task Scheduler by creating multiple task hubs in the same scheduler instance so that multiple apps or environments can share one resource.  
 
 State is durably persisted in a *task hub*. A [task hub](../durable-functions-task-hubs.md):
 - Is a logical container for orchestration and entity instances.
 - Provides a way to partition the state store. 
 
-With one scheduler instance, you can create multiple task hubs that can be used by different apps. Each task hub gets its own [monitoring dashboard](./durable-task-scheduler-dashboard.md). To access a task hub, the caller's identity *must* have the required role-based access control (RBAC) permissions. 
+With one scheduler instance, you can create multiple task hubs that can be used by different apps. Each task hub gets its own [monitoring dashboard](./durable-task-scheduler-dashboard.md). To access a task hub, [the caller's identity *must* have the required role-based access control (RBAC) permissions](./durable-task-scheduler-identity.md). 
 
 Creating multiple task hubs isolates different workloads that can be managed independently. For example, you can:
 - Create a task hub for each environment (dev, test, prod).
 - Create task hubs for different teams within your organization. 
 - Share the same scheduler instance across multiple apps. 
 
-Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. You can create an unlimited number of task hubs in one scheduler instance. However, task hubs under the same scheduler instance share the same resources, so if one task hub is heavily loaded, it might affect the performance of the other task hubs.
+Scheduler sharing is a great way to optimize cost when multiple teams have scenarios requiring orchestrations. Although you can create unlimited task hubs in one scheduler instance, they share the same resources; if one task hub is heavily loaded, it might affect the performance of the other task hubs.
 
 ### Emulator for local development
 
@@ -128,17 +124,23 @@ Large volumes of completed orchestration instance data can lead to storage bloat
 
 ## Limitations and considerations
 
-- **Available regions:** Durable Task Scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
+- **Available regions:** 
+
+    Durable Task Scheduler resources can be created in a subset of Azure regions today. You can run the following command to get a list of the supported regions:  
 
     ```bash
     az provider show --namespace Microsoft.DurableTask --query "resourceTypes[?resourceType=='schedulers'].locations | [0]" --out table
     ```
 
-    Consider using the same region for your Durable Functions app and the Durable Task Scheduler resources. Having these resources in different regions might impact performance and limit certain network-related functionality.
+    Consider using the same region for your Durable Functions app and the Durable Task Scheduler resources to optimize performance and certain network-related functionality.
 
-- **Scheduler quota:** You can currently create up to **five schedulers per region** per subscription.
+- **Scheduler quota:** 
 
-- **Max payload size:** The Durable Task Scheduler has a maximum payload size restriction for the following JSON-serialized data types:
+    You can currently create up to **five schedulers per region** per subscription.
+
+- **Max payload size:** 
+
+    The Durable Task Scheduler has a maximum payload size restriction for the following JSON-serialized data types:
   
     | Data type | Max size |
     | --------- | -------- |
@@ -148,7 +150,9 @@ Large volumes of completed orchestration instance data can lead to storage bloat
     | Orchestration custom status | 1 MB |
     | Entity state | 1 MB |
 
-- **Feature parity:** Some features might not be available in the Durable Task Scheduler backend yet. For example, at the time of writing, the Durable Task Scheduler doesn't support the following features:
+- **Feature parity:** 
+
+    Some features might not be available in the Durable Task Scheduler backend yet, such as:
 
     - [Orchestration rewind](../durable-functions-instance-management.md#rewind-instances-preview)
     - [Extended sessions](../durable-functions-azure-storage-provider.md#extended-sessions)
@@ -156,14 +160,6 @@ Large volumes of completed orchestration instance data can lead to storage bloat
 
     > [!NOTE]
     > Feature availability is subject to change as the Durable Task Scheduler backend approaches general availability. To report problems or request new features, submit an issue in the [Durable Task Scheduler samples GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler/).
-
-### Specific to Durable Task Scheduler for Durable Functions
-
-- **Supported hosting plans**: The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
-
-  The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
-
-- **Migrating [task hub data](../durable-functions-task-hubs.md) across backend providers:** Currently, migrating across providers isn't supported. Function apps that have existing runtime data need to start with a fresh, empty task hub after they switch to the Durable Task Scheduler. Similarly, the task hub contents that are created by using the scheduler resource can't be preserved if you switch to a different backend provider.
 
 ## Next steps
 

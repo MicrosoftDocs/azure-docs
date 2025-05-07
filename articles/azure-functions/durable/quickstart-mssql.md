@@ -66,7 +66,8 @@ In Visual Studio Code, create a local Azure Functions project.
 
 Visual Studio Code installs Azure Functions Core Tools if it's required to create the project. It also creates a function app project in a folder. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-develop-local.md#local-settings-file) configuration files.
 
-Another file, *HelloOrchestration.cs*, contains the basic building blocks of a Durable Functions app:
+Another file, *HelloOrchestration.cs*, contains the basic building blocks of a Durable Functions app:  
+
 | Method | Description |
 | -----  | ----------- |
 | `HelloOrchestration` | Defines the Durable Functions app orchestration. In this case, the orchestration starts, creates a list, and then adds the result of three functions calls to the list. When the three function calls finish, it returns the list. |
@@ -78,7 +79,7 @@ For more information about these functions, see [Durable Functions types and fea
 #### Check for latest extension version
 For .NET apps, check the `.csproj` file and make sure the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask) package is referenced.
 
-Non-.NET apps references the extension bundles, which automatically uses the latest package.
+"Non-.NET apps" references the extension bundles, which automatically use the latest package.
 
 ## Set up your database
 

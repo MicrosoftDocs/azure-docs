@@ -1,13 +1,13 @@
 ---
-title: "Quickstart: Configure the Durable Task SDKs in your container app with Durable Task Scheduler (preview)"
+title: "Quickstart: Host a Durable Task SDK app on Azure Container Apps (preview)"
 description: Learn how to configure an existing container app for the Durable Task Scheduler using the Durable Task SDKs and deploy using Azure Developer CLI.
 ms.subservice: durable-task-scheduler
 ms.topic: quickstart
-ms.date: 04/29/2025
+ms.date: 05/06/2025
 zone_pivot_groups: df-languages
 ---
 
-# Quickstart: Configure Durable Task SDKs in your container app with Durable Task Scheduler (preview)
+# Quickstart: Host a Durable Task SDK app on Azure Container Apps (preview)
 
 ::: zone pivot="javascript"
 

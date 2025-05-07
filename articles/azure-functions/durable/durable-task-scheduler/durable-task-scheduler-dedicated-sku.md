@@ -2,7 +2,7 @@
 title: Use the Dedicated SKU for Azure Functions Durable Task Scheduler (preview)
 description: Learn about how the Dedicated SKU in Azure Functions Durable Task Scheduler.
 ms.topic: conceptual
-ms.date: 03/17/2025
+ms.date: 05/06/2025
 ---
 
 # Use the Dedicated SKU for Azure Functions Durable Task Scheduler (preview)
@@ -28,6 +28,12 @@ The following table explains the minimum cost and features provided with each CU
 ## Pricing
 
 Find the price of a capacity unit in a given region on the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/). 
+
+## Rate limit
+
+For scheduling new orchestrations, a limit of 200 requests per second per capacity unit applies for the *scheduler* globally, across all task hubs. 
+
+If the rate limit is exceeded, the gRPC status code `RESOURCE_EXHAUSTED` is returned. This code is similar to HTTP `429 (Too many requests)`.
 
 ## Determine the number of Capacity Units needed
 

@@ -2,7 +2,7 @@
 title: Azure Functions Durable Task Scheduler work item throughput for Durable Functions (preview)
 description: Learn about how the Azure Functions Durable Task Scheduler provides high work item throughput for use with Durable Functions.
 ms.topic: conceptual
-ms.date: 04/10/2025
+ms.date: 05/06/2025
 ---
 
 # Azure Functions Durable Task Scheduler work item throughput (preview)

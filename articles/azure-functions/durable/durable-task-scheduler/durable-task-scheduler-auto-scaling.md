@@ -1,16 +1,19 @@
 ---
-title: "Autoscaling in Azure Container Apps pattern for the Durable Task SDKs"
+title: "Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps (preview)"
 description: Learn how to implement autoscaling with the Durable Task Scheduler using the Durable Task .NET SDK in Azure Container Apps.
 ms.subservice: durable-task-scheduler
 ms.topic: how-to
-ms.date: 05/01/2025
+ms.date: 05/06/2025
 ---
 
-# Autoscaling in Azure Container Apps pattern for the Durable Task SDKs
+# Configure autoscaling for Durable Task SDK app hosted in Azure Container Apps (preview)
 
 You can implement autoscaling in container apps that use the Durable Task Scheduler. Autoscaling maintains the reliability and scalability of long-running workflows by adapting to changing demands without manual intervention. 
 
 Control autoscaling by setting the range of application replicas deployed in response to an orchestration, activity, or entity being triggered. The scaler dynamically adjusts the number of container app replicas within that range, allowing your solution to handle spikes in the workload and prevent resource exhaustion. 
+
+> [!NOTE]
+> Autoscaling is supported for apps built using the Durable Task SDKs and hosted in Azure Container Apps.
 
 ## Configure the autoscaler
 
@@ -95,7 +98,7 @@ az containerapp create \
 
 ## Experiment with the sample
 
-The [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/scenarios/AutoscalingInACA) demonstrates how to implement autoscaling with the Azure Durable Task Scheduler using the .NET SDK in Azure Container Apps. The function chaining application pattern showcases an orchestration workflow that benefits from dynamically scaling worker instances based on load.
+In the [Autoscaling in Azure Container Apps sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/scenarios/AutoscalingInACA), you use the Azure Developer CLI to implement autoscaling for a container app built with the .NET Durable Task SDK and hosted in Azure Container Apps. The sample showcases an orchestration using the function chaining pattern.
 
 > [!NOTE]
 > Although this sample uses the Durable Task .NET SDK, autoscaling is language-agnostic.
@@ -245,5 +248,4 @@ Verify the autoscaling is functioning correctly in the deployed solution.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about the Durable Task Scheduler](./durable-task-scheduler.md)
+Currently, autoscaling container apps using Durable Functions for Durable Task Scheduler isn't available. In the meantime, [try autoscaling container apps using the Microsoft SQL (MSSQL) backend](../durable-functions-mssql-container-apps-hosting.md).

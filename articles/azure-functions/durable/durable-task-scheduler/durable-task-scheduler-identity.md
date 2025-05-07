@@ -2,7 +2,7 @@
 title: Configure managed identity for Azure Functions Durable Task Scheduler (preview)
 description: Learn about the roles available for managed identity in Durable Task Scheduler and how to configure them.
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 zone_pivot_groups: dts-devexp
 ---
 
@@ -19,7 +19,7 @@ You can grant the following Durable Task Scheduler related roles to an identity:
 | **Durable Task Data Reader** | Role to read all Durable Task Scheduler data. Assign this role if you only need a list of orchestrations and entities payloads. |
 
 > [!NOTE]
-> Most computes require the *Durable Task Data Contributor* role. 
+> Most Durable Functions apps require the *Durable Task Data Contributor* role. 
 
 In this article, you learn how to grant permissions to an identity resource and configure your compute app to use the identity for access to schedulers and task hubs. 
 

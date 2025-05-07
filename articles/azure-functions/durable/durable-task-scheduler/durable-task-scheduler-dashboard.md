@@ -2,7 +2,7 @@
 title: Debug and manage orchestrations using the Azure Functions Durable Task Scheduler dashboard (preview)
 description: Learn how to debug and manage your orchestrations using the Azure Functions Durable Task Scheduler.
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/06/2025
 zone_pivot_groups: dts-devexp
 ---
 

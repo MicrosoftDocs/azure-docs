@@ -1,37 +1,46 @@
 ---
-title: "Host a Durable Functions app in Azure Container Apps"
+title: Host a Durable Functions app in Azure Container Apps (preview)
 description: Learn how to host a Durable Functions app using the MSSQL backend in Azure Container Apps.
 ms.topic: how-to
 ms.date: 05/06/2025
 ---
 
-# Host a Durable Functions app in Azure Container Apps (.NET isolated)
+# Host a Durable Functions app in Azure Container Apps (preview)
 
-This article shows how to host a Durable Functions app in Azure Container Apps. While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling of the app is only available when using the Microsoft SQL (MSSQL) backend. If another backends is used, you need to [manually set up scaling](../functions-container-apps-hosting.md#event-driven-scaling) today.
+While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the Microsoft SQL (MSSQL) backend. If another backend is used, you need to [manually set up scaling](../functions-container-apps-hosting.md#event-driven-scaling).
+
+In this article, you learn how to:
+
+> [!div class="checklist"]
+>
+> - Create a Docker image from a local Durable Functions project. 
+> - Create an Azure Container App and related resources.
+> - Deploy the image to the Azure Container App and set up authentication.
 
 ## Prerequisites 
 
-+ [Visual Studio Code](https://code.visualstudio.com/download) installed.
-
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
-
-+ [Docker](https://docs.docker.com/install/) and [Docker ID](https://hub.docker.com/signup)
-
-+ [Azure CLI](/cli/azure/install-azure-cli) [version 2.47](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
-
-+ [Azure Functions Core Tools](../functions-run-local.md)
-
-+ Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+- [Visual Studio Code](https://code.visualstudio.com/download) installed.
+- [.NET 8.0 SDK](https://dotnet.microsoft.com/download).
+- [Docker](https://docs.docker.com/install/) and [Docker ID](https://hub.docker.com/signup)
+- [Azure CLI](/cli/azure/install-azure-cli) [version 2.47](/cli/azure/release-notes-azure-cli#april-21-2020) or later.
+- [Azure Functions Core Tools](../functions-run-local.md)
+- Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
 ## Create a local Durable Functions project
 
-In Visual Studio Code, [create a .NET isolated Durable Functions project](./quickstart-mssql.md) configured to use the MSSQL backend. Follow the article until the [Test locally](./quickstart-mssql.md#test-locally) section and make sure you can run the app locally before going to the next step. 
+In Visual Studio Code, [create a **.NET isolated** Durable Functions project configured to use the MSSQL backend](./quickstart-mssql.md). 
 
-### Add Docker related files
+[Test the app locally](./quickstart-mssql.md#test-locally) and return to this article. 
 
-1. In the project root directory, add a _Dockerfile_ with the following content:
+## Add Docker-related files
+
+Create a *Dockerfile* in the project root that describes the minimum required environment to run the function app in a container.
+
+1. In the project root directory, create a new file named *Dockerfile*. 
+
+1. Copy/paste the following content into the Dockerfile. 
+
     ```
     FROM mcr.microsoft.com/dotnet/sdk:8.0 AS installer-env
 
@@ -48,20 +57,31 @@ In Visual Studio Code, [create a .NET isolated Durable Functions project](./quic
 
     COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
     ```
-1. Add a _.dockerignore_ file with the following content:
+
+1. Save the file.
+
+1. Add a *.dockerignore* file with the following content:
+
     ```
     local.settings.json
     ```
 
+1. Save the *.dockerignore* file. 
+
 ## Build the container image 
 
-The Dockerfile in the project root describes the minimum required environment to run the function app in a container. The complete list of supported base images for Azure Functions is documented above as Host images in the pre-requisites section or can be found in the [Azure Functions Base by Microsoft | Docker Hub](https://hub.docker.com/_/microsoft-azure-functions-base)
+Build the Docker image. Find the complete list of supported base images for Azure Functions in the [Azure Functions Base by Microsoft | Docker Hub](https://hub.docker.com/_/microsoft-azure-functions-base)
 
 1. Start the Docker daemon. 
 
-1. Sign in to Docker with the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command. This command prompts you for your username and password. A "Login Succeeded" message confirms that you're signed in.
+1. Sign in to Docker with the [`docker login`](https://docs.docker.com/engine/reference/commandline/login/) command. 
 
-1. In the **LocalFunctionProj** project folder, run the following command to build the image, replacing <DOCKER_ID> with your Docker Hub account ID:
+1. When prompted, log in with your username and password. A "Login Succeeded" message confirms that you're signed in.
+
+1. Navigate to the `LocalFunctionProj` project folder. 
+
+1. Run the following command to build the image, replacing `<DOCKER_ID>` with your Docker Hub account ID:
+
     ```bash
     dockerId=<DOCKER_ID>
     imageName=IMAGE_NAME>
@@ -70,27 +90,30 @@ The Dockerfile in the project root describes the minimum required environment to
     docker build --platform linux --tag $dockerId/$imageName:$imageVersion .
     ```
 
-    >[!NOTE]
+    > [!NOTE]
     > If you're running on an M-series Mac, use `--platform linux/amd64` instead.
 
 1. Push the image to Docker:
+
     ```bash
     docker push $dockerId/$imageName:$imageVersion
     ```
-Depending on network speed, pushing the image the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, proceed to the next section to create Azure resources in another terminal.
+
+    Depending on network speed, the initial image push might take a few minutes. While you're waiting, proceed to the next section.
 
 ## Create Azure resources
 
-The following instructions will guide you through creating these Azure resources:
-- Azure resource group: For convenient cleanup later, all resources are created in this group. 
-- Azure Container App environment: Environment where container app is hosted. 
-- Azure Container App: Image containing the Durable Functions app is deployed to this app. 
-- Azure Storage Account: Required by the function app to store app related data such as application code. 
-- A virtual network: Required by the Azure Container App environment. 
+Create the Azure resources necessary for running Durable Functions on a container app.
+- **Azure resource group:** Resource group containing all created resources.  
+- **Azure Container App environment:** Environment hosting the container app. 
+- **Azure Container App:** Image containing the Durable Functions app is deployed to this app. 
+- **Azure Storage Account:** Required by the function app to store app-related data, such as application code. 
+- **A virtual network:** Required by the Azure Container App environment. 
 
 ### Initial set up
 
-1. Login to your Azure subscription:
+1. In a new terminal, log in to your Azure subscription:
+
     ```azurecli
     az login  
 
@@ -98,6 +121,7 @@ The following instructions will guide you through creating these Azure resources
     ```
 
 1. Run the required commands to set up the Azure Container Apps CLI extension:
+
     ```azurecli
     az upgrade
 
@@ -110,118 +134,153 @@ The following instructions will guide you through creating these Azure resources
 
 ### Create container app and related resources
 
-A workload profile determines the amount of compute and memory resources available to the container apps deployed in an environment. Create a Consumption workload profile for scale-to-zero support and pay-per-use. Learn more about [workload profiles](../functions-container-apps-hosting.md#hosting-and-workload-profiles). 
+A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload-profiles) determines the amount of compute and memory resources available to the container apps deployed in an environment. Create a **Consumption workload profile** for scale-to-zero support and pay-per-use. 
 
-```azurecli
-location=<REGION>
-resourceGroup=<RESOURCE_GROUP_NAME>
-storage=<STORAGE_NAME>
-containerAppEnv=<CONTAINER_APP_ENVIRONMNET_NAME>
-functionApp=<APP_NAME>
-vnet=<VNET_NAME>
+1. Set the environment variables.
 
-# Create an Azure resource group
-az group create --name $resourceGroup --location $location
+    ```azurecli
+    location=<REGION>
+    resourceGroup=<RESOURCE_GROUP_NAME>
+    storage=<STORAGE_NAME>
+    containerAppEnv=<CONTAINER_APP_ENVIRONMNET_NAME>
+    functionApp=<APP_NAME>
+    vnet=<VNET_NAME>
+    ```
 
-# A VNET is required when creating a container app environment
-az network vnet create --resource-group $resourceGroup --name $vnet --location $location --address-prefix 10.0.0.0/16
+1. Create a resource group.
 
-# The VNET must have a subnet for the environment deployment
-az network vnet subnet create \
-  --resource-group $resourceGroup \
-  --vnet-name $vnet \
-  --name infrastructure-subnet \
-  --address-prefixes 10.0.0.0/23
+    ```azurecli
+    az group create --name $resourceGroup --location $location
+    ```
 
-# Get subnet ID
-subnetId=$(az network vnet subnet show --resource-group $resourceGroup --vnet-name $vnet --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]')
+1. Create a virtual network, which is required for a container app environment.
 
-# Delegate the subnet to `Microsoft.App/environments`
-az network vnet subnet update --resource-group $resourceGroup --vnet-name $vnet --name infrastructure-subnet --delegations Microsoft.App/environments
+    ```azurecli
+    az network vnet create --resource-group $resourceGroup --name $vnet --location $location --address-prefix 10.0.0.0/16
+    ```
 
-# Create the container app environment
-az containerapp env create \
-  --enable-workload-profiles \
-  --resource-group $resourceGroup \
-  --name $containerAppEnv \
-  --location $location \
-  --infrastructure-subnet-resource-id $subnetId
+1. Create a subnet for the environment deployment.
 
-# Create a container app based on the Durable Functions image
-az containerapp create --resource-group $resourceGroup \
---name $functionApp \
---environment $containerAppEnv \
---image $dockerId/$imageName:$imageVersion \
---ingress external \
---allow-insecure \
---target-port 80 \
---transport auto \
---kind functionapp \
---query properties.outputs.fqdn
-```
+    ```azurecli
+    az network vnet subnet create \
+      --resource-group $resourceGroup \
+      --vnet-name $vnet \
+      --name infrastructure-subnet \
+      --address-prefixes 10.0.0.0/23
+    ```
 
-Note down the app link, which should look similar to:
-```
-https://<APP_NAME>.victoriouswave-3866c33e.<REGION>.azurecontainerapps.io/
-```
+1. Run the following query to get the subnet ID.
+
+    ```azurecli
+    subnetId=$(az network vnet subnet show --resource-group $resourceGroup --vnet-name $vnet --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]')
+    ```
+
+1. Delegate the subnet to `Microsoft.App/environments`.
+
+    ```azurecli
+    az network vnet subnet update --resource-group $resourceGroup --vnet-name $vnet --name infrastructure-subnet --delegations Microsoft.App/environments
+    ```
+
+1. Create the container app environment.
+
+    ```azurecli
+    az containerapp env create \
+      --enable-workload-profiles \
+      --resource-group $resourceGroup \
+      --name $containerAppEnv \
+      --location $location \
+      --infrastructure-subnet-resource-id $subnetId
+    ```
+
+1. Create a container app based on the Durable Functions image.
+
+    ```azurecli
+    az containerapp create --resource-group $resourceGroup \
+    --name $functionApp \
+    --environment $containerAppEnv \
+    --image $dockerId/$imageName:$imageVersion \
+    --ingress external \
+    --allow-insecure \
+    --target-port 80 \
+    --transport auto \
+    --kind functionapp \
+    --query properties.outputs.fqdn
+    ```
+
+1. Make note of the app URL, which should look similar to `https://<APP_NAME>.victoriouswave-3866c33e.<REGION>.azurecontainerapps.io`.
 
 ### Create databases
 
-Create an Azure Storage account as required by the function app:
+1. Create an Azure Storage account, which is required by the function app.
 
-```azurecli
-az storage account create --name $storage --location $location --resource-group $resourceGroup --sku Standard_LRS
-```
+   ```azurecli
+   az storage account create --name $storage --location $location --resource-group $resourceGroup --sku Standard_LRS
+   ```
 
-Your Durable Functions also needs an Azure SQL Database as its storage backend. This is where state information is persisted as your orchestrations run. In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). During creation:
-- Enable Azure services and resources to access this server (under _Networking_)
-- Set the value for _Database collation_ (under _Additional settings_) to `Latin1_General_100_BIN2_UTF8`.
+1. In the Azure portal, [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart) to persist state information. During creation:
+    - Enable Azure services and resources to access this server (under **Networking**)
+    - Set the value for **Database collation** (under **Additional settings**) to `Latin1_General_100_BIN2_UTF8`.
 
 > [!NOTE] 
-> Enabling the **Allow Azure services and resources to access this server** setting isn't a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
-
+> Refrain from enabling the **Allow Azure services and resources to access this server** setting for production scenarios. Production applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 ### Configure identity-based authentication
 
-Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. You can choose between [system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview). This article demonstrates setting up user-assigned managed identity, which is the recommended option as it is not tied to the app lifecycle.
+Managed identities make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. While you can choose between [system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview), user-assigned managed identity is recommended, as it's not tied to the app lifecycle. 
 
-1. Create identity and assign it to the container app:
+In this section, you set up **user-assigned managed identity** for Azure Storage.
+
+1. Set the environment variables.
+
     ```azurecli
-    # Variables
     subscription=<SUBSCRIPTION_ID>
     identity=<IDENTITY_NAME>
+    ```
 
-    # Create a managed identity resource
+1. Create a managed identity resource. 
+
+    ```azurecli
     echo "Creating $identity"
     az identity create -g $resourceGroup -n $identity --location "$location"
+    ```
 
-    # Assign the identity to the container app
+1. Assign the user identity to the container app.
+
+    ```azurecli
     echo "Assigning $identity to app"
     az containerapp identity assign --resource-group $resourceGroup --name $functionApp --user-assigned $identity
     ```
 
-1. Assign the identity `Storage Blob Data Owner` role for access to the storage account. 
-    ```
-    # Set the scope of the access
+1. Set the scope of the role-based access control (RBAC) permissions.
+
+    ```azurecli
     scope="/subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Storage/storageAccounts/$storage"
-    
+    ```
+
+1. Get the user identity's `clientId`.
+
+    ```azurecli
     # Get the identity's ClientId 
     clientId=$(az identity show --name $identity --resource-group $resourceGroup --query 'clientId' --output tsv)
-    
-    # Assign the role
+    ```
+
+1. Assign the role `Storage Blob Data Owner` role for access to the storage account. 
+
+    ```azurecli
     echo "Assign Storage Blob Data Owner role to identity"
     az role assignment create --assignee "$clientId" --role "Storage Blob Data Owner" --scope "$scope"
     ```
 
-> [!NOTE]
-> Authenticating to the MSSQL database using managed identity isn't supported when hosting a Durable Functions app in Azure Container Apps. Use connection string for now.
-
 ### Set up app settings
 
-1. Find the connection string by going to the SQL database resource on Azure portal, navigating to the **Settings** tab, then clicking on **Connection strings**:
+Authenticating to the MSSQL database using managed identity isn't supported when hosting a Durable Functions app in Azure Container Apps. For now, this guide authenticates using connection strings.
+
+1. From the SQL database resource in the Azure portal, navigate to **Settings** > **Connection strings** to find the connection string.
+
     :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
-    The connection string should have this format: 
+    The connection string should be a format similar to: 
+
     ```bash
     dbserver=<SQL_SERVER_NAME>
     sqlDB=<SQL_DB_NAME>
@@ -231,10 +290,12 @@ Managed identities make your app more secure by eliminating secrets from your ap
     connStr="Server=tcp:$dbserver.database.windows.net,1433;Initial Catalog=$sqlDB;Persist Security Info=False;User ID=$username;Password=$password;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
     ```
 
-    If you forget the password from the previous database creation step, you can reset it on the SQL server resource:
+    If you forget the password from the previous database creation step, you can reset it on the SQL server resource.
+
     :::image type="content" source="./media/quickstart-mssql/mssql-azure-reset-pass-2.png" alt-text="Screenshot showing reset password button.":::
 
-1. Store the SQL database's connection string as a [secret](../../container-apps/manage-secrets.md) called _sqldbconnection_ in the container app:
+1. Store the SQL database's connection string as a [secret](../../container-apps/manage-secrets.md) called *sqldbconnection* in the container app.
+
     ```azurecli
     az containerapp create \
     --resource-group $resourceGroup \
@@ -244,12 +305,7 @@ Managed identities make your app more secure by eliminating secrets from your ap
     --secrets sqldbconnection=$connStr
     ```
 
-1. Add these settings to the app:
-    - `AzureWebJobsStorage__accountName`: Azure Storage account name
-    - `AzureWebJobsStorage__clientId`: ClientId of the managed identity
-    - `AzureWebJobsStorage__credential`: Credential type, which is _managedidentity_
-    - `SQLDB_Connection`: Reference the SQL database connection string stored as a secret
-    - `FUNCTIONS_WORKER_RUNTIME`: Programming language of the app
+1. Add the following settings to the app:
 
     ```azurecli
     az containerapp update \
@@ -262,17 +318,19 @@ Managed identities make your app more secure by eliminating secrets from your ap
     FUNCTIONS_WORKER_RUNTIME=dotnet-isolated
     ```
 
-## Test
+## Test locally
 
-1. Use an HTTP test tool to send a POST request to the HTTP trigger endpoint, which should be similar to: 
+1. Use an HTTP test tool to send a `POST` request to the HTTP trigger endpoint, which should be similar to: 
+
     ```
     https://<APP NAME>.victoriouswave-3866c33e.<REGION>.azurecontainerapps.io/api/DurableFunctionsOrchestrationCSharp1_HttpStart
     ```
 
-   The response is the HTTP function's initial result. It lets you know that the Durable Functions orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs.
+   The response is the HTTP function's initial result letting you know that the Durable Functions orchestration started successfully. While the response includes a few useful URLs, it doesn't yet display the orchestration's end result.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use the HTTP test tool to issue the GET request.
-    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app like in this example:
+1. Copy/paste the URL value for `statusQueryGetUri` into your browser's address bar and execute. Alternatively, you can continue to use the HTTP test tool to issue the `GET` request.
+    
+    The request queries the orchestration instance for the status. You should see that the instance finished and the outputs or results of the Durable Functions app.
 
     ```json
     {

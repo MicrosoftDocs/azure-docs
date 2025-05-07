@@ -35,13 +35,13 @@
   - name: Create a Durable Functions app - Java
     displayName: get started, chaining
     href: quickstart-java.md
-  - name: Create an app with Durable Task SDK and Durable Task Scheduler
-    displayName: get started, durable task scheduler
-    href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
   - name: Configure Durable Functions app with Durable Task Scheduler
     displayName: get started, durable task scheduler
     href: ./durable-task-scheduler/quickstart-durable-task-scheduler.md
-  - name: Configure a container app with Durable Task SDK and Durable Task Scheduler
+  - name: Create an app with Durable Task SDK and Durable Task Scheduler
+    displayName: get started, durable task scheduler
+    href: ./durable-task-scheduler/quickstart-portable-durable-task-sdks.md
+  - name: Host a Durable Task SDK app on Azure Container Apps
     displayName: get started, durable task scheduler
     href: ./durable-task-scheduler/quickstart-container-apps-durable-task-sdk.md
   - name: Configure Durable Functions app with MSSQL
@@ -116,28 +116,24 @@
     href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Choosing an orchestration framework
     href: ./durable-task-scheduler/choose-orchestration-framework.md
-  - name: Concepts
-    items:
-    - name: Identity
-      href: ./durable-task-scheduler/durable-task-scheduler-identity.md
-    - name: Monitoring dashboard
-      href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
-    - name: Auto-purge 
-      href: ./durable-task-scheduler/durable-task-scheduler-auto-purge.md
+  - name: Create Durable Task Scheduler resources
+    href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
+  - name: Identity
+    href: ./durable-task-scheduler/durable-task-scheduler-identity.md
+  - name: Monitoring dashboard
+    href: ./durable-task-scheduler/durable-task-scheduler-dashboard.md
+  - name: Auto-purge 
+    href: ./durable-task-scheduler/durable-task-scheduler-auto-purge.md
   - name: Durable Functions
     items:
       - name: Throughput benchmark
         href: ./durable-task-scheduler/durable-task-scheduler-work-item-throughput.md
-      - name: How-to guides
-        items:
-          - name: Create Durable Task Scheduler 
-            href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
+      - name: Durable Task Scheduler in Durable Functions
+        href: ./durable-task-scheduler/develop-with-durable-task-scheduler-functions.md
   - name: Durable Task SDKs
     items:
-    - name: How-to guides
-      items:
-      - name: Autoscaling with the Durable Task SDKs in Azure Container Apps
-        href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
+    - name: Configure autoscale for Azure Container Apps hosting
+      href: ./durable-task-scheduler/durable-task-scheduler-auto-scaling.md
   - name: Billing
     href: ./durable-task-scheduler/durable-task-scheduler-dedicated-sku.md
   - name: Troubleshoot
@@ -170,8 +166,8 @@
       items:
       - name: Durable Functions
         href: /python/api/azure-functions-durable/azure.durable_functions
-      - name: Durable Task SDK
-        href: /python/api/azure-functions-durable/azure.durable_functions #placeholder
+      - name: Durable Task SDK - Management APIs
+        href: /python/api/azure-mgmt-durabletask/azure.mgmt.durabletask
     - name: Java API
       items:
        - name: Durable Functions
