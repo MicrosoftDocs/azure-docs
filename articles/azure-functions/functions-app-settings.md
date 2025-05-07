@@ -213,6 +213,9 @@ Indicates the Kubernetes Secrets resource used for storing keys. Supported only 
 |---|------------|
 |AzureWebJobsKubernetesSecretName|`<SECRETS_RESOURCE>`|
 
+> [!Important]
+> When configuring AzureWebJobsSecretStorageType to kubernetes, ensure that the Kubernetes secret specified by AzureWebJobsKubernetesSecretName is not marked as immutable. The Azure Functions runtime requires write access to this secret to store and manage function keys. Marking the secret as immutable will prevent the runtime from performing necessary operations, leading to a 500 Internal Server Error during function execution.
+
 To learn more, see [Manage key storage](function-keys-how-to.md#manage-key-storage).
 
 ## AzureWebJobsSecretStorageKeyVaultClientId
