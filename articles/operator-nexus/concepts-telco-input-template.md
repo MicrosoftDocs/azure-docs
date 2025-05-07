@@ -9,7 +9,7 @@ ms.date: 04/28/2025
 ms.custom: template-concept
 ---
 
-# Telco Input Template
+# Telco input template
 
 This concept article describes how to represent a Nexus instance in a Telco Input template. 
 
