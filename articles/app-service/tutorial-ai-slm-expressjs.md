@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Tutorial: Express.js chatbot with SLM extension"
 description: "Learn how to deploy a Express.js application integrated with a Phi-3 sidecar extension on Azure App Service."

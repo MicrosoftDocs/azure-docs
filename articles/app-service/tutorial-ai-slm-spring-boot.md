@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Tutorial: Spring Boot chatbot with SLM extension"
 description: "Learn how to deploy a Spring Boot application integrated with a Phi-3 sidecar extension on Azure App Service."

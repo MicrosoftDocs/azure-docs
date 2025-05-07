@@ -1,4 +1,3 @@
-```markdown
 ---
 title: "Tutorial: FastAPI chatbot with SLM extension"
 description: "Learn how to deploy a FastAPI application integrated with a Phi-3 sidecar extension on Azure App Service."
