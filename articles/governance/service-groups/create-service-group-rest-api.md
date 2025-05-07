@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Create a service group with REST API"
+title: "Quickstart: Create a service group with REST API"
 description: In this quickstart, you use REST API to create a service group to organize your resources.
 author: rthorn17
 ms.author: rithorn

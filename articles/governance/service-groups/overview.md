@@ -10,7 +10,7 @@ ms.date: 05/19/2025
 
 # What are Azure Service Groups?
 
-Service groups in Azure are a low-privilege-based grouping of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started. 
+Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They are ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started.
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in PREVIEW. 
@@ -97,7 +97,133 @@ Service Groups creates the Root Service Group on the first request received with
 /providers/microsoft.management/servicegroups/<tenantId>
 ```
 
-Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](/azure/role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
+Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](https://learn.microsoft.com/en-us/azure/
+role-based-access-control/elevate-access-global-admin?tabs=azure-portal%2Centra-audit-logs)
+
+### Role Based Access Controls 
+Three built in roles have been created to support Service Groups in the preview.  
+
+> [!NOTE]
+> Custom Role Based Access Controls (RBAC) are not supported within the Preview. 
+
+#### Service Group Administrator 
+This role has been created to mange all aspects of Service Groups and Relationships. It will only allow the assignment of Service Group Roles to other Service Groups.  
+
+**ID**: '/providers/Microsoft.Authorization/roleDefinitions/4e50c84c-c78e-4e37-b47e-e60ffea0a775"  
+
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Management/serviceGroups"
+  ],
+  "createdBy": null,
+  "createdOn": "2024-10-15T18:15:20.488676+00:00",
+  "description": "Role Definition for administrator of a Service Group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4e50c84c-c78e-4e37-b47e-e60ffea0a775",
+  "name": "4e50c84c-c78e-4e37-b47e-e60ffea0a775",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "condition": null,
+      "conditionVersion": null,
+      "dataActions": [],
+      "notActions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4e50c84cc78e4e37b47ee60ffea0a775,32e6a4ec60954e37b54b12aa350ba81f,de754d53652d4c75a67f1e48d8b49c97})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4e50c84cc78e4e37b47ee60ffea0a775,32e6a4ec60954e37b54b12aa350ba81f,de754d53652d4c75a67f1e48d8b49c97}))",
+      "conditionVersion": "2.0",
+      "dataActions": [],
+      "notActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Group Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions",
+  "updatedBy": null,
+  "updatedOn": "2025-03-25T18:40:31.229386+00:00"
+}
+```
+#### Service Group Contributor 
+The Service Group Contributor role is the default built-in role given to users when they create a new Service Group.  This role allows fro all actions except for Role Assignment capabilities.  
+```json
+{
+  "assignableScopes": [
+    "/providers/Microsoft.Management/serviceGroups"
+  ],
+  "createdBy": null,
+  "createdOn": "2024-10-15T18:15:20.488676+00:00",
+  "description": "Role Definition for contributor of a Service Group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/32e6a4ec-6095-4e37-b54b-12aa350ba81f",
+  "name": "32e6a4ec-6095-4e37-b54b-12aa350ba81f",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "condition": null,
+      "conditionVersion": null,
+      "dataActions": [],
+      "notActions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Group Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions",
+  "updatedBy": null,
+  "updatedOn": "2024-10-15T18:15:20.488676+00:00"
+}
+```
+
+
+### Service Group Reader 
+This built-in role is to be used to read service groups and can also be assigned to other resources to view the connected relationships.  
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "createdBy": null,
+  "createdOn": "2024-10-15T18:15:20.487675+00:00",
+  "description": "Role Definition for reader of a Service Group",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/de754d53-652d-4c75-a67f-1e48d8b49c97",
+  "name": "de754d53-652d-4c75-a67f-1e48d8b49c97",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Management/serviceGroups/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "condition": null,
+      "conditionVersion": null,
+      "dataActions": [],
+      "notActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Service Group Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions",
+  "updatedBy": null,
+  "updatedOn": "2024-10-15T18:15:20.487675+00:00"
+}
+```
+ 
 
 
 ## Related content
