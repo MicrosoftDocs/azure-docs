@@ -783,7 +783,7 @@ See the destination service for their billing structure and terms. For example, 
 
 - **Do I need to reference the OpenTelemetry SDK in my code?**
 
-    Yes. The SDK is what creates telemetry data; the managed agent only routes it.
+    Yes. The SDK creates telemetry data, and the managed agent is only responsible to route data.
 
 - **Why does the `list` command return null?**
 
