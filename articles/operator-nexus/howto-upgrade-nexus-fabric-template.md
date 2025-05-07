@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.custom: azure-operator-nexus, template-include
 ---
 
-# Fabric Runtime Upgrade Template
+# Fabric runtime upgrade template
 
 This how-to guide provides a step-by-step template for upgrading a Nexus Fabric designed to assist users in managing a reproducible end-to-end upgrade through Azure APIs and standard operating procedures. Regular updates are crucial for maintaining system integrity and accessing the latest product improvements.
 
@@ -125,29 +125,26 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 2. Validate the provisioning status for the Network Fabric Controller (NFC), Fabric, and Fabric Devices.
    
-   Set up the subscription, NFC, and NF parameters:
+   Login to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
    ```  
-   export SUBSCRIPTION_ID=<CUSTOMER_SUB_ID>
-   export NFC_RG=<NFC_RG>
-   export NFC_NAME=<NFC_NAME>
-   export NF_RG=<NF_RG>
-   export NF_NAME=<NF_NAME>
+   az login
+   az account set --subscription <CUSTOMER_SUB_ID>
    ```
 
    Check that the NFC is in Provisioned state:
    ```
-   az networkfabric controller show -g $NFC_RG --resource-name $NFC_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkfabric controller show -g <NFC_RG> --resource-name <NFC_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
 
    Check the NF status:
    ```  
-   az networkfabric fabric show -g $NF_RG --resource-name $NF_NAME --subscription $SUBSCRIPTION_ID -o table
+   az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
    ```
    Record down the `fabricVersion` and `provisioningState`.
 
    Check the Devices status.
    ```
-   az networkfabric device list -g $NF_RG -o table --subscription $SUBSCRIPTION_ID
+   az networkfabric device list -g <NF_RG> -o table --subscription <CUSTOMER_SUB_ID>
    ```
 
    >[!Note]
@@ -155,7 +152,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 3. Check `Microsoft.NexusIdentity` user Resource Provider (RP) is registered on the customer subscription:
    ```
-   az provider show --namespace Microsoft.NexusIdentity -o table --subscription $SUBSCRIPTION_ID
+   az provider show --namespace Microsoft.NexusIdentity -o table --subscription <CUSTOMER_SUB_ID>
    Namespace                RegistrationPolicy    RegistrationState
    -----------------------  --------------------  -------------------
    Microsoft.NexusIdentity  RegistrationRequired  Registered
@@ -163,7 +160,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
    If not registered, run the following to register:
    ```
-   az provider register --namespace Microsoft.NexusIdentity --wait --subscription $SUBSCRIPTION_ID
+   az provider register --namespace Microsoft.NexusIdentity --wait --subscription <CUSTOMER_SUB_ID>
 
    az provider show --namespace Microsoft.NexusIdentity -o table
    Namespace                RegistrationPolicy    RegistrationState
@@ -175,7 +172,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
    Verify the available space on each Fabric Devices using the following Azure CLI command. 
    ```
-   az networkfabric device run-ro --resource-name <ND_DEVICE_NAME> --resource-group <NF_RG> --ro-command "dir flash" --subscription <CUSTOMER_SUB_ID> --debug
+   az networkfabric device run-ro --resource-name <NF_DEVICE_NAME> --resource-group <NF_RG> --ro-command "dir flash" --subscription <CUSTOMER_SUB_ID> --debug
    ```
 
    Contact Microsoft support if there isn't enough space to perform the upgrade. Archived Extensible Operating System (EOS) images and support bundle files can be removed at the direction of support.
@@ -210,14 +207,14 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 [How to check current cluster runtime version.](./howto-check-runtime-version.md#check-current-fabric-runtime-version)
 
 ```
-az networkfabric fabric list -g $NF_RG --query "[].{name:name,fabricVersion:fabricVersion,configurationState:configurationState,provisioningState:provisioningState}" -o table --subscription $SUBSCRIPTION_ID
-az networkfabric fabric show -g $NF_RG --resource-name $NF_NAME --subscription $SUBSCRIPTION_ID
+az networkfabric fabric list -g <NF_RG> --query "[].{name:name,fabricVersion:fabricVersion,configurationState:configurationState,provisioningState:provisioningState}" -o table --subscription <CUSTOMER_SUB_ID>
+az networkfabric fabric show -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID>
 ```
    
 ### Initiate Fabric upgrade
 Start the upgrade with the following command:
 ```Azure CLI
-az networkfabric fabric upgrade -g [resource-group] --resource-name [fabric-name] --action start --version "5.0.0"
+az networkfabric fabric upgrade -g <NF_RG> --resource-name <NF_NAME> --subscription <CUSTOMER_SUB_ID> --action start --version "5.0.0"
 {}
 ```
 
@@ -262,7 +259,7 @@ Four Rack environments have 17 Devices:
 ### Follow device-specific upgrade
 Run the following command to upgrade the version on each Device:
 ```
-az networkfabric device upgrade --version $NF_VERSION -g $NF_RG --resource-name $NF_DEVICE_NAME --subscription $SUBSCRIPTION_ID --debug
+az networkfabric device upgrade --version <NF_VERSION> -g <NF_RG> --resource-name <NF_DEVICE_NAME> --subscription <CUSTOMER_SUB_ID> --debug
 ```
 
 As part of the upgrade, the Devices are put into maintenance mode. The Device drains all traffic and stops advertising routes so that the traffic flow to the device stops. At completion, the Nexus Network Fabric (NNF) service updates the Device resource version property to the new version.
@@ -277,13 +274,13 @@ Provide this information to Microsoft Support when opening a support ticket for 
 
 After Device upgrades are complete, make sure that all the Devices are showing with <NF_VERSION> by running the following command:
 ```
-az networkfabric device list -g $NF_RG --query "[].{name:name,version:version}" -o table --subscription $SUBSCRIPTION_ID
+az networkfabric device list -g <NF_RG> --query "[].{name:name,version:version}" -o table --subscription <CUSTOMER_SUB_ID>
 ```
 
 ### Complete Network Fabric Upgrade
 Once all the Devices are upgraded, run the following command to take the Network Fabric out of maintenance state.
 ```
-az networkfabric fabric upgrade --action Complete --version $NF_VERSION -g $NF_RG --resource-name $NF_NAME --debug --subscription $SUBSCRIPTION_ID
+az networkfabric fabric upgrade --action Complete --version <NF_VERSION> -g <NF_RG> --resource-name <NF_NAME> --debug --subscription <CUSTOMER_SUB_ID>
 ```
 
 ### How to troubleshoot Device update failures
@@ -328,12 +325,12 @@ az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_
 az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
 
 # Tenant Workloads
-az networkcloud virtualmachine list --sub $SUBSCRIPTION_ID --query "reverse(sort_by([?clusterId=='$CLUSTER_RID'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
-az networkcloud kubernetescluster list --sub $SUBSCRIPTION_ID --query "[?clusterId=='$CLUSTER_RID'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
+az networkcloud virtualmachine list --sub <CUSTOMER_SUB_ID> --query "reverse(sort_by([?clusterId=='<CLUSTER_RID>'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+az networkcloud kubernetescluster list --sub <CUSTOMER_SUB_ID> --query "[?clusterId=='<CLUSTER_RID>'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
 ```
 
 > [!Note]
-> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional tesing.
+> IRT validation provides a complete functional test of networking and workloads across all components of the Nexus Instance. Simple validation does not provide functional testing.
 
 </details>
 
