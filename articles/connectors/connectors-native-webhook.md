@@ -250,7 +250,7 @@ The following example shows the webhook trigger definition with the **`accessKey
   "inputs": {
     "subscribe": {
       "method": "POST",
-      "uri": "<subscription url>",
+      "uri": "<subscription-URL>",
       "body": "@listCallbackUrl()"
     },
     "accessKeyType": "Secondary"
