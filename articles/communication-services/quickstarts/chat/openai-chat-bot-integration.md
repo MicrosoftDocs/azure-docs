@@ -28,19 +28,19 @@ This article demonstrates how to integrate a conversational OpenAI bot with an A
 
 1. In the left-hand menu, navigate to **My assets → Models + endpoints**. Then click **+ Deploy Model** and choose **Deploy base model**.
 
-   :::image type="content" source="./media/azure-ai-foundry-model-deployment.png" alt-text="Screenshot that shows the model deployment.":::
+   :::image type="content" source="./media/azure-ai-foundry-model-deployment.png" alt-text="Screenshot of the Manage deployments of your models and services page showing the Deploy base model menu item selected.":::
 
 1. Select **gpt-4o** and click **Confirm**.
 
-   :::image type="content" source="./media/azure-ai-foundry-model-deployment-2.png" alt-text="Screenshot that shows the model deployment.":::
+   :::image type="content" source="./media/azure-ai-foundry-model-deployment-2.png" alt-text="Screenshot of the Select a model dialog box showing gpt-4o selected.":::
 
 1. Enter a deployment name of your choice, then click **Connect and deploy**.
 
-   :::image type="content" source="./media/azure-ai-foundry-model-deployment-3.png" alt-text="Screenshot that shows the model deployment.":::
+   :::image type="content" source="./media/azure-ai-foundry-model-deployment-3.png" alt-text="Screenshot of the Deploy gpt-4o dialog box showing gpt-4o as the Deployment name.":::
 
-1. Once deployment completes, return to **Models + endpoints** to verify that your model is running. In this example the deployed model is **gpt-4o**.
+1. Once deployment completes, return to **Models + endpoints** to verify that your model is running. In this example, the deployed model is **gpt-4o**.
 
-   :::image type="content" source="./media/azure-ai-foundry-model-deployment-4.png" alt-text="Screenshot that shows the deployed model.":::
+   :::image type="content" source="./media/azure-ai-foundry-model-deployment-4.png" alt-text="Screenshot of the Models and endpoints asset showing gtp-4o as the deployed model and related deployment info.":::
 
 ## Step 2: Create a Web App resource
 
@@ -50,19 +50,19 @@ This article demonstrates how to integrate a conversational OpenAI bot with an A
 
 1. In **Create Web App**, select or enter details for the app, including the region where you want to deploy the app.
   
-   :::image type="content" source="./media/aoa-demo-web-app-create-options.png" alt-text="Screenshot that shows details to set to create a web app deployment.":::
+   :::image type="content" source="./media/aoa-demo-web-app-create-options.png" alt-text="Screenshot of the Create Web App page showing Project details and Instance details selected to create a web app deployment.":::
 
 1. Select **Review + Create** to validate the deployment and review the deployment details. Then, select **Create**.
 
 1. When the web app resource is created, copy the hostname URL shown in the resource details. The URL is part of the endpoint you create for the web app.
   
-   :::image type="content" source="./media/web-app-endpoint.png" alt-text="Screenshot that shows how to copy the web app endpoint URL.":::
+   :::image type="content" source="./media/web-app-endpoint.png" alt-text="Screenshot of the My-First-Bot-WebApp page showing the web app endpoint URL you need to copy for future use.":::
 
 ## Step 3: Create an Azure Bot Service resource
 
 1. In the Azure portal, select **Create a resource**. In the search box, enter **bot**. Select the **Azure Bot** tile.
   
-   :::image type="content" source="./media/bot-service-create-resource.png" alt-text="Screenshot that shows details to set to create an Azure bot service.":::
+   :::image type="content" source="./media/bot-service-create-resource.png" alt-text="Screenshot of the Azure bot tile showing details needed to create an Azure bot service.":::
 
 1. In **Create an Azure Bot**, select **Multi Tenant** as Type of App and **Create new Microsoft App ID"** as Creation Type.
 
@@ -87,7 +87,7 @@ Next, in the bot resource, create a web app messaging endpoint:
 
 1. In Azure portal, select **Create a resource**. In the search box, enter **communication services**. Select the **Communication Services** tile.
  
-   :::image type="content" source="./media/communication-service.png" alt-text="Screenshot that shows details to set to create an Azure communication service.":::
+   :::image type="content" source="./media/communication-service.png" alt-text="Screenshot of the Communication Services tile showing the details you need to create an Azure Communication Services Resource.":::
 
 1. In **Create an Azure Communication Service**, you can specify the subscription, the resource group, the name of the Communication Services resource, and the geography associated with the resource.
 
