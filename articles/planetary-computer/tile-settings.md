@@ -22,7 +22,7 @@ In this article, see where to find and modify tile settings for Microsoft Planet
 
 The tile settings are found by going to the Collection page and selecting the Configuration button.
 
-![Screenshot of the tile settings tab in the Microsoft Planetary Computer Pro interface](media/tilesettings1.png)
+:::image type="content" source="media/tilesettings1.png" alt-text="Screenshot of the tile settings tab in the Microsoft Planetary Computer Pro interface.":::
 
 The settings are in the form of a JSON object.
 
@@ -68,7 +68,7 @@ The `defaultLocation` field allows specifying the default zoom level and coordin
 > [!NOTE]
 > In the list of items, there's a menu item called "Set view as default location".  This isn't currently enabled.
 
-![Screenshot of the save view as default location option in the tile settings interface](media/tilesettings_save_view_as.png)
+:::image type="content" source="media/tilesettings_save_view_as.png" alt-text="Screenshot of the save view as default location option in the tile settings interface.":::
 
 ## Related content
 
