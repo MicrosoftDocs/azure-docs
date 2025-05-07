@@ -462,26 +462,31 @@ Validate the health and status of all the Nexus Instance resources created durin
 
 To perform a resource validation of the Nexus Instance components post-deployment through Azure CLI:
 ```
+# Check `ProvisioningState = Succeeded` in all resources
+
 # NFC
-az networkfabric controller list --subscription <CUSTOMER_SUB_ID> -o table
-az vm list -o table --query "[?location=='<AZURE_REGION>']" --subscription <CUSTOMER_SUB_ID>
-az customlocation list -o table --query "[?location=='<AZURE_REGION>']" | grep <NFC_NAME> --subscription <CUSTOMER_SUB_ID>
+az networkfabric controller list -g <NFC_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az customlocation list -g <NFC_MRG> --subscription <CUSTOMER_SUB_ID> -o table
 
 # Fabric
-az networkfabric fabric list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
-az networkfabric rack list -o table --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
-az networkfabric fabric device list --resource-group <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric fabric list -g <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric rack list -g <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
+az networkfabric fabric device list -g <NF_RG> --subscription <CUSTOMER_SUB_ID> -o table
 az networkfabric nni list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
 az networkfabric acl list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
 az networkfabric l2domain list -g <NF_RG> --fabric <NF_NAME> --subscription <CUSTOMER_SUB_ID> -o table
 
 # CM
-az networkcloud clustermanager list --subscription <CUSTOMER_SUB_ID> -o table
+az networkcloud clustermanager list -g <CM_RG> --subscription <CUSTOMER_SUB_ID> -o table
 
 # Cluster
-az networkcloud cluster list --subscription <CUSTOMER_SUB_ID> -o table
+az networkcloud cluster list -g <CLUSTER_RG> --subscription <CUSTOMER_SUB_ID> -o table
 az networkcloud baremetalmachine list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> --query "sort_by([]. {name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,cordonStatus:cordonStatus,powerState:powerState,machineRoles:machineRoles| join(', ', @),createdAt:systemData.createdAt}, &name)" -o table
 az networkcloud storageappliance list -g <CLUSTER_MRG> --subscription <CUSTOMER_SUB_ID> -o table
+
+# Tenant Workloads
+az networkcloud virtualmachine list --sub <CUSTOMER_SUB_ID> --query "reverse(sort_by([?clusterId=='<CLUSTER_RID>'].{name:name, createdAt:systemData.createdAt, resourceGroup:resourceGroup, powerState:powerState, provisioningState:provisioningState, detailedStatus:detailedStatus,bareMetalMachineId:bareMetalMachineIdi,CPUCount:cpuCores, EmulatorStatus:isolateEmulatorThread}, &createdAt))" -o table
+az networkcloud kubernetescluster list --sub <CUSTOMER_SUB_ID> --query "[?clusterId=='<CLUSTER_RID>'].{name:name, resourceGroup:resourceGroup, provisioningState:provisioningState, detailedStatus:detailedStatus, detailedStatusMessage:detailedStatusMessage, createdAt:systemData.createdAt, kubernetesVersion:kubernetesVersion}" -o table
 ```
 
 > [!Note]
