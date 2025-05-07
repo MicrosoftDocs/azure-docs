@@ -1,7 +1,7 @@
 ---
 title: VM Network Troubleshooter overview
 titleSuffix: Azure Network Watcher
-description: Learn about VM Network Troubleshooter in Azure Network Watcher how it can help you troubleshoot traffic issues.
+description: Learn about VM Network Troubleshooter in Azure Network Watcher and how it can help you detect blocked ports.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
@@ -11,10 +11,9 @@ ms.date: 05/07/2025
 
 # VM Network Troubleshooter overview
 
-Blocked ports on their Virtual Machines are one of the most common connectivity issues faced by Azure customers. 
-The VM Network Troubleshooter helps customers quickly check if commonly used ports are blocked on a their Azure virtual machine.
+Blocked ports on Virtual Machines (VMs) are one of the most common connectivity issues faced by Azure customers. The VM Network Troubleshooter helps customers quickly check if commonly used ports are blocked on their Azure virtual machine.
 
-## What ports are check by the VM Network Troubleshooter?
+## What ports are checked by the VM Network Troubleshooter?
 
 The VM Network Troubleshooter checks for the following ports:
  - Port 80 (HTTP)
@@ -24,9 +23,9 @@ The VM Network Troubleshooter checks for the following ports:
 
 ## How can customers access the VM Network Troubleshooter? 
 
-Customers can access the VM Network Troubleshooter from the Monitor tab on the VM Overview blade. With a single click, customers can start the troubleshooter and check if RDP, HTTP and HTTPs ports are blocked. 
+Customers can access the VM Network Troubleshooter from the Monitor tab on the VM Overview blade. With a single click, customers can start the troubleshooter and check if the ports for RDP, HTTP, and HTTPs are blocked. 
 
-:::image type="content" source="./media/vm-network-troubleshooter/VMNetworkTroubleshooter.gif" alt-text="GIF showing how customers can access and run the VM Network Troubleshooter from the Azure Portal":::
+:::image type="content" source="./media/vm-network-troubleshooter/vm-network-troubleshooter.gif" alt-text="Video of customers navigating to the VM Network Troubleshooter from the VM Overview blade in the Azure Portal.":::
 
 
 ## How does the VM Network Troubleshooter work? 
