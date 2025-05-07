@@ -48,7 +48,9 @@ The AGIC add-on is still deployed as a pod in the customer's AKS cluster, howeve
   - Since AGIC add-on is a managed service, customers are automatically updated to the latest version of AGIC add-on, unlike AGIC deployed through Helm where the customer must manually update AGIC. 
 
 > [!NOTE]
-> Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm. 
+> Customers can only deploy one AGIC add-on per AKS cluster, and each AGIC add-on currently can only target one Application Gateway. For deployments that require more than one AGIC per cluster or multiple AGICs targeting one Application Gateway, please continue to use AGIC deployed through Helm.
+>
+> Both Helm and AGIC add-on doesn't support ExternalName service.
 
 ## Container networking and AGIC
 
