@@ -540,7 +540,7 @@ username = "username"
 password = "password"
 ```
 
-### Configure autorenew parameters
+### Configure auto-renew parameters
 
 Instead of manually managing the certificate files, IoT Edge has the built-in ability to get and renew certificates before expiry. Certificate renewal requires an issuance method that IoT Edge can manage. Enrollment over Secure Transport (EST) server is one issuance method, but IoT Edge can also automatically [renew the quickstart CA by default](#renew-quickstart-edge-ca). Certificate renewal is configured per type of certificate.
 
