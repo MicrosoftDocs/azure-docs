@@ -4,7 +4,7 @@ description: This article explains how data is encrypted while in transit for NF
 author: guptasonia
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/29/2025
+ms.date: 05/07/2025
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -17,7 +17,7 @@ Azure Files NFS v4.1 volumes enhance the security of your network traffic by ena
 
 Azure Files uses [Stunnel](https://www.stunnel.org/) , a widely used, open-source tool as a TLS wrapper to encrypt the TCP stream between the NFS client and Azure Files NFS. It secures NFS traffic with strong encryption like AES-GCM, without needing Kerberos. It ensures data confidentiality and protection from interception, eliminating the need for complex setups or external authentication systems like Active Directory. 
 
-Encrypted mount can be done using the AZNFS utility which simplifies the setup even further. AZNFS is available on [GitHub](https://github.com/Azure/AZNFS-mount) with supported distribution packages available for download at packages.microsoft.com. This utility installs and sets up stunnel on the client.  AZNFS helps establish a dedicated stunnel process per storage account, creating a local secure endpoint that transparently forwards NFS client requests over an encrypted connection. 
+Encrypted mount can be done using the AZNFS utility which simplifies the setup even further. AZNFS is available on [GitHub](https://github.com/Azure/AZNFS-mount) with supported distribution packages available for download at packages.microsoft.com. This utility installs and sets up stunnel on the client. AZNFS helps establish a dedicated stunnel process per storage account, creating a local secure endpoint that transparently forwards NFS client requests over an encrypted connection. 
 
 Key architectural components include:
 
@@ -33,7 +33,7 @@ South Africa North, South Africa West, Australia Central, Australia Central 2,  
 
 Enforce Encryption in Transit
 
-By enabling 'Secure transfer required' setting on the storage account, you'll be able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted. 
+By enabling 'Secure transfer required' setting on the storage account, you are able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted. 
 
 :::image type="content" source="media/image1.png" alt-text="" border="true":::
 
@@ -155,7 +155,7 @@ Remember to set environment variable "AZURE_ENDPOINT_OVERRIDE" for mounting non-
 
 export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
 
-***Note:*** _All traffic from a VM to the same server endpoint shares a single connection. The AZNFS mount helper prevents mounting shares with a mix of TLS and non-TLS configurations to that server. This restriction applies both to shares from the same storage account and to shares from different storage accounts that resolve to the same IP address._
+***Note:*** _All traffic from a Virtual Machine to the same server endpoint shares a single connection. The AZNFS mount helper prevents mounting shares with a mix of TLS and non-TLS configurations to that server. This restriction applies both to shares from the same storage account and to shares from different storage accounts that resolve to the same IP address._
 
 ## How to test if Encryption in transit is working for your File share?
 
@@ -177,7 +177,7 @@ Open the capture in Wireshark, the payload appears as "Application Data" rather 
 
 A **non-TLS (notls) mount** operation may fail if a prior **TLS-encrypted** mount to the same server was terminated before completing successfully.<br>Although the aznfswatchdog service automatically cleans up stale entries after a time out, attempting a new non-TLS mount before the cleanup finishes can result in a failure.
 
-To resolve this issue, remount the share using the clean option, which immediately clears any stale entries:
+To resolve this problem, remount the share using the clean option, which immediately clears any stale entries:
 
 sudo mount -t aznfs <account name>.file.core.windows.net:/<account name>/<share name> /mount/<account name>/<share name> -o vers=4,minorversion=1,sec=sys,nconnect=4,notls,clean
 
