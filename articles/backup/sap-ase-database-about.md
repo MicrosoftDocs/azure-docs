@@ -93,7 +93,7 @@ With Cross-Subscription Restore (CSR), you can restore SAP ASE databases to any 
 >- Cross-Subscription Restore can be initiated directly from the Recovery Services vault.
 >- Cross Regional Restore (CRR) with CSR isn't supported.
 
-Learn how to [trigger Cross Subscription Restore to a Private Endpoint enabled vault](sap-ase-database-restore.md#restore-to-a-private-endpoint-enabled-vault-in-a-different-subscription).
+Learn how to [trigger Cross Subscription Restore to a private endpoint enabled vault](sap-ase-database-restore.md#restore-to-a-private-endpoint-enabled-vault-in-a-different-subscription).
 
 ## Next steps
 

@@ -158,15 +158,15 @@ The secondary region restore user experience is similar to the primary region re
 Learn about the [minimum role requirements for cross-region restore](/azure/backup/backup-rbac-rs-vault#minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups).
 
 
-## Restore to a Private Endpoint enabled vault in a different subscription
+## Restore to a private endpoint enabled vault in a different subscription
 
 Before you do Cross Subscription Restore (CSR), ensure that the Recovery Services vault has the necessary [Azure role-based access control (Azure RBAC) permissions](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore).
 
-To trigger Cross Subscription Restore to a Private Endpoint enabled vault, follow these steps:
+To trigger Cross Subscription Restore to a private endpoint enabled vault, follow these steps:
 
-1. In the Azure portal, go to the source **Recovery Services vault** , and then [create Private Endpoints](private-endpoints.md#create-private-endpoints-for-azure-backup).
+1. In the [Azure portal](https://portal.azure.com/), go to the source **Recovery Services vault** , and then [create Private Endpoints](private-endpoints.md#create-private-endpoints-for-azure-backup).
 
-   During Private Endpoint creation, ensure that you enter the following details:
+   During private endpoint creation, ensure that you enter the following details:
 
    - Select the subscription of the target vault in which you want to restore.
    - Select the VNet of the target VM that you want to restore across subscription.

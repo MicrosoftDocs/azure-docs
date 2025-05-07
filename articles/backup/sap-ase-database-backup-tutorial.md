@@ -22,7 +22,7 @@ Before you set up the SAP ASE database for backup, review the following prerequi
 - Identify or create a Recovery Services vault in the same region and subscription as the VM running SAP ASE.
 - Allow connectivity from the VM to the internet, so that it can reach Azure.
 - The combined length of the SAP ASE Server VM name and the Resource Group name must have **<= 84** characters for Azure Resource Manager (ARM) VMs (and 77 characters for classic VMs) as the service reserves some characters. 
-- VM must have python **>= 3.6.15** (recommended- Python3.10) with requests module installed. The default sudo python3 must run python 3.6.15 or higher. Validate by running python3 and **sudo python3** in your system to check the python version it runs by default. To change the default version, link python3 to python 3.6.15 or higher.
+- VM must have python **>= 3.6.15** (recommended- Python3.10) with requests module installed. The default sudo python3 must run python 3.6.15 or higher. Validate by running python3 and **sudo python3** in your system to check the python version. To change the default version, link python3 to python 3.6.15 or higher.
 - [Run the SAP ASE backup configuration script (preregistration script)](sap-ase-database-backup-run-preregistration-quickstart.md) in the virtual machine that hosts the SAP ASE database. This script gets the ASE system ready for backup.
 - Assign the following privileges and settings for the backup operation:
   
@@ -154,9 +154,9 @@ To create a custom role for Azure Backup, run the following bash commands:
 ## Establish network connectivity
 
 For all operations, an SAP ASE database running on an Azure VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. You can achieve this connectivity by using private endpoints or by allowing access to the required public IP addresses or Fully Qualified Domain Names
- (FQDNs). Not allowing proper connectivity to the required Azure services might lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
+ (FQDNs). If you don't allow proper connectivity to the required Azure services, it might lead to failure in operations, such as database discovery, configuring backup, performing backups, and restoring data.
 
-The following table lists the various alternatives you can use for establishing connectivity:
+The following table lists the various alternatives you can use to establish connectivity:
 
 | Option | Advantages | Disadvantages |
 | --- | --- | --- |
@@ -179,7 +179,7 @@ Private endpoints allow you to connect securely from servers in a virtual networ
 
 ### Network Security Group tags
 
-If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](/azure/virtual-network/network-security-groups-overview#service-tags) for Microsoft Entra ID and Azure Storage (Storage). 
+If you use Network Security Groups (NSG), use the AzureBackup service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you must allow connectivity for authentication and data transfer by creating similar [NSG rules](/azure/virtual-network/network-security-groups-overview#service-tags) for Microsoft Entra ID and Azure Storage (Storage). 
 
 To create a rule for the Azure Backup tag, follow these steps:
 
@@ -246,7 +246,7 @@ To use an HTTP proxy server to route traffic for Microsoft Entra ID, follow thes
 
 #### Use outbound rules
 
-If the **Firewall** or **NSG** setting block the `management.azure.com` domain from Azure Virtual Machine, snapshot backups fails.
+If the **Firewall** or **NSG** setting block the `management.azure.com` domain from Azure Virtual Machine, snapshot backups fail.
 
 Create the following outbound rule and allow the domain name to back up the database. Learn [how to create the outbound rules](/azure/machine-learning/how-to-access-azureml-behind-firewall).
 
@@ -264,7 +264,7 @@ In the Recovery Services vault, you can enable [Cross Region Restore](backup-azu
 
 :::image type="content" source="./media/sap-ase-database-backup/enable-cross-region-restore.png" alt-text="Screenshot shows how to enable Cross Region Restore in the Recovery Services vault. " lightbox="./media/sap-ase-database-backup/enable-cross-region-restore.png":::
 
-## Discover the databases
+## Discover the SAP ASE databases
 
 To discover the SAP ASE databases, follow these steps:
 
@@ -366,7 +366,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
      >[!Note]
      >- Log backups only begin to flow after a successful full backup is completed.
-     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2-hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2-hour logs. All of them are retained for 30 days. But the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
 
 1. Select **OK** to save the log backup policy configuration.
 1. On the **Create Policy** pane, select **OK** to complete the backup policy creation.
