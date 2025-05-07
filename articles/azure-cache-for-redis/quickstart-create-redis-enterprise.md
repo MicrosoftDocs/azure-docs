@@ -3,7 +3,7 @@ title: 'Quickstart: Create a Redis Enterprise cache'
 description: Learn how to create an instance of Azure Cache for Redis Enterprise.
 ms.custom: mvc, mode-other, ignite-2024
 ms.topic: quickstart
-ms.date: 04/24/2025
+ms.date: 05/07/2025
 appliesto:
   - ✅ Azure Cache for Redis
 #Customer intent: As a Redis Enterprise developer who is new to Azure Cache for Redis, I want to create a new cache in the Enterprise tier of Azure Cache for Redis.
@@ -37,9 +37,8 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Cache for Redis**.
 1. On the **Azure Cache for Redis** page, select **Create** > **Redis Enterprise**.
-
-   :::image type="content" source="media/cache-create/cache-create-enterprise.png" alt-text="Screenshot showing how to select Redis Enterprise in Azure Redis Cache Create.":::
-
+<!--image is out of date, remove for now
+   :::image type="content" source="media/cache-create/cache-create-enterprise.png" alt-text="Screenshot showing how to select Redis Enterprise in Azure Redis Cache Create.":::-->
 1. On the **Basics** tab of the **New Redis Cache** page, configure the following settings:
 
    - **Subscription**: Select the subscription to use.
