@@ -33,7 +33,7 @@ South Africa North, South Africa West, Australia Central, Australia Central 2,  
 
 Enforce Encryption in Transit
 
-By enabling 'Secure transfer required' setting on the storage account, you will be able to ensure that "all" the mounts to the NFS volumes in the storage account ae encrypted. 
+By enabling 'Secure transfer required' setting on the storage account, you'll be able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted. 
 
 :::image type="content" source="media/image1.png" alt-text="" border="true":::
 
@@ -41,7 +41,7 @@ However, for users who prefer to maintain flexibility between TLS and non-TLS co
 
 ## Getting started: How to register for public preview
 
-To enable Encryption in transit for your subscription, follow the guidance outlined below.
+To enable Encryption in transit for your subscription, follow the guidance outlined here.
 
 - To register for the feature through PowerShell, use the [Get-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) cmdlet:
 
@@ -121,7 +121,7 @@ sudo yum update
 
 sudo yum install -y aznfs 
 
-It will install the AZNFS mount helper program and the _aznfswatchdog_ service. 
+It installs the AZNFS mount helper program and the _aznfswatchdog_ service. 
 
 **Note:** 
 
@@ -143,9 +143,7 @@ To mount Azure Files NFSv4 share with TLS encryption:
 
    sudo mkdir -p /mount/<account name>/<share name>
 
-   
-
-1. Mount the NFS share by using the following cmdlet. Replace the \<storage-account-name> placeholder with the name of your storage account and replace \<container-name> with the name of your container.
+2. Mount the NFS share by using the following cmdlet. Replace the \<storage-account-name> placeholder with the name of your storage account and replace \<container-name> with the name of your container.
 
  sudo mount -t aznfs <account name>.file.core.windows.net:/<account name>/<share name> /mount/<account name>/<share name> -o vers=4,minorversion=1,sec=sys,nconnect=4
 
@@ -165,19 +163,19 @@ export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
 
    ![Screenshot of Powershell screen to test if EiT is applied](media/powershell-capture.png)
 
-This shows that the client is connected through local port 127.0.0.1 and not any external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel **intercepts** this traffic and securely forwards it over **TLS** to the actual Azure Files NFS server on Azure.
+It shows that the client is connected through local port 127.0.0.1 and not any external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel **intercepts** this traffic and securely forwards it over **TLS** to the actual Azure Files NFS server on Azure.
 
 1. To verify whether traffic to NFS server is encrypted, use the tcpdump command to capture packets on port 2049. 
 
 sudo tcpdump -i any port 2049 -w nfs_traffic.pcap
 
-Open the capture in Wireshark, the payload will appear as "Application Data" rather than readable text. 
+Open the capture in Wireshark, the payload appears as "Application Data" rather than readable text. 
 
 ![Screenshot of Wireshark screen to test if EiT is applied](media/wireshark-capture.png)
 
 ## Troubleshooting
 
-A **non-TLS (notls) mount** operation may fail if a prior **TLS-encrypted** mount to the same server was terminated before completing successfully.<br>Although the aznfswatchdog service automatically cleans up stale entries after a timeout, attempting a new non-TLS mount before the cleanup finishes can result in a failure.
+A **non-TLS (notls) mount** operation may fail if a prior **TLS-encrypted** mount to the same server was terminated before completing successfully.<br>Although the aznfswatchdog service automatically cleans up stale entries after a time out, attempting a new non-TLS mount before the cleanup finishes can result in a failure.
 
 To resolve this issue, remount the share using the clean option, which immediately clears any stale entries:
 
