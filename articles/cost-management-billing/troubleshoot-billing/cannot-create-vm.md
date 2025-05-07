@@ -2,7 +2,7 @@
 title: Error when creating a VM as an Azure Enterprise user
 description: Provides several solutions to an issue in which you can't create a VM as an Enterprise Agreement (EA) user in portal.
 ms.topic: troubleshooting
-ms.date: 04/15/2024
+ms.date: 05/01/2025
 ms.author: banders
 author: bandersmsft
 ms.reviewer: jarrettr

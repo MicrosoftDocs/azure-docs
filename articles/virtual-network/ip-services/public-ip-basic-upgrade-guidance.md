@@ -75,7 +75,7 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to help upgrade from Basic 
 ## FAQ
 
 ### Will the Basic SKU public IP retirement impact Cloud Services Extended Support (CSES) deployments?
-No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that don't depend on CSES) when possible, because Standard has more advantages than Basic.
+No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create (via non-Azure Portal methods; for example, Azure CLI, Powershell, etc) and use Basic SKU public IPs for CSES deployments. However, we advise using Standard SKU on ARM native resources that don't depend on CSES when possible, because Standard has more advantages than Basic.
 
 ## Next steps
 

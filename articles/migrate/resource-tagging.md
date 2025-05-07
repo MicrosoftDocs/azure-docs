@@ -1,6 +1,6 @@
 ---
-title: Tagging in Azure Migrate
-description: Learn how to tag resources with relevant attributes.
+title: Tags in Azure Migrate
+description: Learn how to tag resources with relevant attributes in Azure Migrate.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
@@ -11,58 +11,50 @@ monikerRange: migrate
 
 # Tags in Azure Migrate
 
-## Overview
+In any cloud transformation journey, a comprehensive current-state analysis of the IT landscape is essential. That analysis includes infrastructure, workloads, applications, and dependencies.
 
-In any cloud transformation journey, a comprehensive current-state analysis of the IT landscape—including infrastructure, workloads, applications, and dependencies—is essential. Azure Migrate's new tagging feature enhances this analysis by enabling customers to group and visualize related resources based on specific properties. Tags, such as environment, department, or criticality, allow customers to create meaningful groupings known as **tags** to manage resources throughout their migration journey and beyond.
+The new tagging feature in Azure Migrate enhances this analysis. You can use tags to group and visualize related resources based on specific properties, such as environment, department, or criticality. These meaningful groupings can help you manage resources throughout your migration process and beyond.
 
 ## Key benefits
 
-- **Enhanced resource grouping and organization:** By tagging resources with relevant attributes, customers can easily categorize, track, and manage their assets. For example, resources tagged by department (for example, HR or Finance) can be collectively managed and analyzed, improving oversight and streamlining operations.
+- **Enhanced resource grouping and organization**: Tagging resources with relevant attributes helps you categorize, track, and manage your assets. For example, you can collectively manage and analyze resources tagged by department (like HR or finance), which improves oversight and streamlines operations.
 
-- **Improved visibility and control:** Customers gain an organized view of how resources interrelate, supporting better management of resources that share a common purpose, application, or organizational unit.
+- **Improved visibility and control**: You gain an organized view of how resources interrelate. This view supports better management of resources that share a common purpose, application, or organizational unit.
 
-- **Resource management and governance:** Tags enable easy filtering and sorting of resources, allowing IT administrators to quickly find and manage assets. Tags also support governance practices, helping enforce consistent management practices and resource tracking.
+- **Resource management and governance**: Tags enable easy filtering and sorting of resources, so IT administrators can quickly find and manage assets. Tags also support governance practices to help enforce consistent management practices and resource tracking.
 
-- **Simplified migration planning:** Tags can be used as selection filters when customers create their reports – business cases and assessments.
+- **Simplified migration planning**: You can use tags as selection filters when you create your reports for business cases and assessments.
 
-## Tagging use cases
+## Use cases
 
-- **Department-Based Grouping:** Tagging resources by department (for example, Finance and Marketing) helps allocate resources appropriately and track department-specific assets.
+- **Department-based grouping**: Tagging resources by department (for example, finance and marketing) helps you allocate resources appropriately and track department-specific assets.
 
-- **Environment and Criticality Identification:** Tags such as Production, Development, or High-Criticality simplify the management of environments and critical workloads.
+- **Environment and criticality identification**: Tags such as production, development, or high criticality simplify the management of environments and critical workloads.
 
-- **Application and Purpose Grouping:** Tags can identify resources tied to a specific application or service, making it easier to assess the impact of changes or migrations.
+- **Application and purpose grouping**: Tags can identify resources tied to a specific application or service, so you can more easily assess the impact of changes or migrations.
 
 ## Add tags to workloads
 
-To add tags, follow these steps:
+1. Select the workloads that you intend to tag from the inventory.
 
-1.	Select the workload(s) that you intend to tag from the inventory.
+2. Select **Tags** > **Add and edit tags**.
 
-2.	Select **Tags** > **Add and edit tags**.
+3. Assign a tag by adding the key and value details.
 
-3.	Assign a tag by adding the key and value details.
+## View tags
 
-## View tags 
+- Select the workload for which you want to view the assigned tags.
 
-To view tags, select the workload for which you wish to view the tags assigned.
+## Filter by using tags
 
-## Filter using tags
+1. Select **Add filter** beside the search bar.
 
-To filter using tags, follow these steps:
+2. Select the tag key that you want to filter with.
 
-1.	Select **Add filter** beside the search bar.
-
-2.	Select the tag key that you want to filter with.
-
-3.	Select the value(s) for the tag that you want to filter with.
+3. Select the values for the tag that you want to filter with.
 
 ## Import tags
 
-To import using tags, follow these steps:
+1. Select **Tags** > **Import tags**.
 
-1.	Select **Tags > Import tags**
-
-2.	Choose the file with the tags that you want to import.
-
-
+2. Choose the file with the tags that you want to import.

@@ -237,6 +237,8 @@ items:
         href: exchange-online-integration-sap-email-outbound.md
       - name: Recommended setup for SAP Cloud Identity Services and SAP Business Technology Platform with Microsoft Entra ID
         href: /azure/active-directory/fundamentals/scenario-azure-first-sap-identity-integration
+      - name: How to onboard SAP Edge Integration Cell with Azure
+        href: sap-edge-integration-cell-with-azure.md
       - name: Expose SAP Process Orchestration on Azure securely
         href: expose-sap-process-orchestration-on-azure.md
       - name: Enable SAP Principal Propagation for live OData feeds with Power Query

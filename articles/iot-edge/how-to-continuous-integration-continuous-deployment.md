@@ -4,7 +4,7 @@ description: Set up continuous integration and continuous deployment using YAML 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/08/2024
+ms.date: 05/07/2025
 ms.topic: conceptual
 ms.service: azure-iot-edge
 services: iot-edge
@@ -114,7 +114,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
      | Parameter | Description |
      | --- | --- |
      | Source Folder | The source folder to copy from. Empty is the root of the repo. Use variables if files are not in the repo. Example: `$(agent.builddirectory)`.
-     | Contents | Add two lines: `deployment.template.json` and `**/module.json`. |
+     | Contents | Add two lines: `deployment.template.json` and `modules/**/module.json`. |
      | Target Folder | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](/azure/devops/pipelines/build/variables?tabs=yaml#build-variables) to learn about the description. |
 
      For more information about this task and its parameters, see [Copy files task](/azure/devops/pipelines/tasks/utility/copy-files).

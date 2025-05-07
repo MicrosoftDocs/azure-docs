@@ -1,17 +1,19 @@
 ---
-title: Enable Dapr on an existing container app
-description: Enable Dapr on your existing Azure Container App service.
+title: Configure Dapr on an existing container app
+description: Configure Dapr on your existing Azure Container App service.
 ms.author: hannahhunter
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-bicep
 ms.topic: conceptual
-ms.date: 11/25/2024
+ms.date: 04/08/2025
 ---
 
-# Enable Dapr on an existing container app
+# Configure Dapr on an existing container app
 
-You can configure Dapr using various [arguments and annotations][dapr-args] based on the runtime context. Azure Container Apps provides three channels through which you can enable Dapr:
+You can configure Dapr using various [arguments and annotations][dapr-args] based on the runtime context. Dapr configurations available in Azure Container Apps are considered *application-scope* changes. When you run a container app in multiple-revision mode, changes to these settings don't create a new revision. Instead, all existing revisions are restarted to ensure they're configured with the most up-to-date values.
+
+Azure Container Apps provides three channels through which you can enable and configure Dapr:
 
 - [The Azure CLI](#using-the-cli)
 - [Infrastructure as Code (IaC) templates,](#using-bicep-or-arm) like Bicep or Azure Resource Manager (ARM) templates
@@ -23,12 +25,19 @@ The following table outlines the currently supported list of Dapr sidecar config
 | ------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `--enable-dapr`           | `dapr.enabled`            | Enables Dapr on the container app.                                                                                           |
 | `--dapr-app-port`         | `dapr.appPort`            | The port your application is listening on which is used by Dapr for communicating to your application                   |
-| `--dapr-app-protocol`     | `dapr.appProtocol`        | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`.                  |
+| `--dapr-app-protocol`     | `dapr.appProtocol`        | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default setting is `http`.                  |
 | `--dapr-app-id`           | `dapr.appId`              | A unique Dapr identifier for your container app used for service discovery, state encapsulation, and the pub/sub consumer ID. |
-| `--dapr-max-request-size` | `dapr.httpMaxRequestSize` | Set the max size of request body http and grpc servers to handle uploading of large files. Default is 4 MB.                    |
-| `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. The default 4 KB.                    |
+| `--dapr-max-request-size` | `dapr.httpMaxRequestSize` | Set the max size of request body http and grpc servers to handle uploading of large files. Default setting is `4 MB`.                    |
+| `--dapr-read-buffer-size` | `dapr.httpReadBufferSize` | Set the max size of http header read buffer in to handle when sending multi-KB headers. Default setting is `4 KB`.                    |
 | `--dapr-api-logging`      | `dapr.enableApiLogging`   | Enables viewing the API calls from your application to the Dapr sidecar.                                                     |
-| `--dapr-log-level`        | `dapr.logLevel`           | Set the log level for the Dapr sidecar. Allowed values: debug, error, info, warn. Default is `info`.                         |
+| `--dapr-log-level`        | `dapr.logLevel`           | Set the log level for the Dapr sidecar. Allowed values: debug, error, info, warn. Default setting is `info`.                         |
+| `--dapr-app-health-enabled` | `dapr.appHealth.enabled`| Optional configuration to enable app health checks for your container app using Boolean format. Default setting is `false`.                                |
+| `--dapr-app-health-path`    | `dapr.appHealth.path`| Set the path that Dapr invokes for health probes when the app channel is HTTP. This value is ignored if the app channel is using gRPC. Default setting is `/healthz`.                               |
+| `--dapr-app-health-probe-interval` | `dapr.appHealth.probeIntervalSeconds`| Number of seconds between each health probe. Default setting is `3`.                             |
+| `--dapr-app-health-probe-timeout` | `dapr.appHealth.probeTimeoutMilliseconds`| Timeout in milliseconds for health probe requests. This value must be smaller than the `probeIntervalSeconds` value. Default setting is `500`.              |
+| `--dapr-app-health-threshold` | `dapr.appHealth.threshold`| Max number of consecutive failures before the app is considered unhealthy. Default setting is `3`.                             |
+| `--dapr-max-concurrency`  | `dapr.maxConcurrency`     | Limit the concurrency of your application. A valid value is any number larger than `0`. `-1` means no limit on concurrency.                         |
+
 
 ## Using the CLI
 
@@ -52,7 +61,19 @@ When using an IaC template, specify the following arguments in the `properties.c
    appId: 'nodeapp'
    appProtocol: 'http'
    appPort: 3000
- }
+   httpReadBufferSize: 30
+   httpMaxRequestSize: 10
+   logLevel: 'debug'
+   enableApiLogging: true
+   appHealth: {
+     enabled: true
+     path: '/health'
+     probeIntervalSeconds: 3
+     probeTimeoutMilliseconds: 1000
+     threshold: 3
+   },
+   maxConcurrency: 10
+  }
 ```
 
 # [ARM](#tab/arm1)
@@ -62,13 +83,24 @@ When using an IaC template, specify the following arguments in the `properties.c
     "enabled": true,
     "appId": "nodeapp",
     "appProtocol": "http",
-    "appPort": 3000
+    "appPort": 3000,
+    "httpReadBufferSize": 30,
+    "httpMaxRequestSize": 10,
+    "logLevel": "debug",
+    "enableApiLogging": true,
+    "appHealth": {
+      "enabled": true,
+      "path": "/health",
+      "probeIntervalSeconds": 3,
+      "probeTimeoutMilliseconds": 1000,
+      "threshold": 3,
+    },
+    "maxConcurrency": 10
   }
 ```
 
 ---
 
-The above Dapr configuration values are considered application-scope changes. When you run a container app in multiple-revision mode, changes to these settings don't create a new revision. Instead, all existing revisions are restarted to ensure they're configured with the most up-to-date values.
 
 ## Using the Azure portal
 

@@ -12,6 +12,10 @@ ms.author: cherylmc
 
 This article shows you how to deploy an **Integrated Network Virtual Appliance (NVA)** in an Azure Virtual WAN hub.  
 
+
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions.
+
 ## Background
 
  NVAs deployed in the Virtual WAN hub are typically split into three categories:
