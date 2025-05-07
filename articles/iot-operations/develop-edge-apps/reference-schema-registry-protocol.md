@@ -1,12 +1,13 @@
 ---
-title: Learn about schema registry protocol
-description: Learn about schema registry protocol
+title: Schema registry protocol
+description: Schema registry protocol
 author: asergaz
 ms.author: sergaz
-ms.topic: concept-article
+ms.topic: reference
 ms.date: 04/17/2025
 
-#CustomerIntent: As a developer, I want to know why use Azure IoT Operations SDKs to develop highly available edge applications.
+#CustomerIntent: As a developer, I want to know what schema registry protocol is, so that I can implement an edge app to interact with the schema registry.
+
 ---
 
 # Schema registry protocol

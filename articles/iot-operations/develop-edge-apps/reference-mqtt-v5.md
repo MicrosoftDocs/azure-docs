@@ -1,12 +1,13 @@
 ---
-title: Learn about MQTT v5 in Azure IoT Operations
-description: Learn about MQTT v5 in Azure IoT Operations
+title: MQTT v5 in Azure IoT Operations
+description: MQTT v5 in Azure IoT Operations
 author: asergaz
 ms.author: sergaz
-ms.topic: concept-article
+ms.topic: reference
 ms.date: 04/17/2025
 
-#CustomerIntent: As a developer, I want to know why use Azure IoT Operations SDKs to develop highly available edge applications.
+#CustomerIntent: As a developer, I want to know what MQTT v5 in Azure IoT Operations is, so that I can implement an edge app to interact with the MQTT broker.
+
 ---
 
 # MQTT v5 in Azure IoT Operations

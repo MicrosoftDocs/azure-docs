@@ -1,11 +1,11 @@
 ---
-title: Learn about the MQTT broker state store protocol
-description: Learn how to implement an MQTT broker state store protocol client
+title: State store protocol
+description: State store protocol guidance for developers who need to implement their own state store clients.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
-ms.topic: concept-article
-ms.date: 11/15/2024
+ms.topic: reference
+ms.date: 05/07/2025
 
 # CustomerIntent: As a developer, I want understand what the MQTT broker state store protocol is, so
 # that I can implement a client app to interact with the state store.

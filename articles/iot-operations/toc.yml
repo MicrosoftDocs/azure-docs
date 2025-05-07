@@ -13,8 +13,6 @@ items:
         href: get-started-end-to-end-sample/quickstart-configure.md
       - name: Get insights from your data
         href: get-started-end-to-end-sample/quickstart-get-insights.md
-      - name: 🟢Develop an edge app for efficient data handling
-        href: get-started-end-to-end-sample/quickstart-develop-edge-app.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
       - name: Deployment overview
@@ -165,30 +163,34 @@ items:
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: 🔵Develop edge applications
       items:
-      - name: 🔵Overview
-        href: develop-edge-apps/overview-edge-apps.md
-      - name: Azure IoT Operations SDKs
+      - name: 🟢Azure IoT Operations SDKs
+        href: develop-edge-apps/overview-iot-operations-sdks.md
+      - name: Tutorials
         items:
-        - name: 🟢What is Azure IoT Operations SDKs?
-          href: develop-edge-apps/overview-iot-operations-sdks.md
+        - name: 🟢Develop an edge app for efficient data handling
+          href: get-started-end-to-end-sample/quickstart-develop-edge-app.md
+      - name: Concepts
+        items:
+        - name: 🔵Develop highly available edge apps
+          href: develop-edge-apps/overview-edge-apps.md
         - name: 🔵Using the State store
           href: develop-edge-apps/overview-state-store.md
-      - name: Dapr apps
-        items:
-        - name: Deploy Dapr
-          href: develop-edge-apps/howto-deploy-dapr.md
-        - name: Develop Dapr apps
-          href: develop-edge-apps/howto-develop-dapr-apps.md
-        - name: Build an event-driven app with Dapr
-          href: develop-edge-apps/tutorial-event-driven-with-dapr.md
-      - name: Developer concepts
+      - name: Reference
         items:
           - name: 🟢MQTT v5
             href: develop-edge-apps/concept-mqtt-v5.md
-          - name: State store protocol 
+          - name: 🔵State store protocol
             href: develop-edge-apps/concept-about-state-store-protocol.md
           - name: 🟢Schema registry protocol
             href: develop-edge-apps/concept-schema-registry-protocol.md
+          - name: Dapr apps
+            items:
+            - name: Deploy Dapr
+              href: develop-edge-apps/howto-deploy-dapr.md
+            - name: Develop Dapr apps
+              href: develop-edge-apps/howto-develop-dapr-apps.md
+            - name: Build an event-driven app with Dapr
+              href: develop-edge-apps/tutorial-event-driven-with-dapr.md
     - name: Tutorials
       items:
       - name: Get started end-to-end
