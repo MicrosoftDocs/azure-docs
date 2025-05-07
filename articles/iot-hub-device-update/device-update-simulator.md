@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub using a simulator agent
 description: Get started with Device Update for Azure IoT Hub using the Ubuntu 18.04 simulator agent.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 12/17/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub

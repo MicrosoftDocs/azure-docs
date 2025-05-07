@@ -16,6 +16,8 @@ ms.subservice: b2c
 
 # Tutorial to configure Saviynt with Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Learn to integrate Azure Active Directory B2C (Azure AD B2C) with the Saviynt Security Manager platform, which has visibility, security, and governance. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
 
 Learn more: [Saviynt for Azure AD B2C](https://saviynt.com/fr/integrations/entra-id/for-b2c)

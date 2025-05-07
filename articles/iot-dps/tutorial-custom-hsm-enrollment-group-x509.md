@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Provision X.509 devices to Azure IoT Hub using a DPS enrollment group
 description: This tutorial shows how to use X.509 certificates to provision multiple devices through an enrollment group in your Azure IoT Hub Device Provisioning Service (DPS) instance. 
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: azure-iot-hub
@@ -225,7 +225,7 @@ For more information about certificate chains, see [X.509 certificate attestatio
 
 ### Set up the X.509 OpenSSL environment
 
-In this section, you create the Openssl configuration files, directory structure, and other files used by the Openssl commands.
+In this section, you create the OpenSSL configuration files, directory structure, and other files used by the OpenSSL commands.
 
 1. Open a Git Bash command prompt and navigate to a folder where you want to generate the X.509 certificates and keys for this tutorial.
 

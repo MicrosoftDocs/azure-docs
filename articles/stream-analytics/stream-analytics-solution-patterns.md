@@ -1,11 +1,11 @@
 ---
 title: Azure Stream Analytics solution patterns
 description: Learn about common solution patterns for Azure Stream Analytics, such as dashboarding, event messaging, data stores, reference data enrichment, and monitoring.
-author: ajetasin
-ms.author: ajetasi
+author: ahartoon
+ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 02/19/2025
 ---
 
 # Azure Stream Analytics solution patterns
@@ -117,7 +117,7 @@ There are two key things to monitor:
 
     First and foremost, you need to make sure the job is running. Without the job in the running state, no new metrics or logs are generated. Jobs can change to a failed state for various reasons, including having a high SU utilization level (that is, running out of resources).
 
-- [Watermark delay metrics](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/)
+- [Watermark delay metrics](./stream-analytics-job-analysis-with-metric-dimensions.md)
 
     This metric reflects how far behind your processing pipeline is in wall clock time (seconds). Some of the delay is attributed to the inherent processing logic. As a result, monitoring the increasing trend is much more important than monitoring the absolute value. The steady state delay should be addressed by your application design, not by monitoring or alerts.
 

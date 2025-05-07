@@ -23,7 +23,7 @@ items:
         href: deploy-iot-ops/howto-deploy-iot-operations.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
-      - name: Upgrade or rollback versions
+      - name: Upgrade
         href: deploy-iot-ops/howto-upgrade.md
       - name: Enable secure settings
         href: deploy-iot-ops/howto-enable-secure-settings.md
@@ -39,19 +39,21 @@ items:
         href: secure-iot-ops/howto-manage-secrets.md
       - name: Validate images
         href: secure-iot-ops/howto-validate-images.md
+      - name: Secure your solution
+        href: ../iot/iot-overview-security.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview
         href: discover-manage-assets/overview-manage-assets.md
       - name: Understand assets and asset endpoints
         href: discover-manage-assets/concept-assets-asset-endpoints.md
+      - name: Discover assets
+        href: discover-manage-assets/overview-akri.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
-      - name: Secure access to your assets
-        href: discover-manage-assets/howto-secure-assets.md
       - name: OPC UA (connect to your assets)
         items:
-        - name: Connector for OPC UA overview
+        - name: What is connector for OPC UA?
           href: discover-manage-assets/overview-opcua-broker.md
         - name: Message format
           href: discover-manage-assets/concept-opcua-message-format.md
@@ -61,6 +63,8 @@ items:
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+        - name: Configure and use automatic asset discovery
+          href: discover-manage-assets/howto-autodetect-opc-ua-assets-use-akri.md
       - name: Connect to media sources
         items:
         - name: What is the media connector?
@@ -97,7 +101,7 @@ items:
         href: manage-mqtt-broker/howto-test-connection.md
     - name: Process and route data
       items:
-      - name: What are dataflows?
+      - name: What are data flows?
         href: connect-to-cloud/overview-dataflow.md
       - name: Prepare endpoints
         items:
@@ -117,7 +121,7 @@ items:
           href: connect-to-cloud/howto-configure-adx-endpoint.md
         - name: Local storage or ACSA
           href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
-      - name: Create dataflow
+      - name: Create a data flow
         href: connect-to-cloud/howto-create-dataflow.md
       - name: Transform data
         items:
@@ -129,7 +133,7 @@ items:
           href: connect-to-cloud/concept-dataflow-enrich.md
       - name: Use message schemas
         href: connect-to-cloud/concept-schema-registry.md
-      - name: Manage dataflow profile
+      - name: Manage data flow profiles
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:
@@ -159,7 +163,7 @@ items:
         href: configure-observability-monitoring/howto-clean-up-observability-resources.md
     - name: Create edge apps
       items:
-      - name: Edge apps overview
+      - name: MQTT client app guidance
         href: create-edge-apps/edge-apps-overview.md
       - name: State store
         items:
@@ -199,6 +203,8 @@ items:
         href: troubleshoot/troubleshoot.md
       - name: Known issues
         href: troubleshoot/known-issues.md
+      - name: Tips and tools
+        href: troubleshoot/tips-tools.md
       - name: FAQ
         href: troubleshoot/iot-operations-faq.yml
     - name: Reference # supporting information like APIs, tools, code libraries
@@ -211,6 +217,8 @@ items:
         href: /cli/azure/iot/ops
       - name: Azure IoT Operations REST API
         href: /rest/api/iotoperations
+      - name: Custom RBAC
+        href: reference/custom-rbac.md
       - name: Available metrics for observability
         items:
         - name: MQTT broker

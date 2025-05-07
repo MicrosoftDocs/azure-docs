@@ -325,22 +325,15 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all function executions. It follows the timespan string format. 
-
-| Plan type | Default (min) | Maximum (min) |
-| -- | -- | -- |
-| Consumption | 5 | 10 |
-| Premium<sup>1</sup> | 30 | -1 (unbounded)<sup>2</sup> |
-| Dedicated (App Service) | 30 | -1 (unbounded)<sup>2</sup> |
-
-<sup>1</sup> Premium plan execution is only guaranteed for 60 minutes, but technically unbounded.   
-<sup>2</sup> A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+Indicates the timeout duration for all function executions. It follows the timespan string format. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
     "functionTimeout": "00:05:00"
 }
 ```
+
+For more information on the default and maximum values for specific plans, see [Function app timeout duration](./functions-scale.md#timeout).
 
 ## healthMonitor
 

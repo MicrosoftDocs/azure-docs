@@ -71,7 +71,7 @@ The prerequisite is that the WordPress on Linux Azure App Service must have been
 
 ### Manually import the data at destination site
 
-1. Create a new Wordpress app using our [WordPress on Linux App Service template](https://aka.ms/linux-wordpress)
+1. Create a new WordPress app using our [WordPress on Linux App Service template](https://aka.ms/linux-wordpress)
 
 2. Open an SSH session using **WebSSH** from the Azure portal.
 ![Web SSH](./media/app-service-migrate-wordpress/post-startup-script-1.png)

@@ -79,19 +79,20 @@ The following tables compare features available in the following API Management 
 | [Virtual network injection](virtual-network-concepts.md)  |  Developer, Premium | Premium v2 | ❌ | ✔️<sup>1,2</sup> | ✔️ |
 | [Inbound private endpoints](private-endpoint.md)  |  Developer, Basic, Standard, Premium | Standard v2 | ❌ | ❌ | ❌ |
 | [Outbound virtual network integration](integrate-vnet-outbound.md)  | ❌ | Standard  v2, Premium v2  |  ❌ | ❌ | ✔️ |
-| [Availability zones](zone-redundancy.md)  |  Premium | ❌  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
+| [Availability zones](zone-redundancy.md)  |  Premium | ✔️<sup>3</sup>  | ❌ | ✔️<sup>1</sup> | ✔️<sup>3</sup> |
 | [Multi-region deployment](api-management-howto-deploy-multi-region.md) |  Premium | ❌ |  ❌ | ✔️<sup>1</sup> | ❌ |
-| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>3</sup> |  ❌ |
+| [CA root certificates](api-management-howto-ca-certificates.md) for certificate validation |  ✔️ | ✔️ | ❌ | ✔️<sup>4</sup> |  ❌ |
 | [Managed domain certificates](configure-custom-domain.md?tabs=managed#domain-certificate-options) |  Developer, Basic, Standard, Premium | ❌ | ✔️ | ❌ | ❌ |
 | [TLS settings](api-management-howto-manage-protocols-ciphers.md) |  ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
-| **HTTP/2** (Client-to-gateway) | ✔️<sup>4</sup> | ✔️<sup>4</sup> |❌ | ✔️ | ❌ |
+| **HTTP/2** (Client-to-gateway) | ✔️<sup>5</sup> | ✔️<sup>5</sup> |❌ | ✔️ | ❌ |
 | **HTTP/2** (Gateway-to-backend) |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | API threat detection with [Defender for APIs](protect-with-defender-for-apis.md) | ✔️ | ✔️ |  ❌ | ❌ | ❌ |
 
 <sup>1</sup> Depends on how the gateway is deployed, but is the responsibility of the customer.<br/>
 <sup>2</sup> Connectivity to the self-hosted gateway v2 [configuration endpoint](self-hosted-gateway-overview.md#fqdn-dependencies) requires DNS resolution of the endpoint hostname.<br/>
-<sup>3</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
-<sup>4</sup> Client protocol needs to be enabled.
+<sup>3</sup> Two zones are enabled by default; not configurable.<br/>
+<sup>4</sup> CA root certificates for self-hosted gateway are managed separately per gateway<br/>
+<sup>5</sup> Client protocol needs to be enabled.
 
 ### Backend APIs
 
@@ -107,7 +108,7 @@ The following tables compare features available in the following API Management 
 | [Service Fabric](/azure/service-fabric/service-fabric-api-management-overview) |  Developer, Premium |  ❌ |❌ | ❌ | ❌ | 
 | [Pass-through GraphQL](graphql-apis-overview.md) |  ✔️ | ✔️ |✔️ | ✔️ | ✔️ |
 | [Synthetic GraphQL](graphql-apis-overview.md)|  ✔️ |  ✔️ | ✔️<sup>1</sup> | ✔️<sup>1</sup> | ❌ |
-| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
+| [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ✔️ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
 | [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -127,12 +128,11 @@ Managed and self-hosted gateways support all available [policies](api-management
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
 | [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
 | [Azure OpenAI and LLM semantic caching](api-management-policies.md#caching) |  ✔️ | ✔️ |✔️ | ❌ | ❌ |
-| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup> | ✔️ |
+| [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
-<sup>2</sup> The quota by key policy isn't available in the v2 tiers.<br/>
-<sup>3</sup> The rate limit by key, quota by key, and Azure OpenAI token limit policies aren't available in the Consumption tier.<br/>
-<sup>4</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
+<sup>2</sup> The rate limit by key, quota by key, and AI token limit policies aren't available in the Consumption tier.<br/>
+<sup>3</sup> [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 
 
 ### Monitoring
@@ -201,4 +201,4 @@ Lear more about:
 -   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
 -   [Capacity metric](api-management-capacity.md) for scaling decisions
 -   [Observability capabilities](observability.md) in API Management
--   [GenAI gateway capabilities](genai-gateway-capabilities.md) in API Management
+-   [AI gateway capabilities](genai-gateway-capabilities.md) in API Management

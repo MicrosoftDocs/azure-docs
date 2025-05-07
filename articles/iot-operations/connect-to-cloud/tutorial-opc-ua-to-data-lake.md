@@ -13,9 +13,9 @@ ms.date: 11/15/2024
 
 # Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2
 
-In the quickstart, you created a dataflow that sends data from Azure IoT Operations to Event Hubs, and then to Microsoft Fabric via EventStreams.
+In the quickstart, you created a data flow that sends data from Azure IoT Operations to Event Hubs, and then to Microsoft Fabric via EventStreams.
 
-However, it's also possible to send the data directly to a storage endpoint without using Event Hubs. This approach requires creating a Delta Lake schema that represents the data, uploading the schema to Azure IoT Operations, and then creating a dataflow that reads the data from the OPC UA server and writes it to the storage endpoint.
+However, it's also possible to send the data directly to a storage endpoint without using Event Hubs. This approach requires creating a Delta Lake schema that represents the data, uploading the schema to Azure IoT Operations, and then creating a data flow that reads the data from the OPC UA server and writes it to the storage endpoint.
 
 This tutorial builds on the quickstart setup and demonstrates how to bifurcate the data to Azure Data Lake Storage Gen 2. This approach allows you to store the data directly in a scalable and secure data lake, which can be used for further analysis and processing.
 
@@ -204,11 +204,11 @@ To verify the schema is uploaded, list the schema versions using the Azure CLI.
 az iot ops schema version list -g <RESOURCE_GROUP> --schema opcua-schema --registry <REGISTRY_NAME>
 ```
 
-## Create dataflow endpoint
+## Create data flow endpoint
 
-The dataflow endpoint is the destination where the data is sent. In this case, the data is sent to Azure Data Lake Storage Gen 2. The authentication method is system assigned managed identity, which you set up to have right permissions to write to the storage account.
+The data flow endpoint is the destination where the data is sent. In this case, the data is sent to Azure Data Lake Storage Gen 2. The authentication method is system assigned managed identity, which you set up to have right permissions to write to the storage account.
 
-Create a dataflow endpoint using Bicep. Replace the placeholders with your values.
+Create a data flow endpoint using Bicep. Replace the placeholders with your values.
 
 ```bicep
 // Replace with your values
@@ -253,11 +253,11 @@ Save the file as `adls-gen2-endpoint.bicep` and deploy it using the Azure CLI
 az deployment group create -g <RESOURCE_GROUP> --template-file adls-gen2-endpoint.bicep
 ```
 
-## Create a dataflow
+## Create a data flow
 
-To send data to Azure Data Lake Storage Gen 2, you need to create a dataflow that reads data from the OPC UA server and writes it to the storage account. No transformation is needed in this case, so the data is written as-is.
+To send data to Azure Data Lake Storage Gen 2, you need to create a data flow that reads data from the OPC UA server and writes it to the storage account. No transformation is needed in this case, so the data is written as-is.
 
-Create a dataflow using Bicep. Replace the placeholders with your values.
+Create a data flow using Bicep. Replace the placeholders with your values.
 
 ```bicep
 // Replace with your values
@@ -282,7 +282,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-// Pointer to the default dataflow profile
+// Pointer to the default data flow profile
 resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
   parent: aioInstance
   name: 'default'
@@ -303,7 +303,7 @@ resource asset 'Microsoft.DeviceRegistry/assets@2024-11-01' existing = {
 }
 
 resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
-  // Reference to the parent dataflow profile, the default profile in this case
+  // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
   name: dataflowName

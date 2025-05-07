@@ -21,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Enable multifactor authentication in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 Azure Active Directory B2C (Azure AD B2C) integrates directly with [Microsoft Entra multifactor authentication](/entra/identity/authentication/concept-mfa-howitworks) so that you can add a second layer of security to sign-up and sign-in experiences in your applications. If you already created sign-up and sign-in user flows, you can still enable multifactor authentication.
@@ -132,6 +134,19 @@ In Azure AD B2C, you can delete a user's TOTP authenticator app enrollment. The 
 ### Delete TOTP authenticator app enrollment using the Microsoft Graph API
 
 Learn how to [delete a user's Software OATH token authentication method](/graph/api/softwareoathauthenticationmethod-delete) using the Microsoft Graph API.
+
+### SMS pricing tiers by country/region
+
+The following table provides details about the different pricing tiers for SMS based authentication services across various countries or regions. For pricing details, see [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+SMS is an add-on feature and requires a linked subscription. If your subscription expires or is cancelled, end users will no longer be able to authenticate using SMS, which could block them from signing in depending on your MFA policy.
+
+|Tier                               |Countries/Regions  |
+|-----------------------------------|-------------------|
+|Phone Authentication Low Cost      |Australia, Brazil, Brunei, Canada, Chile, China, Colombia, Cyprus, North Macedonia, Poland, Portugal, South Korea, Thailand, Türkiye, United States         |
+|Phone Authentication Mid Low Cost  |Greenland, Albania, American Samoa, Austria, Bahamas, Bahrain, Bosnia & Herzegovina, Botswana, Costa Rica, Czech Republic, Denmark, Estonia, Faroe Islands, Finland, France, Greece, Hong Kong SAR, Hungary, Iceland, Ireland, Italy, Japan, Latvia, Lithuania, Luxembourg, Macao SAR, Malta, Mexico, Micronesia, Moldova, Namibia, New Zealand, Nicaragua, Norway, Romania, São Tomé and Príncipe, Seychelles Republic, Singapore, Slovakia, Solomon Islands, Spain, Sweden, Switzerland, Taiwan, United Kingdom, United States Virgin Islands, Uruguay         |
+|Phone Authentication Mid High Cost |Andorra, Angola, Anguilla, Antarctica, Antigua and Barbuda, Argentina, Armenia, Aruba, Barbados, Belgium, Benin, Bolivia, Bonaire, Curaçao, Saba, Sint Eustatius and Sint Maarten, British Virgin Islands, Bulgaria, Burkina Faso, Cameroon, Cayman Islands, Central African Republic, Cook Islands, Côte d’Ivoire, Croatia, Diego Garcia, Djibouti, Dominican Republic, Dominican Republic, Dominican Republic, Ecuador, El Salvador, Eritrea, Falkland Islands, Fiji, French Guiana, French Polynesia, Gambia, Georgia, Germany, Gibraltar, Grenada, Guadeloupe, Guam, Guinea, Guyana, Honduras, India, Kenya, Kiribati, Laos, Liberia, Malaysia, Marshall Islands, Martinique, Mauritius, Monaco, Montenegro, Montserrat, Netherlands, New Caledonia, Niue, Oman, Palau, Panama, Paraguay, Peru, Puerto Rico, Puerto Rico, Réunion, Rwanda, Saint Helena, Ascension and Tristan de Cunha, Saint Kitts & Nevis, Saint Lucia, Saint Pierre & Miquelon, Saint Vincent and the Grenadines, Saipan, Samoa, San Marino, Saudi Arabia, Sint Maarten, Slovenia, South Africa, South Sudan, Suriname, Swaziland (New Name is Kingdom of Eswatini), Timor-Leste, Tokelau, Tonga, Turks & Caicos, Tuvalu, United Arab Emirates, Vanuatu, Venezuela, Vietnam, Wallis and Futuna         |
+|Phone Authentication High Cost     |Liechtenstein, Bermuda, Cabo Verde, Cambodia, Democratic Republic of Congo, Dominica, Egypt, Equatorial Guinea, Ghana, Guatemala, Guinea-Bissau, Israel, Jamaica, Jamaica, Kosovo, Lesotho, Maldives, Mali, Mauritania, Morocco, Mozambique, Papua New Guinea, Philippines, Qatar, Sierra Leone, Trinidad & Tobago, Ukraine, Zimbabwe, Afghanistan, Algeria, Azerbaijan, Bangladesh, Belarus, Belize, Bhutan, Burundi, Chad, Comoros, Congo, Ethiopia, Gabonese Republic, Haiti, Indonesia, Iraq, Jordan, Kuwait, Kyrgyzstan, Lebanon, Libya, Madagascar, Malawi, Mongolia, Myanmar, Nauru, Nepal, Niger, Nigeria, Pakistan, Palestinian National Authority, Russia, Senegal, Serbia, Somalia, Sri Lanka, Sudan, Tajikistan, Tanzania, Togolese Republic, Tunisia, Turkmenistan, Uganda, Uzbekistan, Yemen, Zambia         |
 
 ::: zone pivot="b2c-custom-policy"
 

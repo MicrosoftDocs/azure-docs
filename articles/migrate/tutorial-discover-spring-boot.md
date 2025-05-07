@@ -5,7 +5,7 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 10/23/2024
+ms.date: 02/07/2025
 ms.custom: mvc, subject-rbac-steps, engagement-fy25, references_regions
 ---
 
@@ -56,7 +56,7 @@ After you have performed server discovery and software inventory using the Azure
 ### Onboard Kubernetes-based appliance
 
 1. Go to the [Azure portal](https://aka.ms/migrate/springboot). Sign in with your Azure account and search for Azure Migrate.
-2. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 1. Select the project where you set up the Azure Migrate appliance as part of the prerequisites.
 1. You see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
 
@@ -145,8 +145,9 @@ If your machine is behind an outbound proxy server, requests must be routed via 
 After you save the script on the Linux server, follow these steps:
 
 > [!Note]
-> This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
-> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.  
+> - This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
+> - Ensure that you install curl on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.
+> - Ensure that you install microk8s 1.29 on the server. For Ubuntu, you can install using the command `sudo snap install microk8s --classic --channel=1.29/stable`. Learn more on [how to install microk8s on Red Hat Enterprise Linux 9](https://snapcraft.io/install/microk8s/rhel).
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.

@@ -1,8 +1,8 @@
 ---
 title: Choose VM sizes and images for pools
 description: How to choose from the available VM sizes and OS versions for compute nodes in Azure Batch pools
-ms.topic: conceptual
-ms.date: 02/29/2024
+ms.topic: concept-article
+ms.date: 04/23/2025
 ---
 
 # Choose a VM size and image for compute nodes in an Azure Batch pool
@@ -28,15 +28,11 @@ az batch location list-skus --location <azure-region>
 ```
 
 > [!TIP]
-> It's recommended to avoid VM SKUs/families with impending Batch support end of life (EOL) dates. These dates can be discovered
+> Avoid VM SKUs/families with impending Batch support end of life (EOL) dates. These dates can be discovered
 > via the [`ListSupportedVirtualMachineSkus` API](/rest/api/batchmanagement/location/list-supported-virtual-machine-skus),
 > [PowerShell](/powershell/module/az.batch/get-azbatchsupportedvirtualmachinesku),
 > or [Azure CLI](/cli/azure/batch/location#az-batch-location-list-skus).
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM SKU selection.
-
-Batch **doesn't** support any VM SKU sizes that have only remote storage. A local temporary disk is required for Batch.
-For example, Batch supports [ddv4 and ddsv4](/azure/virtual-machines/ddv4-ddsv4-series), but does not support
-[dv4 and dsv4](/azure/virtual-machines/dv4-dsv4-series).
 
 ### Using Generation 2 VM Images
 
@@ -47,21 +43,9 @@ strings have a suffix such as `-g2` or `-gen2`. To get a list of VM images suppo
 use the ['list supported images'](/rest/api/batchservice/account/listsupportedimages) API,
 [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
 
-### Pools in Cloud Services Configuration
-
-> [!WARNING]
-> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
-
-Batch pools in Cloud Services Configuration support all [VM sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) **except** for the following:
-
-| VM series  | Unsupported sizes |
-|------------|-------------------|
-| A-series   | Extra small       |
-| Av2-series | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
-
 ## Size considerations
 
-- **Application requirements** - Consider the characteristics and requirements of the application you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](/azure/virtual-machines/sizes-hpc) or [GPU-enabled](/azure/virtual-machines/sizes-gpu) VM sizes, respectively. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).
+- **Application requirements** - Consider the characteristics and requirements of the application run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. For multi-instance [MPI workloads](batch-mpi.md) or CUDA applications, consider specialized [HPC](/azure/virtual-machines/sizes-hpc) or [GPU-enabled](/azure/virtual-machines/sizes-gpu) VM sizes, respectively. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).
 
 - **Tasks per node** - It's typical to select a node size assuming one task runs on a node at a time. However, it might be advantageous to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it's common to choose a multicore node size to accommodate the increased demand of parallel task execution.
 
@@ -70,8 +54,6 @@ Batch pools in Cloud Services Configuration support all [VM sizes for Cloud Serv
 - **Region availability** - A VM series or size might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
 
 - **Quotas** - The [cores quotas](batch-quota-limit.md#resource-quotas) in your Batch account can limit the number of nodes of a given size you can add to a Batch pool. When needed, you can [request a quota increase](batch-quota-limit.md#increase-a-quota).
-
-- **Pool configuration** - In general, you have more VM size options when you create a pool in Virtual Machine configuration, compared with Cloud Services Configuration.
 
 ## Supported VM images
 
@@ -87,13 +69,23 @@ For example, using the Azure CLI, you can obtain the list of supported VM images
 az batch pool supported-images list
 ```
 
+Images that have a `verificationType` of `verified` undergo regular interoperability validation testing with the Batch service
+by the Azure Batch team. The `verified` designation doesn't mean that every possible application or usage scenario is validated,
+but that functionality exposed by the Batch API such as executing tasks, mounting a supported virtual filesystem, etc. are
+regularly tested as part of release processes. Images that have a `verificationType` of `unverified` don't undergo regular
+validation testing but were initially verified to boot on Azure Batch compute nodes and transition to an `idle` compute
+node state. Support for `unverified` images isn't guaranteed.
+
 > [!TIP]
-> It's recommended to avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via
+> Avoid images with impending Batch support end of life (EOL) dates. These dates can be discovered via
 > the [`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
 > [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or [Azure CLI](/cli/azure/batch/pool/supported-images).
 > For more information, see the [Batch best practices guide](best-practices.md) regarding Batch pool VM image selection.
 
+> [!TIP]
+> The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable is dependent upon if the VM has a local temporary disk or not. See [Batch root directory location](files-and-directories.md#batch-root-directory-location) for more information.
+
 ## Next steps
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
-- For information about using compute-intensive VM sizes, see [Use RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).
+- Learn about using specialized VM sizes with [RDMA-capable or GPU-enabled instances in Batch pools](batch-pool-compute-intensive-sizes.md).

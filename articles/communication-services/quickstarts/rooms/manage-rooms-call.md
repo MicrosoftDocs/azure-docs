@@ -3,11 +3,11 @@ title: Quickstart - Manage a room call
 titleSuffix: An Azure Communication Services Quickstart
 description: In this quickstart, you learn how to manage a room call using Calling SDKs and Call Automation SDKs
 services: azure-communication-services
-author: mikehang
+author: mayssamm
 manager: alexokun
 
-ms.author: mikehang
-ms.date: 07/10/2024
+ms.author: mayssamm
+ms.date: 02/27/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: mode-other

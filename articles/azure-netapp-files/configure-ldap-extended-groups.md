@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 03/17/2023
+ms.date: 02/21/2025
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (AD DS) LDAP authentication for NFS volumes
@@ -43,13 +43,13 @@ The following information is passed to the server in the query:
 
 * The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
-    | Cache |  Default Timeout |
+    | Cache |  Default time out |
     |-|-|
     | Group membership list  | 24-hour TTL  |
     | Unix groups  | 24-hour TTL, 1-minute negative TTL  |
     | Unix users  | 24-hour TTL, 1-minute negative TTL  |
 
-    Caches have a specific timeout period called *Time to Live*. After the timeout period, entries age out so that stale entries don't linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
+    Caches have a specific time-out period called *Time to Live*. After the time-out period, entries age out so that stale entries don't linger. The *negative TTL* value is where a lookup that has failed resides to help avoid performance issues due to LDAP queries for objects that might not exist.
     
 * The **Allow local NFS users with LDAP** option in Active Directory connections intends to provide occasional and temporary access to local users. When this option is enabled, user authentication and lookup from the LDAP server stop working, and the number of group memberships that Azure NetApp Files will support will be limited to 16.  As such, you should keep this option *disabled* on Active Directory connections, except for the occasion when a local user needs to access LDAP-enabled volumes. In that case, you should disable this option as soon as local user access is no longer required for the volume. See [Allow local NFS users with LDAP to access a dual-protocol volume](create-volumes-dual-protocol.md#allow-local-nfs-users-with-ldap-to-access-a-dual-protocol-volume) about managing local user access.
 
@@ -108,8 +108,8 @@ The following information is passed to the server in the query:
 
     To resolve the users and group from an LDAP server for large topologies, set the values of the **User DN**, **Group DN**, and **Group Membership Filter** options on the Active Directory Connections page as follows:
 
-    * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. 
-    * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. 
+    * Specify nested **User DN** and **Group DN** in the format of `OU=subdirectory,OU=directory,DC=domain,DC=com`. Multiple organizational units can be specified using a semicolon, for example: `OU=subdirectory1,OU=directory1,DC=domain,DC=com;OU=subdirectory2,OU=directory2,DC=domain,DC=com`
+    * Specify **Group Membership Filter** in the format of `(gidNumber=*)`. For example, setting `(gidNumber=9*)` searches for `gidNumbers` starting with 9. You can also use two filters together: `(|(cn=*22)(cn=*33))` searches for CN values ending in 22 or 33. 
     * If a user is a member of more than 256 groups, only 256 groups will be listed. 
     * Refer to [errors for LDAP volumes](troubleshoot-volumes.md#errors-for-ldap-volumes) if you run into errors.
 

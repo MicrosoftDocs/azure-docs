@@ -1,5 +1,5 @@
 ---
-title: Set up a staging environment in Azure Spring Apps
+title: Set Up a Staging Environment in Azure Spring Apps
 description: Learn how to use blue-green deployment with Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -46,7 +46,7 @@ To build the application, follow these steps:
 1. Generate the code for the sample app by using Spring Initializr with [this configuration](https://start.spring.io/#!type=maven-project&language=java&packaging=jar&groupId=com.example&artifactId=hellospring&name=hellospring&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.hellospring&dependencies=web,cloud-eureka,actuator,cloud-config-client).
 
 1. Download the code.
-1. Add the following *HelloController.java* source file to the folder *\src\main\java\com\example\hellospring\*:
+1. Add the following **HelloController.java** source file to the folder **\src\main\java\com\example\hellospring\**:
 
    ```java
    package com.example.hellospring;
@@ -66,7 +66,7 @@ To build the application, follow these steps:
    }
    ```
 
-1. Build the *.jar* file:
+1. Build the **.jar** file:
 
    ```azurecli
    mvn clean package -DskipTests
@@ -125,7 +125,7 @@ To build the application, follow these steps:
    }
    ```
 
-1. Rebuild the *.jar* file:
+1. Rebuild the **.jar** file:
 
    ```azurecli
    mvn clean package -DskipTests
@@ -190,7 +190,7 @@ Use the following steps to view deployed apps.
 > Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green`. Use this format to access your endpoint. If you want to disable basic authentication for your test endpoint, run the following Azure CLI command: `az spring app update --resource-group <resource-group-name> --service <Azure-Spring-Apps-instance-name> --name demo --disable-test-endpoint-auth true`
 
 >[!NOTE]
-> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app demo in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green/somepath/...`.
+> Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (`server.servlet.context-path`) for your app demo in the configuration server as `somepath`, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green/somepath/...`.
 
 If you visit your public-facing app demo at this point, you should see the old page without your new change.
 

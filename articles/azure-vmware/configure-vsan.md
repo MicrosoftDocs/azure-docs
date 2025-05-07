@@ -29,6 +29,7 @@ In this article, learn how to:
 > * Enable or Disable vSAN TRIM/UNMAP
 > * Enable vSAN Compression Only
 > * Disable vSAN Deduplication and Compression
+> * Enable or Disable vSAN Data-In-Transit Encryption
 
 ## Set VMware vSAN TRIM/UNMAP
 
@@ -60,7 +61,11 @@ Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
    >- disk.scsiUnmapAllowed flag is not set to false. The default is implied true. This setting can be used as a "stop switch" at the virtual machine level should you wish to disable this behavior on a per VM basis and do not want to use in guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
    >- The guest operating system must be able to identify the virtual disk as thin.
    >- After enabling at a cluster level, the VM must be powered off and back on (a reboot is insufficient).
-
+   
+   >[!TIP]
+   >Articles on reclaiming space for Windows and Linux systems for TRIM/UNMAP to execute.
+   >-https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html
+   >-https://knowledge.broadcom.com/external/article/326595/procedure-to-enable-trimunmap.html
 ## Set VMware vSAN Space Efficiency
 
 Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
@@ -91,6 +96,30 @@ Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
    >Disabling both compression and deduplication offers the greatest performance gains, however at the cost of space utilization.
 
 1. Check **Notifications** to see the progress.
+
+
+## Set VMware vSAN Data-In-Transit Encryption
+
+Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a SDDC.
+
+   >[!NOTE]
+   >Changing this setting will cause a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Select **Run command** > **Packages** > **Set-vSANDataInTransitEncryption**.
+
+1. Provide the required values or change the default values, and then select **Run**.
+
+   | **Field** | **Value** |
+   | --- | --- |
+   | **ClusterName**  | Name of the cluster. Leave blank if required to enable for whole SDDC else enter comma separated list of names. |
+   | **Enable**  |  Specify True/False to Enable/Disable the feature.
+
+1. Check **Notifications** to see the progress.
+
+>[!NOTE]
+>You can also use the `Get-vSANDataInTransitEncryptionStatus` command to check for the current status or status after performing the `Set-vSANDataInTransitEncryptionStatus` operation and verify the cluster's current encryption state.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan
 description: Learn how you can save on your Azure Synapse Analytics costs when you prepurchase Azure Synapse commit units (SCU) for one year.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Optimize Azure Synapse Analytics costs with a Pre-Purchase Plan
@@ -23,6 +23,17 @@ A synapse prepurchase applies to all Synapse workloads and tiers. You can think 
 There’s no ratio on which the SCUs are applied. SCUs are equivalent to the purchase currency value and are deducted at retail prices. Like other reservations, the benefit of a pre-purchase plan is discounted pricing by committing to a purchase term. The more you buy, the larger the discount you receive.
 
 For example, if you want to use your SCUs for Data Warehousing – Dedicated SQL pool in West US 2, and you consume 1 hour of SQL Dedicated Pool DWU100 that has a retail price of $1.20, then 1.2 SCUs are consumed.
+
+As another example, an enterprise customer has an Annual Commitment Discount (ACD) of 10%. This customer typically consumes 120,000 USD worth of Azure Synapse Analytics at retail prices annually. With the ACD applied, their actual usage cost is 108,000 USD.
+
+This year, the customer decided to purchase 100,000 Azure Synapse commit units (SCU) for 82,000 USD, which includes an 18% discount off the retail prices. This discount isn't combined with the ACD, effectively making the actual discount rate 8%.
+
+As SCUs are consumed at retail prices, the customer would still need to use 20,000 USD worth of Azure Synapse Analytics at the pay-as-you-go (PAYG) rates, applying the ACD discount.
+
+At the end of the commitment period, the actual Azure Synapse Analytics usage cost for the customer would be 82,000 USD for the SCUs (reflecting the price with the 18% discount) plus 18,000 USD for the PAYG consumption (reflecting the 10% ACD discount). This totals to 100,000 USD.
+
+> [!NOTE]
+> The mentioned prices are for example purposes only. They aren't intended to represent actual costs.
 
 The Synapse prepurchase discount applies to usage from the following products:
 

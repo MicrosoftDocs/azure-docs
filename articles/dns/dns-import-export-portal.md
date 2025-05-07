@@ -5,14 +5,14 @@ description: Learn how to import and export a DNS (Domain Name System) zone file
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.date: 06/07/2024
+ms.date: 02/05/2025
 ms.author: greglin
 ms.topic: how-to
 ---
 
 # Import and export a DNS zone file using the Azure portal
 
-In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure portal. You can also [import and export a zone file using Azure PowerShell](dns-import-export.md).
+In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure portal. You can also [import and export a zone file using Azure CLI](dns-import-export.md). Import and export cmdlets are not currently available in Azure PowerShell.
 
 ## Introduction to DNS zone migration
 

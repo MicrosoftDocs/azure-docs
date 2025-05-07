@@ -2,7 +2,7 @@
 title: Restore Azure Blobs
 description: Learn how to restore Azure Blobs.
 ms.topic: how-to
-ms.date: 12/24/2024
+ms.date: 04/17/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -10,6 +10,8 @@ ms.author: jsuri
 # Restore Azure Blobs
 
 This article describes how to use the Azure portal to perform restores for Azure Blob from operational or vaulted backups. With operational backups, you can restore all block blobs in storage accounts with operational backup configured or a subset of blob content to any point-in-time within the retention range. With vaulted backups, you can perform restores using a recovery point created, based on your backup schedule.
+
+You can also [restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 
 ## Before you start
 
@@ -97,13 +99,17 @@ To initiate a restore through the Azure Business Continuity Center, follow these
 
 Consider the following example:
 
-![Restore with prefix match](./media/blob-restore/prefix-match.png)
+![Screenshot shows the restore operation with prefix match.](./media/blob-restore/prefix-match.png)
 
 The restore operation shown in the image performs the following actions:
 
 - It restores the complete contents of *container1*.
 - It restores blobs in the lexicographical range *blob1* through *blob5* in *container2*. This range restores blobs with names such as *blob1*, *blob11*, *blob100*, *blob2*, and so on. Because the end of the range is exclusive, it restores blobs whose names begin with *blob4*, but doesn't restore blobs whose names begin with *blob5*.
 - It restores all blobs in *container3* and *container4*. Because the end of the range is exclusive, this range doesn't restore *container5*.
+
+For **vaulted backup**, a prefix-match actively searches for items like folders and blobs under the specified container that start with the given input. For example, when you specify the prefix **b**, the blobs whose names begin with that letter are only replicated. Additionally, you can define a virtual directory and include up to **five prefixes**.
+
+:::image type="content" source="./media/blob-restore/vaulted-backup-prefix-match.png" alt-text="Screenshot shows the option to restore with prefix match for vaulted backup." lightbox="./media/blob-restore/vaulted-backup-prefix-match.png":::
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: Microsoft Customer Agreement (MCA) price sheet schema
 description: Learn about the data fields available in the Microsoft Customer Agreement price sheet.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Microsoft Customer Agreement price sheet schema
@@ -24,7 +24,7 @@ Heres the list of all of the data fields found in your price sheet.
 | 2   | billingAccountId | Unique identifier for the billing account. |
 | 3   | billingAccountName | Name of the billing account. |
 | 4   | billingCurrency | Currency in which charges are posted. |
-| 5   | billingProfileId | Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account. |
+| 5   | billingProfileId | Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile. |
 | 6   | billingProfileName | Name of the billing profile that is set up to receive invoices. The prices in the price sheet are associated with this billing profile. |
 | 7   | currency | Currency in which all the prices are reflected. |
 | 8   | discount | The price discount offered for Graduation Tier, Free Tier, Included Quantity, or Negotiated discounts when applicable. Represented as a percentage. Not available in the updated version of the price sheet. |
@@ -42,7 +42,7 @@ Heres the list of all of the data fields found in your price sheet.
 | 20  | Product | Name of the product accruing the charges. For example, Basic SQL DB vs Standard SQL DB. |
 | 21  | productId | Unique identifier for the product. |
 | 22  | serviceFamily |Service family that the service belongs to. |
-| 23  | SkuID | Unique identifier of the SKU. |
+| 23  | SkuId | Unique identifier of the SKU. |
 | 24  | Term | Duration associated with priceType. For example, SavingsPlan priceType has two commitment options: one year and three years. The Term is _P1Y_ for a one-year commitment and _P3Y_ for a three-year commitment. |
 | 25  | tierMinimumUnits | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0. |
 | 26  | unitOfMeasure |The unit of measure for billing for the service. For example, compute services are billed per hour.|

@@ -2,15 +2,15 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: orwatson
+author: mayssamm
 manager: alexokun
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 06/23/2023
+ms.date: 02/27/2025
 ms.topic: include
 ms.custom: include file
-ms.author: orwatson
+ms.author: mayssamm
 ---
 
 ## Prerequisites
@@ -224,6 +224,9 @@ To add new participants to a `room`, use the `addOrUpdateParticipants` method ex
 
 ```javascript
 // Add and update participants
+
+const user3 = await identityClient.createUserAndToken(["voip"]);
+
 // request payload to add and update participants
 const addOUpdateParticipantsList = [
   {
@@ -231,12 +234,12 @@ const addOUpdateParticipantsList = [
       role: "Presenter",
   },
   {
-    id: user2.user,
-    role: "Consumer",
+    id: user3.user,
+    role: "Collaborator",
   }
 ]
 
-// add user2 to the room and update user1 to Presenter role
+// add user3 to the room and update user1 to Presenter role
 await roomsClient.addOrUpdateParticipants(roomId, addOUpdateParticipantsList);
 console.log("\nAdded and updated participants in the room");
 ```
@@ -322,6 +325,13 @@ Retrieved participants for room:
     communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7ccc-35f3-343a0d00e902'
   },
   role: 'Consumer'
+}
+{
+  id: {
+    kind: 'communicationUser',
+    communicationUserId: '8:acs:b6aada1f-0b1d-47ac-866f-91aae00a1d01_00000018-ac89-7ccc-35f3-343a0d00e903'
+  },
+  role: 'Collaborator'
 }
 
 Removed participants from room

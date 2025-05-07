@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Azure Digital Twins query language reference - SELECT clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language SELECT clause
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 02/25/2022
-ms.topic: article
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: reference
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins query language reference: SELECT clause
@@ -48,7 +42,7 @@ The following query returns all digital twins in the instance.
 
 You can use projections in the SELECT clause to choose which columns a query will return. You can specify named collections of twins and relationships, or properties of twins and relationships.
 
-Projection is now supported for both primitive properties and complex properties.
+Projection is now supported for both [primitive properties and complex properties](concepts-models.md#schema).
 
 ### Syntax
 

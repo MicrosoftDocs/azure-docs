@@ -23,9 +23,9 @@ This article describes the features available in Microsoft Sentinel across diffe
 
 ## Experience in the Defender portal 
 
-Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md) as Microsoft's unified security operations (SecOps) platform. In the Defender portal, all features in general availability are available in both commercial and GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
+Microsoft Sentinel is also available in the [Microsoft Defender portal](microsoft-sentinel-defender-portal.md). In the Defender portal, all features in general availability are available in commercial, GCC, GCC High and DoD clouds. Features still in preview are available only in the commercial cloud.
 
-While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) with Microsoft's unified SecOps platform is available only in the commercial cloud.
+While [attack disruption in the Defender portal](/defender-xdr/automatic-attack-disruption) is generally available, [SAP support for attack disruption](/defender-xdr/automatic-attack-disruption#automated-response-actions-for-sap-with-microsoft-sentinel) in the Defender portal available only in the commercial cloud.
 
 For more information, see [Microsoft Defender XDR for US Government customers](/defender-xdr/usgov).
 
@@ -77,6 +77,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |[Microsoft Project (Preview)](data-connectors/microsoft-project.md) |Public preview |&#x2705; |&#x2705;|&#10060; |
 |[Microsoft Purview (Preview)](connect-services-diagnostic-setting-based.md) |Public preview |&#x2705;|&#10060; |&#10060; |
 |[Microsoft Purview Information Protection](connect-microsoft-purview.md) |Public preview |&#x2705;| &#10060;|&#10060; |
+|[Microsoft Sentinel solution for Microsoft Business Apps](business-applications/solution-overview.md) | Public Preview |&#x2705; |&#x2705; |&#x2705; |
 |[Office 365](connect-services-api-based.md) |GA |&#x2705;|&#x2705; |&#x2705; |
 |[Summary rules](summary-rules.md) | Public preview |&#x2705; | &#10060; |&#10060; |
 |[Syslog](connect-syslog.md) |GA |&#x2705;| &#x2705;|&#x2705; |
@@ -160,7 +161,7 @@ For more information, see [Microsoft Defender XDR for US Government customers](/
 |Feature  |Feature stage |Azure commercial  |Azure Government |Azure China 21Vianet  |
 |---------|---------|---------|---------|---------|
 |[Threat protection for SAP](sap/deployment-overview.md)</sup> |GA |&#x2705;|&#x2705; |&#x2705; |
-|[Agentless data connector](sap/deployment-overview.md#data-connector) | Limited preview | &#x2705; |&#10060; | &#10060;|
+|[Agentless data connector](sap/deployment-overview.md#data-connector) | Public preview | &#x2705; |&#10060; | &#10060;|
 
 ## Threat intelligence support		
 

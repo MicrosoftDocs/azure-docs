@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 10/15/2024
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ### Unsupported features in preview

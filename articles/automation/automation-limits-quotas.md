@@ -3,7 +3,7 @@ title: Manage Azure Automation subscription limits and quotas
 description: This article provides information on how to view automation limits and request for quota increase or decrease.
 services: automation
 ms.topic: how-to
-ms.date: 01/06/2025
+ms.date: 01/28/2025
 ms.service: azure-automation
 ---
 
@@ -49,6 +49,23 @@ Follow the steps to view your current quota and request for changes in quota:
 
 > [!NOTE]
 > Quota increases are subject to availability of resources in the selected region.
+
+## View current limits and request for increase on Quotas page
+
+You can also view your current usage and request for quota increase/decrease for number of Automation accounts per subscription on Quotas page on Azure portal. This capability isn't currently available for viewing number of concurrently running jobs in your Automation account. 
+
+Follow these steps to view current limits and request for quota increase:
+
+1. Go to [My Quotas](https://ms.portal.azure.com/#view/Microsoft_Azure_Capacity/QuotaMenuBlade/~/myQuotas) page and choose provider **Automation accounts**. The filter options at the top of the page allow you to filter by location, subscription, and usage.
+1. You can view your current usage and limit on the number of Automation accounts.
+
+   :::image type="content" source="./media/automation-limits-quotas/view-current-usage.png" alt-text="Screenshot showing how to view current usage.":::
+ 
+1. Select the pencil icon in the **Request adjustment** column to request for additional quota.
+1. In the **New Quota request** pane, enter the **New limit** for number of Automation accounts based on your business requirement.
+1. Select **Submit**. It may take few minutes to process your request.
+    - If your request is rejected, select **Create a Support request**. Some fields are auto-populated. Complete the remaining details in Support request and submit it.
+
 
 ## Next steps
 

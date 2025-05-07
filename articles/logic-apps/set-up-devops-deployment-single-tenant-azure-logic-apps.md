@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ai-usage: ai-assisted
-ms.date: 10/24/2024
+ms.date: 03/27/2025
 # Customer intent: As a developer, I want to automate deployment for Standard logic apps hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
 

@@ -1,9 +1,10 @@
 ---
-title: "Quickstart - Load application secrets using Key Vault"
+title: "Quickstart - Load Application Secrets Using Key Vault"
 titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to use Azure Key Vault to securely load secrets for apps running the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.author: asirveda # external contributor: paly@vmware.com
+ms.author: karler
+ms.reviewer: asirveda # external contributor: paly@vmware.com
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 06/27/2024

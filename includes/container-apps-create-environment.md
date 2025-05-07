@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
-ms.author: cshoe
+ms.date: 02/03/2025
+author: v1212
+ms.author: wujia
 ---
 
 ## Create an environment
@@ -21,7 +21,7 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 A Log Analytics workspace is required for the Container Apps environment. The following commands create a Log Analytics workspace and save the workspace ID and primary shared key to environment variables.
 

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: baanders
   ms.author: baanders
-  ms.date: 03/10/2022
+  ms.date: 01/27/2025
 
 landingContent:
   - title: Get started
@@ -53,6 +53,8 @@ landingContent:
             url: concepts-models.md
           - text: Digital twins and the twin graph
             url: concepts-twins-graph.md
+          - text: Data ingress and egress
+            url: concepts-data-ingress-egress.md
           - text: Query language
             url: concepts-query-language.md
        
@@ -93,10 +95,3 @@ landingContent:
             url: https://github.com/Azure/opendigitaltwins-smartcities
           - text: Energy grid ontology
             url: https://github.com/Azure/opendigitaltwins-energygrid/
-            
-  - title: Scenario-based learning
-    linkLists:
-      - linkListType: learn
-        links:
-          - text: 'Learning path: Extend IoT solutions by using Azure Digital Twins'
-            url: /training/paths/extend-iot-solutions-by-using-azure-digital-twins/

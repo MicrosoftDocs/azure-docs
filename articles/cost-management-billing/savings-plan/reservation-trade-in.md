@@ -2,13 +2,13 @@
 title: Self-service trade-in for Azure savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how you can trade in your reservations for an Azure saving plan.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Self-service trade-in for Azure savings plans

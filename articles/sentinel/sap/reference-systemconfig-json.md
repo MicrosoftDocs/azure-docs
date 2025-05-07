@@ -7,8 +7,8 @@ ms.topic: reference
 ms.custom: devx-track-extended-java
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
 
@@ -45,7 +45,7 @@ The following code shows the overall structure of the `systemconfig.json` file:
 
     "connector_configuration": {...},
 
-    "abap_table_selector":: {...}
+    "abap_table_selector": {...}
 
 ...
 

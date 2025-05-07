@@ -4,6 +4,9 @@ description: Learn how to use Ambari to monitor and manage Hadoop clusters in Az
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 ---
 

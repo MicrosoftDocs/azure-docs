@@ -1,5 +1,5 @@
 ---
-title: Using serverless GPUs in Azure Container Apps (preview)
+title: Using serverless GPUs in Azure Container Apps
 description: Learn to how to use GPUs with apps and jobs in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -7,15 +7,15 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/06/2024
+ms.date: 04/24/2025
 ms.author: cshoe
 ---
 
-# Using serverless GPUs in Azure Container Apps (preview)
+# Using serverless GPUs in Azure Container Apps
 
 Azure Container Apps provides access to GPUs on-demand without you having to manage the underlying infrastructure. As a serverless feature, you only pay for GPUs in use. When enabled, the number of GPUs used for your app rises and falls to meet the load demands of your application. Serverless GPUs enable you to seamlessly run your workloads with automatic scaling, optimized cold start, per-second billing with scale down to zero when not in use, and reduced operational overhead. 
 
-Serverless GPUs are only supported for Consumption workload profiles. The feature is not supported for Consumption-only environments.
+Serverless GPUs are only supported for Consumption workload profiles. The feature isn't supported for Consumption-only environments.
 
 > [!NOTE]
 > Access to GPUs is only available after you request GPU quotas. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request).
@@ -71,11 +71,11 @@ Keep in mind the following items as you use serverless GPUs:
 Access to this feature is only available after you have serverless GPU quota. You can submit your GPU quota request via a [customer support case](/azure/azure-portal/supportability/how-to-create-azure-support-request). When opening a support case for a GPU quota request, select issue type "Technical."
 
 > [!NOTE]
-> Customers with enterprise agreements have a single T4 GPU quota enabled by default.
+> Customers with enterprise agreements and pay-as-you-go customers have A100 and T4 quota enabled by default.
 
 ## Supported regions
 
-Serverless GPUs are available in preview in the *West US 3* and *Australia East* regions.
+Serverless GPUs are available in preview in the *West US 3*, *Australia East*, and *Sweden Central* regions.
 
 ## Use serverless GPUs
 
@@ -85,7 +85,7 @@ In the *Container* tab of the create process, set the following settings:
 
 1. Under the *Container resource allocation* section, check the **GPU** checkbox.
 
-1. For the *GPU Type**, select either the NVIDIA A100 or NVIDIA T4 option.
+1. For the **GPU Type**, select either the NVIDIA A100 or NVIDIA T4 option.
 
 ## Manage serverless GPU workload profile
 
@@ -93,24 +93,11 @@ Serverless GPUs are run on consumption GPU workload profiles. You manage a consu
 
 ## Improve GPU cold start
 
-You can improve cold start on your GPU-enabled containers by enabling artifact streaming on your Azure Container Registry.
+You can significantly improve cold start times by enabling artifact streaming and locating large files, like large language models, in a storage mount.
 
-> [!NOTE]
-> To use artifact streaming, your container images must be hosted in Azure Container Registry.
+- [Artifact streaming](/azure/container-registry/container-registry-artifact-streaming): Azure Container Registry offers image streaming which can significantly speed up image startup times. To use artifact streaming, your container images must be hosted in a premium Azure Container Registry.
 
-Use the following steps to enable image streaming:
-
-1. Open your Azure Container Registry in the Azure portal.
-
-1. Search for **Repositories**, and select **Repositories**.
-
-1. Select your repository name.
-
-1. From the *Repository* window, select **Start artifact streaming**.
-
-1. Select the image tag that you want to stream.
-
-1. In the window that pops up, select **Create streaming artifact**.
+- [Storage mounts](cold-start.md#manage-large-downloads): Reduce the effects of network latency by storing large files in an Azure storage account associated with your container app.
 
 ## Submit feedback
 

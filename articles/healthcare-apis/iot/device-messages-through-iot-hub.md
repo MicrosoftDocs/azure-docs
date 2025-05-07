@@ -13,6 +13,9 @@ ms.author: chrupa
 
 # Tutorial: Receive device messages through Azure IoT Hub
 
+> [!IMPORTANT]
+> As of 2/26/2025 the MedTech service will no longer be available in the following regions: UK West, UAE North, South Africa North, Qatar Central.
+
 The MedTech service can receive messages from devices you create and manage through an IoT hub in [Azure IoT Hub](../../iot-hub/iot-concepts-and-iot-hub.md). This tutorial uses an Azure Resource Manager template (ARM template) and a **Deploy to Azure** button to deploy a MedTech service. The template also deploys an IoT hub to create and manage devices, and message routes device messages to an event hub for the MedTech service to read and process. After device data processing, the FHIR&reg; resources are persisted in the FHIR service, which is also included in the template.
 
 :::image type="content" source="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png" border="false" alt-text="Diagram of the IoT device message flow through an IoT hub and event hub, and then into the MedTech service." lightbox="media\device-messages-through-iot-hub\device-message-flow-with-iot-hub.png":::
@@ -244,7 +247,7 @@ If you provided your own Microsoft Entra user object ID as the optional value fo
 * BodyTemperature
 * BloodPressure
 
-To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using Postman](../fhir/use-postman.md). You need to use the following values in your Postman `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
+To learn how to get a Microsoft Entra access token and view FHIR resources in your FHIR service, see [Access by using REST Client](../fhir/using-rest-client.md). You need to use the following values `GET` request to view the FHIR Observation resources created by the test message: `{{fhirurl}}/Observation`
 
 ## Next steps
 

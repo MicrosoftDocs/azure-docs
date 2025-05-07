@@ -3,7 +3,7 @@ title: Plug and Play device message payloads
 description: Understand the format of the telemetry, property, and command messages that a Plug and Play device can exchange with a service.
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: conceptual
 ms.service: azure-iot
 ms.custom: device-developer
@@ -30,7 +30,7 @@ Each example shows a snippet from the device model that defines the type and exa
 
 The example JSON snippets in this article use [Digital Twin Definition Language (DTDL) v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md). There are also some [DTDL extensions that IoT Central](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md) uses.
 
-For sample device code that shows some of these payloads in use, see the [Connect a sample IoT Plug and Play device application running on Linux or Windows to IoT Hub tutorial](./tutorial-connect-device.md) or the [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md) tutorial.
+For sample device code that shows some of these payloads in use, see the following tutorial: [Create and connect a client application to your Azure IoT Central application](../iot-central/core/tutorial-connect-device.md).
 
 ## View raw data
 
@@ -50,7 +50,7 @@ For more troubleshooting tips, see [Troubleshoot why data from your devices isn'
 
 To learn more about the DTDL telemetry naming rules, see [DTDL > Telemetry](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md#telemetry). You can't start a telemetry name using the `_` character.
 
-Don't create telemetry types with the following names. IoT Central uses these reserved names internally. If you try to use these names, IoT Central will ignore your data:
+Don't create telemetry types with the following names. IoT Central uses these reserved names internally. If you try to use these names, IoT Central ignores your data:
 
 * `EventEnqueuedUtcTime`
 * `EventProcessedUtcTime`
@@ -62,14 +62,14 @@ Don't create telemetry types with the following names. IoT Central uses these re
 
 ### Telemetry in components
 
-If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model. To learn more, see [Tutorial: Connect an IoT Plug and Play multiple component device applications](tutorial-multiple-components.md). This tutorial shows how to use different programming languages to send telemetry from a component.
+If the telemetry is defined in a component, add a custom message property called `$.sub` with the name of the component as defined in the device model.
 
 > [!IMPORTANT]
 > To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from your components in IoT Edge modules displays as *_unmodeleddata*.
 
 ### Telemetry in inherited interfaces
 
-If the telemetry is defined in an inherited interface, your device sends the telemetry as if it is defined in the root interface. Given the following device model:
+If the telemetry is defined in an inherited interface, your device sends the telemetry as if it's defined in the root interface. Given the following device model:
 
 ```json
 [
@@ -540,8 +540,6 @@ If the property is defined in a component, wrap the property in the component na
 }
 ```
 
-To learn more, see [Tutorial: Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md).
-
 ### Primitive types
 
 This section shows examples of primitive property types that a device sends to a service.
@@ -838,11 +836,9 @@ If the writable property is defined in a component, the desired property message
 }
 ```
 
-To learn more, see [Connect an IoT Plug and Play multiple component device applications](tutorial-multiple-components.md).
-
 The device or module should confirm that it received the property by sending a reported property. The reported property should include:
 
-* `value` - the actual value of the property (typically the received value, but the device may decide to report a different value).
+* `value` - the actual value of the property (typically the received value, but the device can decide to report a different value).
 * `ac` - an acknowledgment code that uses an HTTP status code.
 * `av` - an acknowledgment version that refers to the `$version` of the desired property. You can find this value in the desired property JSON payload.
 * `ad` - an optional acknowledgment description.

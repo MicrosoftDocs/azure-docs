@@ -5,8 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: yelevin
-appliesto: 
-    - Microsoft Sentinel
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a security engineer, I want to integrate and synchronize alerts from cloud security tools into Microsoft Sentinel so that analysts can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
@@ -33,9 +34,9 @@ appliesto:
 
 ## Prerequisites
 
-- You must be using Microsoft Sentinel in the Azure portal. If you're onboarded to Microsoft's unified security operations (SecOps) platform, Defender for Cloud alerts are already ingested into Microsoft Defender XDR, and the **Tenant-based Microsoft Defender for Cloud (Preview)** data connector isn't listed in the **Data connectors** page in the Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
+- You must be using Microsoft Sentinel in the Azure portal. When you onboard Microsoft Sentinel to the Defender portal, Defender for Cloud alerts are already ingested into Microsoft Defender XDR, and the **Tenant-based Microsoft Defender for Cloud (Preview)** data connector isn't listed in the **Data connectors** page in the Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md).
 
-    If you're onboarded to Microsoft's unified SecOps platform, you'll still want to install the **Microsoft Defender for Cloud** solution to use built-in security content with Microsoft Sentinel.
+    If you've onboarded Microsoft Sentinel to the Defender portal, you'll still want to install the **Microsoft Defender for Cloud** solution to use built-in security content with Microsoft Sentinel.
 
     If you're using Microsoft Sentinel in the Defender portal without Microsoft Defender XDR, this procedure is still relevant for you. 
 

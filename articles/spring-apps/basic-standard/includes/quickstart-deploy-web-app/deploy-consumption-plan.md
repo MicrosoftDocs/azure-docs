@@ -89,17 +89,17 @@ Use the following steps to create a service instance:
    | Setting                        | Suggested value                                | Description                                                                                                                                                                                                                                                                                        |
    |--------------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**               | Your subscription name.                        | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
-   | **Resource group**             | *myresourcegroup*                              | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**                       | *myasa*                                        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group**             | **myresourcegroup**                              | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**                       | **myasa**                                        | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**                       | **Standard consumption & dedicated (preview)** | The pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
    | **Region**                     | The region closest to your users.              | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | **Container Apps Environment** | *myacaenv*                                     | The environment is a secure boundary around one or more container apps that can communicate with each other and share a virtual network, logging, and Dapr configuration.                                                                                                                          |
+   | **Container Apps Environment** | **myacaenv**                                     | The environment is a secure boundary around one or more container apps that can communicate with each other and share a virtual network, logging, and Dapr configuration.                                                                                                                          |
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-consumption.png" alt-text="Screenshot of the Azure portal that shows the Create Azure Spring Apps page." lightbox="../../media/quickstart-deploy-web-app/create-consumption.png":::
 
 1. (Optional) Fill out the **Basics** tab with the following information to create Container Apps Environment:
 
-   - **Environment name**: *myacaenv*
+   - **Environment name**: **myacaenv**
    - **Plan**: **Consumption**
    - **Zone redundancy**: **Disabled**
 
@@ -125,7 +125,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open **Apps** and then select **Create App**.
 
-1. On the **Create App** page, for the app name, use *simple-todo-web* and then select **Use quick start sample app** to create the app.
+1. On the **Create App** page, for the app name, use **simple-todo-web** and then select **Use quick start sample app** to create the app.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/consumption-create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/consumption-create-app.png":::
 
@@ -133,8 +133,8 @@ Use the following steps to connect your service instances:
 
 1. Select **Configuration** from the navigation pane and then configure the following properties on the **Environment variables** tab:
 
-   - **SPRING_DATASOURCE_URL**: *jdbc:postgresql://my-demo-pgsql.postgres.database.azure.com:5432/todo?sslmode=require*
-   - **SPRING_DATASOURCE_USERNAME**: *myadmin*
+   - **SPRING_DATASOURCE_URL**: **jdbc:postgresql://my-demo-pgsql.postgres.database.azure.com:5432/todo?sslmode=require**
+   - **SPRING_DATASOURCE_USERNAME**: **myadmin**
    - **SPRING_DATASOURCE_PASSWORD**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-configuration.png" alt-text="Screenshot of the Azure portal that shows the app Configuration page." lightbox="../../media/quickstart-deploy-web-app/app-configuration.png":::

@@ -83,13 +83,25 @@ Jobs fail and go into a suspended state on the Hybrid Runbook Worker. The Micros
 When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership and when user has to elevate permissions, the jobs begin to fail.
 
 #### Resolution
-For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders and registry:
 
-| Folder |Permissions |
+| Folder | Permissions |
 |--- | --- |
 | `C:\ProgramData\AzureConnectedMachineAgent\Tokens` | Read |
 | `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows` | Read and Execute |
 
+| Registry | Permissions |
+|--- | --- |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog` | Read |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Wbem\CIMOM` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorker` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorkerV2` | Full access |
+| `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles` | Full access |
 
 ### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 
@@ -396,6 +408,22 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 #### Resolution
 
 Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+
+
+### Scenario: Hybrid Runbook Worker job execution on Azure Arc-enabled Windows server that uses a custom credential is unexpectedly suspended
+
+#### Issue
+
+Runbook jobs executed from an Azure Arc-enabled server that use a custom credential suddenly begin to go into a suspended state.
+
+#### Cause
+
+This is caused by a known issue where folder permissions are removed when the Azure Connected Machine agent is updated. The folder permissions on `C:\ProgramData\AzureConnectedMachineAgent\Tokens` are removed when the Azure Connected Machine agent is updated.
+
+#### Resolution
+
+The current resolution is to reapply the folder permissions to `C:\ProgramData\AzureConnectedMachineAgent\Tokens` when the Azure Connected Machine agent is updated. See [Permissions for Hybrid worker credentials](../extension-based-hybrid-runbook-worker-install.md#permissions-for-hybrid-worker-credentials).
+
 
 ## Next steps
 

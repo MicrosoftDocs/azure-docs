@@ -2,10 +2,10 @@
 metadata:
   title: Windows Enterprise multi-session FAQ - Azure
   description: Frequently asked questions and best practices for using Windows Enterprise multi-session for Azure Virtual Desktop.
-  author: dknappettmsft
+  author: ErikjeMS
   ms.topic: faq
-  ms.date: 08/02/2024
-  ms.author: daknappe
+  ms.date: 03/25/2025
+  ms.author: avdcontent
   ms.custom: docs_inherited
 title: Windows Enterprise multi-session FAQ
 summary: This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session.
@@ -16,7 +16,7 @@ sections:
     questions:
       - question: What is Windows Enterprise multi-session?
         answer: |
-          Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session, allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience while IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+          Windows 10 Enterprise multi-session and Windows 11 Enterprise multi-session, allows multiple concurrent interactive sessions. Previously, only Windows Server could do this. This capability gives users a familiar Windows experience for session hosts in a pooled host pool. IT can benefit from the cost advantages of multi-session and use existing per-user Windows licensing, instead of RDS Client Access Licenses (CALs). For more information about licenses and pricing, see [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
           
       - question: How many users can simultaneously have an interactive session on Windows Enterprise multi-session?
         answer: |
@@ -33,13 +33,13 @@ sections:
         answer: No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows Professional or Enterprise to Windows Enterprise multi-session. Also, if you deploy a Windows Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows Enterprise multi-session and will need to redeploy the VM. Changing your Azure Virtual Desktop VM SKU to another edition is not supported.
         
       - question: Does Windows Enterprise multi-session support Remote Desktop IP Virtualization?
-        answer: No. Azure Virtual Desktop [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses) do not support Remote Desktop IP Virtualization. 
+        answer: No. Azure Virtual Desktop [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses) don't support Remote Desktop IP Virtualization. 
 
       - question: How do I customize the Windows Enterprise multi-session image for my organization?
         answer: |
-          You can start a VM in Azure with Windows Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
+          We recommend you use [Custom image templates](custom-image-templates.md). Alternatively, you can start a VM in Azure with Windows Enterprise multi-session and customize it by installing LOB applications, sysprep/generalize, and then create an image using the Azure portal.
           
-          To get started, create a VM in Azure with Windows Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you'll be able to use the VHD you downloaded to create a new Generation 1 VM on a Windows PC with Hyper-V enabled.
+          To get started, create a VM in Azure with Windows Enterprise multi-session. Instead of starting the VM in Azure, you can download the VHD directly. After that, you're  able to use the VHD you downloaded to create a new VM on a Windows PC with Hyper-V enabled. Make sure you use the same VM generation for the new VM as the VHD.
           
           Customize the image to your needs by installing LOB applications and sysprep the image. When you're done customizing, upload the image to Azure with the VHD inside. After that, get Azure Virtual Desktop from the Azure Marketplace and use it to deploy a new host pool with the customized image.
           
@@ -48,7 +48,7 @@ sections:
 
       - question: Can Windows Enterprise multi-session be Microsoft Entra joined?
         answer: |
-          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md).
+          Windows Enterprise multi-session can be Microsoft Entra joined. To get started, follow the steps to [Deploy Microsoft Entra joined virtual machines](deploy-azure-ad-joined-vm.md). We don't allow customers to run Windows Enterprise multi-session in production environments outside of the Azure Virtual Desktop service. For more information, see [Can I run Windows Enterprise multi-session outside of the Azure Virtual Desktop service](#can-i-run-windows-enterprise-multi-session-outside-of-the-azure-virtual-desktop-service).
           
       - question: Where can I find the Windows Enterprise multi-session image and what does it include?
         answer: |
@@ -64,7 +64,7 @@ sections:
           > All named applications that come pre-installed are the latest version that is available the 2nd Tuesday of that month. Any app updates after that day can only be considered in the image update in the upcoming month.
 
       - question: Which Windows Enterprise multi-session versions are supported?
-        answer: Windows Enterprise multi-session, versions 1909 and later are supported and are available in the Azure gallery. These releases follow the same support lifecycle policy as Windows Enterprise, which means the March release is supported for 18 months and the September release for 30 months.
+        answer: Windows Enterprise multi-session releases follow the same support lifecycle policy as Windows Enterprise. For more information, see [Operating systems and licenses](prerequisites.md#operating-systems-and-licenses).
 
       - question: Which profile management solution should I use for Windows Enterprise multi-session?
         answer: |
@@ -100,9 +100,9 @@ sections:
           5. Click the **Apply** button.
           6. Click the **OK** button.
           
-      - question: Can Windows Enterprise multi-session and 11 Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
+      - question: Can Windows Enterprise multi-session receive feature updates through Windows Server Update Services (WSUS)?
         answer: |
-          Yes. You can update Windows Enterprise multi-session and Windows 11 Enterprise multi-session with the appropriate feature updates published to WSUS. The underlying VM must meet the [hardware requirements for Windows 11](/windows/whats-new/windows-11-requirements#virtual-machine-support).
+          Yes. You can update Windows Enterprise multi-session with the appropriate feature updates published to WSUS, the same as a single-session version of Windows. The underlying VM must meet the hardware requirements for the operating system you're using, such as the [hardware requirements for Windows 11](/windows/whats-new/windows-11-requirements#virtual-machine-support). In-place upgrade of Windows, for example from Windows 10 to Windows 11, isn't supported for session hosts in a pooled host pool. For more information, see [Can I do an in-place upgrade of a session host's operating system](faq.yml#can-i-do-an-in-place-upgrade-of-a-session-host-s-operating-system).
           
 additionalContent: |
 

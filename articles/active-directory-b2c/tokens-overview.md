@@ -1,6 +1,6 @@
 ---
 title: Overview of tokens - Azure Active Directory B2C
-description: Learn about the tokens used in Azure Active Directory B2C.
+description: Understand the different types of tokens used in Azure AD B2C, including ID tokens, access tokens, and refresh tokens, for secure user authentication.
 
 author: kengaderdus
 manager: CelesteDG
@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 02/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: b2c-support
@@ -19,6 +19,7 @@ ms.custom: b2c-support
 ---
 
 # Overview of tokens in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits different types of security tokens as it processes each [authentication flow](application-types.md). This article describes the format, security characteristics, and contents of each type of token.
 
@@ -75,7 +76,7 @@ The following table lists the claims that you can expect in ID tokens and access
 
 The following properties are used to [manage lifetimes of security tokens](configure-tokens.md) emitted by Azure AD B2C:
 
-- **Access & ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. The default is 60 minutes. The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1440 minutes.
+- **Access & ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource. The default is 60 minutes. The minimum (inclusive) is 5 minutes. The maximum (inclusive) is 1,440 minutes.
 
 - **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access or ID token. The time period also covers acquiring a new refresh token if your application has been granted the `offline_access` scope. The default is 14 days. The minimum (inclusive) is one day. The maximum (inclusive) is 90 days.
 
@@ -137,7 +138,7 @@ The metadata document for the `B2C_1_signupsignin1` policy in the `contoso.onmic
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-To determine which policy was used to sign a token (and where to go to request the metadata), you've two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
+To determine which policy was used to sign a token (and where to go to request the metadata), you have two options. First, the policy name is included in the `tfp` (default) or `acr` claim (as configured) in the token. You can parse claims out of the body of the JWT by base-64 decoding the body and deserializing the JSON string that results. The `tfp` or `acr` claim is the name of the policy that was used to issue the token. The other option is to encode the policy in the value of the `state` parameter when you issue the request, and then decode it to determine which policy was used. Either method is valid.
 
 Azure AD B2C uses the RS256 algorithm, which is based on the [RFC 3447](https://www.rfc-editor.org/rfc/rfc3447#section-3.1) specification. The public key consists of two components: the RSA modulus (`n`) and the RSA public exponent (`e`). You can programmatically convert `n` and `e` values to a certificate format for token validation.
 
@@ -154,6 +155,6 @@ When your applications or API receives an ID token, it should also perform sever
 
 For a full list of validations your application should perform, refer to the [OpenID Connect specification](https://openid.net).
 
-## Next steps
+## Related content
 
 Learn more about how to [use access tokens](access-tokens.md).

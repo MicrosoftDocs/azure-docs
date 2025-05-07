@@ -3,9 +3,9 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: Learn about new features and product updates for Azure Virtual Desktop.
 ms.topic: release-notes
 ms.custom: references_regions
-author: sipastak
-ms.author: sipastak
-ms.date: 11/19/2024
+author: dougeby
+ms.author: avdcontent
+ms.date: 04/30/2025
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,114 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## April 2025
+
+Here's what changed in April 2025:
+
+### Control Windows App in a web browser using Microsoft Edge on personal Windows devices
+
+Use Microsoft Intune mobile application management (MAM) to enable protected access an Azure Virtual Desktop session when using Windows App in a web browser using Microsoft Edge on personal Windows devices. You can check the security posture of a local device before granting access, and secure organization data by disabling drive, clipboard, and printer redirection.
+
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?tabs=web).
+
+### Windows App on Android is now generally available
+
+Windows App on Android is now generally available, with an enhanced user experience, increased reliability, and features such as Microsoft Intune mobile application management and Passkey authentication. Windows App replaces the Remote Desktop client on Android. Installations of the Remote Desktop client on Android change to Windows App next time the app is updated.
+
+For more information, see [Windows App](https://aka.ms/WindowsApp).
+
+### Every time sign-in frequency Conditional Access option is now generally available
+
+Using Microsoft Entra sign-in frequency with Azure Virtual Desktop prompts users to reauthenticate when launching a new connection after a period of time, and is now generally available You can now require reauthentication after a shorter period of time. 
+
+For more information, see [Configure sign-in frequency](set-up-mfa.md?tabs=avd#configure-sign-in-frequency). 
+
+### Using Microsoft Entra Conditional Access token protection with Windows App on Windows devices to connect to Azure Virtual Desktop is now in preview
+
+You can now use Microsoft Entra Conditional Access token protection with Windows App on Windows devices to connect to Azure Virtual Desktop, which is now in preview. Token protection helps reduce token theft attacks by ensuring a token is usable only from the intended device.
+
+For more information, see [Microsoft Entra Conditional Access: token protection](/entra/identity/conditional-access/concept-token-protection).
+
+## March 2025
+
+Here's what changed in March 2025:
+
+### Quickstart for Azure Virtual Desktop is now generally available 
+
+Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production. 
+
+When you use QuickStart, it deploys a sample Azure Virtual Desktop environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete. 
+
+For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md). 
+
+### Improved drive redirection performance
+
+When a user opens or lists the contents of a redirected drive, the remote session enumerates files and folders of the current directory. If you have a large number of files and folders on the redirected drives, the enumeration process can take a long time and impact the performance of the remote session. For session hosts running Windows 11 24H2, we improved the performance of enumerating files and folders on redirected drives is greatly improved. To get the improved performance, you need to configure your session hosts.
+
+For more information, see [Improve performance of enumerating files and folders on redirected drives](redirection-configure-drives-storage.md?pivots=azure-virtual-desktop).
+
+### Assign multiple personal desktops to a single user (preview)
+
+Multiple personal desktop assignment allows you to assign more than one personal desktop to a single user in a single host pool. Multiple desktops are useful for users juggling diverse business roles, such as backend and frontend development or transitioning between testing and production environments.
+
+For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).
+
+### Added Asia-Pacific as a data location
+
+We now support storing customer input data and service-generated data in the Asia-Pacific geography. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
+
+### MSIX app attach deprecation
+
+MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date. For more information, see [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach).
+
+## February 2025
+
+Here's what changed in February 2025:
+
+### Using Azure Private Link with RDP Shortpath for managed networks is now in preview
+
+Private Link provides private connectivity to your remote resources over a private endpoint. You can now use Azure Private Link with RDP Shortpath for managed networks, which is now available in preview. All other RDP Shortpath options using STUN or TURN aren't currently supported with Private Link.
+
+For more information, see [Azure Private Link with Azure Virtual Desktop](private-link-overview.md).
+
+### Updated browser requirements to connect to Azure Virtual Desktop using Windows App in a web browser or the Remote Desktop web client
+
+Starting June 15, 2025, using Windows App in a web browser or the Remote Desktop web client will have updated browser requirements. Ensure your browser is updated and meets the requirements listed at [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop&tabs=web-avd#prerequisites) or [Get started with the Remote Desktop client](users/connect-remote-desktop-client.md?tabs=web#prerequisites) by this date.
+
+### Support for FIDO devices and passkeys on connecting to Azure Virtual Desktop from an Android device is now in preview
+
+Windows App and the Remote Desktop app for Android now support FIDO devices and passkeys for Microsoft Entra ID sign-in. For more information, see [Compare Windows App features across platforms and devices](/windows-app/compare-platforms-features?pivots=azure-virtual-desktop#cloud-service-authentication).
+
+### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
+
+The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
+
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
+
+## January 2025
+
+Here's what changed in January 2025:
+
+### Quickstart for Azure Virtual Desktop is now in preview 
+
+Quickstart enables you to easily evaluate a Windows 11 Enterprise multi-session remotely and become familiar with the service before deploying it in production. 
+
+When you use QuickStart, it deploys a sample Azure Virtual Desktop environment consisting of minimal resources and configuration. A user then signs into Windows App and connects to a full virtual desktop session. Deployment takes approximately 20 minutes to complete. 
+
+For more information, see [Quickstart: deploy a sample Azure Virtual Desktop environment](quickstart.md). 
+
+### iOS, iPadOS, and Android now support screen capture protection via Microsoft Intune Mobile Application Management (MAM) 
+
+Screen capture protection helps prevent sensitive information from being captured on client devices. When you enable screen capture protection, remote content is automatically blocked in screenshots and screen sharing. You can now use Intune MAM policies to configure screen capture protection on iOS, iPadOS, and Android.
+
+For more information, see [Screen capture protection in Azure Virtual Desktop](screen-capture-protection.md). 
+
+### Microsoft Intune Mobile Application Management (MAM) support on Windows App on Android (preview) for devices running Android 15  
+
+Intune MAM policies can now be applied to Windows App on Android (preview) when the device is running on Android 15. Previously, Windows App could run on Android 15, but MAM policies wouldn’t take effect.   
+
+For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
 
 ## December 2024
 
@@ -82,7 +190,7 @@ For more information see [Azure Virtual Desktop identities and authentication]
 
 Here's what changed in October 2024:
 
-### Yubikey smart card redirection on iOS and iPadOS is now in preview 
+### YubiKey smart card redirection on iOS and iPadOS is now in preview 
 
 Yubico and Microsoft have partnered to provide smart card redirection for iOS and iPadOS Windows App users, which is available in preview starting in version 11.0.4. The Yubico integration supports the latest [YubiKey 5 portfolio](https://www.yubico.com/products/yubikey-5-overview/).  
 
@@ -124,7 +232,7 @@ For additional information to configure languages other than English, see [Insta
 
 You can now use Microsoft Intune Mobile Application Management to check for device posture and manage redirections for Windows App on iOS and iPadOS, You can use Microsoft Intune on both corporate managed and personal devices.   
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ## September 2024
 
@@ -250,7 +358,7 @@ Images for Windows 11 multi-session with Microsoft 365 Apps in the Azure Marketp
 
 You can now use Microsoft Intune to configure client device redirection settings for Windows App and the Remote Desktop app in preview. IT admins can configure different redirection scenarios based on group membership and whether the device is managed by Intune or unmanaged. Additional capabilities include the ability to check and restrict access to Azure Virtual Desktop based on criteria such as OS version, allowed app (Windows App or the Remote Desktop app), allowed app version number, whether a threat is detected by Mobile Threat Defense (MTD), the device is jailbroken/rooted, and more.
 
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ### Hibernate support for session hosts in a personal host pool is generally available
 

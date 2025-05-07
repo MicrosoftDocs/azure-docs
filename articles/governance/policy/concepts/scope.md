@@ -1,7 +1,7 @@
 ---
 title: Understand scope in Azure Policy
 description: Describes the concept of scope in Azure Resource Manager and how it applies to Azure Policy to control which resources Azure Policy evaluates.
-ms.date: 09/05/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ---

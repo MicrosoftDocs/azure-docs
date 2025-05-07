@@ -61,7 +61,7 @@ There are two deployment options for the OSDU Admin UI:
 | Name | The name of the OSDU Admin UI instance. Other resources use this name as the base-name and append a service abbreviation | Yes |
 | Container Image | The container image to use for the OSDU Admin UI. See [OSDU Forum Admin UI Container Registry](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/admin-ui-totalenergies/container_registry) for available images. | Yes |
 | Osdu Endpoint | The endpoint of the Azure Data Manager for Energy or OSDU instance to connect to. | Yes |
-| Data Partition ID | The data partition ID of the Azure Data Manager for Energy or OSDU instance to connect to. | Yes |
+| Data Partition IDs | Comma-separated list of data partition ID of the Azure Data Manager for Energy or OSDU instance to connect to. | Yes |
 | Entitlements Domain Name | The domain name to use for the entitlements service. Keep `.dataservices.energy` for any ADME deployment, only update if you're using another OSDU implementation. | Yes |
 | Client ID | The client ID of the App Registration to use for the OSDU Admin UI. | Yes |
 | Scope | The scope of the App Registration used by Azure Data Manager for Energy or OSDU. If the Client ID is the ADME App Registration, you can leave this default. | Yes |

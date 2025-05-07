@@ -1,13 +1,13 @@
 ---
 title: Determine what Azure reservation you should purchase
 description: This article helps you determine which reservation you should purchase.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Determine what reservation to purchase
@@ -106,7 +106,7 @@ Enterprise Agreement customers can use the VM RI Coverage reports for VMs and pu
 
 Reservation purchase recommendations are available in [Azure Advisor](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview).
 
-- Advisor has only single-subscription scope recommendations. If you want to see recommendations for the entire billing scope (Billing account or billing profile), then:
+- Advisor has only single-subscription scope recommendations and do not provide recommendations for resource group, management group or shared scope. If you want to see recommendations resource group or for the entire billing scope (Billing account or billing profile), then:
 - In the Azure portal, navigate to Reservations > Add and then select the type that you want to see the recommendations for.
 - The recommendations quantity and savings are for a three-year reservation, where available. If a three-year reservation isn't sold for the service, the recommendation is calculated using the one-year reservation price.
 - The recommendation calculations include any special discounts that you might have on your on-demand usage rates.

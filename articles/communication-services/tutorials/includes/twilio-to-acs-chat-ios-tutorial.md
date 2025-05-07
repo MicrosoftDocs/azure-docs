@@ -28,7 +28,7 @@ For more information, see [Use Azure CLI to Create and Manage Access Tokens](../
 
 ### Install the libraries
 
-To start the migration from Twilio Conversations Chat, the first step is to install the Azure Communication Services Chat SDK for iOS to your project. You can configure these parameters using `Cocoapods`.
+To start the migration from Twilio Conversations Chat, the first step is to install the Azure Communication Services Chat SDK for iOS to your project. You can configure these parameters using `CocoaPods`.
 
 1. Create a Podfile for your application. Open the terminal, navigate to the project folder, and run:
 

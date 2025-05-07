@@ -1,8 +1,8 @@
 ---
 title: Understand assets and asset endpoint profiles
 description: Understand the Azure Device Registry resources that define assets and asset endpoint profiles.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 #ms.subservice:
 ms.topic: conceptual
 ms.date: 10/22/2024
@@ -16,7 +16,7 @@ Azure IoT Operations uses Azure resources called assets and asset endpoints to c
 
 Historically, in industrial edge environments the term *asset* refers to any item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a software component, an entire system, or a physical object of value such as a field of crops or a building. These assets are examples that exist in manufacturing, retail, energy, healthcare, and other sectors.
 
-In Azure IoT Operations, you can create an *asset* in the cloud to represent an asset in your industrial edge environment. An Azure IoT Operations asset can emit data. Southbound connectors in your IoT Operations instance collect these data and publish them to an MQTT topic where they can be picked up and routed by dataflows.
+In Azure IoT Operations, you can create an *asset* in the cloud to represent an asset in your industrial edge environment. An Azure IoT Operations asset can emit data. Southbound connectors in your IoT Operations instance collect these data and publish them to an MQTT topic where they can be picked up and routed by data flows.
 
 ## Cloud and edge resources
 

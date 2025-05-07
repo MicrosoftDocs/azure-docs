@@ -4,6 +4,9 @@ description: An introduction to Interactive Query, also called Apache Hive LLAP,
 ms.service: azure-hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 10/17/2024
 #Customer intent: As a developer new to Interactive Query in Azure HDInsight, I want to have a basic understanding of Interactive Query so I can decide if I want to use it rather than build my own cluster.
 ---

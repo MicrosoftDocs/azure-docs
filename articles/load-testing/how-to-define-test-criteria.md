@@ -32,7 +32,7 @@ The format of fail criteria in Azure Load Testing follows that of a conditional 
 For client-side metrics, you can define test criteria at two levels. A load test can combine criteria at the different levels.
 
 - At the load test level. For example, to ensure that the total error percentage doesn't exceed a threshold. The structure for the criteria is: `Aggregate_function (client_metric) condition threshold`.
-- At the JMeter request level (JMeter sampler). For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request. The structure for the criteria is: `Request: Aggregate_function (client_metric) condition threshold`.
+- At the request level. For example, you could specify a response time threshold of the *getProducts* request, but disregard the response time of the *sign in* request. The structure for the criteria is: `Request: Aggregate_function (client_metric) condition threshold`.
 
 The following table describes the different components:
 
@@ -42,7 +42,7 @@ The following table describes the different components:
 |`Aggregate function` | *Required.* The aggregate function to be applied on the client metric.  |
 |`Condition`          | *Required.* The comparison operator, such as `greater than`, or `less than`. |
 |`Threshold`          | *Required.* The numeric value to compare with the client metric. |
-|`Request`            | *Optional.* Name of the sampler in the JMeter script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any personal data in the sampler name in your JMeter script. The sampler names appear in the Azure Load Testing results dashboard. |
+|`Request`            | *Optional.* Name of the sampler in the JMeter script or the request in your Locust script to which the criterion applies. If you don't specify a request name, the criterion applies to the aggregate of all the requests in the script. <br /> Don't include any personal data in the request name in your test script. The request names appear in the Azure Load Testing results dashboard. |
 
 ### Supported client metrics for fail criteria
 
@@ -74,7 +74,7 @@ In this section, you configure test criteria for client metric for a load test i
 
     :::image type="content" source="media/how-to-define-test-criteria/test-creation-criteria.png" alt-text="Screenshot of the 'Test criteria' pane for a load test in the Azure portal and highlights the fields for adding a test criterion.":::
 
-    Optionally, enter the **Request name** information to add a test criterion for a specific JMeter request. The value should match the name of the JMeter sampler in the JMX file.
+    Optionally, enter the **Request name** information to add a test criterion for a specific request. The value should match the name of the sampler or request in the test script.
 
     :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
 
@@ -92,7 +92,7 @@ In this section, you configure test criteria for client metric for a load test i
 
 In this section, you configure test criteria for a client metric for a load test, as part of a CI/CD workflow. Learn how to [set up automated performance testing with CI/CD](./quickstart-add-load-test-cicd.md).
 
-For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the JMeter test script file in the source control repository.
+For CI/CD workflows, you configure the load test settings in a [YAML test configuration file](./reference-test-config-yaml.md). You store the load test configuration file alongside the test script file in the source control repository.
 
 To specify fail criteria in the YAML configuration file:
 
@@ -117,7 +117,7 @@ To specify fail criteria in the YAML configuration file:
       - GetCustomerDetails: avg(latency) >200
     ```
 
-    When you define a test criterion for a specific JMeter request, the request name should match the name of the JMeter sampler in the JMX file.
+    When you define a test criterion for a specific request, the request name should match the name of the JMeter sampler in the JMX file or the request in the Locust script.
 
     :::image type="content" source="media/how-to-define-test-criteria/jmeter-request-name.png" alt-text="Screenshot of the JMeter user interface, highlighting the request name.":::
 
@@ -203,7 +203,7 @@ To configure auto stop for your load test in the Azure portal:
 
 1. On the left pane, select **Tests** to view the list of load tests.
 
-1. Select your load test from the list, and then select **Edit**. Alternately, select **Create** > **Upload a JMeter script** to create a new test.
+1. Select your load test from the list, and then select **Edit**. Alternately, select **Create** > **Upload a script** to create a new test.
 
 1. Go to the **Test criteria** tab to configure the auto stop functionality.
 

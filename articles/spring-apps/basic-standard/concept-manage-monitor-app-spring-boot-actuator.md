@@ -1,5 +1,5 @@
 ---
-title: "Manage and monitor app with Spring Boot Actuator"
+title: "Manage and Monitor App with Spring Boot Actuator"
 description: Learn how to manage and monitor app with Spring Boot Actuator.
 author: KarlErickson
 ms.author: karler
@@ -49,7 +49,7 @@ This configuration works with any Spring Boot version because versions are cover
 By default, a Spring Boot application exposes the `health` endpoint only. To observe the configuration and configurable environment, use the following steps to enable the `env` and `configprops` endpoints as well:
 
 1. Go to app **Overview** pane, select **Configuration** in the setting menu, and then go to the **Environment variables** configuration page.
-1. Add the following properties as in the "key:value" form. This environment opens the following Spring Actuator endpoints: `health`, `env`, and `configprops`.
+1. Add the following properties as in the `<key>:<value>` form. This environment opens the following Spring Actuator endpoints: `health`, `env`, and `configprops`.
 
    ```properties
    management.endpoints.web.exposure.include: health,env,configprops

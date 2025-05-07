@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: azure-databox
 ms.topic: include
-ms.date: 03/12/2021
+ms.date: 02/04/2025
 ms.author: alkohli
 ---
 
@@ -19,6 +19,14 @@ ms.author: alkohli
     2. Provide an optional description for the information on the data the storage account is holding.  
     
     3. By default, the Edge storage account is mapped to an Azure Storage account in the cloud, and the data from the storage account is automatically pushed to the cloud. Specify the Azure storage account that your Edge storage account is mapped to.
+   > [!IMPORTANT]
+   > Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access. Make sure that the Azure Storage account that you use has the following roles being assigned to the Managed identities for Azure Stack Edge resource:
+   >
+   > * Storage Blob Data Contributor
+   > * Storage File Data Privileged Contributor
+   > * Contributor
+   > 
+   > For more information, see [Assign an Azure role for access to blob data](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role).
 
     4. Create a new container, or select from an existing container in the Azure storage account. Any data from the device that is written to the Edge storage account is automatically uploaded to the selected storage container in the mapped Azure Storage account.
 

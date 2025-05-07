@@ -58,6 +58,7 @@ The PowerShell module performs the following functions:
 - Basic Load Balancers for [Azure Kubernetes Services (AKS) clusters](/azure/aks/load-balancer-standard#moving-from-a-basic-sku-load-balancer-to-standard-sku)
 - Basic Load Balancers with a Virtual Machine Scale Set backend pool member where one or more Virtual Machine Scale Set instances have ProtectFromScaleSetActions Instance Protection policies enabled
 - Migrating a Basic Load Balancer to an existing Standard Load Balancer
+- If your Basic Load Balancer has floating IP enabled on a secondary IP configuration of the network interface, update the floating IP to a primary IP before running the migration script to avoid any configuration issues
 
 ## Install the 'AzureBasicLoadBalancerUpgrade' module
 
@@ -117,7 +118,7 @@ Install-Module -Name AzureBasicLoadBalancerUpgrade -Scope CurrentUser -Repositor
 Validate that a Basic Load Balancer is supported for upgrade
 
 ```powershell
-Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly
+Start-AzBasicLoadBalancerUpgrade -ResourceGroupName <loadBalancerRGName> -BasicLoadBalancerName <basicLBName> -validateScenarioOnly:$true
 ```
 
 ### Example: upgrade by name

@@ -1,13 +1,13 @@
 ---
 title:  View payment history
 description: This article describes how to view your payment history for a Microsoft Customer Agreement.
-author: bandersmsft
+author: lindseyshep
 ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 03/06/2025
+ms.author: lishepar
 ---
 
 # View payment history
@@ -44,7 +44,7 @@ To view payment history at a billing profile level:
 
    :::image type="content" source="./media/view-payment-history/payment-history-window.png" alt-text="Screenshot that shows the pane that shows payment history." lightbox="./media/view-payment-history/payment-history-window.png" :::
 
-   To download an invoice, select the invoice ID.
+To view an invoice, select the invoice ID. To download the invoice, select the download symbol.
 
 ## Related content
 

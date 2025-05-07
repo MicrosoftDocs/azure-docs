@@ -21,7 +21,9 @@ Operations run on an Azure Service Bus namespace are of two kinds.
 
 > [!IMPORTANT]
 > - Service Bus Explorer doesn't support **management operations** and **sessions**. 
-> - We advice against using the Service Bus Explorer for larger messages, as it may result in timeouts, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own timeout values.
+> - We advice against using the Service Bus Explorer for larger messages, as it may result in time-outs, depending on the message size, network latency between client and Service Bus service etc. Instead, we recommend that you use your own client to work with larger messages, where you can specify your own time-out values.
+> - If your Service Bus namespace can only be accessed via a private endpoint, you must run your web browser on a host in the virtual network with the private endpoint, and also ensure that there are no network security gateways (NSGs) in the way.
+> - If a user has access only to entities and not the namespace, Service Bus Explorer might not function as expected in scenarios involving [migration to the premium tier](service-bus-migrate-standard-premium.md) or [metadata disaster recovery](service-bus-geo-dr.md). 
 
 
 ## Prerequisites
@@ -58,7 +60,7 @@ To use the Service Bus Explorer, navigate to the Service Bus namespace on which 
     > :::image type="content" source="./media/service-bus-explorer/subscription-selected.png" alt-text="Screenshot of dropdown for topic subscriptions." lightbox="./media/service-bus-explorer/subscription-selected.png":::
 
    > [!NOTE]
-   > When you navigate to Service Bus explorer for an entity in a namespace that has the public access disabled, you see the following message eventhough you access it from a virtual machine that's in the same virtual network as the private endpoint. You can ignore it.
+   > When you navigate to Service Bus explorer for an entity in a namespace that has the public access disabled, you see the following message even though you access it from a virtual machine that's in the same virtual network as the private endpoint. You can ignore it.
    >
    > "The namespace has public network access disabled. Data operations such as Peek, Send, or Receive against this Service Bus entit don't work until you switch to all networks or allowlist your client IP in selected networks."
 
@@ -90,7 +92,7 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
     > Since peek isn't a destructive operation the message **won't** be removed from the entity.
 
     > [!NOTE]
-    > For performance reasons, when peeking messages from a queue or subscription which has it's maximum message size set over 1 MB, the message body isn't retrieved by default. Instead, you can load the message body for a specific message by clicking on the **Load message body** button. If the message body is over 1 MB it's not truncated before being displayed.
+    > For performance reasons, when peeking messages from a queue or subscription which has its maximum message size set over 1 MB, the message body isn't retrieved by default. Instead, you can load the message body for a specific message by clicking on the **Load message body** button. If the message body is over 1 MB, it's not truncated before being displayed.
     > :::image type="content" source="./media/service-bus-explorer/peek-message-from-queue-with-large-message-support.png" alt-text="Screenshot with overview of peeked messages and button to load message body shown." lightbox="./media/service-bus-explorer/peek-message-from-queue-with-large-message-support.png":::
 
 ### Peek a message with advanced options
@@ -137,7 +139,7 @@ The receive function on the Service Bus Explorer permits receiving messages from
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue.png" alt-text="Screenshot indicating the Receive button, and a page where the options can be set." lightbox="./media/service-bus-explorer/receive-message-from-queue.png":::
 
     > [!IMPORTANT]
-    > Note that the ReceiveAndDelete mode is a ***destructive receive***, i.e. the message is removed from the queue when it's displayed on the Service Bus Explorer tool.
+    > The ReceiveAndDelete mode is a ***destructive receive***, that is, the message is removed from the queue when it's displayed on the Service Bus Explorer tool.
     >
     > To browse messages without removing them from the queue, consider using the **Peek** functionality, or using the **PeekLock** receive mode.
 
@@ -148,7 +150,7 @@ The receive function on the Service Bus Explorer permits receiving messages from
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-3.png" alt-text="Screenshot with overview of received messages and message properties shown." lightbox="./media/service-bus-explorer/receive-message-from-queue-3.png":::
 
     > [!NOTE]
-    > For performance reasons, when receiving messages from a queue or subscription which has it's maximum message size set over 1 MB, only one message is received at a time. If the message body is over 1 MB, it's truncated before being displayed.
+    > For performance reasons, when receiving messages from a queue or subscription which has its maximum message size set over 1 MB, only one message is received at a time. If the message body is over 1 MB, it's truncated before being displayed.
 
 After a message is received in **PeekLock** mode, there are various actions you can take on it.
 
@@ -163,7 +165,7 @@ After a message is received in **PeekLock** mode, there are various actions you 
     :::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-complete.png" alt-text="Screenshot indicating the Complete button." lightbox="./media/service-bus-explorer/receive-message-from-queue-complete.png":::
 
     > [!IMPORTANT]
-    > Please note that completing a message is a ***destructive receive***, that is, the message is removed from the queue when **Complete** has been selected in the Service Bus Explorer tool.
+    > Completing a message is a ***destructive receive***, that is, the message is removed from the queue when **Complete** has been selected in the Service Bus Explorer tool.
 
 ### Defer a message
 
@@ -211,7 +213,7 @@ To send a message to a **queue** or a **topic**, select the **Send messages** bu
 
     :::image type="content" source="./media/service-bus-explorer/send-experience.png" alt-text="Screenshot showing the compose message experience." lightbox="./media/service-bus-explorer/send-experience.png":::
 
-1. When the send operation is completed successfully, one of the following changes happen: 
+1. When the send operation is completed successfully, one of the following changes happens: 
 
     - If sending to a queue, **Active Messages** metrics counter is incremented.
     - If sending to a topic, **Active Messages** metrics counter is incremented on the subscriptions where the message was routed to.  

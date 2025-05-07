@@ -4,6 +4,9 @@ description: "You can access HDInsight using Secure Shell (SSH). This document p
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: H1Hack27Feb2017, hdinsightactive, linux-related-content
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/09/2024
 ---
 

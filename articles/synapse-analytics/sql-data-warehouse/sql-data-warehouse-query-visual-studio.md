@@ -1,8 +1,8 @@
 ---
 title: Connect to dedicated SQL pool (formerly SQL DW) with VSTS
 description: Query dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics with Visual Studio.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 08/15/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

@@ -96,7 +96,7 @@ Run the [az webapp config set](/cli/azure/webapp/deployment#az-webapp-deployment
 az webapp config set --name <app-name> --resource-group <group-name> --ftps-state FtpsOnly
 ```
 
-Possible values for `--ftps-state` are `AllAllowed` (FTP and FTPS enabled), `Disabled` (FTP and FTPs disabled), and `FtpsOnly` (FTPS only).
+Possible values for `--ftps-state` are `AllAllowed` (FTP and FTPS enabled), `Disabled` (FTP and FTPS disabled), and `FtpsOnly` (FTPS only).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -106,7 +106,7 @@ Run the [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) command with
 Set-AzWebApp -Name <app-name> -ResourceGroupName <group-name> -FtpsState FtpsOnly
 ```
 
-Possible values for `--ftps-state` are `AllAllowed` (FTP and FTPS enabled), `Disabled` (FTP and FTPs disabled), and `FtpsOnly` (FTPS only).
+Possible values for `--ftps-state` are `AllAllowed` (FTP and FTPS enabled), `Disabled` (FTP and FTPS disabled), and `FtpsOnly` (FTPS only).
 
 -----
 

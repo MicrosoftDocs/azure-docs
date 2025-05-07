@@ -1,11 +1,11 @@
 ---
 title: Modernize ASP.NET web apps to Azure App Service code
 description: At-scale migration of ASP.NET web apps to Azure App Service using Azure Migrate
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: ankitsurkar06
+ms.author: ankitsurkar
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 02/28/2023
+ms.date: 02/07/2025
 ms.custom: template-tutorial
 ---
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin this tutorial, you should:
 
-1. [Complete the first tutorial](tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
+1. [Complete the first tutorial](./tutorial-discover-vmware.md) to discover web apps running in your VMware environment.
 2. [Complete the second tutorial](./tutorial-assess-webapps.md) to assess web apps to determine their readiness status for migration to [Azure App Service](https://azure.microsoft.com/services/app-service/). It's necessary to assess web apps in order to migrate them using the integrated flow.
 3. Go to the existing project or [create a new project](./create-manage-projects.md).
 
@@ -37,16 +37,15 @@ Before you begin this tutorial, you should:
 
 Once the web apps are assessed, you can migrate them using the integrated migration flow in Azure Migrate.
 
-  * You can select up to five App Service Plans as part of a single migration.  
-  * Currently, we don't support selecting existing App Service Plans during the migration flow. 
- * You can migrate web apps up to a maximum size of 2 GB, including content stored in the mapped virtual directory.
- * Currently, we don't support migrating UNC directory content.
- * You need Windows PowerShell 4.0 installed on servers hosting the IIS web servers from which you plan to migrate ASP.NET web apps to Azure App Services. 
-  * Currently, the migration flow doesn't support VNet integrated scenarios.
+  - You can select up to five App Service Plans as part of a single migration.  
+  - Currently, we don't support selecting existing App Service Plans during the migration flow. 
+ - You can migrate web apps up to a maximum size of 2 GB, including content stored in the mapped virtual directory.
+ - Currently, we don't support migrating UNC directory content.
+ - You need Windows PowerShell 4.0 installed on servers hosting the IIS web servers from which you plan to migrate ASP.NET web apps to Azure App Services. 
+  - Currently, the migration flow doesn't support VNet integrated scenarios.
 
 To migrate the web apps, perform these steps:
-
-1. In the Azure Migrate project > **Servers, databases and web apps** > **Migration tools** > **Migration and modernization**, select **Replicate**.
+1. In the Azure Migrate project > **Execute** > **Migration**, select **Replicate**.
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-appservice-code/select-replicate.png" alt-text="Screenshot of the Replicate option selected.":::
 
@@ -102,17 +101,17 @@ Once the migration is initiated, you can track the status using the Azure Resour
 
 Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s): 
 
-* [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
-* [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
-* [Securely connect to Azure resources](../app-service/tutorial-connect-overview.md)
-* [Deployment best practices](../app-service/deploy-best-practices.md).
-* [Security recommendations](../app-service/security-recommendations.md).
-* [Networking features](../app-service/networking-features.md).
-* [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
-* [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
+- [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
+- [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
+- [Securely connect to Azure resources](../app-service/tutorial-connect-overview.md)
+- [Deployment best practices](../app-service/deploy-best-practices.md).
+- [Security recommendations](../app-service/security-recommendations.md).
+- [Networking features](../app-service/networking-features.md).
+- [Monitor App Service with Azure Monitor](../app-service/monitor-app-service.md).
+- [Configure Microsoft Entra authentication](../app-service/configure-authentication-provider-aad.md).
 
 
 ## Next steps
 
-* Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
-* [Review best practices](../app-service/deploy-best-practices.md) for deploying to Azure App service.
+- Investigate the [cloud migration journey](/azure/architecture/cloud-adoption/getting-started/migrate) in the Azure Cloud Adoption Framework.
+- [Review best practices](../app-service/deploy-best-practices.md) for deploying to Azure App service.

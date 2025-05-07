@@ -24,7 +24,7 @@ In this article, you create a virtual network (if you don't already have one), d
 
 * [Azure portal](./tutorial-create-host-portal.md)
 * [Azure PowerShell](bastion-create-host-powershell.md)
-* [Quickstart - deploy with default settings](quickstart-host-portal.md)
+* [Quickstart - Deploy Bastion with default settings and the Standard SKU](quickstart-host-portal.md)
 
 [!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 

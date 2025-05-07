@@ -2,12 +2,12 @@
 title: Move regions for resources in Microsoft.Resources
 description: Show how to move resources that are in the Microsoft.Resources namespace to new regions.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 02/10/2025
 ---
 
 # Move Microsoft.Resources resources to new region
 
-You may need to move an existing resource to a new region. This article shows how to move two resource types - templateSpecs and deploymentScripts - that are in the Microsoft.Resources namespace.
+You might need to move an existing resource to a new region. This article shows how to move two resource types - templateSpecs and deploymentScripts - that are in the Microsoft.Resources namespace.
 
 ## Move template specs to new region
 
@@ -65,19 +65,19 @@ If you have a [template spec](../templates/template-specs.md) in one region and 
 
 1. [Export the template](../templates/export-template-portal.md). When exporting, select the deployment script and any other required resources.
 
-1. In the exported template, delete the following properties:
+1. Delete the following properties in the exported template:
 
    * tenantId
    * principalId
    * clientId
 
-1. The exported template has a hardcoded value for the region of the deployment script.
+1. Find the hardcoded value for the region of the deployment script.
 
    ```json
    "location": "westus2",
    ```
 
-   Change the template to allow a parameter for setting the location. For more information, see [Set resource location in ARM template](../templates/resource-location.md)
+   Change the template to allow a parameter for setting the location. For more information, see [Set resource location in ARM template](../templates/resource-location.md).
 
    ```json
    "location": "[parameters('location')]",

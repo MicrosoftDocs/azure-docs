@@ -1,10 +1,9 @@
 ---
-# Mandatory fields.
 title: Move instance to a different Azure region
 titleSuffix: Azure Digital Twins
 description: Learn how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.custom: subject-moving-resources
@@ -142,7 +141,7 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can delete the original instance.
 
-You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#control-plane-apis).
+You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#control-plane-overview).
 
 To delete the instance by using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and go to your original Azure Digital Twins instance by searching for the name in the portal search bar.
 

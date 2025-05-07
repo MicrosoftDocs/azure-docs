@@ -3,7 +3,7 @@ title: Zoom levels and tile grid in Microsoft Azure Maps
 description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
 author: faterceros 
 ms.author: aterceros 
-ms.date: 07/14/2020
+ms.date: 03/31/2025
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: render
@@ -26,7 +26,7 @@ Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
-The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
+The Azure Maps interactive map controls for web support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
 
 The following table provides the full list of values for zoom levels where the tile size is **256** pixels square:
 
@@ -494,51 +494,76 @@ namespace AzureMaps
         /// <param name="bounds">A bounding box defined as an array of numbers in the format of [west, south, east, north].</param>
         /// <param name="mapWidth">Map width in pixels.</param>
         /// <param name="mapHeight">Map height in pixels.</param>
-        /// <param name="padding">Width in pixels to use to create a buffer around the map. This is to keep markers from being cut off on the edge</param>
-        /// <param name="tileSize">The size of the tiles in the tile pyramid.</param>
         /// <param name="latitude">Output parameter receiving the center latitude coordinate.</param>
         /// <param name="longitude">Output parameter receiving the center longitude coordinate.</param>
         /// <param name="zoom">Output parameter receiving the zoom level</param>
-        public static void BestMapView(double[] bounds, double mapWidth, double mapHeight, int padding, int tileSize, out double centerLat, out double centerLon, out double zoom)
+        /// <param name="padding">Width in pixels to use to create a buffer around the map. This is to keep markers from being cut off on the edge. Default: 0</param>
+        /// <param name="tileSize">The size of the tiles in the tile pyramid. Default: 512</param>
+        /// <param name="maxZoom">Optional maximum zoom level to return. Useful when the bounding box represents a very small area. Default: 24</param>
+        /// <param name="allowFloatZoom">Specifies if the returned zoom level should be a float or rounded down to an whole integer zoom level. Default: true</param>
+        public static void BestMapView(BoundingBox bounds, double mapWidth, double mapHeight, out double centerLat, out double centerLon, out double zoom, int padding = 0, int tileSize = 512, double maxZoom = 24, bool allowFloatZoom = true)
         {
-            if (bounds == null || bounds.Length < 4)
-            {
-                centerLat = 0;
-                centerLon = 0;
-                zoom = 1;
-                return;
-            }
-
-            double boundsDeltaX;
-
-            //Check if east value is greater than west value which would indicate that bounding box crosses the antimeridian.
-            if (bounds[2] > bounds[0])
-            {
-                boundsDeltaX = bounds[2] - bounds[0];
-                centerLon = (bounds[2] + bounds[0]) / 2;
-            }
-            else
-            {
-                boundsDeltaX = 360 - (bounds[0] - bounds[2]);
-                centerLon = ((bounds[2] + bounds[0]) / 2 + 360) % 360 - 180;
-            }
-
-            var ry1 = Math.Log((Math.Sin(bounds[1] * Math.PI / 180) + 1) / Math.Cos(bounds[1] * Math.PI / 180));
-            var ry2 = Math.Log((Math.Sin(bounds[3] * Math.PI / 180) + 1) / Math.Cos(bounds[3] * Math.PI / 180));
-            var ryc = (ry1 + ry2) / 2;
-
-            centerLat = Math.Atan(Math.Sinh(ryc)) * 180 / Math.PI;
-
-            var resolutionHorizontal = boundsDeltaX / (mapWidth - padding * 2);
-
-            var vy0 = Math.Log(Math.Tan(Math.PI * (0.25 + centerLat / 360)));
-            var vy1 = Math.Log(Math.Tan(Math.PI * (0.25 + bounds[3] / 360)));
-            var zoomFactorPowered = (mapHeight * 0.5 - padding) / (40.7436654315252 * (vy1 - vy0));
-            var resolutionVertical = 360.0 / (zoomFactorPowered * tileSize);
-
-            var resolution = Math.Max(resolutionHorizontal, resolutionVertical);
-
-            zoom = Math.Log(360 / (resolution * tileSize), 2);
+        	centerLat = 0;
+        	centerLon = 0;
+        	zoom = 0;
+        
+        	if (bounds != null && mapWidth > 0 && mapHeight > 0)
+        	{
+        		//Ensure padding is valid.
+        		padding = Math.Abs(padding);
+        
+        		//Ensure max zoom is within valid range.
+        		maxZoom = Clip(maxZoom, 0, 24);
+        
+        		//Do pixel calculations at zoom level 24 as that will provide a high level of visual accuracy.
+        		int pixelZoom = 24;
+        
+        		//Calculate mercator pixel coordinate at zoom level 24.
+        		var wnPixel = PositionToGlobalPixel(new double[] { bounds[0], bounds[3] }, pixelZoom, tileSize);
+        		var esPixel = PositionToGlobalPixel(new double[] { bounds[2], bounds[1] }, pixelZoom, tileSize);
+        
+        		//Calculate the pixel distance between pixels for each axis.
+        		double dx = esPixel[0] - wnPixel[0];
+        		double dy = esPixel[1] - wnPixel[1];
+        
+        		//Calculate the average pixel positions to get the visual center.
+        		double xAvg = (esPixel[0] + wnPixel[0]) / 2;
+        		double yAvg = (esPixel[1] + wnPixel[1]) / 2;
+        
+        		//Determine if the bounding box crosses the antimeridian. (West pixel will be greater than East pixel).
+        		if (wnPixel[0] > esPixel[0])
+        		{
+        			double mapSize = MapSize(24, tileSize);
+        
+        			//We are interested in the opposite area of the map. Calculate the opposite area and visual center.
+        			dx = mapSize - Math.Abs(dx);
+        
+        			//Offset the visual center by half the global map width at zoom 24 on the x axis.
+        			xAvg += mapSize / 2;
+        		}
+        
+        		//Convert visual center pixel from zoom 24 to lngLat.
+        		center = GlobalPixelToPosition(new Pixel(xAvg, yAvg), pixelZoom, tileSize);
+        
+        		//Calculate scale of screen pixels per unit on the Web Mercator plane.
+        		double scaleX = (mapWidth - padding * 2) / Math.Abs(dx) * Math.Pow(2, pixelZoom);
+        		double scaleY = (mapHeight - padding * 2) / Math.Abs(dy) * Math.Pow(2, pixelZoom);
+        
+        		//Calculate zoom levels based on the x/y scales. Choose the most zoomed out value.
+        		zoom = Math.Max(0, Math.Min(maxZoom, Math.Log2(Math.Abs(Math.Min(scaleX, scaleY)))));
+        
+        		//Round down zoom level if float values are not desired.
+        		if (!allowFloatZoom)
+        		{
+        			zoom = Math.Floor(zoom);
+        		}
+        	}
+        
+        	return new CameraOptions
+        	{
+        		Center = center,
+        		Zoom = zoom
+        	};
         }
     }
 }
@@ -873,51 +898,70 @@ module AzureMaps {
          * @param mapHeight Map height in pixels.
          * @param padding Width in pixels to use to create a buffer around the map. This is to keep markers from being cut off on the edge.
          * @param tileSize The size of the tiles in the tile pyramid.
+         * @param maxZoom Optional maximum zoom level to return. Useful when the bounding box represents a very small area.
+         * @param allowFloatZoom Specifies if the returned zoom level should be a float or rounded down to an whole integer zoom level. 
          * @returns The center and zoom level to best position the map view over the provided bounding box.
          */
-        public static BestMapView(bounds: number[], mapWidth: number, mapHeight: number, padding: number, tileSize: number): { center: number[], zoom: number } {
-            if (bounds == null || bounds.length < 4) {
-                return {
-                    center: [0, 0],
-                    zoom: 1
-                };
-            }
-
-            var boundsDeltaX: number;
-            var centerLat: number;
-            var centerLon: number;
-
-            //Check if east value is greater than west value which would indicate that bounding box crosses the antimeridian.
-            if (bounds[2] > bounds[0]) {
-                boundsDeltaX = bounds[2] - bounds[0];
-                centerLon = (bounds[2] + bounds[0]) / 2;
-            }
-            else {
-                boundsDeltaX = 360 - (bounds[0] - bounds[2]);
-                centerLon = ((bounds[2] + bounds[0]) / 2 + 360) % 360 - 180;
-            }
-
-            var ry1 = Math.log((Math.sin(bounds[1] * Math.PI / 180) + 1) / Math.cos(bounds[1] * Math.PI / 180));
-            var ry2 = Math.log((Math.sin(bounds[3] * Math.PI / 180) + 1) / Math.cos(bounds[3] * Math.PI / 180));
-            var ryc = (ry1 + ry2) / 2;
-
-            centerLat = Math.atan(Math.sinh(ryc)) * 180 / Math.PI;
-
-            var resolutionHorizontal = boundsDeltaX / (mapWidth - padding * 2);
-
-            var vy0 = Math.log(Math.tan(Math.PI * (0.25 + centerLat / 360)));
-            var vy1 = Math.log(Math.tan(Math.PI * (0.25 + bounds[3] / 360)));
-            var zoomFactorPowered = (mapHeight * 0.5 - padding) / (40.7436654315252 * (vy1 - vy0));
-            var resolutionVertical = 360.0 / (zoomFactorPowered * tileSize);
-
-            var resolution = Math.max(resolutionHorizontal, resolutionVertical);
-
-            var zoom = Math.log2(360 / (resolution * tileSize));
-
-            return {
-                center: [centerLon, centerLat],
-                zoom: zoom
-            };
+        public static BestMapView(bounds: number, mapWidth: number, mapHeight: number, padding: number = 0, tileSize: number = 512, maxZoom: number = 24, allowFloatZoom: boolean = true): { center: number[], zoom: number } {
+        	//Ensure valid bounds and map dimensions are provided.
+        	if (bounds == null || bounds.length < 4 || !mapWidth || !mapHeight || mapWidth <= 0 || mapHeight <= 0) {
+        		return {
+        			center: [0, 0],
+        			zoom: 0
+        		};
+        	}
+        
+        	//Ensure padding is valid.
+        	padding = Math.abs(padding || 0);
+        	
+        	//Ensure max zoom is within valid range.
+        	maxZoom = this.Clip(maxZoom, 0, 24);
+        	
+        	//Do pixel calculations at zoom level 24 as that will provide a high level of visual accuracy.
+        	const pixelZoom = 24;
+        
+        	//Calculate mercator pixel coordinate at zoom level 24.
+        	const wnPixel = this.PositionToGlobalPixel([bounds[0], bounds[3]], pixelZoom, tileSize);
+        	const esPixel = this.PositionToGlobalPixel([bounds[2], bounds[1]], pixelZoom, tileSize);
+        	
+        	//Calculate the pixel distance between pixels for each axis.
+        	let dx = esPixel[0] - wnPixel[0];
+        	const dy = esPixel[1] - wnPixel[1];
+        	
+        	//Calculate the average pixel positions to get the visual center.
+        	let xAvg = (esPixel[0] + wnPixel[0]) / 2;
+        	const yAvg = (esPixel[1] + wnPixel[1]) / 2;
+        		
+        	//Determine if the bounding box crosses the antimeridian. (West pixel will be greater than East pixel).
+        	if(wnPixel[0] > esPixel[0]) {
+        		const mapSize = this.MapSize(24, tileSize);
+		
+        		//We are interested in the opposite area of the map. Calculate the opposite area and visual center.
+        		dx = mapSize - Math.abs(dx);
+        		
+        		//Offset the visual center by half the global map width at zoom 24 on the x axis.
+        		xAvg += mapSize / 2;		
+        	}
+        
+        	//Convert visual center pixel from zoom 24 to lngLat.
+        	const centerLngLat = this.GlobalPixelToPosition([xAvg, yAvg], pixelZoom, tileSize);
+        
+        	//Calculate scale of screen pixels per unit on the Web Mercator plane.
+        	const scaleX = (mapWidth - padding * 2) / Math.abs(dx) * Math.pow(2, pixelZoom);
+        	const scaleY = (mapHeight - padding * 2) / Math.abs(dy) * Math.pow(2, pixelZoom);
+        
+        	//Calculate zoom levels based on the x/y scales. Choose the most zoomed out value.
+        	let zoom = Math.max(0, Math.min(maxZoom, Math.log2(Math.abs(Math.min(scaleX, scaleY)))));
+        
+        	//Round down zoom level if float values are not desired.
+        	if(!allowFloatZoom) {
+        		zoom = Math.floor(zoom);
+        	}
+        
+        	return {
+        		center: centerLngLat,
+        		zoom
+        	};
         }
     }
 }
