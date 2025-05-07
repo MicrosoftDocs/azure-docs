@@ -43,27 +43,27 @@ Now that you have configured an ingestion source, refer to the following steps t
 > If you have not already ingested data into your collection, a graphic showing the 3 steps to get started appears on the **Overview** tab, '1. Configure ingestion source, 2. Create ingestion, 3. Start run,' along with a **Get started** button.
 
 2. Select the **Get started** button, and you're taken to the **Ingestion** tab of the collection.
-:::image type="content" source="./media/get-started-steps.jpeg" alt-text="Screenshot of get started steps in collection overview."::: 
+    [ ![Screenshot of get started steps in collection overview.](./media/get-started-steps.jpeg) ](./media/get-started-steps.jpeg#lightbox) 
 
-> [!NOTE]
-> If you already ingested data into this collection, and want to create another ingestion, you can navigate to the **Ingestion** tab of the collection.
+    > [!NOTE]
+    > If you already ingested data into this collection, and want to create another ingestion, you can navigate to the **Ingestion** tab of the collection.
 
 3. If you haven't yet configured an ingestion source, a graphic appears prompting you to do so. Select the **Create ingestion source** button to navigate to the **Settings** page where you can configure your ingestion source. If you have already configured an ingestion source, you'll see a graphic prompting you to **Create ingestion**. Select the **Create ingestion** button to open the **Create ingestion** panel.
-:::image type="content" source="./media/create-ingestion-graphic.jpeg" alt-text="Screenshot of create ingestion graphic in collection overview.":::
+    [ ![Screenshot of create ingestion graphic in collection overview.](./media/create-ingestion-graphic.jpeg) ](./media/create-ingestion-graphic.jpeg#lightbox)
 
 4. To create your ingestion, input a Display Name and Ingestion URL (URL of the STAC catalog json organizing your STAC items). You can also check the boxes to 'Keep Original STAC items' or 'Skip items already in STAC catalog.' You may or may not want to check those boxes depending on your use cases or whether you already ingested data into this collection.
-:::image type="content" source="./media/create-ingestion-panel.jpeg" alt-text="Screenshot of create ingestion panel.":::
+    [ ![Screenshot of create ingestion panel.](./media/create-ingestion-panel.jpeg) ](./media/create-ingestion-panel.jpeg#lightbox)
 
 5. Once you have filled out all the fields, select **Create** to create your ingestion.
 
 6. After you define and authenticate your ingestion path, which can be seen in your list of ingestions in your collection, you still need to start an ingestion run in order to pull your data in. Select the **Start new run** button from the **Run actions** column to open the **Create run** panel.
-:::image type="content" source="./media/start-view-runs.jpeg" alt-text="Screenshot of create ingestions and runs.":::
+    [ ![Screenshot of create ingestions and runs.](./media/start-view-runs.jpeg) ](./media/start-view-runs.jpeg#lightbox)
 
 7. Select **Create** to start the run, which will bring you back to the **Ingestion** tab, where you can select the **View runs** button to see the status of your ingestion. 
-:::image type="content" source="./media/create-run.jpeg" alt-text="Screenshot of view create run panel.":::
+    [ ![Screenshot of view create run panel.](./media/create-run.jpeg) ](./media/create-run.jpeg#lightbox)
 
 8. When the ingestion run is complete, the **STAC items** tab in your collection displays your list of STAC items that have been ingested, with columns for the item ID and acquisition date. 
-:::image type="content" source="./media/stac-items.jpeg" alt-text="Screenshot of STAC items tab.":::
+    [ ![Screenshot of STAC items tab.](./media/stac-items.jpeg) ](./media/stac-items.jpeg#lightbox)
 
 
 ## Next steps

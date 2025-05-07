@@ -31,14 +31,14 @@ Before you continue with the deletion steps, make sure you're ready to delete th
 
 1. Navigate to your GeoCatalog resource within the Azure portal.
 
-    :::image type="content" source="media/geocatalog-resource.png" alt-text="Screenshot of the Azure portal showing the GeoCatalog resource page with the 'Delete' button highlighted.":::
+    [ ![Screenshot of the Azure portal showing the GeoCatalog resource page with the 'Delete' button highlighted.](media/delete-geocatalog-resource.png) ](media/delete-geocatalog-resource.png#lightbox)
 
 1. From within the GeoCatalog Azure portal page, select **Delete**. You're presented with a **Delete resource** confirmation dialog box. 
 
    > [!NOTE]
    > **Selecting "Yes" will *immediately* begin deleting this resource.**
   
-    :::image type="content" source="media/delete-geocatalog-resource.png" alt-text="Screenshot of the Azure portal showing the GeoCatalog resource page. The 'Delete' button is highlighted, indicating where users can select to initiate the deletion process for the GeoCatalog resource.":::
+    [ ![Screenshot of the Azure portal showing the GeoCatalog resource page. The 'Delete' button is highlighted, indicating where users can select to initiate the deletion process for the GeoCatalog resource.](media/delete-geocatalog-resource.png) ](media/delete-geocatalog-resource.png#lightbox)
 
 ## Next Steps
 - [Get Started With Microsoft Planetary Computer Pro](./get-started-planetary-computer.md)

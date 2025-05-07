@@ -13,7 +13,7 @@ ms.date: 04/18/2024
 
 This article shows you how to ingest many geospatial data assets at once into a GeoCatalog using the Bulk Ingestion API. First, we create and configure a GeoCatalog Ingestion Source. Creating an Ingestion Source establishes a secure connection between a GeoCatalog resource and the storage location for your existing geospatial data. Next, we create a SpatioTemporal Access Catalog (STAC) Collection within your GeoCatalog resource to store the data being ingested. Finally, we use the Bulk Ingestion API to initiate the ingestion workflow. When you're finished completing these steps, your geospatial data is ingested and accessible from the GeoCatalog UIs and APIs. 
 
-:::image type="content" source="media/static-catalog-import.png" alt-text="Diagram illustrating the static catalog import process for GeoCatalog, showing data flow from storage to GeoCatalog via the Bulk Ingestion API.":::
+[ ![Diagram illustrating the static catalog import process for GeoCatalog, showing data flow from storage to GeoCatalog via the Bulk Ingestion API.](media/static-catalog-import.png) ](media/static-catalog-import.png#lightbox)
 
 ## Prerequisites
 

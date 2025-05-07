@@ -24,25 +24,29 @@ To complete this quickstart, you need:
 
 The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal:*** 
 
-:::image type="content" source="./media/geocatalog-uri-example.jpeg" alt-text="Screenshot of URI in geocatalog resource in Azure portal."::: 
+[ ![Screenshot of URI in geocatalog resource in Azure portal.](media/geocatalog-uri-example.jpeg) ](media/geocatalog-uri-example.jpeg#lightbox) 
 
 Upon entering the web interface, you land on the Planetary Computer Pro page, showing your recent collections (if any) and a button to create a new one.
 
-:::image type="content" source="./media/landing-page.jpeg" alt-text="Screenshot of Planetary Computer Pro landing page.":::
+[ ![Screenshot of Planetary Computer Pro landing page.](./media/landing-page.jpeg) ](./media/landing-page.jpeg#lightbox)
 
 The **Collections** page provides you with a full list of your collections, including their names, descriptions, date created, and a collection thumbnail. You can also search for collections by name or description keywords, and create a new collection from this page. 
-:::image type="content" source="./media/collections-page.jpeg" alt-text="Screenshot of Planetary Computer Pro collections page.":::
+
+[ ![Screenshot of Planetary Computer Pro collections page.](./media/collections-page.jpeg) ](./media/collections-page.jpeg#lightbox)
 
 The **Settings** page allows you to create and manage ingestion sources, which is a critical first step in data ingestion. You can learn more about ingestion in [Ingestion overview](./ingestion-overview.md).
-:::image type="content" source="./media/settings-page.jpeg" alt-text="Screenshot of Planetary Computer Pro settings page.":::
+
+[ ![Screenshot of Planetary Computer Pro settings page.](./media/settings-page.jpeg) ](./media/settings-page.jpeg#lightbox)
 
 The **Explorer** page is where you can visualize your data on a map. Here, you can search for collections, filter by STAC metadata, and visualize assets. Learn how to use the Explorer in [Quickstart: Use the Microsoft Planetary Computer Pro Explorer](./use-explorer.md).
-:::image type="content" source="./media/explorer-page.jpeg" alt-text="Screenshot of Planetary Computer Pro Explorer page.":::
+
+[ ![Screenshot of Planetary Computer Pro Explorer page.](./media/explorer-page.jpeg) ](./media/explorer-page.jpeg#lightbox)
 
 ## Create a collection
 
 1. Whether you are on the Planetary Computer Pro landing page or the Collections page, you can select the **Create Collection** button. This takes you to the **Create Collection** panel, where you enter the details of your collection in JSON format adhering to the [STAC specification](https://github.com/radiantearth/stac-spec/blob/master/collection-spec/collection-spec.md).
-:::image type="content" source="./media/create-collection-panel.jpeg" alt-text="Screenshot of Create Collection panel.":::
+
+[ ![Screenshot of Create Collection panel.](./media/create-collection-panel.jpeg) ](./media/create-collection-panel.jpeg#lightbox)
 
 2. In the **Create Collection** panel's JSON editor, the options are:
     * Write your own collection JSON
@@ -71,7 +75,8 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
 > | `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
 3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-configuration-concept.md).
-:::image type="content" source="./media/collection-overview.jpeg" alt-text="Screenshot of Collection overview page.":::
+
+[ ![Screenshot of Collection overview page.](./media/collection-overview.jpeg) ](./media/collection-overview.jpeg#lightbox)
 
 ## Next steps
 Now that you have a collection, you can now ingest data into it. 

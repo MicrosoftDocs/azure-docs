@@ -160,7 +160,7 @@ print(f"Extracted File Name: {file_name}")
 display_tif_from_url(file_url, file_name)
 ```
 
-:::image type="content" source="media/create-stac-item.png" alt-text="A grayscale visualization of geospatial raster data from a GOES-18 satellite, showing land surface temperature patterns across a region.":::
+[ ![A grayscale visualization of geospatial raster data from a GOES-18 satellite, showing land surface temperature patterns across a region.](media/create-stac-item.png) ](media/create-stac-item.png#lightbox)
     
 From looking at the data and the file name, we can already see the key pieces of metadata needed to build the STAC Item. The file name contains information about which satellite captured the data and when it was captured. 
 

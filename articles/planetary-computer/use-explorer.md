@@ -34,19 +34,23 @@ The Explorer can be opened in two ways:
 * Select a valid collection to explore from the **Collections** tab.
     
     From the collection's **Overview** tab, select **Launch in Explorer** on the right side below the **Spatial extents** map. This loads the collection in the Explorer.
-    :::image type="content" source="./media/launch-in-explorer-button.jpeg" alt-text="Screenshot of collections overview with launch in explorer button.":::
+    
+[ ![Screenshot of collections overview with launch in explorer button.](./media/launch-in-explorer-button.jpeg) ](./media/launch-in-explorer-button.jpeg#lightbox)
 
 > [!NOTE]
 > If the "Launch In Explorer" button is gray, you must first [create a render configuration](./render-configuration.md).
 
 ## Select a dataset to explore
 
-1. If you opened the **Explorer** tab using the top navigation bar, select a dataset to visualize. 
-    :::image type="content" source="./media/select-dataset.jpeg" alt-text="Screenshot of data selection dropdown in Explorer.":::
-    Browse your available collections and select a collection.
-    :::image type="content" source="./media/browse-collections.jpeg" alt-text="Screenshot of collection browsing from select datasets dropdown.":::
+1. If you opened the **Explorer** tab using the top navigation bar, select a dataset to visualize.
 
-2. If you selected **Launch in Explorer** from the collection's **Overview** tab, the dataset is automatically selected.
+    [ ![Screenshot of data selection dropdown in Explorer.](./media/select-dataset.jpeg) ](./media/select-dataset.jpeg#lightbox)
+
+    Browse your available collections and select a collection.
+ 
+    [ ![Screenshot of collection browsing from select datasets dropdown.](./media/browse-collections.jpeg) ](./media/browse-collections.jpeg#lightbox)
+
+1. If you selected **Launch in Explorer** from the collection's **Overview** tab, the dataset is automatically selected.
 
 ## Filter a dataset
 
@@ -59,7 +63,7 @@ You can filter the resulting items based on location.
 * To find items in a general geographic area, pan and zoom in or out on the map. Items appear in the results pane according to the geographic extent of the map.
 * To find items near a specific location or address, select the magnifying glass icon on the right-side of the map to reveal the **Place Finder** search tool.
 
-:::image type="content" source="./media/search.jpeg" alt-text="Screenshot of search navigation in Explorer.":::
+[ ![Screenshot of search navigation in Explorer.](./media/search.jpeg) ](./media/search.jpeg#lightbox)
 
 ### Apply a mosaic definition
 
@@ -68,7 +72,7 @@ Applying a mosaic definition in the Explorer automatically filters the collectio
 1. Select the filter box to show a dropdown of available mosaic definitions.
 2. Select a mosaic definition to show items in the mosaic's query results.
 
-:::image type="content" source="media/data-explorer-select-mosaic.png" alt-text="Screenshot of using the explorer to select a mosaic definition.":::
+[ ![Screenshot of using the explorer to select a mosaic definition.](media/data-explorer-select-mosaic.png) ](media/data-explorer-select-mosaic.png#lightbox)
 
 ### Select a different render configuration
 
@@ -77,7 +81,7 @@ Applying a mosaic definition in the Explorer automatically filters the collectio
 1. Select the Render Configuration dropdown to show the list of available render configurations.
 2. Select a render configuration to render that item's layer on the map.
 
-:::image type="content" source="media/data-explorer-select-render-configuration.png" alt-text="Screenshot of using the explorer to select a configuration to render.":::
+[ ![Screenshot of using the explorer to select a configuration to render.](media/data-explorer-select-render-configuration.png) ](media/data-explorer-select-render-configuration.png#lightbox)
 
 ### Use advanced filtering
 
@@ -88,7 +92,8 @@ Advanced filtering allows you to expose the queryables defined for the collectio
 3. Select the value or range for each queryable you wish to add to your filter.
 
 For example, this screen capture shows the **Acquired** queryable is set to a range of dates. 
-:::image type="content" source="./media/queryables.png" alt-text="Screenshot of advanced filtering in Explorer.":::
+
+[ ![Screenshot of advanced filtering in Explorer.](./media/queryables.png) ](./media/queryables.png#lightbox)
 
 ## Manipulate the map
 
@@ -96,27 +101,28 @@ For example, this screen capture shows the **Acquired** queryable is set to a ra
 
 The Explorer supports native map controls on the top right side of the map to rotate, zoom in and out, change the basemap style, search for a location, and update map settings.
 
-:::image type="content" source="./media/zoom.jpeg" alt-text="Screenshot of map controls available in Explorer.":::
+[ ![Screenshot of map controls available in Explorer.](./media/zoom.jpeg) ](./media/zoom.jpeg#lightbox)
 
 ### Pin an item layer to the map
 
 You can visualize multiple query results at once by pinning layers to the map.
 
- 1. After querying and filtering the collection items to your desired results, select the pin icon to the right of the dataset name in the **Explore Datasets** side-panel.
- 2. Once pinned, this layer is added to the list of map layers, displayed in the lower right corner of the map, and your query results are cleared.
- 
- :::image type="content" source="./media/pin.jpeg" alt-text="Screenshot of how to pin layers in Explorer.":::
+1. After querying and filtering the collection items to your desired results, select the pin icon to the right of the dataset name in the **Explore Datasets** side-panel.
+1. Once pinned, this layer is added to the list of map layers, displayed in the lower right corner of the map, and your query results are cleared.
+
+[ ![Screenshot of how to pin layers in Explorer.](./media/pin.jpeg) ](./media/pin.jpeg#lightbox)
 
 ### Manipulate the map layers
 
 You can manipulate current or pinned map layers.
 
 1. To start, select the layers icon in the bottom right corner of the map.
-2. To show or hide a layer, select the eye icon.
-3. To change the opacity of a layer, select the circle icon and use the layer opacity slider.
-4. To change the order of the layers, select the three dots icon and select **Move layer up** or **Move layer down**.
-5. To edit the layer and filter options, select the three dots icon and select Edit layer and filter options.
-:::image type="content" source="./media/layers.jpeg" alt-text="Screenshot of map layers in Explorer.":::
+1. To show or hide a layer, select the eye icon.
+1. To change the opacity of a layer, select the circle icon and use the layer opacity slider.
+1. To change the order of the layers, select the three dots icon and select **Move layer up** or **Move layer down**.
+1. To edit the layer and filter options, select the three dots icon and select Edit layer and filter options.
+
+[ ![Screenshot of map layers in Explorer.](./media/layers.jpeg) ](./media/layers.jpeg#lightbox)
 
 > [!NOTE]
 > The minimum zoom defined in your render configuration determines the map zoom level at which the rendering option should start being valid. If you don't see your item assets on the map, you might need to zoom in further.
@@ -126,28 +132,29 @@ You can manipulate current or pinned map layers.
 The Explorer provides a Python code sample for each item in the catalog, enabling the user retrieve that item from their Python environment of choice, for example, a Python Notebook. 
 
 1. From the item results panel, select the item of interest.
-2. Select the brackets icon to expose the code sample.
-3. Select **Copy** to copy the code sample to paste into your Python environment.
-:::image type="content" source="./media/code-sample.png" alt-text="Screenshot of copying a code sample in Explorer.":::
+1. Select the brackets icon to expose the code sample.
+1. Select **Copy** to copy the code sample to paste into your Python environment.
+
+[ ![Screenshot of copying a code sample in Explorer.](./media/code-sample.png) ](./media/code-sample.png#lightbox)
 
 ## Add a collection thumbnail
 
 You can set a thumbnail for a collection, the image that represents that collection in your collections Overview page. You
 
 1. In the Explorer, select a collection to display.
-2. Select your desired item asset to display on the map.
-3. Zoom in to your desired area.
-4. Select the three dots icon to the right of the dataset name in the Explored Datasets side-panel and select **Generate Snapshot Image**.
-:::image type="content" source="./media/generate-snapshot.png" alt-text="Screenshot of generate snapshot image in Explorer.":::
-5. Select **Draw export area** and draw a rectangular area on the map.
-6. Select an image size.
-7. Select **Generate image**.
+1. Select your desired item asset to display on the map.
+1. Zoom in to your desired area.
+1. Select the three dots icon to the right of the dataset name in the Explored Datasets side-panel and select **Generate Snapshot Image**.
+    [ ![Screenshot of generate snapshot image in Explorer.](./media/generate-snapshot.png) ](./media/generate-snapshot.png#lightbox)
+1. Select **Draw export area** and draw a rectangular area on the map.
+1. Select an image size.
+1. Select **Generate image**.
 
-:::image type="content" source="./media/draw-area.png" alt-text="Screenshot of generate image in Explorer.":::
+    [ ![Screenshot of generate image in Explorer.](./media/draw-area.png) ](./media/draw-area.png#lightbox)
 
 1. After the image is prepared, select the three dots icon on the image and select **Set as collection thumbnail**.
 
-:::image type="content" source="./media/set-thumbnail.png" alt-text="Screenshot of set as thumbnail in Explorer.":::
+    [ ![Screenshot of set as thumbnail in Explorer.](./media/set-thumbnail.png) ](./media/set-thumbnail.png#lightbox)
 
 ## Related content
 

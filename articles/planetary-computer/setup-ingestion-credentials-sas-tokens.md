@@ -46,17 +46,17 @@ Azure Storage Explorer is also an alternative UI-driven approach which works on 
 
 In the Azure portal, find the Storage Resource containing the Azure Blob Container with the data you wish to ingest into Planetary Computer Pro. In the Resource settings, select the **"Containers"** setting under **"Data Storage"**.
 
-:::image type="content" source="media/select-containers.png" alt-text="Screenshot of the Azure portal showing the Containers section under Data Storage for a selected Storage Account.":::
+[![Screenshot of the Azure portal showing the Containers section under Data Storage for a selected Storage Account.](media/select-containers.png) ](media/select-containers.png#lightbox)
 
 ### Select your blob container and request a SAS Token
 
 Select the specific container you wish to ingest, in this example we're selecting the "test" container. 
 
-:::image type="content" source="media/select-test.png" alt-text="Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container.":::
+[ ![Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container.](media/select-test.png) ](media/select-test.png#lightbox)
 
 Select the **"Shared access tokens"** setting and open the configuration settings.
 
-:::image type="content" source="media/generate-sas-token.png" alt-text="Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container. The page includes fields for setting permissions, start and expiry times, and buttons to generate the SAS token and URL.":::
+[ ![Screenshot of the Azure portal showing the Shared access tokens configuration page for a selected Blob Container. The page includes fields for setting permissions, start and expiry times, and buttons to generate the SAS token and URL.](media/generate-sas-token.png) ](media/generate-sas-token.png#lightbox)
 
 Ensure these settings are set up correctly:
 * Permissions = **Read** (verify no other options are selected)
@@ -68,7 +68,7 @@ Once the settings are verified, select the **"Generate SAS Token and URL"** butt
 
 Use the URL of your Planetary Computer Pro to navigate to the landing page and select the **"Settings"** tab from the navigation bar. 
 
-:::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal showing where the Settings button is located.":::
+[ ![Screenshot of GeoCatalog Portal showing where the Settings button is located.](media/settings-link.png) ](media/settings-link.png#lightbox)
 
 ### Create your ingestion source
 
@@ -83,7 +83,7 @@ Use the URL of your Planetary Computer Pro to navigate to the landing page and s
         *Example:* `?sv=<signed-version>&ss=<signed-services>&srt=<signed-resource-types>&sp=<signed-permissions>&se=<signed-expiry-time>&st=<signed-start-time>&spr=<signed-protocol>&sig=<signature>`
 * Select the **Create** button
 
-:::image type="content" source="media/sas_token_input.png" alt-text="Screenshot of the Planetary Computer Pro Settings page showing a successfully created an ingestion source. The page displays the Container URL, Credential Token, and an expiration date for the credential.":::
+[ ![Screenshot of the Planetary Computer Pro Settings page showing a successfully created an ingestion source. The page displays the Container URL, Credential Token, and an expiration date for the credential.](media/sas_token_input.png) ](media/sas_token_input.png#lightbox)
 
 Your ingestion source is now set up to support ingesting data!
 

@@ -14,7 +14,7 @@ ms.date: 04/09/2025
 
 Loading new data into a Microsoft Planetary Computer Pro GeoCatalog is called [**ingestion**](./ingestion-overview.md). Before you can ingest new data into a GeoCatalog you need to provide it credentials, or [ingestion sources](./ingestion-source.md), so it may securely access that data. 
 
-:::image type="content" source="media/managed-identity-diagram.png" alt-text="Diagram showing the managed identity workflow for ingestion source configuration.":::
+[ ![Diagram showing the managed identity workflow for ingestion source configuration.](media/managed-identity-diagram.png) ](media/managed-identity-diagram.png#lightbox)
   
 In this guide, you learn how to:
 
@@ -50,11 +50,11 @@ This guide shows how to create an GeoCatalog ingestion source using a managed id
 
 Navigate to the [Azure portal](https://portal.azure.com/) to create a new managed identity resource. In the search bar, search for **managed identities**. 
 
-:::image type="content" source="media/ingestion-source-managed-identity-search.png" alt-text="Screenshot of the Azure portal showing managed identities search results in the search bar.":::
+[ ![Screenshot of the Azure portal showing managed identities search results in the search bar.](media/ingestion-source-managed-identity-search.png) ](media/ingestion-source-managed-identity-search.png#lightbox)
 
 Select the **Create** button to begin the process. In the dialogue, assign the managed identity to a Subscription, Resource Group, and Region. Once you complete these selections, click **Review + create** and then the **Create** button. 
 
-:::image type="content" source="media/ingestion-source-managed-identity-create.png" alt-text="Screenshot of the Azure portal showing the managed identity creation form with subscription and region fields.":::
+[ ![Screenshot of the Azure portal showing the managed identity creation form with subscription and region fields.](media/ingestion-source-managed-identity-create.png) ](media/ingestion-source-managed-identity-create.png#lightbox)
 
 Next, you need to associate this managed identity to your GeoCatalog. 
 
@@ -62,19 +62,19 @@ Next, you need to associate this managed identity to your GeoCatalog.
 
 Within the Azure portal, navigate to the storage account that contains the data you want to ingest into your GeoCatalog. Once at that resource, select the **Access Control (IAM)** button in the sidebar and then select **"Add the assignment"** button.   
 
-:::image type="content" source="media/ingestion-source-managed-identity-give-permissions.png" alt-text="Screenshot of the Azure portal showing the Add role assignment interface for access control.":::
+[ ![Screenshot of the Azure portal showing the Add role assignment interface for access control.](media/ingestion-source-managed-identity-give-permissions.png) ](media/ingestion-source-managed-identity-give-permissions.png#lightbox)
 
 Next, search for the **Storage Blob Data Reader** role in the search bar. Select the **Storage Blob Data Reader** and press the **Next** button. 
 
-:::image type="content" source="media/ingestion-source-managed-identity-role.png" alt-text="Screenshot of the Azure portal showing the Storage Blob Data Reader role selection interface.":::
+[ ![Screenshot of the Azure portal showing the Storage Blob Data Reader role selection interface.](media/ingestion-source-managed-identity-role.png) ](media/ingestion-source-managed-identity-role.png#lightbox)
 
 In the Members pane, select **managed identity**, which opens a new side bar. Select the **Subscription** where you created the user assigned managed identity in the previous steps, and then select **User assigned managed identity**. Select the user assigned managed identity and select the **Select** button to continue. 
 
-:::image type="content" source="media/ingestion-source-managed-identity-assign.png" alt-text="Screenshot of the Azure portal showing the role assignment review pane for managed identity.":::
+[ ![Screenshot of the Azure portal showing the role assignment review pane for managed identity.](media/ingestion-source-managed-identity-assign.png) ](media/ingestion-source-managed-identity-assign.png#lightbox)
 
 There are two dialogues to review your selection. Review your selection and select the **Review + Assign** Button each time. 
 
-:::image type="content" source="media/ingestion-source-managed-identity-assign-2.png" alt-text="Screenshot of the Azure portal showing the final Review + Assign pane for the role assignment process.":::
+[ ![Screenshot of the Azure portal showing the final Review + Assign pane for the role assignment process.](media/ingestion-source-managed-identity-assign-2.png) ](media/ingestion-source-managed-identity-assign-2.png#lightbox)
 
 
 ## Associate the user assigned managed identity to your GeoCatalog resource
@@ -86,19 +86,19 @@ To associate your new managed identity with your GeoCatalog complete the followi
 
 2. Use the search bar to search for **GeoCatalogs**. Select **GeoCatalogs** from under the list of Services.
 
-:::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of the Azure portal showing GeoCatalogs search results in the services list.":::
+[ ![Screenshot of the Azure portal showing GeoCatalogs search results in the services list.](media/search-for-geocatalogs.png) ](media/search-for-geocatalogs.png#lightbox)
 
 3. Use the filters to find your GeoCatalog and select it.
 
-:::image type="content" source="media/filter-geocatalog.png" alt-text="Screenshot of the Azure portal showing filter options to locate specific GeoCatalog resources.":::
+[ ![Screenshot of the Azure portal showing filter options to locate specific GeoCatalog resources.](media/filter-geocatalog.png) ](media/filter-geocatalog.png#lightbox)
 
 4. In the side bar, select **Identity** under the Security field. Once in this window, select the blue **Add user assigned managed identity** button
 
-:::image type="content" source="media/select-identity.png" alt-text="Screenshot of the Azure portal showing the Identity section with the Add user assigned managed identity button.":::
+[ ![Screenshot of the Azure portal showing the Identity section with the Add user assigned managed identity button.](media/select-identity.png) ](media/select-identity.png#lightbox)
 
 5. Select the user assigned managed identity you created in the earlier step, and select the blue **Add** button to complete this process.
    
-:::image type="content" source="media/assign-identity.png" alt-text="Screenshot of the Azure portal showing the managed identity selection interface for assignment.":::
+[ ![Screenshot of the Azure portal showing the managed identity selection interface for assignment.](media/assign-identity.png) ](media/assign-identity.png#lightbox)
 
 Next, you will give your GeoCatalog read access to the blob storage account where your data is located using this managed identity. 
 
@@ -108,7 +108,7 @@ In this final step you will create a new GeoCatalog ingestion source using your 
 
 1. Navigate to your GeoCatalog resource landing page and select the "Settings" tab. 
 
-:::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal highlighting the Settings tab location.":::
+[ ![Screenshot of GeoCatalog Portal highlighting the Settings tab location.](media/settings-link.png) ](media/settings-link.png#lightbox)
 
 2. Select the **Create ingestion source** button, which opens a new sidebar.
 
@@ -123,12 +123,13 @@ In this final step you will create a new GeoCatalog ingestion source using your 
 
 6. Press the **Create** button to complete the process
 
-:::image type="content" source="media/ingestion-source-managed-identity-source.png" alt-text="Diagram showing the complete process flow for setting up an ingestion source with managed identity.":::
+[ ![Diagram showing the complete process flow for setting up an ingestion source with managed identity.](media/ingestion-source-managed-identity-source.png) ](media/ingestion-source-managed-identity-source.png#lightbox)
 
 Your GeoCatalog is now configured to read data from this Azure Blob Storage Container using your new managed identity.
 
 
 ## Next steps
+
 Now that you have set up managed identity, it's time to ingest data. 
 
 For Single Item Ingestion:

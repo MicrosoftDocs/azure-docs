@@ -38,7 +38,7 @@ The STAC specification consists of four complementary standards for describing g
 
 Planetary Computer Pro uses the STAC specification across all aspects of data management.
 
-:::image type="content" source="media/stac-summary.png" alt-text="Diagram showing the STAC specification components and their relationships, including STAC Catalog, STAC collection, STAC Items, and STAC API, with arrows showing how they interconnect.":::
+[ ![Diagram showing the STAC specification components and their relationships, including STAC Catalog, STAC collection, STAC Items, and STAC API, with arrows showing how they interconnect.](media/stac-summary.png) ](media/stac-summary.png#lightbox)
 
 ## STAC catalogs
 

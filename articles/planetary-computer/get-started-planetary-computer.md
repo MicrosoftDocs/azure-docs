@@ -33,13 +33,13 @@ A Microsoft Planetary Computer Pro deployment is called a GeoCatalog and is avai
 
 To deploy a GeoCatalog, navigate to the [Azure portal](https://portal.azure.com/) and search for "GeoCatalog"
 
-:::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of searching for GeoCatalogs in the Azure portal.":::
+[ ![Screenshot of searching for GeoCatalogs in the Azure portal.](media/search-for-geocatalogs.png) ](media/search-for-geocatalogs.png#lightbox)
 
 Full details of the deployment process are available in the [Deploy GeoCatalog Quickstart](./deploy-geocatalog-resource.md).
 
 Once the service is deployed, access to the GeoCatalog resource can be controlled through the **Access control (IAM)** tab in the left sidebar:
 
-:::image type="content" source="media/role-based-access-control-identity-access-management-blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.":::
+[ ![Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.](media/role-based-access-control-identity-access-management-blade.png) ](media/role-based-access-control-identity-access-management-blade.png#lightbox)
 
 More details on the **GeoCatalog Administrator** and **GeoCatalog Reader** roles are available in [Manage Access](./manage-access.md) documentation.
 
@@ -49,7 +49,7 @@ All data managed in Microsoft Planetary Computer Pro is organized into groupings
 
 To create a new STAC Collection, open the GeoCatalog web interface by clicking on the GeoCatalog URI link on the Resource overview page in the Azure Portal. After opening the web interface, select the **Create collection** button:
 
-:::image type="content" source="media/create-collection-button.png" alt-text="Screenshot of the Create collection button in the GeoCatalog web interface.":::
+[ ![Screenshot of the Create collection button in the GeoCatalog web interface.](media/create-collection-button.png) ](media/create-collection-button.png#lightbox)
 
 More details setting up your STAC collection can be found in the [Create Collection from the Web Interface](./create-collection-web-interface.md) and [Create Collection from the API](./create-stac-collection.md) quickstarts. 
 
@@ -65,7 +65,7 @@ The recommended and most secure method for ingesting data is to have the data st
 >[!TIP]
 > To accelerate the creation of STAC Items, we have a [detailed tutorial](./create-stac-item.md) and also have an open source tool called STAC Forge.
 
-:::image type="content" source="media/ingestion-secure.png" alt-text="Diagram illustrating the secure data ingestion process into Microsoft Planetary Computer Pro using Azure Blob Storage and Managed Identity.":::
+[ ![Diagram illustrating the secure data ingestion process into Microsoft Planetary Computer Pro using Azure Blob Storage and Managed Identity.](media/ingestion-secure.png) ](media/ingestion-secure.png#lightbox)
 
 ### Get your data ready for Ingestion
 > [!div class="checklist"]
@@ -83,7 +83,7 @@ Ingested data can be visualized both in the built-in [Data Explorer](./use-explo
 
 Planetary Computer Pro's Tiler service [requires configuration](./collection-configuration-concept.md) to properly display your ingested data. All of these configuration options are available under the **Configuration** tab in the STAC Collection view:
 
-:::image type="content" source="media/configure-collection-button.png" alt-text="Screenshot of the Configure collection button in the GeoCatalog web interface.":::
+[ ![Screenshot of the Configure collection button in the GeoCatalog web interface.](media/configure-collection-button.png) ](media/configure-collection-button.png#lightbox)
 
 ### Get your STAC Collection ready for Visualization
 > [!div class="checklist"]
@@ -99,7 +99,7 @@ Once data has been ingested, it's available for use in [applications inside and 
 
 Data that is [configured for visualization](./configure-collection-web-interface.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
 
-:::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
+[ ![Screenshot showing where the Data Explorer tab is.](media/explorer-link.png) ](media/explorer-link.png#lightbox)
 
 Data can also be accessed directly using the [GeoCatalog APIs](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 

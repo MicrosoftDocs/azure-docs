@@ -13,7 +13,7 @@ ms.date: 04/09/2025
 
 Ingestion sources represent the location and authentication mechanisms required to [ingest data](./ingestion-overview.md) into a GeoCatalog resource. You can list and configure ingestion sources by selecting the **Settings** tab in the GeoCatalog web portal.
 
-:::image type="content" source="media/settings-link.png" alt-text="Screenshot of GeoCatalog Portal showing where the Settings button is located.":::
+[ ![Screenshot of GeoCatalog Portal showing where the Settings button is located.](media/settings-link.png) ](media/settings-link.png#lightbox)
 
 Once an ingestion source is set, your GeoCatalog will be able to securely ingest data from that ingestion source's location. 
 

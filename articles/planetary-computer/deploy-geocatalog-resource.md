@@ -33,46 +33,46 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
 
 1. Find the **GeoCatalogs** resource type use the Azure portal search bar at the top of the page; select "GeoCatalogs" from under the list of Services.
 
-   :::image type="content" source="media/search-for-geocatalogs.png" alt-text="Screenshot of searching for GeoCatalogs in the Azure portal.":::
+   [ ![Screenshot of searching for GeoCatalogs in the Azure portal.](media/search-for-geocatalogs.png) ](media/search-for-geocatalogs.png#lightbox)
 
 1. Start the GeoCatalog creation process by either 1) selecting the **Create** button at the top left of the screen, or 2) selecting the **Create geo catalog** button in the lower center of the screen. The **Create geocatalog** button doesn't appear if you have one or more existing GeoCatalogs.
 
-   :::image type="content" source="media/create-geocatalogs-button.png" alt-text="Screenshot of the Create GeoCatalog button in the Azure portal.":::
+   [ ![Screenshot of the Create GeoCatalog button in the Azure portal.](media/create-geocatalogs-button.png) ](media/create-geocatalogs-button.png#lightbox)
 
 1. From the "Basics" tab of the "Create GeoCatalog Resource" workflow, select the Subscription and Resource Group to which you would like to deploy your GeoCatalog. Provide a unique Name for your GeoCatalog resource, and select the Azure Region you wish to deploy into. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
-   > We support deployment to the following regions in Preview:
-   >
-   > - East US
-   > - North Central US
-   > - West Europe
-   > - Canada Central
+      > We support deployment to the following regions in Preview:
+      >
+      > - East US
+      > - North Central US
+      > - West Europe
+      > - Canada Central
 
-   :::image type="content" source="media/complete-basics-tab-geocatalog.png" alt-text="Screenshot of the Basics tab in the Create GeoCatalog Resource workflow.":::
+      [ ![Screenshot of the Basics tab in the Create GeoCatalog Resource workflow.](media/complete-basics-tab-geocatalog.png) ](media/complete-basics-tab-geocatalog.png#lightbox)
 
 1. From the "Networking" tab, select your networking options. Select "Next" to proceed to the next tab.
 
    > [!NOTE]
-   > Only **Enable public access from all networks** option is supported in Preview.
+      > Only **Enable public access from all networks** option is supported in Preview.
 
-   :::image type="content" source="media/enable-public-access-from-networks.png" alt-text="Screenshot of the Networking tab in the Create GeoCatalog Resource workflow.":::
+      [ ![Screenshot of the Networking tab in the Create GeoCatalog Resource workflow.](media/enable-public-access-from-networks.png) ](media/enable-public-access-from-networks.png#lightbox)
 
 1. From the "Tags" tab, add any desired Tags to your new GeoCatalog resource. Tags are optional; refer to [Naming and Tagging Best Practices](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging) for guidance on how to use Azure Tags. Select "Next" to proceed to the next tab.
 
-   :::image type="content" source="media/create-geocatalog-tags.png" alt-text="Screenshot of the Tags tab in the Create GeoCatalog Resource workflow.":::
+   [ ![Screenshot of the Tags tab in the Create GeoCatalog Resource workflow.](media/create-geocatalog-tags.png) ](media/create-geocatalog-tags.png#lightbox)
 
 1. From the "Review and create" tab, review selections made in the previous step. Make necessary corrections in previous sections by selecting the **Previous** button at the bottom of the page. You can also directly navigate to a tab in the workflow by selecting on that tab's name. Once you're satisfied with your settings and selections, select the **Create** button.
 
-   :::image type="content" source="media/review-create-geocatalog-resource.png" alt-text="Screenshot of the Review and create tab in the Create GeoCatalog Resource workflow.":::
+   [ ![Screenshot of the Review and create tab in the Create GeoCatalog Resource workflow.](media/review-create-geocatalog-resource.png) ](media/review-create-geocatalog-resource.png#lightbox)
 
 1. You see a "Deployment is in progress" page while you wait for your GeoCatalog deployment to complete. This process can take **10 or more minutes**. The "Status" of the resource deployment shows "Created" even before the deployment is complete.
 
-   :::image type="content" source="media/geocatalog-deployment-in-progress.png" alt-text="Screenshot of the Deployment is in progress page in the Azure portal.":::
+   [ ![Screenshot of the Deployment is in progress page in the Azure portal.](media/geocatalog-deployment-in-progress.png) ](media/geocatalog-deployment-in-progress.png#lightbox)
 
 1. The deployment page updates to "Your deployment is complete" when the deployment finishes. You can select "Go to resource" to navigate directly to your newly created GeoCatalog resource.
 
-   :::image type="content" source="media/geocatalog-deployment-complete.png" alt-text="Screenshot of the Your deployment is complete page in the Azure portal.":::
+   [ ![Screenshot of the Your deployment is complete page in the Azure portal.](media/geocatalog-deployment-complete.png) ](media/geocatalog-deployment-complete.png#lightbox)
 
 ## Next Steps
 - [Create a STAC Collection](./create-collection-web-interface.md)
@@ -116,7 +116,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
 
 1. Once the deployment status shows succeeded, you should be able to see the created GeoCatalog instance on the portal under the specified resource group (note you need to check "Show hidden types" checkbox to see it).
 
-   :::image type="content" source="media/show-hidden-roles.png" alt-text="Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.":::
+   [ ![Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.](media/show-hidden-roles.png) ](media/show-hidden-roles.png#lightbox)
 
 ## Next Steps
 - [Create a STAC Collection](./create-collection-web-interface.md)

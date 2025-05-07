@@ -17,9 +17,7 @@ The Microsoft Planetary Computer Pro Data Explorer allows GeoCatalog users to vi
 
 It's important to understand which colormaps are supported in Planetary Computer Pro when specifying the render configurations for a GeoCatalog Collection.
 
-## Supported Named Colormaps
-<img src="./media/colormaps.png" width="50%" alt="All colormaps available in Microsoft Planetary Computer Pro.">
-<!--generate using script in pctiler/colormaps/ dir of main repo-->
+[ ![All colormaps available in Microsoft Planetary Computer Pro.](media/colormaps.png) ](media/colormaps.png#lightbox)
 
 ## Related content
 

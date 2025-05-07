@@ -87,30 +87,30 @@ az identity create \
 Create a pool of compute nodes using the Azure Portal:
 
 1. In the Azure portal, navigate to your Batch account and select **Pools**:
-    :::image type="content" source="media/batch-pools-overview.png" alt-text="Screenshot of the Azure portal showing the Pools section of a Batch account, with options to add and manage pools.":::
+    [ ![Screenshot of the Azure portal showing the Pools section of a Batch account, with options to add and manage pools.](media/batch-pools-overview.png) ](media/batch-pools-overview.png#lightbox)
 1. Select **+ Add** to create a new pool and select **User-assigned** as the pool's identity:
-    :::image type="content" source="media/add-batch-pool.png" alt-text="Screenshot of the Azure portal showing the Add Pool page, where users can configure settings for a new pool, including identity, operating system, and VM size.":::
+    [ ![Screenshot of the Azure portal showing the Add Pool page, where users can configure settings for a new pool, including identity, operating system, and VM size.](media/add-batch-pool.png) ](media/add-batch-pool.png#lightbox)
 1. Select the User Assigned Managed Identity you created earlier:
-    :::image type="content" source="media/select-user-assigned-identity.png" alt-text="Screenshot of the Azure portal showing the selection of a User Assigned Managed Identity for the Batch pool.":::
+    [ ![Screenshot of the Azure portal showing the selection of a User Assigned Managed Identity for the Batch pool.](media/select-user-assigned-identity.png) ](media/select-user-assigned-identity.png#lightbox)
 1. Select your preferred operating system and VM size. In this demo, we use Ubuntu Server 20.04 LTS:
-    :::image type="content" source="media/select-pool-settings.png" alt-text="Screenshot of the Azure portal showing the VM size selection page for the Batch pool, where users can choose the virtual machine size and configuration for their compute nodes.":::
+    [ ![Screenshot of the VM size selection page for the Batch pool, where users can choose the virtual machine size and configuration for their compute nodes.](media/select-pool-settings.png) ](media/select-pool-settings.png#lightbox)
 1. Enable **Start Task**, set the following **Command line**: `bash -c "apt-get update && apt-get install jq python3-pip -y && curl -sL https://aka.ms/InstallAzureCLIDeb | bash"` and set **Elevation level** to **Pool autouser, Admin**:
-    :::image type="content" source="media/start-task-configuration-page.png" alt-text="Screenshot of the Start Task configuration page for a Batch pool. The page includes fields to specify a command line script, elevation level, and other settings for initializing compute nodes.":::
+    [ ![Screenshot of the Start Task configuration page for a Batch pool. The page includes fields to specify a command line script, elevation level, and other settings for initializing compute nodes.](media/start-task-configuration-page.png) ](media/start-task-configuration-page.png#lightbox)
 1. Select **OK** to create the pool.
 
 ## Assign Permissions to the Managed Identity
 
 You need to provide the managed identity access to the GeoCatalog. Go to your GeoCatalog, select on **Access control (IAM)** and select **Add role assignment**:
 
-:::image type="content" source="media/add-role-assignment-page.png" alt-text="Screenshot of the Azure portal showing the Add role assignment page. The page includes fields to select a role, assign access to a user, group, or managed identity, and review the assignment before confirming.":::
+[ ![Screenshot of the Azure portal showing the Add role assignment page. The page includes fields to select a role, assign access to a user, group, or managed identity, and review the assignment before confirming.](media/add-role-assignment-page.png) ](media/add-role-assignment-page.png#lightbox)
 
 Select the appropriate role based on your needs, `GeoCatalog Administrator` or `GeoCatalog Reader`, and select **Next**:
 
-:::image type="content" source="media/select-role.png" alt-text="Screenshot of the Azure portal showing the Select role page. The page includes a dropdown menu to choose a role, such as GeoCatalog Administrator or GeoCatalog Reader, and a button to proceed to the next step.":::
+[ ![Screenshot of the Azure portal showing the Select role page. The page includes a dropdown menu to choose a role, such as GeoCatalog Administrator or GeoCatalog Reader, and a button to proceed to the next step.](media/select-role.png) ](media/select-role.png#lightbox)
 
 Select the managed identity you created and then select **Review + assign**.
 
-:::image type="content" source="media/select-review-assign.png" alt-text="Screenshot of the Azure portal showing the Select identity page. The page includes a list of available managed identities, allowing users to choose the identity they want to assign to the Batch pool.":::
+[ ![Screenshot of the Azure portal showing the Select identity page. The page includes a list of available managed identities, allowing users to choose the identity they want to assign to the Batch pool.](media/select-review-assign.png) ](media/select-review-assign.png#lightbox)
 
 ## Prepare the Batch Job
 
