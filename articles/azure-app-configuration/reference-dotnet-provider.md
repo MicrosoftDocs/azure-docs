@@ -159,7 +159,7 @@ You can create JSON key-values in App Configuration. For more information, go to
 
 ### Load specific key-values using selectors
 
-By default, the configuration provider will load all key-values with no label from the App Configuration. You can selectively load key-values from your App Configuration store by calling `Select` method on `AzureAppConfigurationOptions`.
+By default, the configuration provider loads all key-values with no label from the App Configuration. You can selectively load key-values from your App Configuration store by calling `Select` method on `AzureAppConfigurationOptions`.
 
 ```csharp
 builder.AddAzureAppConfiguration(options =>
@@ -181,7 +181,7 @@ The `Select` method takes two parameters, the first parameter is a key filter th
 
 The key filter parameter determines which configuration keys to include:
 
-- **Exact match**: Using a specific string will match only keys that exactly match the filter.
+- **Exact match**: Using a specific string matches only keys that exactly match the filter.
 - **Prefix match**: Adding an asterisk (`*`) at the end creates a prefix filter (e.g., `App:Settings:*` loads all keys starting with "App:Settings:").
 - **Multiple key selection**: Using a comma (`,`) allows selection of multiple explicit keys (e.g., `Key1,Key2,Key3`).
 - **Reserved characters**: The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in key names (e.g. the key filter `a\\b\,\*c*` returns all key-values whose key starts with `a\b,*c`.).
@@ -191,7 +191,7 @@ The key filter parameter determines which configuration keys to include:
 
 #### Label filter
 
-The label filter parameter selects key-values with a specific label. If not specified, the built-in `LabelFilter.Null` will be used.
+The label filter parameter selects key-values with a specific label. If not specified, the built-in `LabelFilter.Null` is used.
 
 > [!NOTE]
 > The characters asterisk (`*`) and comma (`,`), are not supported for label filter. Backslash (`\`) character is reserved and must be escaped using another backslash (`\`).
@@ -313,7 +313,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 builder.Services.AddAzureAppConfiguration();
 ```
 
-The `builder.Services.AddAzureAppConfiguration()` add the `IConfigurationRefreshProvider` service to the DI container. It will give you the access to the refreshers of all Azure App Configuration sources in the application's configuration.
+`builder.Services.AddAzureAppConfiguration()` adds the `IConfigurationRefreshProvider` service to the DI container, which gives you access to the refreshers of all Azure App Configuration sources in the application's configuration.
 
 ```csharp
 public class Worker : BackgroundService
@@ -347,12 +347,12 @@ You can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to use the
 dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
 ```
 
-The middleware will call the `TryRefreshAsync` method on the registered `IConfigurationRefresher` when there are new incoming requests to your application.
+The middleware calls the `TryRefreshAsync` method on the registered `IConfigurationRefresher` when there are new incoming requests to your application.
 
 ```csharp
 var app = builder.Build();
 
-// Call the app.UseAzureAppConfiguration() method as early as appropriate in your request pipeline so another middleware won't skip it
+// Call the app.UseAzureAppConfiguration() method as early as appropriate in your request pipeline so another middleware doesn't skip it
 app.UseAzureAppConfiguration();
 
 // Continue with other middleware registration
@@ -362,11 +362,11 @@ app.UseRouting();
 ```
 
 > [!NOTE] 
-> Even if the refresh call fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling refresh is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+> Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling refresh is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
 ### Refresh on sentinel key
 
-A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
+A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider monitors the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
 
 This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
 
@@ -405,11 +405,11 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 });
 ```
 
-Inside the `UseFeatureFlags` method, you call the `Select` method to selectively load feature flags. You can use [key filter](#key-filter) and [label filter](#label-filter) to select the feature flags you want to load. If no `Select` method is called, `UseFeatureFlags` will load all feature flags with no label by default.
+Inside the `UseFeatureFlags` method, you call the `Select` method to selectively load feature flags. You can use [key filter](#key-filter) and [label filter](#label-filter) to select the feature flags you want to load. If no `Select` method is called, `UseFeatureFlags` loads all feature flags with no label by default.
 
-Different from key-values, feature flags will be automatically registered for refresh without requiring explicit `ConfigureRefresh` call. You can specify the minimum time between feature flag refreshes through the `SetRefreshInterval` method. The default refresh interval is 30 seconds.
+Different from key-values, feature flags are automatically registered for refresh without requiring explicit `ConfigureRefresh` call. You can specify the minimum time between feature flag refreshes through the `SetRefreshInterval` method. The default refresh interval is 30 seconds.
 
-### Feature Management
+### Feature management
 
 Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in conjunction with the configuration provider library. Install the [`Microsoft.FeatureManagement`](./feature-management-dotnet-reference.md) package:
 
@@ -468,7 +468,7 @@ For more information about how to use the feature management library, go to the 
 
 Azure App Configuration supports referencing secrets stored in Azure Key Vault. In App Configuration, you can create keys that map to secrets stored in Key Vault. The secrets are securely stored in Key Vault, but can be accessed like any other configuration once loaded.
 
-The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client will connect to Key Vault to retrieve their values for your application. 
+The configuration provider library retrieves Key Vault references, just as it does for any other keys stored in App Configuration. Because the client recognizes the keys as Key Vault references, they have a unique content-type, and the client connects to Key Vault to retrieve their values for your application. 
 
 ### Connect to Key Vault
 
@@ -480,7 +480,7 @@ using Azure.Security.KeyVault.Secrets;
 
 ...
 
-SecretClient secretClient = new SecretClient(new Uri(vaultUri), new DefaultAzureCredential());
+var secretClient = new SecretClient(new Uri(vaultUri), new DefaultAzureCredential());
 
 builder.Configuration.AddAzureAppConfiguration(options =>
 {
@@ -495,9 +495,11 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 });
 ```
 
-You can also call `SetSecretResolver` to add a custom secret resolver which will be used when no registered `SecretClient` is available or the provided credential fails to authenticate to Key Vault. This method accepts a delegate function that resolves a Key Vault URI to a secret value. The following example demostrates using a secret resolver to retrieve secret from environment variables in development.
+You can also call `SetSecretResolver` to add a custom secret resolver which is used when no registered `SecretClient` is available or the provided credential fails to authenticate to Key Vault. This method accepts a delegate function that resolves a Key Vault URI to a secret value. The following example demostrates using a secret resolver to retrieve secret from environment variables in development and use fallback value when fail to get secret from the Key Vault.
 
 ```csharp
+var secretClient = new SecretClient(new Uri(vaultUri), new DefaultAzureCredential());
+
 builder.Configuration.AddAzureAppConfiguration(options =>
 {
     options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())  
@@ -508,21 +510,30 @@ builder.Configuration.AddAzureAppConfiguration(options =>
             {                
                 if (builder.Environment.IsDevelopment())
                 {
-                    return Environment.GetEnvironmentVariable("KeyVaultSecret");
+                    return Environment.GetEnvironmentVariable("FALLBACK_SECRET_VALUE");
                 }
 
-                var secretClient = new SecretClient(
-                    new Uri(secretUri.GetLeftPart(UriPartial.Authority)),
-                    new ManagedIdentityCredential());
-                var secret = await secretClient.GetSecretAsync(secretName);
-                return secret.Value;
+                try 
+                {
+                    var secret = await secretClient.GetSecretAsync(secretName);
+                    return secret.Value;
+                }
+                catch (Exception ex)
+                {
+                    logger.LogWarning($"Failed to retrieve secret from {secretUri}: {ex.Message}");
+                    
+                    return Environment.GetEnvironmentVariable("FALLBACK_SECRET_VALUE");
+                }
             });
         });
 });
 ```
 
 > [!IMPORTANT]
-> If your application loads key-values containing Key Vault references without proper Key Vault configuration, an exception will be thrown at startup. Ensure you've properly configured Key Vault access or secret resolver.
+> If your application loads key-values containing Key Vault references without proper Key Vault configuration, an **exception** will be thrown at startup. Ensure you've properly configured Key Vault access or secret resolver.
+
+> [!TIP]
+> You can use a custom secret resolver to handle cases where Key Vault references are accidentally added to your App Configuration store. The resolver can provide fallback values, log warnings, or gracefully handle missing proper credential to access Key Vault instead of throwing exceptions.
 
 ### Key Vault secret refresh
 
@@ -565,7 +576,7 @@ You can call `SelectSnapshot` to load key-values from a snapshot.
 builder.Configuration.AddAzureAppConfiguration(options =>
 {
     options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential());
-    // Select an existing snapshot by name. This will add all of the key-values from the snapshot to this application's configuration.
+    // Select an existing snapshot by name. This adds all of the key-values and feature flags from the snapshot to this application's configuration.
     options.SelectSnapshot("SnapshotName");
 });
 ```
