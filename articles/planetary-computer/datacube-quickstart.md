@@ -32,7 +32,7 @@ The initiation of the ingestion process for data cube data, and other data types
 
 ### Configure a data cube collection
 
-Configuration of your data cube collection is another step that will look slightly different from that of other data types. You can follow the steps described in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md) to configure your data cube collection, but you'll need to be aware of the following differences when building your Render Configuration:
+Configuration of your data cube collection is another step that will look slightly different from that of other data types. You can follow the steps described in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-web-interface.md) to configure your data cube collection, but you'll need to be aware of the following differences when building your Render Configuration:
 
 #### Render configuration for NetCDF and HDF5 assets
 

@@ -169,6 +169,6 @@ Now that you added a few items, you should configure the data for visualization.
 ## Related Items
 
 - [Ingest data into GeoCatalog with the Bulk Ingestion API](./bulk-ingestion-api.md)
-- [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md)
+- [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-web-interface.md)
 - [Ingest data into Microsoft Planetary Computer Pro](./ingestion-overview.md)
 - [Ingestion source for Microsoft Planetary Computer Pro](./ingestion-source.md)

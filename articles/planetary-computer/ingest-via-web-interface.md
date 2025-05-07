@@ -1,5 +1,5 @@
 ---
-title: Data Ingestion Using Web Interface in Microsoft Planetary Computer Pro
+title: Data ingestion using web interface in Microsoft Planetary Computer Pro
 description: Learn how to ingest data into your collection using the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris
@@ -23,7 +23,7 @@ Before using this quickstart, you need:
   - A geospatial dataset in a supported format. See [Supported data types](./supported-data-types.md) for more information.
   - Associated STAC metadata for the dataset. See [Create STAC Item](./create-stac-item.md) for more information.
 - A web browser to access the Planetary Computer Pro web interface.
-- A collection created using the [Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md) or the [Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md).
+- A collection created using the [Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md) or the [Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-stac-collection.md).
 
 ## Configure your ingestion source
 
@@ -73,4 +73,4 @@ Now that you have configured an ingestion source, refer to the following steps t
 Once you have ingested data, it's time to configure the STAC Collection so you can visualize your data in the Explorer. 
 
 > [!div class="nextstepaction"]
-> [Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
+> [Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-web-interface.md)

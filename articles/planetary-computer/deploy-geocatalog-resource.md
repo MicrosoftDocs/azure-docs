@@ -74,7 +74,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
    :::image type="content" source="media/geocatalog-deployment-complete.png" alt-text="Screenshot of the Your deployment is complete page in the Azure portal.":::
 
 ## Next Steps
-- [Create a STAC Collection](./create-collection-ui.md)
+- [Create a STAC Collection](./create-collection-web-interface.md)
 - [Create a STAC Collection from the API](./create-stac-collection.md)
 - [Manage Access to your GeoCatalog resource](./manage-access.md)
 - [Assign a user-assigned managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)
@@ -118,7 +118,7 @@ This article describes two methods for deploying an Planetary Computer Pro GeoCa
    :::image type="content" source="media/show-hidden-roles.png" alt-text="Screenshot of GeoCatalog instance in the Azure portal under the specified resource group.":::
 
 ## Next Steps
-- [Create a STAC Collection](./create-collection-ui.md)
+- [Create a STAC Collection](./create-collection-web-interface.md)
 - [Create a STAC Collection from the API](./create-stac-collection.md)
 - [Manage Access to your GeoCatalog resource](./manage-access.md)
 - [Assign a user-assigned managed identity to a GeoCatalog resource](./assign-managed-identity-geocatalog-resource.md)

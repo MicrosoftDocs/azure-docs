@@ -226,5 +226,5 @@ A status code of `204` indicates that your Collection was deleted.
 
 ## Related content
 
-- [Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md)
+- [Quickstart: Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md)
 - [Configure your collection for visualization in the Explorer](./collection-config-concept.md)

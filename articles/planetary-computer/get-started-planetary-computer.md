@@ -22,9 +22,9 @@ Microsoft Planetary Computer Pro is an Azure cloud service for storing, catalogi
 | Get Started                     | Deeper Dive                                   |
 |-------------------------------------|-----------------------------------------|
 | [Deploy a GeoCatalog Resource in your Azure Subscription](#deploy-a-geocatalog-resource-in-your-azure-subscription) | [Quickstart: Deploy a GeoCatalog Resource](./deploy-geocatalog-resource.md)            |
-| [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | [Create a STAC Collection to organize your data](./create-collection-ui.md)                |
+| [Create a STAC Collection to organize your data](#create-a-stac-collection-to-organize-your-data) | [Create a STAC Collection to organize your data](./create-collection-web-interface.md)                |
 | [Ingest Data into a STAC Collection](#ingest-data-into-a-stac-collection) | [Concept: Ingestion](./ingestion-overview.md)      |
-| [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-ui.md)  |
+| [Configure Your STAC Collection for Visualization](#configure-your-stac-collection-for-visualization) | [Concept: STAC Collection Configuration & Visualization](./configure-collection-web-interface.md)  |
 | [Connect and Build Applications with your Data](#connect-and-build-applications-with-your-data) | [Connect and Build Applications with Your Data](./build-applications-with-planetary-computer-pro.md) |
 
 ## Deploy a GeoCatalog Resource in your Azure Subscription
@@ -51,7 +51,7 @@ To create a new STAC Collection, open the GeoCatalog web interface by clicking o
 
 :::image type="content" source="media/create-collection-button.png" alt-text="Screenshot of the Create collection button in the GeoCatalog web interface.":::
 
-More details setting up your STAC collection can be found in the [Create Collection from the Web Interface](./create-collection-ui.md) and [Create Collection from the API](./create-stac-collection.md) quickstarts. 
+More details setting up your STAC collection can be found in the [Create Collection from the Web Interface](./create-collection-web-interface.md) and [Create Collection from the API](./create-stac-collection.md) quickstarts. 
 
 ## Ingest Data into a STAC Collection
 
@@ -97,7 +97,7 @@ Planetary Computer Pro's Tiler service [requires configuration](./collection-con
 
 Once data has been ingested, it's available for use in [applications inside and outside of Microsoft Planetary Computer Pro](./build-applications-with-planetary-computer-pro.md). 
 
-Data that is [configured for visualization](./configure-collection-ui.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
+Data that is [configured for visualization](./configure-collection-web-interface.md) can be searched and viewed through the [Data Explorer tab](./use-explorer.md).  
 
 :::image type="content" source="media/explorer-link.png" alt-text="Screenshot showing where the Data Explorer tab is.":::
 

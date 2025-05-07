@@ -240,7 +240,7 @@ Once you construct your render configuration list (one or more JSON objects), ad
 
 :::image type="content" source="media/renderconfig_webgui.png" alt-text="Screenshot of the render configuration web GUI displaying options for setting up render configurations.":::
 
-For more information on configuring collections, see [Configure a collection with the web interface](./configure-collection-ui.md). 
+For more information on configuring collections, see [Configure a collection with the web interface](./configure-collection-web-interface.md). 
 
 **Using the API:**
 
@@ -390,7 +390,7 @@ The `options` string accepts the following key-value pairs (refer to [TiTiler do
 
 ## Related content
 
-- [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
+- [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-web-interface.md)
 - [Mosaic configurations for collections](./mosaic-configurations-for-collections.md)
 - [Tile settings for collections](./tile-settings.md)
 - [Queryables for custom search filters](./queryables-for-explorer-custom-search-filter.md)

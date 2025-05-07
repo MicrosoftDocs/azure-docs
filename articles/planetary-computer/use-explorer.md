@@ -1,5 +1,5 @@
 ---
-title: Use Explorer in Microsoft Planetary Computer Pro
+title: Use the Explorer in Microsoft Planetary Computer Pro
 description: This quickstart provides guidance on how to interact with the Microsoft Planetary Computer Pro Explorer.
 author: beharris
 ms.author: brentharris
@@ -20,11 +20,11 @@ In this Quickstart, you learn how to interact with the Microsoft Planetary Compu
 * A collection with:
   * Item assets defined in the collection's JSON. Learn how to [create a collection](./create-stac-collection.md).
   * SpatioTemporal Access Catalog (STAC) items ingested. Learn how to [ingest STAC items](./ingestion-source.md).
-  * A collection configuration defined for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
+  * A collection configuration defined for visualization per the guidelines provided in [Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-web-interface.md)
 
 ## Open the Microsoft Planetary Computer Pro web interface
 
-Open the Microsoft Planetary Computer Pro web interface by following the instructions in [Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md).
+Open the Microsoft Planetary Computer Pro web interface by following the instructions in [Create a collection with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md).
 
 ## Launch the Planetary Computer Pro Explorer
 

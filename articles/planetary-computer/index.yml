@@ -62,7 +62,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a STAC collection (Web Interface)
-            url: create-collection-ui.md
+            url: create-collection-web-interface.md
           - text: Create a STAC collection (API)
             url: create-stac-collection.md
   
@@ -86,7 +86,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Ingest data using the Web Interface
-            url: ingest-via-ui.md
+            url: ingest-via-web-interface.md
           - text: Add a STAC Item to a collection
             url: add-stac-item-to-collection.md
           - text: Bulk Ingest data
@@ -102,7 +102,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Configure Collections for Visualization
-            url: configure-collection-ui.md
+            url: configure-collection-web-interface.md
       - linkListType: concept
         links:
           - text: Mosaic Configuration

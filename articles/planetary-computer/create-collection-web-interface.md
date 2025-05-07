@@ -1,5 +1,5 @@
 ---
-title: Creating Collections via UI in Microsoft Planetary Computer Pro
+title: Creating collections via web interface in Microsoft Planetary Computer Pro
 description: Learn how to create collections in the Microsoft Planetary Computer Pro web interface. 
 author: beharris
 ms.author: brentharris
@@ -70,16 +70,16 @@ The **Explorer** page is where you can visualize your data on a map. Here, you c
 | `assets`        |                      | A dictionary of asset objects for your collection, each with unique keys. |
 | `item_assets`   | [**Required for Visualization**](./render-configuration.md#step-1-define-item_assets-in-your-collection-json)                     | A dictionary of assets that can be found in member items.                   |
 
-3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-config-concept.md).
+3. Once the JSON is complete, select the **Create** button to create your collection. This selection takes you to the **Overview** tab of your collection, where you can view and edit your collection's metadata, manage your data ingestions, and [configure your collection for visualization in the Explorer](./collection-configuration-concept.md).
 :::image type="content" source="./media/collection-overview.jpeg" alt-text="Screenshot of Collection overview page.":::
 
 ## Next steps
 Now that you have a collection, you can now ingest data into it. 
 
 > [!div class="nextstepaction"]
-> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md)
+> [Quickstart: Ingesting data in the Microsoft Planetary Computer Pro web interface](./ingest-via-web-interface.md)
 
 ## Related Content
 
 - [Quickstart: Create a STAC collection with Microsoft Planetary Computer Pro GeoCatalog using Python](./create-stac-collection.md)
-- [Configure your collection for visualization in the Explorer](./collection-config-concept.md)
+- [Configure your collection for visualization in the Explorer](./collection-configuration-concept.md)

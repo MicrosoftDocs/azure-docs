@@ -654,7 +654,7 @@ print(f"STAC Collection deleted: {collection_id}")
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a STAC Collection through the web interface](./create-collection-ui.md)
+> [Create a STAC Collection through the web interface](./create-collection-web-interface.md)
 
 ## Related content
 In this end-to-end tutorial, you walked through the process of creating a new STAC collection, ingesting Sentinel-2 images into the collection, and querying those images via GeoCatalog's APIs. If you would like to learn more about each of these topics, explore these other materials:

@@ -1,7 +1,7 @@
 ---
-title: Collection Configuration Guide for Microsoft Planetary Computer Pro
+title: Collection configuration guide for Microsoft Planetary Computer Pro
 description: "This article describes collection configuration in Microsoft Planetary Computer Pro."
-author: brentharris
+author: beharris
 ms.author: brentharris
 ms.service: azure
 ms.topic: concept-article #Don't change.
@@ -45,10 +45,10 @@ For examples and more information on how to use queryables, see [Quickstart: Que
 Here's a quickstart guide to configuring collections:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-ui.md)
+> [Quickstart: Configure a collection with the Microsoft Planetary Computer Pro web interface](./configure-collection-web-interface.md)
 
 
 ## Related content
 
-- [Quickstart: Create collections with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md)
+- [Quickstart: Create collections with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md)
 - [STAC in Microsoft Planetary Computer Pro](./stac-overview.md)

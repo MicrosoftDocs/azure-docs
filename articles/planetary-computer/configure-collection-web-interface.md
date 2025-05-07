@@ -1,5 +1,5 @@
 ---
-title: Configure Collections for Visualization in Microsoft Planetary Computer Pro
+title: Configure collections for visualization in Microsoft Planetary Computer Pro
 description: Learn how to configure collections in the Microsoft Planetary Computer Pro portal. 
 author: beharris
 ms.author: brentharris

@@ -342,6 +342,6 @@ Now that you added a few items, you should configure the data for visualization.
 ## Related content
 
 - [Quickstart: Ingest a Single STAC Item into a Collection in a Microsoft Planetary Computer Pro GeoCatalog](./add-stac-item-to-collection.md)
-- [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-ui.md)
+- [Quickstart: Ingest data using the Microsoft Planetary Computer Pro web interface](./ingest-via-web-interface.md)
 - [Ingest data into Microsoft Planetary Computer Pro](./ingestion-overview.md)
 - [Ingestion source for Microsoft Planetary Computer Pro](./ingestion-source.md)

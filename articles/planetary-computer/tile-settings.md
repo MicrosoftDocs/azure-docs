@@ -16,7 +16,7 @@ In this article, see where to find and modify tile settings for Microsoft Planet
 
 ## Prerequisites
 
-- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-ui.md)
+- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-web-interface.md)
 
 ## Find tile settings
 

@@ -22,7 +22,7 @@ Each SpatioTemporal Asset Catalog (STAC) Collection contains a set of STAC Items
 
 ## Prerequisites
 
-- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-ui.md)
+- You have a [STAC collection with Microsoft Planetary Computer Pro GeoCatalog](./create-collection-web-interface.md)
 
 ## What is a Queryable?
 

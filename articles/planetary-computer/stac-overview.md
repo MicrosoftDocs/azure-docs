@@ -290,5 +290,5 @@ The Planetary Computer Pro's APIs conform to the [STAC API specification](https:
 
 ## Related content
 
-- [Create a STAC Collection with the Microsoft Planetary Computer Pro web interface](./create-collection-ui.md)
+- [Create a STAC Collection with the Microsoft Planetary Computer Pro web interface](./create-collection-web-interface.md)
 - [Create a STAC Item in Microsoft Planetary Computer Pro](./create-stac-item.md)
