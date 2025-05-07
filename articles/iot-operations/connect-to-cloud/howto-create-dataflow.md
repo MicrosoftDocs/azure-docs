@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/03/2025
+ms.date: 05/07/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -54,7 +54,9 @@ You can deploy data flows as soon as you have an instance of [Azure IoT Operatio
 
 ### Data flow profile
 
-If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. To learn how to configure a new data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
+If you don't need different scaling settings for your data flows, use the [default data flow profile](./howto-configure-dataflow-profile.md#default-data-flow-profile) provided by Azure IoT Operations. You should avoid associating too many data flows with a single data flow profile. If you have a large number of data flows, create multiple data flow profiles to reduce the risk of exceeding the data flow configuration size limit.
+
+To learn how to configure a new data flow profile, see [Configure data flow profiles](howto-configure-dataflow-profile.md).
 
 ### Data flow endpoints
 
