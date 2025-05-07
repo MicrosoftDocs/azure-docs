@@ -111,7 +111,7 @@ If any failures occur, report the <MISE_CID>, <CORRELATION_ID>, status code, and
 
 1. Validate the provisioning and detailed status for the CM and Cluster.
    
-   Login to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
+   Log in to Azure CLI and select or set the `<CUSTOMER_SUB_ID>`:
    ```  
    az login
    az account set --subscription <CUSTOMER_SUB_ID>
