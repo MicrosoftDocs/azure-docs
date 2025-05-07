@@ -11,9 +11,9 @@ ms.subservice: confidential-computing
 ---
 # Trusted computing base
 
-Trusted computing base (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered critical. If one component inside the TCB is compromised, the entire system's security might be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
+*Trusted computing base* (TCB) refers to all of a system's hardware, firmware, and software components that provide a secure environment. The components inside the TCB are considered critical. If one component inside the TCB is compromised, the entire system's security might be jeopardized. A lower TCB means higher security. There's less risk of exposure to various vulnerabilities, malware, attacks, and malicious people.
 
-The following diagram shows what's "inside" and "outside" of the TCB. The workload and data that the customer operator manages is inside the TCB. The elements managed by the cloud provider (Azure) are outside of the TCB.
+The following diagram shows what's inside and outside the TCB. The workload and data that the customer operator manages is inside the TCB. The elements managed by the cloud provider (Azure) are outside the TCB.
 
 :::image type="content" source="./media/trusted-compute-base/azure-confidential-computing-zero-trust-architecture.jpg" alt-text="Diagram that shows the trusted computing base concept.":::
 
@@ -23,7 +23,7 @@ The root of trust is the hardware that's trusted to attest (validate) that the c
 
 ## Confidential computing workload
 
-The customer workload, encapsulated inside a Trusted Execution Environment (TEE), includes the parts of the solution that are fully under control and trusted by the customer. The confidential computing workload is opaque to everything outside of the TCB by using encryption.
+The customer workload, encapsulated inside a Trusted Execution Environment (TEE), includes the parts of the solution that are fully under control and trusted by the customer. The confidential computing workload is opaque to everything outside the TCB by using encryption.
 
 ## Host OS, hypervisor, BIOS, and device drivers
 
@@ -35,7 +35,7 @@ Depending on the confidential computing technology in use, the TCB can vary to m
 
 Confidential virtual machines (CVMs) that use the AMD SEV-SNP (and, in future, Intel Trust Domain Extensions) technologies can run an entire VM inside the TEE to support rehosting scenarios of existing workloads. In this case, the guest OS is also inside the TCB.
 
-Container compute offerings are built on CVMs. They offer various TCB scenarios from whole Azure Kubernetes Service nodes to individual containers when Azure Container Instances are used.
+Container compute offerings are built on CVMs. They offer various TCB scenarios from whole Azure Kubernetes Service nodes to individual containers when Azure Container Instances is used.
 
 Intel Software Guard Extensions (SGX) can offer the most granular TCB definition down to individual code functions, but it requires applications to be developed by using specific SDKs to use confidential capabilities.
 
