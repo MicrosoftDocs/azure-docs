@@ -12,9 +12,11 @@ ms.date: 04/24/2025
 
 # Collection configuration in Microsoft Planetary Computer Pro
 
+To visualize your data in the Microsoft Planetary Computer Pro Explorer, you must first configure your collection. This configuration allows users to filter and save collection subsets that match specific attribute values, create and display of custom visualizations of data within a collection, set default zoom levels for better navigation, and define searchable attributes and valid data types for improved data management.
+
 ## Collection configuration
 
-To visualize your data in the Microsoft Planetary Computer Pro Explorer, you must first configure your collection. This configuration allows users to filter and save collection subsets that match specific attribute values. It enables the creation and display of custom visualizations of data within a collection. Users can set default zoom levels for better navigation. Additionally, it defines searchable attributes and valid data types for improved data management. Collections are configured using json forms in the UI that operate on various parameters described in [SpatioTemporal Asset Catalog (STAC) items](./stac-overview.md#introduction-to-stac-items). Collection configuration features include Mosaic, Render, Tile Settings, and Queryables. 
+Collections are configured using json forms in the UI that operate on various parameters described in [SpatioTemporal Asset Catalog (STAC) items](./stac-overview.md#introduction-to-stac-items). Collection configuration features include Mosaic, Render, Tile Settings, and Queryables. 
 
 ### Mosaic
 
