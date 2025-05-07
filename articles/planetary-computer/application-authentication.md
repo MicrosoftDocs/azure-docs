@@ -77,7 +77,7 @@ The following is an example of how to configure MPC Pro RBAC to grant "GeoCatalo
 
 1. Select on **Add role Assignment** and then select **GeoCatalog Administrator** under "Job function roles"
 
-    :::image type="content" source="media/RBAC_role_assigment.png" alt-text="Screenshot of the role assignment selection in the Azure portal.":::
+    :::image type="content" source="media/RBAC_role_assignment.png" alt-text="Screenshot of the role assignment selection in the Azure portal.":::
 
 1. Select the **Next** button and then select radio button of **Managed identity**
 

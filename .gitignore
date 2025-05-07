@@ -40,3 +40,4 @@ articles/planetary-computer/check_orphaned_docs.py
 # Python cache files
 *.pyc
 __pycache__/
+articles/planetary-computer/interesting_stats.py

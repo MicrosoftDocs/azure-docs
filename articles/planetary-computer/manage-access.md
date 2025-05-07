@@ -46,7 +46,7 @@ You can use the Azure portal to assign RBAC roles to MPC Pro users. This section
 1. Select **Add** > **Add role Assignment**. 
 1. Select **GeoCatalog Administrator** from the list of **Job function roles**, and then select the **Next** button at the bottom of the page:
 
-    :::image type="content" source="media/RBAC_role_assigment.png" alt-text="Screenshot showing the RBAC role assignment options in the Azure portal.":::
+    :::image type="content" source="media/RBAC_role_assignment.png" alt-text="Screenshot showing the RBAC role assignment options in the Azure portal.":::
 
 1. Select the radio button of **User, group, or service principal**:
 
