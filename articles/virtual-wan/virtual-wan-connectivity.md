@@ -23,25 +23,27 @@ Because the virtual network gateway ASN is always 65515, you can't have BGP over
 This option is ideal if you want to connect two virtual WANs using virtual network gateways. However, it has the following limitations:
 
 - No BGP support.
-- Max throughput per tunnel is 2.4 Gbps, depending on ciphers (you can add more tunnels to achieve higher throughput).
+- Max throughput per tunnel is 2.3 Gbps, depending on ciphers. For more information, see [What is the max throughput supported in a single tunnel?](virtual-wan-faq.md#packets)
 
-## IPsec tunnels using SD-WAN devices
+## IPsec tunnels using SD-WAN NVAs in virtual hubs
 
-This option is good for you if you use your own SD-WAN network virtual appliance (NVA) to connect your Virtual WAN to on-premises environments. By using an SD-WAN NVA in each respective virtual hub to connect virtual WANs, you can run BGP over IPsec for these connections.
+If you're already using SD-WAN network virtual appliances (NVAs) to connect your Virtual WANs to on-premises environments, you can also use them to interconnect Virtual WANs. By deploying an SD-WAN NVA in each Virtual WAN hub, you can run BGP over IPsec between virtual hubs.
 
-In this scenario, you must replace 65520 and 65515 ASNs with the SD-WAN ones to avoid BGP loop prevention. The approach is similar to the first connectivity option, except here you have the ability to perform BGP manipulation on third-party devices, unlike the Azure virtual network gateways.
+In this scenario, you must replace ASNs 65520 and 65515 with the ones used by your SD-WAN to avoid BGP loop prevention. This approach is similar to the first connectivity option, but here you have the flexibility to perform BGP manipulation on third-party appliances.
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-sdwan-nva.png" alt-text="Diagram shows virtual WAN connectivity using SD-WAN devices in the virtual hubs." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-sdwan-nva.png":::
 
 This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs. However, it comes with the following limitations:
 
-- Only certain SD-WAN NVAs can be deployed into Virtual WAN hubs.
+- Only certain SD-WAN NVAs can be deployed into Virtual WAN hubs. For more information, see [NVAs in a Virtual WAN hub](about-nva-hub.md).
 - SD-WAN NVAs can't be combined with other NVAs in Virtual WAN hubs.
 - SD-WAN NVAs can be more expensive than virtual network gateways.
 
-## IPsec tunnels using SD-WAN devices in peered spokes
+## IPsec tunnels using SD-WAN NVAs in peered spokes
 
-This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network that is peered to the virtual hub, rather than placing it in the virtual hub. This scenario allows you to configure BGP peering between the SD-WAN NVA and the virtual hub route server. This approach is suitable for scenarios where users have SD-WAN NVAs that can't be deployed into Virtual WAN hubs, but still support BGP. Like in the second option, you must replace 65520 and 65515 ASNs with the SD-WAN ones to avoid BGP loop prevention.
+This option is similar to the previous one, except you place the SD-WAN NVA in a spoke virtual network that is peered to the virtual hub, rather than deploying it in the virtual hub. This setup allows you to configure BGP peering between the SD-WAN NVA and the virtual hub route server.
+
+This approach is suitable for scenarios where SD-WAN NVAs can't be deployed into Virtual WAN hubs but still support BGP. As in the second option, you must replace ASNs 65520 and 65515 with those used by your SD-WAN to avoid BGP loop prevention.
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png" alt-text="Diagram shows virtual WAN connectivity using SD-WAN devices in spoke virtual networks." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-spoke-sdwan.png":::
 
