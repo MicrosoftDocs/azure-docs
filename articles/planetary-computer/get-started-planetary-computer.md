@@ -39,7 +39,7 @@ Full details of the deployment process are available in the [Deploy GeoCatalog Q
 
 Once the service is deployed, access to the GeoCatalog resource can be controlled through the **Access control (IAM)** tab in the left sidebar:
 
-:::image type="content" source="media/RBAC_IAM_blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.":::
+:::image type="content" source="media/role-based-access-control-identity-access-management-blade.png" alt-text="Screenshot of the Access control (IAM) tab in the Azure portal, showing options to manage role assignments.":::
 
 More details on the **GeoCatalog Administrator** and **GeoCatalog Reader** roles are available in [Manage Access](./manage-access.md) documentation.
 
