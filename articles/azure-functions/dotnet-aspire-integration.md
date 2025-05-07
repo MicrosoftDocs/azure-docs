@@ -84,7 +84,7 @@ To get the most out of the integration, consider the following guidelines:
 
 ## <a name = "connection-configuration-with-aspire"></a>Connection configuration with .NET Aspire
 
-The app host project defines resources and helps you create connections between them by using code. This section shows how to configure and customize connections that your Azure Functions project will use.
+The app host project defines resources and helps you create connections between them by using code. This section shows how to configure and customize connections that your Azure Functions project uses.
 
 .NET Aspire includes default connection permissions that can help you get started. However, these permissions might not be appropriate or sufficient for your application.
 
