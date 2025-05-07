@@ -2,7 +2,7 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 03/25/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -48,6 +48,8 @@ And when you right-click a JSON file:
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu-json.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for JSON ARM templates.":::
 
 To learn more about the commands in this article, see [Bicep CLI commands](./bicep-cli.md).
+
+In addition to the Bicep commands, you can also use the built-in VS Code commands, such as `Format Documents`, or <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd>.
 
 ### Build ARM Template command
 

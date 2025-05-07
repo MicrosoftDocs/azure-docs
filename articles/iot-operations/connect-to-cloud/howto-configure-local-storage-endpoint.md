@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 04/03/2025
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage data flow endpoint so that I can create a data flow.
@@ -27,7 +27,7 @@ To send data to local storage in Azure IoT Operations, you can configure a data 
 
 Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the operations experience, select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Local Storage** > **New**.

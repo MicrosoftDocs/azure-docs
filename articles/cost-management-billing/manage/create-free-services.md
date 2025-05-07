@@ -1,7 +1,7 @@
 ---
 title: Create free services with Azure free account
 description: Learn how to create services included with Azure free account. You can create these services in any region where they're available.
-author: bandersmsft
+author: shrutis06
 ms.reviewer: shrshett
 ms.service: cost-management-billing
 ms.subservice: billing

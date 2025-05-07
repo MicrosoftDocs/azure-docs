@@ -10,9 +10,9 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create an instance - Portal
+  - name: Create a workspace - Portal
     href: quickstart-managed-grafana-portal.md
-  - name: Create an instance - Azure CLI
+  - name: Create a workspace - Azure CLI
     href: quickstart-managed-grafana-cli.md
 - name: Tutorial
   expanded: true
@@ -102,8 +102,12 @@ items:
     href: grafana-settings.md
   - name: Upgrade to Grafana 11
     href: how-to-upgrade-grafana-11.md   
-  - name: Troubleshoot common issues
-    href: troubleshoot-managed-grafana.md 
+  - name: Troubleshoot issues  
+    items:
+    - name: Troubleshoot common issues
+      href: troubleshoot-managed-grafana.md
+    - name: Troubleshoot connecting managed private endpoint to a private link service
+      href: troubleshoot-mpe-connection.md
 - name: Reference
   items:
   - name: Azure CLI

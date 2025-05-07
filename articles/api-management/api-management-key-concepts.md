@@ -136,7 +136,7 @@ API Management integrates with many complementary Azure services to create enter
 * **[Azure Monitor](api-management-howto-use-azure-monitor.md)** for logging, reporting, and alerting on management operations, systems events, and API requests​
 * **[Application Insights](api-management-howto-app-insights.md)** for live metrics, end-to-end tracing, and troubleshooting
 * **[Virtual networks](virtual-network-concepts.md)**, **[private endpoints](private-endpoint.md)**, **[Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)**, and **[Azure Front Door](front-door-api-management.md)** for network-level protection​
-* **[Azure Defender for APIs](protect-with-defender-for-apis.md)** and **[Azure DDoS Protection](protect-with-ddos-protection.md)** for runtime protection against malicious attacks​
+* **[Microsoft Defender for APIs](protect-with-defender-for-apis.md)** and **[Azure DDoS Protection](protect-with-ddos-protection.md)** for runtime protection against malicious attacks​
 * **Microsoft Entra ID** for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * **[Event Hubs](api-management-howto-log-event-hubs.md)** for streaming events​
 * **[Azure Redis](api-management-howto-cache-external.md)** for caching responses​ with Azure Cache for Redis or Azure Managed Redis​
@@ -146,7 +146,7 @@ API Management integrates with many complementary Azure services to create enter
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 * [Landing zone accelerator](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
-* [GenAI gateway capabilities in API Management](genai-gateway-capabilities.md)
+* [AI gateway capabilities in API Management](genai-gateway-capabilities.md)
 * [Synchronize APIs to API Center from API Management](../api-center/synchronize-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
 
 ## Key concepts

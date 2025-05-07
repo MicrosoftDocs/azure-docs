@@ -7,18 +7,18 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: abell
-ms.date: 07/17/2024
+ms.date: 03/17/2025
 ---
 
 # QuickStart: Create and configure Azure DDoS Network Protection using ARM template
 
-This QuickStart describes how to use an Azure Resource Manager template (ARM template) to create a distributed denial of service (DDoS) protection plan and virtual network (VNet), then enables the protection plan for the VNet. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
+This QuickStart describes how to use an Azure Resource Manager template (ARM template) to create a distributed denial of service (DDoS) protection plan and virtual network, then enables the protection plan for the virtual network. An Azure DDoS Network Protection plan defines a set of virtual networks that have DDoS protection enabled across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions to the same plan.
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json":::
 
@@ -39,13 +39,13 @@ The template defines two resources:
 
 ## Deploy the template
 
-In this example, the template creates a new resource group, a DDoS protection plan, and a VNet.
+In this example, the template creates a new resource group, a DDoS protection plan, and a virtual network.
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** button.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fcreate-and-enable-ddos-protection-plans%2Fazuredeploy.json":::
 
-1. Enter the values to create a new resource group, DDoS protection plan, and VNet name.
+1. Enter the values to create a new resource group, DDoS protection plan, and virtual network name.
 
     :::image type="content" source="media/manage-ddos-protection-template/ddos-template.png" alt-text="DDoS quickstart template.":::
 
@@ -53,10 +53,10 @@ In this example, the template creates a new resource group, a DDoS protection pl
     - **Resource group**: Select an existing resource group or create a new resource group.
     - **Region**: The region where the resource group is deployed, such as East US.
     - **Ddos Protection Plan Name**: The name of for the new DDoS protection plan.
-    - **Virtual Network Name**: Creates a name for the new VNet.
+    - **Virtual Network Name**: Creates a name for the new virtual network.
     - **Location**: Function that uses the same region as the resource group for resource deployment.
-    - **Vnet Address Prefix**: Use the default value or enter your VNet address.
-    - **Subnet Prefix**: Use the default value or enter your VNet subnet.
+    - **Vnet Address Prefix**: Use the default value or enter your virtual network address.
+    - **Subnet Prefix**: Use the default value or enter your virtual network subnet.
     - **Ddos Protection Plan Enabled**: Default is `true` to enable the DDoS protection plan.
 
 1. Select **Review + create**.
@@ -124,7 +124,7 @@ VirtualNetworks   : [
 
 ## Clean up resources
 
-When you're finished you can delete the resources. The command deletes the resource group and all the resources it contains.
+When you're finished, you can delete the resources. The command deletes the resource group and all the resources it contains.
 
 # [CLI](#tab/CLI)
 
@@ -139,6 +139,9 @@ Remove-AzResourceGroup -Name 'MyResourceGroup'
 ```
 
 ---
+
+> [!NOTE]
+> To delete a DDoS protection plan, first dissociate all virtual networks from it.
 
 ## Next steps
 

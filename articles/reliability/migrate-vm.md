@@ -3,7 +3,7 @@ title: Migrate Azure Virtual Machines and Azure Virtual Machine Scale Sets to av
 description: Learn how to migrate your Azure Virtual Machines and Virtual Machine Scale Sets to availability zone support.
 author: faister
 ms.service: azure-virtual-machines
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/21/2023
 ms.author: anaharris 
 ms.reviewer: anaharris
@@ -30,7 +30,7 @@ To migrate to availability zone support, your VM SKUs must be available across t
 
 - Use PowerShell to [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability).
 - Use the Azure CLI to [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability).
-- Go to [Azure services with availability zone support](availability-zones-service-support.md#compute).
+- Go to [Azure services with availability zone support](availability-zones-service-support.md).
 
 ## Downtime requirements
 

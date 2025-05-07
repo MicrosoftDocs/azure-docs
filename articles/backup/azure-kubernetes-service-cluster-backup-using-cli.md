@@ -214,6 +214,23 @@ Once the vault and policy creation are complete, you need to perform the followi
    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $akscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
    ```
 
+  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting thw storage account with the virtual network in which the AKS cluster resides.
+
+  ```azurecli
+  #Fetch the Subnet ID using the name of the virtual network and subnet in which cluster resides 
+  $PESubnetId = az network vnet subnet show --resource-group $aksMCResourceGroup --vnet-name $aksVnetName  --name $PESubnetName --query 'id' --output tsv
+
+  #Create a Private Endpoint between Storage Account and the Virtual Network.
+  az network private-endpoint create `
+    --resource-group $aksclusterresourcegroup `
+    --name $StoragePrivateEndpoint `
+    --vnet-name $aksVnetName `
+    --subnet $PESubnetId `
+    --private-connection-resource-id $(az storage account show --nameD $storageaccount --resource-group $storageaccountresourcegroup --query "id" --output tsv) `
+    --group-ids "blob" `
+    --connection-name "StoragePESharedVNetConnection"
+  ```
+
    As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Blob Data Contributor** role. To assign the required role, run the following command:
 
    ```azurecli

@@ -4,7 +4,7 @@ description: Learn how to use PREDICT functionality in serverless Apache Spark p
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: whhender, garye
+
 ms.date: 11/02/2021
 author: nelgson
 ms.author: negust

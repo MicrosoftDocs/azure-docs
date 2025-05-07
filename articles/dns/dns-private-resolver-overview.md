@@ -125,6 +125,7 @@ Outbound endpoints have the following limitations:
 
 ### Other restrictions
 
+- Linking rulesets cross-tenant is not supported.
 - IPv6 enabled subnets aren't supported.
 - DNS private resolver doesn't support Azure ExpressRoute FastPath.
 - DNS private resolver isn't compatible with [Azure Lighthouse](/azure/lighthouse/overview).

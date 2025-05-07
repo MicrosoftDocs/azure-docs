@@ -58,7 +58,7 @@ All requests from client applications first reach the API gateway, which then fo
 The API gateway:
   
   * Accepts API calls and routes them to configured backends
-  * Verifies API keys, JWT tokens, certificates, and other credentials
+  * Verifies API keys, JWTs, certificates, and other credentials
   * Enforces usage quotas and rate limits
   * Optionally transforms requests and responses as specified in [policy statements](#policies)
   * If configured, caches responses to improve response latency and minimize the load on backend services

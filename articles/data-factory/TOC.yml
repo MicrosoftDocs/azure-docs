@@ -699,6 +699,8 @@ items:
       href: transform-data-using-custom-activity.md
     - name: Databricks Jar activity
       href: transform-data-databricks-jar.md
+    - name: Databricks Job activity
+      href: transform-data-databricks-job.md
       displayName: data bricks
     - name: Databricks Notebook activity
       href: transform-data-databricks-notebook.md
@@ -1267,6 +1269,9 @@ items:
       - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
         href: connector-troubleshoot-sap.md
         displayName: troubleshooting
+      - name: ServiceNow
+        href: connector-troubleshoot-servicenow.md
+        displayName: troubleshooting
       - name: SharePoint Online list
         href: connector-troubleshoot-sharepoint-online-list.md
         displayName: troubleshooting
@@ -1404,6 +1409,8 @@ items:
       href: connector-deprecation-plan.md
     - name: Connector upgrade FAQ
       href: connector-deprecation-frequently-asked-questions.md
+    - name: Connector upgrade advisor
+      href: connector-upgrade-advisor.md
   - name: Whitepapers
     href: whitepapers.md
   - name: FAQ
