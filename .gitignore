@@ -43,3 +43,4 @@ __pycache__/
 articles/planetary-computer/interesting_stats.py
 articles/planetary-computer/locate_text.py
 articles/planetary-computer/image_syntax_checker.py
+articles/planetary-computer/image-file-fixer.py
