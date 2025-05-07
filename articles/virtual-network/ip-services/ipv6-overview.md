@@ -4,7 +4,7 @@ description: IPv6 description of IPv6 endpoints and data paths in an Azure virtu
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
+ms.date: 10/16/2024
 ms.service: azure-virtual-network
 ms.topic: concept-article
 ---
@@ -95,7 +95,7 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported, each NIC must include at least one IPv4 IP configuration. 
 
-- To add IPv6 to existing IPv4 deployments, you can't add IPv6 ranges to a virtual network that has existing resource navigation links.
+- To add IPv6 to existing IPv4 deployments, you can't add IPv6 ranges to a virtual network that has existing resource in use.
 
 - While it's possible to create NSG rules for IPv4 and IPv6 within the same NSG, it isn't currently possible to combine an IPv4 subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
 
@@ -108,6 +108,8 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 - Azure Route Server currently [supports IPv4 traffic only](../../route-server/route-server-faq.md#does-azure-route-server-support-ipv6).
 
 - Azure Firewall doesn't currently support IPv6. It can operate in a dual stack virtual network using only IPv4, but the firewall subnet must be IPv4-only.
+
+- Azure Database for PostgreSQL - Flexible Server doesn't currently support IPv6. Even if the subnet for the Postgres Flexible Server doesn't have any IPv6 addresses assigned, it cannot be deployed if there are IPv6 addresses in the VNet.
 
 ## Pricing
 

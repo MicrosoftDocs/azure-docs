@@ -12,13 +12,13 @@ To  restore from vaulted blob backup, run the following commands:
 1. Fetch the backup instance for which you want to perform the restore.
 
     ```azurepowershell-interactive
-    $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "c3d3eb0c-9ba7-4d4c-828e-cb6874714034" -ResourceGroupName "StorageRG" -VaultName "contosobackupvault" -Name “abc”
+    $instance = Get-AzDataProtectionBackupInstance -SubscriptionId "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" -ResourceGroupName "StorageRG" -VaultName "contosobackupvault" -Name “abc”
     ```
 
 2. Fetch the recovery point you want to use for restoring the data.
 
     ```azurepowershell-interactive
-    $rp = Get-AzDataProtectionRecoveryPoint -SubscriptionId "c3d3eb0c-9ba7-4d4c-828e-cb6874714034" -ResourceGroupName "StorageRG" -VaultName "contosobackupvault" -BackupInstanceName $instance.Name
+    $rp = Get-AzDataProtectionRecoveryPoint -SubscriptionId "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" -ResourceGroupName "StorageRG" -VaultName "contosobackupvault" -BackupInstanceName $instance.Name
     ```
 
 3. Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.dataprotection/initialize-azdataprotectionrestorerequest) command to prepare the restore request with all the relevant details. The target resource ID is the ARM ID of the alternate storage account where the contents should be restored.

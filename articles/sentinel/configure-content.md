@@ -1,11 +1,14 @@
 ---
 title: Configure Microsoft Sentinel content
 description: In this step of your deployment, you configure the Microsoft Sentinel security content, like your data connectors, analytics rules, automation rules, and more.
-author: limwainstein
+author: cwatson-cat
 ms.topic: how-to
 ms.date: 07/05/2023
-ms.author: lwainstein
-#Customer intent: As a SOC analyst, I want to configure the Microsoft Sentinel security content, so I can protect my organization against threats.
+ms.author: cwatson
+
+
+#Customer intent: As a security engineer, I want to configure Microsoft Sentinel security content so that analysts can detect, monitor, and respond to security threats effectively.
+
 ---
 
 # Configure Microsoft Sentinel content

@@ -2,8 +2,8 @@
 title: Set the preferred application group type for a pooled host pool in Azure Virtual Desktop
 description: Learn how to set the preferred application group type for a pooled host pool.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 06/10/2024
 ---
 
@@ -75,7 +75,7 @@ Here's how to set the preferred application group type for a host pool using the
    $preferredAppGroupType | FT Name, PreferredAppGroupType
    ```
 
-   The output is similar to the following output:
+   The output is similar to the following example:
 
    ```output
    Name          PreferredAppGroupType
@@ -116,7 +116,7 @@ Here's how to set the preferred application group type for a host pool using the
        --output table
    ```
 
-   The output is similar to the following output:
+   The output is similar to the following example:
 
    ```output
    Name          PreferredAppGroupType

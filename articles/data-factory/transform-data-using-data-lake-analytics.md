@@ -6,7 +6,8 @@ ms.author: abnarain
 author: nabhishek
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Process data by running U-SQL scripts on Azure Data Lake Analytics with Azure Data Factory and Synapse Analytics

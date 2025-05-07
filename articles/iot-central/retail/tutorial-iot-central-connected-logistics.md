@@ -3,7 +3,7 @@ title: Tutorial of IoT Connected logistics
 description: Learn how to deploy and use an IoT Central connected logistics application from an application template
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: tutorial
 ms.date: 06/13/2024
 

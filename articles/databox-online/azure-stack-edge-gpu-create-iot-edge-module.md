@@ -4,8 +4,7 @@ description: Learn how to develop a C# IoT Edge module that can be deployed on y
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 03/05/2021
 ms.author: alkohli
@@ -242,7 +241,7 @@ Create a C# solution template that you can customize with your own code.
 
 In the previous section, you created an IoT Edge solution and added code to the FileCopyModule to copy files from local share to the cloud share. Now you need to build the solution as a container image and push it to your container registry.
 
-1. In VSCode, go to Terminal > New Terminal to open a new Visual Studio Code integrated terminal.
+1. In VS Code, go to Terminal > New Terminal to open a new Visual Studio Code integrated terminal.
 2. Sign in to Docker by entering the following command in the integrated terminal.
 
     `docker login <ACR login server> -u <ACR username>`

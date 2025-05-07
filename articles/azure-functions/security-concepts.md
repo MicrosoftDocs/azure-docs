@@ -80,7 +80,7 @@ As with any application or service, the goal is to run your function app with th
 
 Functions supports built-in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
-Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. You also need the Contributor role along with the [Monitoring Reader permission](../azure-monitor/roles-permissions-security.md#monitoring-reader) to be able to view log data in Application Insights. Only the Owner role can delete a function app.  
+Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. You also need the Contributor role along with the [Monitoring Reader permission](/azure/azure-monitor/roles-permissions-security#monitoring-reader) to be able to view log data in Application Insights. Only the Owner role can delete a function app.  
 
 #### Organize functions by privilege 
 

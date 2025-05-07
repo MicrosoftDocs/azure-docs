@@ -3,8 +3,8 @@ title: Runbook execution in Azure Automation
 description: This article provides an overview of the processing of runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/27/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
 ms.custom:
 ms.service: azure-automation
 ---
@@ -48,11 +48,11 @@ The following table lists some runbook execution tasks with the recommended exec
 |Integrate with Azure resources|Azure Sandbox|Hosted in Azure, authentication is simpler. If you're using a Hybrid Runbook Worker on an Azure VM, you can [use runbook authentication with managed identities](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Obtain optimal performance to manage Azure resources|Azure Sandbox|Script is run in the same environment, which has less latency.|
 |Minimize operational costs|Azure Sandbox|There's no compute overhead and no need for a VM.|
-|Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Execute long-running script|Hybrid Runbook Worker|Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits).|
 |Interact with local services|Hybrid Runbook Worker|Directly access the host machine, or resources in other cloud environments or the on-premises environment. |
 |Require third-party software and executables|Hybrid Runbook Worker|You manage the operating system and can install software.|
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](./automation-scenario-using-watcher-task.md) on a Hybrid Runbook Worker.|
-|Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
+|Run a resource-intensive script|Hybrid Runbook Worker| Azure sandboxes have [resource limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits).|
 |Use modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> WinSCP - dependency on winscp.exe </br> IIS administration - dependency on enabling or managing IIS|
 |Install a module with an installer|Hybrid Runbook Worker|Modules for sandbox must support copying.|
 |Use runbooks or modules that require .NET Framework version different from 4.7.2|Hybrid Runbook Worker|Azure sandboxes support .NET Framework 4.7.2, and upgrading to a different version isn't supported.|
@@ -86,18 +86,18 @@ A runbook requires appropriate [credentials](shared-resources/credentials.md) to
 
 ## Azure Monitor
 
-Azure Automation makes use of [Azure Monitor](../azure-monitor/overview.md) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md).
+Azure Automation makes use of [Azure Monitor](/azure/azure-monitor/overview) for monitoring its machine operations. The operations require a Log Analytics workspace and a [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent).
 
 ### Log Analytics agent for Windows
 
-The [Log Analytics agent for Windows](../azure-monitor/agents/agent-windows.md) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
+The [Log Analytics agent for Windows](/azure/azure-monitor/agents/agent-windows) works with Azure Monitor to manage Windows VMs and physical computers. The machines can be running either in Azure or in a non-Azure environment, such as a local datacenter.
 
 >[!NOTE]
 >The Log Analytics agent for Windows was previously known as the Microsoft Monitoring Agent (MMA).
 
 ### Log Analytics agent for Linux
 
-The [Log Analytics agent for Linux](../azure-monitor/agents/agent-linux.md) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
+The [Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux) works similarly to the agent for Windows, but connects Linux computers to Azure Monitor. The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
 
 The Log Analytics agent log is located at `/var/opt/microsoft/omsagent/log/omsagent.log`.
 
@@ -227,7 +227,7 @@ External services, for example, Azure DevOps Services and GitHub, can start a ru
 
 To share resources among all runbooks in the cloud, Azure uses a concept called fair share. Using fair share, Azure temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status becomes Stopped.
 
-For long-running Azure Automation tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
+For long-running Azure Automation tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the three-hour fair share limit, you should develop runbooks to run on the workers that support restarts from unexpected local infrastructure issues.
 
 Another option is to optimize a runbook by using child runbooks. For example, your runbook might loop through the same function on several resources, for example, with a database operation on several databases. You can move this function to a [child runbook](automation-child-runbooks.md) and have your runbook call it using [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook). Child runbooks execute in parallel in separate processes.
 

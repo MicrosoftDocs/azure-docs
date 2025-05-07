@@ -1,0 +1,194 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/kinect-dk/index.yml",
+            "redirect_url": "/previous-versions/azure/kinect-dk/index",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/about-azure-kinect-dk.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/about-azure-kinect-dk",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/about-sensor-sdk.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/about-sensor-sdk",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/access-data-body-frame.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/access-data-body-frame",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/access-mics.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/access-mics",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/add-library-to-project.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/add-library-to-project",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/azure-kinect-firmware-tool.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/azure-kinect-firmware-tool",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/azure-kinect-recorder.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/azure-kinect-recorder",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/azure-kinect-viewer.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/azure-kinect-viewer",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/body-index-map.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/body-index-map",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/body-joints.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/body-joints",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/body-sdk-download.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/body-sdk-download",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/body-sdk-setup.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/body-sdk-setup",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/build-first-app.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/build-first-app",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/build-first-body-app.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/build-first-body-app",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/capture-device-synchronization.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/capture-device-synchronization",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/coordinate-systems.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/coordinate-systems",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/depth-camera.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/depth-camera",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/find-then-open-device.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/find-then-open-device",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/get-body-tracking-results.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/get-body-tracking-results",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/hardware-specification.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/hardware-specification",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/multi-camera-sync.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/multi-camera-sync",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/record-external-synchronized-units.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/record-external-synchronized-units",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/record-file-format.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/record-file-format",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/record-playback-api.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/record-playback-api",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/record-sensor-streams-file.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/record-sensor-streams-file",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/reset-azure-kinect-dk.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/reset-azure-kinect-dk",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/retrieve-images.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/retrieve-images",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/retrieve-imu-samples.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/retrieve-imu-samples",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/sensor-sdk-download.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/sensor-sdk-download",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/set-up-azure-kinect-dk.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/set-up-azure-kinect-dk",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/support.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/support",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/system-requirements.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/system-requirements",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/troubleshooting.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/troubleshooting",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/update-device-firmware.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/update-device-firmware",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/use-calibration-functions.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/use-calibration-functions",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/use-image-transformation.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/use-image-transformation",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/kinect-dk/windows-comparison.md",
+            "redirect_url": "/previous-versions/azure/kinect-dk/windows-comparison",
+            "redirect_document_id": false
+          }
+    ]
+}

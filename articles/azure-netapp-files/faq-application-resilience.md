@@ -2,7 +2,7 @@
 title: Application resilience FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files application resilience.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 12/6/2022
@@ -70,7 +70,7 @@ Boomi recommends that SMB file share is used with Windows VMs; for NFS, Boomi re
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

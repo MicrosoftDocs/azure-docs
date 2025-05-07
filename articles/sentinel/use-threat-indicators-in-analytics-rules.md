@@ -7,10 +7,13 @@ ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-#Customer intent: As an SOC analyst, I want to connect the threat intelligence available to analytics rules so that I can generate alerts and incidents.
+
+
+#Customer intent: As a security analyst, I want to configure analytics rules using threat indicators so that I can automatically generate and investigate security alerts based on integrated threat intelligence from various data sources.
+
 ---
 
 # Use threat indicators in analytics rules

@@ -1,11 +1,12 @@
 ---
 title: Hive Warehouse Connector - Apache Zeppelin using Livy - Azure HDInsight
 description: Learn how to integrate Hive Warehouse Connector with Apache Zeppelin on Azure HDInsight.
-author: reachnijel
-ms.author: nijelsf 
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/27/2023
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
+ms.date: 09/06/2024
 ---
 
 # Integrate Apache Zeppelin with Hive Warehouse Connector in Azure HDInsight

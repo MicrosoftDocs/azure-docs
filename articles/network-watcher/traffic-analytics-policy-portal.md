@@ -27,15 +27,15 @@ To audit your flow logs by using the built-in policy:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results. 
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
+    :::image type="content" source="./media/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/policy-portal-search.png":::
 
 1. Select **Assignments**, then select on **Assign Policy**.
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/assign-policy.png" alt-text="Screenshot of selecting Assign policy button in the Azure portal.":::
+    :::image type="content" source="./media/assign-policy.png" alt-text="Screenshot of selecting Assign policy button in the Azure portal." lightbox="./media/assign-policy.png":::
 
 1. Select the ellipsis **...** next to **Scope** to choose your Azure subscription that has the flow logs that you want the policy to audit. You can also choose the resource group that has the flow logs. After you made your selections, select **Select** button.
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-scope.png":::
+    :::image type="content" source="./media/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/policy-scope.png":::
 
 1. Select the ellipsis **...** next to **Policy definition** to choose the built-in policy that you want to assign. Enter *traffic analytics* in the search box, and select **Built-in** filter. From the search results, select **Network Watcher flow logs should have traffic analytics enabled** and then select **Add**.
 
@@ -77,15 +77,15 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
 
 1. In the search box at the top of the portal, enter *policy*. Select **Policy** from the search results. 
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-portal-search.png" alt-text="Screenshot of searching for policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-portal-search.png":::
+    :::image type="content" source="./media/policy-portal-search.png" alt-text="Screenshot that shows how to search for Azure Policy in the Azure portal." lightbox="./media/policy-portal-search.png":::
 
 1. Select **Assignments**, and then select on **Assign policy**.
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/assign-policy.png" alt-text="Screenshot of selecting Assign policy button in the Azure portal.":::
+    :::image type="content" source="./media/assign-policy.png" alt-text="Screenshot of selecting Assign policy button in the Azure portal." lightbox="./media/assign-policy.png":::
 
 1. Select the ellipsis **...** next to **Scope** to choose your Azure subscription that has the flow logs that you want the policy to audit. You can also choose the resource group that has the flow logs. After you make your selections, choose the **Select** button.
 
-    :::image type="content" source="./media/traffic-analytics-policy-portal/policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/traffic-analytics-policy-portal/policy-scope.png":::
+    :::image type="content" source="./media//policy-scope.png" alt-text="Screenshot of selecting the scope of the policy in the Azure portal." lightbox="./media/policy-scope.png":::
 
 1. Select the ellipsis **...** next to **Policy definition** to choose the built-in policy that you want to assign. Enter *traffic analytics* in the search box, and select the **Built-in** filter. From the search results, select **Configure network security groups to use specific workspace, storage account and flow log retention policy for traffic analytics** and then select **Add**.
 
@@ -143,7 +143,7 @@ To assign any of the *deployIfNotExists* two policies, follow these steps:
 
 ## Troubleshooting
 
-Remediation task fails with `PolicyAuthorizationFailed` error code: sample error example *The policy assignment `/subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/DummyRG/providers/Microsoft.Authorization/policyAssignments/b67334e8770a4afc92e7a929/` resource identity doesn't have the necessary permissions to create deployment.*
+Remediation task fails with `PolicyAuthorizationFailed` error code: sample error example *The policy assignment `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/DummyRG/providers/Microsoft.Authorization/policyAssignments/b67334e8770a4afc92e7a929/` resource identity doesn't have the necessary permissions to create deployment.*
 
 In such scenario, the managed identity must be manually granted access. Go to the appropriate subscription/resource group (containing the resources provided in the policy parameters) and grant contributor access to the managed identity created by the policy.
 

@@ -4,12 +4,12 @@ description: This article discusses the building blocks of an ASP.NET web app th
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication in web apps that call a web API by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to an ASP.NET web application that calls a web API. Learn how to create an ASP.NET Core web application with ASP.NET Core middleware that uses the [OpenID Connect](openid-connect.md) protocol. 
 

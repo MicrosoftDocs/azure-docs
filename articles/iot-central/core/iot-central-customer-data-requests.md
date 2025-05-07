@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/12/2023
 ms.topic: conceptual
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 

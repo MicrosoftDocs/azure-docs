@@ -3,8 +3,8 @@ title: Azure Automation security guidelines, security best practices Automation 
 description: This article helps you with the guidelines that Azure Automation offers to ensure a secured configuration of Automation account, Hybrid Runbook worker role, authentication certificate and identities, network isolation and policies.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 10/03/2023
-ms.topic: conceptual 
+ms.date: 12/03/2024
+ms.topic: overview 
 ms.service: azure-automation
 ---
 
@@ -47,6 +47,8 @@ This section guides you in configuring your Automation account securely.
    Use [Hybrid worker custom roles](./extension-based-hybrid-runbook-worker-install.md?tabs=windows) for users responsible to manage Automation runbooks against Hybrid runbook workers and Hybrid runbook worker groups.
 
 1. [Unregister](./extension-based-hybrid-runbook-worker-install.md?tabs=windows#delete-a-hybrid-runbook-worker) any unused or non-responsive hybrid workers.
+
+1. We strongly recommend that you never configure Hybrid Worker extension on a Virtual machine hosting domain controller. Security best practices don't advise such a setup due to the high-risk nature of exposing domain controllers to potential attack vectors via Azure Automation jobs. Domain controllers should be highly secured and isolated from non-essential services to prevent unauthorized access and maintain the integrity of the Active Directory Domain Services (ADDS) environment.
 
 ### Authentication certificate and identities
 

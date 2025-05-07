@@ -3,6 +3,9 @@ title: Apache Hive View times out from query result - Azure HDInsight
 description: Apache Hive View times out when fetching a query result in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 ---
 

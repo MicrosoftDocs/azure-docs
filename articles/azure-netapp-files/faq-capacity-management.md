@@ -2,7 +2,7 @@
 title: FAQs About Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files capacity management.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 09/01/2022
@@ -48,7 +48,7 @@ When deleting a very large amount of data in a volume (which can include snapsho
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [Performance FAQs](faq-performance.md)

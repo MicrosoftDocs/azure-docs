@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Data Manager for Energy
 description: This tutorial shows you sample steps for performing CSV parser ingestion.
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
 ms.date: 09/19/2022
 ms.custom: template-tutorial
@@ -34,13 +34,13 @@ Before you start this tutorial, complete the following prerequisites.
 
   | Parameter          | Value to use             | Example                               | Where to find this value           |
   | ------------------ | ------------------------ |-------------------------------------- |-------------------------------------- |
-  | `CLIENT_ID`          | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  | You use this app or client ID when registering the application with the Microsoft identity platform. See [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application). |
+  | `CLIENT_ID`          | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  | You use this app or client ID when registering the application with the Microsoft identity platform. See [Register an application](../active-directory/develop/quickstart-register-app.md#register-an-application). |
   | `CLIENT_SECRET`      | Client secrets           |  `_fl******************`                | Sometimes called an *application password*, a client secret is a string value that your app can use in place of a certificate to identity itself. See [Add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret).|
   | `TENANT_ID`          | Directory (tenant) ID    | `72f988bf-86f1-41af-91ab-xxxxxxxxxxxx`  | Hover over your account name in the Azure portal to get the directory or tenant ID. Alternately, search for and select **Microsoft Entra ID** > **Properties** > **Tenant ID** in the Azure portal. |
-  | `SCOPE`              | Application (client) ID  | `3dbbbcc2-f28f-44b6-a5ab-xxxxxxxxxxxx`  | This value is the same as the app or client ID mentioned earlier. |
+  | `SCOPE`              | Application (client) ID  | `00001111-aaaa-2222-bbbb-3333cccc4444`  | This value is the same as the app or client ID mentioned earlier. |
   | `refresh_token`      | Refresh token value      | `0.ATcA01-XWHdJ0ES-qDevC6r...........`  | Follow [How to generate auth token](how-to-generate-auth-token.md) to create a refresh token and save it. You need this refresh token later to generate a user token. |
   | `DNS`                | URI                      | `<instance>.energy.Azure.com`         | Find this value on the overview page of the Azure Data Manager for Energy instance.|
-  | `data-partition-id`  | Data partitions        | `<instance>-<data-partition-name>`  | Find this value on the overview page of the Azure Data Manager for Energy instance.|
+  | `data-partition-id`  | Data partitions        | `<data-partition-id>`  | Find this value on the Data Partitions page of the Azure Data Manager for Energy instance.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 

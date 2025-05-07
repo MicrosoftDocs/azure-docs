@@ -5,6 +5,10 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/31/2024
+
+
+#Customer intent: As a security engineer, I want to connect AWS service logs to Microsoft Sentinel so that analysts can centralize log management and enhance threat detection capabilities.
+
 ---
 
 # Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data
@@ -347,4 +351,3 @@ In this document, you learned how to connect to AWS resources to ingest their lo
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
-

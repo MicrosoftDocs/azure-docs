@@ -2,8 +2,8 @@
 title: Enroll in per-user access pricing for Azure Virtual Desktop
 description: Learn how to enroll your Azure subscription for per-user access pricing for Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 01/08/2024
 ---
 
@@ -14,7 +14,7 @@ Per-user access pricing lets you pay for Azure Virtual Desktop access rights on 
 Before external users can connect to your deployment, you need to enroll your Azure subscriptions that you use for Azure Virtual Desktop in per-user access pricing. Your enrolled subscription is charged each month based on the number of distinct users that connect to Azure Virtual Desktop resources. All Azure subscriptions are applicable, such as those from an [Enterprise Agreement (EA)](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-enterprise-agreement), [Cloud Solution Provider (CSP)](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-cloud-solution-provider), or [Microsoft Customer Agreement](/azure/cloud-adoption-framework/ready/landing-zone/design-area/azure-billing-microsoft-customer-agreement). 
 
 > [!IMPORTANT]
-> Per-user access pricing with Azure Virtual Desktop doesn't currently support Citrix DaaS and VMware Horizon Cloud.
+> Per-user access pricing with Azure Virtual Desktop doesn't currently support Citrix DaaS and Omnissa Horizon Cloud.
 
 ## How to enroll an Azure subscription
 

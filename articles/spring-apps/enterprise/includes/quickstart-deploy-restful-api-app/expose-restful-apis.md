@@ -23,7 +23,7 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID:
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field - for example, *Todo*. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field - for example, **Todo**. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, select **Accounts in any organizational directory (Any Microsoft Entra directory - Multitenant) and personal Microsoft accounts**.
 
@@ -37,13 +37,13 @@ Use the following steps to expose your RESTful APIs in Microsoft Entra ID:
 
 1. Under **Manage**, select **Expose an API** > **Add a scope**, and then enter the following information:
 
-   - For **Scope name**, enter *ToDo.Read*.
+   - For **Scope name**, enter **ToDo.Read**.
    - For **Who can consent**, select **Admins only**.
    - For **Admin consent display name**, enter *Read the ToDo data*.
    - For **Admin consent description**, enter *Allows authenticated users to read the ToDo data.*.
    - For **State**, keep it enabled.
    - Select **Add scope**.
 
-1. Repeat the previous steps to add the other two scopes: *ToDo.Write* and *ToDo.Delete*.
+1. Repeat the previous steps to add the other two scopes: **ToDo.Write** and **ToDo.Delete**.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/expose-an-api.png" alt-text="Screenshot of the Azure portal that shows the Expose an API page of a RESTful API application." lightbox="../../media/quickstart-deploy-restful-api-app/expose-an-api.png":::

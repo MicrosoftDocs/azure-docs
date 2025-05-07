@@ -7,7 +7,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-conten
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/18/2024
+ms.date: 04/29/2025
 ms.author: radeltch
 ---
 
@@ -519,7 +519,7 @@ The following items are prefixed with either:
      Start_Program_01 = local $(_EN) pf=$(_PF)
    
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).
@@ -662,7 +662,6 @@ The following items are prefixed with either:
     sudo pcs resource meta rsc_sap_QAS_ERS01  resource-stickiness=3000
    
     sudo pcs constraint colocation add g-QAS_AERS with g-QAS_ASCS -5000
-    sudo pcs constraint order start g-QAS_ASCS then start g-QAS_AERS kind=Optional symmetrical=false
     sudo pcs constraint order start g-QAS_ASCS then stop g-QAS_AERS kind=Optional symmetrical=false
    
     sudo pcs node unstandby anftstsapcl1

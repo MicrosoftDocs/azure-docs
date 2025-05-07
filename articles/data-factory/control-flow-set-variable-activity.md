@@ -4,11 +4,11 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Set Variable activity to set the value of an existing variable defined in an Azure Data Factory or Azure Synapse Analytics pipeline or to set a pipeline return value. 
 ms.subservice: orchestration
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.topic: conceptual
 author: kromerm
 ms.author: makromer
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ---
 
 # Set Variable Activity in Azure Data Factory and Azure Synapse Analytics

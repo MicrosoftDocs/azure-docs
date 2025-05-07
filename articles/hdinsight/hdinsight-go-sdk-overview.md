@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-go
 ms.devlang: golang
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: hgowrisankar
 ms.date: 07/12/2024
 ---
 
@@ -358,7 +361,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### Enable OMS monitoring
 
 > [!NOTE]  
-> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 To enable OMS Monitoring on your cluster:
 

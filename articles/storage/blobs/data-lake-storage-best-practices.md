@@ -5,8 +5,8 @@ description: Learn how to optimize performance, reduce costs, and secure your Da
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.topic: conceptual
-ms.date: 03/09/2023
+ms.topic: concept-article
+ms.date: 11/15/2024
 ms.author: normesta
 ms.reviewer: sachins
 ---
@@ -71,6 +71,7 @@ The following table summarizes the key settings for several popular ingestion to
 | [DistCp](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)             | -m (mapper)	|
 | [Azure Data Factory](../../data-factory/copy-activity-performance.md) | parallelCopies	|
 | [Sqoop](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)          | fs.azure.block.size, -m (mapper)	|
+| [AzCopy](../common/storage-use-azcopy-optimize.md) | `AZCOPY_CONCURRENCY_VALUE` |
 
 > [!NOTE]
 > The overall performance of your ingest operations depend on other factors that are specific to the tool that you're using to ingest data. For the best up-to-date guidance, see the documentation for each tool that you intend to use.

@@ -6,12 +6,12 @@ description: Provide sign-up and sign-in to customers with eBay accounts in your
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer integrating Azure Active Directory B2C, I want to set up sign-in with eBay as an identity provider, so that users can sign in with their eBay accounts.
@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with an eBay account using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

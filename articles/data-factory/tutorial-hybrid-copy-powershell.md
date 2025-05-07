@@ -5,7 +5,8 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Tutorial: Copy data from a SQL Server database to Azure Blob storage

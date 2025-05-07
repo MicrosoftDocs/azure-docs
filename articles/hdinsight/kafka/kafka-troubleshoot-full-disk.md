@@ -4,8 +4,9 @@ description: Troubleshooting steps for Apache Kafka broker process that can't st
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: yeturis
-ms.author: sairamyeturi 
-ms.date: 09/19/2023
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 09/06/2024
 ---
 
 # Scenario: Brokers are unhealthy or can't restart due to disk space full issue

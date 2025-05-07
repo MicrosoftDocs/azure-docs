@@ -1,12 +1,13 @@
 ---
 title: Manage network policies for private endpoints
 titleSuffix: Azure Private Link
-description: Learn how to manage network policies for private endpoints.
+description: Learn how to enable and manage network policies for Azure private endpoints in an Azure virtual network. 
+# Customer intent: Learn how to manage network policies for private endpoints.
 services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 07/26/2023
+ms.date: 03/25/2025
 ms.author: abell 
 ms.devlang: azurecli
 ms.custom: devx-track-azurepowershell, template-how-to
@@ -18,10 +19,10 @@ By default, network policies are disabled for a subnet in a virtual network. To 
 
 You can enable network policies either for network security groups only, for user-defined routes only, or for both.
 
-If you enable network security policies for user-defined routes, you can use a custom address prefix equal to or larger than the virtual network address space to invalidate the /32 default route propagated by the private endpoint. This capability can be useful if you want to ensure that private endpoint connection requests go through a firewall or virtual appliance. Otherwise, the /32 default route sends traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
+If you enable network security policies for user-defined routes, you can use a custom address prefix length (subnet mask) equal to or larger than the virtual network address space prefix length to override the /32 default route propagated by the private endpoint. This capability can be useful if you want to ensure that private endpoint connection requests go through a firewall or virtual appliance. Otherwise, the /32 default route sends traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 > [!IMPORTANT]
-> To invalidate a private endpoint route, user-defined routes must have a prefix equal to or larger than the virtual network address space where the private endpoint is provisioned. For example, a user-defined routes default route (0.0.0.0/0) doesn't invalidate private endpoint routes. Network policies should be enabled in the subnet that hosts the private endpoint.
+> To override a private endpoint route, user-defined routes must have a prefix size that is equal to or smaller than the virtual network address space where the private endpoint is provisioned. For example, a user-defined routes default route (0.0.0.0/0) won't override private endpoint routes because it covers a broader range than the private endpoint's address space. The longest prefix match rule gives higher priority to more specific address prefixes. Additionally, ensure that network policies are enabled in the subnet hosting the private endpoint.
 
 Use the following steps to enable or disable network policy for private endpoints:
 
@@ -33,6 +34,8 @@ Use the following steps to enable or disable network policy for private endpoint
 The following examples describe how to enable and disable `PrivateEndpointNetworkPolicies` for a virtual network named `myVNet` with a `default` subnet of `10.1.0.0/24` hosted in a resource group named `myResourceGroup`.
 
 ## Enable network policy
+
+Follow these steps to configure Network Security Groups and Route tables for your private endpoints.
 
 # [**Portal**](#tab/network-policy-portal)
 
@@ -46,7 +49,7 @@ The following examples describe how to enable and disable `PrivateEndpointNetwor
 
 1. Select the **default** subnet.
 
-1. In the properties for the **default** subnet, select the checkboxes for **Network Security Groups**, **Route tables**, or both in **NETWORK POLICY FOR PRIVATE ENDPOINTS**.
+1. In the **Edit subnet** pane, under **Network Policy for Private Endpoints**, select the boxes for **Network security groups** or **Route tables** as needed.
 
 1. Select **Save**.
 
@@ -129,7 +132,7 @@ This section describes how to enable subnet private endpoint policies by using a
 
 1. Select the **default** subnet.
 
-1. In the properties for the **default** subnet, select **Disabled** in **NETWORK POLICY FOR PRIVATE ENDPOINTS**.
+1. In the **Edit subnet** pane, under **Network Policy for Private Endpoints**, select the box **Disabled**.
 
 1. Select **Save**.
 
@@ -204,4 +207,11 @@ This section describes how to disable subnet private endpoint policies by using 
 
 ## Next steps
 
-- To learn more, see [What is a private endpoint?](private-endpoint-overview.md).
+In this how-to guide, you enabled and disabled network policies for private endpoints in an Azure virtual network. You learned how to use the Azure portal, Azure PowerShell, Azure CLI, and Azure Resource Manager templates to manage network policies for private endpoints.
+
+
+For more information about the services that support private endpoints, see:
+> [!div class="nextstepaction"]
+> [What is a private endpoint?](private-endpoint-overview.md)
+
+

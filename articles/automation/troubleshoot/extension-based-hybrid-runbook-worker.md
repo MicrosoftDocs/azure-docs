@@ -83,13 +83,25 @@ Jobs fail and go into a suspended state on the Hybrid Runbook Worker. The Micros
 When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership and when user has to elevate permissions, the jobs begin to fail.
 
 #### Resolution
-For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders and registry:
 
-| Folder |Permissions |
+| Folder | Permissions |
 |--- | --- |
 | `C:\ProgramData\AzureConnectedMachineAgent\Tokens` | Read |
 | `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows` | Read and Execute |
 
+| Registry | Permissions |
+|--- | --- |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog` | Read |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Wbem\CIMOM` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorker` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorkerV2` | Full access |
+| `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles` | Full access |
 
 ### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 
@@ -107,7 +119,7 @@ This error can occur due to the following reasons:
 
 #### Resolution
 - Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
-- You can also monitor [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
+- You can also monitor [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
 ### Scenario: Job was suspended as it exceeded the job limit for a Hybrid Worker
 
@@ -124,7 +136,7 @@ Jobs might get suspended due to any of the following reasons:
 #### Resolution
 - If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat. 
 - Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
-- You can also monitor the [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
+- You can also monitor the [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
 ### Scenario: Hybrid Worker deployment fails with Private Link error
 
@@ -159,8 +171,8 @@ You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails 
 You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
 
 ### Resolution
-Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](../../azure-arc/servers/onboard-portal.md)
-for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](../../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal)
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
@@ -396,6 +408,22 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 #### Resolution
 
 Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+
+
+### Scenario: Hybrid Runbook Worker job execution on Azure Arc-enabled Windows server that uses a custom credential is unexpectedly suspended
+
+#### Issue
+
+Runbook jobs executed from an Azure Arc-enabled server that use a custom credential suddenly begin to go into a suspended state.
+
+#### Cause
+
+This is caused by a known issue where folder permissions are removed when the Azure Connected Machine agent is updated. The folder permissions on `C:\ProgramData\AzureConnectedMachineAgent\Tokens` are removed when the Azure Connected Machine agent is updated.
+
+#### Resolution
+
+The current resolution is to reapply the folder permissions to `C:\ProgramData\AzureConnectedMachineAgent\Tokens` when the Azure Connected Machine agent is updated. See [Permissions for Hybrid worker credentials](../extension-based-hybrid-runbook-worker-install.md#permissions-for-hybrid-worker-credentials).
+
 
 ## Next steps
 

@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 10/17/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
@@ -16,8 +16,6 @@ ms.custom: devx-track-azurepowershell
 In this how-to guide, you learn how to create a cross-subscription internal load balancer by connecting a virtual network in a subscription to a load balancer in a different subscription.
 
 A [cross-subscription internal load balancer (ILB)](cross-subscription-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription. 
-
-[!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
 [!INCLUDE [load-balancer-cross-subscription-prerequisites](../../includes/load-balancer-cross-subscription-prerequisites.md)]
 

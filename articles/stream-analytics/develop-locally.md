@@ -21,7 +21,7 @@ The environments in the following table support local development:
 |Environment                              |Description    |
 |-----------------------------------------|------------|
 |[Visual Studio Code](visual-studio-code-explore-jobs.md)| The [Azure Stream Analytics tools extension](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) for Visual Studio Code allows you to author, manage, test your Stream Analytics job both locally and in the cloud with rich IntelliSense and native source control. It supports development on Linux, macOS and Windows. To learn more, see [Create an Azure Stream Analytics job in Visual Studio Code](quick-create-visual-studio-code.md). The extension also supports [Visual Studio Codespaces](https://visualstudio.microsoft.com/services/visual-studio-codespaces/), which is a cloud-hosted dev environment.|
-|[Command prompt or terminal](stream-analytics-tools-for-visual-studio-cicd.md)|The Azure Stream Analytics CI/CD NuGet package provides tools for Visual studio project build, local testing on an arbitrary machine. The Azure Stream Analytics CI/CD npm package provides tools for Visual Studio Code project builds (which generates an Azure Resource Manager template) on an arbitrary machine.|
+|[Command prompt or terminal](stream-analytics-tools-for-visual-studio-cicd.md)|The Azure Stream Analytics CI/CD NuGet package provides tools for Visual Studio project build, local testing on an arbitrary machine. The Azure Stream Analytics CI/CD npm package provides tools for Visual Studio Code project builds (which generates an Azure Resource Manager template) on an arbitrary machine.|
 
 ## Next steps
 

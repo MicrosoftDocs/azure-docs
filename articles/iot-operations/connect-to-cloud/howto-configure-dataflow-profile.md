@@ -1,105 +1,212 @@
 ---
-title: Configure dataflow profile in Azure IoT Operations
-description: How to configure a dataflow profile in Azure IoT Operations to change a dataflow behavior.
+title: Configure data flow profile in Azure IoT Operations
+description: How to configure a data flow profile in Azure IoT Operations to change a data flow behavior.
 author: PatAltimore
 ms.author: patricka
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/03/2024
+ms.date: 04/09/2025
 
-#CustomerIntent: As an operator, I want to understand how to I can configure a a dataflow profile to control a dataflow behavior.
+#CustomerIntent: As an operator, I want to understand how to I can configure a a data flow profile to control a data flow behavior.
 ---
 
-# Configure dataflow profile
+# Configure data flow profile
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-By default, when you deploy Azure IoT Operations, a dataflow profile is created with default settings. You can configure the dataflow profile to suit your needs.
+Data flow profiles can be used to group data flows together so that they share the same configuration. You can create multiple data flow profiles to manage sets of different data flow configurations. 
 
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowProfile
-metadata:
-  name: my-dataflow-profile
-spec:
-  instanceCount: 1
-  tolerations:
-    ...
-  diagnostics:
-    logFormat: text
-    logLevel: info
-    metrics:
-      mode: enabled
-      cacheTimeoutSeconds: 600
-      exportIntervalSeconds: 10
-      prometheusPort: 9600
-      updateIntervalSeconds: 30
-    traces:
-      mode: enabled
-      cacheSizeMegabytes: 16
-      exportIntervalSeconds: 10
-      openTelemetryCollectorAddress: null
-      selfTracing:
-        mode: enabled
-        frequencySeconds: 30
-      spanChannelCapacity: 100
+The most important setting is the instance count. For a given data flow, the instance count determines the number of copies that run on your cluster. For example, you might have a data flow profile with a single instance for development and testing, and another profile with multiple instances for production. Or, you might use a data flow profile with low instance count for low-throughput data flows and a profile with high instance count for high-throughput data flows. Similarly, you can create a data flow profile with different diagnostic settings for debugging purposes.
+
+## Default data flow profile
+
+A data flow profile named *default* is created when Azure IoT Operations is deployed. You can use this data flow profile to get started with Azure IoT Operations.
+
+# [Portal](#tab/portal)
+
+1. To view the default data flow profile, go to your IoT Operations instance in the Azure portal.
+1. In the left pane under **Components**, select **Data flow profiles**.
+1. Select the **default** data flow profile.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/default-profile.png" alt-text="Screenshot of the Azure portal displaying the default data flow profile details, including instance count and configuration options.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+// Pointer to the Azure IoT Operations instance
+resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+  name: aioInstanceName
+}
+
+// Pointer to your custom location where AIO is deployed
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+// Pointer to the default data flow profile
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+  parent: aioInstance
+  name: 'default'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    instanceCount: 1
+  }
+}
 ```
 
-| Field Name                                      | Description                                                                 |
-|-------------------------------------------------|-----------------------------------------------------------------------------|
-| `instanceCount`                                  | Number of instances to spread the dataflow across. Optional; automatically determined if not set. Currently in the preview release, set the value to `1`. |
-| `tolerations`                                   | Node tolerations. Optional; see [Kubernetes Taints and Tolerations](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/). |
-| `diagnostics`                                   | Diagnostics settings.                                                       |
-| `diagnostics.logFormat`                         | Format of the logs. For example, `text`.                                           |
-| `diagnostics.logLevel`                          | Log level. For example, `info`, `debug`, `error`. Optional; defaults to `info`.    |
-| `diagnostics.metrics`                           | Metrics settings.                                                           |
-| `diagnostics.metrics.mode`                      | Mode for metrics. For example, `enabled`.                                          |
-| `diagnostics.metrics.cacheTimeoutSeconds`       | Cache timeout for metrics in seconds.                                       |
-| `diagnostics.metrics.exportIntervalSeconds`     | Export interval for metrics in seconds.                                     |
-| `diagnostics.metrics.prometheusPort`            | Port for Prometheus metrics.                                                |
-| `diagnostics.metrics.updateIntervalSeconds`     | Update interval for metrics in seconds.                                     |
-| `diagnostics.traces`                            | Traces settings.                                                            |
-| `diagnostics.traces.mode`                       | Mode for traces. For example, `enabled`.                                           |
-| `diagnostics.traces.cacheSizeMegabytes`         | Cache size for traces in megabytes.                                         |
-| `diagnostics.traces.exportIntervalSeconds`      | Export interval for traces in seconds.                                      |
-| `diagnostics.traces.openTelemetryCollectorAddress` | Address for the OpenTelemetry collector.                                   |
-| `diagnostics.traces.selfTracing`                | Self-tracing settings.                                                      |
-| `diagnostics.traces.selfTracing.mode`           | Mode for self-tracing. For example, `enabled`.                                     |
-| `diagnostics.traces.selfTracing.frequencySeconds`| Frequency for self-tracing in seconds.                                      |
-| `diagnostics.traces.spanChannelCapacity`        | Capacity of the span channel.                                               |
+# [Kubernetes (preview)](#tab/kubernetes)
 
-## Default settings
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: DataflowProfile
+metadata:
+  name: default
+  namespace: azure-iot-operations
+spec:
+  instanceCount: 1
+```
 
-The default settings for a dataflow profile are:
+---
 
-* Instances: (null)
-* Log level: Info
-* Node tolerations: None
-* Diagnostic settings: None
+Unless you need additional throughput or redundancy, you can use the default data flow profile for your data flows. If you need to adjust the instance count or other settings, you can create a new data flow profile.
+
+## Create a new data flow profile
+
+To create a new data flow profile, specify the name of the profile and the instance count.
+
+> [!IMPORTANT]
+> Data profile name length must be between 1 and 39 characters.
+
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. In the left pane under **Components**, select **Data flow profiles**.
+1. Select **+ Data flow profile** to create a new data flow profile.
+1. In the **Create data flow profile** pane, enter a name for the data flow profile and set the instance count. You can also set other settings such as diagnostics settings.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/create-profile.png" alt-text="Screenshot of the Azure portal displaying the create data flow profile pane, including fields for name, instance count, and configuration options.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+  parent: aioInstance
+  name: '<NAME>'
+  properties: {
+    instanceCount: <COUNT>
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: DataflowProfile
+metadata:
+  name: '<NAME>'
+  namespace: azure-iot-operations
+spec:
+  instanceCount: <COUNT>
+```
+
+---
 
 ## Scaling
 
-To manually scale the dataflow profile, specify the maximum number of instances you want to run.
+You can scale the data flow profile to adjust the number of instances that run the data flows. For a given data flow, instance count is the number of copies that run on your cluster. Increasing the instance count can improve the throughput of the data flows by creating multiple clients to process the data. When using data flows with cloud services that have rate limits per client, increasing the instance count can help you stay within the rate limits.
 
-```yaml
-spec:
-  maxInstances: 3
+Scaling can also improve the resiliency of the data flows by providing redundancy in case of failures.
+
+To manually scale the data flow profile, specify the number of instances you want to run. For example, to set the instance count to 3:
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. In the left pane under **Components**, select **Data flow profiles**.
+1. Select the data flow profile you want to configure.
+1. Use the slider to set the instance count.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/profile-scale.png" alt-text="Screenshot of the Azure portal displaying data flow details and the instance count slider set to 3.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+properties: {
+  instanceCount: 3
+}
 ```
 
-If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
 
-## Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
-
-You can configure other deployment-wide settings such as log level, node tolerations, and diagnostic settings.
+# [Kubernetes (preview)](#tab/kubernetes)
 
 ```yaml
 spec:
-  logLevel: debug
-  tolerations:
-    - key: "node-role.kubernetes.io/edge"
-      operator: "Equal"
-      value: "true"
-      effect: "NoSchedule"
+  instanceCount: 3
+```
+
+---
+
+## Diagnostic settings
+
+You can configure other diagnostics settings for a data flow profile such as log level.
+
+In most cases, the default settings are sufficient. However, you can override the log level or other settings for debugging. 
+
+To learn how to configure these diagnostic settings, see [ProfileDiagnostics](/rest/api/iotoperations/dataflow-profile/create-or-update?#profilediagnostics).
+
+# [Portal](#tab/portal)
+
+1. In the Azure portal, go to your IoT Operations instance.
+1. Under **Components**, select **Data flow profiles**.
+1. Select the data flow profile you want to configure.
+
+    :::image type="content" source="media/howto-configure-dataflow-profile/profile-diagnostics.png" alt-text="Screenshot of the Azure portal displaying data flow details and the log level options listed.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+  parent: aioInstance
+  name: '<NAME>'
+  properties: {
+    instanceCount: 1
+    diagnostics: {
+      {
+        logs: {
+          level: 'debug'
+        }
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes (preview)](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1
+kind: DataflowProfile
+metadata:
+  name: '<NAME>'
+  namespace: azure-iot-operations
+spec:
+  instanceCount: 1
   diagnostics:
-    # ...
+    logs:
+      level: debug
 ```
+
+---
+
+## Next steps
+
+To learn more about data flows, see [Create a data flow](howto-create-dataflow.md).

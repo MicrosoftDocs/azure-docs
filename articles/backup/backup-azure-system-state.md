@@ -1,17 +1,17 @@
 ---
-title: Back up Windows system state to Azure by using Azure Backup
-description: Learn how to back up the system state of Windows Server computers to Azure.
+title: Back up Windows system state to Azure using Azure Backup
+description: Learn how to back up Windows Server system state to Azure using Azure Backup.
 ms.topic: how-to
-ms.date: 02/27/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 02/25/2025
+author: jyothisuri
+ms.author: jsuri
 ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
 
-# Back up Windows system state to Azure
+# Back up Windows system state to Azure using Azure Backup
 
-This article describes how to back up your Windows Server system state to Azure. It's intended to walk you through the basics.
+This article describes how to back up Windows Server system state to Azure using Azure Backup. It's intended to walk you through the basics.
 
 For more information about Azure Backup, see the [overview article](backup-overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
@@ -192,6 +192,6 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Next steps
 
-* Get more details about [backing up Windows machines](backup-windows-with-mars-agent.md).
-* Now that you've backed up your Windows Server System State, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
-* If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
+- [Back up Windows machines](backup-windows-with-mars-agent.md).
+- [Manage vaults and servers](backup-azure-manage-windows-server.md).
+- [Restore files to Windows Server using the MARS Agent](backup-azure-restore-windows-server.md).

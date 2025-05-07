@@ -4,10 +4,9 @@ titleSuffix: Azure Load Balancer
 description: Overview of what is inbound NAT rule, why to use inbound NAT rule, and how to use inbound NAT rule.
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 #Customer intent: As a administrator, I want to create an inbound NAT rule so that I can forward a port to a virtual machine in the backend pool of an Azure Load Balancer.
 ---
 
@@ -27,7 +26,11 @@ There are two types of inbound NAT rule available for Azure Load Balancer, versi
 
 ### Inbound NAT rule V1
 
-Inbound NAT rule V1 is defined for a single target virtual machine. Inbound NAT pools are feature of Inbound NAT rules V1 and automatically creates Inbound NAT rules per VMSS intance. The load balancer's frontend IP address and the selected frontend port are used for connections to the virtual machine.
+Inbound NAT rule V1 is defined for a single target virtual machine. Inbound NAT pools are feature of Inbound NAT rules V1 and automatically creates Inbound NAT rules per VMSS instance. The load balancer's frontend IP address and the selected frontend port are used for connections to the virtual machine.
+
+>[!Important]
+> On September 30, 2027, Inbound NAT rules v1 will be retired. If you are currently using Inbound NAT rules v1, make sure to upgrade to  Inbound NAT rules v2 prior to the retirement date.
+
 
 :::image type="content" source="./media/inbound-nat-rules/inbound-nat-rule.png" alt-text="Diagram of a single virtual machine inbound NAT rule.":::
 

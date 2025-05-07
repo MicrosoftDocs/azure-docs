@@ -6,13 +6,13 @@ author: cherylmc
 ms.service: azure-bastion
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
 
 # Connect to a VM using Bastion and the Windows native client
 
-This article helps you connect to a VM in the VNet using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU or higher.
+This article helps you connect to a VM in the virtual network using the native client (SSH or RDP) on your local Windows computer. The native client feature lets you connect to your target VMs via Bastion using Azure CLI, and expands your sign-in options to include local SSH key pair and Microsoft Entra ID. For more information and steps to configure Bastion for native client connections, see [Configure Bastion for native client connections](native-client.md). Connections via native client require the Bastion Standard SKU or higher.
 
 :::image type="content" source="./media/native-client/native-client-architecture.png" alt-text="Diagram shows a connection via native client." lightbox="./media/native-client/native-client-architecture.png":::
 
@@ -21,8 +21,8 @@ After you've configured Bastion for native client support, you can connect to a 
 * Connect to a Windows VM using **az network bastion rdp**.
 * Connect to a Linux VM using **az network bastion ssh**.
 * Connect to a VM using **az network bastion tunnel**.
-* [Upload and download files](vm-upload-download-native.md#rdp) over RDP.
-* Upload files over SSH using **az network bastion tunnel**.
+* [Transfer files](vm-upload-download-native.md#rdp) over RDP.
+* Transfer files over SSH using **az network bastion tunnel**.
 
 ## <a name="prereq"></a>Prerequisites
 
@@ -139,4 +139,4 @@ az network bastion ssh --name "<BastionName>" --resource-group "<ResourceGroupNa
 
 ## Next steps
 
-[Upload or download files](vm-upload-download-native.md)
+[Transfer files](vm-upload-download-native.md)

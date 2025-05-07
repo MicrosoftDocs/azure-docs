@@ -2,10 +2,10 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 09/30/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Back up SAP HANA databases in Azure VMs
@@ -63,9 +63,12 @@ You can similarly create NSG outbound security rules for Azure Storage and Micro
 
 If you're using Azure Firewall, create an application rule by using the *AzureBackup* [Azure Firewall FQDN tag](../firewall/fqdn-tags.md). This allows all outbound access to Azure Backup.
 
+>[!Note]
+>Azure Backup currently doesn't support the *TLS inspection enabled* **Application Rule** on Azure Firewall.
+
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/details.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 

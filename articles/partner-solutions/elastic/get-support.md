@@ -1,8 +1,8 @@
 ---
 title: Get support for Elastic resource
 description: This article describes how to contact support for an Elastic resource.
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.topic: conceptual
 ms.date: 06/20/2024
 

@@ -18,10 +18,6 @@ You can use [physical](ot-pre-configured-appliances.md) or [virtual](ot-virtual-
 >
 >*Performance values are presented as upper thresholds under the assumption of intermittent traffic profiles, such as those found in OT/IoT systems and machine-to-machine communication networks.*
 
-> [!NOTE]
-> This article also includes information relevant for on-premises management consoles. For more information, see the [Air-gapped OT sensor management deployment path](ot-deploy/air-gapped-deploy.md).
->
-
 ## IT/OT mixed environments
 
 Use the following hardware profiles for high bandwidth corporate IT/OT mixed networks:
@@ -53,14 +49,6 @@ Use the following hardware profiles for production line monitoring, typically in
 > Defender for IoT software versions require a minimum disk size of 100 GB. The L60 hardware profile, which only supports 60 GB of hard disk, has been deprecated.
 >
 > If you have a legacy sensor, such as the L60 hardware profile, you can migrate it to a supported profile can be found by following the [back up and restore a sensor](back-up-restore-sensor.md) process.
-
-## On-premises management console systems
-
-On-premises management consoles allow you to manage and monitor large, multiple-sensor deployments. Use the following hardware profiles for deployment of an on-premises management console:
-
-|Hardware profile  |Max monitored sensors  |Deployment  |
-|---------|---------|---------|
-|E1800    |Up to 300         |Physical / Virtual         |
 
 ## Next steps
 

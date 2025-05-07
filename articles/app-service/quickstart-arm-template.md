@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 02/06/2024
+ms.date: 03/18/2025
 ms.custom: subject-armqs, mode-arm, devdivchpfy22, devx-track-arm-template, linux-related-content
 zone_pivot_groups: app-service-platform-windows-linux-windows-container
 adobe-target: true
@@ -19,7 +19,7 @@ adobe-target-content: ./quickstart-arm-template-uiex
 ::: zone pivot="platform-windows"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-To complete this quickstart, you'll need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
 
 ## Skip to the end
 
@@ -33,7 +33,7 @@ In the Azure portal, select **Create new** to create a new Resource Group and th
 ::: zone pivot="platform-linux"
 Get started with [Azure App Service](overview.md) by deploying an app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. A Resource Manager template is a JavaScript Object Notation (JSON) file that defines the infrastructure and configuration for your project. You incur no costs to complete this quickstart because you use a free App Service tier.
 
-To complete this quickstart, you'll need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
+To complete this quickstart, you need an Azure account with an active subscription. If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/free/).
 
 ## Skip to the end
 
@@ -132,7 +132,7 @@ This template contains several parameters that are predefined for your convenien
 
 Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
-The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
+The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location are set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ::: zone pivot="platform-windows"
 Run the following commands to deploy a .NET framework app on Windows.
@@ -154,15 +154,19 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.web/app-service-docs-linux/azuredeploy.json"
 ```
 
-To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown in the table. To show current versions, run the following command in the Cloud Shell: `az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion`
+To deploy a different language stack, update `linuxFxVersion` with appropriate values. Samples are shown in the table. To show current versions, run the following command in the Cloud Shell:
 
-| Language    | Example                                              |
-|-------------|------------------------------------------------------|
-| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                 |
-| **PHP**     | linuxFxVersion="PHP&#124;7.4"                        |
-| **Node.js** | linuxFxVersion="NODE&#124;10.15"                     |
-| **Java**    | linuxFxVersion="JAVA&#124;1.8 &#124;TOMCAT&#124;9.0" |
-| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                     |
+```azurecli-interactive
+az webapp config show --resource-group myResourceGroup --name <app-name> --query linuxFxVersion
+```
+
+| Language    | Example                                                                            |
+|-------------|------------------------------------------------------------------------------------|
+| **.NET**    | linuxFxVersion="DOTNETCORE&#124;3.0"                                               |
+| **Java**    | linuxFxVersion="JAVA&#124;21-java21 TOMCAT&#124;10.1-java21 JBOSSEAP&#124;8-java17"|
+| **Node.js** | linuxFxVersion="NODE&#124;10.15"                                                   |
+| **Python**  | linuxFxVersion="PYTHON&#124;3.7"                                                   |
+| **PHP**     | linuxFxVersion="PHP&#124;7.4"                                                      |
 
 ---
 ::: zone-end
@@ -206,7 +210,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 > [ASP.NET Core with SQL Database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Python with Postgres](tutorial-python-postgresql-app.md)
+> [Python with Postgres](tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [PHP with MySQL](tutorial-php-mysql-app.md)

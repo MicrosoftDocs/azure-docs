@@ -1,15 +1,15 @@
 ---
-title: "SailPoint IdentityNow (using Azure Function) connector for Microsoft Sentinel"
-description: "Learn how to install the connector SailPoint IdentityNow (using Azure Function) to connect your data source to Microsoft Sentinel."
+title: "SailPoint IdentityNow (using Azure Functions) connector for Microsoft Sentinel"
+description: "Learn how to install the connector SailPoint IdentityNow (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
-ms.date: 04/26/2024
+ms.topic: generated-reference
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
 
-# SailPoint IdentityNow (using Azure Function) connector for Microsoft Sentinel
+# SailPoint IdentityNow (using Azure Functions) connector for Microsoft Sentinel
 
 The [SailPoint](https://www.sailpoint.com/) IdentityNow data connector provides the capability to ingest [SailPoint IdentityNow] search events into Microsoft Sentinel through the REST API. The connector provides customers the ability to extract audit information from their IdentityNow tenant. It is intended to make it even easier to bring IdentityNow user activity and governance events into Microsoft Sentinel to improve insights from your security incident and event monitoring solution.
 
@@ -47,7 +47,7 @@ SailPointIDN_Triggers_CL
 
 ## Prerequisites
 
-To integrate with SailPoint IdentityNow (using Azure Function) make sure you have: 
+To integrate with SailPoint IdentityNow (using Azure Functions) make sure you have: 
 
 - **Microsoft.Web/sites permissions**: Read and write permissions to Azure Functions to create a Function App is required. [See the documentation to learn more about Azure Functions](/azure/azure-functions/).
 - **SailPoint IdentityNow API Authentication Credentials**: TENANT_ID, CLIENT_ID and CLIENT_SECRET are required for authentication.
@@ -95,7 +95,8 @@ Use the following step-by-step instructions to deploy the SailPoint IdentityNow 
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
+> [!NOTE]
+> You will need to [prepare VS Code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure function development.
 
 1. Download the [Azure Function App](https://aka.ms/sentinel-sailpointidentitynow-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -113,7 +114,7 @@ If you're already signed in, go to the next step.
 
 	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. searcheventXXXXX).
 
-	e. **Select a runtime:** Choose Python 3.8.
+	e. **Select a runtime:** Choose Python 3.9.
 
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 

@@ -6,10 +6,13 @@ ms.topic: reference
 ms.date: 04/18/2024
 ms.author: bagol
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer, I want to understand the sorts of use cases where playbooks are recommended, as well as recommended templates, and samples.
+
+
+#Customer intent: As a SOC analyst, I want to use recommended, pre-configured playbooks for incident response and automation so that I can streamline threat detection, investigation, and remediation processes.
+
 ---
 
 # Recommended playbook use cases, templates, and examples

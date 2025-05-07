@@ -2,17 +2,17 @@
 title: "Deploy a Gatsby site to Azure Static Web Apps"
 description: This tutorial shows you how to deploy a Gatsby application to Azure Static Web Apps.
 services: static-web-apps
-author: aaronpowell
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 01/10/2024
-ms.author: aapowell
+ms.author: wujia
 ms.custom:
 ---
 
 # Deploy a Gatsby site to Azure Static Web Apps
 
-This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [Gatsby](https://www.gatsbyjs.com/docs/) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 

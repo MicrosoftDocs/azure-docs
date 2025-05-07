@@ -1,8 +1,8 @@
 ---
 title: Monitoring data reference for Azure Application Gateway
 description: This article contains important reference material you need when you monitor Azure Application Gateway.
-ms.date: 06/17/2024
-ms.custom: horz-monitor,
+ms.date: 03/28/2025
+ms.custom: horz-monitor
 ms.topic: reference
 author: greg-lindsay
 ms.author: greglin
@@ -46,7 +46,7 @@ For Application Gateway v2 SKU, the following metrics are available. What follow
 - **Client TLS protocol**. Count of TLS and non-TLS requests.
 - **Current capacity units**. There are three determinants to capacity unit: compute unit, persistent connections, and throughput. Each capacity unit is composed of at most one compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 - **Current compute units**. Factors affecting compute unit are TLS connections/sec, URL Rewrite computations, and WAF rule processing.
-- **Current connections**. The total number of concurrent connections active from clients to the Application Gateway.
+- **Current connections**. The total number of concurrent connections active from clients to the Application Gateway, including probes for the health of the application gateway's instances.
 - **Estimated Billed Capacity units**. With the v2 SKU, consumption drives the pricing model. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units indicate the number of capacity units using which the billing is estimated. This amount is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
 - **Failed Requests**. This value includes the 5xx codes that are generated from the Application Gateway and the 5xx codes that are generated from the backend. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 - **Fixed Billable Capacity Units**. The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting in the Application Gateway configuration. One instance translates to 10 capacity units.
@@ -296,11 +296,11 @@ For Application Gateway Standard and WAF SKU (v1):
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=aaaa0000-bb11-2222-33cc-444444dddddd&SERVER-STATUS=404",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
@@ -336,6 +336,7 @@ If the application gateway can't complete the request, it stores one of the foll
 | ERRORINFO_UPSTREAM_NO_LIVE | The application gateway is unable to find any active or reachable backend servers to handle incoming requests. |
 | ERRORINFO_UPSTREAM_CLOSED_CONNECTION | The backend server closed the connection unexpectedly or before the request was fully processed. This condition could happen due to backend server reaching its limits, crashing etc. |
 | ERRORINFO_UPSTREAM_TIMED_OUT | The established TCP connection with the server was closed as the connection took longer than the configured timeout value. |
+| ERRORINFO_INVALID_HEADER | Application Gateway detected a partial invalid header and forwarded the remaining header to the backend, which responded with 500. Ensure the client's request header does not contain CR, LF, NULL, or similar characters. Replace such characters with SP (whitespace). |
 
 ### Firewall log category
 
@@ -497,7 +498,7 @@ Application Gateway's Layer 4 proxy provides log data through access logs. These
 
 You can use Azure activity logs to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default. You can view them in the Azure portal. Azure activity logs were formerly known as *operational logs* and *audit logs*.
 
-Azure generates activity logs by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-monitor/essentials/activity-log.md) article.
+Azure generates activity logs by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](/azure/azure-monitor/essentials/activity-log) article.
 
 ## Related content
 

@@ -4,9 +4,9 @@ description: Set up continuous integration and continuous deployment using YAML 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/08/2024
+ms.date: 05/07/2025
 ms.topic: conceptual
-ms.service: iot-edge
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -46,7 +46,7 @@ Unless otherwise specified, the procedures in this article do not explore all th
   >[!TIP]
   >If you're creating a new solution, clone your repository locally first. Then, when you create the solution you can choose to create it directly in the repository folder. You can easily commit and push the new files from there.
 
-* A container registry where you can push module images. You can use [Azure Container Registry](../container-registry/index.yml) or a third-party registry.
+* A container registry where you can push module images. You can use [Azure Container Registry](/azure/container-registry/) or a third-party registry.
 * An active Azure [IoT hub](../iot-hub/iot-hub-create-through-portal.md) with at least two IoT Edge devices for testing the separate test and production deployment stages. You can follow the quickstart articles to create an IoT Edge device on [Linux](quickstart-linux.md) or [Windows](quickstart.md)
 
 For more information about using Azure Repos, see [Share your code with Visual Studio and Azure Repos](/azure/devops/repos/git/share-your-code-in-git-vs).
@@ -114,7 +114,7 @@ In this section, you create a new build pipeline. You configure the pipeline to 
      | Parameter | Description |
      | --- | --- |
      | Source Folder | The source folder to copy from. Empty is the root of the repo. Use variables if files are not in the repo. Example: `$(agent.builddirectory)`.
-     | Contents | Add two lines: `deployment.template.json` and `**/module.json`. |
+     | Contents | Add two lines: `deployment.template.json` and `modules/**/module.json`. |
      | Target Folder | Specify the variable `$(Build.ArtifactStagingDirectory)`. See [Build variables](/azure/devops/pipelines/build/variables?tabs=yaml#build-variables) to learn about the description. |
 
      For more information about this task and its parameters, see [Copy files task](/azure/devops/pipelines/tasks/utility/copy-files).

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 07/25/2024
+ms.date: 11/19/2024
 ms.author: radeltch
 ---
 
@@ -147,7 +147,7 @@ NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. 
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage) offers local, in-zone synchronous data replication.
-* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](../../availability-zones/az-overview.md) in the region.
+* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](../../reliability/availability-zones-overview.md) in the region.
 
 Check if your selected Azure region offers NFSv4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] for **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
@@ -195,7 +195,7 @@ The SAP file systems that don't need to be mounted via NFS can also be deployed 
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-* The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
+* The minimum share size is 100 GiB. You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
 * Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
@@ -578,11 +578,11 @@ The instructions in this section are applicable only if you're using Azure NetAp
     Start_Program_01 = local $(_EN) pf=$(_PF)
     
     # Add the following lines.
-    service/halib = $(DIR_CT_RUN)/saphascriptco.so
+    service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Add the keepalive parameter, if you're using ENSA1.
-    enque/encni/set_so_keepalive = true
+    enque/encni/set_so_keepalive = TRUE
     ```
 
     For Standalone Enqueue Server 1 and 2 (ENSA1 and ENSA2), make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
@@ -597,7 +597,7 @@ The instructions in this section are applicable only if you're using Azure NetAp
     Start_Program_00 = local $(_ER) pf=$(_PFL) NR=$(SCSID)
     
     # Add the following lines.
-    service/halib = $(DIR_CT_RUN)/saphascriptco.so
+    service/halib = $(DIR_EXECUTABLE)/saphascriptco.so
     service/halib_cluster_connector = /usr/bin/sap_suse_cluster_connector
     
     # Remove Autostart from the ERS profile.

@@ -6,12 +6,12 @@ description: Custom policy reference for phone number claims transformations in 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C, I want to understand how to define phone number claims transformations, so that I can convert phone number data types, validate phone number formats, and extract country/region codes and national numbers from phone numbers.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Define phone number claims transformations in Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article provides reference and examples for using the phone number claims transformations in Azure Active Directory B2C (Azure AD B2C) custom policy. For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 

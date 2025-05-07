@@ -28,33 +28,41 @@ All these SKUs are having the following characteristics:
 
 The general purpose and performance optimized VM SKUs can be used for both worker and control plane nodes within the Azure Operator Nexus Kubernetes cluster. Memory optimized VM SKUs can only be used for worker nodes.
 
+> [!NOTE]
+> To use these VM SKUs, hardware compatibility should be considered. Operator Nexus offers two hardware options: BOM 1.7.3 and BOM 2.0 (More details [here](./reference-operator-nexus-skus.md#compute-skus)). The larger VM SKUs, specifically `NC_G56_224_v1`, `NC_P54_224_v1`, and `NC_E110_448_v1`, can only be supported on hardware BOM 2.0.
+> 
+> Nexus Tenant Kubernetes cluster VM SKUs are compatible with BOM 2.0, enabling users to use them alongside the larger VM SKUs. However, if a user tries to use BOM 2.0-specific VM SKUs on BOM 1.7.3 compute hardware, they will encounter an "insufficient resources" error during resource creation.
+
 ## General purpose VM SKUs
 
-| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
-|---------------|----------------|------------|------------------|
-| NC_G48_224_v1 | 48             | 224        | 300              |
-| NC_G36_168_v1 | 36             | 168        | 300              |
-| NC_G24_112_v1 | 24             | 112        | 300              |
-| NC_G12_56_v1  | 12             | 56         | 300              |
-| NC_G6_28_v1   | 6              | 28         | 300              |
-| NC_G2_8_v1    | 2              | 8          | 300              |
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) | Compatible Compute SKUs |
+|---------------|------|--------------|-----------------|---------------------|
+| NC_G56_224_v1 | 56   | 224          | 300             | 2.0             |
+| NC_G48_224_v1 | 48   | 224          | 300             | 1.7.3, 2.0  |
+| NC_G36_168_v1 | 36   | 168          | 300             | 1.7.3, 2.0  |
+| NC_G24_112_v1 | 24   | 112          | 300             | 1.7.3, 2.0  |
+| NC_G12_56_v1  | 12   | 56           | 300             | 1.7.3, 2.0  |
+| NC_G6_28_v1   | 6    | 28           | 300             | 1.7.3, 2.0  |
+| NC_G2_8_v1    | 2    | 8            | 300             | 1.7.3, 2.0  |
 
 ## Performance optimized VM SKUs
 
-| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
-|---------------|----------------|------------|------------------|
-| NC_P46_224_v1 | 46             | 224        | 300              |
-| NC_P34_168_v1 | 34             | 168        | 300              |
-| NC_P22_112_v1 | 22             | 112        | 300              |
-| NC_P10_56_v1  | 10             | 56         | 300              |
-| NC_P4_28_v1   | 4              | 28         | 300              |
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) | Compatible Compute SKUs |
+|---------------|------|--------------|-----------------|---------------------|
+| NC_P54_224_v1 | 54   | 224          | 300             | 2.0             |
+| NC_P46_224_v1 | 46   | 224          | 300             | 1.7.3, 2.0  |
+| NC_P34_168_v1 | 34   | 168          | 300             | 1.7.3, 2.0  |
+| NC_P22_112_v1 | 22   | 112          | 300             | 1.7.3, 2.0  |
+| NC_P10_56_v1  | 10   | 56           | 300             | 1.7.3, 2.0  |
+| NC_P4_28_v1   | 4    | 28           | 300             | 1.7.3, 2.0  |
 
 ## Memory optimized VM SKUs
 
-| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) |
-|---------------|----------------|------------|------------------|
-| NC_E94_448_v1 | 94             | 448        | 300              |
-| NC_E70_336_v1 | 70             | 336        | 300              |
+| VM SKU Name   | vCPU | Memory (GiB) | Root Disk (GiB) | Compatible Compute SKUs |
+|---------------|------|--------------|-----------------|---------------------|
+| NC_E110_448_v1| 110  | 448          | 300             | 2.0             |
+| NC_E94_448_v1 | 94   | 448          | 300             | 1.7.3, 2.0  |
+| NC_E70_336_v1 | 70   | 336          | 300             | 1.7.3, 2.0  |
 
 ## Next steps
 

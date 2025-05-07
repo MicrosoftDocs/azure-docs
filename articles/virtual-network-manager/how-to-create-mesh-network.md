@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/07/2024
+ms.date: 10/23/2024
 ms.custom: engagement-fy23
 ---
 
@@ -35,15 +35,8 @@ Azure Virtual Network manager allows you two methods for adding membership to a 
 To manually add the desired virtual networks for your Mesh configuration to your Network Group, follow the steps below:
 
 1. From the list of network groups, select your network group and select **Add virtual networks** under *Manually add members* on the network group page.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-static-member.png" alt-text="Screenshot of add a virtual network.":::
-
 1. On the *Manually add members* page, select all the virtual networks and select **Add**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/add-virtual-networks.png" alt-text="Screenshot of add virtual networks to network group page.":::
-
 1. To review the network group membership manually added, select **Group Members** on the *Network Group* page under **Settings**.
-    :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of group membership under Group Membership." lightbox="media/create-virtual-network-manager-portal/group-members-list.png":::
 
 ## Create a mesh connectivity configuration
 
@@ -53,11 +46,7 @@ This section guides you through how to create a mesh configuration with the netw
 
 1. Select **Connectivity configuration** from the drop-down menu to begin creating a connectivity configuration.
 
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration-dropdown.png" alt-text="Screenshot of configuration drop-down menu.":::
-
 1. On the **Basics** page, enter the following information, and select **Next: Topology >**.
-
-    :::image type="content" source="./media/create-virtual-network-manager-portal/connectivity-configuration.png" alt-text="Screenshot of add a connectivity configuration page.":::
 
     | Setting | Value |
     | ------- | ----- |
@@ -65,8 +54,6 @@ This section guides you through how to create a mesh configuration with the netw
     | Description | *Optional* Enter a description about what this configuration does. |
 
 1. On the **Topology** tab, select the **Mesh** topology if not selected, and leave the **Enable mesh connectivity across regions** unchecked.  Cross-region connectivity isn't required for this set up since all the virtual networks are in the same region. 
-
-     :::image type="content" source="./media/create-virtual-network-manager-portal/topology-configuration.png" alt-text="Screenshot of topology selection for network group connectivity configuration.":::
 
 1. On the *Add network groups* page, select the network groups you want to add to this configuration. Then select **Select** to save.
 
@@ -79,8 +66,6 @@ To have this configuration take effect in your environment, you need to deploy t
 1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
 
 1. On the *Deploy a configuration* page, select the following settings:
-
-    :::image type="content" source="media/how-to-create-mesh-network/deploy-config.png" alt-text="Screenshot of deploy a configuration page.":::
 
     | Setting | Value |
     | ------- | ----- |

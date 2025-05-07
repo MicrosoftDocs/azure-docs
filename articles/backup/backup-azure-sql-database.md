@@ -1,10 +1,10 @@
 ---
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
-ms.topic: conceptual
-ms.date: 08/08/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.topic: overview
+ms.date: 04/23/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 # About SQL Server Backup in Azure VMs
 
@@ -105,7 +105,7 @@ Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to 
 
 7. Select OK.
 8. Repeat the same sequence of steps (1-7 above) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
-9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
+9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Manage **->** Backup Infrastructure **->** Workload in Azure VM:
 
     ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
@@ -207,3 +207,11 @@ To configure simultaneous backups, follow these steps:
 * [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
 * [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
 * [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- [Manage SQL server databases in Azure VMs with REST API](manage-azure-sql-vm-rest-api.md).
+

@@ -6,7 +6,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 03/21/2025
 ms.author: greglin
 ---
 
@@ -177,7 +177,7 @@ First, create a SQL Server virtual machine (VM) using the Azure portal.
     - Configured the SQL server to accept SQL authentication
     - Created an admin account on the SQL server
 
-2. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure virtual machine.
+2. On a client device with [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) installed, connect to the public IP address of the Azure Application Gateway frontend.
 
     <br><img src="./media/how-to-tcp-tls-proxy/sql-connect.png" alt="Screenshot displaying the connection to a SQL server." width="60%">
 

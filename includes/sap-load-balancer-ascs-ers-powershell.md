@@ -157,7 +157,7 @@ $loadbalancer = @{
 } 
 $lb = New-AzLoadBalancer @loadbalancer
 
-# Add ASCS and ERS VMs in backend pool of load balanceer
+# Add ASCS and ERS VMs in backend pool of load balancer
  
 $vm1_primaryip.LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[0])
 $vm2_primaryip.LoadBalancerBackendAddressPools.Add($lb.BackendAddressPools[0])

@@ -21,7 +21,7 @@ When you import a PowerShell module you will not be able to use its cmdlets in g
 To improve the security posture of PowerShell runbooks, the service no longer processes the module manifest file to export the cmdlets and functions. This means that they cannot be used when authoring graphical PowerShell runbooks.
 
 ### Resolution
-There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VScode for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
+There is no impact on the execution of existing runbooks. For new runbooks using non-default PowerShell modules we recommend using textual runbooks instead of graphical PowerShell runbooks to overcome this issue. You can use the Azure Automation extension for VS Code for authoring and editing PowerShell runbooks, that leverages GitHub Copilot to simplify the runbook authoring experience. 
 
 
 ## Start-AzAutomationRunbook fails with "runbookName does not match expected pattern" error message
@@ -290,7 +290,7 @@ The runbook isn't using the correct context when running. This may be because th
 You may see errors like this one:
 
 ```error
-Get-AzVM : The client '<client-id>' with object id '<object-id> does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+Get-AzVM : The client '<client-id>' with object id '<object-id> does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subscriptionIdOfSubscriptionWhichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
    ErrorCode: AuthorizationFailed
    StatusCode: 403
    ReasonPhrase: Forbidden Operation
@@ -602,9 +602,9 @@ The job was tried three times but it failed
 
 This error occurs because of one of the following issues:
 
-* **Memory limit.** A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+* **Memory limit.** A job might fail if it's using more than 400 MB of memory. The documented limits on memory allocated to a sandbox are found at [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). 
 
-* **Network sockets.** Azure sandboxes are limited to 1,000 concurrent network sockets. For more information, see [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+* **Network sockets.** Azure sandboxes are limited to 1,000 concurrent network sockets. For more information, see [Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits).
 
 * **Module incompatible.** Module dependencies might not be correct. In this case, your runbook typically returns a `Command not found` or `Cannot bind parameter` message.
 

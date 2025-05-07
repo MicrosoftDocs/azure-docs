@@ -2,14 +2,16 @@
 title: API server Azure Static Web Apps CLI
 description: API server Azure Static Web Apps CLI
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 02/02/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Start the API server with the Azure Static Web App CLI
+
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
 
 In Azure Static Web Apps, you can use the [integrated managed Functions](/azure/static-web-apps/apis-functions) to add API endpoints to your application. You can run an Azure Functions app locally using [Azure Functions core tools CLI](/azure/azure-functions/functions-run-local). The core tools CLI gives you the opportunity to run and debug your API endpoints locally.
 

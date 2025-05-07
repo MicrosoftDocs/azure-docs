@@ -1,12 +1,9 @@
 ---
 title: Build a migration plan with Azure Migrate
 description: Provides guidance on building a migration plan with Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 07/10/2023
+ms.topic: concept-article
+ms.date: 09/26/2024
 ms.custom: engagement-fy23
 ---
 
@@ -28,7 +25,7 @@ Response to regulatory compliance changes | Preparation for new technical capabi
 New data sovereignty requirements | Scaling to meet market demands
 Reduction in disruptions, and IT stability improvements | Scaling to meet geographic demands
 
-Identifying your motivation helps you to pin down your strategic migration goals. The next step is to identify and plan a migration path that's tailored for your workloads. The [Azure Migrate: Discovery and Assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool helps you to assess on-premises workloads, and provides guidance and tools to help you migrate.
+Identifying your motivation helps you to pin down your strategic migration goals. The next step is to identify and plan a migration path that's tailored for your workloads. The [Azure Migrate: Discovery and Assessment](migrate-services-overview.md) tool helps you to assess on-premises workloads, and provides guidance and tools to help you migrate.
 
 ## Understand your digital estate
 
@@ -60,7 +57,7 @@ After server discovery, you can [analyze dependencies](concepts-dependency-visua
 
 ### Optimization and sizing
 
-Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right sizing Azure VM SKUs, and disk recommendations in Azure.
+Azure provides flexibility to resize your cloud capacity over time, and migration provides an opportunity for you to optimize the CPU and memory resources allocated to your servers. Creating an assessment on servers you've identity helps you to understand your workload performance history. This is crucial for right-sizing Azure VM SKUs, and disk recommendations in Azure.
 
 ## Assess migration readiness
 
@@ -115,7 +112,7 @@ A few recommendations:
 
     **State** | **Action**
     --- | ---
-    **Azure ready VMs** | Export the assessment report, and filter all servers with state *Ready for Azure*. This might be the first group of servers that you lift and shift to Azure, using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
+    **Azure ready VMs** | Export the assessment report, and filter all servers with state *Ready for Azure*. This might be the first group of servers that you lift and shift to Azure, using the [Migration and modernization](migrate-services-overview.md) tool.
     **End-of-support operating systems** | Export the assessment report, and filter all servers running Windows Server 2008 R2/Windows Server 2008. These operating systems are at the end of support, and only Azure provides a free three years of security updates when you migrate them to Azure. If you combine Azure Hybrid Benefit, and use RIs, the savings could be higher.
     **SQL Server migration** | Use the database assessment recommendations to migrate databases that are ready for Azure SQL Database, using the Azure Migrate: Database Migration tool. Migrate the databases ready for Azure SQL VM using the Migration and modernization tool.
     **End-of-support software** | Export your application inventory, and filter for any software/extensions that might be reaching end-of-support. Prioritize these applications for migration.

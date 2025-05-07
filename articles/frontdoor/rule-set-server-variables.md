@@ -2,12 +2,11 @@
 title: Server variables
 titleSuffix: Azure Front Door
 description: This article provides a list of the server variables available in Azure Front Door rule sets.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 05/07/2024
-ms.author: duau
+ms.topic: concept-article
+ms.date: 04/09/2025
 ---
 
 # Azure Front Door Rule set server variables
@@ -38,6 +37,9 @@ When you use [Rule set actions](front-door-rules-engine-actions.md), you can use
 | `ssl_protocol`   | The protocol of an established TLS connection.<br/> To access this server variable in a match condition, use [SSL protocol](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#ssl-protocol).|
 | `server_port`    | The port of the server that accepted a request.<br/> To access this server variable in a match condition, use [Server port](rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json#server-port).|
 | `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments or leading slash.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `url_path` value is `article.aspx`. <br /> Azure Front Door supports dynamic capture of URL path with `{url_path:seg#}` server variable, and converts URL path to lowercase or uppercase with `{url_path.tolower}` or `{url_path.toupper}`. For more information, see [Server variable format](#server-variable-format) and [Server variables](rule-set-server-variables.md). <br/> To access this server variable in a match condition, use [Request path](rules-match-conditions.md#request-path) condition. |
+| `http_req_header_<headername>`       | Captures the value of a request header. E.g. for request header Device: Desktop, the variable is http_req_header_Device, the value of this variable is Desktop. <br /> The header name in the variable syntax support alphanumeric and hyphen (a-z, A-Z, 0-9 and “-”).   |
+| `http_req_arg_<querystringkeyname>`       | Captures the value from a query string key value pair. E.g. in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the variable is http_req_header_id, the value of this variable is 123.  <br /> The query string key in the variable syntax support alphanumeric and hyphen (a-z, A-Z, 0-9 and “-”).  |
+| `http_resp_header_<headername>`       | Captures the value of a response header from origin. E.g. for a response header Access-Control-Allow-Origin `https://learn.microsoft.com`, the variable is http_req_header_ header Access-Control-Allow-Origin, the value of this variable is `https://learn.microsoft.com`. <br /> The header name in the variable syntax support alphanumeric and hyphen (a-z, A-Z, 0-9 and “-”). |
 
 ## Server variable format 
 

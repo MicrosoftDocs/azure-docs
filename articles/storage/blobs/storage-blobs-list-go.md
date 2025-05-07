@@ -70,7 +70,7 @@ If you name your blobs using a delimiter, then you can choose to list blobs hier
 
 By default, a listing operation returns blobs in a flat listing. In a flat listing, blobs aren't organized by virtual directory.
 
-The following example lists the blobs in the specified container using a flat listing. This example   blob snapshots and blob versions, if they exist:
+The following example lists the blobs in the specified container using a flat listing. This example includes blob snapshots and blob versions, if they exist:
 
 :::code language="go" source="~/blob-devguide-go/cmd/list-blobs/list_blobs.go" id="snippet_list_blobs_flat":::
 

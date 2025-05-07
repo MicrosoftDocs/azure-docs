@@ -1,15 +1,16 @@
 ---
-title: Process real-time IoT data streams with Azure Stream Analytics
-description: IoT sensor tags and data streams with stream analytics and real-time data processing
+title: Process real-time IoT data streams
+description: Shows you how to create stream processing logic to gather data from Internet of Things (IoT) devices. It uses a real-world IoT use case to demonstrate.
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 01/23/2025
+# Customer intent: I want to learn how to process real-time IoT data streams with Azure Stream Analytics. 
 ---
 # Process real-time IoT data streams with Azure Stream Analytics
 
-In this article, you learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. You use a real-world Internet of Things (IoT) use case to demonstrate how to build your solution quickly and economically.
+In this article, you learn how to create stream-processing logic to gather data from Internet of Things (IoT) devices. You use a real-world IoT use case to demonstrate how to build your solution quickly and economically.
 
 ## Prerequisites
 
@@ -57,7 +58,18 @@ After your job is created, write a query. You can test queries against sample da
 
 1. Download the [HelloWorldASA-InputStream.json](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/GettingStarted/HelloWorldASA-InputStream.json) from GitHub. 
 1. On the **Azure Stream Analytics job** page in the Azure portal, select **Query** under **Job topology** from the left menu. 
-1. Select **Upload sample input**, select the `HelloWorldASA-InputStream.json` file you downloaded, and select **OK**. 
+1. In the **Query** window, enter the following query. 
+
+    ```sql
+    SELECT
+        *
+    INTO
+        youroutputalias
+    FROM
+        yourinputalias
+    ```
+
+1. In the bottom pane, select **Upload sample input**, select the `HelloWorldASA-InputStream.json` file you downloaded, and select **OK**. 
 
     :::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png" alt-text="Screenshot that shows the **Query** page with **Upload sample input** selected." lightbox="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png":::
 1. Notice that a preview of the data is automatically populated in the **Input preview** table.
@@ -68,16 +80,7 @@ After your job is created, write a query. You can test queries against sample da
 
 The simplest form of query is a pass-through query that archives all input data to its designated output. This query is the default query populated in a new Azure Stream Analytics job.
 
-1. In the **Query** window, enter the following query, and then select **Test query** on the toolbar. 
-
-    ```sql
-    SELECT
-        *
-    INTO
-        youroutputalias
-    FROM
-        yourinputalias
-    ```
+1. Select **Test query** on the toolbar. 
 2. View the results in the **Test results** tab in the bottom pane.
 
     :::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png" alt-text="Screenshot that shows the sample query and its results.":::
@@ -153,7 +156,7 @@ How can we write a query to find a lack of input events? Let's find the last tim
     :::image type="content" source="./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-11.png" alt-text="Screenshot that shows the query that detects absence of events.":::
 
 
-    Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found.  For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is useful to find an absence of events. For more information, see [JOIN](/stream-analytics-query/join-azure-stream-analytics).
+    Here we use a **LEFT OUTER** join to the same data stream (self-join). For an **INNER** join, a result is returned only when a match is found. For a **LEFT OUTER** join, if an event from the left side of the join is unmatched, a row that has NULL for all the columns of the right side is returned. This technique is useful to find an absence of events. For more information, see [JOIN](/stream-analytics-query/join-azure-stream-analytics).
 
 ## Conclusion
 

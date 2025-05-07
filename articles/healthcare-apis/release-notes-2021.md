@@ -7,7 +7,7 @@ ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
 ms.date: 03/13/2024
-ms.author: jasteppe
+ms.author: kesheth
 ms.custom: references_regions
 ---
 
@@ -51,7 +51,7 @@ We started the process of providing PowerShell, CLI scripts, and ARM templates t
 
 #### Process patient-everything links
 
-We expanded the atient-everything capabilities to process patient links [PR #2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links).
+We expanded the patient-everything capabilities to process patient links [PR #2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](./../healthcare-apis/fhir/patient-everything.md#processing-patient-links).
 
 ### Bug fixes
 

@@ -6,7 +6,7 @@ author: chachachachami
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 07/11/2023
+ms.date: 11/26/2024
 ms.author: chrupa
 ---
 
@@ -17,13 +17,13 @@ In this article, learn about the events message structures, required and nonrequ
 > [!IMPORTANT]
 > Events currently supports these operations:
 >
-> * **FhirResourceCreated** - The event emitted after a FHIR resource gets created successfully.
+> * **FhirResourceCreated** - The event emitted after a FHIR&reg; resource gets created successfully.
 >
 > * **FhirResourceUpdated** - The event emitted after a FHIR resource gets updated successfully.
 >
 > * **FhirResourceDeleted** - The event emitted after a FHIR resource gets soft deleted successfully.
 >
-> * **DicomImageCreated** - The event emitted after a DICOM image gets created successfully.
+> * **DicomImageCreated** - The event emitted after a DICOM&reg; image gets created successfully.
 > 
 > * **DicomImageDeleted** - The event emitted after a DICOM image gets deleted successfully.
 > 
@@ -181,19 +181,19 @@ In this article, learn about the events message structures, required and nonrequ
 |Name | Type | Required	| Description |
 |-----|------|----------|-------------|
 |`topic`	| string	| Yes	| The topic is the Azure Resource ID of your Azure Health Data Services workspace.
-|`subject` | string | Yes | The Uniform Resource Identifier (URI) of the DICOM image that was changed. Customer can access the image with the subject with https:// scheme. Customer should use the dataVersion or data.resourceVersionId to visit specific data version regarding this event.
-| `eventType`	| string(enum)	| Yes	| The type of change on the DICOM image.
-| `eventTime`	| string(datetime)	| Yes	| The UTC time when the DICOM image change was committed.
-| `id`	| string	| Yes	| Unique identifier for the event.
-| `data`	| object	| Yes	| DICOM image change event details.
-| `data.partitionName`	| string	| No | Data partition name.
-| `data.imageStudyInstanceUid`	| string	| Yes | The image's Study Instance UID.
-| `data.imageSeriesInstanceUid`	| string	| Yes	| The image's Series Instance UID.
-| `data.imageSopInstanceUid`	| string	| Yes	| The image's SOP Instance UID.
-| `data.serviceHostName`	| string	| Yes	| The hostname of the DICOM service where the change occurred. 
-| `data.sequenceNumber`	| int	| Yes	| The sequence number of the change in the DICOM service. Every image creation and deletion have a unique sequence within the service. This number correlates to the sequence number of the DICOM service's Change Feed. Querying the DICOM Service Change Feed with this sequence number gives you the change that created this event.
-| `dataVersion`	| string	| No	| The data version of the DICOM image.
-| `metadataVersion`	| string	| No	| The schema version of the event metadata. This is defined by Azure Event Grid and should be constant most of the time.
+|`subject` | string | Yes | The Uniform Resource Identifier (URI) of the DICOM image that was changed. Customer can access the image with the subject with https:// scheme. Customer should use the dataVersion or data.resourceVersionId to visit specific data version regarding this event. |
+| `eventType`	| string(enum)	| Yes	| The type of change on the DICOM image. |
+| `eventTime`	| string(datetime)	| Yes	| The UTC time when the DICOM image change was committed. |
+| `id`	| string	| Yes	| Unique identifier for the event. |
+| `data`	| object	| Yes	| DICOM image change event details. |
+| `data.partitionName`	| string	| No | Data partition name. |
+| `data.imageStudyInstanceUid`	| string	| Yes | The image's Study Instance UID. |
+| `data.imageSeriesInstanceUid`	| string	| Yes	| The image's Series Instance UID. |
+| `data.imageSopInstanceUid`	| string	| Yes	| The image's SOP Instance UID. |
+| `data.serviceHostName`	| string	| Yes	| The hostname of the DICOM service where the change occurred. |
+| `data.sequenceNumber`	| int	| Yes	| The sequence number of the change in the DICOM service. Every image creation and deletion have a unique sequence within the service. This number correlates to the sequence number of the DICOM service's Change Feed. Querying the DICOM Service Change Feed with this sequence number gives you the change that created this event. |
+| `dataVersion`	| string	| No	| The data version of the DICOM image. |
+| `metadataVersion`	| string	| No	| The schema version of the event metadata. This is defined by Azure Event Grid and should be constant most of the time. |
 
 ## DICOM events message samples
 
@@ -339,4 +339,4 @@ To learn how to deploy events using the Azure portal, see
 > [!div class="nextstepaction"]
 > [Deploy events using the Azure portal](events-deploy-portal.md)
 
-FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.
+[!INCLUDE [FHIR and DICOM trademark statement](../includes/healthcare-apis-fhir-dicom-trademark.md)]

@@ -56,7 +56,7 @@ Storage tasks don’t send any notifications when there is an outage in the serv
 
 ## Next steps
 - [Tutorial: Create a highly available multi-region app in Azure App Service](/azure/app-service/tutorial-multi-region-app)
-- [Reliability in Azure](/azure/availability-zones/overview)
+- [Reliability in Azure](/azure/reliability/overview)
 
 
 

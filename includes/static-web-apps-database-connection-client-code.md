@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 02/28/2028
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 ### Update home page
@@ -35,7 +35,7 @@ Now you can run your website and manipulate data in the database directly.
 1. Start the static web app with the database configuration.
 
     ```bash
-    swa start ./src --data-api-location swa-db-connections
+    swa start --data-api-location swa-db-connections
     ```
 
 Now that the CLI is started, you can access your database via the endpoints as defined in the *staticwebapp.database.config.json* file.

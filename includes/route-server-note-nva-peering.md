@@ -3,7 +3,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: include
-ms.date: 03/30/2023
+ms.date: 09/16/2024
 ---
 > [!IMPORTANT]
-> We recommend peering each NVA with both Route Server instances to ensure that virtual network routes are advertised over the NVA connections and achieve high availability.
+> Peer the NVA with both route server instance IPs to ensure virtual network routes are advertised over the NVA connections and achieve high availability.

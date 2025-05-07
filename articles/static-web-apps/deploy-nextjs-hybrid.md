@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy hybrid Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js hybrid sites with Azure Static Web Apps."
 services: static-web-apps
-author: aaronpowell
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 04/25/2024
-ms.author: aapowell
+ms.author: wujia
 ms.custom: devx-track-js
 ---
 
@@ -122,7 +122,7 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 
 ## Set up server side rendering
 
-A managed backed is automatically available for every hybrid Next.js deployment in all plans. However, you can fine- tune performance and take more control of the backend by assigning a custom backend to your site. If  you switch between a managed backend to a linked backend, your site experiences no downtime.
+A managed backend is automatically available for every hybrid Next.js deployment in all plans. However, you can fine-tune performance and take more control of the backend by assigning a custom backend to your site. If you switch between a managed backend to a linked backend, your site experiences no downtime.
 
 ### Bring your own backend
 

@@ -1,18 +1,18 @@
 ---
 title: Parse document or chunk text
-description: Parse a document or chunk text for Standard workflows in Azure Logic Apps.
+description: Parse a document or chunk text for workflows in Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/16/2024
-# Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my Standard workflow in Azure Logic Apps.
+ms.date: 02/11/2025
+# Customer intent: As a developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my workflow in Azure Logic Apps.
 ---
 
-# Parse or chunk content for Standard workflows in Azure Logic Apps (Preview)
+# Parse or chunk content for workflows in Azure Logic Apps (Preview)
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
@@ -20,7 +20,7 @@ ms.date: 08/16/2024
 
 Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
 
-For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your Standard logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens. You can then reference and use these outputs with subsequent actions in your workflow.
+For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens. You can then reference and use these outputs with subsequent actions in your workflow.
 
 > [!TIP]
 >
@@ -36,11 +36,15 @@ For these scenarios, use the **Data Operations** actions named **Parse a documen
 
 This how-to guide shows how to add and set up these operations in your workflow.
 
+## Known issues and limitations
+
+The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
+
 ## Prerequisites
 
 * An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A Standard logic app workflow with an existing trigger because the **Parse a document** and **Chunk text** operations are available only as actions. Make sure that the action that retrieves the content that you want to parse or chunk precedes these data operations.
+* A Consumption or Standard logic app workflow with an existing trigger because the **Parse a document** and **Chunk text** operations are available only as actions. Make sure that the action that retrieves the content that you want to parse or chunk precedes these data operations.
 
 ## Parse a document
 
@@ -48,7 +52,7 @@ The **Parse a document** action converts content, such as a PDF document, CSV fi
 
 If you use other content sources, such as Azure Blob Storage, SharePoint, OneDrive, File System, FTP, and so on, you can check whether triggers are available for these sources. You can also check whether actions are available to retrieve the content for these sources. For more information, see [Built-in operations](/azure/logic-apps/connectors/built-in/reference/) and [Managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
 1. Under the existing trigger and actions, [follow these general steps to add the **Data Operations** action named **Parse a document**](create-workflow-with-trigger-or-action.md#add-action) to your workflow.
 
@@ -70,11 +74,11 @@ If you use other content sources, such as Azure Blob Storage, SharePoint, OneDri
 
       In this example, the **Parse a document** action references the **Body** output from the **HTTP** action.
 
-      :::image type="content" source="media/parse-document-chunk-text/select-http-body.png" alt-text="Screenshot shows Standard workflow designer, and action named Parse a document with open dynamic content list. and selected Body output from HTTP action." lightbox="media/parse-document-chunk-text/select-http-body.png":::
+      :::image type="content" source="media/parse-document-chunk-text/select-http-body.png" alt-text="Screenshot shows workflow designer, which has an action named Parse a document with opened dynamic content list and selected Body output from HTTP action.":::
 
       The **Body** output now appears in the **Document Content** box:
 
-      :::image type="content" source="media/parse-document-chunk-text/parse-document.png" alt-text="Screenshot shows sample workflow with Body output in the action named Parse a document." lightbox="media/parse-document-chunk-text/parse-document.png":::
+      :::image type="content" source="media/parse-document-chunk-text/parse-document.png" alt-text="Screenshot shows sample workflow with Body output in the action named Parse a document.":::
 
 1. Under the **Parse a document** action, add the actions that you want to work with the tokenized string output, for example, **Chunk text**, which this guide describes later.
 
@@ -102,7 +106,7 @@ The **Chunk text** action splits content into smaller pieces for subsequent acti
 > Preceding actions that use chunking don't affect the **Chunk text** action, 
 > nor does the **Chunk text** action affect subsequent actions that use chunking.
 
-1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app resource and workflow in the designer.
 
 1. Under the **Parse a document** action, [follow these general steps to add the **Data Operations** action named **Chunk text**](create-workflow-with-trigger-or-action.md#add-action).
 
@@ -128,11 +132,11 @@ The **Chunk text** action splits content into smaller pieces for subsequent acti
 
       In this example, the **Chunk text** action references the **Parsed result text** output from the **Parse a document** action.
 
-      :::image type="content" source="media/parse-document-chunk-text/select-parsed-result-text.png" alt-text="Screenshot shows Standard workflow designer, action named Chunk text with open dynamic content list, and selected output from Parse a document action." lightbox="media/parse-document-chunk-text/select-parsed-result-text.png":::
+      :::image type="content" source="media/parse-document-chunk-text/select-parsed-result-text.png" alt-text="Screenshot shows workflow designer, action named Chunk text with open dynamic content list, and selected output from Parse a document action.":::
 
-      The **Parsed result action** output now appears in the **Text** box:
+      The **Text** box now shows the **Parsed result action** output:
 
-      :::image type="content" source="media/parse-document-chunk-text/chunk-text.png" alt-text="Screenshot shows sample workflow with selected parsed result text output in the action named Chunk text." lightbox="media/parse-document-chunk-text/chunk-text.png":::
+      :::image type="content" source="media/parse-document-chunk-text/chunk-text.png" alt-text="Screenshot shows sample workflow with selected parsed result text output in the action named Chunk text.":::
 
 1. Complete the setup for the **Chunk text** action, based on your selected strategy and scenario. For more information, see [Chunk text - Reference](#chunk-text---reference).
 
@@ -171,7 +175,7 @@ Now, when you add other actions that expect and use tokenized input, such as the
 
 The following example includes other actions that create a complete workflow pattern to ingest data from any source:
 
-:::image type="content" source="media/parse-document-chunk-text/complete-example.png" alt-text="Screenshot shows complete sample workflow." lightbox="media/parse-document-chunk-text/complete-example.png":::
+:::image type="content" source="media/parse-document-chunk-text/complete-example.png" alt-text="Screenshot shows complete sample workflow.":::
 
 | Step | Task | Underlying operation | Description |
 |------|------|----------------------|-------------|

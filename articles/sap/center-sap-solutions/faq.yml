@@ -39,7 +39,7 @@ sections:
         answer: | 
                 There's no extra licensing cost for deploying or registering an SAP system and generating a virtual 
                 instance. You pay only for 
-                the compute, storage, networking, Virtual machine OS image license (Redhat/SUSE) and other Azure resources you deploy or enable. 
+                the compute, storage, networking, Virtual machine OS image license (Red Hat/SUSE) and other Azure resources you deploy or enable. 
 
       - question:  Which scenarios does Azure Center for SAP solutions support?
         answer: | 
@@ -80,6 +80,7 @@ sections:
                 Azure Virtual Instance for SAP solutions is available in the following regions:  
 
                 - West Europe, North Europe, East US, East US 2, West US, West US 2, West US 3, Central US, South Central US,  North Central US, India Central, East Asia, Southeast Asia, Korea Central, Japan East, Australia East, Australia Central, Canada Central, Brazil South, UK South, Germany West Central, Sweden Central, France Central, Switzerland North, Norway East, South Africa North and UAE North.  
+                - Please note that UK West is a supported region for registering systems with ACSS. You can register systems in UK West using API, PowerShell, CLI, SDK, and Terraform interfaces. However, registration through the Azure portal is not currently available for this region. Also, when registering SAP systems with VMs in UK West, the corresponding VIS resource will be created in the UK South region.
                 - You can also see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=all#:~:text=Azure%20Center%20for%20SAP%20solutions) page for information about availability of Azure Center for SAP solutions in different Azure regions. 
 
   - name: Registering Existing SAP System Questions 
@@ -119,6 +120,24 @@ sections:
                 - Database for SAP solutions
                 
                 Along with these logical resources, ACSS also creates a Managed resource group with a storage account. ACSS uses this resource group to enable the SAP management capabilities. 
+
+      - question:  Does ACSS install any extension during installation and registration?
+        answer: |
+                Yes, ACSS automatically installs two extensions on both Windows and Linux virtual machines to enable workload-specific capabilities and monitoring. To ensure successful registration with ACSS, please make sure the following extensions are allowlisted
+
+                Linux:
+                - Extension name: Microsoft.Azure.Workloads.WorkloadsExtensionLinux
+                  Extension publisher: Microsoft.Azure.Workloads
+                  
+                - Extension name: Microsoft.Azure.Workloads.MonitoringExtensionLinux
+                  Extension publisher: Microsoft.Azure.Workloads
+
+                Windows:
+                - Extension name: Microsoft.Azure.Workloads.WorkloadsExtensionWindows
+                  Extension publisher: Microsoft.Azure.Workloads
+                  
+                - Extension name: Microsoft.Azure.Workloads.MonitoringExtensionWindows
+                  Extension publisher: Microsoft.Azure.Workloads
 
 
   - name: Deploying New SAP System Questions

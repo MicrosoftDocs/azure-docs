@@ -197,7 +197,7 @@ Currently, the following ```devtools``` functions are supported within Azure Syn
 |--------------|-----------|
 | install_github()  | Installs an R package from GitHub |
 | install_gitlab()  | Installs an R package from GitLab  |
-| install_bitbucket() | Installs an R package from BitBucket |
+| install_bitbucket() | Installs an R package from Bitbucket |
 | install_url() | Installs an R package from an arbitrary URL |
 | install_git() | Installs from an arbitrary git repository |
 | install_local() | Installs from a local file on disk |

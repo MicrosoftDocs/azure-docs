@@ -3,10 +3,10 @@
 title: Deploy the Azure IoT Central device bridge
 description: Deploy the IoT Central device bridge to connect other IoT clouds such as Sigfox, Particle Device Cloud, and The Things Network to your application.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 10/14/2024
 ms.topic: how-to
 # Administrator
 ---
@@ -66,7 +66,7 @@ After the deployment is completed, you need to install the npm packages the func
     npm install
     ```
 
-    These commands may take several minutes to run. You can safely ignore any warning messages.
+    These commands might take several minutes to run. You can safely ignore any warning messages.
 
 1. After the package installation finishes, Select **Restart** on the **Overview** page of the function app:
 
@@ -96,7 +96,7 @@ You can include a `timestamp` field in the body to specify the UTC date and time
 
 You can include a `modelId` field in the body. Use this field to assign the device to a device template during provisioning.
 
-The `deviceId` must be alphanumeric, lowercase, and may contain hyphens.
+The `deviceId` must be alphanumeric, lowercase, and can contain hyphens.
 
 If you don't include the `modelId` field, or if IoT Central doesn't recognize the model ID, then a message with an unrecognized `deviceId` creates a new _unassigned device_ in IoT Central. An operator can manually migrate the device to the correct device template. To learn more, see [Manage devices in your Azure IoT Central application > Migrating devices to a template](howto-manage-devices-individually.md).
 
@@ -116,7 +116,7 @@ The Resource Manager template provisions the following resources in your Azure s
 
 The key vault stores the SAS group key for your IoT Central application.
 
-The function app runs on a [consumption plan](https://azure.microsoft.com/pricing/details/functions/). While this option doesn't offer dedicated compute resources, it enables the device bridge to handle hundreds of device messages per minute, suitable for smaller fleets of devices or devices that send messages less frequently. If your application depends on streaming a large number of device messages, replace the consumption plan with a dedicated [App service plan](https://azure.microsoft.com/pricing/details/app-service/windows/). This plan offers dedicated compute resources, which give faster server response times. Using a standard App Service Plan, the maximum observed performance of the function from Azure in this repository was around 1,500 device messages per minute. To learn more, see [Azure Functions hosting options](../../azure-functions/functions-scale.md).
+The function app runs on a [consumption plan](https://azure.microsoft.com/pricing/details/functions/). While this option doesn't offer dedicated compute resources, it enables the device bridge to handle hundreds of device messages per minute, suitable for smaller fleets of devices or devices that send messages less frequently. If your application depends on streaming a large number of device messages, replace the consumption plan with a dedicated [App service plan](https://azure.microsoft.com/pricing/details/app-service/windows/). This plan offers dedicated compute resources, which give faster server response times. With a standard App Service Plan, the maximum observed performance of the function from Azure in this repository was around 1,500 device messages per minute. To learn more, see [Azure Functions hosting options](../../azure-functions/functions-scale.md).
 
 To use a dedicated App Service plan instead of a consumption plan, edit the custom template before deploying. Select  **Edit template**.
 
@@ -138,7 +138,7 @@ Replace the following segment:
 },
 ```
 
-with
+With:
 
 ```json
 {
@@ -172,7 +172,7 @@ The following examples outline how to configure the device bridge for various Io
 
 ### Example 1: Connecting Particle devices through the device bridge
 
-To connect a Particle device through the device bridge to IoT Central, go to the Particle console and create a new webhook integration. Set the **Request Format** to **JSON**.  Under **Advanced Settings**, use the following custom body format:
+To connect a Particle device through the device bridge to IoT Central, go to the Particle console and create a new webhook integration. Set the **Request Format** to **JSON**. Under **Advanced Settings**, use the following custom body format:
 
 ```json
 {
@@ -189,7 +189,7 @@ Paste in the **function URL** from your function app, and you see Particle devic
 
 ### Example 2: Connecting Sigfox devices through the device bridge
 
-Some platforms may not let you specify the format of device messages sent through a webhook. For such systems, you must convert the message payload to the expected body format before the device bridge processes it. You can do the conversion in the same function that runs the device bridge.
+Some platforms might not let you specify the format of device messages sent through a webhook. For such systems, you must convert the message payload to the expected body format before the device bridge processes it. You can do the conversion in the same function that runs the device bridge.
 
 This section shows how to convert the payload of a Sigfox webhook integration to the body format expected by the device bridge. The Sigfox cloud transmits device data in a hexadecimal string format. For convenience, the device bridge includes a conversion function for this format, which accepts a subset of the possible field types in a Sigfox device payload: `int` and `uint` of 8, 16, 32, or 64 bits; `float` of 32 bits or 64 bits; little-endian and big-endian. To process messages from a Sigfox webhook integration, make the following changes to the _IoTCIntegration/index.js_ file in the function app.
 
@@ -219,7 +219,7 @@ context.res = {
 To connect The Things Network devices to IoT Central:
 
 * Add a new HTTP integration to your application in The Things Network: **Application > Integrations > add integration > HTTP Integration**.
-* Make sure your application includes a decoder function that automatically converts the payload of your device messages to JSON before it's sent to the function: **Application > Payload Functions > decoder**.
+* Make sure your application includes a decoder function that automatically converts the payload of your device messages to JSON before sending it to the function: **Application > Payload Functions > decoder**.
 
 The following sample shows a JavaScript decoder function you can use to decode common numeric types from binary data:
 
@@ -283,9 +283,3 @@ req.body = {
 ## Limitations
 
 The device bridge only forwards messages to IoT Central, and doesn't send messages back to devices. This limitation is why properties and commands don't work for devices that connect to IoT Central through this device bridge. Because device twin operations aren't supported, it's not possible to update device properties through the device bridge. To use these features, a device must connect directly to IoT Central using one of the [Azure IoT device SDKs](../../iot-hub/iot-hub-devguide-sdks.md).
-
-## Next steps
-Now that you've learned how to deploy the IoT Central device bridge, here's the suggested next step:
-
-> [!div class="nextstepaction"]
-> [Manage your devices](howto-manage-devices-individually.md)

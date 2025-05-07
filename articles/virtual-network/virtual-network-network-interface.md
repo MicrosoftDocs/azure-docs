@@ -6,7 +6,7 @@ author: asudbring
 ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/20/2023
+ms.date: 10/09/2024
 ms.author: allensu
 ---
 
@@ -104,8 +104,6 @@ To create a NIC, use the following procedure.
 1. In the [Azure portal](https://portal.azure.com), search for and select *network interfaces*.
 1. On the **Network interfaces** page, select **Create**.
 1. On the **Create network interface** screen, enter or select values for the NIC settings.
-
-   :::image type="content" source="./media/virtual-network-network-interface/create-network-interface.png" alt-text="Screenshot of the Create network interface screen in the Azure portal.":::
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
@@ -499,6 +497,9 @@ $nic | Set-AzNetworkInterface
 ```
 
 ---
+
+> [!WARNING]
+> You can change the subnet of a primary network interface while the virtual machine is started. You can't change the subnet of a secondary network interface in the same manner. To change the subnet of a secondary network interface, you must first stop and de-allocate the virtual machine.
 
 ### Add or remove from application security groups
 

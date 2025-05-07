@@ -24,10 +24,9 @@ This article provides information about best practices related to the Azure Comm
 [!INCLUDE [Native](includes/best-practices-native.md)]
 ::: zone-end
 
-## Next steps
-For more information, see the following articles:
+## Related content
 
 - [Improve and manage call quality](./voice-video-calling/manage-call-quality.md)
-- [Call Diagnostics](./voice-video-calling/call-diagnostics.md)
+- [Use Call Diagnostics to diagnose call problems](./voice-video-calling/call-diagnostics.md)
 - [Add voice calling to your app](../quickstarts/voice-video-calling/getting-started-with-calling.md)
-- [Use the UI Library for enhance calling experiences](./ui-library/ui-library-overview.md)
+- [Use the UI Library for enhanced calling experiences](./ui-library/ui-library-overview.md)

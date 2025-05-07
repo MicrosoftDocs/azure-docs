@@ -3,11 +3,12 @@ title: Connect Azure Communication Services to Azure OpenAI services for Message
 titleSuffix: An Azure Communication Services concept document
 description: Provides a conceptual doc for connecting Azure Communication Services to Azure AI services for Message Analysis.
 author: bashan
+services: azure-communication-services
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.topic: conceptual
 ms.date: 07/27/2024
 ms.author: bashan
-services: azure-communication-services
 ---
 
 # Connect Azure Communication Services to Azure OpenAI services for Message Analysis
@@ -65,4 +66,4 @@ This integration between Azure Communication Services and Azure AI services is o
 ## Next steps
 - [Enable Message Analysis With Azure OpenAI Quick Start](../../../quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md)
 - [Handle Advanced Messaging events](../../../quickstarts/advanced-messaging/whatsapp/handle-advanced-messaging-events.md)
-- [Send WhatsApp template messages](../whatsapp/template-messages.md)
+- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)

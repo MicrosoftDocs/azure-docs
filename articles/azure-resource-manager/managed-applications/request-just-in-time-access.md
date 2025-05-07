@@ -1,10 +1,8 @@
 ---
 title: Request just-in-time access
 description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
-author: MSEvanhi
 ms.topic: conceptual
 ms.date: 06/24/2024
-ms.author: evanhi
 ---
 
 # Enable and request just-in-time access for Azure Managed Applications

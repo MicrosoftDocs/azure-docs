@@ -12,6 +12,12 @@ ms.subservice: creator
 
 # Using the Azure Maps Drawing Error Visualizer with Creator
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 The *Drawing Error Visualizer* is a stand-alone web application that displays [Drawing package warnings and errors] detected during the conversion process. The Error Visualizer web application consists of a static page that you can use without connecting to the internet.  You can use the Error Visualizer to fix errors and warnings in accordance with [Drawing package requirements]. The [Azure Maps Conversion API] returns a response with a link to the Error Visualizer only when an error is detected.
 
 ## Prerequisites

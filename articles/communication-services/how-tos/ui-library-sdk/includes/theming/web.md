@@ -10,4 +10,4 @@ ms.service: azure-communication-services
 
 For detailed documentation and quickstarts about the Web UI Library, see the [Web UI Library Storybook](https://azure.github.io/communication-ui-library).
 
-To learn more, see [Theming](https://azure.github.io/communication-ui-library/?path=/docs/theming--page) in the Web UI Library.
+To learn more, see [Theming](https://azure.github.io/communication-ui-library/?path=/docs/concepts-theming--docs) in the Web UI Library.

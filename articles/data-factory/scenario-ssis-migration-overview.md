@@ -5,7 +5,7 @@ author: chugugrace
 ms.author: chugu
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Migrate on-premises SSIS workloads to SSIS in ADF or Synapse Pipelines
@@ -19,6 +19,9 @@ When you migrate your database workloads from SQL Server on premises to Azure da
 Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF) or Synapse Pipelines supports running SSIS packages. Once Azure-SSIS IR is provisioned, you can then use familiar tools, such as SQL Server Data Tools (SSDT)/SQL Server Management Studio (SSMS), and command-line utilities, such as dtinstall/dtutil/dtexec, to deploy and run your packages in Azure. For more info, see [Azure SSIS lift-and-shift overview](/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
 This article highlights migration process of your ETL workloads from on-premises SSIS to SSIS in ADF. The migration process consists of two phases: **Assessment** and **Migration**.
+
+> [!IMPORTANT]
+Data Migration Assistant (DMA) is deprecated. For more information, see the [DMA product documentation](/sql/dma/dma-overview). 
 
 ## Assessment
 

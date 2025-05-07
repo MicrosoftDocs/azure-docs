@@ -2,11 +2,11 @@
 title: Soft delete for Azure Backup
 description: Learn how to use security features in Azure Backup to make backups more secure.
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 11/30/2024
 ms.custom: devx-track-azurepowershell, engagement-fy24
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 
 # Soft delete for Azure Backup
@@ -37,7 +37,7 @@ To disable soft delete on a vault, you must have the Backup Contributor role for
 It's important to remember that once soft delete is disabled, the feature is disabled for all the types of workloads. For example, it's not possible to disable soft delete only for SQL server or SAP HANA DBs while keeping it enabled for virtual machines in the same vault. You can create separate vaults for granular control.
 
 >[!Tip]
->To receive alerts/notifications when a user in the organization disables soft-delete for a vault, use [Azure Monitor alerts for Azure Backup](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup). As the disable of soft-delete is a potential destructive operation, we recommend you to use alert system for this scenario to monitor all such operations and take actions on any unintended operations.
+>To receive alerts/notifications when a user in the organization disables soft-delete for a vault, use [Azure Monitor alerts for Azure Backup](monitoring-and-alerts-overview.md#azure-monitor-alerts-for-azure-backup). As the disable of soft-delete is a potential destructive operation, we recommend you to use alert system for this scenario to monitor all such operations and take actions on any unintended operations.
 
 >[!Note]
 >- You can also use multi-user authorization (MUA) to add an additional layer of protection against disabling soft delete. [Learn more](multi-user-authorization-concept.md).
@@ -85,13 +85,13 @@ SoftDeleteFeatureState : Disabled
 
 # [REST API](#tab/rest-api)
 
-To disable the soft-delete functionality using REST API, see [these steps](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+To disable the soft delete functionality using REST API, see [these steps](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 
 ---
 
 ## Delete soft deleted backup items permanently
 
-The backup data in soft deleted state prior disabling this feature remains in soft-deleted state. To permanently delete these immediately, undelete and delete them again. Use one of the following clients to permanently delete soft deleted data.
+The backup data in the soft delete state prior to disabling this feature remains in the soft deleted state. To permanently delete these immediately, undelete and delete them again. Use one of the following clients to permanently delete soft deleted data.
 
 **Choose a client**:
 
@@ -130,20 +130,20 @@ Follow these steps:
 1. Identify the items that are in soft-deleted state.
 
    ```powershell
-   $vault = Get-AzRecoveryServicesVault -ResourceGroupName "yourResourceGroupName" -Name "yourVaultName"
-   Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultID $vault.ID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+   $myVault = Get-AzRecoveryServicesVault -ResourceGroupName "yourResourceGroupName" -Name "yourVaultName"
+   Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultID $myVault.ID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
 
    Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
    ----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
    VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
 
-   $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+   $myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVault.ID -Name AppVM1
    ```
 
 2. Reverse the deletion operation that was performed when soft-delete was enabled.
 
    ```powershell
-   Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+   Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVault.ID -Force
 
    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
    ------------     ---------            ------               ---------                 -------                   -----
@@ -152,7 +152,7 @@ Follow these steps:
 3. As the soft-delete is disabled, the deletion operation immediately removes the backup data.
 
    ```powershell
-   Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+   Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVault.ID -Force
 
    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
    ------------     ---------            ------               ---------                 -------                   -----
@@ -164,7 +164,7 @@ Follow these steps:
 Follow these steps:
 
 1. [Undo the delete operations](backup-azure-arm-userestapi-backupazurevms.md#undo-the-deletion).
-2. [Disable the soft-delete functionality using REST API](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
+2. [Disable the soft delete functionality using REST API](use-restapi-update-vault-properties.md#update-soft-delete-state-using-rest-api).
 3. [Delete the backups using REST API](backup-azure-arm-userestapi-backupazurevms.md#stop-protection-and-delete-data).
 
 ---

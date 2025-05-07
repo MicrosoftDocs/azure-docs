@@ -37,6 +37,8 @@
     href: clone-volume.md
   - name: Enable multi-zone storage redundancy
     href: enable-multi-zone-redundancy.md
+  - name: Enable monitoring with managed Prometheus
+    href: enable-monitoring.md
   - name: Remove Azure Container Storage
     href: remove-container-storage.md
   - name: Troubleshoot Azure Container Storage
@@ -84,4 +86,6 @@
   items:
   - name: Pricing for Azure Container Storage
     href: https://azure.microsoft.com/pricing/details/container-storage/
+  - name: Release notes for Azure Container Storage
+    href: container-storage-release-notes.md
   

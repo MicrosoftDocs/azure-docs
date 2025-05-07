@@ -4,7 +4,7 @@ description: Learn how to move encrypted Azure VMs to another region by using Az
 author: ankitaduttaMSFT 
 ms.service: azure-resource-mover
 ms.topic: tutorial
-ms.date: 03/29/2024
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
 #Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover.
@@ -278,8 +278,6 @@ Now that you've prepared the resources prepared, you can initiate the move.
     - For VMs, replica VMs are created in the target region. The source VM is shut down, and some downtime occurs (usually minutes).
     - Resource Mover re-creates other resources by using the prepared ARM templates. There's usually no downtime.
     - After you've moved the resources, their status changes to *Commit move pending*.
-
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" alt-text="Screenshot of a list of resources with a 'Commit move pending' status." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/resources-commit-move-pending.png" :::
 
 
 ## Discard or commit the move

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 03/03/2025
 ms.author: anfdocs
 ---
 # Display health and monitor status of replication relationship 
@@ -38,11 +38,14 @@ You can view replication status on the source volume or the destination volume. 
     ![Replication health status](./media/cross-region-replication-display-health-status/cross-region-replication-health-status.png)
 
 > [!NOTE] 
-> Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+> Replication relationship shows health status as *unhealthy* if previous replication jobs aren't complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+
+>[!NOTE]
+>When you break the peering relationship, the health status displays as healthy. This is expected. To confirm the broken peering relationship, check that the Mirror state displays broken, and the Relationship status is idle. 
 
 ## Set alert rules to monitor replication
 
-Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
+Create [alert rules in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview) to help you monitor the status of cross-region replication:
 
 1. In Azure Monitor, select **Alerts**.
 2. From the **Alerts** window, select the **Create** dropdown then **Alert rule**.

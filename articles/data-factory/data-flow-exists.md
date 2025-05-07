@@ -19,7 +19,7 @@ ms.date: 01/05/2024
 
 The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vZKz]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=53f2da73-3587-4d51-9f25-9f89e9446a8c]
 
 ## Configuration
 

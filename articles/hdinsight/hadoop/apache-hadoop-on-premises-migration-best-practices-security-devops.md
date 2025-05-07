@@ -4,6 +4,9 @@ description: Learn security and DevOps best practices for migrating on-premises 
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 ---
 
@@ -85,7 +88,7 @@ For more information, see the following articles:
 
 For more information, see the article:
 
-[Azure Monitor Overview](../../azure-monitor/overview.md)
+[Azure Monitor Overview](/azure/azure-monitor/overview)
 
 ## Upgrade clusters
 

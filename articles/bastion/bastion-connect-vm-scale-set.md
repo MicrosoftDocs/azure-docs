@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure virtual machine scale set using Az
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 01/23/2025
 ms.author: cherylmc
 
 ---
@@ -21,18 +21,9 @@ Make sure that you have set up an Azure Bastion host for the virtual network in 
 
 This section helps you connect to your virtual machine scale set.
 
-1. Open the [Azure portal](https://portal.azure.com). Go to the virtual machine scale set that you want to connect to.
-
-   :::image type="content" source="./media/bastion-connect-vm-scale-set/select-scale-set.png" alt-text="Screenshot shows virtual machine scale sets." lightbox="./media/bastion-connect-vm-scale-set/select-scale-set.png":::
-
-1. Go to the virtual machine scale set instance that you want to connect to.
-
-   :::image type="content" source="./media/bastion-connect-vm-scale-set/select-instance.png" alt-text="Screenshot shows virtual machine scale set instances." lightbox="./media/bastion-connect-vm-scale-set/select-instance.png":::
-
-1. Select **Connect** at the top of the page, then choose **Bastion** from the dropdown.
-
-   :::image type="content" source="./media/bastion-connect-vm-scale-set/select-connect.png" alt-text="Screenshot shows select the connect button and choose Bastion from the dropdown." lightbox="./media/bastion-connect-vm-scale-set/select-connect.png":::
-
+1. Open the [Azure portal](https://portal.azure.com) and go to **Virtual machine scale sets**. To open the scale sets instances page, click the scale set that contains the instance that you want to connect to.
+1. On the **Scale set instance** page, click the instance that you want to connect to. This opens the page for the instance.
+1. On the instance page, select **Connect** at the top of the page, then choose **Bastion** from the dropdown.
 1. On the **Bastion** page, fill in the required settings. The settings you can select depend on the virtual machine to which you're connecting, and the [Bastion SKU](configuration-settings.md#skus) tier that you're using. For more information about settings and SKUs, see [Bastion configuration settings](configuration-settings.md).
 
 1. After filling in the values on the Bastion page, select **Connect** to connect to the instance.

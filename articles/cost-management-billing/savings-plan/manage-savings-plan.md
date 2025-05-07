@@ -2,13 +2,13 @@
 title: Manage Azure savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how to manage savings plans. See steps to change the plan's scope, split a plan, and optimize its use.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 08/23/2024
-ms.author: banders
+ms.date: 01/07/2025
+ms.author: onwokolo
 ---
 
 # Manage Azure savings plans
@@ -92,6 +92,18 @@ Unlike reservations, you can't cancel or exchange savings plans. You can trade-i
 
 ## Change Billing subscription
 Currently, the billing subscription used for monthly payments of a savings plan can't be changed.
+
+## Check billing subscription for an Azure savings plan
+
+To check the billing subscription for an Azure savings plan:
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select **All services** > **Savings Plan**.
+3. Select the Savings Plan.
+4. Select **Renewal**.
+5. Select **Replace this savings plan with a new savings plan purchase**.
+
+These steps show you the billing subscription of current savings plan along with other details. You can update the details like scope, billing subscription, quantity, term, and billing frequency for the new savings plan which will be purchased automatically upon expiry of current savings plan.
 
 ## Transfer a savings plan
 Although you can't cancel, exchange, or refund a savings plan, you can transfer it from one supported agreement to another. For more information about supported transfers, see [Azure product transfer hub](../manage/subscription-transfer.md#product-transfer-support).

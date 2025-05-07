@@ -35,16 +35,16 @@ Create an Apache Spark Pool by following the [Create an Apache Spark pool tutori
 3. Because the raw data is in a Parquet format, you can use the Spark context to pull the file into memory as a DataFrame directly. Create a Spark DataFrame by retrieving the data via the Open Datasets API. Here, we use the Spark DataFrame *schema on read* properties to infer the datatypes and schema.
 
    ```python
-    from azureml.opendatasets import NycTlcYellow
-    
-    from datetime import datetime
-    from dateutil import parser
-    
-    end_date = parser.parse('2018-05-08 00:00:00')
-    start_date = parser.parse('2018-05-01 00:00:00')
-    
-    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
-    filtered_df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
+   from azureml.opendatasets import NycTlcYellow
+   
+   from datetime import datetime
+   from dateutil import parser
+   
+   end_date = parser.parse('2018-05-08 00:00:00')
+   start_date = parser.parse('2018-05-01 00:00:00')
+   
+   nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+   df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
 
    ```
 

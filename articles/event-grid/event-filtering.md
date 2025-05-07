@@ -1,11 +1,9 @@
 ---
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
-ms.topic: conceptual
-ms.custom:
-  - devx-track-arm-template
-  - ignite-2023
-ms.date: 11/15/2023
+ms.topic: concept-article
+ms.date: 12/12/2024
+# Customer intent: I want to know how to subscribe to specific events coming through Azure Event Grid. 
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -22,7 +20,7 @@ The examples shown in this article are JSON snippets for defining filters in Azu
 
 - Azure storage account
 - System topic for the storage account
-- Event subscription for the system topic. You'll see the `filter` subsection in the event subscription section.
+- Event subscription for the system topic. See the `filter` subsection in the event subscription section.
 
 In the following example, the event subscription filters for `Microsoft.Storage.BlobCreated` and `Microsoft.Storage.BlobDeleted` events.
 

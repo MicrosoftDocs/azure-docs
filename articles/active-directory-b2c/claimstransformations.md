@@ -5,12 +5,12 @@ description: Definition of the ClaimsTransformations element in the Identity Exp
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer creating custom policies in Azure Active Directory B2C, I want to understand how to use claims transformations, so that I can convert and manipulate claims in user journeys.
@@ -18,6 +18,7 @@ ms.subservice: B2C
 ---
 
 # ClaimsTransformations
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

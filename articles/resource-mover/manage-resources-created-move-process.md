@@ -4,7 +4,7 @@ description: Learn how to manage resources that are created during the virtual m
 author: ankitaduttaMSFT 
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 12/27/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 ---

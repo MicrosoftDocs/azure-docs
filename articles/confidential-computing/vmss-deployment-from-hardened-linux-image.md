@@ -68,7 +68,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
     > [!NOTE]
-    > For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
+    > For specialized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
     > Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
     
     ```azurecli-interactive

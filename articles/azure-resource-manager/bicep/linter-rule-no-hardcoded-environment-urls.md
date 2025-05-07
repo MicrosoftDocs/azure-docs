@@ -3,7 +3,7 @@ title: Linter rule - no hardcoded environment URL
 description: Linter rule - no hardcoded environment URL
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 02/12/2025
 ---
 
 # Linter rule - no hardcoded environment URL

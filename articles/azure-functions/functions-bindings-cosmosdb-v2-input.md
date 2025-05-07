@@ -1532,7 +1532,20 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 _Applies only to the Python v2 programming model._
 
-For Python v2 functions defined using a decorator, the following properties on the `cosmos_db_input`:
+Python v2 functions are defined using the `cosmos_db_input` decorator, which supports these properties, depending on the extension version:
+
+### [Extension 4.x+](#tab/extensionv4)
+
+| Property    | Description |
+|-------------|-----------------------------|
+|`arg_name` | The variable name used in function code that represents the list of documents with changes. |
+|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
+|`container_name`  | The name of the Azure Cosmos DB collection being monitored. |
+|`connection` | The connection string of the Azure Cosmos DB being monitored. |
+|`partition_key` | The partition key of the Azure Cosmos DB being monitored. |
+|`id` | The ID of the document to retrieve. |
+
+### [Functions 2.x+](#tab/functionsv2)
 
 | Property    | Description |
 |-------------|-----------------------------|
@@ -1542,6 +1555,8 @@ For Python v2 functions defined using a decorator, the following properties on t
 |`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
 |`partition_key` | The partition key of the Azure Cosmos DB being monitored. |
 |`id` | The ID of the document to retrieve. |
+
+---
 
 For Python functions defined by using *function.json*, see the [Configuration](#configuration) section.
 ::: zone-end

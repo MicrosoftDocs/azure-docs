@@ -7,6 +7,9 @@ description: Prepay for Azure Cache for Redis compute resources with reservation
 
 ms.topic: conceptual
 ms.date: 08/19/2022
+appliesto:
+  - ✅ Azure Cache for Redis
+
 
 ---
 

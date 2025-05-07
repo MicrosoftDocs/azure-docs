@@ -198,7 +198,7 @@ To assist you with Microsoft Defender for Cloud usage, Microsoft has published e
 - [How Microsoft Defender for Cloud helps detect attacks against your Linux machines](https://azure.microsoft.com/blog/how-azure-security-center-helps-detect-attacks-against-your-linux-machines/)
 - [Use Microsoft Defender for Cloud to detect when compromised Linux machines attack](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
-**[Azure Monitor](../azure-monitor/overview.md)** helps you maximize the availability and performance of applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from both cloud and on-premises environments. It helps you understand how your applications are performing, and proactively identifies issues affecting deployed applications and resources they depend on. Azure Monitor integrates the capabilities of [Log Analytics](../azure-monitor/logs/data-platform-logs.md) and [Application Insights](../azure-monitor/app/app-insights-overview.md) that were previously branded as standalone services.
+**[Azure Monitor](/azure/azure-monitor/overview)** helps you maximize the availability and performance of applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from both cloud and on-premises environments. It helps you understand how your applications are performing, and proactively identifies issues affecting deployed applications and resources they depend on. Azure Monitor integrates the capabilities of [Log Analytics](/azure/azure-monitor/logs/data-platform-logs) and [Application Insights](/azure/azure-monitor/app/app-insights-overview) that were previously branded as standalone services.
 
 Azure Monitor collects data from each of the following tiers:
 
@@ -225,7 +225,7 @@ With Azure Monitor, you can get a 360-degree view of your applications, infrastr
 - **Investigate** threats with AI and hunt suspicious activities at scale, tapping into decades of cybersecurity work at Microsoft.
 - **Respond** to incidents rapidly with built-in orchestration and automation of common tasks.
 
-**[Azure Advisor](../advisor/advisor-overview.md)** helps you follow best practices to optimize your Azure deployments. It analyzes resource configurations and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of Azure resources.
+**[Azure Advisor](/azure/advisor/advisor-overview)** helps you follow best practices to optimize your Azure deployments. It analyzes resource configurations and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of Azure resources.
 
 ## Next steps
 

@@ -40,7 +40,7 @@ You can also specify the time range to view the metrics you're interested in.
 
 :::image type="content" source="./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png" alt-text="Diagram that shows the Stream Analytics monitor page with time range." lightbox="./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png":::
 
-For details, see [How to Customize Monitoring](../azure-monitor/data-platform.md).
+For details, see [How to Customize Monitoring](/azure/azure-monitor/data-platform).
 
 
 

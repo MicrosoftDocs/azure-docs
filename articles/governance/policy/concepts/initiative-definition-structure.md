@@ -1,7 +1,7 @@
 ---
 title: Details of the initiative definition structure
 description: Describes how policy initiative definitions are used to group policy definitions for deployment to Azure resources in your organization.
-ms.date: 07/02/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 # Azure Policy initiative definition structure
@@ -128,7 +128,7 @@ there are some _common_ properties used by Azure Policy and in built-ins.
 ## Version (preview)
 Built-in policy initiatives can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview)
 
-The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey the level of change to a built-in policy definition or initiative and state. The format of `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the `version` property or in another property as a **boolean** as shown in the common metadata properties.
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey state and level of change to a built-in policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
 - Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to role definitionIds, adding or removing definitions within an initiative.
@@ -390,9 +390,9 @@ Below is an example of the **policyMetadata** object. This example metadata belo
 
 ## Next steps
 
-- See the [definition structure](./definition-structure.md)
+- See the [definition structure](./definition-structure-basics.md)
 - Review examples at [Azure Policy samples](../samples/index.md).
-- Review [Understanding policy effects](effects.md).
+- Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

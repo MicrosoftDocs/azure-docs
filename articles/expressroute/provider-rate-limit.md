@@ -5,7 +5,7 @@ description: This document discusses how rate limiting works for ExpressRoute ci
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/01/2024
 ms.author: duau
 ---

@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: Assess Java applications and code
     href: java.md
+  - name: Assess Java applications and code version 7 (Preview)
+    href: java-preview.md
   - name: Assess .NET applications and code
     href: dotnet.md
 - name: Resources

@@ -3,10 +3,11 @@ title: Confidential computing application enclave nodes on Azure Kubernetes Serv
 description: Intel SGX based confidential computing VM nodes with application enclave support
 services: virtual-machines
 author: angarg05
-ms.service: confidential-computing
+ms.service: azure
 ms.topic: overview
 ms.date: 07/15/2022
 ms.author: ananyagarg
+ms.subservice: confidential-computing
 ---
 
 # Application enclave support with Intel SGX based confidential computing nodes on Azure Kubernetes Service

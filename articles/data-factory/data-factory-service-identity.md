@@ -5,9 +5,10 @@ description: Learn about using managed identities in Azure Data Factory.
 author: nabhishek
 ms.subservice: security
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ms.author: abnarain 
 ms.custom: subject-rbac-steps
+ai-usage: ai-assisted
 ---
 
 # Managed identity for Azure Data Factory
@@ -33,7 +34,20 @@ Managed identity provides the below benefits:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case-managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
-- Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption. 
+- Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption.
+
+## Required Roles for Managed Identities
+
+To effectively use managed identities in Azure Data Factory, specific roles must be assigned to ensure proper access and functionality. Below are the roles required:
+
+- **System-Assigned Managed Identity**
+   - **Reader Role**: This role is necessary to read the metadata of the resources.
+   - **Contributor Role**: This role is required to manage the resources that the managed identity needs to access.
+
+- **User-Assigned Managed Identity**
+   - **Managed Identity Operator Role**: This role allows the management of the user-assigned managed identity.
+   - **Reader Role**: This role is necessary to read the metadata of the resources.
+   - **Contributor Role**: This role is required to manage the resources that the managed identity needs to access.
 
 ## System-assigned managed identity 
 
@@ -115,8 +129,8 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
     },
     "identity": {
         "type": "SystemAssigned",
-        "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
-        "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+        "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
     "type": "Microsoft.DataFactory/factories",
@@ -176,13 +190,15 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+To grant permissions for the Data Factory manged identity to your Azure data sources, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-1. Select **Access control (IAM)**.
+1. Select **Access control (IAM)** on the Azure portal page for the data source.
 
 1. Select **Add** > **Add role assignment**.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+
+1. Select the required role to grant the required access to the data source. This could vary depending on the data source and permissions required there by data factory. For example, if data factory only needs to read from an Azure SQL Server, select the **Reader** role.
 
 1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
@@ -201,18 +217,18 @@ PS C:\> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataF
 
 PrincipalId                          TenantId
 -----------                          --------
-765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
+aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb aaaabbbb-0000-cccc-1111-dddd2222eeee
 ```
 
 You can get the application ID by copying above principal ID, then running below Microsoft Entra ID command with principal ID as parameter.
 
 ```powershell
-PS C:\> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+PS C:\> Get-AzADServicePrincipal -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 
-ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
-ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
+ServicePrincipalNames : {00001111-aaaa-2222-bbbb-3333cccc4444, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ApplicationId         : 00001111-aaaa-2222-bbbb-3333cccc4444
 DisplayName           : ADFV2DemoFactory
-Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
+Id                    : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 Type                  : ServicePrincipal
 ```
 
@@ -233,8 +249,8 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "name":"<dataFactoryName>",
     "identity":{
         "type":"SystemAssigned",
-        "principalId":"554cff9e-XXXX-XXXX-XXXX-90c7d9ff2ead",
-        "tenantId":"72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
+        "principalId":"bbbbbbbb-cccc-dddd-2222-333333333333",
+        "tenantId":"aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "id":"/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>",
     "type":"Microsoft.DataFactory/factories",

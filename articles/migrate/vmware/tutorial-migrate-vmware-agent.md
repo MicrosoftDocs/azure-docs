@@ -6,13 +6,13 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 08/20/2024
+ms.date: 02/07/2025
 ms.custom: vmware-scenario-422, MVC, engagement-fy25
 ---
 
 # Migrate VMware vSphere VMs to Azure (agent-based)
 
-This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md#migration-and-modernization-tool) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](../server-migrate-overview.md#compare-migration-methods) the methods.
+This article shows you how to migrate on-premises VMware vSphere VMs to Azure, using the [Migration and modernization](../migrate-services-overview.md) tool, with agent-based migration.  You can also migrate VMware vSphere VMs using agentless migration. [Compare](../server-migrate-overview.md#compare-migration-methods) the methods.
 
  In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -127,8 +127,6 @@ Prepare for the appliance as follows:
 - Review the [public cloud URLs](../migrate-replication-appliance.md#url-access), and [Azure Government URLs](../migrate-replication-appliance.md#azure-government-url-access) that the appliance machine needs to access.
 - [Review the ports](../migrate-replication-appliance.md#port-access) that the replication appliance machine needs to access.
 
-
-
 ### Check VMware vSphere requirements
 
 Make sure VMware vSphere VMs comply with requirements for migration to Azure.
@@ -157,14 +155,14 @@ Download the template as follows:
 4. In **How do you want to migrate?**, select **Using agent-based replication**.
 5. In **Target region**, select the Azure region to which you want to migrate the machines.
 6. Select **Confirm that the target region for migration is region-name**.
-7. Click **Create resources**. This creates an Azure Site Recovery vault in the background. You can't change the target region for this project after clicking this button, and all subsequent migrations are to this region.
+7. Select **Create resources**. This creates an Azure Site Recovery vault in the background. You can't change the target region for this project after clicking this button, and all subsequent migrations are to this region.
 
     > [!NOTE]
     > If you selected private endpoint as the connectivity method for the Azure Migrate project when it was created, the Recovery Services vault will also be configured for private endpoint connectivity. Ensure that the private endpoints are reachable from the replication appliance: [**Learn more**](../troubleshoot-network-connectivity.md)
 
 
 8. In **Do you want to install a new replication appliance?**, select **Install a replication appliance**.
-9. Click **Download**. This downloads an OVF template.
+9. Select **Download**. This downloads an OVF template.
 10. Note the name of the resource group and the Recovery Services vault. You need these during appliance deployment.
 
 
@@ -225,8 +223,6 @@ Finish setting up and registering the replication appliance.
 
 After the replication appliance is registered, Azure Migrate Server Assessment connects to VMware servers using the specified settings, and discovers VMs. You can view discovered VMs in **Manage** > **Discovered items**, in the **Other** tab.
 
-
-
 ## Replicate VMs
 
 Select VMs for migration.
@@ -272,7 +268,6 @@ Select VMs for migration.
    > [!NOTE]
    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE.
 
-
 15. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
@@ -296,6 +291,10 @@ Select VMs for migration.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
+
+## Simplified experience
+
+Now, the selection experience type is both classic and simplified. The new simplified process follows a streamlined flow that begins with discovery, followed by replication, and finally migration. This is an upgraded agent-based migration stack for physical and VMware environments. For more information, see [Simplified experience](../tutorial-migrate-physical-virtual-machines.md#simplified-experience).
 
 
 ## Track and monitor

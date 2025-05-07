@@ -7,7 +7,7 @@ ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Copy data from SAP ECC using Azure Data Factory or Synapse Analytics

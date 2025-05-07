@@ -1,12 +1,13 @@
 ---
 title: Create an Azure Data Factory using REST API
 description: Create an Azure Data Factory pipeline to copy data from one location in Azure Blob storage to another location.
-author: jianleishen
+author: whhender
 ms.subservice: data-movement
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/15/2024
-ms.author: jianleishen
+ms.date: 02/13/2025
+ms.author: whhender
+ms.reviewer: jianleishen
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -765,7 +766,7 @@ $runId  = ($response.content | ConvertFrom-Json).runId
 Here is the sample output: 
 
 ```json
-{"runId":"ffc9c2a8-d86a-46d5-9208-28b3551007d8"}
+{"runId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"}
 ```
 
 
@@ -798,10 +799,10 @@ Here is the sample output:
 
     ```json
         {
-          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/ffc9c2a8-d86a-46d5-9208-28b3551007d8",
-          "runId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+          "runId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
           "debugRunId": null,
-          "runGroupId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "runGroupId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
           "pipelineName": "Adfv2QuickStartParamPipeline",
           "parameters": {
             "strParamInputFileName": "emp2.txt",
@@ -864,7 +865,7 @@ Here is the sample output:
             "target": "CopyFromBlobToBlob",
             "details": ""
           },
-          "activityRunId": "40bab243-9bbf-4538-9336-b797a2f98e2b",
+          "activityRunId": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
           "iterationHash": "",
           "input": {
             "source": {
@@ -907,7 +908,7 @@ Here is the sample output:
           },
           "userProperties": {},
           "pipelineName": "Adfv2QuickStartParamPipeline",
-          "pipelineRunId": "ffc9c2a8-d86a-46d5-9208-28b3551007d8",
+          "pipelineRunId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
           "status": "Succeeded",
           "recoveryStatus": "None",
           "integrationRuntimeNames": [
@@ -918,7 +919,7 @@ Here is the sample output:
               "@{name=DefaultIntegrationRuntime; type=Managed; location=East US; nodes=}"
             ]
           },
-          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/ffc9c2a8-d86a-46d5-9208-28b3551007d8/activityruns/40bab243-9bbf-4538-9336-b797a2f98e2b"
+          "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<factoryName>/pipelineruns/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/activityruns/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f"
         }
     ```
 ## Verify the output

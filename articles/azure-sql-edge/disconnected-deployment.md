@@ -3,7 +3,7 @@ title: Deploy Azure SQL Edge with Docker - Azure SQL Edge
 description: Learn about deploying Azure SQL Edge with Docker
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 10/28/2024
 ms.service: azure-sql-edge
 ms.topic: quickstart
 ms.custom: mode-other
@@ -14,7 +14,9 @@ keywords:
 ---
 # Deploy Azure SQL Edge with Docker
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In this quickstart, you use Docker to pull and run the Azure SQL Edge container image. Then connect with **sqlcmd** to create your first database and run queries.
@@ -53,13 +55,13 @@ Azure SQL Edge containers aren't supported on the following platforms for produc
    - Start an Azure SQL Edge instance running as the Developer edition:
 
      ```bash
-     sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
+     sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=<password>' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
      ```
 
    - Start an Azure SQL Edge instance running as the Premium edition:
 
      ```bash
-     sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=yourStrong(!)Password' -e 'MSSQL_PID=Premium' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
+     sudo docker run --cap-add SYS_PTRACE -e 'ACCEPT_EULA=1' -e 'MSSQL_SA_PASSWORD=<password>' -e 'MSSQL_PID=Premium' -p 1433:1433 --name azuresqledge -d mcr.microsoft.com/azure-sql-edge
      ```
 
    > [!IMPORTANT]  
@@ -70,7 +72,7 @@ Azure SQL Edge containers aren't supported on the following platforms for produc
    | Parameter | Description |
    | --- | --- |
    | **-e "ACCEPT_EULA=Y"** | Set the **ACCEPT_EULA** variable to any value to confirm your acceptance of the [End-User Licensing Agreement](https://go.microsoft.com/fwlink/?linkid=2139274). Required setting for the SQL Edge image. |
-   | **-e "MSSQL_SA_PASSWORD=yourStrong(!)Password"** | Specify your own strong password that is at least eight characters and meets the [Azure SQL Edge password requirements](/sql/relational-databases/security/password-policy). Required setting for the SQL Edge image. |
+   | **-e "MSSQL_SA_PASSWORD=\<password\>"** | Specify your own strong password that is at least eight characters and meets the [password requirements](/sql/relational-databases/security/password-policy). Required setting for the SQL Edge image. |
    | **-p 1433:1433** | Map a TCP port on the host environment (first value) with a TCP port in the container (second value). In this example, SQL Edge is listening on TCP 1433 in the container and this is exposed to the port, 1433, on the host. |
    | **--name azuresqledge** | Specify a custom name for the container rather than a randomly generated one. If you run more than one container, you can't reuse this same name. |
    | **-d** | Run the container in the background (daemon) |
@@ -104,12 +106,12 @@ The **SA** account is a system administrator on the Azure SQL Edge instance that
 
 1. Choose a strong password to use for the SA user.
 
-1. Use `docker exec` to run **sqlcmd** to change the password using Transact-SQL. In the following example, replace the old password, `<YourStrong!Passw0rd>`, and the new password, `<YourNewStrong!Passw0rd>`, with your own password values.
+1. Use `docker exec` to run **sqlcmd** to change the password using Transact-SQL. In the following example, replace the old password, `<old-password>`, and the new password, `<new-password>`, with your own password values.
 
    ```bash
    sudo docker exec -it azuresqledge /opt/mssql-tools/bin/sqlcmd \
-      -S localhost -U SA -P "<YourStrong@Passw0rd>" \
-      -Q 'ALTER LOGIN SA WITH PASSWORD="<YourNewStrong@Passw0rd>"'
+      -S localhost -U SA -P "<old-password>" \
+      -Q 'ALTER LOGIN SA WITH PASSWORD="<new-password>"'
    ```
 
 ## Connect to Azure SQL Edge
@@ -125,7 +127,7 @@ The following steps use the Azure SQL Edge command-line tool, **sqlcmd**, inside
 1. Once inside the container, connect locally with **sqlcmd**. **sqlcmd** isn't in the path by default, so you have to specify the full path.
 
    ```bash
-   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<YourNewStrong@Passw0rd>"
+   /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P "<password>"
    ```
 
    > [!TIP]  
@@ -233,7 +235,7 @@ sudo docker rm azuresqledge
 > [!WARNING]  
 > Stopping and removing a container permanently deletes any SQL Edge data in the container. If you need to preserve your data, [create and copy a backup file out of the container](backup-restore.md) or use a [container data persistence technique](configure.md#persist-your-data).
 
-## Next steps
+## Related content
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).

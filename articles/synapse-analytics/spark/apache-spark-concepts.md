@@ -83,7 +83,7 @@ Every Azure Synapse workspace comes with a default quota of vCores that can be u
 Failed to start session: [User] MAXIMUM_WORKSPACE_CAPACITY_EXCEEDED
 Your Spark job requested 480 vCores.
 However, the workspace only has xxx vCores available out of quota of yyy vCores.
-Try reducing the numbers of vCores requested or increasing your vCore quota. Click here for more information - https://go.microsoft.com/fwlink/?linkid=213499
+Try reducing the numbers of vCores requested or increasing your vCore quota. Click here for more information - https://learn.microsoft.com/en-us/azure/synapse-analytics/spark/apache-spark-concepts
 ```
 
 The link in the message points to this article.
@@ -93,7 +93,7 @@ The following article describes how to request an increase in workspace vCore qu
 - Select "Azure Synapse Analytics" as the service type.
 - In the Quota details window, select Apache Spark (vCore) per workspace
 
-[Request a capacity increase via the Azure portal](../../azure-portal/supportability/per-vm-quota-requests.md)
+[Request a capacity increase via the Azure portal](/azure/azure-portal/supportability/per-vm-quota-requests)
 
 ### Spark pool level
 

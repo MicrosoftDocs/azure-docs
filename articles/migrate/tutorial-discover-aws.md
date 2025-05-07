@@ -5,13 +5,16 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 08/08/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.custom: mvc, subject-rbac-steps, engagement-fy25
+ms.collection:
+ - migration
+ - aws-to-azure
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
-# Tutorial: Discover AWS instances with Azure Migrate: Discovery and assessment
+# Tutorial: Discover AWS instances with Azure Migrate
 
 As part of your migration journey to Azure, you discover your servers for assessment and migration.
 
@@ -103,7 +106,7 @@ Set up a new project.
 2. Under **Services**, select **Azure Migrate**.
 3. In **Get started**, select **Create project**.
 5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 7. Select **Create**.
 8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.

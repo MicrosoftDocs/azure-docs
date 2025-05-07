@@ -3,7 +3,7 @@ title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 05/10/2024
+ms.date: 02/12/2025
 ---
 
 # ARM template functions
@@ -122,6 +122,7 @@ For Bicep files, use the [date](../bicep/bicep-functions-date.md) functions.
 
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
 
+* [deployer](template-functions-deployment.md#deployer)
 * [deployment](template-functions-deployment.md#deployment)
 * [environment](template-functions-deployment.md#environment)
 * [parameters](template-functions-deployment.md#parameters)

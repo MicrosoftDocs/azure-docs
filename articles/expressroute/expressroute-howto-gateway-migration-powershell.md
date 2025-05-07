@@ -7,7 +7,7 @@ author: duongau
 ms.service: azure-expressroute
 ms.custom: ignite-2023
 ms.topic: how-to
-ms.date: 04/26/2024
+ms.date: 10/29/2024
 ms.author: duau
 ---
 
@@ -66,10 +66,9 @@ This script creates a new ExpressRoute virtual network gateway on the same gatew
 1. Run the **PrepareMigration.ps1** script to prepare the migration. 
 
     ```azurepowershell-interactive
-   gateway-migration/preparemigration.ps1
+   expressroute-gateway\gateway-migration\preparemigration.ps1
     ```
-1. Enter the resource ID of your gateway.
-1. The gateway subnet needs two or more address prefixes for the migration. If you have only one prefix, you're prompted to enter an additional prefix. 
+1. Enter the resource ID of your gateway. 
 1. Choose a name for your new resources, the new resource name will be added to the existing name. For example: existingresourcename_newname.
 1. Enter an availability zone for your new gateway. 
 
@@ -87,7 +86,7 @@ This script transfers the configuration from the old gateway to the new one.
 1.  Run the **Migration.ps1** script to perform the migration. 
 
     ```azurepowershell-interactive
-    gateway-migration/migration.ps1
+    expressroute-gateway\gateway-migration\migration.ps1
     ```
 1. Enter the resource ID of your premigration gateway.
 1. Enter the resource ID of your post-migration gateway.
@@ -99,7 +98,7 @@ This script deletes the old gateway and its connections.
 1. Run the **CommitMigration.ps1** script to complete the migration. 
 
     ```azurepowershell-interactive
-   gateway-migration/commitmigration.ps1
+    expressroute-gateway\gateway-migration\commitmigration.ps1
     ```
 1. Enter the resource ID of the premigration gateway.
 

@@ -87,7 +87,7 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
     1. After deleting the pre-existing address range, select **Add an IP address space**.
     
        :::image type="Protection state" source="media/tutorial-prepare-azure/add-ip-address-space.png" alt-text="Screenshot of the adding IP.":::
-    1. In **Starting address** enter **10.0.0.**
+    1. In **Starting address** enter **10.0.0.0**
     1. Under **Address space size**, select **/24 (256 addresses)**.
     1. Select **Add**.
     

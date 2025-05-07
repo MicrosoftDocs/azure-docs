@@ -6,7 +6,7 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 06/18/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 
 # This topic applies to administrators and device developers.
 ---

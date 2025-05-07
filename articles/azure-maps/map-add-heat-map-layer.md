@@ -107,11 +107,11 @@ The `zoom` expression can only be used in `step` and `interpolate` expressions. 
 
 ```json
 [
-    `'interpolate', 
+    'interpolate',
     ['exponential', 2],
     ['zoom'],
     0, ['*', radiusMeters, 0.000012776039596366526],
-    24, [`'*', radiusMeters, 214.34637593279402]
+    24, ['*', radiusMeters, 214.34637593279402]
 ]
 ```
 

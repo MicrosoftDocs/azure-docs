@@ -5,7 +5,8 @@ description: This document is the master document that contains all the links re
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 # How does Azure Workflow Orchestration Manager work?
 

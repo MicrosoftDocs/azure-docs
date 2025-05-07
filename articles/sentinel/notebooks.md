@@ -7,9 +7,13 @@ ms.topic: conceptual
 ms.custom: devx-track-python
 ms.date: 03/07/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to understand the capabilities of Jupyter notebooks so that I can decide if they'll enhance my threat hunting and investigation processes.
+
 ---
 
 # Jupyter notebooks with Microsoft Sentinel hunting capabilities

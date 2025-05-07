@@ -4,10 +4,10 @@ titleSuffix: Azure Storage
 description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage using this driver.
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 03/09/2023
+ms.date: 11/15/2024
 ms.service: azure-data-lake-storage
 ---
 

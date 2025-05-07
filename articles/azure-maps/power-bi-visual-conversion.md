@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Power BI visual
 description: This article covers how to convert Map and Filled map visuals to an Azure Maps visual.
 author: deniseatmicrosoft
 ms.author: limingchen 
-ms.date: 05/23/2023
+ms.date: 01/23/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual

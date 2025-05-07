@@ -78,7 +78,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/recommendation-alert.png" alt-text="Screenshot showing how to view a recommendation in the log analytics workspace.":::
 
-For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 ## Clean up resources
 

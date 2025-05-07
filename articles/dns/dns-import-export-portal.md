@@ -5,14 +5,14 @@ description: Learn how to import and export a DNS (Domain Name System) zone file
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.date: 06/07/2024
+ms.date: 02/05/2025
 ms.author: greglin
 ms.topic: how-to
 ---
 
 # Import and export a DNS zone file using the Azure portal
 
-In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure portal. You can also [import and export a zone file using Azure PowerShell](dns-import-export.md).
+In this article, you learn how to  import and export a DNS zone file in Azure DNS using Azure portal. You can also [import and export a zone file using Azure CLI](dns-import-export.md). Import and export cmdlets are not currently available in Azure PowerShell.
 
 ## Introduction to DNS zone migration
 
@@ -78,12 +78,12 @@ The following notes provide more details about the zone import process.
 	IN	MX	10	mail.adatum.com.       
 	IN	MX	20	mail2.adatum.com.        
 
-    dns1	IN	A	5.4.3.2
-    dns2	IN	A	4.3.2.1		       
-    server1	IN	A	4.4.3.2        
-    server2	IN	A	5.5.4.3
-    ftp	IN	A	3.3.2.1
-	    IN	A	3.3.3.2
+    dns1	IN	A	203.0.113.2
+    dns2	IN	A	203.0.113.1		       
+    server1	IN	A	192.0.2.2       
+    server2	IN	A	192.0.2.3
+    ftp	IN	A	198.51.100.1
+	    IN	A	198.51.100.2
     mail	IN	CNAME	server1
     mail2	IN	CNAME	server2
     www	    IN	CNAME	server1
@@ -160,12 +160,12 @@ The following notes provide more details about the zone import process.
     @	3600	IN	MX	20	mail2.adatum.com.
 
     ; A Records
-    dns1	3600	IN	A	5.4.3.2
-    dns2	3600	IN	A	4.3.2.1
-    ftp	3600	IN	A	3.3.2.1
-    ftp	3600	IN	A	3.3.3.2
-    server1	3600	IN	A	4.4.3.2
-    server2	3600	IN	A	5.5.4.3
+    dns1	3600	IN	A	203.0.113.2
+    dns2	3600	IN	A	203.0.113.1
+    ftp	3600	IN	A	198.51.100.1
+    ftp	3600	IN	A	198.51.100.2
+    server1	3600	IN	A	192.0.2.2
+    server2	3600	IN	A	192.0.2.3
 
     ; AAAA Records
 

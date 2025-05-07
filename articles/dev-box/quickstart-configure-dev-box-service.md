@@ -6,11 +6,13 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/15/2023
+ms.date: 05/02/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
 # Quickstart: Configure Microsoft Dev Box 
+
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
 
 In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, specify a dev box definition, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
 
@@ -49,45 +51,9 @@ To get started with Microsoft Dev Box, you first create a dev center. A dev cent
 
 Use the following steps to create a dev center so you can manage your dev box resources: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+[!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/discover-dev-centers.png" alt-text="Screenshot that shows the Azure portal with the search box and the result for dev centers." lightbox="./media/quickstart-configure-dev-box-service/discover-dev-centers.png":::
-
-1. On the **Dev centers** page, select **Create**.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center.png" alt-text="Screenshot that shows the Azure portal with the Create button on the page for dev centers." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center.png":::
-
-1. On the **Create a dev center** pane, on the **Basics** tab, enter the following values:
-
-   | Setting | Value |
-   |---|---|
-   | **Subscription** | Select the subscription in which you want to create the dev center. |
-   | **ResourceGroup** | Select an existing resource group, or select **Create new** and then enter a name for the new resource group. |
-   | **Name** | Enter a name for your dev center. |
-   | **Location** | Select the location or region where you want the dev center to be created. |
-   | **Attach a quick start catalog** | Clear both checkboxes. |
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-not-selected.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center-not-selected.png":::
-
-   For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
-
-1. (Optional) On the **Tags** tab, enter a name/value pair that you want to assign.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/create-dev-center-tags.png" alt-text="Screenshot that shows the Tags tab on the page for creating a dev center." lightbox="./media/quickstart-configure-dev-box-service/create-dev-center-tags.png":::
-
-1. Select **Review + Create**.
-
-1. On the **Review** tab, select **Create**.
-
-1. Track the progress of the dev center creation from any page in the Azure portal by opening the **Notifications** pane.
-
-   :::image type="content" source="./media/quickstart-configure-dev-box-service/notifications-pane.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal." lightbox="./media/quickstart-configure-dev-box-service/notifications-pane.png":::
-
-1. When the deployment completes, select **Go to resource**. Confirm that the dev center page appears.
-
-### Create a project
+## Create a project
 
 Dev box projects enable you to manage team-level settings. These settings include providing access to development teams so developers can create dev boxes. Each dev center needs at least one project.
 
@@ -127,9 +93,9 @@ To create and configure a project in a dev box:
 
 1. Verify that the project appears on the **Projects** page.
  
-As you create a project, you might see this informational message about catalogs: 
+As you create a project, you might see this informational message about catalogs: *The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned.*
 
-:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="Screenshot of the informational message, The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned." lightbox="media/quickstart-configure-dev-box-service/project-catalog-message.png":::
+:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="Screenshot showing an information message." lightbox="media/quickstart-configure-dev-box-service/project-catalog-message.png":::
 
 Because you're not configuring Deployment Environments, you can safely ignore this message.
 
@@ -252,6 +218,12 @@ Microsoft Dev Box makes it possible for you to delegate administration of projec
 To give users permissions to manage projects, assign the DevCenter Project Admin role to them. You can assign the DevCenter Project Admin role by using the steps described earlier in [Provide access to a dev box project](#provide-access-to-a-dev-box-project) and select the **DevCenter Project Admin** role instead of the Dev Box User role. For more information, see [Provide access to projects for project admins](how-to-project-admin.md).
 
 [!INCLUDE [permissions note](./includes/note-permission-to-create-dev-box.md)]
+
+## Discover more about Microsoft Dev Box
+
+- Find out [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew)
+- Discover what's coming up next in Microsoft Dev Box: [Microsoft Dev Box roadmap](dev-box-roadmap.md)
+- [Learn how Microsoft Dev Box impacts developer productivity](https://azure.microsoft.com/blog/study-showcases-how-microsoft-dev-box-impacts-developer-productivity/)
 
 ## Next step
 

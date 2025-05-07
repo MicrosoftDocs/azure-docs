@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Create a call and provide the transcription details
-Define the TranscriptionOptions for ACS to know whether to start the transcription straight away or at a later time, which locale to transcribe in, and the web socket connection to use for sending the transcript.
+Define the TranscriptionOptions for ACS to specify when to start the transcription, the locale for transcription, and the web socket connection for sending the transcript.
 
 ```python
 transcription_options = TranscriptionOptions(
@@ -27,6 +27,26 @@ call_connection_properties = call_automation_client.create_call(
     CALLBACK_EVENTS_URI,
     cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
     source_caller_id_number=source_caller,
+    transcription=transcription_options
+)
+```
+
+## Connect to a Rooms call and provide transcription details
+If you're connecting to an ACS room and want to use transcription, configure the transcription options as follows:
+
+```python
+transcription_options = TranscriptionOptions(
+    transport_url="",
+    transport_type=TranscriptionTransportType.WEBSOCKET,
+    locale="en-US",
+    start_transcription=False
+)
+
+connect_result = client.connect_call(
+    room_id="roomid",
+    CALLBACK_EVENTS_URI,
+    cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT,
+    operation_context="connectCallContext",
     transcription=transcription_options
 )
 ```
@@ -46,13 +66,13 @@ call_connection_client.start_transcription()
 ```
 
 ## Receiving Transcription Stream
-When transcription starts, your websocket will receive the transcription metadata payload as the first packet. This payload carries the call metadata and locale for the configuration.
+When transcription starts, your websocket receives the transcription metadata payload as the first packet.
 
 ```json
 {
     "kind": "TranscriptionMetadata",
     "transcriptionMetadata": {
-        "subscriptionId": "835be116-f750-48a4-a5a4-ab85e070e5b0",
+        "subscriptionId": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
         "locale": "en-us",
         "callConnectionId": "65c57654=f12c-4975-92a4-21668e61dd98",
         "correlationId": "65c57654=f12c-4975-92a4-21668e61dd98"
@@ -93,44 +113,44 @@ After the metadata, the next packets your websocket receives will be Transcripti
 import asyncio
 import json
 import websockets
-
-from azure.communication.callautomation.streaming.models import (
-    TranscriptionMetadata, TranscriptionData, WordData, TextFormat, ResultStatus
-)
-from azure.communication.callautomation.streaming.streaming_data_parser import StreamingDataParser
+from azure.communication.callautomation._shared.models import identifier_from_raw_id
 
 async def handle_client(websocket, path):
     print("Client connected")
     try:
         async for message in websocket:
-            print(message)
-            result = StreamingDataParser.parse(message)
-            
-            if isinstance(result, TranscriptionMetadata):
-                print("Parsed data is metadata")
+            json_object = json.loads(message)
+            kind = json_object['kind']
+            if kind == 'TranscriptionMetadata':
+                print("Transcription metadata")
                 print("-------------------------")
-                print("Subscription ID:", result.subscriptionId)
-                print("Locale:", result.locale)
-                print("Call Connection ID:", result.callConnectionId)
-                print("Correlation ID:", result.correlationId)
-            
-            elif isinstance(result, TranscriptionData):
-                print("Parsed data is transcription data")
+                print("Subscription ID:", json_object['transcriptionMetadata']['subscriptionId'])
+                print("Locale:", json_object['transcriptionMetadata']['locale'])
+                print("Call Connection ID:", json_object['transcriptionMetadata']['callConnectionId'])
+                print("Correlation ID:", json_object['transcriptionMetadata']['correlationId'])
+            if kind == 'TranscriptionData':
+                participant = identifier_from_raw_id(json_object['transcriptionData']['participantRawID'])
+                word_data_list = json_object['transcriptionData']['words']
+                print("Transcription data")
                 print("-------------------------")
-                print("Text:", result.text)
-                print("Format:", result.format)
-                print("Confidence:", result.confidence)
-                print("Offset:", result.offset)
-                print("Duration:", result.duration)
-                print("Participant:", result.participant.raw_id)
-                print("Result Status:", result.resultStatus)
-                for word in result.words:
-                    print("Word:", word.text)
-                    print("Offset:", word.offset)
-                    print("Duration:", word.duration)
-
+                print("Text:", json_object['transcriptionData']['text'])
+                print("Format:", json_object['transcriptionData']['format'])
+                print("Confidence:", json_object['transcriptionData']['confidence'])
+                print("Offset:", json_object['transcriptionData']['offset'])
+                print("Duration:", json_object['transcriptionData']['duration'])
+                print("Participant:", participant.raw_id)
+                print("Result Status:", json_object['transcriptionData']['resultStatus'])
+                for word in word_data_list:
+                    print("Word:", word['text'])
+                    print("Offset:", word['offset'])
+                    print("Duration:", word['duration'])
+            
     except websockets.exceptions.ConnectionClosedOK:
         print("Client disconnected")
+    except websockets.exceptions.ConnectionClosedError as e:
+        print("Connection closed with error: %s", e)
+    except Exception as e:
+        print("Unexpected error: %s", e)
 
 start_server = websockets.serve(handle_client, "localhost", 8081)
 
@@ -141,7 +161,7 @@ asyncio.get_event_loop().run_forever()
 ```
 
 ## Update Transcription
-For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this, the Call Automation SDK allows you to update the transcription locale.
+For situations where your application allows users to select their preferred language, you may also want to capture the transcription in that language. To do this task, the Call Automation SDK allows you to update the transcription locale.
 
 ```python
 await call_connection_client.update_transcription(locale="en-US-NancyNeural")

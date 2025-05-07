@@ -1,3 +1,4 @@
+items:
 - name: Azure
   tocHref: /azure
   topicHref: /azure/index
@@ -15,6 +16,12 @@
         - name: MedTech service
           tocHref: /azure/healthcare-apis/iot/
           topicHref: /azure/healthcare-apis/iot/index
+        - name: De-identification service
+          tocHref: /azure/healthcare-apis/deidentification/
+          topicHref: /azure/healthcare-apis/deidentification/index
+        - name: De-identification service
+          tocHref: /azure/reliability/
+          topicHref: /azure/healthcare-apis/deidentification/index
         - name: Events
           tocHref: /azure/healthcare-apis/events/
           topicHref: /azure/healthcare-apis/events/index

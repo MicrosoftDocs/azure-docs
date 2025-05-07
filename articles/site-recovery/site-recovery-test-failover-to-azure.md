@@ -2,8 +2,8 @@
 title: Run a test failover (disaster recovery drill) to Azure in Azure Site Recovery 
 description: Learn about running a test failover from on-premises to Azure, using the Azure Site Recovery service.
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 12/14/2023
+ms.topic: how-to
+ms.date: 09/25/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 
@@ -65,7 +65,7 @@ In the following scenarios, failover  requires an extra intermediate step that u
 	* storflt
 	* intelide
 	* atapi
-* VMware VM that don't have DHCP enabled , irrespective of whether they are using DHCP or static IP addresses.
+* VMware VMs that don't have DHCP enabled , irrespective of whether they are using DHCP or static IP addresses.
 
 In all the other cases, no intermediate step is not required, and failover takes significantly less time.
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 09/19/2024
 ms.author: cshoe
 ---
 
@@ -19,11 +19,11 @@ Azure Container Apps supports:
 
 - Any Linux-based x86-64 (`linux/amd64`) container image
 - Containers from any public or private container registry
-- [Sidecar](#sidecar-containers) and [init](#init-containers) containers
+- Optional [sidecar](#sidecar-containers) and [init](#init-containers) containers
 
 Features also include:
 
-- Changes to the `template` configuration section trigger a new [container app revision](application-lifecycle-management.md).
+- Apps use the `template` configuration section to define the container image and other settings. Changes to the `template` configuration section trigger a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
 
 Jobs features include:
@@ -130,7 +130,7 @@ Most container apps have a single container. In advanced scenarios, an app may a
 
 | Setting | Description | Remarks |
 |---|---|---|
-| `image` | The container image name for your container app. | This value takes the form of `repository/<IMAGE_NAME>:<TAG>`. |
+| `image` | The container image name for your container app. | This value takes the form of `repository/<IMAGE_NAME>:<TAG>`. <br><br>Avoid using using static tags like `latest` for container images. Using static tags can lead to caching problems and can make your app difficult to troubleshoot. Instead, use unique tags for each deployment, such as a Git hash or date and time to ensure that updates are properly tracked and deployed. |
 | `name` | Friendly name of the container. | Used for reporting and identification. |
 | `command` | The container's startup command. | Equivalent to Docker's [entrypoint](https://docs.docker.com/engine/reference/builder/) field.  |
 | `args` | Start up command arguments. | Entries in the array are joined together to create a parameter list to pass to the startup command. |
@@ -243,7 +243,7 @@ The following example shows how to configure Azure Container Registry credential
 ```
 
 > [!NOTE]
-> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. Use a registry with sufficient limits, such as [Azure Container Registry](../container-registry/container-registry-intro.md) to avoid this problem.
+> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. Use a registry with sufficient limits, such as [Azure Container Registry](/azure/container-registry/container-registry-intro) to avoid this problem.
 
 ### Managed identity with Azure Container Registry
 
@@ -285,6 +285,10 @@ Azure Container Apps has the following limitations:
 - **Privileged containers**: Azure Container Apps doesn't allow privileged containers mode with host-level access.
 
 - **Operating system**: Linux-based (`linux/amd64`) container images are required.
+
+- **Maximum image size**:
+    - Consumption workload profile supports container images totaling up to 8GB for each app or job replica.
+    - Dedicated workload profiles support larger container images. Because a Dedicated workload profile can run multiple apps or jobs, multiple container images share the available disk space. The actual supported image size varies based on resources consumed by other apps and jobs.
 
 ## Next steps
 

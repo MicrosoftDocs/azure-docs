@@ -2,9 +2,9 @@
 title: Understand the built-in endpoint
 titleSuffix: Azure IoT Hub
 description: This article describes how to use the built-in, Event Hubs-compatible endpoint to read device-to-cloud messages.
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: concept-article
 ms.date: 06/28/2024
 ms.custom: [amqp, 'Role: Cloud Development']

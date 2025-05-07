@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/13/2024
+ms.date: 09/04/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -222,7 +222,7 @@ You can also store service principal key in Azure Key Vault.
 ### <a name="managed-identity"></a> System-assigned managed identity authentication
 
 >[!NOTE]
->Currently, the system-assigned managed identity authentication is not supported in data flow.
+>Currently, the system-assigned managed identity authentication is supported in data flows through the use of advanced properties in JSON format.
 
 A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
 
@@ -240,6 +240,9 @@ These properties are supported for the linked service:
 | accountEndpoint | Specify the account endpoint URL for the Azure Cosmos DB instance. | Yes |
 | database | Specify the name of the database. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
+| subscriptionId | Specify the subscription id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| tenantId | Specify the tenant id for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
+| resourceGroup | Specify the resource group name for the Azure Cosmos DB instance | No for Copy Activity, Yes for Mapping Data Flow |
 
 **Example:**
 
@@ -250,7 +253,10 @@ These properties are supported for the linked service:
         "type": "CosmosDb",
         "typeProperties": {
             "accountEndpoint": "<account endpoint>",
-            "database": "<database name>"
+            "database": "<database name>",
+            "subscriptionId": "<subscription id>",
+            "tenantId": "<tenant id>",
+            "resourceGroup": "<resource group>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

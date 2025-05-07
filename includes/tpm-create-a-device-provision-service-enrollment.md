@@ -1,9 +1,9 @@
 ---
 ms.topic: include
 ms.date: 10/29/2021
-author: kgremban
-ms.author: kgremban
-ms.service: iot-edge
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

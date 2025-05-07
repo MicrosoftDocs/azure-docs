@@ -395,7 +395,7 @@ The following items are prefixed with either:
    # Replace bold strings with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
    sudo pcs resource create Db2_HADR_ID2 db2 instance='db2id2' dblist='ID2' master meta notify=true resource-stickiness=5000
    
-   #Configure resource stickiness and correct cluster notifications for master resoruce
+   #Configure resource stickiness and correct cluster notifications for master resource
    sudo pcs resource update Db2_HADR_ID2-master meta notify=true resource-stickiness=5000
    
    # Configure virtual IP - same as Azure Load Balancer IP
@@ -420,7 +420,7 @@ The following items are prefixed with either:
    # Replace bold strings with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
    sudo pcs resource create Db2_HADR_ID2 db2 instance='db2id2' dblist='ID2' promotable meta notify=true resource-stickiness=5000
    
-   #Configure resource stickiness and correct cluster notifications for master resoruce
+   #Configure resource stickiness and correct cluster notifications for master resource
    sudo pcs resource update Db2_HADR_ID2-clone meta notify=true resource-stickiness=5000
    
    # Configure virtual IP - same as Azure Load Balancer IP

@@ -4,21 +4,21 @@ description: Learn how to build an application that securely gets the key from A
 author: angarg05
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/9/2023
 ms.author: ananyagarg
 ---
 
 # Secure Key Release with Confidential containers on Azure Container Instance (ACI)
 
-Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposting AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
+Secure Key Release (SKR) flow with Azure Key Vault (AKV) with confidential container offerings can implement in couple of ways. Confidential containers run a guest enlightened exposing AMD SEV-SNP device through a Linux Kernel that uses an in guest firmware with necessary Hyper-V related patches that we refer as Direct Linux Boot (DLB). This platform doesn't use vTPM and HCL based that Confidential VMs with AMD SEV-SNP support. This concept document assumes you plan to run the containers in [Azure Container Support choosing a confidential computing SKU](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
 
 - Side-Car Helper Container provided by Azure
 - Custom implementation with your container application
 
 ## Side-Car helper container provided by Azure
 
-An [open sourced GitHub project "confidential side-cars"](https://github.com/microsoft/confidential-sidecar-containers) details how to build this container and what parameters/environment variables are required for you to prepare and run this side-car container. The current side car implementation provides various HTTP REST APIs that your primary application container can use to fetch the key from AKV. The integration through Microsoft Azure Attestation(MAA) is already built in. The preparation steps to run the side-car SKR container can be found in details [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main/examples/skr).
+An [open sourced GitHub project "confidential side-cars"](https://github.com/microsoft/confidential-sidecar-containers) details how to build this container and what parameters/environment variables are required for you to prepare and run this side-car container. The current side car implementation provides various HTTP REST APIs that your primary application container can use to fetch the key from AKV. The integration through Microsoft Azure Attestation (MAA) is already built in. The preparation steps to run the side-car SKR container can be found in details [here](https://github.com/microsoft/confidential-sidecar-containers/tree/main/examples/skr).
 
 Your main application container application can call the side-car WEB API end points as defined in the example below. Side-cars runs within the same container group and is a local endpoint to your application container. Full details of the API can be found [here](https://github.com/microsoft/confidential-sidecar-containers/blob/main/cmd/skr/README.md)
  

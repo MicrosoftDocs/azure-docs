@@ -5,8 +5,8 @@ metadata:
   description: Learn how to list Azure built-in and custom roles using Azure portal, Azure PowerShell, Azure CLI, or REST API.
   author: rolyon
   ms.author: rolyon
-  manager: amycolannino
-  ms.date: 03/28/2023
+  manager: femila
+  ms.date: 01/07/2025
   ms.service: role-based-access-control
   ms.topic: how-to
   ms.custom:
@@ -462,6 +462,7 @@ procedureSection:
           > | Filter | Description |
           > | --- | --- |
           > | `$filter=type+eq+'{type}'` | Lists role definitions of the specified type. Type of role can be `CustomRole` or `BuiltInRole`. |
+          > | `$filter=roleName+eq+'{roleName}'` | Lists role definition with the specified role name, such as 'Virtual Machine Contributor'. |
 
           The following example lists all custom roles in a tenant:
 

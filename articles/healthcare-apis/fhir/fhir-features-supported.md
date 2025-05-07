@@ -22,27 +22,27 @@ Previous versions also currently supported include: `3.0.2`
 
 ## REST API
 
-Here is a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](rest-api-capabilities.md). 
+Here's a summary of the supported RESTful capabilities. For more information on the implementation of these capabilities, see [FHIR REST API capabilities](rest-api-capabilities.md). 
 
 | API    | Azure API for FHIR | FHIR service in Azure Health Data Services | Comment |
 |--------|--------------------|---------------------------------|---------|
 | read   | Yes                | Yes                             |         |
 | vread  | Yes                | Yes                             |         |
 | update | Yes                | Yes                             |         | 
-| update with optimistic locking | Yes       | Yes       |
-| update (conditional)           | Yes       | Yes       |
+| update with optimistic locking | Yes       | Yes       | |
+| update (conditional)           | Yes       | Yes       | |
 | patch                          | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md#patch-and-conditional-patch) only. |
 | patch (conditional)            | Yes       | Yes       | Support for [JSON Patch and FHIRPath Patch](rest-api-capabilities.md#patch-and-conditional-patch) only. |
-| history                        | Yes       | Yes       |
+| history                        | Yes       | Yes       | |
 | create                         | Yes       | Yes       | Support both POST/PUT |
 | create (conditional)           | Yes       | Yes       | Issue [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
 | search                         | Partial   | Partial   | See [Overview of FHIR Search](overview-of-search.md). |
 | chained search                 | Yes       | Yes       | |
 | reverse chained search         | Yes       | Yes       | |
-| batch                          | Yes       | Yes       |
-| transaction                    | No        | Yes       |
+| batch                          | Yes       | Yes       | |
+| transaction                    | No        | Yes       | |
 | paging                         | Partial   | Partial   | `self` and `next` are supported                     |
-| intermediaries                 | No        | No        |
+| intermediaries                 | No        | No        | |
 
 ## Extended Operations
 
@@ -62,6 +62,7 @@ All the operations that are supported that extend the REST API.
 ## Role-based access control
 
 FHIR service uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for access control. 
+SMART on FHIR Implementation Guide defines access to FHIR resource types with scopes. These scopes impact the access an application may have to FHIR resources. A user with the SMART user role has access to perform read API interactions on FHIR service. SMART user role does not grant write access to FHIR service.
 
 ## Service limits
 

@@ -86,8 +86,10 @@ In the **Event Subscription Details** section, provide an appropriate name.
     $EventSubscriptionName = "PreEventWebhook"
     
     $PreEventWebhookEndpoint = "<Webhook URL>"
-    
-    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes
+
+    $dest = New-AzEventGridWebHookEventSubscriptionDestinationObject -EndpointUrl $PreEventWebhookEndpoint
+   
+    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes -Destination $dest
     
     # Azure Function
     
@@ -268,8 +270,10 @@ In the **Event Subscription Details** section, provide an appropriate name.
     $EventSubscriptionName = "PreEventWebhook"
     
     $PreEventWebhookEndpoint = "<Webhook URL>"
+
+    $dest = New-AzEventGridWebHookEventSubscriptionDestinationObject -EndpointUrl $PreEventWebhookEndpoint
     
-    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes
+    New-AzEventGridSystemTopicEventSubscription -ResourceGroupName $ResourceGroupForSystemTopic -SystemTopicName $SystemTopicName -EventSubscriptionName $EventSubscriptionName -Endpoint $PreEventWebhookEndpoint -IncludedEventType $IncludedEventTypes -Destination $dest
  
     # Azure Function
     

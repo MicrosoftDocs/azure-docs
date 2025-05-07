@@ -13,6 +13,12 @@ zone_pivot_groups: drawing-package-version
 
 # Drawing package requirements
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 :::zone pivot="drawing-package-v1"
 
 You can convert uploaded drawing packages into map data by using the Azure Maps [Conversion service]. This article describes the drawing package requirements for the Conversion API. To view a sample package, you can download the sample [Drawing package].

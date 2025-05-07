@@ -3,7 +3,7 @@ title: Guidance on patching for SQL Server on Azure VMs using Azure Update Manag
 description: An overview on patching guidance for SQL Server on Azure VMs using Azure Update Manager  
 author: snehasudhirG
 ms.service: azure-update-manager
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/06/2024
 ms.author: sudhirsneha
 ---
@@ -22,8 +22,6 @@ This article provides the details on how to integrate [Azure Update Manager](ove
 Azure Update Manager designed as a standalone Azure service to provide SaaS experience to manage hybrid environments in Azure.
 
 Using Azure Update Manager you can manage and govern updates for all your SQL Server instances at scale. Unlike with [Automated Patching](/azure/azure-sql/virtual-machines/windows/automated-patching), Update Manager installs cumulative updates for SQL server.
-
-
 
  
 ## Next steps

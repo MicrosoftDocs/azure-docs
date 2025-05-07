@@ -9,6 +9,7 @@ ms.author: darmour
 ms.date: 06/26/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 To get started, you connect a new or existing WhatsApp Business Account with your Azure Communication Services resource in the Azure portal. The process is initiated in the Azure portal. This option opens a new browser window for you to complete a signup process using Facebook’s signup wizard. 

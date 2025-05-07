@@ -1,5 +1,5 @@
 ---
-title: Supported server APIs of Socket.IO
+title: Unsupported server APIs of Socket.IO
 description: This article lists Socket.IO server APIs that are partially supported or unsupported in Web PubSub for Socket.IO.
 keywords: Socket.IO, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, Socket.IO APIs, socketio, azure socketio
 author: kevinguo-ed
@@ -8,7 +8,7 @@ ms.date: 07/27/2023
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
-# Supported server APIs of Socket.IO
+# Unsupported server APIs of Socket.IO
 
 The Socket.IO library provides a set of [server APIs](https://socket.io/docs/v4/server-api/). The following server APIs are partially supported or unsupported by Web PubSub for Socket.IO.
 

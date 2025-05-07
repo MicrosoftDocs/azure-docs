@@ -119,7 +119,7 @@ The following example is the response.
 ```json
 {
   "etag": "00000002-0000-0000-3d4d-64aa3689d201",
-  "id": "/subscriptions/147a22e9-2356-4e56-b3de-1f5842ae4a3b/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
   "location": "global",
   "maxNumberOfRecordSets": 5000,
   "name": "contoso.com",

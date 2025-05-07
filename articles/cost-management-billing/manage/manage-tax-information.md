@@ -1,24 +1,26 @@
 ---
 title: Update tax details for an Azure billing account
 description: This article describes how to update your Azure billing account tax details.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/27/2023
-ms.author: banders
+ms.date: 01/21/2025
+ms.author: jkinma
 ms.custom: references_regions
 ---
 
 # Update tax details for an Azure billing account
 
-When you buy Azure products and services, the taxes that you pay are determined by one of two things: your sold-to address, or your ship-to/service usage address, if it's different. 
+When you buy Azure products and services, the taxes that you pay get determined by one of two things: your sold-to address, or your ship-to/service usage address, if it's different. 
 
 This article helps you review and update the sold to information, ship-to/service usage address, and tax IDs for your Azure billing account. The instructions to update vary by the billing account type. For more information about billing accounts and how to identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md). An Azure billing account is separate from your Azure user account and [Microsoft account](https://account.microsoft.com/).
 
 > [!NOTE]
-> When you update the sold to information, ship-to address, and Tax IDs in the Azure portal, the updated values are only used for invoices that are generated in the future. To make changes to an existing invoice, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+> - When you update the sold-to information, ship-to address, and tax IDs in the Azure portal, the updated values are only used for invoices that are generated in the future. To make changes to an existing invoice, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+> - Microsoft doesn't regenerate past invoices to update sold-to information due to tax implications. Sold-to information on past invoices can't get updated.
+
 
 ## Update the sold to address
 
@@ -29,7 +31,7 @@ This article helps you review and update the sold to information, ship-to/servic
     :::image type="content" source="./media/manage-tax-information/update-sold-to.png" alt-text="Screenshot showing the properties for an M C A billing account where you modify the sold-to address." lightbox="./media/manage-tax-information/update-sold-to.png" :::
 1. Enter the new address and select **Save**.
     > [!NOTE]
-    > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you are prompted to contact Azure support.
+    > Some accounts require extra verification before their sold-to can be updated. If your account requires manual approval, you're prompted to contact Azure support.
 
 ## Update ship-to address for an MCA billing account
 
@@ -116,7 +118,7 @@ Customers in the following countries or regions can add their Tax IDs.
     :::image type="content" source="./media/manage-tax-information/update-tax-id.png" alt-text="Screenshot showing where to update the Tax I D." lightbox="./media/manage-tax-information/update-tax-id.png" :::
 1. Enter new tax IDs and then select **Save**.  
     > [!NOTE]
-    > If you don't see the Tax IDs section, Tax IDs are not yet collected for your region. Or, updating Tax IDs in the Azure portal isn't supported for your account.
+    > If you don't see the Tax IDs section, Tax IDs aren't yet collected for your region. Or, updating Tax IDs in the Azure portal isn't supported for your account.
 
 ## Add your GSTIN for billing accounts in India 
 

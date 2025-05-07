@@ -24,10 +24,9 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Azure Maps service | QPS Limit: Gen 2 Pricing Tier | QPS Limit: Gen 1 S1 Pricing Tier | QPS Limit: Gen 1 S0 Pricing Tier |
 |  ----------------- |  :--------------------------: | :------------------------------: | :------------------------: |
 | Copyright service | 10 | 10 | 10 |
-| Creator - Alias | 10 | Not Available | Not Available |
-| Creator - Conversion, Dataset, Feature State, Features, Map Configuration, Style, Routeset, TilesetDetails, Wayfinding | 50 | Not Available | Not Available |
-| Data registry service | 50 | 50 |  Not Available  |
-| Data service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
+| Creator - Alias (Deprecated<sup>1</sup>) | 10 | Not Available | Not Available |
+| Creator - Conversion, Dataset, Feature State, Features, Map Configuration, Style, Routeset, TilesetDetails, Wayfinding (Deprecated<sup>1</sup>) | 50 | Not Available | Not Available |
+| Data registry service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Geolocation service | 50 | 50 | 50 |
 | Render service - Road tiles | 500 | 500 | 50 |
 | Render service - Satellite tiles | 250 | 250 | Not Available |
@@ -39,12 +38,12 @@ The following list shows the QPS usage limits for each Azure Maps service by Pri
 | Search service - Batch | 10 | 10 | Not Available |
 | Search service - Non-Batch | 500 | 500 | 50 |
 | Search service - Non-Batch Reverse | 250 | 250 | 50 |
-| Spatial service | 50 | 50 |  Not Available  |
+| Spatial service (Deprecated<sup>1</sup>) | 50 | 50 |  Not Available  |
 | Timezone service | 50 | 50 | 50 |
 | Traffic service | 50 | 50 | 50 |
 | Weather service | 50 | 50 | 50 |
 
-<sup>1</sup> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data Registry] service by 9/16/24. For more information, see [How to create data registry].
+<sup>1</sup> Azure Maps Creator, and the Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
 
 When QPS limits are reached, an HTTP 429 error is returned. If you're using the Gen 2 or Gen 1 S1 pricing tiers, you can create an Azure Maps *Technical* Support Request in the [Azure portal] to increase a specific QPS limit if needed. QPS limits for the Gen 1 S0 pricing tier can't be increased.
 

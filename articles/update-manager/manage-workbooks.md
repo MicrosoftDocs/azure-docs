@@ -19,7 +19,7 @@ This article describes how to create and edit a workbook and make customized rep
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Monitoring**, select **Update reports** to view the **Update Manager | Update reports | Gallery** page.
 1. Select **Quick start** tile > **Empty**. Alternatively, you can select **New** to create a workbook.
-1. Select **Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook) to add to the workbook.
+1. Select **Add** to select any [elements](/azure/azure-monitor/visualize/workbooks-create-workbook#create-a-new-azure-workbook) to add to the workbook.
 
    :::image type="content" source="./media/manage-workbooks/create-workbook-elements.png" alt-text="Screenshot that shows how to create a workbook by using elements.":::
 

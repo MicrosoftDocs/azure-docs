@@ -1,17 +1,19 @@
 ---
 title: Connect Defender for IoT on-premises resources to Microsoft Sentinel (legacy)
-description: This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel.
+description: This article describes the legacy method for connecting your OT sensor to Microsoft Sentinel.
 ms.topic: how-to
 ms.date: 08/17/2023
 ms.custom: template-how-to-pattern
 #CustomerIntent: As an admin user for my locally-managed OT sensor, I want to learn how to connect my sensor to Microsoft Sentinel so that I can view alerts generated together with other Microsoft Sentinel data.
 ---
 
-# Connect OT network sensors or on-premises management consoles to Microsoft Sentinel (legacy)
+# Connect OT network sensors to Microsoft Sentinel (legacy)
 
-This article describes the legacy method for connecting your OT sensor or on-premises management console to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
+This article describes the legacy method for connecting your OT sensor to Microsoft Sentinel. Stream data into Microsoft Sentinel whenever you want to use Microsoft Sentinel's advanced threat hunting, security analytics, and automation features when responding to security incidents and threats across your network.
 
 > [!IMPORTANT]
+> This feature will be deprecated in **January 2025**.
+>
 > If you're using a cloud connected sensor, we recommend that you connect Defender for IoT data using the Microsoft Sentinel solution instead of the legacy integration method. For more information, see:
 >
 > - [OT threat monitoring in enterprise SOCs](../concept-sentinel-integration.md)
@@ -22,7 +24,7 @@ This article describes the legacy method for connecting your OT sensor or on-pre
 
 Before you start, make sure that you have the following prerequisites as needed:
 
-- Access to the OT network sensor or on-premises management console as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
+- Access to the OT network sensor as an **Admin** user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](../roles-on-premises.md).
 
 - A proxy machine prepared to send data to Microsoft Sentinel. For more information, see [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](../../../sentinel/connect-common-event-format.md).
 
@@ -30,7 +32,7 @@ Before you start, make sure that you have the following prerequisites as needed:
 
 ## Set up forwarding alert rules
 
-1. Sign into your OT network sensor or on-premises management console and create a forwarding rule. For more information, see [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md).
+1. Sign into your OT network sensor and create a forwarding rule. For more information, see [Forward on-premises OT alert information](../how-to-forward-alert-information-to-partners.md).
 
 1. When creating your forwarding rule, make sure to select **Microsoft Sentinel** as the **Server** value. For example, on the OT sensor:
 

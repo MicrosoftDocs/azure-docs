@@ -2,13 +2,13 @@
 title: Isolation in the Azure Public Cloud | Microsoft Docs
 description: Learn how Azure provides isolation against both malicious and non-malicious users and offers various isolation choices to architects.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
-ms.author: terrylan
+ms.date: 09/29/2024
+ms.author: mbaldwin
 
 ---
 
@@ -211,7 +211,7 @@ Encryption in transit is a mechanism of protecting data when it's transmitted ac
 
 #### Encryption at Rest
 
-For many organizations, [data encryption at rest](isolation-choices.md) is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that's "at rest":
+For many organizations, data encryption at rest is a mandatory step towards data privacy, compliance, and data sovereignty. There are three Azure features that provide encryption of data that's "at rest":
 
 - [Storage Service Encryption](../../storage/blobs/security-recommendations.md) allows you to request that the storage service automatically encrypt data when writing it to Azure Storage.
 - [Client-side Encryption](../../storage/blobs/security-recommendations.md) also provides the feature of encryption at rest.

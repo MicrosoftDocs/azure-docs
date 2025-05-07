@@ -2,24 +2,21 @@
 title: Application types supported by Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about the types of applications you can use with Azure Active Directory B2C.
-
 author: kengaderdus
-manager: CelesteDG
-
-ms.service: active-directory
-
-ms.topic: concept-article
-ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
-
-
+manager: CelesteDG
+ms.service: azure-active-directory
+ms.topic: concept-article
+ms.date: 10/11/2024
+ms.subservice: b2c
 
 #Customer intent: As a developer building an application that requires user authentication, I want to understand the different types of applications that can be used with Azure Active Directory B2C, so that I can choose the appropriate authentication method for my application.
 
 ---
 # Application types that can be used in Active Directory B2C
- 
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Azure Active Directory B2C (Azure AD B2C) supports authentication for various modern application architectures. All of them are based on the industry standard protocols [OAuth 2.0](protocols-overview.md) or [OpenID Connect](protocols-overview.md). This article describes the types of applications that you can build, independent of the language or platform you prefer. It also helps you understand the high-level scenarios before you start building applications.
 
 Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](tutorial-create-tenant.md) by using the [Azure portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
@@ -52,7 +49,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 {
     "name": "John Smith",
     "email": "john.smith@gmail.com",
-    "oid": "d9674823-dffc-4e3f-a6eb-62fe4bd48a58"
+    "oid": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     ...
 }
 ```
@@ -94,11 +91,12 @@ To take advantage of this flow, your application can use an authentication libra
 
 ### Implicit grant flow
 
-Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the [implicit grant flow](implicit-flow-single-page-application.md) or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**.
-
-We **don't recommended** this approach.  
+Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the [implicit grant flow](implicit-flow-single-page-application.md) or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**. 
 
 This authentication flow doesn't include application scenarios that use cross-platform JavaScript frameworks such as Electron and React-Native. Those scenarios require further capabilities for interaction with the native platforms.
+
+> [!WARNING]
+> Microsoft recommends you do *not* use the implicit grant flow. The recommended way of supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). Certain configurations of this flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable. For more information, see the [security concerns with implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow#security-concerns-with-implicit-grant-flow).
 
 ## Web APIs
 

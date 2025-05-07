@@ -2,7 +2,7 @@
 title: Manage and monitor IoT Central
 description: This article describes how to create, manage, and monitor your IoT Central applications and enable managed identities.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.custom: devx-track-azurepowershell
 author: dominicbetts
 ms.author: dobett
@@ -158,13 +158,13 @@ You can use the set of metrics provided by IoT Central to assess the health of d
 > [!NOTE]
 > IoT Central applications also have an internal [audit log](howto-use-audit-logs.md) to track activity within the application.
 
-Metrics are enabled by default for your IoT Central application and you access them from the [Azure portal](https://portal.azure.com/). The [Azure Monitor data platform exposes these metrics](../../azure-monitor/essentials/data-platform-metrics.md) and provides several ways for you to interact with them. For example, you can use charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI.
+Metrics are enabled by default for your IoT Central application and you access them from the [Azure portal](https://portal.azure.com/). The [Azure Monitor data platform exposes these metrics](/azure/azure-monitor/essentials/data-platform-metrics) and provides several ways for you to interact with them. For example, you can use charts in the Azure portal, a REST API, or queries in PowerShell or the Azure CLI.
 
 [Azure role based access control](../../role-based-access-control/overview.md) manages access to metrics in the Azure portal. Use the Azure portal to add users to the IoT Central application/resource group/subscription to grant them access. You must add a user in the portal even they're already added to the IoT Central application. Use [Azure built-in roles](../../role-based-access-control/built-in-roles.md) for finer grained access control.
 
 ### View metrics in the Azure portal
 
-The following example **Metrics** page shows a plot of the number of devices connected to your IoT Central application. For a list of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](../../azure-monitor/essentials/metrics-supported.md#microsoftiotcentraliotapps).
+The following example **Metrics** page shows a plot of the number of devices connected to your IoT Central application. For a list of the metrics that are currently available for IoT Central, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftiotcentraliotapps).
 
 To view IoT Central metrics in the portal:
 
@@ -175,11 +175,11 @@ To view IoT Central metrics in the portal:
 
 ### Export logs and metrics
 
-Use the **Diagnostics settings** page to configure exporting metrics and logs to different destinations. To learn more, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
+Use the **Diagnostics settings** page to configure exporting metrics and logs to different destinations. To learn more, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ### Analyze logs and metrics
 
-Use the **Workbooks** page to analyze logs and create visual reports. To learn more, see [Azure Workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+Use the **Workbooks** page to analyze logs and create visual reports. To learn more, see [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview).
 
 ### Metrics and invoices
 

@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 05/28/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security analyst, I want to implement near-real-time analytics rules so that I can detect and respond to threats more quickly and accurately.
+
 ---
 # Quick threat detection with near-real-time (NRT) analytics rules in Microsoft Sentinel
 
@@ -37,7 +41,7 @@ The following limitations currently govern the use of NRT rules:
 
     - Since NRT rules use the ingestion time rather than the event generation time (represented by the TimeGenerated field), you can safely ignore the data source delay and the ingestion time latency (see above).
 
-    - Queries can run only within a single workspace. There is no cross-workspace capability.
+    - Queries can now run across multiple workspaces.
 
     - Event grouping is now configurable to a limited degree. NRT rules can produce up to 30 single-event alerts. A rule with a query that results in more than 30 events will produce alerts for the first 29, then a 30th alert that summarizes all the applicable events.
 

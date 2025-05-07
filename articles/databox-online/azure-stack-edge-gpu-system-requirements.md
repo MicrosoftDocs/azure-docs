@@ -4,8 +4,7 @@ description: Learn about the system requirements for your Microsoft Azure Stack 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: conceptual
 ms.date: 06/26/2024
 ms.author: alkohli
@@ -100,7 +99,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### URL patterns for gateway feature
 
@@ -125,7 +124,7 @@ Add the following URL patterns for Azure Monitor if you're using the containeriz
 | https://\*.oms.opinsights.azure.com | 443 | Operations Management Suite (OMS) onboarding |
 | https://\*.dc.services.visualstudio.com | 443 | Agent telemetry that uses Azure Public Cloud Application Insights |
 
-For more information, see [Network firewall requirements for monitoring container insights](../azure-monitor/containers/container-insights-onboard.md#network-firewall-requirements).
+For more information, see [Network firewall requirements for monitoring container insights](/azure/azure-monitor/containers/container-insights-onboard#network-firewall-requirements).
 
 ### URL patterns for gateway for Azure Government
 

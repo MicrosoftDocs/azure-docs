@@ -5,7 +5,8 @@ author: dearandyxu
 ms.author: yexu
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally load data from Azure SQL Database to Azure Blob storage using PowerShell

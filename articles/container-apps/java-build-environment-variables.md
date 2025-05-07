@@ -10,7 +10,7 @@ ms.date: 02/27/2024
 ms.author: cshoe
 ---
 
-# Build environment variables for Java in Azure Container Apps
+# Build environment variables for Java in Azure Container Apps (preview)
 
 Azure Container Apps uses [Buildpacks](https://buildpacks.io/) to automatically create a container image that allows you to deploy from your source code directly to the cloud. To take control of your build configuration, you can use environment variables to customize parts of your build like the JDK, Maven, and Tomcat. The following article shows you how to configure environment variables to help you take control over builds that automatically create a container for you.
 

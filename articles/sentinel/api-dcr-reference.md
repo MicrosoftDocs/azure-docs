@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: reference
 ms.date: 03/01/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a security engineer, I want to create Data Collection Rules (DCRs) using API requests so that I can automate the ingestion of supported log types into Microsoft Sentinel.
+
 ---
 # API request examples for creating Data Collection Rules (DCRs)
 
@@ -298,7 +302,7 @@ The `outputStream` parameter is required only if the transform changes the schem
 {
     "properties": {
         "immutableId": "dcr-00112233445566778899aabbccddeeff",
-        "dataCollectionEndpointId": "/subscriptions/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/resourceGroups/Contoso-RG-1/providers/Microsoft.Insights/dataCollectionEndpoints/Microsoft-Sentinel-aaaabbbbccccddddeeeefff",
+        "dataCollectionEndpointId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Contoso-RG-1/providers/Microsoft.Insights/dataCollectionEndpoints/Microsoft-Sentinel-aaaabbbbccccddddeeeefff",
         "streamDeclarations": {
             "Custom-Text-ApacheHTTPServer_CL": {
                 "columns": [
@@ -335,7 +339,7 @@ The `outputStream` parameter is required only if the transform changes the schem
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "/subscriptions/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/resourceGroups/contoso-rg-1/providers/Microsoft.OperationalInsights/workspaces/CyberSOC",
+                    "workspaceResourceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/contoso-rg-1/providers/Microsoft.OperationalInsights/workspaces/CyberSOC",
                     "workspaceId": "cccccccc-3333-4444-5555-dddddddddddd",
                     "name": "DataCollectionEvent"
                 }
@@ -359,7 +363,7 @@ The `outputStream` parameter is required only if the transform changes the schem
     "tags": {
         "createdBy": "Sentinel"
     },
-    "id": "/subscriptions/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb/resourceGroups/Contoso-RG-1/providers/Microsoft.Insights/dataCollectionRules/DCR-CustomLogs-01",
+    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Contoso-RG-1/providers/Microsoft.Insights/dataCollectionRules/DCR-CustomLogs-01",
     "name": "DCR-CustomLogs-01",
     "type": "Microsoft.Insights/dataCollectionRules",
     "etag": "\"00000000-1111-2222-3333-444444444444\"",

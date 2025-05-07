@@ -4,16 +4,17 @@ titleSuffix: Azure AD B2C
 description: Learn the region-based design consideration for Azure AD B2C to provide customer identity management for global customers.
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer implementing a global identity solution. I need to understand the different scenarios and workflows for region-based design approach in Azure AD B2C. My goal is to design and implement the authentication and sign-up processes effectively for users from different regions.
 ---
 
 # Build a global identity solution with region-based approach
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this article, we describe the scenarios for region-based design approach. Before starting to design, it's recommended that you review the [capabilities](b2c-global-identity-solutions.md#capabilities-and-considerations), and [performance](b2c-global-identity-solutions.md#performance) of both funnel and region-based design approach.
 

@@ -6,15 +6,15 @@ ms.author: hannahhunter
 ms.reviewer: nickgreenf
 ms.service: azure-container-apps
 ms.topic: how-to 
-ms.date: 08/02/2024
+ms.date: 01/21/2025
 ms.custom: template-tutorial, service-connector, build-2023, engagement
 ---
 
 # Connect to Azure services via Dapr components in the Azure portal
 
-You can easily connect Dapr APIs to backing Azure services using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/). This feature creates Dapr components on your behalf with valid metadata and authenticated identity to access the Azure service.  
+You can easily connect Dapr APIs to [backing Azure services](./dapr-overview.md#dapr-components) using a combination of [Service Connector](../service-connector/overview.md) and [Dapr](https://docs.dapr.io/). This feature creates Dapr components on your behalf with valid metadata and authenticated identity to access the Azure service.  
 
-In this guide, you'll connect Dapr Pub/Sub API to an Azure Service Bus by:
+In this guide, you connect Dapr Pub/Sub API to an Azure Service Bus by:
 > [!div class="checklist"]
 > - Select pub/sub as the API 
 > - Specify Azure Service Bus as the service and required properties like namespace, queue name, and identity
@@ -35,7 +35,7 @@ Start by navigating to the Dapr component creation feature.
    :::image type="content" source="media/dapr-component-connection/select-azure-component.png" alt-text="Screenshot of selecting Azure Component from the drop down menu.":::
 
    > [!NOTE]
-   > Currently, creating Dapr components using Service Connector in the Azure portal only works with Azure services (Azure Service Bus, Azure Cosmos DB, etc.). To create non-Azure Dapr components (Redis), use the manual component creation option.    
+   > Currently, creating Dapr components using Service Connector in the Azure portal is in preview and only works with Azure services (Azure Service Bus, Azure Cosmos DB, etc.). To create non-Azure Dapr components (Redis), use the manual component creation option.    
 
 ### Provide required metadata
 
@@ -45,7 +45,7 @@ For example, for a pub/sub Azure Service Bus component, you'll start with the fo
 
 | Field | Example | Description |
 | ----- | ------- | ----------- |
-| Component name | mycomponent | Enter a name for your Dapr component. The name must match the component referenced in your application code. |
+| Component name | `mycomponent` | Enter a name for your Dapr component. The name must match the component referenced in your application code. |
 | Building block | Pub/sub | Select the [building block/API](https://docs.dapr.io/developing-applications/building-blocks/) for your component from the drop-down. |
 | Component type | Service Bus | Select a component type from the drop-down. |
 
@@ -54,9 +54,9 @@ The component creation pane populates with different fields depending on the bui
 | Field | Example | Description |
 | ----- | ------- | ----------- |
 | Subscription | My subscription | Select your Azure subscription |
-| Namespace | mynamespace | Select the Service Bus namespace |
+| Namespace | `mynamespace` | Select the Service Bus namespace |
 | Authentication | User assigned managed identity | Select the subscription that contains the component you're looking for. Recommended: User assigned managed identity. |
-| User assigned managed identity | testidentity | Select an existing identity from the drop-down. If you don’t  already have one, you can create a new managed identity client ID. |  
+| User assigned managed identity | `testidentity` | Select an existing identity from the drop-down. If you don’t  already have one, you can create a new managed identity client ID. |  
 
 :::image type="content" source="media/dapr-component-connection/add-pubsub-component.png" alt-text="Screenshot of the Azure platform showing the Basics tab of adding a Dapr Pub/sub component.":::
 
@@ -101,7 +101,7 @@ You can then check the YAML/Bicep artifact into a repo and recreate it outside o
 
 ## Next steps
 
-[Enable Dapr on your container apps.](./enable-dapr.md)
+[Learn how to set Dapr component resiliency.](./dapr-component-resiliency.md)
 
 ## Related links
 

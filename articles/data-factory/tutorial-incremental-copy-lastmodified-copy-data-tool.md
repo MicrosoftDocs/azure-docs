@@ -4,7 +4,8 @@ description: Create an Azure data factory and then use the Copy Data tool to inc
 author: dearandyxu
 ms.author: yexu
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -40,7 +41,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
 ## Create a data factory
 
-1. In the left pane, select **Create a resource**. Select **Integration** > **Data Factory**:
+1. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="Select Data Factory":::
 

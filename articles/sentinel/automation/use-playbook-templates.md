@@ -6,9 +6,13 @@ author: batamig
 ms.author: bagol
 ms.date: 03/14/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+
+
+
+#Customer intent: As a security operations center (SOC) analyst, I want to create and customize automation workflows from playbook templates so that I can efficiently respond to security incidents and streamline threat management.
 
 ---
 

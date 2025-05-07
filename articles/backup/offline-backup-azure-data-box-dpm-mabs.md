@@ -1,11 +1,11 @@
 ---
 title: Offline Backup with Azure Data Box for DPM and MABS
 description: You can use Azure Data Box to seed initial Backup data offline from DPM and MABS.
-ms.topic: conceptual
-ms.date: 05/24/2024
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.service: azure-backup
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Offline seeding using Azure Data Box for DPM and MABS
 
@@ -101,7 +101,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 5. Follow the steps [here](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box) to connect your DPM/MABS Server to the Data Box device via NFS and execute the following command on the Local System command prompt to mount the Azure Page Blobs share:
 
     ```cmd
-    mount -o nolock \\<DeviceIPAddres>\<StorageAccountName_PageBlob X:
+    mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:
     ```
 
 6. Once mounted, check if you can access X:  from your server. If you can, continue with the next section of this article.

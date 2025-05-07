@@ -19,7 +19,7 @@ If the end user approves camera or microphone usage, then those devices are avai
 User taking a long time to approve the permission can cause delay in the API response.
 
 Occasionally, the device list update step can take a long time.
-A delay in the driver layer is usually the cause of the issue. The issue can happen with some virtual audio devices in particular. [Chromium Issue 1402866](https://bugs.chromium.org/p/chromium/issues/detail?id=1402866&no_tracker_redirect=1)
+A delay in the driver layer is usually the cause of the issue. The issue can happen with some virtual audio devices in particular. [Chromium Issue 1402866](https://www.chromium.org/developers/severity-guidelines/?id=1402866&no_tracker_redirect=1)
 
 ## How to detect using the SDK
 To detect this issue, you can measure the time difference between when you call the [`askDevicePermission`](/javascript/api/%40azure/communication-react/calladapterdevicemanagement?view=azure-node-latest&preserve-view=true#@azure-communication-react-calladapterdevicemanagement-askdevicepermission) API and when the promise resolves or rejects.

@@ -4,7 +4,7 @@ description: Provides an overview of options for migrating VMware VMs to Azure w
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 12/12/2022
 ms.custom: vmware-scenario-422, engagement-fy23
@@ -18,6 +18,7 @@ You can migrate VMware VMs to Azure using the Migration and modernization tool. 
 - Migration using agentless replication. Migrate VMs without needing to install anything on them.
 - Migration with an agent for replication. Install an agent on the VM for replication.
 
+[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ## Compare migration methods
 

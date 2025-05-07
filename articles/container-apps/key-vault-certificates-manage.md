@@ -17,6 +17,12 @@ You can set up Azure Key Vault to centrally manage your container app's TLS/SSL 
 
 An Azure Key Vault resource is required to store your certificate. See [Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate?tabs=azure-portal) or [Configure certificate auto-rotation in Key Vault](/azure/key-vault/certificates/tutorial-rotate-certificates) to create a Key Vault and add a certificate.
 
+## Exceptions
+
+While the majority of certificate types are supported, there are a few exceptions to keep in mind.
+- ECDSA p384 and p521 certificates are not supported.
+- Due to how App Services certificates are saved in Key Vault, they cannot be imported using the Azure Portal and require the Azure CLI.
+
 ## Enable managed identity for Container Apps environment
 
 Azure Container Apps uses an environment level managed identity to access your Key Vault and import your certificate. To enable system-assigned managed identity, follow these steps:

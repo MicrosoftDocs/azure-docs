@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/22/2024
+ms.date: 02/12/2025
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
@@ -17,7 +17,9 @@ ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for .NET. Once connected, use the [developer guides](#build-your-app) to learn how your code can operate on containers, blobs, and features of the Blob Storage service.
+
+If you're looking to start with a complete example, see [Quickstart: Azure Blob Storage client library for .NET](storage-quickstart-blobs-dotnet.md).
 
 [API reference](/dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples) | [Give feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
@@ -70,7 +72,7 @@ To authorize with Microsoft Entra ID, you'll need to use a security principal. T
 | --- | --- | --- |
 | Local machine (developing and testing) | Service principal | To learn how to register the app, set up a Microsoft Entra group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
 | Local machine (developing and testing) | User identity | To learn how to set up a Microsoft Entra group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
-| Hosted in Azure | Managed identity | To learn how to enable managed identity and assign roles, see [Authorize access from Azure-hosted apps using a managed identity](/dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
+| Hosted in Azure | Managed identity | To learn how to enable a managed identity and assign roles, see the guidance for authorizing access using a [system-assigned managed identity](/dotnet/azure/sdk/authentication/system-assigned-managed-identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) or a [user-assigned managed identity](/dotnet/azure/sdk/authentication/user-assigned-managed-identity?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 | Hosted outside of Azure (for example, on-premises apps) | Service principal | To learn how to register the app, assign roles, and configure environment variables, see [Authorize access from on-premises apps using an application service principal](/dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
 
 #### Authorize access using DefaultAzureCredential
@@ -92,6 +94,8 @@ public BlobServiceClient GetBlobServiceClient(string accountName)
 
 If you know exactly which credential type you'll use to authenticate users, you can obtain an OAuth token by using other classes in the [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme). These classes derive from the [TokenCredential](/dotnet/api/azure.core.tokencredential) class.
 
+You can also register the client for dependency injection in your .NET app. For more information, see [Dependency injection with the Azure SDK for .NET](/dotnet/azure/sdk/dependency-injection).
+
 ## [SAS token](#tab/sas-token)
 
 Create a [Uri](/dotnet/api/system.uri) by using the blob service endpoint and SAS token. Then, create a [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) by using the [Uri](/dotnet/api/system.uri).
@@ -111,10 +115,8 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 - [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
-- [Create a service SAS for a container with .NET](sas-service-create-dotnet-container.md)
-- [Create a service SAS for a blob with .NET](sas-service-create-dotnet.md)
-- [Create a user delegation SAS for a container with .NET](storage-blob-container-user-delegation-sas-create-dotnet.md)
-- [Create a user delegation SAS for a blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a service SAS with .NET](sas-service-create-dotnet.md)
+- [Create a user delegation SAS with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
 
 > [!NOTE]
 > For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key.
@@ -164,11 +166,10 @@ The following guides show you how to access data and perform specific actions us
 | [Configure a retry policy](storage-retry-policy.md) | Implement retry policies for client operations. |
 | [Copy blobs](storage-blob-copy.md) | Copy a blob from one location to another. |
 | [Create a container](storage-blob-container-create.md) | Create containers. |
-| [Create a user delegation SAS (blobs)](storage-blob-user-delegation-sas-create-dotnet.md) | Create a user delegation SAS for a blob. |
-| [Create a user delegation SAS (containers))](storage-blob-container-user-delegation-sas-create-dotnet.md) | Create a user delegation SAS for a container. |
+| [Create a user delegation SAS](storage-blob-user-delegation-sas-create-dotnet.md) | Create a user delegation SAS for a container or blob. |
 | [Create and manage blob leases](storage-blob-lease.md) | Establish and manage a lock on a blob. |
 | [Create and manage container leases](storage-blob-container-lease.md) | Establish and manage a lock on a container. |
-| [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
+| [Delete and restore blobs](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
 | [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers. |
 | [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
 | [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags, and use tags to find blobs. |

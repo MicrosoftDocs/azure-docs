@@ -53,20 +53,20 @@ $policyRoleDef = (New-AzRoleDefinition -Role $policyRoleDef)
 ## Assigning permissions to a user for a specific policy using custom roles
 Once you’ve defined your custom roles, you can assign them to users. In order to assign a custom role to a user, you must first obtain the **ObjectId** representing that user. To do that, use the **Get-AzADUser** cmdlet.
 
-In the following example, the **ObjectId** of the *SomeUser* user is 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3.
+In the following example, the **ObjectId** of the *SomeUser* user is aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb.
 
 ```azurepowershell
 PS C:\>Get-AzADUser -SearchString "SomeUser"
 
 DisplayName                    Type                           ObjectId
 -----------                    ----                           --------
-someuser@hotmail.com                                          05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3
+someuser@hotmail.com                                          aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 ```
 
 Once you have the **ObjectId** for the user and a custom role name, you can assign that role to the user with the **New-AzRoleAssignment** cmdlet:
 
 ```azurepowershell
-PS C:\>New-AzRoleAssignment -ObjectId 05DEFF7B-0AC3-4ABF-B74D-6A72CD5BF3F3 -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
+PS C:\>New-AzRoleAssignment -ObjectId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -RoleDefinitionName "Policy Contributor" -Scope /subscriptions/<SubscriptionID>/resourceGroups/<ResourceGroupName>/providers/Microsoft.DevTestLab/labs/<LabName>/policySets/default/policies/AllowedVmSizesInLab
 ```
 
 In the previous example, the **AllowedVmSizesInLab** policy is used. You can use any of the following policies:

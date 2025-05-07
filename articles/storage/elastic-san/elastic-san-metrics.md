@@ -3,7 +3,7 @@ title: Metrics for Azure Elastic SAN
 description: Learn about the available metrics that can let you understand how your Azure Elastic SAN is performing.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/28/2024
 ms.author: rogarana
 ---
@@ -46,5 +46,5 @@ Available log categories:
 
 ## Next steps
 
-- [Azure Monitor Metrics overview](../../azure-monitor/essentials/data-platform-metrics.md)
-- [Azure Monitor Metrics aggregation and display explained](../../azure-monitor/essentials/metrics-aggregation-explained.md)
+- [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics)
+- [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained)

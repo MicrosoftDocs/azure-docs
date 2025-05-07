@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 08/07/2023
+ ms.date: 10/07/2024
  ms.author: cherylmc
  ms.custom: include file
 ---

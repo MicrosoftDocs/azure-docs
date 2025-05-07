@@ -2,10 +2,10 @@
 title: How to create an Azure support request for an Enterprise Agreement issue
 description: Enterprise Agreement customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: troubleshooting
-ms.date: 02/13/2024
-ms.author: banders
+ms.date: 01/22/2025
+ms.author: sahilkhurana
 author: bandersmsft
-ms.reviewer: sapnakeshari
+ms.reviewer: sahilkhurana
 ms.service: cost-management-billing
 ms.subservice: billing
 ---
@@ -80,7 +80,7 @@ If you're still unable to resolve the issue, continue creating your support requ
 
 Next, we collect more details about the problem. Providing thorough and detailed information in this step helps us route your support request to the right engineer.
 
-1. On the Details tab, complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](../../azure-portal/supportability/how-to-manage-azure-support-request.md#file-upload-guidelines).
+1. On the Details tab, complete the **Problem details** section so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](/azure/azure-portal/supportability/how-to-manage-azure-support-request#file-upload-guidelines).
 
 1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. In some cases, there will be more options to choose from.
 
@@ -114,7 +114,7 @@ If you have an MSA, have an administrator create an organizational account for y
 
 Follow these links to learn more:
 
-* [How to manage an Azure support request](../../azure-portal/supportability/how-to-manage-azure-support-request.md)
+* [How to manage an Azure support request](/azure/azure-portal/supportability/how-to-manage-azure-support-request)
 * [Azure support ticket REST API](/rest/api/support)
 * Engage with us on [X](https://x.com/azuresupport)
 * Get help from your peers in the [Microsoft Q&A question page](/answers/products/azure)

@@ -1,8 +1,9 @@
 ---
-title: Enterprise plan in Azure Marketplace
+title: Enterprise Plan in Azure Marketplace
 description: Learn about the Azure Spring Apps Enterprise plan offering available in Azure Marketplace.
 author: KarlErickson
-ms.author: yuwzho
+ms.author: karler
+ms.reviewer: yuwzho
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 10/18/2023
@@ -11,16 +12,15 @@ ms.custom: devx-track-java, engagement-fy23, references_regions
 
 # Enterprise plan in Azure Marketplace
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ❌ Basic/Standard ✔️ Enterprise
+**This article applies to:** ❎ Basic/Standard ✅ Enterprise
 
 This article describes the Azure Marketplace offer and license requirements for the VMware Taznu components in the Enterprise plan in Azure Spring Apps.
 
 ## Enterprise plan and VMware Tanzu components
 
-The Azure Spring Apps Enterprise plan is optimized for the needs of enterprise Spring developers and provides advanced configurability, flexibility, and portability. Azure Spring Apps also provides the enterprise-ready VMware Spring Runtime with 24/7 support in a strong partnership with VMware. You can learn more about the plan's value propositions in the [Enterprise plan](overview.md#enterprise-plan) section of [What is Azure Spring Apps?](overview.md)
+The Azure Spring Apps Enterprise plan is optimized for the needs of enterprise Spring developers and provides advanced configurability, flexibility, and portability. Azure Spring Apps also provides the enterprise-ready VMware Spring Runtime with 24/7 support in a strong partnership with VMware. You can learn more about the plan's value propositions in the [Enterprise plan](../basic-standard/overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#enterprise-plan) section of [What is Azure Spring Apps?](../basic-standard/overview.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)
 
 Because the Enterprise plan provides feature parity with the Standard plan, it provides a rich set of features that include app lifecycle management, monitoring, and troubleshooting.
 
@@ -63,7 +63,7 @@ You must understand and fulfill the following requirements to successfully creat
 
 - Your Azure subscription must belong to a [billing account](../../cost-management-billing/manage/view-all-accounts.md) in a supported geographic location defined in the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) offer in Azure Marketplace. For more information, see the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account) section.
 
-- Your region must be available. Choose an Azure region currently available. For more information, see [In which regions is the Azure Spring Apps Enterprise plan available?](./faq.md#in-which-regions-is-azure-spring-apps-available) in the [Azure Spring Apps FAQ](faq.md).
+- Your region must be available. Choose an Azure region currently available. For more information, see [In which regions is the Azure Spring Apps Enterprise plan available?](../basic-standard/faq.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json#in-which-regions-is-azure-spring-apps-available) in the [Azure Spring Apps FAQ](../basic-standard/faq.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 - Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md).
 
@@ -211,4 +211,4 @@ The following list shows the errors you might encounter when you create an Azure
 
 ## Next steps
 
-- [Launch your first app](./quickstart.md)
+- [Launch your first app](../basic-standard/quickstart.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json)

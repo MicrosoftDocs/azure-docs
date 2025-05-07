@@ -13,6 +13,12 @@ ms.subservice: creator
 
 # Drawing conversion errors and warnings
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 The Azure Maps [Conversion service] lets you convert uploaded drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements]. If one or more requirements aren't met, then the Conversion service returns errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
 The Conversion service succeeds if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.

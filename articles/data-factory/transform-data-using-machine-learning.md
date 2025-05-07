@@ -6,7 +6,8 @@ author: nabhishek
 ms.author: abnarain
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Create a predictive pipeline using Machine Learning Studio (classic) with Azure Data Factory or Synapse Analytics
@@ -62,7 +63,7 @@ You create an **Machine Learning Studio (classic)** linked service to link a Mac
 
 See [Compute linked services](compute-linked-services.md) article for descriptions about properties in the JSON definition.
 
-Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Machine Learning Studio (classic) Linked Service, go to https://services.azureml.net, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
+Machine Learning Studio (classic) supports both Classic Web Services and New Web Services for your predictive experiment. You can choose the right one to use from your Data Factory or Synapse workspace. To get the information required to create the Machine Learning Studio (classic) Linked Service, go to https://ml.azure.com/, where all your (new) Web Services and Classic Web Services are listed. Click the Web Service you would like to access, and click **Consume** page. Copy **Primary Key** for **apiKey** property, and **Batch Requests** for **mlEndpoint** property.
 
 :::image type="content" source="./media/transform-data-using-machine-learning/web-services.png" alt-text="ML Studio (classic) Web Services":::
 

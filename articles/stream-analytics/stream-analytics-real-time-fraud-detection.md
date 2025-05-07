@@ -5,7 +5,7 @@ author: ajetasin
 ms.author: ajetasi
 ms.service: azure-stream-analytics
 ms.topic: tutorial
-ms.date: 02/14/2024
+ms.date: 10/01/2024
 #Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
 
@@ -39,8 +39,10 @@ The last step is to define an output sink where the job can write the transforme
 
 1. From the Azure portal, open **All resources**, and select the *ASATutorial* Stream Analytics job.
 2. In the **Job Topology** section of the Stream Analytics job, select the **Outputs** option.
-3. Select **+ Add** > **Power BI**. 
-4. Fill the output form with the following details:
+3. Select **+ Add output** > **Power BI**. 
+
+    :::image type="content" source="./media/stream-analytics-real-time-fraud-detection/select-output-type.png" alt-text="Screenshot that shows the Outputs page with Add output -> Power BI menu selected.":::
+1. Fill the output form with the following details:
 
    |**Setting**  |**Suggested value**  |
    |---------|---------|
@@ -167,25 +169,31 @@ When you use a join with streaming data, the join must provide some limits on ho
 
 4. From your Power BI workspace, select **+ Create** to create a new dashboard named *Fraudulent Calls*.
 
-5. At the top of the window, select **Edit** and **Add tile**. Then select **Custom Streaming Data** and **Next**. Choose the **ASAdataset** under **Your Datasets**. Select **Card** from the **Visualization type** dropdown, and add **fraudulent calls** to **Fields**. Select **Next** to enter a name for the tile, and then select **Apply** to create the tile.
+5. At the top of the window, select **Edit** and **Add tile**. 
+1. In the **Add tile** window, select **Custom Streaming Data** and **Next**. 
+1. Choose the **ASAdataset** under **Your Datasets**, and select **Next**. 
+1. Select **Card** from the **Visualization type** dropdown, add **fraudulent calls** to **Fields**, and then select **Next**. 
 
-   ![Create Power BI dashboard tiles](media/stream-analytics-real-time-fraud-detection/create-power-bi-dashboard-tiles.png)
+    :::image type="content" source="./media/stream-analytics-real-time-fraud-detection/chart-settings.png" alt-text="Screenshot that shows the chart settings for a Power BI dashboard." lightbox="./media/stream-analytics-real-time-fraud-detection/chart-settings.png":::    
+1. Enter a name for the tile (for example, **Fraudulent calls**), and then select **Apply** to create the tile.
 
-6. Follow the step 5 again with the following options:
+    :::image type="content" source="./media/stream-analytics-real-time-fraud-detection/tile-details.png" alt-text="Screenshot that shows the Tile details page." lightbox="./media/stream-analytics-real-time-fraud-detection/tile-details.png":::    
+1. Follow the step 5 again with the following options:
    * When you get to Visualization Type, select Line chart.
    * Add an axis and select **windowend**.
    * Add a value and select **fraudulent calls**.
    * For **Time window to display**, select the last 10 minutes.
 
+    :::image type="content" source="./media/stream-analytics-real-time-fraud-detection/line-chart-settings.png" alt-text="Screenshot that shows settings for a line chart on the dashboard." lightbox="./media/stream-analytics-real-time-fraud-detection/line-chart-settings.png":::    
 7. Your dashboard should look like the following example once both tiles are added. Notice that, if your event hub sender application and Streaming Analytics application are running, your Power BI dashboard periodically updates as new data arrives.
 
-   ![Screenshot of results in Power BI dashboard.](media/stream-analytics-real-time-fraud-detection/power-bi-results-dashboard.png)
+    :::image type="content" source="media/stream-analytics-real-time-fraud-detection/power-bi-results-dashboard.png" alt-text="Screenshot that shows the Power BI dashboard." lightbox="media/stream-analytics-real-time-fraud-detection/power-bi-results-dashboard.png":::    
 
 ## Embedding your Power BI Dashboard in a web application
 
 For this part of the tutorial, you use a sample [ASP.NET](https://asp.net/) web application created by the Power BI team to embed your dashboard. For more information about embedding dashboards, see [embedding with Power BI](/power-bi/developer/embedding) article.
 
-To set up the application, go to the [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since we're using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
+To set up the application, go to the [Power BI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) GitHub repository and follow the instructions under the **User Owns Data** section (use the redirect and homepage URLs under the **integrate-web-app** subsection). Since we're using the Dashboard example, use the **integrate-web-app** sample code located in the [GitHub repository](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/Embed%20for%20your%20organization/).
 Once you have the application running in your browser, follow these steps to embed the dashboard you created earlier into the web page:
 
 1. Select **Sign in to Power BI**, which grants the application access to the dashboards in your Power BI account.

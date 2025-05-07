@@ -4,7 +4,7 @@ description: How to configure VMware Cloud Director Service in Azure VMware Solu
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-vmware
-ms.topic: article
+ms.topic: how-to
 ms.date: 4/15/2024
 ms.custom: engagement-fy23
 ---

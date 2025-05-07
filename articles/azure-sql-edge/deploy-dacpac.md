@@ -3,7 +3,7 @@ title: Using SQL Database DACPAC and BACPAC packages - Azure SQL Edge
 description: Learn about using DACPACs and BACPACs in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
@@ -12,7 +12,9 @@ keywords:
 ---
 # SQL Database DACPAC and BACPAC packages in SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is an optimized relational database engine geared for IoT and edge deployments. It's built on the latest versions of the Microsoft SQL Database Engine, which provides industry-leading performance, security, and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Edge provides in-built streaming capability for real-time analytics and complex event-processing.
@@ -73,7 +75,7 @@ On each restart of the Azure SQL Edge container, SQL Edge attempts to download t
 
 During some DACPAC or BACPAC deployments users may encounter a command timeout, resulting in the failure of the DACPAC deployment operation. If you encounter this problem, use the SQLPackage.exe (or SQL Client Tools) to apply the DACPAC or BACPAC manually.
 
-## Next steps
+## Related content
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md).
 - [Stream Data](stream-data.md)

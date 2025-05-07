@@ -2,9 +2,8 @@
 title: 'Quickstart: Create Application Gateway for Containers - bring your own deployment'
 description: In this quickstart, you learn how to provision and manage the Application Gateway for Containers Azure resources independent from Kubernetes configuration.
 services: application-gateway
-author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+author: greg-lindsay
+ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 08/12/2024

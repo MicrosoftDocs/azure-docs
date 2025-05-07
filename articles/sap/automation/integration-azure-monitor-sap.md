@@ -41,7 +41,7 @@ The [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the
 - Azure monitor for SAP resource
 - Managed Resource group with in the Azure monitor for SAP that includes:
     - Azure functions resource
-    - Azure key vault
+    - Azure Key Vault
     - Log analytics workspace (optional)
     - Storage account
 
@@ -81,7 +81,7 @@ create_ams_instance = true
 # ams_instance_name is an optional parameter and should only be used if the default naming is not acceptable
 ams_instance_name = "AMS-RESOURCE"
 
-# ams_laws_arm_id is a optional parameter to use an exisiting log analytics for the AMS instance
+# ams_laws_arm_id is a optional parameter to use an existing log analytics for the AMS instance
 ams_laws_arm_id = "/subscriptions/0000000-000000-0000000-0000000000/resourcegroups/rg-name/providers/microsoft.operationalinsights/workspaces/workspacename"
 
 ```

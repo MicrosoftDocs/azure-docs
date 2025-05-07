@@ -65,16 +65,16 @@ Defender for IoT in the Azure portal provides a downloadable MIB file for you to
 
 If you're configuring Defender for IoT sensors on your SNMP monitoring system manually, use the following table for reference regarding sensor object identifier values (OIDs):
 
-| Management console and sensor | OID | Format | Description |
+| OT sensor | OID | Format | Description |
 |--|--|--|--|
 | **sysDescr**   | 1.3.6.1.2.1.1.1   | DISPLAYSTRING  | Returns ```Microsoft Defender for IoT``` |
-| **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor or on-premises management console |
+| **Platform** |   1.3.6.1.2.1.1.1.0 | STRING | Sensor  |
 | **sysObjectID** | 1.3.6.1.2.1.1.2   | DISPLAYSTRING | Returns the private MIB allocation, for example ```1.3.6.1.4.1.53313.1.1``` is the private OID root for 1.3.6.1.4.1.53313  |
 | **sysUpTime** |   1.3.6.1.2.1.1.3  | DISPLAYSTRING  | Returns the sensor uptime in hundredths of a second |
 | **sysContact**  | 1.3.6.1.2.1.1.4   | DISPLAYSTRING  | Returns the textual name of the admin user for this sensor   |
 | **Vendor** |      1.3.6.1.2.1.1.4.0 | STRING | Microsoft Support (support.microsoft.com) |
 | **sysName**   | 1.3.6.1.2.1.1.5   | DISPLAYSTRING  | Returns the appliance name  |
-| **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the on-premises management console |
+| **Appliance name** | 1.3.6.1.2.1.1.5.0 | STRING | Appliance name for the sensor |
 | **sysLocation** | 1.3.6.1.2.1.1.6  | DISPLAYSTRING | Returns the default location Portal.azure.com  |
 | **sysServices** | 1.3.6.1.2.1.1.7   | INTEGER   | Returns a value indicating the service this entity offers, for example, ```7``` signifies “applications” |
 | **ifIndex** |     1.3.6.1.2.1.2.2.1.1  | GAUGE32  | Returns the sequential ID numbers for each network card |

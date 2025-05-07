@@ -1,7 +1,7 @@
 ---
-title: Create a virtual network with encryption - Azure portal
+title: Create a virtual network with encryption
 titleSuffix: Azure Virtual Network
-description: Learn how to create an encrypted virtual network using the Azure portal. A virtual network lets Azure resources communicate with each other and with the internet. 
+description: Learn how to create an encrypted virtual network. A virtual network lets Azure resources communicate with each other and the internet.
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
@@ -10,25 +10,25 @@ ms.author: allensu
 
 ---
 
-# Create a virtual network with encryption using the Azure portal
+# Create a virtual network with encryption
 
-Azure Virtual Network encryption is a feature of Azure Virtual Network. Virtual network encryption allows you to seamlessly encrypt and decrypt internal network traffic over the wire, with minimal effect to performance and scale. Azure Virtual Network encryption protects data traversing your virtual network virtual machine to virtual machine and virtual machine to on-premises.
+Azure Virtual Network encryption is a feature of Azure Virtual Network. With Virtual Network encryption, you can seamlessly encrypt and decrypt internal network traffic over the wire, with minimal effect to performance and scale. Virtual Network encryption protects data that traverses your virtual network from virtual machine to virtual machine.
 
 ## Prerequisites
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Azure PowerShell installed locally or Azure Cloud Shell.
+- Install Azure PowerShell locally or use Azure Cloud Shell.
 
 - Sign in to Azure PowerShell and select the subscription with which you want to use this feature. For more information, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-- Ensure your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command Get-InstalledModule -Name `Az.Network`. If the module requires an update, use the command Update-Module -Name `Az.Network` if necessary.
+- Ensure that your `Az.Network` module is 4.3.0 or later. To verify the installed module, use the command `Get-InstalledModule -Name Az.Network`. If the module requires an update, use the command `Update-Module -Name Az.Network`, if necessary.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
@@ -38,9 +38,11 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-- The how-to article requires version 2.31.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.31.0 or later of the Azure CLI. If you're using Azure Cloud Shell, the latest version is already installed.
 
 ---
+
+## Create a virtual network
 
 ### [Portal](#tab/portal)
 
@@ -48,7 +50,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ### [PowerShell](#tab/powershell)
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **test-rg** in the **eastus2** location.
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named `test-rg` in the `eastus2` location.
 
 ```azurepowershell-interactive
 $rg =@{
@@ -83,7 +85,7 @@ New-AzVirtualNetwork @net
 
 ### [CLI](#tab/cli)
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **test-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named `test-rg` in the `eastus2` location.
 
 ```azurecli-interactive
   az group create \
@@ -108,7 +110,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 ---
 
 > [!IMPORTANT]
-> Azure Virtual Network encryption requires supported virtual machine SKUs in the virtual network for traffic to be encrypted. The setting **dropUnencrypted** will drop traffic between unsupported virtual machine SKUs if they are deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
+> To encrypt traffic, Virtual Network encryption requires supported virtual machine versions in the virtual network. The setting `dropUnencrypted` drops traffic between unsupported virtual machine versions if they're deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
 
 ## Enable encryption on a virtual network
 
@@ -116,15 +118,15 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 
 Use the following steps to enable encryption for a virtual network.
 
-1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, begin to enter **Virtual networks**. When **Virtual networks** appears in the search results, select it.
 
-1. Select **vnet-1**.
+1. Select **vnet-1** to open the **vnet-1** pane.
 
-1. In the **Overview** of **vnet-1**, select the **Properties** tab.
+1. On the service menu, select **Overview**, and then select the **Properties** tab.
 
-1. Select **Disabled** next to **Encryption**:
+1. Under **Encryption**, select **Disabled**.
 
-    :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties.png" alt-text="Screenshot of properties of the virtual network.":::
+    :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties.png" alt-text="Screenshot that shows properties of the virtual network.":::
 
 1. Select the box next to **Virtual network encryption**.
 
@@ -132,7 +134,7 @@ Use the following steps to enable encryption for a virtual network.
 
 ### [PowerShell](#tab/powershell)
 
-You can also enable encryption on an existing virtual network using [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). **This step isn't necessary if you created the virtual network with encryption enabled in the previous steps.**
+You can also enable encryption on an existing virtual network by using [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork). *This step isn't necessary if you created the virtual network with encryption enabled in the previous steps.*
 
 ```azurepowershell-interactive
 ## Place the virtual network configuration into a variable. ##
@@ -152,7 +154,7 @@ $vnet | Set-AzVirtualNetwork
 
 ### [CLI](#tab/cli)
 
-You can also enable encryption on an existing virtual network using [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update). **This step isn't necessary if you created the virtual network with encryption enabled in the previous steps.**
+You can also enable encryption on an existing virtual network by using [az network vnet update](/cli/azure/network/vnet#az-network-vnet-update). *This step isn't necessary if you created the virtual network with encryption enabled in the previous steps.*
 
 ```azurecli-interactive
   az network vnet update \
@@ -164,19 +166,19 @@ You can also enable encryption on an existing virtual network using [az network 
 
 ---
 
-## Verify encryption enabled
+## Verify that encryption is enabled
 
 ### [Portal](#tab/portal)
 
-1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, begin to enter **Virtual networks**. When **Virtual networks** appears in the search results, select it.
 
-1. Select **vnet-1**.
+1. Select **vnet-1** to open the **vnet-1** pane.
 
-1. In the **Overview** of **vnet-1**, select the **Properties** tab.
+1. On the service menu, select **Overview**, and then select the **Properties** tab.
 
 1. Verify that **Encryption** is set to **Enabled**.
 
-    :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties-encryption-enabled.png" alt-text="Screenshot of properties of the virtual network with encryption enabled.":::
+    :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties-encryption-enabled.png" alt-text="Screenshot that shows properties of the virtual network with Encryption st as Enabled.":::
 
 ### [PowerShell](#tab/powershell)
 
@@ -191,7 +193,7 @@ $net = @{
 $vnet = Get-AzVirtualNetwork @net
 ```
 
-To view the parameter for encryption, enter the following information.
+To view the parameter for encryption, enter the following information:
 
 ```azurepowershell-interactive
 $vnet.Encryption
@@ -226,13 +228,15 @@ True   AllowUnencrypted
 
 ---
 
+## Clean up resources
+
 ### [Portal](#tab/portal)
 
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ### [PowerShell](#tab/powershell)
 
-When no longer needed, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains:
+When you no longer need this resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it contains.
 
 ```azurepowershell-interactive 
 $cleanup = @{
@@ -243,7 +247,7 @@ Remove-AzResourceGroup @cleanup -Force
 
 ### [CLI](#tab/cli)
 
-When you're done with the virtual network, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
+When you finish with the virtual network, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
 
 ```azurecli-interactive
 az group delete \
@@ -253,8 +257,7 @@ az group delete \
 
 ---
 
-## Next steps
+## Related content
 
-- For more information about Azure Virtual Networks, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
-
-- For more information about Azure Virtual Network encryption, see [What is Azure Virtual Network encryption?](virtual-network-encryption-overview.md)
+- For more information about Virtual Network, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview).
+- For more information about Virtual Network encryption, see [What is Azure Virtual Network encryption?](virtual-network-encryption-overview.md).

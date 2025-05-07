@@ -1,10 +1,10 @@
 ---
 title: Machine learning and AI with ONNX in Azure SQL Edge
 description: Machine learning in Azure SQL Edge supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: hudequei, randolphwest
-ms.date: 09/14/2023
+author: rwestMSFT
+ms.author: randolphwest
+ms.reviewer: hudequei, vanto, kendalv
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.subservice: machine-learning
 ms.topic: conceptual
@@ -12,7 +12,9 @@ keywords: deploy SQL Edge
 ---
 # Machine learning and AI with ONNX in SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Machine learning in Azure SQL Edge supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
@@ -31,7 +33,7 @@ To obtain a model in the ONNX format:
 
      **Supported frameworks**
    * [PyTorch](http://pytorch.org/docs/master/onnx.html)
-   * [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+   * [TensorFlow](https://github.com/onnx/tensorflow-onnx)
    * [Keras](https://github.com/onnx/keras-onnx)
    * [Scikit-learn](https://github.com/onnx/sklearn-onnx)
    * [CoreML](https://github.com/onnx/onnxmltools)
@@ -49,7 +51,7 @@ Other numeric types can be converted to supported types by using [CAST and CONVE
 
 The model inputs should be structured so that each input to the model corresponds to a single column in a table. For example, if you're using a pandas dataframe to train a model, then each input should be a separate column to the model.
 
-## Next steps
+## Related content
 
 - [Deploy SQL Edge through Azure portal](deploy-portal.md)
 - [Deploy an ONNX model on Azure SQL Edge](deploy-onnx.md)

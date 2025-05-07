@@ -4,7 +4,7 @@ description: Key concepts of Azure API Center. API Center inventories an organiz
 author: dlepow
 ms.service: azure-api-center
 ms.topic: conceptual
-ms.date: 04/23/2024
+ms.date: 11/15/2024
 ms.author: danlep
 ---
 
@@ -24,7 +24,7 @@ A top-level logical entity in Azure API Center, an API represents any real-world
 
 An API in the inventory can be managed by any API management solution, such as Azure [API Management](../api-management/api-management-key-concepts.md), Apigee API Management, Kong Konnect, MuleSoft API Management, or another platform. An API represented in Azure API Center can also be unmanaged.
 
-The API inventory in Azure API Center is designed to be created and managed by API program managers or IT administrators. 
+The API inventory in Azure API Center is designed to be created and managed by API program managers or IT administrators. Azure API Center also includes features for API developers to register API definitions directly from their development environments, such as Visual Studio Code or CI/CD pipelines.
 
 ## API version
 
@@ -33,6 +33,8 @@ API versioning is the practice of managing changes to an API and ensuring that t
 ## API definition
 
 Each API version should ideally be defined by at least one definition, such as an OpenAPI definition for a REST API. Azure API Center allows any API definition file formatted as text (YAML, JSON, Markdown, and so on). You can upload OpenAPI, gRPC, GraphQL, AsyncAPI, WSDL, and WADL definitions, among others.
+
+To help with API governance, Azure API Center provides linting capabilities to analyze API definitions for quality and compliance with organizational standards.
 
 ## Environment
 
@@ -58,4 +60,5 @@ Azure API Center's metadata schema is compatible with JSON and YAML schema speci
 
 * [What is Azure API Center?](overview.md)
 * [Metadata for API governance](metadata.md)
+* [API analysis and linting](enable-managed-api-analysis-linting.md)
 

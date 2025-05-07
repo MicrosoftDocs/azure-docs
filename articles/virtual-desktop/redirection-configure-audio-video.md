@@ -3,8 +3,8 @@ title: Configure audio and video redirection over the Remote Desktop Protocol
 description: Learn how to redirect audio peripherals, such as microphone and speaker, between a local device and a remote session over the Remote Desktop Protocol. It applies to Azure Virtual Desktop, Windows 365, and Microsoft Dev Box.
 ms.topic: how-to
 zone_pivot_groups: rdp-products-features
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/24/2024
 ---
 
@@ -33,7 +33,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the session host, host pool RDP properties, or local device. 
 >
 > - [Microsoft Teams](teams-on-avd.md) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -42,7 +42,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the Cloud PC or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -51,7 +51,7 @@ This article provides information about the supported redirection methods and ho
 > If you use the following features in a remote session, they have their own optimizations that are independent from the redirection configuration on the dev box or local device. 
 >
 > - [Microsoft Teams](/windows-365/enterprise/teams-on-cloud-pc) for camera, microphone, and audio redirection.
-> - [Multimedia redirection](multimedia-redirection-intro.md) for audio, video and call redirection. 
+> - [Multimedia redirection](multimedia-redirection-video-playback-calls.md) for audio, video and call redirection. 
 
 ::: zone-end
 
@@ -153,7 +153,7 @@ To configure the audio output location using host pool RDP properties:
 
 1. Select **Save**.
 
-1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-intro.md) for this test.
+1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-video-playback-calls.md) for this test.
 ::: zone-end
 
 ::: zone pivot="azure-virtual-desktop"
@@ -182,9 +182,9 @@ To allow or disable audio and video playback redirection, and limit audio playba
 
 1. Expand the **Administrative templates** category, then toggle the switch for **Allow audio and video playback redirection**, depending on your requirements:
 
-   - To allow audio and video playback redirection, toggle the switch to **Enabled**, then select **OK**.
+   - To allow audio and video playback redirection, toggle the switch to **Enabled**.
 
-   - To disable audio and video playback redirection, toggle the switch to **Disabled**, then select **OK**.
+   - To disable audio and video playback redirection, toggle the switch to **Disabled**.
 
 1. If you selected **Limit audio playback quality**, select the audio quality from the drop-down list.
 
@@ -198,13 +198,13 @@ To allow or disable audio and video playback redirection, and limit audio playba
 
 1. Once the policy applies to the computers providing a remote session, restart them for the settings to take effect.
 
-1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-intro.md) for this test.
+1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-video-playback-calls.md) for this test.
 
 # [Group Policy](#tab/group-policy)
 
 To allow or disable audio and video playback redirection, and limit audio playback quality using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -224,7 +224,7 @@ To allow or disable audio and video playback redirection, and limit audio playba
 
 1. Ensure the policy is applied to the computers providing a remote session, then restart them for the settings to take effect.
 
-1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-intro.md) for this test.
+1. To test the configuration, connect to a remote session and play audio. Verify that you can hear audio as expected. Make sure you're not using Microsoft Teams or a web page that's redirected with [multimedia redirection](multimedia-redirection-video-playback-calls.md) for this test.
 
 ---
 
@@ -331,7 +331,7 @@ To allow or disable audio input redirection using Microsoft Intune:
 
 To allow or disable audio input redirection using Group Policy:
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -353,7 +353,7 @@ To allow or disable audio input redirection using Group Policy:
 
 You can disable audio input redirection on a local device to prevent audio input from being redirected from a local device to a remote session. This method is useful if you want to enable audio input redirection for most users, but disable it for specific devices.
 
-For iOS/iPadOS and Android devices, you can disable audio input redirection using Intune. For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md).
+For iOS/iPadOS and Android devices, you can disable audio input redirection using Intune. For more information, see [Manage local device redirection settings with Microsoft Intune](/windows-app/manage-device-redirection-intune?context=/azure/virtual-desktop/context/context).
 
 ---
 

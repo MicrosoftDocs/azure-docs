@@ -16,7 +16,7 @@ ms.date: 10/20/2023
 
 After you have completed building and debugging your data flow, you want to schedule your data flow to execute on a schedule within the context of a pipeline. You can schedule the pipeline using Triggers. For testing and debugging your data flow from a pipeline, you can use the Debug button on the toolbar ribbon or Trigger Now option from the Pipeline Builder to execute a single-run execution to test your data flow within the pipeline context.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4P5pV]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=5526e304-14f3-40cf-bd60-2f4bccf1fddb]
 
 When you execute your pipeline, you can monitor the pipeline and all of the activities contained in the pipeline including the Data Flow activity. Select the monitor icon in the left-hand UI panel. You can see a screen similar to the one that follows. The highlighted icons allow you to drill into the activities in the pipeline, including the Data Flow activity.
 

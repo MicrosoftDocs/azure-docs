@@ -31,7 +31,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
    ![Inputs is selected in the left navigation pane. On Inputs, + Add reference input is selected, revealing a drop-down list that shows the values Blob storage and SQL Database.](./media/sql-reference-data/stream-analytics-inputs.png)
 
-2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate.  Delta query enables you to track changes within your reference data by retreiving all of the rows in SQL Database that were inserted or deleted within a start time, @deltaStartTime, and an end time @deltaEndTime. 
+2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate.  Delta query enables you to track changes within your reference data by retrieving all of the rows in SQL Database that were inserted or deleted within a start time, @deltaStartTime, and an end time @deltaEndTime. 
 
 Please see [delta query](sql-reference-data.md#delta-query).
 

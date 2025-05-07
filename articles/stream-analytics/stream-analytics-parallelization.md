@@ -5,7 +5,7 @@ ms.service: azure-stream-analytics
 author: anboisve
 ms.author: anboisve
 ms.topic: conceptual
-ms.date: 01/29/2024
+ms.date: 12/17/2024
 ---
 # Use query parallelization in Azure Stream Analytics
 This article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition. 
@@ -50,7 +50,7 @@ For more information about partitions, see the following articles:
 
 ### Query
 
-For a job to be parallel, partition keys need to be aligned between all inputs, all query logic steps, and all outputs. The query logic partitioning is determined by the keys used for joins and aggregations (GROUP BY). This last requirement can be ignored if the query logic isn't keyed (projection, filters, referential joins...).
+For a job to be parallel, partition keys need to be aligned between all inputs, all query logic steps, and all outputs. The query logic partitioning is determined by the keys used for joins and aggregations (GROUP BY). The last requirement can be ignored if the query logic isn't keyed (projection, filters, referential joins...).
 
 * If an input and an output are partitioned by `WarehouseId`, and the query groups by `ProductId` without `WarehouseId`, then the job isn't parallel.
 * If two inputs to be joined are partitioned by different partition keys (`WarehouseId` and `ProductId`), then the job isn't parallel.
@@ -63,9 +63,9 @@ Only when all inputs, outputs and query steps are using the same key, the job is
 
 An *embarrassingly parallel* job is the most scalable scenario in Azure Stream Analytics. It connects one partition of the input to one instance of the query to one partition of the output. This parallelism has the following requirements:
 
-- If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, it means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, this means that the events are sent to the same partition folder. An example would be a query instance that aggregates data per userID where input event hub is partitioned using userID as partition key. However, if your query logic doesn't require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
+- If your query logic depends on the same key being processed by the same query instance, you must make sure that the events go to the same partition of your input. For Event Hubs or IoT Hub, it means that the event data must have the **PartitionKey** value set. Alternatively, you can use partitioned senders. For blob storage, which means that the events are sent to the same partition folder. An example would be a query instance that aggregates data per userID where input event hub is partitioned using userID as partition key. However, if your query logic doesn't require the same key to be processed by the same query instance, you can ignore this requirement. An example of this logic would be a simple select-project-filter query.  
 - The next step is to make your query be partitioned. For jobs with compatibility level 1.2 or higher (recommended), custom column can be specified as Partition Key in the input settings and the job will be parallel automatically. Jobs with compatibility level 1.0 or 1.1, requires you to use **PARTITION BY PartitionId** in all the steps of your query. Multiple steps are allowed, but they all must be partitioned by the same key. 
-- Most of the outputs supported in Stream Analytics can take advantage of partitioning. If you use an output type that doesn't support partitioning your job won't be *embarrassingly parallel*. For Event Hubs output, ensure **Partition key column** is set to the same partition key used in the query. For more information, see [output section](#outputs).
+- Most of the outputs supported in Stream Analytics can take advantage of partitioning. If you use an output type that doesn't support partitioning your job won't be *embarrassingly parallel*. For Event Hubs outputs, ensure **Partition key column** is set to the same partition key used in the query. For more information, see [output section](#outputs).
 - The number of input partitions must equal the number of output partitions. Blob storage output can support partitions and inherits the partitioning scheme of the upstream query. When a partition key for Blob storage is specified, data is partitioned per input partition thus the result is still fully parallel. Here are examples of partition values that allow a fully parallel job:
 
    * Eight event hub input partitions and eight event hub output partitions
@@ -266,7 +266,7 @@ This query can be scaled to 4 SU V2s.
 
 An [embarrassingly parallel](#embarrassingly-parallel-jobs) job is necessary but not sufficient to sustain a higher throughput at scale. Every storage system, and its corresponding Stream Analytics output, has variations on how to achieve the best possible write throughput. As with any at-scale scenario, there are some challenges that can be solved by using the right configurations. This section discusses configurations for a few common outputs and provides samples for sustaining ingestion rates of 1 K, 5 K, and 10 K events per second.
 
-The following observations use a Stream Analytics job with stateless (passthrough) query, a basic JavaScript UDF that writes to Event Hubs, Azure SQL, or Azure Cosmos DB.
+The following observations use a Stream Analytics job with stateless (passthrough) query, a basic JavaScript user defined function (UDF) that writes to Event Hubs, Azure SQL, or Azure Cosmos DB.
 
 #### Event Hubs
 

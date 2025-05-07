@@ -479,7 +479,7 @@ See the following documentation and samples:
 
 - [Azure Service Bus client library for Java - Readme](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/README.md)
 - [Samples on GitHub](/samples/azure/azure-sdk-for-java/servicebus-samples/)
-- [Java API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-servicebus/7.0.0/index.html)
+- [Java API reference](/azure/developer/java/sdk/overview)
 
 <!-- Local links -->
 [Azure SDK for Java]: /java/api/overview/azure/

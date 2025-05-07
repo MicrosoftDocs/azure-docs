@@ -7,6 +7,10 @@ ms.author: austinmc
 ms.topic: how-to
 ms.collection:
   -       zerotrust-services
+
+
+#Customer intent: As a security analyst, I want to monitor and respond to Zero Trust (TIC 3.0) requirements using automated tools, so that I can ensure compliance and improve our security posture.
+
 ---
 
 # Monitor Zero Trust (TIC 3.0) security architectures with Microsoft Sentinel

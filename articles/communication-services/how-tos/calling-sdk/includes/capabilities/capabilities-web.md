@@ -59,13 +59,21 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
             (value.isPresent) ? this.setState({ canReact: true }) : this.setState({ canReact: false });
             continue;
         }
+        if(key === 'forbidOthersAudio' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canForbidOthersAudio: true }) : this.setState({ canForbidOthersAudio: false });
+            continue;
+        }
+        if(key === 'forbidOthersVideo' && value.reason != 'FeatureNotSupported') {
+            (value.isPresent) ? this.setState({ canForbidOthersVideo: true }) : this.setState({ canForbidOthersVideo: false });
+            continue;
+        }
     }
 });
 ```
 
 **Capabilities Exposed**
-- *turnVideoOn*: Ability to turn video on
-- *unmuteMic*: Ability to turn mic on
+- *turnVideoOn*: Ability to turn on video
+- *unmuteMic*: Ability to send audio
 - *shareScreen*: Ability to share screen
 - *removeParticipant*: Ability to remove a participant
 - *hangUpForEveryOne*: Ability to hang up for everyone
@@ -81,3 +89,5 @@ capabilitiesFeature.on('capabilitiesChanged', (capabilitiesChangeInfo) => {
 - *muteOthers*: Ability to soft mute remote participant(s) in the meeting 
 - *reaction*: Ability to react in the meeting (beta only)
 - *viewAttendeeNames*: Ability to view attendee names in the meeting
+- *forbidOthersAudio*: Ability to forbid attendees' audio in the meeting or group call
+- *forbidOthersVideo*: Ability to forbid attendees' video in the meeting or group call

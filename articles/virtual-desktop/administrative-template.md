@@ -1,10 +1,10 @@
 ---
 title: Add the administrative template for Azure Virtual Desktop to Group Policy
 description: Learn how to add the administrative template (ADMX) for Azure Virtual Desktop to Group Policy to configure certain features.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 08/12/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Add the administrative template for Azure Virtual Desktop to Group Policy
@@ -23,6 +23,7 @@ You can configure the following features with the administrative template:
 - [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks)
 - [Screen capture protection](screen-capture-protection.md)
 - [Watermarking](watermarking.md)
+- [High Efficiency Video Coding (H.265) hardware acceleration](graphics-enable-gpu-acceleration.md)
 
 ## Prerequisites
 
@@ -99,3 +100,13 @@ To add the administrative template to Group Policy, select a tab for your scenar
    - [Watermarking](watermarking.md)
 
 ---
+
+## Related content
+
+Learn how to use the administrative template with the following features:
+
+- [Graphics related data logging](connection-latency.md#connection-graphics-data-preview)
+- [Screen capture protection](screen-capture-protection.md)
+- [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks)
+- [Watermarking](watermarking.md)
+- [High Efficiency Video Coding (H.265) hardware acceleration](graphics-enable-gpu-acceleration.md)

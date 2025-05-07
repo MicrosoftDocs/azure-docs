@@ -54,7 +54,7 @@ In this section, you add diagnostic and other details.
 * If your feedback is a **Suggestion**, the app takes you directly to the **Attachments (optional)** section.
 * If your feedback is a **Problem** and you feel the problem merits more urgent attention, you can specify this problem as a high priority or blocking issue.
 
-In the **Attachments (optional)** section, you should supply as much comprehensive information as possible. If a screen doesn't look right, [attach a screenshot](#attach-a-screenshot). If you're reporting a problem other than a screen issue, it's best to follow the steps in [Recreate my problem](#recreate-my-problem) and then use the steps in [Attach a file](#attach-a-file) to attach the log files.
+In the **Attachments (optional)** section, you should supply as much comprehensive information as possible. If a screen doesn't look right, [attach a screenshot](#attach-a-screenshot). If you're reporting a problem other than a screen issue, it's best to follow the steps in [Recreate my problem](#recreate-my-problem).
 
 ### Attach a screenshot
 
@@ -79,15 +79,6 @@ The **Recreate my problem** option provides us with crucial information. This op
 
    :::image type="content" source="./media/feedback-hub-azure-vpn-client/stop-recording.png" alt-text="Screenshot showing the Azure VPN Client recording." lightbox="./media/feedback-hub-azure-vpn-client/stop-recording.png":::
 
-### Attach a file
-
-Attach the Azure VPN Client **log files**. It's best if you attach the file after you recreate the problem to make sure the problem is included in the log file. To attach the client log files:
-
-1. Select **Attach a file** and locate the log files for the Azure VPN client. Log files are stored locally in the following folder: **%localappdata%\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState\LogFiles**.
-
-1. From the LogFiles folder, select **Azure VPNClient.log** and **Azure VpnCxn.log**.
-
-   :::image type="content" source="./media/feedback-hub-azure-vpn-client/locate-files.png" alt-text="Screenshot showing the Azure VPN client log files." lightbox="./media/feedback-hub-azure-vpn-client/locate-files.png":::
 
 ### Submit the problem
 

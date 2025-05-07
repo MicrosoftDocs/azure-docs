@@ -282,10 +282,10 @@ export APP_DOMAIN=$(az containerapp env show -g $RESOURCE_GROUP -n $APP_ENVIRONM
 #Test the production FQDN
 curl -s https://$APP_NAME.$APP_DOMAIN/api/env | jq | grep COMMIT
 
-#Test the blue lable FQDN
+#Test the blue label FQDN
 curl -s https://$APP_NAME---blue.$APP_DOMAIN/api/env | jq | grep COMMIT
 
-#Test the green lable FQDN
+#Test the green label FQDN
 curl -s https://$APP_NAME---green.$APP_DOMAIN/api/env | jq | grep COMMIT
 ```
 

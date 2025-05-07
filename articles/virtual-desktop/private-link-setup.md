@@ -1,11 +1,11 @@
 ---
 title: Set up Private Link with Azure Virtual Desktop - Azure
 description: Learn how to set up Private Link with Azure Virtual Desktop to privately connect to your remote resources.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.date: 04/19/2024
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Set up Private Link with Azure Virtual Desktop
@@ -1011,6 +1011,6 @@ To test that your users can connect to their remote resources:
 
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md).
+- Understand how connectivity for the Azure Virtual Desktop service works at [Azure Virtual Desktop network connectivity](network-connectivity.md).
 
 - See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.

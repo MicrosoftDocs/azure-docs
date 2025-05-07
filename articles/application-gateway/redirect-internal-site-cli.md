@@ -115,7 +115,7 @@ az network application-gateway http-listener create \
 
 ### Add the redirection configuration
 
-Add the redirection configuration that sends traffic from *www\.consoto.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
+Add the redirection configuration that sends traffic from *www\.contoso.org* to the listener for *www\.contoso.com* in the application gateway using [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config#az-network-application-gateway-redirect-config-create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

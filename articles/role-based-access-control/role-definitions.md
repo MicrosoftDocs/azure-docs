@@ -2,10 +2,10 @@
 title: Understand Azure role definitions - Azure RBAC
 description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.date: 02/12/2024
+ms.date: 03/30/2025
 ms.author: rolyon
 ms.custom:
 ---
@@ -179,7 +179,7 @@ Role-based access control for control plane actions is specified in the `Actions
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Control plane access is not inherited to your data plane provided that the container authentication method is set to **Azure AD User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Control plane access is not inherited to your data plane provided that the container authentication method is set to **Microsoft Entra User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
 Previously, role-based access control was not used for data actions. Authorization for data actions varied across resource providers. The same role-based access control authorization model used for control plane actions has been extended to data plane actions.
 
@@ -261,7 +261,7 @@ Authorization for all control plane API calls is handled by Azure Resource Manag
 
 To better understand how control plane and data plane actions work, let's consider a specific example. Alice has been assigned the [Owner](built-in-roles.md#owner) role at the subscription scope. Bob has been assigned the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role at a storage account scope. The following diagram shows this example.
 
-![Role-based access control has been extended to support both control plane and data plane actions](./media/role-definitions/rbac-data-plane.png)
+:::image type="content" source="./media/role-definitions/rbac-data-plane.png" alt-text="Diagram of role-based access control that has been extended to support both control plane and data plane actions." lightbox="./media/role-definitions/rbac-data-plane.png":::
 
 The [Owner](built-in-roles.md#owner) role for Alice and the [Storage Blob Data Contributor](built-in-roles.md#storage-blob-data-contributor) role for  Bob have the following actions:
 

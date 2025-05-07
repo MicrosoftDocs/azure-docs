@@ -2,32 +2,29 @@
 title: Back up Azure VMs with Enhanced policy
 description: Learn how to configure Enhanced policy to back up VMs.
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 03/05/2025
 ms.reviewer: sharrai
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+author: jyothisuri
+ms.author: jsuri
 ---
 # Back up an Azure VM using Enhanced policy
 
-This article explains how to use _Enhanced policy_ to configure _Multiple Backups Per Day_ and back up [Trusted Launch VMs](/azure/virtual-machines/trusted-launch) with Azure Backup service.
+Azure Backup now supports Enhanced policy for Azure VM backup that offers:
 
-Azure Backup now supports _Enhanced policy_ that's needed to support new Azure offerings. For example, [Trusted Launch VM](/azure/virtual-machines/trusted-launch) is supported with _Enhanced policy_ only.
+- Zonal resiliency using Zone-redundant storage (ZRS) for Instant Restore snapshots.
+- Multiple Backups per Days. You can schedule backups as frequently as every 4 hours for Azure VMs.
+- Support for new Azure offerings including Trusted Launch virtual machines, Premium SSD v2 and Ultra SSD disks, multi-disk crash consistent snapshot support.
+- Longer retention in snapshot (operational) tier up to 30 days.
 
->[!Important]
->- [Default policy](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) will not support protecting newer Azure offerings, such as [Trusted Launch VM](backup-support-matrix-iaas.md#tvm-backup), [Ultra SSD](backup-support-matrix-iaas.md#vm-storage-support), [Premium SSD v2](backup-support-matrix-iaas.md#vm-storage-support), [Shared disk](backup-support-matrix-iaas.md#vm-storage-support), and Confidential Azure VMs.
->- Enhanced policy now supports protecting both Ultra SSD and Premium SSD v2.
->- Backups for VMs having [data access authentication enabled disks](/azure/virtual-machines/windows/download-vhd?tabs=azure-portal#secure-downloads-and-uploads-with-azure-ad) will fail.
->- If you're protecting a VM with an enhanced policy, it incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
->- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to *Standard*.
+>[!Note]
+>- Standard policy doesn't support protecting newer Azure offerings, such as Ultra SSD and Premium SSD v2.  Backup of trusted launch VM using standard policy is available in preview in [selected regions](backup-support-matrix-iaas.md#tvm-backup). 
+>- Backups for VMs with data access authentication enabled disks fails.
+>- Protection of a VM with an enhanced policy incurs additional snapshot costs. [Learn more](backup-instant-restore-capability.md#cost-impact).
+>- Once you enable a VM backup with Enhanced policy, Azure Backup doesn't allow to change the policy type to Standard.
 >- Azure Backup now supports the migration to enhanced policy for the Azure VM backups using standard policy. [Learn more](backup-azure-vm-migrate-enhanced-policy.md).
 >- You can exclude shared disk with Enhanced policy and backup the other supported disks in the VM.
-
-You must enable backup of Trusted Launch VM through enhanced policy only. Enhanced policy provides the following features:
-
-- Supports *Multiple Backups Per Day*.
-- Instant Restore tier is zonally redundant using Zone-redundant storage (ZRS) resiliency. See the [pricing details for Managed Disk Snapshots](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 :::image type="content" source="./media/backup-azure-vms-enhanced-policy/enhanced-backup-policy-settings.png" alt-text="Screenshot showing the enhanced backup policy options.":::
 
