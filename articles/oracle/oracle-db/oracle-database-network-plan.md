@@ -103,4 +103,3 @@ Currently, there’s no direct way to verify whether a VNet supports advanced ne
 * [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
 * [Support for Oracle Database@Azure](oracle-database-support.md)
 * [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)
-![image](https://github.com/user-attachments/assets/fed04abf-14c7-44ee-98ad-72eb61ec07e2)
