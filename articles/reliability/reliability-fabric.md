@@ -12,7 +12,7 @@ ms.custom:
   - references_regions
   - build-2023
   - ignite-2023
-ms.date: 04/02/2025
+ms.date: 04/24/2025
 ---
 
 # Reliability in Microsoft Fabric
@@ -140,7 +140,7 @@ Fabric provides a disaster recovery switch on the capacity settings page. It's a
 :::image type="content" source="/fabric/security/media/disaster-recovery-guide/disaster-recovery-capacity-setting.png" alt-text="Screenshot of the disaster recovery tenant setting.":::
 
 > [!NOTE]
-> After turning on the disaster recovery capacity setting, it can take up to one week for the data to start replicating.
+> After enabling the disaster recovery capacity setting or creating new workspaces within the capacity, data replication may take some time to start. You can verify that replication has begun by checking if your storage for a particular workspace is billed as "OneLake BCDR Storage" in the [Microsoft Fabric Capacity Metrics app](/fabric/enterprise/metrics-app).
 
 ### Data replication
 
@@ -171,7 +171,7 @@ When a major disaster renders the primary region unrecoverable, Microsoft Fabric
 
 The time it takes for failover to complete can vary, although it typically takes less than one hour. Once failover is complete, here's what you can expect:
 
-* **Fabric portal**: You can access the portal, and read operations such as browsing existing workspaces and items continue to work. All write operations, such as creating or modifying a workspace, are paused.
+* **Fabric portal**: You can access the portal, and read operations, such as browsing existing workspaces, task flows in workspaces, and items, continue to work. All write operations, such as creating or modifying a workspace, are paused.
 
 * **Power BI**: You can perform read operations, such as displaying dashboards and reports. Refreshes, report publish operations, dashboard and report modifications, and other operations that require changes to metadata aren't supported.
 
