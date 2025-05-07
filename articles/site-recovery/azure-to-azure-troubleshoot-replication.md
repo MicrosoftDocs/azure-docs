@@ -4,7 +4,7 @@ description: Troubleshoot replication in Azure VM disaster recovery with Azure S
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.topic: troubleshooting
-ms.date: 04/29/2025
+ms.date: 05/07/2025
 ms.service: azure-site-recovery
 ms.custom: engagement-fy23
 ---
@@ -101,7 +101,7 @@ Following are some of the most common issues.
 
 ### Known issue in SQL Server 2016 and 2017
 
-**How to fix**: Refer to the article [Cumulative Update 16 for SQL Server 2017](https://support.microsoft.com/help/4508218/cumulative-update-16-for-sql-server-2017).
+**How to fix**: Cumulative Update 16 for SQL Server 2017.
 
 ### You're using Azure Storage Spaces Direct Configuration
 
