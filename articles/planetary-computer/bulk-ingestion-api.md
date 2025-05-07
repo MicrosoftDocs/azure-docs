@@ -13,24 +13,24 @@ ms.date: 04/18/2024
 
 This article shows you how to ingest many geospatial data assets at once into a GeoCatalog using the Bulk Ingestion API. First, we create and configure a GeoCatalog Ingestion Source. Creating an Ingestion Source establishes a secure connection between a GeoCatalog resource and the storage location for your existing geospatial data. Next, we create a SpatioTemporal Access Catalog (STAC) Collection within your GeoCatalog resource to store the data being ingested. Finally, we use the Bulk Ingestion API to initiate the ingestion workflow. When you're finished completing these steps, your geospatial data is ingested and accessible from the GeoCatalog UIs and APIs. 
 
-:::image type="content" source="media/static_catalog_import.png" alt-text="Diagram illustrating the static catalog import process for GeoCatalog, showing data flow from storage to GeoCatalog via the Bulk Ingestion API.":::
+:::image type="content" source="media/static-catalog-import.png" alt-text="Diagram illustrating the static catalog import process for GeoCatalog, showing data flow from storage to GeoCatalog via the Bulk Ingestion API.":::
 
 ## Prerequisites
 
 In your Azure subscription:
-1. [GeoCatalog](./deploy-geocatalog-resource.md)
-1. [Azure Storage Account](/azure/storage/common/storage-account-create?tabs=azure-portal)
+- [GeoCatalog](./deploy-geocatalog-resource.md)
+- [Azure Storage Account](/azure/storage/common/storage-account-create?tabs=azure-portal)
 
 A geospatial dataset in your storage account blob container:
-1. Geospatial data assets (for example, GeoTIFF files) 
-1. The associated STAC Items [Create STAC Items](./create-stac-item.md) for these assets.
-1. A STAC Collection JSON that references all the STAC Items and geospatial data assets.
+- Geospatial data assets (for example, GeoTIFF files) 
+- The associated STAC Items [Create STAC Items](./create-stac-item.md) for these assets.
+- A STAC Collection JSON that references all the STAC Items and geospatial data assets.
 
 In your local / development environment:
 
-1. A Python environment running Python 3.8, or later.
-1. [Azure CLI](/cli/azure/install-azure-cli)
-1. You're [signed in to Azure](/cli/azure/authenticate-azure-cli-interactively)
+- A Python environment running Python 3.8, or later.
+- [Azure CLI](/cli/azure/install-azure-cli)
+- You're [signed in to Azure](/cli/azure/authenticate-azure-cli-interactively)
 
 Microsoft Planetary Computer Pro must have access to the Azure Blob Storage container. In this article, we create and use a temporary SAS token credential to grant this access. Alternatively, you can use these guides to set up Managed Identity or hard-coded SAS Tokens.
 
@@ -148,10 +148,10 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
     ```
 > [!NOTE]
 >  Running these steps more than once back-to-back results in a 409 response: 
-
-```Container url <container uri> already contains a SAS token ingestion source with id <sas token id>```      
-
-The ingestion source API doesn't allow you to create more than one ingestion source for the same container URL. To avoid conflicts, ensure you clean up any existing ingestion sources before creating a new one. For details, see [Clean up resources](#clean-up-resources).
+> 
+> ```Container url <container uri> already contains a SAS token ingestion source with id <sas token id>```      
+> 
+> The ingestion source API doesn't allow you to create more than one ingestion source for the same container URL. To avoid conflicts, ensure you clean up any existing ingestion sources before creating a new one. For details, see [Clean up resources](#clean-up-resources).
     
 ## Create Collection
 
@@ -202,8 +202,9 @@ A STAC collection is the high-level container for STAC Items and their associate
         "msft:short_description": "An example collection",
     }
     ```
+
     > [!NOTE]
-    >  This sample collection specification is a basic example of a collection. For more information on STAC collections and the STAC open standard, see the [STAC overview](./stac-overview.md). For a guide creating a complete STAC collection, see [Create STAC Collection](./create-stac-collection.md).
+    >  This sample collection specification is a basic example of a collection. For more information on STAC collections and the STAC open standard, see the [STAC overview](./stac-overview.md). For more information about creating a complete STAC collection, see [Create STAC Collection](./create-stac-collection.md).
 
 1. Create the new collection with the Collection API
 
@@ -316,7 +317,7 @@ Once the workflow is complete, you can query, retrieve, or visualize your geospa
  
 ## Clean up resources
 
-1. Delete ingestion source
+- Delete ingestion source
 
     ```python
     del_is_endpoint = f"{GEOCATALOG_URI}/inma/ingestion-sources/{ingestion_source_id}"
