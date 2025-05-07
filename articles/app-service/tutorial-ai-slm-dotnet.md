@@ -11,13 +11,7 @@ ms.topic: tutorial
 
 This tutorial guides you through deploying a ASP.NET Core chatbot application integrated with the Phi-3 sidecar extension on Azure App Service. By following the steps, you'll learn how to set up a scalable web app, add an AI-powered sidecar for enhanced conversational capabilities, and test the chatbot's functionality.
 
-Hosting your own small language model (SLM) offers several advantages:
-
-- By hosting the model yourself, you maintain full control over your data. This ensures sensitive information is not exposed to third-party services, which is critical for industries with strict compliance requirements.
-- Self-hosted models can be fine-tuned to meet specific use cases or domain-specific requirements. 
-- Hosting the model close to your application or users minimizes network latency, resulting in faster response times and a better user experience.
-- You can scale the deployment based on your specific needs and have full control over resource allocation, ensuring optimal performance for your application.
-- Hosting your own model allows for greater flexibility in experimenting with new features, architectures, or integrations without being constrained by third-party service limitations.
+[!INCLUDE [advantages](includes/tutorial-ai-slm/advantages.md)]
 
 ## Prerequisites
 
