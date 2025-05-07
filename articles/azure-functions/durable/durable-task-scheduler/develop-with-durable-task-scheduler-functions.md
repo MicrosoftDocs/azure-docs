@@ -101,7 +101,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 - **Supported hosting plans:** 
 
-   The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](./develop-with-durable-task-scheduler.md#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
+   The Durable Task Scheduler currently only supports Durable Functions running on *Functions Premium* and *App Service* plans. For apps running on the Functions Premium plan, you must [enable the *Runtime Scale Monitoring* setting](#auto-scaling-in-functions-premium-plan) to get auto scaling of the app.
 
    The *Consumption*, *Flex Consumption*, and *Azure Container App* hosting plans aren't yet supported when using the Durable Task Scheduler.
 
