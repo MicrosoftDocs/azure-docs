@@ -16,9 +16,9 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-API Management is introducing built-in OAuth 2.0 application-based access to products using the client credentials flow. 
+API Management is introducing built-in OAuth 2.0 application-based access to products using the client credentials flow. API managers and developers can use applications to simplify secure OAuth 2.0-based access to APIs managed in API Management.
 
-With this feature, an API manager configures an application in Microsoft Entra ID to represent a product, and registers a client application in Microsoft Entra ID that restricts access to the product's APIs. A developer (or client app) can then use the OAuth 2.0 client credentials flow to obtain OAuth tokens from the client application that are passed to the API Management gateway for authorization to the product's APIs.
+With this feature, an API manager configures an application in Microsoft Entra ID to represent a product, and registers a client application in Microsoft Entra ID that restricts access to the product's APIs. Developers obtain credentials from the developer portal to generate OAuth 2.0 tokens from Microsoft Entra ID. A developer (or client app) can then use the OAuth 2.0 client credentials flow to obtain OAuth 2.0 tokens that are passed to the API Management gateway for authorization to the product's APIs. 
 
 > [!NOTE]
 > This feature is in private preview. Ensure that you have received instructions to access the preview and that your subscription allows you to create an API Management instance in an Early Updates Access Program (EUAP) region. See detailed [Prerequisites](#prerequisites).
@@ -28,8 +28,9 @@ This article describes the following steps:
 
 * Enable application-based access for a product in API Management.
 * Create a client application in API Management that restricts access to the product.
+* View the client application in the developer portal and get credentials to the product's APIs.
 * Test OAuth 2.0 token-based access the product's associated API.
-* View the client application in the developer portal and get secure access to the product's APIs.
+
 
 <!-- Clarify personas
 This feature enables:
@@ -75,7 +76,7 @@ This feature enables:
     
 1. Assign the identity the **Application Administrator** RBAC role in Microsoft Entra ID. To assign the role:
 
-    1. Sign in to the portal and navigate to **Microsoft Entra** 
+    1. Sign in to the portal and navigate to **Microsoft Entra ID**. 
     1. In the left menu, select **Manage** > **Roles and administrators**.
     1. Select **Application administrator**.
     1. In the left menu, select **Manage** > **Assignments** > **+ Add assignments**.
@@ -84,7 +85,9 @@ This feature enables:
 
 ## Enable application based access for product
 
-Follow these steps to enable **Application based access** for a product. Enabling this setting automatically creates an application in Microsoft Entra ID to represent the selected product.
+Follow these steps to enable **Application based access** for a product. Enabling this setting automatically creates an application in Microsoft Entra ID to represent the selected product. 
+
+The following example uses the **Starter** product, but choose any published product that has at least one API assigned to it.
 
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your API Management instance.
@@ -101,14 +104,15 @@ Follow these steps to enable **Application based access** for a product. Enablin
 
 ## Review product application settings
 
-After you enable application based access, an enterprise application is created. 
+Enabling application based access create an enterprise application in Microsoft Entra ID to represent the product.  
 
-The application is named with the following format: **APIMProductApplication<product-name>**. For example, if the product name is **Starter**, the application name is **APIMProductApplicationStarter**. The application should have an **App role** defined.
+The application is named with the following format: **APIMProductApplication<product-name>**. For example, if the product name is **Starter**, the application name is **APIMProductApplicationStarter**. The application has an **App role** defined.
 
 You can review application settings in **App registrations**.
 
-1. Sign in to the Azure portal and navigate to **App registrations**.
-1. Select **All applications** and search for the application created by API Management.
+1. Sign in to the Azure portal and navigate to **Microsoft Entra ID** > **Manage** > **App registrations**.
+1. Select **All applications**.
+1. Search for and select the application created by API Management.
 1. In the left menu, under **Manage**, select **App roles**.
 1. Confirm that an application role was set by Azure API Management, as shown in the following screenshot:
 
@@ -118,11 +122,14 @@ You can review application settings in **App registrations**.
 
 Now create a client application that will be registered in Microsoft Entra ID and restricts to access one or more products. 
 
-* Products must have **Application based access** enabled to be associated with a client application. 
-* Each client application is associated with a single user (owner) in the API Management instance.
+* A product must have **Application based access** enabled to be associated with the client application. 
+* Each client application has a single user (owner) in the API Management instance that can access product APIs through the application.
 * A product can be associated with more than one client application.
 
-1. Sign in to the Azure portal at the following URL (`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`) and navigate to your API Management instance.
+1. Sign in to the Azure portal at the following test URL:
+
+    [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true)
+1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Applications** > **+ Register application**.
 1. In the **Register an application** pane, enter the following application settings:
     * **Name**: Enter a name for the application. 
@@ -133,7 +140,7 @@ Now create a client application that will be registered in Microsoft Entra ID an
     :::image type="content" source="media/applications/register-application.png" alt-text="Screenshot of application settings in the portal.":::
 1. Select **Register**.
 
-The application is added to the list of applications on the Applications pane. A client secret is automatically generated for the application. The client secret is used to obtain an OAuth token from the client application in the client credentials flow.
+The application is added to the list of applications on the **Applications** pane. A client secret is automatically generated for the application. The client secret is used to obtain an OAuth token from the client application in the client credentials flow.
 
 <!-- Where would client secret show? Should customer store it somewhere? -->
 
@@ -141,32 +148,36 @@ The application is added to the list of applications on the Applications pane. A
 
 Review the settings for the client application in Microsoft Entra ID.
 
-The application is named with the following format: **xxxxxxTBD**. For example, if the product name is **Starter**, the application name is **APIMProductApplicationStarter**. The application should have an **App role** defined.
-
+The application is named with the following format: **APIMApplication<product-name>**. For example, if the product name is **Starter**, the application name is similar to **APIMApplicationStarter**. 
 You can review application settings in **App registrations**.
 
-1. Sign in to the Azure portal and navigate to **App registrations**.
-1. Select **All applications** and search for the application created by API Management.
-1. In the left menu, under **Manage**, select **App roles**.
-1. Confirm that an application role was set by Azure API Management, as shown in the following screenshot:
+1. Sign in to the Azure portal and navigate to **Microsoft Entra ID** > **Manage** > **App registrations**.
+1. Select **All applications**.
+1. Search for and select the client application created by API Management.
+1. In the left menu, under **Manage**, select **API permissions**.
+1. Confirm that the application has permissions to access the backend product applications.
+
+    For example, if the client application grants access to the **Starter** product, the application has **Product.Starter.All** permissions to access the **APIMProductApplicationStarter** application. 
+
+    <!-- Insert screenshot -->
 
 
 ## Create token and use with API call
 
 
-Run the following Azure PowerShell scripts to obtain a token generated for the client application and to call a product API using the token.
+Run the following Azure PowerShell scripts to call the client application to generate a token, then use the token to call a product API in API Management.
 
 <!-- Warn about secure handling of token and secrets -->
 
-### Obtain token for client application
+### Call client application to generate token
 ```powershell
 
 # Replace placeholder values with your own values.
 
-$clientId = "aa8029d8-83a5-4713-939d-cebac1bbd672" # Client (application) ID of client application
-$clientSecret = "xxxxx" # Retrieve secret of client application in developer portal
-$scopeOfOtherApp = "api://03db2e9e-efe9-4f68-b74d-911966d1a684/.default" # Audience of application audience is visible under a product
-$tenantId = "e74bd0b5-f803-4e01-858b-dba7e58e55cf" # Your tenant id
+$clientId = "00001111-aaaa-2222-bbbb-3333cccc4444" # Client (application) ID of client application
+$clientSecret = "******" # Retrieve secret of client application in developer portal
+$scopeOfOtherApp = "api://055556666-ffff-7777-aaaa-8888bbbb9999/.default" # Value of Audience in product properties
+$tenantId = "aaaabbbb-0000-cccc-1111-dddd2222eeee" # Your tenant id
 
 $body = @{
     grant_type    = "client_credentials"
@@ -181,7 +192,7 @@ $token
 
 ### Call product API using token
 
-The token generated in the previous step is used to call a product API. The token is passed in the **Authorization** header of the request. The API Management instance validates the token and authorizes access to the API.
+The token generated in the previous step is used to call a product API. The token is passed in the **Authorization** header of the request. The API Management instance validates the token and authorizes access to the API. The following is an example call to the echo API.
 
 ```powershell
 
@@ -200,11 +211,13 @@ Write-Host "Response:"
 $getresponse | ConvertTo-Json -Depth 5
 ```
 
-
 ## List applications and get secrets in the developer portal
+
+[TBD]
 
 
 ## Related content
 
-* Add link here
+* [Create and publish a product](api-management-howto-add-products.md)
+* [Authentication and authorization to APIs in API Management](authentication-authorization-overview.md)
 
