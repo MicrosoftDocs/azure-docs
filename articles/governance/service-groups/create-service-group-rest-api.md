@@ -14,7 +14,8 @@ ms.date: 5/19/2025
 With Azure Service Groups (preview) you can create low-privilege-based groupings of resources across subscriptions. They provide a way to manage resources with minimal permissions, ensuring that resources can be grouped and managed without granting excessive access. Service Groups are designed to complement existing organizational structures like Resource Groups, Subscriptions, and Management Groups by offering a flexible and secure way to aggregate resources for specific purposes. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
-> Azure Service Groups is currently in PREVIEW. For more information about participating in the preview, see [TBD Link]().
+> Azure Service Groups is currently in PREVIEW. 
+> For more information about participating in the preview, see [Azure Service Groups Preview](https://go.microsoft.com/fwlink/p/?linkid=2320124).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
@@ -105,5 +106,5 @@ To remove the service group created in this document, use the
 
 ## Related content
 * [What are Azure Service Groups?](overview.md)
-* [How to: Manage Service Groups](manaage-service-groups.md)
+* [How to Manage Service Groups](manage-service-groups.md)
 * [Connect service group members with REST API](create-service-group-member-rest-api.md)
