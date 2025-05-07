@@ -168,7 +168,7 @@ items:
       - name: Tutorials
         items:
         - name: 🟢Develop an edge app for efficient data handling
-          href: get-started-end-to-end-sample/quickstart-develop-edge-app.md
+          href: develop-edge-apps/tutorial-develop-edge-app.md
       - name: Concepts
         items:
         - name: 🔵Develop highly available edge apps
