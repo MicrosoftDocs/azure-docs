@@ -36,7 +36,7 @@ In this scenario, you must replace 65520 and 65515 ASNs with the SD-WAN ones to 
 This option is ideal if you want to connect two virtual WANs using SD-WAN NVAs. However, it comes with the following limitations:
 
 - Only certain SD-WAN NVAs can be deployed into Virtual WAN hubs.
-- SD-WAN NVAs can't be combined with NVAs in a virtual hub.
+- SD-WAN NVAs can't be combined with other NVAs in Virtual WAN hubs.
 - SD-WAN NVAs can be more expensive than virtual network gateways.
 
 ## IPsec tunnels using SD-WAN devices in peered spokes
