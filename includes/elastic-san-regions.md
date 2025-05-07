@@ -49,6 +49,7 @@ Elastic SAN is also available in the following regions, but without Availability
 - France South- LRS
 - Norway West - LRS
 - Sweden South - LRS
+- India South - LRS 
 - West Central US - LRS
 - West US - LRS
 - UK West - LRS
