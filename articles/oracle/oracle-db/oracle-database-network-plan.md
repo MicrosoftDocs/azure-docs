@@ -82,18 +82,17 @@ The following table describes required configurations of supported network featu
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
 
 > [!NOTE]
-> When using NSGs (Network Security Groups) on the Azure side, please ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on > both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. > Misalignment between these policies could lead to unintended access issues or operational disruptions. 
+> When using NSGs (Network Security Groups) on the Azure side, ensure that any security rules configured on the Oracle (OCI) side are reviewed to avoid conflicts. While applying security policies on both Azure and OCI can enhance the overall security posture, it also introduces additional complexity in terms of management and requires careful manual synchronization between the two environments. Misalignment between these policies could lead to unintended access issues or operational disruptions. 
 
-> [!NOTE]
-> For Traffic Destined to Oracle Database@Azure 
->When routing traffic through a Network Virtual Appliance (NVA) or firewall to Oracle Database@Azure, the UDR prefix must be at least as specific as the delegated subnet of the instance.
-> 
+> [!IMPORTANT]
+> For traffic destined to Oracle Database@Azure, when routing traffic through a Network Virtual Appliance (NVA) or firewall to Oracle Database@Azure, the UDR prefix must be at least as specific as the delegated subnet of the instance.
 > If the delegated subnet for your instance is x.x.x.x/27, configure the UDR on the Gateway Subnet as:  
 > x.x.x.x/27 (same as the subnet) ✅  
 > x.x.x.x/32 (more specific) ✅  
 > x.x.x.x/24  (too broad) ❌ 
 
-  
+
+
 ## FAQ 
 ### What are advanced network features? 
 Advanced network features enhance your virtual networking experience by providing better security, performance, and control—similar to standard Azure virtual machines. With this feature, customers can use native VNet integrations like Network Security Groups (NSG), User-Defined Routes (UDR), Private Link, Global VNet Peering, and ExpressRoute FastPath without needing any workarounds. 
