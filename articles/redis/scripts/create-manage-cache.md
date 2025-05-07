@@ -15,7 +15,7 @@ appliesto:
 
 # Manage an Azure Redis cache using the Azure CLI
 
-This article describes how to create or delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the Azure CLI to get cache details including provisioning status, hostname, ports, and keys.
+This article describes how to create and delete an Azure Redis cache instance by using the Azure CLI. The article also shows how to use the Azure CLI to get cache details including provisioning status, hostname, ports, and keys.
 
 ## Prerequisites
 
@@ -26,45 +26,44 @@ This article describes how to create or delete an Azure Redis cache instance by 
 >[!NOTE]
 >Azure Cache for Redis Basic, Standard, and Premium tiers use the Azure CLI [az redis](/cli/azure/redis) commands.
 >
->Azure Cache for Redis Enterprise tiers and Azure Managed Redis use the [az redisenterprise](/cli/azure/redisenterprise) commands. The `redisenterprise` extension for Azure CLI version 2.61.0 or higher automatically installs the first time you run an `az redisenterprise` command.
+>Azure Cache for Redis Enterprise tiers and Azure Managed Redis use the [az redisenterprise](/cli/azure/redisenterprise) commands. The `redisenterprise` extension for Azure CLI version 2.61.0 or higher prompts you for installation the first time you run an `az redisenterprise` command.
 
-## Create an Azure Redis cache
+::: zone pivot="azure-managed-redis"
+
+### Create an Azure Managed Redis cache
 
 <!-- 
 :::code language="azurecli" source="~/azure_cli_scripts/redis-cache/create-cache/create-manage-cache.sh" id="FullScript"::: 
 This sample is broken. When it is fixed, we can fix this include.
 -->
-Microsoft Entra authentication is enabled by default for new caches, and access keys authentication is disabled. You can enable access key authentication during or after cache creation, but Microsoft Entra authentication is recommended for better security.
+To create an Azure Managed Redis cache by using Azure CLI, the `name`, `location`, `resourceGroup`, and `sku` parameters are required. Other parameters are optional and have defaults.
 
->[!IMPORTANT]
->Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+You can use the Azure CLI script in this section to create an Azure Managed Redis cache with default settings. You can also use the following other methods to create a cache:
 
-Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
-
-The cache `name` must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
-
-The `location` should be an Azure region near other services that use your cache. Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) that has the appropriate features and performance for your cache.
-
-::: zone pivot="azure-managed-redis"
-
-### Create an Azure Managed Redis or Azure Redis Enterprise cache
-
-You can use the following Azure CLI script to create an Azure Managed Redis or Azure Cache for Redis Enterprise cache. You can also use the following other ways to create a cache:
-
-- [Azure portal (Azure Managed Redis)](../quickstart-create-managed-redis.md)
-- [Azure portal (Azure Cache for Redis Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
+- [Azure portal](../quickstart-create-managed-redis.md)
 - [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-managed-redis)
 - [ARM template](../redis-cache-arm-provision.md#azure-managed-redis-preview)
 - [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis-preview)
 
+The cache `name`  must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
+
+The `location` should be an Azure region near other services that use your cache. Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) that has the appropriate features and performance for your cache.
+
+Microsoft Entra authentication is enabled by default for all new caches and is recommended for security.
+
 >[!IMPORTANT]
->You can enable or configure the following settings for Azure Managed Redis or Azure Cache for Redis Enterprise only at cache creation time. Gather the information you need to configure these settings in advance, and make sure to configure them correctly during cache creation.
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+
+Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for all new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
+
+>[!IMPORTANT]
+>You can enable or configure the following settings for Azure Managed Redis only at cache creation time. Gather the information you need to configure these settings in advance, and make sure to configure them correctly during cache creation.
 >- You can enable modules only at the time you create the cache. You can't change modules or enable module configuration after you create a cache.
 >- Azure Managed Redis and Azure Cache for Redis Enterprise tiers support two clustering policies: Enterprise or OSS. You can't change the clustering policy after you create the cache.
 >- If you're using the cache in a geo-replication group, you can't change eviction policies after the cache is created.
 >- The [RediSearch](../redis-modules.md#redisearch) module requires the Enterprise cluster policy and No Eviction eviction policy.
 
-This script sets variables, and then uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group with an Azure Managed Redis Balanced B1 cache in it.
+The following script sets variables, and then uses the [az group create](/cli/azure/group) and [az redisenterprise create](/cli/azure/redisenterprise#az-redisenterprise-create) commands to create a resource group with an Azure Managed Redis Balanced B1 SKU cache in it.
 
 ```azurecli
 
@@ -87,7 +86,10 @@ az redisenterprise create --name $cache --resource-group $resourceGroup --locati
 
 ## Get details for an Azure Managed Redis cache
 
-The following script uses the [az redisenterprise show](/cli/azure/redisenterprise#az-redisenterprise-show) and [az redisenterprise list-keys](/cli/azure/redisenterprise#az-redisenterprise-list-keys) commands to get and display the name, hostname, ports, and keys details for the preceding cache.
+The following script uses the [az redisenterprise show](/cli/azure/redisenterprise#az-redisenterprise-show) and [az redisenterprise database list-keys](/cli/azure/redisenterprise/database#az-redisenterprise-database-list-keys) commands to get and display the name, hostname, ports, and keys details for the preceding cache.
+
+>[!NOTE]
+>The `list-keys` operation works only when access keys are enabled for the cache. The output of this command might compromise security by showing secrets, and may trigger a sensitive information warning. For more information, see [Use Azure CLI to manage sensitive information](https://go.microsoft.com/fwlink/?linkid=2258669).
 
 ```azurecli
 # Get details of an Azure Managed Redis cache
@@ -98,7 +100,7 @@ az redisenterprise show --name "$cache" --resource-group $resourceGroup
 redis=($(az redisenterprise show --name "$cache" --resource-group $resourceGroup --query [hostName,enableNonSslPort,port,sslPort] --output tsv))
 
 # Retrieve the keys for an Azure Redis Cache instance
-keys=($(az redisenterprise list-keys --name "$cache" --resource-group $resourceGroup --query [primaryKey,secondaryKey] --output tsv))
+keys=($(az redisenterprise database list-keys --cluster-name "$cache" --resource-group $resourceGroup --query [primaryKey,secondaryKey] --output tsv))
 
 # Display the retrieved hostname, keys, and ports
 echo "Hostname:" ${redis[0]}
@@ -127,17 +129,30 @@ az group delete --resource-group $resourceGroup -y
 
 ::: zone pivot="azure-cache-redis"
 
-### Create an Azure Cache for Redis Basic, Standard, or Premium cache
+## Create an Azure Cache for Redis Basic, Standard, or Premium cache
 
-You can use the following Azure CLI script to create an Azure Cache for Redis Basic, Standard, or Premium-tier cache. To create and manage an Azure Cache for Redis Enterprise-tier cache, use the [Azure Managed Redis](create-manage-cache.md?pivots=azure-managed-redis) scripts.
+You can use the following Azure CLI script to create an Azure Basic, Standard, or Premium-tier cache. To create and manage an Azure Cache for Redis Enterprise-tier cache, use the [Azure Managed Redis](create-manage-cache.md?pivots=azure-managed-redis) scripts.
 
-You can also use the following other ways to create a cache:
+To create an Azure Cache for Redis cache by using Azure CLI, the `name`, `location`, `resourceGroup`, `sku`, and `size` parameters are required. Other parameters are optional and have defaults.
+
+You can use the Azure CLI script in this section to create an Azure Cache for Redis cache with default settings. You can also use the following other methods to create a cache:
 
 - [Azure portal (Basic, Standard, or Premium)](../../azure-cache-for-redis/quickstart-create-redis.md)
 - [Azure portal (Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
 - [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-cache-redis)
 - [ARM template](../redis-cache-arm-provision.md#azure-cache-for-redis)
 - [Bicep template](../redis-cache-bicep-provision.md#azure-cache-for-redis)
+
+The cache `name`  must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
+
+The `location` should be an Azure region near other services that use your cache. Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) that has the appropriate features and performance for your cache.
+
+Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for all new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
+
+>[!IMPORTANT]
+>Microsoft Entra authentication is recommended for security.
+
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
 
 The following script uses the [az group create](/cli/azure/group) and [az redis create](/cli/azure/redis#az-redis-create) commands to create a resource group with an Azure Cache for Redis Basic C0 cache in it.
 
