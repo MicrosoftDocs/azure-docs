@@ -26,6 +26,7 @@ Follow these best practices to minimize errors during the gateway migration proc
 By adhering to these practices, you can reduce the likelihood of encountering errors during migration.
 
 ## Common issues during migration stages and their resolutions
+
 The following table outlines common issues encountered during each migration stage and provides strategies to resolve them:
 
 | Migration Stage | Issue | Resolution |
@@ -35,8 +36,6 @@ The following table outlines common issues encountered during each migration sta
 | **Migrate**     | Both gateways remain enabled after a migration failure. | Redirect traffic back to the old gateway and retry the migration process. |
 | **Commit**      | The old gateway remains enabled, and the commit step fails. | Retry the migration step. Once the old gateway is successfully disabled, delete the old gateway and its associated resources. |
 | **Abort**       | Cleanup of resources fails during the abort step. | Redirect traffic to the new gateway and retry the abort operation. |
-
-By applying these strategies, you can effectively address and resolve issues encountered during the migration process.
 
 ## Common error messages
 
