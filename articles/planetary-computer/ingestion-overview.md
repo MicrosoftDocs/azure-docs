@@ -11,7 +11,7 @@ ms.date: 04/24/2025
 
 # Ingest data into Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer Pro ingestion capabilities allow users to bring their own data into a cloud-enabled platform effective at indexing, storing, and querying geospatial assets at scale. Data ingested and stored in an MPC Pro GeoCatalog uses the SpatioTemporal Asset Catalog (STAC) open-standard to index, query, and retrieve geospatial data. For more information on STAC, see [STAC overview](./stac-overview.md).
+Microsoft Planetary Computer Pro ingestion capabilities allow users to bring their own data into a cloud-enabled platform effective at indexing, storing, and querying geospatial assets at scale. Data ingested and stored in an Planetary Computer Pro GeoCatalog uses the SpatioTemporal Asset Catalog (STAC) open-standard to index, query, and retrieve geospatial data. For more information on STAC, see [STAC overview](./stac-overview.md).
 
 This diagram provides an overview of how the various elements in the ingestion service work together:
 

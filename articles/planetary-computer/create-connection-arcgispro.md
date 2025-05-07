@@ -1,6 +1,6 @@
 ---
 title: Using ArcGIS Pro with Microsoft Planetary Computer Pro
-description: Learn how to configure and authenticate ArcGIS Pro so that it can read STAC item data from Microsoft Planetary Computer (MPC) Pro. 
+description: Learn how to configure and authenticate ArcGIS Pro so that it can read STAC item data from Microsoft Planetary Computer Pro. 
 author: aloverro
 ms.author: adamloverro
 ms.service: azure
@@ -12,9 +12,9 @@ ms.date: 05/02/2025
 
 # Configure ArcGIS Pro to access a GeoCatalog
 
-This guide demonstrates how to configure ArcGIS Pro to access geospatial datasets from the Microsoft Planetary Computer (MPC) Pro GeoCatalog using OAuth 2.0 delegated authentication with Microsoft Entra ID. This requires registering two applications in Microsoft Entra ID (a Web API and a Desktop client), configuring delegated permissions with user_impersonation scope, and connecting ArcGIS Pro to Azure Blob Storage and SpatioTemporal Access Catalog (STAC) compliant datasets hosted in the MPC Pro environment.
+This guide demonstrates how to configure ArcGIS Pro to access geospatial datasets from the Microsoft Planetary Computer Pro GeoCatalog using OAuth 2.0 delegated authentication with Microsoft Entra ID. This requires registering two applications in Microsoft Entra ID (a Web API and a Desktop client), configuring delegated permissions with user_impersonation scope, and connecting ArcGIS Pro to Azure Blob Storage and SpatioTemporal Access Catalog (STAC) compliant datasets hosted in the Microsoft Planetary Computer Pro environment.
 
-By the end of this guide, you'll be able to securely browse and access MPC-hosted data directly in ArcGIS Pro using Microsoft Entra ID user impersonation.
+By the end of this guide, you'll be able to securely browse and access Microsoft Planetary Computer-hosted data directly in ArcGIS Pro using Microsoft Entra ID user impersonation.
 
 ## Prerequisites
 
@@ -169,11 +169,11 @@ Here's the overview page of the new app registration GeoCatalog-ArcGIS:
 
   :::image type="content" source="./media/Screenshot_showing_grant_admin_consents__4_.png" alt-text="Screenshot showing grant admin consents (4)":::
 
-## Configure ArcGIS Pro (Desktop) for MPC Pro GeoCatalog Access
+## Configure ArcGIS Pro (Desktop) for Microsoft Planetary Computer Pro GeoCatalog Access
 
 This section outlines how to configure authentication and data access in
 the **ArcGIS Pro desktop application**, using OAuth 2.0 integration with
-**Microsoft Entra ID** and access to the **MPC Pro GeoCatalog**. It
+**Microsoft Entra ID** and access to the **Microsoft Planetary Computer Pro GeoCatalog**. It
 includes steps to add an authentication connection and create storage
 and STAC data connections.
 
@@ -220,7 +220,7 @@ and STAC data connections.
 
 ## Prepare and record GeoCatalog information
 
-1. Create an MPC Pro GeoCatalog in your Azure subscription (for example,
+1. Create an Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example,
     ArcGISProGeoCatalog), and locate it in the appropriate resource
     group.
 

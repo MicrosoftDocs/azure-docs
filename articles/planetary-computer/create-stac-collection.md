@@ -11,7 +11,7 @@ ms.date: 04/24/2025
 
 # Quickstart: Create a STAC Collection in Microsoft Planetary Computer Pro GeoCatalog with Python
 
-This quickstart guides you to create a SpatioTemporal Asset Catalog (STAC) collection and add it to a Microsoft Planetary Computer (MPC) Pro GeoCatalog using Python.
+This quickstart guides you to create a SpatioTemporal Asset Catalog (STAC) collection and add it to a Microsoft Planetary Computer Pro GeoCatalog using Python.
 
 ## Prerequisites
 

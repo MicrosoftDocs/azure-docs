@@ -1,18 +1,18 @@
 ---
 title: Creating STAC Items in Microsoft Planetary Computer Pro
-description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer (MPC) Pro. 
+description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer Pro. 
 author: prasadko
 ms.author: prasadkomma
 ms.service: azure
 ms.topic: how-to
 ms.date: 04/08/2025
 
-# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an MPC Pro GeoCatalog.
+# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an Microsoft Planetary Computer Pro GeoCatalog.
 ---
 
 # Create a SpatioTemporal Asset Catalog (STAC) item
 
-Learn how to create a SpatioTemporal Asset Catalog (STAC) item for a raster geospatial data asset. Every geospatial data asset that is uploaded to a Microsoft Planetary Computer (MPC) Pro GeoCatalog must have an associated STAC-compliant Item.
+Learn how to create a SpatioTemporal Asset Catalog (STAC) item for a raster geospatial data asset. Every geospatial data asset that is uploaded to a Microsoft Planetary Computer Pro GeoCatalog must have an associated STAC-compliant Item.
 
 In this guide, you:
 
@@ -34,7 +34,7 @@ To complete this quickstart, you need:
 - An Azure account with an active subscription. Use the link to [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure CLI: [Install Azure CLI](/cli/azure/install-azure-cli)
 - A Python environment with at least version 3.8.
-- Some familiarity with the STAC standard and its implementation in MPC Pro [STAC Overview](./stac-overview.md)
+- Some familiarity with the STAC standard and its implementation in Microsoft Planetary Computer Pro [STAC Overview](./stac-overview.md)
 
 ## Key Features of STAC
 
@@ -830,7 +830,7 @@ MC Pro requires all STAC Items have a reference to the parent STAC Collection ID
 
 With **PySTAC**, it's easy to use some of the metadata collected from the source files to populate the key fields for the STAC Collection and use the built-in validation functions. 
 
-The following code creates a parent STAC Collection to house the GOES data. The code then saves this information to files used to create the MPC Pro STAC collection and ingest STAC items into MPC Pro. 
+The following code creates a parent STAC Collection to house the GOES data. The code then saves this information to files used to create the Microsoft Planetary Computer Pro STAC collection and ingest STAC items into Planetary Computer Pro. 
 
 
 ```python

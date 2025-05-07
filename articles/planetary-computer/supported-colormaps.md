@@ -11,7 +11,7 @@ ms.date: 4/24/2025
 
 # Supported colormaps in Microsoft Planetary Computer Pro
 
-The Microsoft Planetary Computer Pro Data Explorer allows GeoCatalog users to visualize the geospatial datasets in their collections. In order to properly render these datasets, MPC Pro uses user-specified collection render configurations. These render configurations support various colormaps, which map geospatial raster data values to color channels. The user can specify the use of any of these supported named colormaps when creating their collection render configuration. The user can also define a customized colormap.
+The Microsoft Planetary Computer Pro Data Explorer allows GeoCatalog users to visualize the geospatial datasets in their collections. In order to properly render these datasets, Planetary Computer Pro uses user-specified collection render configurations. These render configurations support various colormaps, which map geospatial raster data values to color channels. The user can specify the use of any of these supported named colormaps when creating their collection render configuration. The user can also define a customized colormap.
 
 ## Use cases
 

@@ -10,11 +10,11 @@ ms.date: 04/09/2025
 
 # Visualize data cube assets for Microsoft Planetary Computer Pro
 
-Microsoft Planetary Computer (MPC) Pro includes a tiler that can be used to visualize some NetCDF assets.  
+Microsoft Planetary Computer Pro includes a tiler that can be used to visualize some NetCDF assets.  
 
 ## Check NetCDF visualizability 
 
-Not all NetCDF datasets that can be ingested into Microsoft Planetary Computer are compatible by the MPC Pro's visualization tiler. A dataset must have X and Y axes, latitude and longitude coordinates, and spatial dimensions and bounds to be visualized. For example, a dataset in which latitude and longitude are variables, but not coordinates, isn't compatible with MPC Pro's tiler.  
+Not all NetCDF datasets that can be ingested into Microsoft Planetary Computer are compatible by the Planetary Computer Pro's visualization tiler. A dataset must have X and Y axes, latitude and longitude coordinates, and spatial dimensions and bounds to be visualized. For example, a dataset in which latitude and longitude are variables, but not coordinates, isn't compatible with Planetary Computer Pro's tiler.  
 
 Before attempting to visualize your NetCDF dataset, you can use the following to check whether it meets the requirements.
 
