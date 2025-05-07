@@ -1,3 +1,12 @@
+---
+title: Unit Testing Durable Functions in Python
+description: Learn about unit testing best practices for Durable functions written in Python for Azure Functions.
+author: andystaples
+ms.topic: conceptual
+ms.date: 05/07/2025
+ms.author: azfuncdf
+---
+
 # Unit Testing Durable Functions in Python
 
 ## Introduction
