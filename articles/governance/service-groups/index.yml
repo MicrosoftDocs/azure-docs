@@ -19,8 +19,6 @@ landingContent:
         links:
           - text: What are Azure Service Groups?
             url: ./overview.md
-          - text: What are Azure Management Groups?
-            url: ./management-groups-overview.md
       - linkListType: how-to-guide 
         links:
           - text: Create a service group with REST API
