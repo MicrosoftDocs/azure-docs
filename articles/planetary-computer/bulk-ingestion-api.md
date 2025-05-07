@@ -337,7 +337,7 @@ Once the workflow is complete, you can query, retrieve, or visualize your geospa
 Now that you added a few items, you should configure the data for visualization.
 
 > [!div class="nextstepaction"]
-> [Collection configuration in Microsoft Planetary Computer Pro](./collection-config-concept.md)
+> [Collection configuration in Microsoft Planetary Computer Pro](./collection-configuration-concept.md)
 
 ## Related content
 

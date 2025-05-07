@@ -81,7 +81,7 @@ Ingested data can be visualized both in the built-in [Data Explorer](./use-explo
 >[!NOTE]
 > A STAC Collection must be configured to support visualization before it is visible in the Data Explorer. 
 
-Planetary Computer Pro's Tiler service [requires configuration](./collection-config-concept.md) to properly display your ingested data. All of these configuration options are available under the **Configuration** tab in the STAC Collection view:
+Planetary Computer Pro's Tiler service [requires configuration](./collection-configuration-concept.md) to properly display your ingested data. All of these configuration options are available under the **Configuration** tab in the STAC Collection view:
 
 :::image type="content" source="media/configure-collection-button.png" alt-text="Screenshot of the Configure collection button in the GeoCatalog web interface.":::
 

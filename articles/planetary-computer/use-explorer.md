@@ -76,7 +76,7 @@ Applying a mosaic definition in the Explorer automatically filters the collectio
 1. Select the Render Configuration dropdown to show the list of available render configurations.
 2. Select a render configuration to render that item's layer on the map.
 
-:::image type="content" source="media/data-explorer-select-render-config.png" alt-text="Screenshot of using the explorer to select a configuration to render.":::
+:::image type="content" source="media/data-explorer-select-render-configuration.png" alt-text="Screenshot of using the explorer to select a configuration to render.":::
 
 ### Use advanced filtering
 

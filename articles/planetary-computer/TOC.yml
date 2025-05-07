@@ -28,7 +28,7 @@
 - name: Create a STAC Collection
   items:
   - name: Create a STAC collection (Web Interface)
-    href: create-collection-ui.md
+    href: create-collection-web-interface.md
   - name: Create a STAC collection (API)
     href: create-stac-collection.md
 - name: Ingest Data
@@ -42,7 +42,7 @@
   - name: Set up ingestion source using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md
   - name: Ingest data using the Web Interface
-    href: ingest-via-ui.md
+    href: ingest-via-web-interface.md
   - name: Create a STAC item
     href: create-stac-item.md
   - name: Add a STAC Item to a collection
@@ -52,9 +52,9 @@
 - name: Configure Collections for Visualization
   items:
   - name: Collection configuration overview
-    href: collection-config-concept.md
+    href: collection-configuration-concept.md
   - name: Configure Collections for Visualization
-    href: configure-collection-ui.md
+    href: configure-collection-web-interface.md
   - name: Mosaic Configuration
     href: mosaic-configurations-for-collections.md
   - name: Render Configuration

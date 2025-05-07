@@ -138,7 +138,7 @@ search_response = requests.get(
 #print(search_response.json())
 ```
 
-You can view the items by visiting your [Data Explorer](./use-explorer.md) once the STAC Collection is [configured for visualization](./collection-config-concept.md).
+You can view the items by visiting your [Data Explorer](./use-explorer.md) once the STAC Collection is [configured for visualization](./collection-configuration-concept.md).
 
 ## Delete Items from a Collection
 
@@ -164,7 +164,7 @@ delete an entire Collection and all items and assets underneath it.
 Now that you added a few items, you should configure the data for visualization.
 
 > [!div class="nextstepaction"]
-> [Collection configuration in Microsoft Planetary Computer Pro](./collection-config-concept.md)
+> [Collection configuration in Microsoft Planetary Computer Pro](./collection-configuration-concept.md)
 
 ## Related Items
 

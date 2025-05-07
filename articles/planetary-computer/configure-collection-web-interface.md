@@ -33,7 +33,7 @@ To configure a collection in the Microsoft Planetary Computer Pro web interface,
    
 2. The **Configure collection** panel opens and there are tabs for **Mosaic**, **Render**, **Tile Settings**, and **Queryables**, each of which you can define in JSON format. You can either write your own JSON or load and modify a template. 
 
-:::image type="content" source="./media/collection-config-ui.jpeg" alt-text="Screenshot of collection config in web interface."::: 
+:::image type="content" source="./media/collection-configuration-web-interface.jpeg" alt-text="Screenshot of collection config in web interface."::: 
 
 | Configuration | Purpose | Quick Start |
 |--------------------|---------|-----------------|

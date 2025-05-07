@@ -98,7 +98,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Collection Configuration
-            url: collection-config-concept.md
+            url: collection-configuration-concept.md
       - linkListType: quickstart
         links:
           - text: Configure Collections for Visualization
