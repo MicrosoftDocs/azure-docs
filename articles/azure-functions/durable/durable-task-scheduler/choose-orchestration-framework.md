@@ -7,7 +7,9 @@ ms.date: 05/06/2025
 
 # Choosing an orchestration framework
 
-Azure offers two developer-oriented orchestration frameworks you can use to build apps: **Durable Task SDKs** and **Durable Functions**. In this article, you learn:
+Azure offers two developer-oriented orchestration frameworks you can use to build apps: **Durable Task SDKs** and **Durable Functions**. These frameworks simplify the implementation of application patterns involving complex, long-running, and multi-step operations by providing built-in state persistence and automatic retries. These frameworks ensure durable execution, meaning code can continue executing even with interruptions or infrastructure failures. Since all state information is persisted, execution continues in another process or machine from the point of failure.
+
+In this article, you learn:
 
 > [!div class="checklist"]
 > - The benefits of using an orchestration framework.
@@ -15,7 +17,7 @@ Azure offers two developer-oriented orchestration frameworks you can use to buil
 
 ## Scenarios requiring orchestration 
 
-Application or orchestration patterns that benefit from the statefulness offered by an orchestration framework include: 
+Application patterns that benefit from the Durable Task SDKs and Durable Functions include: 
 - **Function chaining:** For executing sequential workflow steps in order, passing data between steps with data transformations at each step, and building pipelines where each activity builds on the previous one.
 - **Fan-out/fan-in:** For batch jobs, ETL (extract, transfer, and load), and any scenario that requires parallel processing. 
 - **Human interactions:** For two-factor authentication, workflows that require human approval. 
