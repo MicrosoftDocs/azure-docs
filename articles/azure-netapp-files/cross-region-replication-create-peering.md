@@ -55,7 +55,7 @@ You need to obtain the resource ID of the source volume that you want to replica
 
 ## Create the data replication volume (the destination volume)
 
-You need to create a destination volume where you want the data from the source volume to be replicated to. Before you can create a **cross-region** destination volume, you need to have a NetApp account and a capacity pool in the destination region. 
+You need to create a destination volume where you want the data from the source volume to be replicated to. Before you can create a **cross-region** destination volume, you need to have a NetApp account and a capacity pool in the destination region. The replication volume can be created in a NetApp account under a different subscription _or_ in the same subscription.
 
 For **cross-zone replication**, begin with step four. 
 
