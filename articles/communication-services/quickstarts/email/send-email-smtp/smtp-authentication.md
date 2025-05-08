@@ -66,7 +66,7 @@ The **Communication and Email Service Owner** role gives access to all Communica
 1. Click the **Basics** tab and give a name to the new role.
     :::image type="content" source="../media/smtp-custom-role-basics.png" alt-text="Screenshot that shows creating a name for a new custom role.":::
 1. Click the **Permissions** tab and click **Add permissions**.
-    :::image type="content" source="../media/smtp-custom-role-addpermissions.png" alt-text="Screenshot that shows how to add permissions to custom role.":::
+    :::image type="content" source="../media/smtp-custom-role-click-add-permissions.png" alt-text="Screenshot that shows how to add permissions to custom role.":::
 1. Search for **Microsoft.Communication** and select **Azure Communication Services**
     :::image type="content" source="../media/smtp-custom-role-permissions.png" alt-text="Screenshot that shows adding permissions for a new custom role.":::
 1. Select the **Microsoft.Communication/CommunicationServices** **Read**, **Microsoft.Communication/CommunicationServices** **Write**, and the **Microsoft.Communication/EmailServices** **Write** permissions. Click **Add**.
@@ -96,11 +96,11 @@ When you assign the Microsoft Entra application a role for the Azure Communicati
 
 ## Create an SMTP Username using the Azure Portal
 1. In the portal, navigate to the Azure Communication Service Resource and then open **SMTP Usernames**.
-    :::image type="content" source="../media/smtpusernames-1-usernameblade.png" alt-text="Screenshot that shows SMTP Usernames.":::
+    :::image type="content" source="../media/smtp-usernames-1-username-blade.png" alt-text="Screenshot that shows SMTP Usernames.":::
 1. Click **+Add SMTP Username** and then select the Microsoft Entra application. If the Microsoft Entra application doesn't appear in the drop-down, see the previous steps to assign a role. The username can be custom text or an email address.
-    :::image type="content" source="../media/smtpusernames-2-addsmtpusername.png" alt-text="Screenshot that shows adding an SMTP username.":::
+    :::image type="content" source="../media/smtp-usernames-2-add-smtp-username.png" alt-text="Screenshot that shows adding an SMTP username.":::
 1. Verify the SMTP Username is in the list. The status changes to **Ready to use** once all of the requirements for sending an email using the username and SMTP are met.
-    :::image type="content" source="../media/smtpusernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
+    :::image type="content" source="../media/smtp-usernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
 
 ## SMTP authentication password
 The password is one of the Microsoft Entra application's client secrets.
