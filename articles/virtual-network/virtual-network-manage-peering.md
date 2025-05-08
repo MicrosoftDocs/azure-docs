@@ -356,7 +356,7 @@ If your account isn't assigned to one of the previous roles, it must be assigned
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** | Delete a virtual network peering |
 
 > [!NOTE]  
-> If the remote peered virtual network is in a different subscription or tenant, you must have Network Contributor or the custom roles of **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read** and **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** to remove the remote virtual network peering.
+> You must have **Network Contributor** or the custom roles of **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read** and **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** assigned to the remote virtual network to remove the remote virtual network peering.
 
 ## Next steps
 
