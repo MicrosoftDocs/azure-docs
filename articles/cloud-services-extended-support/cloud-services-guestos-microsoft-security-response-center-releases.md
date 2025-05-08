@@ -29,7 +29,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-04 | [5049608] | .NET Framework DotNet | [6.81] | 14-Jan-25
 | Rel 25-04 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.51] | 14-Jan-25
 | Rel 25-04 | [5055661] | Servicing Stack Update | [5.105] | 08-Apr-25
-| Rel 25-04 | 5055662 | Servicing Stack Update | [6.81] | 11-Apr-25
+| Rel 25-04 | [5055662] | Servicing Stack Update | [6.81] | 11-Apr-25
 | Rel 25-04 | [5055668] | Servicing Stack Update | [7.51] | 11-Apr-25
 | Rel 25-04 | [4494175] | January '20 Microcode | [5.105] | 01-Sep-20
 | Rel 25-04 | [4494175] | January '20 Microcode | [6.81] | 01-Sep-20
@@ -41,6 +41,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5049608]: https://support.microsoft.com/kb/5049608
 [5049617]: https://support.microsoft.com/kb/5049617
 [5055661]: https://support.microsoft.com/kb/5055661
+[5055662]: https://support.microsoft.com/en-us/topic/april-8-2025-kb5055688-cumulative-update-for-net-framework-3-5-4-8-and-4-8-1-for-windows-server-2022-b959f161-79cf-4fc3-8e31-9f7cda818d33
 [5055668]: https://support.microsoft.com/en-us/topic/april-8-2025-kb5055688-cumulative-update-for-net-framework-3-5-4-8-and-4-8-1-for-windows-server-2022-b959f161-79cf-4fc3-8e31-9f7cda818d33
 [4494175]: https://support.microsoft.com/kb/4494175
 
