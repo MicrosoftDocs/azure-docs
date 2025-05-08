@@ -29,6 +29,16 @@ Every region is contained within a single *geography* that serves as a fixed dat
 > [!NOTE]
 > Most regions are available to all Azure customers. However, some regions belong to *sovereign cloud* geographies, which are available to some customers in specific geographic areas with stringent data residency regulations. Sovereign cloud regions work the same way as other regions, however they're often limited in the services and features of services that they provide. For more examples of limited service availability in sovereign cloud regions, see [Compare Azure Government and global Azure](/azure/azure-government/compare-azure-government-global-azure)) or [Availability of services for Microsoft Azure operated by 21Vianet](/azure/reliability/sovereign-cloud-china).
 
+## Select Azure regions
+
+When you select Azure regions for your solution, consider the following factors:
+
+- **Latency**. Select regions that are geographically close to your users to reduce latency. For example, if your users are in the United States, you might select a region in the United States or Canada.
+- **Availability zones**. Select regions that support availability zones to provide redundancy and fault isolation. Make sure that you spread your resources across multiple availability zones in the region. 
+- **Multi-region**. Multi-region may be required for your workload, based on your business continuity planning. Some Azure services use region pairs to support geo-replication and geo-redundancy, while others use availability zones as their primary means of redundancy. Furthermore, many Azure services support geo-redundancy whether the regions are paired or not, and you can design a highly resilient solution whether you use paired regions, nonpaired regions, or a combination of both. To learn more about the approach for each service see [Reliability guides by service](./overview-reliability-guidance.md).
+
+For more detailed information on how to select regions, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
+
 ## List of regions
 
 For a list of Azure regions, see [List of Azure regions](./regions-list.md). If you want more details on regions, including data residency and regulatory compliance, see the [Microsoft Datacenters Map](https://datacenters.microsoft.com/globe/explore/).
