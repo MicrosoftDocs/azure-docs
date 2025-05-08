@@ -16,6 +16,7 @@ In this article, you learn about the various connection options available to con
 
 In this option, you can use IPsec tunnels to connect Virtual WANs by deploying a virtual network gateway in each virtual hub withing your virtual WAN environment.
 
+
 Because the virtual network gateway ASN is always 65515, you can't have BGP over IPsec due to BGP loop prevention mechanism as the remote virtual hub will receive routes from the source virtual hub with 65515 in the AS-PATH and BGP will drop that. Therefore, if you want to connect two different virtual WANs, the tunnels must use static routing.
 
 :::image type="content" source="./media/virtual-wan-connectivity/vwan-connectivity-using-vpn-gateway.png" alt-text="Diagram shows virtual WAN connectivity using virtual network gateways." lightbox="./media/virtual-wan-connectivity/vwan-connectivity-using-vpn-gateway.png":::
