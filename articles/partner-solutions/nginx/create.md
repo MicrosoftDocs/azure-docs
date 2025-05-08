@@ -1,6 +1,6 @@
 ---
 title: Create an NGINXaaS resource
-description: Learn how to use the Azure portal to create an instance of NGINXaaS from Azure Marketplace. NGINXaaS is an Azure Native ISV Service.
+description: In this quickstart, Learn how to use the Azure portal to create an instance of NGINXaaS from Azure Marketplace.
 ms.topic: quickstart
 ms.date: 05/09/2025
 ms.custom: references_regions
