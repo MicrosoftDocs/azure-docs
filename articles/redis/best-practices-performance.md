@@ -84,7 +84,7 @@ The table below shows optimal throughput that we observed while testing various 
 >
 
 >[!IMPORTANT]
->Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect older generation cache hardware in a single region. You may see better or different results in practice, especially with network bandwidth.
+>Microsoft periodically updates the underlying VM used in cache instances. This can change the performance characteristics from cache to cache and from region to region. The example benchmarking values on this page reflect a particular generation cache hardware in a single region. You may see different results in practice, especially with network bandwidth.
 >
 
 Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. Enterprise cluster policy is a simpler configuration that doesn't require the client to support clustering. OSS cluster policy, on the other hand, uses the [Redis cluster protocol](https://redis.io/docs/management/scaling) to support higher throughput. We recommend using OSS cluster policy in most cases, especially when you require high performance. For more information, see [Clustering](architecture.md#clustering).
@@ -103,7 +103,7 @@ Azure Managed Redis offers a choice of cluster policy: _Enterprise_ and _OSS_. E
 
 The following table lists the connection count in terms of memtier_benchmark thread count, client count that was used to produce the throughput numbers. As mentioned above, changing the connection count could result in varying performance.
 
-| Size in GB | Clients/Threads/Memory Optimized | Clients/Threads/Balanced| Clients/Threads/Compute Optimized| 
+| Size in GB | Clients/Threads/Connection Count for Memory Optimized | Clients/Threads/Connection Count for Balanced| Clients/Threads/Connection Count for Compute Optimized| 
 |--|--|--|--|
 | 0.5 | - | 10/4/40 | - |
 | 1 | - | 10/4/40 | - |
