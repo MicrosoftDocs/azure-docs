@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 04/14/2025
+ms.date: 04/24/2025
 ---
 
 # Upgrade plan for Azure Data Factory connectors
@@ -22,20 +22,20 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- |:-- | :-- | 
 | [Azure Database for PostgreSQL (version 1.0)](connector-azure-database-for-postgresql.md)   | [Link](connector-azure-database-for-postgresql.md#upgrade-the-azure-database-for-postgresql-connector) | GA version available | To be determined | /  | 
-| [Cassandra (version 1.0)](connector-cassandra.md) |[Link](connector-cassandra.md#upgrade-the-cassandra-connector) | Preview version available | To be determined | / | 
+| [Cassandra (version 1.0)](connector-cassandra.md) |[Link](connector-cassandra.md#upgrade-the-cassandra-connector) | GA version available |July 31, 2025 | September 30, 2025 | 
 | [Google BigQuery (V1)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support and GA version available | October 31, 2024 | September 30, 2025| 
 | [Greenplum (version 1.0)](connector-greenplum.md)  | [Link](connector-greenplum.md#upgrade-the-greenplum-connector) |Preview version available | To be determined | /| 
 | [MariaDB (version 1.0)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support and GA version available | October 31, 2024 | September 30, 2025| 
 | [MySQL (version 1.0)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) |End of support and GA version available | October 31, 2024| September 30, 2025|
-| [Oracle (version 1.0)](connector-oracle.md) |[Link](connector-oracle.md#upgrade-the-oracle-connector) | Preview version available | To be determined| / |  
-| [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | To be determined | /| 
-| [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | To be determined |/ | 
+| [Oracle (version 1.0)](connector-oracle.md) |[Link](connector-oracle.md#upgrade-the-oracle-connector) | GA version available | July 31, 2025| October 31, 2025 |  
 | [PostgreSQL (V1)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support and GA version available |October 31, 2024 | September 30, 2025| 
 | [Presto (version 1.0)](connector-presto.md)   | [Link](connector-presto.md#upgrade-the-presto-connector)| Preview version available |To be determined | /  | 
-| [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | To be determined | / | 
-| [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | To be determined | /  | 
+| [Salesforce (V1)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | GA version available | June 30, 2025 | September 30, 2025| 
+| [Salesforce Service Cloud (V1)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | GA version available | June 30, 2025  |September 30, 2025 | 
+| [ServiceNow (V1)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | GA version available | June 30, 2025 | September 30, 2025 | 
+| [Snowflake (V1)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | GA version available | June 30, 2025  | September 30, 2025  | 
 | [Spark (version 1.0)](connector-spark.md)   | [Link](connector-spark.md#upgrade-the-spark-connector)| Preview version available |To be determined | /  | 
-| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | July 31, 2025 | /  | 
+| [Vertica (version 1.0)](connector-vertica.md)| [Link](connector-vertica.md#upgrade-the-vertica-version) | GA version available | July 31, 2025 | September 30, 2025  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Couchbase (Preview)](connector-couchbase.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
@@ -52,7 +52,7 @@ This article describes future upgrades for some connectors of Azure Data Factory
 | [Zoho (Preview)](connector-zoho.md) |/ | End of support | December 31, 2024 | December 31, 2024 | 
 | [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)|/ | Disabled |/  |/  | 
 
-If you need upgrade help, contact us via the way provided in the [FAQ article](connector-deprecation-frequently-asked-questions.md#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors). 
+If you encounter any gaps while upgrading your connector to the latest version, please contact for help via the way provided in the [FAQ article](connector-deprecation-frequently-asked-questions.md#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors). 
 
 ## Release stages and support
 
@@ -110,12 +110,9 @@ The following connectors are at End of Support stage. You should migrate to [alt
 - [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md)
 - [Zoho (Preview)](connector-zoho.md)
 
-
-## Connectors that are deprecated
-
-The following connector was deprecated.
-
+The following connector is at End of Support stage.
 - [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)
+
 
 ## Options to replace deprecated connectors
 
@@ -133,6 +130,19 @@ Here's the steps to get your objects which still rely on the deprecated connecto
 5. To learn more about the upgrade guidance and the comparison between V1 and V2, you can navigate to the connector upgrade section within each connector page. 
 
 :::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-deprecation-plan/linked-services-page.png":::
+
+## How to find notifications in Azure Service Health portal
+
+Regular notifications are sent to you to help you upgrade related connectors, or notify you the connectors' End of Support or disabled dates. You can find the notification under Service Health portal - Health advisories tab. 
+
+Here's the steps to help you find the notification: 
+
+1. Navigate to [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues) or you can select **Service Health** icon on your Azure portal dashboard.
+1. Go to **Health advisories** tab and you can see the notification related to your connectors in the list. You can also go to **Health history** tab to check historical notifications.
+
+    :::image type="content" source="media/connector-deprecation-plan/service-health-health-advisories.png" alt-text="Screenshot of service health.":::
+
+To learn more about the Service Health portal, see this [article](/azure/service-health/service-health-overview).
 
 ## Related content
 
