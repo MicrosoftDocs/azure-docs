@@ -2,7 +2,7 @@
 title: Quickstart - Run the Preregistration Script for SAP ASE backup in Azure Cloud Shell
 description: Learn how to run the preregistration script to prepare an SAP ASE (Sybase) database configuration for backup on Azure VMs using Azure Backup.
 ms.topic: how-to
-ms.date: 11/21/2024 
+ms.date: 05/13/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -12,20 +12,17 @@ ms.author: jsuri
 
 # Quickstart: Run the preregistration script for SAP ASE (Sybase) database backup in Azure Cloud Shell
 
-This quickstart describes how to run the preregistration script to prepare an SAP Adaptive Server Enterprise (ASE) (Sybase) database configuration for backup on Azure VMs using Azure Backup.
+This quickstart describes how to run the preregistration script to prepare an SAP Adaptive Server Enterprise (ASE) (Sybase) database configuration for backup on Azure VMs using Azure Cloud Shell.
 
-The preregistration script for SAP ASE database backup using Azure Backup ensures the system is properly configured by setting up authentication, validating network connectivity, and installing necessary packages. It also supports private endpoints and prepares the database for seamless backup operations.
+The preregistration script for SAP ASE database backup using Azure Backup ensures the system is properly configured, which includes authentication configuration, network connectivity validation, and necessary packages installation. It also supports private endpoints and prepares the database for seamless backup operations.
 
->[!Note]
->- Currently, the SAP ASE is available only in non-US public regions. Learn about the [supported regions](sap-ase-backup-support-matrix.md#scenario-support-for-sap-ase-sybase-databases-on-azure-vms).
->- Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
+Learn about the [supported configurations and scenarios for SAP ASE database backup](sap-ase-backup-support-matrix.md) on Azure VMs.
 
 ## Prerequisites
 
 Before you run the preregistration script, ensure that the following prerequisites are met:
 
-- [Download the latest preregistration script](https://aka.ms/preregscriptsapase) for Multiple Components on One System (MCOS)
- and Multi System Identifier (SID) support.
+- [Download the latest preregistration script](https://aka.ms/preregscriptsapase) for [Multi System Identifier (SID) support](sap-ase-backup-support-matrix.md#support-for-multiple-sap-ase-instances-on-a-single-host).
 - Run the SAP ASE backup configuration script on the virtual machine where ASE is installed.
 - Check if you're the root user for proper configuration and access.
 - Use the `-sn` or `--skip-network-checks` parameter when running the script, if your ASE setup uses Private Endpoints.
@@ -34,37 +31,35 @@ Before you run the preregistration script, ensure that the following prerequisit
 
 The preregistration script is a Python script that you run on the VM where the SAP ASE database is installed. The script performs the following tasks:
 
-1. Creates the necessary group where the **plugin users** is added.
-2. Installs and updates required packages such as waagent, Python, curl, unzip, Libicu, and PythonXML.
-3. Verifies the status of waagent, checks `wireserver` and `IMDS connectivity`, and tests **TCP connectivity** to  Microsoft Entra ID.
-4. Confirms if the geographic region is supported.
-5. Checks for available free space for logs, in the `waagent` directory, and `/opt` directory.
-6. Validates if the Adaptive Server Enterprise (ASE) version is supported.
-7. Logs in the SAP instance using the provided username and password, enabling dump history, which is necessary for backup and restore operations.
-8. Ensures that the OS version is supported.
-9. Installs and updates required Python modules such as requests and cryptography.
-10. Creates the workload configuration file.
-11. Sets up the required directories under `/opt` for backup operations.
-12. Encrypts the password and securely stores it in the virtual machine. 
+- Creates the necessary group where the **plugin users** are added.
+- Installs and updates required packages such as waagent, Python, curl, unzip, Libicu, and PythonXML.
+- Verifies the status of waagent, checks `wireserver` and `IMDS connectivity`, and tests **TCP connectivity** to  Microsoft Entra ID.
+- Confirms if the geographic region is supported.
+- Checks for available free space for logs, in the `waagent` directory, and `/opt` directory.
+- Validates if the Adaptive Server Enterprise (ASE) version is supported.
+- Logs in the SAP instance using the provided username and password, enabling dump history, which is necessary for backup and restore operations.
+- Ensures that the OS version is supported.
+- Installs and updates required Python modules such as requests and cryptography.
+- Creates the workload configuration file.
+- Sets up the required directories under `/opt` for backup operations.
+- Encrypts the password and securely stores it in the virtual machine. 
 
 ## Run the preregistration script
 
+After you [download the ASE preregistration script file](https://aka.ms/preregscriptsapase), copy it to the virtual machine (VM).
+
 To execute the preregistration script for SAP ASE database backup, run the following bash commands:
 
-1. [Download the ASE Preregistration Script file](https://aka.ms/preregscriptsapase).
-2. Copy the file to the virtual machine (VM).
-
-  
-   >[!NOTE]
-   >Replace `<script name>` in the following commands with the name of the script file you downloaded and copied to the VM.
-
-3. Convert the script to the Unix format.
+>[!NOTE]
+>Replace `<script name>` in the following commands with the name of the script file you downloaded and copied to the VM.
+ 
+1. Convert the script to the Unix format.
 
    ```bash
     dos2unix <script name>
    ```
 
-4. Change the permission of the script file.
+1. Change the permission of the script file.
 
    >[!Note]
    >Before you run the following command, replace `/path/to/script/file` with the actual path of the script file in the VM.
@@ -73,13 +68,7 @@ To execute the preregistration script for SAP ASE database backup, run the follo
     sudo chmod -R 777 /path/to/script/file
    ```
 
-5. Update the script name.
-
-   ```bash
-    sudo ./<script name> -us
-   ```
-
-6. Run the script.
+1. Run the script.
 
     >[!Note]
     >Before running the following command, provide the required values for the placeholders.
@@ -102,7 +91,7 @@ To execute the preregistration script for SAP ASE database backup, run the follo
     >[!NOTE]
     >To find the `<private-ip-of-vm>`, open the VM in the Azure portal and check the private IP under the **Networking** section.
 
-7. View details of the parameters.
+1. View details of the parameters.
 
    ```bash
     sudo ./<script name> -aw SAPAse --help
@@ -112,4 +101,5 @@ To execute the preregistration script for SAP ASE database backup, run the follo
 
 ## Next steps
 
-[Tutorial: Back up SAP ASE (Sybase) database on Azure VM using Azure Backup](sap-ase-database-backup-tutorial.md).
+- [Tutorial: Back up SAP ASE (Sybase) database on Azure VM using Azure Backup](sap-ase-database-backup-tutorial.md).
+- [Troubleshoot SAP ASE (Sybase) database backup](troubleshoot-sap-ase-sybase-database-backup.md).
