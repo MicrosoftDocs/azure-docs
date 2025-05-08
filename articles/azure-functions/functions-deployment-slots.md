@@ -195,7 +195,7 @@ Use these steps to swap a staging slot into production:
 
     :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Screenshot that shows the 'Deployment slot' page with the 'Add Slot' action selected." border="true":::
 
-1. Verify the configuration settings for your swap and select **Swap**
+1. Verify the configuration settings for your swap and select **Swap**.
 
     :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Screenshot showing swapping the deployment slot." border="true":::
 
