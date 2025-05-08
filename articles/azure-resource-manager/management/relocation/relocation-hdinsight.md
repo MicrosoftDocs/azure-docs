@@ -1,7 +1,7 @@
 ---
 title: Relocate Azure HDInsight clusters to another region
 description: Learn how to relocate Azure HDInsight clusters to another region
-ms.date: 05/02/2025
+ms.date: 05/08/2025
 ms.topic: how-to
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
@@ -65,8 +65,7 @@ Relocate jobs associated with the HDInsight cluster to the target region. Follow
 
 - **Oozie pipeline/workflow**: Use the Hue import/export method. See [Migrate pipelines using Hue UI](https://gethue.com/exporting-and-importing-oozie-workflows/).
 - **HBase workload**: Use backup and replication. See [Backup and replication method](../../../hdinsight/hbase/apache-hbase-backup-replication.md).
-- **Hive workload & Interactive Query**: Follow the steps in [Migrate Azure HDInsight Hive workloads](../../../hdinsight/interactive-query/apache-hive-migrate-workloads.md#steps-to-upgrade).
-- **Kafka workload**: Use Mirror Maker. See [Mirror Maker](../../../hdinsight/kafka/apache-kafka-mirroring).
+- **Kafka workload**: Use Mirror Maker. See [Mirror Maker](../../../hdinsight/kafka/apache-kafka-mirroring.md).
 
 ### Sync Data
 
