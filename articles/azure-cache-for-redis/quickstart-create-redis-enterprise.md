@@ -37,8 +37,6 @@ Azure Cache for Redis is continually expanding into new regions. To check the av
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Azure Cache for Redis**.
 1. On the **Azure Cache for Redis** page, select **Create** > **Redis Enterprise**.
-<!--image is out of date, remove for now
-   :::image type="content" source="media/cache-create/cache-create-enterprise.png" alt-text="Screenshot showing how to select Redis Enterprise in Azure Redis Cache Create.":::-->
 1. On the **Basics** tab of the **New Redis Cache** page, configure the following settings:
 
    - **Subscription**: Select the subscription to use.
