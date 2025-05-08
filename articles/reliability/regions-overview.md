@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: azure
 ms.subservice: azure-reliability
 ms.topic: conceptual
-ms.date: 03/07/2025
+ms.date: 05/08/2025
 ms.author: anaharris
 ms.custom: subject-reliability, ai-video-concept
 ---
