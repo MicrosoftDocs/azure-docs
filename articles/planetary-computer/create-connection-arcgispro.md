@@ -28,47 +28,47 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 ## Register Web API Application for ArcGIS Pro
 
 1. Open the Azure Portal and go to **Microsoft Entra ID**.
-    :::image type="content" source="./media/microsoft-entra-id.png" alt-text="Screenshot showing a user selecting Microsoft Entra ID from Azure portal.":::
+    [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
 
 1. Navigate to **App registrations** \> **New registration**.
 
-    :::image type="content" source="./media/new-app-registration.png" alt-text="Screenshot showing new app registration.":::
+    [ ![Screenshot showing new app registration.](media/new-app-registration.png) ](media/new-app-registration.png#lightbox)
 
 1. Register the Web API app. Suggested names:
     - ArcGISPro-GeoCatalog-WebAPI or 
     - ArcGIS Pro
 
 1. Set **Multitenant** as the account type.
-    :::image type="content" source="./media/register-an-app-arcgis-pro.png" alt-text="Screenshot showing register an app ArcGIS Pro.":::
+    [ ![Screenshot showing register an app ArcGIS Pro.](media/register-an-app-arcgis-pro.png) ](media/register-an-app-arcgis-pro.png#lightbox)
 
     Here's the overview page of the new app registration ArcGIS Pro:
 
-    :::image type="content" source="./media/new-app-registration-arcgis-pro.png" alt-text="Screenshot showing new app  registration ArcGIS Pro.":::
+    [ ![Screenshot showing new app  registration ArcGIS Pro.](media/new-app-registration-arcgis-pro.png) ](media/new-app-registration-arcgis-pro.png#lightbox)
 
 1. After registration, complete the following configuration within the new app registration ArcGIS Pro:
 
    - Go to the **Authentication** tab:
    - Add platform: **Web**
 
-   :::image type="content" source="./media/add-web-platform.png" alt-text="Screenshot showing the selection to add a web platform type of authentication.":::
+   [ ![Screenshot showing the selection to add a web platform type of authentication.](media/add-web-platform.png) ](media/add-web-platform.png#lightbox)
 
 1. Set **Redirect URI**: <https://localhost>
   
-    :::image type="content" source="./media/add-redirect-uri.png" alt-text="Screenshot showing how to add a redirect URI.":::
+    [ ![Screenshot showing how to add a redirect URI.](media/add-redirect-uri.png) ](media/add-redirect-uri.png#lightbox)
 
 1. Add platform: **Mobile and Desktop applications**
 
-    :::image type="content" source="./media/add-mobile-desktop-app.png" alt-text="Screenshot showing add mobile desktop app.":::
+    [ ![Screenshot showing add mobile desktop app.](media/add-mobile-desktop-app.png) ](media/add-mobile-desktop-app.png#lightbox)
     
 1. Set **Custom Redirect URI**: arcgis-pro://auth
 
-    :::image type="content" source="./media/configure-desktop-device.png" alt-text="Screenshot showing configure desktop device.":::
+    [ ![Screenshot showing configure desktop device.](media/configure-desktop-device.png) ](media/configure-desktop-device.png#lightbox)
 
 1. Enable **ID tokens** under **Implicit grant and hybrid flows**,
 
 1. Select **Save**
 
-    :::image type="content" source="./media/enable-id-tokens.png" alt-text="Screenshot showing enable ID tokens ArcGIS App authentication.":::
+    [ ![Screenshot showing enable ID tokens ArcGIS App authentication.](media/enable-id-tokens.png) ](media/enable-id-tokens.png#lightbox)
 
 1. Go to **API Permissions**:
 
@@ -76,30 +76,30 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
       - Azure Storage \> user_impersonation
       - Microsoft Graph \> User.Read (This permission is enabled by default)
     
-    :::image type="content" source="./media/add-api-permissions.png" alt-text="Screenshot showing howto configure the addition of API permissions.":::
+    [ ![Screenshot showing howto configure the addition of API permissions.](media/add-api-permissions.png) ](media/add-api-permissions.png#lightbox)
 
 1. **Grant admin consent** after permissions are added.
 
-    :::image type="content" source="./media/grant-admin-consent.png" alt-text="Screenshot showing how to grant admins consent.":::
+    [ ![Screenshot showing how to grant admins consent.](media/grant-admin-consent.png) ](media/grant-admin-consent.png#lightbox)
 
 1. Go to **Expose an API**:
 
     - Add **App ID URI**
 
-    :::image type="content" source="./media/add-app-id-uri.png" alt-text="Screenshot showing how to add the app id URI .":::
+    [ ![Screenshot showing how to add the app id URI .](media/add-app-id-uri.png) ](media/add-app-id-uri.png#lightbox)
 
 1. Define scopes:
 
     - user_authentication (Display name: ArcGISPro-API-User-Auth)
     - user_impersonation (Display name: ArcGISPro-API-Impersonation)
 
-    :::image type="content" source="./media/add-user-authentication-scope.png" alt-text="Screenshot showing add user authentication scope.":::
+    [ ![Screenshot showing add user authentication scope.](media/add-user-authentication-scope.png) ](media/add-user-authentication-scope.png#lightbox)
     
-    :::image type="content" source="./media/add-user-impersonation-scope.png" alt-text="Screenshot showing add user impersonation scope.":::
+    [ ![Screenshot showing add user impersonation scope.](media/add-user-impersonation-scope.png) ](media/add-user-impersonation-scope.png#lightbox)
 
 1. Select **Add a client application** and note the App ID.
 
-    :::image type="content" source="./media/add-a-client-app.png" alt-text="Screenshot showing how to add a client app.":::
+    [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 
 ## Register Desktop Client Application for ArcGIS Pro 
 
@@ -114,11 +114,11 @@ access to the web API exposed by the first application.
     
     - Set account type: **Single tenant**
 
-    :::image type="content" source="./media/register-second-app-arcgis-prodesktopclient.png" alt-text="Screenshot showing register second app arcgisprodesktopclient.":::
+    [ ![Screenshot showing register second app arcgisprodesktopclient.](media/register-second-app-arcgis-prodesktopclient.png) ](media/register-second-app-arcgis-prodesktopclient.png#lightbox)
 
     Here's the overview page of the new app registration GeoCatalog-ArcGIS:
 
-    :::image type="content" source="./media/new-app-registration-geocatalog-arcgis.png" alt-text="Screenshot showing new app  registration GeoCatalog ArcGIS.":::
+    [ ![Screenshot showing new app  registration GeoCatalog ArcGIS.](media/new-app-registration-geocatalog-arcgis.png) ](media/new-app-registration-geocatalog-arcgis.png#lightbox)
 
 1. Configure the Desktop Client App
 
@@ -144,13 +144,13 @@ access to the web API exposed by the first application.
     
       - Select the app name to open the **Request API Permissions** screen.
 
-   :::image type="content" source="./media/request-api-permissions.png" alt-text="Screenshot showing request API permissions.":::
+   [ ![Screenshot showing request API permissions.](media/request-api-permissions.png) ](media/request-api-permissions.png#lightbox)
 
     - Select both user_authentication and user_impersonation; the delegated permissions defined in the first app
 
     - Select **Add permissions**
 
-    :::image type="content" source="./media/add-api-permissions-arcgis-pro.png" alt-text="Screenshot showing add API permissions ArcGIS Pro.":::
+    [ ![Screenshot showing add API permissions ArcGIS Pro.](media/add-api-permissions-arcgis-pro.png) ](media/add-api-permissions-arcgis-pro.png#lightbox)
 
     - Continue to add the following delegated permissions:
     
@@ -160,9 +160,9 @@ access to the web API exposed by the first application.
     - Select **Add permissions**
     - **Grant admin consent**
     
-    :::image type="content" source="./media/app-selection-on-request-api-permissions-screen.png" alt-text="Screenshot showing app selection on request API permissions screen.":::
+    [ ![Screenshot showing app selection on request API permissions screen.](media/app-selection-on-request-api-permissions-screen.png) ](media/app-selection-on-request-api-permissions-screen.png#lightbox)
   
-    :::image type="content" source="./media/grant-admin-consents--4-.png" alt-text="Screenshot showing grant admin consents (4).":::
+    [ ![Screenshot showing grant admin consents (4).](media/grant-admin-consents--4-.png) ](media/grant-admin-consents--4-.png#lightbox)
 
 ## Configure ArcGIS Pro (Desktop) for Microsoft Planetary Computer Pro GeoCatalog Access
 
@@ -196,13 +196,13 @@ This section outlines how to configure authentication and data access in the **A
 
       - <https://geocatalog.spatio.azure.com/.default>
 
-    :::image type="content" source="./media/add-connection.png" alt-text="Screenshot showing how to add a connection.":::
+    [ ![Screenshot showing how to add a connection.](media/add-connection.png) ](media/add-connection.png#lightbox)
 
     - Select **OK**
     
     - Sign in through the Authentication dialog and complete the prompts.
     
-    :::image type="content" source="./media/sign-in.png" alt-text="Screenshot showing how to sign in with the Authentication dialog.":::
+    [ ![Screenshot showing how to sign in with the Authentication dialog.](media/sign-in.png) ](media/sign-in.png#lightbox)
 
 > [!TIP] 
 > For more information, see the official ArcGIS Pro documentation [Connect to authentication providers from ArcGIS Pro](https://pro.arcgis.com/en/pro-app/latest/get-started/connect-to-authentication-providers-from-arcgis-pro.htm)
@@ -214,19 +214,19 @@ This section outlines how to configure authentication and data access in the **A
      arcgisprogeocatalog), and locate it in the appropriate resource
     group.
 
-    :::image type="content" source="./media/find-hidden-type-geocatalog.png" alt-text="Screenshot showing find hiddentype GeoCatalog.":::
+    [ ![Screenshot showing find hiddentype GeoCatalog.](media/find-hidden-type-geocatalog.png) ](media/find-hidden-type-geocatalog.png#lightbox)
 
 1. Select on the GeoCatalog (for example,  arcgisprogeocatalog)
 
 1. Record the **GeoCatalog URI** (e.g.,
     https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com)
 
-    :::image type="content" source="./media/get-geocatalog-uri.png" alt-text="Screenshot showing how to retrieve the GeoCatalog URI.":::
+    [ ![Screenshot showing how to retrieve the GeoCatalog URI.](media/get-geocatalog-uri.png) ](media/get-geocatalog-uri.png#lightbox)
 
 1. Open the link to your GeoCatalog URI in the browser and select on the
     **Collections** button
 
-    :::image type="content" source="./media/media-processing-center-pro-collections.png" alt-text="Screenshot showing Microsoft Planetary Computer Pro web interface.":::
+    [ ![Screenshot showing Microsoft Planetary Computer Pro web interface.](media/media-processing-center-pro-collections.png) ](media/media-processing-center-pro-collections.png#lightbox)
 
 1. Record the **Collection Name** (for example, sentinel-2-l2a-turorial-1000)
 
@@ -243,11 +243,11 @@ This section outlines how to configure authentication and data access in the **A
 
 1. Select on the collection name
 
-    :::image type="content" source="./media/click-on-collectionname.png" alt-text="Screenshot showing click on collectionname.":::
+    [ ![Screenshot showing click on collectionname.](media/click-on-collectionname.png) ](media/click-on-collectionname.png#lightbox)
 
 1. Select on **Edit collection** button
 
-    :::image type="content" source="./media/edit-collection.png" alt-text="Screenshot showing how to edit a GeoCatalog collection.":::
+    [ ![Screenshot showing how to edit a GeoCatalog collection.](media/edit-collection.png) ](media/edit-collection.png#lightbox)
 
 1. In the resulting JSON display, locate the key
     "**title:assets:thumbnail:href**" and copy the corresponding value.
@@ -262,7 +262,7 @@ This section outlines how to configure authentication and data access in the **A
     - **Account Name**: for example \<unique-storage\>
     - **Container Name**: for example sentinel-2-l2a-tutorial-1000-\<unique-id\>
 
-    :::image type="content" source="./media/collection-json-display.png" alt-text="Screenshot showing collection json display.":::
+    [ ![Screenshot showing collection json display.](media/collection-json-display.png) ](media/collection-json-display.png#lightbox)
 
 ## Set up a connection to Azure Blob 
 
@@ -288,7 +288,7 @@ This section outlines how to configure authentication and data access in the **A
 1. Add the provider option **ARC_TOKEN_OPTION_NAME** and set the value
     to AZURE_STORAGE_SAS_TOKEN
 
-    :::image type="content" source="./media/create-cloud-storage-connection-file-sample.png" alt-text="Screenshot showing create cloud storage connection file sample.":::
+    [ ![Screenshot showing create cloud storage connection file sample.](media/create-cloud-storage-connection-file-sample.png) ](media/create-cloud-storage-connection-file-sample.png#lightbox)
 
 ## Create a STAC Connection to Microsoft Planetary Computer Pro
 
@@ -298,7 +298,7 @@ This section outlines how to configure authentication and data access in the **A
     > Refer to ArcGIS Pro documentation to [Create a STAC connection](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/create-a-stac-connection.htm)
 
 
-    :::image type="content" source="./media/create-new-stac-connection.png" alt-text="Screenshot showing create new stac connection.":::
+    [ ![Screenshot showing create new stac connection.](media/create-new-stac-connection.png) ](media/create-new-stac-connection.png#lightbox)
 
 - Provide a name for the STAC Connection: For example, GeoCatalog_Connection
 
@@ -312,20 +312,20 @@ This section outlines how to configure authentication and data access in the **A
 
 - Select the OK button
 
-    :::image type="content" source="./media/create-stac-connection.png" alt-text="Screenshot showing how to create a STAC connection.":::
+    [ ![Screenshot showing how to create a STAC connection.](media/create-stac-connection.png) ](media/create-stac-connection.png#lightbox)
 
 1. Explore the STAC connection
 
     > [!TIP] 
     > Learn more about the ArcGIS [Explore STAC Pane](https://pro.arcgis.com/en/pro-app/latest/help/data/imagery/explore-stac.htm)
 
-    :::image type="content" source="./media/explore-stac.png" alt-text="Screenshot showing the Explore STAC dialog box.":::
+    [ ![Screenshot showing the Explore STAC dialog box.](media/explore-stac.png) ](media/explore-stac.png#lightbox)
 
     - Search, fetch extensive STAC metadata, and view the browse images
     
     - Add selected images to Map or Scene
     
-    :::image type="content" source="./media/explore-stac-data.png" alt-text="Screenshot showing explore the STAC data window.":::
+    [ ![Screenshot showing explore the STAC data window.](media/explore-stac-data.png) ](media/explore-stac-data.png#lightbox)
 
 
 ## Related Content
