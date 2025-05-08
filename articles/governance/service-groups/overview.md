@@ -34,7 +34,7 @@ The same resources can be connected to many different service groups allowing di
 ![MultipleSGTree](./media/MultiSG.png)
 
 ### Flexible Membership
-Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
+Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
 
 #### Example Scenarios 
 * Aggregating Health Metrics
@@ -44,7 +44,6 @@ Within the hierarchy of resources, there's a limitation of one parent resource c
 
 ![MGsandSGs](./media/sidebyside.png)
 
-#### Example Scenarios 
 * Aggregating monitoring metrics 
    * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources. 
 
@@ -58,8 +57,8 @@ Information about Service Groups
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
 * There's a limit of 2000 service group members coming from within the same subscription. This means that within one subscription, resources, or resource groups, there can only be 2,000 memberships to Service Groups. 
 * Within the Preview window, there's a Limit of 10,000 Service Groups in a single tenant.   
-* Service Groups Names support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
-* Service Groups require a globally unique name/ID. Two Microsoft Entra tenants can't have a Service Group with identical names.  
+* Service Groups and Service Group Member IDs support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
+* Service Groups require a globally unique ID. Two Microsoft Entra tenants can't have a Service Group with identical IDs.  
 
 
 
@@ -89,11 +88,8 @@ This table shows a summary of the differences between the groups.
 
 Service Groups is similar to Management Groups, in that there's only one root Service Group which is the top parent of all service groups in that tenant. Root Service Group's ID is same as its Tenant ID.
 
-Service Groups creates the Root Service Group on the first request received within the Tenant and users can't create or update the root service group.
+Service Groups creates the Root Service Group on the first request received within the Tenant and users can't create or update the root service group. _"/providers/microsoft.management/servicegroups/[tenantId]"_
 
-```json
-/providers/microsoft.management/servicegroups/<tenantId>
-```
 
 Access to the root has to be given from a user with "microsoft.authorization/roleassignments/write" permissions at the tenant level. For example, the Tenant's Global Administrator can elevate their access on the tenant to have these permissions. [Details on elevating Tenant Global Administrator Accesses](../../role-based-access-control/elevate-access-global-admin.md)
 
@@ -104,7 +100,7 @@ There are three built-in roles definitions to support Service Groups in the prev
 > Custom Role Based Access Controls aren't supported within the Preview. 
 
 #### Service Group Administrator 
-This role manages all aspects of Service Groups and Relationships. It only allows the assignment of Service Group Roles to other Service Groups.  
+This role manages all aspects of Service Groups and Relationships and is the default role given to users when they create a Service Group. The role restricts the role assignment capabilities to "Service Group Administrator', "Service Group Contributor", and "Service Group Reader" to other users.  
 
 **ID**: '/providers/Microsoft.Authorization/roleDefinitions/4e50c84c-c78e-4e37-b47e-e60ffea0a775"  
 
@@ -152,7 +148,7 @@ This role manages all aspects of Service Groups and Relationships. It only allow
 }
 ```
 #### Service Group Contributor 
-The Service Group Contributor role is the default built-in role given to users when they create a new Service Group. This role allows fro all actions except for Role Assignment capabilities.  
+The Service Group Contributor role given to users when they need to create or manage the lifecycle of a Service Group. This role allows fro all actions except for Role Assignment capabilities.  
 ```json
 {
   "assignableScopes": [

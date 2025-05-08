@@ -31,13 +31,13 @@ To connect resources, resource groups, or subscriptions to a Service Group (prev
 For REST API, use the
 [Service Groups Member- Create or Update]() endpoint to create a new service group member.
 
-In this example, we're connecting a Virtual Machine [VM1] to a Service Group [Contoso].
+In this example, we're connecting a Virtual Machine [VM1] to a service group [Contoso].
 
 1. Service Group: **groupId** is _Contoso_
 1. Virtual Machine: The **resourceID** is _VM1_
 1. Service Group Member: The **relationshipID** is _SGM1_
 
-When you're adding a resource to a Service Group, you create service group member by extending the resource.  
+When you're adding a resource to a service group, you create service group member by extending the resource.  
 
 - REST API URI
 
@@ -52,7 +52,7 @@ specify the service group as the parent, use the **TargetID** property.
 - REST API URI
 
   ```http
-  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Management/serviceGroups/SGM1?api-version=2024-02-01-preview
+  PUT https://management.azure.com/subscriptions/[SUBID]/resourceGroups/[RGID]/providers/microsoft.compute/virtualmachine/[VMID]/providers/Microsoft.Relationships/serviceGroupMember/SGM1?api-version=2024-02-01-preview
   ```
 
 - Request Body

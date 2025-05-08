@@ -28,9 +28,7 @@ With Azure Service Groups (preview) you can create low-privilege-based groupings
 
 ## Create in REST API
 
-For REST API, use the
-[Service Groups - Create or Update]()
-endpoint to create a new service group. In this example, the service group **groupId** is
+In this example, the service group **groupId** is
 _Contoso_.
 
 - REST API URI
@@ -84,17 +82,17 @@ specify a different service group as the parent, use the **properties.parent.id*
   ```
 
 ## Verify your Service Group was created
-Service Groups PUT or create call is an Asynchronous call which means that the response to the initial create call is an HTTP status code 201: Accepted. This response doesn't mean the Service group was successfully created, only that the Azure successfully received the request to create the Service Group.  
+Service Groups PUT or create call is an Asynchronous call which means that the response to the initial create call is that it was accepted. This response doesn't mean the service group was successfully created, only that the Azure successfully received the request to create the service group.  
 
 To check the operation was successful, you should do a GET call on the value returned in the **azure-asyncoperation** header. The URL provides the status of the created operation. 
 
 > ![NOTE]
-> To avoid issues within scripts or templates, the automation should poll this provided URL before moving to the next step. If the automation moves to the next step before the operation has responded successful, the next operation will fail as the Service Group has not been created.  
+> To avoid issues within scripts or templates, the automation should poll this provided URL before moving to the next step. If the automation moves to the next step before the operation has responded successful, the next operation will fail as the service group has not been created.  
 
 ## Clean up resources
 
 To remove the service group created in this document, use the
-[Management Groups - Delete]() endpoint:
+Service Group Delete endpoint:    
 
 - REST API URI
 

@@ -61,13 +61,13 @@ API Response:
 ```
 
 * **GroupID**:  Required field in the URL that uniquely identifies the Service Group. This ID is immutable once created
-  * Service Groups must have a Global Unique Name. This means it isn't specific to Tenant it's being created in, but all tenants in that cloud. Ex. Public Cloud across all tenants.  
-* **Kind**: Optional string property that is used by Resource Providers for scenarios.  
+  * Service groups must have a Global Unique Name. This means it isn't specific to Tenant it's being created in, but all tenants in that cloud. Ex. Public Cloud across all tenants.  
+* **Kind**: Optional string property that is used by Resource Providers for scenarios. Kind value is immutable after creation.  
 * **Display Name**: Optional String Property to display a different name rather than the Group ID
-* **Parent.ResourceID**: Required property that must have the full Azure Resource Manager ID of the parent Service Group.   
+* **Parent.ResourceID**: Required property that must have the full Azure Resource Manager ID of the parent service group.   
     * The Default Root Service Group ID is always the TenantID. "providers/microsoft.management/servicegroups/[tenantID]"
 * **id**: The ID is in the response only and is the ID created in the URL of the request. 
-* **provisioningState**: The HTTP PUT Action is an Asynchronous call where a successful call has a response of 201 Accepted notifying the API request was successful and the operation is still processing. A GET call on the URL returned in the **azure-asyncoperation** header can provide the operation status and visit [Checking for Service Group Operation Status](#checking-for-service-group-operation-status) for more details.
+* **provisioningState**: The HTTP PUT Action is an Asynchronous call where a successful call has a response of accepted notifying the API request was successful and the operation is still processing. A GET call on the URL returned in the **azure-asyncoperation** header can provide the operation status and visit [Checking for Service Group Operation Status](#checking-for-service-group-operation-status) for more details.
 
 ### Update Service Group
 To update a service group, a PUT or PATCH API method can be used which have the same request body. The PUT does a full replace of all properties.  
@@ -117,7 +117,7 @@ For descriptions of the properties see [Create Service Group](#create-service-gr
 - No Request Body
 
 API Response: 
-The DELETE response returns an HTTP Status Code. The HTTP DELETE Action is an Asynchronous call where a successful call has a response of 201 Accepted notifying the API request was successful and the operation is still processing. A GET call on the URL returned in the **azure-asyncoperation** header can provide the operation status and visit [Checking for Service Group Operation Status](#checking-for-service-group-operation-status) for more details.
+The DELETE response returns an HTTP Status Code. The HTTP DELETE Action is an Asynchronous call where a successful call has a response of accepted notifying the API request was successful and the operation is still processing. A GET call on the URL returned in the **azure-asyncoperation** header can provide the operation status and visit [Checking for Service Group Operation Status](#checking-for-service-group-operation-status) for more details.
 
 ### Read Service Group
 
@@ -183,51 +183,27 @@ Each parent object is returned showing all the ancestors in the path to the Root
 
 ## Service Group Members
 
-Service group members are resources, resource groups, or subscriptions that are connected to a Service Group with a Service Group Member Relationship. Creating a service group member resource is different than identifying the Parent of a Service Group. 
+Service group members are resources, resource groups, or subscriptions that are connected to a service group with a service group member Relationship. Creating a service group member resource is different than identifying the Parent of a Service Group. 
 
 ### Comparison 
 
 |Aspect|Child/Parent Relationship|ServiceGroupMember Relationship|
 |------|-------------------------|--------------------------------|
+|Description|The child/parent relationship is established by setting the "parent" property on a service group.|The "ServiceGroupMember" relationship is used to link individual resources, resource groups, and subscriptions to a service group|
+| Main Scenario| Used to create strict hierarchical organization of service groups | Used to create flexible and dynamic groupings of resources across different scopes for the aggregation of date.| 
+|Benefits| **Clear Hierarchy**: Provides a clear and structured hierarchy, making it easier to manage and govern resources. <br> **Service Group Inheritance**: Access controls applied to the parent service group get inherited to the child service group. The inheritance is limited to Service Group Resource Types and not to any members.  <br>| **Cross-Subscription Linking**: Supports linking resources across different subscriptions, providing a unified view and management capabilities.<br>**Dynamic Grouping**: Enables the creation of dynamic groupings of resources, making it easier to manage and monitor them collectively.| 
+|Limitations| **Rigid Structure** : The hierarchical structure can be rigid and not be suitable for all scenarios, especially those requiring more flexible relationships.<br> **Limited Scope** : The child/parent relationship is limited to service groups and doesn't extend to individual resources, resource groups, or subscription| **No Inheritance** : Unlike the child/parent relationship, the "ServiceGroupMember" relationship doesn't support inheritance.|
 |Structure| Hierarchical|Flexible and dynamic|
 |Inheritance|Yes|No|
 |Scope|Service Group property| Extends resources, resource groups, and subscriptions as its own resource|
 |Use Case| Governance management | Aggregating resources across different scopes |
 |Flexibility| Rigid/Strict (One Parent, Many Children) | Flexible (Many Parents, Many Children)|
 
-### Child/Parent Relationship Using the "Parent" Property
-
-#### What child/parent does
-The child/parent relationship is established by setting the "parent" property on a Service Group. This Parent Property creates a hierarchical structure where one Service Group is designated as the parent, and another is designated as the child.
-
-#### Why parent/child is used 
-The method is used to create a strict hierarchical organization of Service Groups. It allows for the inheritance of policies and access controls from the parent Service Group to the child Service Group. This structure is useful for scenarios where a clear and strict hierarchy is needed for governance and management.
-
-#### Benefits
-* Inheritance: Policies and access controls applied to the parent Service Group get inherited by the child Service Group.
-* Clear Hierarchy: Provides a clear and structured hierarchy, making it easier to manage and govern resources.
-
-#### Limitations
-* Rigid Structure: The hierarchical structure can be rigid and not be suitable for all scenarios, especially those requiring more flexible relationships.
-* Limited Scope: The child/parent relationship is limited to Service Groups and doesn't extend to individual resources, resource groups, or subscriptions.
-
-### ServiceGroupMember Relationship
-
-#### What Service Group Member does
-The "ServiceGroupMember" relationship is used to link individual resources, resource groups, and subscriptions to a Service Group. This relationship creates a connection between the Service Group and its members without establishing a strict hierarchical structure.
-
-#### Why Service Group Member is used
-This method is used to create flexible and dynamic groupings of resources across different scopes. It allows for the aggregation of resources from various environments and subscriptions into a single Service Group, providing a unified view and management capabilities.
-
-#### Benefits
-* Flexibility: Allows for the grouping of resources across different subscriptions and environments without the need for a strict hierarchy.
-* Dynamic Grouping: Enables the creation of dynamic groupings of resources, making it easier to manage and monitor them collectively.
-* Cross-Subscription Linking: Supports linking resources across different subscriptions, providing a unified view and management capabilities. Limitations
-* No Inheritance: Unlike the child/parent relationship, the "ServiceGroupMember" relationship doesn't support inheritance. 
+<br>
 
 
 ### Create a Service Group Member
-Resources, resource groups, and subscriptions can all be made members of a Service Group. The Service Group Member relationship is created as an extension off the member that is being connected to the group.  
+Resources, resource groups, and subscriptions can all be made members of a service group. The Service Group Member relationship is created as an extension off the member that is being connected to the group.  
 
 - HTTP method: **PUT** 
 - Resource Provider: **Microsoft.Relationships**
@@ -244,10 +220,10 @@ Request body
 ```
 
 * **Relationship ID**: Unique identifier that is used for tracking the relationship. 
-* **targetID**: The targetID is the Service Group this resource is a member of. 
+* **targetID**: The targetID is the service group this resource is a member of. 
 
 ### GET a Service Group Member
-Resources, resource groups, and subscriptions can all be made members of a Service Group. The Service Group Member relationship is created as an extension off the member that is being connected to the group.  
+Resources, resource groups, and subscriptions can all be made members of a service Group. The service Group Member relationship is created as an extension off the member that is being connected to the group.  
 
 - HTTP method: **GET** 
 - Resource Provider: **Microsoft.Relationships**
@@ -280,7 +256,7 @@ API Response
 
 * **Relationship ID**: Unique identifier that is used for tracking the relationship. Created and used within the URL. 
 * **Properties** 
-   * **Target ID**: The targetID is the resourceID of the Service Group the resource is a member of.  
+   * **Target ID**: The targetID is the resourceID of the service group the resource is a member of.  
    * **Source ID**: The sourceID is the resourceID of the scope the relationship is extending and connecting to the target.  
    * **Target Tenant**: The Tenant ID of the resource that is the Target. 
    * **Metadata**
@@ -289,12 +265,12 @@ API Response
    * **Origin Information** 
         * **Relationship Origin Type**: Customer immutable property identifies how the relationship was created. For more information about the origin information property, see [Origin Information](#origin-information). 
    * **Provisioning State**:  The [Create Service Group Member API Endpoint](#create-a-service-group-member) is an asynchronous call meaning the response from the create only says if the request was successful, not the state of the operation. A GET call on the relationship resource itself is successful if the Service Group Member Relationship is created. For more information about checking operation status, see [Checking for Service Group Operation Status](#checking-for-service-group-operation-status)
-* **ID**: Full ID of the Service Group Member resource including its scope resource. 
-* **Type**: Resource type of the Service Group Member resource. 
+* **ID**: Full ID of the service group member resource including its scope resource. 
+* **Type**: Resource type of the service group member resource. 
 
 
 ### Delete a Service Group Member
-Resources, resource groups, and subscriptions can all be made members of a Service Group. The Service Group Member relationship is deleted to break the connection from the member to the Service Group.  
+Resources, resource groups, and subscriptions can all be made members of a service group. The Service Group Member relationship is deleted to break the connection from the member to the Service Group.  
 
 - HTTP method: **DELETE** 
 - Resource Provider: **Microsoft.Relationships**
@@ -303,7 +279,7 @@ Resources, resource groups, and subscriptions can all be made members of a Servi
 - No Request body
 
 API Response
-The DELETE response returns an HTTP Status Code. The HTTP DELETE Action is an asynchronous call where a successful calls response is a 201 Accepted. This response states the API request was successful and the operation is still happening in the backend. A GET call on the URL returned in the **locations** header provides the operation status. For more information on checking operation status, see [Checking for Service Group Operation Status](#checking-for-service-group-operation-status).
+The DELETE response returns an HTTP Status Code. The HTTP DELETE Action is an asynchronous call where a successful calls response is accepted. This response states the API request was successful and the operation is still happening in the backend. A GET call on the URL returned in the **locations** header provides the operation status. For more information on checking operation status, see [Checking for Service Group Operation Status](#checking-for-service-group-operation-status).
 
 
 ## Checking for Service Group Operation Status
@@ -313,7 +289,7 @@ For example, if the customer created a REST API call to [Create a Service Group]
 
 ![Request Received](./media/requestReceived.png)
 
-To get the status of the operation to see if the Service Group was created or not, the customer makes a separate call. The status returned is for the entire operation.
+To get the status of the operation to see if the service group was created or not, the customer makes a separate call. The status returned is for the entire operation.
 
 :::image type="content" source="./media/operationStatus.png" alt-text="Image showing the operation status as succeeded or failed.":::
 

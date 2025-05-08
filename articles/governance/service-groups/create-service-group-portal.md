@@ -11,7 +11,7 @@ ms.date: 5/19/2025
 
 # Quickstart: Create a service group (preview) in the portal
  
-Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started. For more information on service groups, see [Getting started with Service Groups](overview.md).
+Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what service groups are, the scenarios to use them for, and provide guidance on how to get started. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
 > [!IMPORTANT]
 > Azure Service Groups is currently in PREVIEW. 
@@ -26,35 +26,31 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 ## Create in Azure portal
 
 1. Log into the [Azure portal](https://portal.azure.com).
-
-1. Select **All services** > **Management + governance**.
-
-1. Select **Service Groups**.
-
-1. Select **+ Add service group**.
+2. Select **All services** > **Management + governance**.
+3. Select **Service Groups**.
+4. Select **+ Add Service Group**.
     
   ![Screenshot of new SG screen](./media/create_SG.png)
 
-1. Fill in the service group ID field
+5. Fill in the service group ID field
 
-    - The **Service Group ID** is the directory unique identifier that is used to submit commands
+   * The **Service Group ID** is the directory unique identifier that is used to submit commands
          on this service group. This identifier isn't editable after creation as it's used throughout
          the Azure system to identify this group. The
          [root service group](./overview.md#the-root-service-group) is
          automatically created with an ID that is the Microsoft Entra ID. For all other
          service groups, assign a unique ID.
-    - The display name field is the name that is displayed within the Azure portal. A separate
+   * The display name field is the name that is displayed within the Azure portal. A separate
          display name is an optional field when creating the service group and can be changed at any time.
+6. Select the **Parent Service Group**. 
+    
+   * If you don't have a parent service group, or don't know what to pick, select the Root Service Group which has same ID as the tenant's ID. _"Microsoft.Management/serviceGroups/]tenantId]"_
 
-1. Select the **Parent Service Group**. 
-
-1. Select "Next" 
-
-1. The review page shows
+7. Select "Next" 
+8. The review page shows
 
 ![The review page for creating a new service group](./media/create_review_sg.png)
-
-1. If all information is correct, select **Create**
+9. If all information is correct, select **Create**
 
 ## Clean up resources
 
