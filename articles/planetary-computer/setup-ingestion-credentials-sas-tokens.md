@@ -83,7 +83,7 @@ Use the URL of your Planetary Computer Pro to navigate to the landing page and s
         *Example:* `?sv=<signed-version>&ss=<signed-services>&srt=<signed-resource-types>&sp=<signed-permissions>&se=<signed-expiry-time>&st=<signed-start-time>&spr=<signed-protocol>&sig=<signature>`
 * Select the **Create** button
 
-[ ![Screenshot of the Planetary Computer Pro Settings page showing a successfully created an ingestion source. The page displays the Container URL, Credential Token, and an expiration date for the credential.](media/sas_token_input.png) ](media/sas_token_input.png#lightbox)
+[ ![Screenshot of the Planetary Computer Pro Settings page showing a successfully created an ingestion source. The page displays the Container URL, Credential Token, and an expiration date for the credential.](media/sas-token-input.png) ](media/sas-token-input.png#lightbox)
 
 Your ingestion source is now set up to support ingesting data!
 
