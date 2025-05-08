@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Configure a custom response for Azure Web Application Firewall
 
-By default, when Azure Web Application Firewall (WAF) blocks a request because of a matched rule, it returns a 403 status code with the message "The request is blocked." The default message also includes the tracking reference string that's used to link to [log entries](./waf-front-door-monitor.md) for the request.
+By default, when Azure Front Door Web Application Firewall (WAF) blocks a request because of a matched rule, it returns a 403 status code with the message "The request is blocked." The default message also includes the tracking reference string that's used to link to [log entries](./waf-front-door-monitor.md) for the request.
 
 In this article, you learn how to configure a custom response status code and a custom message with a reference string for your use case using the Azure portal, PowerShell, or the Azure CLI.
 
@@ -58,6 +58,9 @@ To customize the response status code and body, follow these steps:
 1. Enter the custom response status code and response body in the **Block response status code** and **Block response body** boxes, respectively.
 
     :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
+
+    > [!NOTE]
+    > The [JavaScript challenge](../waf-javascript-challenge.md) and [CAPTCHA](captcha-challenge.md) features are available only in WAF policies on the Azure Front Door Premium tier.
 
 1. Select **Save**.
 
