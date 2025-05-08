@@ -115,6 +115,7 @@ Once you configure the Log Analytics workspace, you can enable structured logs i
 
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
 
+
 ### Structured log queries
 
 A list of predefined queries is available in the Azure portal. This list has a predefined KQL (Kusto Query Language) log query for each category and joined query showing the entire Azure firewall logging events in single view.
