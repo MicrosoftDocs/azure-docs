@@ -68,6 +68,7 @@ Decorators are written in the format `@expression` and are placed above output d
 | [minLength](#length-constraints) | array, string | int | This provides the minimum length for string and array outputs, and the value is inclusive. |
 | [minValue](#integer-constraints) | int | int | This provides the minimum value for the integer output, and the value is inclusive. |
 | [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
+| [secure](#secure-outputs) | string, object | none | Marks the output as secure. The value for a secure output isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [`sys` namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the `sys` namespace when using the **description** decorator.
 
@@ -149,6 +150,22 @@ When you provide a `@metadata()` decorator with a property that conflicts with a
 ### Sealed
 
 See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
+
+### Secure outputs
+
+With Bicep version 0.35.1 and later, you can mark string or object outputs as secure. The value of a secure output isn't saved to the deployment history and isn't logged.
+
+```bicep
+@secure()
+output demoPassword string
+
+@secure()
+output demoSecretObject object
+```
+
+There are several linter rules related to this decorator: [Secure parameter default](./linter-rule-secure-parameter-default.md), [Secure parameters in nested deployments](./linter-rule-secure-params-in-nested-deploy.md), [Secure secrets in parameters](./linter-rule-secure-secrets-in-parameters.md).
+
+
 
 ## Conditional output
 
