@@ -4,7 +4,7 @@ description: Learn about the platform and provisioning options for creating an I
 author: PatAltimore
 ms.service: azure-iot-edge
 services: iot-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2025
 ms.author: patricka
 ---
