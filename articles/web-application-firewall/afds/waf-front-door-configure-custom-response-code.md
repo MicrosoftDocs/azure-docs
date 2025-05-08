@@ -57,13 +57,9 @@ To customize the response status code and body, follow these steps:
 
 1. Enter the custom response status code and response body in **Block response status code** and **Block response body** respectively.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
+    :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
 
 1. Select **Save**.
-
-In the preceding example, we kept the response code as 403 and configured a short "Please contact us" message, as shown in the following image:
-
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Screenshot that shows a custom response example.":::
 
 # [**PowerShell**](#tab/powershell)
 
@@ -102,11 +98,15 @@ az network front-door waf-policy update \
 
 ---
 
+In the previous example, we kept the response code as 403 and configured a short "*Please contact us with this information*" message:
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Screenshot that shows a custom response example.":::
+
 > [!NOTE]
 > `{{azure-ref}}` inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
 
 > [!IMPORTANT]
-> If you leave the block response body blank, the WAF returns a *403 Forbidden* response for normal WAF blocks and a *429 Too many requests* for rate limit blocks. 
+> If you leave the block response body blank, the WAF returns a ***403 Forbidden*** response for normal WAF blocks and a ***429 Too many requests*** for rate limit blocks. 
 
 ## Next step
 
