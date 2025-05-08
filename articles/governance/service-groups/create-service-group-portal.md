@@ -30,7 +30,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
   [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
   and the creator is given an Owner role assignment. Management group service allows this ability
   so that role assignments aren't needed at the root level. When the Root
-    Management Group is created, users don't have access to it. To start using management groups, the service allows the creation of the initial management groups at the root level. For more information, see [Root management group for each directory](./overview.md#root-management-group-for-each-directory).
+    Management Group is created, users don't have access to it. To start using management groups, the service allows the creation of the initial management groups at the root level. For more information, see [Root management group for each directory](./overview.md#the-root-service-group).
 
 ## Create in Azure portal
 
