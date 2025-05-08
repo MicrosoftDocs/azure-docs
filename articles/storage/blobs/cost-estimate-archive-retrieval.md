@@ -12,65 +12,87 @@ ms.author: normesta
 
 # Cost estimate: Archive and retrieve data in Azure Blob Storage 
 
-This scenario shows the cost to write data to the archive tier and then retrieve some portion of that data prior to the early deletion threshold.
-
-This scenario is focused only on the cost to move data. The cost to store data is not included here for simplicity. You can read more about the cost to store data here. 
+This sample estimate shows the cost of to archive data and then retrieve that data before the 180 day limit. 
 
 ## Scenario
 
 Move 10 TiB of data into the archive tier for long-term retention. After 3 months, retrieve 20% of the data for analysis.
 
-## Cost meters
+## Estimate
 
-- Write operation (archive tier)
-- Read operation (archive tier)
-- Data retrieval fee
-- Early deletion fee
-- Write operation (hot tier)
+All calculations are based on these [sample prices](blob-storage-estimate-costs.md#sample-prices). These prices are meant only as examples, and shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
 
-## Cost estimate
+| Cost meter                     | Cost           |
+|--------------------------------|----------------|
+| Write operation (archive tier) | cost goes here |
+| Read operation (archive tier)  | cost goes here |
+| Data retrieval fee             | cost goes here |
+| Early deletion fee             | cost goes here |
+| Write operation (hot tier)     | cost goes here |
+| Total cost                     | cost goes here |
 
-Sample pricing disclaimer goes here.
+> [!NOTE]
+> This estimate includes only the cost to move data not the cost to store data. Data movement is the source of most confusion. To learn more about how storage is billed, see [The cost to store data](blob-storage-estimate-costs.md#the-cost-to-store-data).
 
-| Cost meter  | Cost |
-|----|----|
-| Cost to write to archive tier | cost goes here |
-| Cost to read data from the archive tier | cost goes here |
-| Cost to retrieve data | cost goes here |
-| Early deletion penalty | cost goes here |
-| Cost to write to the hot tier | cost goes here |
-| Total cost | cost goes here |
+## Breakdown
 
-## Cost breakdown by meter
+Here is a bit more detail about each line item in this estimate.
 
-Here is a bit more detail about each estimate.
+### Write operation (archive tier)
 
-### Cost to write to the archive tier
+Here's how the write operation cost breaks down.
 
-| Price factor                                                    | Calculation      |
-|-----------------------------------------------------------------|------------|
-| Number of write operations to the archive tier (10 TiB / 8 MiB blocks)  |  1,310,720  |
-| Cost to write 10 TB of data to the archive tier ($0.000011 * 1,310,720) | $14.42 |
+| Price factor                                                            | Calculation |
+|-------------------------------------------------------------------------|-------------|
+| Number of write operations to the archive tier (10 TiB / 8 MiB blocks)  | 1,310,720   |
+| Cost to write 10 TB of data to the archive tier ($0.000011 * 1,310,720) | $14.42      |
 
-### Cost to read data from the archive tier
+### Read operation (archive tier)
 
-Put something here
+Here's how the read operation cost breaks down.
 
-### Cost to retrieve
+| Price factor | Calculation |
+|--------------|-------------|
+| Factor       | number      |
+| Factor       | number      |
 
-Put something here.
+### Data retrieval fee
 
-## Early deletion penalty
+Here's how the read operation cost breaks down.
 
-Put something here.
+| Price factor | Calculation |
+|--------------|-------------|
+| Factor       | number      |
+| Factor       | number      |
 
-## Cost to write to the hot tier
+### Early deletion fee
 
-Put something here.
+Here's how the read operation cost breaks down.
 
-## Other considerations
+| Price factor | Calculation |
+|--------------|-------------|
+| Factor       | number      |
+| Factor       | number      |
 
-Put something here about modifying for Data Lake Storage Gen2 endpoints.
+### Write operation (hot tier)
+
+Here's how the read operation cost breaks down.
+
+| Price factor | Calculation |
+|--------------|-------------|
+| Factor       | number      |
+| Factor       | number      |
+
+## Other factors
+
+Here some other factor that can influence this estimate
+
+| Factor | Impact |
+|---|---|
+| Data Lake Storage Gen 2 endpoints | Impact |
+| The tier to which data is rehydrated | Impact |
+| Replication setting of the account | Impact |
+| Object replication enabled | Impact |
 
 ## See also
 
