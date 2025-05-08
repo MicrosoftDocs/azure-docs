@@ -18,9 +18,10 @@ There are two types of network features: default and advance.
 
 ### Default network features
 Default network features enable basic network connectivity for both new and existing Oracle Database@Azure deployments. These features are available across all supported Oracle Database@Azure regions and provide the foundational networking required for your deployment
-### Advanced network features
+### Advanced network features (preview)
 Advanced network features enhance the virtual networking experience, offering improved security, performance, and control—similar to standard Azure VMs. These features are currently in public preview and available in the following regions: 
-* Australia East 
+* Australia East
+* Australia Southeast 
 * Central US 
 * East US 
 * East US2 
@@ -35,11 +36,14 @@ Advanced network features enhance the virtual networking experience, offering im
 
 ### Registration required
 
-To use advanced network features, you must first register using the commands below before creating your virtual network for the Oracle Database@Azure deployment.
+To use advanced network features, you must first register using the commands below (via AZCLI) before creating your virtual network for the Oracle Database@Azure deployment.
 
 ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Baremetal" ```
 
 ```Register-AzProviderFeature  -FeatureName "EnableRotterdamSdnApplianceForOracle" -ProviderNamespace "Microsoft.Network" ```
+
+> [!NOTE]
+> Registration state can be in the 'Registering' state for up to 60 minutes before changing to 'Registered'. Wait until the status is 'Registered' before continuing with the delegated subnet creation. 
 
 ## Supported topologies
 
