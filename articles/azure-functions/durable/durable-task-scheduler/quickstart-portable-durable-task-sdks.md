@@ -80,13 +80,13 @@ The application code looks for a deployed scheduler and task hub resource. If no
 1. Pull the Docker image for the emulator.
     
      ```bash
-     docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker pull mcr.microsoft.com/dts/dts-emulator:latest
      ```
 
 1. Run the emulator. The container may take a few seconds to be ready.
 
      ```bash
-     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
      ```
 
 Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
@@ -107,13 +107,13 @@ Since the example code automatically uses the default emulator settings, you don
 1. Pull the Docker image for the emulator.
     
      ```bash
-     docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker pull mcr.microsoft.com/dts/dts-emulator:latest
      ```
 
 1. Run the emulator. The container may take a few seconds to be ready.
     
      ```bash
-     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
      ```
 
 Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
@@ -133,13 +133,13 @@ Since the example code automatically uses the default emulator settings, you don
 1. Pull the Docker image for the emulator.
     
      ```bash
-     docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker pull mcr.microsoft.com/dts/dts-emulator:latest
      ```
 
 1. Run the emulator. The container may take a few seconds to be ready.
     
      ```bash
-     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.6
+     docker run --name dtsemulator -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
      ```
 
 Since the example code automatically uses the default emulator settings, you don't need to set any environment variables. The default emulator settings for this quickstart are:
