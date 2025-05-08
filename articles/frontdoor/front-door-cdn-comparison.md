@@ -33,16 +33,16 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Static file delivery | &check; | &check; | &check; | &check; |
 | Dynamic site delivery | &check; | &check; | &check; |  |
 | **Domains and certs** | | | | |
-| Custom domains | &check; - DNS TXT record based domain validation | &check; - DNS TXT record based domain validation | &check; - CNAME based validation | &check; - CNAME based validation |
-| Prevalidated domain integration with Azure PaaS Service | &check; | &check; |  |  |
+| Custom domains | &check; (DNS TXT record based domain validation) | &check; (DNS TXT record based domain validation) | &check; (CNAME based validation) | &check; (CNAME based validation) |
+| Prevalidated domain integration with Azure PaaS service | &check; | &check; |  |  |
 | HTTPS support | &check; | &check; | &check; | &check; |
 | Custom domain HTTPS | &check; | &check; | &check; | &check; |
 | Bring your own certificate | &check; | &check; | &check; | &check; |
-| Supported TLS Versions | TLS1.3, TLS1.2, TLS1.0 | TLS1.3 TLS1.2, TLS1.0 | TLS1.3, TLS1.2, TLS1.0 | TLS1.3, TLS 1.2, TLS 1.0/1.1 |
+| Supported TLS versions | TLS1.3, TLS1.2, TLS1.0 | TLS1.3 TLS1.2, TLS1.0 | TLS1.3, TLS1.2, TLS1.0 | TLS1.3, TLS 1.2, TLS 1.0/1.1 |
 | **Caching** | | | | |
 | Query string caching | &check; | &check; | &check; | &check; |
 | Cache management (purge, rules, and compression) | &check; | &check; | &check; | &check; |
-| Cache behavior settings | &check; - using standard rules engine | &check; - using standard rules engine | &check; - using standard rules engine | &check; - using standard rules engine |
+| Cache behavior settings | &check; (using standard rules engine) | &check; (using standard rules engine) | &check; (using standard rules engine) | &check; (using standard rules engine) |
 | **Routing** | | | | |
 | Origin load balancing | &check; | &check; | &check; | &check; |
 | Path based routing | &check; | &check; | &check; | &check; |
@@ -53,20 +53,20 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | IPv4/IPv6 dual-stack | &check; | &check; | &check; | &check; |
 | HTTP/2 support | &check; | &check; | &check; | &check; |
 | Routing preference unmetered | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to CDN is free and path is directly connected |
-| Origin Port | All TCP ports | All TCP ports | All TCP ports | All TCP ports |
+| Origin port | All TCP ports | All TCP ports | All TCP ports | All TCP ports |
 | Customizable, rules based content delivery engine | &check; | &check; | &check; | &check; using Standard rules engine |
 | Mobile device rules | &check; | &check; | &check; | &check; using Standard rules engine |
 | **Security** | | | | |
 | Custom Web Application Firewall (WAF) rules | &check; | &check; | &check; |  |
-| Microsoft managed rule set |  | &check; | &check; - Only default rule set 1.1 or less |  |
-| Bot protection |  | &check; | &check; - Only bot manager rule set 1.0 |  |
-| Private link connection to origin |  | &check; |  |  |
+| Microsoft managed rule set |  | &check; | &check; (only default rule set 1.1 or less) |  |
+| Bot protection |  | &check; | &check; (only bot manager rule set 1.0) |  |
+| Private Link connection to origin |  | &check; |  |  |
 | Geo-filtering | &check; | &check; | &check; | &check; |
-| DDOS protection | &check; | &check; | &check; | &check; |
-| Domain Fronting Block | &check; | &check; | &check; | &check; |
+| DDoS protection | &check; | &check; | &check; | &check; |
+| Domain fronting block | &check; | &check; | &check; | &check; |
 | **Analytics and reporting** | | | | |
-| Monitoring Metrics | &check; (more metrics than Classic) | &check; (more metrics than Classic) | &check; | &check; |
-| Advanced analytics/built-in reports | &check; | &check; - includes WAF report |  |  |
+| Monitoring metrics | &check; (more metrics than Classic) | &check; (more metrics than Classic) | &check; | &check; |
+| Advanced analytics/built-in reports | &check; | &check; (includes WAF report) |  |  |
 | Raw logs - access logs and WAF logs | &check; | &check; | &check; | &check; |
 | Health probe log | &check; | &check; |  |  |
 | **Ease of use** | | | | |
@@ -77,7 +77,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Azure Policy integration | &check; | &check; | &check; |  |
 | Azure Advisory integration | &check; | &check; |  | &check; |
 | Managed Identities with Azure Key Vault | &check; | &check; |  |  |
-| **Pricing** | [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) | | | [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) |
+| **Pricing** | [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) | [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) | [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/)| [Azure CDN pricing](https://azure.microsoft.com/pricing/details/cdn/) |
 | Simplified pricing | &check; | &check; |  | &check; |
 
 ## Services on retirement path
