@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: dougeby
 ms.topic: release-notes
-ms.date: 08/21/2024
+ms.date: 05/08/2025
 ms.author: avdcontent
 ms.custom: references_regions
 ---
@@ -17,7 +17,7 @@ This article provides information about the latest updates to the Remote Desktop
 The following table shows the latest available version of the Remote Desktop WebRTC Redirector Service.
 
 | Release | Latest version | Download |
-|---------|----------------|----------|
+|--|--|--|
 | Public | 1.54.2408.19001 | [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi) |
 
 
@@ -25,7 +25,7 @@ The following table shows the latest available version of the Remote Desktop Web
 
 *Published: August 21, 2024*
 
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1o9wm)
+Download: [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi)
 
 In this release, we made the following changes: 
 
@@ -35,20 +35,15 @@ In this release, we made the following changes:
 
 *Published: July 29, 2024*
 
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nrDV)
-
 In this release, we made the following changes:
 
 - Fixed an Outlook Window Sharing Privacy issue to correctly stop window sharing when the shared window is closed.
 - Fixed a freeze issue that occurred when starting screen sharing in GCCH.
 - Improved the video encoding adjustments for smoother streams.
 
-
 ## Updates for version 1.50.2402.29001
 
 *Published: March 25, 2024*
-
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1jLHP)
 
 In this release, we made the following changes:
 
@@ -60,8 +55,6 @@ In this release, we made the following changes:
 
 *Published: November 15, 2023*
 
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1eNhm)
-
 In this release, we've made the following change:
 
 - Added support for Teams optimization reinitialization upon virtual machine (VM) hibernate and resume.
@@ -69,8 +62,6 @@ In this release, we've made the following change:
 ## Updates for version 1.43.2306.30001
 
 *Published: September 7, 2023*
-
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1bg9v)
 
 In this release, we've made the following changes:
 
