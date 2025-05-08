@@ -60,7 +60,7 @@ These metrics measure both the successes and failures (dcount) of the calling SD
 - reliability/api/CreateView/Remote
 - reliability/api/StopVideo
 - reliability/api/CallAgentInit
-- reliability/api/StartCall
+- reliability/api/StartCall 
 
 ### User Facing Diagnostics (UFD) metrics
 
