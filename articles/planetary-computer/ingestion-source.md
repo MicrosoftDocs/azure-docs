@@ -48,6 +48,6 @@ To securely ingest data, set up managed identity access:
 
 The following quickstarts are available to assist users in setting up ingestion sources using either the managed identity or SAS token approach:
 
-- [Setup Ingestion Credentials for Planetary Computer Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
+- [Set up Ingestion Credentials for Planetary Computer Pro using SAS Tokens](./set-up-ingestion-credentials-sas-tokens.md)
 - [Adding an Item to a STAC Collection](./add-stac-item-to-collection.md)
 - [Ingest data into GeoCatalog with the Bulk Ingestion API](./add-stac-item-to-collection.md)

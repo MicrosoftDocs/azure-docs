@@ -31,7 +31,7 @@ Once you create a collection, you're ready to ingest data. The first step, howev
 
 ### Configure your ingestion source in the **Settings** page
 
-Whether you want to use managed identity or a shared access signature, you can  configure you ingestion source by following the steps outlined in [Configure an ingestion source in Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md) or [Configure an ingestion source in Microsoft Planetary Computer Pro using a shared access signature](./setup-ingestion-credentials-sas-tokens.md). 
+Whether you want to use managed identity or a shared access signature, you can  configure you ingestion source by following the steps outlined in [Configure an ingestion source in Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md) or [Configure an ingestion source in Microsoft Planetary Computer Pro using a shared access signature](./set-up-ingestion-credentials-sas-tokens.md). 
 
 ## Create ingestion
 

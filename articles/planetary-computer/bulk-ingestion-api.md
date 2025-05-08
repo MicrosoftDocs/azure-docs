@@ -34,8 +34,8 @@ In your local / development environment:
 
 Microsoft Planetary Computer Pro must have access to the Azure Blob Storage container. In this article, we create and use a temporary SAS token credential to grant this access. Alternatively, you can use these guides to set up Managed Identity or hard-coded SAS Tokens.
 
-- [Setup Ingestion Credentials for Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md)
-- [Setup Ingestion Credentials for Microsoft Planetary Computer Pro using SAS Tokens](./setup-ingestion-credentials-sas-tokens.md)
+- [Set up Ingestion Credentials for Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md)
+- [Set up Ingestion Credentials for Microsoft Planetary Computer Pro using SAS Tokens](./set-up-ingestion-credentials-sas-tokens.md)
 
 ## Create Ingestion Source
 

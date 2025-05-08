@@ -20,7 +20,7 @@ ms.date: 4/24/2025
 
 ## Set up ingestion source
 
-Before you can begin to ingest data cube data, you'll need to set up an Ingestion Source, which will serve as your credentials to access the Blob Storage account where your assets and STAC Items are stored. You can set up an Ingestion Source using [Managed Identity](set-up-ingestion-credentials-managed-identity.md) or [SAS Token](setup-ingestion-credentials-sas-tokens.md).
+Before you can begin to ingest data cube data, you'll need to set up an Ingestion Source, which will serve as your credentials to access the Blob Storage account where your assets and STAC Items are stored. You can set up an Ingestion Source using [Managed Identity](set-up-ingestion-credentials-managed-identity.md) or [SAS Token](set-up-ingestion-credentials-sas-tokens.md).
 
 ## Create a data cube collection
 

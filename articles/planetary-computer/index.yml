@@ -77,10 +77,10 @@ landingContent:
             url: ingestion-source.md
       - linkListType: how-to-guide
         links:
-          - text: Setup an ingestion source using managed identity
+          - text: Set up an ingestion source using managed identity
             url: set-up-ingestion-credentials-managed-identity.md
           - text: Set up ingestion source using SAS tokens
-            url: setup-ingestion-credentials-sas-tokens.md
+            url: set-up-ingestion-credentials-sas-tokens.md
           - text: Create a STAC item
             url: create-stac-item.md
       - linkListType: quickstart

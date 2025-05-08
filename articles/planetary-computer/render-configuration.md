@@ -361,7 +361,7 @@ Here are various examples of the `options` string and the full render configurat
 
 ## Reference: All `options` Parameters
 
-The `options` string accepts the following key-value pairs (refer to [TiTiler documentation](https://developmentseed.org/titiler/endpoints/) for the most up-to-date details):
+The `options` string accepts the following key-value pairs (refer to [TiTiler documentation](https://developmentseed.org/titiler/endpoints/stac/) for the most up-to-date details):
 
 | Parameter        | Type | Description | Example Usage |
 | ---------------- | ---- | ----------- | ------------- |
