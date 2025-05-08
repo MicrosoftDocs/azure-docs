@@ -25,13 +25,13 @@
     href: api-tutorial.md
   - name: Delete a Geocatalog resource
     href: delete-geocatalog-resource.md
-- name: Create a STAC Collection
+- name: Create a STAC collection
   items:
   - name: Create a STAC collection (Web Interface)
     href: create-collection-web-interface.md
   - name: Create a STAC collection (API)
     href: create-stac-collection.md
-- name: Ingest Data
+- name: Ingest data
   items:
   - name: Ingestion overview
     href: ingestion-overview.md
@@ -45,11 +45,11 @@
     href: ingest-via-web-interface.md
   - name: Create a STAC item
     href: create-stac-item.md
-  - name: Add a STAC Item to a collection
+  - name: Add a STAC item to a collection
     href: add-stac-item-to-collection.md
   - name: Bulk ingest data
     href: bulk-ingestion-api.md
-- name: Configure Collections for Visualization
+- name: Configure collections for visualization
   items:
   - name: Collection configuration overview
     href: collection-configuration-concept.md
@@ -81,7 +81,7 @@
     href: azure-batch.md
   - name: API Reference
     href: /rest/api/planetarycomputer
-- name: Working with Data Cubes
+- name: Working with data cubes
   items:
   - name: Data cube overview
     href: data-cube-overview.md

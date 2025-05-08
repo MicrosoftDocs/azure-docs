@@ -32,11 +32,11 @@ landingContent:
         links:
           - text: STAC overview
             url: stac-overview.md
-          - text: Supported Data Types
+          - text: Supported data types
             url: supported-data-types.md
 
   # Card
-  - title: Deploy & Setup
+  - title: Deploy & setup
     linkLists:
       - linkListType: get-started
         links:
@@ -57,7 +57,7 @@ landingContent:
 
 
   # Card
-  - title: Create a STAC Collection
+  - title: Create a STAC collection
     linkLists:
       - linkListType: quickstart
         links:
