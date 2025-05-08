@@ -5,10 +5,10 @@ author: 777arc
 ms.author: marclichtman
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/24/2025 # <-- UPDATE DATE ON PUBLISH
+ms.date: 05/08/2025
 ---
 
-# How-To: Configure render settings for visualizing data in Microsoft Planetary Computer Pro
+# Configure render settings for visualizing data in Microsoft Planetary Computer Pro
 
 To visualize geospatial data using the Microsoft Planetary Computer Pro data explorer or the Tiler API, you must define **render configurations** for your SpatioTemporal Asset Catalog (STAC) collections. A render configuration specifies how the data assets within your STAC items should be combined, processed, and styled to create map tiles.
 
@@ -238,7 +238,7 @@ Once you construct your render configuration list (one or more JSON objects), ad
 4.  Paste your JSON list into the editor or use the UI fields to build it.
 5.  Save the changes.
 
-:::image type="content" source="media/render-configuration-web-interface.png" alt-text="Screenshot of the render configuration web interface displaying options for setting up render configurations.":::
+[ ![Screenshot of the render configuration web interface displaying options for setting up render configurations.](media/render-configuration-web-interface.png) ](media/render-configuration-web-interface.png#lightbox)
 
 For more information on configuring collections, see [Configure a collection with the web interface](./configure-collection-web-interface.md). 
 

@@ -38,9 +38,9 @@
   - name: Ingestion sources
     href: ingestion-source.md
   - name: Setup an ingestion source using managed identity through the UI
-    href: setup-ingestion-credentials-managed-identity.md
+    href: set-up-ingestion-credentials-managed-identity.md
   - name: Set up ingestion source using SAS tokens
-    href: setup-ingestion-credentials-sas-tokens.md
+    href: set-up-ingestion-credentials-sas-tokens.md
   - name: Ingest data using the web interface
     href: ingest-via-web-interface.md
   - name: Create a STAC item
@@ -76,7 +76,7 @@
   - name: Application authentication
     href: application-authentication.md
   - name: Connect to ArcGIS Pro
-    href: create-connection-arcgispro.md
+    href: create-connection-arc-gis-pro.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
   - name: API Reference

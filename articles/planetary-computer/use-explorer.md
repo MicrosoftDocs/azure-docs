@@ -5,7 +5,7 @@ author: beharris
 ms.author: brentharris
 ms.service: azure
 ms.topic: quickstart
-ms.date: 04/09/2025
+ms.date: 05/08/2025
 #customer intent: As a Microsoft Planetary Computer Pro user, I want to navigate through the Explorer so that I can visualize my SpatioTemporal Access Catalog (STAC) data.
 ---
 
@@ -139,7 +139,7 @@ The Explorer provides a Python code sample for each item in the catalog, enablin
 
 ## Add a collection thumbnail
 
-You can set a thumbnail for a collection, the image that represents that collection in your collections Overview page. You
+You can set a thumbnail for a collection, the image that represents that collection in your collections overview page.
 
 1. In the Explorer, select a collection to display.
 1. Select your desired item asset to display on the map.

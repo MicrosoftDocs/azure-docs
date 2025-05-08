@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/09/2025
+ms.date: 05/08/2025
 
 #customer intent: Help customers understand how credentials work and how to add them ahead of an ingestion for SAS Tokens.
 
@@ -210,4 +210,4 @@ For Bulk Ingestion:
 
 - [Ingestion overview](./ingestion-overview.md)
 - [Ingestion sources](./ingestion-source.md)
-- [Set up ingestion credentials using SAS tokens](./setup-ingestion-credentials-sas-tokens.md)
+- [Set up ingestion credentials using SAS tokens](./set-up-ingestion-credentials-sas-tokens.md)

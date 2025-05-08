@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: azure
 ms.topic: get-started
-ms.date: 04/22/2025
+ms.date: 05/08/2025
 #customer intent: As a new customer, I want to learn how to use Microsoft Planetary Computer Pro to solve my geospatial data management challenges.
 ---
 
@@ -69,7 +69,7 @@ The recommended and most secure method for ingesting data is to have the data st
 
 ### Get your data ready for Ingestion
 > [!div class="checklist"]
-> * [Setup Managed Identity Access to your Azure Blob Storage](./setup-ingestion-credentials-managed-identity.md)
+> * [Setup Managed Identity Access to your Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md)
 > * [Create STAC Items for your data](./create-stac-item.md)
 > * Ingest Your Data a [single item at a time](./add-stac-item-to-collection.md) or through [bulk ingestion](./bulk-ingestion-api.md)
 
@@ -103,7 +103,7 @@ Data that is [configured for visualization](./configure-collection-web-interface
 
 Data can also be accessed directly using the [GeoCatalog APIs](/rest/api/planetarycomputer). For details on establishing permissions for your applications, review the [Application Authentication](./application-authentication.md) documentation. 
 
-Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arcgispro.md) to enable GIS-type work flows. 
+Planetary Computer Pro supports [connecting collections to ESRI's ArcGIS Pro Service](./create-connection-arc-gis-pro.md) to enable GIS-type work flows. 
 
 ## Get help
 

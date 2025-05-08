@@ -42,7 +42,7 @@ Securely ingesting data requires users to provide an authentication mechanism wh
 To securely ingest data, set up managed identity access:
 
 > [!div class="nextstepaction"]
-- [Configure an ingestion source for Microsoft Planetary Computer Pro using managed identity](./setup-ingestion-credentials-managed-identity.md)
+- [Configure an ingestion source for Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md)
 
 ## Related content
 

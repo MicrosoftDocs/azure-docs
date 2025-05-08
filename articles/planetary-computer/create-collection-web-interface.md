@@ -5,7 +5,7 @@ author: beharris
 ms.author: brentharris
 ms.service: azure
 ms.topic: quickstart
-ms.date: 04/23/2025
+ms.date: 05/08/2025
 #customer intent: As a user of geospatial data, I want to create a STAC collection so that I can organize metadata for geospatial assets for later querying.
 ---
 
@@ -22,7 +22,7 @@ To complete this quickstart, you need:
 
 ## Navigating the Microsoft Planetary Computer Pro web interface
 
-The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal:*** 
+The Microsoft Planetary Computer Pro web interface is a web-based platform that allows you to manage your geospatial data. **You can access the web interface by using the URI provided in your GeoCatalog resource in Azure portal:**
 
 [ ![Screenshot of URI in geocatalog resource in Azure portal.](media/geocatalog-uri-example.jpeg) ](media/geocatalog-uri-example.jpeg#lightbox) 
 

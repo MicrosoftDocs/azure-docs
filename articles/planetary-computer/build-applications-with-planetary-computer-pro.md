@@ -58,7 +58,7 @@ Integrating Microsoft Planetary Computer Pro with ESRI ArcGIS Pro provides a sea
 - Streamline collaboration by combining enterprise GIS workflows with the latest planetary-scale datasets.
 - Accelerate decision-making by integrating cloud-based data with local projects, enabling richer insights and more informed outcomes.
 
-For more information on how to connect ArcGIS Pro to a GeoCatalog resource, see the [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arcgispro.md).
+For more information on how to connect ArcGIS Pro to a GeoCatalog resource, see the [Configure ArcGIS Pro to access a GeoCatalog](./create-connection-arc-gis-pro.md).
 
 ## Authentication and authorization
 
@@ -79,5 +79,5 @@ For detailed authentication guidance, see [Set up application authentication for
 
 ## Related content
 
-- [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arcgispro.md)
+- [Connect ArcGIS Pro to Microsoft Planetary Computer Pro](./create-connection-arc-gis-pro.md)
 - [Manage access to Microsoft Planetary Computer Pro](./manage-access.md)

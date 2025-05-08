@@ -5,7 +5,7 @@ author: prasadko
 ms.author: prasadkomma
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/09/2025
+ms.date: 05/08/2025
 
 #customer intent: Help customers understand how ingestion sources work and how to add them ahead of an ingestion. 
 ---
@@ -44,7 +44,7 @@ Managed identities only work within a single Microsoft Entra tenant, therefore t
 >[!WARNING]
 > GeoCatalog ingestion sources are tied to a Blob Container. When creating an ingestion source using either a managed identity or SAS token, a Blob Container URL must be provided. SAS tokens using the root storage URL aren't permitted. 
 
-This guide shows how to create an GeoCatalog ingestion source using a managed identity. If SAS token approach is more appropriate for your use case, see how to [setup ingestion credentials using SAS](./setup-ingestion-credentials-sas-tokens.md).
+This guide shows how to create an GeoCatalog ingestion source using a managed identity. If SAS token approach is more appropriate for your use case, see how to [setup ingestion credentials using SAS](./set-up-ingestion-credentials-sas-tokens.md).
 
 ## Create a user assigned managed identity
 
@@ -145,4 +145,4 @@ For Bulk Ingestion:
 
 - [Ingestion overview](./ingestion-overview.md)
 - [Ingestion sources](./ingestion-source.md)
-- [Set up ingestion credentials using SAS tokens](./setup-ingestion-credentials-sas-tokens.md)
+- [Set up ingestion credentials using SAS tokens](./set-up-ingestion-credentials-sas-tokens.md)

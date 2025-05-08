@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: prasadko
   ms.author: prasadkomma
-  ms.date: 04/11/2025
+  ms.date: 05/08/2025
   
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -78,7 +78,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Setup an ingestion source using managed identity
-            url: setup-ingestion-credentials-managed-identity.md
+            url: set-up-ingestion-credentials-managed-identity.md
           - text: Set up ingestion source using SAS tokens
             url: setup-ingestion-credentials-sas-tokens.md
           - text: Create a STAC item
@@ -132,7 +132,7 @@ landingContent:
           - text: Application authentication
             url: application-authentication.md
           - text: Connect to ArcGIS Pro
-            url: create-connection-arcgispro.md
+            url: create-connection-arc-gis-pro.md
       - linkListType: quickstart
         links:
           - text: Azure Batch and Microsoft Planetary Computer Pro

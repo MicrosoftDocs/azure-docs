@@ -72,7 +72,7 @@ After saving the script and replacing the variables, run it using the following 
 .\assign_identity.ps1
 ```
 
-Once complete, proceed to the [Give a User-assigned Managed Identity read permissions to Azure Blob Storage](./setup-ingestion-credentials-managed-identity.md#assign-your-managed-identity-the-storage-blob-data-reader-role) instructions. 
+Once complete, proceed to the [Give a User-assigned Managed Identity read permissions to Azure Blob Storage](./set-up-ingestion-credentials-managed-identity.md#assign-your-managed-identity-the-storage-blob-data-reader-role) instructions. 
 
 # [Bash](#tab/bash)
 
@@ -160,5 +160,5 @@ az rest --method PUT \
 Once complete, proceed to assign managed identity to Storage Blob Data reader role. 
 
 > [!div class="nextstepaction"]
-> [Assign your managed identity the Storage Blob Data Reader role](./setup-ingestion-credentials-managed-identity.md#assign-your-managed-identity-the-storage-blob-data-reader-role)
+> [Assign your managed identity the Storage Blob Data Reader role](./set-up-ingestion-credentials-managed-identity.md#assign-your-managed-identity-the-storage-blob-data-reader-role)
 
