@@ -126,13 +126,13 @@ Get the durable task scheduler emulator port number in [the next step](#set-up-d
 1. Pull the docker image containing the emulator. 
 
    ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker pull mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
 1. Run the emulator.
 
    ```bash
-   docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
    ```
    
    The following output indicates the emulator started successfully.

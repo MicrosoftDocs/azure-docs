@@ -53,19 +53,19 @@ Learn more about durable task scheduler [features](./durable-task-scheduler.md#f
 1. Pull the docker image containing the emulator. 
 
    ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker pull mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
 1. Run the emulator.
 
    ```bash
-   docker run -itP mcr.microsoft.com/dts/dts-emulator:v0.0.5
+   docker run -itP mcr.microsoft.com/dts/dts-emulator:latest
    ```
 
     This command exposes a single task hub named `default`. If you need more than one task hub, you can set the environment variable `DTS_TASK_HUB_NAMES` on the container to a comma-delimited list of task hub names like in the following command:
 
     ```bash
-    docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:v0.0.5
+    docker run -itP -e DTS_TASK_HUB_NAMES=taskhub1,taskhub2,taskhub3 mcr.microsoft.com/dts/dts-emulator:latest
     ```
 
 ## Create a scheduler and task hub
