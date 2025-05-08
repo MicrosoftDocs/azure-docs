@@ -251,7 +251,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/auth/clientToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
 > | Microsoft.SignalRService/SignalR/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
 > | Microsoft.SignalRService/SignalR/auth/accessToken/action | Generate an AccessToken for client to connect to ASRS, the token will expire in 5 minutes by default |
-> | Microsoft.SignalRService/SignalR/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service |
+> | Microsoft.SignalRService/SignalR/clientConnection/generateToken/action | Generate a JWT for client to connect to the service |
 > | Microsoft.SignalRService/SignalR/clientConnection/send/action | Send messages directly to a client connection |
 > | Microsoft.SignalRService/SignalR/clientConnection/read | Check client connection existence |
 > | Microsoft.SignalRService/SignalR/clientConnection/write | Close client connection |
@@ -269,7 +269,7 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | Microsoft.SignalRService/SignalR/user/write | Modify a user |
 > | Microsoft.SignalRService/WebPubSub/auth/accessKey/action | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
 > | Microsoft.SignalRService/WebPubSub/auth/accessToken/action | Generate an AccessToken for client to connect to AWPS, the token will expire in 5 minutes by default |
-> | Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action | Generate a JWT Token for client to connect to the service |
+> | Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action | Generate a JWT for client to connect to the service |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/send/action | Send messages directly to a client connection |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/read | Check client connection existence |
 > | Microsoft.SignalRService/WebPubSub/clientConnection/write | Close client connection |
