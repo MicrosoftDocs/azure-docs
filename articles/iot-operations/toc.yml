@@ -165,6 +165,8 @@ items:
       items:
       - name: 🟢Azure IoT Operations SDKs
         href: develop-edge-apps/overview-iot-operations-sdks.md
+      - name: 🟢Get started developing with the SDKs
+        href: develop-edge-apps/quickstart-get-started-sdks.md
       - name: Tutorials
         items:
         - name: 🟢Develop an edge app
@@ -183,6 +185,8 @@ items:
             href: develop-edge-apps/concept-about-state-store-protocol.md
           - name: 🟢Schema registry protocol
             href: develop-edge-apps/concept-schema-registry-protocol.md
+          - name: SDKS reference documentation
+            href: https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md
           - name: Dapr apps
             items:
             - name: Deploy Dapr

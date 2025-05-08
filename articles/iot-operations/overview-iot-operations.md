@@ -163,4 +163,4 @@ Azure IoT Operations depends on the following set of support services and featur
 
 ## Next step
 
-Try the [Quickstart: Get started with an end-to-end sample](get-started-end-to-end-sample/quickstart-deploy.md).
+Try the [Quickstart: Start developing with the Azure IoT Operations SDKs](develop-edge-apps/quickstart-get-started-sdks.md).
