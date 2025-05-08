@@ -1,5 +1,5 @@
 ---
-title: Configure Render Settings for Data Visualization in Microsoft Planetary Computer Pro
+title: Configure render settings for data visualization in Microsoft Planetary Computer Pro
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
 author: 777arc
 ms.author: marclichtman
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 04/24/2025 # <-- UPDATE DATE ON PUBLISH
 ---
 
-# How-To: Configure Render Settings for Visualizing Data in Microsoft Planetary Computer Pro
+# How-To: Configure render settings for visualizing data in Microsoft Planetary Computer Pro
 
 To visualize geospatial data using the Microsoft Planetary Computer Pro data explorer or the Tiler API, you must define **render configurations** for your SpatioTemporal Asset Catalog (STAC) collections. A render configuration specifies how the data assets within your STAC items should be combined, processed, and styled to create map tiles.
 

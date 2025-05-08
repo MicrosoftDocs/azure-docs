@@ -52,7 +52,7 @@ landingContent:
             url: manage-access.md
       - linkListType: tutorial
         links:
-          - text: Using the Microsoft Planetary Computer Pro APIs to Ingest and Visualize Data
+          - text: Use the Microsoft Planetary Computer Pro APIs to ingest and visualize data
             url: api-tutorial.md
 
 
@@ -67,13 +67,13 @@ landingContent:
             url: create-stac-collection.md
   
   # Card
-  - title: Ingest Data
+  - title: Ingest data
     linkLists:
       - linkListType: concept
         links:
-          - text: Ingestion Overview
+          - text: Ingestion overview
             url: ingestion-overview.md
-          - text: Ingestion Sources
+          - text: Ingestion sources
             url: ingestion-source.md
       - linkListType: how-to-guide
         links:
@@ -89,39 +89,39 @@ landingContent:
             url: ingest-via-web-interface.md
           - text: Add a STAC Item to a collection
             url: add-stac-item-to-collection.md
-          - text: Bulk Ingest data
+          - text: Bulk ingest data
             url: bulk-ingestion-api.md
 
   # Card
-  - title: Configure Collections for Visualization
+  - title: Configure collections for visualization
     linkLists:
       - linkListType: concept
         links:
-          - text: Collection Configuration
+          - text: Collection configuration
             url: collection-configuration-concept.md
       - linkListType: quickstart
         links:
-          - text: Configure Collections for Visualization
+          - text: Configure collections for visualization
             url: configure-collection-web-interface.md
       - linkListType: concept
         links:
-          - text: Mosaic Configuration
+          - text: Mosaic configuration
             url: mosaic-configurations-for-collections.md
-          - text: Render Configuration
+          - text: Render configuration
             url: render-configuration.md
-          - text: Tile Settings
+          - text: Tile settings
             url: tile-settings.md
-          - text: Queryables for Custom Search
+          - text: Queryables for custom search
             url: queryables-for-explorer-custom-search-filter.md
-          - text: Supported Color Maps
+          - text: Supported color maps
             url: supported-colormaps.md
 
   # Card
-  - title: Build and Use Applications
+  - title: Build and use applications
     linkLists:
       - linkListType: concept
         links:
-          - text: Build Applications
+          - text: Build applications
             url: build-applications-with-planetary-computer-pro.md
       - linkListType: quickstart
         links:
@@ -139,25 +139,25 @@ landingContent:
             url: azure-batch.md
       - linkListType: reference
         links:
-          - text: API Reference Guide
+          - text: API reference guide
             url: /rest/api/planetarycomputer
 
   # Card
-  - title: Working with Data Cubes
+  - title: Working with data cubes
     linkLists:
       - linkListType: concept
         links:
-          - text: Data cube Overview
+          - text: Data cube overview
             url: data-cube-overview.md
       - linkListType: quickstart
         links:
-          - text: Get Started with Data Cubes
+          - text: Get started with data cubes
             url: data-cube-quickstart.md
       - linkListType: how-to-guide
         links:
-          - text: Visualize Data Cubes
+          - text: Visualize data cubes
             url: visualize-assets.md
       - linkListType: quickstart
         links:
-          - text: Get a Collection SAS Token
+          - text: Get a collection SAS token
             url: get-collection-sas-token.md

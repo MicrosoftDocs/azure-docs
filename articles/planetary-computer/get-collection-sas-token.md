@@ -1,5 +1,5 @@
 ---
-title: SAS Token Generation in Microsoft Planetary Computer Pro
+title: SAS token Generation in Microsoft Planetary Computer Pro
 description: See how to retrieve a sas token to access collection-level assets.
 author: tanyamarton
 ms.author: tanyamarton
@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 04/29/2025
 #customer intent: help customers get a sas token for a collection. 
 ---
-# Quickstart: Request a STAC collection SAS Token
+# Quickstart: Request a STAC collection SAS token
 
 In this quickstart, you will retrieve a collection-level SAS token that can be used by other applications to access STAC collection assets in a managed storage account within a Microsoft Planetary Computer Pro GeoCatalog resource.
 

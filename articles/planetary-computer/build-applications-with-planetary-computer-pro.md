@@ -24,7 +24,7 @@ Microsoft Planetary Computer Pro offers APIs and connectors that enable develope
 
 Planetary Computer Pro supports multiple integration approaches depending on your application's requirements. You can build applications that access Planetary Computer Pro's data and services in several ways:
 
-[ ![Diagram illustrating how to build applications with Microsoft Planetary Computer Pro, showing integration points, APIs, and supported workflows.](media/build-apps-diagram.png) ](media/build_apps_diagram.png#lightbox)
+[ ![Diagram illustrating how to build applications with Microsoft Planetary Computer Pro, showing integration points, APIs, and supported workflows.](media/build-apps-diagram.png) ](media/build-apps-diagram.png#lightbox)
 
 ### Direct API integration
 

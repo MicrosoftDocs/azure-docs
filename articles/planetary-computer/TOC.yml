@@ -8,10 +8,10 @@
     href: whats-new.md
   - name: STAC overview
     href: stac-overview.md
-  - name: Supported Data Types
+  - name: Supported data types
     href: supported-data-types.md
   expanded: true
-- name: Deploy & Setup
+- name: Deploy & setup
   items:
   - name: Get started with Microsoft Planetary Computer Pro
     href: get-started-planetary-computer.md
@@ -33,43 +33,43 @@
     href: create-stac-collection.md
 - name: Ingest Data
   items:
-  - name: Ingestion Overview
+  - name: Ingestion overview
     href: ingestion-overview.md
-  - name: Ingestion Sources
+  - name: Ingestion sources
     href: ingestion-source.md
   - name: Setup an ingestion source using managed identity through the UI
     href: setup-ingestion-credentials-managed-identity.md
   - name: Set up ingestion source using SAS tokens
     href: setup-ingestion-credentials-sas-tokens.md
-  - name: Ingest data using the Web Interface
+  - name: Ingest data using the web interface
     href: ingest-via-web-interface.md
   - name: Create a STAC item
     href: create-stac-item.md
   - name: Add a STAC Item to a collection
     href: add-stac-item-to-collection.md
-  - name: Bulk Ingest data
+  - name: Bulk ingest data
     href: bulk-ingestion-api.md
 - name: Configure Collections for Visualization
   items:
   - name: Collection configuration overview
     href: collection-configuration-concept.md
-  - name: Configure Collections for Visualization
+  - name: Configure collections for visualization
     href: configure-collection-web-interface.md
-  - name: Mosaic Configuration
+  - name: Mosaic configuration
     href: mosaic-configurations-for-collections.md
-  - name: Render Configuration
+  - name: Render configuration
     href: render-configuration.md
-  - name: Tile Settings
+  - name: Tile settings
     href: tile-settings.md
   - name: Queryables
     href: queryables-for-explorer-custom-search-filter.md
-  - name: Supported Color Maps
+  - name: Supported color maps
     href: supported-colormaps.md
   - name: Visualize assets
     href: visualize-assets.md
-- name: Build and Use Applications
+- name: Build and use applications
   items:
-  - name: Build Applications
+  - name: Build applications
     href: build-applications-with-planetary-computer-pro.md
   - name: Use the explorer
     href: use-explorer.md
@@ -83,11 +83,11 @@
     href: /rest/api/planetarycomputer
 - name: Working with Data Cubes
   items:
-  - name: Data cube Overview
+  - name: Data cube overview
     href: data-cube-overview.md
-  - name: Get Started with Data Cubes
+  - name: Get Started with data cubes
     href: data-cube-quickstart.md
-  - name: Visualize Data Cubes
+  - name: Visualize data cubes
     href: visualize-assets.md
-  - name: Get a Collection SAS Token
+  - name: Get a collection SAS token
     href: get-collection-sas-token.md
