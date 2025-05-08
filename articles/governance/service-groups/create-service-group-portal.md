@@ -23,15 +23,6 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- Any Microsoft Entra ID user in the tenant can create a management group without the management group write
-  permission assigned to that user if
-  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting-require-authorization)
-  isn't enabled. This new management group becomes a child of the Root Management Group or the
-  [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
-  and the creator is given an Owner role assignment. Management group service allows this ability
-  so that role assignments aren't needed at the root level. When the Root
-    Management Group is created, users don't have access to it. To start using management groups, the service allows the creation of the initial management groups at the root level. For more information, see [Root management group for each directory](./overview.md#the-root-service-group).
-
 ## Create in Azure portal
 
 1. Log into the [Azure portal](https://portal.azure.com).
