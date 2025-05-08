@@ -22,11 +22,15 @@ Extension bundles add a predefined set of compatible binding extensions to your 
 
 When you create an Azure Functions project from a non-.NET template, extension bundles are already enabled in the app's *host.json* file. 
 
+### Define an extension bundle
+
 You define an extension bundle reference in the *host.json* project file by adding an `extensionBundle` section, as in this example: 
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-The following table lists the currently available default *Microsoft.Azure.Functions.ExtensionBundle* bundles, defined using version ranges and with links to the extension definitions for the bundle.
+### Supported extension bundles
+
+The following table lists the default `Microsoft.Azure.Functions.ExtensionBundle` bundles that are currently generally available (GA).
 
 | Bundle version | Version in host.json | Included extensions |
 | --- | --- | --- |
@@ -35,12 +39,34 @@ The following table lists the currently available default *Microsoft.Azure.Funct
 | 2.x | `[2.*, 3.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/main-v2/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
 | 1.x | `[1.*, 2.0.0)` | See [extensions.json](https://github.com/Azure/azure-functions-extension-bundles/blob/v1.x/src/Microsoft.Azure.Functions.ExtensionBundle/extensions.json) used to generate the bundle. |
 
+The default extension bundles are defined using version ranges, and this table links to the extension definitions for the bundle. For a complete list of extension bundle releases and extension versions in each release, see the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+
+### Extension bundles considerations
+
 Keep these considerations in mind when working with extension bundles:
 
 + When possible, you should set a `version` range value in *host.json* from this table, such as `[4.0.0, 5.0.0)`, instead of defining a custom range. 
 + Use the latest version range to obtain optimal app performance and access to the latest features. 
 
-For a complete list of extension bundle releases and extension versions in each release, see the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+### Preview extension bundles
+
+Prerelease versions of specific binding extensions are frequently made available in preview extension bundles. These preview extension bundles, which have an ID of `Microsoft.Azure.Functions.ExtensionBundle.Preview`, allow you to take advantage of new extension behaviors before they are declared as GA. Keep these considerations in mind when choosing to use a non-GA extension bundle:
+
++ Preview bundles can include features that are still under development and not yet ready for production use. 
++ Breaking changes occur between preview versions without prior notice, which can include changes to:
+    + Trigger and binding definitions
+    + Extensions included in the preview
+    + Performance characteristics and stability 
++ Security updates might require you to upgrade versions.
++ You must completely test preview bundles in nonproduction environments and avoid using preview bundles in production. When you must use a preview bundle in production, take these extra precautions:
+    + Pin your bundle to a specific well-tested bundle version instead of to a range. Pinning prevents automatic upgrading of your bundle version before you have a chance to verify the update in a nonproduction environment. 
+    + Move your app to using a GA bundle version as soon as the functionality becomes available in a fully supported bundle release.
++ To stay informed about bundle updates, including moving from preview to GA, you should: 
+    + Monitor preview bundle version releases on the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases). - Releases · Azure/azure-functions-extension-bundles
+    + Monitor [extension specific reference documentation](./functions-triggers-bindings.md).
+    + Review the NuGet package versions of specific preview extensions you're using. 
+    + Track significant updates or changes on the change logs published on NuGet.org for each preview extension.
+
 ::: zone-end
 
 ## Explicitly install extensions
