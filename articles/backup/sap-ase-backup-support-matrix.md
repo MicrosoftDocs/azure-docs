@@ -63,6 +63,7 @@ Learn more [about SAP ASE (Sybase) Azure Virtual Machine storage and SAP ASE (Sy
 ## Support for multiple SAP ASE instances on a single host
 
 Azure Backup now enables seamless backups for multiple ASE (Sybase) database instances on Azure VMs, utilizing Multi-SID support. This advancement is particularly useful for shared VM environments, such as non-production setups, where multiple users require efficient data protection and recovery. SAP ASE Multi-SID support includes the following configurations:
+
 | Sap ASE instance | Support |
 | --- |--- |
 | Standalone (SID1) + Standalone (SID2) | Supported |

@@ -49,24 +49,21 @@ Making policy modifications affects all the associated backup items and triggers
 :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/change-backup-jobs.png" alt-text="Screenshot showing how to change backup jobs." lightbox="media/sap-adaptive-server-enterprise-db-manage/change-backup-jobs.png":::
 
 ## Edit a Policy
-To modify the policy to change backup types, frequencies, and retention range, follow these steps:
+To modify the policy to change backup types, frequencies, and retention range, go to the **Recovery Services Vault** > **Backup Policies**, and then select the policy you want to edit.
 
 >[!Note]
->Any change in the retention period will be applied to both the new recovery points and, retroactively, to all the older recovery points.
-
-1. On the **Recovery Services Vault**, go to **Backup Policies**, and then select the policy you want to edit.
+>- Modification of the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
+>- Any change in the retention period will be applied to both the new recovery points and, retroactively, to all the older recovery points.
 
     :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
 
-Modifying the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
-
 ## Stop protection for an SAP ASE database or ASE instance
 
-There are two ways to stop protection of an SAP ASE database:
+You can stop protection of an SAP ASE database in the following ways:
 
-- Delete backup data -Stop all future backup jobs and delete all recovery points.
+- **Delete backup data**: Stop all future backup jobs and delete all recovery points.
 
-- Retain backup data -Stop all future backup jobs and leave the recovery points intact.
+- **Retain backup data**: Stop all future backup jobs and leave the recovery points intact.
 
    >[!Note]
    >If you choose to leave recovery points:
