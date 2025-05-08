@@ -48,7 +48,7 @@ If a VPN or an ExpressRoute gateway exists in the same virtual network as the Ro
 
 :::image type="content" source="./media/route-injection-in-spokes/route-injection-vpn-and-expressroute.png" alt-text="Diagram showing a basic hub and spoke topology with on-premises connectivity via an NVA and ExpressRoute.":::
 
-To override these specific on-premises prefixes learned from VPN and ExpressRoute gateway, you can disable "Propagate gateway routes" on the spoke subnets' route tables and configure UDRs (user-defined routes) on the spoke subnets' route tables with next hop as the NVA/Firewall in the hub VNet. 
+To override these specific on-premises prefixes learned by VPN and ExpressRoute gateway, you can disable "Propagate gateway routes" on the spoke subnets' route tables and configure UDRs (user-defined routes) on the spoke subnets' route tables with next hop as the NVA/Firewall in the hub VNet. 
 
 By default, the Route Server advertises all prefixes learned from the NVA to ExpressRoute too. This might not be desired, for example because of the route limits of ExpressRoute or the Route Server itself. In that case, the NVA can announce its routes to the Route Server including the BGP community `no-advertise` (with value `65535:65282`). When Route Server receives routes with this BGP community, it injects them to the subnets, but it will not advertise them to any other BGP peers (like ExpressRoute or VPN gateways, or other NVAs).
 
