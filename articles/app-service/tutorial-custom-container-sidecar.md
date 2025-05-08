@@ -154,11 +154,11 @@ azd down
 - [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
 - [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
 
-## What are the differences for sidecar-enabled custom containers?
+### What are the differences for sidecar-enabled custom containers?
 
 You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled.
 
-### Not sidecar-enabled
+#### Not sidecar-enabled
 
 - Container name and types are configured directly with `LinuxFxVersion=DOCKER|<image-details>` (see [az webapp config set --linux-fx-version](/cli/azure/webapp/config)).
 - The main container is configured with app settings, such as:
@@ -167,7 +167,7 @@ You configure sidecar-enabled apps differently than apps that aren't sidecar-ena
     - `DOCKER_REGISTRY_SERVER_PASSWORD`
     - `WEBSITES_PORT`
 
-### Sidecar-enabled
+#### Sidecar-enabled
 
 - A sidecar-enabled app is designated by `LinuxFxVersion=sitecontainers` (see [az webapp config set --linux-fx-version](/cli/azure/webapp/config)).
 - The main container is configured with a [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) resource. These settings don't apply for sidecar-enabled apps
