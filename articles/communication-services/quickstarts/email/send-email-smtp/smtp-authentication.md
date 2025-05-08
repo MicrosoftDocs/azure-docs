@@ -37,19 +37,19 @@ You also need to give the Microsoft Entra application access to the Communicatio
 Assign the **Communication and Email Service Owner** role to a Microsoft Entra application to give it access to a Communication Service resource.
 
 1. In the portal, navigate to the Azure Communication Service Resource used to send emails using SMTP and then open **Access control (IAM)**.
-    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control for the Communication resource.":::
+    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control for the Communication resource." lightbox="../media/smtp-custom-role-iam-expanded.png":::
 1. Click **+Add** and then select **Add role assignment**.
-    :::image type="content" source="../media/email-smtp-add-role-assignment.png" alt-text="Screenshot that shows selecting Add role assignment for the Communication resource.":::
+    :::image type="content" source="../media/email-smtp-add-role-assignment.png" alt-text="Screenshot that shows selecting Add role assignment for the Communication resource." lightbox="../media/email-smtp-add-role-assignment-expanded.png":::
 1. On the **Role** tab, select the **Communication and Email Service Owner** role for sending emails using SMTP and click **Next**.
-    :::image type="content" source="../media/email-smtp-builtin-select-role.png" alt-text="Screenshot that shows selecting the built-in role.":::
+    :::image type="content" source="../media/email-smtp-builtin-select-role.png" alt-text="Screenshot that shows selecting the built-in role." lightbox="../media/email-smtp-builtin-select-role-expanded.png":::
 1. On the **Members** tab, choose **User, group, or service principal** and then click **+Select members**.
-    :::image type="content" source="../media/email-smtp-builtin-select-members.png" alt-text="Screenshot that shows choosing select members for the built-in role.":::
+    :::image type="content" source="../media/email-smtp-builtin-select-members.png" alt-text="Screenshot that shows choosing select members for the built-in role." lightbox="../media/email-smtp-builtin-select-members-expanded.png":::
 1. Use the search box to find the Microsoft Entra application that you use for authentication and select it. Then click Select.
-    :::image type="content" source="../media/email-smtp-builtin-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application that gets the built-in role.":::
+    :::image type="content" source="../media/email-smtp-builtin-select-entra.png" alt-text="Screenshot that shows selecting the Microsoft Entra application that gets the built-in role." lightbox="../media/email-smtp-builtin-select-entra-expanded.png":::
 1. After confirming the selection, click **Next**.
-    :::image type="content" source="../media/email-smtp-builtin-select-review.png" alt-text="Screenshot that shows reviewing the assignment for the built-in role.":::
+    :::image type="content" source="../media/email-smtp-builtin-select-review.png" alt-text="Screenshot that shows reviewing the assignment for the built-in role." lightbox="../media/email-smtp-builtin-select-review-expanded.png":::
 1. After confirming the scope and members, click **Review + assign**.
-    :::image type="content" source="../media/email-smtp-builtin-select-assign.png" alt-text="Screenshot that shows assigning the built-in role.":::
+    :::image type="content" source="../media/email-smtp-builtin-select-assign.png" alt-text="Screenshot that shows assigning the built-in role." lightbox="../media/email-smtp-builtin-select-assign-expanded.png":::
 
 #### [Custom role](#tab/custom-role)
 ### Use a custom role to limit permissions granted to the Microsoft Entra Application
@@ -58,53 +58,53 @@ The **Communication and Email Service Owner** role gives access to all Communica
 
 #### Create a custom email role for the Microsoft Entra application
 1. In the portal, create a custom role by first navigating to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
-    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control.":::
+    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control." lightbox="../media/smtp-custom-role-iam-expanded.png":::
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 1. Search for a role you want to clone such as the Reader role.
 1. At the end of the row, click the ellipsis (...) and then click **Clone**.
-    :::image type="content" source="../media/smtp-custom-role-clone.png" alt-text="Screenshot that shows cloning a role.":::
+    :::image type="content" source="../media/smtp-custom-role-clone.png" alt-text="Screenshot that shows cloning a role." lightbox="../media/smtp-custom-role-clone-expanded.png":::
 1. Click the **Basics** tab and give a name to the new role.
-    :::image type="content" source="../media/smtp-custom-role-basics.png" alt-text="Screenshot that shows creating a name for a new custom role.":::
+    :::image type="content" source="../media/smtp-custom-role-basics.png" alt-text="Screenshot that shows creating a name for a new custom role." lightbox="../media/smtp-custom-role-basics-expanded.png":::
 1. Click the **Permissions** tab and click **Add permissions**.
-    :::image type="content" source="../media/smtp-custom-role-click-add-permissions.png" alt-text="Screenshot that shows how to add permissions to custom role.":::
+    :::image type="content" source="../media/smtp-custom-role-click-add-permissions.png" alt-text="Screenshot that shows how to add permissions to custom role." lightbox="../media/smtp-custom-role-click-add-permissions-expanded.png":::
 1. Search for **Microsoft.Communication** and select **Azure Communication Services**
-    :::image type="content" source="../media/smtp-custom-role-permissions.png" alt-text="Screenshot that shows adding permissions for a new custom role.":::
+    :::image type="content" source="../media/smtp-custom-role-permissions.png" alt-text="Screenshot that shows adding permissions for a new custom role." lightbox="../media/smtp-custom-role-permissions-expanded.png":::
 1. Select the **Microsoft.Communication/CommunicationServices** **Read**, **Microsoft.Communication/CommunicationServices** **Write**, and the **Microsoft.Communication/EmailServices** **Write** permissions. Click **Add**.
-    :::image type="content" source="../media/smtp-custom-role-add-permissions.png" alt-text="Screenshot that shows adding Azure Communication Services' permissions.":::
+    :::image type="content" source="../media/smtp-custom-role-add-permissions.png" alt-text="Screenshot that shows adding Azure Communication Services' permissions." lightbox="../media/smtp-custom-role-add-permissions-expanded.png":::
 1. Review the permissions for the new role. Click **Review + create** and then **Create** on the next page.
-    :::image type="content" source="../media/smtp-custom-role-review.png" alt-text="Screenshot that shows reviewing the new custom role.":::
+    :::image type="content" source="../media/smtp-custom-role-review.png" alt-text="Screenshot that shows reviewing the new custom role." lightbox="../media/smtp-custom-role-review-expanded.png":::
 
 When you assign the Microsoft Entra application a role for the Azure Communication Services Resource, the new custom role is now available. For more information about creating custom roles, see [Create or update Azure custom roles using the Azure portal](../../../../role-based-access-control/custom-roles-portal.md).
 
 #### Assign the custom email role to the Microsoft Entra application
 1. In the portal, navigate to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
-    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control.":::
+    :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control." lightbox="../media/smtp-custom-role-iam-expanded.png":::
 1. Click **+Add** and then select **Add role assignment**.
-    :::image type="content" source="../media/email-smtp-add-role-assignment.png" alt-text="Screenshot that shows selecting Add role assignment.":::
+    :::image type="content" source="../media/email-smtp-add-role-assignment.png" alt-text="Screenshot that shows selecting Add role assignment." lightbox="../media/email-smtp-add-role-assignment-expanded.png":::
 1. On the **Role** tab, select the custom role created for sending emails using SMTP and click **Next**.
-    :::image type="content" source="../media/email-smtp-select-custom-role.png" alt-text="Screenshot that shows selecting the custom role.":::
+    :::image type="content" source="../media/email-smtp-select-custom-role.png" alt-text="Screenshot that shows selecting the custom role." lightbox="../media/email-smtp-select-custom-role-expanded.png":::
 1. On the **Members** tab, choose **User, group, or service principal** and then click **+Select members**.
-    :::image type="content" source="../media/email-smtp-select-members.png" alt-text="Screenshot that shows choosing select members.":::
+    :::image type="content" source="../media/email-smtp-select-members.png" alt-text="Screenshot that shows choosing select members." lightbox="../media/email-smtp-select-members-expanded.png":::
 1. Use the search box to find the **Microsoft Entra** application that you use for authentication and select it. Then click **Select**.
-    :::image type="content" source="../media/email-smtp-select-entra.png" alt-text="Screenshot that shows selecting Microsoft Entra ID.":::
+    :::image type="content" source="../media/email-smtp-select-entra.png" alt-text="Screenshot that shows selecting Microsoft Entra ID." lightbox="../media/email-smtp-select-entra-expanded.png":::
 1. After confirming the selection, click **Next**.
-    :::image type="content" source="../media/email-smtp-select-review.png" alt-text="Screenshot that shows reviewing the assignment.":::
+    :::image type="content" source="../media/email-smtp-select-review.png" alt-text="Screenshot that shows reviewing the assignment." lightbox="../media/email-smtp-select-review-expanded.png":::
 1. After confirming the scope and members, click **Review + assign**.
-    :::image type="content" source="../media/email-smtp-select-assign.png" alt-text="Screenshot that shows assigning the custom role.":::
+    :::image type="content" source="../media/email-smtp-select-assign.png" alt-text="Screenshot that shows assigning the custom role." lightbox="../media/email-smtp-select-assign-expanded.png":::
 
 ---
 
 ## Create an SMTP Username using the Azure portal
 1. In the portal, navigate to the Azure Communication Service Resource and then open **SMTP Usernames**.
-    :::image type="content" source="../media/smtp-usernames-1-username-blade.png" alt-text="Screenshot that shows SMTP Usernames.":::
+    :::image type="content" source="../media/smtp-usernames-1-username-blade.png" alt-text="Screenshot that shows SMTP Usernames." lightbox="../media/smtp-usernames-1-username-blade-expanded.png":::
 1. Click **+Add SMTP Username** and then select the Microsoft Entra application. If the Microsoft Entra application doesn't appear in the drop-down, see the previous steps to assign a role. The username can be custom text or an email address.
-    :::image type="content" source="../media/smtp-usernames-2-add-smtp-username.png" alt-text="Screenshot that shows adding an SMTP username.":::
+    :::image type="content" source="../media/smtp-usernames-2-add-smtp-username.png" alt-text="Screenshot that shows adding an SMTP username." lightbox="../media/smtp-usernames-2-add-smtp-username-expanded.png":::
 1. Verify the SMTP Username is in the list. The status changes to **Ready to use** once all of the requirements for sending an email using the username and SMTP are met.
-    :::image type="content" source="../media/smtp-usernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list.":::
+    :::image type="content" source="../media/smtp-usernames-3-list.png" alt-text="Screenshot that shows newly created SMTP username in the list." lightbox="../media/smtp-usernames-3-list-expanded.png":::
 
 ## SMTP authentication password
 The password is one of the Microsoft Entra application's client secrets.
-    :::image type="content" source="../media/email-smtp-entra-secret.png" alt-text="Screenshot that shows finding the Microsoft Entra client secret.":::
+    :::image type="content" source="../media/email-smtp-entra-secret.png" alt-text="Screenshot that shows finding the Microsoft Entra client secret." lightbox="../media/email-smtp-entra-secret-expanded.png":::
 
 ## Requirements for SMTP AUTH client submission
 
