@@ -87,7 +87,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
  
      :::image type="content" source="./media/sap-ase-database-backup/configure-backup.png" alt-text="Screenshot shows how to start the backup configuration." lightbox="./media/sap-ase-database-backup/configure-backup.png":::
 
-2.Under **Backup Policy**, select **Create a new policy** for the databases. 
+2. Under **Backup Policy**, select **Create a new policy** for the databases. 
 
    :::image type="content" source="./media/sap-ase-database-backup/create-backup-policy.png" alt-text="Screenshot shows how to start creating the backup policy." lightbox="./media/sap-ase-database-backup/create-backup-policy.png":::
 
