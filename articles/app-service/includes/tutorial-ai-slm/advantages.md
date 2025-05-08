@@ -8,7 +8,7 @@ ms.author: cephalin
 
 Hosting your own small language model (SLM) offers several advantages:
 
-- Full control over your data. Sensitive information is not exposed to third-party services, which is critical for industries with strict compliance requirements.
+- Full control over your data. Sensitive information isn't exposed to external services, which is critical for industries with strict compliance requirements.
 - Self-hosted models can be fine-tuned to meet specific use cases or domain-specific requirements. 
 - Minimized network latency and faster response times for a better user experience.
 - Full control over resource allocation, ensuring optimal performance for your application.
