@@ -4,12 +4,12 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 05/02/2025
+ms.date: 05/08/2025
 ms.author: cshoe
 ms.topic: how-to
 ---
 
-# Collect and read OpenTelemetry data in Azure Container Apps (preview)
+# Collect and read OpenTelemetry data in Azure Container Apps
 
 Using an [OpenTelemetry](https://opentelemetry.io/) data agent with your Azure Container Apps environment, you can choose to send observability data in an OpenTelemetry format by:
 
