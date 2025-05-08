@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create a service group with REST API"
+title: "Quickstart: Create a service group using the Azure portal"
 description: In this quickstart, you use REST API to create a service group to organize your resources.
 author: rthorn17
 ms.author: rithorn
