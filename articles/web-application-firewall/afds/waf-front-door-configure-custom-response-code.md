@@ -55,7 +55,7 @@ To customize the response status code and body, follow these steps:
 
 1. Under **Settings**, select **Policy settings**.
 
-1. Enter the custom response status code and response body in **Block response status code** and **Block response body** respectively.
+1. Enter the custom response status code and response body in the **Block response status code** and **Block response body** boxes, respectively.
 
     :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
 
