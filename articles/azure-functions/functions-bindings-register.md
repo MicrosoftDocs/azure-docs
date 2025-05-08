@@ -45,9 +45,16 @@ For a complete list of extension bundle releases and extension versions in each 
 
 ## Explicitly install extensions
 ::: zone pivot="programming-language-csharp"  
-For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For more information, see the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). 
+For compiled C# class library projects, you install the NuGet packages for the extensions that you need as you normally would in your apps. For more information, see the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). 
 
-See the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases) to review combinations of extension versions that are verified to be compatible.
+Make sure to obtain the correct package because the namespace differs depending on the execution model:
+
+| Execution model | Namespace |
+| ----- | ----- |
+| [Isolated worker process](dotnet-isolated-process-guide.md) | `Microsoft.Azure.Functions.Worker.Extensions.*`|
+| [In-process](functions-dotnet-class-library.md) | `Microsoft.Azure.WebJobs.Extensions.*` |
+
+Functions provides extension bundles for non-.NET projects, which contain a full set of binding extensions that are verified to be compatible. If you're having compatibility problems between two or more binding extensions, see the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases) to review compatible combinations of extension versions.
 ::: zone-end  
 ::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-other"  
 There are cases when you can't use extension bundles, such as when you need to use a specific prerelease version of a specific extension. In these rare cases, you must manually install any required binding extensions in a C# project file  (*extensions.csproj*) that references the specific extensions required by your app. 
