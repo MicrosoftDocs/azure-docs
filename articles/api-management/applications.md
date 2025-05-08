@@ -1,5 +1,5 @@
 ---
-title: Create OAuth 2.0 application to access product APIs - Azure API Management
+title: Create OAuth 2.0 Application for Access to Product APIs - Azure API Management
 titleSuffix: Azure API Management
 description: Learn how to configure OAuth 2.0 application-based access to products in Azure API Management, including prerequisites and step-by-step guidance.
 services: api-management
@@ -7,22 +7,22 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 05/08/2025
 ms.author: danlep
 ms.custom: 
 ---
 
-# Create and authorize access to products using OAuth 2.0 application 
+# Register an OAuth 2.0 application for access to product APIs 
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-API Management is introducing built-in OAuth 2.0 application-based access to products using the client credentials flow. API managers and developers can use applications to simplify securing access to APIs using OAuth 2.0 authorization.
+API Management now supports built-in OAuth 2.0 application-based access to product APIs using the client credentials flow. This feature allows API managers to register applications, streamlining secure API access for developers through OAuth 2.0 authorization.
 
 With this feature:
 
-* An API manager configures a product to use application based access, and registers a client application in Microsoft Entra ID that restricts access to the product's APIs. 
-* Developers obtain application credentials from the developer portal to generate OAuth 2.0 tokens from Microsoft Entra ID. 
-* A developer (or client app) can then use the OAuth 2.0 client credentials flow to obtain OAuth 2.0 tokens that are passed to the API Management gateway for authorization to the product's APIs. 
+* API managers configure products in API Management to enable application-based access. They also register client applications in Microsoft Entra ID to limit access to specific products. 
+* Developers access the developer portal to retrieve application credentials, which are used to secure access to product APIs.
+* Using the OAuth 2.0 client credentials flow, developers or client applications obtain tokens that are included in API requests. These tokens are validated by the API Management gateway to authorize access to the product's APIs.
 
 > [!IMPORTANT]
 > This feature is in private preview. Ensure that you can create an API Management instance in an Early Updates Access Program (EUAP) region. See detailed [Prerequisites](#prerequisites).
@@ -30,8 +30,8 @@ With this feature:
 
 This article describes the following steps:
 
-* Enable application-based access for a product in API Management
-* Create a client application in API Management that restricts access to the product
+* Enable application-based access for an API Management product
+* Create a client application that limits access to the product
 * View the client application in the developer portal and get credentials to the product's APIs
 * Test OAuth 2.0 token-based access to the product's associated API
 
@@ -47,15 +47,17 @@ This feature enables:
 
 ## Prerequisites
 
-- An API Management instance deployed in one of the Azure Early Updates Access Program (EUAP) regions, such as Central US EUAP. To create an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). The API Management instance must be in the **Premium**, **Standard**, **Basic**, or **Developer** tier.
+- An API Management instance deployed in one of the Azure Early Updates Access Program (EUAP) regions, such as Central US EUAP. If you need to deploy an instance, see [Create an API Management service instance](get-started-create-service-instance.md). The API Management instance must be in the **Premium**, **Standard**, **Basic**, or **Developer** tier.
 
     > [!NOTE]
     > If you don't have access to an EUAP region, you can [request it](/troubleshoot/azure/general/region-access-request-process) through the Azure portal.
 
-- At least one product in your API Management instance, with at least one API assigned to it. If you haven't yet created a product, see [Create and publish a product](api-management-howto-add-products.md). 
-    For testing, you can use the default **Starter** product and the **Echo** API that's added to it. The product should be in the **Published** state so that it can be accessed by developers through the developer portal.
+- At least one product in your API Management instance, with at least one API assigned to it. 
+    * The product should be in the **Published** state so that it can be accessed by developers through the developer portal.
+    * For testing, you can use the default **Starter** product and the **Echo** API that's added to it. 
+    * If you want to create a product, see [Create and publish a product](api-management-howto-add-products.md). 
 
-- Sufficient permissions tenant to assign the **Application Administrator** role in Microsoft Entra, which requires at least the **Privileged Role Administrator** role.
+- Sufficient permissions tenant to assign the **Application Administrator** role in Microsoft Entra ID, which requires at least the **Privileged Role Administrator** role.
 
 - Optionally, add one or more [users](api-management-howto-create-or-invite-developers.md) in your API Management instance. 
 
@@ -66,17 +68,14 @@ This feature enables:
 ## Configure managed identity
 
  1. Enable a system-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
-    
-    * Take note of the identity's **Object (principal) ID**.
-    
+        
 1. Assign the identity the **Application Administrator** RBAC role in Microsoft Entra ID. To assign the role:
 
     1. Sign in to the portal and navigate to **Microsoft Entra ID**. 
     1. In the left menu, select **Manage** > **Roles and administrators**.
     1. Select **Application administrator**.
     1. In the left menu, select **Manage** > **Assignments** > **+ Add assignments**.
-    1. In the **Add assignments** pane, search for the API Management instance's managed identity by name or object (principal) ID, select it, and then select **Add**.
-
+    1. In the **Add assignments** pane, search for the API Management instance's managed identity by name (the name of the API Management instance), select it, and then select **Add**.
 
 ## Enable application based access for product
 
@@ -115,7 +114,7 @@ Review application settings in **App registrations**:
 
 ## Create client application to access product
 
-Now create a client application that is registered in Microsoft Entra ID and restricts access to one or more products. 
+Now create a client application that is registered in Microsoft Entra ID and limits access to one or more products. 
 
 * A product must have **Application based access** enabled to be associated with a client application. 
 * Each client application has a single user (owner) in the API Management instance that can access product APIs through the application.
@@ -129,19 +128,17 @@ Now create a client application that is registered in Microsoft Entra ID and res
 1. In the **Register an application** pane, enter the following application settings:
     * **Name**: Enter a name for the application. 
     * **Owner**: Select the owner of the application from the dropdown list of users in the API Management instance. 
-    * **Grant access to selected products**: Select one or more products in the API Management instance that have **Application based access** enabled, such as the **Starter** product (see [Enable application based access for product](#enable-application-based-access-for-product)). 
+    * **Grant access to selected products**: Select one or more products in the API Management instance that you previously enabled for **Application based access**. 
     * **Description**: Optionally enter a description.
 
     :::image type="content" source="media/applications/register-application.png" alt-text="Screenshot of application settings in the portal.":::
 1. Select **Register**.
 
-The application is added to the list of applications on the **Applications** pane. A client secret is automatically generated for the application. The client secret is used to obtain an OAuth token from the client application in the client credentials flow.
+The application is added to the list of applications on the **Applications** pane. A client secret is automatically generated for the application. The client secret is used to obtain an OAuth 2.0 token from the client application in the client credentials flow.
 
 <!-- Where would client secret show? Should customer store it somewhere? -->
 
 ## Review client application settings
-
-Review the settings for the client application in Microsoft Entra ID.
 
 The application is named with the following format: **APIMApplication\<product-name\>**. For example, if the product name is **Starter**, the application name is similar to **APIMApplicationStarter**. 
 
@@ -155,8 +152,7 @@ Review application settings in **App registrations**:
 
     For example, if the client application grants access to the **Starter** product, the application has **Product.Starter.All** permissions to access the **APIMProductApplicationStarter** application. 
 
-    <!-- Insert screenshot -->
-
+    :::image type="content" source="media/applications/client-api-permissions.png" alt-text="Screenshot of API permissions in the portal.":::  
 
 ## List applications and get secrets in the developer portal
 
@@ -193,15 +189,16 @@ $token = $response.access_token
 
 ### Call product API using token
 
-The token generated in the previous step is used to call a product API. The token is passed in the **Authorization** header of the request. The API Management instance validates the token and authorizes access to the API. The following is an example call to the echo API.
+The token generated in the previous step is used to call a product API. The token is passed in the **Authorization** header of the request. The API Management instance validates the token and authorizes access to the API. 
+
+The following script shows an example call to the echo API.
 
 ```powershell
 
 # Gatewate endpoint to call. Update with URI of API operation you want to call.
 $uri = "https://<gateway-hostname>/echo/resource?param1=sample"
-# $token is the token generated in the previous step.
 $headers = @{
-   "Authorization" = "Bearer $token"
+   "Authorization" = "Bearer $token"  # $token is the token generated in the previous script.
 }
 $body = @{
     "hello" = "world"
