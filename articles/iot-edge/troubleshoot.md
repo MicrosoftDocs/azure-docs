@@ -67,7 +67,7 @@ iotedge support-bundle --help
 You can also use the built-in direct method call [UploadSupportBundle](how-to-retrieve-iot-edge-logs.md#upload-support-bundle-diagnostics) to upload the output of the support-bundle command to Azure Blob Storage.
 
 > [!WARNING]
-> Output from the `support-bundle` command can contain host, device and module names, information logged by your modules, etc. Be aware of this inclusion if sharing the output in a public forum.
+> Output from the `support-bundle` command can contain host, device names, module names, and information logged by your modules. Be aware of this inclusion if sharing the output in a public forum.
 
 ## Review metrics collected from the runtime
 
