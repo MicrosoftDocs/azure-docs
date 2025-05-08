@@ -55,7 +55,6 @@ The following table provides additional details and links so that you can compar
 |**Data storage and processing**  |   - [Data storage location](geographical-availability-data-residency.md#data-storage-location) <br>- [Supported regions](geographical-availability-data-residency.md#supported-regions)      |  [Data storage location](/defender-xdr/data-privacy#data-storage-location)       |
 |**Data retention**     |  [Data retention](geographical-availability-data-residency.md#data-retention)    | [Data retention](/defender-xdr/data-privacy#data-retention)      |
 |**Data sharing**     |  [Data sharing](geographical-availability-data-residency.md#data-sharing-for-microsoft-sentinel)       |  [Data sharing](/defender-xdr/data-privacy#data-sharing)       |
-|**Researcher access**     |    Available unless customers opt out using the **How do we use your data?** toggle in the Microsoft Sentinel **Settings** page.  | The [Microsoft Products and Services Data Protection Addendum (DPA)](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) [licenses Microsoft](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/EAEAS) to improve products and enhance user security in ways that provide benefit back to the customer. <br><br>Internally, Microsoft employs strict controls for permissible processing when using customer data in this manner.  <br><br>[Product Terms](https://www.microsoft.com/licensing/terms/product/PrivacyandSecurityTerms/EAEAS) also permits sharing data between services that the customer subscribes to. |
 
 For more information, see:
 
@@ -259,17 +258,16 @@ Most functionalities of User and Entity Behavior Analytics (UEBA) remain the sam
 
 ### Update investigation processes to use Microsoft Defender threat intelligence
 
-For Microsoft Sentinel customers moving from the Azure portal to the Defender portal, the familiar threat intelligence features are retained and enhanced with Defender's extensive threat intelligence capabilities, including:
-<!--are these XDR only features or do they come w sentinel only too? if they come w sentinel only should they move to the usx docset? last one only comes with TI?-->
+For Microsoft Sentinel customers moving from the Azure portal to the Defender portal, the familiar threat intelligence features are retained and enhanced with other threat intelligence features available in the Defender portal. Supported features depend on the licenses you have, such as:
 
 | Feature          | Description         |
 |-------------------|------------|
-| **Threat analytics** | An in-product solution provided by Microsoft security researchers, designed to help security teams by offering insights on emerging threats, active threats, and their impacts. The data is presented in an intuitive dashboard with cards, rows of data, filters, and more.  |
-| **Intel Profiles**   | Categorize threats and behaviors by a Threat Actor Profile, making it easier to track and correlate. These profiles include any Indicators of Compromise (IoC) related to tactics, techniques, and tools used in attacks. |
-| **Intel Explorer**   | Consolidates available IoCs and provides threat-related articles as they are posted, enabling security teams to stay updated on emerging threats.                                                        |
-| **Intel Projects**    | Allows teams to consolidate threat intelligence into a 'project' for reviewing all artifacts related to a specific scenario of interest.            |
+| **Threat analytics** | Supported for [Microsoft Defender XDR](/defender-xdr/) customers. An in-product solution provided by Microsoft security researchers, designed to help security teams by offering insights on emerging threats, active threats, and their impacts. The data is presented in an intuitive dashboard with cards, rows of data, filters, and more.  |
+| **Intel Profiles**   | Supported for [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/) customers. Categorize threats and behaviors by a Threat Actor Profile, making it easier to track and correlate. These profiles include any Indicators of Compromise (IoC) related to tactics, techniques, and tools used in attacks. |
+| **Intel Explorer**   | Supported for [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/) customers.  Consolidates available IoCs and provides threat-related articles as they are posted, enabling security teams to stay updated on emerging threats.                                                        |
+| **Intel Projects**    | Supported for [Microsoft Defender Threat Intelligence](/defender/threat-intelligence/) customers. Allows teams to consolidate threat intelligence into a 'project' for reviewing all artifacts related to a specific scenario of interest.            |
 
-In the Defender portal, use the `ThreatIntelOjbects` and `ThreatIntelIndicators` together with Indicators or Compromise for threat hunting, incident response, Copilot, reporting, and to create relational graphs showing connections between indicators and entities.
+In the Defender portal, use the `ThreatIntelOjbects` and `ThreatIntelIndicators` together with Indicators for Compromise for threat hunting, incident response, Copilot, reporting, and to create relational graphs showing connections between indicators and entities.
 
 For customers using the Microsoft Defender Threat Intelligence (MDTI) feed, a free version is available via Microsoft Sentinel's data connector for MDTI. Users with MDTI licenses can also ingest MDTI data and use Security Copilot for threat analysis, active threat review, and threat actor research.
 
