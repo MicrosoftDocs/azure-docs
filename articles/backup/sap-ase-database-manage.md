@@ -55,7 +55,8 @@ To modify the policy to change backup types, frequencies, and retention range, g
 >- Modification of the backup policy affects all the associated backup items and triggers the corresponding configure protection jobs.
 >- Any change in the retention period will be applied to both the new recovery points and, retroactively, to all the older recovery points.
 
-    :::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
+
+:::image type="content" source="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png" alt-text="Screenshot showing how to edit backup policy." lightbox="media/sap-adaptive-server-enterprise-db-manage/edit-policy.png":::
 
 ## Stop protection for an SAP ASE database or ASE instance
 
