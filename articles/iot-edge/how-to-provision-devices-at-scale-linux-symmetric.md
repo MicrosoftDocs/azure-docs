@@ -4,7 +4,7 @@ description: Use symmetric key attestation to test provisioning Linux devices at
 author: PatAltimore
 ms.author: patricka
 ms.date: 02/27/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
