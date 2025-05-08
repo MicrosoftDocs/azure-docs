@@ -111,7 +111,6 @@ To enable Azure Firewall structured logs, you must first configure a Log Analyti
 Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
 
 > [!NOTE]
-> * There's no requirement to enable this feature with a feature flag or Azure PowerShell commands.
 > * To enable Azure Firewall Fat Flow Log (Top flow log) you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
