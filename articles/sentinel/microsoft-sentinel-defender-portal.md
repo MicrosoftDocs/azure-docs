@@ -138,25 +138,6 @@ The following table lists the changes in navigation between the Azure and Defend
 | Settings          | System > Settings > Microsoft Sentinel               |
 
 
-### API responses
-
-The unified experience in the Defender portal introduces notable changes to incidents and alerts from APIs. It supports API calls based on the [Microsoft Graph REST API v1.0](/graph/api/resources/security-api-overview?view=graph-rest-1.0), which can be used for automation related to alerts, incidents, advanced hunting, and more.
-
-The [Microsoft Sentinel API](/rest/api/securityinsights/api-versions) continues to support actions against Microsoft Sentinel resources, like analytics rules, automation rules and more.   For interacting with unified incidents and alerts, we recommend that you use the Microsoft Graph REST API.
-If you're using the Microsoft Sentinel `SecurityInsights` API to interact with Microsoft Sentinel incidents, you may need to update your automation conditions and trigger criteria due to changes in the response body. The following fields are important in the response snippets:
-
-The following table lists fields that are important in the response snippets, and compares them across the Azure and Defender portals:
-
-| Functionality | Azure portal | Defender portal |
-|----------------|--------------|----------------|
-| Link to the incident| `incidentUrl`: The direct URL to the incident in the Microsoft Sentinel portal | `providerIncidentUrl` : This additional field provides a direct link to the incident, which can be used to synchronize this information with a third-party ticketing system like ServiceNow. `incidentUrl` is still available, but it points to the Microsoft Sentinel portal. |
-| The sources that triggered the detection and published the alert | `alertProductNames` | `alertProductNames`: Requires adding `?$expand=alerts` to the GET. For example, `https://graph.microsoft.com/v1.0/security/incidents/368?$expand=alerts`|
-| The name of the alert provider| `providerName` = "Azure Sentinel" | `providerName` = "Microsoft XDR" |
-| The service or product that created the alert | |`serviceSource` For example, "microsoftDefenderForCloudApps" | 
-| The detection technology or sensor that identified the notable component or activity | | `detectionSource` For example, "cloudAppSecurity"|
-| The name of the product which published this alert. | |`productName` For example, "Microsoft Defender for Cloud Apps" |
-
-
 ## Related content
 
 - [Microsoft Defender XDR integration with Microsoft Sentinel](microsoft-365-defender-sentinel-integration.md)
