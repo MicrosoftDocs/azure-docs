@@ -57,7 +57,7 @@ Azure App Service can be configured as *zone redundant*, which means that your r
 Instance spreading with a zone-redundant deployment is determined using the following rules. These rules apply even as the app scales in and out:
 
 - The minimum App Service plan instance count is two.
-- Instances are spread across multiple availability zones automatically when zone redundancy is enabled. The number of availability zones used by your plan is determined by Azure. To view the number of availability zones used by your plan, see the *MaximumNumberOfZones* property on the serverfarm object or see the value in the **Scale out (App Service plan)** blade in the Azure portal. This property is a ReadOnly property. If the *MaxumumNumberOfZones* value is 2 or 2, your App Service plan can be zone redundant. If this value is 1, your App Service plan doesn't support zone redundancy.
+- Instances are spread across multiple availability zones automatically when zone redundancy is enabled. The number of availability zones used by your plan is determined by Azure. To view the number of availability zones used by your plan, see the *MaximumNumberOfZones* property on the serverfarm object or see the value in the **Scale out (App Service plan)** blade in the Azure portal. This property is a ReadOnly property. If the *MaxumumNumberOfZones* value is 2 or 3, your App Service plan can be zone redundant. If this value is 1, your App Service plan doesn't support zone redundancy.
 
     :::image type="content" source="media/reliability-app-service/app-service-plan-max-zones-portal.png" alt-text="Screenshot of the App Service plan scale out blade in the Azure portal showing the MaximumNumberOfZones property." border="false":::
 
