@@ -2,7 +2,7 @@
 title: Tutorial to assess web apps in VMware VMs for migration to Azure App Service
 description: Learn how to create assessment for Azure App Service in VMware VMs using Azure Migrate
 ms.topic: tutorial
-ms.date: 08/24/2023
+ms.date: 05/08/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-app-service
@@ -16,9 +16,8 @@ zone_pivot_groups: web-apps-assessment-app-service
 
 As part of your migration journey to Azure, assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../../app-service/overview.md) about Azure App Service.
+This article shows you how to assess discovered ASP.NET web apps running on IIS web servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ::: zone-end
 
@@ -28,7 +27,6 @@ As part of your migration journey to Azure, assess your on-premises workloads to
 
 This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../../app-service/overview.md) about Azure App Service.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ::: zone-end
 
@@ -45,7 +43,7 @@ In this tutorial, you learn how to:
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 - Before you follow this tutorial to assess your web apps for migration to Azure App Service, make sure you've discovered the web apps you want to assess using the Azure Migrate appliance for [VMware](tutorial-discover-vmware.md).
-- If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](../how-to-discover-sql-existing-project.md) in this article.
+- If you want to try out this feature in an existing project, ensure that you have completed the [prerequisites](how-to-discover-sql-existing-project.md) in this article.
 
 ## Run an assessment
 
@@ -55,18 +53,18 @@ To run an assessment, follow these steps:
 1. On the **Azure Migrate** page, select **Servers, databases and web apps**.
 2. On the **Servers, databases and web apps** page, under **Assessments tools**, select **Web apps on Azure** from the **Assess** dropdown menu.
 
-   :::image type="content" source="../media/tutorial-assess-webapps/assess-web-apps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/assess-web-apps.png" alt-text="Screenshot of Overview page for Azure Migrate.":::
 
 3. On the **Create assessment** page, under **Basics** tab, do the following:
     1. The assessment type is pre-selected as **Web apps on Azure** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**. Select the **Scenario** as **Web apps to App Service**. 
 
-       :::image type="content" source="../media/tutorial-assess-webapps/create-assess-scenario.png" alt-text="Screenshot of Create assessment page for Azure Migrate.":::
+       :::image type="content" source="./media/tutorial-assess-webapps/create-assess-scenario.png" alt-text="Screenshot of Create assessment page for Azure Migrate.":::
 
     1. Select **Edit** to review the assessment properties.
 
        The following are included in Azure App Service assessment properties:
 
-       :::image type="content" source="../media/tutorial-assess-webapps/settings.png" alt-text="Screenshot of assessment settings for Azure Migrate.":::
+       :::image type="content" source="./media/tutorial-assess-webapps/settings.png" alt-text="Screenshot of assessment settings for Azure Migrate.":::
 
         **Property** | **Details**
         --- | ---
@@ -80,8 +78,8 @@ To run an assessment, follow these steps:
         **Isolation required** | Select **Yes** if you want your web apps to run in a private and dedicated environment in an Azure datacenter.
 
     - In **Savings options (Compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure Compute cost. 
-        - [Azure reservations](../../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select *None*, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.
         - You need to select Pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than *None*, the **Discount (%)** setting isn't applicable.
 
@@ -100,7 +98,7 @@ To run an assessment, follow these steps:
     - Select the servers that you want to add to the group from the table.
     - Select **Next**.
 
-   :::image type="content" source="../media/tutorial-assess-webapps/server-selection.png" alt-text="Screenshot of selected servers.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/server-selection.png" alt-text="Screenshot of selected servers.":::
 
 1. Under **Review + create assessment** tab, review the assessment details, and select **Create assessment** to create the group and run the assessment.
 
@@ -119,7 +117,7 @@ To view an assessment, follow these steps:
 1. On the **Assessments** page, select a desired assessment name to view from the list of assessments. 
 
    
-   :::image type="content" source="../media/tutorial-assess-webapps/overview.png" alt-text="Screenshot of Overview screen.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/overview.png" alt-text="Screenshot of Overview screen.":::
 
    The **Overview** page contains 3 sections:  
 
@@ -137,7 +135,7 @@ To review the readiness for the web apps, follow these steps:
 1. Select **View more details** to view more details about each app and instances. Review the Azure App service Code and Azure App service Container readiness column in the table for the assessed web apps:  
 
 
-   :::image type="content" source="../media/tutorial-assess-webapps/code-readiness.png" alt-text="Screenshot of Azure App Service Code readiness.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/code-readiness.png" alt-text="Screenshot of Azure App Service Code readiness.":::
 
     1. If there are no compatibility issues found, the readiness is marked as **Ready** for the target deployment type.
     1. If there are non-critical compatibility issues, such as degraded or unsupported features that don't block the migration to a specific target deployment type, the readiness is marked as **Ready with conditions** (hyperlinked) with **warning** details and recommended remediation guidance.
@@ -146,7 +144,7 @@ To review the readiness for the web apps, follow these steps:
     1. If the assessment isn't up-to-date, the status shows as **Outdated**. Select the corresponding assessment and select **Recalculate assessment**. The assessment is recalculated and the Readiness overview screen is updated with the results of the recalculated assessments.
 1. Select the Readiness status to open the **Migration issues and warnings** pane with details of the cause of the issue and recommended action.  
 
-   :::image type="content" source="../media/tutorial-assess-webapps/code-check.png" alt-text="Screenshot of recommended actions.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/code-check.png" alt-text="Screenshot of recommended actions.":::
 
 
 1. Review the recommended SKU for the web apps, which is determined as per the matrix below:
@@ -163,9 +161,9 @@ To review the readiness for the web apps, follow these steps:
 The assessment summary shows the estimated monthly costs for hosting your web apps.  
 Select the **Cost details** tab to view a monthly cost estimate depending on the SKUs. 
 
-:::image type="content" source="../media/tutorial-assess-webapps/code-cost.png" alt-text="Screenshot of cost details.":::
+:::image type="content" source="./media/tutorial-assess-webapps/code-cost.png" alt-text="Screenshot of cost details.":::
 
 ## Next steps
 
-- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](../tutorial-modernize-asp-net-appservice-code.md).
-- [Learn more](../concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.
+- Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
+- [Learn more](./concepts-azure-webapps-assessment-calculation.md) about how Azure App Service assessments are calculated.
