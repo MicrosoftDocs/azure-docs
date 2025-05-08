@@ -710,7 +710,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-In this tutorial, the App Service app is already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
+In this tutorial, the App Service app already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
 
 ```bash
 apt-get update
