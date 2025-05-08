@@ -243,8 +243,8 @@ azd down
 
 ## Frequently asked questions
 
-- [How do sidecar containers handle internal communication?](includes/tutorial-sidecar/common-faqs.md#how-do-sidecar-containers-handle-internal-communication)
-- [Can a sidecar container receive internet requests?](includes/tutorial-sidecar/common-faqs.md#can-a-sidecar-container-receive-internet-requests)
+- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
+- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
 - [How do I instrument other language stacks?](#how-do-i-instrument-other-language-stacks)
 
 [!INCLUDE [common-faqs](includes/tutorial-sidecar/common-faqs.md)]

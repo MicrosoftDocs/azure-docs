@@ -81,7 +81,7 @@ First you create the resources that the tutorial uses. They're used for this par
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the web app create wizard and settings for the container image and the sidecar support highlighted.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled apps. For more information, see [Differences for sidecar-enabled apps](#differences-for-sidecar-enabled-apps).
+    > These settings are configured differently in sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 1. Select **Review + create**, then select **Create**.
 
@@ -127,8 +127,7 @@ You configure environment variables for the containers like any App Service app,
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
 > [!NOTE]
-> Certain app settings don't apply to sidecar-enabled apps. For more information, see [Differences for sidecar-enabled apps](#differences-for-sidecar-enabled-apps)
-
+> Certain app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
 ## 5. Verify in Application Insights
 
 The otel-collector sidecar should export data to Application Insights now.
@@ -152,8 +151,8 @@ azd down
 ## Frequently asked questions
 
 - [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
-- [How do sidecar containers handle internal communication?](includes/tutorial-sidecar/common-faqs.md#how-do-sidecar-containers-handle-internal-communication)
-- [Can a sidecar container receive internet requests?](includes/tutorial-sidecar/common-faqs.md#can-a-sidecar-container-receive-internet-requests)
+- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
+- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
 
 ## What are the differences for sidecar-enabled custom containers?
 
