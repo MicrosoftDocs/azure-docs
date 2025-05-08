@@ -360,13 +360,12 @@ If your account isn't assigned to the previous role, it must be assigned to a [c
 
 ## Next steps
 
-- A virtual network peering can be created between virtual networks created through the same, or different deployment models that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
+- A virtual network peering can be created between virtual networks that exist in the same, or different subscriptions. Complete a tutorial for one of the following scenarios:
 
   |Azure deployment model             | Subscription  |
   |---------                          |---------|
   |Resource Manager              |[Same](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Different](create-peering-different-subscriptions.md)|
-
 
 - Learn how to create a [**hub** and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
