@@ -59,11 +59,11 @@ spec:
       routeTimeout: 0s 
 ```
 
->[!NOTE]
->The idle timeout for Application Gateway for Containers is currently set to 5 minutes. If your application does not send or receive data within this period, consider sending a keep-alive request to prevent the connection from closing. You can implement this by prefixing a message with a colon `:` to act as a comment. For example, you may send the following message as a keep alive: `: keep-alive\n\n`
-
 # [Ingress API](#tab/session-affinity-ingress-api)
 
 Server-sent events aren't supported using Ingress API.
 
 ---
+
+>[!NOTE]
+>The idle timeout for Application Gateway for Containers is currently set to 5 minutes. If your application does not send or receive data within this period, consider sending a keep-alive request to prevent the connection from closing. You can implement this by prefixing a message with a colon `:` to act as a comment. For example, you may send the following message as a keep alive: `: keep-alive\n\n`
