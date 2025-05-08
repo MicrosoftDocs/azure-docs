@@ -22,9 +22,9 @@ This article shows you how to create, manage, and delete your Azure Redis instan
 
   [:::image type="icon" source="~/reusable-content/cloud-shell/media/hdi-launch-cloud-shell.png" alt-text="Launch Azure Cloud Shell" :::](https://shell.azure.com)
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/cloud-shell/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/azure-powershell/azure-powershell-requirements-no-header.md)]
 
-- Make sure you're signed in to Azure with the subscription you want to create your cache under. To use a different subscription than the one you're signed in with, run `Select-AzSubscription -SubscriptionName <SubscriptionName>.
+- Make sure you're signed in to Azure with the subscription you want to create your cache under. To use a different subscription than the one you're signed in with, run `Select-AzSubscription -SubscriptionName <SubscriptionName>`.
 
 >[!NOTE]
 >Azure Cache for Redis Basic, Standard, and Premium tiers use the Azure PowerShell [Az.RedisCache](/powershell/module/az.rediscache) commands.
@@ -378,7 +378,7 @@ You can use `Set-AzRedisCache` to scale an Azure Cache for Redis instance when y
 > - You can't scale from a Basic cache directly to a Premium cache. You must scale from Basic to Standard in one scaling operation, and then from Standard to Premium in another scaling operation.
 > - You can't scale from a larger size down to the C0 (250 MB) size.
 >
-> For more information, see [How to scale Azure Cache for Redis](../../azure-cache-for-redis/cache-how-to-scale.md).
+> For more information, see [How to scale Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-scale.md).
 
 The following example shows how to scale a cache named `myCache` to a 2.5-GB cache. This command works for a Basic or a Standard cache.
 
@@ -524,6 +524,7 @@ The following example removes the cache named `myCache`.
 Remove-AzRedisCache -Name myCache -ResourceGroupName myGroup
 ```
 
+<a name="to-import-an-azure-cache-for-redis"></a>
 ## Import data into an Azure Cache for Redis cache
 
 You can import data into an Azure Cache for Redis instance using the `Import-AzRedisCache` cmdlet.
@@ -543,6 +544,7 @@ The following command imports data from the blob specified by the `Files` parame
 Import-AzRedisCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Files @("https://mystorageaccount.blob.core.windows.net/mycontainername/blobname?sv=2015-04-05&sr=b&sig=caIwutG2uDa0NZ8mjdNJdgOY8%2F8mhwRuGNdICU%2B0pI4%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwd") -Force
 ```
 
+<a name="to-export-an-azure-cache-for-redis"></a>
 ## Export Azure Cache for Redis cache data
 
 You can export data from an Azure Cache for Redis instance using the `Export-AzRedisCache` cmdlet.
@@ -564,6 +566,7 @@ The following command exports data from an Azure Cache for Redis instance into t
     pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
 ```
 
+<a name="to-reboot-an-azure-cache-for-redis"></a>
 ## Reboot an Azure Cache for Redis cache
 
 You can reboot your Azure Cache for Redis instance using the `Reset-AzRedisCache` cmdlet.
@@ -619,7 +622,7 @@ Get detailed help for any cmdlet:
 Get-Help <cmdlet-name> -Detailed
 ```
 
-### Connect to other clouds
+## How to connect to other clouds
 
 By default the Azure environment is `AzureCloud`, which represents the global Azure cloud. To connect to a different cloud instance, use the `Connect-AzAccount` command with the `-Environment` or -`EnvironmentName` command-line switch with the environment or environment name you want.
 
