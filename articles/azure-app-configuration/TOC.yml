@@ -222,6 +222,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Preview API life cycle
+    href: concept-preview-api-life-cycle.md
 - name: Security
   items:
   - name: Authentication
