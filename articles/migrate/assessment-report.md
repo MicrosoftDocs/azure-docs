@@ -4,7 +4,7 @@ description: Learn about assessment report, Azure readiness, and recommendations
 author: SnehaSudhir  
 ms.author: sudhirsneha 
 ms.service: azure-migrate 
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 04/17/2025
 ms.custom: engagement-fy24 
 monikerRange: migrate

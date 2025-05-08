@@ -349,6 +349,8 @@
         href: configure-customer-managed-keys.md
       - name: Configure customer-managed keys with managed HSM
         href: configure-customer-managed-keys-hardware.md
+      - name: Configure cross-tenant customer-managed keys 
+        href: customer-managed-keys-cross-tenant.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes

@@ -2,8 +2,8 @@
 title: Use cases for Azure Virtual Desktop Insights - Azure Virtual Desktop
 description: Learn about how using Azure Virtual Desktop Insights can help you understand your deployments of Azure Virtual Desktop, including some use cases and example scenarios.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 06/21/2024
 ---
 

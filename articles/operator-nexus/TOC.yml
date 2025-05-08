@@ -11,6 +11,8 @@
       href: concepts-resource-types.md
     - name: Compute overview
       href: concepts-compute.md
+    - name: Telco Input Template
+      href: concepts-telco-input-template.md
     - name: Storage
       expanded: false
       items:
@@ -163,8 +165,12 @@
               href: howto-cluster-runtime-upgrade.md
             - name: Cluster Upgrades With PauseAfterRack Strategy
               href: howto-cluster-runtime-upgrade-with-pauseafterrack-strategy.md
+            - name: Cluster Upgrades Template
+              href: howto-cluster-runtime-upgrade-template.md
             - name: Network Fabric Upgrades
               href: howto-upgrade-nexus-fabric.md
+            - name: Network Fabric Upgrades Template
+              href: howto-upgrade-nexus-fabric-template.md
             - name: Credential Rotation
               href: howto-credential-rotation.md
             - name: Credential Manager Key Vault
@@ -342,6 +348,8 @@
           href: howto-check-runtime-version.md
         - name: Site decommission checklist
           href: howto-decommission-nexus-instance-checklist.md
+        - name: Nexus Instance Deployment Template
+          href: howto-nexus-instance-deployment-template.md
 
 - name: Troubleshooting
   expanded: true

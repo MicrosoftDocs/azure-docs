@@ -4,8 +4,8 @@ description: Describes the requirements and considerations for using the volume 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 04/23/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
 ms.author: anfdocs
 ---
 
