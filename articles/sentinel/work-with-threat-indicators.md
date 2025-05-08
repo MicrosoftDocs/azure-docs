@@ -2,20 +2,21 @@
 title: Work with threat intelligence
 titleSuffix: Microsoft Sentinel
 description: This article explains how to view, create, manage, and visualize threat intelligence in Microsoft Sentinel.
-author: austinmccollum
+author: guywi-ms
 ms.topic: how-to
-ms.date: 01/27/2025
-ms.author: austinmc
+ms.date: 02/21/2025
+ms.author: guywild
+ms.reviewer: alsheheb
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to use threat intelligence managed by Microsoft Sentinel so that I can detect and respond to security threats more effectively.
 ---
 
 # Work with Microsoft Sentinel threat intelligence
 
-Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Azure portal or using Microsoft's unified SecOps platform.
+Accelerate threat detection and remediation with streamlined creation and management of threat intelligence. This article demonstrates how to make the most of threat intelligence integration in the management interface, whether you're accessing it from Microsoft Sentinel in the Defender portal or the Azure portal.
 
 - Create threat intelligence objects using structured threat information expression (STIX)
 - Manage threat intelligence by viewing, curating, and visualizing 
@@ -47,7 +48,7 @@ Use the management interface to create STIX objects and perform other common thr
 - Define relationships as you create new STIX objects.
 - Quickly create multiple objects by using the duplicate feature to copy the metadata from a new or existing TI object.
 
-For more information on supported STIX objects, see [Understand threat intelligence](understand-threat-intelligence.md#create-and-manage-threat-intelligence).
+For more information on supported STIX objects, see [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md#create-and-manage-threat-intelligence).
 
 ### Create a new STIX object
 
@@ -56,6 +57,7 @@ For more information on supported STIX objects, see [Understand threat intellige
     :::image type="content" source="media/work-with-threat-indicators/threat-intel-add-new-indicator.png" alt-text="Screenshot that shows adding a new threat indicator." lightbox="media/work-with-threat-indicators/threat-intel-add-new-indicator.png":::
 
 1. Choose the **Object type**, then fill in the form on the **New TI object** page. Required fields are marked with a red asterisk (*).
+1. Consider designating a sensitivity value, or **Traffic light protocol** (TLP) rating to the TI object. For more information on what the values represent, see [Curate threat intelligence](understand-threat-intelligence.md#curate-threat-intelligence).
 1. If you know how this object relates to another threat intelligence object, indicate that connection with the **Relationship type** and the **Target reference**.
 1. Select **Add** for an individual object, or **Add and duplicate** if you want to create more items with the same metadata. The following image shows the common section of each STIX object's metadata that is duplicated. 
 
@@ -89,28 +91,32 @@ Reduce noise from your TI feeds, extend the validity of high value indicators, a
 
 :::image type="content" source="media/work-with-threat-indicators/new-ingestion-rule.png" alt-text="Screenshot showing new ingestion rule creation for extending valid until date.":::
 
-For more information, see [Understand threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
+For more information, see [Threat intelligence ingestion rules](understand-threat-intelligence.md#configure-ingestion-rules).
 
 ### Curate threat intelligence with the relationship builder
 
 Connect threat intelligence objects with the relationship builder. There's a maximum of 20 relationships in the builder at once, but more connections can be created through multiple iterations and by adding relationship target references for new objects.
 
-1. Start with an object like a threat actor or attack pattern where the single object connects to one or more objects, like indicators.
+1. Select **Add new** > **TI relationship**.
+
+1. Start with an existing TI object like a threat actor or attack pattern where the single object connects to one or more existing objects, like indicators.
 
 1. Add the relationship type according to the best practices outlined in the following table and in the [STIX 2.1 reference relationship summary table](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_6n2czpjuie3v):
 
-| Relationship type | Description |
-|---|---|
-| **Duplicate of**</br>**Derived from**</br>**Related to** | Common relationships defined for any STIX domain object (SDO)<br>For more information, see [STIX 2.1 reference on common relationships](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f3dx2rhc3vl)|
-| **Targets** | `Attack pattern` or `Threat actor` Targets `Identity` |
-| **Uses** | `Threat actor` Uses `Attack pattern` |
-| **Attributed to** | `Threat actor` Attributed to `Identity` |
-| **Indicates** | `Indicator` Indicates `Attack pattern` or `Threat actor` |
-| **Impersonates** | `Threat actor` Impersonates `Identity` |
+   | Relationship type | Description |
+   |---|---|
+   | **Duplicate of**</br>**Derived from**</br>**Related to** | Common relationships defined for any STIX domain object (SDO)<br>For more information, see [STIX 2.1 reference on common relationships](https://docs.oasis-open.org/cti/stix/v2.1/os/stix-v2.1-os.html#_f3dx2rhc3vl)|
+   | **Targets** | `Attack pattern` or `Threat actor` Targets `Identity` |
+   | **Uses** | `Threat actor` Uses `Attack pattern` |
+   | **Attributed to** | `Threat actor` Attributed to `Identity` |
+   | **Indicates** | `Indicator` Indicates `Attack pattern` or `Threat actor` |
+   | **Impersonates** | `Threat actor` Impersonates `Identity` |
 
-The following image demonstrates connections made between a threat actor and an attack pattern, indicator, and identity using the relationship type table.
+1. Use the following image as an example in how to use the relationship builder. This example demonstrates how to make connections made between a threat actor and an attack pattern, indicator, and identity using the relationship builder in the Defender portal.
 
-:::image type="content" source="media/work-with-threat-indicators/relationship-example.png" alt-text="Screenshot showing the relationship builder.":::
+   :::image type="content" source="media/work-with-threat-indicators/relationship-example-defender-portal.png" alt-text="Screenshot showing the relationship builder." lightbox="media/work-with-threat-indicators/relationship-example-defender-portal.png":::
+
+1. Complete the relationship by configuring **Common** properties.
 
 ### View your threat intelligence in the management interface
 
@@ -128,8 +134,7 @@ In the following image, multiple sources were used to search by placing them in 
 
 :::image type="content" source="media/work-with-threat-indicators/advanced-search.png" alt-text="Screenshot shows an OR operator combined with multiple AND conditions to search threat intelligence." lightbox="media/work-with-threat-indicators/advanced-search.png":::
 
-
-Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
+Microsoft Sentinel only displays the most current version of your threat intel in this view. For more information on how objects are updated, see [Threat intelligence lifecycle](understand-threat-intelligence.md#threat-intelligence-lifecycle).
 
 IP and domain name indicators are enriched with extra `GeoLocation` and `WhoIs` data so you can provide more context for any investigations where indicator is found.
 
@@ -153,24 +158,39 @@ Edit threat intelligence one object at a time, whether created directly in Micro
 
 For more information on how threat intel is updated, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
-### Find and view your indicators with queries
+### Find and view threat intelligence with queries
 
-This procedure describes how to view your threat indicators in Log Analytics, together with other Microsoft Sentinel event data, regardless of the source feed or method you used to ingest them.
+This procedure describes how to view your threat intelligence with queries, regardless of the source feed or method you used to ingest them.
 
-Threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
+Threat indicators are stored in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries performed by other Microsoft Sentinel features, such as **Analytics**, **Hunting**, and **Workbooks**.
 
-To view your threat intelligence indicators:
+>[!IMPORTANT]
+> On April 3, 2025, we publicly previewed two new tables to support STIX indicator and object schemas: `ThreatIntelIndicators` and `ThreatIntelObjects`. Microsoft Sentinel will ingest all threat intelligence into these new tables, while continuing to ingest the same data into the legacy `ThreatIntelligenceIndicator` table until July 31, 2025. 
+>**Be sure to update your custom queries, analytics and detection rules, workbooks, and automation to use the new tables by July 31, 2025.** After this date, Microsoft Sentinel will stop ingesting data to the legacy `ThreatIntelligenceIndicator` table. We're updating all out-of-the-box threat intelligence solutions in Content hub to leverage the new tables. For more information about the new table schemas, see [ThreatIntelIndicators](/azure/azure-monitor/reference/tables/threatintelligenceindicator) and [ThreatIntelObjects](/azure/azure-monitor/reference/tables/threatintelobjects).
+> For information on using and migrating to the new tables, see (Work with STIX objects to enhance threat intelligence and threat hunting in Microsoft Sentinel (Preview))[work-with-stix-objects-indicators.md]. 
+
+
+#### [Defender portal](#tab/defender-portal)
+
+1. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
+
+1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
+
+:::image type="content" source="./media/work-with-threat-indicators/table-results-advanced-hunting.png" alt-text="Screenshot of add watchlist option on watchlist page." lightbox="./media/work-with-threat-indicators/table-results-advanced-hunting.png":::
+
+#### [Azure portal](#tab/azure-portal)
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **General**, select **Logs**.
 
-   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Investigation & response** > **Hunting** > **Advanced hunting**.
-
-1. The `ThreatIntelligenceIndicator` table is located under the **Microsoft Sentinel** group.
 1. Select the **Preview data** icon (the eye) next to the table name. Select **See in query editor** to run a query that shows records from this table.
 
-    Your results should look similar to the sample threat indicator shown here.
+Your results should look similar to the sample threat indicator shown here.
 
-    :::image type="content" source="media/work-with-threat-indicators/ti-table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/ti-table-results.png":::
+:::image type="content" source="media/work-with-threat-indicators/table-results.png" alt-text="Screenshot that shows sample ThreatIntelligenceIndicator table results with the details expanded." lightbox="media/work-with-threat-indicators/table-results.png":::
+
+---
+
+For more information, see [View your threat intelligence](understand-threat-intelligence.md#view-your-threat-intelligence).
 
 ### Visualize your threat intelligence with workbooks
 
@@ -223,7 +243,7 @@ There's also a rich resource for [Azure Monitor workbooks on GitHub](https://git
 
 For more information, see the following articles:
 
-- [Understand threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
+- [Threat intelligence in Microsoft Sentinel](understand-threat-intelligence.md).
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - See which [TIPs, TAXII feeds, and enrichments](threat-intelligence-integration.md) can be readily integrated with Microsoft Sentinel.
 

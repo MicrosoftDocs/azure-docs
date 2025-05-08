@@ -1,24 +1,24 @@
 ---
-title: Copy data from and to Salesforce
+title: Copy data from and to Salesforce V2
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
+description: Learn how to copy data from Salesforce V2 to supported sink data stores or from supported source data stores to Salesforce V2 by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/15/2024
+ms.date: 05/07/2025
 ---
 
-# Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
+# Copy data from and to Salesforce V2 using Azure Data Factory or Azure Synapse Analytics
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
->[!IMPORTANT]
->The new Salesforce connector provides improved native Salesforce support. If you are using the legacy Salesforce connector in your solution, you are recommended to [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) at your earliest convenience. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [Salesforce V2 connector](connector-salesforce.md) provides improved native Salesforce support. If you are using the [Salesforce V1 connector](connector-salesforce-legacy.md) in your solution, you are recommended to [upgrade your Salesforce connector](#upgrade-the-salesforce-linked-service) before **June 30, 2025**. Refer to this [section](#differences-between-salesforce-and-salesforce-legacy) for details on the difference between V2 and v1. 
 
 ## Supported capabilities
 
@@ -377,15 +377,15 @@ Here are steps that help you upgrade your Salesforce connector:
 
 1. Create a new Salesforce linked service and configure it by referring to [Linked service properties](connector-salesforce.md#linked-service-properties). You also need to manually update existing datasets that rely on the old linked service, editing each dataset to use the new linked service instead.
 
-1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
+1. If you use SQL query in the copy activity source or the lookup activity that refers to the V1 linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
 1. readBehavior is replaced with includeDeletedObjects in the copy activity source or the lookup activity. For the detailed configuration, see [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type).
 
-## Differences between Salesforce and Salesforce (legacy)
+## <a name="differences-between-salesforce-and-salesforce-legacy"></a> Differences between Salesforce V2 and V1
 
-The Salesforce connector offers new functionalities and is compatible with most features of Salesforce (legacy) connector. The following table shows the feature differences between Salesforce and Salesforce (legacy).
+The Salesforce V2 connector offers new functionalities and is compatible with most features of Salesforce V1 connector. The following table shows the feature differences between V2 and V1.
 
-|Salesforce |Salesforce (legacy)|
+|Salesforce V2 |Salesforce V1|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
 | Objects that contain binary fields aren't supported when specifying query. | Objects that contain binary fields are supported when specifying query.|

@@ -3,7 +3,10 @@ title: What is Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop and Apache Spark technology stack and components, including Kafka, Hive, and HBase for big data analysis.
 ms.service: azure-hdinsight
 ms.topic: overview
-ms.date: 05/09/2024
+author: reachnijel
+ms.author: nijelsf
+ms.reviewer: sairamyeturi
+ms.date: 02/24/2025
 #Customer intent: As a data analyst, I want understand what is Azure HDInsight and Hadoop and how it is offered in so that I can decide on using HDInsight instead of on premises clusters.
 ---
 
@@ -108,9 +111,9 @@ Familiar business intelligence (BI) tools retrieve, analyze, and report data tha
 
 ## In-region data residency 
 
-Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Spark, Hadoop, and LLAP don't store customer data, so these services automatically satisfy in-region data residency requirements specified in the [Azure global infrastructure site](https://datacenters.microsoft.com/globe/explore/). 
 
-Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net/). 
+Kafka and HBase do store customer data. This data is automatically stored by Kafka and HBase in a single region, so this service satisfies in-region data residency requirements specified in the [Azure global infrastructure site](https://datacenters.microsoft.com/globe/explore/). 
 
 Familiar business intelligence (BI) tools retrieve, analyze, and report data that is integrated with HDInsight by using either the Power Query add-in or the Microsoft Hive ODBC Driver.
 

@@ -1,10 +1,10 @@
 ---
-title: Modify an Active Directory Connection for Azure NetApp Files | Microsoft Docs
+title: Modify an Active Directory Connection for Azure NetApp Files
 description: This article shows you how to modify Active Directory connections for Azure NetApp Files.
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 05/06/2025
 ms.author: anfdocs
 ---
 
@@ -43,7 +43,7 @@ For more information, see [Understand guidelines for Active Directory Domain Ser
 | Username | Username of the Active Directory domain administrator | Yes | None* | Credential change to contact DC |
 | Password | Password of the Active Directory domain administrator | Yes | None* <br></br> Password can't exceed 64 characters. | Credential change to contact DC |
 | Kerberos Realm: AD Server Name | The name of the Active Directory machine. This option is only used when creating a Kerberos volume. | Yes | None* | |
-| Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server | Yes | None | A new KDC IP address will be used |
+| Kerberos Realm: KDC IP | Specifies the IP address of the Kerberos Distribution Center (KDC) server. KDC in Azure NetApp Files is an Active Directory server. You can only modify a KDC IP by editing the AD setting.  | Yes | None | A new KDC IP address will be used |
 | Region | The region where the Active Directory credentials are associated | No | None | N/A |
 | User DN | User domain name, which overrides the base DN for user lookups Nested userDN can be specified in `OU=subdirectory, OU=directory, DC=domain, DC=com` format.​ | Yes | None* | User search scope gets limited to User DN instead of base DN. |
 | Group DN | Group domain name. groupDN overrides the base DN for group lookups. Nested groupDN can be specified in `OU=subdirectory, OU=directory, DC=domain, DC=com` format.​ | Yes | None* | Group search scope gets limited to Group DN instead of base DN. |

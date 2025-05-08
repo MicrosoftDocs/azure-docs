@@ -2,8 +2,8 @@
 title: Device management using direct methods (Python)
 titleSuffix: Azure IoT Hub
 description: How to use Azure IoT Hub direct methods with the Azure IoT SDK for Python for device management tasks including invoking a remote device reboot.
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
@@ -123,7 +123,7 @@ The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregist
 
 ### Service import statements
 
-Add these import statements to connect to Iot Hub, send cloud-to-device direct methods, and receive device direct method responses.
+Add these import statements to connect to IoT Hub, send cloud-to-device direct methods, and receive device direct method responses.
 
 ```python
 from azure.iot.hub import IoTHubRegistryManager

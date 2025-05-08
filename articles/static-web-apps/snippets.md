@@ -2,11 +2,11 @@
 title: Snippets in Azure Static Web Apps
 description: Inject custom code in the HEAD or BODY elements at runtime in Azure Static Web Apps 
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic:  overview
 ms.date: 06/22/2023
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Snippets in Azure Static Web Apps

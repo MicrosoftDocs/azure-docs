@@ -1,8 +1,8 @@
 ---
 title: Azure IoT Hub non-telemetry event schemas
 description: This article provides the properties and schema for Azure IoT Hub non-telemetry events. It lists the available event types, an example event, and event properties.
-author: kgremban
-ms.author: kgremban  
+author: SoniaLopezBravo
+ms.author: sonialopez  
 ms.topic: conceptual
 ms.date: 04/10/2024
 ms.service: azure-iot-hub

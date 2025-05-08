@@ -6,6 +6,8 @@ ms.author: austinmc
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 09/23/2024
+ms.collection:
+ - migration
 #Customer intent: As a SOC team leader, I want to migrate from a legacy SIEM to Microsoft Sentinel so that I can improve threat detection, automate responses, and ensure comprehensive coverage of both on-premises and cloud assets.
 
 ---

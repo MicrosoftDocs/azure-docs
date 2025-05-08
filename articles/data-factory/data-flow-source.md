@@ -124,7 +124,7 @@ The **Source options** tab contains settings specific to the connector and forma
 
 ## Projection
 
-Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat .csv files rather than Parquet files), you can define the data types for each field in the source transformation.
+Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset, which will vary based on the source. When your source files aren't strongly typed (for example, flat .csv files rather than Parquet files), you can define the data types for each field in the source transformation. The following image shows an example projection:
 
 :::image type="content" source="media/data-flow/source-3.png" alt-text="Screenshot that shows settings on the Projection tab.":::
 

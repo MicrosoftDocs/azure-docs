@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 02/03/2025
+ms.date: 05/07/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: jyothisuri
@@ -135,7 +135,16 @@ You can also filter from the list of all recovery points as per *daily*, *weekly
  
 :::image type="content" source="./media/archive-tier-support/filter-vm-recovery-points-by-age.png" alt-text="Screenshot shows how to filter recovery points for an Azure VM by daily, weekly, monthly, and yearly." lightbox="./media/archive-tier-support/filter-vm-recovery-points-by-age.png":::
 
+### Can I retrieve snapshot to Standard Tier Permanently after the recovery point is moved to Archive Tier?
+
+No, after moving the recovery point to the archive tier, it can't return to the standard tier permanently. Rehydration provides the only method to place the RP in the standard tier for a specified duration during restore. The recovery point remains in the archive tier.
+
+>[!Note]
+>You can do the rehydration process during the restore from a recovery point only.
+
+
 ## Next steps
 
-- [Use Archive tier](use-archive-tier-support.md)
-- [Azure Backup pricing](azure-backup-pricing.md)
+- [Use Archive tier](use-archive-tier-support.md).
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md).
+- [Azure Backup pricing](azure-backup-pricing.md).

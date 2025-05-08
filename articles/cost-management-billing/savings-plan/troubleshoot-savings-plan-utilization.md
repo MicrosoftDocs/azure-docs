@@ -2,13 +2,13 @@
 title: Troubleshoot Azure savings plan utilization
 titleSuffix: Microsoft Cost Management
 description: This article helps you understand why Azure savings plans can temporarily have utilization greater than 100% in usage reporting UIs and APIs.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: troubleshooting
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Troubleshoot Azure savings plan utilization

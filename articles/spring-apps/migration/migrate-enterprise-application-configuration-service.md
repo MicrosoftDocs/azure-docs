@@ -2,7 +2,8 @@
 title: Migrate Application Configuration Service to Managed Spring Cloud Config Server
 description: Learn the migration path from Application Configuration Service to managed Spring Cloud Config Server.
 author: KarlErickson
-ms.author: ninpan
+ms.author: karler
+ms.reviewer: ninpan
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 01/29/2025

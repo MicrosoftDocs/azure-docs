@@ -2,7 +2,7 @@
 title: Back up Azure VM with agentless multi-disk crash-consistent backup by using Azure Backup
 description: Learn how to configure backup for Azure VMs with agentless multi-disk crash-consistent backup via Azure portal.
 ms.topic: how-to
-ms.date: 03/14/2024
+ms.date: 12/03/2024
 author: jyothisuri
 ms.author: jsuri
 ---

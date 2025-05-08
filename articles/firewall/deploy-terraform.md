@@ -7,7 +7,7 @@ ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.date: 10/15/2023
-ms.author: victorh
+ms.author: duau
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

@@ -103,7 +103,7 @@ generate_petastorm_dataset(output_url)
 
 ### Read dataset from a primary storage account
 
-The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as TensorFlow or Pytorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
+The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as TensorFlow or PyTorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
 
 In the example, you can see how you can pass an ```abfs``` URL protocol.
 

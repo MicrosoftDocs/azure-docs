@@ -2,7 +2,7 @@
 title: Upgrade HCX on Azure VMware Solution 
 description: This article explains how to upgrade HCX on Azure VMware Solution. 
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 02/26/2025
 ms.custom: engagement-fy23
 ---
 
@@ -17,15 +17,15 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 ## System requirements 
 
-- For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/hcx-4-9-release-notes/Chunk701473140.html#Chunk701473140).  
+- For systems requirements, compatibility, and upgrade prerequisites, see the [VMware HCX release notes](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/hcx-4-10-release-notes/Chunk174419121.html#Chunk174419121).  
 
 - For more information about the upgrade path, see the [Product Interoperability Matrix](https://interopmatrix.broadcom.com/Upgrade?productId=660). 
 - For information regarding VMware product compatibility by version, see the [Compatibility Matrix](https://interopmatrix.broadcom.com/Interoperability?col=660,&row=0,).
-- Review VMware Software Versioning, Skew and Legacy Support Policies [here](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-support-and-lifecycle-policies-4-9/software-versioning-skew-and-legacy-support-policies.html).
+- Review VMware Software Versioning, Skew and Legacy Support Policies [here](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-support-and-lifecycle-policies-4-10/software-versioning-skew-and-legacy-support-policies.html).
 
 - Ensure HCX manager and site pair configurations are healthy.  
 
-- As part of HCX update planning, and to ensure that HCX components are updated successfully, review the service update considerations and requirements. For planning HCX upgrade, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx/planning-for-hcx-updates.html). 
+- As part of HCX update planning, and to ensure that HCX components are updated successfully, review the service update considerations and requirements. For planning HCX upgrade, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). 
 
 - Ensure that you have a backup and snapshot of HCX connector in the on-premises environment, if applicable.
 - For more information, see the [HCX support policy for legacy vSphere environment](https://knowledge.broadcom.com/external/article?legacyId=82702).
@@ -33,11 +33,12 @@ You can update HCX Connector and HCX Cloud systems during separate maintenance w
 
 ### Backup HCX 
 - Azure VMware Solution backs up HCX Cloud Manager configuration daily.
+- Use the appliance management interface to create backup of HCX in on-premises, see [Backing Up HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/backing-up-and-restoring-hcx-manager/backing-up-hcx-manager.html). You can use the configuration backup to restore the appliance to its state before the backup. The contents of the backup file supersede configuration changes made before restoring the appliance. 
+- HCX cloud manager snapshots are taken automatically during upgrades to HCX 4.4 or later. HCX retains automatic snapshots for 24 hours before deleting them. 
 
+- You can use HCX Run commands to take an HCX Cloud Manager snapshot, which is retained for 72 hours, see [HCX Run commands](/azure/azure-vmware/use-hcx-run-commands)
 
-- Use the appliance management interface to create backup of HCX in on-premises, see [Backing Up HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/backing-up-and-restoring-hcx-manager/backing-up-hcx-manager.html). You can use the configuration backup to restore the appliance to its state before the backup. The contents of the backup file supersede configuration changes made before restoring the appliance. 
- 
-- HCX cloud manager snapshots are taken automatically during upgrades to HCX 4.4 or later. HCX retains automatic snapshots for 24 hours before deleting them. To take a manual snapshot on HCX Cloud Manager or help with reverting from a snapshot, [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
+- To help with reverting from a snapshot, [create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview). 
 
 ## Upgrade HCX 
 The upgrade process is in two steps: 
@@ -62,7 +63,7 @@ The HCX update is first applied to the HCX Manager systems.
 
 **Procedure**
 
-To follow the HCX Manager upgrade process, see [Upgrading the HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx/hcx-service-update-procedures/upgrade-hcx-manager-for-connected-sites.html) 
+To follow the HCX Manager upgrade process, see [Upgrading the HCX Manager](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/upgrade-hcx-manager-for-connected-sites.html) 
 
 ### Upgrade HCX Service Mesh appliances 
 
@@ -81,14 +82,14 @@ While Service Mesh appliances are upgraded independently to the HCX Manager, the
 
 **Procedure**
  
-To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Service Mesh Appliances](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx/hcx-service-update-procedures/upgrade-the-hcx-service-mesh-appliances.html)   
+To follow the Service Mesh appliances upgrade process, see [Upgrading the HCX Service Mesh Appliances](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/upgrade-the-hcx-service-mesh-appliances.html)   
 
 ## FAQ 
 
 ### What is the impact of an HCX upgrade? 
 
 Apply service updates during a maintenance window where no new HCX operations and migration are queued up. The upgrade window accounts for a brief disruption to the Network Extension service, while the appliances are redeployed with the updated code.  
-For individual HCX component upgrade impact, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx/planning-for-hcx-updates.html). 
+For individual HCX component upgrade impact, see [Planning for HCX Updates](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/planning-for-hcx-updates.html). 
 
 ### Do I need to upgrade the service mesh appliances? 
 
@@ -96,9 +97,9 @@ The HCX Service Mesh can be upgraded once all paired HCX Manager systems are upd
 
 ### How do I roll back HCX upgrade using a snapshot? 
 
-See [Rolling Back an Upgrade Using Snapshots](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx/hcx-service-update-procedures/rolling-back-an-upgrade-using-snapshots.html) to roll back the upgrade. 
+See [Rolling Back an Upgrade Using Snapshots](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx/hcx-service-update-procedures/rolling-back-an-upgrade-using-snapshots.html) to roll back the upgrade. 
 
 ## Next steps 
-[Software Versioning, Skew and Legacy Support Policies](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-support-and-lifecycle-policies-4-9/software-versioning-skew-and-legacy-support-policies.html)  
+[Software Versioning, Skew and Legacy Support Policies](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-support-and-lifecycle-policies-4-10/software-versioning-skew-and-legacy-support-policies.html)  
 
-[Updating VMware HCX](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/updating-vmware-hcx.html) 
+[Updating VMware HCX](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/updating-vmware-hcx.html) 

@@ -8,8 +8,8 @@ metadata:
   description: Learn how to deploy Azure Firewall Manager, a globally distributed security management service.
   ms.service: azure-firewall-manager
   ms.topic: landing-page
-  author: vhorne
-  ms.author: victorh
+  author: duongau
+  ms.author: duau
   ms.date: 02/26/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new

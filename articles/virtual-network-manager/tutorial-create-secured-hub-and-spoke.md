@@ -69,6 +69,26 @@ This procedure walks you through creating three virtual networks that will be co
     | vnet-learn-prod-eastus-002 IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
     | vnet-learn-hub-eastus-001 IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
 
+## Create a virtual network gateway subnet
+
+Create a virtual network gateway subnet in the hub virtual network. This subnet is used by the virtual network gateway to route traffic to and from the virtual network.
+
+1. Go to **vnet-learn-hub-eastus-001** virtual network and select **Subnets** under **Settings**.
+1. Select **+ Subnet** to create a new subnet.
+1. In the *Add subnet* page, enter or select the following information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | Subnet purpose | Select **Virtual network gateway** from the dropdown menu. |
+    | **IPv4** | |
+    | Size | Select **/27** from the dropdown menu. |
+
+1. Select **Add** and verify the new subnet is created.
+
+> [!NOTE]
+> The gateway subnet is a special subnet that is used by the virtual network gateway. The size of the gateway subnet must be at least **/27**. The address space of the gateway subnet must not overlap with any other subnets in the virtual network. The address space of the gateway subnet must be a subset of the address space of the virtual network.
+> Also, the gateway subnet must be named **GatewaySubnet**. If you don't name the subnet **GatewaySubnet**, the virtual network gateway won't be able to use it.
+
 ## Deploy a virtual network gateway
 
 Deploy a virtual network gateway into the hub virtual network. This virtual network gateway is necessary for the spokes to *Use hub as a gateway* setting.
@@ -76,8 +96,6 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 1. Select **+ Create a resource** and search for **Virtual network gateway**. Then select **Create** to begin configuring the virtual network gateway.
 
 1. On the *Basics* tab, enter or select the following settings:
-
-    :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/gateway-basics.png" alt-text="Screenshot of create the virtual network gateway basics tab.":::
 
     | Setting | Value |
     | -------- | ----- |
@@ -90,7 +108,6 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Public IP address name | Enter the name **gwpip-learn-hub-eastus-001** for the public IP. |
     | **SECOND PUBLIC IP ADDRESS** | |
     | Public IP address name | Enter the name **gwpip-learn-hub-eastus-002** for the public IP. |
-
     
 1. Select **Review + create** and then select **Create** after validation has passed. The deployment of a virtual network gateway can take about 30 minutes. You can move on to the next section while waiting for this deployment to complete. However, you may find **gw-learn-hub-eastus-001** doesn't display that it has a gateway due to timing and sync across the Azure portal.
 
@@ -232,7 +249,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/verify-security-admin-configuration.png" alt-text="Screenshot of security admin configuration applied to the virtual network."::: 
 
-1. Select **Peerings** under **Settings** to list the virtual network peerings created by Virtual Network Manager. Its name starts with **ANM_**. 
+1. Go to **vnet-learn-hub-eastus-001** and select **Peerings** under **Settings** to list the virtual network peerings created by Virtual Network Manager. Its name starts with **ANM_**. 
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/vnet-peerings.png" alt-text="Screenshot of virtual network peerings created by Virtual Network Manager." lightbox="media/tutorial-create-secured-hub-and-spoke/vnet-peerings-large.png":::
 

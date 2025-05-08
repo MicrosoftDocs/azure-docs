@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 01/31/2025
+ms.date: 02/10/2025
 ms.author: greglin
 ---
 
@@ -13,9 +13,9 @@ ms.author: greglin
 
 The Azure DNS private zones autoregistration feature manages DNS records for virtual machines deployed in a virtual network. When you [link a virtual network](./private-dns-virtual-network-links.md) with a private DNS zone with this setting enabled, a DNS record gets created for each virtual machine deployed in the virtual network. 
 
-For each virtual machine, an address (A) record is created. DNS records for newly deployed virtual machines are also automatically created in the linked private DNS zone. When a virtual machine gets deleted, any associated DNS records also get deleted from the private DNS zone.
+For each virtual machine, an address (A) record is created. DNS records for newly deployed virtual machines are also automatically created in the linked private DNS zone. When a virtual machine gets deleted or stopped, the autoregistered DNS records associated with this virtual machine are removed from the private DNS zone.
 
-To enable autoregistration, select the checkbox for "Enable auto registration" when you create the virtual network link.
+To enable autoregistration, select the checkbox for **Enable auto registration** when you create the virtual network link.
 
 :::image type="content" source="./media/privatedns-concepts/enable-autoregistration.png" alt-text="Screenshot of enable auto registration on add virtual network link page.":::
 
@@ -29,7 +29,5 @@ To enable autoregistration, select the checkbox for "Enable auto registration" w
 ## Next steps
 
 * Learn how to create a private zone in Azure DNS using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
-
 * Read about some common [private zone scenarios](./private-dns-scenarios.md) that can be realized with private zones in Azure DNS.
-
 * For common questions and answers about private zones in Azure DNS, including specific behavior you can expect for certain kinds of operations, see [Private DNS FAQ](./dns-faq-private.yml).

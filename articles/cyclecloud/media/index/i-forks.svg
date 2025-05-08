@@ -1,0 +1,29 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #2bc7f4;
+      }
+
+      .cls-3 {
+        fill: #e5e5e5;
+      }
+    </style>
+  </defs>
+  <title>i_fork</title>
+  <line class="cls-1" x1="32" y1="35" x2="32" y2="61"/>
+  <circle class="cls-2" cx="32" cy="55" r="7"/>
+  <path class="cls-1" d="M16,18v1A16,16,0,0,0,32,35h0A16,16,0,0,0,48,19V18"/>
+  <circle class="cls-3" cx="16" cy="11" r="7"/>
+  <circle class="cls-3" cx="48" cy="11" r="7"/>
+</svg>

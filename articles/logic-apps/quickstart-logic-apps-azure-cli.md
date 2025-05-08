@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Create and manage workflows with Azure CLI
-description: Using the CLI, create and manage logic app workflows in Azure Logic Apps.
+description: Use the Azure CLI to create and manage logic app workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
 ms.custom: mvc, devx-track-azurecli, mode-api
-ms.date: 01/04/2024
+ms.date: 02/20/2025
 ---
 
 # Quickstart: Create and manage workflows with Azure CLI in Azure Logic Apps
@@ -16,7 +16,9 @@ ms.date: 01/04/2024
 This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using the [Azure CLI Logic Apps extension](/cli/azure/logic) (`az logic`). From the command line, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multitenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running operations such as `list`, `show` (`get`), `update`, and `delete` from the command line.
 
 > [!WARNING]
-> The Azure CLI Logic Apps extension is currently *experimental* and *not covered by customer support*. Use this CLI extension with caution, especially if you choose to use the extension in production environments.
+> 
+> The Azure CLI Logic Apps extension is currently *experimental* and *not covered by customer support*. 
+> Use this CLI extension with caution, especially if you choose to use the extension in production environments.
 
 This quickstart currently applies only to Consumption logic app workflows that run in multitenant Azure Logic Apps. Azure CLI is currently unavailable for Standard logic app workflows that run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 

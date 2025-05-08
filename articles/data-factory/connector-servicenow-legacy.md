@@ -1,22 +1,22 @@
 ---
-title: Copy data from ServiceNow (legacy)
+title: Copy data from ServiceNow V1
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
+description: Learn how to copy data from ServiceNow V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/16/2024
+ms.date: 05/07/2025
 ---
 
-# Copy data from ServiceNow using Azure Data Factory or Synapse Analytics (legacy)
+# Copy data from ServiceNow V1 using Azure Data Factory or Synapse Analytics 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
->[!IMPORTANT]
->The new ServiceNow connector provides improved native ServiceNow support. If you are using the legacy ServiceNow connector in your solution, you are recommended to [upgrade your ServiceNow connector](connector-servicenow.md#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](connector-servicenow.md#differences-between-servicenow-and-servicenow-legacy) for details on the difference between the legacy and latest version. 
+> [!IMPORTANT]
+> The [ServiceNow V2 connector](connector-servicenow.md) provides improved native ServiceNow support. If you are using the [ServiceNow V1 connector](connector-servicenow-legacy.md) in your solution, you are recommended to [upgrade your ServiceNow connector](connector-servicenow.md#upgrade-your-servicenow-linked-service) before **June 30, 2025**. Refer to this [section](connector-servicenow.md#differences-between-servicenow-and-servicenow-legacy) for details on the difference between V2 and V1.
 
 ## Supported capabilities
 

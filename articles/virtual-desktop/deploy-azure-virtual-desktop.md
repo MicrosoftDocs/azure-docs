@@ -4,12 +4,12 @@ description: Learn how to deploy Azure Virtual Desktop by creating a host pool, 
 ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/18/2024
 ---
 
-# Deploy Azure Virtual Desktop
+# Deploy Azure Virtual Desktop 
 
 > [!IMPORTANT]
 > The following features are currently in preview:
@@ -429,7 +429,7 @@ Here's how to create a host pool by using the Azure portal:
    | **Location** | Select the Azure region where you want to create your host pool. |
    | **Validation environment** | Select **Yes** to create a host pool that's used as a [validation environment](create-validation-host-pool.md).<br /><br />Select **No** (*default*) to create a host pool that isn't used as a validation environment. |
    | **Preferred app group type** | Select the [preferred application group type](preferred-application-group-type.md) for this host pool: **Desktop** or **RemoteApp**. A desktop application group is created automatically when you use the Azure portal. |
-   | **Host pool type** | Select whether you want your host pool to be **Personal** or **Pooled**.<br /><br />If you select **Personal**, a new option appears for **Assignment type**. Select either **Automatic** or **Direct**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md). |
+   | **Host pool type** | Select whether you want your host pool to be **Pooled** or **Personal**.<br /><br />If you select **Pooled**, two new options appear for **Load balancing algorithm** and **Max session limit**.<br /><br /><details><summary>Expand this section for the pooled options.</summary><br />- For **Load balancing algorithm**, choose either **breadth-first** or **depth-first**, based on your usage pattern.<br /><br />- For **Max session limit**, enter the maximum number of users that you want load-balanced to a single session host. For more information, see [Host pool load-balancing algorithms](host-pool-load-balancing.md).</details><br />If you select **Personal**, two new options appear for **Assignment type** and **Assign multiple desktops to a single user**.<br /><br /><details><summary>Expand this section for the personal options.</summary><br />For **Assignment type**, select **Automatic** for the service to assign any personal desktop not already assigned to a user, or select **Direct** to assign a specific personal desktop to a user. With the **Direct** assignment type you can also check the box to **Assign multiple desktops to a single user**. For more information, see [Assign multiple personal desktops to a single user](configure-host-pool-personal-desktop-assignment-type.md#assign-multiple-personal-desktops-to-a-single-user-preview).</details> |
 
    > [!TIP]
    > After you complete this tab, you can continue to optionally create session hosts, create a workspace, register the default desktop application group from this host pool, and enable diagnostic settings by selecting **Next: Virtual Machines**. Alternatively, if you want to create and configure these resources separately, select **Next: Review + create** and go to step 9.

@@ -2,11 +2,11 @@
 title: Build configuration for Azure Static Web Apps
 description: Learn how to control the build process for Azure Static Web Apps.
 services: static-web-apps
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 11/04/2024
-ms.author: cshoe
+ms.author: wujia
 zone_pivot_groups: static-web-apps-ci-cd
 ---
 

@@ -4,6 +4,9 @@ description: Index of Hadoop stack trace error messages in Azure HDInsight. Find
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 

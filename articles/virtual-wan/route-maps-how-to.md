@@ -10,14 +10,11 @@ ms.author: cherylmc
 ms.custom: references_region
 
 ---
-# How to configure Route-maps (Preview)
+# How to configure Route-maps
 
 This article helps you create or edit a route-map in an Azure Virtual WAN hub using the Azure portal. For more information about Virtual WAN Route-maps, see [About Route-maps](route-maps-about.md).
 
 ## Prerequisites
-
-> [!Important]
-> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
 
 Verify that you've met the following criteria before beginning your configuration:
 
@@ -37,6 +34,9 @@ Verify that you've met the following criteria before beginning your configuratio
 
    * The upgrade process takes around 30 minutes.
    * The upgrade process only happens the first time a route-map is created on a hub.
+   * Once the virtual hub router and gateways are upgraded to this new software version, please note the following:
+      * Your virtual hub will support ExpressRoute ECMP for outbound traffic flows. For more details, see [About ExpressRoute ECMP](virtual-wan-faq.md#does-expressroute-support-equal-cost-multi-path-ecmp-routing-in-virtual-wan).
+      * Your spoke virtual network prefixes need to be in the Default route table to be advertised to on-premises. You can achieve this by ensuring your virtual network connections are propagating to the Default route table.
    * If the route-map is deleted, the virtual hub router remains on the new version of software.
    * Using Route-maps incurs an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 1. The process is complete when the **Provisioning state** is **Succeeded**. Open a support case if the process failed.
@@ -45,26 +45,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## Create a route-map
 
-> [!NOTE]
-> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
->
-
 The following steps walk you through how to configure a route-map.
 
 1. In the Azure portal, go to your Virtual WAN resource. Select **Hubs** to view the list of hubs.
-
-   :::image type="content" source="./media/route-maps-how-to/hub.png" alt-text="Screenshot shows selecting the hub you want to configure." lightbox="./media/route-maps-how-to/hub.png":::
-
 1. Select the hub that you want to configure to open the **Virtual Hub** page.
 1. On the Virtual Hub page, in the Routing section, select **Route-maps** to open the Route-maps page. On the Route-maps page, select **+ Add Route-map** to create a new route-map.
-
-   :::image type="content" source="./media/route-maps-how-to/route-maps.png" alt-text="Screenshot shows Add Route-map selected." lightbox="./media/route-maps-how-to/route-maps.png":::
-
 1. On the **Create Route-map** page, provide a Name for the route-map.
 1. Then, select **+ Add Route-map** to create rules in the route-map.
-
-   :::image type="content" source="./media/route-maps-how-to/add.png" alt-text="Screenshot shows add route-map." lightbox="./media/route-maps-how-to/add.png":::
-
 1. On the **Create Route-map rule** page, complete the necessary configuration.
 
    * **Name** – Provide a name for the route-map rule.
@@ -91,7 +78,6 @@ The following steps walk you through how to configure a route-map.
 
 1. It takes a few minutes to save the route-map and the route-map rules. Once saved, the **Provisioning state** shows **Succeeded**.
 
-   :::image type="content" source="./media/route-maps-how-to/provisioning.png" alt-text="Screenshot shows Provisioning state is Succeeded." lightbox="./media/route-maps-how-to/provisioning.png":::
 
 ## Apply a route-map to connections
 
@@ -130,17 +116,12 @@ Once the route-map is saved, you can apply the route-map to the desired connecti
 To modify or remove an existing Route-map rule, use the following steps.
 
 1. On the **Route-maps page**, on the line for the route-map that you want to edit, select **… > Edit**.
-1. On **Edit Route-map** page, select **… > Edit** to edit the route-map rule.
 
-   :::image type="content" source="./media/route-maps-how-to/edit-delete.png" alt-text="Screenshot shows how to select Edit." lightbox="./media/route-maps-how-to/edit-delete.png":::
+1. On **Edit Route-map** page, select **… > Edit** to edit the route-map rule.
 
 1. Modify the rule as required. On the **Edit Route-map rule** page, select **Add**, and on Reminder dialog box, select **Okay** to store the rule changes temporarily and proceed to next step.
 
-   :::image type="content" source="./media/route-maps-how-to/add-okay.png" alt-text="Screenshot shows how to select Add and Okay." lightbox="./media/route-maps-how-to/add-okay.png":::
-
 1. On the **Edit Route-map** page, select **Save**.
-
-   :::image type="content" source="./media/route-maps-how-to/select-save.png" alt-text="Screenshot shows how to select Save." lightbox="./media/route-maps-how-to/select-save.png":::
 
 ## Troubleshooting
 

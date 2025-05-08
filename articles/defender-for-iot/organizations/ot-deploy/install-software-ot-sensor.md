@@ -1,11 +1,11 @@
 ---
-title: Install OT network monitoring software on OT sensors - Microsoft Defender for IoT
-description: Learn how to install agentless monitoring software for an OT sensor for Microsoft Defender for IoT. Use this article if you've chosen to install software on your own appliances or when reinstalling software on a preconfigured appliance.
-ms.date: 06/26/2023
+title: Install OT sensor software
+description: Learn how to install agentless monitoring software on an OT sensor for Microsoft Defender for IoT, including initial setup settings.
+ms.date: 01/30/2025
 ms.topic: install-set-up-deploy
 ---
 
-# Install OT monitoring software on OT sensors
+# Install OT sensor monitoring software
 
 This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT, and describes how to install Defender for IoT software on OT sensors and configure initial setup settings.
 
@@ -14,7 +14,6 @@ This article is one in a series of articles describing the [deployment path](../
 Use the procedures in this article when installing Microsoft Defender for IoT software on your own appliances. You might be reinstalling software on a [preconfigured appliance](../ot-pre-configured-appliances.md), or you may be installing software on your own appliance. If you're using a new preconfigured appliance, skip this step and continue directly with [configuring and activating your sensor](activate-deploy-sensor.md) instead.
 
 [!INCLUDE [caution do not use manual configurations](../includes/caution-manual-configurations.md)]
-
 
 ## Prerequisites
 
@@ -119,8 +118,7 @@ This procedure describes how to install the Defender for IoT software you'd down
     UID: 91F14D56-C1E4-966F-726F-006A527C61D
     ```
 
-Use the default IP address provided to access your sensor for [initial setup and activation](activate-deploy-sensor.md).
-
+Use the default IP address provided to access your sensor for initial setup and activation.
 
 ## Next steps
 

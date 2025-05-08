@@ -11,7 +11,7 @@ ms.author: nikuklic
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
 
 > [!NOTE] 
-> Outbound calling to a telephone number can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/quickstarts-pstn--page). The UI Library enables developers to add a call client that is PSTN enabled into their application with only a couple lines of code.
+> Outbound calling to a telephone number can be accessed using the [Azure Communication Services UI Library](https://azure.github.io/communication-ui-library/?path=/docs/composites-callcomposite-pstn-docs--docs). The UI Library enables developers to add a call client that is PSTN enabled into their application with only a couple lines of code.
 
 ## Prerequisites
 

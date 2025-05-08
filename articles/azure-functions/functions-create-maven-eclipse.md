@@ -19,7 +19,7 @@ This article shows you how to create a [serverless](https://azure.microsoft.com/
 
 To develop a functions app with Java and Eclipse, you must have the following installed:
 
--  [Java Developer Kit](/java/openjdk/download#openjdk-17), version 8, 11, 17 or 21. (Java 21 is currently supported in preview only on Linux)
+-  [Java Developer Kit](/java/openjdk/download#openjdk-17), version 8, 11, 17 or 21. (Java 21 is currently supported only on Linux)
 -  [Apache Maven](https://maven.apache.org), version 3.0 or above.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), with Java and Maven support.
 -  [Azure CLI](/cli/azure)

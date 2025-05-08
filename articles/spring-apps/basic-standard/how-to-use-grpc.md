@@ -2,7 +2,8 @@
 title: How to Use gRPC in Azure Spring Apps
 description: Shows you how to use gRPC in Azure Spring Apps.
 author: KarlErickson
-ms.author: caihuarui
+ms.author: karler
+ms.reviewer: caihuarui
 ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 08/29/2024
@@ -244,7 +245,7 @@ public class CustomersServiceImpl extends CustomersServiceGrpc.CustomersServiceI
 
 ## Configure the server port
 
-Next, configure the server port to `1025` for the Basic/Standard plan or to `8080` for the Enterprise plan so that the ingress rule works correctly. Add the following line to the **application.properties** file in the **spring-petclinic-customers-service/src/main/resources** folder.
+Next, configure the server port to **1025** for the Basic/Standard plan or to **8080** for the Enterprise plan so that the ingress rule works correctly. Add the following line to the **application.properties** file in the **spring-petclinic-customers-service/src/main/resources** folder.
 
 ```properties
 grpc.server.port=1025

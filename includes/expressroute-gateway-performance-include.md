@@ -33,3 +33,4 @@ This table applies to both the Azure Resource Manager and classic deployment mod
 > * During a maintenance period, you might experience intermittent connectivity problems to private endpoint resources.
 > * ExpressRoute supports a maximum TCP and UDP packet size of 1,400 bytes. Packet sizes larger than 1,400 bytes will get fragmented.
 > * Azure Route Server can support up to 4,000 VMs. This limit includes VMs in virtual networks that are peered. For more information, see [Azure Route Server limitations](/azure/route-server/overview#route-server-limits).
+> * The values in the table above represent the limits at each Gateway SKU.

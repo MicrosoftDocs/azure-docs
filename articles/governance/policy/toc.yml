@@ -63,30 +63,6 @@
     href: ./samples/built-in-policies.md
   - name: Built-in initiatives
     href: ./samples/built-in-initiatives.md
-  - name: Built-in packages for guest configuration
-    href: ./samples/built-in-packages.md
-  - name: Azure Resource Graph queries
-    href: ./samples/resource-graph-samples.md
-  - name: Patterns of use
-    items:
-    - name: Logical operators
-      href: ./samples/pattern-logical-operators.md
-    - name: Fields
-      href: ./samples/pattern-fields.md
-    - name: Parameters
-      href: ./samples/pattern-parameters.md
-    - name: Effect details
-      href: ./samples/pattern-effect-details.md
-    - name: Tags
-      href: ./samples/pattern-tags.md
-    - name: Value operator
-      href: ./samples/pattern-value-operator.md
-    - name: Count operator
-      href: ./samples/pattern-count-operator.md
-    - name: Group into initiative
-      href: ./samples/pattern-group-with-initiative.md
-    - name: Deploy resources
-      href: ./samples/pattern-deploy-resources.md
   - name: Regulatory Compliance built-ins
     items:
     - name: Azure built-ins
@@ -175,14 +151,42 @@
         href: ./samples/gov-nist-sp-800-171-r2.md
       - name: SOC 2 Type 2
         href: ./samples/gov-soc-2.md
-  - name: Compute security baselines
+  - name: Azure Policy resource graph queries
+    href: ./samples/resource-graph-samples.md
+  - name: Azure Policy patterns of use
     items:
-    - name: Docker host security baseline
-      href: ./samples/guest-configuration-baseline-docker.md
-    - name: Linux security baseline
-      href: ./samples/guest-configuration-baseline-linux.md
-    - name: Windows security baseline
-      href: ./samples/guest-configuration-baseline-windows.md
+    - name: Logical operators
+      href: ./samples/pattern-logical-operators.md
+    - name: Fields
+      href: ./samples/pattern-fields.md
+    - name: Parameters
+      href: ./samples/pattern-parameters.md
+    - name: Effect details
+      href: ./samples/pattern-effect-details.md
+    - name: Tags
+      href: ./samples/pattern-tags.md
+    - name: Value operator
+      href: ./samples/pattern-value-operator.md
+    - name: Count operator
+      href: ./samples/pattern-count-operator.md
+    - name: Group into initiative
+      href: ./samples/pattern-group-with-initiative.md
+    - name: Deploy resources
+      href: ./samples/pattern-deploy-resources.md
+  - name: Guest configuration
+    items:
+    - name: Built-in packages for guest configuration
+      href: ./samples/built-in-packages.md
+    - name: Guest configuration resource graph queries
+      href: ./samples/resource-graph-samples-guest-configuration.md
+    - name: Compute security baselines
+      items:
+      - name: Docker host security baseline
+        href: ./samples/guest-configuration-baseline-docker.md
+      - name: Linux security baseline
+        href: ./samples/guest-configuration-baseline-linux.md
+      - name: Windows security baseline
+        href: ./samples/guest-configuration-baseline-windows.md
 - name: Concepts
   items:
   - name: Definition structure
@@ -309,40 +313,42 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
-  - name: Kubernetes integration
+  - name: Azure service integration
     items:
-    - name: Azure Policy for Kubernetes
-      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
-      href: ./concepts/policy-for-kubernetes.md
-    - name: Secure AKS with Azure Policy
-      displayName: aks, psp, rego, opa
-      href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-  - name: Azure Key Vault integration
-    items:
-    - name: Integrate Key Vault with Azure Policy
-      displayName: key vault, certificate, key
-      href: /azure/key-vault/general/azure-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
-  - name: Azure Lighthouse integration
-    items:
-    - name: Deploy a policy at scale
-      displayName: lighthouse, scale, deploy
-      href: /azure/lighthouse/how-to/policy-at-scale?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-    - name: Deploy a policy that can be remediated
-      displayName: lighthouse, scale, remediate
-      href: /azure/lighthouse/how-to/deploy-policy-remediation?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
-  - name: Azure Monitor integration
-    items:
-    - name: Enable VM insights
-      displayName: monitor, monitor agent, vm, insights, log analytics, builtin
-      href: /azure/azure-monitor/vm/vminsights-enable-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
-  - name: Azure Storage integration
-    items:
-    - name: Audit TLS with Azure Policy
-      href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
-  - name: Azure Web Application Firewall integration
-    items:
-    - name: Integrate WAF with Azure Policy
-      href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Kubernetes integration
+      items:
+      - name: Azure Policy for Kubernetes
+        displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+        href: ./concepts/policy-for-kubernetes.md
+      - name: Secure AKS with Azure Policy
+        displayName: aks, psp, rego, opa
+        href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Azure Key Vault integration
+      items:
+      - name: Integrate Key Vault with Azure Policy
+        displayName: key vault, certificate, key
+        href: /azure/key-vault/general/azure-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+    - name: Azure Lighthouse integration
+      items:
+      - name: Deploy a policy at scale
+        displayName: lighthouse, scale, deploy
+        href: /azure/lighthouse/how-to/policy-at-scale?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      - name: Deploy a policy that can be remediated
+        displayName: lighthouse, scale, remediate
+        href: /azure/lighthouse/how-to/deploy-policy-remediation?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Azure Monitor integration
+      items:
+      - name: Enable VM insights
+        displayName: monitor, monitor agent, vm, insights, log analytics, builtin
+        href: /azure/azure-monitor/vm/vminsights-enable-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+    - name: Azure Storage integration
+      items:
+      - name: Audit TLS with Azure Policy
+        href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+    - name: Azure Web Application Firewall integration
+      items:
+      - name: Integrate WAF with Azure Policy
+        href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: Common issues
@@ -387,7 +393,7 @@
       href: /python/api/azure-mgmt-resource/azure.mgmt.resource.policyclient
     - name: Policy Insights
       href: /python/api/azure-mgmt-policyinsights/azure.mgmt.policyinsights
-  - name: REST
+  - name: REST API
     items:
     - name: Policy
       href: /rest/api/policy/
