@@ -164,14 +164,14 @@ Before you do Cross Subscription Restore (CSR), ensure that the Recovery Service
 
 To trigger Cross Subscription Restore to a private endpoint enabled vault, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to the source **Recovery Services vault** , and then [create Private Endpoints](private-endpoints.md#create-private-endpoints-for-azure-backup).
+1. In the [Azure portal](https://portal.azure.com/), go to the source **Recovery Services vault** , and then [create private endpoints](private-endpoints.md#create-private-endpoints-for-azure-backup).
 
    During private endpoint creation, ensure that you enter the following details:
 
    - Select the subscription of the target vault in which you want to restore.
    - Select the VNet of the target VM that you want to restore across subscription.
 
-1. After the Private Endpoint is created, [trigger restore](#restore-a-user-database).
+1. After the private endpoint is created, [trigger restore](#restore-a-user-database).
 
 >[!Note]
 >By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to the **Recovery Services vault** > **Properties** > **Cross Subscription Restore** and then select **Update** to implement the required changes.

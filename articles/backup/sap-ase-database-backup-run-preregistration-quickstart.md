@@ -46,12 +46,12 @@ The preregistration script is a Python script that you run on the VM where the S
 
 ## Run the preregistration script
 
-Before you execute the preregistration script, [download the ASE preregistration script file](https://aka.ms/preregscriptsapase) and copy it to the virtual machine (VM).
+After you [download the ASE preregistration script file](https://aka.ms/preregscriptsapase), copy it to the virtual machine (VM).
+
+To execute the preregistration script for SAP ASE database backup, run the following bash commands:
 
 >[!NOTE]
 >Replace `<script name>` in the following commands with the name of the script file you downloaded and copied to the VM.
-
-To execute the preregistration script for SAP ASE database backup, run the following bash commands:
  
 1. Convert the script to the Unix format.
 
@@ -66,12 +66,6 @@ To execute the preregistration script for SAP ASE database backup, run the follo
 
    ```bash
     sudo chmod -R 777 /path/to/script/file
-   ```
-
-1. Update the script name.
-
-   ```bash
-    sudo ./<script name> -us
    ```
 
 1. Run the script.

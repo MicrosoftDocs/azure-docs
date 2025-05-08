@@ -290,7 +290,7 @@ To discover the SAP ASE databases, follow these steps:
    >[!Note]
    >- After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    >- If a VM isn't listed as expected, check if it's already backed up in a vault.
-   >- Multiple VMs can have the same name but they belong to different resource groups.
+   >- If you have multiple VMs with the same name, ensure that they belong to different resource groups.
  
 1. On the **Select Virtual Machines** pane, download the prepost script that provides permissions for the Azure Backup service to access the SAP ASE VMs for database discovery.
 
@@ -311,7 +311,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
  
      :::image type="content" source="./media/sap-ase-database-backup-tutorial/configure-backup.png" alt-text="Screenshot shows how to start the backup configuration." lightbox="./media/sap-ase-database-backup-tutorial/configure-backup.png":::
 
-1. On the **Configure Backup** pane, on the **Backup policy** tab, under the **Backup policy**, select **Create a new policy** for the databases. 
+1. On the **Configure Backup** pane, on the **Backup policy** tab, under **Backup policy**, select **Create a new policy** for the databases. 
 
    :::image type="content" source="./media/sap-ase-database-backup-tutorial/create-backup-policy.png" alt-text="Screenshot shows how to start creating the backup policy." lightbox="./media/sap-ase-database-backup-tutorial/create-backup-policy.png":::
 
@@ -366,7 +366,7 @@ To configure the backup operation for the SAP ASE database, follow these steps:
 
      >[!Note]
      >- Log backups only begin to flow after a successful full backup is completed.
-     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2-hour logs. All of them are retained for 30 days. But the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+     >- Each log backup is chained to the previous full backup to form a recovery chain. This full backup is retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume a user has a weekly full backup, daily differential and 2-hour logs. All of them are retained for 30 days. But the weekly full can be cleaned up/deleted only after the next full backup is available, that is, after 30 + seven days. For example, if a weekly full backup is performed on November 16th, it remains stored until December 16th in accordance with the retention policy. The final log backup for this full occurs on November 22nd, before the next scheduled full backup. Since this log backup remains accessible until December 22nd, the November 16th full backup cannot be deleted until that date. As a result, the November 16th full backup is retained until December 22nd.
 
 1. Select **OK** to save the log backup policy configuration.
 1. On the **Create Policy** pane, select **OK** to complete the backup policy creation.

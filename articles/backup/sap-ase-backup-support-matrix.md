@@ -82,6 +82,13 @@ The following table lists the required parameters for adding/removing SAP ASE in
 |    | `sudo` | Remove a `SID` from the **Config** file. | `"<Path_to_the_Pre-Reg_Script" -aw SAPAse --sid "<SID>" --sid-user "<sidUser>" --db-port "<dbPort>" --db-user <dbUser> --db-host "<dbHost>" --enable-striping <true/false> --skip-network-checks --remove` |
 |    | `--dbHost` | The private IP of the specific SID instance that you intend to register. <br><br> In multi-instance setups, each System ID (SID) might have a different private IP. Use the IP available in `/sybase/<SID>/interfaces` for the correct instance. |     |
 
+
+>[!Note]
+>If you have the preregistration script already installed, update the script name by running the following bash command:
+>
+> `sudo ./<script name> -us`
+
+
 ## Next steps
 
 - [Configure backup for SAP ASE (Sybase) databases on Azure VMs using Azure portal](sap-ase-database-backup.md).

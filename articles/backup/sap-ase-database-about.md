@@ -85,11 +85,10 @@ For example, if you protect a 1.2 TB ASE database in an East US2 instance, youâ€
 
 ## Cross Subscription Restore for SAP ASE (Sybase) database
 
-Azure Backup now supports restoring SAP ASE databases to any subscription, provided the [necessary Azure role-based access control (Azure RBAC) permissions](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore) are met. By default, restores are performed within the same subscription where the restore points are located.
-
-With Cross-Subscription Restore (CSR), you can restore SAP ASE databases to any subscription and Recovery Services vault within the same tenant, as long as they have the required restore permissions. CSR is enabled by default on all Recovery Services vaults, including both existing and newly created vaults.
+Azure Backup now supports restoring SAP ASE databases to any subscription and Recovery Services vault, provided they are in the same tenant and  the necessary [Azure role-based access control (Azure RBAC) permissions for restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-sap-ase-sybase-database--cross-subscription-restore) are met. By default, restores are performed within the same subscription where the restore points are located.
 
 >[!Note]
+>- CSR is enabled by default on all Recovery Services vaults, including both existing and newly created vaults.
 >- Cross-Subscription Restore can be initiated directly from the Recovery Services vault.
 >- Cross Regional Restore (CRR) with CSR isn't supported.
 
