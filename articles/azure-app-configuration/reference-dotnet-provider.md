@@ -495,7 +495,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 });
 ```
 
-You can also call `SetSecretResolver` to add a custom secret resolver which is used when no registered `SecretClient` is available or the provided credential fails to authenticate to Key Vault. This method accepts a delegate function that resolves a Key Vault URI to a secret value. The following example demostrates using a secret resolver to retrieve secret from environment variables in development and use fallback value when fail to get secret from the Key Vault.
+You can also call `SetSecretResolver` to add a custom secret resolver which is used when no registered `SecretClient` is available or the provided credential fails to authenticate to Key Vault. This method accepts a delegate function that resolves a Key Vault URI to a secret value. The following example demonstrates using a secret resolver that retrieves a secret from environment variables in development and uses fallback values when it fails to get the secret from Key Vault.
 
 ```csharp
 var secretClient = new SecretClient(new Uri(vaultUri), new DefaultAzureCredential());
