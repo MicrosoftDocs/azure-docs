@@ -29,5 +29,5 @@ This Phi-3 sidecar extension uses a [chat completion API like OpenAI](https://pl
 1. Under **Default domain**, select the URL to open your web app in a browser.
 1. Verify that the chatbot application is running and responding to user inputs.
 
-    :::image type="content" source="../../media/tutorial-ai-slm-dotnet/fashion-store-assistant-live.png" alt-text="screenshot showing the fashion assistant app running in the browser.":::
+    :::image type="content" source="../../media/tutorial-ai-slm-dotnet/fashion-store-assistant-live.png" alt-text="Screenshot showing the fashion assistant app running in the browser.":::
 
