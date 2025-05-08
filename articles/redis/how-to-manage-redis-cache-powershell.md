@@ -4,7 +4,7 @@ description: Learn how to create and perform administrative tasks for Azure Redi
 
 
 ms.topic: conceptual
-ms.date: 05/06/2025
+ms.date: 05/08/2025
 zone_pivot_groups: redis-type
 ms.custom: devx-track-azurepowershell, ignite-2024
 appliesto:
@@ -35,7 +35,7 @@ This article shows you how to create, manage, and delete your Azure Redis instan
 
 ## Create an Azure Managed Redis cache
 
-You create new Azure Managed Redis instances using the [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-AzRedisEnterpriseCache) cmdlet. `ResourceGroupName`, `Name`, and `Location` are required parameters, but the other parameters are optional and have default values.
+You create new Azure Managed Redis instances using the [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-AzRedisEnterpriseCache) cmdlet. `ResourceGroupName`, `Name`, `Location`, and `Sku` are required parameters. The other parameters are optional and have default values.
 
 For all Azure Managed Redis PowerShell parameters and properties for `New-AzRedisEnterpriseCache`, see [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-azredisenterprisecache). To output a list of available parameters and their descriptions, run the following command.
 
@@ -43,13 +43,13 @@ For all Azure Managed Redis PowerShell parameters and properties for `New-AzRedi
 Get-Help New-AzRedisEnterpriseCache -detailed
 ```
 
-> [!IMPORTANT]
-> The first time you create an Azure Managed Redis cache in a subscription, you must first register the `Microsoft.Cache` namespace using the `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"` command. Otherwise, cmdlets such as `New-AzRedisEnterpriseCache` and `Get-AzRedisEnterpriseCache` might fail.
+> [!NOTE]
+> The first time you create an Azure Managed Redis cache in a subscription, Azure registers the `Microsoft.Cache` namespace for you. If prompted, you can use the Azure PowerShell `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"` command to register the namespace.
 
-The following example command creates an Azure Managed Redis instance with the specified name, location, and resource group, and default parameters. The instance is 1 GB in size with the non-SSL port disabled.
+The following example command creates an Azure Managed Redis instance with the specified name, location, resource group, and SKU, using default parameters. The instance is 1 GB in size with the non-SSL port disabled.
 
 ```azurepowershell
-New-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
+New-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Balanced_B1
 ```
 
 To enable clustering, specify a shard count using the `ShardCount` parameter.
@@ -63,7 +63,9 @@ New-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name mycache -Location "N
 <a name="databases"></a>
 ### Configure the databases setting
 
-The `databases` setting configures the number of databases and can be set only during cache creation. The following example creates a cache with 48 databases using the [New-AzRedisEnterpriseCache](/powershell/module/az.RedisEnterpriseCache/New-azRedisEnterpriseCache) cmdlet.
+The `databases` setting configures the number of databases and can be set only during cache creation using PowerShell, CLI, or other management clients. If you don't specify a `databases` setting during cache creation, [New-AzRedisEnterpriseCache](/powershell/module/az.RedisEnterpriseCache/New-azRedisEnterpriseCache) creates one `DB 0` database named `default` by default. The default database limit is 16.
+
+The following example creates a cache with 48 databases using the [New-AzRedisEnterpriseCache](/powershell/module/az.RedisEnterpriseCache/New-azRedisEnterpriseCache) cmdlet.
 
 ```azurepowershell
 New-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku B1 -RedisConfiguration @{"databases" = "48"}
@@ -75,20 +77,20 @@ For more information on the `databases` property, see [Default Azure Managed Red
 ## Update an Azure Managed Redis cache
 
 <!-- Umang looks like set Set-AzRedisEnterpriseCache should be Update-AzRedisEnterpriseCache -->
-Azure Managed Redis instances are updated using the [Set-AzRedisEnterpriseCache] cmdlet.
+Azure Managed Redis instances are updated using the [Update-AzRedisEnterpriseCache] cmdlet.
 
-To see a list of available parameters and their descriptions for `Set-AzRedisEnterpriseCache`, run the following command.
+To see a list of available parameters and their descriptions for `Update-AzRedisEnterpriseCache`, run the following command.
 
 ```azurepowershell
-Get-Help Set-AzRedisEnterpriseCache -detailed
+Get-Help Update-AzRedisEnterpriseCache -detailed
 ```
 
-The `Set-AzRedisEnterpriseCache` cmdlet can be used to update properties such as `Sku`, `EnableNonSslPort`, and the `RedisConfiguration` values.
+You can use the `Update-AzRedisEnterpriseCache` cmdlet to update properties such as `Sku`, `EnableNonSslPort`, and the `RedisConfiguration` values.
 
-The following command updates the `maxmemory-policy` setting for the Azure Managed Redis named `myCache`.
+The following command updates the `maxmemory-policy` setting for the Azure Managed Redis cache named `myCache`.
 
 ```azurepowershell
-    Set-AzRedisEnterpriseCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
+Set-AzRedisEnterpriseCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 ```
 
 ## Get information about an Azure Managed Redis cache
@@ -113,7 +115,7 @@ To return information about all caches in a specific resource group, run `Get-Az
 Get-AzRedisEnterpriseCache -ResourceGroupName myGroup
 ```
 
-To return information about a specific cache, run `Get-AzRedisEnterpriseCache` with the `Name` parameter containing the name of the cache, and the `ResourceGroupName` parameter with the resource group containing that cache.
+To return information about a specific cache, run `Get-AzRedisEnterpriseCache` with the `Name` and `ResourceGroupName` of the cache.
 
 ```azurepowershell
 Get-AzRedisEnterpriseCache -Name myCache -ResourceGroupName myGroup
@@ -129,7 +131,7 @@ To see a list of available parameters and their descriptions for `Get-AzRedisEnt
 Get-Help Get-AzRedisEnterpriseCacheKey -detailed
 ```
 
-To retrieve the keys for your cache, call the `Get-AzRedisEnterpriseCacheKey` cmdlet and pass in the name of your cache the name of the resource group that contains the cache.
+To retrieve the keys for your cache, call the `Get-AzRedisEnterpriseCacheKey` cmdlet with the `Name` and `ResourceGroupName` of the cache.
 
 ```azurepowershell
 Get-AzRedisEnterpriseCacheKey -Name myCache -ResourceGroupName myGroup
@@ -145,7 +147,7 @@ To see a list of available parameters and their descriptions for `New-AzRedisEnt
 Get-Help New-AzRedisEnterpriseCacheKey -detailed
 ```
 
-To regenerate the primary or secondary key for your cache, call the `New-AzRedisEnterpriseCacheKey` cmdlet and pass in the name, resource group, and specify either `Primary` or `Secondary` for the `KeyType` parameter. The following example regenerates the secondary access key for a cache.
+To regenerate the primary or secondary key for your cache, call the `New-AzRedisEnterpriseCacheKey` cmdlet with the cache `Name` and `ResourceGroupName`, and specify either `Primary` or `Secondary` for the `KeyType` parameter. The following example regenerates the secondary access key for a cache.
 
 ```azurepowershell
 New-AzRedisEnterpriseCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
@@ -175,20 +177,6 @@ To see a list of available parameters and their descriptions for `Import-AzRedis
 
 ```azurepowershell
 Get-Help Import-AzRedisEnterpriseCache -detailed
-
-        -Files <String[]>
-            SAS urls of blobs whose content should be imported into the cache.
-
-        -Format <String>
-            Format for the blob.  Currently "rdb" is the only supported, with other formats expected in the future.
-
-        -Force
-            When the Force parameter is provided, import will be performed without any confirmation prompts.
-
-        -PassThru
-            By default Import-AzRedisEnterpriseCache imports data in cache and does not return any value. If the PassThru
-            parameter is provided then Import-AzRedisEnterpriseCache returns a boolean value indicating the success of the
-            operation.
 ```
 
 The following example command imports data from the files specified by the `Files` parameter into an Azure Managed Redis cache.
@@ -205,19 +193,6 @@ To see a list of available parameters and their descriptions for `Export-AzRedis
 
 ```azurepowershell
 Get-Help Export-AzRedisEnterpriseCache -detailed
-
-        -Prefix <String>
-            Prefix to use for blob names.
-
-        -Container <String>
-            SAS url of container where data should be exported.
-
-        -Format <String>
-            Format for the blob.  Currently "rdb" is the only supported, with other formats expected in the future.
-
-        -PassThru
-            By default Export-AzRedisEnterpriseCache does not return any value. If the PassThru parameter is provided
-            then Export-AzRedisEnterpriseCache returns a boolean value indicating the success of the operation.
 ```
 
 The following example command exports data from an Azure Managed Redis instance into the container specified by the SAS uri.
@@ -226,36 +201,6 @@ The following example command exports data from an Azure Managed Redis instance 
 Export-AzRedisEnterpriseCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -Prefix "blobprefix"
     -Container "https://mystorageaccount.blob.core.windows.net/mycontainer?sv=2015-04-05&sr=c&sig=HezZtBZ3DURmEGDduauE7
     pvETY4kqlPI8JCNa8ATmaw%3D&st=2016-05-27T00%3A00%3A00Z&se=2016-05-28T00%3A00%3A00Z&sp=rwdl"
-```
-
-## Reboot an Azure Managed Redis cache
-
-You can reboot your Azure Managed Redis instance using the `Reset-AzRedisEnterpriseCache` cmdlet.
-
-To see a list of available parameters and their descriptions for `Reset-AzRedisEnterpriseCache`, run the following command.
-
-```azurepowershell
-Get-Help Reset-AzRedisEnterpriseCache -detailed
-
-        -RebootType <String>
-            Which node to reboot. Possible values are "PrimaryNode", "SecondaryNode", "AllNodes".
-
-        -ShardId <Integer>
-            Which shard to reboot when rebooting a cache with clustering enabled.
-
-        -Force
-            When the Force parameter is provided, reset will be performed without any confirmation prompts.
-
-        -PassThru
-            By default Reset-AzRedisEnterpriseCache does not return any value. If the PassThru parameter is provided
-            then Reset-AzRedisEnterpriseCache returns a boolean value indicating the success of the operation.
-```
-
-The following command reboots both nodes of the specified cache.
-
-```azurepowershell
- Reset-AzRedisEnterpriseCache -ResourceGroupName "resourceGroupName" -Name "cacheName" -RebootType "AllNodes"
-    -Force
 ```
 
 ::: zone-end
@@ -306,31 +251,21 @@ The following tables show Azure PowerShell properties and descriptions for commo
 
 ## Create an Azure Cache for Redis cache
 
-You create new Azure Cache for Redis instances using the [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache) cmdlet. `ResourceGroupName`, `Name`, and `Location` are required parameters, but the other parameters are optional and have default values.
+You create new Azure Cache for Redis instances using the [New-AzRedisCache](/powershell/module/az.rediscache/new-AzRedisCache) cmdlet. `ResourceGroupName`, `Name`, and `Location` are required parameters. The other parameters are optional and have default values.
 
-For a list of all Azure Cache for Redis PowerShell parameters and properties for `New-AzRedisCache`, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache).
-
-To output a list of available parameters and their descriptions for `New-AzRedisCache`, run the following command.
+For all Azure Cache for Redis PowerShell parameters and properties for `New-AzRedisCache`, see [New-AzRedisCache](/powershell/module/az.redisenterprisecache/new-azredisenterprisecache). To output a list of available parameters and their descriptions, run the following command.
 
 ```azurepowershell
 Get-Help New-AzRedisCache -detailed
 ```
 
-> [!IMPORTANT]
-> The first time you create an Azure Cache for Redis in a subscription using the Azure portal, the portal registers the `Microsoft.Cache` namespace for that subscription. If you attempt to create the first Azure Cache for Redis in a subscription using PowerShell, you must first register that namespace using the following command; otherwise cmdlets such as `New-AzRedisCache` and `Get-AzRedisCache` fail.
->
-> `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"`
+> [!NOTE]
+> The first time you create an Azure Cache for Redis cache in a subscription, Azure registers the `Microsoft.Cache` namespace for you. If prompted, you can use the Azure PowerShell `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"` command to register the namespace.
 
-To create a cache with default parameters, run the following command. The command creates an Azure Cache for Redis Standard SKU instance with the specified name, location, and resource group. The instance is 1 GB in size with the non-SSL port disabled.
+The following example command creates an Azure Cache for Redis instance with the specified name, location, and resource group, using default parameters. The instance is a Standard 1 GB cache with the non-SSL port disabled.
 
 ```azurepowershell
 New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US"
-```
-
-To create a Premium cache, specify a size of P1 (6-60 GB), P2 (13-130 GB), P3 (26-260 GB), or P4 (53-530 GB). To enable clustering, specify a shard count using the `ShardCount` parameter. The following example creates a P1 Premium cache with three shards. A P1 premium cache is 6 GB in size, and with three shards the total size is 18 GB (3 x 6 GB).
-
-```azurepowershell
-New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
 ```
 
 To specify values for the `RedisConfiguration` parameter, enclose the key-value pairs inside `{}`. The following example creates a 1-GB cache with `@{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}`. For more information, see [Keyspace notifications (advanced settings)]/azure-cache-for-redis/cache-configure.md#keyspace-notifications-advanced-settings) and [Memory policies]/azure-cache-for-redis/cache-configure.md#memory-policies).
@@ -339,10 +274,20 @@ To specify values for the `RedisConfiguration` parameter, enclose the key-value 
 New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random", "notify-keyspace-events" = "KEA"}
 ```
 
+### Create a Premium cache
+
+To create an  Azure Cache for Redis Premium-tier cache, specify a size of `P1` (6-60 GB), `P2` (13-130 GB), `P3` (26-260 GB), or `P4` (53-530 GB). To enable clustering, specify a shard count using the `ShardCount` parameter.
+
+The following example creates a P1 Premium cache with three shards. A P1 premium cache is 6 GB in size, and with three shards the total size is 18 GB (3 x 6 GB).
+
+```azurepowershell
+New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P1 -ShardCount 3
+```
+
 <a name="databases"></a>
 ### Configure the databases setting
 
-The `databases` setting configures the number of databases and can be set only during cache creation. The following example creates a premium P3 (26 GB) cache with 48 databases using the [New-AzRedisCache](/powershell/module/az.rediscache/New-azRedisCache) cmdlet.
+The `databases` setting configures the number of databases and can be set only during cache creation for Standard and Premium tiers. The following example creates a premium P3 (26 GB) cache with 48 databases using the [New-AzRedisCache](/powershell/module/az.rediscache/New-azRedisCache) cmdlet.
 
 ```azurepowershell
 New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Central US" -Sku Premium -Size P3 -RedisConfiguration @{"databases" = "48"}
@@ -365,7 +310,7 @@ You can use the `Set-AzRedisCache` cmdlet to update properties such as `Size`, `
 The following example command updates the `maxmemory-policy` for the Azure Cache for Redis instance named `myCache`.
 
 ```azurepowershell
-    Set-AzRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
+Set-AzRedisCache -ResourceGroupName "myGroup" -Name "myCache" -RedisConfiguration @{"maxmemory-policy" = "allkeys-random"}
 ```
 
 <a name="scale"></a>
@@ -376,9 +321,9 @@ You can use `Set-AzRedisCache` to scale an Azure Cache for Redis instance when y
 > [!NOTE]
 > Scaling a cache using PowerShell has the same limits and guidelines as scaling a cache using the Azure portal. You can scale to a different pricing tier with the following restrictions:
 >
-> - You can't scale from a higher pricing tier to a lower pricing tier, such as from a Premium cache down to a Standard or Basic cache, or from a Standard to a Basic cache.
+> - You can't scale from a higher pricing tier to a lower pricing tier, such as from a Premium cache to a Standard or Basic cache, or from a Standard to a Basic cache.
 > - You can scale from a Basic cache to a Standard cache, but you can't change the size at the same time. If you need a different size, you can do another scaling operation to the desired size.
-> - You can't scale from a Basic cache directly to a Premium cache. You must scale from Basic to Standard in one scaling operation, and then from Standard to Premium in another scaling operation.
+> - You can't scale from a Basic cache directly to a Premium cache. You must scale from Basic to Standard in one scaling operation, and then from Standard to Premium in another operation.
 > - You can't scale from a larger size down to the C0 (250 MB) size.
 >
 > For more information, see [How to scale Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-scale.md).
@@ -386,36 +331,10 @@ You can use `Set-AzRedisCache` to scale an Azure Cache for Redis instance when y
 The following example shows how to scale a cache named `myCache` to a 2.5-GB cache. This command works for a Basic or a Standard cache.
 
 ```azurepowershell
-    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
+Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 2.5GB
 ```
 
 After you issue this command, the status of the cache is returned, similar to calling `Get-AzRedisCache`. The `ProvisioningState` is set to `Scaling`.
-
-```output
-    Name               : mycache
-    Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/mygroup/providers/Mi
-                         crosoft.Cache/Redis/mycache
-    Location           : South Central US
-    Type               : Microsoft.Cache/Redis
-    HostName           : mycache.redis.cache.windows.net
-    Port               : 6379
-    ProvisioningState  : Scaling
-    SslPort            : 6380
-    RedisConfiguration : {[maxmemory-policy, volatile-lru], [maxmemory-reserved, 150], [notify-keyspace-events, KEA],
-                         [maxmemory-delta, 150]...}
-    EnableNonSslPort   : False
-    RedisVersion       : 3.0
-    Size               : 1GB
-    Sku                : Standard
-    ResourceGroupName  : mygroup
-    PrimaryKey         : ....
-    SecondaryKey       : ....
-    VirtualNetwork     :
-    Subnet             :
-    StaticIP           :
-    TenantSettings     : {}
-    ShardCount         :
-```
 
 When the scaling operation is complete, the `ProvisioningState` changes to `Succeeded`. If you need to do another scaling operation, such as changing the size after changing from Basic to Standard, you must wait until the previous operation is complete. Otherwise, you receive an error similar to the following message.
 
@@ -446,32 +365,10 @@ To return information about all caches in a specific resource group, run `Get-Az
 Get-AzRedisCache -ResourceGroupName myGroup
 ```
 
-To return information about a specific cache, run `Get-AzRedisCache` with the `Name` parameter containing the name of the cache, and the `ResourceGroupName` parameter with the resource group containing that cache.
+To return information about a specific cache, run `Get-AzRedisCache` with the cache `Name` and `ResourceGroupName`.
 
 ```azurepowershell
 Get-AzRedisCache -Name myCache -ResourceGroupName myGroup
-
-    Name               : mycache
-    Id                 : /subscriptions/12ad12bd-abdc-2231-a2ed-a2b8b246bbad4/resourceGroups/myGroup/providers/Mi
-                         crosoft.Cache/Redis/mycache
-    Location           : South Central US
-    Type               : Microsoft.Cache/Redis
-    HostName           : mycache.redis.cache.windows.net
-    Port               : 6379
-    ProvisioningState  : Succeeded
-    SslPort            : 6380
-    RedisConfiguration : {[maxmemory-policy, volatile-lru], [maxmemory-reserved, 62], [notify-keyspace-events, KEA],
-                         [maxclients, 1000]...}
-    EnableNonSslPort   : False
-    RedisVersion       : 3.0
-    Size               : 1GB
-    Sku                : Standard
-    ResourceGroupName  : myGroup
-    VirtualNetwork     :
-    Subnet             :
-    StaticIP           :
-    TenantSettings     : {}
-    ShardCount         :
 ```
 
 ## Retrieve the access keys for an Azure Cache for Redis cache
@@ -485,13 +382,10 @@ Get-Help Get-AzRedisCacheKey -detailed
 
 ```
 
-To retrieve the keys for your cache, call the `Get-AzRedisCacheKey` cmdlet and pass in the name of your cache and the name of the resource group that contains the cache.
+To retrieve the keys for your cache, call the `Get-AzRedisCacheKey` cmdlet with the cache `Name` and `ResourceGroupName`.
 
 ```azurepowershell
 Get-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup
-
-    PrimaryKey   : b2wdt43sfetlju4hfbryfnregrd9wgIcc6IA3zAO1lY=
-    SecondaryKey : ABhfB757JgjIgt785JgKH9865eifmekfnn649303JKL=
 ```
 
 ## Regenerate access keys for your Azure Cache for Redis cache
@@ -505,7 +399,7 @@ Get-Help New-AzRedisCacheKey -detailed
 
 ```
 
-To regenerate the primary or secondary key for your cache, call the `New-AzRedisCacheKey` cmdlet and pass in the name, resource group, and specify either `Primary` or `Secondary` for the `KeyType` parameter. The following example regenerates the secondary access key for a cache.
+To regenerate the primary or secondary key for your cache, call the `New-AzRedisCacheKey` cmdlet with the cache `Name` and `ResourceGroupName`, and specify either `Primary` or `Secondary` for the `KeyType` parameter. The following example regenerates the secondary access key for a cache.
 
 ```azurepowershell
 New-AzRedisCacheKey -Name myCache -ResourceGroupName myGroup -KeyType Secondary
@@ -575,7 +469,7 @@ The following command exports data from an Azure Cache for Redis instance into t
 You can reboot your Azure Cache for Redis instance using the `Reset-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Reboot is only available for [Basic, Standard, and Premium tier]/azure-cache-for-redis/cache-overview.md#service-tiers) caches. For more information about rebooting your cache, see [Cache administration - reboot]/azure-cache-for-redis/cache-administration.md#reboot).
+> Reboot is only available for [Basic, Standard, and Premium tier]/azure-cache-for-redis/cache-overview.md#service-tiers) caches, not Enterprise-tier caches. For more information about rebooting your cache, see [Cache administration - reboot]/azure-cache-for-redis/cache-administration.md#reboot).
 
 To see a list of available parameters and their descriptions for `Reset-AzRedisCache`, run the following command.
 
@@ -664,10 +558,8 @@ For more information about Microsoft Azure Germany, see [Microsoft Azure Germany
 
 ## Related content
 
-* [Azure Cache for Redis cmdlet documentation](/powershell/module/az.rediscache)
-* [Azure Resource Manager Cmdlets](/powershell/module/)
-* [Using Resource groups to manage your Azure resources](../azure-resource-manager/templates/deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
-* [Azure blog](https://azure.microsoft.com/blog/): Learn about new features in Azure.
-* [Windows PowerShell blog](https://devblogs.microsoft.com/powershell/): Learn about new features in Windows PowerShell.
-* ["Hey, Scripting Guy!" Blog](https://devblogs.microsoft.com/scripting/tag/hey-scripting-guy/): Get real-world tips and tricks from the Windows PowerShell community.
+* [Azure Managed Redis cmdlets](/powershell/module/az.redisenterprisecache)
+* [Azure Cache for Redis cmdlets](/powershell/module/az.rediscache)
+* [Azure PowerShell cmdlets](/powershell/module/)
+* [PowerShell Community blog](https://devblogs.microsoft.com/powershell-community/)
 
