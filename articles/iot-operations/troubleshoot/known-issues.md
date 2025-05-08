@@ -4,12 +4,14 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 04/16/2025
+ms.date: 05/07/2025
 ---
 
 # Known issues: Azure IoT Operations
 
-This article lists the current known issues for Azure IoT Operations.
+This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
+
+For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
 
 ## Deploy, update, and uninstall issues
 
@@ -45,13 +47,13 @@ Log signature: `"This codespace is currently running in recovery mode due to a c
 
 If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error` issue.
 
-Currently, there's no workaround for the issue. If you need a cluster that supports shutting down and restarting, choose one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+There's no workaround for this issue. If you need a cluster that supports shutting down and restarting, select one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
 ## MQTT broker issues
 
 This section lists current known issues for the MQTT broker.
 
-### MQTT broker resources aren't visible in Azure portal
+### MQTT broker resources aren't visible in the Azure portal
 
 ---
 
