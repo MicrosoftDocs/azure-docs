@@ -54,6 +54,8 @@ items:
     href: how-to-manage-dev-box-definitions.md
   - name: Manage a dev box pool
     href: how-to-manage-dev-box-pools.md
+  - name: Control resources with project policies 
+    href: how-to-configure-project-policy.md  
   - name: Display names for a project or pool
     href: how-to-add-project-pool-display-name.md
   - name: Limit number of dev boxes per project
@@ -118,8 +120,6 @@ items:
     href: how-to-configure-dev-box-hibernation.md
   - name: Hibernate your Dev Box
     href: how-to-hibernate-your-dev-box.md
-  - name: Control resources with project policies 
-    href: how-to-configure-project-policy.md  
   - name: Configure an auto-stop schedule
     href: how-to-configure-stop-schedule.md
   - name: Configure stop on disconnect
