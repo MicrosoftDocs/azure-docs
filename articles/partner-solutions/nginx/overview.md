@@ -22,8 +22,8 @@ Here are the key capabilities provided by the NGINXaaS integration:
 
 - **Seamless onboarding** of NGINXaaS software as an integrated service on Azure.
 - **Unified billing** of NGINXaaS through Azure monthly billing.
-- **Single-Sign on to NGINXaaS** - No separate sign-up needed from NGINX portal.
-- **Lift and Shift config files** - Ability to use existing Configuration files for NGINXaaS deployment.
+- **Single-Sign on to NGINXaaS**. No separate sign-up needed from NGINX portal.
+- **Lift and Shift config files**. Use existing configuration files for NGINXaaS deployment.
 
 ## Subscribe to NGINXaaS
 
