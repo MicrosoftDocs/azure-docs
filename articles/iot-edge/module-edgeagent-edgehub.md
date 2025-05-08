@@ -31,7 +31,7 @@ The module twin for the IoT Edge agent is called `$edgeAgent`. It coordinates co
 | Property | Description | Required |
 | -------- | ----------- | -------- |
 | imagePullPolicy | Specifies when to pull the image: *OnCreate* or *Never*. Use *Never* if the image is already on the device. | Yes |
-| restartPolicy | When the module should be restarted. Possible values are: *Never*: don't restart module if not running, *Always*: always restart module if not running, *On-Unhealthy*: restart module if unhealthy. Unhealthy is what Docker reports based on a health check, for example "Unhealthy - the container is not working correctly", *On-Failed*: restart if Failed. | Yes |
+| restartPolicy | When the module should be restarted. Possible values are: *Never*: don't restart module if not running, *Always*: always restart module if not running, *On-Unhealthy*: restart module if unhealthy. Unhealthy is what Docker reports based on a health check, for example "Unhealthy - the container isn't working correctly", *On-Failed*: restart if Failed. | Yes |
 | runtime.type | Must be *docker*. | Yes |
 | runtime.settings.minDockerVersion | Specifies the minimum Docker version required by this deployment manifest. | Yes |
 | runtime.settings.loggingOptions | Specifies a stringified JSON with the logging options for the IoT Edge agent container. Learn more about [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/). | No |
@@ -77,7 +77,7 @@ The copy of the current desired properties helps determine if the device has app
 > [!NOTE]
 > You can query IoT Edge agent reported properties with the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to investigate deployment status at scale. Learn how to use IoT Edge agent properties for status in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md).
 
-The following table does not include the information that is copied from the desired properties.
+The following table doesn't include the information that is copied from the desired properties.
 
 | Property | Description |
 | -------- | ----------- |

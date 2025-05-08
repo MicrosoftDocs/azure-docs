@@ -117,7 +117,7 @@ Select a severity row to view alert details. The **Alert rule** link opens the a
 
 ## Customize workbooks
 
-[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) are very customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) are customizable. You can edit the public templates to suit your requirements. All the visualizations are driven by resource-centric [Kusto Query Language](/azure/data-explorer/kusto/query/) queries on the [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table. 
 
 To customize a workbook, enter editing mode. Select the **Edit** button in the workbook's menu bar. Curated workbooks use workbook groups extensively. You might need to select **Edit** on several nested groups to view a visualization query.
 
