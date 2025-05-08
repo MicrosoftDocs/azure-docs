@@ -36,7 +36,7 @@ The SDKs are open source and available on GitHub:
 
 ## Goals of the SDKs
 
-The goal of the SDKS is to provide an application framework to abstract the MQTT concepts, with a clean API, that can also be consumed using the Protocol Compiler (Codegen) from [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) models.
+The goal of the SDKs is to provide an application framework to abstract the MQTT concepts, with a clean API, that can also be consumed using the Protocol Compiler (Codegen) from [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/README.md) models.
 
 The SDKs can be used to build highly available applications at the edge, that interact with Azure IoT Operations to perform operations such as **asset discovery**, **protocol translation** and **data transformation**.
 
@@ -75,7 +75,7 @@ Read further about the underlying terminology and different components of the SD
 
 ## Applications types
 
-The SDK supports the following application types:
+The SDKs supports the following application types:
 
 | Application type | Description |
 |-|-|
@@ -93,7 +93,7 @@ To deploy a fully functional application to a cluster and see the SDKs in action
 
 ## SDKs reference documentation
 
-For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT see [SDKS reference documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md).
+For documentation related to the implementation of the SDKs, it's fundamentals primitives and protocols as well as the underlying topic and payload structure used for communication over MQTT, see [SDKs reference documentation](https://github.com/Azure/iot-operations-sdks/blob/main/doc/reference/README.md).
 
 ## Next step
 
