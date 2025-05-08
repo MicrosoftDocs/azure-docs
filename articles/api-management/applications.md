@@ -78,12 +78,15 @@ Follow these steps to enable **Application based access** for a product. A produ
 The following example uses the **Starter** product, but choose any published product that has at least one API assigned to it.
 
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your API Management instance.
-2. In the left menu, under **APIs**, select **Products**.
-3. Choose the product you want to configure, such as the **Starter** product.
-4. In the left menu, under **Product**, select **Properties**.
-5. Enable the **Application based access** setting.
-6. Select **Save**.
+1. Sign in to the Azure portal at the following test URL :
+
+    [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true)
+1. Navigate to your API Management instance.
+1. In the left menu, under **APIs**, select **Products**.
+1. Choose the product you want to configure, such as the **Starter** product.
+1. In the left menu, under **Product**, select **Properties**.
+1. Enable the **Application based access** setting.
+1. Select **Save**.
 
 :::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
 
@@ -128,7 +131,7 @@ Now create a client application that is registered in Microsoft Entra ID and lim
     :::image type="content" source="media/applications/register-application.png" alt-text="Screenshot of application settings in the portal.":::
 1. Select **Register**.
 
-The application is added to the list of applications on the **Applications** pane. A client secret is automatically generated for the application. The client secret is used to obtain an OAuth 2.0 token from the client application in the client credentials flow.
+The application is added to the list of applications on the **Applications** pane. A client secret is automatically generated for the application. 
 
 <!-- Where would client secret show? Should customer store it somewhere? -->
 
