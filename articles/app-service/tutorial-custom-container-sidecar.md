@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure a sidecar for a custom container app'
 description: Add sidecar containers to your custom container in Azure App Service. Add or update services to your application without changing your application container.
 ms.topic: tutorial
-ms.date: 04/07/2024
+ms.date: 05/07/2025
 ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, container, sidecar
@@ -12,14 +12,9 @@ keywords: azure app service, web app, linux, windows, docker, container, sidecar
 
 In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux custom container app in Azure App Service. For bring-your-own-code Linux apps, see [Tutorial: Configure a sidecar container for a Linux app in Azure App Service](tutorial-sidecar.md).
 
-In Azure App Service, you can add up to nine sidecar containers for each sidecar-enabled custom container app. Sidecar containers let you deploy extra services and features to your container application without making them tightly coupled to your main application container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
-
-For more information about side container in App Service, see:
-
-- [Introducing Sidecars for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
-- [Announcing the general availability of sidecar extensibility in Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-general-availability-of-sidecar-extensibility-in-azure-app-servic/4267985)
-
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [sidecar-overview](includes/tutorial-sidecar/sidecar-overview.md)]
 
 ## 1. Set up the needed resources
 
@@ -86,7 +81,7 @@ First you create the resources that the tutorial uses. They're used for this par
     :::image type="content" source="media/tutorial-custom-container-sidecar/create-wizard-container-panel.png" alt-text="Screenshot showing the web app create wizard and settings for the container image and the sidecar support highlighted.":::
 
     > [!NOTE]
-    > These settings are configured differently in sidecar-enabled apps. For more information, see [Differences for sidecar-enabled apps](#differences-for-sidecar-enabled-apps).
+    > These settings are configured differently in sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers).
 
 1. Select **Review + create**, then select **Create**.
 
@@ -132,8 +127,7 @@ You configure environment variables for the containers like any App Service app,
     :::image type="content" source="media/tutorial-custom-container-sidecar/configure-app-settings.png" alt-text="Screenshot showing a web app's Configuration page with two app settings added.":::
 
 > [!NOTE]
-> Certain app settings don't apply to sidecar-enabled apps. For more information, see [Differences for sidecar-enabled apps](#differences-for-sidecar-enabled-apps)
-
+> Certain app settings don't apply to sidecar-enabled apps. For more information, see [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
 ## 5. Verify in Application Insights
 
 The otel-collector sidecar should export data to Application Insights now.
@@ -154,22 +148,39 @@ When you no longer need the environment, you can delete the resource group, App 
 azd down
 ```
 
-## How do sidecar containers handle internal communication?
+## Frequently asked questions
 
-Sidecar containers share the same network host as the main container, so the main container (and other sidecar containers) can reach any port on the sidecar with `localhost:<port>`. This is exactly how the Nginx container sends data to the sidecar (see the [OpenTelemetry module configuration for the sample Nginx image](https://github.com/Azure-Samples/app-service-sidecar-tutorial-prereqs/blob/main/images/nginx/opentelemetry_module.conf)).
+- [What are the differences for sidecar-enabled custom containers?](#what-are-the-differences-for-sidecar-enabled-custom-containers)
+- [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
+- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
 
-In the **Edit container** dialog, the **Port** box isn't currently used by App Service. You can use it as part of the sidecar metadata, such as to indicate which port the sidecar is listening to.
+### What are the differences for sidecar-enabled custom containers?
 
-## Differences for sidecar-enabled apps
+You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled.
 
-You configure sidecar-enabled apps differently than apps that aren't sidecar-enabled. Specifically, you don't configure the main container and sidecars with app settings, but directly in the resource properties. These app settings don't apply for sidecar-enabled apps:
+#### Not sidecar-enabled
 
-- Registry authentication settings: `DOCKER_REGISTRY_SERVER_URL`, `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`.
-- Container port: `WEBSITES_PORT`
+- Container name and types are configured directly with `LinuxFxVersion=DOCKER|<image-details>` (see [az webapp config set --linux-fx-version](/cli/azure/webapp/config)).
+- The main container is configured with app settings, such as:
+    - `DOCKER_REGISTRY_SERVER_URL`
+    - `DOCKER_REGISTRY_SERVER_USERNAME`
+    - `DOCKER_REGISTRY_SERVER_PASSWORD`
+    - `WEBSITES_PORT`
+
+#### Sidecar-enabled
+
+- A sidecar-enabled app is designated by `LinuxFxVersion=sitecontainers` (see [az webapp config set --linux-fx-version](/cli/azure/webapp/config)).
+- The main container is configured with a [sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers) resource. These settings don't apply for sidecar-enabled apps
+    - `DOCKER_REGISTRY_SERVER_URL`
+    - `DOCKER_REGISTRY_SERVER_USERNAME`
+    - `DOCKER_REGISTRY_SERVER_PASSWORD`
+    - `WEBSITES_PORT`
+
+[!INCLUDE [common-faqs](includes/tutorial-sidecar/common-faqs.md)]
 
 ## More resources
 
 - [Configure custom container](configure-custom-container.md)
-- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
+- [REST API: Web Apps - Create Or Update Site Container](/rest/api/appservice/web-apps/create-or-update-site-container)
+- [Infrastructure as Code: Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers)
 - [Deploy custom containers with GitHub Actions](deploy-container-github-action.md)
-- [OpenTelemetry](https://opentelemetry.io/)
