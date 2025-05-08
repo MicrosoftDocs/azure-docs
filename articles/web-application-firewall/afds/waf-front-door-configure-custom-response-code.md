@@ -59,6 +59,9 @@ To customize the response status code and body, follow these steps:
 
     :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
 
+    > [!NOTE]
+    > The [JavaScript Challenge](../waf-javascript-challenge.md) and [CAPTCHA](captcha-challenge.md) features are available only in WAF policies on the Azure Front Door Premium tier.
+
 1. Select **Save**.
 
 # [**PowerShell**](#tab/powershell)
