@@ -22,7 +22,7 @@ This article describes the Operator Nexus credential rotation lifecycle includin
   - For information on configuring the key vault to receive credential rotation updates, see [Setting up Key Vault for Managed Credential Rotation](how-to-credential-manager-key-vault.md).
 
 > [!IMPORTANT]
-> A key vault must be provided on the Cluster, otherwise credentials won't be retrievable. Microsoft Support doesn't have access to the credentials.
+> A key vault must be provided on the Cluster, otherwise credentials aren't retrievable. Microsoft Support doesn't have access to the credentials.
 
 ## Rotating credentials
 
@@ -37,7 +37,7 @@ The Operator Nexus Platform offers a managed credential rotation process that au
 When a new Cluster is created, the credentials are automatically rotated during deployment. The managed credential process then automatically rotates these credentials periodically based on the credential type. The updated credentials are written to the key vault associated with the Cluster resource.
 
 > [!NOTE]
-> The introduction of this capability enables auto-rotation for existing instances. If any of the supported credentials hasn't rotated within the expected rotation time period, they'll rotate during the management upgrade.
+> The introduction of this capability enables auto-rotation for existing instances. If any of the supported credentials haven't rotated within the expected rotation time period, they'll rotate during the management upgrade.
 
 With the 2024-07-01-GA API, the credential rotation status is available on the Bare Metal Machine or Storage Appliance resources in the `secretRotationStatus` data construct for each of the rotated credentials.
 
@@ -71,16 +71,16 @@ Operator Nexus also provides a service for preemptive rotation of the above Plat
 
 The Credential Manager generates a secure password from the current value updates all BMC nodes and the KeyVault associated with the cluster. The Credential Manager checks KeyVault accessibility and uses the last known rotated secret to access the BMC and then performs the rotation.
 
-Manually rotated secrets aren't recognized by the platform, preventing the Credential Manager from accessing the BMC to update the new password. For iDRAC rotation, the Credential Manager passes a new credential to the BareMetalMachine controller and the attempts to access the iDRAC password for rotation. 
+The Platform doesn't recognize manually rotated secrets, preventing the Credential Manager from accessing the BMC to update the new password. For iDRAC rotation, the Credential Manager passes a new credential to the BareMetalMachine controller and the attempts to access the iDRAC password for rotation. 
 
 The unknown state of credentials to the platform impacts monitoring and the ability to perform future runtime version upgrades.
 
-In order to restore the state of the credential, it must be reset to a value that the platform recognizes.  There are two options for this:
+In order to restore the state of the credential, it must be reset to a value that the platform recognizes. There are two options for this situation:
 
-1. Run a [BareMetalMachine replace](./howto-baremetal-functions.md) action providing the current active credentials.  This will allow the machine to use these credentials to reset credential rotation.
-1. Reset the BMC credential back to the value prior to the manual change.  If a key vault is configured for receiving rotated credential, then the proper value may be obtained from there using information from the `secretRotationStatus` data for the Bare Metal Machine resource.  The rotation status for the BMC Credential will indicate the secret key and version within the key vault for the appropriate value.  Once the credential is reset back, credential rotation will proceed normally.
+1. Run a [BareMetalMachine replace](./howto-baremetal-functions.md) action providing the current active credentials. The replace action allows the machine to use provided credentials to reset credential rotation. This is the recommended option if significant changes are made to the machine.
+1. Reset the BMC credential back to the value prior to the manual change. If a key vault is configured for receiving rotated credential, then the proper value may be obtained using information from the `secretRotationStatus` data for the Bare Metal Machine resource. The rotation status for the BMC Credential indicates the secret key and version within the key vault for the appropriate value. Once the credential is reset back, credential rotation will proceed normally.
 
-Example `secretRotationStatus` for BMC credential.  Use the `secretName` and `secretVersion` to find the proper value in the cluster key vault.
+Example `secretRotationStatus` for BMC credential. Use the `secretName` and `secretVersion` to find the proper value in the cluster key vault.
 ```
 {
   {
