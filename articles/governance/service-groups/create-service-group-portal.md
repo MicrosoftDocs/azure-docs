@@ -9,7 +9,7 @@ ms.date: 5/19/2025
 ---
 
 
-# Quickstart: Create a service group (preview) with REST API
+# Quickstart: Create a service group (preview) in the portal
  
 Azure Service Groups offer a flexible way to organize and manage resources across subscriptions and resource groups, parallel to any existing Azure resource hierarchy. They're ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and provide guidance on how to get started. For more information on service groups, see [Getting started with Service Groups](overview.md).
 
