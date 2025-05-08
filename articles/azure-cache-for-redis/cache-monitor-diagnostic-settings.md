@@ -86,7 +86,7 @@ Keep the following limitations in mind:
 When you enable diagnostic settings for your Azure Redis instance, you can send resource logs to the following destinations:
 
 - **Send to Log Analytics workspace**. The workspace doesn't need to be in the same region as the resource being monitored.
-- **Archive to a storage account** The storage account must be in the same region as the cache. <!--[Premium storage accounts are not supported](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations) as a destination, however.-->
+- **Archive to a storage account**. The storage account must be in the same region as the cache. <!--[Premium storage accounts are not supported](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations) as a destination, however.-->
 - **Stream to an event hub**. The event hub must be in the same region as the cache.
 
   Diagnostic settings can't access event hub resources if virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall** setting in Azure Event Hubs to grant access to event hub resources. 
@@ -316,7 +316,7 @@ These fields and properties appear in the `ConnectionEvents` log category. In Az
 | `eventStatus` |  `EventStatus` | Results of an authentication request as a status code. Only applicable for authentication events. |
 
 > [!NOTE]
-> If you use Private Link, only a IPv6 address is logged, unless you stream the data to Log Analytics. You can convert the IPv6 address to the equivalent IPv4 address by using the last four bytes of data in the IPv6 address. For instance, in the Private Link IPv6 address `fd40:8913:31:6810:6c31:200:a01:104`, the last four bytes in hexadecimal are `0a`, `01`, `01`, and `04`. (In the address, leading zeros after colons are omitted.) These values correspond to `10`, `1`, `1`, and `4` in decimal, producing the IPv4 address `10.1.1.4`.  
+> If you use Private Link, only an IPv6 address is logged, unless you stream the data to Log Analytics. You can convert the IPv6 address to the equivalent IPv4 address by using the last four bytes of data in the IPv6 address. For instance, in the Private Link IPv6 address `fd40:8913:31:6810:6c31:200:a01:104`, the last four bytes in hexadecimal are `0a`, `01`, `01`, and `04`. (In the address, leading zeros after colons are omitted.) These values correspond to `10`, `1`, `1`, and `4` in decimal, producing the IPv4 address `10.1.1.4`.  
 
 ### Sample storage account logs
 
