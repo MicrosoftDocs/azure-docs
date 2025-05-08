@@ -159,7 +159,7 @@ The following table shows built-in roles that we recommend when you use triggers
 
 #### Connection strings in version 2.*x*
 
-Version 2.*x* of the SDK doesn't require a specific name. In version 2.*x*, you can use your own names for these connection strings, and you can store them elsewhere. You can set names in code by using [`JobHostConfiguration`], like in this example:
+Version 2.*x* of the SDK doesn't require a specific name for connection strings. In version 2.*x*, you can use your own names for these connection strings, and you can store them elsewhere. You can set names in code by using [`JobHostConfiguration`], like in this example:
 
 ```csharp
 static void Main(string[] args)
@@ -196,7 +196,7 @@ The process for enabling development mode depends on the SDK version.
 
 #### Version 3.*x*
 
-Version 3.*x* uses the standard ASP.NET Core APIs. Call the [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
+In version 3.*x*, you use the standard ASP.NET Core APIs to change the host environment. Call the [`UseEnvironment`](/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance. Pass a string named `development`, as in this example:
 
 ```csharp
 static async Task Main()
@@ -244,7 +244,7 @@ All outgoing HTTP requests that you make from a function by using `HttpClient` f
 
 The default value for ASP.NET applications is `Int32.MaxValue`, and that's likely to work well for WebJobs running in a Basic or higher App Service plan. WebJobs typically need the **Always On** setting, and that's supported only by Basic and higher App Service plans.
 
-If your WebJob is running in a Free or Shared App Service plan, your application is restricted by the App Service sandbox, which currently has a [connection limit of 300](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). With an unbound connection limit in `ServicePointManager`, it's more likely that the sandbox connection threshold is reached, and the site shuts down. In that case, setting `DefaultConnectionLimit` to something lower, like 50 or 100, can prevent this scenario from occurring and still allow sufficient throughput.
+If your WebJob is running in a Free or Shared App Service plan, your application is restricted by the App Service sandbox, which currently has a [connection limit of 600](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#per-sandbox-per-appper-site-numerical-limits). If you have an unbound connection limit in `ServicePointManager`, it's more likely that the sandbox connection threshold is reached, and the site shuts down. In that case, setting `DefaultConnectionLimit` to something lower, like 50 or 100, can prevent this scenario from occurring and still allow sufficient throughput.
 
 The setting must be configured before any HTTP requests are made. For this reason, the WebJobs host shouldn't adjust the setting automatically. There might be HTTP requests that occur before the host starts, which can lead to unexpected behavior. The best approach is to set the value immediately in your `Main` method before you initialize `JobHost`, as shown in this example:
 
