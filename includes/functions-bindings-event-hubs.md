@@ -148,11 +148,11 @@ Choose a version to see binding type details for the mode and version.
 
 ### [Extension v6.x+](#tab/extensionv6/in-process)
 
-[!INCLUDE [functions-event-hubs-extensionv5-inproc](functions-event-hubs-extension-v5-in-proc.md)]
+[!INCLUDE [functions-event-hubs-extensionv5-inproc](functions-event-hubs-extensionv5-inproc.md)]
 
 ### [Extension v5.x](#tab/extensionv5/in-process)
 
-[!INCLUDE [functions-event-hubs-extensionv5-inproc](functions-event-hubs-extension-v5-in-proc.md)]
+[!INCLUDE [functions-event-hubs-extensionv5-inproc](functions-event-hubs-extensionv5-inproc.md)]
 
 ### [Extension v3.x+](#tab/extensionv3/in-process)
 
