@@ -14,9 +14,9 @@ ms.service: azure-communication-services
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
-- An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
+- An Azure Communication Email Resource created and ready with a provisioned domain. [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
 - An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../connect-email-communication-resource.md)
-- Smtp credentials created using an Entra application with access to the Azure Communication Services Resource. [Create credentials for Simple Mail Transfer Protocol (SMTP) authentication](../smtp-authentication.md)
+- SMTP credentials created using a Microsoft Entra application with access to the Azure Communication Services Resource. [Create credentials for Simple Mail Transfer Protocol (SMTP) authentication](../smtp-authentication.md)
 
 Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
