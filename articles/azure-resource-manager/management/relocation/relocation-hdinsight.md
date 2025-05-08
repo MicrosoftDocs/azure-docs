@@ -40,8 +40,6 @@ Understand potential downtimes involved in the relocation process. For more info
 
 ## Prepare for Relocation
 
-[jgao: it isn't clear to me whether the steps in this section take place before "Redeploy the Cluster".]
-
 ### Export a Template
 
 Export an Azure Resource Manager (ARM) JSON template or a Bicep file for your HDInsight cluster. These templates define and automate the deployment of HDInsight clusters and their associated resources. Use one of the following methods to export the template:
