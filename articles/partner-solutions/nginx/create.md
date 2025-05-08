@@ -1,6 +1,6 @@
 ---
 title: Create an NGINXaaS resource
-description: In this quickstart, Learn how to use the Azure portal to create an instance of NGINXaaS from Azure Marketplace.
+description: In this quickstart, learn how to use the Azure portal to create an instance of NGINXaaS from Azure Marketplace.
 ms.topic: quickstart
 ms.date: 05/09/2025
 ms.custom: references_regions
@@ -21,7 +21,7 @@ To create an NGINXaaS deployment, use this procedure.
 
 1. From the Azure portal menu's global search bar, search for *marketplace*. Select **Marketplace** from the Services results.
 
-1. In the Marketplace, search for *NGINXaaS*. In the results, subscribe to NGINX as a Service.
+1. In the Marketplace, search for *F5 NGINX as a Service*. In the results, subscribe to NGINX as a Service.
 
 1. In **Create NGINXaaS**, in the **Basics** tab, select a Subscription and resource group. You can create a resource group, if necessary.
 
