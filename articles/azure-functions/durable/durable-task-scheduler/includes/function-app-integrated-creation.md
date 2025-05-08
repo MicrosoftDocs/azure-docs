@@ -1,10 +1,8 @@
 ---
 ms.service: azure-functions
+ms.subservice: durable-task-scheduler
 ms.topic: include
 ms.date: 03/19/2025
-ms.author: jiayma
-ms.reviewer: azfuncdf
-author: lilyjma
 ---
 
 1. Navigate to the Function app creation blade and select **Functions Premium** or **App Service** as a hosting option.
