@@ -293,6 +293,8 @@
       href: work-remotely-support.md
 - name: Troubleshoot
   items:
+  - name: Troubleshoot gateway migration
+    href: gateway-migration-error-messaging.md
   - name: Obtain correlation ID
     href: get-correlation-id.md
   - name: Verifying ExpressRoute connectivity

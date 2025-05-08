@@ -2,7 +2,7 @@
 title: 'Tutorial: Configure a sidecar container'
 description: Add sidecar containers to your Linux app in Azure App Service. Add or update services to your application without changing your application code.
 ms.topic: tutorial
-ms.date: 02/20/2025
+ms.date: 05/08/2025
 ms.author: cephalin
 author: cephalin
 keywords: azure app service, web app, linux, windows, docker, sidecar
@@ -12,14 +12,9 @@ keywords: azure app service, web app, linux, windows, docker, sidecar
 
 In this tutorial, you add an OpenTelemetry collector as a sidecar container to a Linux (bring-your-own-code) app in Azure App Service. For custom containers, see [Tutorial: Configure a sidecar container for custom container in Azure App Service](tutorial-custom-container-sidecar.md).
 
-In Azure App Service, you can add up to nine sidecar containers for each Linux app. Sidecar containers let you deploy extra services and features to your Linux apps without making them tightly coupled to the main (built-in) container. For example, you can add monitoring, logging, configuration, and networking services as sidecar containers. An OpenTelemetry collector sidecar is one such monitoring example. 
-
-For more information about side container in App Service, see:
-
-- [Introducing Sidecars for Azure App Service for Linux: Now Generally Available](https://azure.github.io/AppService/2024/11/08/Global-Availability-Sidecars.html)
-- [Announcing the general availability of sidecar extensibility in Azure App Service](https://techcommunity.microsoft.com/blog/appsonazureblog/announcing-the-general-availability-of-sidecar-extensibility-in-azure-app-servic/4267985)
-
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [sidecar-overview](includes/tutorial-sidecar/sidecar-overview.md)]
 
 ## 1. Set up the needed resources
 
@@ -249,15 +244,12 @@ azd down
 ## Frequently asked questions
 
 - [How do sidecar containers handle internal communication?](#how-do-sidecar-containers-handle-internal-communication)
+- [Can a sidecar container receive internet requests?](#can-a-sidecar-container-receive-internet-requests)
 - [How do I instrument other language stacks?](#how-do-i-instrument-other-language-stacks)
 
-#### How do sidecar containers handle internal communication?
+[!INCLUDE [common-faqs](includes/tutorial-sidecar/common-faqs.md)]
 
-Sidecar containers share the same network host as the main container, so the main container (and other sidecar containers) can reach any port on the sidecar with `localhost:<port>`. The example *startup.sh* uses `localhost:4318` to access port 4318 on the **otel-collector** sidecar.
-
-In the **Edit container** dialog, the **Port** box isn't currently used by App Service. You can use it as part of the sidecar metadata, such as to indicate which port the sidecar is listening to.
-
-#### How do I instrument other language stacks?
+### How do I instrument other language stacks?
 
 You can use a similar approach to instrument apps in other language stacks. For more information, see OpenTelemetry documentation:
 
@@ -269,7 +261,9 @@ You can use a similar approach to instrument apps in other language stacks. For 
 
 ## More resources
 
-- [Run a local SLM in a sidecar container in Azure App Service](tutorial-sidecar-local-small-language-model.md)
-- [Try out sidecars in this guided lab](https://mslabs.cloudguides.com/guides/Sidecars%20in%20Azure%20App%20Service)
-- [Deploy to App Service using GitHub Actions](deploy-github-actions.md)
-- [OpenTelemetry](https://opentelemetry.io/)
+- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
+- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (Spring Boot)](tutorial-ai-slm-spring-boot.md)
+- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (FastAPI)](tutorial-ai-slm-fastapi.md)
+- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (Express.js)](tutorial-ai-slm-expressjs.md)
+- [REST API: Web Apps - Create Or Update Site Container](/rest/api/appservice/web-apps/create-or-update-site-container)
+- [Infrastructure as Code: Microsoft.Web sites/sitecontainers](/azure/templates/microsoft.web/sites/sitecontainers)

@@ -1,12 +1,11 @@
 ---
 title: Access built-in metrics in Azure IoT Edge
-description: Remote access to built-in metrics from the IoT Edge runtime components
+description: Access built-in metrics from IoT Edge runtime components to monitor device health.
+#customer intent: As a system administrator, I want to access built-in metrics in Azure IoT Edge so that I can monitor and understand the health of my IoT Edge devices.  
 author: PatAltimore
-
 ms.author: patricka
-ms.date: 04/08/2024
-ms.topic: conceptual
-ms.reviewer: veyalla
+ms.date: 05/08/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---
@@ -17,11 +16,11 @@ services: iot-edge
 
 The IoT Edge runtime components, IoT Edge hub, and IoT Edge agent, produce built-in metrics in the [Prometheus exposition format](https://prometheus.io/docs/instrumenting/exposition_formats/). Access these metrics remotely to monitor and understand the health of an IoT Edge device.
 
-You can use your own solution to access these metrics. Or, you can use the [metrics-collector module](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector), which handles collecting the built-in metrics and sending them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
+Use your own solution to access these metrics, or use the [metrics-collector module](https://mcr.microsoft.com/artifact/mar/azureiotedge-metrics-collector), which collects the built-in metrics and sends them to Azure Monitor or Azure IoT Hub. For more information, see [Collect and transport metrics](how-to-collect-and-transport-metrics.md).
 
-Metrics are automatically exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't port mapped to the host by default.
+Metrics are exposed by default on **port 9600** of the **edgeHub** and **edgeAgent** modules (`http://edgeHub:9600/metrics` and `http://edgeAgent:9600/metrics`). They aren't mapped to the host by default.
 
-Access metrics from the host by exposing and mapping the metrics port from the module's `createOptions`. The example below maps the default metrics port to port 9601 on the host:
+Access metrics from the host by exposing and mapping the metrics port in the module's `createOptions`. The following example maps the default metrics port to port 9601 on the host:
 
 ```json
 {
@@ -40,28 +39,28 @@ Access metrics from the host by exposing and mapping the metrics port from the m
 }
 ```
 
-Choose different and unique host port numbers if you are mapping both the edgeHub and edgeAgent's metrics endpoints.
+Choose different and unique host port numbers when mapping both the edgeHub and edgeAgent metrics endpoints.
 
 > [!NOTE]
-> The environment variable `httpSettings__enabled` should not be set to `false` for built-in metrics to be available for collection.
+> The environment variable `httpSettings__enabled` must not be set to `false` for built-in metrics to be available for collection.
 >
 > Environment variables that can be used to disable metrics are listed in the [azure/iotedge repo doc](https://github.com/Azure/iotedge/blob/main/doc/EnvironmentVariables.md).
 
 ## Available metrics
 
-Metrics contain tags to help identify the nature of the metric being collected. All metrics contain the following tags:
+Metrics include tags that identify the nature of the metric being collected. All metrics include the following tags:
 
 | Tag | Description |
 |-|-|
-| iothub | The hub the device is talking to |
+| iothub | The hub the device communicates with |
 | edge_device | The ID of the current device |
 | instance_number | A GUID representing the current runtime. On restart, all metrics are reset. This GUID makes it easier to reconcile restarts. |
 
-In the Prometheus exposition format, there are four core metric types: counter, gauge, histogram, and summary. For more information about the different metric types, see the [Prometheus metric types documentation](https://prometheus.io/docs/concepts/metric_types/).
+The Prometheus exposition format includes four core metric types: counter, gauge, histogram, and summary. For more information about the different metric types, see the [Prometheus metric types documentation](https://prometheus.io/docs/concepts/metric_types/).
 
-The quantiles provided for the built-in histogram and summary metrics are 0.1, 0.5, 0.9 and 0.99.
+The quantiles for the built-in histogram and summary metrics are 0.1, 0.5, 0.9, and 0.99.
 
-The **edgeHub** module produces the following metrics:
+The **edgeHub** module generates the following metrics:
 
 | Name | Dimensions | Description |
 |-|-|-|
@@ -69,7 +68,7 @@ The **edgeHub** module produces the following metrics:
 | `edgehub_messages_received_total` | `route_output` (output that sent message)<br> `id` | Type: counter<br> Total number of messages received from clients |
 | `edgehub_messages_sent_total` | `from` (message source)<br> `to` (message destination)<br>`from_route_output`<br> `to_route_input` (message destination input)<br> `priority` (message priority to destination) | Type: counter<br> Total number of messages sent to clients or upstream<br> `to_route_input` is empty when `to` is $upstream |
 | `edgehub_reported_properties_total` | `target`(update target)<br> `id` | Type: counter<br> Total reported property updates calls |
-| `edgehub_message_size_bytes` | `id`<br> | Type: summary<br> Message size from clients<br> Values may be reported as `NaN` if no new measurements are reported for a certain period of time (currently 10 minutes); for `summary` type, corresponding `_count` and `_sum` counters are emitted. |
+| `edgehub_message_size_bytes` | `id`<br> | Type: summary<br> Message size from clients<br> Values might be reported as `NaN` if no new measurements are reported for 10 minutes. For the `summary` type, corresponding `_count` and `_sum` counters are emitted. |
 | `edgehub_gettwin_duration_seconds` | `source` <br> `id` | Type: summary<br> Time taken for get twin operations |
 | `edgehub_message_send_duration_seconds` | `from`<br> `to`<br> `from_route_output`<br> `to_route_input` | Type: summary<br> Time taken to send a message |
 | `edgehub_message_process_duration_seconds` | `from` <br> `to` <br> `priority` | Type: summary<br> Time taken to process a message from the queue |
@@ -84,7 +83,7 @@ The **edgeHub** module produces the following metrics:
 | `edgehub_operation_retry_total` | `id`<br> `operation` (operation name) | Type: counter<br> Total number of times edgeHub operations were retried |
 | `edgehub_client_connect_failed_total` | `id` <br> `reason` (not authenticated)<br> | Type: counter<br> Total number of times clients failed to connect to edgeHub |
 
-The **edgeAgent** module produces the following metrics:
+The **edgeAgent** module generates the following metrics:
 
 | Name | Dimensions | Description |
 |-|-|-|
@@ -109,7 +108,7 @@ The **edgeAgent** module produces the following metrics:
 | `edgeAgent_total_network_out_bytes` | `module_name` | Type: gauge<br> The number of bytes sent to network |
 | `edgeAgent_total_disk_read_bytes` | `module_name` | Type: gauge<br> The number of bytes read from the disk |
 | `edgeAgent_total_disk_write_bytes` | `module_name` | Type: gauge<br> The number of bytes written to disk |
-| `edgeAgent_metadata` | `edge_agent_version`, `experimental_features`, `host_information` | Type: gauge<br> General metadata about the device. The value is always 0, information is encoded in the tags. Note `experimental_features` and `host_information` are json objects. `host_information` looks like ```{"OperatingSystemType": "linux", "Architecture": "x86_64", "Version": "1.2.7", "Provisioning": {"Type": "dps.tpm", "DynamicReprovisioning": false, "AlwaysReprovisionOnStartup": false}, "ServerVersion": "20.10.11+azure-3", "KernelVersion": "5.11.0-1027-azure", "OperatingSystem": "Ubuntu 20.04.4 LTS", "NumCpus": 2, "Virtualized": "yes"}```. Note `ServerVersion` is the Docker version and `Version` is the IoT Edge security daemon version. |
+| `edgeAgent_metadata` | `edge_agent_version`, `experimental_features`, `host_information` | Type: gauge<br> General metadata about the device. The value is always 0, and information is encoded in the tags. Note that `experimental_features` and `host_information` are JSON objects. `host_information` looks like ```{"OperatingSystemType": "linux", "Architecture": "x86_64", "Version": "1.2.7", "Provisioning": {"Type": "dps.tpm", "DynamicReprovisioning": false, "AlwaysReprovisionOnStartup": false}, "ServerVersion": "20.10.11+azure-3", "KernelVersion": "5.11.0-1027-azure", "OperatingSystem": "Ubuntu 20.04.4 LTS", "NumCpus": 2, "Virtualized": "yes"}```. Note `ServerVersion` is the Docker version and `Version` is the IoT Edge security daemon version. |
 
 ## Next steps
 

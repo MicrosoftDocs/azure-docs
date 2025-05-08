@@ -44,16 +44,15 @@ The guided gateway migration experience simplifies this process by allowing you 
 
 Once the migration is complete and the old gateway along with its connections are deleted, the newly created gateway is tagged with `"CreatedBy : GatewaySKUMigration"`. This tag helps distinguish migrated gateways from others that haven't undergone migration and shouldn't be deleted.
 
+### Steps to migrate to a new gateway
 
-### Steps to Migrate to a New Gateway
-
-1. **Validate**: Confirm that all resources are in a succeeded state to ensure the gateway is ready for migration. If prerequisites aren't met, the validation process fails, and migration can't proceed.
-2. **Prepare**: Create a new virtual network gateway, public IP, and connections. This step can take up to 45 minutes. You can specify a preferred name for the new gateway and connections. If no name is provided, the system appends the tag **_migrate** by default. During this step, the existing virtual network gateway is locked, preventing any creation or modification of connections.
-3. **Migrate**: Transfer traffic from the old gateway to the new one by selecting the new gateway. This operation can take up to 15 minutes and could result in brief connectivity interruptions.
-4. **Commit**: Finalize the migration by deleting the old gateway and its connections.
+1. **Validate**: Ensure all resources are in a succeeded state to confirm the gateway is ready for migration. If prerequisites aren't met, validation fails, and you can't proceed.
+2. **Prepare**: Create a new Virtual Network gateway, Public IP, and connections. This operation can take up to 45 minutes. You can choose a preferred name for the new gateway and connections. If you don't change the name, the tag **_migrate** will be appended by default. During this process, the existing Virtual Network gateway will be locked, preventing any creation or modification of connections.
+3. **Migrate**: Select the new gateway to transfer traffic from the old gateway to the new one. This operation can take up to 15 minutes and may cause brief interruptions.
+4. **Commit**: Finalize the migration by deleting the old gateway and connections.
 
 > [!IMPORTANT]
-> After completing the migration, validate your connectivity to ensure everything is functioning as expected. If needed, you can revert to the old gateway by selecting **Abort** after the prepare step. This action deletes the new gateway and its connections.
+> After migration, validate your connectivity to ensure everything is functioning as expected. You can revert to the old gateway by selecting **Abort** after the prepare step, which will delete the new gateway and connections.
 
 | Migration source (Non-Az-enabled gateway SKU) | Migration target (Az-enabled gateway SKU) |
 |--|--|
