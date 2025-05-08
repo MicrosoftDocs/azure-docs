@@ -6,7 +6,6 @@ author: PatAltimore
 ms.author: patricka
 ms.date: 05/08/2025
 ms.topic: concept-article
-ms.reviewer: veyalla
 ms.service: azure-iot-edge
 services: iot-edge
 ---
