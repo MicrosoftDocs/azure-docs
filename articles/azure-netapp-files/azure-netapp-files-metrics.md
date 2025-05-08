@@ -4,8 +4,8 @@ description: Azure NetApp Files provides metrics on allocated storage, actual st
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 03/18/2025
+ms.topic: concept-article
+ms.date: 04/16/2025
 ms.author: anfdocs
 ---
 # Metrics for Azure NetApp Files
@@ -198,21 +198,39 @@ Subscription quota metrics are currently in preview. Before you can access subsc
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume I/OPS, and latency. Use these metrics to understand usage and performance.
 
-- *Percentage Volume Consumed Size*    
+- *Percentage Volume Consumed Size*
+
     The percentage of the volume consumed, including snapshots.  
     Aggregation metrics (for example, min, max) aren't supported for percentage volume consumed size.
-- *Volume Allocated Size*   
+- *Volume Allocated Size* 
+  
     The provisioned size of a volume
 - *Volume Quota Size*    
+
     The quota size (GiB) the volume is provisioned with.   
 - *Volume Consumed Size*   
+
     Logical size of the volume (used bytes).  
     This size includes logical space used by active file systems and snapshots.  
 - *Volume Snapshot Size*   
+ 
    The size of all snapshots in a volume.  
+- *Volume Inodes Quota*
+    
+    The volume's maximum allowed [inodes (or `maxfiles`)](maxfiles-concept.md) if the limit was increased via support request. If the limit hasn't been increased via support request, this metric's value is 0.
+
+- *Volume Inodes Total*
+
+    The volume's maximum allowed [inodes (or `maxfiles`)](maxfiles-concept.md) based on the volume size.
+- *Volume Inodes Used*
+
+    The volume's used [inodes (or `maxfiles`)](maxfiles-concept.md).
+
 - *Volume Inodes Percentage* 
 
-    The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed. 
+    The percentage of the volume's available [inodes (or `maxfiles`)](maxfiles-concept.md) consumed.
+
+    If the volume inode limit has been increased by a support request, the percentage is calculated based on Volume Inodes Quota metric. If the volume inode limit is the default value based on the volume size, the percentage is calculated based on the Volume Inodes Total metric.
 
 - *Throughput limit reached*
     
@@ -280,7 +298,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The total number of bytes transferred as part of the last transfer. 
 
 - *Volume replication progress*    
-    The total amount of data transferred for the current transfer operation. 
+    The total amount of data in bytes transferred for the current transfer operation. 
 
 - *Volume replication total transfer*   
     The cumulative bytes transferred for the relationship. 

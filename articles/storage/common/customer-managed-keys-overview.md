@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-storage
 ms.date: 05/11/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts

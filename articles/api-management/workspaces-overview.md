@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 01/27/2025
+ms.date: 04/16/2025
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 
@@ -40,6 +40,7 @@ In Azure API Management, use *workspaces* to implement federated API management.
 * Each workspace is associated with one or more [workspace gateways](#workspace-gateway) for routing API traffic to the backend services of APIs in the workspace.
 * The platform team can apply API policies spanning APIs in workspaces, monitor the platform by viewing the logs for all workspaces, and implement a centralized API discovery experience with a developer portal.
 
+
 :::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces.":::
 
 [!INCLUDE [api-management-workspace-intro-note](../../includes/api-management-workspace-intro-note.md)]
@@ -62,20 +63,41 @@ The following is a sample workflow for creating and using a workspace.
 
 ## Workspace gateway
 
-Each workspace is associated with one or more workspace gateways to enable runtime of APIs managed within the workspace. The workspace gateway is a standalone Azure resource with the same core functionality as the gateway built into your API Management service. 
+Each workspace is configured with one or more *workspace gateways* to enable runtime of APIs managed within the workspace. A workspace gateway is a standalone Azure resource (*workspace gateway premium*) with the same core functionality as the gateway built into your API Management service. 
 
 Workspace gateways are managed independently from the API Management service and from each other. They allow for isolation of runtime between workspaces or use cases, increasing API reliability, resiliency, and security and enabling attribution of runtime issues to workspaces. 
 
 * For information on the cost of workspace gateways, see [API Management pricing](https://aka.ms/apimpricing).
 * For a detailed comparison of API Management gateways, see [API Management gateways overview](api-management-gateways-overview.md).
 
+### Associate workspaces with a workspace gateway
+
+ Depending on your organization's needs, you can associate one workspace or multiple workspaces with a workspace gateway. 
+
 > [!NOTE]
-> We're introducing the ability to associate multiple workspaces with a workspace gateway, helping organizations manage APIs with workspaces at a lower cost. This feature is being rolled out starting in December 2024 and it may not be available to all eligible services before January. [Learn more](https://aka.ms/apim/workspaces/sharedgateway)
+> Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. 
+
+* A workspace gateway has certain configuration (such as virtual network, scale, hostname) and allocated computing resources (CPU, memory, networking resources).
+* Configuration and computing resources are shared by all workspaces deployed on a gateway.
+* Bugs in an API or anomalous traffic may cause exhaustion of these resources, affecting all workspaces on that gateway. In other words, the more workspaces are deployed on a gateway, the higher the risk that an API from a workspace will experience reliability issues caused by an API from another workspace.
+
+Consider reliability, security, and cost when choosing a deployment model for workspaces.
+
+* **Use dedicated gateways for mission-critical workloads** - To maximize API reliability and security, assign each mission-critical workspace to its own gateway, avoiding shared use with other workspaces.
+* **Balance reliability, security, and cost** - Associate multiple workspaces with a gateway to balance reliability, security, and cost for non-critical workloads. Distributing workspaces across at least two gateways helps prevent issues, such as resource exhaustion or configuration errors, from impacting all APIs within the organization.
+* **Use distinct gateways for different use cases** - Group workspaces on a gateway based on a use case or network requirements. For instance, you can distinguish between internal and external APIS by assigning them to separate gateways, each with its own network configuration.
+* **Prepare to quarantine troubled workspaces** - Use a proxy, such as Azure Application Gateway or Azure Front Door, in front of shared workspace gateways to simplify moving a workspace that's causing resource exhaustion to a different gateway, preventing impact on other workspaces sharing the gateway.
+
+> [!NOTE]
+> * A workspace gateway needs to be in the same region as the API Management instance's primary Azure region and in the same subscription
+> * All workspaces associated with a workspace gateway must be in the same API Management instance
+> * A workspace gateway can be associated with up to 30 workspaces (contact support to increase this limit)
 
 ### Gateway hostname
 
-Each association of a workspace to a workspace gateway creates a unique hostname for APIs managed in that workspace. Default hostnames follow the pattern `<workspace-name>-<hash>.gateway.<region>.azure-api.net`. Currently, custom hostnames aren't supported for workspace gateways.
+Each workspace gateway provides a unique hostname for APIs managed in an associated workspace. Default hostnames follow the pattern `<gateway-name>-<hash>.gateway.<region>.azure-api.net`. Use the gateway hostname to route API requests to your workspace's APIs.
 
+Currently, custom hostnames aren't supported for workspace gateways. You can configure Azure Application Gateway or Azure Front Door with a custom hostname in front of a workspace gateway.
 
 ### Network isolation
 
@@ -96,7 +118,6 @@ For a current list of regions where workspace gateways are available, see [Avail
 ### Gateway constraints
 The following constraints currently apply to workspace gateways:
 
-* A workspace gateway needs to be in the same region as the API Management instance's primary Azure region and in the same subscription. 
 * A workspace can't be associated with a self-hosted gateway
 * Workspace gateways don't support inbound private endpoints
 * APIs in workspace gateways can't be assigned custom hostnames

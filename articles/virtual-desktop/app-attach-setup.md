@@ -4,8 +4,8 @@ description: Learn how to add and manage applications with app attach and MSIX a
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 zone_pivot_groups: azure-virtual-desktop-app-attach
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/04/2024
 ---
 
@@ -66,7 +66,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 ::: zone pivot="app-attach"
 - An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 
-- To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. This RBAC role assignment allows your session hosts to access the storage account using access keys or Microsoft Entra.
+- To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. This RBAC role assignment allows your session hosts to access the storage account using access keys or Microsoft Entra. The storage account must be in the same subscription as the VMs you are using for your session hosts.
 
 - To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). In a future update, you won't need to assign the **Azure Virtual Desktop ARM Provider** service principal.
 ::: zone-end
@@ -97,6 +97,10 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 > - All MSIX and Appx application packages include a certificate. You're responsible for making sure the certificates are trusted in your environment. Self-signed certificates are supported with the appropriate chain of trust.
 >
 > - You have to choose whether you want to use app attach or MSIX app attach with a host pool. You can't use both versions with the same package in the same host pool.
+
+> [!CAUTION]
+> An issue currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted. We are actively working on a fix that is estimated to be available in June 2025. Workarounds are use VHDX images instead or use a version of Windows 11 prior to 24H2.
+
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"

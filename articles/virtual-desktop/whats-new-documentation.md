@@ -2,14 +2,24 @@
 title: What's new in documentation - Azure Virtual Desktop
 description: Learn about new and updated articles to the Azure Virtual Desktop documentation.
 ms.topic: release-notes
-author: dknappettmsft
-ms.author: daknappe
-ms.date: 04/02/2025
+author: dougeby
+ms.author: avdcontent
+ms.date: 04/30/2025
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## April 2025
+
+Here are the highlights of documentation changes in April 2025:
+
+- Updated every time sign-in frequency in [Enforce Microsoft Entra multifactor authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#configure-sign-in-frequency) for general availability.
+
+- Added a note to [App attach and MSIX app attach in Azure Virtual Desktop](app-attach-overview.md?pivots=app-attach) to highlight an issue that currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted.
+
+- Added Asia Pacific as a location for storing customer input data and service-generated data. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
 ## March 2025
 
@@ -32,12 +42,6 @@ Here are the highlights of documentation changes in February 2025:
 - Add a new article in the FSLogix documentation to [Store FSLogix profile containers on Azure Files using Microsoft Entra ID in a cloud only scenario](/fslogix/how-to-configure-profile-container-entra-id), which is applicable to Azure Virtual Desktop.
 
 - Updated using [Azure Private Link with Azure Virtual Desktop](private-link-overview.md) to include support with RDP Shortpath for managed networks in preview.
-
-### Expanded cloud support for Microsoft Intune management of devices connecting to Azure Virtual Desktop
-
-The current capabilities of managing devices connecting to Azure Virtual Desktop using Microsoft Intune have been expanded to include Intune for US Government GCC, [Intune for US Government GCC High and DoD](/mem/intune/fundamentals/intune-govt-service-description), and [Intune operated by 21Vianet](/mem/intune/fundamentals/china) (China).
-
-For more information, see [Require local client device security compliance with Microsoft Intune and Microsoft Entra Conditional Access](/windows-app/require-device-security-compliance-intune?context=/azure/virtual-desktop/context/context).
 
 ## January 2025
 

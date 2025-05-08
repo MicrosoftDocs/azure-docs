@@ -2,7 +2,7 @@
 title: Authentication Types by Deployment Methods
 description: Learn the available types of authentication with Azure App Service when you're deploying application code.
 ms.topic: concept-article
-ms.date: 01/24/2025
+ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
 #customer intent: As an app developer, I want to understand the authentication options available for different deployment methods in Azure App Service.

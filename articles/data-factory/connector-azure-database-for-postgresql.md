@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/19/2024
+ms.date: 04/08/2025
 ---
 
 # Copy and transform data in Azure Database for PostgreSQL using Azure Data Factory or Synapse Analytics
@@ -296,8 +296,10 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **AzurePostgreSqlTable** | Yes |
-| tableName | Name of the table | No (if "query" in activity source is specified) |
+| type | The type property of the dataset must be set to **AzurePostgreSqlTable**. | Yes |
+| schema | Name of the schema. | No (if "query" in activity source is specified) |
+| table | Name of the table/view. | No (if "query" in activity source is specified) |
+| tableName | Name of the table. This property is supported for backward compatibility. For new workload, use `schema` and `table`. | No (if "query" in activity source is specified) |
 
 **Example**:
 
@@ -310,7 +312,10 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
             "referenceName": "<AzurePostgreSql linked service name>",
             "type": "LinkedServiceReference"
         },
-        "typeProperties": {}
+        "typeProperties": {
+            "schema": "<schema_name>",
+            "table": "<table_name>"
+        }
     }
 }
 ```
