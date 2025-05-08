@@ -1361,6 +1361,8 @@
         "articles/iot-edge/**/*.yml": ["Azure","IoT","Azure IoT Edge"],
         "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
         "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
+        "articles/iot-operations/**/*.md": ["Azure","IoT","Azure IoT Operations"],
+        "articles/iot-operations/**/*.yml": ["Azure","IoT","Azure IoT Operations"],
         "articles/iot/**/*.md": ["Azure","IoT"],
         "articles/iot/**/*.yml": ["Azure","IoT"],
         "articles/notebooks/**/*.md": ["Azure","Azure Notebooks"],
