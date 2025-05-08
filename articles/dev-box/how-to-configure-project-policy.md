@@ -121,6 +121,8 @@ To edit a project policy:
 
 ## Delete a project policy
 
+Deleting policies removes them from the projects where they are applied and applies the default policy. Delete custom policies first. You can't delete the default policy until all custom policies are deleted.
+
 To delete a project policy: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
