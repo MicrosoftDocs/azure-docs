@@ -25,7 +25,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 > [!TIP] 
 > Before you begin, review [Register an application in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app) for background information on app registration.
 
-## Register Web API Application for ArcGIS Pro
+## Register web API application for ArcGIS Pro
 
 1. Open the Azure Portal and go to **Microsoft Entra ID**.
     [ ![Screenshot showing a user selecting Microsoft Entra ID from Azure portal.](media/microsoft-entra-id.png) ](media/microsoft-entra-id.png#lightbox)
@@ -101,7 +101,7 @@ By the end of this guide, you'll be able to securely browse and access Microsoft
 
     [ ![Screenshot showing how to add a client app.](media/add-a-client-app.png) ](media/add-a-client-app.png#lightbox)
 
-## Register Desktop Client Application for ArcGIS Pro 
+## Register desktop client application for ArcGIS Pro 
 
 Register a second application (with a distinct name) to represent ArcGIS
 Pro Desktop and configure its API permissions --- ensuring it includes
@@ -162,13 +162,13 @@ access to the web API exposed by the first application.
     
     [ ![Screenshot showing app selection on request API permissions screen.](media/app-selection-on-request-api-permissions-screen.png) ](media/app-selection-on-request-api-permissions-screen.png#lightbox)
   
-    [ ![Screenshot showing grant admin consents (4).](media/grant-admin-consents--4-.png) ](media/grant-admin-consents--4-.png#lightbox)
+    [ ![Screenshot showing grant admin consents (4).](media/grant-admin-consents-4.png) ](media/grant-admin-consents-4.png#lightbox)
 
-## Configure ArcGIS Pro (Desktop) for Microsoft Planetary Computer Pro GeoCatalog Access
+## Configure ArcGIS Pro (Desktop) for Microsoft Planetary Computer Pro GeoCatalog access
 
 This section outlines how to configure authentication and data access in the **ArcGIS Pro desktop application**, using OAuth 2.0 integration with **Microsoft Entra ID** and access to the **Microsoft Planetary Computer Pro GeoCatalog**. It includes steps to add an authentication connection and create storage and STAC data connections.
 
-## Add an Authentication Connection
+## Add an authentication connection
 
 1. Open the **ArcGIS Pro settings** page in one of the following ways:
 
@@ -211,8 +211,7 @@ This section outlines how to configure authentication and data access in the **A
 ## Prepare and record GeoCatalog information
 
 1. Create an Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example,
-     arcgisprogeocatalog), and locate it in the appropriate resource
-    group.
+     arcgisprogeocatalog), and locate it in the appropriate resource group.
 
     [ ![Screenshot showing find hiddentype GeoCatalog.](media/find-hidden-type-geocatalog.png) ](media/find-hidden-type-geocatalog.png#lightbox)
 
@@ -228,7 +227,7 @@ This section outlines how to configure authentication and data access in the **A
 
     [ ![Screenshot showing Microsoft Planetary Computer Pro web interface.](media/media-processing-center-pro-collections.png) ](media/media-processing-center-pro-collections.png#lightbox)
 
-1. Record the **Collection Name** (for example, sentinel-2-l2a-turorial-1000)
+1. Record the **Collection Name** (for example, sentinel-2-l2a-tutorial-1000)
 
 1. Construct the **Token API Endpoint** using this pattern
 
@@ -238,24 +237,22 @@ This section outlines how to configure authentication and data access in the **A
     Example:
     
     ```bash
-    https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-turorial-1000?api-version=2025-04-30-preview
+    https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-region\>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview
     ```
 
 1. Select on the collection name
 
-    [ ![Screenshot showing click on collectionname.](media/click-on-collectionname.png) ](media/click-on-collectionname.png#lightbox)
+    [ ![Screenshot showing click on collection name.](media/click-on-collection-name.png) ](media/click-on-collection-name.png#lightbox)
 
 1. Select on **Edit collection** button
 
     [ ![Screenshot showing how to edit a GeoCatalog collection.](media/edit-collection.png) ](media/edit-collection.png#lightbox)
 
-1. In the resulting JSON display, locate the key
-    "**title:assets:thumbnail:href**" and copy the corresponding value.
-    for example:
+1. In the resulting JSON display, locate the key "**title:assets:thumbnail:href**" and copy the corresponding value. For example:
 
-```bash
-> https://\<unique-storage\>.blob.core.windows.net/sentinel-2-l2a-tutorial-1000-\<unique-id\>/collection-assets/thumbnail/lulc.png
-```
+    ```bash
+    > https://\<unique-storage\>.blob.core.windows.net/sentinel-2-l2a-tutorial-1000-\<unique-id\>/collection-assets/thumbnail/lulc.png
+    ```
 
 1. Record the value of Account Name and Container Name:
 
@@ -290,7 +287,7 @@ This section outlines how to configure authentication and data access in the **A
 
     [ ![Screenshot showing create cloud storage connection file sample.](media/create-cloud-storage-connection-file-sample.png) ](media/create-cloud-storage-connection-file-sample.png#lightbox)
 
-## Create a STAC Connection to Microsoft Planetary Computer Pro
+## Create a STAC connection to Microsoft Planetary Computer Pro
 
 1. Create a new STAC connection in ArcGIS Pro (desktop)
 
@@ -300,17 +297,17 @@ This section outlines how to configure authentication and data access in the **A
 
     [ ![Screenshot showing create new stac connection.](media/create-new-stac-connection.png) ](media/create-new-stac-connection.png#lightbox)
 
-- Provide a name for the STAC Connection: For example, GeoCatalog_Connection
-
-- For Connection use the form```\<GeoCatalog URI\>/api```, for example
-  ```https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-storage\>.geocatalog.spatio.azure.com/api```
-
-- Reference the Authentication settings made in previous step
-
-- Add the ACS connection file that was created in previous step to the
-  STAC connection
-
-- Select the OK button
+    - Provide a name for the STAC Connection: For example, GeoCatalog_Connection
+    
+    - For Connection use the form```\<GeoCatalog URI\>/api```, for example
+      ```https://arcgisprogeocatalog.\<unique-identity\>.\<cloud-storage\>.geocatalog.spatio.azure.com/api```
+    
+    - Reference the Authentication settings made in previous step
+    
+    - Add the ACS connection file that was created in previous step to the
+      STAC connection
+    
+    - Select the OK button
 
     [ ![Screenshot showing how to create a STAC connection.](media/create-stac-connection.png) ](media/create-stac-connection.png#lightbox)
 
@@ -328,8 +325,8 @@ This section outlines how to configure authentication and data access in the **A
     [ ![Screenshot showing explore the STAC data window.](media/explore-stac-data.png) ](media/explore-stac-data.png#lightbox)
 
 
-## Related Content
+## Related content
 
-- [Create Cloud Storage Connection File](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-cloud-storage-connection-file.htm)
+- [Create cloud storage connection file](https://pro.arcgis.com/en/pro-app/latest/tool-reference/data-management/create-cloud-storage-connection-file.htm)
 - [Create a new GeoCatalog](./deploy-geocatalog-resource.md)
-- [Create a STAC Collection](./create-stac-collection.md)
+- [Create a STAC collection](./create-stac-collection.md)
