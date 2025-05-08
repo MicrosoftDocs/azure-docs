@@ -349,19 +349,19 @@ az network vnet peering delete \
 
 The accounts you use to work with virtual network peering must be assigned to the following roles:
 
-- [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor): For a virtual network deployed through Resource Manager.
-
-- [Classic Network Contributor](../role-based-access-control/built-in-roles.md#classic-network-contributor): For a virtual network deployed through, the classic deployment model.
+- [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)
 
 If your account isn't assigned to one of the previous roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the necessary actions from the following table:
 
 | Action                                                          | Name |
 |---                                                              |---   |
-| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network (Resource Manager)          |
-| **Microsoft.Network/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B (Resource Manager) to virtual network A                                                       |
-| **Microsoft.ClassicNetwork/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B (classic) to virtual network A                                                                |
+| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network         |
+| **Microsoft.Network/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B to virtual network A                                                       |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read**   | Read a virtual network peering   |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** | Delete a virtual network peering |
+
+> [!NOTE]  
+> If the remote peered virtual network is in a different subscription or tenant, you must have Network Contributor or the custom roles of **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read** and **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** to remove the remote virtual network peering.
 
 ## Next steps
 
@@ -369,10 +369,9 @@ If your account isn't assigned to one of the previous roles, it must be assigned
 
   |Azure deployment model             | Subscription  |
   |---------                          |---------|
-  |Both Resource Manager              |[Same](tutorial-connect-virtual-networks-portal.md)|
+  |Resource Manager              |[Same](tutorial-connect-virtual-networks-portal.md)|
   |                                   |[Different](create-peering-different-subscriptions.md)|
-  |One Resource Manager, one classic  |[Same](create-peering-different-deployment-models.md)|
-  |                                   |[Different](create-peering-different-deployment-models-subscriptions.md)|
+
 
 - Learn how to create a [**hub** and spoke network topology](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)
 
