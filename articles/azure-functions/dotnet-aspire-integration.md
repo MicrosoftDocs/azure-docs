@@ -92,7 +92,7 @@ For scenarios that use Azure role-based access control (RBAC), you can customize
 
 ### Azure Functions host storage
 
-Azure Functions requires a [host storage connection (`AzureWebJobsStorage`)][host-storage-identity] for several of its core behaviors. When you call `AddAzureFunctionsProject<TProject>()` in your app host project, an `AzureWebJobsStorage` connection is created by default and provided to the Functions project. This default connection uses the storage emulator for local development runs and automatically provisions a storage account when it's deployed. For more control, you can replace this connection by calling `.WithHostStorage()` on the Functions project resource.
+Azure Functions requires a [host storage connection (`AzureWebJobsStorage`)][host-storage-identity] for several of its core behaviors. When you call `AddAzureFunctionsProject<TProject>()` in your app host project, an `AzureWebJobsStorage` connection is created by default and provided to the Functions project. This default connection uses the Azure Storage emulator for local development runs and automatically provisions a storage account when it's deployed. For more control, you can replace this connection by calling `.WithHostStorage()` on the Functions project resource.
 
 The default permissions that .NET Aspire sets for the host storage connection depends on whether you call `WithHostStorage()` or not. Adding `WithHostStorage()` removes a [Storage Account Contributor] assignment. The following table lists the default permissions that .NET Aspire sets for the host storage connection:
 
@@ -175,7 +175,7 @@ For details on the connection formats that each binding supports, and the permis
 
 By default, when you publish an Azure Functions project to Azure, it's deployed to Azure Container Apps.
 
-During the preview period, Container Apps resources resources don't support event-driven scaling. Azure Functions support is not available for apps deployed in this mode. If you need to open a support ticket, select the Container Apps resource type.
+During the preview period, the container app resources don't support event-driven scaling. Azure Functions support is not available for apps deployed in this mode. If you need to open a support ticket, select the Azure Container Apps resource type.
 
 ## Considerations and best practices
 
@@ -193,7 +193,7 @@ Consider the following points when you're evaluating the integration of Azure Fu
 
 - For Functions projects enlisted into a .NET Aspire orchestration, most of the application configuration should come from the .NET Aspire app host project. Avoid setting things in `local.settings.json`, other than the `FUNCTIONS_WORKER_RUNTIME` setting. If you set the same environment variable in `local.settings.json` and .NET Aspire, the system uses the .NET Aspire version.
 
-- Don't configure the storage emulator for any connections in `local.settings.json`. Many Functions starter templates include the emulator as a default for `AzureWebJobsStorage`. However, emulator configuration can prompt some developer tooling to start a version of the emulator that can conflict with the version that .NET Aspire uses.
+- Don't configure the Azure Storage emulator for any connections in `local.settings.json`. Many Functions starter templates include the emulator as a default for `AzureWebJobsStorage`. However, emulator configuration can prompt some developer tooling to start a version of the emulator that can conflict with the version that .NET Aspire uses.
 
 [host-storage-identity]: ./functions-reference.md#connecting-to-host-storage-with-an-identity
 
