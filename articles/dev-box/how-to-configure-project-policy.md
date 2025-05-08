@@ -31,51 +31,29 @@ This enforcement mechanism ensures projects access only the resources they're ap
 
 ## Create a default project policy
 
-The first policy you create is the default project policy, which applies to all projects in the dev center. A default policy is an effective way to set up a baseline for your projects, ensuring that all projects have a minimum level of governance and control over the resources they can access. In a default project policy, you select resources to allow, like networks, images, and SKUs.
-
-Projects apply the default policy unless they have a custom project policy. If a project has custom policy applied, then only the resources defined in custom policy are available to the project. If there's no custom policy assigned to the project, then the resources defined in the Default policy are available to the project. A project can only have one policy applied to it.
+The first policy you create is the default project policy, which applies to all projects in the dev center. A default policy is an effective way to set up a baseline for your projects, ensuring that all projects have a minimum level of governance and control over the resources they can access. In a default project policy, you select resources to allow, like networks, images, and SKUs. Projects apply the default policy unless they have a custom project policy. If a project has custom policy applied, then only the resources defined in custom policy are available to the project. If there's no custom policy assigned to the project, then the resources defined in the Default policy are available to the project. A project can only have one policy applied to it.
 
 To create a default project policy:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to your dev center.
-
-1. In the left pane, expand **Manage**, and then select **Project policy**.
-
-1. On the **Project policy** page, select **Create a policy**.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your dev center, and in the left pane, expand **Manage**, then select **Project policy**. On the **Project policy** page, select **Create a policy**.
 
    :::image type="content" source="media/how-to-configure-project-policy/project-policy-page.png" alt-text="Screenshot of the Project policy page in the Azure portal, showing options to create a new project policy.":::
 
-1. The name of the policy is **Default**.
+1. The first policy you create is the **Default** policy. Under **Allow resources**, select the resources you want to allow for the project. You must select at least one resource for each category: images, networks, and SKUs.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-default-name.png" alt-text="Screenshot showing the default project policy name field in the Azure portal.":::
+   - In **Images**, select **Allow all current and future images**.
+     :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-images.png" alt-text="Screenshot showing the Create project policy page, with Select images highlighted.":::
 
-1. Under **Allow resources**, select the resources you want to allow for the project. You must select at least one resource for each category: images, networks, and SKUs.
+   - In **Networks**, select **All current and future networks**.
+     :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-networks.png" alt-text="Screenshot showing the Create project policy page, with Select networks highlighted.":::
 
-1. Select **Select images**.
+   - To allow specific SKU usage, in **SKUs**, select **Select a specific SKU or group of SKUs**.
+     :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-skus.png" alt-text="Screenshot showing the Create project policy page, with Select SKUs highlighted.":::
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-images.png" alt-text="Screenshot showing the Create project policy page, with Select images highlighted.":::
+   - In the **Select SKUs** pane, select the SKUs you want to allow (e.g., all **16 vCPU** SKUs). Confirm your selection by selecting **Select**.
+     :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-multiple-skus.png" alt-text="Screenshot showing the Select SKUs pane in the Azure portal, with multiple SKUs selected.":::
 
-1. In the **Select images** pane, to allow all current and future images for projects, select **All current and future images**, and then select **Select**.
-
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-current-future-images.png" alt-text="Screenshot showing the Select images pane in the Azure portal, with All current and future images selected.":::
-
-1. Select **Select networks**.
-
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-networks.png" alt-text="Screenshot showing the Create project policy page, with Select networks highlighted.":::
-
-1. In the **Select networks** pane, to allow all current and future networks for projects, select **All current and future networks**, and then select **Select**.
-
-1. To allow specific SKU usage, select **Select SKUs**.
-
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-skus.png" alt-text="Screenshot showing the Create project policy page, with Select SKUs highlighted.":::
-
-1. In the **Select SKUs** pane, select **A specific SKU or group of SKUs**, and then select the SKUs you want to allow. In this example, you can select all the **16 vCPU** SKUs. To confirm your selection, select **Select**.
-
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-select-multiple-skus.png" alt-text="Screenshot showing the Select SKUs pane in the Azure portal, with multiple SKUs selected.":::
-
-1. When you finish selecting the resources, select **Create**.
+1. When you finish selecting the resources, select **Create** to finalize the policy.
 
    :::image type="content" source="media/how-to-configure-project-policy/project-policy-create.png" alt-text="Screenshot showing the Create button in the Azure portal to finalize a project policy.":::
 
@@ -89,59 +67,50 @@ Custom project policies enable you to control resources for specific projects. T
 
 To create and apply a custom project policy:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to your dev center.
-
-1. In the left pane, expand **Manage**, and then select **Project policy**.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your dev center, and in the left pane, expand **Manage**, then select **Project policy**. 
 
 1. On the **Project policy** page, select **Create**.
 
    :::image type="content" source="media/how-to-configure-project-policy/project-policy-create-custom.png" alt-text="Screenshot showing the Create button for a custom project policy in the Azure portal.":::
 
-1. On the **Create project policy** page, enter a name for the project policy.
+    - On the **Create project policy** page, enter a **Name** for the project policy.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-name.png" alt-text="Screenshot showing the name field for a custom project policy in the Azure portal.":::
+      :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-name.png" alt-text="Screenshot showing the name field for a custom project policy in the Azure portal.":::
 
-1. Under **Target projects**, select **Select projects**.
+    - Under **Target projects**, select **Select projects**.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-select-projects.png" alt-text="Screenshot showing the Select projects option for a custom project policy in the Azure portal.":::
+      :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-select-projects.png" alt-text="Screenshot showing the Select projects option for a custom project policy in the Azure portal.":::
 
-1. In the **Select projects** pane, select the projects you want to apply the policy to, and then select **Select**.
+    - In the **Select projects** pane, select the projects you want to apply the policy to, and then select **Select**.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-target-projects.png" alt-text="Screenshot showing the selected target projects for a custom project policy in the Azure portal.":::
+      :::image type="content" source="media/how-to-configure-project-policy/project-policy-target-projects.png" alt-text="Screenshot showing the selected target projects for a custom project policy in the Azure portal.":::
 
-1. Under **Allow resources**, select the resources you want to allow for the project. For example, to allow a project to only use Visual Studio 2022 images, select **Select images**, and then select all Visual Studio 2022 images. To confirm your selection, select **Select**.
-
+1. Under **Allow resources**, select the resources you want to allow for the project. For example, to allow a project to only use Visual Studio 2022 images, in **Images**, select **Select a specific image or group of images**.
    :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-select-images.png" alt-text="Screenshot showing the Select images pane for a custom project policy in the Azure portal.":::
+   
+    - Select all Visual Studio 2022 images. To confirm your selection, select **Select**.
+      :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-select-multiple-images.png" alt-text="Screenshot showing the Select images pane for a custom project policy in the Azure portal.":::
 
 1. You can select more resources. When you finish selecting resources, select **Create**.
 
-   :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-summary-create.png" alt-text="Screenshot showing the summary of a custom project policy before creation in the Azure portal.":::
-
 ## View policies for a project
+Once you create a custom project policy and apply it to the target project, the default project policy no longer applies to that project. The custom project policy must define all the resources you want to allow in the project.
 
-To confirm that the project policy is applied to the project:
+To view the project policies that apply to projects:
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Navigate to your dev center.
-
-1. In the left pane, expand **Manage**, and then select **Project policy**.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your dev center, and in the left pane, expand **Manage**, then select **Project policy**. 
 
 1. On the **Project policy** page, expand the project policy you created.
 
    :::image type="content" source="media/how-to-configure-project-policy/project-policy-custom-summary.png" alt-text="Screenshot showing the summary of an applied custom project policy in the Azure portal.":::
 
-Once you create a custom project policy and apply it to the target project, the default project policy no longer applies to that project. The custom project policy must define all the resources you want to allow in the project.
-
 ## Edit a project policy
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+To edit a project policy, you can modify the resources allowed in the policy. This is useful when you need to update the resources available to a project or when you want to change the governance settings for a project.
 
-1. Navigate to your dev center.
+To edit a project policy:
 
-1. In the left pane, expand **Manage**, and then select **Project policy**.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your dev center, and in the left pane, expand **Manage**, then select **Project policy**. 
 
 1. For the project policy you want to edit, scroll to the right and select **Edit**.
 
