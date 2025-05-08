@@ -6,7 +6,7 @@ author: ggailey777
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 05/09/2025
 ms.author: glenga
 #Customer intent: As an Azure App Service developer, I want use the WebJobs SDK to run event-driven code in Azure.
 ---
@@ -838,7 +838,7 @@ The attribute can be declared at the parameter, method, or class level. The sett
 
 ### Timeout attribute
 
-The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the `Timeout` attribute. Time-out causes the function to be canceled after 15 seconds. When the `Timeout` attribute `throwOnError` parameter is set to `true`, the function invocation is terminated by having an exception thrown by the WebJobs SDK when the time-out interval is exceeded. The default value of `throwOnError` is `false`. When the `Timeout` attribute is used, the default behavior is to cancel the function invocation by setting the cancellation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
+The [`Timeout`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/TimeoutAttribute.cs) attribute causes a function to be canceled if it doesn't finish within a specified amount of time. In the following example, the function would run for one day without the `Timeout` attribute. Timeout causes the function to be canceled after 15 seconds. When the `Timeout` attribute `throwOnError` parameter is set to `true`, the function invocation is terminated by having an exception thrown by the WebJobs SDK when the timeout interval is exceeded. The default value of `throwOnError` is `false`. When the `Timeout` attribute is used, the default behavior is to cancel the function invocation by setting the cancellation token while allowing the invocation to run indefinitely until the function code returns or throws an exception.
 
 ```csharp
 [Timeout("00:00:15")]
@@ -853,7 +853,7 @@ public static async Task TimeoutJob(
 }
 ```
 
-You can apply the `Timeout` attribute at the class level or the method level, and you can specify a global time-out by using `JobHostConfiguration.FunctionTimeout`. Class-level or method-level time-outs override global time-outs.
+You can apply the `Timeout` attribute at the class level or the method level, and you can specify a global timeout by using `JobHostConfiguration.FunctionTimeout`. Class-level or method-level timeouts override global timeouts.
 
 ### Singleton attribute
 
@@ -976,7 +976,7 @@ Version 3.*x* of the SDK relies on the filtering that's built into .NET Core. Us
 using Microsoft.Azure.WebJobs.Logging; 
 ```
 
-The following example constructs a filter that, by default, filters all logs at the `Warning` level. The `Function` and `results` categories (equivalent to `Host.Results` in version 2.*x*) are filtered at the `Error` level. The filter compares the current category to all registered levels in the `LogCategories` instance and chooses the longest match. The `Debug` level registered for `Host.Triggers` then matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
+The following example constructs a filter that, by default, filters all logs at the `Warning` level. The `Function` and `results` categories (equivalent to `Host.Results` in version 2.*x*) are filtered at the `Error` level. The filter compares the current category to all registered levels in the `LogCategories` instance and chooses the longest match. So the `Debug` level registered for `Host.Triggers` matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
 
 ```csharp
 static async Task Main(string[] args)
@@ -1009,7 +1009,7 @@ In version 2.*x* of the SDK, you use the `LogCategoryFilter` class to control fi
 
 As with `LogCategories` in version 3.*x*, the `CategoryLevels` property allows you to specify log levels for specific categories so you can fine-tune the logging output. If no match is found within the `CategoryLevels` dictionary, the filter falls back to the `Default` value when determining whether to filter the message.
 
-The following example constructs a filter that by default filters all logs at the `Warning` level. The `Function` and `Host.Results` categories are filtered at the `Error` level. The `LogCategoryFilter` compares the current category to all registered `CategoryLevels` and chooses the longest match. The `Debug` level registered for `Host.Triggers` then matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
+The following example constructs a filter that by default filters all logs at the `Warning` level. The `Function` and `Host.Results` categories are filtered at the `Error` level. The `LogCategoryFilter` compares the current category to all registered `CategoryLevels` and chooses the longest match. So the `Debug` level registered for `Host.Triggers` matches `Host.Triggers.Queue` or `Host.Triggers.Blob`. You can control broader categories without needing to add each one.
 
 ```csharp
 var filter = new LogCategoryFilter();
