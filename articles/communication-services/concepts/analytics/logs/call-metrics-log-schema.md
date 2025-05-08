@@ -53,6 +53,23 @@ Since these metrics give you an overview of your entire calling resource, you ca
 
 These metrics measure both the successes and failures (dcount) of the calling SDK public APIs, for example (mute, join, etc.).
 
+This table describes each property.
+
+| Property                     | Description                                                                                                                |
+|----------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| `reliability/api/CreateView/Local` | TODO | 
+| `reliability/api/Join`             | TODO                |
+| `reliability/api/StartVideo` | TODO |
+| `reliability/api/AcceptIncomingCall` | TODO |
+| `reliability/api/CreateView/Remote` | todo |
+| `reliability/api/StopVideo` | todo |
+| `reliability/api/CallAgentInit` | todo |
+| `reliability/api/StartCall` | todo | 
+| `reliability/api/Drop` | todo |
+
+
+
+
 - reliability/api/CreateView/Local
 - reliability/api/Join
 - reliability/api/StartVideo
@@ -61,6 +78,7 @@ These metrics measure both the successes and failures (dcount) of the calling SD
 - reliability/api/StopVideo
 - reliability/api/CallAgentInit
 - reliability/api/StartCall 
+- reliability/api/Drop
 
 ### User Facing Diagnostics (UFD) metrics
 
