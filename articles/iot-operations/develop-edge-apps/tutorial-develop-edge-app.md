@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Develop an edge app with Azure IoT Operations SDKs"
+title: "Tutorial: Develop an edge app with Azure IoT Operations SDKs (preview)"
 description: "Develop an edge app with Azure IoT Operations SDKs to reduce message frequency and size on the edge for efficient data handling."
 author: asergaz
 ms.author: sergaz
@@ -10,7 +10,7 @@ ms.date: 04/17/2025
 
 ---
 
-# Tutorial: Develop an edge app with Azure IoT Operations SDKs for efficient data handling
+# Tutorial: Develop an edge app with Azure IoT Operations SDKs (preview) for efficient data handling
  
 <!-- 2. Introductory paragraph ----------------------------------------------------------
 

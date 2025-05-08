@@ -1,5 +1,5 @@
 ---
-title: What are the Azure IoT Operations SDKs?
+title: What are the Azure IoT Operations SDKs (preview)?
 description: Learn about Azure IoT Operations SDKs and how to use it to develop highly available edge applications.
 author: asergaz
 ms.author: sergaz
@@ -9,7 +9,7 @@ ms.date: 05/07/2025
 #CustomerIntent: As a developer, I want to know why use Azure IoT Operations SDKs to develop highly available edge applications.
 ---
 
-# What are the Azure IoT Operations SDKs?
+# What are the Azure IoT Operations SDKs (preview)?
 
 The Azure IoT Operations SDKs are a suite of tools and libraries across multiple languages designed to aid the development of edge applications for Azure IoT Operations. The focus of the SDKs is to assist customers in developing edge applications by providing the following features:
 
@@ -29,6 +29,10 @@ The SDKs are open source and available on GitHub:
 - [Azure IoT Operations .NET SDK](https://github.com/Azure/iot-operations-sdks/tree/main/dotnet)
 - [Azure IoT Operations Go SDK](https://github.com/Azure/iot-operations-sdks/tree/main/go)
 - [Azure IoT Operations Rust SDK](https://github.com/Azure/iot-operations-sdks/tree/main/rust)
+
+> [!IMPORTANT]
+> Azure IoT Operations SDKs is currently in PREVIEW.
+> The assets in the [Azure IoT Operations SDKs GitHub repository](https://github.com/Azure/iot-operations-sdks) have been made available for early access and feedback purposes.
 
 ## Goals of the SDKs
 

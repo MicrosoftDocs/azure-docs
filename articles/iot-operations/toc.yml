@@ -165,7 +165,7 @@ items:
       items:
       - name: 🟢Azure IoT Operations SDKs
         href: develop-edge-apps/overview-iot-operations-sdks.md
-      - name: 🟢Get started developing with the SDKs
+      - name: 🟢Start developing with the SDKs
         href: develop-edge-apps/quickstart-get-started-sdks.md
       - name: Tutorials
         items:
@@ -173,9 +173,9 @@ items:
           href: develop-edge-apps/tutorial-develop-edge-app.md
       - name: Concepts
         items:
-        - name: 🔵Develop highly available edge apps
+        - name: 🔵Highly available edge apps
           href: develop-edge-apps/overview-edge-apps.md
-        - name: 🔵Using the state store
+        - name: 🔵Data persistence in the state store
           href: develop-edge-apps/overview-state-store.md
       - name: Reference
         items:
