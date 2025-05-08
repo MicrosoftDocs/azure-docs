@@ -238,7 +238,7 @@ static void Main()
 
 In version 3.*x*, the connection limit defaults to infinite connections. If for some reason you need to change this limit, you can use the [`MaxConnectionsPerServer`](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) property of the [`WinHttpHandler`](/dotnet/api/system.net.http.winhttphandler) class.
 
-In version 2.*x*, you control the number of concurrent connections to a host by using the [`ServicePointManager.DefaultConnectionLimit`](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. In 2.*x*, you should increase this value from the default of `2` before you start your WebJobs host.
+In version 2.*x*, you control the number of concurrent connections to a host by using the [`ServicePointManager.DefaultConnectionLimit`](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) property. In 2.*x*, you should increase this value from the default of `2` before you start your WebJobs host.
 
 All outgoing HTTP requests that you make from a function by using `HttpClient` flow through `ServicePointManager`. After you reach the value set in `DefaultConnectionLimit`, `ServicePointManager` starts queueing requests before sending them. Suppose your `DefaultConnectionLimit` is set to `2` and your code makes 1,000 HTTP requests. Initially, only 2 requests are allowed through to the OS. The other 998 requests are queued until there's room for them. Your `HttpClient` might time out because it appears to have made the request, but the request was never sent by the OS to the destination server. You might see behavior that doesn't seem to make sense: your local `HttpClient` is taking 10 seconds to complete a request, but your service is returning every request in 200 ms.
 
@@ -944,7 +944,7 @@ If you want to ensure that only one instance of a function runs, even when there
 
 ## Filters
 
-Function Filters (preview) provide a way to customize the WebJobs execution pipeline by using your own logic. Filters are similar to [ASP.NET Core filters](/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
+Function Filters (preview) provide a way to customize the WebJobs execution pipeline by using your own logic. These filters are similar to [ASP.NET Core filters](/aspnet/core/mvc/controllers/filters). You can implement them as declarative attributes that are applied to your functions or classes. For more information, see [Function Filters](https://github.com/Azure/azure-webjobs-sdk/wiki/Function-Filters).
 
 ## Logging and monitoring
 
