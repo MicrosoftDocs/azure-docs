@@ -13,7 +13,7 @@ ms.custom:
 #customer intent: As an infrastructure architect, I want to understand the differences between mesh and hub-and-spoke topologies, so that I can choose the best option for my organization's needs. And I want to learn how to configure these topologies in Azure Virtual Network Manager using connectivity configurations, so that I can optimize network performance and security.
 ---
 
-# Connectivity Configurations in Azure Virtual Network Manager
+# Connectivity configurations in Azure Virtual Network Manager
 
 Azure Virtual Network Manager simplifies the management of virtual network connectivity and security across your Azure environment. Connectivity configurations, including mesh and hub-and-spoke topologies, help you optimize network performance and security. This article covers features like high-scale connected groups and global mesh connectivity, along with use cases and configuration steps for each topology.
 
