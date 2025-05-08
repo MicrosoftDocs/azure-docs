@@ -20,13 +20,13 @@ Extension bundles allow non-.NET apps to use binding extensions without having t
 
 Extension bundles add a predefined set of compatible binding extensions to your function app. Extension bundles are versioned. Each version contains a specific set of binding extensions that are verified to work together. Select a bundle version based on the extensions that you need in your app.
 
-When you create a non-.NET Functions project from tooling or in the portal, extension bundles are already enabled in the app's *host.json* file. 
+When you create an Azure Functions project from a non-.NET template, extension bundles are already enabled in the app's *host.json* file. 
 
 You define an extension bundle reference in the *host.json* project file by adding an `extensionBundle` section, as in this example: 
 
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
-The following table lists the currently available version ranges of the default *Microsoft.Azure.Functions.ExtensionBundle* bundles and links to the extensions they include.
+The following table lists the currently available default *Microsoft.Azure.Functions.ExtensionBundle* bundles, defined using version ranges and with links to the extension definitions for the bundle.
 
 | Bundle version | Version in host.json | Included extensions |
 | --- | --- | --- |
@@ -45,12 +45,16 @@ For a complete list of extension bundle releases and extension versions in each 
 
 ## Explicitly install extensions
 ::: zone pivot="programming-language-csharp"  
-For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For examples, see either the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). See the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases) to review combinations of extension versions that are verified compatible.
+For compiled C# class library projects ([in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md)), you install the NuGet packages for the extensions that you need as you normally would. For more information, see the [Visual Studio Code developer guide](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions) or the [Visual Studio developer guide](functions-develop-vs.md#add-bindings). 
+
+See the [extension bundles release page](https://github.com/Azure/azure-functions-extension-bundles/releases) to review combinations of extension versions that are verified to be compatible.
 ::: zone-end  
 ::: zone pivot="programming-language-python,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-other"  
-When you can't use extension bundles you instead must manually install any required binding extensions in your local project. The easiest way to generate the correct C# project is to use Azure Functions Core Tools. For more information, see [func extensions install](functions-core-tools-reference.md#func-extensions-install).  
+There are cases when you can't use extension bundles, such as when you need to use a specific prerelease version of a specific extension. In these rare cases, you must manually install any required binding extensions in a C# project file  (*extensions.csproj*) that references the specific extensions required by your app. 
 
-For portal-only development, you need to manually create an extensions.csproj file in the root of your function app. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
+The easiest way to create this C# file in your local project is by using Azure Functions Core Tools. For more information, see the [func extensions install](functions-core-tools-reference.md#func-extensions-install) command, which generates this project for you.  
+
+For portal-only development, you need to manually create an extensions.csproj file in the root of your function app in Azure. To learn more, see [Manually install extensions](functions-how-to-use-azure-function-app-settings.md#manually-install-extensions).
 ::: zone-end  
 ## Next steps
 > [!div class="nextstepaction"]
