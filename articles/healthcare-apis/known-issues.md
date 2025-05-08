@@ -20,6 +20,7 @@ Refer to the table for details about resolution dates or possible workarounds.
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+| Patient-everything operation returns a 500 error when run using a SMART patient fhirUser token. |  April 9, 2025 | A fix is being released in the upcoming FHIR release. | |
 |Customers can't access FHIR, DICOM, or Medtech through the portal. | October 31, 2024 1:00 pm PST | ARM calls are still operational, and there's no disruption to existing services. | November 1, 2024  |
 |For FHIR instances created after August 19, 2024, diagnostic logs aren't available in log analytics workspace. |September 19, 2024 9:00 am PST| -- | October 17, 2024  |
 |For FHIR instances created after August 19, 2024, in metrics blade - Total requests, Total latency, and Total errors metrics are not being populated. |September 19, 2024 9:00 am PST| -- | October 28, 2024 |

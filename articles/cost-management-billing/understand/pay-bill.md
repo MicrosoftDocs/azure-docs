@@ -7,7 +7,7 @@ ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/06/2025
 ms.author: lishepar
 ---
 
@@ -51,7 +51,7 @@ In September 2022, Microsoft and other online merchants no longer store credit c
 
 ### UPI and NetBanking payment options
 
-Azure supports two alternate payment options for customers in India for MOSA accounts:
+Azure supports two alternate payment methods for India customers for MOSP accounts.
 
 - Unified Payments Interface (UPI) is a real-time payment method.
 - NetBanking gives customers access to banking services through an online platform.

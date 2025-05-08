@@ -2,13 +2,12 @@
 title: Understand your Azure invoice
 description: Learn how to read and understand the usage and bill for your Azure subscription
 author: lindseyshep
-ms.reviewer: lishepar
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 03/21/2024
-ms.author: lishepar
-
+ms.author: jkinma
 ---
 # Understand terms on your Microsoft Azure invoice
 

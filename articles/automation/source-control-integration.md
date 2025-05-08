@@ -3,7 +3,7 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/17/2024
+ms.date: 05/08/2025
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
@@ -98,6 +98,7 @@ Use this procedure to configure source control using the Azure portal.
 > [!NOTE]
 > - The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
 > - Cross-tenant authentication isn't supported.
+> - Auto-sync may fail if Source Control was created over a year ago, as the webhook used to invoke the Source Control expires after one year. To resolve this issue, create a new Source Control in the Automation account with the same configuration, which will generate a new webhook with an extended expiry date.
 
 ### Configure source control in PowerShell
 

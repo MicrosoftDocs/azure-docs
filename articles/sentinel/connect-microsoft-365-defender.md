@@ -66,7 +66,7 @@ To ingest and synchronize Microsoft Defender XDR incidents with all their alerts
 
    ```kusto
       SecurityIncident
-      | where ProviderName == "Microsoft Defender XDR"
+      | where ProviderName == "Microsoft XDR"
    ```
 
 When you enable the Microsoft Defender XDR connector, any Microsoft Defender components’ connectors that were previously connected are automatically disconnected in the background. Although they continue to *appear* connected, no data flows through them.
@@ -153,7 +153,7 @@ let Now = now();
 | extend Count = 0 
 | union isfuzzy=true ( 
     SecurityIncident
-    | where ProviderName == "Microsoft Defender XDR"
+    | where ProviderName == "Microsoft XDR"
     | summarize Count = count() by bin_at(TimeGenerated, 1d, Now) 
 ) 
 | summarize Count=max(Count) by bin_at(TimeGenerated, 1d, Now) 
