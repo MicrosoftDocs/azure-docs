@@ -112,7 +112,7 @@ Once you configure the Log Analytics workspace, you can enable structured logs i
 
 > [!NOTE]
 > * There's no requirement to enable this feature with a feature flag or Azure PowerShell commands.
-> <BR><BR> To enable Azure Firewall Fat Flow Log it requires [additional steps](https://learn.microsoft.com/en-us/azure/firewall/monitor-firewall-reference#top-flows).
+> * To enable Azure Firewall Fat Flow Log (Top flow log) you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
 
