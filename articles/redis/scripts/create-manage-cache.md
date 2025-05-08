@@ -28,7 +28,7 @@ This article describes how to create and delete an Azure Redis cache instance by
 >[!NOTE]
 >Azure Managed Redis uses the Azure CLI [az redisenterprise](/cli/azure/redisenterprise) commands. The `redisenterprise` extension for Azure CLI version 2.61.0 or higher prompts you for installation the first time you run an `az redisenterprise` command.
 >
->Azure Cache for Redis uses the `az redisenterprise` commands for Enterprise tiers and the [az redis](/cli/azure/redis) commands for Basic, Standard, and Premium tiers. You can use the following scripts to create and manage Azure Managed Redis or Azure Cache for Redis Enterprise. For Azure Cache for Redis Basic, Standard, and Premium, use the [Azure Cache for Redis](create-manage-cache.md?pivots=azure-managed-redis) scripts.
+>Azure Cache for Redis uses the `az redisenterprise` commands for Enterprise tiers and the [az redis](/cli/azure/redis) commands for Basic, Standard, and Premium tiers. You can use the following scripts to create and manage Azure Managed Redis or Azure Cache for Redis Enterprise. For Azure Cache for Redis Basic, Standard, and Premium, use the [Azure Cache for Redis](create-manage-cache.md?pivots=azure-cache-redis) scripts.
 
 ## Create an Azure Managed Redis cache
 
@@ -147,12 +147,14 @@ You can use the Azure CLI script in this section to create an Azure Cache for Re
 
 The cache `name`  must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
 
-The `location` should be an Azure region near other services that use your cache. Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) that has the appropriate features and performance for your cache.
+The `location` should be an Azure region near other services that use your cache.
+
+Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) and `size` that have the appropriate features and performance for your cache.
 
 Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for all new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
 
 >[!IMPORTANT]
->Microsoft Entra authentication is recommended for security.
+>Microsoft Entra authentication is recommended for security. You can enable Microsoft Entra Authentication during or after cache creation.
 >
 >Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
 
