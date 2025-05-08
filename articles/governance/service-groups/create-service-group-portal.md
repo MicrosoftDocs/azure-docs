@@ -3,7 +3,7 @@ title: "Quickstart: Create a service group using the Azure portal"
 description: In this quickstart, you use the portal to create a service group to organize your resources.
 author: rthorn17
 ms.author: rithorn
-ms.service: azure-governance
+ms.service: azure-policy
 ms.topic: quickstart  
 ms.date: 5/19/2025
 ---
