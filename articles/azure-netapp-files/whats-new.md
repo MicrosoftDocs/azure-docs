@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 04/23/2025
+ms.date: 05/08/2025
 ms.author: anfdocs
 ---
 
@@ -14,10 +14,17 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2025
+
+* [Cross-subscription replication](cross-region-replication-create-peering.md)
+
+    Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](cross-zone-replication-introduction.md) in all Azure NetApp Files regions with [availability zones](../reliability/regions-list.md) and [cross-zone replication](cross-region-replication-introduction.md) in all supported regions.
+    
+    You must [register the feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication) before using it for the first time. 
+
 ## April 2025
 
 * [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) (preview)
-
 
     Cross-tenant customer-managed keys for Azure NetApp Files volume encryption enables you to manage your own keys across different tenancies. In scenarios such as SaaS provider/user configurations, this feature ensures the end user retains full control of their keys rather than the SaaS provider. This capability provides SaaS providers with the flexibility to offer customers customizable key management options. This feature is available in all Azure NetApp Files supported regions. This feature is currently in preview. 
 
@@ -33,7 +40,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) (preview)
  
-    The [Flexible service level](azure-netapp-files-service-levels.md) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 
+    The [Flexible service level](azure-netapp-files-service-levels.md#Flexible) allows you to independently configure storage capacity and throughput, optimizing costs by right-sizing according to storage and performance requirements. With separate pricing for capacity and throughput, the Flexible service level prevents overprovisioning and supports up to 640 MiB/second per TiB. This throughput is five times the performance of the Ultra service level, making it ideal for demanding workloads and offering higher throughput for smaller capacity pools and adapting to changing requirements without the need for volume moves. 
     
     The Flexible service level is only supported with _new_ manual QoS capacity pools. The Flexible service level offers a minimum throughput of 128 MiB/s and a maximum of 640 MiB/s per TiB [per pool](azure-netapp-files-service-levels.md#flexible-service-level-throughput-examples). This new service level is suitable for applications such as Oracle or SAP HANA and for creating high-capacity volumes with low throughput needs. You can adjust throughput and size limits independently, ensuring flexibility and precise scaling to meet your price-performance requirements. 
 
@@ -888,7 +895,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) (Preview)
 
-  Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way. It helps you protect your data from unforeseeable regional failures. Azure NetApp Files cross-region replication uses NetApp SnapMirror® technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
+  Azure NetApp Files now supports cross-region replication. With this new disaster recovery capability, you can replicate your Azure NetApp Files volumes from one Azure region to another in a fast and cost-effective way. It helps you protect your data from unforeseeable regional failures. Azure NetApp Files cross-region replication uses NetApp SnapMirror technology; only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, therefore saving data transfer costs. It also shortens the replication time, so you can achieve a smaller Restore Point Objective (RPO).
 
 * [Manual QoS Capacity Pool](azure-netapp-files-understand-storage-hierarchy.md#manual-qos-type) (Preview)
 
