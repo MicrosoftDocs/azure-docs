@@ -54,8 +54,8 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | HTTP/2 support | &check; | &check; | &check; | &check; |
 | Routing preference unmetered | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to AFD is free and path is directly connected | Not required as Data transfer from Azure origin to CDN is free and path is directly connected |
 | Origin port | All TCP ports | All TCP ports | All TCP ports | All TCP ports |
-| Customizable, rules based content delivery engine | &check; | &check; | &check; | &check; using Standard rules engine |
-| Mobile device rules | &check; | &check; | &check; | &check; using Standard rules engine |
+| Customizable, rules based content delivery engine | &check; | &check; | &check; | &check; (using standard rules engine) |
+| Mobile device rules | &check; | &check; | &check; | &check; (using standard rules engine) |
 | **Security** | | | | |
 | Custom Web Application Firewall (WAF) rules | &check; | &check; | &check; |  |
 | Microsoft managed rule set |  | &check; | &check; (only default rule set 1.1 or less) |  |
@@ -85,13 +85,13 @@ The following table lists services that are on retirement path, frequently asked
 
 | Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai | CDN Standard/Premium from Edgio |
 | --- | --- | --- | --- | --- |
-| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 | January 15, 2025 |
+| Retirement date | March 31, 2027 | September 30, 2027 | December 31, 2023 | January 15, 2025 |
 | Date until new resources can be created | March 31, 2025 | September 30, 2025 | Service retired | Service retired |
-| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|[FAQ](../cdn/edgio-retirement-faq.md) |
+| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](/previous-versions/azure/cdn/akamai-retirement-faq?toc=/azure/frontdoor/toc.json)|[FAQ](/previous-versions/azure/cdn/edgio-retirement-faq?toc=/azure/frontdoor/toc.json) |
 | Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service retired | Service retired |
 
 ## Related content
 
 - [Create an Azure Front Door](create-front-door-portal.md)
 - [Azure Front Door routing architecture](front-door-routing-architecture.md)
-- [Best practices for Front Door](best-practices.md)
+- [Best practices for Azure Front Door](best-practices.md)
