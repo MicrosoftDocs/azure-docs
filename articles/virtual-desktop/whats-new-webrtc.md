@@ -25,7 +25,7 @@ The following table shows the latest available version of the Remote Desktop Web
 
 *Published: August 21, 2024*
 
-Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1o9wm)
+Download: [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi)
 
 In this release, we made the following changes: 
 
