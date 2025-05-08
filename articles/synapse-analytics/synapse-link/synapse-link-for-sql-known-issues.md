@@ -4,7 +4,7 @@ description: Learn about limitations and known issues with Azure Synapse Link fo
 author: jonburchel
 ms.author: jburchel
 ms.reviewer: jburchel, chuckheinzelman, imotiwala
-ms.date: 07/24/2024
+ms.date: 05/07/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: troubleshooting
@@ -89,6 +89,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
 - With asynchronous replicas in an availability group, transactions must be written to all replicas before publishing to Azure Synapse Link for SQL.
 - Azure Synapse Link for SQL isn't supported on databases with database mirroring enabled.
 - Restoring an Azure Synapse Link for SQL-enabled database from on-premises to Azure SQL Managed Instance isn't supported.
+- Azure Synapse Link for SQL is not supported on SQL Server 2025 instances.
 
 > [!CAUTION]
 > Azure Synapse Link for SQL is not supported on databases that are also using Azure SQL Managed Instance Link. Caution that in these scenarios, when the managed instance transitions to read-write mode, you might encounter transaction log full issues. 
