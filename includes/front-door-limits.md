@@ -83,9 +83,9 @@ ms.custom: include file
 | WAF HTTP request body and file upload inspection limit | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
 
-<sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+<sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup> There's currently a 5,000 requests per second per POP limit for each Front Door profile. Beyond this limit, the POP location will drop connections. If requests are concentrated in a specific region and exceed this limit, you can request a higher POP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+<sup>2</sup> There's currently a 5,000 requests per second per POP limit for each Front Door profile. Beyond this limit, the POP location will drop connections. If requests are concentrated in one of more regions and exceed this limit, you can request a higher POP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
 <sup>3</sup> If you need more than 3,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
