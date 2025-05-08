@@ -2,7 +2,7 @@
 title: What is NGINXaaS
 description: Learn about using the NGINXaaS Cloud-Native Observability Platform in Azure Marketplace, including the key capabilities provided by the NGINXaaS integration.
 ms.topic: overview
-ms.date: 05/08/2025
+ms.date: 05/09/2025
 #customer intent: As a developer, I want to understand the benefits of using NGINXaaS integrated with Azure. 
 ---
 
