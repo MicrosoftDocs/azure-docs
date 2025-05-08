@@ -342,11 +342,11 @@ az network vnet peering delete \
 
 ## Permissions
 
-The accounts you use to work with virtual network peering must be assigned to the following roles:
+The accounts you use to work with virtual network peering must be assigned to the following role:
 
 - [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)
 
-If your account isn't assigned to one of the previous roles, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the necessary actions from the following table:
+If your account isn't assigned to the previous role, it must be assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the necessary actions from the following table:
 
 | Action                                                          | Name |
 |---                                                              |---   |
@@ -355,7 +355,7 @@ If your account isn't assigned to one of the previous roles, it must be assigned
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read**   | Read a virtual network peering   |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** | Delete a virtual network peering |
 
-> [!NOTE]  
+> [!IMPORTANT]  
 > You must have **Network Contributor** or the custom roles of **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read** and **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** assigned to the remote virtual network to remove the remote virtual network peering.
 
 ## Next steps
