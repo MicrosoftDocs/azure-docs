@@ -20,20 +20,14 @@ API Management now supports built-in OAuth 2.0 application-based access to produ
 
 With this feature:
 
-* API managers configure products in API Management to enable application-based access. They also register client applications in Microsoft Entra ID to limit access to specific products. 
-* Developers access the developer portal to retrieve application credentials, which are used to secure access to product APIs.
-* Using the OAuth 2.0 client credentials flow, developers or client applications obtain tokens that are included in API requests. These tokens are validated by the API Management gateway to authorize access to the product's APIs.
+* API managers set a product property to enable application-based access.
+* API managers register client applications in Microsoft Entra ID to limit access to specific products. 
+* Developers access the developer portal to retrieve application credentials.
+* Using the OAuth 2.0 client credentials flow, developers or client applications obtain tokens that they can include in API requests. These tokens are validated by the API Management gateway to authorize access to the product's APIs.
 
 > [!IMPORTANT]
 > This feature is in private preview. Ensure that you can create an API Management instance in an Early Updates Access Program (EUAP) region. See detailed [Prerequisites](#prerequisites).
 >
-
-This article describes the following steps:
-
-* Enable application-based access for an API Management product
-* Create a client application that limits access to the product
-* View the client application in the developer portal and get credentials to the product's APIs
-* Test OAuth 2.0 token-based access to the product's associated API
 
 
 <!-- Clarify personas
