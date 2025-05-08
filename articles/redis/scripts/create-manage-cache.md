@@ -54,7 +54,7 @@ Choose a [sku](https://azure.microsoft.com/pricing/details/cache/) that has the 
 Microsoft Entra authentication is enabled by default for all new caches and is recommended for security.
 
 >[!IMPORTANT]
->Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra for cache authentication with Azure Managed Redis](../entra-for-authentication.md).
 
 Transport Layer Security (TLS) 1.2-1.3 encryption is enabled by default for all new caches. You can enable the non-TLS port and connections during or after cache creation, but for security reasons, disabling TLS isn't recommended.
 
@@ -225,5 +225,5 @@ az group delete --resource-group $resourceGroup -y
 
 ## Related content
 
-- For more information about the Azure CLI, see the [Azure CLI documentation](/cli/azure).
-- For an Azure CLI script sample that creates an Azure Cache for Redis Premium cache with clustering, see [Create a Premium Azure Cache for Redis with clustering](../../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md).
+- [Azure CLI documentation](/cli/azure)
+- [Create a Premium Azure Cache for Redis with clustering](../../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md)
