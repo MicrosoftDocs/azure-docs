@@ -33,6 +33,16 @@ By default, when Azure Web Application Firewall blocks a request because of a ma
 
     You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This article requires the Azure PowerShell module. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
+# [**Azure CLI**](#tab/cli)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.67.0 or higher and  **front-door** extension. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+
 ---
 
 ## Configure a custom response status code and message
@@ -61,7 +71,7 @@ To customize the response status code and body, use [Update-AzFrontDoorWafPolicy
 
 
 ```azurepowershell-interactive
-# modify WAF response body
+# Update WAF policy settings to customize response body and status code
 Update-AzFrontDoorWafPolicy `
 -Name 'myWAFPolicy' `
 -ResourceGroupName 'myResourceGroup' `
@@ -70,6 +80,25 @@ Update-AzFrontDoorWafPolicy `
 -CustomBlockResponseStatusCode '403' `
 -CustomBlockResponseBody '<html><head><title>WAF Demo</title></head><body><p><h1><strong>WAF Custom Response Page</strong></h1></p><p>Please contact us with this information:<br>{{azure-ref}}</p></body></html>'
 ```
+
+# [**Azure CLI**](#tab/cli)
+
+To customize the response status code and body, use [az network front-door waf-policy update](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-update) command.
+
+
+```azurecli-interactive
+# Update WAF policy settings to customize response body and status code
+az network front-door waf-policy update \
+	--name 'myWAFPolicy' \
+	--resource-group 'myResourceGroup' \
+	--request-body-check 'Enabled' \
+	--redirect-url 'https://learn.microsoft.com/en-us/azure/web-application-firewall/' \
+	--custom-block-response-status-code '403' \
+    --custom-block-response-body 'PGh0bWw+PGhlYWQ+PHRpdGxlPldBRiBEZW1vPC90aXRsZT48L2hlYWQ+PGJvZHk+PHA+PGgxPjxzdHJvbmc+V0FGIEN1c3RvbSBSZXNwb25zZSBQYWdlPC9zdHJvbmc+PC9oMT48L3A+PHA+UGxlYXNlIGNvbnRhY3QgdXMgd2l0aCB0aGlzIGluZm9ybWF0aW9uOjxicj57e2F6dXJlLXJlZn19PC9wPjwvYm9keT48L2h0bWw+'
+```
+
+> [!NOTE]
+> The value of the `--custom-block-response-body` parameter must be a **base64** encoded string.
 
 ---
 
