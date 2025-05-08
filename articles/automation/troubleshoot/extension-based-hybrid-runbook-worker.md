@@ -93,7 +93,7 @@ You can remove this limit and make it unrestricted with the following steps:
   1. vi /lib/systemd/system/hwd.service
   1. Update the setting from CPUQuota=25% to CPUQuota= as shown below to make the usage unrestricted.
 
-    ```
+  ```
     root@ubuntu2204:~# cat /lib/systemd/system/hwd.service
     [Unit]
     Description=HW Service
@@ -112,7 +112,7 @@ You can remove this limit and make it unrestricted with the following steps:
     [Install]
     WantedBy=multi-user.target
     
-    ```
+   ```
 
 **Restart hwd service**
   1. systemctl daemon-reload
@@ -315,7 +315,7 @@ Sometimes the uninstallation process might get stuck.
    ```
 1. **Remove registry key**, if present: `HKLM:\Software\Microsoft\Azure\HybridWorker`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\Azure\HybridWorker | Remove-Item -Recurse
@@ -323,7 +323,7 @@ Sometimes the uninstallation process might get stuck.
       
 1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\HybridRunbookWorkerV2`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\HybridRunbookWorkerV2 | Remove-Item -Recurse
