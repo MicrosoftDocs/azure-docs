@@ -509,7 +509,7 @@ items:
         - name: Estimate the cost of AzCopy transfers
           href: azcopy-cost-estimation.md
         - name: Estimate the cost to archive data
-          href: archive-cost-estimation.md
+          href: cost-estimate-archive-retrieval.md
       - name: Estimates
         items:
         - name: Archive & retrieve

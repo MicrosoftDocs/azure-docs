@@ -12,49 +12,47 @@ ms.author: normesta
 
 # Cost estimate: Archive and retrieve data in Azure Blob Storage 
 
-This scenario shows the cost to store data to the archive tier and then retrieving some portion of that data shortly after archiving it. 
+This scenario shows the cost to write data to the archive tier and then retrieve some portion of that data prior to the early deletion threshold.
+
+This scenario is focused only on the cost to move data. The cost to store data is not included here for simplicity. You can read more about the cost to store data here. 
 
 ## Scenario
 
-Store 10 TiB of data to the archive tier for long-term retention. After 3 months, retrieve 20% of the data for analysis.
+Move 10 TiB of data into the archive tier for long-term retention. After 3 months, retrieve 20% of the data for analysis.
 
-## Key cost factors
+## Cost meters
 
-- Cost to write data to the archive tier
-- Cost to store data to the archive tier
-- Cost to rehydrate and then read data from the archive tier
-- Cost to retrieve data
-- Early deletion penalty
+- Write operation (archive tier)
+- Read operation (archive tier)
+- Data retrieval fee
+- Early deletion fee
+- Write operation (hot tier)
 
-## Cost summary
+## Cost estimate
 
 Sample pricing disclaimer goes here.
 
-| Price factor  | Cost |
+| Cost meter  | Cost |
 |----|----|
 | Cost to write to archive tier | cost goes here |
-| Cost to store data to the archive tier | cost goes here |
-| Cost to rehydrate and read data from the archive tier | cost goes here |
+| Cost to read data from the archive tier | cost goes here |
 | Cost to retrieve data | cost goes here |
 | Early deletion penalty | cost goes here |
+| Cost to write to the hot tier | cost goes here |
 | Total cost | cost goes here |
 
-## Cost components
+## Cost breakdown by meter
 
 Here is a bit more detail about each estimate.
 
-### Cost to write
+### Cost to write to the archive tier
 
 | Price factor                                                    | Calculation      |
 |-----------------------------------------------------------------|------------|
 | Number of write operations to the archive tier (10 TiB / 8 MiB blocks)  |  1,310,720  |
 | Cost to write 10 TB of data to the archive tier ($0.000011 * 1,310,720) | $14.42 |
 
-### Cost to store
-
-Put something here.
-
-### Cost to rehydrate
+### Cost to read data from the archive tier
 
 Put something here
 
@@ -63,6 +61,10 @@ Put something here
 Put something here.
 
 ## Early deletion penalty
+
+Put something here.
+
+## Cost to write to the hot tier
 
 Put something here.
 
