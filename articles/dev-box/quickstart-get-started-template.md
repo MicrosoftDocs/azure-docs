@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Configure Microsoft Dev Box Resources"
+title: "Quickstart: Configure Microsoft Dev Box Resources using the Get Started template"
 titleSuffix: Microsoft Dev Box
 description: Discover how to deploy a dev box environment, including dev centers, projects, and pools, using the Microsoft Dev Box Get Started template.
 #customer intent: As platform engineer, I want to configure Microsoft Dev Box resources using the Get Started template so that I can quickly set up a dev box environment in Azure.  
