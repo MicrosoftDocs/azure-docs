@@ -52,7 +52,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Connection name** | Yes | A name for your connection |
+   | **Connection name** | Yes | A name for your connection. |
    | **Authentication Type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for triggers and actions that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-supported-triggers-actions). |
 
    For example, this connection uses **Access Key** authentication and provides the access key value for the storage account along with the following property values:
@@ -328,7 +328,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    | Property | Required | Description |
    |----------|----------|-------------|
-   | **Connection name** | Yes | A name for your connection |
+   | **Connection name** | Yes | A name for your connection. |
    | **Authentication type** | Yes | The [authentication type](../storage/common/authorize-data-access.md) for your storage account. For more information, review [Authentication types for connectors that support authentication](../logic-apps/logic-apps-securing-a-logic-app.md#authentication-types-for-connectors-that-support-authentication). |
 
    For example, this connection uses access **Key Authentication** and provides the access key value for the storage account along with the following property values:
@@ -359,7 +359,7 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
    The following example shows the action setup that gets the content from a blob in the subfolder:
 
-:::image type="content" source="media/connectors-create-api-azureblobstorage/standard-managed-action-sub-folder.png" alt-text="Screenshot showing Standard logic app workflow designer with Blob action setup for subfolder." lightbox="media/connectors-create-api-azureblobstorage/standard-managed-action-sub-folder.png":::
+   :::image type="content" source="media/connectors-create-api-azureblobstorage/standard-managed-action-sub-folder.png" alt-text="Screenshot showing Standard logic app workflow designer with Blob action setup for subfolder." lightbox="media/connectors-create-api-azureblobstorage/standard-managed-action-sub-folder.png":::
 
 1. Add any other actions that your workflow requires.
 
@@ -563,7 +563,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 
 ## Application Insights errors
 
-- **404** and **409** errors
+- **404** and **409** errors:
 
   If your Standard workflow uses an Azure Blob built-in action that adds a blob to your storage container, you might get **404** and **409** errors in Application Insights for failed requests. These errors are expected because the connector checks whether the blob file exists before adding the blob. The errors result when the file doesn't exist. Despite these errors, the built-in action successfully adds the blob.
 
