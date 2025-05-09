@@ -61,7 +61,10 @@ To migrate an existing location of your API Management instance to availability 
 
 1. In the **Units** box, select the number of scale [units](../api-management/upgrade-and-scale.md) that you want in the location.
 
-1. In the **Availability zones** box, select one or more zones. The number of units that you selected must be distributed evenly across the availability zones. For example, if you selected three units, select three zones so that each zone hosts one unit.
+1. In the **Availability zones** box, select *Automatic*. 
+
+>[!IMPORTANT] 
+>If you select specific zones, your resources will be pinned to those zones. Should all your resources in the selected zones become unavailable, your API Management instance will be unavailable. 
 
 1. Select **Apply**, and then select **Save**.
 
