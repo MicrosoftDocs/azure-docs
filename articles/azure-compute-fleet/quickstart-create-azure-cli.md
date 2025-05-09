@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.service: azure-compute-fleet
 ms.date: 05/09/2025
 ms.reviewer: jushiman
-ms.custom: devx-track-arm-template, build-2024
+ms.custom: devx-track-azurecli
 ---
 
 # Create an Azure Compute Fleet using Azure CLI
@@ -24,68 +24,67 @@ This article steps through using an ARM template to create an Azure Compute Flee
 - Before using Compute Fleet, complete the feature registration and configure role-based access controls (RBAC). 
 
 
-## Feature registration
+### Feature registration
 
 Register the Azure Compute Fleet resource provider with your subscription using Azure CLI. Registration can take up to 30 minutes to successfully show as registered.
 
 ```bash
 az provider register --namespace 'Microsoft.AzureFleet'
 ```
+### Set Environment variables
 
-### [Azure portal](#tab/portal-1)
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your subscriptions. 
-1. Select the subscription you want to enable Azure Compute Fleet on. 
-1. Under **Settings**, select **Resource providers**. 
-1. Search for *Microsoft.AzureFleet* and register the provider.
-
----
-
-
-## Role-based access control permissions 
-
-Assign the appropriate RBAC permissions to use Azure Compute Fleet. 
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your subscriptions. 
-1. Select the subscription you want to adjust RBAC permissions. 
-1. Select **Access Control (IAM)**. 
-1. Select *Add*, then **Add Role Assignment**. 
-1. Search for **Virtual Machine Contributor** and highlight it. Select **Next**. 
-1. Click on **+ Select Members**. 
-1. Search for *Azure Fleet Resource Provider* role. 
-1. Select the *Azure Fleet Resource Provider* and select **Review + Assign**. 
-1. Repeat the previous steps for the *Network Contributor* role and the *Managed Identity Operator* role. 
-
-If you're using images stored in Compute Gallery when deploying your Compute Fleet, also repeat the previous steps for the *Compute Gallery Sharing Admin* role. 
-
-For more information on assigning roles, see [assign Azure roles using the Azure portal](../role-based-access-control/quickstart-assign-role-user-portal.md).
-
-
-## ARM template 
-
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
-
-ARM templates let you deploy groups of related resources. In a single template, you can create the Virtual Machine Scale Set, install applications, and configure autoscale rules. With the use of variables and parameters, this template can be reused to update existing, or create extra scale sets. You can deploy templates through the Azure portal, Azure CLI, or Azure PowerShell, or from continuous integration / continuous delivery (CI/CD) pipelines.
-
-
-## Review the template
-
-
-
-These resources are defined in the template:
-
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
-
-
-## Clean up resources
-
-When no longer needed, you can use [az group delete](/cli/azure/group) to remove the resource group, scale set, and all related resources as follows. The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without another prompt to do so.
-
-```azurecli-interactive
-az group delete --name myResourceGroup --yes --no-wait
+```bash
+export RANDOM_ID="$(openssl rand -hex 3)"
+export MY_RESOURCE_GROUP_NAME="myFleetResourceGroup$RANDOM_ID"
+export REGION=EastUS
+export MY_FLEET_NAME="myFLEET$RANDOM_ID"
+export MY_USERNAME=azureuser
+export MY_VNET_NAME="myVNet$RANDOM_ID"
+export NETWORK_PREFIX="$(($RANDOM % 254 + 1))"
+export MY_VNET_PREFIX="10.$NETWORK_PREFIX.0.0/16"
+export MY_VM_SN_NAME="myVMSN$RANDOM_ID"
+export MY_VM_SN_PREFIX="10.$NETWORK_PREFIX.0.0/24"
 ```
 
-## Next steps
-> [!div class="nextstepaction"]
-> [Create an Azure Compute Fleet with Azure portal.](quickstart-create-portal.md)
+### Create a resource group
+
+```bash
+az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
+```
+
+### Create virtual network and subnet
+
+```bash
+az network vnet create  --name $MY_VNET_NAME  --resource-group $MY_RESOURCE_GROUP_NAME --location $REGION  --address-prefix $MY_VNET_PREFIX  --subnet-name $MY_VM_SN_NAME --subnet-prefix $MY_VM_SN_PREFIX
+```
+
+Get the subnet ARM ID
+
+```bash
+export MY_SUBNET_ID="$(az network vnet subnet show \
+  --resource-group $MY_RESOURCE_GROUP_NAME \
+  --vnet-name $MY_VNET_NAME \
+  --name $MY_VM_SN_NAME \
+  --query id --output tsv)"
+```
+
+### Set up the admin password
+
+Setup a password that meets the [password requirements for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
+
+export ADMIN_PASSWORD="<azure compliant password>"
+
+
+### Create Compute Fleet
+
+```bash
+export COMPUTE_PROFILE="{ 'baseVirtualMachineProfile': { 'storageProfile': { 'imageReference': { 'publisher':'canonical', 'offer':'0001-com-ubuntu-server-focal', 'sku': '20_04-lts-gen2', 'version': 'latest' } }, 'osProfile': { 'computerNamePrefix': 'vm', 'adminUsername': '$MY_USERNAME', 'adminPassword': '$ADMIN_PASSWORD'}, 'networkProfile': { 'networkInterfaceConfigurations': [{ 'name': 'nic', 'primary': 'true', 'enableIPForwarding': 'true', 'ipConfigurations': [{ 'name': 'ipc', 'subnet': { 'id': '$MY_SUBNET_ID' } }] }], 'networkApiVersion': '2020-11-01'} } }"
+```
+ 
+```bash
+az compute-fleet create --name $MY_FLEET_NAME --resource-group $MY_RESOURCE_GROUP_NAME --location $REGION \
+    --spot-priority-profile "{ 'capacity': 5 }" \
+    --regular-priority-profile "{ 'capacity': 5 }" \
+    --compute-profile "$COMPUTE_PROFILE" \
+    --vm-sizes-profile "[{ 'name': 'Standard_F1s' }]"
+```
