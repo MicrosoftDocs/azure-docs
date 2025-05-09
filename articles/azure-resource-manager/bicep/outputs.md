@@ -3,7 +3,7 @@ title: Outputs in Bicep
 description: Learn how to define output values in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 05/09/2025
 ---
 
 # Outputs in Bicep
@@ -153,7 +153,7 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ### Secure outputs
 
-With Bicep version 0.35.1 and later, you can mark string or object outputs as secure. The value of a secure output isn't saved to the deployment history and isn't logged.
+With Bicep version 0.35.1 and later, you can mark string or object outputs as secure. When an output is decorated with `@secure()`, Azure Resource Manager treats the output value as sensitive, preventing it from being logged or displayed in deployment history, Azure Portal, or command-line outputs.
 
 ```bicep
 @secure()
@@ -165,7 +165,7 @@ output demoSecretObject object
 
 There are several linter rules related to this decorator: [Secure parameter default](./linter-rule-secure-parameter-default.md), [Secure parameters in nested deployments](./linter-rule-secure-params-in-nested-deploy.md), [Secure secrets in parameters](./linter-rule-secure-secrets-in-parameters.md).
 
-
+The `@secure()` decorator is valid only for outputs of type string or object, as these align with the [secureString](../templates/syntax.md#outputs) and [secureObject](../templates/syntax.md#outputs) types in ARM templates. To pass arrays or numbers securely, wrap them in a secureObject or serialize them as a secureString.
 
 ## Conditional output
 
