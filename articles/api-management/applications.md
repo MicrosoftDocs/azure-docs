@@ -51,7 +51,7 @@ This feature enables:
     * For testing, you can use the default **Starter** product and the **Echo** API that's added to it. 
     * If you want to create a product, see [Create and publish a product](api-management-howto-add-products.md). 
 
-- Sufficient permissions tenant to assign the **Application Administrator** role in Microsoft Entra ID, which requires at least the **Privileged Role Administrator** role.
+- Sufficient permissions in your Microsoft Entra tenant to assign the **Application Administrator** role, which requires at least the **Privileged Role Administrator** role.
 
 - Optionally, add one or more [users](api-management-howto-create-or-invite-developers.md) in your API Management instance. 
 
@@ -86,6 +86,7 @@ The following example uses the **Starter** product, but choose any published pro
 1. Choose the product you want to configure, such as the **Starter** product.
 1. In the left menu, under **Product**, select **Properties**.
 1. Enable the **Application based access** setting.
+1. Optionally, you can also enable the **Requires subscription** setting. If you enable both settings, the API Management gateway can accept either OAuth 2.0 authorization or a subscription key for access to the product's APIs.
 1. Select **Save**.
 
 :::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
