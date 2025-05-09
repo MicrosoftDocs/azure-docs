@@ -47,7 +47,7 @@
       href: configuration-listeners.md
     - name: Request routing rules
       href: configuration-request-routing-rules.md
-    - name: HTTP settings
+    - name: Backend settings
       href: configuration-http-settings.md
   - name: Routing
     items:

@@ -144,6 +144,8 @@ items:
       href: tutorials/trusted-service-tutorial.md
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Integrate an OpenAI bot with chat
+      href: quickstarts/chat/openai-chat-bot-integration.md
     - name: Integrate with data loss prevention policies
       href: how-tos/chat-sdk/data-loss-prevention.md
     - name: Chat hero sample
@@ -1242,6 +1244,8 @@ items:
     items:
     - name: Add a bot to your chat app
       href: quickstarts/chat/quickstart-botframework-integration.md
+    - name: Integrate an OpenAI bot with chat
+      href: quickstarts/chat/openai-chat-bot-integration.md
     - name: Client background effects
       href: quickstarts/voice-video-calling/get-started-video-effects.md
     - name: Client noise enhancement and effects

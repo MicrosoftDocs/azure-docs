@@ -1,11 +1,11 @@
 ---
-title: Properties of the agent and hub module twins - Azure IoT Edge
+title: Properties of the Azure IoT Edge agent and hub module twins
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/16/2021
-ms.topic: conceptual
+ms.date: 05/08/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---
@@ -14,36 +14,36 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about the responsibilities of each runtime module, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+The IoT Edge agent and IoT Edge hub are two modules that make up the IoT Edge runtime. For more information about the responsibilities of each runtime module, see [understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
-This article provides the desired properties and reported properties of the runtime module twins. For more information on how to deploy modules on IoT Edge devices, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+This article provides the desired properties and reported properties of the runtime module twins. For more information on how to deploy modules on IoT Edge devices, see [learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
 A module twin includes:
 
-* **Desired properties**. The solution backend can set desired properties, and the module can read them. The module can also receive notifications of changes in the desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions.
+* **Desired properties**. The solution backend sets desired properties, and the module reads them. The module also receives notifications of changes in the desired properties. Desired properties are used along with reported properties to synchronize module configuration or conditions.
 
-* **Reported properties**. The module can set reported properties, and the solution backend can read and query them. Reported properties are used along with desired properties to synchronize module configuration or conditions.
+* **Reported properties**. The module sets reported properties, and the solution backend reads and queries them. Reported properties are used along with desired properties to synchronize module configuration or conditions.
 
 ## EdgeAgent desired properties
 
-The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates the communications between the IoT Edge agent running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment.
+The module twin for the IoT Edge agent is called `$edgeAgent`. It coordinates communications between the IoT Edge agent running on a device and IoT Hub. The desired properties are set when applying a deployment manifest on a specific device as part of a single-device or at-scale deployment.
 
 | Property | Description | Required |
 | -------- | ----------- | -------- |
-| imagePullPolicy | When to pull the image in either *OnCreate* or *Never* (*Never* can be used if the image is already on the device) | Yes |
-| restartPolicy | When the module should be restarted. Possible values are: *Never*: don't restart module if not running, *Always*: always restart module if not running, *On-Unhealthy*: restart module if unhealthy. Unhealthy is what Docker reports based on a health check, for example "Unhealthy - the container is not working correctly", *On-Failed*: restart if Failed. | Yes |
-| runtime.type | Has to be *docker*. | Yes |
-| runtime.settings.minDockerVersion | Set to the minimum Docker version required by this deployment manifest. | Yes |
-| runtime.settings.loggingOptions | A stringified JSON containing the logging options for the IoT Edge agent container. [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/) | No |
-| runtime.settings.registryCredentials.{registryId}.username | The username of the container registry. For Azure Container Registry, the username is usually the registry name. Registry credentials are necessary for any private module images. | No |
+| imagePullPolicy | Specifies when to pull the image: *OnCreate* or *Never*. Use *Never* if the image is already on the device. | Yes |
+| restartPolicy | When the module should be restarted. Possible values are: *Never*: don't restart module if not running, *Always*: always restart module if not running, *On-Unhealthy*: restart module if unhealthy. Unhealthy is what Docker reports based on a health check, for example "Unhealthy - the container isn't working correctly", *On-Failed*: restart if Failed. | Yes |
+| runtime.type | Must be *docker*. | Yes |
+| runtime.settings.minDockerVersion | Specifies the minimum Docker version required by this deployment manifest. | Yes |
+| runtime.settings.loggingOptions | Specifies a stringified JSON with the logging options for the IoT Edge agent container. Learn more about [Docker logging options](https://docs.docker.com/engine/admin/logging/overview/). | No |
+| runtime.settings.registryCredentials.{registryId}.username | Specifies the username of the container registry. For Azure Container Registry, the username is usually the registry name. Registry credentials are required for private module images. | No |
 | runtime.settings.registryCredentials.{registryId}.password | The password for the container registry. | No |
 | runtime.settings.registryCredentials.{registryId}.address | The address of the container registry. For Azure Container Registry, the address is usually *{registry name}.azurecr.io*. | No | 
-| schemaVersion | Either *1.0* or *1.1*. Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes | 
+| schemaVersion | Specifies either *1.0* or *1.1*. Version 1.1, introduced with IoT Edge version 1.0.10, is recommended. | Yes | 
 | status | Desired status of the module: *Running* or *Stopped*. | Required |
 | systemModules.edgeAgent.type | Has to be *docker*. | Yes |
-| systemModules.edgeAgent.startupOrder | An integer value for the location a module has in the startup order. A *0* is first and *max integer* (4294967295) is last. If a value isn't provided, the default is *max integer*.  | No |
-| systemModules.edgeAgent.settings.image | The URI of the image of the IoT Edge agent. Currently, the IoT Edge agent isn't able to update itself. | Yes |
-| systemModules.edgeAgent.settings.createOptions | A stringified JSON containing the options for the creation of the IoT Edge agent container. [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate) | No |
+| systemModules.edgeAgent.startupOrder | Specifies an integer for the module's position in the startup order. *0* is first, and *max integer* (4294967295) is last. If no value is provided, the default is *max integer*.  | No |
+| systemModules.edgeAgent.settings.image | Specifies the URI of the IoT Edge agent image. The IoT Edge agent can't update itself. | Yes |
+| systemModules.edgeAgent.settings.createOptions | Specifies a stringified JSON with options for creating the IoT Edge agent container. Learn more about [Docker create options](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate). | No |
 | systemModules.edgeAgent.configuration.id | The ID of the deployment that deployed this module. | IoT Hub sets this property when the manifest is applied using a deployment. Not part of a deployment manifest. |
 | systemModules.edgeHub.type | Has to be *docker*. | Yes |
 | systemModules.edgeHub.status | Has to be *running*. | Yes |
@@ -66,26 +66,26 @@ The module twin for the IoT Edge agent is called `$edgeAgent` and coordinates th
 
 ## EdgeAgent reported properties
 
-The IoT Edge agent reported properties include three main pieces of information:
+IoT Edge agent reported properties include three main pieces of information:
 
-1. The status of the application of the last-seen desired properties;
-2. The status of the modules currently running on the device, as reported by the IoT Edge agent; and
-3. A copy of the desired properties currently running on the device.
+- Status of the application of the last-seen desired properties,
+- Status of the modules currently running on the device as reported by the IoT Edge agent, and
+- Copy of the desired properties currently running on the device.
 
-The copy of the current desired properties is useful to tell whether the device has applied the latest deployment or is still running a previous deployment manifest.
+The copy of the current desired properties helps determine if the device has applied the latest deployment or is still running a previous deployment manifest.
 
 > [!NOTE]
-> The reported properties of the IoT Edge agent are useful as they can be queried with the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to investigate the status of deployments at scale. For more information on how to use the IoT Edge agent properties for status, see [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md).
+> You can query IoT Edge agent reported properties with the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to investigate deployment status at scale. Learn how to use IoT Edge agent properties for status in [Understand IoT Edge deployments for single devices or at scale](module-deployment-monitoring.md).
 
-The following table does not include the information that is copied from the desired properties.
+The following table doesn't include the information that is copied from the desired properties.
 
 | Property | Description |
 | -------- | ----------- |
-| lastDesiredStatus.code | This status code refers to the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` Desired properties are empty, `500` Failed.|
+| lastDesiredStatus.code | Status code for the last desired properties seen by the IoT Edge agent. Allowed values: `200` Success, `400` Invalid configuration, `412` Invalid schema version, `417` Desired properties are empty, `500` Failed.|
 | lastDesiredStatus.description | Text description of the status. |
 | lastDesiredVersion | This integer refers to the last version of the desired properties processed by the IoT Edge agent. |
-| runtime.platform.OS | Reporting the OS running on the device. |
-| runtime.platform.architecture | Reporting the architecture of the CPU on the device. |
+| runtime.platform.OS | Reports the OS running on the device. |
+| runtime.platform.architecture | Reports the CPU architecture on the device. |
 | schemaVersion | Schema version of reported properties. |
 | systemModules.edgeAgent.runtimeStatus | The reported status of IoT Edge agent: {*running* \| *unhealthy*}. |
 | systemModules.edgeAgent.statusDescription | Text description of the reported status of the IoT Edge agent. |

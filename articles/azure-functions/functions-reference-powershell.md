@@ -593,7 +593,7 @@ You can configure how Managed Dependencies are downloaded and installed using th
 
 #### Dependency management considerations
 
-- **Internet Access**: Managed Dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access, including modifying firewall/VNet rules as needed.
+- **Internet Access**: Managed Dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access, including modifying firewall/VNet rules as needed. The required endpoints are described in [Troubleshooting Cmdlets](/powershell/gallery/how-to/getting-support/troubleshooting-cmdlets#required-network-endpoints). These endpoints can be added to the allow list, as required.
 - **License Acceptance**: Managed Dependencies doesn't support modules that require license acceptance.
 - **Flex Consumption Plan**: The Managed Dependencies feature isn't supported in the Flex Consumption plan. Use custom modules instead.
 - **Module Locations**: On your local computer, modules are typically installed in one of the globally available folders in your `$env:PSModulePath`. When running in Azure, the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script and will contain both the `Modules` folder uploaded with your app contents and a separate location managed by Managed Dependencies.

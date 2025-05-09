@@ -1,5 +1,5 @@
 ---
-title: Regional capacity quota for Azure NetApp Files | Microsoft Docs
+title: Regional capacity quota for Azure NetApp Files
 description: Explains regional capacity quota of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen

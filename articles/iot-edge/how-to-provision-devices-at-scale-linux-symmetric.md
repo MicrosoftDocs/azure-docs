@@ -4,12 +4,12 @@ description: Use symmetric key attestation to test provisioning Linux devices at
 author: PatAltimore
 ms.author: patricka
 ms.date: 02/27/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
-# Create and provision IoT Edge devices at scale on Linux using symmetric key
+# Create and provision IoT Edge devices at scale on Linux using symmetric keys
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
