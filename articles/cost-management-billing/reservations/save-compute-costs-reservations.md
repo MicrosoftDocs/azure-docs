@@ -1,20 +1,20 @@
 ---
 title: What are Azure Reservations?
 description: Learn about Azure Reservations and pricing to save on your reserved instances for virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
-author: bandersmsft
-ms.reviewer: bshy
+author: pri-mittal
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 02/11/2025
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # What are Azure Reservations?
 
 Azure Reservations help you save money by committing to one-year or three-year plans for multiple products. Committing allows you to get a discount on the resources you use. Reservations can significantly reduce your resource costs by up to 72% from pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources. After you purchase a reservation, the discount automatically applies to matching resources.
 
-You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payments are for complete month and not proparted based on calendar month. As an example if you purchased a reservation on January 15, the next charge will be around February 15. Monthly payment is available for Azure reservations, not third-party products.
+You can pay for a reservation up front or monthly. The total cost of up-front and monthly reservations is the same and you don't pay any extra fees when you choose to pay monthly. Monthly payments are for complete month and not prorated based on calendar month. As an example, if you purchased a reservation on January 15, the next charge will be around February 15.
 
 You can buy a reservation in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 

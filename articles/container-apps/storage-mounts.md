@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 02/25/2025
+ms.date: 04/17/2025
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -235,9 +235,6 @@ Azure Files storage has the following characteristics:
 
 Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
-> [!NOTE]
-> Support for mounting NFS shares in Azure Container Apps is in preview.
-
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
 
 * Create a storage definition in the Container Apps environment.
@@ -326,7 +323,7 @@ For a step-by-step tutorial on mounting an SMB file share, refer to [Create an A
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` (optional) is the path in the volume to mount. If not specified, the volume root is mounted. For more information see [using subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath).
+        - The `subPath` is the path in the volume to mount. If not specified, the volume root is mounted. For more information see (#sub-path).
 
     # [SMB](#tab/smb)
 
@@ -586,7 +583,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` (optional) is the path in the volume to mount. If not specified, the volume root is mounted. For more information see [using subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath).
+        - The `subPath` (optional) is the path in the volume to mount. If not specified, the volume root is mounted. For more information see (#sub-path).
 
 See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
@@ -656,10 +653,36 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In **Mount path**, enter the absolute path in the container to mount the volume.
 
-1. In **Sub path (optional)**, enter the path in the volume to mount. If not specified, the volume root is mounted. For more information see [using subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath).
+1. In **Sub path (optional)**, enter the path in the volume to mount. If not specified, the volume root is mounted. For more information see (#sub-path).
 
 1. Select **Save** to save changes and exit the context pane.
 
 1. Select **Create** to create the new revision.
 
 ::: zone-end
+
+### Sub path
+
+When mounting a file share from Azure Files, in addition to the mount path, you can also specify a sub path.
+
+- **Mount path**: The path in the container where you want to mount the volume.
+- **Sub path**: The path in the volume you want to mount.
+
+The sub path is optional. If not specified, the volume root is mounted.
+
+The sub path is a relative path from the volume root. The sub path should not start with `/`. Specifying a sub path that starts with `/` might prevent your container app from starting up. For example, `my-volume-folder` is a valid sub path, where `/my-volume-folder` is not.
+
+The sub path can refer to either a folder or a file in the volume.
+
+- If the sub path refers to a folder, the mount path should refer to an empty folder in the container.
+
+- If the sub path refers to a file, the mount path should refer to a file that does not already exist in the container.
+
+    For example, suppose the sub path is `my-volume-folder/my-volume-file.txt`, and the mount path is `/my-container-folder/my-container-file`. The folder `/my-container-folder` should already exist in the container but should not yet contain the file `my-container-file.txt`.
+
+Any sub path trailing slashes are ignored.
+
+## Related content
+
+- [Tutorial: Create an Azure Files volume mount in Azure Container Apps](storage-mounts-azure-files.md)
+- [Using subPath](https://kubernetes.io/docs/concepts/storage/volumes/#using-subpath)

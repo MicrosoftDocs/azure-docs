@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/13/2025
 ms.author: anfdocs
 ---

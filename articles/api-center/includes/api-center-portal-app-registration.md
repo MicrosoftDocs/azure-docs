@@ -6,12 +6,10 @@ author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 03/04/2025
+ms.date: 03/20/2025
 ms.author: danlep
 ms.custom: Include file
 ---
-
-## Create Microsoft Entra app registration
 
 First configure an app registration in your Microsoft Entra ID tenant. The app registration enables the API Center portal to access data from your API center on behalf of a signed-in user.
 
@@ -24,13 +22,13 @@ First configure an app registration in your Microsoft Entra ID tenant. The app r
     1. In **Redirect URI**, select **Single-page application (SPA)** and set the URI. 
         Enter the URI of your API Center portal deployment, in the following form: `https://<service-name>.portal.<location>.azure-api-center.ms`. Replace `<service name>` and `<location>` with the name of your API center and the location where it's deployed, Example: `https://myapicenter.portal.eastus.azure-api-center.ms`.
     1. Select **Register**.
-1. On the **Overview** page, copy the **Application (client) ID**. You set this value when you publish the portal.
-      
-1. On the **API permissions** page, select **+ Add a permission**. 
-    1. On the **Request API permissions** page, select the **APIs my organization uses** tab. Search for and select **Azure API Center**. You can also search for and select application ID `c3ca1a77-7a87-4dba-b8f8-eea115ae4573`. 
-    1. On the **Request permissions** page, select **user_impersonation**.
-    1. Select **Add permissions**. 
 
-    The Azure API Center permissions appear under **Configured permissions**.
+When enabling the API Center portal in the Visual Studio Code extension for API Center, also configure the following redirect URIs. 
 
-    :::image type="content" source="media/api-center-portal-app-registration/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra ID app registration in the portal." lightbox="media/api-center-portal-app-registration/configure-app-permissions.png":::
+1. On the **Manage** > **Authentication** page, Select **Add a platform** and select **Mobile and desktop applications**. 
+1. Configure the following three custom redirect URIs:<br/>
+    `https://vscode.dev/redirect`<br/>
+    `http://localhost`<br/>
+    `ms-appx-web://Microsoft.AAD.BrokerPlugin/<application-client-id>`<br/>
+    
+    Replace `<application-client-id>` with the application (client) ID of this app. You can find this value on the **Overview** page. 

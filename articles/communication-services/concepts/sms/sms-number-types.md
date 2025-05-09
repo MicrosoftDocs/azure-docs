@@ -28,6 +28,7 @@ Azure Communication Services provides the following phone number types:
 - **10DLC (10 Digit Long Code)** 
 - **Short Codes**
 - **Alphanumeric Sender IDs**
+- **Mobile Numbers**
 
 ---
 
@@ -59,6 +60,20 @@ Azure Communication Services provides the following phone number types:
   - Requires 10DLC campaign registration in the US for compliance.
   - Opt-Out Management: Businesses must handle opt-out requests (e.g., STOP) to comply with US regulations.
 - **Purchase eligibility**: Check subscription and location eligibility [here](../numbers/sub-eligibility-number-capability.md).
+
+### Mobile Numbers  
+- **Availability:** Australia, Belgium, Denmark, Finland, Ireland, Latvia, Netherlands, Poland, Sweden, United Kingdom  
+- **Status:** Public Preview
+- **Description:** Mobile numbers are standard phone numbers that can be used for business SMS communication. These numbers allow businesses to send and receive SMS messages, making them ideal for customer interaction.  
+- **Format:** +XX XXXX XXXXX  
+- **Use Cases:**  
+  - Two-Way Customer Communication: Businesses can engage in SMS conversations with customers.  
+  - Appointment Reminders & Notifications: Used for reminders, confirmations, and alerts.  
+  - Local Presence: Helps businesses establish a local identity in supported countries.  
+- **Regulations:**  
+  - Mobile numbers may have specific registration or verification requirements depending on the country.  
+  - Businesses must handle opt-out requests as per regional compliance standards.  
+- **Purchase eligibility:** Check subscription and location eligibility [here](../numbers/sub-eligibility-number-capability.md).  
 
 ### Short Codes
 
@@ -97,16 +112,16 @@ Azure Communication Services provides the following phone number types:
 
 ## Choosing the right number type for your business
 
-| **Factor**                   | **Toll-Free Number**                | **10DLC** (10-Digit Long Code)      | **Short Code**                     | **Alphanumeric Sender ID**                   |
-|------------------------------|-------------------------------------|-------------------------------------|------------------------------------|----------------------------------------------|
-| **Geographic Target**        | United States, Canada              | United States                       | United States, United Kingdom, Canada | Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia, United Kingdom |
-| **Message Volume**           | Low to moderate                    | Moderate                            | High                               | Moderate (for one-way notifications)        |
-| **Two-Way Communication**    | Supported                          | Supported                           | Supported                      | Not Supported (one-way only)                |
-| **Brand Visibility**         | Low                                | Moderate (localized presence)       | High                               | High (direct brand recognition)             |
-| **Use Case Examples**        | Customer support, notifications    | Local business communications, marketing & promotions | High-volume campaigns, 2FA       | Brand visibility, one-way notifications     |
-| **Compliance Requirements**  | SMS verification, opt-out support  | Campaign registration, opt-out support | Carrier approval, opt-in proof    | Varies by country (e.g., France restricts marketing messages) |
-| **Format**                   | 1-800-XXX-XXXX                     | XXX-XXX-XXXX                        | 5-6 digits                          | Up to 11 characters (letters/numbers)       |
-| **Example**                  | 1-800-555-1234                     | 212-555-6789                        | 12345                               | MYBRAND123                                  |
+| **Factor**                   | **Toll-Free Number**                | **10DLC** (10-Digit Long Code)      | **Short Code**                     | **Alphanumeric Sender ID**                   | Mobile Numbers |
+|------------------------------|-------------------------------------|-------------------------------------|------------------------------------|----------------------------------------------|----------------|
+| **Geographic Target**        | United States, Canada              | United States                       | United States, United Kingdom, Canada | Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland, Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia, United Kingdom | Australia, Belgium, Denmark, Finland, Ireland, Latvia, Netherlands, Poland, Sweden, United Kingdom |
+| **Message Volume**           | Low to moderate                    | Moderate                            | High                               | Moderate (for one-way notifications)        | Moderate |
+| **Two-Way Communication**    | Supported                          | Supported                           | Supported                      | Not Supported (one-way only)                | Supported |
+| **Brand Visibility**         | Low                                | Moderate (localized presence)       | High                               | High (direct brand recognition)             | Moderate |
+| **Use Case Examples**        | Customer support, notifications    | Local business communications, marketing & promotions | High-volume campaigns, 2FA       | Brand visibility, one-way notifications     | Customer engagement, notifications |
+| **Compliance Requirements**  | SMS verification, opt-out support  | Campaign registration, opt-out support | Carrier approval, opt-in proof    | Varies by country (e.g., France restricts marketing messages) | Varies by country |
+| **Format**                   | 1-800-XXX-XXXX                     | XXX-XXX-XXXX                        | 5-6 digits                          | Up to 11 characters (letters/numbers)       | +XX XXXX XXXXX |
+| **Example**                  | 1-800-555-1234                     | 212-555-6789                        | 12345                               | MYBRAND123                                  | +44 7123 456789 |
 
 To send messages across multiple countries, customers must request different numbers based on the number types supported in each destination.
 

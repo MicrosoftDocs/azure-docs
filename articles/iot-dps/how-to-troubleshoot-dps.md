@@ -3,7 +3,6 @@ title: Diagnose and troubleshoot provisioning errors with DPS
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Learn to diagnose and troubleshoot common errors for Azure IoT Hub Device Provisioning Service (DPS)
 author: SoniaLopezBravo
-
 ms.author: sonialopez
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
@@ -27,7 +26,7 @@ Use this table to understand and resolve common errors.
 | 405 | The client service knows the request method, but the target service doesn't recognize this method; for example, a rest operation is missing the enrollment or registration ID parameters | 405 Method Not Allowed |
 | 409 | The request could not be completed due to a conflict with the current state of the target Device Provisioning Service instance; for example, the customer has already created the data point and is attempting to recreate the same datapoint again. | 409 Conflict |
 | 412 | The ETag in the request does not match the ETag of the existing resource, as per RFC7232. | 412 Precondition failed |
-| 415 | The server refuses to accept the request because the payload format is in an unsupported format. For supported formats, see [Iot Hub Device Provisioning Service REST API](/rest/api/iot-dps/) | 415 Unsupported Media Type |
+| 415 | The server refuses to accept the request because the payload format is in an unsupported format. For supported formats, see [IoT Hub Device Provisioning Service REST API](/rest/api/iot-dps/) | 415 Unsupported Media Type |
 | 429 | Operations are being throttled by the service. For specific service limits, see [IoT Hub Device Provisioning Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-iot-hub-device-provisioning-service-limits). | 429 Too many requests |
 | 500 | An internal error occurred. | 500 Internal Server Error|
 

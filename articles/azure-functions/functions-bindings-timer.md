@@ -3,7 +3,7 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 02/19/2024
+ms.date: 04/16/2025
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -42,7 +42,7 @@ This example shows a C# function that executes each time the minutes have a valu
 
 # [Isolated worker model](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" range="11-17":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
 
 # [In-process model](#tab/in-process)
 

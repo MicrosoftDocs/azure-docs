@@ -366,7 +366,7 @@ This script helps you to create a data collection rule in Change tracking and in
 
 ## Execute the script
 
-Save the above script on your machine with a name as *CtDcrCreation.json*. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md#enable-change-tracking-at-scale-using-policy).
+Save the above script on your machine with a name as *CtDcrCreation.json*. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-change-tracking-at-scale-policy.md).
 
 > [!NOTE]
 > A reference JSON script to configure windows file settings:

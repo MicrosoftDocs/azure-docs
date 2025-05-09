@@ -1,9 +1,9 @@
 ---
 title: Collect your Apache Spark applications logs and metrics using Azure Event Hubs 
-description: In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs and metrics to your Azure Event Hubs.
+description: In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications' logs, event logs, and metrics to your Azure Event Hubs.
 author: hrasheed-msft
 ms.author: jejiang
-ms.reviewer: whhender 
+ 
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
@@ -14,7 +14,7 @@ ms.date: 08/31/2021
 
 The Synapse Apache Spark diagnostic emitter extension is a library that enables the Apache Spark application to emit the logs, event logs, and metrics to one or more destinations, including Azure Log Analytics, Azure Storage, and Azure Event Hubs. 
 
-In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications’ logs, event logs, and metrics to your Azure Event Hubs.
+In this tutorial, you learn how to use the Synapse Apache Spark diagnostic emitter extension to emit Apache Spark applications' logs, event logs, and metrics to your Azure Event Hubs.
 
 ## Collect logs and metrics to Azure Event Hubs
 
@@ -35,7 +35,7 @@ spark.synapse.diagnostic.emitter.MyDestination1.secret <connection-string>
 ```
 
 Fill in the following parameters in the configuration file: `<connection-string>`.
-For more description of the parameters, you can refer to [Azure Event Hubs configurations](#available-configurations).
+For more descriptions of the parameters, you can refer to [Azure Event Hubs configurations](#available-configurations).
 
 ### Step 3: Upload the Apache Spark configuration file to Apache Spark pool
 
@@ -51,21 +51,21 @@ For more description of the parameters, you can refer to [Azure Event Hubs confi
 | `spark.synapse.diagnostic.emitter.<destination>.type`                       | Required. Built-in destination type. To enable Azure Event Hubs destination, the value should be `AzureEventHub`.                                                                                    |
 | `spark.synapse.diagnostic.emitter.<destination>.categories`                 | Optional. The comma-separated selected log categories. Available values include `DriverLog`, `ExecutorLog`, `EventLog`, `Metrics`. If not set, the default value is **all** categories.              |
 | `spark.synapse.diagnostic.emitter.<destination>.secret`                     | Optional. The Azure Event Hubs instance connection string. This field should match this pattern `Endpoint=sb://<FQDN>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<KeyValue>;EntityPath=<PathName>` |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` is not specified. The [Azure Key vault](/azure/key-vault/general/overview) name where the secret (connection string) is stored.                                                                  |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault`            | Required if `.secret` isn't specified. The [Azure Key vault](/azure/key-vault/general/overview) (AKV) name where the secret (connection string) is stored.                                                                  |
 | `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.secretName` | Required if `.secret.keyVault` is specified. The Azure Key vault secret name where the secret (connection string) is stored.                                                                         |
-| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Optional. The Azure Key vault linked service name. When enabled in Synapse pipeline, this is necessary to obtain the secret from AKV. (Please make sure MSI has read permission on the AKV). |
+| `spark.synapse.diagnostic.emitter.<destination>.secret.keyVault.linkedService` | Optional. The Azure Key vault linked service name. When enabled in Synapse pipeline, this is required to obtain the secret from AKV. (Make sure managed service identity (MSI) has read permission on the AKV). |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.eventName.match`     | Optional. The comma-separated spark event names, you can specify which events to collect. For example: `SparkListenerApplicationStart,SparkListenerApplicationEnd` |
-| `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Optional. The comma-separated log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
+| `spark.synapse.diagnostic.emitter.<destination>.filter.loggerName.match`    | Optional. The comma-separated Log4j logger names, you can specify which logs to collect. For example: `org.apache.spark.SparkContext,org.example.Logger` |
 | `spark.synapse.diagnostic.emitter.<destination>.filter.metricName.match`    | Optional. The comma-separated spark metric name suffixes, you can specify which metrics to collect. For example: `jvm.heap.used` |
 
 
 > [!NOTE]
 >
-> The Azure Eventhub instance connection string should always contains the `EntityPath`, which is the name of the Azure Event Hubs instance.
+> The Azure Event Hubs instance connection string should always contain `EntityPath`, which is the name of the Azure Event Hubs instance.
 
 ## Log data sample
 
-Here is a sample log record in JSON format:
+Here's a sample log record in JSON format:
 
 ```json
 {
@@ -91,8 +91,9 @@ Here is a sample log record in JSON format:
 
 ## Synapse workspace with data exfiltration protection enabled
 
-Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics cannot be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
+Azure Synapse Analytics workspaces support enabling data exfiltration protection for workspaces. With exfiltration protection, the logs and metrics can't be sent out to the destination endpoints directly. You can create corresponding [managed private endpoints](../../synapse-analytics/security/synapse-workspace-managed-private-endpoints.md) for different destination endpoints or [create IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) in this scenario.
 
+## Collect Apache Spark applications logs and metrics by certificate and service principal
 
-
+The Apache Spark diagnostic emitter extension now supports accessing Azure Event Hub by obtaining a token through service principal authentication with certificate credentials. For more information, see [Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication](./how-to-use-certificate-with-service-principalp-emit-log-event-hubs.md) article.
 

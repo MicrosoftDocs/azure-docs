@@ -56,7 +56,7 @@ After you have performed server discovery and software inventory using the Azure
 ### Onboard Kubernetes-based appliance
 
 1. Go to the [Azure portal](https://aka.ms/migrate/springboot). Sign in with your Azure account and search for Azure Migrate.
-2. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+2. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
 1. Select the project where you set up the Azure Migrate appliance as part of the prerequisites.
 1. You see a message above Azure Migrate: Discovery and assessment tile to onboard a Kubernetes-based appliance to enable discovery of Spring Boot applications.
 

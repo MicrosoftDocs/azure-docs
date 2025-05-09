@@ -3,7 +3,7 @@ title: Azure Storage migration tools comparison - Unstructured data
 description: Basic functionality and comparison between tools used for migration of unstructured data
 author: beber
 ms.author: beber
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/25/2023
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
@@ -18,100 +18,100 @@ The following comparison matrix shows basic functionality of different tools tha
 
 ## Overview comparison
 
-|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Cirrus Data](https://www.cirrusdata.com/) |
-|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [Migrate Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrus-migrate-cloud-sponsored-by-azure?tab=Overview)              |
-| **Support provided by**                 | Microsoft | Microsoft | Data Dynamics<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>| [Cirrus Data](https://www.cirrusdata.com/global-support-services/)<sub>1</sub> |
-| **Assessment** | No | No | Yes | Yes | Yes | Yes |
-| **SAN Migration** | No | No | No | No | No | Yes |
-| **NFS to Azure Blob** | Yes | Yes | Yes | Yes | Yes | No |
-| **NFS to NFS** | No | No | Yes | Yes | Yes | No |
-| **SMB to Azure Files** | Yes | Yes | Yes | Yes | Yes | No |
-| **SMB to Azure NetApp Files** | No | No | Yes | Yes | Yes | No |
-| **Lustre** | No | No | No | No | Yes | No |
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) | [Cirrus Data](https://www.cirrusdata.com/) |
+|--- |-----------------------------------------|-----------------------------------------|-----------------------------------------|------------------------------------------|-------------------|-----------------------------------|--------------------------------------------|
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Data Box](/azure/databox/) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) | [Migrate Cloud](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cirrusdatasolutionsinc1618222951068.cirrus-migrate-cloud-sponsored-by-azure?tab=Overview)              |
+| **Support provided by**                 | Microsoft | Microsoft | Microsoft | Data Dynamics<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>| [Cirrus Data](https://www.cirrusdata.com/global-support-services/)<sub>1</sub> |
+| **Assessment** | No | No | No | Yes | Yes | Yes | Yes |
+| **SAN Migration** | No | No | No | No | No | No | Yes |
+| **NFS to Azure Blob** | Yes | Yes | Yes | Yes | Yes | Yes | No |
+| **NFS to NFS** | No | No | No | Yes | Yes | Yes | No |
+| **SMB to Azure Files** | Yes | Yes | Yes | Yes | Yes | Yes | No |
+| **SMB to Azure NetApp Files** | No | No | No | Yes | Yes | Yes | No |
+| **Lustre** | No | No | No | No | No | Yes | No |
 
 > [!TIP]
 >  As Cirrus Data specializes in SAN / Block data migrations, we have omitted them from the remainder of this document, which compares File data migration features. For more information about Cirrus Data and their Migrate Cloud solution, please review the [Cirrus Data getting Started Guide](/azure/storage/solution-integration/validated-partners/data-management/cirrus-data-migration-guide).
 
 ## Supported Azure services
 
-|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
-|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
-| **Support provided by**                 | Microsoft | Microsoft | Data Dynamics<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>|
-| **Azure Files support (all tiers)** | Yes                          | Yes                          | Yes                      | Yes            | Yes                            |
-| **Azure NetApp Files support**      | No                           | No                           | Yes                      | Yes            | Yes                            |
-| **Azure Blob Hot / Cool support**   | Yes                          | Yes                          | Yes     | Yes            | Yes                            |
-| **Azure Blob Archive tier support** | Yes                          | No                           | No                       | Yes             | Yes                             |
-| **Azure Data Lake Storage support** | Yes                          | No                           | Yes                       | Yes             | No                             |
-| **Supported Sources**      | Any NAS, Azure Blob, Azure Files, Google Cloud Storage, and AWS S3 |  Any SMB/NFS share on servers and NAS devices | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3                 | Any NAS, S3, PFS, and Swift |
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
+|--- |-----------------------------------------|-----------------------------------------|-----------------------------------------|------------------------------------------|-------------------|-----------------------------------|
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Data Box](/azure/databox/) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
+| **Support provided by**                 | Microsoft | Microsoft | Microsoft | Data Dynamics<sub>1</sub> | [Komprise](https://komprise.freshdesk.com/support/home)<sub>1</sub> | [Atempo](https://www.atempo.com/support-en/contacting-support/)<sub>1</sub>|
+| **Azure Files support (all tiers)**     | Yes       | Yes       | Yes       | Yes                      | Yes            | Yes            |
+| **Azure NetApp Files support**          | No        | No        | No        | No                       | Yes            | Yes            |
+| **Azure Blob Hot / Cool support**       | Yes       | Yes       | Yes       | Yes                      | Yes            | Yes            |
+| **Azure Blob Archive tier support**     | Yes       | Yes       | No        | No                       | Yes            | Yes            |
+| **Azure Data Lake Storage support**     | Yes       | Yes       | No        | Yes                      | Yes            | No             |
+| **Supported Sources**      		      | Any NAS, Azure Blob, Azure Files, Google Cloud Storage, and AWS S3 | Any SMB/NFS share on servers and NAS devices | Any SMB/NFS share on servers and NAS devices | Any NAS, and S3 | Any NAS, Cloud File Storage, or S3 | Any NAS, S3, PFS, and Swift |
 
 ## Supported protocols (source / destination)
 
-|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
-|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
-| **SMB 2.1**       | Source | Yes | Yes | Yes | Yes |
-| **SMB 3.0**       | Source | Source | Yes | Yes | Yes |
-| **SMB 3.1**       | Source/Destination (Azure Files SMB) | Source/Destination (Azure Files SMB) | Yes | Yes | Yes |
-| **NFS v3**        | Source/Destination (Azure Blob NFSv3)  | Source/Destination (Azure Blob NFSv3) | Yes | Yes | Yes |
-| **NFS v4.1**      | Source | Source | Yes | No | Yes |
-| **Blob REST API** | Yes  | Destination | Yes | Yes | Yes |
-| **S3**            | Source | No | Yes | Yes | Yes |
-| **Google Cloud Storage** | Source | No | Yes | Yes | Yes |
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
+|----|-----------------------------------------|-----------------------------------------|-----------------------------------------|------------------------------------------|----|-----------------------------------------|
+|  **Solution name** | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Data Box](/azure/databox/) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice) | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​) | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
+| **SMB 2.1**        | Source | Yes | Yes | Yes | Yes | Yes |
+| **SMB 3.0**        | Source | Source | Source | Yes | Yes | Yes |
+| **SMB 3.1**        | Source/Destination (Azure Files SMB) | Source/Destination (Azure Files SMB) | Source/Destination (Azure Files SMB) | Yes | Yes | Yes |
+| **NFS v3**         | Source/Destination (Azure Blob NFSv3)  | Source/Destination (Azure Blob NFSv3) | Source/Destination (Azure Blob NFSv3) | Yes | Yes | Yes |
+| **NFS v4.1**       | Source | Source | Source | Yes | No | Yes |
+| **Blob REST API**  | Yes  | Destination | Destination | Yes | Yes | Yes |
+| **S3**             | Source | No | No | Yes | Yes | Yes |
+| **Google Cloud Storage** | Source | No | No | Yes | Yes | Yes |
 
 ## Extended features
 
-|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
-|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
-| **UID / SID remapping**                   | No  | No | Yes | No | No |
-| **Protocol ACL remapping**                | No  | No | No  | No  | No |
-| **Azure Data Lake Storage**          | Yes | No | Yes | Yes | No |
-| **Throttling support**                    | Yes | No | Yes | No | Yes | 
-| **File pattern exclusions**               | Yes | No | Yes | Yes | Yes |
-| **Support for selective file attributes** | No  | No | Yes | Yes | Yes |
-| **Delete propagations**                   | No  | Yes | Yes | Yes | Yes |
-| **Follow NTFS junctions**                 | No  | No | No | Yes | Yes |
-| **Override SMB Owner and Group Owner**    | No | No | Yes | No | Yes |
-| **Chain of custody reporting**            | No  | No | Yes | Yes | Yes |
-| **Support for alternate data streams**    | No  | No | Yes | No | Yes |
-| **Scheduling for migration**              | No  | No | Yes | Yes | Yes |
-| **Preserving ACL**                        | Yes | Yes | Yes | Yes | Yes |
-| **DACL support**                          | Yes | Yes | Yes | Yes | Yes |
-| **SACL support**                          | Yes | Yes | Yes | No | Yes |
-| **Preserving access time**                | Yes (Azure Files) | Yes | Yes | Yes | Yes |
-| **Preserving modified time**              | Yes (Azure Files) | Yes | Yes | Yes | Yes |
-| **Preserving creation time**              | Yes (Azure Files) | Yes | Yes | Yes | Yes |
-| **Azure Data Box support**                | Yes | Yes | Yes | No | Yes |
-| **Migration of snapshots**                | No  | No | Yes | No | No |
-| **Symbolic link support**                 | Yes | Yes | No | Yes | Yes |
-| **Hard link support**                     | Migrated as separate files | Migrated as separate files |  Yes | Yes | Yes |
-| **Support for open / locked files**       | No | No | Yes | Yes | Yes |
-| **Incremental migration**                 | Yes | No | Yes | Yes | Yes |
-| **Switchover support**                    | No  | No | Yes | No (manual only) | Yes |
-| **[Other features](#other-features)**     | [Link](#azcopy)|  | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) | [Link](#atempo-miria) |
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
+|--- |-----------------------------------------|-----------------------------------------|-----------------------------------------|-------------------------------------------|------------------|-----------------------------------|
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Data Box](/azure/databox/) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
+| **UID / SID remapping**                   | No  | No | No | Yes | No | No |
+| **Protocol ACL remapping**                | No  | No | No | No  | No  | No |
+| **Azure Data Lake Storage**          | Yes | No | No | Yes | Yes | No |
+| **Throttling support**                    | Yes | No | No | Yes | No | Yes | 
+| **File pattern exclusions**               | Yes | No | No | Yes | Yes | Yes |
+| **Support for selective file attributes** | No  | No | No | Yes | Yes | Yes |
+| **Delete propagations**                   | No  | No | Yes | Yes | Yes | Yes |
+| **Follow NTFS junctions**                 | No  | No | No | No | Yes | Yes |
+| **Override SMB Owner and Group Owner**    | No | No | No | Yes | No | Yes |
+| **Chain of custody reporting**            | No  | No | No | Yes | Yes | Yes |
+| **Support for alternate data streams**    | No  | No | No | Yes | No | Yes |
+| **Scheduling for migration**              | No  | No | No | Yes | Yes | Yes |
+| **Preserving ACL**                        | Yes | Yes | Yes | Yes | Yes | Yes |
+| **DACL support**                          | Yes | Yes | Yes | Yes | Yes | Yes |
+| **SACL support**                          | Yes | Yes | Yes | Yes | No | Yes |
+| **Preserving access time**                | Yes (Azure Files) | Yes | Yes | Yes | Yes | Yes |
+| **Preserving modified time**              | Yes (Azure Files) | Yes | Yes | Yes | Yes | Yes |
+| **Preserving creation time**              | Yes (Azure Files) | Yes | Yes | Yes | Yes | Yes |
+| **Azure Data Box support**                | Yes | Yes | Yes | Yes | No | Yes |
+| **Migration of snapshots**                | No  | No | No | Yes | No | No |
+| **Symbolic link support**                 | Yes | Yes | No | No | Yes | Yes |
+| **Hard link support**                     | Migrated as separate files | Migrated as separate files | Migrated as separate files |  Yes | Yes | Yes |
+| **Support for open / locked files**       | No | No | No | Yes | Yes | Yes |
+| **Incremental migration**                 | Yes | No | No | Yes | Yes | Yes |
+| **Switchover support**                    | No  | No | No | Yes | No (manual only) | Yes |
+| **[Other features](#other-features)**     | [Link](#azcopy)| | | [Link](#data-dynamics-data-mobility-and-migration) | [Link](#komprise-elastic-data-migration) | [Link](#atempo-miria) |
 
 ## Assessment and reporting
 
-|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
-|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
-| **Capacity**                        | No | Reporting | Yes | Yes | Yes |
-| **# of files / folders**            | Yes | Reporting | Yes | Yes | Yes |
-| **Age distribution over time**      | No | No | Yes | Yes | Yes |
-| **Access time**                     | No | No | Yes | Yes | Yes |
-| **Modified time**                   | No | No | Yes | Yes | Yes |
-| **Creation time**                   | No | No | Yes | Yes | Yes |
-| **Per file / object report status** | Yes | Reporting | Yes | Yes | Yes |
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
+|--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------|---------------------------------------|-------------------------------------|
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Data Box](/azure/databox/) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
+| **Capacity**                        | No | Reporting | Reporting | Yes | Yes | Yes |
+| **# of files / folders**            | Yes | Reporting | Reporting | Yes | Yes | Yes |
+| **Age distribution over time**      | No | No | No | Yes | Yes | Yes |
+| **Access time**                     | No | No | No | Yes | Yes | Yes |
+| **Modified time**                   | No | No | No | Yes | Yes | Yes |
+| **Creation time**                   | No | No | No | Yes | Yes | Yes |
+| **Per file / object report status** | Yes | Reporting | Reporting | Yes | Yes | Yes |
 
 ## Licensing
 
-|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
+|    | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Microsoft](https://www.microsoft.com/) | [Data Dynamics](https://www.datadynamicsinc.com/) | [Komprise](https://www.komprise.com/) | [Atempo](https://www.atempo.com/) |
 |--- |-----------------------------------------|-----------------------------------------|--------------------------------------|---------------------------------------------------|---------------------------------------|
-|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
-| **BYOL**             | Free | Free | Yes | Yes | Yes |
-| **Azure Commitment** | Free | Free | Yes | Yes | No |
+|  **Solution name**  | [AzCopy](/azure/storage/common/storage-ref-azcopy-copy) | [Azure Data Box](/azure/databox/) | [Azure Storage Mover](/azure/storage-mover/) | [Data Mobility and Migration](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=PlansAndPrice)      | [Elastic Data Migration](https://azuremarketplace.microsoft.com/marketplace/apps/komprise_inc.intelligent_data_management?tab=Overview​)    | [Miria](https://azuremarketplace.microsoft.com/marketplace/apps/atempo1612274992591.miria_saas_prod?tab=Overview) |
+| **BYOL**             | Free | Free | Free | Yes | Yes | Yes |
+| **Azure Commitment** | Free | Free | Free | Yes | Yes | No  |
 
 ## Other features
 
@@ -170,4 +170,3 @@ The following comparison matrix shows basic functionality of different tools tha
 
 > [!IMPORTANT]
 > <sub>1</sub> Support provided by ISV, not Microsoft
-

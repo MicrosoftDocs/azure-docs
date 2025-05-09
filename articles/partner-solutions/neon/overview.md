@@ -1,18 +1,18 @@
 ---
-title: What is Neon Serverless Postgres (Preview)?
-description: Learn about Neon Serverless Postgres (Preview), a cloud-native Postgres solution designed for modern applications, in Azure Marketplace.
+title: What is Neon Serverless Postgres?
+description: Learn about Neon Serverless Postgres, a cloud-native Postgres solution designed for modern applications, in Azure Marketplace.
 author: ProfessorKendrick
 ms.topic: overview
-ms.date: 01/21/2025
+ms.date: 05/06/2025
 ---
 
-# What is Neon Serverless Postgres (Preview)?
+# What is Neon Serverless Postgres?
 
 [!INCLUDE [what-is](../includes/what-is.md)]
 
 Microsoft and [Neon](https://neon.tech/) developed this service and manage it together.
 
-You can find Neon Serverless Postgres (Preview) in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+You can find Neon Serverless Postgres in the [Azure portal](https://portal.azure.com/) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
 Neon is a cloud-native Postgres solution designed for modern applications. It offers a serverless, fully managed, and scalable Postgres database. 
 Neon's advanced features include autoscaling, scale-to-zero, database branching, instant point-in-time restore, and time travel queries. 
@@ -35,6 +35,7 @@ Here are the key capabilities provided by the Neon integration:
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
-## Next steps
+## Next step
 
-- [Quickstart: Create a Neon Serverless Postgres (Preview) resource](create.md)
+> [!div class="nextstepaction"]
+> [Create a resource](create.md)

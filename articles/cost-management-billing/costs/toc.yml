@@ -13,8 +13,6 @@
     items:
     - name: Enable preview features
       href: enable-preview-features-cost-management-labs.md
-    - name: Manage AWS cost and usage
-      href: aws-integration-manage.md
   - name: Concepts
     items:
     - name: Cost Management best practices
@@ -25,8 +23,6 @@
       href: understand-work-scopes.md
     - name: Cost Management for partners
       href: get-started-partners.md
-    - name: Retire AWS connector
-      href: retire-aws-connector.md
     - name: Security
       items:
       - name: Security baseline
@@ -35,8 +31,6 @@
       href: cost-management-error-codes.md
   - name: Resources
     items:
-    - name: Cost Management for AWS pricing
-      href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Build your skills with Microsoft Learn training
       href: /training/browse/?products=azure-cost-management
     - name: Cost Management feedback forum
@@ -237,9 +231,7 @@
       href: ../automate/automation-overview.md
   - name: Tutorials
     items:
-    - name: Export data
-      href: tutorial-export-acm-data.md
-    - name: Tutorial - Improved exports (Preview)
+    - name: Tutorial - Export data
       href: tutorial-improved-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md

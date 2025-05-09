@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 2/28/2025
+ms.date: 4/4/2025
 ms.author: greglin
 ---
 
@@ -39,7 +39,7 @@ You can upgrade the Azure Application Gateway Ingress Controller (AGIC) for Kube
     helm upgrade \
         odd-billygoat \
         oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure \
-        --version 1.8.0
+        --version 1.8.1
     ```
 
 ## Roll back

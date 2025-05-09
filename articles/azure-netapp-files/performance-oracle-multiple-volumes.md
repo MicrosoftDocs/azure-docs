@@ -4,7 +4,7 @@ description: Migrating highly performant Exadata grade databases to the cloud is
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/20/2024
 ms.author: anfdocs
 ---

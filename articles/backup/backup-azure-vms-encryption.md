@@ -2,7 +2,7 @@
 title: Back up and restore encrypted Azure VMs
 description: Describes how to back up and restore encrypted Azure VMs with the Azure Backup service.
 ms.topic: how-to
-ms.date: 08/13/2024
+ms.date: 05/07/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -111,11 +111,18 @@ To configure a backup policy, follow these steps:
 
 To enable backups for ADE encrypted VMs using Azure RBAC enabled key vaults, you need to assign Key Vault Administrator role to the Backup Management Service Microsoft Entra app by adding a role assignment in Access Control of key vault.
 
+>[!Note]
+>VM Backup operations use the **Backup Management Service** app instead of **Recovery Services vault Managed Service Identity (MSI)** to access Key Vault. You must grant the necessary Key Vault permissions to this app for backups to function properly.
+
 :::image type="content" source="./media/backup-azure-vms-encryption/enable-key-vault-encryption-inline.png" alt-text="Screenshot shows the checkbox to enable ADE encrypted key vault." lightbox="./media/backup-azure-vms-encryption/enable-key-vault-encryption-expanded.png":::
 
 Learn about the [different available roles](/azure/key-vault/general/rbac-guide?tabs=azure-cli#azure-built-in-roles-for-key-vault-data-plane-operations). The **Key Vault Administrator** role can allow permissions to *get*, *list*, and *back up* both secret and key.
 
 For Azure RBAC enabled key vaults, you can create custom role with the following set of permissions. Learn [how to create custom role](../active-directory/roles/custom-create.md).
+
+>[!Note]
+>When you use Azure Government, ensure that the Key Vault Administrator role is assigned to the Backup Fairfax Entra Application to enable proper access and functionality. 
+
 
 | Action | Description |
 | --- | --- |

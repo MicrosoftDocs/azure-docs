@@ -3,8 +3,8 @@ title: App attach and MSIX app attach - Azure Virtual Desktop
 description: Learn about app attach and MSIX app attach in Azure Virtual Desktop, where you can dynamically attach applications from an application package to a user session.
 ms.topic: conceptual
 zone_pivot_groups: azure-virtual-desktop-app-attach
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 01/17/2025
 ---
 
@@ -81,7 +81,7 @@ Before you can use MSIX application packages with Azure Virtual Desktop, you nee
 
 ### Disk image types
 
-For MSIX and Appx disk images, you can use *Composite Image File System (CimFS)*, *VHDX*, or *VHD*, but we don't recommend using VHD. Mounting and unmounting CimFS images is faster than VHD and VHDX files and also consumes less CPU and memory. We only recommend using CimFS for your application images if your session hosts are running Windows 11.
+For MSIX and Appx disk images, you can use *Composite Image File System (CimFS)*, *VHDX*, or *VHD*, but we don't recommend using VHD. Mounting and unmounting CimFS images is faster than VHD and VHDX images and also consumes less CPU and memory. We only recommend using CimFS for your application images if your session hosts are running Windows 11.
 
 A CimFS image is a combination of several files: one file has the `.cim` file extension and contains metadata, together with at least two other files, one starting with `objectid_` and the other starting with `region_` that contain the actual application data. The files accompanying the `.cim` file don't have a file extension. The following table is a list of example files you'd find for a CimFS image:
 
@@ -103,6 +103,9 @@ The following table is a performance comparison between VHDX and CimFS. These nu
 | Average unmount time | 1615 ms | 36 ms |
 | Memory consumption | 6% (of 8 GB) | 2% (of 8 GB) |
 | CPU (count spike) | Maxed out multiple times | No effect |
+
+> [!CAUTION]
+> An issue currently impacts CimFS images with Windows 11, version 24H2, which prevents the images from being mounted. We are actively working on a fix that is estimated to be available in June 2025. Workarounds are use VHDX images instead or use a version of Windows 11 prior to 24H2.
 
 ## Application registration
 
