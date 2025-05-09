@@ -18,8 +18,8 @@ Comma-separated values (CSV) parser ingestion provides the capability to ingest 
 
 In this tutorial, you learn how to:
 
-> * Ingest a sample wellbore data CSV file into an Azure Data Manager for Energy instance by using `curl`.
-> * Search for storage metadata records created during CSV ingestion by using `curl`.
+> * Ingest a sample wellbore data CSV file into an Azure Data Manager for Energy instance by using `cURL`.
+> * Search for storage metadata records created during CSV ingestion by using `cURL`.
 
 ## Prerequisites
 * An Azure subscription
@@ -33,24 +33,24 @@ In this tutorial, you learn how to:
 
 | Parameter | Value to use | Example | Where to find this value |
 |----|----|----|----|
-| `DNS` | URI | `<instance>.energy.Azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
-| `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions page of the Azure Data Manager for Energy instance. |
+| `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partitions | `<data-partition-id>` | Find this value on the Data Partitions section within the Azure Data Manager for Energy instance. |
 | `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
 
 Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
 ### Set up your environment
 
-Ensure you have `curl` installed on your system. You will use it to make API calls.
+Ensure you have `cURL` installed on your system. You will use it to make API calls.
 
-## Ingest wellbore data by using `curl`
+## Ingest wellbore data by using `cURL`
 
 To ingest a sample wellbore data CSV file into the Azure Data Manager for Energy instance, complete the following steps:
 Replace the placeholders (`<DNS>`, `<access_token>`, etc.) with the appropriate values.
 
 ### 1. Create a Schema
 
-Run the following `curl` command to create a schema:
+Run the following `cURL` command to create a schema:
 
 ```bash
 curl -X POST "https://<DNS>/api/schema-service/v1/schema" \
@@ -94,7 +94,7 @@ Save the `id` from the response for use in subsequent steps.
 
 ### 2. Create a Legal Tag
 
-Run the following `curl` command to create a legal tag:
+Run the following `cURL` command to create a legal tag:
 
 ```bash
 curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
@@ -127,7 +127,7 @@ curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
 
 ### 3. Get a Signed URL for Uploading a CSV File
 
-Run the following `curl` command to get a signed URL:
+Run the following `cURL` command to get a signed URL:
 
 ```bash
 curl -X GET "https://<DNS>/api/file/v2/files/uploadURL" \
@@ -147,7 +147,7 @@ Save the `SignedURL` and `FileSource` from the response for use in the next step
 
 ### 4. Upload a CSV File
 
-Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine. Then, run the following `curl` command to upload the file:
+Download the [Wellbore.csv](https://github.com/microsoft/meds-samples/blob/main/test-data/wellbore.csv) sample to your local machine. Then, run the following `cURL` command to upload the file:
 
 ```bash
 curl -X PUT -T "Wellbore.csv" "<SignedURL>" -H "x-ms-blob-type: BlockBlob"     
@@ -162,7 +162,7 @@ curl -X PUT -T "Wellbore.csv" "<SignedURL>" -H "x-ms-blob-type: BlockBlob"
 
 ### 5. Upload CSV File Metadata
 
-Run the following `curl` command to upload metadata for the CSV file:
+Run the following `cURL` command to upload metadata for the CSV file:
 
 ```bash
 curl -X POST "https://<DNS>/api/file/v2/files/metadata" \
@@ -203,7 +203,7 @@ Save the `id`, which is the uploaded file's id, from the response for use in the
 
 ### 6. Trigger a CSV Parser Ingestion Workflow
 
-Run the following `curl` command to trigger the ingestion workflow:
+Run the following `cURL` command to trigger the ingestion workflow:
 
 ```bash
 curl -X POST "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun" \
@@ -230,7 +230,7 @@ Save the `runId` from the response for use in the next step.
 
 ### 7. Check the status of the workflow and wait for its completion.
 
-Run the following `curl` command to check the status of the workflow run:
+Run the following `cURL` command to check the status of the workflow run:
 
 ```bash
 curl -X GET "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun/<runId>" \
@@ -251,7 +251,7 @@ Keep checking every few seconds, until the response indicates a sccessful comple
 
 ### 8. Search for Ingested CSV Records
 
-Run the following `curl` command to search for ingested records:
+Run the following `cURL` command to search for ingested records:
 
 ```bash
 curl -X POST "https://<DNS>/api/search/v2/query" \
@@ -282,6 +282,5 @@ You should be able to see the records in the search results.
 
 Advance to the next tutorial:
 
+> [!div class="nextstepaction"]
 > [Tutorial: Perform manifest-based file ingestion](tutorial-manifest-ingestion.md)
-
-
