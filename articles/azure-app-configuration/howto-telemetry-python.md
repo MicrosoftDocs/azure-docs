@@ -105,36 +105,46 @@ In this tutorial, you use telemetry in your Python application to track feature 
     export APPLICATIONINSIGHTS_CONNECTION_STRING='applicationinsights-connection-string'
     ```
 
-1. If your environment variable for your App Configuration store endpoint isn't setup. Set the `AzureAppConfigurationEndpoint` environment variable to the endpoint of your App Configuration store.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx AzureAppConfigurationEndpoint "<endpoint-of-your-app-configuration-store>"
-    ```
-
-    If you use PowerShell, run the following command:
-
-    ```powershell
-    $Env:AzureAppConfigurationEndpoint = "<endpoint-of-your-app-configuration-store>"
-    ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export AzureAppConfigurationEndpoint='<endpoint-of-your-app-configuration-store'
-    ```
-
-1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.
-1. Wait for the app to start, and then open a browser and navigate to `http://localhost:5000/`.
+1. Run the application, [see step 2 of Use variant feature flags](./howto-variant-feature-flags-python.md#build-and-run-the-app) .
 1. Create 10 different users and log into the application. As you log in with each user, you get a different message variant for some of them. ~50% of the time you get no message. 25% of the time you get the message "Hello!" and 25% of the time you get "I hope this makes your day!".
 1. With some of the users select the **Like** button to trigger the telemetry event.
 1. Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
 
     ```kusto
-    customEvents
-    | where name == "FeatureEvaluation" or name == "Liked"
-    | order by timestamp desc
+    // Total users
+    let total_users =
+        customEvents
+        | where name == "FeatureEvaluation"
+        | summarize TotalUsers = count() by Variant = tostring(customDimensions.Variant);
+    
+    // Hearted users
+    let hearted_users =
+        customEvents
+        | where name == "FeatureEvaluation"
+        | extend TargetingId = tostring(customDimensions.TargetingId)
+        | join kind=inner (
+            customEvents
+            | where name == "Liked"
+            | extend TargetingId = tostring(customDimensions.TargetingId)
+        ) on TargetingId
+        | summarize HeartedUsers = count() by Variant = tostring(customDimensions.Variant);
+    
+    // Calculate the percentage of hearted users over total users
+    let combined_data =
+        total_users
+        | join kind=leftouter (hearted_users) on Variant
+        | extend HeartedUsers = coalesce(HeartedUsers, 0)
+        | extend PercentageHearted = strcat(round(HeartedUsers * 100.0 / TotalUsers, 1), "%")
+        | project Variant, TotalUsers, HeartedUsers, PercentageHearted;
+    
+    // Calculate the sum of total users and hearted users of all variants
+    let total_sum =
+        combined_data
+        | summarize Variant="All", TotalUsers = sum(TotalUsers), HeartedUsers = sum(HeartedUsers);
+    
+    // Display the combined data along with the sum of total users and hearted users
+    combined_data
+    | union (total_sum)
     ```
 
     You see one "FeatureEvaluation" for each time the quote page was loaded and one "Liked" event for each time the like button was clicked. The "FeatureEvaluation" event have a custom property called `FeatureName` with the name of the feature flag that was evaluated. Both events have a custom property called `TargetingId` with the name of the user that liked the quote.
