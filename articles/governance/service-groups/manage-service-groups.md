@@ -1,5 +1,5 @@
 ---
-title: Manage resources across subscriptions and resource groups with Azure Service Groups 
+title: "Manage resources across subscriptions and resource groups with Azure Service Groups - Azure Governance" 
 description: "Learn how to create, update, read, and delete Azure Service Groups and members"
 author: rthorn17
 ms.author: rithorn
@@ -208,7 +208,7 @@ Resources, resource groups, and subscriptions can all be made members of a servi
 - HTTP method: **PUT** 
 - Resource Provider: **Microsoft.Relationships**
 - API Version: **2023-09-01-preview**
-- URL: https://management.azure.com/[scope]providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
+- URL: https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
 
 Request body
 ```json
@@ -228,7 +228,7 @@ Resources, resource groups, and subscriptions can all be made members of a servi
 - HTTP method: **GET** 
 - Resource Provider: **Microsoft.Relationships**
 - API Version: **2023-09-01-preview**
-- URL: https://management.azure.com/[scope]providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
+- URL: https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
 - No Request Body
 
 API Response
@@ -275,7 +275,7 @@ Resources, resource groups, and subscriptions can all be made members of a servi
 - HTTP method: **DELETE** 
 - Resource Provider: **Microsoft.Relationships**
 - API Version: **2023-09-01-preview**
-- URL: https://management.azure.com/[scope]providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
+- URL: https://management.azure.com/[scope]/providers/Microsoft.relationships/serviceGroupMember/[RelationshipID]?api-version=2023-09-01-preview
 - No Request body
 
 API Response

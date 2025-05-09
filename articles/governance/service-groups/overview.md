@@ -1,5 +1,5 @@
 ---
-title: "Get started with Service Groups"
+title: "Get started with Service Groups - Azure Governance"
 description: "Learn how to use and manage resources with Service Groups."
 author: rthorn17
 ms.author: rithorn

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Connect Service Group members using the REST API"
+title: "Quickstart: Connect Service Group members using the REST API - Azure Governance"
 description: In this quickstart, you use REST API to connect a resource to a service group with a service group member relationship.
 author: rthorn17
 ms.author: rithorn
