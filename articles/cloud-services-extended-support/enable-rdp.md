@@ -13,7 +13,7 @@ ms.date: 07/24/2024
 # Apply the Remote Desktop extension to Azure Cloud Services (extended support)
 
 > [!IMPORTANT]
-> As of March 31, 2025, cloud Services (classic) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The Azure portal uses the remote desktop extension to enable remote desktop even after the application is deployed. The remote desktop settings for your Cloud Service allow you to enable remote desktop, update the local administrator account, select the certificates used in authentication, and set the expiration date for those certificates. 
 

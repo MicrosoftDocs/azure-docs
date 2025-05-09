@@ -4,7 +4,7 @@ description: Learn how to build an application that securely gets the key from A
 author: ThomVanL
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 2/2/2023
 ms.author: simranparkhe
 ---
@@ -689,7 +689,7 @@ $cert | Format-List *
 # Subject              : CN=vault.azure.net, O=Microsoft Corporation, L=Redmond, S=WA, C=US
 ```
 
-The response's JWT token body looks incredibly similar to the response that you get when invoking the `get` key operation. However, the `release` operation includes the `key_hsm` property, amongst other things.
+The response's JWT body looks incredibly similar to the response that you get when invoking the `get` key operation. However, the `release` operation includes the `key_hsm` property, amongst other things.
 
 ```json
 {

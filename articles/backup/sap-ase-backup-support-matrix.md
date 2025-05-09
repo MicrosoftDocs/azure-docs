@@ -3,7 +3,7 @@ title: SAP ASE Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP ASE databases on Azure VMs.
 ms.topic: reference
 ms.custom: references_regions, ignite-2024
-ms.date: 11/21/2024
+ms.date: 04/18/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -22,7 +22,7 @@ This article summarizes the scenarios supported and limitations present when you
 | ------- | -------- | -------- |
 | **Topology** | SAP ASE Database running in Azure Linux VMs only. | Windows |
 | **Regions** | **Americas** – Canada Central, Canada East, Brazil South.<br> <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India. <br><br> **Europe** – West Europe, North Europe, France Central, France South, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South. <br><br> **Africa/ME** - South Africa North, South Africa West, UAE North, UAE Central. | Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Germany Central, Germany Northeast, US Gov IOWA, Azure Gov, China East, China East 2, China East 3, China North, China North 2, China North 3. |
-| **OS versions** | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5 <br><br> RHEL 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10|  |
+| **OS versions** | SLES 12 with SP0, SP1, SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, and SP5, 15.6 <br><br> RHEL 7.1, 7.2, 7.3, 7.4, 7.6, 7.7, 7.9, 8.1, 8.2, 8.3, 8.4,8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.2 |  |
 | **ASE versions** | SAP Adaptive Server Enterprise 16.0 SP02, SP03, SP04 |  |
 | **ASE Instances** | A single SAP ASE instance on a single Azure Virtual Machine (VM). | HA and multi SID on single VM isn't currently supported. |
 | **Backup types** | Full, Differential, and Log backups. | Incremental, archival support is currently not available. |

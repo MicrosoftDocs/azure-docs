@@ -4,7 +4,7 @@ description: Describes the available security options, the tested performance ve
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/07/2024
 ms.author: anfdocs
 ---
@@ -41,19 +41,19 @@ There are two areas of focus: light load and upper limit. The following lists de
 
 **Performance impact of krb5:**
 
-* Average IOPS decreased by 53%
+* Average I/OPS decreased by 53%
 * Average throughput decreased by 53% 
 * Average latency increased by 0.2 ms
 
 **Performance impact of krb5i:**
 
-* Average IOPS decreased by 55%
+* Average I/OPS decreased by 55%
 * Average throughput decreased by 55% 
 * Average latency increased by 0.6 ms
 
 **Performance impact of krb5p:**
 
-* Average IOPS decreased by 77%
+* Average I/OPS decreased by 77%
 * Average throughput decreased by 77% 
 * Average latency increased by 1.6 ms
 

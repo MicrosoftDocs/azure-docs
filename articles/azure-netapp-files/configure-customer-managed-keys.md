@@ -5,8 +5,8 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 03/25/2025
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 04/25/2025
 ms.author: anfdocs
 ---
 
@@ -23,71 +23,23 @@ The following diagram demonstrates how customer-managed keys work with Azure Net
 3. You use the managed identity to which the Azure Key Vault admin granted permissions in step 1 to authenticate access to Azure Key Vault via Microsoft Entra ID.
 4. Azure NetApp Files wraps the account encryption key with the customer-managed key in Azure Key Vault.
 
-    Customer-managed keys have no performance impact on Azure NetApp Files. Its only difference from platform-managed keys is how the key is managed.
+    Customer-managed keys don't affect performance of Azure NetApp Files. Its only difference from platform-managed keys is how the key is managed.
 1. For read/write operations, Azure NetApp Files sends requests to Azure Key Vault to unwrap the account encryption key to perform encryption and decryption operations.
+
+Cross-tenant customer-managed keys is available in all Azure NetApp Files supported regions.
 
 ## Considerations
 
 * To create a volume using customer-managed keys, you must select the *Standard* network features. You can't use customer-managed key volumes with volume configured using Basic network features. Follow instructions in to [Set the Network Features option](configure-network-features.md#set-the-network-features-option) in the volume creation page.
 * For increased security, you can select the **Disable public access** option within the network settings of your key vault. When selecting this option, you must also select **Allow trusted Microsoft services to bypass this firewall** to permit the Azure NetApp Files service to access your encryption key.
 * Customer-managed keys support automatic Managed System Identity (MSI) certificate renewal. If your certificate is valid, you don't need to manually update it. 
-* If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. For more information, see [Error messages and troubleshooting](#error-messages-and-troubleshooting).
-* Do not make any changes to the underlying Azure Key Vault or Azure Private Endpoint after creating a customer-managed keys volume. Making changes can make the volumes inaccessible.
+* If Azure NetApp Files fails to create a customer-managed key volume, error messages are displayed. For more information, see [Error messages and troubleshooting](troubleshoot-customer-managed-keys.md).
+* Do not make any changes to the underlying Azure Key Vault or Azure Private Endpoint after creating a customer-managed keys volume. Making changes can make the volumes inaccessible. If you must make changes, see [Update the private endpoint IP for customer-managed keys](#update-the-private-endpoint).
 * Azure NetApp Files supports the ability to [transition existing volumes from platform-managed keys (PMK) to customer-managed keys (CMK) without data migration](#transition-volumes). This provides flexibility with the encryption key lifecycle (renewals, rotations) and extra security for regulated industry requirements.
 * If Azure Key Vault becomes inaccessible, Azure NetApp Files loses its access to the encryption keys and the ability to read or write data to volumes enabled with customer-managed keys. In this situation, create a support ticket to have access manually restored for the affected volumes.
 * Azure NetApp Files supports customer-managed keys on source and data replication volumes with cross-region replication or cross-zone replication relationships.
 * Applying Azure network security groups (NSG) on the private link subnet to Azure Key Vault is supported for Azure NetApp Files customer-managed keys. NSGs don’t affect connectivity to private links unless a private endpoint network policy is enabled on the subnet.
-
-## Supported regions
-
-Azure NetApp Files customer-managed keys is supported for the following regions:
-
-* Australia Central
-* Australia Central 2
-* Australia East
-* Australia Southeast
-* Brazil South
-* Brazil Southeast
-* Canada Central
-* Canada East
-* Central India
-* Central US
-* East Asia
-* East US
-* East US 2
-* France Central
-* Germany North
-* Germany West Central
-* Israel Central
-* Italy North
-* Japan East
-* Japan West
-* Korea Central
-* Korea South
-* North Central US
-* North Europe
-* Norway East
-* Norway West
-* Qatar Central
-* South Africa North
-* South Central US
-* South India
-* Southeast Asia
-* Spain Central
-* Sweden Central
-* Switzerland North
-* Switzerland West 
-* UAE Central
-* UAE North
-* UK South
-* UK West
-* US Gov Arizona
-* US Gov Texas
-* US Gov Virginia
-* West Europe
-* West US
-* West US 2
-* West US 3
+* Wrap/unwrap is not supported. Customer-managed keys uses encrypt/decrypt. For more information, see [RSA algorithms](/azure/key-vault/keys/about-keys-details#rsa-algorithms).
 
 ## Requirements
 
@@ -96,7 +48,7 @@ Before creating your first customer-managed key volume, you must set up:
     * The key vault must have soft delete and purge protection enabled.
     * The key must be of type RSA.
 * The key vault must have an [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
-    * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same VNet as the one delegated to Azure NetApp.
+    * The private endpoint must reside in a different subnet than the one delegated to Azure NetApp Files. The subnet must be in the same virtual network as the one delegated to Azure NetApp.
 
 For more information about Azure Key Vault and Azure Private Endpoint, see:
 * [Quickstart: Create a key vault ](/azure/key-vault/general/quick-create-portal)
@@ -138,9 +90,9 @@ For more information about Azure Key Vault and Azure Private Endpoint, see:
       * `Microsoft.KeyVault/vaults/keys/read` 
       * `Microsoft.KeyVault/vaults/keys/encrypt/action` 
       * `Microsoft.KeyVault/vaults/keys/decrypt/action` 
-    The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control (RBAC), the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide) for details on configuring Azure Key Vault.
+    The user-assigned identity you select is added to your NetApp account. Due to the customizable nature of role-based access control, the Azure portal doesn't configure access to the key vault. See [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide) for details on configuring Azure Key Vault.
 
-1. Select **Save** then observe the notification communicating the status of the operation. If the operation isn't successful, an error message displays. For assistance in resolving the error, see [error messages and troubleshooting](#error-messages-and-troubleshooting).
+1. Select **Save** then observe the notification communicating the status of the operation. If the operation isn't successful, an error message displays. For assistance in resolving the error, see [error messages and troubleshooting](troubleshoot-customer-managed-keys.md).
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -204,7 +156,7 @@ How you configure a NetApp account with customer-managed keys with the Azure CLI
         --name <identity_name> \
         --resource-group <resource_group> \
         --query properties.principalId \
-        -output tsv)
+        --output tsv)
     az keyvault set-policy \
         --name <key_vault_name> \
         --resource-group <resource-group> \
@@ -227,7 +179,7 @@ How you configure a NetApp account with customer-managed keys with the Azure CLI
         --name <identity_name> \
         --resource-group <resource_group> \
         --query id \
-        -output tsv)
+        --output tsv)
     az netappfiles account update --name <account_name> \  
         --resource-group <resource_group> \
         --identity-type UserAssigned \
@@ -338,7 +290,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 
 1. Once the custom role is created and available to use with the key vault, you apply it to the user-assigned identity.
 
-  :::image type="content" source="./media/configure-customer-managed-keys/rbac-review-assign.png" alt-text="Screenshot of RBAC review and assign menu." lightbox="./media/configure-customer-managed-keys/rbac-review-assign.png":::
+  :::image type="content" source="./media/configure-customer-managed-keys/rbac-review-assign.png" alt-text="Screenshot of role-based access control review and assign menu." lightbox="./media/configure-customer-managed-keys/rbac-review-assign.png":::
 
 ## Create an Azure NetApp Files volume using customer-managed keys
 
@@ -352,7 +304,7 @@ You can use an Azure Key Vault that is configured to use Azure role-based access
 
     When you create a volume using a customer-managed key, you must also select **Standard** for the **Network features** option. Basic network features are not supported.
 
-    You must select a key vault private endpoint as well. The dropdown menu displays private endpoints in the selected Virtual network. If there's no private endpoint for your key vault in the selected virtual network, then the dropdown is empty, and you won't be able to proceed. If so, see to [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
+    You must select a key vault private endpoint as well. The dropdown menu displays private endpoints in the selected virtual network. If there's no private endpoint for your key vault in the selected virtual network, then the dropdown is empty, and you won't be able to proceed. If you encounter this scenario, see [Azure Private Endpoint](../private-link/private-endpoint-overview.md).
 
     :::image type="content" source="./media/configure-customer-managed-keys/keys-create-volume.png" alt-text="Screenshot of create volume menu." lightbox="./media/configure-customer-managed-keys/keys-create-volume.png":::
 
@@ -381,7 +333,7 @@ Encryption key transition for Azure NetApp Files is currently in preview. Before
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigratePmkToCmk
     ```
     > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
@@ -407,7 +359,7 @@ If you have already configured your NetApp account for customer-managed keys and
 1. In the **Rekey** menu, select one of the available keys from the dropdown menu. The chosen key must be different from the current key.
 :::image type="content" source="./media/configure-customer-managed-keys/encryption-rekey.png" alt-text="Screenshot of the rekey menu." lightbox="./media/configure-customer-managed-keys/encryption-rekey.png":::
 
-1. Select **OK** to save. The rekey operation may take several minutes.
+1. Select **OK** to save. The rekey operation can take several minutes.
 
 ## Switch from system-assigned to user-assigned identity
 
@@ -465,33 +417,21 @@ To switch from system-assigned to user-assigned identity, you must grant the tar
     },
     ```
 
-## Error messages and troubleshooting
+## Update the private endpoint
 
-This section lists error messages and possible resolutions when Azure NetApp Files fails to configure customer-managed key encryption or create a volume using a customer-managed key.
+Making changes to the Azure Private Endpoint after creating a customer-managed key volume can make the volume inaccessible. If you need to make changes, you must create a new endpoint and update the volume to point to the new endpoint.  
 
-### Errors configuring customer-managed key encryption on a NetApp account
-
-| Error Condition | Resolution |
-| ----------- | ----------- |
-| `The operation failed because the specified key vault key was not found` | When entering key URI manually, ensure that the URI is correct. |
-| `Azure Key Vault key is not a valid RSA key` | Ensure that the selected key is of type RSA. |
-| `Azure Key Vault key is not enabled` | Ensure that the selected key is enabled. |
-| `Azure Key Vault key is expired` | Ensure that the selected key is valid. |
-| `Azure Key Vault key has not been activated` | Ensure that the selected key is active. |
-| `Key Vault URI is invalid` | When entering key URI manually, ensure that the URI is correct. |
-| `Azure Key Vault is not recoverable. Make sure that Soft-delete and Purge protection are both enabled on the Azure Key Vault` | Update the key vault recovery level to: <br> `“Recoverable/Recoverable+ProtectedSubscription/CustomizedRecoverable/CustomizedRecoverable+ProtectedSubscription”` |
-| `Account must be in the same region as the Vault` | Ensure the key vault is in the same region as the NetApp account. |
-
-### Errors creating a volume encrypted with customer-managed keys
-
-| Error Condition | Resolution |
-| ----------- | ----------- |
-| `Volume cannot be encrypted with Microsoft.KeyVault, NetAppAccount has not been configured with KeyVault encryption` | Your NetApp account doesn't have customer-managed key encryption enabled. Configure the NetApp account to use customer-managed key. |
-| `EncryptionKeySource cannot be changed` | No resolution. The `EncryptionKeySource` property of a volume can't be changed. |
-| `Unable to use the configured encryption key, please check if key is active` | Check that: <br> -Are all access policies correct on the key vault: Get, Encrypt, Decrypt? <br> -Does a private endpoint for the key vault exist? <br> -Is there a Virtual Network NAT in the VNet, with the delegated Azure NetApp Files subnet enabled? |
-| `Could not connect to the KeyVault` | Ensure that the private endpoint is set up correctly and the firewalls aren't blocking the connection from your Virtual Network to your KeyVault. |
+1. [Create a new endpoint between the virtual network and Azure Key Vault.](../private-link/create-private-endpoint-cli.md)
+1. Update all volumes using the old endpoint to use the new endpoint. 
+    ```azurecli
+    az netappfiles volume update --g $resource-group-name --account-name $netapp-account-name --pool-name $pool-name --name $volume-name --key-vault-private-endpoint-resource-id $newendpoint
+    ```
+1. [Delete the old private endpoint](/cli/azure/network/private-endpoint#az-network-private-endpoint-delete).
 
 ## Next steps
 
+* [Troubleshoot customer-managed keys](troubleshoot-customer-managed-keys.md)
 * [Azure NetApp Files API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager/Microsoft.NetApp/stable/2019-11-01)
 * [Configure customer-managed keys with managed Hardware Security Module](configure-customer-managed-keys-hardware.md)
+* [Configure cross-tenant customer-managed keys](customer-managed-keys-cross-tenant.md)
+* [Understand data encryption in Azure NetApp Files](understand-data-encryption.md)

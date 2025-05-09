@@ -6,8 +6,8 @@ ms.topic: how-to
 ms.date: 09/25/2024
 ms.author: cwatson
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -31,7 +31,7 @@ To restore archived log data in Microsoft Sentinel, specify the table and time r
 
 Restore archived data directly from the **Search** page or from a saved search.
 
-1. In Microsoft Sentinel, select **Search**. In the [Azure portal](https://portal.azure.com), this page is listed under **General**. In the [Defender portal](https://security.microsoft.com/), this page is at the Microsoft Sentinel root level.
+1. In the [Defender portal](https://security.microsoft.com/), this page is at the Microsoft Sentinel root level. In Microsoft Sentinel, select **Search**. In the [Azure portal](https://portal.azure.com), this page is listed under **General**.
 
 1. Restore log data using one of the following methods:
 

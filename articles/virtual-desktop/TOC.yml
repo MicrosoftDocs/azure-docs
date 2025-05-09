@@ -471,22 +471,18 @@
           href: /windows-app/overview
         - name: Compare Windows App across platforms
           displayName: apps, clients, remote desktop client, rdp, connect
-          href: /windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop
+          href: /windows-app/compare-platforms-features?pivots=azure-virtual-desktop
         - name: Windows App documentation
           href: /windows-app/
     - name: Remote Desktop client
       items:
-        - name: Remote Desktop client overview
-          displayName: apps, remote desktop, rdp, windows app
-          href: /previous-versions/remote-desktop-client/overview
-        - name: Compare the Remote Desktop client across platforms
-          displayName: apps, remote desktop, rdp
-          href: /previous-versions/remote-desktop-client/compare-remote-desktop-clients?pivots=azure-virtual-desktop
+        - name: Connect with the Remote Desktop client
+          href: ./remote-desktop-client/connect-windows-cloud-services.md
         - name: Install the Remote Desktop client for Windows on a per-user basis
           displayName: apps, clients, remote desktop, rdp, connect, intune, configuration manager, configmgr, sccm, mem, mdm, per user
-          href: /previous-versions/remote-desktop-client/install-windows-client-per-user
-        - name: Remote Desktop client documentation
-          href: /previous-versions/remote-desktop-client/
+          href: ./remote-desktop-client/install-windows-client-per-user.md
+        - name: Use features of the Remote Desktop client
+          href: ./remote-desktop-client/client-features-windows-msrdc.md
     - name: Peripheral and resource redirection
       items:
         - name: Peripheral and resource redirection overview
