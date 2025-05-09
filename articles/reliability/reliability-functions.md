@@ -42,7 +42,7 @@ When zone redundancy is enabled in a Flex Consumption plan, instance spreading i
 
 - [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances are distributed across zones in a round-robin fashion.
 - On-demand instances, which are created as a result of event source volumes as the app scales beyond always-ready, are distributed across availability zones on a _best effort_ basis. This means that for on-demand instances, faster scale-out is given preference over even distribution across availability zones. The platform attempts even-out distribution over time.
-- To ensure zone resiliency with availability zones, the platform automatically guarantees at least two instances of the always-ready type exist for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Any instances created by the platform are platform managed, billed as always-ready instances, and don't change the always-ready configuration settings.
+- To ensure zone resiliency with availability zones, the platform automatically maintains at least two instances of each always-ready instance type for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Any instances created by the platform are platform-managed, billed as always-ready instances, and don't change the always-ready configuration settings.
 ::: zone-end 
 ::: zone pivot="premium-plan"  
 When you configure Elastic Premium function app plans as zone redundant, the platform automatically spreads the function app instances across the zones in the selected region.
