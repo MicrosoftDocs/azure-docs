@@ -9,14 +9,14 @@ ms.topic: concept-article
 ms.date: 05/12/2025
 ms.author: danlep
 
-#Customer intent: As an API developer, I want to use versions in API Management so I can safely handle breaking changes in my API.
+#Customer intent: As an API developer, I want to use versions in API Management so that I can safely handle breaking changes in my API.
 ---
 
 # Versions in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-Versions enable you to present groups of related APIs to your developers. You can use versions to handle breaking changes in your API safely. Clients can choose to use your new API version when they're ready, while existing clients continue to use an older version. Versions are differentiated via a version identifier (which is any string value you choose), and a versioning scheme allows clients to identify which version of an API they want to use.
+Versions enable you to present groups of related APIs to your developers. You can use versions to handle breaking changes in your API safely. Clients can choose to use your new API version when they're ready, while existing clients continue to use an older version. Versions are differentiated via a version identifier (which is any string value you choose), and a versioning scheme allows clients to identify which version of an API they want to use. This article describes how to use versions in API Management.
 
 For most purposes, each API version can be considered its own independent API. Two different API versions might have different sets of operations and different policies.
 
@@ -26,7 +26,7 @@ With versions you can:
 - Use a path, query string, or header to differentiate among versions.
 - Use any string value you want to identify your version. It could be a number, a date, or a name.
 - Show your API versions grouped together on the developer portal.
-- Create a new version of an existing (non-versioned) API without breaking existing clients.
+- Create a new version of an existing (non-versioned) API without affecting existing clients.
 
 [Get started with versions by completing a walkthrough.](./api-management-get-started-publish-versions.md)
 
