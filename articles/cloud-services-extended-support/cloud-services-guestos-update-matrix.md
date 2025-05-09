@@ -34,7 +34,7 @@ Provides you with up-to-date information about the latest Azure Guest OS release
 >
 >
 
-Unsure about how to update your Guest OS? Check [this][cloud updates] out.
+Unsure about how to update your Guest OS? Check this out.
 
 ## News updates
 
@@ -338,7 +338,7 @@ The September Guest OS released.
 > [!NOTE]
 > It is recommended to develop Cloud Services on Visual Studio 2019 and install the Azure Workload.
 >
->Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn [more].
+>Guest OS Family 6 release enforces TLS 1.2 by explicitly disabling TLS 1.0 and 1.1 and defining a specific set of cipher suites. Learn more.
 
 
 | Configuration string | Release date | Disable date |
@@ -822,7 +822,6 @@ For more information about manually updating your Guest OS, see the [Guest OS re
 ## Guest OS supportability and retirement policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].
 
-[cloud updates]: /previous-versions/azure/cloud-services/cloud-services-update-azure-service.md
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: ./cloud-services-dotnet-install-dotnet.md?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: /previous-versions/azure/cloud-services/cloud-services-how-to-configure-portal.md
@@ -844,4 +843,3 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: /security-updates/SecurityBulletins/2017/ms17-010
 [Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917
-[more]: /previous-versions/azure/cloud-services/applications-dont-support-tls-1-2.md
