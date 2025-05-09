@@ -8,7 +8,13 @@ ms.date: 05/12/2025
 
 # Manage your NGINXaaS integration through the Azure portal
 
-After you create your NGINXaaS resource in the Azure portal, you might need to get information about it or change it. Here are some management tasks:
+After you create your NGINXaaS resource in the Azure portal, you might need to get information about it or change it.
+
+[!INCLUDE [manage](../includes/manage.md)]
+
+:::image type="content" source="media/nginx-manage/nginx-resource-overview.png" alt-text="Screenshot of an NGINXaaS resource in the Azure portal with the overview displayed." lightbox="media/manage/resource-overview.png":::
+
+Here are some management tasks:
 
 - [Configure managed identity](#configure-managed-identity)
 - [Change the configuration](#change-the-configuration)
@@ -21,13 +27,11 @@ After you create your NGINXaaS resource in the Azure portal, you might need to g
 
 Add a new User Assigned Managed Identity.
 
-1. In the Azure portal, search for *NGINXaaS*. In the **NGINXaaS** page, select your instance.
-
 1. In your NGINXaaS deployment, in the left menu, select **Settings** > **Identity**.
 
 1. Select **User assigned**, then select **Add**.
 
-   :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="Screenshot showing how to add a managed identity to NGINXaaS resource.":::
+   :::image type="content" source="media/nginx-manage/nginx-identity.png" alt-text="Screenshot showing how to add a managed identity to NGINXaaS resource." lightbox="media/nginx-manage/nginx-identity.png":::
 
 1. Under **Add user assigned managed identity**, select your subscription and then select an identity.
 
@@ -37,13 +41,11 @@ Add a new User Assigned Managed Identity.
 
 Change your configuration file.
 
-1. In the Azure portal, search for *NGINXaaS*. In the **NGINXaaS** page, select your instance.
-
 1. In your NGINXaaS deployment, in the left menu, select **Settings** > **NGINXaaS configuration**.
 
 1. Select **Upload config package**.
 
-   :::image type="content" source="media/nginx-manage/nginx-config-upload.png" alt-text="Screenshot of upload confirmation for config file.":::
+   :::image type="content" source="media/nginx-manage/nginx-config-upload.png" alt-text="Screenshot of upload confirmation for config file." lightbox="media/nginx-manage/nginx-config-upload.png":::
 
 1. In **Upload configuration**, drag your file to the upload area or browse to upload it.
 
@@ -57,13 +59,11 @@ Besides replacing your configuration file, you can edit it in this page. Select 
 
 You can add a certificate. First, upload your certificate to Azure Key Vault. For more information, see [Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate). Then follow these steps:
 
-1. In the Azure portal, search for *NGINXaaS*. In the **NGINXaaS** page, select your instance.
-
 1. In your NGINXaaS deployment, in the left menu, select **Settings** > **NGINXaaS certificates**.
 
 1. Select **Add certificate**.
 
-   :::image type="content" source="media/nginx-manage/nginx-add-certificate.png" alt-text="Screenshot of the add certificate pane.":::
+   :::image type="content" source="media/nginx-manage/nginx-add-certificate.png" alt-text="Screenshot of the add certificate pane." lightbox="media/nginx-manage/nginx-add-certificate.png":::
 
 1. In the **Add certificate** pane, choose **Select certificate** and choose your certificate from the options.
 
@@ -73,21 +73,15 @@ You can add a certificate. First, upload your certificate to Azure Key Vault. Fo
 
 You can send metrics to Azure Monitor to take advantage of its monitoring capabilities.
 
-1. In the Azure portal, search for *NGINXaaS*. In the **NGINXaaS** page, select your instance.
-
 1. In your NGINXaaS deployment, in the left menu, select **Settings** > **NGINXaaS Monitoring**.
 
 1. For **Send metrics to Azure Monitor**, select **On**, then select **Save**
 
 ## Delete an NGINXaaS deployment
 
-To delete a deployment of NGINXaaS:
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-1. In the Azure portal, search for *NGINXaaS*. In the **NGINXaaS** page, select your instance.
-
-1. In the **Overview** page, select **Delete** and confirm the deletion.
-
-After the account is deleted, logs are no longer sent to NGINXaaS, and all billing stops for NGINXaaS through Azure Marketplace.
+After the account is deleted, logs are no longer sent to NGINXaaS.
 
 > [!NOTE]
 > The delete button on the main account is only activated if all the subaccounts mapped to the main account are already deleted.
