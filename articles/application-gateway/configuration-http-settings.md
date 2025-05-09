@@ -17,7 +17,7 @@ The Backend Settings enable you to manage the configurations for backend connect
 While Portal users will only see the "Backend Settings" option, API users will have access to two types of settings. You must utilize the correct configuration, according to the protocol.
 
 1. Backend HTTP settings - It is for Layer 7 proxy configurations that support HTTP, HTTPS, and WebSockets protocols.
-2. Backend settings - It is for Layer 4 proxy configurations that support TLS and TCP protocols.
+2. Backend settings - It is for Layer 4 proxy (Preview) configurations that support TLS and TCP protocols.
 
 ---
 ## [Backend HTTP Settings](#tab/backendhttpsettings)
