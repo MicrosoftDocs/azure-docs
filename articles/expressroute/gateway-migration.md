@@ -74,6 +74,8 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 
 The guided gateway migration experience has the following limitations:
 
+- The migration tool is exclusively designed for ExpressRoute virtual network gateways. It does not support migration for VPN gateways or other gateway types.
+- The migration tool only supports gateway migration within the same virtual network. It does not allow migration across different subscriptions, regions, or gateway types such as VPN gateways.
 - Downgrade scenarios, such as migrating from an Az-enabled SKU to a non-Az-enabled SKU, aren't supported.
 - The GatewaySubnet must have a prefix of /27 or longer to proceed with the migration.
 - Private endpoints (PEs) in the virtual network connected through ExpressRoute private peering can experience connectivity issues during migration. For guidance on mitigating these issues, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
