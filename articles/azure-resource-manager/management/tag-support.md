@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 04/24/2025
 ---
 
 # Tag support for Azure resources
@@ -1700,6 +1700,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | machines / assessPatches | No | No |
 > | machines / extensions | Yes | Yes |
 > | machines / installPatches | No | No |
+> | machines / licenseProfiles | Yes |  |
 > | machines / privateLinkScopes | No | No |
 > | privateLinkScopes | Yes | Yes |
 > | privateLinkScopes / privateEndpointConnectionProxies | No | No |
@@ -2976,6 +2977,7 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | instancePools | Yes | Yes |
+> |instanceFailoverGroup|  No | No | 
 > | managedInstances | Yes | Yes |
 > | managedInstances / administrators | No | No |
 > | managedInstances / advancedThreatProtectionSettings | No | No |

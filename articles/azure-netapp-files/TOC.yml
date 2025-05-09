@@ -349,6 +349,8 @@
         href: configure-customer-managed-keys.md
       - name: Configure customer-managed keys with managed HSM
         href: configure-customer-managed-keys-hardware.md
+      - name: Configure cross-tenant customer-managed keys 
+        href: customer-managed-keys-cross-tenant.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes
@@ -441,7 +443,7 @@
         href: backup-delete.md 	
     - name: Manage replication
       items:
-      - name: Create cross-region replication
+      - name: Create volume replication
         href: cross-region-replication-create-peering.md
       - name: Display health and monitor status of replication relationship
         href: cross-region-replication-display-health-status.md

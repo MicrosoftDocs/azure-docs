@@ -4,7 +4,7 @@ description: Understand the concept of file locking and the different types of N
 services: azure-netapp-files
 author: netapp-manishc
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/20/2024
 ms.author: anfdocs
 ---
