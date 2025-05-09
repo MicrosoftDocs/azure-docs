@@ -1,6 +1,6 @@
 ---
-title: IP Addresses of API Management Service | Microsoft Docs
-description: Learn how to retrieve the IP addresses of Azure API Management service. Also learn about when IP addresses can change.
+title: IP Addresses of API Management | Microsoft Docs
+description: Learn how to retrieve the IP addresses of Azure API Management. Also learn about when IP addresses can change.
 services: api-management
 author: dlepow
 
@@ -10,18 +10,18 @@ ms.date: 05/13/2025
 ms.author: danlep
 ms.custom: fasttrack-edit
 
-#customer intent: As an API developer, I want to learn how to retrieve the IP addresses of API Management service. 
+#customer intent: As an API developer, I want to learn how to retrieve the IP addresses of API Management. 
 ---
 
 # IP addresses in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article describes how to retrieve the IP addresses of Azure API Management service. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter the incoming traffic to backend services, or restrict outbound traffic.
+This article describes how to retrieve the IP addresses of Azure API Management. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter the incoming traffic to backend services, or restrict outbound traffic.
 
 ## Public IP addresses
 
-Every API Management service instance in Developer, Basic, Standard, or Premium tier has public IP addresses that are exclusive only to that service instance. (They're not shared with other resources.)
+Every API Management instance in Developer, Basic, Standard, or Premium tier has public IP addresses that are exclusive only to that service instance. (They're not shared with other resources.)
 
 You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal:
 
@@ -51,7 +51,7 @@ Public IP addresses will appear the response:
 
 In [multi-regional deployments](api-management-howto-deploy-multi-region.md), each regional deployment has one public IP address.
 
-## IP addresses of API Management service in a virtual network
+## IP addresses of API Management in a virtual network
 
 If your API Management instance is inside a virtual network, it has two types of IP addresses: public and private.
 
