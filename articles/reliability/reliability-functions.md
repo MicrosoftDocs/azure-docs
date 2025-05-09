@@ -30,7 +30,7 @@ Availability zones support for Azure Functions depends on your [Functions hostin
 
 Azure Functions supports a [zone-redundant deployment](availability-zones-service-support.md).  
 
-## Availability zones support
+## <a name="availability-zone-support"></a>Availability zones support
 ::: zone pivot="flex-consumption-plan"
 
 >[!IMPORTANT]  
@@ -74,7 +74,7 @@ Currently, not all regions support zone redundancy for Flex Consumption plans. Y
     az functionapp list-flexconsumption-locations --zone-redundant=true --query "sort_by(@, &name)[].{Region:name}" -o table
     ```
 
-When you [create a Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) in the Azure portal, the `Zone redundancy` section of the **Basics** page is enabled when your chosen region supports it.
+When you [create a Flex Consumption app](#create-a-function-app-in-a-zone-redundant-plan) in the Azure portal, the `Zone redundancy` section of the **Basics** page is enabled when your chosen region supports it.
 ::: zone-end  
 ::: zone pivot="premium-plan"  
 Zone-redundant Premium plans are available in these regions:
@@ -325,8 +325,8 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Your preferred supported region | The region under which the new function app is created. You must pick a region that supports availability zones. See the [region availability list](#elastic-premium-regional-availability). |  
-    | **Pricing plan** | One of the Elastic Premium plans. For more information, see [Available instance SKUs](../azure-functions/functions-premium-plan.md#available-instance-skus). | This article describes how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on App Service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md). |
+    | **Region** | Your preferred supported region | The region under which the new function app is created. You must pick a region that supports availability zones. See the [region availability list](#regional-availability). |  
+    | **Pricing plan** | One of the Elastic Premium plans. For more information, see [Available instance SKUs](../azure-functions/functions-premium-plan.md#available-instance-skus). | This article describes how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on App Service plans, see [Reliability in Azure App Service](./reliability-app-service.md). |
     | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You won't be able to select `Enabled` unless you have chosen a region that supports zone redundancy, as described previously. |
     
     :::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-ep-basics-az.png" alt-text="Screenshot of the Basics tab of the function app create page.":::
@@ -336,7 +336,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Storage account** | A [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements) | As described in the [prerequisites](#elastic-premium-prerequisites) section, we strongly recommend using a zone-redundant storage account for your zone-redundant function app. |
+    | **Storage account** | A [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements) | As described in the [prerequisites](#prerequisites) section, we strongly recommend using a zone-redundant storage account for your zone-redundant function app. |
   
 1. For the rest of the function app creation process, create your function app as normal. There are no settings in the rest of the creation process that affect zone redundancy.
 
