@@ -41,7 +41,7 @@ Complete and submit the form at  [Network Security Perimeter for Azure Communica
 
 1. Register for the Azure Network Security Perimeter public preview. To register, add the `AllowNSPInPublicPreview` feature flag to your subscription.
 
-   :::image type="content" source="media/allow-nsp-public-preview.png" alt-text="Screen capture of Preview features page showing AllowNSPInPublicPreview for Azure Subscription and the display name Feature flag to approve creation of Network Security Perimeter.":::
+   :::image type="content" source="media/allow-network-security-perimeter-public-preview.png" alt-text="Screen capture of Preview features page showing AllowNSPInPublicPreview for Azure Subscription and the display name Feature flag to approve creation of Network Security Perimeter.":::
 
    For more information on adding feature flags, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
 
