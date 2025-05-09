@@ -102,7 +102,7 @@ To set up your Dev Box service to support team customizations, follow these step
 
 For more information, see [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md).
 
-# [user customizations](#tab/user-customizations)
+# [User customizations](#tab/user-customizations)
 ### How do user customizations work?
 Individual developers can attach a YAML-based customization file when creating their dev box to control the development environment. Developers use user customizations only for personal settings and apps.  
 
