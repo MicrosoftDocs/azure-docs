@@ -247,7 +247,7 @@ curl -X GET "https://<DNS>/api/workflow/v1/workflow/csv-parser/workflowRun/<runI
 }
 ```
 
-Keep checking every few seconds, until the response indicates a sccessful completion.
+Keep checking every few seconds, until the response indicates a successful completion.
 
 ### 8. Search for Ingested CSV Records
 
