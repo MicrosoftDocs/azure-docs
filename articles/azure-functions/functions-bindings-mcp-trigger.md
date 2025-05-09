@@ -169,7 +169,7 @@ You can see these attributes used in the `SaveSnippet` tool in the [Examples](#e
 
 ### [`FunctionsApplicationBuilder`](#tab/builder)
 
-You can define tool properties in your entry point (program.cs) file by using the `McpToolBuilder` returned by the `ConfigureMcpTool` method on `FunctionsApplicationBuilder`. This examples calls the `WithProperty` method on the builder for the `GetSnippet` tool to set the properties of the tool:
+You can define tool properties in your entry point (program.cs) file by using the `McpToolBuilder` returned by the `ConfigureMcpTool` method on `FunctionsApplicationBuilder`. This example calls the `WithProperty` method on the builder for the `GetSnippet` tool to set the properties of the tool:
 
 :::code language="csharp" source="~/remote-mcp-functions-dotnet/src/Program.cs" range="5-15" ::: 
 
