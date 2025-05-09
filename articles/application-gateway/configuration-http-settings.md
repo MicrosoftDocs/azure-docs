@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Application Gateway backend settings configuration
 
-The Backend Settings enable you to manage the configurations for backend connections established from an application gateway resource to a server in the backend pool. A Backend Settings configurtion can associated with one or more Routing rules.
+The Backend Settings enable you to manage the configurations for backend connections established from an application gateway resource to a server in the backend pool. A Backend Settings configuration can be associated with one or more Routing rules.
 
 ## Types of Backend Settings in Application Gateway
 While Portal users will only see the "Backend Settings" option, API users will have access to two types of settings. You must utilize the correct configuration, according to the protocol.
@@ -126,7 +126,7 @@ This capability dynamically sets the *host* header in the request to the host na
 
 This feature helps when the domain name of the back end is different from the DNS name of the application gateway, and the back end relies on a specific host header to resolve to the correct endpoint.
 
-An example case is multi-tenant services as the back end. An app service is a multi-tenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
+An example case is multitenant services as the back end. An app service is a multitenant service that uses a shared space with a single IP address. So, an app service can only be accessed through the hostnames that are configured in the custom domain settings.
 
 By default, the custom domain name is *example.azurewebsites.net*. To access your app service by using an application gateway through a hostname that's not explicitly registered in the app service or through the application gateway's FQDN, you can override the hostname in the original request to the app service's hostname. To do this, enable the **pick host name from backend address** setting.
 
@@ -153,7 +153,7 @@ This setting is the number of seconds that the application gateway waits before 
 
 ### Trusted root certificate 
 
-When selecting the TLS protocol in the backend settings, the application gateway resource utilises a Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
+When selecting the TLS protocol in the backend settings, the application gateway resource utilizes a Trusted Root CA certificate store to verify the chain and authenticity of the certificate provided by the backend server.
 
 By default, the Application Gateway resource includes popular CA certificates, allowing seamless backend TLS connections when the backend server certificate is issued by a well-known CA. However, if you intend to use a Private CA or a self-generated certificate, you must provide the corresponding Root CA certificate (.cer) in this Backend Settings configuration.
 
