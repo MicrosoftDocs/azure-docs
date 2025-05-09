@@ -454,7 +454,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     feature_manager = FeatureManager(azure_app_config)
     ```
 
-1. Open `routes.py` and add the following code to the end of it to refresh configuration and get the feature variant.
+1. Open `routes.py` and update the following code for `greeting_message` to get the feature variant.
 
     ```python
     from . import feature_manager
