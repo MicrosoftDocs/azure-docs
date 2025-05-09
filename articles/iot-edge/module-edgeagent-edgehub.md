@@ -68,9 +68,9 @@ The module twin for the IoT Edge agent is called `$edgeAgent`. It coordinates co
 
 IoT Edge agent reported properties include three main pieces of information:
 
-1. Status of the application of the last-seen desired properties,
-2. Status of the modules currently running on the device as reported by the IoT Edge agent, and
-3. Copy of the desired properties currently running on the device.
+- Status of the application of the last-seen desired properties,
+- Status of the modules currently running on the device as reported by the IoT Edge agent, and
+- Copy of the desired properties currently running on the device.
 
 The copy of the current desired properties helps determine if the device has applied the latest deployment or is still running a previous deployment manifest.
 
