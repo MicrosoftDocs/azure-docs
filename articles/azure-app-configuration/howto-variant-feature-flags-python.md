@@ -273,6 +273,13 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
         <form action="/" method="post">
         </form>
     </div>
+    <script>
+        function heartClicked(button) {
+            var icon = button.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+        }
+    </script>
     {% endblock %}
     ```
 
