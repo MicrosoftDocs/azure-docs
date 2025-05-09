@@ -1,6 +1,6 @@
 ---
- title: include file
- description: include file
+ title: Include file
+ description: Include file
  services: virtual-network-manager
  author: mbender
  ms.service: virtual-network-manager
@@ -11,7 +11,7 @@
 ---
 
 > [!IMPORTANT]
-> Azure Virtual Network Manager's high scale private endpoint connected group feature is in preview. It is available in the following regions during preview:
+> Azure Virtual Network Manager's high scale private endpoint connected group feature is in preview. It's available in the following regions during preview:
 >
 > - East US 2 EUAP
 > - Central US EUAP
