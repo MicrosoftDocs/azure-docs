@@ -23,7 +23,7 @@ This article provides suggestions to troubleshoot common problems with the Amazo
 
 - **Cause**: Errors occur in Amazon S3 API.
 
-- **Reccomendation**: See the inner S3 message in the current error to check the error details. For more information, see [Amazon S3 error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
+- **Recommendation**: See the inner S3 message in the current error to check the error details. For more information, see [Amazon S3 error responses](https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html).
 
 ## Related content
 
