@@ -6,8 +6,9 @@ ms.date: 05/06/2025
 ---
 
 # Host a Durable Functions app in Azure Container Apps 
+Azure Functions provides integrated support for developing, deploying, and managing containerized Function Apps on Azure Container Apps. Use Azure Container Apps for your Functions apps when you need to run in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Learn more about [running Azure Functions in Container Apps](../../container-apps/functions-overview.md). 
 
->[!NOTE] While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the [Microsoft SQL (MSSQL) backend](../../container-apps/functions-overview.md.md#event-driven-scaling). If another backend is used, you have to set minimum replica count to great than zero. 
+>[!NOTE] While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the [Microsoft SQL (MSSQL) backend](../../container-apps/functions-overview.md#event-driven-scaling). If another backend is used, you have to set minimum replica count to great than zero. 
 
 In this article, you learn how to:
 
