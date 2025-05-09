@@ -78,7 +78,7 @@ The unknown state of credentials to the platform impacts monitoring and the abil
 In order to restore the state of the credential, it must be reset to a value that the platform recognizes. There are two options for this situation:
 
 1. Run a [BareMetalMachine replace](./howto-baremetal-functions.md) action providing the current active credentials. The replace action allows the machine to use provided credentials to reset credential rotation. This is the recommended option if significant changes are made to the machine.
-1. Reset the BMC credential back to the value prior to the manual change. If a key vault is configured for receiving rotated credential, then the proper value may be obtained using information from the `secretRotationStatus` data for the Bare Metal Machine resource. The rotation status for the BMC Credential indicates the secret key and version within the key vault for the appropriate value. Once the credential is reset back, credential rotation will proceed normally.
+1. Reset the BMC credential back to the value prior to the manual change. If a key vault is configured for receiving rotated credential, then the proper value may be obtained using information from the `secretRotationStatus` data for the Bare Metal Machine resource. The rotation status for the BMC Credential indicates the secret key and version within the key vault for the appropriate value. Once the credential is set to match the value expected by the credential rotation system, rotation will proceed normally.
 
 Example `secretRotationStatus` for BMC credential. Use the `secretName` and `secretVersion` to find the proper value in the cluster key vault.
 ```
@@ -86,7 +86,7 @@ Example `secretRotationStatus` for BMC credential. Use the `secretName` and `sec
   {
     ...
     "secretArchiveReference": {
-      "secretName": "YYYYYYYYYYYYYYYYYYYYYY-storage-appliance-credential-manager-ZZZZZZZ",
+      "secretName": "YYYYYYYYYYYYYYYYYYYYYY-idrac-credential-manager-ZZZZZZZ",
       "secretVersion": "XXXXXXXXXXXXXX"
     },
     "secretType": "BMC Credential"
