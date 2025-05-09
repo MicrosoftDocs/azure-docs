@@ -144,11 +144,11 @@ When you have a Communication Services resource, you can set up a Communication 
 
 1. In the Azure portal, go to your Azure Bot resource. In the resource menu, select **Channels**. In the list of available channels, select **Azure Communications Services - Chat**.
 
-   :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="Screenshot that shows opening the Communication Services Chat channel." lightbox="./media/demoapp-launch-acs-chat.png":::
+   :::image type="content" source="./media/smaller-demoapp-launch-communication-services-chat.png" alt-text="Screenshot that shows opening the Communication Services Chat channel." lightbox="./media/demoapp-launch-communication-services-chat.png":::
 
 1. Select **Connect** to see a list of Communication Services resources that are available in your subscription.
 
-   :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="Screenshot that shows how to connect a Communication Service resource to the bot." lightbox="./media/bot-connect-acs-chat-channel.png":::
+   :::image type="content" source="./media/smaller-bot-connect-communication-services-chat-channel.png" alt-text="Screenshot that shows how to connect a Communication Service resource to the bot." lightbox="./media/bot-connect-communication-services-chat-channel.png":::
 
 1. In the **New Connection** pane, select the Communication Services chat resource, and then select **Apply**.
 
@@ -156,7 +156,7 @@ When you have a Communication Services resource, you can set up a Communication 
 
 1. When the resource details are verified, a bot ID is shown in the **Bot Azure Communication Services Id** column. You can use the bot ID to represent the bot in a chat thread by using the Communication Services Chat AddParticipant API. After you add the bot to a chat as participant, the bot starts to receive chat-related activities, and it can respond in the chat thread.
 
-   :::image type="content" source="./media/smaller-acs-chat-channel-saved.png" alt-text="Screenshot that shows the new Communication Services user ID assigned to the bot." lightbox="./media/acs-chat-channel-saved.png":::
+   :::image type="content" source="./media/smaller-communication-services-chat-channel-saved.png" alt-text="Screenshot that shows the new Communication Services user ID assigned to the bot." lightbox="./media/communication-services-chat-channel-saved.png":::
 
 ## Create a chat app and add the bot as a participant
 
