@@ -39,33 +39,6 @@ When you create a mesh topology or direct connectivity in the hub and spoke topo
 > - If you have conflicting subnets in two or more virtual networks, resources in those subnets *can't* communicate with each other even if they're part of the same mesh network.
 > - A virtual network can be part of up to **two** mesh configurations.
 
-### Enable high scale private endpoints connected groups in Azure Virtual Network Manager
-
-Azure Virtual Network Manager's high scale connected group feature allows you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group:
-
-#### Prepare each virtual network in the connected group
-
-In this step, you prepare each virtual network in your connected group for high scale private endpoints before configuring connectivity settings. This step involves configuring the virtual networks to support the high scale feature and ensuring that the necessary settings are in place.
-
-1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md) for detailed guidance on increasing Private Endpoint virtual network limits. Enabling or disabling this feature initiates a one-time connection reset. It's recommended to perform these changes during a maintenance window.
-
-1. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance or a virtual network in your connected group.
-
-   > [!NOTE]
-   > This registration is essential for unlocking the extended private endpoint capacity. For more information, see [How to enable Azure preview features documentation](../azure-resource-manager/management/preview-features.md).
-
-1. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high scale private endpoints functionality. For detailed guidance, see [Manage network policies for private endpoints documentation](../private-link/disable-private-endpoint-network-policy.md).
-
-#### Configure mesh connectivity for high scale private endpoints
-
-In this step, you configure the mesh connectivity settings for your connected group to enable high scale private endpoints. This step involves selecting the appropriate options in the Azure portal and verifying the configuration.
-
-1. In your mesh connectivity configuration, locate and select the checkbox for **Enable private endpoints high scale**. This option activates the high scale feature for your connected group.
-
-1. Verify every virtual network in your connected group is configured with high scale private endpoints. The Azure portal validates the settings across the entire group. If a virtual network without the high scale configuration is added later, it can't communicate with private endpoints in other virtual networks.
-
-1. After verifying all virtual networks are properly configured, deploy the settings. This finalizes the setup of your high scale connected group.
-
 ## Hub and spoke topology
 
 A hub-and-spoke is a network topology in which you have a virtual network selected as the hub virtual network. This virtual network gets bi-directionally peered with every spoke virtual network in the configuration. This topology is useful for when you want to isolate a virtual network but still want it to have connectivity to common resources in the hub virtual network.
