@@ -340,16 +340,10 @@ The following tables provide coverage information for version 1 of the Azure Map
 <!-----------------------------  ROUTING v2025-01-01   --------------------------------------------------------------------->
 ::: zone pivot="service-latest"
 
-The Azure Maps Routing service contains different levels of geographic coverage for every country/region in the world. The following table contains details about coverage for:
-
-- Route Directions & Snap to Roads (Driving and Walking)
-- Real-time traffic (Driving, Walking and commercial truck)
-- Truck Route Directions (commercial truck routes)
-- Route Matrix (driving, walking and commercial truck routes)
-- Route Range (driving and commercial truck)
+The Azure Maps Routing service contains different levels of geographic coverage for every country/region in the world.
 
 | Country/Region                         |Route Directions<br>& Snap to Roads|Real-time<br>Traffic|Truck Route<br>Directions|Route Matrix<br>& Range|
-|----------------------------------------|----------------------------------|--------------------|------------------------|----------------------|
+|----------------------------------------|:--------------------------------:|:------------------:|:----------------------:|:--------------------:|
 | Afghanistan                            |               ✓                  |                    |                        |          ✓           |
 | Albania                                |               ✓                  |                    |           ✓            |          ✓           |
 | Algeria                                |               ✓                  |                    |                        |          ✓           |
