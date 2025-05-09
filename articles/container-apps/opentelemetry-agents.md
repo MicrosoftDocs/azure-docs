@@ -43,6 +43,9 @@ The managed OpenTelemetry agent accepts the following destinations:
 - Datadog
 - Any OTLP endpoint (For example: New Relic or Honeycomb)
 
+> [!NOTE]
+> Microsoft provides support for data sent to Azure Monitor Application Insights. Once data is stored in any non-Microsoft system, data-related support is the responsibility of the endpoint's organization.
+
 The following table shows you what type of data you can send to each destination:
 
 | Destination | Logs | Metrics | Traces |
@@ -123,7 +126,7 @@ az containerapp env telemetry app-insights set \
 ```
 
 >[!NOTE]
-> Due to the sensitivity of the connection-string, you will not be able to see the detail values of the connection string when the command returns. The system will display it as null.
+> Due to the sensitivity of the connection-string, you can't see the detail values of the connection string when the command returns. The system displays it as null.
 
 # [Terraform](#tab/terraform)
 
@@ -161,7 +164,7 @@ resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
 
 ## Datadog
 
-You do not need to run the Datadog agent in your container app if you've enabled the managed OpenTelemetry agent for your environment.
+You don't need to run the Datadog agent in your container app if you enable the managed OpenTelemetry agent for your environment.
 
 The OpenTelemetry agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
 
@@ -176,7 +179,7 @@ Once you have these configuration details, you can configure the agent via your 
 
 Avoid specifying the value of a secret, such as your Datadog API key, directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault.
 
-You must enable the key vault for template deployment. To do this, create the key vault with the `enabledForTemplateDeployment` property enabled, or run the following Azure CLI command, replacing the `<KEY_VAULT_NAME>` with your value:
+You must enable the key vault for template deployment. To enable template deployment, create the key vault with the `enabledForTemplateDeployment` property enabled, or run the following Azure CLI command, replacing the `<KEY_VAULT_NAME>` with your value:
 
 ```azurecli
 az keyvault update --name <KEY_VAULT_NAME> --enabled-for-template-deployment true
@@ -316,7 +319,7 @@ az containerapp env telemetry data-dog set \
 ```
 
 >[!NOTE]
-> Due to the sensitivity of the key, you will not be able to see the detail values of the key when the command returns. The system will display it as null. 
+> Due to the sensitivity of the key, you can't see the detail values of the key when the command returns. The system displays it as null. 
 
 # [Terraform](#tab/terraform)
 
@@ -462,7 +465,7 @@ az containerapp env telemetry otlp add \
 ```
 
 >[!NOTE]
-> Due to the sensitivity of the headers value, you will not be able to see the detail values of the headers value when the command returns. The system will display them as null.
+> Due to the sensitivity of the headers value, you can't see the detail values of the headers value when the command returns. The system displays them as null.
 
 # [Terraform](#tab/terraform)
 
@@ -577,10 +580,10 @@ The following example ARM template shows how to use an OTLP endpoint named `cust
 ```
 
 ## Export system components OpenTelemetry signals
-	
+
 From the OpenTelemetry API version `2024-08-02-preview`, you can configure your container app environment to export system components OpenTelemetry signals to your data destinations.
-	
-Use the following configuration to export Dapr traces and Keda metrics.
+
+Use the following configuration to export Dapr traces and KEDA metrics.
 
 ### Dapr Traces
 
@@ -607,9 +610,9 @@ The following example ARM template shows how to export Dapr Traces to your trace
 
 To learn more about how to use Dapr in container apps, see [Dapr Overview](./dapr-overview.md).
 
-### Keda Metrics
+### KEDA metrics
 
-The following example ARM template shows how to export Keda metrics to your metrics destinations.
+The following example ARM template shows how to export KEDA metrics to your metrics destinations.
 
 ```json
 {
@@ -773,7 +776,17 @@ See the destination service for their billing structure and terms. For example, 
 
 - System data, such as system logs or Container Apps standard metrics, isn't available to be sent to the OpenTelemetry agent.
 - The Application Insights endpoint doesn't accept metrics.
-- The Datadog endpoint doesn't accept logs.
+- Configuration settings live at the environment level. You can send different data types to different destinations, but you can't split up your data by app. For example, in the same app you can send metrics to Datadog, and traces to App Insights.
+
+## Frequently asked questions
+
+- **Do I need to reference the OpenTelemetry SDK in my code?**
+
+    Yes. The SDK creates telemetry data, and the managed agent is only responsible to route data.
+
+- **Why does the `list` command return null?**
+
+    When you run `az containerapp env telemetry otlp list`, the response is `null` when the value is a sensitive token that needs protection.
 
 ## Next steps
 
