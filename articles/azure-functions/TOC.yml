@@ -839,6 +839,17 @@
             - name: Migrate version 3.x to 4.x
               href: migrate-cosmos-db-version-3-version-4.md
               displayName: Azure Cosmos DB
+        - name: Azure Cosmos DB for MongoDB(vCore)
+          items:
+            - name: Functions 2.x and higher
+              displayName: Azure Cosmos DB for MongoDB(vCore)
+              items:
+                - name: Overview
+                  href: functions-bindings-overview-mongodb-vore-csharp-only.md
+                  displayName: Azure Cosmos DB for MongoDB(vCore)
+                - name: Bindings
+                  href: functions-bindings-mongodb-vcore-csharp-only.md
+                  displayName: Azure Cosmos DB for MongoDB(vCore)
         - name: Azure Data Explorer
           items:
             - name: Overview
