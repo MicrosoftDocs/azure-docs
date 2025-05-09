@@ -19,8 +19,9 @@ Follow these best practices to minimize errors during the gateway migration proc
 
 * **Maintain resource health**: Ensure all resources remain in a **succeeded** state throughout the migration. Avoid running updates on related resources during the process.
 * **Avoid property updates**: Refrain from updating properties like **FastPath**, **route weight**, or **traffic toggles** for connections and gateways, as these updates can cause resource failures.
-* **Sequential circuit migration**: Migrate gateways connected to the same circuit one at a time. Parallel migrations on the same circuit aren't supported.
-* **Avoid manual connection changes**: Don't manually create or delete connections for gateways actively carrying traffic (admin state enabled) during migration.
+* **Sequential gateway migration**: Migrate gateways connected to the same circuit one at a time. Parallel migrations on the same circuit aren't supported.
+* **Avoid manual changes**: Refrain from manually creating, deleting, updating, or resetting gateways or their connections while they are actively carrying traffic (admin state enabled) during the migration process.
+
 * **Check for maintenance**: Avoid creating connections to gateways undergoing maintenance, as this operation fails. Any failed connections must be deleted before retrying.
 
 By adhering to these practices, you can reduce the likelihood of encountering errors during migration.
