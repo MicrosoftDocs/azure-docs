@@ -58,7 +58,7 @@ For a list of regions that currently support availability zones, see [Azure regi
 
 * Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide a lowest latency guarantee.
 * For other considerations related to availability zones in Azure NetApp Files, see [Manage availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations).
-* If you're deploying Terraform-managed volumes with availability zones, other configurations are required. For more information see, [Populate availability zone for Terraform-managed volumes](../azure-netapp-files/manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+* If you're deploying Terraform-managed volumes with availability zones, other configurations are required. For more information, see [Populate availability zone for Terraform-managed volumes](../azure-netapp-files/manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
 * Zone-redundancy in Azure NetApp Files uses [availability zone placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations). For further considerations, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md).
 * If you're using role-based access control, [ensure you configure the correct permissions](../azure-netapp-files/manage-availability-zone-volume-placement.md#configure-custom-rbac-roles).
 
@@ -78,7 +78,7 @@ There's no extra charge to enable availability zone support in Azure NetApp File
 
 * **Notification:** Notifications of zone-down events are automatically sent through Azure Service Health or custom-configured alert systems such as email, SMS, or webhook integrations. Administrators can also use Azure Resource Health to check the status of Azure NetApp Files and receive updates on recovery progress. 
 
-* **Active requests:** During a zone-down event, active requests may experience disruptions or increased latencies. Azure NetApp Files ensures that data remains accessible through redundancy mechanisms, such as cross-zone replication (if configured). Requests are rerouted to alternative zones to mitigate downtime for mission-critical workloads. 
+* **Active requests:** During a zone-down event, active requests can experience disruptions or increased latencies. Azure NetApp Files ensures that data remains accessible through redundancy mechanisms, such as cross-zone replication (if configured). Requests are rerouted to alternative zones to mitigate downtime for mission-critical workloads. 
 
 * **Expected data loss:** Azure NetApp Files is built with enterprise-grade features including snapshot capabilities and high availability replication. In most scenarios, data loss is minimal to nonexistent due to the automatic replication of data across zones. Regular backups and snapshots further ensure data integrity and recovery. 
 
