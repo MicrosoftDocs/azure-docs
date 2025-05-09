@@ -35,7 +35,7 @@ This article explains how to use the *Get Started* template to set up Microsoft 
 1. In the Azure portal, go to **Microsoft Dev Box** and select **Get Started**.
    :::image type="content" source="media/quickstart-getting-started-template/dev-box-getting-started-page.png" alt-text="Screenshot of the Dev Box Get Started page in the Azure portal, showing options to configure a dev box environment.":::
 
-1. In the **Basics** tab, enter the following values:
+1. In the **Basics** tab, enter the following values, and then select **Reveiw + create**. The values you enter here will be used to create the dev center, project, and dev box pool. The dev box definition is created using the default settings.:
 
    | Setting | Value |
    |---|---|
