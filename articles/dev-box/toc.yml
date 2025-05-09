@@ -164,6 +164,8 @@ items:
       href: how-to-install-dev-box-cli.md    
     - name: Azure CLI - az devcenter
       href: /cli/azure/service-page/microsoft%20dev%20box%20and%20azure%20deployment%20environments
+    - name: Customizations yaml
+      href: reference-dev-box-customizations.md
     - name: Authenticate to REST APIs
       href: how-to-authenticate.md
     - name: REST API
