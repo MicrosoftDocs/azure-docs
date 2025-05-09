@@ -16,7 +16,11 @@ ms.custom: has-adal-ref, synapse
 
 This article provides suggestions to troubleshoot common problems with the Teradata connector in Azure Data Factory and Azure Synapse. 
 
-## Error Message: Could not resolve Data Source=xxx.xxx.xxx to an available node after 1 attempts.
+## Applies to: Version 2.0 (Preview)
+
+This section provides troubleshooting guidance for issues encountered when using Teradata connector version 2.0 (Preview) in Azure Data Factory and Azure Synapse.
+
+### Error Message: Could not resolve Data Source=xxx.xxx.xxx to an available node after 1 attempts.
 
 - **Symptoms**: Copy activity fails with the following error:
 
@@ -26,7 +30,7 @@ This article provides suggestions to troubleshoot common problems with the Terad
 
 - **Resolution**: You are recommended to use a different SSL mode.
 
-## Error Message: Remote certificate error.
+### Error Message: Remote certificate error.
 
 - **Symptoms**: Copy activity fails with the following error:
 
