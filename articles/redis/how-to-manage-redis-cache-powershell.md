@@ -37,6 +37,11 @@ This article shows you how to create, manage, and delete your Azure Redis instan
 
 You create new Azure Managed Redis instances using the [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-AzRedisEnterpriseCache) cmdlet. `ResourceGroupName`, `Name`, `Location`, and `Sku` are required parameters. The other parameters are optional and have default values.
 
+Microsoft Entra authentication is enabled by default for all new caches and is recommended for security.
+
+>[!IMPORTANT]
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra for cache authentication with Azure Managed Redis](entra-for-authentication.md).
+
 For all Azure Managed Redis PowerShell parameters and properties for `New-AzRedisEnterpriseCache`, see [New-AzRedisEnterpriseCache](/powershell/module/az.redisenterprisecache/new-azredisenterprisecache). To output a list of available parameters and their descriptions, run the following command.
 
 ```azurepowershell
@@ -245,8 +250,19 @@ The following tables show Azure PowerShell properties and descriptions for commo
 
 You create new Azure Cache for Redis instances using the [New-AzRedisCache](/powershell/module/az.rediscache/new-AzRedisCache) cmdlet. `ResourceGroupName`, `Name`, and `Location` are required parameters. The other parameters are optional and have default values.
 
-> [!NOTE]
-> The first time you create an Azure Cache for Redis cache in a subscription, Azure registers the `Microsoft.Cache` namespace for you. If prompted, you can use the Azure PowerShell `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"` command to register the namespace.
+>[!IMPORTANT]
+>Microsoft Entra authentication is recommended for security. You can enable Microsoft Entra Authentication during or after cache creation.
+>
+>Use Microsoft Entra ID with managed identities to authorize requests against your cache if possible. Authorization using Microsoft Entra ID and managed identity provides better security and is easier to use than shared access key authorization. For more information about using managed identities with your cache, see [Use Microsoft Entra ID for cache authentication](../azure-cache-for-redis/cache-azure-active-directory-for-authentication.md).
+
+To see a list of available parameters and their descriptions for [New-AzRedisCache](/powershell/module/az.rediscache/new-AzRedisCache), run the following command:
+
+```azurepowershell
+Get-Help New-AzRedisCache -detailed>
+```
+
+>[!NOTE]
+>The first time you create an Azure Cache for Redis cache in a subscription, Azure registers the `Microsoft.Cache` namespace for you. If prompted, you can use the Azure PowerShell `Register-AzResourceProvider -ProviderNamespace "Microsoft.Cache"` command to register the namespace.
 
 The following example command creates an Azure Cache for Redis instance with the specified name, location, and resource group, using default parameters. The instance is a Standard 1-GB cache with the non-SSL port disabled.
 
@@ -275,7 +291,7 @@ New-AzRedisCache -ResourceGroupName myGroup -Name mycache -Location "North Centr
 
 The `databases` setting in the [New-AzRedisCache](/powershell/module/az.rediscache/New-azRedisCache) cmdlet configures the number of databases in the cache. You can configure this setting only during Standard and Premium cache creation using PowerShell, Azure CLI, or other management clients.
 
-If you don't specify a `databases` setting during cache creation, [New-AzRedisCache](/powershell/module/az.RedisCache/New-AzRedisCache) creates one database named `default`, and all cache data goes into this DB 0 database. The database limit depends on cache tier and size, but the default setting is 16.
+If you don't specify a `databases` setting during cache creation, [New-AzRedisCache](/powershell/module/az.RedisCache/New-AzRedisCache) creates one database named `default`, and all cache data goes into this `DB 0` database. The database limit depends on cache tier and size, but the default setting is 16.
 
 The following example creates a premium P3 (26 GB) cache with 48 databases.
 
@@ -368,7 +384,6 @@ To see a list of available parameters and their descriptions for `Get-AzRedisCac
 
 ```azurepowershell
 Get-Help Get-AzRedisCacheKey -detailed
-
 ```
 
 To retrieve the keys for your cache, call the `Get-AzRedisCacheKey` cmdlet with the cache `Name` and `ResourceGroupName`.
@@ -388,7 +403,6 @@ To see a list of available parameters and their descriptions for `New-AzRedisCac
 
 ```azurepowershell
 Get-Help New-AzRedisCacheKey -detailed
-
 ```
 
 To regenerate the primary or secondary key for your cache, call the `New-AzRedisCacheKey` cmdlet with the cache `Name` and `ResourceGroupName`, and specify either `Primary` or `Secondary` for the `KeyType` parameter. The following example regenerates the secondary access key for a cache.
@@ -419,7 +433,7 @@ Remove-AzRedisCache -Name myCache -ResourceGroupName myGroup
 You can import data into an Azure Cache for Redis instance using the `Import-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Import is available only for [Premium tier]/azure-cache-for-redis/cache-overview.md#service-tiers) caches. For more information, see [Import and export data in Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-import-export-data.md).
+> Import is available only for [Premium tier](../azure-cache-for-redis/cache-overview.md#service-tiers) caches. For more information, see [Import and export data in Azure Cache for Redis](../azure-cache-for-redis/cache-how-to-import-export-data.md).
 
 To see a list of available parameters and their descriptions for `Import-AzRedisCache`, run the following command.
 
@@ -461,7 +475,7 @@ The following command exports data from an Azure Cache for Redis instance into t
 You can reboot your Azure Cache for Redis instance using the `Reset-AzRedisCache` cmdlet.
 
 > [!IMPORTANT]
-> Reboot is only available for [Basic, Standard, and Premium tier]/azure-cache-for-redis/cache-overview.md#service-tiers) Azure Cache for Redis caches. For more information, see [Cache administration - reboot](../azure-cache-for-redis/cache-administration.md#reboot).
+> Reboot is only available for [Basic, Standard, and Premium tier](../azure-cache-for-redis/cache-overview.md#service-tiers) Azure Cache for Redis caches. For more information, see [Cache administration - reboot](../azure-cache-for-redis/cache-administration.md#reboot).
 
 To see a list of available parameters and their descriptions for `Reset-AzRedisCache`, run the following command.
 
