@@ -15,9 +15,6 @@ ms.date: 03/20/2025
 This article guides you through the requirements to inject your Azure API Management Premium v2 (preview) instance in a virtual network. 
 
 > [!NOTE]
-> The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
-
-> [!NOTE]
 > To inject a classic Developer or Premium tier instance in a virtual network, the requirements and configuration are different. [Learn more](virtual-network-injection-resources.md).
 
 When an API Management Premium v2 instance is injected in a virtual network: 
