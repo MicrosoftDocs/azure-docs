@@ -88,7 +88,7 @@ Walk through one of the following quickstarts or samples to learn more about Dur
 |   | Sample | Description |
 | - | ---------- | ----------- |
 | **Order processing workflow** | Create an order processing workflow with Durable Functions:<br>- [.NET](/samples/azure-samples/durable-functions-order-processing/durable-func-order-processing/)<br>- [Python](/samples/azure-samples/durable-functions-order-processing-python/durable-func-order-processing-py/) | This sample implements an order processing workflow that includes checking inventory, processing payment, updating inventory, and notifying customer. |
-| **Intelligent PDF summarizer** | Create an app that processes PDFs with Durable Functions:<br>- [.NET](/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/)<br>- [Python](/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/) | This sample demontrates using Durable Functions to coordinate the steps for processing and summarizing PDFs using Azure Cognitive Services and Azure Open AI. |
+| **Intelligent PDF summarizer** | Create an app that processes PDFs with Durable Functions:<br>- [.NET](/samples/azure-samples/intelligent-pdf-summarizer-dotnet/durable-func-pdf-summarizer-csharp/)<br>- [Python](/samples/azure-samples/intelligent-pdf-summarizer/durable-func-pdf-summarizer/) | This sample demonstrates using Durable Functions to coordinate the steps for processing and summarizing PDFs using Azure Cognitive Services and Azure OpenAI. |
 
 ### Durable Task SDKs with Durable Task Scheduler (preview)
 
