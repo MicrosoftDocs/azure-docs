@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB for MongoDB(vCore) triggers a
 author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
-ms.date: 08/05/2025
+ms.date: 8/5/2025
 ms.custom: 
   - build-2025
 ---
@@ -31,11 +31,11 @@ The following table explains the binding configuration properties that you set i
 
 ## Usage
 
-## Output
+### Output
 
 The Azure Cosmos DB for MongoDB(vCore) output binding lets you write a new document to an Azure Cosmos DB for MongoDB(vCore)
 
-## Example
+### Example
 
 The examples refer to a simple `TestClass` type:
 
@@ -92,11 +92,11 @@ namespace Sample
 }
 
 ```
-## Input
+## #Input
 
 The Azure Cosmos DB for MongoDB(vCore) input binding lets you reretieve one or more Azure CosmosDB for MongoDB(vCore) documents.
 
-## Example
+### Example
 
 The examples refer to a simple `TestClass` type:
 

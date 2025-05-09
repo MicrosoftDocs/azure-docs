@@ -70,5 +70,5 @@ namespace Sample
 
 ## Related articles
  
- - [Azure Cosmos DB for MongoDB(vCore)](azure/cosmos-db/mongodb/vcore/introduction.md)
+ - [Azure Cosmos DB for MongoDB(vCore)](/azure/cosmos-db/mongodb/vcore/introduction.md)
  - [Azure Azure Cosmos DB for MongoDB(vCore) bindings for Azure Functions](/azure/azure-functions/functions-bindings-mongodb-vcore-csharp-only)
