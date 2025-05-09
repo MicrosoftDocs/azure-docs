@@ -3,9 +3,7 @@ title: Create a function app in the Azure portal
 description: Learn how to create a function app for serverless execution in Azure Functions using the Azure portal.
 ms.topic: how-to
 ms.date: 05/08/2025
-zone_pivot_groups: 
-  - programming-languages-set-functions
-  - functions-hosting-plan-dynamic
+zone_pivot_groups: programming-languages-set-functions,functions-hosting-plan-dynamic
 ---
 
 # Create a function app in the Azure portal

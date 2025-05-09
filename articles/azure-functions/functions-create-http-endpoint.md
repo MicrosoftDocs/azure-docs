@@ -14,9 +14,7 @@ ms.custom:
   - devx-track-python
   - build-2024
   - devx-track-ts
-zone_pivot_groups: 
-  - programming-languages-set-functions
-  - functions-hosting-plan-dynamic
+zone_pivot_groups: programming-languages-set-functions,functions-hosting-plan-dynamic
 ---
 
 # Create an HTTP endpoint using Azure Functions in the portal
