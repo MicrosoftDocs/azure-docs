@@ -67,14 +67,14 @@ export MY_SUBNET_ID="$(az network vnet subnet show \
 
 ### Set up the admin password
 
-Setup a password that meets the [password requirements for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
+Set up a password that meets the [password requirements for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 export ADMIN_PASSWORD="Azure compliant password"
 
 
 ### Create Compute Fleet
 
-Setup the compute profile which will be applied to the underlying VMs.
+Set up the compute profile which is applied to the underlying VMs.
 
 ```bash
 export COMPUTE_PROFILE="{ 'baseVirtualMachineProfile': { 'storageProfile': { 'imageReference': { 'publisher':'canonical', 'offer':'0001-com-ubuntu-server-focal', 'sku': '20_04-lts-gen2', 'version': 'latest' } }, 'osProfile': { 'computerNamePrefix': 'vm', 'adminUsername': '$MY_USERNAME', 'adminPassword': '$ADMIN_PASSWORD'}, 'networkProfile': { 'networkInterfaceConfigurations': [{ 'name': 'nic', 'primary': 'true', 'enableIPForwarding': 'true', 'ipConfigurations': [{ 'name': 'ipc', 'subnet': { 'id': '$MY_SUBNET_ID' } }] }], 'networkApiVersion': '2020-11-01'} } }"
