@@ -35,19 +35,19 @@ When you deploy VPN Gateway with IPv6 in dual stack mode, you can use the same s
 
    :::image type="content" source="./media/ipv6-configuration/gateway-subnet-ipv6.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/gateway-subnet-ipv6.png":::
 
-1. Create the virtual network gateway and local network gateway using IPv6 configurations.
+1. Create the virtual network gateway and local network gateway using IPv4 and IPv6 configuration settings.
 
    **Virtual network gateway**
 
-   :::image type="content" source="./media/ipv6-configuration/vng-vpn-config.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/vng-vpn-config.png":::
+   :::image type="content" source="./media/ipv6-configuration/vng-vpn-config.png" alt-text="Diagram shows IPv6 configuration for Virtual network gateway." lightbox="./media/ipv6-configuration/vng-vpn-config.png":::
 
    **Local network gateway**
 
-   :::image type="content" source="./media/ipv6-configuration/lng-vpn-ipv6-config.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/lng-vpn-ipv6-config.png":::
+   :::image type="content" source="./media/ipv6-configuration/lng-vpn-ipv6-config.png" alt-text="Diagram shows IPv6 configuration for Local network gateway." lightbox="./media/ipv6-configuration/lng-vpn-ipv6-config.png":::
 
     **Address pool**
 
-   :::image type="content" source="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png":::
+   :::image type="content" source="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png" alt-text="Diagram shows Point-to-site IPv6 configuration for Virtual Network Gateway." lightbox="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png":::
 
 ## Limitations
 
