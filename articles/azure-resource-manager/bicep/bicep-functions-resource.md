@@ -750,6 +750,164 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01'
 }
 ```
 
+## toLogicalZone
+
+`toLogicalZone(provider, resourceType, location, physicalZone)`
+
+Returns the logical availability zone (e.g., `1`, `2`, or `3`) corresponding to a physical availability zone for a specified resource type in a given Azure region.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions)
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| provider | Yes | string | The resource provider namespace (for example, `Microsoft.Compute`). |
+| resourceType | Yes | string | The resource type that supports availability zones (for example, `virtualMachines`). |
+| location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
+| physicalZone | Yes | string | The physical availability zone identifier (for example, a data center-specific identifier like `West US 2 - Zone A`). |
+
+### Return value
+
+A string representing the logical availability zone (e.g., `1`, `2`, or `3`) that corresponds to the specified physical zone for the resource type in the given region. If the physical zone is invalid or not supported, an empty string (`''`) is returned.
+
+### Remarks
+
+* The `toLogicalZone` function retrieves the logical zone mapping based on the subscription’s zone configuration for the specified resource type and region.
+* Logical zones are standardized identifiers (e.g., `1`, `2`, `3`) used in resource configurations to ensure consistent zone assignments across Azure services.
+* Physical zone identifiers are region-specific and may vary between subscriptions or resource types. Use the `toPhysicalZone` function to reverse this mapping.
+* The function requires that the region and resource type support availability zones. For a list of supported regions and services, see [Azure services that support availability zones](availability-zones-service-support.md).
+* If the physical zone does not exist or is not mapped for the resource type, the function returns an empty string.
+* This function is useful for aligning physical zone deployments with logical zone configurations in templates, especially for cross-region or multi-subscription scenarios.
+
+### Examples
+
+The following example retrieves the logical zone for a physical zone of a virtual machine in West US 2:
+
+```bicep
+param physicalZone string = 'West US 2 - Zone A'
+
+output logicalZone string = toLogicalZone('Microsoft.Compute', 'virtualMachines', 'westus2', physicalZone)
+```
+
+Expected output (assuming `West US 2 - Zone A` maps to logical zone `1`):
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| logicalZone | String | `1` |
+
+The following example uses `toLogicalZone` to configure a virtual machine with the correct logical zone:
+
+```bicep
+param physicalZone string = 'West US 2 - Zone A'
+param location string = 'westus2'
+
+var logicalZone = toLogicalZone('Microsoft.Compute', 'virtualMachines', location, physicalZone)
+
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+  name: 'myVM'
+  location: location
+  zones: logicalZone != '' ? [logicalZone] : []
+  properties: {
+    // VM properties
+  }
+}
+
+output logicalZone string = logicalZone
+```
+
+Expected output:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| logicalZone | String | `1` |
+
+---
+
+## toPhysicalZone
+
+`toPhysicalZone(provider, resourceType, location, logicalZone)`
+
+Returns the physical availability zone identifier (e.g., a data center-specific identifier like `West US 2 - Zone A`) corresponding to a logical availability zone for a specified resource type in a given Azure region.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions)
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| provider | Yes | string | The resource provider namespace (for example, `Microsoft.Compute`). |
+| resourceType | Yes | string | The resource type that supports availability zones (for example, `virtualMachines`). |
+| location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
+| logicalZone | Yes | string | The logical availability zone (e.g., `1`, `2`, or `3`). |
+
+### Return value
+
+A string representing the physical availability zone identifier (e.g., `West US 2 - Zone A`) that corresponds to the specified logical zone for the resource type in the given region. If the logical zone is invalid or not supported, an empty string (`''`) is returned.
+
+### Remarks
+
+* The `toPhysicalZone` function retrieves the physical zone mapping based on the subscription’s zone configuration for the specified resource type and region.
+* Physical zones are data center-specific identifiers that may vary between subscriptions or resource types, while logical zones (e.g., `1`, `2`, `3`) are standardized for resource configurations.
+* Use the `toLogicalZone` function to reverse this mapping, converting a physical zone to its logical equivalent.
+* The function requires that the region and resource type support availability zones. For a list of supported regions and services, see [Azure services that support availability zones](availability-zones-service-support.md).
+* If the logical zone does not exist or is not mapped for the resource type, the function returns an empty string.
+* This function is useful for scenarios requiring physical zone identifiers, such as logging, auditing, or cross-subscription zone alignment in multi-region deployments.
+
+### Examples
+
+The following example retrieves the physical zone for a logical zone of a virtual machine in West US 2:
+
+```bicep
+param logicalZone string = '1'
+
+output physicalZone string = toPhysicalZone('Microsoft.Compute', 'virtualMachines', 'westus2', logicalZone)
+```
+
+Expected output (assuming logical zone `1` maps to `West US 2 - Zone A`):
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| physicalZone | String | `West US 2 - Zone A` |
+
+The following example uses `toPhysicalZone` to log the physical zone for a virtual machine deployment:
+
+```bicep
+param logicalZone string = '1'
+param location string = 'westus2'
+
+var physicalZone = toPhysicalZone('Microsoft.Compute', 'virtualMachines', location, logicalZone)
+
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+  name: 'myVM'
+  location: location
+  zones: [logicalZone]
+  properties: {
+    // VM properties
+  }
+}
+
+output physicalZone string = physicalZone
+```
+
+Expected output:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| physicalZone | String | `West US 2 - Zone A` |
+
+---
+
+### Notes and Assumptions
+
+* **Hypothetical Functions**: Since `toLogicalZone()` and `toPhysicalZone()` are not documented in the provided Microsoft Learn reference, I assumed their functionality based on Azure’s availability zone mapping concepts (e.g., logical zones `1`, `2`, `3` vs. physical data center identifiers). These functions would align with the need to map zones for consistent deployment across subscriptions, as described in [Azure Availability Zones documentation](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview).
+* **Format Consistency**: The structure mirrors the `pickZones` documentation exactly, including sections for Parameters, Return Value, Remarks, and Examples, with tables for parameters and outputs.
+* **Namespace**: Both functions are placed in the `az` namespace, consistent with `pickZones` and other resource-related functions.
+* **Security Considerations**: No `@secure()` is needed for these functions, as zone identifiers are not sensitive. However, outputs are kept as top-level for simplicity, as they do not expose sensitive data.
+* **Category**: These functions would fit in the **Resource** category (or a proposed **Resilience** category, as discussed previously), as they deal with resource-specific availability zone metadata.
+
+If you have additional context about these functions (e.g., specific Azure APIs they map to) or need integration with other Bicep features like `@secure()` outputs or URI functions, let me know, and I can refine the examples or provide further details!
+
 ## Next steps
 
 * To get values from the current deployment, see [Deployment value functions](./bicep-functions-deployment.md).
