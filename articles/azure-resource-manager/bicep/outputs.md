@@ -163,8 +163,6 @@ output demoPassword string
 output demoSecretObject object
 ```
 
-There are several linter rules related to this decorator: [Secure parameter default](./linter-rule-secure-parameter-default.md), [Secure parameters in nested deployments](./linter-rule-secure-params-in-nested-deploy.md), [Secure secrets in parameters](./linter-rule-secure-secrets-in-parameters.md).
-
 The `@secure()` decorator is valid only for outputs of type string or object, as these align with the [secureString](../templates/syntax.md#outputs) and [secureObject](../templates/syntax.md#outputs) types in ARM templates. To pass arrays or numbers securely, wrap them in a secureObject or serialize them as a secureString.
 
 ## Conditional output
