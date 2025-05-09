@@ -24,6 +24,7 @@ The Azure Functions MCP extension allows you to use Azure Functions to create re
 ## Prerequisites 
 
 + The MCP tool trigger relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using managed identities, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).   
++ When running locally, the MCP extension requires version 4.0.7030 of the [Azure Functions Core Tools](functions-run-local.md), or a later version.
 ::: zone pivot="programming-language-csharp"
 + Requires version 2.0.2 or later of the `Microsoft.Azure.Functions.Worker.Sdk` package.  
 
@@ -47,7 +48,7 @@ To use this experimental bundle in your app, replace the existing `extensionBund
 
 ```json
 "extensionBundle": {
-  "id": "Microsoft.Azure.Functions.ExtensionBundle.Experimental",
+  "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
   "version": "[4.*, 5.0.0)"
 }
 ```
