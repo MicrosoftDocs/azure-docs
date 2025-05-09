@@ -214,7 +214,7 @@ To run your app in Azure, you need to create various resources. For convenient c
 > [!NOTE]
 > If you already have an Azure SQL database or another publicly accessible SQL Server instance that you would like to use, you can go to the next section.
 >
-> The instructions below about enabling **Allow Azure services and resources to access this [SQL] server** is _not_ a recommended security practice for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
+> Refrain from enabling the **Allow Azure services and resources to access this [SQL] server** setting for production scenarios. Real applications should implement more secure approaches, such as stronger firewall restrictions or virtual network configurations.
 
 In the Azure portal, you can [create an Azure SQL database](/azure/azure-sql/database/single-database-create-quickstart). During creation:
 - Enable Azure services and resources to access this server (under _Networking_)
