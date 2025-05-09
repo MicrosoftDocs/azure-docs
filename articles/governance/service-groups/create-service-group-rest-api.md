@@ -86,8 +86,9 @@ Service Groups PUT or create call is an Asynchronous call which means that the r
 
 To check the operation was successful, you should do a GET call on the value returned in the **azure-asyncoperation** header. The URL provides the status of the created operation. 
 
-> ![NOTE]
-> To avoid issues within scripts or templates, the automation should poll this provided URL before moving to the next step. If the automation moves to the next step before the operation has responded successful, the next operation will fail as the service group has not been created.  
+> [!NOTE]
+> To avoid issues within scripts or templates, the automation should poll this provided URL before moving to the next step. 
+> If the automation moves to the next step before the operation has responded successfully, the next operation will fail as the service group has not been created.  
 
 ## Clean up resources
 

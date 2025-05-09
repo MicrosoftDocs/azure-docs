@@ -30,8 +30,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 3. Select **Service Groups**.
 4. Select **+ Add Service Group**.
     
-  ![Screenshot of new SG screen](./media/create_SG.png)
-
+:::image type="content" source="./media/create-service-group.png" alt-text="Screenshot of new Service Group screen." Lightbox = "./media/create-service-group.png" :::
 5. Fill in the service group ID field
 
    * The **Service Group ID** is the directory unique identifier that is used to submit commands
@@ -44,12 +43,13 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
          display name is an optional field when creating the service group and can be changed at any time.
 6. Select the **Parent Service Group**. 
     
-   * If you don't have a parent service group, or don't know what to pick, select the Root Service Group which has same ID as the tenant's ID. _"Microsoft.Management/serviceGroups/]tenantId]"_
+   * If you don't have a parent service group, or don't know what to pick, select the Root Service Group which has same ID as the tenant's ID. _"Microsoft.Management/serviceGroups[tenantId]"_
 
 7. Select "Next" 
 8. The review page shows
 
-![The review page for creating a new service group](./media/create_review_sg.png)
+:::image type="content" source="./media/create-review-service-group.png" alt-text="Screenshot of the review page for creating a new service group" Lightbox="./media/create-review-service-group.png":::
+
 9. If all information is correct, select **Create**
 
 ## Clean up resources

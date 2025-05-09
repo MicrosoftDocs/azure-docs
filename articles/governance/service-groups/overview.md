@@ -31,7 +31,7 @@ The same resources can be connected to many different service groups allowing di
 * Varying Personas 
     * With Service Groups, organizations have the ability to manage multiple hierarchies over the same resources for different personas and their own individual views. Customers can use the same resources to be members of a Workload Service Group, a Department Service Group, and a Service Group with all Production resources. 
 
-![MultipleSGTree](./media/MultiSG.png)
+:::image type="content" source="./media/multiple-service-group.png" alt-text="Diagram that shows multiple service group branches" Lightbox="./media/multiple-service-group.png":::
 
 ### Flexible Membership
 Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
@@ -42,7 +42,7 @@ Within the hierarchy of resources, there's a limitation of one parent resource c
 * Creating Inventory of a specific resource type
     * Customers can connect all Virtual Machines or CosmosDBs to the same Service Groups to get a consolidated view of all the resources of that type in the entire environment. This capability allows a customer like a Virtual Machine Administrator to view aggregated data on all their resources no matter what subscription they live in.
 
-![MGsandSGs](./media/sidebyside.png)
+:::image type="content" source="./media/side-by-side.png" alt-text="Diagram showing the Management Group and Service Group Hierarchies within the Microsoft Entra Tenant" Lightbox="./media/side-by-side.png":::
 
 * Aggregating monitoring metrics 
    * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources. 
@@ -183,7 +183,7 @@ The Service Group Contributor role given to users when they need to create or ma
 ```
 
 
-### Service Group Reader 
+#### Service Group Reader 
 This built-in role is to be used to read service groups and can also be assigned to other resources to view the connected relationships.  
 
 ```json
