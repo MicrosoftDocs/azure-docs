@@ -78,7 +78,7 @@ Follow these steps to enable **Application based access** for a product. A produ
 The following example uses the **Starter** product, but choose any published product that has at least one API assigned to it.
 
 
-1. Sign in to the Azure portal at the following test URL :
+1. Sign in to the Azure portal at the following test URL:
 
     [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true)
 1. Navigate to your API Management instance.
