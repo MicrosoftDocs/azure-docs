@@ -78,8 +78,6 @@
       href: https://youtu.be/OxmVds31qL8
     - name: Communicate between multiple apps
       href: connect-apps.md
-    - name: Reduce cold-start times
-      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -225,6 +223,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -506,6 +506,8 @@
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI
