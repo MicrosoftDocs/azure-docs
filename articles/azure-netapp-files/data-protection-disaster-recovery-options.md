@@ -4,7 +4,7 @@ description: Learn about data protection and disaster recovery options available
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/04/2024
 ms.author: anfdocs
 ---

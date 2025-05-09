@@ -3,7 +3,7 @@ title: Understand Azure Files billing
 description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure Files. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/1/2025
 ms.author: kendownie
 ms.custom: references_regions
@@ -146,17 +146,23 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Korea South
 - East US 2
 - Central US
-- US Gov Virginia*
-- US Gov Arizona*
-- US Gov Texas*
+- US Gov Virginia
+- US Gov Arizona
+- US Gov Texas
 - Poland Central
 - West US 3
 - Spain Central
 - New Zealand North
 - Italy North
 - Indonesia Central
-
-Storage accounts in regions flagged with an asterisk (*) can only be created using Azure PowerShell or Azure CLI. See [create a storage account](./storage-how-to-create-file-share.md) for more information.
+- Sweden Central
+- Sweden South
+- Australia Central
+- Australia Central 2
+- South Africa North
+- South Africa West
+- Switzerland North
+- Switzerland West
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:

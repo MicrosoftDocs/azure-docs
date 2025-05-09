@@ -1,7 +1,7 @@
 ---
 title: What's new in multimedia redirection? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
-author: ErikjeMS
+author: dougeby
 ms.topic: release-notes
 ms.date: 02/19/2025
 ms.author: avdcontent
