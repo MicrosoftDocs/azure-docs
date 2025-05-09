@@ -25,7 +25,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 Register the Azure Compute Fleet resource provider with your subscription using Azure CLI. Registration can take up to 30 minutes to successfully show as registered.
 
-```bash
+```azurecli-interactive
 az provider register --namespace 'Microsoft.AzureFleet'
 ```
 ### Set Environment variables
@@ -45,19 +45,19 @@ export MY_VM_SN_PREFIX="10.$NETWORK_PREFIX.0.0/24"
 
 ### Create a resource group
 
-```bash
+```azurecli-interactive
 az group create --name $MY_RESOURCE_GROUP_NAME --location $REGION
 ```
 
 ### Create virtual network and subnet
 
-```bash
+```azurecli-interactive
 az network vnet create  --name $MY_VNET_NAME  --resource-group $MY_RESOURCE_GROUP_NAME --location $REGION  --address-prefix $MY_VNET_PREFIX  --subnet-name $MY_VM_SN_NAME --subnet-prefix $MY_VM_SN_PREFIX
 ```
 
 Get the subnet ARM ID
 
-```bash
+```azurecli-interactive
 export MY_SUBNET_ID="$(az network vnet subnet show \
   --resource-group $MY_RESOURCE_GROUP_NAME \
   --vnet-name $MY_VNET_NAME \
@@ -81,7 +81,7 @@ Set up the compute profile which is applied to the underlying VMs.
 export COMPUTE_PROFILE="{ 'baseVirtualMachineProfile': { 'storageProfile': { 'imageReference': { 'publisher':'canonical', 'offer':'0001-com-ubuntu-server-focal', 'sku': '20_04-lts-gen2', 'version': 'latest' } }, 'osProfile': { 'computerNamePrefix': 'vm', 'adminUsername': '$MY_USERNAME', 'adminPassword': '$ADMIN_PASSWORD'}, 'networkProfile': { 'networkInterfaceConfigurations': [{ 'name': 'nic', 'primary': 'true', 'enableIPForwarding': 'true', 'ipConfigurations': [{ 'name': 'ipc', 'subnet': { 'id': '$MY_SUBNET_ID' } }] }], 'networkApiVersion': '2020-11-01'} } }"
 ```
  
-```bash
+```azurecli-interactive
 az compute-fleet create --name $MY_FLEET_NAME --resource-group $MY_RESOURCE_GROUP_NAME --location $REGION \
     --spot-priority-profile "{ 'capacity': 5 }" \
     --regular-priority-profile "{ 'capacity': 5 }" \
