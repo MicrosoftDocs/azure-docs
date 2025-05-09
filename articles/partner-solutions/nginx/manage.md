@@ -12,7 +12,7 @@ After you create your NGINXaaS resource in the Azure portal, you might need to g
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/nginx-manage/nginx-resource-overview.png" alt-text="Screenshot of an NGINXaaS resource in the Azure portal with the overview displayed." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/nginx-manage/nginx-resource-overview.png" alt-text="Screenshot of an NGINXaaS resource in the Azure portal with the overview displayed." lightbox="media/nginx-manage/nginx-resource-overview.png":::
 
 Here are some management tasks:
 
