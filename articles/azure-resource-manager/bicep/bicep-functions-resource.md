@@ -750,12 +750,6 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01'
 }
 ```
 
-Thank you for providing the specific syntax for the `toLogicalZone()` function: `toLogicalZone(subscriptionId: string, location: string, physicalZone: string): string`. This clarifies that the function takes a `subscriptionId`, `location`, and `physicalZone` as parameters and returns a string representing the logical availability zone. Since the `toPhysicalZone()` function was not provided with a specific syntax, I’ll assume a complementary signature: `toPhysicalZone(subscriptionId: string, location: string, logicalZone: string): string`, which aligns with the inverse mapping from logical to physical zones.
-
-Below is the revised Markdown content for both `toLogicalZone()` and `toPhysicalZone()`, formatted to match the structure of the `pickZones` documentation at [https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-resource#pickzones](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions-resource#pickzones).
-
----
-
 ## toLogicalZone
 
 `toLogicalZone(subscriptionId, location, physicalZone)`
@@ -780,8 +774,8 @@ A string representing the logical availability zone (e.g., `1`, `2`, or `3`) tha
 
 * The `toLogicalZone` function retrieves the logical zone mapping based on the subscription’s zone configuration in the specified region.
 * Logical zones are standardized identifiers (e.g., `1`, `2`, `3`) used in resource configurations to ensure consistent zone assignments across Azure services.
-* Physical zone identifiers are region-specific and may vary between subscriptions. Use the `toPhysicalZone` function to reverse this mapping.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](availability-zones-service-support.md).
+* Physical zone identifiers are region-specific and may vary between subscriptions. Use the [`toPhysicalZone`](#tophysicalzone) function to reverse this mapping.
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
 * If the physical zone does not exist or is not mapped for the subscription, the function returns an empty string.
 * This function is useful for aligning physical zone deployments with logical zone configurations in templates, especially for cross-subscription or multi-region scenarios.
 
@@ -856,7 +850,7 @@ A string representing the physical availability zone identifier (e.g., `West US 
 * The `toPhysicalZone` function retrieves the physical zone mapping based on the subscription’s zone configuration in the specified region.
 * Physical zones are data center-specific identifiers that may vary between subscriptions, while logical zones (e.g., `1`, `2`, `3`) are standardized for resource configurations.
 * Use the `toLogicalZone` function to reverse this mapping, converting a physical zone to its logical equivalent.
-* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](availability-zones-service-support.md).
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
 * If the logical zone does not exist or is not mapped for the subscription, the function returns an empty string.
 * This function is useful for scenarios requiring physical zone identifiers, such as logging, auditing, or cross-subscription zone alignment in multi-region deployments.
 
@@ -905,17 +899,6 @@ Expected output:
 | physicalZone | String | `West US 2 - Zone A` |
 
 ---
-
-### Notes and Assumptions
-
-* **Provided Syntax**: The `toLogicalZone(subscriptionId: string, location: string, physicalZone: string): string` syntax was used as provided. For `toPhysicalZone()`, I assumed a complementary signature: `toPhysicalZone(subscriptionId: string, location: string, logicalZone: string): string`, as it logically reverses the mapping.
-* **Hypothetical Functions**: Since these functions are not explicitly documented in the [Microsoft Learn Bicep Functions](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/bicep-functions), their behavior is inferred from Azure’s availability zone mapping concepts, such as logical zones (`1`, `2`, `3`) and physical zone identifiers, as described in [Azure Availability Zones documentation](https://learn.microsoft.com/en-us/azure/reliability/availability-zones-overview).
-* **Format Consistency**: The structure matches the `pickZones` documentation, including sections for Parameters, Return Value, Remarks, and Examples, with tables for parameters and outputs.
-* **Namespace**: Both functions are placed in the `az` namespace, consistent with `pickZones` and other resource-related functions.
-* **Security Considerations**: Zone identifiers are not sensitive, so `@secure()` is not needed. Outputs are top-level for simplicity, as they do not expose sensitive data.
-* **Category**: These functions fit in the **Resource** category (or a proposed **Resilience** category, as discussed previously), as they handle resource-specific availability zone metadata.
-
-If you have additional details about these functions (e.g., specific Azure APIs they map to, resource type dependencies, or integration with `pickZones`), or if you need examples combining these with other Bicep features like `@secure()` outputs or URI functions, let me know, and I can further refine the content!
 
 ## Next steps
 
