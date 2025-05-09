@@ -156,7 +156,7 @@ symmetric_key = { uri = "file:///var/aziot/secrets/device-id.key" }             
 symmetric_key = { uri = "pkcs11:slot-id=0;object=device%20id?pin-value=1234" }    
 ```
 
-For more information about DPS provisioning with symmetric key, see [Create and provision IoT Edge devices at scale on Linux using symmetric key](how-to-provision-devices-at-scale-linux-symmetric.md).
+For more information about DPS provisioning with symmetric key, see [Create and provision IoT Edge devices at scale on Linux using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md).
 
 ### DPS provisioning with X.509 certificates
 
