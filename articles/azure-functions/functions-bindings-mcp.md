@@ -38,7 +38,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 `Microsoft.Azure.Functions.Worker.Extensions.Mcp`  
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java"  
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java"  
 
 ## Install bundle    
 
