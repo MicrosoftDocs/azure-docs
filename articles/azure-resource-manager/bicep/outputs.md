@@ -153,7 +153,7 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ### Secure outputs
 
-With Bicep version 0.35.1 and later, you can mark string or object outputs as secure. When an output is decorated with `@secure()`, Azure Resource Manager treats the output value as sensitive, preventing it from being logged or displayed in deployment history, Azure Portal, or command-line outputs.
+With Bicep version 0.35.1 and later, you can mark string or object outputs as secure. When an output is decorated with `@secure()`, Azure Resource Manager treats the output value as sensitive, preventing it from being logged or displayed in deployment history, Azure portal, or command-line outputs.
 
 ```bicep
 @secure()
