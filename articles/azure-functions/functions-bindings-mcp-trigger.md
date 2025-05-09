@@ -153,7 +153,7 @@ See the [Example section](#example) for complete examples.
 
 The MCP protocol enables an MCP server to make known to clients other properties of a tool endpoint. In C#, you can define properties of your tools as either input parameters using the `McpToolProperty` attribute to your trigger function code or by using the `FunctionsApplicationBuilder` when the app starts. 
 
-### [McpToolPropertyAttribute](#tab\attribute)
+### [`McpToolPropertyAttribute`](#tab/attribute)
 
 You can define one or more tool properties by applying the `McpToolProperty` attribute to input binding-style parameters in your function.  
 
@@ -167,7 +167,7 @@ The `McpToolPropertyAttribute` type supports these properties:
 
 You can see these attributes used in the `SaveSnippet` tool in the [Examples](#example).
 
-### [FunctionsApplicationBuilder](#tab\builder)
+### [`FunctionsApplicationBuilder`](#tab/builder)
 
 You can define tool properties in your entry point (program.cs) file by using the `McpToolBuilder` returned by the `ConfigureMcpTool` method on `FunctionsApplicationBuilder`. This examples calls the `WithProperty` method on the builder for the `GetSnippet` tool to set the properties of the tool:
 
