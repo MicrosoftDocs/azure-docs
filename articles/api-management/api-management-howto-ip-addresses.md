@@ -25,7 +25,7 @@ Every API Management instance in Developer, Basic, Standard, or Premium tier has
 
 You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal:
 
-:::image type="content" source="media/api-management-howto-ip-addresses/public-ip.png" alt-text="Screenshot that shows an IP adress in API Management." lightbox="media/api-management-howto-ip-addresses/public-ip.png":::
+:::image type="content" source="media/api-management-howto-ip-addresses/public-ip.png" alt-text="Screenshot that shows an IP address in API Management." lightbox="media/api-management-howto-ip-addresses/public-ip.png":::
 
 You can also fetch them programmatically by using this API call:
 
@@ -125,7 +125,7 @@ For example, the following JSON fragment is what the allowlist for Western Europ
 
 For information about when this file is updated and when the IP addresses change, expand the **Details** section of the [Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 
-## Changes to the IP addresses
+## Changes to IP addresses
 
 In the Developer, Basic, Standard, and Premium tiers of API Management, the public IP address or addresses (VIP) and private VIP addresses (if configured in the internal virtual network mode) are static for the lifetime of a service, with the following exceptions:
 
