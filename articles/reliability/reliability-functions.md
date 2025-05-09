@@ -42,7 +42,7 @@ When zone redundancy is enabled in a Flex Consumption plan, instance spreading i
 
 - [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances are distributed across zones in a round-robin fashion.
 - On-demand instances, which are created as a result of event source volumes as the app scales beyond always-ready, are distributed across availability zones on a _best effort_ basis. This means that for on-demand instances, faster scale-out is given preference over even distribution across availability zones. The platform attempts even-out distribution over time.
-- To ensure zone resiliency with availability zones, the platform automatically guarantees at least 2 instances of the always-ready type exist for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Any instances created by the platform are platform managed, billed as always-ready instances, and won't change the always-ready configuration settings.
+- To ensure zone resiliency with availability zones, the platform automatically guarantees at least two instances of the always-ready type exist for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Any instances created by the platform are platform managed, billed as always-ready instances, and don't change the always-ready configuration settings.
 ::: zone-end 
 ::: zone pivot="premium-plan"  
 When you configure Elastic Premium function app plans as zone redundant, the platform automatically spreads the function app instances across the zones in the selected region.
@@ -54,7 +54,7 @@ Instance spreading with a zone-redundant deployment is determined inside the fol
 - For a capacity value more than Number of Zones * Number of instances, extra instances are spread across the remaining zones.
 
 >[!IMPORTANT]
->Azure Functions can run on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as Elastic Premium plans, with SKU names like EP1. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with "E", such as EP1. App Service plan SKU names that start with "P", such as P1V2 (Premium V2 Small plan), are actually [Dedicated hosting plans](../azure-functions/dedicated-plan.md). Because they are Dedicated and not Elastic Premium, plans with SKU names starting with "P" won't scale dynamically and may increase your costs.
+>Azure Functions can run on the Azure App Service platform. In the App Service platform, plans that host Premium plan function apps are referred to as Elastic Premium plans, with SKU names like `EP1`. If you choose to run your function app on a Premium plan, make sure to create a plan with an SKU name that starts with `E`, such as `EP1`. App Service plan SKU names that start with `P`, such as `P1V2` (Premium V2 Small plan), are [Dedicated hosting plans](../azure-functions/dedicated-plan.md). Because they're Dedicated and not Elastic Premium, plans with SKU names starting with `P` don't scale dynamically and can increase your costs.
 ::: zone-end  
 ### Regional availability
 ::: zone pivot="flex-consumption-plan"
@@ -68,7 +68,7 @@ Currently, not all regions support zone redundancy for Flex Consumption plans. Y
 
     The [`az login`](/cli/azure/reference-index#az-login) command signs you into your Azure account.
 
-2. Use this [`az functionapp list-flexconsumption-locations`](/cli/azure/functionapp#az-functionapp-list-flexconsumption-locations) command with the `--zone-redundant=true` option to returns a list of regions that currently support zone-redundant Flex Consumption plans: 
+2. Use this [`az functionapp list-flexconsumption-locations`](/cli/azure/functionapp#az-functionapp-list-flexconsumption-locations) command with the `--zone-redundant=true` option to return a list of regions that currently support zone-redundant Flex Consumption plans: 
 
     ```azurecli-interactive
     az functionapp list-flexconsumption-locations --zone-redundant=true --query "sort_by(@, &name)[].{Region:name}" -o table
@@ -94,14 +94,14 @@ Zone-redundant Premium plans are available in these regions:
 ::: zone-end 
 ### Prerequisites 
 ::: zone pivot="flex-consumption-plan"
-Availability zone support is a property of the Flex Consumption plan. These are the current considerations for availability zones:
+Availability zone support is a property of the Flex Consumption plan. Here are current considerations for using availability zones:
 
 - You can enable availability zones in the plan during app creation. You can also enable or disable this plan feature in an existing app.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [default host storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, your app might behave unexpectedly during a zonal outage.
 - Must be hosted on a [Flex Consumption](../azure-functions/flex-consumption-plan.md) plan.
 ::: zone-end 
 ::: zone pivot="premium-plan" 
-Availability zone support is a property of the Premium plan. These are the current considerations for availability zones:
+Availability zone support is a property of the Premium plan. Here are current considerations for availability zones:
 
 - You can only enable availability zones in the plan when you create your app. You can't convert an existing Premium plan to use availability zones.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [default host storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, your app might behave unexpectedly during a zonal outage.
@@ -112,10 +112,12 @@ Availability zone support is a property of the Premium plan. These are the curre
 ::: zone-end 
 ### Pricing 
 ::: zone pivot="flex-consumption-plan"
-There's no separate meter associated with enabling availability zones. Pricing for instances used for a zone-redundant Flex Consumption app is the same as a single zone Flex Consumption app. To learn more, see [Billing](../azure-functions/flex-consumption-plan.md#billing). If you enable availability zones but always-ready instance configuration is less than two for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), the platform automatically creates two instances of the [always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) type for each per-function scaling function or group, and those will incur always-ready billing.
+There's no separate meter associated with enabling availability zones. Pricing for instances used for a zone-redundant Flex Consumption app is the same as a single zone Flex Consumption app. To learn more, see [Billing](../azure-functions/flex-consumption-plan.md#billing). 
+
+When you enable availability zones in an app with always-ready instance configuration of fewer than two instances for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), the platform automatically creates two more instances of the [always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) type for each per-function scaling function or group. These new instances are also billed as always-ready instances.
 ::: zone-end 
 ::: zone pivot="premium-plan" 
-There's no extra cost associated with enabling availability zones. Pricing for a zone-redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three for an App Service plan, the platform enforces a minimum instance count of three for that App Service plan and charges you for those three instances.
+There's no extra cost associated with enabling availability zones. Pricing for a zone-redundant Premium App Service plan is the same as a single zone Premium plan. For each App Service plan you use, you're charged based on the SKU you choose, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones on a plan with fewer than three instances, the platform enforces a minimum instance count of three for that App Service plan, and you're charged for all three instances.
 ::: zone-end 
 ### Create a function app in a zone-redundant plan 
 ::: zone pivot="flex-consumption-plan"
@@ -131,7 +133,7 @@ There are currently multiple ways to deploy a zone-redundant Flex Consumption ap
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Your preferred supported region | The region under which the new function app is created. You must pick a region that supports availability zones. See the [region availability list](#regional-availability). |
+    | **Region** | Your preferred supported region | The region in which your function app is created. You must select a region that supports availability zones. See the [region availability list](#regional-availability). |
     | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You won't be able to select `Enabled` unless you have chosen a region that supports zone redundancy, as described previously. |
     
     :::image type="content" source="../azure-functions/media/functions-az-redundancy/azure-functions-flex-basics-az.png" alt-text="Screenshot of the Basics tab of the Flex Consumption function app create page.":::
@@ -222,13 +224,18 @@ After the zone-redundant plan is created and deployed, the Flex Consumption func
 
 ### Update a Flex Consumption plan to be zone-redundant 
 
-Before updating your Flex Consumption plan to be zone-redundant, consider updating the storage account(s) associated with the app and the deployment storage of the app to also be zone redundant. This will be disruptive and careful consideration should be taken.
-- Review [Storage Considerations](../azure-functions/storage-considerations.md).
-- Create or identify a zone-redundant storage account to associate with the app.
-- Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
-- Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
+Changing the zone redundancy of you app requires a restart, which causes downtime in your app.  
 
-Once the storage account(s) associated with the app have been updated, you can update the Flex Consumption plan to be zone-redundant using Bicep or ARM templates. This will cause the Flex Consumption app in the plan to restart.
+Before updating your Flex Consumption plan to be zone-redundant, you should update the default host storage account to also be zone redundant. If you use a separate storage account for the app's deployment container, should update it to be zone redundant as well. 
+
+Use these steps to prepare your storage accounts for the change:
+
+1. Review [Storage Considerations](../azure-functions/storage-considerations.md).
+1. Create or identify a zone-redundant storage account to associate with the app.
+1. Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
+1. Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
+
+After the storage accounts used by your app are updated, you can update the Flex Consumption plan to be zone-redundant using Bicep or ARM templates. The Azure portal and Azure CLI don't currently support making zone redundancy updates to the plan. 
 
 #### [Azure portal](#tab/azure-portal)
 Not currently supported.
@@ -247,17 +254,65 @@ Not currently supported.
 -->
 #### [Bicep template](#tab/bicep)
 
-Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition.
+You can use this Bicep file to add the `zoneRedundant` property to `true` in an existing plan definition: 
+
+```bicep
+resource existingServerFarm 'Microsoft.Web/serverfarms@2024-04-01' existing = {
+  name: '<YOUR_PLAN_NAME>'
+  scope: resourceGroup()
+}
+
+resource updatedServerFarm 'Microsoft.Web/serverfarms@2024-04-01' = {
+  name: existingServerFarm.name
+  location: '<YOUR_REGION_NAME>'
+  kind: 'functionapp'
+  sku: {
+    tier: 'FlexConsumption'
+    name: 'FC1'
+  }
+  properties: {
+    reserved: true
+    zoneRedundant: true  // Enables zone redundancy
+  }
+}
+```
+
+In this file, replace `<YOUR_PLAN_NAME>` and `<YOUR_REGION_NAME>` with the name of your plan and region, respectively. To learn how to deploy a Bicep file, see [Deploy your template](../azure-functions/functions-infrastructure-as-code.md#deploy-your-template).
 
 #### [ARM template](#tab/arm-template)
-Follow the same instructions as in [Create a zone-redundant Flex Consumption app](#create-a-zone-redundant-flex-consumption-plan) to add the `zoneRedundant` property to the plan definition.
+
+You can use this ARM template fragment to set the `zoneRedundant` property to `true` in an existing plan definition: 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Web/serverfarms",
+      "apiVersion": "2024-04-01",
+      "name": "<YOUR_PLAN_NAME>",
+      "location": "<YOUR_REGION_NAME>",
+      "kind": "functionapp",
+      "sku": {
+        "tier": "FlexConsumption",
+        "name": "FC1"
+      },
+      "properties": {
+        "reserved": true,
+        "zoneRedundant": true
+      }
+    }
+  ]
+}
+```
+
+In this template, replace `<YOUR_PLAN_NAME>` and `<YOUR_REGION_NAME>` with the name of your plan and region, respectively. To learn how to deploy an ARM template, see [Deploy your template](../azure-functions/functions-infrastructure-as-code.md#deploy-your-template).
 
 ---
- 
+
 ::: zone-end 
 ::: zone pivot="premium-plan" 
-### Create a zone-redundant Premium plan and function app
-
 There are currently two ways to deploy a zone-redundant Premium plan and function app. You can use either the [Azure portal](https://portal.azure.com) or an ARM template.
 
 #### [Azure portal](#tab/azure-portal)
