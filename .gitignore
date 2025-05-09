@@ -27,3 +27,22 @@ AzureMigration.ps1
 
 # Pycharm
 .idea/*
+articles/planetary-computer/doc-tree-generator.py
+.gitignore
+articles/planetary-computer/article_links_diagram.md
+articles/planetary-computer/index_helper.py
+articles/planetary-computer/metadata_index.csv
+articles/planetary-computer/broken_link_checker.py
+articles/planetary-computer/broken_links_external.csv
+articles/planetary-computer/broken_links.csv
+articles/planetary-computer/check_orphaned_docs.py
+
+# Python cache files
+*.pyc
+__pycache__/
+articles/planetary-computer/interesting_stats.py
+articles/planetary-computer/locate_text.py
+articles/planetary-computer/image_syntax_checker.py
+articles/planetary-computer/image-file-fixer.py
+articles/planetary-computer/orphaned-media.py
+articles/planetary-computer/orphaned_media_files.txt
