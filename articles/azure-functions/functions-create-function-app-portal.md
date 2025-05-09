@@ -8,7 +8,7 @@ zone_pivot_groups: functions-hosting-plan-dynamic
 
 # Create a function app in the Azure portal
 
-This article shows you how to use the Azure portal to create a serverless function app that is hosted in Azure Functions using one of these dynamic hosting plan options:
+This article shows you how to use the Azure portal to create a function app that's hosted in Azure Functions. These hosting plan options, which support dynamic, event-driven scaling, are featured:
 
 | Hosting option | Description |
 | ----- | ----- |
@@ -16,7 +16,7 @@ This article shows you how to use the Azure portal to create a serverless functi
 | [Premium plan](./functions-premium-plan.md) | Provides longer execution times, more control over CPU/memory, and support for containers and virtual networks. |
 | [Consumption plan](./consumption-plan.md) | Original dynamic hosting plan, which supports portal development for some languages. |
 
-Choose your preferred dynamic scale hosting plan at the [top](#top) of the article.
+Choose your preferred hosting plan at the [top](#top) of the article. For more information about all supported hosting options, see [Azure Functions hosting options](functions-scale.md).  
 
 ## Prerequisites
 
