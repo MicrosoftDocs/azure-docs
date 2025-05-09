@@ -87,7 +87,7 @@ The SDKs supports the following application types:
 
 ## Samples and tutorials
 
-Review the [samples](/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
+Review the [samples](https://github.com/Azure/iot-operations-sdks/tree/main/samples) directory for samples about creating applications for Azure IoT Operation on the supported languages.
 
 To deploy a fully functional application to a cluster and see the SDKs in action, follow the [Tutorial: Develop an edge app with Azure IoT Operations SDKs for efficient data handling](tutorial-develop-edge-app.md).
 
