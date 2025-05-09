@@ -45,7 +45,7 @@ Following are limitations during our preview.
 - VMs behind Basic Load Balancer can't be set as a mirroring source.
 - Virtual network doesn't support mirroring of inbound Private Link Service traffic.
 - VMs in a virtual network with encryption enabled can't be set as mirroring source.
-- Virtual network doesn't support IPv6 isn't supported.
+- Virtual network TAP doesn't support IPv6.
 - When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
 
 ## Supported Regions
@@ -55,8 +55,8 @@ Following are limitations during our preview.
 
 ### Coming soon
 
-- UK South (May 5)
-- US East (May 15)
+- UK South
+- US East
 
 ## Virtual network TAP partner solutions
 
@@ -65,20 +65,21 @@ Following are limitations during our preview.
 |Partner|Product|
 |-------------|----------|
 |**Gigamon**|[GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)|
-|**cPacket -**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
+|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**Keysight**|[CloudLens](https://www.keysight.com/us/en/products/network-visibility/cloud-visibility/cloudlens-software-suite.html)|
 
 ### Security analytics, network/application performance management
 
 |Partner|Product|
 |-------------|----------|
-|**DarkTrace**|[Darktrace /NETWORK](https://www.darktrace.com/products/network)|
+|**Darktrace**|[Darktrace /NETWORK](https://www.darktrace.com/products/network)|
 |**Netscout**|[Omnis Cyber Intelligence NDR](https://www.netscout.com/product/cyber-intelligence)|
 |**Corelight**|[Corelight Open NDR Platform](https://corelight.com/solutions/why-open-ndr)|
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
+||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
-|**Extrahop**|[Reveal(x)](https://hop.extrahop.com/partners/tech-partners/microsoft/)|
+|**Extrahop**|[Reveal(x)](https://www.extrahop.com/platform/revealx)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
 |**eSentire**|[eSentire MDR](https://www.esentire.com/how-we-do-it/signals/mdr-for-network)|
 |**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|

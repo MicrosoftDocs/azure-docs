@@ -4,7 +4,7 @@ description: Learn about Intel SGX hardware to enable your confidential computin
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: workloads
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/01/2021
 ms.author: jushiman
 ---
