@@ -68,7 +68,9 @@ Set up a secured storage account for your function app:
 
     * [Create a private endpoint](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint). As you set up your private endpoint connection, create private endpoints for the `file` and `blob` subresources. For Durable Functions, you must also make `queue` and `table` subresources accessible through private endpoints. If you're using a custom or on-premises Domain Name System (DNS) server, [configure your DNS server](../storage/common/storage-private-endpoints.md#dns-changes-for-private-endpoints) to resolve to the new private endpoints.
 
-    * [Restrict traffic to specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Ensure your function app is network integrated with an allowed subnet and that the subnet has a service endpoint to `Microsoft.Storage`. If your app is in a different region than your virtual network, use `Microsoft.Storage.Global` instead. Note, a storage account cannot have both. 
+    * [Restrict traffic to specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Ensure your function app is network integrated with an allowed subnet and that the subnet has only one of these service endpoints defined: 
+        * `Microsoft.Storage`: use when your app is in the same region as your virtual network.
+        * `Microsoft.Storage.Global`:  use when your app is in a different region than your virtual network. 
 
 1. Copy the file and blob content from the current storage account used by the function app to the newly secured storage account and file share. [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) and [Azure Storage Explorer](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/azure-tips-and-tricks-how-to-move-azure-storage-blobs-between/ba-p/3545304) are common methods. If you use Azure Storage Explorer, you might need to allow your client IP address access to your storage account's firewall.
 
@@ -88,7 +90,7 @@ You're now ready to route your function app's traffic to go through the virtual 
 
     1. In the new page, under **Application routing**, select **Outbound internet traffic**.
 
-1. If you're using an Azure Files connection, enable [content share routing](../app-service/overview-vnet-integration.md#content-share) to enable your function app to communicate with Azure Files through its virtual network. In the same page as the previous step, under **Configuration routing**, select **Content storage**.
+1. If your app uses an Azure Files share, enable [content share routing](../app-service/overview-vnet-integration.md#content-share) by selecting **Content storage** under **Configuration routing**. This allows your app to communicate with Azure Files using the virtual network.
 
 [!INCLUDE [functions-content-over-vnet-shared-storage-note](../../includes/functions-content-over-vnet-shared-storage-note.md)]
 
@@ -105,7 +107,7 @@ Finally, you need to update your application settings to point to the new secure
     | [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md#website_contentazurefileconnectionstring) | Storage connection string | Use the connection string for your new secured storage account, which you saved earlier. Only relevant if your app is using Azure Files. |
     | [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md#website_contentshare) | File share | Use the name of the file share created in the secured storage account where the project deployment files reside. Only relevant if your app is using Azure Files. |
 
-1. Select **Apply**, and then **Confirm** to save the new application settings in the function app. This will cause the function app to restart.
+1. Select **Apply**, and then **Confirm** to save the new application settings in the function app. This causes the function app to restart.
 
 After the function app finishes restarting, it connects to the secured storage account.
 
