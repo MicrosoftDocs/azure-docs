@@ -56,7 +56,7 @@ These scenarios include solutions to prevent failures and ensure a successful mi
 | **FastPath configuration restriction** | Enabling or disabling FastPath during migration isn't supported. | Ensure FastPath remains in its original configuration before proceeding with the migration. |
 | **Route weight modification restriction** | Adjusting the route weight during migration isn't permitted. | Revert the route weight to its original value before continuing with the migration process. |
 
-### Unsupported scenarios that may cause migration issues
+### Unsupported scenarios to avoid
 
 The following table outlines unsupported scenarios that may result in migration failures and don't have available resolutions:
 
