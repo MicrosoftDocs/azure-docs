@@ -188,8 +188,6 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | uriOutput | String | `https://mystorage.blob.core.windows.net/templates/nestedTemplate.json?st=2025-05-09#section` |
 
-### Additional Example: Combining with `parseUri`
-
 The following example shows how to use `parseUri` to extract components from an existing URI, modify them, and then use `buildUri` to reconstruct a new URI:
 
 ```bicep
@@ -211,19 +209,6 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | originalHost | String | `mystorage.blob.core.windows.net` |
 | newUri | String | `https://mystorage.blob.core.windows.net/newdata/newfile.json?newParam=value` |
-
-```bicep
-param originalUri string = 'https://mystorage.blob.core.windows.net/data/file.json?st=2025-05-09'
-
-var parsedUri = parseUri(originalUri)
-var newPath = '/newdata/newfile.json'
-var newQuery = '?newParam=value'
-
-var newUri = buildUri(parsedUri.scheme, parsedUri.host, newPath, newQuery, parsedUri.fragment)
-
-output originalHost string = parsedUri.host
-output newUri string = newUri
-```
 
 ## concat
 
@@ -1038,8 +1023,6 @@ The output from the preceding example with the default values is:
 | query | String | `?st=2025-05-09` |
 | fragment | String | `#section` |
 | isAbsolute | Bool | `true` |
-
-### Additional Example: Combining with `uri`
 
 The following example shows how to use `parseUri` to extract the host and scheme, then reconstruct a new URI with a different path using the `uri` function:
 
