@@ -4,7 +4,7 @@ description: Understand how to use Azure Cosmos DB for MongoDB(vCore) triggers a
 author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
-ms.date: 8/5/2025
+ms.date: 5/8/2025
 ms.custom: 
   - build-2025
 ---
