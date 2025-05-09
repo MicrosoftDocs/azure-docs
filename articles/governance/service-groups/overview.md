@@ -31,7 +31,7 @@ The same resources can be connected to many different service groups allowing di
 * Varying Personas 
     * With Service Groups, organizations have the ability to manage multiple hierarchies over the same resources for different personas and their own individual views. Customers can use the same resources to be members of a Workload Service Group, a Department Service Group, and a Service Group with all Production resources. 
 
-:::image type="content" source="./media/multiple-service-group.png" alt-text="Diagram that shows multiple service group branches" Lightbox="./media/multiple-service-group.png":::
+:::image type="content" source="./media/multiple-service-group.png" alt-text="Diagram that shows multiple service group branches." Lightbox="./media/multiple-service-group.png":::
 
 ### Flexible Membership
 Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  

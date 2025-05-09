@@ -287,7 +287,7 @@ All **PUT**, **PATCH**, and **DELETE** API calls to Service Groups and Service G
 
 For example, if the customer created a REST API call to [Create a Service Group](#create-service-group). The API Request comes to Azure and the Service Groups Resource Provider to be processed. The response to the customer is that the request was received or it failed. 
 
-:::image type="content" source="./media/request-received.png" alt-text="Diagram that shows request received process" Lightbox="./media/request-received.png":::
+:::image type="content" source="./media/request-received.png" alt-text="Diagram that shows request received process." Lightbox="./media/request-received.png":::
 
 To get the status of the operation to see if the service group was created or not, the customer makes a separate call. The status returned is for the entire operation.
 
