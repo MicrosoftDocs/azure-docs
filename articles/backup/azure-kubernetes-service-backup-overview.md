@@ -426,8 +426,8 @@ Azure Backup for AKS supports two storage tiers as backup datastores:
 
 * **Vault Tier**: To store backup data for a longer duration at a lower cost than snapshots, AKS backup supports Vault-standard datastore. Per the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure-paired region) for recovery by enabling **Geo-redundancy** and **Cross Region Restore** in the Backup vault.
 
-> [!NOTE]
-> You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to Vault Tier. However, you can move any number of on-demand backups to the Vault per the rule selected.  
+  > [!NOTE]
+  > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to Vault Tier. However, you can move any number of on-demand backups to the Vault per the rule selected.  
 
 ## Understand pricing
 
