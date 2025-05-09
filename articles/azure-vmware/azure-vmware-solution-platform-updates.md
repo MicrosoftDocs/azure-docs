@@ -4,13 +4,18 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 5/7/2025
 ---
 
 # What's new in Azure VMware Solution
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
 
+## May 2025
+
+**HCX Upgrade and Hybridity Depot Decommissioning**
+
+The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
 ## April 2025
 
 **AV48 SKU**
