@@ -4,12 +4,12 @@ description:  Learn to use the Azure Cosmos DB for MongoDB(vCore) trigger in Azu
 author: sajeetharan
 ms.author: sasinnat
 ms.topic: reference
-ms.date: 05/08/2025
+ms.date: 5/8/2025
 ms.custom: 
   - build-2025
 ---
 
-# Azure Cosmos DB trigger for Azure Functions 2.x and higher
+# Azure Cosmos DB for MongoDB(vCore) trigger for Azure Functions 2.x and higher
 
 The Azure Cosmos DB for MongoDB(vCore) Trigger uses the [Azure Cosmos DB for MongoDB(vCore) ChangeStream](/azure/cosmos-db/mongodb/change-streams) to listen for inserts and updates. The change feed publishes new and updated items, not including updates from deletions.
 
@@ -41,10 +41,6 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ---
 
-::: zone-end  
-
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
-
 ## Usage
 
 The following example shows a C# Function that retrieves a single document when a document is updated/changed.
@@ -74,5 +70,5 @@ namespace Sample
 
 ## Related articles
  
- - [Azure Cosmos DB for MongoDB(vCore)](./cosmos-db/mongodb/vcore/introduction.md)
- - [Azure Azure Cosmos DB for MongoDB(vCore) bindings for Azure Functions](./azure/azure-functions/functions-bindings-mongodb-vcore-csharp-only)
+ - [Azure Cosmos DB for MongoDB(vCore)](azure/cosmos-db/mongodb/vcore/introduction.md)
+ - [Azure Azure Cosmos DB for MongoDB(vCore) bindings for Azure Functions](/azure/azure-functions/functions-bindings-mongodb-vcore-csharp-only)

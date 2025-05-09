@@ -16,13 +16,6 @@ This article explains how to work with [Azure Cosmos DB for MongoDB vCore](/azur
 
 * The Azure Cosmos DB for MongoDB(vCore) bindings for the Functions runtime don't support Microsoft Entra authentication and managed identities. To improve security, you should upgrade to run on the latest version of the Functions runtime.
 
-## Example
-
-<!--Hard-code your examples or ideally add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
--->
-
 ## Attributes
 
 The following table explains the binding configuration properties that you set in the function.json file and the CosmosDBMongoTrigger attribute.
@@ -163,5 +156,5 @@ namespace Sample
 
 ## Related articles
  
- - [Azure Cosmos DB for MongoDB(vCore)](./azure/cosmos-db/mongodb/vcore/introduction.md)
- - [Azure Azure Cosmos DB for MongoDB(vCore) bindings for Azure Functions](./azure/azure-functions/functions-bindings-overview-mongodb-vore-csharp-only)
+ - [Azure Cosmos DB for MongoDB(vCore)](/azure/cosmos-db/mongodb/vcore/introduction.md)
+ - [Azure Azure Cosmos DB for MongoDB(vCore) bindings for Azure Functions](/azure/azure-functions/functions-bindings-overview-mongodb-vore-csharp-only)
