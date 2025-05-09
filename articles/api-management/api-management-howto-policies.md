@@ -6,10 +6,11 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/18/2023
+ms.date: 05/13/2025
 ms.author: danlep
 
 ---
+
 # Policies in Azure API Management
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
