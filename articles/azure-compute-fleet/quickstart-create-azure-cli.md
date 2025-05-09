@@ -12,10 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Create an Azure Compute Fleet using Azure CLI
 
-This article steps through using an ARM template to create an Azure Compute Fleet. 
-
-
-[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
+The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the Azure CLI to deploy a Compute Fleet resource.
 
 
 ## Prerequisites
@@ -37,7 +34,7 @@ az provider register --namespace 'Microsoft.AzureFleet'
 export RANDOM_ID="$(openssl rand -hex 3)"
 export MY_RESOURCE_GROUP_NAME="myFleetResourceGroup$RANDOM_ID"
 export REGION=EastUS
-export MY_FLEET_NAME="myFLEET$RANDOM_ID"
+export MY_FLEET_NAME="myFleet$RANDOM_ID"
 export MY_USERNAME=azureuser
 export MY_VNET_NAME="myVNet$RANDOM_ID"
 export NETWORK_PREFIX="$(($RANDOM % 254 + 1))"
@@ -72,10 +69,12 @@ export MY_SUBNET_ID="$(az network vnet subnet show \
 
 Setup a password that meets the [password requirements for Azure VMs](https://learn.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
-export ADMIN_PASSWORD="<azure compliant password>"
+export ADMIN_PASSWORD="Azure compliant password"
 
 
 ### Create Compute Fleet
+
+Setup the compute profile which will be applied to the underlying VMs.
 
 ```bash
 export COMPUTE_PROFILE="{ 'baseVirtualMachineProfile': { 'storageProfile': { 'imageReference': { 'publisher':'canonical', 'offer':'0001-com-ubuntu-server-focal', 'sku': '20_04-lts-gen2', 'version': 'latest' } }, 'osProfile': { 'computerNamePrefix': 'vm', 'adminUsername': '$MY_USERNAME', 'adminPassword': '$ADMIN_PASSWORD'}, 'networkProfile': { 'networkInterfaceConfigurations': [{ 'name': 'nic', 'primary': 'true', 'enableIPForwarding': 'true', 'ipConfigurations': [{ 'name': 'ipc', 'subnet': { 'id': '$MY_SUBNET_ID' } }] }], 'networkApiVersion': '2020-11-01'} } }"
