@@ -3,7 +3,7 @@ title: Bicep functions - resources
 description: Describes the functions to use in a Bicep file to retrieve values about resources.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 05/09/2025
 ---
 
 # Resource functions for Bicep
@@ -508,7 +508,7 @@ An array with the supported zones. When using the default values for offset and 
 
 ```json
 [
-    "1"
+  "1"
 ]
 ```
 
@@ -516,9 +516,9 @@ When the `numberOfZones` parameter is set to 3, it returns:
 
 ```json
 [
-    "1",
-    "2",
-    "3"
+  "1",
+  "2",
+  "3"
 ]
 ```
 
