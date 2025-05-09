@@ -36,7 +36,7 @@ Information in the following table is updated regularly. Capacity availability i
 | France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Japan East | ✅ | ✅ | | ✅ |
-| Korea Central | ✅ | ✅ | ✅ | ✅ | 
+| Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
 | North Europe | ✅ | ✅ |  | ✅ |
 | Norway East | ✅ | ✅ | ✅ | ✅ |
