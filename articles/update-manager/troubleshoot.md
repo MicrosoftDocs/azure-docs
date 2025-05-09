@@ -160,7 +160,29 @@ This issue is frequently caused by network configuration and firewall problems. 
   * If the machines are configured for Windows Update, make sure that you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
   * If the machines are configured for Windows Server Update Services (WSUS), make sure that you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
 
-If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.
+If you see an `HRESULT` error code, double-click the exception displayed in red to see the entire exception message. Review the following table for potential resolutions or recommended actions.  
+
+## An internal execution error occurred. Please retry later. The operation did not return a response and should be retried. This result may be incomplete.
+
+### Issue
+
+Azure Update Manager failed to patch the VM with an internal execution error.
+
+### Cause
+A transient issue or communication failure between Azure Update Manager and the VM. Common reasons include:
+- Temporary platform or backend service glitch
+- Unresponsive or outdated Azure VM Agent
+- VM under heavy load or rebooting during the operation
+- Network or connectivity issue
+
+### Resolution
+
+- Retry the update after a few minutes.
+- Ensure VM Agent is healthy and up to date.You can also try to reboot the VM if the Agent status is "**Not Ready**"
+- Check VM resource usage (CPU, memory, disk). Restart if needed.
+- Verify network connectivity to Azure services.
+- Review logs on the VM and Update Manager for more details. 
+
 
 |Exception  |Resolution or action  |
 |---------|---------|
