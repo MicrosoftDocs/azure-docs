@@ -83,26 +83,26 @@ You can view and manage version sets directly by using [Azure CLI](/cli/azure/ap
 When you use the Azure portal to enable versioning on an existing API, the following changes are made to your API Management resources:
 
  * A new version set is created.
- * The existing version is maintained and [configured as the `Original` API version](#original-versions). The API is linked to the version set but doesn't require a version identifier to be specified.
- * The new version is created as a new API, and is linked to the version set. This new API must be accessed using the versioning scheme and identifier.
+ * The existing version is maintained and [configured as the `Original` API version](#original-versions). The API is linked to the version set, but a version identifier doesn't need to be specified.
+ * The new version is created as a new API and is linked to the version set. A versioning scheme and identifier must be used to access the new API.
 
 ## Versions and revisions
 
-Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.
+Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically, versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.
 
-Should you find that your revision has breaking changes, or if you wish to formally turn your revision into a beta/test version, you can create a version from a revision. Using the Azure portal, click the 'Create Version from Revision' on the revision context menu on the Revisions tab.
+If you find that your revision has breaking changes, or if you want to formally turn your revision into a beta/test version, you can create a version from a revision. In the Azure portal, select **Create Version from Revision** on the revision context menu on the **Revisions** tab.
 
 ## Developer portal
 
-The [developer portal](./api-management-howto-developer-portal.md) lists each version of an API separately.
+The [developer portal](./api-management-howto-developer-portal.md) lists each version of an API separately:
 
-![API Management developer portal displaying a list of versioned APIs](media/api-management-versions/portal-list.png)
+:::image type="content" source="media/api-management-versions/portal-list.png" alt-text="Screenshot that shows a list of versioned APIs in the API Management developer portal." lightbox="media/api-management-versions/portal-list.png":::
 
-The details of an API also show a list of all of the versions of that API. An `Original` version is displayed without a version identifier.
+In the details for an API, you can also see a list of all of the versions of the API. An `Original` version is displayed without a version identifier:
 
-![API Management developer portal displaying an API's details and a list of versions for that API](media/api-management-versions/portal-details.png)
+:::image type="content" source="media/api-management-versions/portal-details.png" alt-text="Screenshot that shows an API's details and a list of versions of the API in the API Management developer portal." lightbox="media/api-management-versions/portal-details.png":::
 
 > [!TIP]
-> API versions need to be added to a product before they will be visible on the developer portal.
+> You need to add API versions to a product to make them visible in the developer portal.
 
 
