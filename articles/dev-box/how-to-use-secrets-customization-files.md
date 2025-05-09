@@ -1,6 +1,6 @@
 ---
 title: Use key vault secrets in customization files
-description: Learn how to use Azure Key Vault secrets in team and individual customization files to clone private repositories.
+description: Learn how to use Azure Key Vault secrets in team and user customization files to clone private repositories.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
@@ -46,9 +46,9 @@ tasks:
       pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
 
-## Use key vault secrets in individual customization files
+## Use key vault secrets in user customization files
 
-To clone a private Azure Repos repository from an individual customization file, you don't need to configure a secret in Azure Key Vault. If you want to clone a private Azure Repos repository from an individual customization file, you don't need to configure a secret in Azure Key Vault. Instead, you can use `{{ado}}` or `{{ado://your-ado-organization-name}}` as a parameter. This parameter fetches an access token on your behalf when you're creating a dev box. The access token has read-only permission to your repository.
+To clone a private Azure Repos repository from an user customization file, you don't need to configure a secret in Azure Key Vault. If you want to clone a private Azure Repos repository from an user customization file, you don't need to configure a secret in Azure Key Vault. Instead, you can use `{{ado}}` or `{{ado://your-ado-organization-name}}` as a parameter. This parameter fetches an access token on your behalf when you're creating a dev box. The access token has read-only permission to your repository.
 
 The `git-clone` task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 

@@ -10,7 +10,7 @@ ms.custom:
   - ai-gen-description
   - ai-seo-date:04/18/2025
 ms.topic: how-to
-ms.date: 04/18/2025
+ms.date: 05/09/2025
 
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 ---
@@ -22,9 +22,9 @@ ms.date: 04/18/2025
 
 The Dev Box customizations feature helps you streamline the setup of cloud-based development environments. Getting developers started on a new project or team can be complex and time-consuming. Customizations let you configure ready-to-code workstations with applications, tools, repositories, code libraries, packages, and build scripts. This article guides you through the process of creating, testing, and editing an image definition file for your dev box using Visual Studio Code (VS Code). 
 
-There are two ways to use customizations in Microsoft Dev Box. Team customizations create a shared configuration for a team of developers. Individual customizations create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
+There are two ways to use customizations in Microsoft Dev Box. Team customizations create a shared configuration for a team of developers. User customizations create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
 
-| Feature                     | Team customizations       | Individual customizations       |
+| Feature                     | Team customizations       | User customizations       |
 |-----------------------------|---------------------------|---------------------------------|
 | Configure on               | Dev box pool             | Dev box                           |
 | Customizations apply to    | All dev boxes in pool    | Individual dev box                |

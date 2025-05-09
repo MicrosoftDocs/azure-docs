@@ -1,6 +1,6 @@
 ---
-title: Write an Individual Customization File for Your Dev Box
-description: Learn how to upload and validate individual customization files for dev boxes directly from your local drive or repository.
+title: Write an User Customization File for Your Dev Box
+description: Learn how to upload and validate user customization files for dev boxes directly from your local drive or repository.
 #customer intent: As a Dev Center Admin or Project Admin, I want to create image definition files so that my development teams can create customized dev boxes.
 author: RoseHJM
 ms.author: rosemalcolm
@@ -12,19 +12,19 @@ ms.custom:
   - ai-seo-date:04/19/2025
   - ai-gen-description
 ms.topic: how-to
-ms.date: 04/19/2025
+ms.date: 05/09/2025
 ---
 
-# Write an individual customization file for a dev box
+# Write an user customization file for a dev box
 
 [!INCLUDE [note-build-2025](includes/note-build-2025.md)]
 
 
-The Dev Box individual customizations feature helps you streamline the setup of your dev boxes. Starting a new project or joining a team is often complex and time consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article guides you through the process of creating, testing, and editing an individual customization file for your dev box using Visual Studio Code (VS Code). 
+The Dev Box user customizations feature helps you streamline the setup of your dev boxes. Starting a new project or joining a team is often complex and time consuming. With customizations, you can configure your dev boxes with the applications, tools, repositories, code libraries, packages, and build scripts that you need. This article guides you through the process of creating, testing, and editing an user customization file for your dev box using Visual Studio Code (VS Code). 
 
-You can use customizations in Microsoft Dev Box in two ways. Team customizations are used to create a shared configuration for a team of developers. Individual customizations are used to create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
+You can use customizations in Microsoft Dev Box in two ways. Team customizations are used to create a shared configuration for a team of developers. User customizations are used to create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
 
-| Feature                     | Team customizations       | Individual customizations       |
+| Feature                     | Team customizations       | User customizations       |
 |-----------------------------|---------------------------|----------------------------------|
 | Configure on                | Dev box pool             | Dev box                         |
 | Customizations apply to     | All dev boxes in pool    | Individual dev box              |
@@ -51,7 +51,7 @@ To perform the required actions for creating and applying customizations to a de
 | Use the developer portal to upload and apply a YAML file during dev box creation. | Dev Box User          |
 
 
-## Create an individual customization file
+## Create a user customization file
 
 You can create and manage customization files by using VS Code. You can use the Microsoft Dev Box extension in VS Code to discover the tasks in the attached catalog and test the customization file.
 
@@ -85,7 +85,7 @@ tasks:
 
 To learn more, see [WinGet configuration](https://aka.ms/winget-configuration).
 
-## Create a dev box using an individual customization file
+## Create a dev box using a user customization file
 
 You can use an individual customization file by uploading it from a local drive when creating your dev box, or by downloading it from a repository. 
 Customization files stored in a repository must be called *workload.yaml*. Customization files that are stored locally for upload should be called *myfilename.yaml*. Name customization files stored locally for upload as *myfilename.yaml*.
