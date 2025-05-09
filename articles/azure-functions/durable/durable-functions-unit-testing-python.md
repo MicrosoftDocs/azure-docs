@@ -9,15 +9,13 @@ ms.author: azfuncdf
 
 # Unit Testing Durable Functions in Python
 
-## Introduction
-Unit testing Durable Functions is essential to ensure the correctness of individual components without relying on an actual Azure environment. By writing effective unit tests, developers can catch errors early, improve code maintainability, and increase confidence in their implementations.
+Unit testing is an important part of modern software development practices. Unit tests verify business logic behavior and protect from introducing unnoticed breaking changes in the future. Durable Functions can easily grow in complexity so introducing unit tests will help to avoid breaking changes. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and entity functions.
 
-This guide provides an overview of unit testing Durable Functions in Python, covering the key components: starter functions, orchestrators, activity functions, and entity functions. It includes best practices and sample test cases to help you write robust and maintainable tests for your Durable Functions.
-
-[!NOTE]
-This guide applies only to Durable Functions apps written in the [Python v2 programming model](../functions-reference-python.md). 
+> [!NOTE]
+> This guide applies only to Durable Functions apps written in the [Python v2 programming model](../functions-reference-python.md). 
 
 ## Prerequisites
+
 The examples in this article require knowledge of the following concepts and frameworks:
 
 * Unit testing
@@ -26,17 +24,18 @@ The examples in this article require knowledge of the following concepts and fra
 * [unittest.mock](https://docs.python.org/3/library/unittest.mock.html)
 
 ## Setting Up the Test Environment
+
 To test Durable Functions, it's crucial to set up a proper test environment. This includes creating a test directory and installing unittest into your Python environment. For more info, see the [Azure Functions Python unit testing overview](../functions-reference-python.md#unit-testing).
 
-## Testing Durable Clients  
-Durable Client functions initiate orchestrations and external events. To test a client function:
+## Unit testing trigger functions
+
+Trigger functions, often referred to as _client_ functions, initiate orchestrations and external events. To test these functions:
 
 - Mock the `DurableOrchestrationClient` to simulate orchestration execution and status management.  
-- Replace `DurableOrchestrationClient` methods such as `start_new`, `get_status`, or `raise_event` with mock functions that return expected values.  
+- Assign `DurableOrchestrationClient` methods such as `start_new`, `get_status`, or `raise_event` with mock functions that return expected values.  
 - Invoke the client function directly with a mocked client as well as other necessary inputs such as a `req` (HTTP request object) for HTTP trigger client functions.  
 - Use assertions and `unittest.mock` tools to verify expected orchestration start behavior, parameters, and HTTP responses.
 
-**Sample Code:**
 ```python
 import asyncio
 import unittest
@@ -47,36 +46,35 @@ from function_app import start_orchestrator
 
 class TestFunction(unittest.TestCase):
   @patch('azure.durable_functions.DurableOrchestrationClient')
-  def test_chaining_orchestrator(self, client):
+  def test_HttpStart(self, client):
     # Get the original method definition as seen in the function_app.py file
-    # func_call = chaining_orchestrator.build().get_user_function_unmodified()
-    func_call = start_orchestrator.build().get_user_function().client_function
+    func_call = http_start.build().get_user_function().client_function
 
     req = func.HttpRequest(method='GET',
-                           body=None,
+                           body=b'{}',
                            url='/api/my_second_function',
-                           params={"orchestrator_name": "startOrchestrator"})
+                           route_params={"functionName": "my_orchestrator"})
 
     client.start_new = AsyncMock(return_value="instance_id")
     client.create_check_status_response = Mock(return_value="check_status_response")
 
-    # Create a generator using the method and mocked context
+    # Execute the function code
     result = asyncio.run(func_call(req, client))
 
-    client.start_new.assert_called_once_with("startOrchestrator")
+    client.start_new.assert_called_once_with("my_orchestrator")
     client.create_check_status_response.assert_called_once_with(req, "instance_id")
     self.assertEqual(result, "check_status_response")
 ```
 
-## Testing Durable Orchestrators
-Durable Orchestrators manage the execution of multiple activity functions. To test an orchestrator:
+## Unit testing orchestrator functions
+
+Orchestrator functions manage the execution of multiple activity functions. To test an orchestrator:
 
 - Mock the `DurableOrchestrationContext` to control function execution.
 - Replace `DurableOrchestrationContext` methods needed for orchestrator execution like `call_activity` or `create_timer` with mock functions. These functions should have pre-determined behavior and should typically return Task objects with a `result` property. 
 - Call the orchestrator recursively, passing the result of the Task generated by the previous yield statement to the next. 
 - Use the results returned from the orchestrator, as well as `unittest.mock` methods to verify the orchestrator result. 
 
-**Sample Code:**
 ```python
 import unittest
 from unittest.mock import Mock, patch, call
@@ -86,10 +84,10 @@ class TestFunction(unittest.TestCase):
   @patch('azure.durable_functions.DurableOrchestrationContext')
   def test_chaining_orchestrator(self, context):
     # Get the original method definition as seen in the function_app.py file
-    func_call = chaining_orchestrator.build().get_user_function().orchestrator_function
+    func_call = my_orchestrator.build().get_user_function().orchestrator_function
 
     context.call_activity = Mock(side_effect=mock_activity)
-    context.create_timer = Mock(return_value=MockTask())
+
     # Create a generator using the method and mocked context
     user_orchestrator = func_call(context)
 
@@ -102,19 +100,18 @@ class TestFunction(unittest.TestCase):
     
     self.assertEqual(context.call_activity.call_count, 3)
     self.assertEqual(context.call_activity.call_args_list, expected_activity_calls)
-    context.create_timer.assert_called_once_with(context.current_utc_datetime + timedelta(seconds=5))
-    self.assertEqual(values[4], ["Hello Tokyo!", "Hello Seattle!", "Hello London!"])
+    self.assertEqual(values[3], ["Hello Tokyo!", "Hello Seattle!", "Hello London!"])
 ```
 
-## Testing Durable Entities  
-Durable Entity functions manage stateful objects with operations. To test an entity function:
+## Unit testing entity functions
+
+Entity functions manage stateful objects with operations. To test an entity function:
 
 - Mock the `DurableEntityContext` to simulate the entity's internal state and operation inputs.  
 - Replace `DurableEntityContext` methods like `get_state`, `set_state`, and `operation_name` with mocks that return controlled values.  
 - Invoke the entity function directly with the mocked context.  
 - Use assertions to verify state changes and returned values, along with `unittest.mock` utilities.
 
-**Sample Code:**
 ```python
 import unittest
 from unittest.mock import Mock, patch
@@ -156,27 +153,12 @@ class TestEntityFunction(unittest.TestCase):
     self.assertEqual(result, None)
 ```
 
-## Testing Activity Functions
+## Unit testing activity functions
+
 Activity functions require no Durable-specific modifications to be tested. The guidance found in the [Azure Functions Python unit testing overview](../functions-reference-python.md#unit-testing) is sufficient for testing these functions. 
-
-## Summary
-Testing Durable Functions effectively requires simulating their unique runtime behaviors while keeping tests isolated and deterministic. Here are some best practices to keep in mind:
-
-- **Mock the right context objects**: Use `DurableOrchestrationContext`, `DurableOrchestrationClient`, and `DurableEntityContext` mocks to simulate platform behavior.
-- **Replace key methods**: Mock critical methods like `call_activity`, `start_new`, `get_state`, etc., to return controlled values for validation.
-- **Isolate logic**: Keep orchestration, client, and entity logic testable independently to ensure clear separation of concerns.
-- **Validate behavior, not implementation**: Focus on validating the outcome and side effects, rather than internal steps.
-- **Use generator wrappers**: For orchestrators, properly walk through the generator steps to simulate orchestration flow.
-- **Test failure paths**: Include tests for error conditions, timeouts, and unexpected input to ensure robust function behavior.
-
-By applying these practices, you can build a comprehensive test suite for your Durable Functions that ensures reliability and simplifies long-term maintenance.
-
----
 
 ## Related content
 
-For deeper insights into Durable Functions in Python, explore these resources:
-
-- [Improve throughput performance of Python apps in Azure Functions](../python-scale-performance-reference.md)
-- [Azure Functions Python Developer Guide](../functions-reference-python.md)
-- [Durable Functions best practices and diagnostic tools](./durable-functions-best-practice-reference.md)
+- [Learn how to improve throughput performance of Python apps in Azure Functions](../python-scale-performance-reference.md)
+- [Read the Azure Functions Python Developer Guide](../functions-reference-python.md)
+- [Learn about Durable Functions best practices and diagnostic tools](./durable-functions-best-practice-reference.md)
