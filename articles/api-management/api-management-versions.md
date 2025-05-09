@@ -88,9 +88,9 @@ When you use the Azure portal to enable versioning on an existing API, the follo
 
 ## Versions and revisions
 
-Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically, versions are used to separate API versions with breaking changes, while revisions can be used for minor and non-breaking changes to an API.
+Versions and revisions are distinct features. Each version can have multiple revisions, just like a non-versioned API. You can use revisions without using versions, or the other way around. Typically, versions are used to separate API versions that have breaking changes, and revisions can be used for minor and non-breaking changes to an API.
 
-If you find that your revision has breaking changes, or if you want to formally turn your revision into a beta/test version, you can create a version from a revision. In the Azure portal, select **Create Version from Revision** on the revision context menu on the **Revisions** tab.
+If you find that your revision has breaking changes, or if you want to formally turn your revision into a beta/test version, you can create a version from a revision. In the Azure portal, select **Create Version from this Revision** on the revision context menu (**...**) on the **Revisions** tab.
 
 ## Developer portal
 
