@@ -48,7 +48,7 @@ Supported configurations include:
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md). 
     - When using an instance in the classic Developer or Premium tier, don't deploy (inject) the instance into an [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) virtual network.
-- A virtual network containing a subnet to host the private endpoint. The subnet may contain other Azure resources.
+- A virtual network containing a subnet to host the private endpoint. The subnet may contain other Azure resources, but it can't be delegated to another service. 
 - (Recommended) A virtual machine in the same or a different subnet in the virtual network, to test the private endpoint.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
