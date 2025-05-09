@@ -57,7 +57,7 @@ New-AzRedisEnterpriseCache -ResourceGroupName myGroup -Name mycache -Location "N
 
 You can use the [New-AzRedisEnterpriseCacheDatabase](/powershell/module/az.redisenterprisecache/new-azredisenterprisecachedatabase) cmdlet to create and configure databases for your Azure Managed Redis cache.
 
-If you don't configure databases during cache creation, [New-AzRedisEnterpriseCache](/powershell/module/az.RedisEnterpriseCache/New-azRedisEnterpriseCache) creates one database in the cache named `default` by default, and all cache data goes into this DB 0 database.
+If you don't configure databases during cache creation, [New-AzRedisEnterpriseCache](/powershell/module/az.RedisEnterpriseCache/New-azRedisEnterpriseCache) creates one database in the cache named `default` by default, and all cache data goes into this `DB 0` database.
 
 To see a list of available parameters and their descriptions for `New-AzRedisEnterpriseCacheDatabase`, run the following command.
 
@@ -78,7 +78,7 @@ Get-Help Update-AzRedisEnterpriseCache -detailed
 
 You can use the `Update-AzRedisEnterpriseCache` cmdlet to update properties such as `Sku`, `Tag`, and `MinimumTlsVersion`.
 
-The following command updates the minimum TLS version and adds a tag to the Azure Managed Redis cache named `myCache`.
+The following command updates the minimum Transport Layer Security (TLS) version and adds a tag to the Azure Managed Redis cache named `myCache`.
 
 ```azurepowershell
 Update-AzRedisEnterpriseCache -Name "myCache" -ResourceGroupName "myGroup" -MinimumTlsVersion "1.2" -Tag @{"tag1" = "value1"}
@@ -216,7 +216,7 @@ The following tables show Azure PowerShell properties and descriptions for commo
 | Size |The size of the cache. Valid values are: P1, P2, P3, P4, P5, C0, C1, C2, C3, C4, C5, C6, 250 MB, 1 GB, 2.5 GB, 6 GB, 13 GB, 26 GB, 53 GB |1 GB |
 | ShardCount |The number of shards to create when creating a premium cache with clustering enabled. Valid values are: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | |
 | SKU |The SKU of the cache. Valid values are: Basic, Standard, Premium |Standard |
-| RedisConfiguration |Redis configuration settings. For details on each setting, see the following [RedisConfiguration properties](#redisconfiguration-properties) table. | |
+| RedisConfiguration |Redis configuration settings. For details on each setting, see the following [RedisConfiguration properties](#properties-for-the-redisconfiguration-parameter) table. | |
 | EnableNonSslPort |Whether the non-SSL port is enabled. |False |
 | MaxMemoryPolicy |This parameter is deprecated. Use `RedisConfiguration` instead. | |
 | StaticIP |When you host your cache in a virtual network, a unique IP address in the subnet for the cache. If not provided, one is chosen for you from the subnet. | |
