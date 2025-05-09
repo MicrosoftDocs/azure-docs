@@ -379,7 +379,9 @@ Each action starts with a `Trace.WriteLine()` method. This code is added to show
     > [!TIP]
     > You can experiment with different trace levels to see what types of messages are displayed for each level. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
 
-1. In your browser, navigate to your app again at *http://&lt;your app name>.azurewebsites.net*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
+1. In a different browser window, go to the Azure portal and open your app's **Overview** page. Under **Default domain**, select the link to open your app.
+
+1. Then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
 
     ```console
     Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
