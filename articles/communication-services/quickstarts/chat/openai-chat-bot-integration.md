@@ -50,7 +50,7 @@ This article demonstrates how to integrate a conversational OpenAI bot with an A
 
 1. In **Create Web App**, select or enter details for the app, including the region where you want to deploy the app.
   
-   :::image type="content" source="./media/aoa-demo-web-app-create-options.png" alt-text="Screenshot of the Create Web App page showing Project details and Instance details selected to create a web app deployment.":::
+   :::image type="content" source="./media/azure-openai-demo-web-app-create-options.png" alt-text="Screenshot of the Create Web App page showing Project details and Instance details selected to create a web app deployment.":::
 
 1. Select **Review + Create** to validate the deployment and review the deployment details. Then, select **Create**.
 
@@ -95,19 +95,19 @@ Next, in the bot resource, create a web app messaging endpoint:
 
 1. Go to the resource. Select **Settings - Identities & User Access Tokens** > **Chat**, then click **Generate**. Save the **Identity** and **User Access Token** for future use.
 
-   :::image type="content" source="./media/acs-resource-create-token-and-user.png" alt-text="Screenshot that shows details to set to create acs user id and access token":::
+   :::image type="content" source="./media/communication-services-resource-create-token-and-user.png" alt-text="Screenshot that shows how to create a Communication Services user id and access token":::
 
 ## Step 6: Enable the Communication Services Chat channel
 
-When you have a Communication Services resource, you can set up a Communication Services channel in the bot resource. This process generates a Bot Azure Communication Services User ID for the bot. 
+When you have a Communication Services resource, you can set up a Communication Services channel in the bot resource. This process generates a Bot Azure Communication Services User ID for the bot.
 
 1. In the Azure portal, go to your Azure Bot resource. In the resource menu, select **Channels**. In the list of available channels, select **Communication Services - Chat**.
 
-   :::image type="content" source="./media/bot-acs-chat-channel.png" alt-text="Screenshot that shows opening the Communication Services Chat channel." lightbox="./media/demoapp-launch-acs-chat.png":::
+   :::image type="content" source="./media/bot-communication-services-chat-channel.png" alt-text="Screenshot that shows opening the Communication Services Chat channel." lightbox="./media/bot-communication-services-chat-channel.png":::
 
 1. Select **Connect** to see a list of Communication Services resources that are available in your subscription.
 
-   :::image type="content" source="./media/smaller-bot-connect-acs-chat-channel.png" alt-text="Screenshot that shows how to connect a Communication Service resource to the bot." lightbox="./media/bot-connect-acs-chat-channel.png":::
+   :::image type="content" source="./media/smaller-bot-connect-communication-services-chat-channel.png" alt-text="Screenshot that shows how to connect a Communication Service resource to the bot." lightbox="./media/bot-connect-communication-services-chat-channel.png":::
 
 1. In the **New Connection** pane, select the Communication Services chat resource, and then select **Apply**.
 
@@ -115,20 +115,22 @@ When you have a Communication Services resource, you can set up a Communication 
 
 1. When the resource details are verified, a Bot Azure Communication Services User ID is shown in the **Bot Azure Communication Services Id** column. Save the ID for later use.
 
-   :::image type="content" source="./media/smaller-acs-chat-channel-saved.png" alt-text="Screenshot that shows the new Communication Services user ID assigned to the bot." lightbox="./media/acs-chat-channel-saved.png":::
+   :::image type="content" source="./media/smaller-communication-services-chat-channel-saved.png" alt-text="Screenshot that shows the new Communication Services user ID assigned to the bot." lightbox="./media/communication-services-chat-channel-saved.png":::
 
 ## Step 7: Deploy the web app
+
 1. Open the `ChatBot` folder in the [Sample Repo](https://github.com/Azure/ai-solution-with-azurecommunicationchat) in Visual Studio Code (VS Code). Make sure to use VS Code because it supports Microsoft Entra ID in code deployment.
 
-1. Replace the placeholders in the sample repo with actual values: 
-(1) In the `SemanticKernelService.cs` file, populate the values for variables `modelId`, `endpoint`, and `apiKey`.
-(2) In the `appsettings.json` file, utilize the `bot app id` and the `bot password` that were saved in step 3 to populate the values for variables `MicrosoftAppId` and `MicrosoftAppPassword`.
+1. Replace the placeholders in the sample repo with actual values:
+
+   1. In the `SemanticKernelService.cs` file, populate the values for variables `modelId`, `endpoint`, and `apiKey`.
+   1. In the `appsettings.json` file, populate the values for variables `MicrosoftAppId` and `MicrosoftAppPassword` using the `bot app id` and the `bot password` you recorded in **Step 3**.
 
 1. Install the Azure App Service extension in VS Code.
 
    :::image type="content" source="./media/install-app-service-extension.png" alt-text="Screenshot that shows how to install the app service extension." lightbox="./media/install-app-service-extension.png":::
 
-1. Sign in to your Azure account in VS Code. Click the Azure icon from the Activity Bar on the side of the window to access the sign in panel.
+1. Sign in to your Azure account in VS Code. To access the sign in panel, click the Azure icon from the Activity Bar on the side of the window.
 
 1. Install the Azure App Service extension in VS Code.
 
@@ -152,12 +154,13 @@ This command generates the `bin` and `obj` folders.
 
 ## Step 8: Run the demo
 
-1. Follow the steps before "Get a chat thread client" in [Add Chat to your App](./get-started.md) to create a chat app and start a thread. 
-Key notes:
+1. Follow the steps before "Get a chat thread client" in [Add Chat to your App](./get-started.md) to create a chat app and start a thread.
 
-   - (1) You already created the Azure Communication Service resource in the portal, so you can directly use the `<Azure Communication Services endpoint>`, `<Access_ID>`, and `<Access_Token>` in your code.
-   - (2) When creating a thread, you need to create another `ChatParticipant` object, using the `Bot Azure Communication Services User ID` created in **Step 6: Enable the Communication Services Chat channel** as the `<Access_ID>` to represent the bot user.
-   - (3) Save the `Thread Id` for later use.
+   Key notes:
+
+   - You already created the Azure Communication Service resource in the portal, so you can directly use the `<Azure Communication Services endpoint>`, `<Access_ID>`, and `<Access_Token>` in your code.
+   - When creating a thread, you need to create another `ChatParticipant` object, using the `Bot Azure Communication Services User ID` created in **Step 6: Enable the Communication Services Chat channel** as the `<Access_ID>` to represent the bot user.
+   - Save the `Thread Id` for later use.
 
 2. Open the UI Library composite: [Azure Communication Services Chat Thread UI - Join Existing Chat Thread](https://azure.github.io/communication-ui-library/?path=/story/composites-chatcomposite-join-existing-chat-thread--join-existing-chat-thread).
 
