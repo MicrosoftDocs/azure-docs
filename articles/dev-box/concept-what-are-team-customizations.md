@@ -76,29 +76,29 @@ When you configure Dev Box team customizations for your organization, careful pl
 To set up your Dev Box service to support team customizations, follow these steps:
 
 1. **Configure your dev center**:
-    a. Enable project-level catalogs.
-    b. Assign permissions for project admins.
+   1. Enable project-level catalogs.
+   1. Assign permissions for project admins.
 
 1. **Decide whether to use a catalog with custom reusable components**:
-    a. **Built-in**:
-    b. Use PowerShell or WinGet statements.
-    c. **Catalog**:
-    d. Host in Azure Repos or GitHub.
-    e. Add tasks.
-    f. Attach to a dev center.
+   1. **Built-in**:
+      1. Use PowerShell or WinGet statements.
+   1. **Catalog**:
+      1. Host in Azure Repos or GitHub.
+      1. Add tasks.
+      1. Attach to a dev center.
 
 1. **Create a customization file**:
-    a. Create a YAML file named `imagedefinition.yaml`.
+   1. Create a YAML file named `imagedefinition.yaml`.
 
 1. **Specify an image in a dev box pool**:
-    a. Create or modify a dev box pool and specify `imagedefinition.yaml` as the image definition.
+   1. Create or modify a dev box pool and specify `imagedefinition.yaml` as the image definition.
 
 1. **Choose how you'll use the image definition**:
-    a. Build the image each time you create a dev box.
-    b. Optimize the image for team customizations.
+   1. Build the image each time you create a dev box.
+   1. Optimize the image for team customizations.
 
 1. **Create a dev box**:
-    a. Use the developer portal to create your dev box from the configured pool.
+   1. Use the developer portal to create your dev box from the configured pool.
 
 For more information, see [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md).
 
@@ -113,19 +113,19 @@ Individual developers can attach a YAML-based customization file when creating t
 To set up your Dev Box service to support user customizations, follow these steps:
 
 1. **Use a PowerShell and WinGet tasks**:
-    a. Platform supports PowerShell and WinGet.
-    b. No catalog required.
-    c. No further configuration required.
+   1. Platform supports PowerShell and WinGet.
+   1. No catalog required.
+   1. No further configuration required.
 
 1. **Create a customization file**:
-    a. Create a YAML-based customization file.
+   1. Create a YAML-based customization file.
 
 1. **Create a dev box**:
-    a. Use the developer portal to create your dev box from the configured pool.
-    b. Upload and validate your customization file during the dev box creation process.
+   1. Use the developer portal to create your dev box from the configured pool.
+   1. Upload and validate your customization file during the dev box creation process.
 
 1. **Dev box creation**:
-    a. The dev box is created with the specified customizations.
+   1. The dev box is created with the specified customizations.
 
 For more information, see [Write a user customization file for a dev box](how-to-write-user-customization-file.md).
 
