@@ -193,7 +193,7 @@ Export-AzRedisEnterpriseCache -Name "myCache" -ResourceGroupName "myGroup" -SasU
 
 ## Azure Cache for Redis PowerShell properties and parameters
 
-The following tables show Azure PowerShell properties and descriptions for common Azure Cache for Redis parameters. For all PowerShell parameters and properties for `New-AzRedisCache`, see [New-AzRedisCache](/powershell/module/az.rediscache/new-azrediscache).
+The following tables show Azure PowerShell properties and descriptions for common Azure Cache for Redis parameters. For all Azure PowerShell parameters and properties for `Az.RedisCache`, see [AzRedisCache](/powershell/module/az.rediscache).
 
 | Parameter | Description | Default |
 | --- | --- | --- |
@@ -331,7 +331,6 @@ You can retrieve information about a cache using the [Get-AzRedisCache](/powersh
 
 ```azurepowershell
 Get-Help Get-AzRedisCache -detailed
-
 ```
 
 To return information about all caches in the current subscription, run `Get-AzRedisCache` without any parameters.
