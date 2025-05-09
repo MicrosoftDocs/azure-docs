@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 05/09/2025
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -92,14 +92,6 @@ Output should include the `Microsoft.ApiManagement.service` endpoint type:
     }
 [...]
 ```
-
-### Disable network policies in subnet
-
-Network policies such as network security groups must be disabled in the subnet used for the private endpoint. 
-
-If you use tools such as Azure PowerShell, the Azure CLI, or REST API to configure private endpoints, update the subnet configuration manually. For examples, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
-
-When you use the Azure portal to create a private endpoint, as shown in the next section, network policies are disabled automatically as part of the creation process. 
 
 ### Create private endpoint - portal
 
@@ -334,6 +326,8 @@ Request originated from client public IP address 192.0.2.12, public network acce
        
 To connect to 'Microsoft.ApiManagement/service/my-apim-service', please use the Private Endpoint from inside your virtual network. 
 ```
+
+[!INCLUDE [api-management-standard-v2-limitation](../../includes/api-management-standard-v2-limitation.md)]
 
 ## Related content
 
