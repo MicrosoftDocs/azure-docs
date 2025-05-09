@@ -14,6 +14,20 @@ This article lists new features and feature enhancements in the firmware analysi
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+## June 2025
+
+- **Free and Premium SKUs for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, all features and functionality will be free of charge, and we look forward to gathering your feedback. Looking toward GA, some feature sets will be bundled with new feature releases to be included in the paid Premium SKU. Pricing of these features will also be announced in GA.
+
+- **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results 30% faster. This means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by 30%.
+
+- **New UI with multiple workspaces per resource group**: You can now create and manage multiple workspaces for resource groups, which helps you organize your firmware images better.
+
+- **Standalone and embedded experiences**: Firmware analysis now exists as a standalone service in Azure and continues to exist as a blade within Defender for IoT. You can easily reach firmware analysis by searching for it in the Azure portal search bar.
+
+- **Support for <1GB pre-extraction and <70GB tarball**: You can analyze images up to 1GB before it's extracted, and up to 70GB as a tarball. The analysis will fail if the image expands to greater than 70GB.
+
+- **Azure Monitor**:
+
 ## October 2024
 
 - **Support for UEFI images**: Firmware analysis service now analyzes UEFI images and identifies PKFail instances.
