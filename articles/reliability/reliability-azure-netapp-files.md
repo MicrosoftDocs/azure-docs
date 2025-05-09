@@ -4,9 +4,9 @@ description: Find out about reliability in Azure NetApp Files, including availab
 author: b-ahibbard
 ms.author: anfdocs
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions 
+ms.custom: subject-reliability
 ms.service: azure-netapp-files
-ms.date: 04/09/2025
+ms.date: 05/09/2025
 ---
 # Reliability in Azure NetApp Files
 
@@ -14,7 +14,7 @@ This article describes reliability support in Azure NetApp Files, covering intra
 
 Resiliency is a shared responsibility between you and Microsoft. This article also covers ways for you to create a resilient solution that meets your needs.
 
-Azure NetApp Files is an Azure native, first-party, enterprise-class, high-performance file storage service. It provides volumes as a service, which you can create within a NetApp account and a capacity pool, and share to clients using SMB and NFS. You can also select service and performance levels and manage data protection.
+Azure NetApp Files is a native, enterprise-grade file storage solution integrated seamlessly within Azure. Designed for high performance, it offers scalable and secure file storage managed as a service. Users can create volumes within a NetApp account and capacity pools, enabling file sharing across clients via SMB and NFS protocols. This service provides flexibility in selecting performance levels, configuring capacity and throughput independently, and managing data protection options tailored to various needs.
 
 ## Production deployment recommendations
 
@@ -28,11 +28,11 @@ For recommendations about reliable production workloads in Azure NetApp Files, s
 
 [!INCLUDE [Transient fault description](includes/reliability-transient-fault-description-include.md)]
 
-Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are nondisruptive, as long as the application can handle the I/O pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds.
+Azure NetApp Files might undergo occasional planned maintenance (for example, platform updates, service or software upgrades). From a file protocol (NFS/SMB) perspective, the maintenance operations are nondisruptive if the application can handle the I/O pauses that might briefly occur during these events. The I/O pauses are typically short, ranging from a few seconds up to 30 seconds.
 
-The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle IO pauses for as long as 30-45 seconds. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events.
+The NFS protocol is especially robust, and client-server file operations continue normally. Some applications might require tuning to handle I/O pauses for as long as 30-45 seconds. As such, ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events.
 
-For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. Azure NetApp Files also supports [SMB continuous availability](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#continuous-availability), which enables SMB Transparent Failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience. SMB continuous availability is only available for [specific application](../azure-netapp-files/faq-application-resilience.md#do-i-need-to-take-special-precautions-for-smb-based-applications)
+For human interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. Azure NetApp Files also supports [SMB continuous availability](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#continuous-availability), which enables SMB Transparent Failover to eliminate disruptions as a result of service maintenance events and improves reliability and user experience. SMB continuous availability is only available for [specific applications](../azure-netapp-files/faq-application-resilience.md#do-i-need-to-take-special-precautions-for-smb-based-applications)
 
 For further recommendations, see [Azure NetApp Files application resilience FAQs](../azure-netapp-files/faq-application-resilience.md).
 
@@ -56,15 +56,15 @@ For a list of regions that currently support availability zones, see [Azure regi
 
 ###  Considerations 
 
-* Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide lowest latency guarantee.
+* Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide a lowest latency guarantee.
 * For other considerations related to availability zones in Azure NetApp Files, see [Manage availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations).
-* If you're deploying Terraform-managed volumes with availability zones, there are [other configurations required](../azure-netapp-files/manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
-* Zone-redundancy in Azure NetApp Files uses the [availability zone placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations). For further considerations, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md).
-* If you're using role-based access control, [ensure you've configure the correct permissions](../azure-netapp-files/manage-availability-zone-volume-placement.md#configure-custom-rbac-roles).
+* If you're deploying Terraform-managed volumes with availability zones, other configurations are required. For more information see, [Populate availability zone for Terraform-managed volumes](../azure-netapp-files/manage-availability-zone-volume-placement.md#populate-availability-zone-for-terraform-managed-volumes).
+* Zone-redundancy in Azure NetApp Files uses [availability zone placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations). For further considerations, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md).
+* If you're using role-based access control, [ensure you configure the correct permissions](../azure-netapp-files/manage-availability-zone-volume-placement.md#configure-custom-rbac-roles).
 
 ### Cost
 
-There's no extra charge to enable availability zone support in Azure NetApp Files. You pay for the capacity pools and other resources that you deploy in the availability zones.
+There's no extra charge to enable availability zone support in Azure NetApp Files. You only pay for the capacity pools and resources you deploy within these zones.
 
 ### Configure availability zone support 
 
@@ -74,17 +74,17 @@ There's no extra charge to enable availability zone support in Azure NetApp File
 
 ### Zone-down experience 
 
-* **Detection and response:**
+* **Detection and response:** Azure NetApp Files provides proactive monitoring and diagnostics through integrated tools including Azure Monitor. Any anomalies indicating a zone-down scenario are detected via real-time metrics such as IOPS, latency, and capacity usage. Alerts and notifications can be configured to be sent to administrators, enabling immediate response actions such as rebalancing file shares or initiating disaster recovery protocols.
 
-* **Notification:**
+* **Notification:** Notifications of zone-down events are automatically sent through Azure Service Health or custom-configured alert systems such as email, SMS, or webhook integrations. Administrators can also use Azure Resource Health to check the status of Azure NetApp Files and receive updates on recovery progress. 
 
-* **Active requests:**
+* **Active requests:** During a zone-down event, active requests may experience disruptions or increased latencies. Azure NetApp Files ensures that data remains accessible through redundancy mechanisms, such as cross-zone replication (if configured). Requests are rerouted to alternative zones to mitigate downtime for mission-critical workloads. 
 
-* **Expected data loss:** 
+* **Expected data loss:** Azure NetApp Files is built with enterprise-grade features including snapshot capabilities and high availability replication. In most scenarios, data loss is minimal to nonexistent due to the automatic replication of data across zones. Regular backups and snapshots further ensure data integrity and recovery. 
 
-* **Expected downtime:**
+* **Expected downtime:** Downtime duration largely depends on the severity of the zone-down event and the failover configuration in place. Azure NetApp Files facilitates rapid failover to alternate zones or regions, minimizing downtime, which typically lasts a few minutes to an hour for well-prepared configurations. 
 
-* **Traffic rerouting:**
+* **Traffic rerouting:** Traffic rerouting during a zone-down experience occurs through Azure's load balancers and Azure NetApp Files' built-in replication mechanisms. Data and application traffic are redirected to operational zones seamlessly, ensuring continuity of service. Setting up cross-region replication is recommended to optimize rerouting efficiency. 
 
 ### Failback
 
@@ -106,7 +106,7 @@ Azure NetApp Files provides data protection through cross-region volume replicat
 
 ### Failback
 
-Both failover and failback are manual process in Azure NetApp Files cross-region replication. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
+Both failover and failback are manual processes in Azure NetApp Files cross-region replication. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
 It's also recommended you [set alert rules to monitor replication status](../azure-netapp-files/cross-region-replication-display-health-status.md#set-alert-rules-to-monitor-replication).
 
@@ -116,7 +116,7 @@ To test your cross-region replication configuration, see [Test disaster recovery
 
 ## Backups
 
-[Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md) expands the data protection capabilities of Azure NetApp Files by providing fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. 
+[Azure NetApp Files backup](../azure-netapp-files/backup-introduction.md) expands the data protection capabilities of Azure NetApp Files by providing a fully managed backup solution for long-term recovery, archive, and compliance. Backups created by the service are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning. Backups taken by the service can be restored to new Azure NetApp Files volumes within the region. Azure NetApp Files backup supports both policy-based (scheduled) backups and manual (on-demand) backups. 
 
 For further security, Azure NetApp Files [snapshots](../azure-netapp-files/data-protection-disaster-recovery-options.md#snapshots) add stability, scalability, and fast recoverability without affecting performance. They provide the foundation for other redundancy solutions, including backup, cross-region replication, and cross-zone replication.
 
@@ -125,21 +125,6 @@ For most solutions, you shouldn't rely exclusively on backups. Instead, use the 
 ## Service-level agreement
 
 The service-level agreement (SLA) for Azure NetApp Files describes the expected availability of the service, and the conditions that must be met to achieve that availability expectation. For more information, see [Service Level Agreements (SLA) for Online Services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
-
-<!-- 
-Recovery Point Objective (RPO) indicates the point in time to which data can be recovered. The RPO target is typically less than twice the replication schedule, but it can vary. In some cases, it can go beyond the target RPO based on factors such as the total dataset size, the change rate, the percentage of data overwrites, and the replication bandwidth available for transfer.
-
-Cross-zone and cross-region replication support three replication schedules: 10 minutes, hourly, and daily.
-
-- For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.
-- For the hourly replication schedule, the typical RPO is less than two hours.
-- For the daily replication schedule, the typical RPO is less than two days.
- 
->[!NOTE]
->The 10-minute replication schedule isn't supported for [Azure NetApp Files large volumes](../azure-netapp-files/large-volumes.md) using cross-zone or cross-region replication.
-
-Recovery Time Objective (RTO), or the maximum tolerable business application downtime, is determined by factors in bringing up the application and providing access to the data at the second site. The storage portion of the RTO for breaking the peering relationship to activate the destination volume and provide read and write data access in the second site is expected to be complete within a minute.
--->
 
 ## Related content
 
