@@ -121,6 +121,8 @@ items:
       href: add-run-powershell-scripts.md
     - name: Parse or chunk content
       href: parse-document-chunk-text.md
+    - name: Create chat completions with prompt templates
+      href: connectors/create-chat-completions-prompt-template.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors

@@ -2,7 +2,7 @@
 title: Integration FAQs for Azure NetApp Files | Microsoft Docs
 description: Answers frequently asked questions (FAQs) about using other products or services with Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 02/13/2023
