@@ -9,7 +9,10 @@ ms.author: rosemalcolm
 
 ---  
 
-# Reference: imagedefinition.yaml files
+# Customizations Schema Reference
+
+
+## imagedefinition.yaml files
 
 A Dev Box yaml allows you to define customization tasks that ought to run during Dev Box creation. A devbox.yaml file might live in the same repository as the primary source code being used by the dev team, or in a centralized repository of configurations.
 
@@ -25,7 +28,7 @@ tasks:
     command:
 ```
 
-**name**
+### name
 
 **Required**
 
@@ -35,7 +38,7 @@ A friendly name for the image definition associated with this devbox.yaml. This 
 name: myVSDevBox
 ```
 
-**image**
+### image
 
 **Required**
 
@@ -63,7 +66,7 @@ You would need the DevCenter az cli extension:
 az extension add --name devcenter
 ```
 
-**tasks**
+### tasks
 
 **Required**
 
@@ -90,11 +93,11 @@ tasks:
     timeout: 1800 # in seconds
 ```
 
-**Built-in tasks**
+### Built-in tasks
 
 PowerShell and Winget are available as built-in tasks and can be invoked directly without attaching a DevCenter-level catalog that defines the implementation of these tasks.
 
-**Winget built-in task**
+#### Winget built-in task
 
 Applies a winget configuration to the Dev Box.
 
@@ -127,7 +130,7 @@ Applies a winget configuration to the Dev Box.
   - If a config yaml file is provided under other parameters, there's no need for the package version.  
   - required: false  
 
-**Powershell built-in task**
+#### Powershell built-in task
 
 Execute a PowerShell command.
 
@@ -138,9 +141,7 @@ Execute a PowerShell command.
   - The command to execute.  
   - required: true  
 
-## Reference: task.yaml files
-
-**task.yaml**
+## task.yaml files
 
 Customization tasks are reusable units of installation code or environment configuration – written using PowerShell scripts and described using a task.yaml metadata file. These tasks are then used by devs to customize a dev box by referencing them from a devbox.yaml file.
 
@@ -166,9 +167,9 @@ inputs:
     description: The working directory to execute the command in
 ```
 
-**Attributes:**
+### Attributes:
 
-- **name**  
+#### name  
   **Required**  
   The unique identifier used to refer to a task from devbox.yaml. The name should be unique in the context of the catalog where the task exists.  
   Naming must match existing Azure Resource constraints: The name must be between 3 and 63 characters and must start with an alphanumeric character and consist of only alphanumeric characters and '-', '.', or '_'. The "/" character is reserved.  
@@ -177,7 +178,7 @@ inputs:
   name: powershell
   ```
 
-- **description**  
+#### description
   **Optional**  
   Description of the task.  
 
@@ -185,7 +186,7 @@ inputs:
   description: This task executes a powershell command
   ```
 
-- **inputs**  
+#### inputs  
   **Required**  
   List of parameters that this task takes as an input from a devbox.yaml and utilizes while executing the command. Each parent item represents the name of a parameter and supports these keys:  
 
@@ -203,7 +204,7 @@ inputs:
       description: The command to execute
   ```
 
-- **command**  
+#### command
   **Required**  
   The command to execute to fulfill this task. The provided command string would be executed in Windows PowerShell on the local machine.  
 
@@ -211,14 +212,14 @@ inputs:
   command: ".\runcommand.ps1
   ```
 
-- **Referencing Variables in command**  
+#### Referencing Variables in command
   To reference parameters in a command, you can specify the variable name in Handlebar style double braces {{parameter_name}}. The values of these variables are interpolated before your command is executed.  
 
   ```
   command: ".\runcommand.ps1 -command {{command}} -workingDirectory {{workingDirectory}}"
   ```
 
-- **timeout**  
+#### timeout  
   **Optional**  
   The maximum amount of time (in minutes) to wait for task execution to complete, before timing out the task. Defaults to 30 minutes.  
 
@@ -226,7 +227,7 @@ inputs:
   timeout: 30
   ```
 
-- **author**  
+#### author  
   **Optional**  
   Identifier of a task author – to help with audits and troubleshooting.  
 
@@ -234,7 +235,7 @@ inputs:
   author: Contoso Corporation
   ```
 
-- **documentationURL**  
+#### documentationURL  
   **Optional**  
   Link to documentation for this task.  
 
@@ -242,7 +243,7 @@ inputs:
   documentationURL: "https://link.to/documentation"
   ```
 
-- **licenseURL**  
+#### licenseURL 
   **Optional**  
   Link to the license for this task.  
 
