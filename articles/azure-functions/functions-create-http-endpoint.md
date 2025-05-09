@@ -4,19 +4,19 @@ description: Learn how to use an HTTP trigger to create a function app with an H
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom: 
-- devx-track-csharp
-- mvc
-- devcenter
-- cc996988-fb4f-47
-- devdivchpfy22
-- devx-track-extended-java
-- devx-track-js
-- devx-track-python
-- build-2024
-- devx-track-ts
+  - devx-track-csharp
+  - mvc
+  - devcenter
+  - cc996988-fb4f-47
+  - devdivchpfy22
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - build-2024
+  - devx-track-ts
 zone_pivot_groups: 
-- programming-languages-set-functions
-- functions-hosting-plan-dynamic
+  - programming-languages-set-functions
+  - functions-hosting-plan-dynamic
 ---
 
 # Create an HTTP endpoint using Azure Functions in the portal
