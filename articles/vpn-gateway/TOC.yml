@@ -76,6 +76,8 @@
     href: about-zone-redundant-vnet-gateways.md
   - name: VPN Gateway configuration settings
     href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: IPv6 configuration settings
+    href: ipv6-configuration.md
 - name: Create & manage a VPN gateway
   items:
   - name: Create a VPN gateway

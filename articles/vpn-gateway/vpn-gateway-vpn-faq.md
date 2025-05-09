@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about VPN Gateway connect
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 05/09/2025
 ms.author: cherylmc
 ---
 
@@ -165,6 +165,10 @@ Yes. You can use the Set Pre-Shared Key REST API and PowerShell cmdlet to config
 ### Can I use other authentication options?
 
 You're limited to using preshared keys for authentication.
+
+### Does Azure VPN Gateway support IPv6?
+
+Yes. For additional information see [Configure IPv6 for VPN Gateway](ipv6-configuration.md).
 
 ### How do I specify which traffic goes through the VPN gateway?
 

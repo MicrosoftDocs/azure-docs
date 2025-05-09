@@ -2,7 +2,7 @@
 title: Use the Batch Management .NET library to manage account resources
 description: Create, delete, and modify Azure Batch account resources with the Batch Management .NET library.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 05/09/2025
 ms.devlang: csharp
 ms.custom: has-adal-ref, devx-track-csharp, devx-track-dotnet
 ---
@@ -157,8 +157,8 @@ To see Batch Management .NET in action, check out the [AccountManagement](https:
 1. Acquire a security token from Microsoft Entra ID by using [Acquire and cache tokens using the Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-net-acquire-token-silently.md). If the user is not already signed in, they are prompted for their Azure credentials.
 2. With the security token obtained from Microsoft Entra ID, create a [SubscriptionClient](/dotnet/api/microsoft.azure.management.resourcemanager.subscriptionclient) to query Azure for a list of subscriptions associated with the account. The user can select a subscription from the list if it contains more than one subscription.
 3. Get credentials associated with the selected subscription.
-4. Create a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanagementclient) object by using the credentials.
-5. Use a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanagementclient) object to create a resource group.
+4. Create a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanager.resourcemanagementclient) object by using the credentials.
+5. Use a [ResourceManagementClient](/dotnet/api/microsoft.azure.management.resourcemanager.resourcemanagementclient) object to create a resource group.
 6. Use a [BatchManagementClient](/dotnet/api/microsoft.azure.management.batch.batchmanagementclient) object to perform several Batch account operations:
    - Create a Batch account in the new resource group.
    - Get the newly created account from the Batch service.

@@ -3,7 +3,7 @@ title: Bicep modules
 description: This article describes how to define a module in a Bicep file and how to use module scopes.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 05/09/2025
 ---
 
 # Bicep modules
@@ -544,6 +544,8 @@ module stgModule '../create-storage-account/main.bicep' = {
 
 output storageEndpoint object = stgModule.outputs.storageEndpoint
 ```
+
+With Bicep version 0.35.1 and later, the `@secure()` decorator can be applied to module outputs to mark them as sensitive, ensuring that their values are not exposed in logs or deployment history. This is useful when a module needs to return sensitive data, such as a generated key or connection string, to the parent Bicep file without risking exposure. For more information, see [Secure outputs](./outputs.md#secure-outputs).
 
 ## Related content
 

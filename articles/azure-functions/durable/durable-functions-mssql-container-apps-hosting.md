@@ -5,9 +5,12 @@ ms.topic: how-to
 ms.date: 05/06/2025
 ---
 
-# Host a Durable Functions app in Azure Container Apps (preview)
+# Host a Durable Functions app in Azure Container Apps (.NET isolated)
 
-While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the Microsoft SQL (MSSQL) backend. If another backend is used, you need to [manually set up scaling](../functions-container-apps-hosting.md#event-driven-scaling).
+Azure Functions provides integrated support for developing, deploying, and managing containerized Function Apps on Azure Container Apps. Use Azure Container Apps for your Functions apps when you need to run in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Learn more about [running Azure Functions in Container Apps](../../container-apps/functions-overview.md). 
+
+> [!NOTE] 
+> While Durable Functions supports several [storage providers](./durable-functions-storage-providers.md) or *backends*, autoscaling apps hosted in Azure Container Apps is only available with the [Microsoft SQL (MSSQL) backend](../../container-apps/functions-overview.md#event-driven-scaling). If another backend is used, you have to set minimum replica count to greater than zero. 
 
 In this article, you learn how to:
 
@@ -78,7 +81,7 @@ Build the Docker image. Find the complete list of supported base images for Azur
 
 1. When prompted, log in with your username and password. A "Login Succeeded" message confirms that you're signed in.
 
-1. Navigate to the `LocalFunctionProj` project folder. 
+1. Navigate to your project root directory. 
 
 1. Run the following command to build the image, replacing `<DOCKER_ID>` with your Docker Hub account ID:
 
@@ -87,7 +90,7 @@ Build the Docker image. Find the complete list of supported base images for Azur
     imageName=IMAGE_NAME>
     imageVersion=v1.0.0
 
-    docker build --platform linux --tag $dockerId/$imageName:$imageVersion .
+    docker build --tag $dockerId/$imageName:$imageVersion .
     ```
 
     > [!NOTE]
@@ -108,7 +111,6 @@ Create the Azure resources necessary for running Durable Functions on a containe
 - **Azure Container App environment:** Environment hosting the container app. 
 - **Azure Container App:** Image containing the Durable Functions app is deployed to this app. 
 - **Azure Storage Account:** Required by the function app to store app-related data, such as application code. 
-- **A virtual network:** Required by the Azure Container App environment. 
 
 ### Initial set up
 
@@ -117,7 +119,7 @@ Create the Azure resources necessary for running Durable Functions on a containe
     ```azurecli
     az login  
 
-    az account set -subscription | -s <subscription_name>
+    az account set -s <subscription_name>
     ```
 
 1. Run the required commands to set up the Azure Container Apps CLI extension:
@@ -153,34 +155,6 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
     az group create --name $resourceGroup --location $location
     ```
 
-1. Create a virtual network, which is required for a container app environment.
-
-    ```azurecli
-    az network vnet create --resource-group $resourceGroup --name $vnet --location $location --address-prefix 10.0.0.0/16
-    ```
-
-1. Create a subnet for the environment deployment.
-
-    ```azurecli
-    az network vnet subnet create \
-      --resource-group $resourceGroup \
-      --vnet-name $vnet \
-      --name infrastructure-subnet \
-      --address-prefixes 10.0.0.0/23
-    ```
-
-1. Run the following query to get the subnet ID.
-
-    ```azurecli
-    subnetId=$(az network vnet subnet show --resource-group $resourceGroup --vnet-name $vnet --name infrastructure-subnet --query "id" -o tsv | tr -d '[:space:]')
-    ```
-
-1. Delegate the subnet to `Microsoft.App/environments`.
-
-    ```azurecli
-    az network vnet subnet update --resource-group $resourceGroup --vnet-name $vnet --name infrastructure-subnet --delegations Microsoft.App/environments
-    ```
-
 1. Create the container app environment.
 
     ```azurecli
@@ -189,7 +163,6 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
       --resource-group $resourceGroup \
       --name $containerAppEnv \
       --location $location \
-      --infrastructure-subnet-resource-id $subnetId
     ```
 
 1. Create a container app based on the Durable Functions image.
@@ -200,14 +173,11 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
     --environment $containerAppEnv \
     --image $dockerId/$imageName:$imageVersion \
     --ingress external \
-    --allow-insecure \
-    --target-port 80 \
-    --transport auto \
     --kind functionapp \
     --query properties.outputs.fqdn
     ```
 
-1. Make note of the app URL, which should look similar to `https://<APP_NAME>.victoriouswave-3866c33e.<REGION>.azurecontainerapps.io`.
+1. Make note of the app URL, which should look similar to `https://<APP_NAME>.<ENVIRONMENT_IDENTIFIER>.<REGION>.azurecontainerapps.io`.
 
 ### Create databases
 
@@ -264,7 +234,7 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
     clientId=$(az identity show --name $identity --resource-group $resourceGroup --query 'clientId' --output tsv)
     ```
 
-1. Assign the role `Storage Blob Data Owner` role for access to the storage account. 
+1. Assign the role **Storage Blob Data Owner** role for access to the storage account. 
 
     ```azurecli
     echo "Assign Storage Blob Data Owner role to identity"
@@ -272,14 +242,14 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
     ```
 
 ### Set up app settings
-
-Authenticating to the MSSQL database using managed identity isn't supported when hosting a Durable Functions app in Azure Container Apps. For now, this guide authenticates using connection strings.
+> [!NOTE]
+> Authenticating to the MSSQL database using managed identity isn't supported when hosting a Durable Functions app in Azure Container Apps. For now, this guide authenticates using connection strings.
 
 1. From the SQL database resource in the Azure portal, navigate to **Settings** > **Connection strings** to find the connection string.
 
     :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
-    The connection string should be a format similar to: 
+    The connection string should have a format similar to: 
 
     ```bash
     dbserver=<SQL_SERVER_NAME>
@@ -297,11 +267,9 @@ Authenticating to the MSSQL database using managed identity isn't supported when
 1. Store the SQL database's connection string as a [secret](../../container-apps/manage-secrets.md) called *sqldbconnection* in the container app.
 
     ```azurecli
-    az containerapp create \
+    az containerapp secret set \
     --resource-group $resourceGroup \
     --name $functionApp \
-    --environment $containerAppEnv \
-    --image $dockerId/$imageName:$imageVersion \
     --secrets sqldbconnection=$connStr
     ```
 
@@ -323,7 +291,7 @@ Authenticating to the MSSQL database using managed identity isn't supported when
 1. Use an HTTP test tool to send a `POST` request to the HTTP trigger endpoint, which should be similar to: 
 
     ```
-    https://<APP NAME>.victoriouswave-3866c33e.<REGION>.azurecontainerapps.io/api/DurableFunctionsOrchestrationCSharp1_HttpStart
+    https://<APP NAME>.<ENVIRONMENT_IDENTIFIER>.<REGION>.azurecontainerapps.io/api/DurableFunctionsOrchestrationCSharp1_HttpStart
     ```
 
    The response is the HTTP function's initial result letting you know that the Durable Functions orchestration started successfully. While the response includes a few useful URLs, it doesn't yet display the orchestration's end result.
@@ -348,6 +316,6 @@ Authenticating to the MSSQL database using managed identity isn't supported when
 ## Next steps
 
 Learn more about:
-- [Azure Container Apps hosting of Azure Functions](../functions-container-apps-hosting.md). 
+- [Azure Container Apps hosting of Azure Functions](../../container-apps/functions-overview.md). 
 - [MSSQL storage provider](https://microsoft.github.io/durabletask-mssql/) architecture, configuration, and workload behavior. 
 - The Azure-managed storage backend, [Durable Task Scheduler](./durable-task-scheduler/durable-task-scheduler.md).
