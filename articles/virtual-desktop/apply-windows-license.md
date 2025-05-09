@@ -1,7 +1,7 @@
 ---
 title: Apply Windows license to session host virtual machines - Azure
 description: Describes how to apply the Windows license for Azure Virtual Desktop VMs.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 11/14/2022
 ms.author: avdcontent

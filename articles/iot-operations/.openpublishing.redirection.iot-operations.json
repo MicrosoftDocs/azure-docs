@@ -446,6 +446,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/iot-operations/end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md",
+            "redirect_url": "/azure/iot-operations/end-to-end-tutorials/tutorial-upload-messages-to-cloud",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/iot-operations/connect-to-cloud/howto-configure-data-lake.md",
             "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": false
