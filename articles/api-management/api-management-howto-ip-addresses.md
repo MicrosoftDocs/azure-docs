@@ -17,11 +17,11 @@ ms.custom: fasttrack-edit
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article describes how to retrieve the IP addresses of Azure API Management. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter the incoming traffic to backend services, or restrict outbound traffic.
+This article describes how to retrieve the IP addresses of Azure API Management. IP addresses can be public or private if the service is in a virtual network. You can use IP addresses to create firewall rules, filter incoming traffic to backend services, or restrict outbound traffic.
 
 ## Public IP addresses
 
-Every API Management instance in Developer, Basic, Standard, or Premium tier has public IP addresses that are exclusive only to that service instance. (They're not shared with other resources.)
+Every API Management instance in Developer, Basic, Standard, or Premium tier has public IP addresses that are exclusive only to that instance. (They're not shared with other resources.)
 
 You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal:
 
@@ -33,7 +33,7 @@ You can also fetch them programmatically by using this API call:
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<service-name>?api-version=<api-version>
 ```
 
-Public IP addresses will appear the response:
+Public IP addresses will appear in the response:
 
 ```json
 {
