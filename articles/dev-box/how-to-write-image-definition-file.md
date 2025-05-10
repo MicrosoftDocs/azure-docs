@@ -85,8 +85,6 @@ For more information about adding catalogs to projects, see [Add and configure a
 ## Create an image definition file
 You can create and test image definition files by using VS Code. In addition to using the built-in tasks, you can use the Microsoft Dev Box extension in VS Code to discover the custom tasks available through your dev center.
 
-For detailed information about using custom tasks, see the [Customizations schema reference](../reference-dev-box-customizations.md).
-
 1. Create a dev box (or use an existing dev box) for testing.
 1. On the test dev box, install VS Code and then install the Dev Box extension.
 1. Download an example YAML image definition file from the samples repository and open it in VS Code.
