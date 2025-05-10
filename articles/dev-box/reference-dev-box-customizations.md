@@ -11,8 +11,9 @@ ms.author: rosemalcolm
 
 # Customizations Schema Reference
 
+This reference guide provides detailed information about the `imagedefinition.yaml` and `task.yaml` files used to customize Microsoft Dev Box. These YAML files enable developers to define tasks for provisioning and configuring Dev Boxes, ensuring consistency and efficiency across development environments. The guide covers the schema, required attributes, and examples for both file types, along with built-in tasks like PowerShell and Winget.
 
-## imagedefinition.yaml files
+## Imagedefinition.yaml files
 
 A Dev Box yaml allows you to define customization tasks that ought to run during Dev Box creation. A devbox.yaml file might live in the same repository as the primary source code being used by the dev team, or in a centralized repository of configurations.
 
@@ -130,7 +131,7 @@ Applies a winget configuration to the Dev Box.
   - If a config yaml file is provided under other parameters, there's no need for the package version.  
   - required: false  
 
-#### Powershell built-in task
+#### PowerShell built-in task
 
 Execute a PowerShell command.
 
@@ -212,7 +213,7 @@ inputs:
   command: ".\runcommand.ps1
   ```
 
-#### Referencing Variables in command
+#### Referencing variables in command
   To reference parameters in a command, you can specify the variable name in Handlebar style double braces {{parameter_name}}. The values of these variables are interpolated before your command is executed.  
 
   ```
