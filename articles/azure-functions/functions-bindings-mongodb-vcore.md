@@ -39,7 +39,7 @@ Add the extension to your .NET project for an in-process app by installing [this
 
 ## Related articles
  
-- [What is Azure Cosmos DB for MongoDB (vCore architecture)?](/azure/cosmos-db/mongodb/vcore/introduction.md)
+- [What is Azure Cosmos DB for MongoDB (vCore architecture)?](/azure/cosmos-db/mongodb/vcore/introduction)
 - [Change streams in Azure Cosmos DB’s API for MongoDB](/azure/cosmos-db/mongodb/change-streams)
 - [Azure Cosmos DB for MongoDB (vCore) trigger for Azure Functions](functions-bindings-mongodb-vcore-trigger.md)
 - [Azure Cosmos DB for MongoDB (vCore) input binding for Azure Functions](functions-bindings-mongodb-vcore-input.md)

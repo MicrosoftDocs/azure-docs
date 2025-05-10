@@ -72,7 +72,7 @@ You can use the `CosmosDBMongo` attribute to obtain and work directly with the [
 
 ## Related articles
  
-- [Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/introduction.md)
+- [Azure Cosmos DB for MongoDB (vCore)](/azure/cosmos-db/mongodb/vcore/introduction)
 - [Azure Cosmos DB for MongoDB (vCore) bindings for Azure Functions](functions-bindings-mongodb-vcore.md)
 - [Azure Cosmos DB for MongoDB (vCore) trigger for Azure Functions](functions-bindings-mongodb-vcore-trigger.md)
 - [Azure Cosmos DB for MongoDB (vCore) input binding for Azure Functions](functions-bindings-mongodb-vcore-input.md)
