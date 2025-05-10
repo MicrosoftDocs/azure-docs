@@ -159,6 +159,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "azure-functions-mongodb-extension",
+            "url": "https://github.com/Azure/Azure-functions-mongodb-extension",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "azure-functions-nodejs-v4",
             "url": "https://github.com/Azure/azure-functions-nodejs-samples",
             "branch": "main",
