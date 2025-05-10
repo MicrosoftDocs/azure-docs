@@ -19,19 +19,18 @@ ms.date: 05/09/2025
 
 [!INCLUDE [note-build-2025](includes/note-build-2025.md)]
 
-
 The Dev Box customizations feature helps you streamline the setup of cloud-based development environments. Getting developers started on a new project or team can be complex and time-consuming. Customizations let you configure ready-to-code workstations with applications, tools, repositories, code libraries, packages, and build scripts. This article guides you through the process of creating, testing, and editing an image definition file for your dev box using Visual Studio Code (VS Code). 
 
 There are two ways to use customizations in Microsoft Dev Box. Team customizations create a shared configuration for a team of developers. User customizations create a personal configuration for an individual developer. The following table summarizes the differences between the two types of customizations.
 
-| Feature                     | Team customizations       | User customizations       |
-|-----------------------------|---------------------------|---------------------------------|
-| Configure on               | Dev box pool             | Dev box                           |
-| Customizations apply to    | All dev boxes in pool    | Individual dev box                |
-| Easily shareable           | Yes                      | No                                |
-| Customizations file name   | Imagedefinition.yaml     | myfilename.yaml or Workload.yaml  |
-| Sourced from               | Catalog                  | Uploaded or from personal repository |
-| Supports key vault secrets | Yes                      | Yes                               |
+| Feature                     | Team customizations       | User customizations                  |
+|-----------------------------|---------------------------|--------------------------------------|
+| Configure on                | Dev box pool              | Dev box                              |
+| Customizations apply to     | All dev boxes in pool     | Individual dev box                   |
+| Easily shareable            | Yes                       | No                                   |
+| Customizations file name    | Imagedefinition.yaml      | myfilename.yaml or Workload.yaml     |
+| Sourced from                | Catalog                   | Uploaded or from personal repository |
+| Supports key vault secrets  | Yes                       | Yes                                  |
 
 
 ## Prerequisites
@@ -55,15 +54,18 @@ To complete the steps in this article, you must:
 ## Choose a source for customization tasks
 Dev Box tasks can be sourced from tasks built-in to the platform, or custom tasks stored in a catalog. Choose the source that best aligns with your customization needs and project requirements.
 
-- **Use WinGet and PowerShell tasks**
-   Dev Box dev centers support PowerShell and WinGet tasks out of the box. If your customizations require only PowerShell and WinGet, proceed with creating your customizations file: [Create an image definition file](#create-an-image-definition-file).
+- **Use WinGet and PowerShell built-in tasks**
+   Dev Box dev centers support PowerShell and WinGet tasks out of the box; you can get started with these built-in tasks. If your customizations require only PowerShell and WinGet, proceed with creating your customizations file: [Create an image definition file](#create-an-image-definition-file).
+
+   The WinGet in-built task is not the WinGet executable. WinGet in-built task is based on the PowerShell WinGet CmdLet. 
 
 - **Use a catalog to define custom tasks**
-   You can create your own custom tasks. To make custom tasks available to your entire organization, attach a catalog that contains custom task definitions to your dev center. Dev Box supports Azure Repos and GitHub catalogs.
-To learn more about defining custom tasks, see: [Create tasks for Dev Box team customizations](how-to-create-customization-tasks-catalog.md). 
+   You can create your own custom tasks. To make custom tasks available to your entire organization, attach a catalog that contains custom task definitions to your dev center. Dev Box supports Azure Repos and GitHub catalogs. Because tasks can only be defined at the dev center, you should store tasks and image definitions in separate repositories.  
+   
+   To learn more about defining custom tasks, see: [Create tasks for Dev Box team customizations](how-to-create-customization-tasks-catalog.md). 
 
 ## Create image definitions at project level
-Using a project can help manage Dev Box resources efficiently. By assigning each developer team their own project, you can organize resources effectively. You can attach a catalog that stores image definitions to a project to target developer teams.
+Using a project can help manage Dev Box resources efficiently. By assigning each developer team their own project, you can organize resources effectively. You can create multiple image definitions in your catalog repository, each in their own folder to target different developer teams under your project.
 
 ### 1. Assign permissions for project admins. 
 To attach a catalog to a project, you must have Project Admin or Contributor permission for the project.
@@ -81,7 +83,10 @@ To enable the use of project-level catalogs at the dev center level:
 For more information about adding catalogs to projects, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
 
 ## Create an image definition file
-You can create and manage image definition files by using VS Code. You can use the Microsoft Dev Box extension in VS Code to discover the tasks in the attached catalog and test the image definition file.
+You can create and test image definition files by using VS Code.  In addition to using the built-in tasks, you can use the Microsoft Dev Box extension in VS Code to discover the custom tasks available through your dev center.
+
+For detailed information about using cutom tasks, see the [schema reference](../reference-dev-box-customizations.md).
+
 1. Create a dev box (or use an existing dev box) for testing.
 1. On the test dev box, install VS Code and then install the Dev Box extension.
 1. Download an example YAML image definition file from the samples repository and open it in VS Code.
