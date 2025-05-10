@@ -17,35 +17,35 @@ ms.author: jsuri
 
 The solution gives you granular control. You can back up or restore a specific namespace or an entire cluster by storing backups locally in a blob container and as disk snapshots. You can use AKS backup for end-to-end scenarios, including operational recovery, cloning developer or test environments, and cluster upgrade scenarios.
 
-AKS backup integrates with Backup center in Azure, and provides a single view that can help you govern, monitor, operate, and analyze backups at scale. AKS instance backups are also available in the Azure portal in the service menu under **Settings**.
+AKS backup integrates with Backup center in Azure, to provide a single view that can help you govern, monitor, operate, and analyze backups at scale. Your backups are also available in the Azure portal under **Settings** on the service menu for an AKS instance.
 
 ## How does AKS backup work?
 
-You can use AKS backup to back up your AKS workloads and Persistent Volumes that are deployed in AKS clusters. The solution requires the [Backup extension](/azure/azure-arc/kubernetes/conceptual-extensions) to be installed inside the AKS cluster. The Backup vault communicates to the extension to complete backup and restore operations. It's mandatory to use the Backup extension. The extension must be installed inside the AKS cluster to enable backup and restore for the cluster. When you configure AKS backup, you add values for a storage account and a blob container where backups are stored.
+You can use AKS backup to back up your AKS workloads and Persistent Volumes that are deployed in AKS clusters. The solution requires the [Backup extension](/azure/azure-arc/kubernetes/conceptual-extensions) to be installed inside the AKS cluster. The Backup vault communicates to the extension to complete backup and restore operations. Using the Backup extension is mandatory. The extension must be installed inside the AKS cluster to enable backup and restore for the cluster. When you configure AKS backup, you add values for a storage account and a blob container where backups are stored.
 
 Along with the Backup extension, a user identity (called an *extension identity*) is created in the AKS cluster's managed resource group. The extension identity is assigned the Storage Account Contributor role on the storage account in which backups are stored in a blob container.
 
 To support public, private, and authorized IP-based clusters, AKS backup requires that you enable the Trusted Access feature between the AKS cluster and the Backup vault. Trusted Access allows the Backup vault to access the AKS cluster because specific permissions are assigned to it for backup operations. For more information on AKS Trusted Access, see [Enable Azure resources to access AKS clusters by using Trusted Access](/azure/aks/trusted-access-feature).
 
-AKS backup allows you to store backups in both Operational Tier and Vault Tier. The Operational Tier is a local datastore (backups are stored in your tenant as snapshots). You can now move one recovery point per day and store it in Vault Tier as a blob (outside your tenant) by using AKS backup. Backups stored in the Vault can also be used to restore data in a secondary region (Azure-paired region).
+AKS backup allows you to store backups in both the Operational Tier and the Vault Tier. The Operational Tier is a local datastore (backups are stored in your tenant as snapshots). You can now move one recovery point per day and store it in the Vault Tier as a blob (outside your tenant) by using AKS backup. Backups stored in the Vault Tier can also be used to restore data in a secondary region (Azure-paired region).
 
-After you install the Backup extension and enable Trusted Access, you can configure scheduled backups for the clusters per your backup policy. You can also restore the backups to the original cluster or to a different cluster in the same subscription and region. As you set up the specific operation, you can choose a specific namespace or an entire cluster as a backup and restore configuration.
+After you install the Backup extension and enable Trusted Access, you can configure scheduled backups for the clusters according to your backup policy. You can also restore the backups to the original cluster or to a different cluster in the same subscription and region. As you set up the specific operation, you can choose a specific namespace or an entire cluster as a backup and restore configuration.
 
-AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called Operation Tier stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a Vault (outside your tenant) once a day.
+AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called the Operational Tier stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a Vault (outside your tenant) one time per day.
 
 > [!NOTE]
-> Currently, Azure Backup supports only Persistent Volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other Persistent Volume types, such as Azure Files and blobs. Also, if you set defined retention rules for Vault tier, backups are only eligible to be moved to the vault if the Persistent Volumes are less than or equal to 1 TB.
+> Currently, Azure Backup supports only Persistent Volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other Persistent Volume types, such as Azure Files shares and blobs. Also, if you set defined retention rules for the Vault Tier, backups are only eligible to be moved to the vault if the Persistent Volumes are less than or equal to 1 TB.
 
 ## Configure backup
 
-To configure backups for AKS clusters, first create a Backup vault. The vault gives you a consolidated view of the backups that are configured across different data sources. AKS backup supports both Operational Tier and Vault Tier backups.
+To configure backups for AKS clusters, first create a Backup vault. The vault gives you a consolidated view of the backups that are configured across different data sources. AKS backup supports backups for both the Operational Tier and the Vault Tier.
 
-The Backup vault storage redundancy setting (locally redundant storage or geo-redundant storage) only applies to backups that are stored in Vault Tier. If you want to use backups for disaster recovery, set the storage redundancy as **GRS** with **Cross Region Restore** enabled.
+The Backup vault storage redundancy setting (locally redundant storage or geo-redundant storage) only applies to backups that are stored in the Vault Tier. If you want to use backups for disaster recovery, set the storage redundancy as **GRS** with **Cross Region Restore** enabled.
 
 > [!NOTE]
 > The Backup vault and the AKS cluster that you want to back up or restore must be in the same region and subscription.
 
-AKS backup automatically triggers a scheduled backup job. The job copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based Persistent Volumes per the backup frequency. The backups are retained in the Operational Tier and Vault Tier per the retention duration defined in the backup policy. The backups are deleted once the duration is over.
+AKS backup automatically triggers a scheduled backup job. The job copies the cluster resources to a blob container and creates an incremental snapshot of the disk-based Persistent Volumes according to the backup frequency. The backups are retained in the Operational Tier and the Vault Tier according to the retention duration defined in the backup policy. The backups are deleted when the duration is over.
 
 You can use AKS backup to create multiple backup instances for a single AKS cluster by using different backup configurations per backup instance. However, we recommend that you create each backup instance of an AKS cluster in one of the following two ways:
 
@@ -58,21 +58,23 @@ When the backup configuration for an AKS cluster is finished, a backup instance 
 
 AKS backup also integrates directly with Backup center to help you centrally manage protection for all your AKS clusters and other backup-supported workloads. Backup center provides a single view for all your backup requirements, such as monitoring jobs and the state of backups and restores. Backup center helps you ensure compliance and governance, analyze backup usage, and perform critical operations to back up and restore data.
 
-AKS backup uses managed identity to access other Azure resources. To configure the backup of an AKS cluster and to restore from an earlier backup, the Backup vault's managed identity requires a set of permissions on the AKS cluster. It also requires a set of permissions on the snapshot resource group where snapshots are created and managed. Currently, the AKS cluster requires a set of permissions on the snapshot resource group. Also, the Backup extension creates a user identity and assigns a set of permissions to access the storage account where backups are stored in a blob. You can grant permissions to the managed identity by using Azure role-based access control. A managed identity is a special type of service principle that can be used only with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
+AKS backup uses managed identity to access other Azure resources. To configure the backup of an AKS cluster and to restore from an earlier backup, the Backup vault's managed identity requires a set of permissions on the AKS cluster. It also requires a set of permissions on the snapshot resource group where snapshots are created and managed. Currently, the AKS cluster requires a set of permissions on the snapshot resource group. 
+
+Also, the Backup extension creates a user identity and assigns a set of permissions to access the storage account where backups are stored in a blob. You can grant permissions to the managed identity by using Azure role-based access control. A managed identity is a special type of service principle that can be used only with Azure resources. Learn more about [managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Restore from a backup
 
 You can restore data from any point in time for which a recovery point exists. A recovery point is created when a backup instance is in a protected state. It can be used to restore data until the backup policy retains the data.
 
-Azure Backup gives you the option to restore all the items that are backed up or to use granular controls to select specific items from the backups by using namespaces and other filter options. Also, you can do the restore on the original AKS cluster (the backed-up cluster) or on an alternate AKS cluster. You can restore backups that are stored in Operational and Vault Tier to a cluster in the same or a different subscription. Only backups stored in Vault Tier can be used to do a restore to a cluster in a different region (Azure-paired region).
+Azure Backup gives you the option to restore all the items that are backed up or to use granular controls to select specific items from the backups by using namespaces and other filter options. Also, you can do the restore on the original AKS cluster (the backed-up cluster) or on an alternate AKS cluster. You can restore backups that are stored in the Operational Tier and the Vault Tier to a cluster in the same or a different subscription. Only backups stored in the Vault Tier can be used to do a restore to a cluster in a different region (Azure-paired region).
 
-To restore a backup stored in Vault Tier, you must provide a staging location where the backup data is hydrated. This staging location includes a resource group and a storage account within the same region and subscription as the target cluster for restore. During restore, specific resources (blob container, disk, and disk snapshots) are created as part of hydration, which are then cleared after the restore operation is complete.
+To restore a backup stored in the Vault Tier, you must provide a staging location where the backup data is hydrated. This staging location includes a resource group and a storage account within the same region and subscription as the target cluster for restore. During restore, specific resources (blob container, disk, and disk snapshots) are created as part of hydration. They are cleared after the restore operation is complete.
 
 Azure Backup for AKS currently supports the following two options for a scenario in which a resource clash happens. A resource clash occurs when a backed-up resource has the same name as the resource in the target AKS cluster. You can choose one of these options when defining the restore configuration.
 
-1. **Skip**: This option is selected by default. For example, if you back up a Persistent Volume Claim (PVC) named `pvc-azuredisk` and you restore it in a target cluster that has a PVC with the same name, the backup extension skips the restore of the backed-up PVC. In such scenarios, we recommend that you delete the resource from the cluster. Then, do the restore operation so that the backed-up items are only available in the cluster and aren't skipped.
+* **Skip**: This option is selected by default. For example, if you back up a Persistent Volume Claim (PVC) named `pvc-azuredisk` and you restore it in a target cluster that has a PVC with the same name, the backup extension skips the restore of the backed-up PVC. In such scenarios, we recommend that you delete the resource from the cluster. Then, do the restore operation so that the backed-up items are only available in the cluster and aren't skipped.
 
-1. **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation.
+* **Patch**: This option allows the patching mutable variable in the backed-up resource on the resource in the target cluster. If you want to update the number of replicas in the target cluster, you can opt for patching as an operation.
 
 > [!NOTE]
 > AKS backup doesn't currently delete and re-create resources in the target cluster if they already exist. If you attempt to restore Persistent Volumes in the original location, delete the existing Persistent Volumes, and then do the restore operation.
@@ -154,7 +156,7 @@ spec:
 
 In the restore hook script, custom commands or scripts are written to be executed in the containers of a restored AKS pod.
 
-Here's the YAML template for a custom resource that is deployed by using restore hooks:
+Here's the YAML template for a custom resource that's deployed via restore hooks:
 
 ```json
 apiVersion: clusterbackup.dataprotection.microsoft.com/v1alpha1
@@ -204,11 +206,11 @@ You can use the Resource Modification feature to modify backed-up Kubernetes res
 
 To create and apply resource modification, follow these steps:
 
-1. Create resource modifiers `configmap`.
+1. Create a resource modifier `configmap`.
 
    You need to create one `configmap` in your preferred namespace from a *YAML* file that defined resource modifiers.
 
-   **Example for creating command**:
+Example for creating a command:
 
     ```json
     version: v1
@@ -232,8 +234,8 @@ To create and apply resource modification, follow these steps:
 
    * The previous `configmap` applies the *JSON* patch to all the Persistent Volume copies in the `namespaces` bar and `foo` with a name that starts with `mysql` and `match label foo: bar`. The JSON patch replaces the `storageClassName` with `premium` and removes the label `test` from the Persistent Volume copies.
    * Here, the `namespace` is the original namespace of the backed-up resource, and not the new namespace to which the resource is going to be restored.
-   * You can specify multiple JSON patches for a particular resource. The patches are applied per the order specified in the `configmap`. The next patch is applied in order. If multiple patches are specified for the same path, the last patch overrides the previous patches.
-   * You can specify multiple `resourceModifierRules` in the `configmap`. The rules are applied per the order specified in the `configmap`.
+   * You can specify multiple JSON patches for a particular resource. The patches are applied according to the order specified in the `configmap`. The next patch is applied in order. If multiple patches are specified for the same path, the last patch overrides the previous patches.
+   * You can specify multiple `resourceModifierRules` in the `configmap`. The rules are applied according to the order specified in the `configmap`.
 
 2. Create a resource modifier reference in the restore configuration
 
@@ -241,11 +243,11 @@ To create and apply resource modification, follow these steps:
 
    :::image type="content" source="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png" alt-text="Screenshot that shows the location to provide resource details." lightbox="./media/azure-kubernetes-service-backup-overview/resource-modifier-rules.png":::
 
-### Operations supported by **Resource Modifier**
+### Operations supported by Resource Modifier
 
 * **Add**
   
-  You can use the **Add** operation to add a new block to the resource JSON. In the following example, the operation adds new container details to the spec with a deployment.
+  You can use the **Add** operation to add a new block to the resource JSON. In the following example, the operation adds new container details to the specification with a deployment.
    
     ```json
     version: v1
@@ -422,12 +424,12 @@ To create and apply resource modification, follow these steps:
 
 Azure Backup for AKS supports two storage tiers as backup datastores:
 
-* **Operational Tier**: The Backup extension installed in the AKS cluster first takes the backup by taking volume snapshots via CSI Driver. It then stores cluster state in a blob container in your own tenant. This tier supports a lower recovery point objective (RPO) with the minimum duration of four hours between two backups. Additionally, for Azure Disk-based volumes, Operational Tier supports quicker restores.
+* **Operational Tier**: The Backup extension installed in the AKS cluster first takes the backup by taking volume snapshots via CSI Driver. It then stores cluster state in a blob container in your own tenant. This tier supports a lower recovery point objective (RPO) with the minimum duration of four hours between two backups. Additionally, for Azure Disk-based volumes, the Operational Tier supports quicker restores.
 
-* **Vault Tier**: To store backup data for a longer duration at a lower cost than snapshots, AKS backup supports Vault-standard datastore. Per the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure-paired region) for recovery by enabling **Geo-redundancy** and **Cross Region Restore** in the Backup vault.
+* **Vault Tier**: To store backup data for a longer duration at a lower cost than snapshots, AKS backup supports Vault-standard datastore. According to the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure-paired region) for recovery by enabling **Geo-redundancy** and **Cross Region Restore** in the Backup vault.
 
   > [!NOTE]
-  > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to Vault Tier. However, you can move any number of on-demand backups to the Vault per the rule selected.  
+  > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to the Vault Tier. However, you can move any number of on-demand backups to the Vault according to the rule selected.  
 
 ## Understand pricing
 
@@ -437,7 +439,7 @@ You incur charges for:
 
 * **Snapshot fee**: Azure Backup for AKS protects a disk-based Persistent Volume by taking snapshots that are stored in the resource group in your Azure subscription. These snapshots incur snapshot storage charges. Because the snapshots aren't copied to the Backup vault, backup storage costs don't apply. For more information on snapshot pricing, see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-* **Backup Storage fee**: Azure Backup for AKS also supports storing backups in Vault Tier. You can store backups in Vault Tier by defining retention rules for **vault-standard** in the backup policy, with one restore point per day eligible to be moved into the Vault. Restore points stored in the Vault Tier are charged a separate fee (called a Backup Storage fee) per the total data stored (in GBs) and redundancy type enable on the Backup Vault.
+* **Backup Storage fee**: Azure Backup for AKS also supports storing backups in the Vault Tier. You can store backups in the Vault Tier by defining retention rules for **vault-standard** in the backup policy, with one restore point per day eligible to be moved into the Vault. Restore points stored in the Vault Tier are charged a separate fee (called a Backup Storage fee) according to the total data stored (in gigabytes) and redundancy type enable on the Backup Vault.
 
 ## Related content
 
