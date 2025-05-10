@@ -96,7 +96,7 @@ Zone-redundant Premium plans are available in these regions:
 ::: zone pivot="flex-consumption-plan"
 Availability zone support is a property of the Flex Consumption plan. Here are current considerations for using availability zones:
 
-- You can enable availability zones in the plan during app creation. You can also enable or disable this plan feature in an existing app via Azure CLI (Azure Portal support coming soon).
+- You can enable availability zones in the plan during app creation. You can also enable or disable this plan feature in an existing app via Azure CLI.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [default host storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, your app might behave unexpectedly during a zonal outage.
 - Must be hosted on a [Flex Consumption](../azure-functions/flex-consumption-plan.md) plan.
 ::: zone-end 
@@ -226,7 +226,7 @@ After the zone-redundant plan is created and deployed, the Flex Consumption func
 
 Changing the zone redundancy of you app requires a restart, which causes downtime in your app.  
 
-Before updating your Flex Consumption plan to be zone-redundant, you should update the default host storage account to also be zone redundant. If you use a separate storage account for the app's deployment container, should update it to be zone redundant as well. 
+Before updating your Flex Consumption plan to be zone-redundant, you should update the default host storage account to also be zone redundant. If you use a separate storage account for the app's deployment container, you should update it to be zone redundant as well. 
 
 Use these steps to prepare your storage accounts for the change:
 
@@ -235,15 +235,12 @@ Use these steps to prepare your storage accounts for the change:
 1. Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
 1. Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
 
-After the storage accounts used by your app are updated, you can update the Flex Consumption plan to be zone-redundant using Bicep or ARM templates. The Azure portal and Azure CLI don't currently support making zone redundancy updates to the plan. 
+After the storage accounts used by your app are updated, you can update the Flex Consumption plan to be zone-redundant using Bicep or ARM templates. The Azure portal currently does not support making zone redundancy updates to the plan. 
 
 #### [Azure portal](#tab/azure-portal)
 Not currently supported.
 
 #### [Azure CLI](#tab/azure-cli)
-Not currently supported.
-
-<!-- Uncomment after AZ support is fixed:
 1. Update the Flex Consumption app and set the `--zone-redundant true` parameter:
 
     ```azurecli
@@ -251,7 +248,7 @@ Not currently supported.
 
     az functionapp plan update --ids $PLAN_RESOURCE_ID --set zoneRedundant=true
     ```
--->
+
 #### [Bicep template](#tab/bicep)
 
 You can use this Bicep file to add the `zoneRedundant` property to `true` in an existing plan definition: 
@@ -448,14 +445,14 @@ You can't currently change the availability zone support of an Elastic Premium p
 ::: zone-end 
 ### Zone down experience
 ::: zone pivot="flex-consumption-plan"
-All available function app instances of zone-redundant Flex Consumption plan apps are enabled and processing events. Flex Consumption apps continue to run even when other zones in the same region suffer an outage. However, it's possible that non-runtime behaviors might be impacted as a result of an outage in other availability zones. Standard function app behaviors can impact availability include:
+All available function app instances of zone-redundant Flex Consumption plan apps are enabled and processing events. Flex Consumption apps continue to run even when other zones in the same region suffer an outage. However, it's possible that non-runtime behaviors might be impacted as a result of an outage in other availability zones. Standard function app behaviors that can impact availability include:
 
 + Scaling
 + App creation 
 + Configuration changes
 + Deployments
 
-Zone redundancy for Flex Consumption plans only guarantees continued uptime for deployed applications.
+Zone redundancy for Flex Consumption plans only guarantees continued uptime for deployed applications that are running.
 
 When a zone goes down, Functions detects lost instances and automatically attempts to locate or create replacement instances, as needed, in the available zones. During zonal outage, the platform tries to restore balance on the available zones remaining.
 ::: zone-end  
