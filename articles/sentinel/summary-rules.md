@@ -44,7 +44,7 @@ To create summary rules in Microsoft Sentinel:
 
 We recommend that you [experiment with your summary rule query](hunts.md) in the **Logs** page before creating your rule. Verify that the query doesn't reach or near the [query limit](/azure/azure-monitor/logs/summary-rules#restrictions-and-limitations), and check that the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
-# Deploy and customize summary rule templates
+## Deploy and customize summary rule templates
 
 1. To view the available summary rule templates, open the Content Hub page and filter **Content type** by **Summary rules**.
 
