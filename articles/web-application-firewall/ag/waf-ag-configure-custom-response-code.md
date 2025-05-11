@@ -29,7 +29,9 @@ To customize the response status code and body, take the following steps:
 1. Select **Save**.
 
 
-  :::image type="content" source="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings."  lightbox="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png":::
+  :::image type="content" source="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/application-gateway-waf-configure-custom-response-code-and-body/ag-waf-custom-response-settings.png":::
+
+1. Select **Save**.
 
 In this example, we changed the default 403 response code to 429 and set a brief message stating, "The request has been blocked".
 
