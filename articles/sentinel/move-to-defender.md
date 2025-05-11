@@ -157,12 +157,12 @@ The following table lists fields that are important in the response snippets, an
 
 | Functionality | Azure portal | Defender portal |
 |----------------|--------------|----------------|
-| Link to the incident| `incidentUrl`: The direct URL to the incident in the Microsoft Sentinel portal | `providerIncidentUrl` : This additional field provides a direct link to the incident, which can be used to synchronize this information with a third-party ticketing system like ServiceNow. `incidentUrl` is still available, but it points to the Microsoft Sentinel portal. |
-| The sources that triggered the detection and published the alert | `alertProductNames` | `alertProductNames`: Requires adding `?$expand=alerts` to the GET. For example, `https://graph.microsoft.com/v1.0/security/incidents/368?$expand=alerts`|
-| The name of the alert provider| `providerName` = "Azure Sentinel" | `providerName` = "Microsoft XDR" |
-| The service or product that created the alert | |`serviceSource` For example, "microsoftDefenderForCloudApps" | 
-| The detection technology or sensor that identified the notable component or activity | | `detectionSource` For example, "cloudAppSecurity"|
-| The name of the product which published this alert. | |`productName` For example, "Microsoft Defender for Cloud Apps" |
+| **Link to the incident**| `incidentUrl`: The direct URL to the incident in the Microsoft Sentinel portal | `providerIncidentUrl` : This additional field provides a direct link to the incident, which can be used to synchronize this information with a third-party ticketing system like ServiceNow. <br><br>`incidentUrl` is still available, but it points to the Microsoft Sentinel portal. |
+| **The sources that triggered the detection and published the alert** | `alertProductNames` | `alertProductNames`: Requires adding `?$expand=alerts` to the GET. <br><br>For example, `https://graph.microsoft.com/v1.0/security/incidents/368?$expand=alerts`|
+| **The name of the alert provider**| `providerName` = "Azure Sentinel" | `providerName` = "Microsoft XDR" |
+| **The service or product that created the alert** |Doesn't exist in the Azure portal |`serviceSource` <br><br>For example, "microsoftDefenderForCloudApps" | 
+| **The detection technology or sensor that identified the notable component or activity** | Doesn't exist in the Azure portal| `detectionSource` For example, "cloudAppSecurity"|
+| **The name of the product which published this alert** |Doesn't exist in the Azure portal |`productName` For example, "Microsoft Defender for Cloud Apps" |
 
 ## Run operations in the Defender portal
 
