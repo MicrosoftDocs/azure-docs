@@ -778,7 +778,7 @@
       href: normalization-modify-content.md
   - name: Aggregate data with summary rules
     href: summary-rules.md
-  - name: Tutorial: Aggregate insights from raw data in an Auxiliary table
+  - name: Aggregate insights from raw data into an Auxiliary table
     href: summary-rules-tutorial.md
 - name: Integrate threat intelligence
   items:
