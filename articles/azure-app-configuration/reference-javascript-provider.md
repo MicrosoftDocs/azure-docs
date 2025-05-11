@@ -256,7 +256,7 @@ const appConfig = await load(endpoint, credential, {
         selectors: [ { keyFilter: "*", labelFilter: "Prod" } ],
         refresh: {
             enabled: true, // enable refreshing feature flags
-            refreshIntervalInMs: 10_000
+            refreshIntervalInMs: 60_000
         }
     }
 });

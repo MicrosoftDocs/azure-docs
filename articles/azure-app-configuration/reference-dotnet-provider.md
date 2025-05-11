@@ -10,14 +10,14 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 04/29/2025
-#Customer intent: I want to learn how to use Azure App Configuration .NET client library.
+#Customer intent: I want to learn how to use the Azure App Configuration .NET configuration provider library.
 ---
 
 # .NET Configuration Provider
 
 [![Microsoft.Extensions.Configuration.AzureAppConfiguration](https://img.shields.io/nuget/v/Microsoft.Extensions.Configuration.AzureAppConfiguration?label=Microsoft.Extensions.Configuration.AzureAppConfiguration)](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration)
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The .NET configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for .NET.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The .NET configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) on top of the Azure SDK for .NET.
 
 ## Load configuration
 
@@ -37,7 +37,7 @@ To connect to your Azure App Configuration store, call the `Connect` method on t
 
 ### [Microsoft Entra ID](#tab/entra-id)
 
-You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role.
+You can use the `DefaultAzureCredential`, or any other [token credential implementation](/dotnet/api/azure.identity.defaultazurecredential), to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role.
 
 ```csharp
 using Microsoft.Extensions.Configuration;
@@ -47,7 +47,7 @@ using Azure.Identity;
 var builder = new ConfigurationBuilder();
 builder.AddAzureAppConfiguration(options =>
     {
-        string endpoint = Environment.GetEnvironmentVariable("Endpoint");
+        string endpoint = Environment.GetEnvironmentVariable("AppConfigurationEndpoint");
         options.Connect(new Uri(endpoint), new DefaultAzureCredential());
     });
 
@@ -153,13 +153,15 @@ public class Settings
 builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
 ```
 
+For more information about options pattern in .NET, go to the [documentation](dotnet/core/extensions/options).
+
 ### JSON content type handling
 
-You can create JSON key-values in App Configuration. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
+You can create JSON key-values in App Configuration. When a key-value with the content type `"application/json"` is read, the configuration provider will flatten it into individual settings inside of `IConfiguration`. For more information, go to [Use content type to store JSON key-values in App Configuration](./howto-leverage-json-content-type.md).
 
 ### Load specific key-values using selectors
 
-By default, the configuration provider loads all key-values with no label from the App Configuration. You can selectively load key-values from your App Configuration store by calling `Select` method on `AzureAppConfigurationOptions`.
+By default, the configuration provider loads all key-values with no label from App Configuration. You can selectively load key-values from your App Configuration store by calling the `Select` method on `AzureAppConfigurationOptions`.
 
 ```csharp
 builder.AddAzureAppConfiguration(options =>
@@ -239,11 +241,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can call the `ConfigureRefresh` method to configure the key-value refresh.
-
-Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with TestApp: and having no label).
-
-You can add a call to the `SetRefreshInterval` method to specify the minimum time between configuration refreshes. If not set, the default refresh interval is 30 seconds.
+Configuring refresh enables the application to pull the latest values from the App Configuration store without having to restart. You can call the `ConfigureRefresh` method to configure the key-value refresh.
 
 ```csharp
 builder.Configuration.AddAzureAppConfiguration(options =>
@@ -254,11 +252,15 @@ builder.Configuration.AddAzureAppConfiguration(options =>
         .ConfigureRefresh(refreshOptions => {
             // Trigger full configuration refresh when any selected key changes.
             refreshOptions.RegisterAll()
-            // Check for changes no more often than every 10 seconds
-                .SetRefreshInterval(TimeSpan.FromSeconds(10));
+            // Check for changes no more often than every 60 seconds
+                .SetRefreshInterval(TimeSpan.FromSeconds(60));
         });
 });
 ```
+
+Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload configuration whenever it detects a change in any of the selected key-values (those starting with TestApp: and having no label).
+
+You can add a call to the `SetRefreshInterval` method to specify the minimum time between configuration refreshes. If not set, the default refresh interval is 30 seconds.
 
 ### Trigger refresh
 
@@ -305,7 +307,7 @@ builder.Configuration.AddAzureAppConfiguration(options =>
            .ConfigureRefresh(refreshOptions =>
            {
                 refreshOptions.RegisterAll()
-                    .SetRefreshInterval(TimeSpan.FromSeconds(10));
+                    .SetRefreshInterval(TimeSpan.FromSeconds(60));
            })
 });
 
@@ -350,6 +352,21 @@ dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
 The middleware calls the `TryRefreshAsync` method on the registered `IConfigurationRefresher` when there are new incoming requests to your application.
 
 ```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())            
+           .ConfigureRefresh(refreshOptions =>
+           {
+                refreshOptions.RegisterAll()
+                    .SetRefreshInterval(TimeSpan.FromSeconds(60));
+           })
+});
+
+// Add Azure App Configuration middleware to the container of services.
+builder.Services.AddAzureAppConfiguration();
+
+...
+
 var app = builder.Build();
 
 // Call the app.UseAzureAppConfiguration() method as early as appropriate in your request pipeline so another middleware doesn't skip it
@@ -362,7 +379,7 @@ app.UseRouting();
 ```
 
 > [!NOTE] 
-> Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling refresh is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+> Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt is made after a short period based on your application activity. Calling refresh is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
 
 ### Refresh on sentinel key
 
@@ -399,8 +416,8 @@ builder.Configuration.AddAzureAppConfiguration(options =>
         .UseFeatureFlags(featureFlagOptions => {
             // Load feature flags with prefix "TestApp:" and "dev" label
             featureFlagOptions.Select("TestApp:*", "dev")
-            // Check for changes no more often than every 10 seconds
-                .SetRefreshInterval(TimeSpan.FromSeconds(10));
+            // Check for changes no more often than every 60 seconds
+                .SetRefreshInterval(TimeSpan.FromSeconds(60));
         });
 });
 ```
@@ -411,7 +428,7 @@ Different from key-values, feature flags are automatically registered for refres
 
 ### Feature management
 
-Feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in conjunction with the configuration provider library. Install the [`Microsoft.FeatureManagement`](./feature-management-dotnet-reference.md) package:
+The feature management library provides a way to develop and expose application functionality based on feature flags. The feature management library is designed to work in conjunction with the configuration provider library. Install the [`Microsoft.FeatureManagement`](./feature-management-dotnet-reference.md) package:
 
 ```console
 dotnet add package Microsoft.FeatureManagement
@@ -472,7 +489,11 @@ The configuration provider library retrieves Key Vault references, just as it do
 
 ### Connect to Key Vault
 
-You need to call the `ConfigureKeyVault` method to configure how to connect the Key Vault. You can register a specified `SecretClient` instance to use to resolve key vault references for secrets from associated key vault or set the credential used to authenticate to key vaults that have no registered `SecretClient`.
+You need to call the `ConfigureKeyVault` method to configure how to connect to Key Vault. The Azure App Configuration provider offers multiple ways to authenticate and access your Key Vault secrets.
+
+#### 1. Register `SecretClient` instance
+
+You can register specified `SecretClient` instances to use to resolve key vault references for secrets from associated key vault.
 
 ```csharp
 using Azure.Identity;
@@ -487,13 +508,33 @@ builder.Configuration.AddAzureAppConfiguration(options =>
     options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())  
         .ConfigureKeyVault(kv =>
         {
-            // Use DefaultAzureCredential to access Key Vault
-            kv.SetCredential(new DefaultAzureCredential());
             // Register a SecretClient instance
             kv.Register(secretClient);
         });
 });
 ```
+
+#### 2. Use credential
+
+You can set the credential used to authenticate to key vaults that have no registered `SecretClient`.
+
+```csharp
+using Azure.Identity;
+
+...
+
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())  
+        .ConfigureKeyVault(kv =>
+        {
+            // Use DefaultAzureCredential to access all Key Vaults
+            kv.SetCredential(new DefaultAzureCredential());
+        });
+});
+```
+
+#### 3. Use custom secret resolver
 
 You can also call `SetSecretResolver` to add a custom secret resolver which is used when no registered `SecretClient` is available or the provided credential fails to authenticate to Key Vault. This method accepts a delegate function that resolves a Key Vault URI to a secret value. The following example demonstrates using a secret resolver that retrieves a secret from environment variables in development and uses fallback values when it fails to get the secret from Key Vault.
 
@@ -528,6 +569,12 @@ builder.Configuration.AddAzureAppConfiguration(options =>
         });
 });
 ```
+
+> [!NOTE] 
+> When resolving Key Vault references, the provider follows this order:
+> 1. Registered `SecretClient` instances
+> 1. Default credential
+> 1. Custom secret resolver
 
 > [!IMPORTANT]
 > If your application loads key-values containing Key Vault references without proper Key Vault configuration, an **exception** will be thrown at startup. Ensure you've properly configured Key Vault access or secret resolver.
