@@ -316,6 +316,7 @@ You can't currently configure virtual networking in Visual Studio Code.
 When choosing a subnet, these considerations apply:
 
 + The subnet you choose can't already be used for other purposes, such as with private endpoints or service endpoints, or be delegated to any other hosting plan or service. 
+* You cannot share the same subnet between a Container Apps environment and a Flex Consumption app.
 + You can share the same subnet with more than one app running in a Flex Consumption plan. Because the networking resources are shared across all apps, one function app might impact the performance of others on the same subnet.
 + In a Flex Consumption plan, a single function app might use up to 40 IP addresses, even when the app scales beyond 40 instances. While this rule of thumb is helpful when estimating the subnet size you need, it's not strictly enforced.  
 
