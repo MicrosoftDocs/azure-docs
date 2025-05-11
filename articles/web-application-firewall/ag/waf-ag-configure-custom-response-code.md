@@ -39,4 +39,4 @@ In this example, we changed the default 403 response code to 429 and set a brief
 
 ## Next steps
 
-Learn more about [Azure Web Application Firewall on Application Gatway](../ag/ag-overview.md).
+Learn more about [Azure Web Application Firewall on Application Gateway](../ag/ag-overview.md).
