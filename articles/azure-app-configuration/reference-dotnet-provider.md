@@ -153,7 +153,7 @@ public class Settings
 builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
 ```
 
-For more information about options pattern in .NET, go to the [documentation](dotnet/core/extensions/options).
+For more information about options pattern in .NET, go to the [documentation](https://learn.microsoft.com/dotnet/core/extensions/options).
 
 ### JSON content type handling
 
