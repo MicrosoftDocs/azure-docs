@@ -61,8 +61,7 @@ Open-source Redis defines a standard mechanism for taking a snapshot of a cache'
 
 General steps to implement this option are:
 
-<!-- cawa - remove reference to premium tier -->
-1. Create a new Azure Managed Redis instance in the premium tier that is the same size as (or bigger than) the existing cache.
+1. Create a new Azure Managed Redis instance i that is the same size as (or bigger than) the existing cache.
 
 2. Save a snapshot of the existing Redis cache. You can [configure Redis to save snapshots](https://redis.io/topics/persistence) periodically, or run the process manually using the [SAVE](https://redis.io/commands/save) or [BGSAVE](https://redis.io/commands/bgsave) commands. The RDB file is named “dump.rdb” by default and will be located at the path specified in the *redis.conf* configuration file.
 
@@ -82,7 +81,7 @@ Rather than moving data directly between caches, you may use your application to
 
 General steps to implement this option are:
 
-1. Create a new Azure Managed Redis instance in the premium tier that is the same size as (or bigger than) the existing cache.
+1. Create a new Azure Managed Redis instance that is the same size as (or bigger than) the existing cache.
 
 2. Modify application code to write to both the new and the original instances.
 
