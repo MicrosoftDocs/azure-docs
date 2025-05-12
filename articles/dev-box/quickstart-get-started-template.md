@@ -56,7 +56,7 @@ The following resources are created in your Azure subscription:
 - **Dev center**: The central hub for managing dev boxes and resources.
 - **Project**: A container for organizing dev boxes and resources within the dev center.
 - **Dev box pool**: A collection of dev boxes that share the same configuration and resources.
-- **Dev box definition**: A template that defines the configuration and resources for the dev boxes in the pool. The get started template uses the Visual Studio 2022 on Windows 11 enterprise image.
+- **Dev box definition**: A template that defines the configuration and resources for the dev boxes in the pool. The get started template uses the *Visual Studio 2022 Enterprise on Windows 11 Enterprise + Microsoft 365 Apps 24H2* image.
 
 You can go to the [developer portal](https://aka.ms/devbox-portal) to create new dev boxes. The developer portal is a web-based interface that allows users to create, manage, and monitor their dev boxes. 
 
