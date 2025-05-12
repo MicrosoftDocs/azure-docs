@@ -75,7 +75,7 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 3.	Scroll down to the **Authentication** section.
 4.	Enable **Origin authentication**.
 5.	Choose between system assigned or user assigned managed identity.
-6.	Enter the correct [scope](https://learn.microsoft.com/entra/identity-platform/scopes-oidc) within the **Scope** field.
+6.	Enter the correct [scope](/entra/identity-platform/scopes-oidc) within the **Scope** field.
 7.	Click on **Update**.
 
     :::image type="content" source="./media/managed-identity/origin-auth.png" alt-text="Screenshot of associating the identity to an origin group.":::
