@@ -27,24 +27,19 @@ The account is located in the East US region, and is configured for locally-redu
 
 ## Estimate
 
-Using sample pricing, the estimated cost of this scenario is **$140.40**. 
-
-Here's each line item of that cost estimate:
-
-| Cost meter                      | Estimate   |
-|---------------------------------|------------|
-| Write operations (archive tier) | **$28.18** |
-| Read operations (archive tier)  | **$0.22**  |
-| Data retrieval fee              | **$88.00** |
-| Early deletion fee              | **$24.00** |
+| Cost meter                      | Estimate    |
+|---------------------------------|-------------|
+| Write operations (archive tier) | $28.18      |
+| Read operations (archive tier)  | $0.22       |
+| Data retrieval fee              | $88.00      |
+| Early deletion fee              | $24.00      |
+| Total cost                      | **$140.40** |
 
 This estimate doesn't include the cost of data storage. Storage is billed per GB. See [The cost to store data](blob-storage-estimate-costs.md#the-cost-to-store-data).
 
 ## Breakdown
 
-The following sections show how each line item in the above sample estimate is calculated.
-
-### Write operations (archive tier)
+The following table itemizes the cost of write operations on the archive tier.
 
 | Calculation                                                | Value      |
 |------------------------------------------------------------|------------|
@@ -53,14 +48,14 @@ The following sections show how each line item in the above sample estimate is c
 | Total write operations (2,000 * 1,281)                     | 2,562,000  |
 | **Cost of write operations (2,562,000 * operation price)** | **$28.18** |
 
-### Read operations (archive tier)
+The following table itemizes the cost of read operations on the archive tier.
 
 | Calculation                                   | Value     |
 |-----------------------------------------------|-----------|
 | Number of read operations (2000 blobs * 20%)  | 400       |
 | **Cost to read (operations * price to read)** | **$0.22** |
 
-### Data retrieval fee
+The following table itemizes the cost of data retrieval.
 
 | Calculation                                                     | Value      |
 |-----------------------------------------------------------------|------------|
@@ -68,7 +63,7 @@ The following sections show how each line item in the above sample estimate is c
 | Data retrieval size (20% of file size)                          | 4,000      |
 | **Cost to retrieve (data retrieval size * price of retrieval)** | **$88.00** |
 
-### Early deletion fee
+The following table itemizes the cost early deletion
 
 | Calculation                                                     | Value     |
 |-----------------------------------------------------------------|-----------|
@@ -80,17 +75,12 @@ The following sections show how each line item in the above sample estimate is c
 
 ## Estimate variations
 
-Here some other factor that can influence this estimate
-
 | Factor | Impact |
 |---|---|
-| Copying instead of set tier |
-| Block size    | |
-| Data Lake Storage Gen 2 endpoints | Cost of read and write operations |
-| The tier to which data is rehydrated | Cost of the write operations |
-| Replication setting of the account | Cost of the write operations |
-
-Perhaps a table with other variations
+| Copying blobs to an online tier instead of changing the blob's tier | Adds the cost of write operations on the target tier, but avoids the early deletion penalty. |
+| Block size    | Decreases the number of write operations required to upload blobs to the archive tier. |
+| Data Lake Storage Gen 2 endpoints | Increases the cost of both uploading and reading data because data is uploaded and read in 4 MiB blocks. |
+| Replication setting of the account | The cost of write and read operations is affected by redundancy setting. |
 
 ## See also
 
