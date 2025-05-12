@@ -426,7 +426,7 @@ Azure Backup for AKS supports two storage tiers as backup datastores:
 
 * **Operational Tier**: The Backup extension installed in the AKS cluster first takes the backup by taking volume snapshots via CSI driver. It then stores cluster state in a blob container in your own tenant. This tier supports a lower recovery point objective (RPO) with the minimum duration of four hours between two backups. Additionally, for Azure disk-based volumes, the Operational Tier supports quicker restores.
 
-* **Vault Tier**: To store backup data for a longer duration at a lower cost than snapshots, AKS backup supports Vault-standard datastore. According to the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure-paired region) for recovery by enabling **Geo-redundancy** and **Cross Region Restore** in the Backup vault.
+* **Vault Tier**: To store backup data for a longer duration at a lower cost than snapshots, AKS backup supports vault-standard datastores. According to the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure-paired region) for recovery by enabling **Geo-redundancy** and **Cross Region Restore** in the Backup vault.
 
   > [!NOTE]
   > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to the Vault Tier. However, you can move any number of on-demand backups to the vault according to the rule selected.  
@@ -445,5 +445,5 @@ You incur charges for:
 
 * [Prerequisites for Azure Kubernetes Service backup](azure-kubernetes-service-cluster-backup-concept.md)
 * [Back up AKS by using Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md)
-* Restore AKS by using the [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+* [Restore AKS by using the Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
 * [Well-architected design for AKS cluster protection](/azure/cloud-adoption-framework/scenarios/app-platform/aks/management#design-considerations-1)
