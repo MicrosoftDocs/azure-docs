@@ -75,7 +75,7 @@ builder.ConfigureFunctionsWebApplication();
 builder.Build().Run();
 ```
 
-This example doesn't include the default Application Insights configuration that appears in many other `Program.cs` examples and in the Azure Functions templates. Instead, OpenTelemetry integration in .NET Aspire is configured through the `builder.AddServiceDefaults()` call.
+This example doesn't include the default Application Insights configuration that appears in many other `Program.cs` examples and in the Azure Functions templates. Instead, you configure OpenTelemetry integration in .NET Aspire by calling the `builder.AddServiceDefaults` method.
 
 To get the most out of the integration, consider the following guidelines:
 
