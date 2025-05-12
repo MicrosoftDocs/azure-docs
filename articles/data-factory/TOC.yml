@@ -1281,6 +1281,9 @@ items:
       - name: Snowflake
         href: connector-troubleshoot-snowflake.md
         displayName: troubleshooting
+      - name: Teradata
+        href: connector-troubleshoot-teradata.md
+        displayName: troubleshooting
       - name: XML format
         href: connector-troubleshoot-xml.md
         displayName: troubleshooting
