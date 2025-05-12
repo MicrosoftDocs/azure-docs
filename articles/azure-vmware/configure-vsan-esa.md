@@ -17,7 +17,7 @@ ms.date:     05/12/2025
 VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) has enhanced capabilities that are configured by default with each Azure VMware Solution deployment, and each cluster utilizes its own high-performance vSAN ESA datastore. Below are the Azure VMware Solution SKUs that support vSAN ESA as the default architecture type, with the following configurations per cluster:
 
 
-__Supported host types__
+## Supported host types
 
 vSAN ESA (Express Storage Architecture) is supported in the below Azure VMware Solution host types:
 
@@ -35,7 +35,7 @@ In this article, learn how to:
 > - Enable vSAN Compression
 > - Enable or Disable vSAN Data-In-Transit Encryption
 
-__Set VMware vSAN TRIM/UNMAP__
+## Set VMware vSAN TRIM/UNMAP
 
 Guest Trim/Unmap is enabled by default and cannot be disabled for cluster with vSAN ESA. Run command Set-AVSVSANClusterUNMAPTRIM is not applicable for vSAN ESA based clusters.
    >[!NOTE]
@@ -46,11 +46,11 @@ Guest Trim/Unmap is enabled by default and cannot be disabled for cluster with v
    >- All VMs in vSAN ESA cluster(s) are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
    >- The guest operating system must be able to identify the virtual disk as thin.
 
-__Set VMware vSAN Space Efficiency__
+## Set VMware vSAN Space Efficiency
 
 In vSAN ESA (Express Storage Architecture), compression is enabled by default on the cluster. See [VMware documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/increasing-space-efficiency-in-a-vsan-cluster/using-deduplication-and-compression-in-vsan-cluster.html).
 
-__Set VMware vSAN Data-In-Transit Encryption__
+## Set VMware vSAN Data-In-Transit Encryption
 
 Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a SDDC.
 
@@ -70,14 +70,17 @@ Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-tr
    
 1. Check Notifications to see the progress.
 
-   > [!NOTE]
-   > You can also use the Get-vSANDataInTransitEncryptionStatus command to check for the current status or status after performing the Set-vSANDataInTransitEncryptionStatus operation and verify the cluster's current encryption state.
+>[!NOTE]
+>You can also use the Get-vSANDataInTransitEncryptionStatus command to check for the current status or status after performing the Set-vSANDataInTransitEncryptionStatus operation and verify the cluster's current encryption state.
    
    > [!NOTE]
    > Now that you learned how to configure VMware vSAN, learn more about:
    
-__Next steps__
+## Next steps
 
-1. [How to configure storage policies](/azure/azure-vmware/configure-storage-policy) - Create and configure storage policies for your Azure VMware Solution virtual machines.
-1. [How to configure external identity for vCenter Server](/azure/azure-vmware/configure-identity-source-vcenter) - vCenter Server has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
+Now that you learned how to configure VMware vSAN, learn more about:
+
+- [How to configure storage policies](/azure/azure-vmware/configure-storage-policy) - Create and configure storage policies for your Azure VMware Solution virtual machines.
+
+- [How to configure external identity for vCenter Server](/azure/azure-vmware/configure-identity-source-vcenter) - vCenter Server has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
 
