@@ -1,10 +1,10 @@
 ---
 title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
 description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 06/01/2022
-ms.author: daknappe
+ms.author: avdcontent
 ms.custom: docs_inherited
 ---
 # Add language packs to a Windows 10 multi-session image

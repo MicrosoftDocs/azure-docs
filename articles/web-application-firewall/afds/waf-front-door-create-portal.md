@@ -25,7 +25,7 @@ Create an Azure [Front Door](../../frontdoor/quickstart-create-front-door.md) in
 
 ## Create a WAF policy
 
-First, create a basic WAF policy with the managed Default Rule Set (DRS) by using the Azure portal.
+First, create a basic WAF policy by using the Azure portal.
 
 1. In the upper-left side of the screen, select **Create a resource**. Search for **WAF**, select **Web Application Firewall (WAF)**, and select **Create**.
 
@@ -48,8 +48,6 @@ First, create a basic WAF policy with the managed Default Rule Set (DRS) by usin
     | ---                     | ---                                                |
     | Front door profile              | Select your Azure Front Door profile name. |
     | Domains          | Select the domains you want to associate the WAF policy to and then select **Add**. |
-
-    :::image type="content" source="../media/waf-front-door-create-portal/associate-profile.png" alt-text="Screenshot that shows the Associate a Front door profile page.":::
     
     > [!NOTE]
     > If the domain is associated to a WAF policy, it's shown as grayed out. You must first remove the domain from the associated policy and then re-associate the domain to a new WAF policy.
@@ -75,15 +73,13 @@ To create a custom rule, under the **Custom rules** section, select **Add custom
 
 The following example shows how to configure a custom rule to block a request if the query string contains **blockme**.
 
-:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot that shows the custom rule configuration page showing settings for a rule that checks whether the QueryString variable contains the value blockme.":::
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot that shows how to add a custom rule.":::
 
 ### Default Rule Set
 
 The Azure-managed Default Rule Set is enabled by default for the Premium and Classic tiers of Azure Front Door. The current DRS for the Premium tier of Azure Front Door is Microsoft_DefaultRuleSet_2.1. Microsoft_DefaultRuleSet_1.1 is the current DRS for the Classic tier of Azure Front Door. On the **Managed rules** page, select **Assign** to assign a different DRS.
 
 To disable an individual rule, select the checkbox in front of the rule number and select **Disable** at the top of the page. To change action types for individual rules within the rule set, select the checkbox in front of the rule number and select **Change action** at the top of the page.
-
-:::image type="content" source="../media/waf-front-door-create-portal/managed-rules.png" alt-text="Screenshot that shows the Managed rules page showing a rule set, rule groups, rules, and Enable, Disable, and Change Action buttons." lightbox="../media/waf-front-door-create-portal/managed-rules.png":::
 
 > [!NOTE]
 > Managed rules are only supported in the Azure Front Door Premium tier and Azure Front Door Classic tier policies.
@@ -95,5 +91,4 @@ When no longer needed, delete the resource group and all related resources.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> - [Learn more about Azure Front Door](../../frontdoor/front-door-overview.md)
-> - [Learn more about Azure Front Door tiers](../../frontdoor/standard-premium/tier-comparison.md)
+> [Learn more about Azure Front Door tiers](../../frontdoor/standard-premium/tier-comparison.md)

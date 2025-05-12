@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 01/05/2024
 ---
@@ -23,7 +23,7 @@ The Filter transforms allows row filtering based upon a condition. The output st
 
 ## Configuration
 
-Use the data flow expression builder to enter an expression for the filter condition. To open the expression builder, click on the blue box. The filter condition must be of type boolean. For more information on how to create an expression, see the [expression builder](concepts-data-flow-expression-builder.md) documentation.
+Use the data flow expression builder to enter an expression for the filter condition. To open the expression builder, select the blue box. The filter condition must be of type boolean. For more information on how to create an expression, see the [expression builder](concepts-data-flow-expression-builder.md) documentation.
 
 :::image type="content" source="media/data-flow/filter1.png" alt-text="Filter transformation":::
 
@@ -58,4 +58,4 @@ CleanData
 
 ## Related content
 
-Filter out columns with the [select transformation](data-flow-select.md)
+Filter out columns with the [select transformation](data-flow-select.md).

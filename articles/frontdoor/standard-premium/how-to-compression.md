@@ -1,12 +1,12 @@
 ---
-title: Improve performance by compressing files in Azure Front Door
+title: Improve performance by compressing files 
+titleSuffix: Azure Front Door
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure Front Door.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: yuajia
 ms.service: azure-frontdoor
 ms.topic: article
-ms.date: 04/21/2024
-ms.author: yuajia
+ms.date: 04/21/2025
 ---
 
 # Improve performance by compressing files in Azure Front Door
@@ -22,7 +22,7 @@ There are two ways to enable file compression:
 > Range requests may be compressed into different sizes. Azure Front Door requires the `Content-Length` response header values to be the same for any GET HTTP request. If clients send byte range requests with the `Accept-Encoding` header that leads to the origin responding with different content lengths, then Azure Front Door returns a 503 error. You can either disable compression on the origin/Azure Front Door, or create a Rules Engine rule to remove the `Accept-Encoding` header from byte range requests.
 
 > [!IMPORTANT]
-> Azure Front Door configuration changes takes up to 10 mins to propagate throughout the network. If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to all the POPs.
+> Azure Front Door configuration changes take up to 10 mins to propagate throughout the network. If you're setting up compression for the first time for your CDN endpoint, consider waiting 1-2 hours before you troubleshoot to ensure the compression settings have propagated to all the POPs.
 
 ## Enabling compression
 

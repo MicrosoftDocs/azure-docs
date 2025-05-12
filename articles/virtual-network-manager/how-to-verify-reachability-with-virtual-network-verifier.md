@@ -5,13 +5,13 @@ author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
 ms.service: azure-virtual-network-manager
-ms.date: 12/11/2024
+ms.date: 03/13/2025
 ms.custom: references_regions
 ---
 
-# Verify resource reachability with Virtual Network Verifier - Azure portal
+# Verify resource reachability with network verifier - Azure portal
 
-In this article, you learn how to use Virtual Network Verifier in the Azure portal to verify the reachability of a storage account from a VM based on your applied network policies. As part of the process, you create a verifier workspace, create a reachability analysis intent, run a reachability analysis, and view the reachability analysis results. This article also demonstrates how you can delegate verifier workspaces to other users in your organization so they gain the ability to use a permitted verifier workspace.
+In this article, you learn how to use network verifier in the Azure portal to verify the reachability from one virtual machine to another virtual machine based on your applied network policies. As part of the process, you create a verifier workspace, create a reachability analysis intent, run a reachability analysis, and view the reachability analysis results. This article also demonstrates how you can delegate verifier workspaces to other users in your organization so they gain the ability to use a permitted verifier workspace.
 
 [!INCLUDE [virtual-network-verifier-preview](../../includes/virtual-network-verifier-preview.md)]
 
@@ -31,7 +31,6 @@ In this step, you create a verifier workspace in your network manager to set up 
 3. Select **Create** to create a new verifier workspace.
 4. On the **Create a virtual network manager verifier workspace** page, provide a name and optional description for your verifier workspace.
 
-
 ## Create a reachability analysis intent
 
 In this step, you create a reachability analysis intent in your verifier workspace. This analysis intent describes the traffic path being checked for reachability.
@@ -43,14 +42,14 @@ In this step, you create a reachability analysis intent in your verifier workspa
     | --- | --- |
     | **Name** | Enter a name for the reachability analysis intent. |
     | **Protocol** | Select the protocol of the traffic you want to verify. |
-    | **Source type** | Select the source type of either **Public internet**, **Virtual machines**, or **Subnet**. Select **Virtual machines** for this example. |
-    | **Source** | If a virtual machine is selected as the source type, use the selection picker to select an instance from the parent network manager's scope. |
+    | **Source type** | Select the source type of either **Public internet**, **Virtual machines**, **Subnet**, or **Virtual machine scale sets instance**. Select **Virtual machines** for this example. |
+    | **Source** | Depending on the source type, use the selection picker to select an instance from the parent network manager's scope. |
     | **Source IP address** | Enter an IPv4 or IPv6 address or a range using CIDR notation of the source you want to verify. |
-    | **Source port** | Enter a port or a range of the source you want to verify. To specify any port, enter *. |
-    | **Destination type** | Select the destination type of either **Public internet**, **Cosmos DB**, **Storage Account**, **SQL Server**, **Virtual machines**, or **Subnet**. Select **Virtual machines** for this example. |
-    | **Destination** | If a Cosmos DB, storage account, SQL server, or virtual machine is selected as the destination type, use the selection picker to select an instance from the parent network manager's scope. |
+    | **Source port** | Optionally enter a port or a range of the source you want to verify. |
+    | **Destination type** | Select the destination type of either **Public internet**, **Cosmos DB**, **Storage Account**, **SQL Server**, **Virtual machines**, **Subnet**, or **Virtual machine scale sets instance**. Select **Virtual machines** for this example. |
+    | **Destination** | Depending on the destination type, use the selection picker to select an instance from the parent network manager's scope. |
     | **Destination IP address** | Enter an IPv4 or IPv6 address or a range using CIDR notation of the destination you want to verify. |
-    | **Destination port** | Enter a port or a range of the destination you want to verify. To specify any port, enter *. |
+    | **Destination port** | Optionally enter a port or a range of the destination you want to verify. |
 
     :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/create-analysis-intent.png" alt-text="Screenshot of Create analysis intent window with settings and values.":::
 
@@ -58,7 +57,7 @@ In this step, you create a reachability analysis intent in your verifier workspa
 
 ## Start an analysis
 
-After setting up a reachability analysis intent, you can initiate an analysis. This analysis checks if a path exists between the source and destination specified in the intent, considering the network policies and resources that are currently in place. This analysis evaluates policies and resources within the scope of the verifier workspace's parent network manager.
+After setting up a reachability analysis intent, you can initiate an analysis. This analysis checks if a path exists between the source and destination specified in the intent, considering the Azure resources and network policies that are currently in place. This analysis evaluates policies and resources within the scope of the verifier workspace's parent network manager.
 
 1. Under **Reachability analysis intents**, select the checkbox next to the reachability analysis intent you want to analyze and select **Start analysis**.
 2. In the **Start analysis** pane, enter a name and optional description for the analysis, and then select the **Start analysis** button.
@@ -66,9 +65,10 @@ After setting up a reachability analysis intent, you can initiate an analysis. T
     :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/start-analysis-run.png" alt-text="Screenshot of Start analysis window for analysis intent run job.":::
 
 > [!NOTE]
-> The analysis run may take a few minutes to complete. You can monitor the progress of the analysis in the Azure Portal.
+> The analysis run may take a couple minutes to complete. You can monitor the progress of the analysis in the Azure portal.
   
 ## View reachability analysis results
+
 In this step, you view the results of the analysis you started in the previous step.
 
 1. In the verifier workspace, select **Reachability analysis intents** under *Settings* and select the corresponding **View results** for your reachability analysis intent. Alternatively, navigate to **Reachability analysis results** and select the name of the result you want to view.
@@ -79,13 +79,16 @@ In this step, you view the results of the analysis you started in the previous s
 
     :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-analysis-results.png" alt-text="Screenshot of Reachability analysis results window with analysis results.":::
 
-3. On the **Reachability analysis results** tab in the **View analysis results** pane, you see the results in a visual format. The visualization shows the path taken by the traffic and the resources traversed.
+3. On the **Reachability analysis results** tab in the **View analysis results** pane, you see the results in a visual format. The visualization shows the path taken by the traffic and the resources traversed and is interactive.
 
     :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-analysis-results-visualization.png" alt-text="Screenshot of Reachability analysis results window with visualization of analysis results.":::
 
-4. Select one of the resources in the visualization to view the resource details. You can also select any of the lengths in the visualization to view details of that step.
+4. Select one of the resources in the visualization to view the resource details. You can also select any of the lengths in the visualization to view details of that step. If the results indicate a blockage in the reachability path, select the length immediately before the blockage to see what resource or policy caused the blockage.
 
    :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/network-manager-reachability-results-details.png" alt-text="Screenshot of resource details for network manager from analysis intent results.":::
+
+   :::image type="content" source="media/how-to-verify-reachability-with-virtual-network-verifier/view-results-path-edge-details.png" alt-text="Screenshot of step details for a network manager from analysis intent results.":::
+      
 
 5. Select the **JSON output** tab to view the full JSON output of the analysis result. The beginning of the JSON object details the outcome of the result, which indicates whether all packets reached, some packets reached, or no packets reached. Explanations are provided for each outcome and each reachability step.
     
@@ -108,4 +111,4 @@ Optionally, you can delegate a verifier workspace to other users. This allows ot
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [What is Virtual Network Verifier](concept-virtual-network-verifier.md)
+> [What is network verifier?](concept-virtual-network-verifier.md)

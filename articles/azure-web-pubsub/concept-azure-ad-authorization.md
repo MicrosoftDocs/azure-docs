@@ -24,7 +24,7 @@ _[1] security principal: a user/resource group, an application, or a service pri
 
 Authentication is necessary to access a Web PubSub resource when using Microsoft Entra ID. This authentication involves two steps:
 
-1. First, Azure authenticates the security principal and issues an OAuth 2.0 token.
+1. First, Azure authenticate the security principal and issues an OAuth 2.0 token.
 2. Second, the token is added to the request to the Web PubSub resource. The Web PubSub service uses the token to check if the service principal has the access to the resource.
 
 ### Client-side authentication while using Microsoft Entra ID
@@ -33,7 +33,7 @@ The negotiation server/Function App shares an access key with the Web PubSub res
 
 However, access key is often disabled when using Microsoft Entra ID to improve security.
 
-To address this issue, we have developed a REST API that generates a client token. This token can be used to connect to the Azure Web PubSub service.
+To address this issue, we developed a REST API that generates a client token. This token can be used to connect to the Azure Web PubSub service.
 
 To use this API, the negotiation server must first obtain an **Microsoft Entra Token** from Azure to authenticate itself. The server can then call the Web PubSub Auth API with the **Microsoft Entra Token** to retrieve a **Client Token**. The **Client Token** is then returned to the client, who can use it to connect to the Azure Web PubSub service.
 
@@ -45,7 +45,8 @@ Microsoft Entra authorizes access rights to secured resources through [Azure rol
 
 ### Resource scope
 
-Before assigning an Azure RBAC role to a security principal, it's important to identify the appropriate level of access that the principal should have. It's recommended to grant the role with the narrowest possible scope. Resources located underneath inherit Azure RBAC roles with broader scopes.
+Before assigning an Azure RBAC role to a security principal, it's important to identify the appropriate level of access that the principal should have.
+It is recommended to grant the role to the most limited scope. Resources within it will inherit Azure RBAC roles assigned to the scope.
 
 You can scope access to Azure Web PubSub resources at the following levels, beginning with the narrowest scope:
 
@@ -67,36 +68,27 @@ You can scope access to Azure Web PubSub resources at the following levels, begi
 
 ## Azure built-in roles for Web PubSub resources
 
-- `Web PubSub Service Owner`
+   | Role                                                                                              | Description                                                                                               | Use case                                                                                                                                     |
+   | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+   | [Web PubSub Service Owner](/azure/role-based-access-control/built-in-roles#web-pubsub-service-owner)           | Full access to data-plane APIs, including read/write REST APIs and Auth APIs.                                               | Most commonly used for building an upstream server that handles negotiation requests and client events.                                                                                                             |
+   | [Web PubSub Service Reader](/azure/role-based-access-control/built-in-roles#web-pubsub-service-reader)           | Readonly access to data-plane APIs.                                                | Use it when write a monitoring tool that calls readonly REST APIs.
 
-  Full access to data-plane permissions, including read/write REST APIs and Auth APIs.
 
-  This role is the most common used for building an upstream server.
+Learn how to create a custom role if the built-in roles do not meet your requirements.
 
-- `Web PubSub Service Reader`
-
-  Use to grant read-only REST APIs permissions to Web PubSub resources.
-
-  It's used when you'd like to write a monitoring tool that calling **ONLY** Web PubSub data-plane **READONLY** REST APIs.
+[Azure custom roles: Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
 
 ## Next steps
 
-To learn how to create an Azure application and use Microsoft Entra authorization, see
+To learn how to use Microsoft Entra authentication with role-based access control, see
 
-- [Authorize request to Web PubSub resources with Microsoft Entra ID from applications](howto-authorize-from-application.md)
+  - [Authorize requests to Azure Web PubSub resources with Microsoft Entra applications](howto-authorize-from-application.md)
+  - [Authorize requests to Azure Web PubSub resources with Managed identities for Azure resources](howto-authorize-from-managed-identity.md)
 
-To learn how to configure a managed identity and use Microsoft Entra auth, see
+To learn more about roles-based access control, see
 
-- [Authorize request to Web PubSub resources with Microsoft Entra ID from managed identities](howto-authorize-from-managed-identity.md)
+  - [What is Azure role-based access control](../role-based-access-control/overview.md)
 
-To learn more about roles and role assignments, see
+To learn how to disable the connection string and use only Microsoft Entra authentication, see
 
-- [What is Azure role-based access control](../role-based-access-control/overview.md)
-
-To learn how to create custom roles, see
-
-- [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)
-
-To learn how to use only Microsoft Entra authorization, see
-
-- [Disable local authentication](./howto-disable-local-auth.md)
+- [How to disable local authentication](./howto-disable-local-auth.md)

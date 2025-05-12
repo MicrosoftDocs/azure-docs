@@ -6,8 +6,8 @@ ms.topic: reference
 ms.date: 10/16/2024
 ms.author: yelevin
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -209,21 +209,38 @@ The following tables describe the enrichments featured in the **ActivityInsights
 
 ### IdentityInfo table
 
-After you [enable UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, user data from your Microsoft Entra ID (and/or your on-premises Active Directory, via Microsoft Defender for Identity) ***(and other identity providers -- Okta etc.?)*** is synchronized to the **IdentityInfo** table in Log Analytics for use in Microsoft Sentinel. You can query this data in your analytics rules, enriching your analytics to fit your use cases and reduce false positives.
+After you [enable and configure UEBA](enable-entity-behavior-analytics.md) for your Microsoft Sentinel workspace, user data from your Microsoft identity providers is synchronized to the *IdentityInfo* table in Log Analytics for use in Microsoft Sentinel.
+
+Those identity providers are either or both of the following, depending on which you selected when you configured UEBA:
+
+- Microsoft Entra ID (cloud-based)
+- Microsoft Active Directory (on-premises, requires Microsoft Defender for Identity))
+
+You can query the *IdentityInfo* table in analytics rules, hunting queries, and workbooks, enhancing your analytics to fit your use cases and reducing false positives.
 
 While the initial synchronization may take a few days, once the data is fully synchronized:
 
-- Changes made to your user profiles, groups, and roles in Microsoft Entra ID ***(and on-prem Active Directory? And other identity providers -- Okta etc.?)*** are updated in the **IdentityInfo** table within 15-30 minutes.
+- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID (and your on-premises Active Directory, if applicable) to ensure that stale records are fully updated.
 
-- Every 14 days, Microsoft Sentinel re-synchronizes with your entire Microsoft Entra ID ***(and other providers?)*** to ensure that stale records are fully updated.
+- Besides these regular full synchronizations, whenever changes are made to your user profiles, groups, and built-in roles in Microsoft Entra ID, the affected user records are re-ingested and updated in the *IdentityInfo* table within 15-30 minutes. This ingestion is billed at regular rates. For example:
 
-- Default retention time in the **IdentityInfo** table is 30 days.
+    - A user attribute, such as display name, job title, or email address, was changed. A new record for this user is ingested into the *IdentityInfo* table, with the relevant fields updated.
+
+    - Group A has 100 users in it. 5 users are added to the group or removed from the group. In this case, those 5 user records are re-ingested, and their *GroupMembership* fields updated.
+
+    - Group A has 100 users in it. Ten users are added to Group A. Also, groups A1 and A2, each with 10 users, are added to Group A. In this case, 30 user records are re-ingested and their *GroupMembership* fields updated. This happens because group membership is transitive, so changes to groups affect all their subgroups.
+
+    - Group B (with 50 users) is renamed to Group BeGood. In this case, 50 user records are re-ingested and their *GroupMembership* fields updated. If there are subgroups in that group, the same happens for all their members' records.
+
+- Default retention time in the *IdentityInfo* table is 30 days.
 
 #### Limitations
 
-- Currently, only built-in roles are supported.
+- The *AssignedRoles* field supports only built-in roles.
 
-- Data about deleted groups, where a user was removed from a group, is not currently supported.
+- The *GroupMembership* field supports listing up to 500 groups per user, including subgroups. If a user is a member of more than 500 groups, only the first 500 are synchronized with the *IdentityInfo* table. The groups are not evaluated in any particular order, though, so at each new synchronization (every 14 days), it's possible that a different set of groups will be updated to the user record.
+
+- When a group is deleted, or if a group with more than 100 members has its name changed, that group's member user records are not updated. If a different change causes one of those users' records to be updated, the updated group information will be included at that point.
 
 #### Other versions of the IdentityInfo table
 
@@ -237,7 +254,7 @@ There are actually multiple versions of the *IdentityInfo* table:
 
     For more information, see the [documentation of the *Advanced hunting* version of this table](/defender-xdr/advanced-hunting-identityinfo-table).
 
-- **As of February 2025**, customers of [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) *with UEBA enabled* **begin using a new release** of the *Advanced hunting* version. This new release includes all the UEBA fields from the Log Analytics version as well as some new fields, and is referred to as the **unified version** or the **unified IdentityInfo table**.
+- **As of May 2025**, customers of [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) *with UEBA enabled* **begin using a new release** of the *Advanced hunting* version. This new release includes all the UEBA fields from the Log Analytics version as well as some new fields, and is referred to as the **unified version** or the **unified IdentityInfo table**.
 
     Defender portal customers without UEBA enabled, or without Microsoft Sentinel at all, continue to use the [prior release of the *Advanced hunting* version](/defender-xdr/advanced-hunting-identityinfo-table), without the UEBA-generated fields.
 
@@ -263,7 +280,7 @@ If you're onboarding Microsoft Sentinel to the Defender portal, select the "Comp
 | **AccountTenantId**             | string   | The Microsoft Entra tenant ID of the user account.                |
 | **AccountUPN**                  | string   | The user principal name of the user account.                      |
 | **AdditionalMailAddresses**     | dynamic  | The additional email addresses of the user.                       |
-| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to.        |
+| **AssignedRoles**               | dynamic  | The Microsoft Entra roles the user account is assigned to. Only built-in roles are supported. |
 | **BlastRadius**                 | string   | A calculation based on the position of the user in the org tree and the user's Microsoft Entra roles and permissions. <br>Possible values: *Low, Medium, High* |
 | **ChangeSource**                | string   | The source of the latest change to the entity. <br>Possible values: <li>*AzureActiveDirectory*<li>*ActiveDirectory*<li>*UEBA*<li>*Watchlist*<li>*FullSync* |
 | **City**                        | string   | The city of the user account.                                     |
@@ -319,7 +336,6 @@ The following fields have been renamed in the unified version. Therefore, if you
 
 The following field names no longer exist in the unified version. Be sure to remove them from any queries that reference them.
 
-- **GroupMembership**
 - **TenantID**&mdash;this field does *not* contain the same information as the **TenantId** field that replaces the **AccountTenantId** field.
 - **UserState**
 - **UserStateChangedOn**

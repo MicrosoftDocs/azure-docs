@@ -221,7 +221,7 @@ You'll need to add CIDR formatted blocks of addresses to the IP restrictions pan
 1. Click Browse, choose the function app you're hosting the API inside, and click select. Next, click select again.
 1. Give the API a name and description for API Management's internal use and add it to the ‘unlimited’ Product.
 1. Copy and record the API's 'base URL' and click 'create'.
-1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the OAuth JWT token in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
+1. Click the 'settings' tab, then under subscription - switch off the 'Subscription Required' checkbox as we'll use the OAuth JWT in this case to rate limit. Note that if you're using the consumption tier, this would still be required in a production environment.
 
    > [!TIP]
    > If using the consumption tier of APIM the unlimited product won't be available as an out of the box. Instead, navigate to "Products" under "APIs" and hit "Add".
@@ -456,7 +456,7 @@ Now we have a simple app with a simple secured API, let's test it.
 
 The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
-## Next steps
+## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.

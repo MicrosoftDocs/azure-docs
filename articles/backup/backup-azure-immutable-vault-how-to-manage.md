@@ -3,7 +3,7 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 11/11/2024
+ms.date: 03/13/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24, ignite-2024
@@ -15,8 +15,8 @@ This article describes how to manage Azure Backup Immutable vault operations for
 
 [Immutable vault](backup-azure-immutable-vault-concept.md) can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to enable WORM storage immutability and make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
->[!Note]
-> Immutable WORM storage is currently in GA for Recovery Services Vaults in the following regions: West Central US, West Europe, East US, North Europe, Australia East 
+> [!NOTE]
+> Immutable WORM storage is currently in GA for Recovery Services Vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central. 
 
 ## Enable Immutable vault
 
@@ -97,6 +97,9 @@ This time, the operation successfully passes as no recovery points can be delete
 However, increasing the retention of backup items that are in suspended state isn't supported.
 
 Let's try to stop backup on a VM and choose **Retain as per policy** for backup data retention.
+
+>[!NOTE]
+> When you stop backups and retain as per policy, the last RP is retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete this RP after the backup policy expires to stop incurring PI charges.
 
 :::image type="content" source="./media/backup-azure-immutable-vault/attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an attempt to increase retention of backup items in suspended state.":::
 

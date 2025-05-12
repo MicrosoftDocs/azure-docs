@@ -1,13 +1,13 @@
 ---
 title: Microsoft Customer Agreement cost and usage details file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement cost and usage details file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Microsoft Customer Agreement cost and usage details file schema
@@ -24,8 +24,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -49,7 +49,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |ProductName|Name of the product.|
 | 28 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -84,7 +84,7 @@ The following information lists the cost and usage details (formerly known as us
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 63 |benefitId| Unique identifier for the purchased savings plan instance. |
 | 64 |benefitName| Unique identifier for the purchased savings plan instance. |
-| 65 |provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
+| 65 |provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
 
 ## Version 2021-10-01
 
@@ -94,8 +94,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -119,7 +119,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |ProductName|Name of the product.|
 | 28 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -154,7 +154,7 @@ The following information lists the cost and usage details (formerly known as us
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 63 |benefitId| Unique identifier for the purchased savings plan instance. |
 | 64 |benefitName|Unique identifier for the purchased savings plan instance.  |
-| 65 |provider|Identifier for product category or Line of Business. For example, Azure, Microsoft 365, and AWS.|
+| 65 |provider|Identifier for product category or Line of Business. For example, Azure and Microsoft 365.|
 
 ## Version 2021-01-01
 
@@ -164,8 +164,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -189,7 +189,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |ProductName|Name of the product.|
 | 28 |SubscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -231,8 +231,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |previousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |billingAccountId|Unique identifier for the root billing account.|
 | 4 |billingAccountName|Name of the billing account.|
-| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |billingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |billingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |invoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |invoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |resellerName|The name of the reseller associated with the subscription.|
@@ -256,7 +256,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |product|Name of the product.|
 | 28 |subscriptionId|Unique identifier for the Azure subscription.|
 | 29 |subscriptionName|Name of the Azure subscription.|
-| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |publisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |publisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |publisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |resourceGroupName|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|
@@ -296,8 +296,8 @@ The following information lists the cost and usage details (formerly known as us
 | 2 |PreviousInvoiceId|Reference to an original invoice if the line item is a refund.|
 | 3 |BillingAccountId|Unique identifier for the root billing account.|
 | 4 |BillingAccountName|Name of the billing account.|
-| 5 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
-| 6 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
+| 5 |BillingProfileId|Unique identifier of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
+| 6 |BillingProfileName|Name of the EA enrollment, pay-as-you-go subscription or MCA billing profile.|
 | 7 |InvoiceSectionId|Unique identifier for the EA department or MCA invoice section.|
 | 8 |InvoiceSectionName|Name of the EA department or MCA invoice section.|
 | 9 |ResellerName|The name of the reseller associated with the subscription.|
@@ -321,7 +321,7 @@ The following information lists the cost and usage details (formerly known as us
 | 27 |Product|Name of the product.|
 | 28 |SubscriptionGuid|Unique identifier for the Azure subscription.|
 | 29 |SubscriptionName|Name of the Azure subscription.|
-| 30 |PublisherType|Supported values: `Microsoft`, `Azure`, `AWS`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
+| 30 |PublisherType|Supported values: `Microsoft`, `Azure`, `Marketplace`. For MCA accounts, the value can be `Microsoft` for first party charges and `Marketplace` for third party charges. For EA and pay-as-you-go accounts, the value is `Azure`.|
 | 31 |PublisherId|The ID of the publisher. It's only available after the invoice is generated.|
 | 32 |PublisherName|The name of the publisher. For first-party services, the value should be listed as Microsoft or Microsoft Corporation.|
 | 33 |ResourceGroup|Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that don't have a resource group are shown as null or empty, `Others`, or `Not applicable`.|

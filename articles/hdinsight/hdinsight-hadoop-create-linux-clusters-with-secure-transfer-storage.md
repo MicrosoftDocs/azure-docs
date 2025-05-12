@@ -41,7 +41,7 @@ If you accidentally enabled the 'Require secure transfer' option after creating 
 
 `com.microsoft.azure.storage.StorageException: The account being accessed does not support http.`
 
-For Hbase clusters only, you can try the following steps to restore the cluster functionality:
+For HBase clusters only, you can try the following steps to restore the cluster functionality:
 1. Stop HBase from Ambari.
 2. Stop HDFS from Ambari.
 3. In Ambari, navigate to HDFS --> Configs --> Advanced --> fs.defaultFS

@@ -10,14 +10,11 @@ ms.author: cherylmc
 ms.custom: references_region
 
 ---
-# How to configure Route-maps (Preview)
+# How to configure Route-maps
 
 This article helps you create or edit a route-map in an Azure Virtual WAN hub using the Azure portal. For more information about Virtual WAN Route-maps, see [About Route-maps](route-maps-about.md).
 
 ## Prerequisites
-
-> [!Important]
-> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
 
 Verify that you've met the following criteria before beginning your configuration:
 
@@ -37,6 +34,9 @@ Verify that you've met the following criteria before beginning your configuratio
 
    * The upgrade process takes around 30 minutes.
    * The upgrade process only happens the first time a route-map is created on a hub.
+   * Once the virtual hub router and gateways are upgraded to this new software version, please note the following:
+      * Your virtual hub will support ExpressRoute ECMP for outbound traffic flows. For more details, see [About ExpressRoute ECMP](virtual-wan-faq.md#does-expressroute-support-equal-cost-multi-path-ecmp-routing-in-virtual-wan).
+      * Your spoke virtual network prefixes need to be in the Default route table to be advertised to on-premises. You can achieve this by ensuring your virtual network connections are propagating to the Default route table.
    * If the route-map is deleted, the virtual hub router remains on the new version of software.
    * Using Route-maps incurs an additional charge. For more information, see the [Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page.
 1. The process is complete when the **Provisioning state** is **Succeeded**. Open a support case if the process failed.
@@ -44,10 +44,6 @@ Verify that you've met the following criteria before beginning your configuratio
 1. Once the route-map is applied in the correct direction, use the [Route-map dashboard](route-maps-dashboard.md) to verify that the route-map is working as expected.
 
 ## Create a route-map
-
-> [!NOTE]
-> [!INCLUDE [Preview text](../../includes/virtual-wan-route-maps-preview.md)]
->
 
 The following steps walk you through how to configure a route-map.
 

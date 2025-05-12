@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 03/03/2025
+ms.date: 03/17/2025
 ---
 
 # Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)
@@ -74,8 +74,7 @@ In this section, you create a route server.
     :::image type="content" source="./media/route-server-overview.png" alt-text="Screenshot that shows the Route Server ASN and Peer IPs in the Overview page." lightbox="./media/route-server-overview.png":::
 
     > [!NOTE]
-    > - The ASN of Azure Route Server is always 65515.
-    > - The Peer IPs are the private IP addresses of the Route Server in the RouteServerSubnet.
+    > The ASN of Azure Route Server is always 65515.
  
 ## Create a network virtual appliance (NVA)
 

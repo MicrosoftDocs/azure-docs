@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/19/2024
+ms.date: 03/10/2025
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 ---
@@ -17,11 +17,18 @@ Understanding how to monitor file share performance is critical to ensuring that
 See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
 
 ## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
+|-|-|-|-|:-:|:-:|
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Supported metrics
 
@@ -266,7 +273,7 @@ Now you can select a metric depending on what you want to monitor.
 
 In Azure Monitor, the **Availability** metric can be useful when something is visibly wrong from either an application or user perspective, or when troubleshooting alerts.
 
-When using this metric with Azure Files, it’s important to always view the aggregation as **Average** as opposed to **Max** or **Min**. Using **Average** will help you understand what percentage of your requests are experiencing errors, and if they are within the [SLA for Azure Files](https://azure.microsoft.com/support/legal/sla/storage/).
+When using this metric with Azure Files, it's important to always view the aggregation as **Average** as opposed to **Max** or **Min**. Using **Average** shows you what percentage of your requests are experiencing errors, and if they are within the [SLA for Azure Files](https://azure.microsoft.com/support/legal/sla/storage/).
 
 :::image type="content" source="media/analyze-files-metrics/transaction-metrics-menu.png" alt-text="Screenshot showing the available transaction metrics in Azure Monitor." lightbox="media/analyze-files-metrics/transaction-metrics-menu.png":::
 
@@ -276,7 +283,7 @@ The two most important latency metrics are **Success E2E Latency** and **Success
 
 In the following charts, the blue line indicates how much time is spent in total latency (Success E2E Latency), and the pink line indicates time spent only in the Azure Files service (Success Server Latency).
 
-This chart is an example of a client machine that has mounted an Azure file share from an on-premises environment. This will likely represent a typical user connecting from either an office, home, or other remote location. You'll see that the physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
+This chart shows an on-premises client with a mounted Azure file share, representing, for example, a typical user connecting from a remote location. The physical distance between the client and Azure region is closely correlated to the corresponding client-side latency, which represents the difference between the E2E and Server latency.
 
 :::image type="content" source="media/analyze-files-metrics/latency-remote.png" alt-text="Screenshot showing latency metrics with a remote user connecting to an Azure file share." lightbox="media/analyze-files-metrics/latency-remote.png" border="false":::
 
@@ -284,7 +291,7 @@ In comparison, the following chart shows a situation where both the client and t
 
 :::image type="content" source="media/analyze-files-metrics/latency-same-region.png" alt-text="Screenshot showing latency metrics when the client and Azure file share are located in the same region." lightbox="media/analyze-files-metrics/latency-same-region.png" border="false":::
 
-Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the Azure Files [scale limits](storage-files-scale-targets.md) for standard file shares, or an under-provisioned [Azure Files Premium Share](understanding-billing.md#provisioned-v1-model).
+Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the provisioned limit for a provisioned file share (or an overall scale limit a pay-as-you-go file share). See [Understanding Azure Files billing](./understanding-billing.md) and the [Scalability and performance targets for Azure Files](storage-files-scale-targets.md).
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
@@ -292,7 +299,7 @@ For more information, see [Troubleshoot high latency, low throughput, or low IOP
 
 Utilization metrics that measure the amount of data being transmitted (throughput) or operations being serviced (IOPS) are commonly used to determine how much work is being performed by the application or workload. Transaction metrics can determine the number of operations or requests against the Azure Files service over various time granularity. 
 
-If you're using the **Egress** or **Ingress** metrics to determine the volume of inbound or outbound data, use the **Sum** aggregation to determine the total amount of data being transmitted to and from the file share over a 1 minute to 1 day time granularity. Other aggregations such as **Average**, **Max**, and **Min** only display the value of the individual I/O size. This is why most customers will typically see 1 MiB when using the **Max** aggregation.  While it can be useful to understand the size of your largest, smallest, or even average I/O size, it isn't possible to display the distribution of I/O size generated by the workload's usage pattern.
+If you're using the **Egress** or **Ingress** metrics to determine the volume of inbound or outbound data, use the **Sum** aggregation to determine the total amount of data being transmitted to and from the file share over a 1 minute to 1 day time granularity. Other aggregations such as **Average**, **Max**, and **Min** only display the value of the individual I/O size. This is why most customers typically see 1 MiB when using the **Max** aggregation.  While it can be useful to understand the size of your largest, smallest, or even average I/O size, it isn't possible to display the distribution of I/O size generated by the workload's usage pattern.
 
 You can also select **Apply splitting** on response types (success, failures, errors) or API operations (read, write, create, close) to display additional details as shown in the following chart.
 
@@ -302,11 +309,9 @@ To determine the average I/O per second (IOPS) for your workload, first determin
 
 To determine the average throughput for your workload, take the total amount of transmitted data by combining the **Ingress** and **Egress** metrics (total throughput) and divide that by 60 seconds. For example, 1 GiB total throughput over 1 minute / 60 seconds = 17 MiB average throughput.
 
-### Monitor utilization by maximum IOPS and bandwidth (premium only)
+### Monitor utilization by maximum IOPS and bandwidth (provisioned only)
 
-Because Azure Premium file shares are billed on a provisioned model in which each GiB of storage capacity that you provision entitles you to more IOPS and throughput, it's often useful to determine maximum IOPS and bandwidth. Whereas throughput measures the actual amount of data successfully transmitted, bandwidth refers to the maximum data transfer rate.
-
-With Azure Premium file shares, you can use **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload will help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure Premium file share.
+Provisioned file shares provide **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure file share.
 
 The following chart shows a workload that generated 2.63 million transactions over 1 hour. When 2.63 million transactions is divided by 3,600 seconds, we get an average of 730 IOPS.
 
@@ -323,6 +328,29 @@ Select **Add metric** to combine the **Ingress** and **Egress metrics** on a sin
 Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
 
 :::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
+
+### Monitor utilization by metadata IOPS
+On Azure file shares scale up to 12K metadata IOPS. This means that running a metadata-heavy workload with a high volume of open, close, or delete operations increases the likelihood of metadata IOPS throttling. This limitation is independent of the file share's overall provisioned IOPS.
+
+Because no two metadata-heavy workloads follow the same usage pattern, it can be challenging for customers to proactively monitor their workload and set accurate alerts.
+
+To address this, we've introduced two metadata-specific metrics for Azure file shares:
+
+- **Success with Metadata Warning:** Indicates that metadata IOPS are approaching their limit and might be throttled if they remain high or continue increasing. A rise in the volume or frequency of these warnings suggests an increasing risk of metadata throttling.
+
+- **Success with Metadata Throttling:** Indicates that metadata IOPS have exceeded the file share's capacity, resulting in throttling. While IOPS operations never fail and eventually succeed after retries, latency is impacted during throttling.
+
+To view in Azure Monitor, select the **Transactions** metric and **Apply splitting** on response types. The Metadata response types only appear in the drop-down if the activity occurs within the timeframe selected.
+
+The following chart illustrates a workload that experienced a sudden increase in metadata IOPS (transactions), triggering Success with Metadata Warnings, which indicates a risk of metadata throttling. In this example, the workload subsequently reduced its transaction volume, preventing metadata throttling from occurring.
+
+:::image type="content" source="media/analyze-files-metrics/metadata-warnings.png" alt-text="Screenshot showing Metadata Warnings by response type." lightbox="media/analyze-files-metrics/metadata-warnings.png" border="false":::
+
+If your workload encounters **Success with Metadata Warnings** or **Success with Metadata Throttling** response types, consider implementing one or more of the following recommendations:
+
+- For SSD SMB file shares, enable [Metadata Caching](smb-performance.md#metadata-caching-for-ssd-file-shares).
+- Distribute (shard) your workload across multiple file shares.
+- Reduce the volume of metadata IOPS.
 
 ## Related content
 

@@ -304,7 +304,7 @@ await call.stopScreenSharing();
 view.dispose();
 htmlElement.removeChild(view.target);
 
-// Screen sharing can also be stoped by clicking on the native browser's "Stop sharing" button.
+// Screen sharing can also be stopped by clicking on the native browser's "Stop sharing" button.
 // The isScreenSharingOnChanged event will be triggered where you can check the value of call.isScreenSharingOn.
 // If the value is false, then that means screen sharing is turned off and so we can go ahead and dispose the screen share preview.
 // This event is also triggered for the case when stopping screen sharing via Call.stopScreenSharing() API.
@@ -445,7 +445,7 @@ application should render at a given moment. Applications should handle these ch
 accordingly to the recommendation. There's a debounce period (around 10 s) between each update.
 
 **Usage**
-The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method. The current [maximum number of incoming videos](../../../../concepts/voice-video-calling/calling-sdk-features.md#supported-number-of-incoming-video-streams) that can be rendered is 16. To properly support 16 incoming videos the computer should have a mimimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old.
+The `optimalVideoCount` feature is a call feature. You need to reference the feature `OptimalVideoCount` via the `feature` method of the `Call` object. You can then set a listener via the `on` method of the `OptimalVideoCountCallFeature` to be notified when the optimalVideoCount changes. To unsubscribe from the changes, you can call the `off` method. The current [maximum number of incoming videos](../../../../concepts/voice-video-calling/calling-sdk-features.md#supported-number-of-incoming-video-streams) that can be rendered is 16. To properly support 16 incoming videos the computer should have a minimum of 16GB RAM and a 4-core or greater CPU that is no older than 3 years old.
 
 ```javascript
 const optimalVideoCountFeature = call.feature(Features.OptimalVideoCount);

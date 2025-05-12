@@ -6,12 +6,12 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 03/26/2025
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 
-This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same tenant.  If you already have VNets that you want to connect and they're in the same subscription, you might want to use the [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) steps instead because the process is less complicated. Note that you can't connect VNets from different subscriptions using the Azure portal.
+This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same tenant. If you already have VNets that you want to connect and they're in the same subscription, you might want to use the [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) steps instead because the process is less complicated. Note that you can't connect VNets from different subscriptions using the Azure portal.
 
 In this exercise, you create the required virtual networks (VNets) and VPN gateways. We have steps to connect VNets within the same subscription, as well as steps and commands for the more complicated scenario to connect VNets in different subscriptions. The PowerShell cmdlet to create a connection is [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). The `-ConnectionType` is `Vnet2Vnet`. 
 
@@ -23,7 +23,7 @@ There are multiple ways to connect VNets. The following sections describe differ
 
 ### VNet-to-VNet
 
-Configuring a VNet-to-VNet connection is a good way to easily connect VNets. Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating a Site-to-Site IPsec connection to an on-premises location.  Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE, and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you don't see the local network gateway address space. It's automatically created and populated. If you update the address space for one VNet, the other VNet automatically knows to route to the updated address space. Creating a VNet-to-VNet connection is typically faster and easier than creating a Site-to-Site connection between VNets.
+Configuring a VNet-to-VNet connection is a good way to easily connect VNets. Connecting a virtual network to another virtual network using the VNet-to-VNet connection type (VNet2VNet) is similar to creating a Site-to-Site IPsec connection to an on-premises location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE, and both function the same way when communicating. The difference between the connection types is the way the local network gateway is configured. When you create a VNet-to-VNet connection, you don't see the local network gateway address space. It's automatically created and populated. If you update the address space for one VNet, the other VNet automatically knows to route to the updated address space. Creating a VNet-to-VNet connection is typically faster and easier than creating a Site-to-Site connection between VNets.
 
 ### Site-to-Site (IPsec)
 
@@ -56,7 +56,7 @@ For this exercise, you can combine configurations, or just choose the one that y
 
 * [VNets that reside in the same subscription](#samesub): The steps for this configuration use TestVNet1 and TestVNet4.
 
-* [VNets that reside in different subscriptions](#difsub): The steps for this configuration use TestVNet1 and TestVNet5.
+* [VNets that reside in different subscriptions](#difsub): The steps for this configuration use TestVNet1 and TestVNet5. If the virtual networks aren't in the same tenant, there are [additional instructions](#tenant) that you must follow. Read those instructions first to understand where they fall within the steps of the exercise.
 
 ## <a name="samesub"></a>How to connect VNets that are in the same subscription
 
@@ -446,6 +446,36 @@ In this example, because the gateways are in the different subscriptions, we've 
    $Connection51 = "VNet5toVNet1"
    New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
    ```
+
+## <a name="tenant"></a>Connect VNets in different subscriptions and different tenants
+
+This scenario makes use of the previous scenario steps, but with a few key differences. In this scenario, TestVNet5 resides in Subscription 1, Tenant 1. TestVNet1 resides in Subscription2, Tenant 2.
+
+In this scenario, when you create the TestVNet1 gateway, you need to connect to Tenant2, Subscription2 using the following commands. Adjust or declare any variables as needed.
+
+```azurepowershell-interactive
+Connect-AzAccount -TenantID $Tenant2
+Select-AzSubscription -SubscriptionId $subscription2
+<Other PS commandlets to create TestVNet1 gateway are same as above>
+$vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+```
+
+When you create and configure TestVNet5 gateway, you need to connect to Tenant1, Subscription1 using the following commands, adjusting any variables as needed.
+
+```azurepowershell-interactive
+Connect-AzAccount -TenantID $Tenant1
+Select-AzSubscription -SubscriptionId $subscription1
+$vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG1
+```
+
+ When you create create Vnet2Vnet VirtualNetworkGatewayConnection with VirtualNetworkGateway1 as $vnet1gw, you need to connect to Tenant2, Subscription2 first and other commands are same the previous section.
+
+```azurepowershell-interactive
+Connect-AzAccount -TenantID $Tenant2
+Select-AzSubscription -SubscriptionId $subscription2
+$vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
+```
 
 ## <a name="verify"></a>How to verify a connection
 

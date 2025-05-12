@@ -178,17 +178,9 @@ Now that you have established a connection to the flow logs using Logstash and s
 2. To navigate to the configuration page, select the **System** drop-down menu in the top navigation bar to the right, and then select **Inputs**.
    Alternatively, navigate to `http://<graylog-server-ip>:9000/system/inputs`
 
-   ![Getting started](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
-
 3. To launch the new input, select *GELF UDP* in the **Select input** drop-down, and then fill out the form. GELF stands for Graylog Extended Log Format. The GELF format is developed by Graylog. To learn more about its advantages, see the Graylog [documentation](https://archivedocs.graylog.org/en/3.2/pages/gelf.html).
 
    Make sure to bind the input to the IP you configured your Graylog server on. The IP address should match the **host** field of the UDP output of the Logstash configuration file. The default port should be *12201*. Ensure the port matches the **port** field in the UDP output designated in the Logstash config file.
-
-   ![Screenshot shows the Graylog Inputs, with options to launch and find inputs.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
-
-   Once you launch the input, you should see it appear under the **Local inputs** section, as shown in the following picture:
-
-   ![Screenshot that shows the Local inputs section that contains the input you launched.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    To learn more about Graylog message inputs, refer to the [documentation](https://archivedocs.graylog.org/en/3.2/pages/sending_data.html#what-are-graylog-message-inputs).
 
@@ -196,9 +188,7 @@ Now that you have established a connection to the flow logs using Logstash and s
 
 ### Search through Graylog messages
 
-After allowing some time for your Graylog server to collect messages, you're able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page select the "**Show received messages**" button of the GELF UDP input you created. You're directed to a screen that looks similar to the following picture:
-
-![Screenshot shows the Graylog server that displays Search result, Histogram, and Messages.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+After allowing some time for your Graylog server to collect messages, you're able to search through the messages. To check the messages being sent to your Graylog server, from the **Inputs** configuration page select the "**Show received messages**" button of the GELF UDP input you created.
 
 Select the blue **%{Message}** link to expand the message to show the parameters of the flow tuple.
 
@@ -227,17 +217,13 @@ the dashboard are **Quick Values** charts, which display a list of values of the
 2. Under the **Search result** panel to the left side of the screen, find the **Fields** tab, which lists the various fields of each incoming flow tuple
     message.
 
-3. Select any desired parameter in which to visualize (in this example, the IP source is selected). To show the list of possible widgets, select the blue drop-down arrow to the left of the field, then select **Quick values** to generate the widget. You should see something similar to the following picture:
-
-   ![Source IP](./media/network-watcher-analyze-nsg-flow-logs-graylog/srcip.png)
+3. Select any desired parameter in which to visualize (in this example, the IP source is selected). To show the list of possible widgets, select the blue drop-down arrow to the left of the field, then select **Quick values** to generate the widget.
 
 4. From there, you can select the **Add to dashboard** button at the top right corner of the widget and select the corresponding dashboard to add.
 
 5. Navigate back to the dashboard to see the widget you just added.
 
-   You can add a variety of other widgets such as histograms and counts to your dashboard to keep track of important metrics, such as the sample dashboard shown in the following picture:
-
-   ![Flowlogs dashboard](./media/network-watcher-analyze-nsg-flow-logs-graylog/flowlogs-dashboard.png)
+   You can add a variety of other widgets such as histograms and counts to your dashboard to keep track of important metrics.
 
     For further explanation on dashboards and the other types of widgets, refer to Graylog's [documentation](https://archivedocs.graylog.org/en/3.2/pages/dashboards.html).
 

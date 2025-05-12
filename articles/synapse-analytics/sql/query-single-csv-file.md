@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 02/25/2025
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ 
 ---
 
 # Query CSV files

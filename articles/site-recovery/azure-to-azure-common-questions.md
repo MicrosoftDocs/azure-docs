@@ -3,12 +3,12 @@ title: Common questions about Azure virtual machine disaster recovery with Azure
 description: This article answers common questions about Azure virtual machine disaster recovery when you use Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.date: 12/23/2024
+ms.date: 03/13/2025
 ms.topic: faq
 ms.service: azure-site-recovery
 
 ---
-# Common questions: Azure-to-Azure disaster recovery
+# Common questions about Azure-to-Azure disaster recovery
 
 This article answers common questions about disaster recovery of Azure virtual machines to another Azure region, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -96,13 +96,14 @@ Yes, you can exclude disks when you set up replication, using PowerShell. [Learn
 
 ### Can I replicate new disks added to replicated virtual machines?
 
-For replicated virtual machines with managed disks, you can add new disks, and enable replication for them. When you add a new disk, the replicated virtual machine shows a warning message that one or more disks on the virtual machine are available for protection.
+For replicated virtual machines with managed disks, you can add new disks, and enable replication for them. When you add a new disk, the replicated virtual machine shows a warning message that one or more disks on the virtual machine are available for protection. 
 
-- If you enable replication for the added disks, the warning disappears after the initial replication.
+- If you enable replication for the added disks, the warning disappears after the initial replication. 
 - If you don't want to enable replication for the disk, you can dismiss the warning.
-- If you fail over a virtual machine with added disks, replication points show the disks available for recovery. For example, if you add a second disk to a virtual machine with one disk, a replication point created before you added shows as "1 of 2 disks."
+- If you fail over a virtual machine with added disks, replication points show the disks available for recovery. For example, if you add a second disk to a virtual machine with one disk, a replication point created before you added shows as *1 of 2 disks*.
+- If you perform an OS Disk swap, you're required to perform disable and enable replication, since Site Recovery doesn't support swapping the OS disk.
 
-Site Recovery doesn't support "hot remove" of disks from a replicated virtual machine. If you remove a virtual machine disk, you need to disable and then reenable replication for the virtual machine.
+Site Recovery doesn't support *hot remove* of disks from a replicated virtual machine. If you remove a virtual machine disk, you need to disable and then reenable replication for the virtual machine. 
 
 ### How often can I replicate to Azure?
 
@@ -129,6 +130,12 @@ For example, if the apps have three tiers (application/database/web) in differen
 ### Can I move storage accounts across resource groups?
 
 No, this is unsupported. If you accidentally move storage accounts to a different resource group and delete the original resource group, then you can create a new resource group with the same name as the old resource group, and then move the storage account to this resource group.
+
+### How can I view a particular zone for target configuration while enabling zonal replication?
+
+The Azure portal displays *logical Zones*. In the datacenter, actual physical zones are mapped to these logical zones, and the mappings vary by subscription. For example, Subscription A's Zone 1 may map to Physical Zone 1, while Subscription B's Zone 1 may map to Physical Zone 2. Therefore, you see different mapped zones for different subscriptions in the same region. In Site Recovery, the source and target zones must have different physical zones. 
+
+In case the source and target zones are the same, you can't view zone for target configuration while enabling zonal replication.
 
 ## Replication policy
 

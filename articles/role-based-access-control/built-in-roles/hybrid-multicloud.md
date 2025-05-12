@@ -1,26 +1,27 @@
 ---
 title: Azure built-in roles for Hybrid + multicloud - Azure RBAC
-description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category. It lists Actions, NotActions, DataActions, and NotDataActions.
+description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Hybrid + multicloud category (Azure Stack HCI). It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
 # Azure built-in roles for Hybrid + multicloud
 
-This article lists the Azure built-in roles in the Hybrid + multicloud category.
+This article lists the Azure built-in roles in the Hybrid + multicloud category (Azure Stack HCI).
 
 
 ## Azure Resource Bridge Deployment Role
 
-Azure Resource Bridge Deployment Role
+> [!IMPORTANT] 
+> This deployment role only applies to Azure Stack HCI. It does not apply to any other Arc Private Cloud and does not work for other private clouds.
 
-[Learn more](/azure-stack/hci/deploy/deployment-azure-resource-manager-template)
+Azure Resource Bridge Deployment Role is used only for Azure Stack HCI.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -161,6 +162,8 @@ Grants full access to the cluster and its resources, including the ability to re
 > | [Microsoft.Management](../permissions/management-and-governance.md#microsoftmanagement)/managementGroups/read | List management groups for the authenticated user. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/EdgeMachines/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/DevicePools/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Read | Read a classic metric alert |
@@ -277,6 +280,8 @@ Grants full access to the cluster and its resources, including the ability to re
         "Microsoft.Management/managementGroups/read",
         "Microsoft.Support/*",
         "Microsoft.AzureStackHCI/*",
+        "Microsoft.AzureStackHCI/EdgeMachines/*",
+        "Microsoft.AzureStackHCI/DevicePools/*",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
         "Microsoft.Insights/AlertRules/Read",
@@ -424,7 +429,40 @@ Microsoft.AzureStackHCI Device Management Role
 > | --- | --- |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Clusters/* |  |
 > | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/EdgeDevices/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/DevicePools/*/read |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/EdgeMachines/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/register/action | Register the subscription for Microsoft.HybridContainerService |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/read | Lists the supported kubernetes versions from the underlying custom location |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/kubernetesVersions/write | Puts the kubernetes version resource type |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/read | Lists the supported VM SKUs from the underlying custom location |
+> | [Microsoft.HybridContainerService](../permissions/hybrid-multicloud.md#microsofthybridcontainerservice)/skus/write | Puts the VM SKUs resource type |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleassignments/read | Get information about a role assignment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Write | Creates/Updates storage containers resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/StorageContainers/Read | Gets/Lists storage containers resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/Register/Action | Registers the subscription for the Azure Local resource provider and enables the creation of Azure Local resources. |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/delete | Deletes extension instance resource. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/operations/read | Gets Async Operation status. |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/namespaces/read | Get Namespace Resource |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/operations/read | Gets available operations of the Microsoft.KubernetesConfiguration resource provider. |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/read | Gets an Appliance resource |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/write | Creates or Updates Appliance resource |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/delete | Deletes Appliance resource |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/locations/operationresults/read | Get result of Appliance operation |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/locations/operationsstatus/read | Get result of Appliance operation |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/listClusterUserCredential/action | Get an appliance cluster user credential |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/listKeys/action | Get an appliance cluster customer user keys |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/upgradeGraphs/read | Gets the upgrade graph of Appliance cluster |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/telemetryconfig/read | Get Appliances telemetry config utilized by Appliances CLI |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/operations/read | Gets list of Available Operations for Appliances |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/deploy/action | Deploy permissions to a Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/write | Creates or Updates Custom Location resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/delete | Deletes Custom Location resource |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -445,7 +483,40 @@ Microsoft.AzureStackHCI Device Management Role
       "actions": [
         "Microsoft.AzureStackHCI/Clusters/*",
         "Microsoft.AzureStackHCI/EdgeDevices/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read"
+        "Microsoft.AzureStackHCI/DevicePools/*/read",
+        "Microsoft.AzureStackHCI/EdgeMachines/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.HybridContainerService/register/action",
+        "Microsoft.HybridContainerService/kubernetesVersions/read",
+        "Microsoft.HybridContainerService/kubernetesVersions/write",
+        "Microsoft.HybridContainerService/skus/read",
+        "Microsoft.HybridContainerService/skus/write",
+        "Microsoft.Authorization/roleassignments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.AzureStackHCI/StorageContainers/Write",
+        "Microsoft.AzureStackHCI/StorageContainers/Read",
+        "Microsoft.AzureStackHCI/Register/Action",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.KubernetesConfiguration/extensions/write",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.KubernetesConfiguration/extensions/delete",
+        "Microsoft.KubernetesConfiguration/extensions/operations/read",
+        "Microsoft.KubernetesConfiguration/namespaces/read",
+        "Microsoft.KubernetesConfiguration/operations/read",
+        "Microsoft.ResourceConnector/appliances/read",
+        "Microsoft.ResourceConnector/appliances/write",
+        "Microsoft.ResourceConnector/appliances/delete",
+        "Microsoft.ResourceConnector/locations/operationresults/read",
+        "Microsoft.ResourceConnector/locations/operationsstatus/read",
+        "Microsoft.ResourceConnector/appliances/listClusterUserCredential/action",
+        "Microsoft.ResourceConnector/appliances/listKeys/action",
+        "Microsoft.ResourceConnector/appliances/upgradeGraphs/read",
+        "Microsoft.ResourceConnector/telemetryconfig/read",
+        "Microsoft.ResourceConnector/operations/read",
+        "Microsoft.ExtendedLocation/customLocations/deploy/action",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.ExtendedLocation/customLocations/write",
+        "Microsoft.ExtendedLocation/customLocations/delete"
       ],
       "notActions": [],
       "dataActions": [],

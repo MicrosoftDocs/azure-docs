@@ -75,7 +75,7 @@ In this section, you learn how to configure BGP peering with a network virtual a
 
     | Setting | Value |
     | ------- | ----- |
-    | Name | A name to identify the peer. This example uses **myNVA**. |
+    | Name | A name to identify the peer. It doesn't have to be the same name of the NVA. |
     | ASN | The Autonomous System Number (ASN) of the NVA. For more information, see [What Autonomous System Numbers (ASNs) can I use?](route-server-faq.md#what-autonomous-system-numbers-asns-can-i-use) |
     | IPv4 Address | The private IP address of the NVA that **myRouteServer** will communicate with to establish BGP. |
 
