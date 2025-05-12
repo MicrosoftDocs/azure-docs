@@ -59,7 +59,7 @@ Reference the connection details and sample code in the following tables, accord
 
 | Default environment variable name     | Description                       | Example value                                                                                                                                       |
 | ------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | JDBC MongoDB connection string | `mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
+| `MONGODBATLAS_CLUSTER_CONNECTIONSTRING` | JDBC MongoDB connection string | `jdbc:mongodb+srv://myUser:myPassword@cluster0.a12345.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` |
 
 #### [Python](#tab/python)
 

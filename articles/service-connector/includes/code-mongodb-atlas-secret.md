@@ -13,7 +13,7 @@ ms.author: wchi
     dotnet add package MongoDb.Driver
     ```
 
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB.
+2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```csharp
     using MongoDB.Driver;
 
@@ -33,7 +33,7 @@ ms.author: wchi
 	</dependency>   
     ```
 
-1. Get the connection string from the environment variable added by Service Connector and connect to MongoDB.
+1. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
 
     ```java
     import com.mongodb.MongoClient;
@@ -61,7 +61,7 @@ ms.author: wchi
     pip install pymongo
     ```
 
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB.
+2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```python
     import os
     import pymongo
@@ -75,7 +75,7 @@ ms.author: wchi
    ```bash
    go get go.mongodb.org/mongo-driver/mongo
    ```
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB.
+2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```go
     import (
     	"context"
@@ -110,7 +110,7 @@ ms.author: wchi
     ```bash
     npm install mongodb
     ```
-2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB.
+2. Get the connection string from the environment variable added by Service Connector and connect to MongoDB Atlas.
     ```javascript
     const { MongoClient, ObjectId } = require('mongodb');
     
@@ -120,4 +120,4 @@ ms.author: wchi
 
 
 ### [Other](#tab/none)
-For other languages, you can use the MongoDB resource endpoint and other properties that Service Connector sets to the environment variables to connect to MongoDB. For environment variable details, see [Integrate MongoDB with Service Connector](../how-to-integrate-mongodb-atlas.md).
+For other languages, you can use the MongoDB resource endpoint and other properties that Service Connector sets to the environment variables to connect to MongoDB Atlas. For environment variable details, see [Integrate MongoDB with Service Connector](../how-to-integrate-mongodb-atlas.md).
