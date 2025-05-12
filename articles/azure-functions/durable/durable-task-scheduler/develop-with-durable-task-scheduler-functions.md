@@ -28,7 +28,7 @@ You can create a scheduler and a task hub as part of the Function app creation o
 
 Durable Task Scheduler **only** supports either *user-assigned* or *system-assigned* managed identity authentication. **User-assigned identities are recommended,** as they aren't tied to the lifecycle of the app and can be reused after the app is deprovisioned.
 
-If you haven't already, [configure managed identity for your Durable Functions app](./durable-task-scheduler-identity.md).
+See step-by-step instructions on how to [configure managed identity for your Durable Functions app](./durable-task-scheduler-identity.md).
 
 ## Access the Durable Task Scheduler dashboard
 

@@ -5,7 +5,7 @@ services: iot-edge
 author: PatAltimore
 ms.author: patricka
 ms.date: 07/17/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
 ---

@@ -11,6 +11,8 @@ ms.date: 04/09/2025
 
 # Azure Front Door Rule set server variables
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Rule set server variables provide access to structured information about the request when you work with [Rule sets](front-door-rules-engine.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json).
 
 When you use [Rule set match conditions](rules-match-conditions.md), server variables are available as match conditions so that you can identify requests with specific properties.

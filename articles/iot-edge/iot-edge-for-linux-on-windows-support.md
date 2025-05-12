@@ -4,7 +4,7 @@ description: Learn which operating systems and container engines are supported f
 author: PatAltimore
 ms.author: patricka
 ms.date: 11/17/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

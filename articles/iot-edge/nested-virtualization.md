@@ -4,7 +4,7 @@ description: Learn about how to use nested virtualization in Azure IoT Edge for 
 author: PatAltimore
 ms.author: patricka
 ms.date: 01/22/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

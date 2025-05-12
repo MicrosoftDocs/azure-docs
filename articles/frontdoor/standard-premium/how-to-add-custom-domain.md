@@ -13,6 +13,8 @@ ms.date: 03/26/2025
 
 # Configure a custom domain on Azure Front Door by using the Azure portal
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 When using Azure Front Door for application delivery, a custom domain allows your own domain name to appear in user requests. This visibility can enhance customer convenience and support branding efforts.
 
 By default, after creating an Azure Front Door Standard/Premium profile and endpoint, the endpoint host is a subdomain of `azurefd.net`. For example, the URL might look like `https://contoso-frontend-mdjf2jfgjf82mnzx.z01.azurefd.net/activeusers.htm`.
