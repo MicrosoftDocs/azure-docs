@@ -81,7 +81,6 @@ The following table describes required configurations of supported network featu
 |Connectivity from an Oracle database cluster to a [private endpoint](../../private-link/private-endpoint-overview.md) in a different spoke virtual network connected to a virtual WAN|Yes| Yes|
 |NSG support on the Private link | No| Yes| 
 | Connectivity to serverless Apps like Azure functions via private endpoints | No| Yes|
-|Support for DNS Private resolver | No | Yes|
 |Load balancers for Oracle database cluster traffic|No| Yes|
 |Dual stack (IPv4 and IPv6) virtual network|Only IPv4 is supported| Only IPv4 is supported|
 
