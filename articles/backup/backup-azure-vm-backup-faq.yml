@@ -162,7 +162,7 @@ sections:
           No, the support for disks created in Azure Classic Storage is no longer available. To ensure continued functionality, you must migrate these disks to Azure Resource Manager (ARM) Storage. Also, Classic Storage accounts can't support ARM-based Virtual Machines (VMs), and no workarounds exist to enable compatibility.
 
           >[!Important]
-          >Support for backup of all Classic VMs is planned for deprecation from September 2025. We recommend that you migrate the Classic VMs and associated disks to ARM Storage before this timeline to avoid disruptions.
+          >Support for backup of all Classic VMs is planned for deprecation on September 30, 2025. We recommend that you migrate the Classic VMs and associated disks to ARM Storage before this timeline to avoid disruptions.
   - name: Restore
     questions:
       - question: How do I decide whether to restore disks only or a full VM?
