@@ -266,7 +266,84 @@ You can add a call to the `SetRefreshInterval` method to specify the minimum tim
 
 To trigger refresh, you need to call the `TryRefreshAsync` method of the `IConfigurationRefresher`. Azure App Configuration provides several patterns for implementation depending on your application architecture.
 
-#### 1. Direct access
+#### 1. Dependency injection
+
+For applications using dependency injection (including ASP.NET Core and background services), register the refresher service:
+
+```csharp
+builder.Configuration.AddAzureAppConfiguration(options =>
+{
+    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())            
+           .ConfigureRefresh(refreshOptions =>
+           {
+                refreshOptions.RegisterAll()
+                    .SetRefreshInterval(TimeSpan.FromSeconds(60));
+           })
+});
+
+// Register refresher service with the DI container
+builder.Services.AddAzureAppConfiguration();
+```
+
+`builder.Services.AddAzureAppConfiguration()` adds the `IConfigurationRefreshProvider` service to the DI container, which gives you access to the refreshers of all Azure App Configuration sources in the application's configuration.
+
+#### ASP.NET Core applications
+
+For ASP.NET Core applications, you can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to achieve [request-driven configuration refresh](./enable-dynamic-configuration-aspnet-core#request-driven-configuration-refresh) with a built-in middleware.
+
+```console
+dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
+```
+
+After registering the service, call the `UseAzureAppConfiguration` to add the `AzureAppConfigurationRefreshMiddleware` to your application pipeline to automatically refresh configuration on incoming requests:
+
+```csharp
+...
+
+// Call the AddAzureAppConfiguration to add refresher service to the DI container
+builder.Services.AddAzureAppConfiguration();
+
+var app = builder.Build();
+
+// Call the app.UseAzureAppConfiguration() method as early as appropriate in your request pipeline so another middleware doesn't skip it
+app.UseAzureAppConfiguration();
+
+// Continue with other middleware registration
+app.UseRouting();
+...
+```
+
+The `AzureAppConfigurationRefreshMiddleware` automatically checks for configuration changes at the configured refresh interval. This approach is efficient as it only refreshes when both conditions are met: an HTTP request is received and the refresh interval has elapsed.
+
+#### Background services
+
+For background services, you can inject the `IConfigurationRefresherProvider` service and manually refresh each of the registered refreshers.
+
+```csharp
+public class Worker : BackgroundService
+{
+    private readonly IConfiguration _configuration;
+    private readonly IEnumerable<IConfigurationRefresher> _refreshers;
+
+    public Worker(IConfiguration configuration, IConfigurationRefresherProvider refresherProvider)
+    {
+        _configuration = configuration;
+        _refreshers = refresherProvider.Refreshers;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        foreach (IConfigurationRefresher refresher in _refreshers)
+        {
+            refresher.TryRefreshAsync();
+        }
+
+        ...
+    }
+}
+```
+
+#### 2. Direct access
 
 For applications not using dependency injection, you can obtain the refresher directly from the options:
 
@@ -294,88 +371,6 @@ if (refresher != null)
 }
 
 Console.WriteLine(config["TestApp:Settings:Message"]);
-```
-
-#### 2. Dependency injection
-
-For applications using dependency injection (including ASP.NET Core and Worker Services), register the refresher service:
-
-```csharp
-builder.Configuration.AddAzureAppConfiguration(options =>
-{
-    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())            
-           .ConfigureRefresh(refreshOptions =>
-           {
-                refreshOptions.RegisterAll()
-                    .SetRefreshInterval(TimeSpan.FromSeconds(60));
-           })
-});
-
-// Register refresher services with the DI container
-builder.Services.AddAzureAppConfiguration();
-```
-
-`builder.Services.AddAzureAppConfiguration()` adds the `IConfigurationRefreshProvider` service to the DI container, which gives you access to the refreshers of all Azure App Configuration sources in the application's configuration.
-
-```csharp
-public class Worker : BackgroundService
-{
-    private readonly IConfiguration _configuration;
-    private readonly IEnumerable<IConfigurationRefresher> _refreshers;
-
-    public Worker(IConfiguration configuration, IConfigurationRefresherProvider refresherProvider)
-    {
-        _configuration = configuration;
-        _refreshers = refresherProvider.Refreshers;
-    }
-
-    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        foreach (IConfigurationRefresher refresher in _refreshers)
-        {
-            refresher.TryRefreshAsync();
-        }
-
-        ...
-    }
-}
-```
-
-#### 3. ASP.NET Core
-
-You can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to use the `AzureAppConfigurationRefreshMiddleware` to achieve the request-driven configuration refresh. 
-
-```console
-dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-```
-
-The middleware calls the `TryRefreshAsync` method on the registered `IConfigurationRefresher` when there are new incoming requests to your application.
-
-```csharp
-builder.Configuration.AddAzureAppConfiguration(options =>
-{
-    options.Connect(new Uri(appConfigEndpoint), new DefaultAzureCredential())            
-           .ConfigureRefresh(refreshOptions =>
-           {
-                refreshOptions.RegisterAll()
-                    .SetRefreshInterval(TimeSpan.FromSeconds(60));
-           })
-});
-
-// Add Azure App Configuration middleware to the container of services.
-builder.Services.AddAzureAppConfiguration();
-
-...
-
-var app = builder.Build();
-
-// Call the app.UseAzureAppConfiguration() method as early as appropriate in your request pipeline so another middleware doesn't skip it
-app.UseAzureAppConfiguration();
-
-// Continue with other middleware registration
-app.UseRouting();
-...
-
 ```
 
 > [!NOTE] 
