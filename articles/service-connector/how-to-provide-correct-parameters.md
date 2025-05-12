@@ -4,7 +4,7 @@ description: Learn how to pass correct parameters to Service Connector to genera
 author: houk-ms
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 05/12/2025
 ms.author: honc
 ---
 # Provide correct parameters to Service Connector
