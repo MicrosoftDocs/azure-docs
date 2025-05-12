@@ -56,7 +56,7 @@ Device | Connection
 --- | ---
 Azure Migrate appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br /><br /> Inbound connections on port 44368 to remotely access the appliance management app by using the URL `https://<appliance-ip-or-name>:44368`. <br /><br />Outbound connections on port 443 (HTTPS) to send discovery and performance metadata to Azure Migrate and Modernize.
 vCenter Server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br /><br /> The appliance connects to vCenter on port 443 by default. If vCenter Server listens on a different port, you can modify the port when you set up discovery.
-ESXi hosts | For [discovery of software inventory](../how-to-discover-applications.md) or [agentless dependency analysis](../concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
+ESXi hosts | For [discovery of software inventory](how-to-discover-applications.md) or [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), the appliance connects to ESXi hosts on TCP port 443 to discover software inventory and dependencies on the servers.
 
 
 ## Software inventory requirements
@@ -345,7 +345,7 @@ Project limits | You can create multiple Azure Migrate projects in an Azure subs
 Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMware Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](set-discovery-scope.md).
 Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
-Learn more about [assessments](../concepts-assessment-calculation.md).
+Learn more about [assessments](concepts-assessment-calculation.md).
 
 
 ## Import servers using RVTools XLSX (preview)

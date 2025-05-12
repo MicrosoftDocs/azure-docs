@@ -79,7 +79,7 @@ Enable replication as follows:
 
 5. In **Virtual machines**, select VMs you want to migrate. Then select **Next: Target settings**.
 
-    :::image type="content" source="./media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="../media/tutorial-migrate-vmware/select-vms-expanded.png":::
+    :::image type="content" source="./media/tutorial-migrate-vmware/select-vms-inline.png" alt-text="Screenshot on selecting VMs." lightbox="./media/tutorial-migrate-vmware/select-vms-expanded.png":::
 
 6. In **Target settings**, select the subscription, target region, and Storage account.
    > [!Note]

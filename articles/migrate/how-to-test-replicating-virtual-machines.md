@@ -73,7 +73,7 @@ You can change the VNet and subnet of a replicating machine by following the ste
 
 2. Select **Compute and Network** option under **General**.
 
-    :::image type="content" source="../media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine.":::
+    :::image type="content" source="./media/how-to-test-replicating-virtual-machines/test-migration-subnet-selection-step-2.png" alt-text="Screenshot shows the location of network and compute option on the details page of replicating machine.":::
 
 3. Select the virtual network from the **Test migration** column. It's important to select the VNet in this drop down for test migration to be able to select subnet for each Network Interface Card (NIC) in the following steps.
 

@@ -25,7 +25,7 @@ This article shows you how to assess discovered ASP.NET web apps running on IIS 
 
 As part of your migration journey to Azure, assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](app-service/overview.md) about Azure App Service.
+This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../app-service/overview.md) about Azure App Service.
 
 
 ::: zone-end

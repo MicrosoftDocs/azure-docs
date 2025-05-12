@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.topic: tutorial
-ms.date: 10/20/2024
+ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy23
 ---
@@ -508,7 +508,7 @@ Write-Output $MigrateJob.State
     - Keep data secure by backing up Azure VMs by using Azure Backup. [Learn more](../backup/quick-backup-vm-portal.md).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Azure Site Recovery. [Learn more](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - For increased security:
-    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../../security-center/security-center-just-in-time.md).
+    - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
     - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
     - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
