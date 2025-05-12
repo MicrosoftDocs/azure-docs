@@ -26,7 +26,7 @@ This article describes limitations and known issues of storage tasks. The issues
 
 Azure Storage Actions autoscales its processing tasks based on the volume of data in a storage account, subject to internal limits. The duration of execution depends on the number of blobs in the storage account, as well as their hierarchy in Azure Data Lake Storage Gen2. The first execution of a task over a path prefix might take longer than subsequent executions. Azure Storage Actions are also designed to be self-regulating and to allow application workloads on the storage account to take precedence. As a result, the scale and the duration of execution also depend on the available transaction capacity given the storage account's maximum request limit. The following are typical processing scales, which might be higher if you have more transaction capacity available, or might be lower for lesser spare transaction capacity on the storage account.
 
-## Storage account regions
+## Task assignments applied on storage accounts across regions
 
 Task assignments can only be applied on storage accounts that are in the same region as the storage tasks.
 
