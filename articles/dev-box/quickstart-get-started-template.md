@@ -52,6 +52,15 @@ This article explains how to use the *Get Started* template to set up Microsoft 
 1. Wait for the deployment to complete. Monitor the progress in the **Notifications** pane.
 1. After the deployment is complete, select **Go to Resource** to view the created resources.
 
+The following resources are created in your Azure subscription:
+- **Dev center**: The central hub for managing dev boxes and resources.
+- **Project**: A container for organizing dev boxes and resources within the dev center.
+- **Dev box pool**: A collection of dev boxes that share the same configuration and resources.
+- **Dev box definition**: A template that defines the configuration and resources for the dev boxes in the pool. The get started template uses the Visual Studio 2022 on Windows 11 enterprise image.
+
+You can go to the [developer portal](https://aka.ms/devbox-portal) to create new dev boxes. The developer portal is a web-based interface that allows users to create, manage, and monitor their dev boxes. 
+
+To learn more about creating dev boxes through the developer portal, see [Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal](quickstart-create-dev-box.md).
 
 ## Next steps
 In this quickstart, you set up the Microsoft Dev Box resources required for users to create their own dev boxes. To learn how to create and connect to a dev box, go to the next quickstart:
