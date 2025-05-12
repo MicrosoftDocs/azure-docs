@@ -43,8 +43,8 @@ You can use the Azure CLI script in this section to create an Azure Managed Redi
 
 - [Azure portal](../quickstart-create-managed-redis.md)
 - [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-managed-redis)
-- [ARM template](../redis-cache-arm-provision.md#azure-managed-redis-preview)
-- [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis-preview)
+- [ARM template](../redis-cache-arm-provision.md#azure-managed-redis)
+- [Bicep template](../redis-cache-bicep-provision.md#azure-managed-redis)
 
 The cache `name`  must be a string of 1-63 characters that's unique in the [Azure region](https://azure.microsoft.com/regions/). The name can contain only numbers, letters, and hyphens, must start and end with a number or letter, and can't contain consecutive hyphens.
 
