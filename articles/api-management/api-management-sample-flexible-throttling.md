@@ -101,7 +101,7 @@ Quota policies like `quota` and `quota-by-key` are global, which means that a si
 
 ## Summary
 
-API Management provides rate and quota throttling to protect and add value to your API service. Throttling policies that have custom scoping rules provide finer-grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these policies by creating rate limiting keys with client IP addresses, user identity, and client-generated values. You could, however, use many other parts of the message, such as user agent, URL path fragments, and message size.
+API Management provides rate and quota throttling to protect and add value to your API service. Throttling policies that have custom scoping rules provide finer-grained control over those policies to enable your customers to build even better applications. The examples in this article demonstrate the use of these policies by creating rate limiting keys with client IP addresses, user identity, and client-generated values. You can, however, use many other parts of the message, such as user agent, URL path fragments, and message size.
 
 ## Related content
 
