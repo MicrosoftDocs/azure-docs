@@ -10,9 +10,9 @@ ms.author: danlep
 
 # Expose REST API in API Management as an MCP server
 
-[!INCLUDE [api-management-premium-standard-basic](../../includes/api-management-premium-standard-basic.md)]
+[!INCLUDE [api-management-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
-<!-- Any limitations on SKUs
+<!-- Currently only the **Premium**, **Standard**, and **Basic** tiers of API Management support MCP servers.
 
 Document need an IcM for SKUv2 --
 
@@ -21,7 +21,7 @@ Need to use the GenAI release group -->
 In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that can be called by clients using the MCP protocol. 
 
 > [!NOTE]
-> This feature is currently in preview and is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md#update-group). 
+> This feature is currently in preview and is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). 
 
 In this article, you learn how to:
 
@@ -115,7 +115,7 @@ After adding an MCP server, you can use tools in agent mode.
 1. Enter a prompt in the chat to invoke the tool. For example, if you selected a tool to get information about an order, you can ask the agent about an order. 
 
     ```copilot-prompt
-    Get information for order ID 2
+    Get information for order 2
     ```
 
     Select **Continue** to see the results. The agent uses the tool to call the MCP server and returns the results in the chat.
