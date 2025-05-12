@@ -7,7 +7,7 @@ manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 02/20/2024
+ms.date: 05/01/25
 ms.topic: include
 ms.custom: Include file
 ms.author: shamkh
@@ -53,9 +53,10 @@ Follow these steps to add required code snippets to the `messages-quickstart.py`
 
 - [Send a Reaction messages to a WhatsApp user message](#send-a-reaction-messages-to-a-whatsapp-user-message).
 
-### Send a Reaction messages to a WhatsApp user message
+### Send a reaction messages to a WhatsApp user message
 
 The Messages SDK enables Contoso to send reaction WhatsApp messages, when initiated by WhatsApp users. To send text messages:
+
 - [WhatsApp Channel ID](#set-channel-registration-id).
 - [Recipient Phone Number in E16 format](#set-recipient-list).
 - Reaction content can be created using given properties:
@@ -156,4 +157,4 @@ if __name__ == '__main__':
 
 ### Other samples
 
-You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
+You can review and download other sample codes on GitHub at [Python Messages SDK](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
