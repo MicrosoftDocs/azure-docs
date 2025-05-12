@@ -16,8 +16,6 @@ items:
         href: quickstart-create-managed-redis.md 
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: ../azure-cache-for-redis/quickstart-create-redis.md
-      - name: Create an Azure Cache for Redis instance in the Enterprise tiers
-        href: ../azure-cache-for-redis/quickstart-create-redis-enterprise.md    
       - name: Create and manage with Azure PowerShell
         href: how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
@@ -67,8 +65,6 @@ items:
       href: how-to-upgrade.md
     - name: Save with reservations 
       href: reserved-pricing.md
-    - name: Migrate to Azure Redis from other caches
-      href: /migrate/migration-guide.md
     - name: Planning FAQs
       href: planning-faq.yml
     - name: Redis modules 
@@ -171,12 +167,12 @@ items:
       href: how-to-persistence.md
     - name: Set up Enterprise active geo-replication
       href: how-to-active-geo-replication.md
-    - name: Configure your cache for high availability
-      href: high-availability.md
+    # - name: Configure your cache for high availability
+    #   href: high-availability.md
     - name: Failover and patching
       href: failover.md
-    - name: Migrate to availability zone support
-      href: ../reliability/migrate-cache-redis.md
+    # - name: Migrate to availability zone support
+    #   href: ../reliability/migrate-cache-redis.md
 
   - name: Diagnose and troubleshoot
     items:
