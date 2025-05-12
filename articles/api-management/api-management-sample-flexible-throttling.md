@@ -79,7 +79,7 @@ This example shows how to extract the Authorization header, convert it to a `JWT
 
 ### Combined policies
 
-Although user-based throttling policies provide more control than subscription-based throttling policies, there is still value combining both capabilities. For monetized APIs, throttling by product subscription key ([Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md)) is a great way to implement fees that are based on usage levels. The finer-grained control of being able to throttle by user is complementary and prevents one user's behavior from degrading the experience of another. 
+Although user-based throttling policies provide more control than subscription-based throttling policies, there is still value in combining both capabilities. For monetized APIs, throttling by product subscription key ([Limit call rate by subscription](rate-limit-policy.md) and [Set usage quota by subscription](quota-policy.md)) is a great way to implement fees that are based on usage levels. The finer-grained control of being able to throttle by user is complementary and prevents one user's behavior from degrading the experience of another. 
 
 ### Client-driven throttling
 
@@ -91,7 +91,7 @@ When the throttling key is defined via a [policy expression](./api-management-po
           counter-key="@(request.Headers.GetValueOrDefault("Rate-Key",""))"/>
 ```
 
-This technique enables the developer's client application to choose how they want to create the rate limiting key. The client developers could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
+This technique enables the developer's client application to determine how to create the rate limiting key. The client developers could create their own rate tiers by allocating sets of keys to users and rotating the key usage.
 
 ## Considerations for multiple regions or gateways
 
