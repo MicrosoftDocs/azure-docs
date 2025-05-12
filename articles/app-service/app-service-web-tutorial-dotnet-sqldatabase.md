@@ -123,7 +123,7 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
 
 1. On the **Azure SQL Database** screen, next to **Database server**, select **New**.
 
-   Change the server name to a value you want. The server name is used as part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL. 
+   Change the server name to a value you want. The server name is part of the default URL for your server, `<server_name>.database.windows.net`. It must be unique across all servers in Azure SQL. 
 
 1. Add an administrator username and password. For password requirements, see [Password policy](/sql/relational-databases/security/password-policy).
 
@@ -144,16 +144,16 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
 
 1. When the database resources are created, select **Next**.
 
-1. Under **Connection string Name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
-
-1. Select **Next**, and then select **Finish**.
+1. Under **Connection string name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
 
    > [!NOTE]
    > If you see **Local user secrets files** instead, you might have configured SQL Database from the **Connected Services** page instead of the **Publish** page.
 
+1. Select **Additional settings**, make sure **Azure App Settings** is selected, and select **Finish**.
+
 ### Deploy the ASP.NET app
 
-1. At the top of the **Publish** tab, select **Publish**. Your ASP.NET app deploys to Azure, and your default browser launches to the URL of the deployed app.
+1. When the connection succeeds, at the top of the **Publish** tab, select **Publish**. Your ASP.NET app deploys to Azure, and your default browser launches to the URL of the deployed app.
 
 1. Add a few to-do items.
 
@@ -174,17 +174,12 @@ Congratulations! Your data-driven ASP.NET application is running live in Azure A
 
 1. At the top of the **SQL Server Object Explorer** window, select the icon to **Add SQL Server**.
 
-### Configure the database connection
-
-1. In the **Connect** dialog, expand the **Azure** node to view all your Azure SQL Database instances.
-
-1. Select the database you created earlier. The connection you created earlier is automatically filled at the bottom.
-
-1. Type your database administrator password and select **Connect**.
+1. On the **Connect** screen, your connection appears under the **Azure** node. Fill in the information for your **Server Name**, **User Name**, **Password**, and **Database Name**, and select **Connect**.
 
    ![Screenshot that shows configuring the database connection from Visual Studio.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-to-sql-database.png)
 
-### Allow client connection from your computer
+
+<!--### Allow client connection from your computer
 
 The **Create a new firewall rule** dialog opens. By default, a server allows connections to its databases only from Azure services, such as your Azure app. To connect to your database from outside of Azure, create a firewall rule at the server level.
 
@@ -195,7 +190,7 @@ This firewall rule allows the public IP address of your local computer. The dial
    ![Screenshot that shows creating the firewall rule.](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
 
     Once Visual Studio finishes creating the firewall setting for your SQL Database instance, your connection appears in **SQL Server Object Explorer**.
-
+-->
 In **SQL Server Object Explorer**, you can perform most common database operations, such as running queries or creating views and stored procedures.
 
 Expand your connection's > **Databases** > **\<your database>** > **Tables**. Right-click the `Todoes` table and select **View Data**.
