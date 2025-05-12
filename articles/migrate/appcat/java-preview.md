@@ -354,7 +354,13 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 This release contains the following fixes and enhancements.
 
-
+- The `--input` flag now accepts multiple values, allowing you to analyze multiple applications in a single command execution.
+- The static report output has been refined to ensure consistency with the IDE report.
+- AppCAT can now be installed in directories other than the user’s home directory.
+- Fixed an issue where running `analyze` with both `--bulk` and `--skip-static-report` failed to generate multiple output files.
+- Resolved a failure when analyzing with `--bulk` and `--rules` if no Java provider was launched.
+- Fixed an issue where analysis would fail if a specified package was not found when using the `--packages` flag.
+- The `--exclude-paths` flag has been deprecated. To exclude files or directories, use a `.appcat-ignore` file (supporting glob patterns) placed in the input directory or installation directory.
 
 ### 7.6.0.4
 
