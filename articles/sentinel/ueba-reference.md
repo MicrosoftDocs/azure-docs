@@ -242,7 +242,7 @@ While the initial synchronization may take a few days, once the data is fully sy
 
 - When a user is deleted, that user's record is not immediately deleted from the *IdentityInfo* table. The reason for this is that one of this table's purposes is to audit changes to user records. Therefore, we want this table to have a record of a user being deleted, which can only happen if the user record in the *IdentityInfo* table still exists, even though the actual user (say, in Entra ID) is deleted.
 
-    Deleted users can be identified by the presence of a value in the `deletedDateTime` field. So if you need a query to show you a list of users, you can filter out deleted users by adding `| where IsNotEmpty(deletedDateTime)` to the query.
+    Deleted users can be identified by the presence of a value in the `deletedDateTime` field. So if you need a query to show you a list of users, you can filter out deleted users by adding `| where IsEmpty(deletedDateTime)` to the query.
 
     At a certain interval of time after a user was deleted, the user's record is eventually removed from the *IdentityInfo* table as well.
 
