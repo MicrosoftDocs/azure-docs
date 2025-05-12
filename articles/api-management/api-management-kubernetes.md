@@ -70,7 +70,7 @@ Although option 1 might be easier, it has notable drawbacks, as noted earlier. I
 
 Mutual TLS authentication is [natively supported](./api-management-howto-mutual-certificates.md) by API Management. You can enable it in Kubernetes by [installing an ingress controller](/azure/aks/ingress-own-tls). (See the following diagram.) As a result, authentication is performed in the ingress controller, which simplifies the microservices. Additionally, you can add the IP addresses of API Management to the ingress allowlist to ensure that only API Management has access to the cluster. If you use API Management [Premium](./api-management-using-with-internal-vnet.md) or [Standard V2](./integrate-vnet-outbound.md) tier, you can achieve network-level isolation. 
  
-:::image type="content" source="./media/api-management-aks/ingress-controller.png" alt-text="Diagram that shows an architecture for publishing via an ingress controller." border="false" ligthbox="./media/api-management-aks/ingress-controller.png":::
+:::image type="content" source="./media/api-management-aks/ingress-controller.png" alt-text="Diagram that shows an architecture for publishing via an ingress controller." border="false" lightbox="./media/api-management-aks/ingress-controller.png":::
 
 Pros:
 * Enables easy configuration on the API Management side because API Managment doesn't need to be injected into the cluster virtual network and mTLS is natively supported
@@ -93,11 +93,11 @@ There are two modes of [deploying API Management into a virtual network](./virtu
 
 If API consumers don't reside in the cluster virtual network, you should use the external mode. (See the following diagram.) In this mode, the API Management gateway is injected into the cluster virtual network but accessible from the public internet via an external load balancer. This architecure helps to hide the cluster completely while still allowing external clients to consume the microservices. Additionally, you can use Azure networking capabilities like Network Security Groups (NSG) to restrict network traffic.
 
-:::image type="content" source="./media/api-management-aks/vnet-external.png" alt-text="Diagram that shows an architecture that uses external virtual network mode." border="false" ligthbox="./media/api-management-aks/vnet-external.png":::
+:::image type="content" source="./media/api-management-aks/vnet-external.png" alt-text="Diagram that shows an architecture that uses external virtual network mode." border="false" lightbox="./media/api-management-aks/vnet-external.png":::
 
 If all API consumers reside within the cluster virtual network, you can use the internal mode. (See the following diagram.) In this mode, the API Management gateway is injected into the cluster virtual network and accessible only from within this virtual network via an internal load balancer. There's no way to reach the API Management gateway or the AKS cluster from the public internet. 
 
-:::image type="content" source="./media/api-management-aks/vnet-internal.png" alt-text="Diagram that shows an architecture that uses internal virtual network mode." border="false" ligthbox="./media/api-management-aks/vnet-internal.png":::
+:::image type="content" source="./media/api-management-aks/vnet-internal.png" alt-text="Diagram that shows an architecture that uses internal virtual network mode." border="false" lightbox="./media/api-management-aks/vnet-internal.png":::
 
 The AKS cluster isn't publicly visible in either case. In contrast to Option 2, the ingress controller might not be necessary. Depending on your scenario and configuration, authentication might still be required between API Management and your microservices. For instance, if you use a service mesh, you always need mutual TLS authentication. 
 
