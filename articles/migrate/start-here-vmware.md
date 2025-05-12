@@ -10,7 +10,7 @@ products:
   - vmware
   - azure-virtual-machines
   - azure-vmware-solution
-ms.date: 08/14/2024
+ms.date: 05/09/2025
 ms.custom: vmware-scenario-422
 
 # Customer intent - Overview  of the options for assessing an existing VMware deployment for migration
@@ -21,7 +21,7 @@ ms.custom: vmware-scenario-422
 
 There are several steps to using the Azure Migration Tools to migrate a VMware deployment to Azure. This article is a map to the steps of the process that are documented for this scenario.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 
 ## Prerequisites
 Make sure you check out the [support matrix](migrate-support-matrix-vmware.md) before getting started.
@@ -37,14 +37,14 @@ You need a list of all of the servers in your environment. To get the list, you 
 
 Identify dependencies between on-premises servers so that you can identify groups of servers to migrate together. 
 
-For an overview, see [Dependency analysis](../concepts-dependency-visualization.md?context=/azure/migrate/context/vmware-context).
+For an overview, see [Dependency analysis](concepts-dependency-visualization.md?context=/azure/migrate/context/vmware-context).
 
-You can choose between [agentless](../how-to-create-group-machine-dependencies-agentless.md?context=/azure/migrate/context/vmware-context) and [agent-based](../how-to-create-group-machine-dependencies.md?context=/azure/migrate/context/vmware-context) analysis.
+You can choose between [agentless](how-to-create-group-machine-dependencies-agentless.md?context=/azure/migrate/context/vmware-context) and [agent-based](how-to-create-group-machine-dependencies.md?context=/azure/migrate/context/vmware-context) analysis.
 
 
 ## Decide - build a business case (preview)
 
-[Build a business proposal](../how-to-build-a-business-case.md?context=/azure/migrate/context/migrate-context) using the discovery and assessment tool to help you understand how Azure can bring the most value to your business.
+[Build a business proposal](how-to-build-a-business-case.md) using the discovery and assessment tool to help you understand how Azure can bring the most value to your business.
 
 ## Assess
 
@@ -52,7 +52,7 @@ Assess your VMware environment for moving to [Azure Virtual Machines](tutorial-a
 
 ## Migrate 
 
-Before you begin your migration, you need to [choose whether to use an agent-based migration or agentless](server-migrate-overview.md?context=/azure/migrate/context/vmware-context).
+Before you begin your migration, you need to [choose whether to use an agent-based migration or agentless](server-migrate-overview.md).
 
 
 Depending on whether you choose agent-based or agentless migration, the next step would be to review the migration articles for your choice.
