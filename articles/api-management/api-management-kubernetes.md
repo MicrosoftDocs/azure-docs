@@ -7,7 +7,7 @@ manager: cfowler
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 12/14/2019
+ms.date: 05/15/2025
 ms.author: danlep
 ---
 
