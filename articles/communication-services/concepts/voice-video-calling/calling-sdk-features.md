@@ -35,9 +35,9 @@ Once you start development, see [known issues](../known-issues.md) to find bugs 
 
 **Key features**
 
-- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications dataplane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
+- **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **PSTN** - The Calling SDK can initiate voice calls with the traditional publicly switched telephone network, [using phone numbers you acquire in the Azure portal](../../quickstarts/telephony/get-phone-number.md) or programmatically. You can also bring your own numbers using session border controllers. 
-- **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video dataplane.
+- **Teams Meetings & Calling** - The Calling SDK can [join Teams meetings](../../quickstarts/voice-video-calling/get-started-teams-interop.md) and interact with the Teams voice and video data plane.
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire.
 - **Addressing** - Azure Communication Services provides generic [identities](../identity-model.md) that are used to address communication endpoints. Clients use these identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster).
 - **User Access Security**
@@ -202,18 +202,18 @@ The Azure Communication Services Calling SDK supports sending following video re
 - When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
 - When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
 
-## Calling SDK time-outs
-The following time-outs apply to the Communication Services Calling SDKs:
+## Calling SDK timeouts
+The following timeouts apply to the Communication Services Calling SDKs:
 
-| Action| Time-out in seconds |
+| Action| Timeout in seconds |
 | --------------------------------------------------------------------------- | ------------------ |
 | Reconnect/removal participant     | 60  |
 | Add or remove new modality from a call (Start/stop video or screen sharing) | 40   |
-| Call Transfer operation time-out   | 60   |
-| 1:1 call establishment time-out    | 85   |
-| Group call establishment time-out  | 85   |
-| PSTN call establishment time-out   | 115  |
-| Promote 1:1 call to a group call time-out | 115  |
+| Call Transfer operation timeout   | 60   |
+| 1:1 call establishment timeout    | 85   |
+| Group call establishment timeout  | 85   |
+| PSTN call establishment timeout   | 115  |
+| Promote 1:1 call to a group call timeout | 115  |
 
 ## Next steps
 
