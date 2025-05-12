@@ -215,7 +215,8 @@ As a protection for our customers, Microsoft places some restrictions on telepho
 | 501 |  Belize| 10  |  30  |
 | 502 | Guatemala | 10 | 50 
 | 503 | El Salvador | 10 | 30 |
-| 52 | Mexico | 100 | 500 
+| 52 | Mexico | 100 | 500 |
+| 53 | Cuba | 10 | 30 |
 | 58 |	Venezuela|	10	| 30 |
 | 591 | Bolivia | 10 | 30 |
 | 60 | Malaysia | 50 | 200 |
