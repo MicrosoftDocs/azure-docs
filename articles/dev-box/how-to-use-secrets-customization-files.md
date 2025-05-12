@@ -44,7 +44,7 @@ tasks:
     parameters: 
     command: MyCommand –MyParam '{{KEY_VAULT_SECRET_URI}}' 
 ```
-This example shows an image definition file, but the same syntax applies to user customizations. The `KEY_VAULT_SECRET_URI` is the URI of the secret in your key vault. 
+This example shows an image definition file. The `KEY_VAULT_SECRET_URI` is the URI of the secret in your key vault. 
 
 You can reference the secret in your YAML customization in the following format, which uses the `git-clone` task as an example:
 
