@@ -44,7 +44,7 @@ ms.date: 03/19/2025
 
    A user-assigned managed identity with the required role-based access control (RBAC) permission is created automatically so that the Function app can access durable task scheduler. You can find in the summary view information related to the managed identity resource, such as:
    - The RBAC assigned to it (*Durable Task Data Contributor*) 
-   - The assignment scope (the scheduler or task hub name)
+   - The assignment scope (task hub level assignment)
 
        :::image type="content" source="../media/create-durable-task-scheduler/functions-review-create-tab.png" alt-text="Screenshot of fields and properties chosen and in review on the Review + create tab.":::
 
