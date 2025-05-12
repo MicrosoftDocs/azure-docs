@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 12/04/2024
+ms.date: 05/12/2025
 ms.author: anfdocs
 ---
 # Understand data protection and disaster recovery options in Azure NetApp Files

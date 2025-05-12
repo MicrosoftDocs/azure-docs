@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 05/12/2025
 ms.author: anfdocs 
 ---
 # Manage cross-zone-region replication for Azure NetApp Files (preview)

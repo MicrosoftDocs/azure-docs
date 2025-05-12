@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 05/12/2025
 ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files

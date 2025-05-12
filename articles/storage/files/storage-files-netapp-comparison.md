@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/05/2025
+ms.date: 05/12/2025
 ms.author: kendownie
 recommendations: false
 ---

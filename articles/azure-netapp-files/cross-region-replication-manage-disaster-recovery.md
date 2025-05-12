@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 05/12/2025
 ms.author: anfdocs 
 ---
 # Manage disaster recovery using Azure NetApp Files 
