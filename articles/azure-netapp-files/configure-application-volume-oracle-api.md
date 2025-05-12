@@ -63,7 +63,7 @@ The following tables describe the request body parameters and volume properties 
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
 | `Properties:dataProtection:replication:endpointType` | Endpoint type for a replication configuration | The allowed value is `dst` |
 | `Properties:dataProtection:replication:remoteVolumeResourceId` | The resource ID of the remote volume | The volume ID |
-| `Properties:dataProtection:replication:replicationSchedule` | The frequency of replication (daily, hourly, or every 10 minutes) | Allowed values are `daily`, `hourly`, or `10minutely` |
+| `Properties:dataProtection:replication:replicationSchedule` | The frequency of replication (daily, hourly, or every 10 minutes) | Allowed values are `daily`, `hourly`, or `_10minutely` |
 
 
 
