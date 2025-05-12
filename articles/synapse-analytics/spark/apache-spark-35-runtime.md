@@ -1,0 +1,36 @@
+---
+title: Azure Synapse Runtime for Apache Spark 3.5 
+description: New runtime is in Public Preview stage. Try it and use Spark 3.5.0, Python 3.10, Delta Lake 2.4.
+author: jeacla
+ms.author: arali
+ms.service: azure-synapse-analytics
+ms.topic: reference
+ms.subservice: spark
+ms.custom: devx-track-python
+ms.date: 05/12/2025 
+---
+
+# Azure Synapse Runtime for Apache Spark 3.5 (Public Preview)
+Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.5.
+
+## Component versions
+
+|  Component   | Version      |  
+| ----- |--------------|
+| Apache Spark | 3.5    |
+| Operating System | Mariner 2.0  |
+| Java | 8.11.17  |
+| Scala | 2.13      |
+| Delta Lake | 2.4.0        |
+| Python | 3.10     |
+| R | 4.2.2    |
+
+> [!TIP]
+> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).
+## Libraries
+
+To check the libraries included in Azure Synapse Runtime for Apache Spark 3.5 for Java/Scala, Python and R go to [Azure Synapse Runtime for Apache Spark 3.5 Releases Notes](https://github.com/microsoft/synapse-spark-runtime/tree/main/Synapse/spark3.5).             
+
+## Related content
+- [Migration between Apache Spark versions - support](./apache-spark-version-support.md#migration-between-apache-spark-versions---support)
+- [Synapse runtime for Apache Spark lifecycle and supportability](./runtime-for-apache-spark-lifecycle-and-supportability.md)
