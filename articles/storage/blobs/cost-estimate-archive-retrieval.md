@@ -17,27 +17,19 @@ This sample estimate shows the cost of to archive data and then retrieve that da
 > [!IMPORTANT]
 > These estimates are based on [sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
 
-## Parameters
+## Scenario
 
-This sample estimate shows the cost to move **1000** blobs that are each **10 GB** in size into the archive access tier. After **3** months, **20%** of the data is retrieved for analysis. The estimate assumes the following account configuration:
-
-| Configuration            | Value                           |
-|--------------------------|---------------------------------|
-| Namespace type           | Flat                            |
-| Storage account endpoint | blob.core.windows.net           |
-| Redundancy configuration | Locally-redundant storage (LRS) |
-| Region                   | East US                         |
-| Block size configuration | 8-MiB                           |
+Your workload uploads **2000** blobs to the archive access tier by using the `blob.core.windows.net` storage endpoint. Each blob is **10 GB** in size and is uploaded in **8 MiB** blocks. After **3** months, clients retrieve **20%** of the data for analysis. Because that data is retrieved before 180 days, your assessed an early deletion fee. The account is located in the East US region, and is configured for geo-redundant storage (GRS). Hierarchical namespaces are not enabled on this account.
 
 ## Estimate
 
-The following table estimates the cost of this scenario.
+Using sample pricing, the following table estimates the cost of this scenario.
 
 | Cost meter                           | Estimate           |
 |--------------------------------------|--------------------|
-| Write operations on the archive tier | $7.05              |
-| Read operations on the archive tier  | cost goes here     |
-| Data retrieval fee                   | cost goes here     |
+| Write operations on the archive tier | $28.18             |
+| Read operations on the archive tier  | $0.22              |
+| Data retrieval fee                   | $22.00             |
 | Early deletion fee                   | cost goes here     |
 | Write operations on the hot tier     | cost goes here     |
 | **Total cost of this use case**      | **cost goes here** |
@@ -49,40 +41,29 @@ The following table estimates the cost of this scenario.
 
 The following sections show how each line item in the above sample estimate is calculated.
 
-### Write operations (archive tier)
+### Write operations on the archive tier
 
-The following table breaks down the cost of write operations on the archive tier.
+| Calculation                                                | Value      |
+|------------------------------------------------------------|------------|
+| PutBlock operations per blob (10 GiB / 8-MiB block)        | 1280       |
+| PutBlockList operations per blob                           | 1          |
+| Total write operations (2,000 * 1,281)                     | 2,562,000  |
+| **Cost of write operations (2,562,000 * operation price)** | **$28.18** |
 
-| Calculation                                                  | Value         |
-|--------------------------------------------------------------|---------------|
-| Number of MiB in 10 GiB                                      | 10,240        |
-| PutBlock operations per blob (5,120 MiB / 8-MiB block)       | 1,280         |
-| PutBlockList operations per blob                             | 1             |
-| Total write operations (1,000 * 1,281)**                     | 1,281,000     |
-| Price of a single write operation (price / 10,000)           | $0.0000110    |
-| Cost of write operations (1,281,000 * operation price)       | $7.0510       |
-| Price of a single other operation (price / 10,000)           | $0.00000044   |
-| Cost to get blob properties (1000 * other operation price)   | $0.00044      |
-| ------------------------------------------------------------ | ------------- |
-| Total cost (write + properties)                              | $7.05         |
+### Read operations on the archive tier
 
-### Read operation (archive tier)
-
-Here's how the read operation cost breaks down.
-
-| Price factor | Calculation |
-|--------------|-------------|
-| Data retieval size ()       | number      |
-| Factor       | number      |
+| Cost factor                                   | Value     |
+|-----------------------------------------------|-----------|
+| Number of read operations (2000 blobs * 20%)  | 400       |
+| **Cost to read (operations * price to read)** | **$0.22** |
 
 ### Data retrieval fee
 
-Here's how the read operation cost breaks down.
-
-| Price factor | Calculation |
-|--------------|-------------|
-| Factor       | number      |
-| Factor       | number      |
+| Cost factor                                                     | Value      |
+|-----------------------------------------------------------------|------------|
+| Total file size (GB)                                            | 20,000     |
+| Data retrieval size (20% of file size)                          | 200        |
+| **Cost to retrieve (data retrieval size * price of retrieval)** | **$22.00** |
 
 ### Early deletion fee
 
@@ -93,7 +74,7 @@ Here's how the read operation cost breaks down.
 | Factor       | number      |
 | Factor       | number      |
 
-### Write operation (hot tier)
+### Write operations on the hot tier
 
 Here's how the read operation cost breaks down.
 
@@ -102,7 +83,7 @@ Here's how the read operation cost breaks down.
 | Factor       | number      |
 | Factor       | number      |
 
-## Other factors
+## Estimate variations
 
 Here some other factor that can influence this estimate
 
@@ -112,6 +93,8 @@ Here some other factor that can influence this estimate
 | Data Lake Storage Gen 2 endpoints | Cost of read and write operations |
 | The tier to which data is rehydrated | Cost of the write operations |
 | Replication setting of the account | Cost of the write operations |
+
+Perhaps a table with other variations
 
 ## See also
 
