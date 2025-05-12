@@ -53,7 +53,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region   | OCI region     | Oracle Exadata Database@Azure  | Oracle Autonomous Database@Azure    |  Regional Availability|
 | -------------- | -------------------|------------------------|------------------ | -----|
 | East US        | US East (Ashburn)          | ✓   | ✓  | Dual  |
-| Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ | Single  |
+| Canada Central | Canada Southeast (Toronto) | ✓ |  ✓ | Dual  |
 | West US | US West (San Jose)  | ✓  |          ✓  | Single    |
 | Central US | US Midwest (Chicago)  | ✓  |          ✓  | Dual    |
 | East US 2 | US East (Ashburn) | ✓  |           | Dual    |
