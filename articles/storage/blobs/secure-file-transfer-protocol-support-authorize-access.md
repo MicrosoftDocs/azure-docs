@@ -5,7 +5,7 @@ description: Learn how to authorize access to Azure Blob Storage for an SSH File
 author: normesta
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/30/2024
 ms.author: normesta
 ---
@@ -184,7 +184,7 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
 Choose which containers you want to grant access to and what level of access you want to provide. Those permissions apply to all directories and subdirectories in the container. To learn more about each container permission, see [Container permissions](secure-file-transfer-protocol-support.md#container-permissions).
 
-If you want to authorize access at the file and directory level, you can enable ACL authorization. This capability is in preview and can be enabled only by using the Azure portal.
+If you want to authorize access at the file and directory level, you can enable ACL authorization.
 
 #### [Portal](#tab/azure-portal)
 

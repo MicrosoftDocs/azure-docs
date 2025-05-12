@@ -1,6 +1,6 @@
 ---
 title: Use key vault secrets in customization files
-description: Learn how to use Azure Key Vault secrets in team and individual customization files to clone private repositories.
+description: Learn how to use Azure Key Vault secrets in team and user customization files to clone private repositories.
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
@@ -13,6 +13,9 @@ ms.date: 04/20/2025
 ---
 
 # Clone a private repository by using a customization file
+
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
 
 You can use secrets from your Azure key vault in your YAML customizations to clone private repositories, or with any custom task you author that requires an access token. In a team customization file, you can use a personal access token (PAT) stored in a key vault to access a private repository.
 
@@ -43,9 +46,9 @@ tasks:
       pat: '{{KEY_VAULT_SECRET_URI}}'
 ```
 
-## Use key vault secrets in individual customization files
+## Use key vault secrets in user customization files
 
-To clone a private Azure Repos repository from an individual customization file, you don't need to configure a secret in Azure Key Vault. If you want to clone a private Azure Repos repository from an individual customization file, you don't need to configure a secret in Azure Key Vault. Instead, you can use `{{ado}}` or `{{ado://your-ado-organization-name}}` as a parameter. This parameter fetches an access token on your behalf when you're creating a dev box. The access token has read-only permission to your repository.
+To clone a private Azure Repos repository from a user customization file, you don't need to configure a secret in Azure Key Vault. If you want to clone a private Azure Repos repository from a user customization file, you don't need to configure a secret in Azure Key Vault. Instead, you can use `{{ado}}` or `{{ado://your-ado-organization-name}}` as a parameter. This parameter fetches an access token on your behalf when you're creating a dev box. The access token has read-only permission to your repository.
 
 The `git-clone` task in the quickstart catalog uses the access token to clone your repository. Here's an example:
 

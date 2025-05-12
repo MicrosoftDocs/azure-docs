@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-container-storage
 ms.date: 07/09/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Understand Azure Container Storage billing

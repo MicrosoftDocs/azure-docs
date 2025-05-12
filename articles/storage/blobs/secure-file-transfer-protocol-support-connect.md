@@ -5,7 +5,7 @@ description: Learn how to connect to Azure Blob Storage by using an SSH File Tra
 author: normesta
 ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/18/2024
 ms.author: normesta
 ---

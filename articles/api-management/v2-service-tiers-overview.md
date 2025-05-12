@@ -1,12 +1,12 @@
 ---
-title: Azure API Management - v2 tiers
+title: Azure API Management - V2 Tiers
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. 
 services: api-management
 author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 04/17/2025
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -90,7 +90,6 @@ The following API Management capabilities are currently unavailable in the v2 ti
 
 **Gateway**
 * Self-hosted gateway
-* Quota by key policy
 * Cipher configuration
 * Client certificate renegotiation
 * Free, managed TLS certificate
@@ -120,7 +119,7 @@ A: No. Currently you can't migrate an existing API Management instance (in the C
 
 ### Q: What's the relationship between the stv2 compute platform and the v2 tiers?
 
-A: They're not related. stv2 is a [compute platform](compute-infrastructure.md) version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform [that retired in 2024](./breaking-changes/stv1-platform-retirement-august-2024.md).
+A: They're not related. stv2 is a compute platform version of the Developer, Basic, Standard, and Premium tier service instances. stv2 is a successor to the stv1 compute platform that retired in 2024.
 
 ### Q: Will I still be able to provision Developer, Basic, Standard, or Premium tier services? 
 
