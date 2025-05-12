@@ -75,24 +75,24 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 | macOS   | Apple Silicon   | [Download][10] | [sha256][11] / [sig][12] |
 | Linux   | AArch64 / ARM64 | [Download][4]  | [sha256][5] / [sig][6]   |
 
-[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz
-[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz.sig
-[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz
-[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz.sig
-[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz
-[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz.sig
-[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz
-[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz.sig
-[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip
-[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip.sha256sum.txt
-[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip.sig
-[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip
-[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip.sha256sum.txt
-[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip.sig
+[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64.tar.gz
+[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64.tar.gz.sha256sum.txt
+[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64.tar.gz.sig
+[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64.tar.gz
+[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64.tar.gz.sha256sum.txt
+[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64.tar.gz.sig
+[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64.tar.gz
+[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64.tar.gz.sha256sum.txt
+[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64.tar.gz.sig
+[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64.tar.gz
+[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64.tar.gz.sha256sum.txt
+[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64.tar.gz.sig
+[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64.zip
+[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64.zip.sha256sum.txt
+[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64.zip.sig
+[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip
+[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip.sha256sum.txt
+[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip.sig
 
 ### Prerequisites
 
@@ -122,40 +122,10 @@ Extract the binary from the downloaded file. You should see the following folder
 
 ### Running the tool
 
-#### Option 1: Add the appcat binary path to your $PATH
-
-Move the contents of the folder to the **.appcat** folder in the user's home directory - **$HOME/.appcat** on Linux/Mac and **%USERPROFILE%/.appcat** on Windows.
-
-Add the **.appcat** folder to your `PATH` environment variable so you can run the tool from any folder in the terminal.
-
-# [Linux / macOS](#tab/linux)
-
-```bash
-mv <path-to-extracted>/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
-```
-
-# [Windows](#tab/windows)
-
-```cmd
-move <path-to-extracted>\azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview\ %USERPROFILE%\.appcat
-```
-
----
+To run the `appcat` from any location in your terminal, extract the archive to your desired location, for example, `~/.appcat` on Linux/Mac or `%USERPROFILE%\.appcat` on Windows, then update the `PATH` environment variable to include the directory where you extracted the archive.
 
 > [!NOTE]
-> When the `appcat` binary is called from a different folder than where it's installed, it looks for its dependencies in the **.appcat** folder in the user's home directory.
-
-#### Option 2: Run appcat from the downloaded folder
-
-Change the directory to the extracted folder:
-
-```bash
-cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
-./appcat --help
-```
-
-> [!NOTE]
-> The `appcat` binary first looks for its dependencies in the current directory. If the dependencies aren't found, it falls back to the configuration described in the [Option 1](#option-1-add-the-appcat-binary-path-to-your-path) section.
+> When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - `~/.appcat` on Linux/Mac or `%USERPROFILE%\.appcat` on Windows.
 
 ## Usage
 
@@ -249,24 +219,46 @@ openjdk21
 
 #### Analyzing Multiple Applications
 
-AppCAT is designed to analyze a single application per command execution, but if you use the `--bulk` option, you can analyze multiple applications in a single execution. This option generates a single static report in the output directory that includes the results for all applications.
+AppCAT supports multiple applications analysis in per command execution.
+You can provide a comma-separated list of input paths for the `--input` flag to analyze multiple applications in a single command. 
+The output directory and static report will include the combined analysis results for all applications.
 
 To analyze multiple applications, run the following command:
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./appcat analyze --bulk --input=<path-to-source-A> --output=<path-to-output-ABC> --target=<targetname>
-./appcat analyze --bulk --input=<path-to-source-B> --output=<path-to-output-ABC> --target=<targetname>
-./appcat analyze --bulk --input=<path-to-source-C> --output=<path-to-output-ABC> --target=<targetname>
+./appcat analyze --input=<path/to/source/A>,<path/to/source/B>,<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\appcat.exe analyze --bulk --input=<path-to-source-A> --output=<path-to-output-ABC> --target=<targetname>
-.\appcat.exe analyze --bulk --input=<path-to-source-B> --output=<path-to-output-ABC> --target=<targetname>
-.\appcat.exe analyze --bulk --input=<path-to-source-C> --output=<path-to-output-ABC> --target=<targetname>
+.\appcat.exe analyze --input=<path/to/source/A>,<path/to/source/B>,<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+```
+
+AppCAT also allows you to use `--bulk` option to incrementally add more application analysis to an existing output directory and static report.
+When using the `--bulk` option, you must use it consistently across all command executions that write to the same output.
+
+> [!NOTE]
+> When multiple input paths are provided, `--bulk` is enabled by default.
+
+To incrementally add more application analysis to an existing static report run the following command:
+
+# [Linux / macOS](#tab/linux)
+
+```bash
+./appcat analyze --input=<path/to/source/A>,<path/to/source/B>,<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path/to/source/D> --output=<path/to/output/ABC> --target=<targetname>
+./appcat analyze --bulk --input=<path/to/source/E> --output=<path/to/output/ABC> --target=<targetname>
+```
+
+# [Windows](#tab/windows)
+
+```cmd
+.\appcat.exe analyze --input=<path/to/source/A>,<path/to/source/B>,<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
+.\appcat.exe analyze --bulk --input=<path/to/source/D> --output=<path/to/output/ABC>
+.\appcat.exe analyze --bulk --input=<path/to/source/E> --output=<path/to/output/ABC>
 ```
 
 ---
@@ -357,6 +349,12 @@ Then, for each file or class affected by the incident, you can jump into the sou
 :::image type="content" source="media/java/appcat-7-report-assessment-code.png" alt-text="Screenshot of the AppCAT issue code report." lightbox="media/java/appcat-7-report-assessment-code.png":::
 
 ## Release notes
+
+### 7.6.0.5
+
+This release contains the following fixes and enhancements.
+
+
 
 ### 7.6.0.4
 
@@ -453,6 +451,13 @@ Previously, a set of targets were enabled by default, making it difficult for ce
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
 ## Known Issues
+
+### 7.6.0.5
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+  - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.4
 
