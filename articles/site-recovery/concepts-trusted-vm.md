@@ -4,7 +4,7 @@ description: Describes how to use trusted launch virtual machines with Azure Sit
 services: site-recovery
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/04/2025
 ms.author: ankitadutta
 

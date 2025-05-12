@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Recommendations for executing performance benchmark for NFS 3.0 on Azure Blob Storage
 author: dukicn
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/02/2024
 ms.author: nikoduki
 ---

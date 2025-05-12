@@ -15,6 +15,9 @@ The following article describes how to configure Destination NAT for Next-Genera
 > [!Important]
 > Destination NAT (DNAT) for Virtual WAN integrated Network Virtual Appliances is currently in Public Preview and is provided without a service-level agreement. It shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+> [!Important]
+> This document applies to Integrated Network Virtual Appliances deployed in the Virtual WAN hub and does **not** apply to software-as-a-service (SaaS) solutions. See [third-party integrations](third-party-integrations.md) for more information on the differences between Integrated Network Virtual Appliances and SaaS solutions. Reference your SaaS provider's documentation for information related to infrastructure operations available for SaaS solutions. 
+
 ## Background
 
 Network Virtual Appliances (NVAs) with Next-Generation Firewall capabilities that are integrated with Virtual WAN allow customers to protect and inspect traffic between private networks connected to Virtual WAN. 
@@ -65,11 +68,7 @@ The following section describes known issues, limitations, and considerations as
 
 ### Known Issues
 
-The following table describes known issues related to the internet inbound/DNAT feature.
-
-|Issue | Description| Mitigation|
-|--|--|--|
-| DNAT traffic isn't forwarded to the NVA after associating an additional IP address.| After associating additional IP address(es) to an NVA that already has active inbound security rules, DNAT traffic isn't forwarded properly to the NVA due to a code defect. | Use partner orchestration/management software to modify (create or delete existing) configured inbound-security rules to restore connectivity. |
+There are currently no known issues related to the destination NAT (DNAT) capability for NVAs deployed in the Virtual WAN hub.
 
 ### Limitations
 

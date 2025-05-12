@@ -5,7 +5,7 @@ author: akashdubey-ms
 ms.author: akashdubey
 ms.reviewer: wsheehan
 ms.date: 10/19/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-azurecli
