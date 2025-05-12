@@ -1,5 +1,5 @@
 ---
-title: Azure CosmosDB for MongoDB (vCore) Output Binding for Azure Functions
+title: Azure Cosmos DB for MongoDB (vCore) Output Binding for Azure Functions
 description: Understand how to use Azure Cosmos DB for MongoDB (vCore) output to write new items to the database.
 author: sajeetharan
 ms.author: sasinnat
@@ -62,7 +62,7 @@ This table describes the binding configuration properties of the `CosmosDBMongoT
 |**DatabaseName** | The name of the database being monitored by the trigger for changes. |
 |**CollectionName** | The name of the collection in the database being monitored by the trigger for changes.|
 |**ConnectionStringSetting** | The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account being monitored. |
-|**CreateIfNotExists** | (Optional) When set to true, creates the targed database and collection when they don't already exist. |
+|**CreateIfNotExists** | (Optional) When set to true, creates the targeted database and collection when they don't already exist. |
 
 ## Usage
 

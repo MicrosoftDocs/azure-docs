@@ -1,5 +1,5 @@
 ---
-title: Azure CosmosDB for MongoDB (vCore) Trigger for Azure Functions
+title: Azure Cosmos DB for MongoDB (vCore) Trigger for Azure Functions
 description: Understand how to use Azure Cosmos DB for MongoDB (vCore) trigger to monitor change streams for inserts and updates in collections.
 author: sajeetharan
 ms.author: sasinnat

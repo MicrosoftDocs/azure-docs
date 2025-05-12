@@ -1,5 +1,5 @@
 ---
-title: Azure CosmosDB for MongoDB (vCore) Input Binding for Azure Functions
+title: Azure Cosmos DB for MongoDB (vCore) Input Binding for Azure Functions
 description: Understand how to use Azure Cosmos DB for MongoDB (vCore) input binding to read items from the database.
 author: sajeetharan
 ms.author: sasinnat
@@ -13,7 +13,7 @@ ms.custom:
 
 This article explains how to work with the [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) input binding in Azure Functions. 
 
-The Azure Cosmos DB for MongoDB (vCore) input binding lets you retretieve one or more items as documents from the database.
+The Azure Cosmos DB for MongoDB (vCore) input binding lets you retrieve one or more items as documents from the database.
 
 [!INCLUDE [functions-bindings-mongodb-vcore-preview](../../includes/functions-bindings-mongodb-vcore-preview.md)]
 

@@ -26,9 +26,9 @@ Using the Azure Cosmos DB for MongoDB (vCore) extension, you can build functions
 Considerations for the Azure Cosmos DB for MongoDB (vCore) extension:
 + Only [C# apps that run in-proces with the host](./functions-dotnet-class-library.md) are currently supported in preview.
 + The Azure Cosmos DB for MongoDB (vCore) binding extension doesn't currently support Microsoft Entra authentication and managed identities. 
-+ Your app must be using version 4.x fof the Azure Functions runtime.
++ Your app must be using version 4.x of the Azure Functions runtime.
 
-## Install Extension 
+## Install extension 
 
 Add the extension to your .NET project for an in-process app by installing [this preview NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.AzureCosmosDb.Mongo/1.1.0-preview):
 
