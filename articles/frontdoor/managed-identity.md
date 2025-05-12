@@ -11,6 +11,8 @@ ms.date: 11/12/2024
 
 # Use managed identities to access Azure Key Vault certificates
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Managed identities provided by Microsoft Entra ID enable your Azure Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Key Vault, without the need to manage credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
