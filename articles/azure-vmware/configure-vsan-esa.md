@@ -37,7 +37,6 @@ In this article, learn how to:
 __Set VMware vSAN TRIM/UNMAP__
 
 Guest Trim/Unmap is enabled by default and cannot be disabled for cluster with vSAN ESA. Run command Set-AVSVSANClusterUNMAPTRIM is not applicable for vSAN ESA based clusters.
-
    >[!NOTE]
    >Run commands are executed one at a time in the order submitted.
 
