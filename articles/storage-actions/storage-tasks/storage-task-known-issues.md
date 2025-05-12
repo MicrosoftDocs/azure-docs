@@ -40,7 +40,7 @@ Task assignments aren't updated when changes are made to a task definition. New 
 
 ## Stopping task assignments
 
-We don't plan to support "Disable" for task assignments and "Stop" for in-progress runs. You can work around this by removing the role assignment for the underlying managed identity. 
+You can stop an in-progress run by [removing the role assignment](https://learn.microsoft.com/en-us/azure/role-based-access-control/role-assignments-remove) for the underlying managed identity.
 
 ## Move for storage account resource is blocked when a task assignment exists
 
