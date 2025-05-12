@@ -4,15 +4,8 @@ description: Describes the Azure NetApp Files application volume group creation 
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-<<<<<<< HEAD
-ms.topic: conceptual
-ms.date: 04/02/2025
-=======
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: concept-article
-ms.date: 08/08/2024
->>>>>>> 485e86738405f4a1755dd87cfdaa928cd9393f8c
+ms.date: 05/12/2025
 ms.author: anfdocs
 ---
 # Configure application volume group for Oracle using REST API
@@ -51,7 +44,7 @@ The following table describes the request body parameters and group level proper
 
 The following tables describe the request body parameters and volume properties for creating a volume in an Oracle application volume group.
 
-| Volume-level request parameter | Description | Restrictions for Oracle |
+| Volume-level request parameter | Description | Restrictions|
 |---------|---------|---------|
 | `name` | Volume name, which includes Oracle SID to identify database using the volumes in the group | None. <br><br> Examples or recommended volume names: <br><br> - `<sid>-ora-data1` (data) <br> - `<sid>-ora-data2` (data) <br> - `<sid>-ora-log` (log) <br> - `<sid>-ora-log-mirror` (mirlog) <br> - `<sid>-ora-binary` (binary) <br> - `<sid>-ora-bakup` (backup) <br> | 
 | `tags` | Volume tags | None |
@@ -68,6 +61,11 @@ The following tables describe the request body parameters and volume properties 
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | The subnet ID must be the same for all volumes. |
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it isn't a requirement. |
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
+| `Properties:dataProtection:replication:endpointType` | Endpoint type for a replication configuration | The allowed value is `dst` |
+| `Properties:dataProtection:replication:remoteVolumeResourceId` | The resource ID of the remote volume | The volume ID |
+| `Properties:dataProtection:replication:replicationSchedule` | The frequency of replication (daily, hourly, or every 10 minutes) | Allowed values are `daily`, `hourly`, or `10minutely` |
+
+
 
 ## Examples: Application volume group for Oracle API request content
 
