@@ -2,7 +2,7 @@
 title: Restore Azure PostgreSQL-Flexible server as Files using Azure portal
 description: Learn about how to restore Azure PostgreSQL-Flexible server as Files.
 ms.topic: how-to
-ms.date: 05/06/2025
+ms.date: 05/12/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2024
@@ -35,21 +35,15 @@ To restore Azure PostgreSQL-Flexible database, Follow these steps:
 
 1. Go to **Backup vault** > **Backup Instances**. Select the PostgreSQL - Flexible server to be restored and select **Restore**.
 
-   :::image type="content" source="./media/restore-azure-database-postgresql-flex/restore-inline.png" alt-text="Screenshot showing how to restore a database." lightbox="./media/restore-azure-database-postgresql-flex/restore-expanded.png":::
-
    Alternatively, go to [Backup center](./backup-center-overview.md) and select **Restore**.	  
   
 1. Select the point in time you would like to restore by using **Select restore point**. Change the date range by selecting **Time period**.
 
-   :::image type="content" source="./media/restore-azure-database-postgresql/select-restore-point-inline.png" alt-text="Screenshot showing the process to select a recovery point." lightbox="./media/restore-azure-database-postgresql-flex/select-restore-point-expanded.png":::
-
 1. Choose the target storage account and container in **Restore parameters** tab. Select **Validate** to check the restore parameters permissions before the final review and restore.
 
 1. Once the validation is successful, select **Review + restore**.
-   :::image type="content" source="./media/restore-azure-database-postgresql-flex/review-restore-inline.png" alt-text="Screenshot showing the restore parameter process." lightbox="./media/restore-azure-database-postgresql-flex/review-restore-expanded.png":::
 
 1. After final review of the parameters, select **Restore** to restore the selected PostgreSQL - Flexible server backup in target storage account.
-   :::image type="content" source="./media/restore-azure-database-postgresql-flex/review-inline.png" alt-text="Screenshot showing the review process page." lightbox="./media/restore-azure-database-postgresql-flex/review-expanded.png"::: 
    
 1. Submit the Restore operation and track the triggered job under **Backup jobs**.
 
@@ -62,8 +56,6 @@ After the restore job is completed successfully, go to the storage account conta
 
   >[!Note]
   >We recommend you not to run this script on the PostgreSQL - Flexible server because the schema is already part of the `database.sql` script. 
-
-:::image type="content" source="./media/restore-azure-database-postgresql-flex/database-files.png" alt-text="Screenshot shows the database schema per database." lightbox="./media/restore-azure-database-postgresql-flex/database-files.png":::
 
 ## Restore the backup files from storage container to a new or existing PostgreSQL – Flexible server
 
@@ -123,8 +115,6 @@ Before you restore the database objects, ensure that you properly dump and clean
 - **Create Microsoft Entra Roles**: If you need to create roles for Microsoft Entra users, use a Microsoft Entra administrator account to run the necessary scripts. 
 
 You can download the roles script from your storage account as shown in the following screenshot:
-
-:::image type="content" source="./media/restore-azure-database-postgresql-flex/containers-inline.png" alt-text="Screenshot showing the containers page." lightbox="./media/restore-azure-database-postgresql-flex/containers-expanded.png":::
 
 When you migrate the output file, `roles.sql` might include certain roles and attributes that aren't applicable in the new environment. You must consider the following:
 
