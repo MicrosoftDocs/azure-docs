@@ -241,6 +241,11 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 
 This step is a transitional development phase. During this phase, you build source code, infrastructure as code (IaC) templates, and deployment pipelines to represent the workload in Azure. You must adapt function code for compatibility and best practices before you can perform the migration.
 
+- [Adapt function code, configuration files, and infrastructure as code files](#adapt-function-code-configuration-files-and-infrastructure-as-code-files)
+- [Adjust configuration settings](#adjust-configuration-settings)
+- [Generate IaC files](#generate-iac-files)
+- [Use tools for refactoring](#use-tools-for-refactoring)
+
 ### Adapt function code, configuration files, and infrastructure as code files
 
 To update code for Azure Functions runtime requirements:
