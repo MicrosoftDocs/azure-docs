@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/02/2025
+ms.date: 05/12/2025
 ms.author: cshoe
 ---
 
@@ -51,6 +51,7 @@ The following features are supported:
 - Log stream
 - Resilience
 - Custom domains
+- Container Apps jobs
 - Revision Management
 - App container console
 

@@ -5,13 +5,13 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/06/2025
+ms.date: 05/12/2025
 ms.author: cshoe
 ---
 
 # Configure ingress for an Azure Container Apps environment
 
-Ingress configuration in Azure Container Apps determines how external network traffic reaches your applications. Properly configuring ingress enables you to control traffic routing, improve application performance, and implement advanced deployment strategies. This article guides you through the ingress configuration options available in Azure Container Apps and helps you choose the right settings for your workloads.
+Ingress configuration in Azure Container Apps determines how external network traffic reaches your applications. Configuring ingress enables you to control traffic routing, improve application performance, and implement advanced deployment strategies. This article guides you through the ingress configuration options available in Azure Container Apps and helps you choose the right settings for your workloads.
 
 An Azure Container Apps environment includes a scalable edge ingress proxy responsible for the following features:
 
