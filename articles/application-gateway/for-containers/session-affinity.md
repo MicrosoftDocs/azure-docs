@@ -5,7 +5,7 @@ services: application gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 5/9/2024
+ms.date: 05/12/2025
 ms.author: greglin
 ---
 
@@ -77,6 +77,8 @@ EOF
 # [Ingress API](#tab/session-affinity-ingress-api)
 
 Session affinity can be defined in an [IngressExtension](api-specification-kubernetes.md#alb.networking.azure.io/v1.IngressExtensionSpec) resource. You must specify `sessionAffinity` with an `affinityType` of either `application-cookie` or `managed-cookie`. In this example, we use `application-cookie` as the affinityType and explicitly define a cookie name and lifetime.
+
+In the following example, the "echo" service simply echoes back the requests it receives. This service is used to demonstrate how to configure and test Ingress resources.
 
 Example command to create a new IngressExtension with a defined cookie called `nomnom` with a lifetime of 3,600 seconds (1 hour).
 
