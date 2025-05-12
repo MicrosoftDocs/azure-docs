@@ -415,7 +415,7 @@ sections:
 
       - question: Why the expiry time for latest recovery points doesn't appear in the Azure portal for VMs?
         answer: |
-          The expiry time for the latest recovery point doesn't appear because it has infinite retention until a newer one gets created. The expiry time of other recovery points will be available in the Azure Portal after 24 hours of creation, depending on when the garbage collection runs (that will be within 24 hours).
+          The expiry time for the latest recovery point doesn't appear because it has infinite retention until a newer one gets created. The expiry time of other recovery points will be available in the Azure portal after 24 hours of creation, depending on when the garbage collection runs (that will be within 24 hours).
 
       - question: Will an Azure VM restore operation to original or alternate location affect a scheduled backup?
         answer: |
@@ -455,7 +455,7 @@ sections:
         answer: |
           This is the directory used by Backup Extension VMSnapshotLinux and it gets created when backups are enabled on VM using Recovery Services Vault. Logs are written in this location during backups, restores or extension operations such as schedule updates, generally they should use up only a few GB and the size of the logs is not proportional with the size of the backup. 
 
-      - question: If backup fails with time out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
+      - question: If backup fails with a time-out error for large disk VMs after running sometime, when can I re-trigger the backup job again and will the backup continue from where it failed?
         answer: |
           For Initial Replica, a full backup will be re-initiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
