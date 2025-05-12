@@ -237,6 +237,8 @@ To analyze multiple applications, run the following command:
 .\appcat.exe analyze --input=<path/to/source/A>,<path/to/source/B>,<path/to/source/C> --output=<path/to/output/ABC> --target=<targetname>
 ```
 
+---
+
 AppCAT also allows you to use `--bulk` option to incrementally add more application analysis to an existing output directory and static report.
 When using the `--bulk` option, you must use it consistently across all command executions that write to the same output.
 
