@@ -46,28 +46,47 @@ The retention period includes 10 short snapshots and 4 long snapshots, totaling 
 ## Take a manual snapshot of your dev box
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+
 1. On the dev box that you want to take a snapshot of, select the actions menu, and then select **Take snapshot**.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-actions-menu-snapshot.png" alt-text="Screenshot of the developer portal, showing the actions menu for a dev box with the Take snapshot option highlighted.":::
+
 1. Select **Take snapshot** to confirm.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-confirm-snapshot.png" alt-text="Screenshot of the developer portal, showing the Take snapshot dialog box with Yes, I want to take a snapshot of this dev box highlighted.":::
+
 1. The dev box tile displays the progress of the snapshot operation in the developer portal, showing the message **Taking snapshot**.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-snapshot-progress.png" alt-text="Screenshot of the developer portal, showing a dev box tile with the message Taking snapshot.":::
+
 1. When the snapshot process is complete, the dev box tile displays the message **Snapshot successful**.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-snapshot-successful.png" alt-text="Screenshot of the developer portal, showing a dev box tile with the message Snapshot created.":::
 
 ## Restore your dev box from a snapshot
 
 1. Sign in to the [developer portal](https://aka.ms/devbox-portal).
+
 1. On the dev box that you want to restore, select the actions menu, and then select **Restore**.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-actions-menu-restore.png" alt-text="Screenshot of the developer portal, showing the actions menu for a dev box with the Restore option highlighted.":::
+
 1. Read the information about the effect of restoring your dev box. The restore process deletes data and apps added since the chosen snapshot. The restore process can take hours. Select **Yes, I want to restore this dev box** to confirm.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-confirm-restore.png" alt-text="Screenshot of the developer portal, showing the Restore dialog box with the Restore to list highlighted."::: 
+
 1. Select the desired restore point from the list of available snapshots. **Manual snapshots** are listed first, followed by **Automatic snapshots**. The most recent snapshot is at the top of the list. 
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-snapshot-list.png" alt-text="Screenshot of the developer portal, showing the list of manual and automatic snapshots available to restore.":::
+
 1. Verify that the snapshot you want to restore from is selected, and then select **Restore**.
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-select-restore-point.png" alt-text="Screenshot of the developer portal, showing the Restore dialog box with Yes, I want to restore this dev box highlighted.":::
+
 1. You can check the progress of the restore operation on the dev box tile in the developer portal. 
+
    :::image type="content" source="media/how-to-restore-from-snapshot/dev-box-restore-progress.png" alt-text="Screenshot of the developer portal, showing a dev box tile with the message Restoring dev box.":::
+
 1. When the restoration is complete, you receive an email notification that your dev box is restored and ready to use. 
 
 ## Related content
