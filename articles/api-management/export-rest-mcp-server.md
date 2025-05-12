@@ -12,6 +12,12 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
+<!-- Any limitations on SKUs
+
+Document need an IcM for SKUv2 --
+
+Need to use the GenAI release group -->
+
 In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that can be called by clients using the MCP protocol. 
 
 > [!NOTE]

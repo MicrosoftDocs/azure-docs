@@ -21,7 +21,7 @@ The [model context protocol](https://www.anthropic.com/news/model-context-protoc
 
 The following diagram illustrates the MCP architecture:
  
-:::image type="content" source="media/register-discover-mcp-server/mcp-architecture.png" alt-text="Diagram of model context protocol (MCP) architecture.":::
+:::image type="content" source="media/about-mcp-servers/mcp-architecture.png" alt-text="Diagram of model context protocol (MCP) architecture.":::
 
 The architecture consists of the following components:
 
