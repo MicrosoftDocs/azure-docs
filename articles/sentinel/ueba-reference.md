@@ -318,6 +318,22 @@ If you're onboarding Microsoft Sentinel to the Defender portal, select the "Comp
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC).    |
 | **UserType**                    | string   | The user type.                                                    |
 
+The following fields, while they exist in the Log Analytics schema, should be disregarded, as they're not used or supported by Microsoft Sentinel:
+
+- Applications
+- EntityRiskScore
+- ExtensionProperty
+- InvestigationPriority
+- InvestigationPriorityPercentile
+- IsMFARegistered
+- IsServiceAccount
+- LastSeenDate
+- OnPremisesExtensionAttributes
+- RelatedAccounts
+- ServicePrincipals
+- Tags
+- UACFlags
+
 # [Compare to unified schema](#tab/unified-table)
 
 The following fields have been renamed in the unified version. Therefore, if you're onboarding Microsoft Sentinel to the Defender portal, check your queries for any references to these fields, and update them if necessary.
@@ -346,7 +362,7 @@ The following field names no longer exist in the unified version. Be sure to rem
 - **UserState**
 - **UserStateChangedOn**
 
-The following fields, while they exist in the Log Analytics schema, are not used by Microsoft Sentinel at all, and they no longer exist in the unified version:
+The following fields, while they exist in the Log Analytics schema, should be disregarded, as they're not used or supported by Microsoft Sentinel:
 
 - Applications
 - EntityRiskScore
@@ -361,6 +377,8 @@ The following fields, while they exist in the Log Analytics schema, are not used
 - ServicePrincipals
 - Tags
 - UACFlags
+
+These fields don't exist at all in the new, unified schema.
 
 ---
 
