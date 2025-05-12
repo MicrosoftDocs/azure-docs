@@ -240,6 +240,12 @@ While the initial synchronization may take a few days, once the data is fully sy
 
 - The *GroupMembership* field supports listing up to 500 groups per user, including subgroups. If a user is a member of more than 500 groups, only the first 500 are synchronized with the *IdentityInfo* table. The groups are not evaluated in any particular order, though, so at each new synchronization (every 14 days), it's possible that a different set of groups will be updated to the user record.
 
+- When a user is deleted, that user's record is not immediately deleted from the *IdentityInfo* table. The reason for this is that one of this table's purposes is to audit changes to user records. Therefore, we want this table to have a record of a user being deleted, which can only happen if the user record in the *IdentityInfo* table still exists, even though the actual user (say, in Entra ID) is deleted.
+
+    Deleted users can be identified by the presence of a value in the `deletedDateTime` field. So if you need a query to show you a list of users, you can filter out deleted users by adding `| where IsNotEmpty(deletedDateTime)` to the query.
+
+    At a certain interval of time after a user was deleted, the user's record is eventually removed from the *IdentityInfo* table as well.
+
 - When a group is deleted, or if a group with more than 100 members has its name changed, that group's member user records are not updated. If a different change causes one of those users' records to be updated, the updated group information will be included at that point.
 
 #### Other versions of the IdentityInfo table
@@ -258,7 +264,7 @@ There are actually multiple versions of the *IdentityInfo* table:
 
     Defender portal customers without UEBA enabled, or without Microsoft Sentinel at all, continue to use the [prior release of the *Advanced hunting* version](/defender-xdr/advanced-hunting-identityinfo-table), without the UEBA-generated fields.
 
-    For more information on the unified version, see [Unified IdentityInfo table reference](/unified-secops-platform/unified-identityinfo-table-reference).
+    For more information on the unified version, see [IdentityInfo in the *Advanced hunting* documentation](/defender-xdr/advanced-hunting-identityinfo-table).
 
 #### Schema
 
@@ -312,7 +318,7 @@ If you're onboarding Microsoft Sentinel to the Defender portal, select the "Comp
 | **UserStateChangedOn**          | datetime | The date of the last time the account state was changed (UTC).    |
 | **UserType**                    | string   | The user type.                                                    |
 
-# [Unified table](#tab/unified-table)
+# [Compare to unified schema](#tab/unified-table)
 
 The following fields have been renamed in the unified version. Therefore, if you're onboarding Microsoft Sentinel to the Defender portal, check your queries for any references to these fields, and update them if necessary.
 
