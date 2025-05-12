@@ -1166,6 +1166,8 @@ items:
         href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Enable audio conferencing
       href: how-tos/calling-sdk/audio-conferencing.md
+    - name: Manage Teams meeting lobby
+      href: how-tos/calling-sdk/lobby.md
     - name: Enable breakout rooms
       href: how-tos/calling-sdk/breakoutrooms.md
     - name: Enable Together Mode
