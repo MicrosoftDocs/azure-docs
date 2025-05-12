@@ -23,11 +23,11 @@ vSAN ESA (Express Storage Architecture) is supported in the below Azure VMware S
 
 - AV48
 
-   | **Field** | **Value** |
-   | --- | --- |
-   | **TRIM/UNMAP** | Enabled by default (Cannot be disabled in vSAN ESA based clusters) |
-   | **Space Efficiency** | Compression (Storage policy managed compression) Deduplication is not supported in vSAN ESA |
-
+  | **Field** | **Value** |
+  | --- | --- |
+  | **TRIM/UNMAP** | Enabled by default (Cannot be disabled in vSAN ESA based clusters).|
+  | **Space Efficiency** | Compression (Storage policy managed compression). Deduplication is not supported in vSAN ESA.|
+  
 In this article, learn how to:
 
 > [!div class="checklist"]
