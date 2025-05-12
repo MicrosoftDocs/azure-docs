@@ -108,6 +108,7 @@ You must have at least the following Role-based access control permissions on th
 |-|-|
 | Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
+| Microsoft.Network/virtualNetworks/subnets/write | Delegate the subnet. Only required when the subnet has not been delegated or has not already been used for virtual network integration |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
 If the virtual network is in a different subscription than the app, you must ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider), but it also automatically registers when creating the first web app in a subscription.
