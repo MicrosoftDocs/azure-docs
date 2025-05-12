@@ -8,7 +8,7 @@ ms.reviewer: estfan, divswa, karansin, krmitta, kewear, azla
 ms.topic: conceptual
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/19/2025
-# Customer intent: As an integration solution developer, I want to learn about the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive workflows that complete tasks using agents and other AI capabilities for my integration and automation scenarios.
+# Customer intent: As an integration solution developer, I want to learn about the benefits and support that Azure Logic Apps provides to build flexible, adaptable, and responsive workflows that complete tasks using AI agents, models, and other AI capabilities for my integration and automation scenarios.
 ---
 
 # Workflows with AI agents and models in Azure Logic Apps (Preview)
