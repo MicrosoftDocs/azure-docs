@@ -82,13 +82,7 @@ The guided gateway migration experience has the following limitations:
 - ExpressRoute Gateways that were established or connected to circuits in 2017 or earlier.
 - ExpressRoute Gateways with the SKU named "default" are not supported for migration.
 
-## Common Validation Errors
-
-During the gateway migration process, it's essential to validate whether your resources are ready for migration. Below are some common validation errors you can encounter:
-
-### Virtual Network
-
-- **MaxGatewayCountInVnetReached**: This error indicates that the maximum number of gateways allowed in the virtual network was reached.
+For detailed troubleshooting errors and best practices, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md)
 
 ## Next Steps
 
