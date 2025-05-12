@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -16,6 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 ### Start sending messages between a business and a WhatsApp user
 
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
@@ -27,7 +28,7 @@ Regardless of how the conversation was started, **a business can only send templ
 
 The following code retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING` using the dotenv package. 
 
-For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
+For simplicity, this article uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
 
 Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
@@ -59,7 +60,7 @@ const client = NotificationClient(connectionString);
 
 You can also authenticate with Microsoft Entra ID using the [Azure Identity library](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity). 
 
-The [`@azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/javascript/api/overview/azure/identity-readme#credentials) and [Azure Identity - Authenticate the client](/javascript/api/overview/azure/identity-readme#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
+The [`@Azure/identity`](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/identity/identity) package provides various credential types that your application can use to authenticate. You can choose from the various options to authenticate the identity client detailed at [Azure Identity - Credential providers](/javascript/api/overview/azure/identity-readme#credentials) and [Azure Identity - Authenticate the client](/javascript/api/overview/azure/identity-readme#authenticate-the-client). This option walks through one way of using the [`DefaultAzureCredential`](/javascript/api/overview/azure/identity-readme#defaultazurecredential). 
 
 The `DefaultAzureCredential` attempts to authenticate via [`several mechanisms`](/javascript/api/overview/azure/identity-readme#defaultazurecredential) and it might be able to find its authentication credentials if you're signed into Visual Studio or Azure CLI. However, this option walks you through setting up with environment variables.    
 
@@ -138,8 +139,8 @@ const channelRegistrationId = "<your channel registration id GUID>";
 
 ### Set recipient list
 
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
-For this quickstart, this phone number may be your personal phone number.   
+You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the template, text, and media messages sent in this article.
+For this article, this phone number can be your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 

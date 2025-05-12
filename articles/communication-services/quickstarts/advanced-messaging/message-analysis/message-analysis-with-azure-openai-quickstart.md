@@ -9,7 +9,7 @@ ms.author: gelli
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.topic: quickstart 
-ms.date: 07/05/2024
+ms.date: 05/01/2025
 ---
 
 # Quickstart: Enable Message Analysis with Azure OpenAI
@@ -32,7 +32,7 @@ Azure Communication Services enables you to receive Message Analysis results usi
 
    a. Open your Azure Communication Services resource and click the **Cognitive Services** tab.
 
-   b. If system-assigned managed identity isn't enabled, you'll need to enable it.
+   b. If system-assigned managed identity isn't enabled, you need to enable it.
 
    c. In the Cognitive Services tab, click **Enable Managed Identity**.
    
@@ -88,6 +88,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 
 ## Learn more about responsible AI
+
 - [Message Analysis Transparency FAQ](../../../concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md)
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)

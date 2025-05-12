@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -15,7 +15,9 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 ### Authenticate the client 
 
-Messages sending is done using NotificationMessagesClient. NotificationMessagesClient is authenticated using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
+Messages sending uses NotificationMessagesClient. NotificationMessagesClient authenticates using your connection string acquired from Azure Communication Services resource in the Azure portal.F
+
+For more information on connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
 #### [Connection String](#tab/connection-string)
 
@@ -127,7 +129,7 @@ Assign it to a variable called channelRegistrationId.
 
 ### Set recipient list
 
-You need to supply an active phone number associated with a WhatsApp account. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
+You need to supply an active phone number associated with a WhatsApp account. This WhatsApp account receives the template, text, and media messages sent in this article.
 
 For this example, you can use your personal phone number.   
 

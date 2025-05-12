@@ -697,7 +697,7 @@ You can ignore the warnings. The Maven Jetty plugin shows the warnings because t
 
 Depending on your subscription and the region you select, you might see the deployment status for Azure Database for MySQL Flexible Server to be `Conflict`, with the following message in Operation details:
 
-`InternalServerError: An unexpected error occured while processing the request.`
+`InternalServerError: An unexpected error occurred while processing the request.`
 
 This error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
 

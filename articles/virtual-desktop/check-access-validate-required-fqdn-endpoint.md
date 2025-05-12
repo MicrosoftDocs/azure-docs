@@ -11,7 +11,7 @@ ms.author: avdcontent
 
 In order to deploy Azure Virtual Desktop, you must allow specific FQDNs and endpoints. You can find the list of FQDNs and endpoints in [Required FQDNs and endpoints](required-fqdn-endpoint.md).
 
-Available as part of the Azure Virtual Desktop Agent (*RDAgent*) on each session host, the *Azure Virtual Desktop Agent URL Tool* enables you to quickly and easily validate whether your session hosts can access each FQDN and endpoint. If not it can't, the tool lists any required FQDNs and endpoints it can't access so you can unblock them and retest, if needed.
+Available as part of the Azure Virtual Desktop Agent (*RDAgent*) on each session host, the *Azure Virtual Desktop Agent URL Tool* enables you to quickly and easily validate whether your session hosts can access each FQDN and endpoint. The tool lists any required FQDNs and endpoints it can't access so you can unblock them and retest, if needed.
 
 > [!NOTE]
 > The Azure Virtual Desktop Agent URL Tool doesn't verify that you've allowed access to wildcard entries we specify for FQDNs, only specific entries within those wildcards that depend on the session host location, so make sure the wildcard entries are allowed before you run the tool.

@@ -116,7 +116,7 @@
     href: ./durable-task-scheduler/durable-task-scheduler.md
   - name: Choosing an orchestration framework
     href: ./durable-task-scheduler/choose-orchestration-framework.md
-  - name: Create Durable Task Scheduler resources
+  - name: Develop with Durable Task Scheduler
     href: ./durable-task-scheduler/develop-with-durable-task-scheduler.md
   - name: Identity
     href: ./durable-task-scheduler/durable-task-scheduler-identity.md

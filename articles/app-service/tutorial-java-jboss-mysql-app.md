@@ -665,7 +665,7 @@ If you see the error: `The subscription '701ea799-fb46-4407-bb67-9cbcf289f1c7' i
 
 Depending on your subscription and the region you select, you might see the deployment status for Azure Database for MySQL Flexible Server to be `Conflict`, with the following message in Operation details:
 
-`InternalServerError: An unexpected error occured while processing the request.`
+`InternalServerError: An unexpected error occurred while processing the request.`
 
 This error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
 
