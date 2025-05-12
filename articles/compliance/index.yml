@@ -337,6 +337,9 @@ conceptualContent:
         - url: /azure/compliance/offerings/offering-korea-k-isms
           itemType: concept
           text: Korea K-ISMS
+        - url: /azure/compliance/offerings/offering-korea-csap
+          itemType: concept
+          text: Korea CSAP
         - url: /compliance/regulatory/offering-nz-cc-framework-nz
           itemType: concept
           text: New Zealand ISPC
