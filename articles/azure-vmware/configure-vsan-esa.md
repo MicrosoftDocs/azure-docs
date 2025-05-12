@@ -17,29 +17,31 @@ ms.date:     05/12/2025
 VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) has enhanced capabilities that are configured by default with each Azure VMware Solution deployment, and each cluster utilizes its own high-performance vSAN ESA datastore. Below are the Azure VMware Solution SKUs that support vSAN ESA as the default architecture type, with the following configurations per cluster:
 
 
-## Supported host types
-
-vSAN ESA (Express Storage Architecture) is supported in the below Azure VMware Solution host types:
-
-- AV48
-
   | **Field** | **Value** |
   | --- | --- |
   | **TRIM/UNMAP** | Enabled by default (Cannot be disabled in vSAN ESA based clusters).|
   | **Space Efficiency** | Compression (Storage policy managed compression). Deduplication is not supported in vSAN ESA.|
-  
+
+   >[!NOTE]
+   >Run commands are executed one at a time in the order submitted.
+
 In this article, learn how to:
 
 > [!div class="checklist"]
+> - Supported host types
 > - Enable or Disable vSAN TRIM/UNMAP
 > - Enable vSAN Compression
 > - Enable or Disable vSAN Data-In-Transit Encryption
+## Supported host types
+
+vSAN ESA (Express Storage Architecture) is supported on the following Azure VMware Solution host types:
+
+- AV48
+
 
 ## Set VMware vSAN TRIM/UNMAP
 
 Guest Trim/Unmap is enabled by default and cannot be disabled for cluster with vSAN ESA. Run command Set-AVSVSANClusterUNMAPTRIM is not applicable for vSAN ESA based clusters.
-   >[!NOTE]
-   >Run commands are executed one at a time in the order submitted.
 
    >[!NOTE]
    >vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following additional requirements are needed for it to function as intended.
