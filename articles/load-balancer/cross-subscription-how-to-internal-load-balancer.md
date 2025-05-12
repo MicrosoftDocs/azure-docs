@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/17/2024
+ms.date: 05/12/2025
 ms.author: mbender
 ms.custom: devx-track-azurepowershell
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? > .
@@ -38,7 +38,7 @@ With Azure PowerShell, you'll:
 ```azurepowershell
 # Create a load balancer
 
-$tags = @{
+$tag = @{
 'IsRemoteFrontend'= 'true'
 }
 
@@ -47,7 +47,7 @@ $loadbalancer = @{
     Name = 'myLoadBalancer'
     Location = 'westus'
     Sku = 'Standard'
-    Tags = $tags
+    Tag = $tag
 }
 
 $LB = New-AzLoadBalancer @loadbalancer
