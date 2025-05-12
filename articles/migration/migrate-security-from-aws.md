@@ -11,11 +11,9 @@ ms.collection:
 ---
 # Migrate security services from Amazon Web Services (AWS)
 
--- TODO: Need revision --  
-This article describes scenarios that you can use to migrate Amazon Web Services (AWS) security services to Microsoft Azure and Microsoft Entra. These cloud services provide foundational elements necessary for services built on top of them. The migration process involves transitioning services while focusing on maintaining or enhancing functionality
+This article describes scenarios that you can use to migrate Amazon Web Services (AWS) security services to Microsoft Azure. These cloud services provide foundational security elements necessary for monitoring other services and applications built in the cloud. The migration process involves transitioning services while focusing on maintaining or enhancing functionality.
 
--- TODO: Need context for security --  
-These scenarios cover common tasks like creating and maintaining users, enforcing multifactor authentication, managing device access, managing applications and secrets, and configuring other security tools.
+These scenarios might cover tasks like migrating your security and information and event management (SIEM) solution to Azure.
 
 ## Migration scenarios
 
@@ -23,7 +21,7 @@ Use the following migration guides as examples to help structure your migration 
 
 | Scenario | Key services | Description |
 |--|--|--|
-| [Migrate your SIEM in AWS to Microsoft Sentinel](/azure/sentinel/migration) |  SIEM data in AWS -> Microsoft Sentinel | Discover the reasons for migrating from a legacy SIEM, and learn how to plan out the different phases of your migration. |
+| [Migrate your SIEM in AWS to Microsoft Sentinel](/azure/sentinel/migration) |  SIEM data in AWS -> Microsoft Sentinel | Plan the different phases of your SIEM data migration from AWS. |
 
 ## Related workload components
 
@@ -34,4 +32,4 @@ Security services make up only part of your cloud workload. Explore other compon
 - [Storage](migrate-storage-from-aws.md)
 - [Networking](migrate-networking-from-aws.md)
 
-Migrating security scenarios require identity to be a central service. Compare AWS identity services used in the workload to their closest Azure counterparts. 
+Migrating security scenarios require identity to be a central service. Compare [AWS identity services](/azure/architecture/aws-professional/security-identity) used in the workload to their closest Azure counterparts.
