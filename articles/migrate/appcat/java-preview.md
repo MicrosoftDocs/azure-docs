@@ -243,7 +243,7 @@ When using the `--bulk` option, you must use it consistently across all command 
 > [!NOTE]
 > When multiple input paths are provided, `--bulk` is enabled by default.
 
-To incrementally add more application analysis to an existing static report run the following command:
+To incrementally add more application analysis to an existing static report, run the following command:
 
 # [Linux / macOS](#tab/linux)
 
