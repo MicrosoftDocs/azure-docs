@@ -29,11 +29,13 @@ We recommend the following approach to upgrade to Standard SKU public IP address
 
     a. If you need a zone redundant public IP address, create a new Standard SKU public IP address using [Portal](create-public-ip-portal.md), [PowerShell](create-public-ip-powershell.md), [CLI](create-public-ip-cli.md), or [ARM template](create-public-ip-template.md).
 
-    b. If you don't need a zone redundant public IP address, use the [following upgrade options](#upgrade-disassociated-public-ips-using-portal-powershell-or-azure-cli). 
+    b. If you don't need a zone redundant public IP address, use the [following upgrade options](#upgrade-disassociated-public-ips-using-portal-powershell-or-azure-cli).
 
-4. Create a migration plan for planned downtime.
+4. Determine if you need a regional or [global tier](../../load-balancer/cross-region-overview.md) public IP Address. If the public IP address aligns with a standard load balancer, the IP address *must align* with the load balancer tier.
 
-5. Depending on the resource associated with your Basic SKU public IP addresses, perform the upgrade based on the following table:
+5. Create a migration plan for planned downtime.
+
+6. Depending on the resource associated with your Basic SKU public IP addresses, perform the upgrade based on the following table:
 
   | Resource using Basic SKU public IP addresses | Decision path |
   | ------ | ------ |
