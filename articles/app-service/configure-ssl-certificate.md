@@ -40,7 +40,7 @@ The following table lists the options for you to add certificates in App Service
 
 The [free App Service managed certificate](#create-a-free-managed-certificate) and the [App Service certificate](configure-ssl-app-service-certificate.md) already satisfy the requirements of App Service. If you choose to upload or import a private certificate to App Service, your certificate must meet the following requirements:
 
-* Exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted by using triple DES.
+* Exported as a [password-protected .pfx file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions), encrypted by using triple DES.
 * Contains a private key at least 2,048 bits long.
 * Contains all intermediate certificates and the root certificate in the certificate chain.
 
@@ -52,7 +52,7 @@ If you want to help secure a custom domain in a TLS binding, the certificate mus
 > [!NOTE]
 > *Elliptic curve cryptography (ECC) certificates* work with App Service but aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
 
-After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system (OS) combination. Internally it's called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with app services in the same deployment unit.
+After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system (OS) combination. Internally, it's called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with app services in the same deployment unit.
 
 You can add up to 1,000 private certificates per webspace.
 
@@ -236,16 +236,16 @@ If your certificate authority gives you multiple certificates in the certificate
    -----END CERTIFICATE-----
    ```
 
-#### Export the merged private certificate to PFX
+#### Export the merged private certificate to .pfx
 
-Now, export your merged TLS/SSL certificate with the private key that was used to generate your certificate request. If you generated your certificate request using OpenSSL, then you created a private key file.
+Now, export your merged TLS/SSL certificate with the private key that was used to generate your certificate request. If you generated your certificate request by using OpenSSL, then you created a private key file.
 
 > [!NOTE]
-> OpenSSL v3 changed the default cipher from 3DES to AES256, but this can be overridden on the command line: -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1.
+> OpenSSL v3 changed the default cipher from 3DES to AES256. Use the command line `-keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1` to override the change.
 >
-> OpenSSL v1 uses 3DES as the default, so the PFX files generated are supported without any special modifications.
+> OpenSSL v1 uses 3DES as the default, so the .pfx files generated are supported without any special modifications.
 
-1. To export your certificate to a PFX file, run the following command, but replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
+1. To export your certificate to a .pfx file, run the following command. Replace the placeholders _&lt;private-key-file>_ and _&lt;merged-certificate-file>_ with the paths to your private key and your merged certificate file.
 
    ```bash
    openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>  
@@ -253,29 +253,29 @@ Now, export your merged TLS/SSL certificate with the private key that was used t
 
 1. When you're prompted, specify a password for the export operation. When you upload your TLS/SSL certificate to App Service later, you must provide this password.
 
-1. If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local computer, and then [export the certificate to a PFX file](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
+1. If you used IIS or _Certreq.exe_ to generate your certificate request, install the certificate to your local computer, and then [export the certificate to a .pfx file](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754329(v=ws.11)).
 
 #### Upload the certificate to App Service
 
 You're now ready to upload the certificate to App Service.
 
-1. In the [Azure portal](https://portal.azure.com), one the left menu, select **App Services** > *\<app-name>*.
+1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > *\<app-name>*.
 
 1. On the left pane of your app, select **Certificates** > **Bring your own certificates (.pfx)** > **Upload Certificate**.
 
-    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot that shows the app management page with Certificates, Bring your own certificates (.pfx), and Upload Certificate selected.":::
+    :::image type="content" source="media/configure-ssl-certificate/upload-private-cert.png" alt-text="Screenshot that shows the app management page with Certificates, Bring your own certificates (.pfx), and Upload certificate .pfx selected.":::
 
 1. To help you upload the .pfx certificate, use the following table:
 
    | Setting | Description |
    |-|-|
-   | PFX certificate file | Select your .pfx file. |
+   | .pfx certificate file | Select your .pfx file. |
    | Certificate password | Enter the password that you created when you exported the .pfx file. |
    | Certificate friendly name | The certificate name that appears in your web app. |
 
 1. When you're finished with your selection, choose **Select** > **Validate**, and then select **Add**.
 
-   When the operation completes, the certificate appears in the **Bring your own certificates** list.
+   After the operation finishes, the certificate appears in the **Bring your own certificates** list.
 
     :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot that shows the Bring your own certificates pane with the uploaded certificate listed.":::
 
@@ -297,7 +297,7 @@ After you upload a public certificate to an app, it's accessible only by the app
 
    | Setting | Description |
    |-|-|
-   | CER certificate file | Select your .cer file. |
+   | .cer certificate file | Select your .cer file. |
    | Certificate friendly name | The certificate name that appears in your web app. |
 
 1. When you're finished, select **Add**.
@@ -308,7 +308,7 @@ After you upload a public certificate to an app, it's accessible only by the app
 
 ## Renew an expiring certificate
 
-Before a certificate expires, make sure to add the renewed certificate to App Service, and update any certificate bindings where the process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](configure-ssl-app-service-certificate.md), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate. 
+Before a certificate expires, make sure to add the renewed certificate to App Service. Update any certificate bindings where the process depends on the certificate type. For example, a [certificate imported from Key Vault](#import-a-certificate-from-key-vault), including an [App Service certificate](configure-ssl-app-service-certificate.md), automatically syncs to App Service every 24 hours and updates the TLS/SSL binding when you renew the certificate.
 
 For an [uploaded certificate](#upload-a-private-certificate), there's no automatic binding update. Based on your scenario, review the corresponding section:
 
@@ -318,9 +318,9 @@ For an [uploaded certificate](#upload-a-private-certificate), there's no automat
 
 #### Renew an uploaded certificate
 
-When you replace an expiring certificate, the way you update the certificate binding with the new certificate might adversely affect the user experience. For example, your inbound IP address might change when you delete a binding, even if that binding is IP-based. This result is especially impactful when you renew a certificate that's already in an IP-based binding.
+When you replace an expiring certificate, the way you update the certificate binding with the new certificate might adversely affect the user experience. For example, your inbound IP address might change when you delete a binding, even if that binding is IP based. This result is especially effective when you renew a certificate that's already in an IP-based binding.
 
-To avoid a change in your app's IP address, and to avoid downtime for your app because of HTTPS errors, follow these steps in the specified sequence:
+To avoid a change in your app's IP address, and to avoid downtime for your app because of HTTPS errors, follow these steps:
 
 1. [Upload the new certificate](#upload-a-private-certificate).
 
@@ -351,15 +351,15 @@ After the certificate renews in your key vault, App Service automatically syncs 
 
 ### Can I use a private certificate authority (CA) certificate for inbound TLS on my app?
 
-You can use a private CA certificate for inbound TLS in [App Service Environment version 3](./environment/overview-certificates.md). This isn't possible in App Service (multitenant). For more information on App Service multitenant vs. single tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+You can use a private CA certificate for inbound TLS in [App Service Environment version 3](./environment/overview-certificates.md). This action isn't possible in App Service (multitenant). For more information on App Service multitenant versus single tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ### Can I make outbound calls by using a private CA client certificate from my app?
 
-This capability is supported for Windows container apps only in multitenant App Service. You can make outbound calls by using a private CA client certificate with both code-based and container-based apps in [App Service Environment version 3](./environment/overview-certificates.md). For more information on App Service multitenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+This capability is supported for Windows container apps only in multitenant App Service. You can make outbound calls by using a private CA client certificate with both code-based and container-based apps in [App Service Environment version 3](./environment/overview-certificates.md). For more information on App Service multitenant versus single tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ### Can I load a private CA certificate in my App Service Trusted Root Store?
 
-You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of Trusted Root Certificates in App Service (multitenant). For more information on App Service multitenant vs. single-tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+You can load your own CA certificate into the Trusted Root Store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of trusted root certificates in App Service (multitenant). For more information on App Service multitenant versus single tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ### Can App Service Certificate be used for other services?
 
