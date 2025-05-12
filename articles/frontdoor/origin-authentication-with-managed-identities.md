@@ -1,7 +1,7 @@
 ---
 title: Use managed identities to authenticate to origins (preview)
 titleSuffix: Azure Front Door
-description: This article shows you how to set up managed identities with Azure Front Door to authnticate to origins.
+description: This article shows you how to set up managed identities with Azure Front Door to authenticate to origins.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
@@ -9,7 +9,7 @@ ms.topic: concept-article
 ms.date: 05/12/2025
 ---
 
-# Use managed identities to to authenticate to origins (preview)
+# Use managed identities to authenticate to origins (preview)
 
 Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
