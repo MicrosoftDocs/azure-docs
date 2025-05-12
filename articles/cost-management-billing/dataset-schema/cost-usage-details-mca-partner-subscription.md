@@ -1,13 +1,13 @@
 ---
 title: Cloud Solution Provider (CSP) subscription cost and usage details file schema
 description: Learn about the data fields available in the CSP subscription cost and usage details file schema.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Cloud Solution Provider subscription cost and usage details file schema
