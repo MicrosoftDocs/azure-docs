@@ -22,10 +22,10 @@ vSAN ESA (Express Storage Architecture) is supported in the below Azure VMware S
 
 - AV48
 
-|Field|Value|
-| -------- | -------- |
-|**TRIM/UNMAP**|Enabled by default (Cannot be disabled in vSAN ESA based clusters)|
-|**Space Efficiency**|Compression (Storage policy managed compression) Deduplication is not supported in vSAN ESA|
+   | **Field** | **Value** |
+   | --- | --- |
+   | **TRIM/UNMAP** | Enabled by default (Cannot be disabled in vSAN ESA based clusters) |
+   | **Space Efficiency** | Compression (Storage policy managed compression) Deduplication is not supported in vSAN ESA |
 
 In this article, learn how to:
 
@@ -63,27 +63,21 @@ Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-tr
 
 1. Provide the required values or change the default values, and then select Run.
 
-|Field|Value|
-|||
-|ClusterName|Name of  
-the cluster. Leave blank if required to enable for whole SDDC else enter  
-comma separated list of names.|
-|ClusterName|Name of the cluster. Leave blank if required to enable for whole SDDC else enter comma separated list of names.|
-|Enable|Specify True/False to Enable/Disable the feature.|
-
- 
-
+   | **Field** | **Value** |
+   | --- | --- |
+   | **ClusterName**  | Name of the cluster. Leave blank if required to enable for whole SDDC else enter comma separated list of names. |
+   | **Enable**  |  Specify True/False to Enable/Disable the feature.|
+   
 1. Check Notifications to see the progress.
 
-   >[!NOTE]
+   > [!NOTE]
+   > You can also use the Get-vSANDataInTransitEncryptionStatus command to check for the current status or status after performing the Set-vSANDataInTransitEncryptionStatus operation and verify the cluster's current encryption state.
+   
+   > [!NOTE]
+   > Now that you learned how to configure VMware vSAN, learn more about:
+   
+__Next steps__
 
-You can also use the Get-vSANDataInTransitEncryptionStatus command to check for the current status or status after performing the Set-vSANDataInTransitEncryptionStatus operation and verify the cluster's current encryption state.
-
-   >[!NOTE]
-
-Now that you learned how to configure VMware vSAN, learn more about:
-
-- [How to configure storage policies](/azure/azure-vmware/configure-storage-policy) - Create and configure storage policies for your Azure VMware Solution virtual machines.
-
-- [How to configure external identity for vCenter Server](/azure/azure-vmware/configure-identity-source-vcenter) - vCenter Server has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
+1. [How to configure storage policies](/azure/azure-vmware/configure-storage-policy) - Create and configure storage policies for your Azure VMware Solution virtual machines.
+1. [How to configure external identity for vCenter Server](/azure/azure-vmware/configure-identity-source-vcenter) - vCenter Server has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
 
