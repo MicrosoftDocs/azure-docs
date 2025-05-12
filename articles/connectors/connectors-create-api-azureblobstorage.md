@@ -16,6 +16,32 @@ This guide shows how to access your Azure Blob Storage account and container fro
 
 You can connect to Azure Blob Storage from a workflow in **Logic App (Consumption)** and **Logic App (Standard)** resource types. You can use the connector with logic app workflows in multitenant Azure Logic Apps and in single-tenant Azure Logic Apps. With **Logic App (Standard)**, you can use either the **Azure Blob** *built-in* connector operations or the **Azure Blob Storage** managed connector operations.
 
+## Connector technical reference
+
+The Azure Blob Storage connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+
+| Logic app | Environment | Connector version |
+|-----------|-------------|-------------------|
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure hosted), which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), and appears in the connector gallery under **Runtime** > **In App**. The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureblob/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+
+## Limitations
+
+- Azure Blob Storage *managed* connector actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The Blob Storage action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content-(v2)) implicitly uses chunking.
+
+- While Azure Blob Storage *managed* and *built-in* triggers don't support chunking, the *built-in* triggers can handle files that are 50 MB or more. However, when a *managed* trigger requests file content, the trigger selects only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
+
+    1. Use a Blob trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
+
+    1. Follow the trigger with the Azure Blob Storage managed connector action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content-(v2)), which reads the complete file and implicitly uses chunking.
+
+- Azure Blob Storage trigger limits
+
+  - The *managed* connector trigger is limited to 30,000 blobs in the polling virtual folder.
+  - The *built-in* connector trigger is limited to 10,000 blobs in the entire polling container.
+  
+  If the limit is exceeded, a new blob might not be able to trigger the workflow, so the trigger is skipped.
+
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -517,32 +543,6 @@ Next, complete the following steps:
 1. Make sure that you [set the authentication type to use the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity).
 
 1. After you configure the trigger or action, you can save the workflow and test the trigger or action.
-
-## Connector technical reference
-
-The Azure Blob Storage connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
-
-| Logic app | Environment | Connector version |
-|-----------|-------------|-------------------|
-| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure hosted), which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation), and appears in the connector gallery under **Runtime** > **In App**. The built-in version differs in the following ways: <br><br>- The built-in version connects directly to your Azure Storage account requiring only a connection string. <br><br>- The built-in version can directly access Azure virtual networks. <br><br>For more information, review the following documentation: <br><br>- [Azure Blob Storage managed connector reference](/connectors/azureblobconnector) <br>- [Azure Blob built-in connector reference](/azure/logic-apps/connectors/built-in/reference/azureblob/) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
-
-## Limitations
-
-- Azure Blob Storage *managed* connector actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB but up to 1024 MB, Azure Blob Storage actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The Blob Storage action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content-(v2)) implicitly uses chunking.
-
-- While Azure Blob Storage *managed* and *built-in* triggers don't support chunking, the *built-in* triggers can handle files that are 50 MB or more. However, when a *managed* trigger requests file content, the trigger selects only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
-
-    1. Use a Blob trigger that returns file properties, such as [**When a blob is added or modified (properties only)**](/connectors/azureblobconnector/#when-a-blob-is-added-or-modified-(properties-only)-(v2)).
-
-    1. Follow the trigger with the Azure Blob Storage managed connector action named [**Get blob content**](/connectors/azureblobconnector/#get-blob-content-(v2)), which reads the complete file and implicitly uses chunking.
-
-- Azure Blob Storage trigger limits
-
-  - The *managed* connector trigger is limited to 30,000 blobs in the polling virtual folder.
-  - The *built-in* connector trigger is limited to 10,000 blobs in the entire polling container.
-  
-  If the limit is exceeded, a new blob might not be able to trigger the workflow, so the trigger is skipped.
 
 ## Troubleshoot problems with accessing storage accounts
 
