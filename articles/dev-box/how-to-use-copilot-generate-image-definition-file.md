@@ -11,7 +11,7 @@ ms.custom:
   - ai-gen-title
   - ai-seo-date:05/12/2025
   - ai-gen-description
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 05/12/2025
 ---
 
@@ -48,21 +48,21 @@ Before you start, ensure you install the following software:
 
    Open Extensions (Ctrl+Shift+X), search for **Dev Box**, and install the extension.
 
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/image1.png" alt-text="Screenshot of the Extensions pane in Visual Studio Code, showing the Dev Box extension.":::
+   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension.png" alt-text="Screenshot of the Extensions pane in Visual Studio Code, showing the Dev Box extension.":::
 
-1. Make sure agent mode is enabled by setting [chat.agent.enabled](vscode://settings/chat.agent.enabled) in the [Settings editor](https://code.visualstudio.com/docs/getstarted/personalize-vscode#_configure-settings). This requires VS Code 1.99 or later.
+1. Make sure agent mode is enabled by setting [chat.agent.enabled](vscode://settings/chat.agent.enabled) in the [Settings editor](https://code.visualstudio.com/docs/getstarted/personalize-vscode#_configure-settings). This setting requires VS Code 1.99 or later.
 
 1. Open Copilot Chat in VS Code.
 
    - Make sure **Dev Box tools** are preselected under "Select tools."
 
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/image2.png" alt-text="Screenshot of the Copilot Chat pane in Visual Studio Code, showing Dev Box tools preselected.":::
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-tools.png" alt-text="Screenshot of the Copilot Chat pane in Visual Studio Code, showing Dev Box tools preselected.":::
 
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/image3.png" alt-text="Screenshot of the Copilot Chat interface in Visual Studio Code.":::
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-tools-list.png" alt-text="Screenshot of the Copilot Chat interface in Visual Studio Code.":::
 
    - Select **Agent Mode**, and choose the model: **Claude 3.5 Sonnet**.
 
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/image4.png" alt-text="Screenshot of the Agent Mode selection in Copilot Chat, showing the Claude 3.5 Sonnet model.":::
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-select-agent.png" alt-text="Screenshot of the Agent Mode selection in Copilot Chat, showing the Claude 3.5 Sonnet model.":::
 
 1. **Provide natural language prompts**, such as:
 
@@ -101,7 +101,7 @@ Perform these steps **within a Dev Box** instance.
 
    - Confirm the User Account Control (UAC) prompt to install tools and apply settings.
 
-   :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/image5.png" alt-text="Screenshot of the Apply Customization Tasks option in Visual Studio Code.":::
+     :::image type="content" source="media/how-to-use-copilot-generate-image-definition-file/dev-box-extension-apply-customization-tasks.png" alt-text="Screenshot of the Apply Customization Tasks option in Visual Studio Code.":::
 
 ## Save and configure the project to use the image definition
 
@@ -111,6 +111,10 @@ After your imagedefinition.yaml is ready:
 
 1. Attach the repository as a catalog to your project.
 
+   - This step is necessary to make the imagedefinition.yaml available for use in your Dev Box pool.
+
+   - For more information, see [Add and configure a catalog from GitHub or Azure Repos](../deployment-environments/how-to-configure-catalog.md).
+
 1. Configure a Dev Box pool using the generated imagedefinition.yaml:
 
    - Go to **Dev Box Pools** in your project.
@@ -119,10 +123,13 @@ After your imagedefinition.yaml is ready:
 
    - Select the image definition created from your imagedefinition.yaml.
 
-This ensures that every Dev Box created from this pool uses the ready-to-code configuration.
+   - For more information, see [Manage a dev box pool in Microsoft Dev Box](how-to-manage-dev-box-pools.md).
+
+This method ensures that every Dev Box created from this pool uses the ready-to-code configuration.
 
 This AI-powered workflow streamlines the process of setting up Dev Box customizations, letting platform engineers and dev managers create reusable, consistent environments with minimal effort.
 
 ## Related content
+
 - [Dev Box customizations overview](concept-what-are-team-customizations.md)
 - [Write an image definition file for Dev Box team customizations](how-to-write-image-definition-file.md)
