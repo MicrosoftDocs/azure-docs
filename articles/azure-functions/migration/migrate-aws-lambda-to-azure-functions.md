@@ -65,7 +65,7 @@ You also need to [map the AWS services](/azure/architecture/aws-professional) th
 
 ## Map AWS Lambda features to Azure Functions
 
-The following tables compare AWS Lambda concepts, resources, and properties with their corresponding equivalents on Azure Functions.
+The following tables compare AWS Lambda concepts, resources, and properties with their corresponding equivalents on Azure Functions, specifically, the Flex Consumption hosting plan.
 
 - [Supported languages](#supported-languages)
 - [Programming model](#programming-model)
