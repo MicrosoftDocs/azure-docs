@@ -20,10 +20,12 @@ Need to use the GenAI release group -->
 
 In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that can be called by clients using the MCP protocol. 
 
+Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
+
 > [!NOTE]
 > This feature is currently in preview and is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). 
 
-In this article, you learn how to:
+In this article, you learn how to:.
 
 * Expose a REST API in API Management as an MCP server
 * Test the generated MCP server
@@ -35,7 +37,7 @@ In this article, you learn how to:
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md). Currently only the **Premium**, **Standard**, and **Basic** tiers of API Management support MCP servers.
 + Make sure that your instance manages a REST API that you'd like to expose as an MCP server. To import a sample API, see [Import and publish your first API](import-and-publish.md).
     > [!NOTE]
-    > Only expose HTTP APIs from API Management can be exposed as MCP servers.
+    > Only HTTP APIs from API Management can be exposed as MCP servers.
 + To test the MCP server, you can use a tool like [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) or Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
