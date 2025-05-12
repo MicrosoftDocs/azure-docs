@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium with Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door Standard/Premium  is a fast and secure modern cloud CDN.  Azure Front Door uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
 
 > [!NOTE]

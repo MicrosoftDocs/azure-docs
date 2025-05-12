@@ -10,6 +10,8 @@ ms.date: 12/28/2023
 
 # Using Azure Front Door Standard/Premium with Cross-Origin Resource Sharing (CORS)
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 > [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [here](../front-door-overview.md).
 
