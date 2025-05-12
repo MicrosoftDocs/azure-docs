@@ -5,7 +5,7 @@ author: PatAltimore
 
 ms.author: patricka
 ms.date: 05/29/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---

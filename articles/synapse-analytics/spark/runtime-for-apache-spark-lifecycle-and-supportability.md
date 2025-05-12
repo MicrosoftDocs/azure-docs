@@ -3,7 +3,7 @@ title: Synapse runtime for Apache Spark lifecycle and supportability
 description: Lifecycle and support policies for Synapse runtime for Apache Spark
 author: juluczni
 ms.author: juluczni
-ms.reviewer: eskot
+ms.reviewer: arali
 ms.date: 03/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
@@ -16,7 +16,7 @@ Apache Spark pools in Azure Synapse use runtimes to tie together essential compo
 
 
 > [!CAUTION]
->  Azure Synapse Runtime for Apache Spark 2.4, 3.1, and 3.2 are unsupported and deprecated. Using these runtimes after the deprecation date is at one's own risk, and with the agreement and acceptance of the risks that existing jobs running on Apache Spark 2.4, 3.1, or 3.2 pools will eventually stop executing.
+> Azure Synapse Runtime for Apache Spark 3.1, 3.2 and 3.3 are unsupported and deprecated. Using these runtimes after the deprecation date is at one's own risk, and with the agreement and acceptance of the risks that existing jobs running on Apache Spark 3.1, 3.2 or 3.3 pools will eventually stop executing.
 
 ## Release cadence
 
