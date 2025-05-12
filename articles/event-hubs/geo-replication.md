@@ -10,10 +10,10 @@ ms.custom: references_regions
  
 # Azure Event Hubs Geo-replication
 
-The Event Hubs Geo-replication feature is one of the options to insulate Azure Event Hubs against outages and disasters, providing replication of both metadata (entities, configuration and properties) and data (event payloads).
+The Event Hubs Geo-replication feature provides replication of both metadata (entities, configuration and properties) and data (event payloads) for the namespace, allowing for business continuity and disaster recovery.
  
 > [!NOTE]
-> The Event Hubs Geo-replication feature is available for the Premium tier namespaces and namespaces provisioned on Dedicated clusters only.
+> The Event Hubs Geo-replication feature is available on the Premium and Dedicated tier only.
 >
 
 This feature ensures that metadata and data of a namespace is continuously replicated from a primary region to the secondary region. The namespace can be thought of as being virtually extended to more than one region, with one region being the primary and the other being the secondary.
