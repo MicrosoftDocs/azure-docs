@@ -4,7 +4,7 @@ description: Use the IoT extension for the Azure CLI to create automatic deploym
 author: PatAltimore
 ms.author: patricka
 ms.date: 03/22/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
