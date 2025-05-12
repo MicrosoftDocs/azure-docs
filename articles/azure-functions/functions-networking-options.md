@@ -141,7 +141,7 @@ Considerations for the [Elastic Premium](./functions-premium-plan.md), [Dedicate
 
 1. Select **Add VNet**.
 
-    :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Screenshot of the virtual network Integration page where you can enable virtual network integration in your app." :::
+    :::image type="content" source="./media/functions-networking-options/vnet-int-function-app.png" alt-text="Screenshot of the virtual network integration page where you can enable virtual network integration in your app." :::
 
 1. The drop-down list contains all of the Azure Resource Manager virtual networks in your subscription in the same region. Select the virtual network you want to integrate with.
 
@@ -337,7 +337,7 @@ You can also use the Network troubleshooter to resolve connection issues. To ope
 
 :::image type="content" source="./media/functions-networking-options/network-troubleshooter-function-app.png" alt-text="Screenshot that shows running troubleshooter for connection issues.":::
 
-**Configuration issues** - This troubleshooter checks if your subnet is valid for virtual network Integration.
+**Configuration issues** - This troubleshooter checks if your subnet is valid for virtual network integration.
 
 :::image type="content" source="./media/functions-networking-options/network-troubleshooter-configuration-function-app.png" alt-text="Screenshot that shows running troubleshooter for configuration issues.":::
 

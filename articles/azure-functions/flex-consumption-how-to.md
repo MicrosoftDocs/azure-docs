@@ -375,8 +375,8 @@ You can't currently enable virtual networking when you use Visual Studio Code to
 
 For end-to-end examples of how to create apps in Flex Consumption with virtual network integration see these resources:
 
-+ [Flex Consumption: HTTP to Event Hubs using virtual network Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
-+ [Flex Consumption: triggered from Service Bus using virtual network Integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
++ [Flex Consumption: HTTP to Event Hubs using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
++ [Flex Consumption: triggered from Service Bus using virtual network integration](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md)
 
 To modify or delete virtual network integration in an existing app:
 
