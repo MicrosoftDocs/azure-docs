@@ -308,7 +308,7 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 
 #### Timed recording
 
-To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open your service in the Azure portal. Select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Process explorer. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
+To take a timed recording, you need the process ID (PID) of the Java application. To find the PID, open your service in the Azure portal. Select **Development Tools** > **Advanced Tools**, then select **Go**. In Kudu, select **Process explorer**. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID.
 
 Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the PID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
 
