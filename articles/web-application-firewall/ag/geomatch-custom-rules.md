@@ -22,10 +22,10 @@ To create a geo-filtering custom rule in the Azure portal, select *Geo location*
 
 ## Country/region codes
 
-If you're using the *geomatch* operator, the selectors can be any of the following two-digit country/region codes. 
-
 > [!NOTE]
 > Geo-filtering custom rules are supported only in the Azure public cloud, Azure China, and Azure Government.
+
+If you're using the *geomatch* operator, the selectors can be any of the following two-digit country/region codes. 
 
 |Country/region code | Country/region name |
 | ----- | ----- |
