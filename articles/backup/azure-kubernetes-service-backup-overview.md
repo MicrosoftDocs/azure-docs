@@ -31,7 +31,7 @@ AKS backup allows you to store backups in both the Operational Tier and the Vaul
 
 After you install the Backup extension and enable Trusted Access, you can configure scheduled backups for the clusters according to your backup policy. You can also restore the backups to the original cluster or to a different cluster in the same subscription and region. As you set up the specific operation, you can choose a specific namespace or an entire cluster as a backup and restore configuration.
 
-AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called the Operational Tier stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a Vault (outside your tenant) one time per day.
+AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called the Operational Tier stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a vault (outside your tenant) one time per day.
 
 > [!NOTE]
 > Currently, Azure Backup supports only Persistent Volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other Persistent Volume types, such as Azure Files shares and blobs. Also, if you set defined retention rules for the Vault Tier, backups are only eligible to be moved to the vault if the Persistent Volumes are less than or equal to 1 TB.
@@ -268,7 +268,7 @@ To create and apply resource modification, follow these steps:
 
 * **Remove**
     
-  You can use the **Remove** operation to remove a key from the resource JSON. In the following example, the operation removes the label with test as key.
+  You can use the **Remove** operation to remove a key from the resource JSON. In the following example, the operation removes the label with `test` as key.
 
     ```json
     version: v1
@@ -289,7 +289,7 @@ To create and apply resource modification, follow these steps:
 
 * **Replace**
 
-  You can use the **Replace** operation to replace a value for the path mentioned to an alternate one. In the following example, the operation replaces the `storageClassName` in the PVC with premium.
+  You can use the **Replace** operation to replace a value for the path mentioned to an alternate one. In the following example, the operation replaces the `storageClassName` in the PVC with `premium`.
 
     ```json
     version: v1
@@ -350,9 +350,9 @@ To create and apply resource modification, follow these steps:
         value: "standard"
     ```
 
-* **JSON Patch**
+* **JSON patch**
 
-  This `configmap` applies the JSON patch to all the deployments in the namespaces by default and ``nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to `12` for all such deployments.
+  This `configmap` applies the JSON patch to all the deployments in the namespaces by default and `nginx` with the name that starts with `nginxdep`. The JSON patch updates the replica count to `12` for all such deployments.
     
     
     ```json
@@ -372,7 +372,7 @@ To create and apply resource modification, follow these steps:
 
 * **JSON merge patch**
 
-  This `configmap` applies the JSON merge patch to all the deployments in the namespaces default and ``nginx` with the name that starts with `nginxdep`. The JSON merge patch will add or update the label `app` with the value `nginx1`.
+  This `configmap` applies the JSON merge patch to all the deployments in the namespaces default and `nginx` with the name that starts with `nginxdep`. The JSON merge patch will add or update the label `app` with the value `nginx1`.
 
     ```json
     version: v1
@@ -424,22 +424,22 @@ To create and apply resource modification, follow these steps:
 
 Azure Backup for AKS supports two storage tiers as backup datastores:
 
-* **Operational Tier**: The Backup extension installed in the AKS cluster first takes the backup by taking volume snapshots via CSI Driver. It then stores cluster state in a blob container in your own tenant. This tier supports a lower recovery point objective (RPO) with the minimum duration of four hours between two backups. Additionally, for Azure Disk-based volumes, the Operational Tier supports quicker restores.
+* **Operational Tier**: The Backup extension installed in the AKS cluster first takes the backup by taking volume snapshots via CSI driver. It then stores cluster state in a blob container in your own tenant. This tier supports a lower recovery point objective (RPO) with the minimum duration of four hours between two backups. Additionally, for Azure disk-based volumes, the Operational Tier supports quicker restores.
 
 * **Vault Tier**: To store backup data for a longer duration at a lower cost than snapshots, AKS backup supports Vault-standard datastore. According to the retention rules set in the backup policy, the first successful backup (of a day, week, month, or year) is moved to a blob container outside your tenant. This datastore not only allows longer retention, but also provides ransomware protection. You can also move backups stored in the vault to another region (Azure-paired region) for recovery by enabling **Geo-redundancy** and **Cross Region Restore** in the Backup vault.
 
   > [!NOTE]
-  > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to the Vault Tier. However, you can move any number of on-demand backups to the Vault according to the rule selected.  
+  > You can store the backup data in a vault-standard datastore via Backup Policy by defining retention rules. Only one scheduled recovery point per day is moved to the Vault Tier. However, you can move any number of on-demand backups to the vault according to the rule selected.  
 
 ## Understand pricing
 
 You incur charges for:
 
-* **Protected instance fee**: Azure Backup for AKS charges a *protected instance fee* per namespace per month. When you configure backup for an AKS cluster, a protected instance is created. Each instance has a specific number of namespaces that are backed up as defined in the backup configuration. For more information on the AKS backup pricing, see [Pricing for Cloud Backup](https://azure.microsoft.com/pricing/details/backup/) and select Azure Kubernetes Service as the workload.
+* **Protected instance fee**: Azure Backup for AKS charges a *protected instance fee* per namespace per month. When you configure backup for an AKS cluster, a protected instance is created. Each instance has a specific number of namespaces that are backed up as defined in the backup configuration. For more information on the AKS backup pricing, see [Pricing for Azure backup](https://azure.microsoft.com/pricing/details/backup/) and select Azure Kubernetes Service as the workload.
 
-* **Snapshot fee**: Azure Backup for AKS protects a disk-based Persistent Volume by taking snapshots that are stored in the resource group in your Azure subscription. These snapshots incur snapshot storage charges. Because the snapshots aren't copied to the Backup vault, backup storage costs don't apply. For more information on snapshot pricing, see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+* **Snapshot fee**: Azure Backup for AKS protects a disk-based Persistent Volume by taking snapshots that are stored in the resource group in your Azure subscription. These snapshots incur snapshot storage charges. Because the snapshots aren't copied to the Backup vault, backup storage costs don't apply. For more information on snapshot pricing, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-* **Backup Storage fee**: Azure Backup for AKS also supports storing backups in the Vault Tier. You can store backups in the Vault Tier by defining retention rules for **vault-standard** in the backup policy, with one restore point per day eligible to be moved into the Vault. Restore points stored in the Vault Tier are charged a separate fee (called a Backup Storage fee) according to the total data stored (in gigabytes) and redundancy type enable on the Backup Vault.
+* **Backup storage fee**: Azure Backup for AKS also supports storing backups in the Vault Tier. You can store backups in the Vault Tier by defining retention rules for vault standard in the backup policy, with one restore point per day eligible to be moved into the vault. Restore points stored in the Vault Tier are charged a separate fee (called a Backup storage fee) according to the total data stored (in gigabytes) and redundancy type enable on the Backup vault.
 
 ## Related content
 
