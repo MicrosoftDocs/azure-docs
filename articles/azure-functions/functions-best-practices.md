@@ -21,10 +21,12 @@ This article details some best practices for designing and deploying efficient f
 
 When you create a function app in Azure, you must choose a hosting plan for your app. The plan you choose has an effect on performance, reliability, and cost. These options are the hosting plans provided by Azure Functions:
 
-- [Consumption plan](consumption-plan.md)
 - [Flex Consumption plan](./flex-consumption-plan.md)
 - [Premium plan](functions-premium-plan.md)
 - [Dedicated (App Service) plan](dedicated-plan.md)
+- [Consumption plan](consumption-plan.md)
+
+The [Flex Consumption plan](./flex-consumption-plan.md) is generally recommended for hosting your dynamic scale apps.  
 
 In the context of the App Service platform, the *Premium* plan used to dynamically host your functions is the Elastic Premium plan (EP). There are other Dedicated (App Service) plans called Premium. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
 
@@ -51,7 +53,7 @@ Function apps that scale dynamically can run either from an Azure Files endpoint
 - [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](functions-app-settings.md#website_contentazurefileconnectionstring)
 - [WEBSITE_CONTENTSHARE](functions-app-settings.md#website_contentshare)
 
-These settings are only supported when you run in a Premium plan or in a Consumption plan on Windows.
+These settings are only supported when you run in a Premium plan or in a Consumption plan on Windows. They aren't required by the Flex Consumption plan, which uses a Blob storage container to host deployment packages instead of an Azure Files share.
 
 When you create your function app either in the Azure portal or by using Azure CLI or Azure PowerShell, these settings are created for your function app when needed. When you create your resources from an Azure Resource Manager template (ARM template), you need to also include `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` in the template.
 
@@ -65,7 +67,7 @@ You can use the following ARM template examples to help correctly configure thes
 - [Consumption plan with a deployment slot](https://azure.microsoft.com/resources/templates/function-app-create-dynamic-slot/)
 
 > [!IMPORTANT]
-> The Azure Files service doesn't currently support identity-based connections. For more information, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files).
+> The Azure Files service doesn't currently support identity-based connections. The Flex Consumption plan fully supports managed identities. For more information, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files).
 
 ### Storage account configuration
 
@@ -205,7 +207,7 @@ Azure Functions also allows you to [send system-generated and user-generated log
 
 ## Build in redundancy
 
-Your business needs might require that your functions always be available, even during a data center outage. To learn how to use a multi-regional approach to keep your critical functions always running, see [Reliability in Azure Functions](functions-geo-disaster-recovery.md).
+Your business needs might require that your functions always be available, even during a data center outage. To learn how to use a multi-regional approach to keep your critical functions always running, see [Reliability in Azure Functions](../reliability/reliability-functions.md).
 
 ## Next steps
 
