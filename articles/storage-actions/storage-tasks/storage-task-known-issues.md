@@ -40,7 +40,7 @@ Task assignments aren't updated when changes are made to a task definition. New 
 
 ## Stopping task assignments
 
-You can stop an in-progress run by [removing the role assignment](../../role-based-access-control/role-assignments-remove.md) for the underlying managed identity.
+You can stop an in-progress run by [removing the role assignment](../../role-based-access-control/role-assignments-remove..yml) for the underlying managed identity.
 
 ## Move for storage account resource is blocked when a task assignment exists
 
