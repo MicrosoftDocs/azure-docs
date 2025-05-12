@@ -20,12 +20,12 @@ To create a geo-filtering custom rule in the Azure portal, select *Geo location*
 > [!IMPORTANT]
 > Include the country code **ZZ** whenever you use geo-filtering. The **ZZ** country code (or *Unknown* country/region) captures IP addresses that aren't yet mapped to a country or region in our dataset. This avoids false positives.
 
-> [!NOTE]
-> Geo-filtering custom rules are only supported in the Azure public cloud, Azure China, and Azure Government.
-
 ## Country/region codes
 
 If you're using the *geomatch* operator, the selectors can be any of the following two-digit country/region codes. 
+
+> [!NOTE]
+> Geo-filtering custom rules are supported only in the Azure public cloud, Azure China, and Azure Government.
 
 |Country/region code | Country/region name |
 | ----- | ----- |
