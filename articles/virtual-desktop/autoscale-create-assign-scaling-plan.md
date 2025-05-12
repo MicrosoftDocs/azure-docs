@@ -175,7 +175,7 @@ To create a power management scaling plan using the Azure portal:
         - Just like peak hours, you can't configure the capacity threshold here. Instead, the value you entered in **Ramp-down** carries over.
 
         > [!IMPORTANT]
-        > If you have any days unselected in your schedule, the last off-peak parameters on the selected days are carried over for the unselected days until the next ramp-up phase. For example, if you only have one schedule for Monday to Friday, then your configuration for the Friday off-peak phase are carried over until the Monday ramp-up phase.
+        > If you have any days unselected in your schedule, the last off-peak parameters on the selected days are carried over for the unselected days until the next ramp-up phase. For example, if you only have one schedule for Monday to Friday, then your configuration for the Friday off-peak phase is carried over until the Monday ramp-up phase.
     
     #### Personal host pools
     
