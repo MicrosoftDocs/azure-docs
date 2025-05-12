@@ -37,7 +37,7 @@ Typically, you create an Application Insights instance when you create your func
 
 The following table details the supported features of Application Insights available for monitoring your function apps:
 
-| Azure Functions runtime version   | 1.x     | 2.x+ |
+| Azure Functions runtime version   | 1.x     | 4.x+ |
 |-----------------------------------|:---------------:|:------------------:|
 | | | |
 | **Automatic  collection of**        |               |                  |
