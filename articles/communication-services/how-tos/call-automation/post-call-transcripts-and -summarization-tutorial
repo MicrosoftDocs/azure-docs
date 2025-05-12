@@ -1,0 +1,66 @@
+---
+title: Add post-call transcription and summarization into your applications
+titleSuffix: An Azure Communication Services how-to document
+description: Provides a how-to guide for adding post-call transcription and summarization into your applications
+author: rahulva
+ms.service: azure-communication-services
+ms.subservice: call-automation
+ms.topic: include
+ms.date: 05/10/2025
+ms.author: rahulva-msft
+services: azure-communication-services
+zone_pivot_groups: acs-js-csharp-java-python
+---
+
+# Add post-call transcription into your application
+
+[!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include.md)]
+
+This guide helps you better understand the different ways you can use Azure Communication Services offering of post-call transcription and summarization into your applications through Call Automation SDKs.
+
+### Prerequisites
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure Communication Services resource, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp)
+- Create and connect [Azure AI services to your Azure Communication Services resource](../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource.
+- Create a new web service application using the [Call Automation SDK](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md).
+- Azure Communication services Call Recording setup.
+
+## Setup an ACS Recording   
+Post call transcripts and summarization requires your server application to set up an Azure Communication Services recording service. Please follow the quickstart to set up call recording . if Bring your storage is being see please follow the managed identity setup .
+
+## Establish a call 
+In this quickstart, we assume that you're already familiar with starting calls using Call Automation. If you need to learn more about starting and establishing calls, you can follow our [quickstart](../../quickstarts/call-automation/quickstart-make-an-outbound-call.md). For the purposes of this quick start, we're going through the process of starting post call transcription for both incoming calls and outbound calls. Summarization requires no additional setups and will be created following post call transcription.
+
+When working with post-call transcription, please note the points below:
+
+**Note 1 -** Starting transcription and summarization at time of start recording a call.
+
+**Note 2 -** Download transcripts and summarization from temporary links
+
+**Note 3 -** Move transcripts and summarization to azure storage of your choice.
+
+For private preview we are only supporting C#. In this tutorial, we're demonstrating starting transcription on a call being recorded. By default the 'startTranscription' is set to false at time of answering or creating a call.
+
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [Real-time transcription with .NET](./includes/real-time-transcription-csharp.md)]
+::: zone-end
+
+
+## Event codes
+
+| Event | code | subcode | Message |
+| --- | --- | --- | --- |
+| TranscriptionStarted | 200 | 0 | Action completed successfully. |
+| TranscriptionStopped | 200 | 0 | Action completed successfully. |
+| TranscriptionFailed | 400 | 8581 | Action failed, StreamUrl isn't valid. |
+| TranscriptionFailed | 400 | 8565 | Action failed due to a bad request to Cognitive Services. Check your input parameters. |
+| TranscriptionFailed | 500 | 8579 | Action failed, transcription was canceled. |
+| TranscriptionFailed | 500 | 9999 | Unknown internal server error. |
+
+
+## Known issues
+* Java, js and phython sdk's are in progress
+* We currently support only 1hr recordings to be transcribed. We are working to add longer call support.
+* The notification is send as a combined notification for this release
+* version support for sdk
