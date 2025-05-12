@@ -210,7 +210,7 @@ To create and apply resource modification, follow these steps:
 
    You need to create one `configmap` in your preferred namespace from a *YAML* file that defined resource modifiers.
 
-Example for creating a command:
+    Example for creating a command:
 
     ```json
     version: v1
