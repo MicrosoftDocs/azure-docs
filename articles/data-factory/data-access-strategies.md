@@ -31,7 +31,7 @@ This should work in many scenarios, and we do understand that a unique Static IP
 ## Data access strategies through Azure Data Factory
 
 * **[Private Link](../private-link/private-link-overview.md)** - You can create an Azure Integration Runtime within Azure Data Factory Managed Virtual Network and it leverages private endpoints to securely connect to supported data stores. Traffic between Managed Virtual Network and data sources travels the Microsoft backbone network and isn't exposed to the public network.
-* **[Trusted Service](../storage/common/storage-network-security.md#exceptions)** - Azure Storage (Blob, ADLS Gen2) supports firewall configuration that enables select trusted Azure platform services to access the storage account securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless approved to do so using it's managed identity. 
+* **[Trusted Service](../storage/common/storage-network-security.md#exceptions)** - Azure Storage (Blob, ADLS Gen2) and Azure Key Vault support firewall configuration that enables select trusted Azure platform services to access them securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless approved to do so using it's managed identity. 
 <!-- You can find more details in **[this blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. Hence, this is extremely secure and recommended. -->
 
 > [!NOTE]

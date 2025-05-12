@@ -11,7 +11,7 @@ ms.collection: sentinel-data-connector
 
 # Microsoft Defender for Cloud Apps connector for Microsoft Sentinel
 
-By connecting with [Microsoft Defender for Cloud Apps](https://aka.ms/asi-mcas-connector-description) you will gain visibility into your cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how your data travels.
+By connecting with [Microsoft Defender for Cloud Apps](https://www.microsoft.com/en-us/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) you will gain visibility into your cloud apps, get sophisticated analytics to identify and combat cyberthreats, and control how your data travels.
 
 -   Identify shadow IT cloud apps on your network.
 -   Control and limit access based on conditions and session context.

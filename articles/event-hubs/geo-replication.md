@@ -61,7 +61,7 @@ Geo-replication ensures disaster recovery and business continuity for all stream
 Geo-replication can be used to distribute data globally, allowing applications to access data from the nearest region. This reduces latency and improves performance for workloads located in different parts of the world.
 
 ### Data Sovereignty and Compliance
-Organizations operating in multiple countries often need to comply with data sovereignty laws that require data to be stored within specific geographic boundaries. Geo-replication allows these organizations to replicate data to regions that comply with local regulations, ensuring that they meet legal requirements while still maintaining a unified data platform.
+Organizations operating in multiple countries/regions often need to comply with data sovereignty laws that require data to be stored within specific geographic boundaries. Geo-replication allows these organizations to replicate data to regions that comply with local regulations, ensuring that they meet legal requirements while still maintaining a unified data platform.
 
 ### Migration and Upgrades
 Geo-replication can also be used to facilitate data migration, maintenance and system upgrades. Organizations can migrate their namespace proactively from a primary to a secondary region to allow for any maintenance and upgrades on the primary region.

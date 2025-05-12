@@ -1,11 +1,11 @@
 ---
-title: Regional capacity quota for Azure NetApp Files | Microsoft Docs
+title: Regional capacity quota for Azure NetApp Files
 description: Explains regional capacity quota of Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 10/11/2024
+ms.topic: concept-article
+ms.date: 05/08/2025
 ms.author: anfdocs
 ---
 # Regional capacity quota for Azure NetApp Files
@@ -18,7 +18,7 @@ You can select **Quota** under Settings of Azure NetApp Files to display the cur
 
 For example: 
 
-![Screenshot that shows how to display quota information.](./media/regional-capacity-quota/quota-display.png) 
+:::image type="content" source="./media/azure-netapp-files-metrics/subscription-quota.png" alt-text="Screenshot of subscription quota metrics." lightbox="./media/azure-netapp-files-metrics/subscription-quota.png":::
 
 ## Request regional capacity quota increase
 
