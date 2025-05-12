@@ -33,9 +33,9 @@ This article explains how to use the *Get Started* template to set up Microsoft 
 ## Use the Get Started template
 
 1. In the Azure portal, go to **Microsoft Dev Box** and select **Get Started**.
-   :::image type="content" source="media/quickstart-getting-started-template/dev-box-getting-started-page.png" alt-text="Screenshot of the Dev Box Get Started page in the Azure portal, showing options to configure a dev box environment.":::
+   :::image type="content" source="media/quickstart-get-started-template/dev-box-get-started-page.png" alt-text="Screenshot of the Dev Box Get Started page in the Azure portal, showing options to configure a dev box environment.":::
 
-1. In the **Basics** tab, enter the following values, and then select **Reveiw + create**. The values you enter here will be used to create the dev center, project, and dev box pool. The dev box definition is created using the default settings.:
+1. In the **Basics** tab, enter the following values, and then select **Review + create**. The values you enter here is to create the dev center, project, and dev box pool. The dev box definition is created using the default settings:
 
    | Setting | Value |
    |---|---|
@@ -46,9 +46,9 @@ This article explains how to use the *Get Started* template to set up Microsoft 
    | **Project Name** | Enter a name for the project. The name must be unique within the dev center.|
    | **Pool Name** | Enter a name for the dev box pool. The name must be unique within the project.|
 
-   :::image type="content" source="media/quickstart-getting-started-template/dev-box-getting-started-template-basics.png" alt-text="Screenshot of the Basics tab in the Get Started template, showing fields for subscription, resource group, and region selection.":::
+   :::image type="content" source="media/quickstart-get-started-template/dev-box-get-started-template-basics.png" alt-text="Screenshot of the Basics tab in the Get Started template, showing fields for subscription, resource group, and region selection.":::
 1. In the **Review + Create** tab, review the configuration summary, and select **Create** to deploy the dev box environment.
-   :::image type="content" source="media/quickstart-getting-started-template/dev-box-getting-started-review-create.png" alt-text="Screenshot of the Review + Create tab in the Get Started template, showing a summary of the configuration before deployment.":::
+   :::image type="content" source="media/quickstart-get-started-template/dev-box-get-started-review-create.png" alt-text="Screenshot of the Review + Create tab in the Get Started template, showing a summary of the configuration before deployment.":::
 1. Wait for the deployment to complete. Monitor the progress in the **Notifications** pane.
 1. After the deployment is complete, select **Go to Resource** to view the created resources.
 
