@@ -96,8 +96,8 @@ Zone-redundant Premium plans are available in these regions:
 ::: zone pivot="flex-consumption-plan"
 Availability zone support is a property of the Flex Consumption plan. Here are current considerations for using availability zones:
 
-- You can enable availability zones in the plan during app creation. 
-- You can enable or disable this plan feature in an existing app using the Azure CLI.
+- You can [enable availability zones in the plan during app creation](#create-a-function-app-in-a-zone-redundant-plan). 
+- You can [enable or disable availability zones](#update-a-flex-consumption-plan-to-be-zone-redundant) by updating plan resource settings.
 - You must use a [zone redundant storage account (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) for your function app's [default host storage account](../azure-functions/storage-considerations.md#storage-account-requirements). If you use a different type of storage account, your app might behave unexpectedly during a zonal outage.
 - Must be hosted on a [Flex Consumption](../azure-functions/flex-consumption-plan.md) plan.
 ::: zone-end 
@@ -232,7 +232,7 @@ Before updating your Flex Consumption plan to be zone-redundant, you should upda
 Use these steps to prepare your storage accounts for the change:
 
 1. Review [Storage Considerations](../azure-functions/storage-considerations.md).
-1. Create or identify a zone-redundant storage account to associate with the app.
+1. Create or identify a zone-redundant storage account to be the default host storage account for the app.
 1. Update the storage related application settings of the app, like `AzureWebJobsStorage`, to reference the zone redundant storage account. See [Work with application settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md#use-application-settings).
 1. Update the deployment storage account for the app, which can be the same or different as the storage account associated with the app. See [Configure deployment settings](../azure-functions/flex-consumption-how-to.md#configure-deployment-settings).
 
@@ -244,6 +244,8 @@ Not currently supported.
 
 #### [Azure CLI](#tab/azure-cli)
 
+Not currently supported.
+<!--- unhide this after we get the required CLI fix implemented 
 Update the Flex Consumption app by using the [az functionapp plan update](/cli/azure/functionapp#az-functionapp-plan-update) command and setting the `--zone-redundant true` parameter:
 
 ```azurecli
@@ -252,7 +254,7 @@ PLAN_RESOURCE_ID=$(az functionapp show --resource-group <RESOURCE_GROUP> --name 
 az functionapp plan update --ids $PLAN_RESOURCE_ID --set zoneRedundant=true
 ```
 
-In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and app, respectively. 
+In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with the names of your resource group and app, respectively. -->
 
 #### [Bicep template](#tab/bicep)
 
@@ -450,7 +452,7 @@ You can't currently change the availability zone support of an Elastic Premium p
 ::: zone-end 
 ### Zone down experience
 ::: zone pivot="flex-consumption-plan"
-All available function app instances of zone-redundant Flex Consumption plan apps are enabled and processing events. Flex Consumption apps continue to run even when other zones in the same region suffer an outage. However, it's possible that nonruntime behaviors might be impacted as a result of an outage in other availability zones. Standard function app behaviors that can impact availability include:
+All available function app instances of zone-redundant Flex Consumption plan apps are enabled and processing events. Flex Consumption apps continue to run even when other zones in the same region suffer an outage. However, it's possible that nonruntime behaviors might be impacted as a result of an outage in other availability zones. Standard function app behaviors that can affect availability include:
 
 + Scaling
 + App creation 
@@ -472,7 +474,7 @@ When Functions allocates instances to a zone redundant Premium plan, it uses bes
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-This section explains some of the strategies that you can use to deploy Functions to allow for disaster recovery.
+This section explains some of the strategies that you can use to deploy a function app to allow for disaster recovery.
 
 For disaster recovery for Durable Functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
 
