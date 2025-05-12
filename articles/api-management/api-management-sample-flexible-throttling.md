@@ -15,7 +15,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The ability to throttle incoming requests is a key role of Azure API Management.  API Management enables API providers to protect their APIs from abuse and create value for different API product tiers by controlling either the rate of requests or the total requests/data transferred. This article describes how to create and apply quota and rate limiting. 
+The ability to throttle incoming requests is a key role of Azure API Management. API Management enables API providers to protect their APIs from abuse and create value for different API product tiers by controlling either the rate of requests or the total requests/data transferred. This article describes how to create and apply quota and rate limiting. 
 
 ## Rate limits and quotas
 
