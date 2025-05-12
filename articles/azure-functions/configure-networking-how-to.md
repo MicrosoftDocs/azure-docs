@@ -66,7 +66,7 @@ Set up a secured storage account for your function app:
 
 1. Secure the new storage account in one of the following ways:
 
-    * [Create a private endpoint](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint). As you set up your private endpoint connection, create private endpoints for the `file` and `blob` subresources. For Durable Functions, you must also make `queue` and `table` subresources accessible through private endpoints. If you're using a custom or on-premises Domain Name System (DNS) server, [configure your DNS server](../storage/common/storage-private-endpoints.md#dns-changes-for-private-endpoints) to resolve to the new private endpoints.
+    * [Create a private endpoint](../storage/common/storage-private-endpoints.md#creating-a-private-endpoint). As you set up your private endpoint connection, create private endpoints for the `file`, `blob` and `table` subresources. For Durable Functions, you must also make `queue` subresources accessible through private endpoints. If you're using a custom or on-premises Domain Name System (DNS) server, [configure your DNS server](../storage/common/storage-private-endpoints.md#dns-changes-for-private-endpoints) to resolve to the new private endpoints.
 
     * [Restrict traffic to specific subnets](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network). Ensure your function app is network integrated with an allowed subnet and that the subnet has only one of these service endpoints defined: 
         * `Microsoft.Storage`: use when your app is in the same region as your virtual network.
