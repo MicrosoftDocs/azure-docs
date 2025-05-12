@@ -2,7 +2,7 @@
 title: Tutorial to assess web apps in VMware VMs for migration to Azure App Service
 description: Learn how to create assessment for Azure App Service in VMware VMs using Azure Migrate
 ms.topic: tutorial
-ms.date: 05/08/2025
+ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24, devx-track-extended-java
 zone_pivot_groups: web-apps-assessment-app-service
@@ -25,7 +25,7 @@ This article shows you how to assess discovered ASP.NET web apps running on IIS 
 
 As part of your migration journey to Azure, assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](../../app-service/overview.md) about Azure App Service.
+This article shows you how to assess discovered Java web apps running on Tomcat servers in preparation for migration to Azure App Service Code and Azure App Service Containers, using the Azure Migrate: Discovery and assessment tool. [Learn more](app-service/overview.md) about Azure App Service.
 
 
 ::: zone-end
@@ -102,7 +102,7 @@ To run an assessment, follow these steps:
 
 1. Under **Review + create assessment** tab, review the assessment details, and select **Create assessment** to create the group and run the assessment.
 
-   :::image type="content" source="../media/tutorial-assess-webapps/create-app-review.png" alt-text="Screenshot of create assessment.":::
+   :::image type="content" source="./media/tutorial-assess-webapps/create-app-review.png" alt-text="Screenshot of create assessment.":::
 
 1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**. Refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for the data to refresh.
 1. On the **Servers, databases and web apps** page, under **Assessment tools** > **Assessments**, select the number next to **Web apps on Azure** in the **Assessment** section. 

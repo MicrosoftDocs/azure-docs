@@ -4,7 +4,7 @@ description: Learn how to assess servers in VMware environment for migration to 
 author: jobingeorge-microsoft
 ms.author: jobingeorge
 ms.topic: tutorial
-ms.date: 02/06/2025
+ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422, MVC, engagement-fy23
 #Customer intent: As a VMware VM admin, I want to assess my VMware VMs in preparation for migration to Azure VMware Solution (AVS)
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 Before you follow this tutorial to assess your servers for migration to AVS, make sure you've discovered the servers you want to assess:
 
 - To discover servers using the Azure Migrate appliance, [follow this tutorial](tutorial-discover-vmware.md). 
-- To discover servers using an imported CSV file, [follow this tutorial](../tutorial-discover-import.md).
+- To discover servers using an imported CSV file, [follow this tutorial](tutorial-discover-import.md).
 - To import servers using a RVTools file, [follow this tutorial](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 
@@ -63,7 +63,7 @@ Run an assessment as follows:
     
 1. Select **Edit** to review the assessment properties.
 
-    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-servers.png" alt-text="Page for selecting the assessment settings":::
 
 1. In **Assessment settings**, set the necessary values or retain the default values:
 
@@ -87,7 +87,7 @@ Run an assessment as follows:
 
 1. Select **Save** if you make changes.
 
-    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-inline.png" alt-text="Assessment properties" lightbox="../media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-expanded.png":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-inline.png" alt-text="Assessment properties" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-view-all-expanded.png":::
 
 1. In **Assess Servers**, select **Next**.
 
@@ -95,7 +95,7 @@ Run an assessment as follows:
  
 1. In **Select or create a group** > select **Create New** and specify a group name. 
     
-    :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/assess-group.png" alt-text="Add servers to a group":::
  
 1. Select the appliance and select the servers that you want to add to the group. Then select **Next**.
 
@@ -125,7 +125,7 @@ To view an assessment:
 
 1. In **Assessments**, select an assessment to open it. As an example (estimations and costs, for example,  only): 
 
-   :::image type="content" source="../media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-inline.png" alt-text="Assessment Summary" lightbox="../media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-expanded.png":::
+   :::image type="content" source="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-inline.png" alt-text="Assessment Summary" lightbox="./media/tutorial-assess-vmware-azure-vmware-solution/avs-assessment-summary-expanded.png":::
 
 1. Review the assessment summary.
  
@@ -181,5 +181,5 @@ Confidence ratings are as follows.
 
 ## Next steps
 
-- Find server dependencies using [dependency mapping](../concepts-dependency-visualization.md).
-- Set up [agentless](../how-to-create-group-machine-dependencies-agentless.md) or [agent-based](../how-to-create-group-machine-dependencies.md) dependency mapping.
+- Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
+- Set up [agentless](how-to-create-group-machine-dependencies-agentless.md) or [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.

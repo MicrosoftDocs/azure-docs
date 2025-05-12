@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 12/12/2022
+ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
@@ -18,7 +18,7 @@ You can migrate VMware VMs to Azure using the Migration and modernization tool. 
 - Migration using agentless replication. Migrate VMs without needing to install anything on them.
 - Migration with an agent for replication. Install an agent on the VM for replication.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 
 ## Compare migration methods
 
@@ -28,7 +28,7 @@ Use these selected comparisons to help you decide which method to use. You can a
 --- | --- | ---
 **Azure permissions** | You need permissions to create an Azure Migrate project, and to register Microsoft Entra apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
 **Replication** | You can simultaneously replicate a maximum of 500 VMs across multiple vCenter Servers (discovered from one appliance) using a scale-out appliance. In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.| Replication capacity increases by scaling the replication appliance.
-**Appliance deployment** | The [Azure Migrate appliance](../migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](../migrate-replication-appliance.md) is deployed on-premises.
+**Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
 **Site Recovery compatibility** | Compatible. | You can't replicate with the Migration and modernization tool if you've set up replication for a machine using Site Recovery.
 **Target disk** | Managed disks | Managed disks
 **Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 63

@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 04/04/2025
+ms.date: 05/09/2025
 ms.custom:
   - vmware-scenario-422
   - engagement-fy24
@@ -16,13 +16,13 @@ ms.collection:
 
 # Support matrix for VMware discovery
 
-This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
+This article summarizes prerequisites and support requirements for using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool to discover and assess servers in a VMware environment for migration to Azure.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 
 To assess servers, first, create an Azure Migrate project. The Azure Migrate: Discovery and assessment tool is automatically added to the project. Then, deploy the Azure Migrate appliance. The appliance continuously discovers on-premises servers and sends configuration and performance metadata to Azure. When discovery is finished, gather the discovered servers into groups and run assessments per group.
 
-As you plan your migration of VMware servers to Azure, see the [migration support matrix](../migrate-support-matrix-vmware-migration.md).
+As you plan your migration of VMware servers to Azure, see the [migration support matrix](migrate-support-matrix-vmware-migration.md).
 
 
 ## VMware requirements
@@ -43,12 +43,12 @@ Storage | Disks attached to SCSI, IDE, and SATA-based controllers are supported.
 
 ## Azure Migrate appliance requirements
 
-Azure Migrate and Modernize uses the [Azure Migrate appliance](../migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a server in your VMware environment by using a VMware Open Virtualization Appliance template imported into vCenter Server. You can also use a [PowerShell script](../deploy-appliance-script.md). Learn more about [appliance requirements for VMware](../migrate-appliance.md#appliance---vmware).
+Azure Migrate and Modernize uses the [Azure Migrate appliance](migrate-appliance.md) for discovery and assessment. You can deploy the appliance as a server in your VMware environment by using a VMware Open Virtualization Appliance template imported into vCenter Server. You can also use a [PowerShell script](deploy-appliance-script.md). Learn more about [appliance requirements for VMware](migrate-appliance.md#appliance---vmware).
 
 Here are more requirements for the appliance:
 
-- In Azure Government, you must deploy the appliance by using a [script](../deploy-appliance-script-government.md).
-- The appliance must be able to access specific URLs in [public clouds](../migrate-appliance.md#public-cloud-urls) and [government clouds](../migrate-appliance.md#government-cloud-urls).
+- In Azure Government, you must deploy the appliance by using a [script](deploy-appliance-script-government.md).
+- The appliance must be able to access specific URLs in [public clouds](migrate-appliance.md#public-cloud-urls) and [government clouds](migrate-appliance.md#government-cloud-urls).
 
 ## Port access requirements
 
@@ -75,7 +75,7 @@ Discovery | Software inventory is performed from vCenter Server by using VMware 
 
 ## SQL Server instance and database discovery requirements
 
-[Software inventory](../how-to-discover-applications.md) identifies SQL Server instances. The appliance attempts to connect to the respective SQL Server instances through the Windows authentication or SQL Server authentication credentials in the appliance configuration manager by using this information. The appliance can connect to only those SQL Server instances to which it has network line of sight. Software inventory by itself might not need network line of sight.
+[Software inventory](how-to-discover-applications.md) identifies SQL Server instances. The appliance attempts to connect to the respective SQL Server instances through the Windows authentication or SQL Server authentication credentials in the appliance configuration manager by using this information. The appliance can connect to only those SQL Server instances to which it has network line of sight. Software inventory by itself might not need network line of sight.
 
 After the appliance is connected, it gathers configuration and performance data for SQL Server instances and databases. The appliance updates the SQL Server configuration data once every 24 hours and captures the performance data every 30 seconds.
 
@@ -281,7 +281,7 @@ Use the following sample scripts to create a login and provision it with the nec
 
 ## Web apps discovery requirements
 
-[Software inventory](../how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Migrate and Modernize discovers web apps on the server.
+[Software inventory](how-to-discover-applications.md) identifies the web server role existing on discovered servers. If a server has a web server installed, Azure Migrate and Modernize discovers web apps on the server.
 
 You can add both domain and nondomain credentials on the appliance. Ensure that the account used has local admin privileges on source servers. Azure Migrate and Modernize automatically maps credentials to the respective servers, so you don't have to map them manually. Most importantly, these credentials are never sent to Microsoft and remain on the appliance running in the source environment.
 
@@ -302,7 +302,7 @@ Required privileges | Local admin. | **Read (r)** and **Execute (x)** permission
 
 ## Dependency analysis requirements (agentless)
 
-[Dependency analysis](../concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Migrate project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
+[Dependency analysis](concepts-dependency-visualization.md) helps you analyze the dependencies between the discovered servers. You can easily visualize dependencies with a map view in an Azure Migrate project. You can use dependencies to group related servers for migration to Azure. The following table summarizes the requirements for setting up agentless dependency analysis.
 
 Support | Details
 --- | ---
@@ -322,14 +322,14 @@ Discovery method |  Dependency information between servers is gathered by using 
 
 ## Dependency analysis requirements (agent-based)
 
-[Dependency analysis](../concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
+[Dependency analysis](concepts-dependency-visualization.md) helps you identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis.
 
 Requirement | Details
 --- | ---
-Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](../create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](../how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](../how-to-set-up-appliance-hyper-v.md), [VMware](../how-to-set-up-appliance-vmware.md), or physical servers.
+Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br /><br />You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br /><br />Learn how to [create a project for the first time](create-manage-projects.md).<br /> Learn how to [add a discovery and assessment tool to an existing project](how-to-assess.md).<br /> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 Supported servers | Supported for all servers in your on-premises environment.
 Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br /><br /> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br /><br /> The workspace must be in the same subscription as the project.<br /><br /> The workspace must be located in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /><br /> The workspace must be in a [region in which Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> In Log Analytics, the workspace associated with Azure Migrate is tagged with the project key and project name.
-Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](../how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
+Required agents | On each server that you want to analyze, install the following agents:<br />- Azure Monitor agent (AMA)<br />- [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br /><br /> If on-premises servers aren't connected to the internet, download and install the Log Analytics gateway on them.<br /><br /> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and the Azure Monitor agent.
 Log Analytics workspace | The workspace must be in the same subscription as the project.<br /><br /> Azure Migrate supports workspaces that are located in the East US, Southeast Asia, and West Europe regions.<br /><br />  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br /><br /> You can't modify the workspace for a project after you add the workspace.
 Cost | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day you associate the Log Analytics workspace with the project.<br /><br /> After 180 days, standard Log Analytics charges apply.<br /><br /> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br /><br /> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br /><br />If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
 Management | When you register agents to the workspace, use the ID and key provided by the project.<br /><br /> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br /><br /> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](/azure/azure-monitor/logs/manage-access).<br /><br /> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
@@ -341,8 +341,8 @@ Azure Government | Agent-based dependency analysis isn't supported.
 
 Requirement | Details
 --- | ---
-Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](../migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
-Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMware Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](./set-discovery-scope.md).
+Project limits | You can create multiple Azure Migrate projects in an Azure subscription.<br /><br /> You can discover and assess up to 50,000 servers in a VMware environment in a single [project](migrate-support-matrix.md#project). A project can include physical servers and servers from a Hyper-V environment, up to the assessment limits.
+Discovery | The Azure Migrate appliance can discover up to 10,000 servers running across multiple vCenter Servers.<br /><br /> The appliance supports adding multiple vCenter Servers. You can add up to 10 vCenter Servers per appliance.<br /><br />The scale is also valid to access discovered servers for Azure Migrate VMware Solution (AVS).<br /><br />The same vCenter can be discovered by multiple appliances within the same project, but it is not recommended to have same VM discovered by multiple appliances. More details on how to set [discovery scope](set-discovery-scope.md).
 Assessment | You can add up to 35,000 servers in a single group.<br /><br /> You can assess up to 35,000 servers in a single assessment.
 
 Learn more about [assessments](../concepts-assessment-calculation.md).
@@ -350,7 +350,7 @@ Learn more about [assessments](../concepts-assessment-calculation.md).
 
 ## Import servers using RVTools XLSX (preview)
 
-As part of your migration journey to Azure by using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers by using the RVTools XLSX file (preview)](../tutorial-import-vmware-using-rvtools-xlsx.md).
+As part of your migration journey to Azure by using the Azure Migrate appliance, you first discover servers, inventory, and workloads. However, for a quick assessment before you deploy the appliance, you can [import the servers by using the RVTools XLSX file (preview)](tutorial-import-vmware-using-rvtools-xlsx.md).
 
 ### Key benefits
 
@@ -387,5 +387,5 @@ To get an accurate operating system suitability/readiness in Azure VM and Azure 
 
 ## Next steps
 
-* Review [assessment best practices](../best-practices-assessment.md).
-* Learn how to [prepare for a VMware assessment](../tutorial-discover-vmware.md).
+* Review [assessment best practices](best-practices-assessment.md).
+* Learn how to [prepare for a VMware assessment](tutorial-discover-vmware.md).

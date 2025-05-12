@@ -5,7 +5,7 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/14/2022
+ms.date: 05/12/2025
 ms.custom: engagement-fy23
 ---
 
@@ -20,7 +20,7 @@ This article shows how to migrate on-premises VMware VMs to Azure, using the [Mi
 
 The Migration and modernization tool runs a lightweight VMware VM appliance to enable the discovery, assessment, and agentless migration of VMware VMs. If you have followed the [Discovery and assessment tutorial](discover-and-assess-using-private-endpoints.md), you've already set the appliance up. If you didn't, [set up and configure the appliance](discover-and-assess-using-private-endpoints.md#set-up-the-azure-migrate-appliance) before you proceed.
 
-To use a private connection for replication, you can use the storage account created earlier during Azure Migrate project setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](../../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint).
+To use a private connection for replication, you can use the storage account created earlier during Azure Migrate project setup or create a new cache storage account and configure private endpoint. To create a new storage account with private endpoint, see [Private endpoint for storage account](../private-link/tutorial-private-endpoint-storage-portal.md#create-storage-account-with-a-private-endpoint).
 
  - The private endpoint allows the Azure Migrate appliance to connect to the cache storage account using a private connection like an ExpressRoute private peering or VPN. Data can then be transferred directly on the private IP address.
 
