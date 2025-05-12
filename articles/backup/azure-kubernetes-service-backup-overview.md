@@ -34,7 +34,7 @@ After you install the Backup extension and enable Trusted Access, you can config
 AKS backup enables backup operations for your AKS data sources that are deployed in the cluster. It also enables backup operations for the data stored in the Persistent Volume for the cluster. It then stores the backups in a blob container. The disk-based Persistent Volumes are backed up as disk snapshots in a snapshot resource group. The snapshots and cluster state in a blob combine to form a recovery point called the Operational Tier stored in your tenant. You can also convert backups (the first successful backup in a day, week, month, or year) in the Operational Tier to blobs, and then move them to a vault (outside your tenant) one time per day.
 
 > [!NOTE]
-> Currently, Azure Backup supports only Persistent Volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other Persistent Volume types, such as Azure Files shares and blobs. Also, if you set defined retention rules for the Vault Tier, backups are only eligible to be moved to the vault if the Persistent Volumes are less than or equal to 1 TB.
+> Currently, Azure Backup supports only Persistent Volumes in CSI driver-based Azure Disk Storage. During backups, the solution skips other Persistent Volume types, such as Azure Files share and blobs. Also, if you set defined retention rules for the Vault Tier, backups are only eligible to be moved to the vault if the Persistent Volumes are less than or equal to 1 TB.
 
 ## Configure backup
 
@@ -210,7 +210,7 @@ To create and apply resource modification, follow these steps:
 
    You need to create one `configmap` in your preferred namespace from a *YAML* file that defined resource modifiers.
 
-**Example for creating a command**:
+Example for creating a command:
 
     ```json
     version: v1
