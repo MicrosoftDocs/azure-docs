@@ -98,7 +98,6 @@ To enhance network performance, consider implementing the following optimization
 - **Network buffer settings**: Adjust kernel parameters to maximize read and write memory buffers. Add these configurations to `/etc/sysctl.d/99-azure-network-buffers.conf`: 
 
 ```plaintext
-/etc/sysctl.d/99-azure-network-buffers.conf 
 net.core.rmem_max = 2147483647 
 net.core.wmem_max = 2147483647 
 net.ipv4.tcp_rmem = 4096 67108864 1073741824 
@@ -110,41 +109,35 @@ net.ipv4.tcp_wmem = 4096 67108864 1073741824
 - Ensure the BBR module is loaded by adding it to `/etc/modules-load.d/99-azure-tcp-bbr.conf`: 
 
 ```plaintext
-/etc/modules-load.d/99-azure-tcp-bbr.conf 
 tcp_bbr 
 ```
 
 ```plaintext
-/etc/sysctl.d/99-azure-congestion-control.conf 
 net.ipv4.tcp_congestion_control = bbr 
 ```
 
 - **Queue discipline (qdisc)**: Packet processing in Azure is generally improved by setting the default qdisc to `fq`. Add this configuration to `/etc/sysctl.d/99-azure-qdisc.conf`: 
 
 ```plaintext
-/etc/sysctl.d/99-azure-qdisc.conf 
 net.core.default_qdisc = fq 
 ```
 
 - Create a udev rule in `/etc/udev/rules.d/99-azure-qdisc.rules` to ensure the qdisc is applied to network interfaces: 
 
 ```plaintext
-/etc/udev/rules.d/99-azure-qdisc.rules 
 ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue" 
 ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
 ```
 
 - **IRQ scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. Update `/etc/default/irqbalance` with the following configuration: 
 
-```plaintext
-/etc/default/irqbalance 
+```bash
 IRQBALANCE_BANNED_CPULIST=0-2 
 ```
 
 - **udev rules**: Add rules to optimize queue length and manage device flags efficiently. Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules`: 
 
 ```plaintext
-/etc/udev/rules.d/99-azure-txqueue-len.rules 
 SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
 ```
 
