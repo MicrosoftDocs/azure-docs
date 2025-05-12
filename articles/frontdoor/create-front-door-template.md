@@ -12,6 +12,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an Azure Front Door using an ARM template
+
 This quickstart shows you how to use an Azure Resource Manager (ARM) template to create an Azure Front Door with an Azure Web App as the origin.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
