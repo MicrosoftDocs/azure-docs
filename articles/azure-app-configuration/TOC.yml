@@ -330,6 +330,8 @@
     items:
     - name: Overview
       href: ./configuration-provider-overview.md
+    - name: Support policy
+      href: ./support-policy.md
     - name: .NET
       items:
       - name: API reference
