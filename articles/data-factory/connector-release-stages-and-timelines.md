@@ -16,7 +16,7 @@ This article provides an overview of the release stages and timelines for each c
 For comprehensive details on support levels and recommended usage at each stage, please see [this article](connector-lifecycle-overview.md#release-rhythm).
 
 > [!NOTE]
-> If you encounter any gaps while upgrading your connector to the latest version, please contact for help via the way provided in the FAQ article.
+> If you encounter any gaps while upgrading your connector to the latest version, please contact for help via the way provided in the [FAQ article](connector-deprecation-frequently-asked-questions.md#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors).
 
 | Connector                          | Latest Version | Release Stage                     | End-of-Support Date   | End-of-Life Date      |
 |------------------------------------|----------------|------------------------------------|-----------------------|-----------------------|
