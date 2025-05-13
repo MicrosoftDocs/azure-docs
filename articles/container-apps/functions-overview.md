@@ -37,21 +37,26 @@ Azure Functions on Container Apps provide a versatile combination of services to
 
 - **Serverless workloads**: Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources.
 
+- **Common Azure Functions scenarios**: All common Azure Functions scenarios like processing file uploads, running scheduled tasks, responding to database changes, machine learning/AI and others detailed in [Azure Functions scenarios](/azure/azure-functions/functions-scenarios?pivots=programming-language-csharp). 
+
 ## Event-driven scaling
 
 All Functions triggers are available in your containerized Functions app. However, only the following triggers can dynamically scale (from zero instances) based on received events when running in a Container Apps environment:
 
 - Azure Event Grid
 - Azure Event Hubs
-- Azure Blob Storage (event-based)
+- Azure Blob Storage (Event Grid based)
 - Azure Queue Storage
 - Azure Service Bus
-- Durable Functions (MSSQL storage provider)
+- [Durable Functions (MSSQL storage provider)](../azure-functions/durable/durable-functions-mssql-container-apps-hosting.md)
 - HTTP
 - Kafka
 - Timer
+- Azure Cosmos DB
 
 Azure Functions on Container Apps are designed to configure the scale parameters and rules as per the event target. You don't need to worry about configuring the KEDA scaled objects. You can still set minimum and maximum replica count when creating or modifying your function app.
+
+Auto scaling for Azure Cosmos DB trigger and Durable functions is currently supported using connection strings only.
 
 You can write your function code in any [language stack supported](/azure/azure-functions/supported-languages?tabs=isolated-process%2Cv4&pivots=programming-language-csharp) by Azure Functions. You can use the same Functions triggers and bindings with event-driven scaling.
 
