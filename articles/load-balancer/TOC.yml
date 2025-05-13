@@ -11,7 +11,7 @@
   - name: Cross-subscription load balancer overview
     href: cross-subscription-overview.md
   - name: Choose a load balancing solution
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview
+    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json
   - name: Health probes
     href: load-balancer-custom-probe-overview.md
   - name: Administrative state
@@ -31,6 +31,8 @@
     href: load-balancer-best-practices.md
   - name: What's new?
     href: whats-new.md
+  - name: What is load balancing and content delivery?
+    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md
 - name: Deploy
   items:
   - name: Portal settings
