@@ -18,7 +18,7 @@ Network Optimized Virtual Machines feature updated network flow limits that scal
 
 > [!IMPORTANT]
 > Network Optimized Virtual Machines: Enhanced Performance and Connection Setup is currently in PREVIEW.  
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](../../support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Traffic and software-defined networking features that support enhanced connection setup
 
@@ -46,7 +46,7 @@ Virtual machines with **`n`** included in their name include enhanced connection
 
 Connection and flow limits for Network Optimized Virtual Machines are adjusted to enhance scalability and ensure consistent performance. These limits depend on the vCPU count of the virtual machine. When the connection or flow limit is reached, any new packets attempting to create connections or flows beyond the limit are dropped.
 
-For more information on the concepts and accounting for connection and flow limits, see [Azure virtual machine network throughput](../../virtual-network/virtual-machine-network-throughput.md).
+For more information on the concepts and accounting for connection and flow limits, see [Azure virtual machine network throughput](virtual-machine-network-throughput.md).
 
 | **vCPU** | **Connection Limit** |
 |----------|----------------------|
