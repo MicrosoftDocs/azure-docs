@@ -27,43 +27,48 @@ The account is located in the East US region, and is configured for locally-redu
 
 ## Estimate
 
-| Cost meter                      | Estimate    |
-|---------------------------------|-------------|
-| Write operations (archive tier) | $28.18      |
-| Read operations (archive tier)  | $0.22       |
-| Data retrieval fee              | $88.00      |
-| Early deletion fee              | $24.00      |
-| **Total cost**                  | **$140.40** |
+The following table shows the complete 
+
+| Cost meter         | Estimate    |
+|--------------------|-------------|
+| Write operations   | $28.18      |
+| Read operations    | $0.22       |
+| Data retrieval fee | $88.00      |
+| Early deletion fee | $24.00      |
+| **Total cost**     | **$140.40** |
 
 This estimate doesn't include the cost of data storage. Storage is billed per GB. See [The cost to store data](blob-storage-estimate-costs.md#the-cost-to-store-data).
 
 ## Breakdown
 
-| Cost factor                      | Calculation                              | Value      |
-|----------------------------------|------------------------------------------|------------|
-| PutBlock operations per blob     | 10 GiB / 8-MiB block                     | 1280       |
-| PutBlockList operations per blob |                                          | 1          |
-| Total write operations           | 2,000 * 1,281                            | 2,562,000  |
-| **Cost of write operations**     | 2,562,000 * operation price              | **$28.18** |
-|                                  |                                          |            |
-| Number of read operations        | 2000 blobs * 20%                         | 400        |
-| **Cost to read**                 | operations * price to read               | **$0.22**  |
-|                                  |                                          |            |
-| Total file size (GB)             |                                          | 20,000     |
-| Data retrieval size              | 20% of file size                         | 4,000      |
-| **Cost to retrieve**             | data retrieval size * price of retrieval | **$88.00** |
-|                                  |                                          |            |
-| Rough number of months penalty   | (180 days - 90 days) / 30 days           | 3          |
-| **Early deletion penalty**       | 200 * price of archive storage / 3       | **24.00**  |
+The following table shows how each cost component is calculated.
+
+| Cost factor                      | Calculation                             | Value      |
+|----------------------------------|-----------------------------------------|------------|
+| PutBlock operations per blob     | 10 GiB / 8-MiB block                    | 1280       |
+| PutBlockList operations per blob |                                         | 1          |
+| **Cost of write operations**     | (2,000 * 1,281) * write operation price | **$28.18** |
+| <br><br>                         |                                         |            |
+| SetBlobTier operations           | 2000 blobs * 20%                        | 400        |
+| **Cost of read operations**      | 400 * read operation price              | **$0.22**  |
+| <br><br>                         |                                         |            |
+| Total file size (GB)             |                                         | 20,000     |
+| Data retrieval size              | 20% of file size                        | 4,000      |
+| **Cost to retrieve**             | 4,000 * price of data retrieval         | **$88.00** |
+| <br><br>                         |                                         |            |
+| Rough number of months penalty   | (180 days - 90 days) / 30 days          | 3          |
+| **Early deletion penalty**       | 200 * price of archive storage / 3      | **24.00**  |
 
 ## Estimate variations
 
-| Factor | Impact |
-|---|---|
-| Copying blobs to an online tier instead of changing the blob's tier | Adds the cost of write operations on the target tier, but avoids the early deletion penalty. |
-| Block size    | Decreases the number of write operations required to upload blobs to the archive tier. |
-| Data Lake Storage Gen 2 endpoints | Increases the cost of both uploading and reading data because data is uploaded and read in 4 MiB blocks. |
-| Replication setting of the account | The cost of write and read operations is affected by redundancy setting. |
+The following table describes factors that can impact the cost of this scenario. 
+
+| Factor | Impact | Learn more |
+|---|---|----|
+| Copying blobs instead of changing their tier | Adds a cost to write to the target tier, but avoids the early deletion penalty.| [Blob rehydration from the archive tier](archive-rehydrate-overview.md) |
+| Block size    | Larger block size reduces the number of write operations required to upload data. | [The cost to upload data](blob-storage-estimate-costs.md) |
+| Data Lake Storage Gen 2 endpoints | Smaller fixed block sizes of 4 MiB increases the number of write and read operations. | [Cost of uploading to the Data Lake Storage endpoint](azcopy-cost-estimation.md#cost-of-uploading-to-the-data-lake-storage-endpoint) |
+| Redundancy configuration of the account | Storage redundancy configuration impacts the cost of certain operations | [Azure Storage redundancy](../common/storage-redundancy.md) | 
 
 ## See also
 
