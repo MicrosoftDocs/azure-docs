@@ -1145,6 +1145,8 @@
   items:
   - name: Overview
     href: sentinel-integration-guide.md
+  - name: Sentinel solution quality guidelines
+    href: sentinel-solution-quality-guidance.md
   - name: Partner integrations best practices
     href: partner-integrations.md
   - name: Creating codeless data connectors (CCP)

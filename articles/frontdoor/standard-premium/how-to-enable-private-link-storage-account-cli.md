@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 
 # Connect Azure Front Door Premium to a Storage Account origin with Private Link with Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article provides a step-by-step guide on how to configure Azure Front Door Premium to connect to your Storage Account privately using Azure Private Link with Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
