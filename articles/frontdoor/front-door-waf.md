@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Quickly scale and protect a web application using Azure Front Door and Azure Web Application Firewall (WAF)
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Web applications often experience traffic surges and malicious attacks, such as denial-of-service attacks. Azure Front Door with Azure WAF can help scale your application and protect it from such threats. This tutorial guides you through configuring Azure Front Door with Azure WAF for any web app, whether it runs inside or outside of Azure.

@@ -535,4 +535,3 @@ For more information about Microsoft Azure Germany, see [Microsoft Azure Germany
 * [Azure Cache for Redis cmdlets](/powershell/module/az.rediscache)
 * [Azure PowerShell cmdlets](/powershell/module/)
 * [PowerShell Community blog](https://devblogs.microsoft.com/powershell-community/)
-

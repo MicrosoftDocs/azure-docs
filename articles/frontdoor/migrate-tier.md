@@ -10,6 +10,8 @@ ms.date: 11/18/2024
 
 # Migrate Azure Front Door (classic) to Standard or Premium tier
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Azure Front Door Standard and Premium tiers offer advanced cloud delivery network features, enhanced security, and improved performance by using the Microsoft global network. This guide helps you migrate your Azure Front Door (classic) profile to a Standard or Premium tier profile.

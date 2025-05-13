@@ -5,7 +5,7 @@ author: AnuragMehrotra
 ms.author: anuragm
 ms.manager: vijain
 ms.topic: how-to
-ms.date: 01/13/2024
+ms.date: 05/08/2025
 ms.custom: engagement-fy25
 ---
 
@@ -27,7 +27,7 @@ This article describes how to upgrade Windows Server OS while migrating to Azure
 - To upgrade from Windows Server 2008 or 2008 R2, ensure you have Microsoft .NET Framework 4 installed on your machine. This is available by default in Windows Server 2008 SP2 and Windows Server 2008 R2 SP1.
 - Disable antivirus and anti-spyware software and firewalls. These types of software can conflict with the upgrade process. Re-enable antivirus and anti-spyware software and firewalls after the upgrade is completed.  
 - Ensure that your VM has the capability of adding another data disk as this feature requires the addition of an extra data disk temporarily for a seamless upgrade experience. 
-- For Private Endpoint enabled Azure Migrate projects, follow [these](./vmware/migrate-vmware-servers-to-azure-using-private-link.md) steps before initiating any Test migration/Migration with OS upgrade.  
+- For Private Endpoint enabled Azure Migrate projects, follow [these](migrate-vmware-servers-to-azure-using-private-link.md) steps before initiating any Test migration/Migration with OS upgrade.  
 
 
 > [!NOTE]

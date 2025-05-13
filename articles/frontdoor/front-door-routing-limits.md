@@ -12,6 +12,8 @@ ms.author: jodowns
 
 # Front Door routing limits
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Each Front Door profile has a *composite route limit*.

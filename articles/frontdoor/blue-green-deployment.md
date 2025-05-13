@@ -11,6 +11,8 @@ ms.date: 11/18/2024
 
 # Blue/Green Deployments Using Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+
 *Blue/Green deployment* is a software release strategy that gradually introduces application updates to a small group of users. If the updates are successful, the number of users accessing the new deployment is gradually increased until all users are on the new version. If issues arise, traffic can be redirected to the old version, ensuring minimal disruption. This approach is safer than deploying updates to all users at once.
 
 Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that offers fast, reliable, and secure access to your application's static and dynamic web content globally. This article explains how to use Azure Front Door's global load balancing capabilities to implement a blue/green deployment model for your backends.

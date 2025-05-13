@@ -77,6 +77,8 @@ Flex Consumption includes an _always ready_ feature that lets you choose instanc
 
 For example, if you set always ready to 2 for your HTTP group of functions, the platform keeps two instances always running and assigned to your app for your HTTP functions in the app. Those instances are processing your function executions, but depending on concurrency settings, the platform scales beyond those two instances with on-demand instances.
 
+No less than two always-ready instances can be configured per function or function group while [zone redundancy is enabled](../reliability/reliability-functions.md?pivots=flex-consumption-plan#availability-zone-support). 
+
 To learn how to configure always ready instances, see [Set always ready instance counts](flex-consumption-how-to.md#set-always-ready-instance-counts).
 
 ## Concurrency
@@ -131,7 +133,8 @@ In Flex Consumption many of the standard application settings and site configura
 
 Keep these other considerations in mind when using Flex Consumption plan:
 
-+ **Host**: There's a 30-second time out for app initialization. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this time out. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
++ **Apps per Plan**: Only one app is allowed per Flex Consumption plan.  
++ **Host**: There's a 30-second time-out for app initialization. When your function app takes longer than 30 seconds to start, you might see gRPC-related `System.TimeoutException` entries logged. You can't currently configure this time-out. For more information, see [this host work item](https://github.com/Azure/azure-functions-host/issues/10482).
 + **Durable Functions**: Azure Storage is currently the only supported [storage provider](./durable/durable-functions-storage-providers.md) for Durable Functions when hosted in the Flex Consumption plan. See [recommendations](./durable/durable-functions-azure-storage-provider.md#flex-consumption-plan) when hosting Durable Functions in the Flex Consumption plan.
 + **Virtual network integration** Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider). The subnet delegation required by Flex Consumption apps is `Microsoft.App/environments`.
 + **Triggers**: While all triggers are fully supported in a Flex Consumption plan, the Blob storage trigger only supports the [Event Grid source](./functions-event-grid-blob-trigger.md). Non-C# function apps must use version `[4.0.0, 5.0.0)` of the [extension bundle](./functions-bindings-register.md#extension-bundles), or a later version. 
@@ -142,7 +145,7 @@ Keep these other considerations in mind when using Flex Consumption plan:
 + **Diagnostic settings**: Diagnostic settings aren't currently supported.
 + **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting, managed certificates, app service certificates, and other platform certificate-based features are currently not supported.
 + **Key Vault and App Configuration References**: You can't currently use [Azure Key Vault](../app-service/app-service-key-vault-references.md) or [Azure App Configuration](../app-service/app-service-configuration-references.md) references in your Flex Consumption plan app settings when these services are network access restricted. This limitation applies even when the function app has Virtual Network integration enabled. If you must use restricted Key Vault or App Configuration instances, you must use client SDKs to manually retrieve values from references in these services. Functions binding extensions also can't access these references, which means you must also use Azure client SDKs for accessing remote service data from your function code.
-+ **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings are not currently supported when running on Flex Consumption plan.
++ **Timezones**: `WEBSITE_TIME_ZONE` and `TZ` app settings aren't currently supported when running on Flex Consumption plan.
 
 ## Related articles
 

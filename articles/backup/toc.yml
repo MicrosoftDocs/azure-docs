@@ -102,6 +102,8 @@
       href: quick-restore-hana-cli.md
   - name: Restore the entire SAP HANA system to snapshot restore point
     href: quick-sap-hana-database-instance-restore.md
+  - name: Run preregistration script for SAP ASE database backup
+    href: sap-ase-database-backup-run-preregistration-quickstart.md  
   - name: Enable enhanced soft delete
     href: quick-backup-azure-enable-enhanced-soft-delete.md
 - name: Tutorials
@@ -152,6 +154,8 @@
       href: tutorial-sap-hana-manage-cli.md
   - name: Configure SAP HANA database instance snapshot backup
     href: tutorial-configure-sap-hana-database-instance-snapshot-backup.md
+  - name: Back up SAP ASE database on Azure VMs
+    href: sap-ase-database-backup-tutorial.md  
   - name: Back up Azure Managed Disks
     href: back-up-managed-disks-tutorial.md
   - name: Configure Multi-user authorization (MUA)
@@ -692,7 +696,7 @@
       href: sap-hana-database-manage.md
   - name: SAP ASE database on Azure VM backup
     items:
-    - name: Backup
+    - name: Configure backup
       href: sap-ase-database-backup.md
     - name: Restore
       href: sap-ase-database-restore.md

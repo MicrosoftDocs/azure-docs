@@ -66,6 +66,14 @@ landingContent:
             url: tutorial-manage-data-using-copilot.md
 
   # Card (optional)
+  - title: Supported workloads
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Back up SAP ASE database
+            url: ../backup/sap-ase-database-about.md
+  
+  # Card (optional)
   - title: Architecture
     linkLists:
       - linkListType: architecture

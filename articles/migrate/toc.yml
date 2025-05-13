@@ -32,9 +32,9 @@ items:
     - name: Appliance requirements
       href: migrate-appliance.md
     - name: Discover VMware estate
-      href: ./vmware/tutorial-discover-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: tutorial-discover-vmware.md
     - name: Scoped discovery of VMware estate
-      href: ./vmware/set-discovery-scope.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: set-discovery-scope.md
     - name: Discover Hyper-v estate
       href: tutorial-discover-hyper-v.md
     - name: Discover physical servers and servers running in AWS and GCP
@@ -56,7 +56,7 @@ items:
       - name: CSV import
         href: tutorial-discover-import.md
       - name: RVTools import
-        href: ./vmware/tutorial-import-vmware-using-rvtools-xlsx.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+        href: tutorial-import-vmware-using-rvtools-xlsx.md
     - name: Create least privileged credentials for SQL discover
       href: least-privilege-credentials.md
 - name: Explore inventory
@@ -152,17 +152,17 @@ items:
   - name: Server Migrations
     items: 
     - name: Overview of Migration method
-      href: ./vmware/server-migrate-overview.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: server-migrate-overview.md
     - name: Agent-based migrations
       items:
       - name: Agent-based migration using portal
-        href: ./vmware/tutorial-migrate-vmware-agent.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+        href: tutorial-migrate-vmware-agent.md
     - name: Agentless migrations
       items:
       - name: Agentless migrations using portal
-        href: ./vmware/tutorial-migrate-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+        href: tutorial-migrate-vmware.md
       - name: Agentless migrations using scripts
-        href: ./vmware/tutorial-migrate-vmware-powershell.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+        href: tutorial-migrate-vmware-powershell.md
 #   - name: Limitations
 - name: Modernize applications
   items:
@@ -187,7 +187,7 @@ items:
     - name: Migrate VMware servers 
       items:
         - name: Migrate to Azure Cloud
-          href: ./vmware/tutorial-migrate-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+          href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 
           href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate Hyper-V servers 
@@ -300,7 +300,7 @@ items:
 #   - name: Scale assessment
       items:
       - name: Assess large number of servers in VMware environment
-        href: ./vmware/scale-vmware-assessment.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+        href: scale-vmware-assessment.md
       - name: Assess large number of servers in Hyper-V environment
         href: scale-hyper-v-assessment.md
       - name: Assess large numbers of physical servers
@@ -314,7 +314,7 @@ items:
     - name: Prepare Windows 2003 servers for migration
       href: prepare-windows-server-2003-migration.md
     - name: Migrate VMware VMs to encrypted Azure VMs
-      href: ./vmware/how-to-migrate-vmware-vms-with-cmk-disks.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: how-to-migrate-vmware-vms-with-cmk-disks.md
     - name: Test migration
       href: how-to-test-replicating-virtual-machines.md
     - name: Upgrade Windows OS
@@ -326,7 +326,7 @@ items:
       - name: Automate migration of large number of VMs
         href: how-to-migrate-at-scale.md
       - name: How to automate VMware migration
-        href: ./vmware/how-to-automate-migration.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+        href: how-to-automate-migration.md
   - name: Manage
     items:
     - name: Manage projects
@@ -374,9 +374,9 @@ items:
   - name: Migrate
     items:
     - name: Replication in agentless VMware migration
-      href: ./vmware/troubleshoot-changed-block-tracking-replication.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: troubleshoot-changed-block-tracking-replication.md
     - name: Stuck replication and slow migration in agentless VMware
-      href: ./vmware/troubleshoot-replication-vmware.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: troubleshoot-replication-vmware.md
     - name: Web app migration issues
       href: troubleshoot-webapps-migration.md
     - name: Windows OS upgrade issues

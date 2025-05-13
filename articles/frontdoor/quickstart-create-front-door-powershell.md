@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Create an Azure Front Door (classic)  using Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Get started with Azure Front Door (classic) by using Azure PowerShell to create a highly available and high-performance global web application.

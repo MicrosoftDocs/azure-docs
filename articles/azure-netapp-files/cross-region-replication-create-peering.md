@@ -1,16 +1,16 @@
 ---
-title: Create volume replication for Azure NetApp Files | Microsoft Docs
+title: Create volume replication for Azure NetApp Files
 description: Describes how to create volume replication peering for Azure NetApp Files to set up cross-region replication.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 05/12/2025
 ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
 
-Azure NetApp Files supports [cross-region](cross-region-replication-introduction.md) and [cross-zone replication](cross-zone-replication-introduction.md).
+Azure NetApp Files enables you to replicate a volume for data protection and resiliency. You can replicate volumes across [regions](cross-region-replication-introduction.md), [zones in the same region](cross-zone-replication-introduction.md), or a [combination](cross-zone-region-replication.md). 
 
 Setting up replication peering enables you to asynchronously replicate data from an Azure NetApp Files volume (source) to another Azure NetApp Files volume (destination). You can create volume replication between regions (the source and destination volumes reside in different regions, this is known as cross-region replication), or within a region where the replication is established to a different zone in the same region (this is known as cross-zone replication).  
 
@@ -123,8 +123,11 @@ To authorize the replication, you need to obtain the resource ID of the replicat
 
 ## Next steps  
 
+* [Cross-zone replication](cross-zone-replication-introduction.md)
+* [Requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Cross-region replication](cross-region-replication-introduction.md)
 * [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Cross-zone-region replication](cross-zone-region-replication.md)
 * [Cross-zone replication](cross-zone-replication-introduction.md)
 * [Requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)

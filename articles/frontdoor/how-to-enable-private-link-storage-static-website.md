@@ -12,6 +12,8 @@ zone_pivot_groups: front-door-dev-exp-portal-cli
 
 # Connect Azure Front Door Premium to a storage static website with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 ::: zone pivot="front-door-portal"
 
 This article guides you through how to configure Azure Front Door Premium tier to connect to your storage static website privately using the Azure Private Link service.
