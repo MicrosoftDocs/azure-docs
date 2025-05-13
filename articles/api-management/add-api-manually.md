@@ -1,6 +1,6 @@
 ---
 title: Manually Add an API by Using the Azure Portal | Microsoft Docs
-description: Learn how to use Azure API Management in the Azure portal to manually add an API.
+description: Learn how to use Azure API Management in the Azure portal to manually add an API. Add and test various operations.
 services: api-management
 author: dlepow
 
@@ -53,18 +53,18 @@ This section shows how to add a `/get` operation to map it to the backend `http:
 ### Add an operation
 
 1. Select the API you created in the previous step.
-2. Select **+ Add operation**.
-3. In **URL**, select **GET** and enter **/get** in the text box.
-4. In **Display name**, enter **FetchData**.
-5. Select **Save**.
+1. Select **+ Add operation**.
+1. In **URL**, select **GET** and enter **/get** in the text box.
+1. In **Display name**, enter **FetchData**.
+1. Select **Save**.
 
 ### Test the operation
 
 Test the operation in the Azure portal. (You can also test it in the developer portal.)
 
 1. Select the **Test** tab.
-2. Select **FetchData**.
-3. Select **Send**.
+1. Select **FetchData**.
+1. Select **Send**.
 
 The response that the `http://httpbin.org/get` operation generates appears in the **HTTP response** section. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
@@ -75,18 +75,18 @@ This section shows how to add an operation that takes a parameter. In this examp
 ### Add an operation
 
 1. Select the API that you created earlier.
-2. On the **Design** tab, select **+ Add operation**.
-3. In **URL**, select **GET** and enter **/status/{code}** in the text box. 
-4. In **Display name**, enter **GetStatus**.
-5. Select **Save**.
+1. On the **Design** tab, select **+ Add operation**.
+1. In **URL**, select **GET** and enter **/status/{code}** in the text box. 
+1. In **Display name**, enter **GetStatus**.
+1. Select **Save**.
 
 ### Test the operation
 
 Test the operation in the Azure portal. (You can also test it in the developer portal.)
 
 1. Select the **Test** tab.
-2. Select **GetStatus**. Under **code**, enter **200**. 
-3. Select **Send**.
+1. Select **GetStatus**. Under **code**, enter **200**. 
+1. Select **Send**.
 
     The response that the `http://httpbin.org/status/200` operation generates appears in the **HTTP response** section. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
@@ -100,17 +100,17 @@ This section shows how to add a wildcard operation. A wildcard operation enables
 ### Add an operation
 
 1. Select the API you created earlier.
-2. On the **Desgin** tab, select **+ Add operation**.
-3. In **URL**, select **GET** and enter **/*** in the text box.
-4. In **Display name**, enter **WildcardGet**.
-5. Select **Save**.
+1. On the **Desgin** tab, select **+ Add operation**.
+1. In **URL**, select **GET** and enter **/*** in the text box.
+1. In **Display name**, enter **WildcardGet**.
+1. Select **Save**.
 
 ### Test the operation 
 
 Test the operation in the Azure portal. (You can also test it in the developer portal.)
 
 1. Select the **Test** tab.
-2. Select **WildcardGet**. Try the GET operations that you tested in previous sections, or try a different supported GET operation.
+1. Select **WildcardGet**. Try the GET operations that you tested in previous sections, or try a different supported GET operation.
 
     For example, in **Template parameters**, change the value next to the wildcard (*) name to **headers**. The operation returns the incoming request's HTTP headers.
 1. Select **Send**.
