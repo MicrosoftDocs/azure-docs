@@ -11,6 +11,8 @@ items:
         displayName: roadmap, future, features, enhancements, coming soon, in development
   - name: Quickstarts
     items:
+      - name: Get Started with the quick start template
+        href: quickstart-get-started-template.md
       - name: Set up Dev Box service (Azure portal)
         href: quickstart-configure-dev-box-service.md
       - name: Set up Dev Box service (ARM template)
@@ -73,10 +75,8 @@ items:
       - name: Write an image definition file
         href: how-to-write-image-definition-file.md
         displayName: customizations, image definition, team customization
-      - name: Use copilot to generate an image definition file
-        href: how-to-use-copilot-generate-image-definition-file.md
-      - name: Write a user customization file
-        href: how-to-write-user-customization-file.md
+      - name: Write an individual customization file
+        href: how-to-write-individual-customization-file.md
         displayName: customizations, image definition, personal customization, individual
       - name: Configure imaging for Customizations
         href: how-to-configure-customization-imaging.md
@@ -162,8 +162,6 @@ items:
         href: how-to-install-dev-box-cli.md
       - name: Azure CLI - az devcenter
         href: /cli/azure/service-page/microsoft%20dev%20box%20and%20azure%20deployment%20environments
-      - name: Customizations YAML schema
-        href: reference-dev-box-customizations.md
       - name: Authenticate to REST APIs
         href: how-to-authenticate.md
       - name: REST API
