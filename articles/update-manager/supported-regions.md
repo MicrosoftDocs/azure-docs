@@ -4,7 +4,7 @@ description: Discover the regions where Azure Update Manager is supported for bo
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 03/07/2025
+ms.date: 05/13/2025
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -17,7 +17,7 @@ Update Manager scales to all regions for both Azure VMs and Azure Arc-enabled se
 
 #### [Azure VMs](#tab/public-vm)
 
-Azure Update Manager is available in all Azure public regions where compute virtual machines are available.
+Azure Update Manager is available in the regions specified in [Product Availability by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
 #### [Azure Arc-enabled servers](#tab/public-arc)
 
