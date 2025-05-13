@@ -46,9 +46,7 @@ For illustration:
 
 ## Existing releases
 
-For major versions released prior to the adoption of this policy, we are providing a grace period to ensure a smooth transition:
-
-- Any major version currently in deprecation mode as of the announcement of this policy will receive at least 12 months of maintenance support starting from the announcement date.
+For major versions released prior to the adoption of this policy, a grace period will be enacted. Any major version currently in deprecation mode as of the announcement of this policy will receive at least 12 months of maintenance support starting from the announcement date.
 
 ## Using unsupported versions
 
