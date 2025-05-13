@@ -87,7 +87,7 @@ This process ensures a smooth transition from outdated connectors to the latest 
 ## Related content
 
 - [Connector overview](connector-overview.md)  
-- [Connector lifecycle overview ](connector-lifecycle-overview.md) 
+- [Connector lifecycle overview ](connector-lifecycle-overview.md)
 - [Connector upgrade guidance](connector-upgrade-guidance.md) 
+- [Connector release stages and timelines](connector-release-stages-and-timelines.md)    
 - [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)  
-- [Connector release stages and timelines](connector-release-stages-and-timelines.md)  

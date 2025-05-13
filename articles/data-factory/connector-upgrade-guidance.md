@@ -23,7 +23,7 @@ Here's the steps to help you find the notification:
 1. Navigate to [Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues) or you can select **Service Health** icon on your Azure portal dashboard.
 1. Go to **Health advisories** tab and you can see the notification related to your connectors in the list. You can also go to **Health history** tab to check historical notifications.
 
-    :::image type="content" source="media/connector-connector-lifecycle/service-health-health-advisories.png" alt-text="Screenshot of service health.":::
+    :::image type="content" source="media/connector-lifecycle/service-health-health-advisories.png" alt-text="Screenshot of service health.":::
 
 To learn more about the Service Health portal, see this [article](/azure/service-health/service-health-overview).
 
@@ -50,5 +50,5 @@ Users can run a PowerShell script to programmatically extract a list of Azure Da
 - [Connector overview](connector-overview.md)  
 - [Connector lifecycle overview](connector-lifecycle-overview.md) 
 - [Connector upgrade assistant](connector-upgrade-advisor.md)  
-- [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)
 - [Connector release stages and timelines](connector-release-stages-and-timelines.md)  
+- [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)

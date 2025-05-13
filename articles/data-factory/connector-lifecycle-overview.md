@@ -19,12 +19,15 @@ In Azure Data Factory, the introduction of the connector lifecycle ensures that 
 Connector upgrades are essential to evolve innovation in a fast manner, maintain performance, compatibility, and reliability. These upgrades typically occur in the following scenarios:
 
 1. **New feature enhancements such as security, performance, etc.**  
+
    While the service actively evolves to provide the most secure and reliable features in the connector, leveraging the connector lifecycle is an efficient approach to ensure that users can take full advantage of the new enhancements at their manageable pace without business interruption.
 
 2. **Protocol change introduced by external data source vendors leading to potential behavior changes**  
+
    These changes are not always exhaustively predictable and arise due to incompatibility brought by individual data source vendor itself. Given these uncertainties, versioning ensures that users can adopt the updated connector (e.g. version 2.0) while maintaining a fallback option in a period. This empowers users to well plan for a version upgrade to accommodate potential differences while providing users with a clear transition path.
 
 3. **Fixing unintended behaviors**  
+
    In some cases, earlier connector versions may exhibit unexpected or buggy behaviors due to legacy constraints. When an upgrade corrects these behaviors and improves data integrity and reliability, it may also inevitably bring behavior changes. In this case, versioning plays a crucial role in ensuring that users are aware of these changes, can test them in a controlled environment, and transition smoothly without disruption.
 
 By adopting a structured connector lifecycle with versioning, the service provides customers with transparency, control, and predictability when connector upgrades are introduced. Users can confidently evaluate new versions, mitigate risks associated with behavior changes, and benefit from continuous improvements while maintaining operational stability.
@@ -67,6 +70,6 @@ In addition to major and minor version updates, the service also delivers new fe
 
 - [Connector overview](connector-overview.md)  
 - [Connector upgrade guidance](connector-upgrade-guidance.md) 
-- [Connector upgrade assistant](connector-upgrade-advisor.md)  
-- [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)  
+- [Connector upgrade assistant](connector-upgrade-advisor.md)
 - [Connector release stages and timelines](connector-release-stages-and-timelines.md)  
+- [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)  

@@ -77,5 +77,6 @@ Our Azure Data Factory team will assist you and ensure a smooth transition to th
 
 - [Connector overview](connector-overview.md)  
 - [Connector lifecycle overview](connector-lifecycle-overview.md) 
+- [Connector upgrade guidance](connector-upgrade-guidance.md) 
 - [Connector upgrade assistant](connector-upgrade-advisor.md)  
 - [Connector release stages and timelines](connector-release-stages-and-timelines.md)  
