@@ -39,30 +39,19 @@ This estimate doesn't include the cost of data storage. Storage is billed per GB
 
 ## Breakdown
 
-| Write operations (archive tier) cost factors               | Value      |
-|------------------------------------------------------------|------------|
-| PutBlock operations per blob (10 GiB / 8-MiB block)        | 1280       |
-| PutBlockList operations per blob                           | 1          |
-| Total write operations (2,000 * 1,281)                     | 2,562,000  |
-| **Cost of write operations (2,562,000 * operation price)** | **$28.18** |
-
-| Read operations (archive tier) cost factors   | Value     |
-|-----------------------------------------------|-----------|
-| Number of read operations (2000 blobs * 20%)  | 400       |
-| **Cost to read (operations * price to read)** | **$0.22** |
-
-| Data retrieval fee cost factors                                 | Value      |
+| Cost factor                                                     | Value      |
 |-----------------------------------------------------------------|------------|
+| PutBlock operations per blob (10 GiB / 8-MiB block)             | 1280       |
+| PutBlockList operations per blob                                | 1          |
+| Total write operations (2,000 * 1,281)                          | 2,562,000  |
+| **Cost of write operations (2,562,000 * operation price)**      | **$28.18** |
+| Number of read operations (2000 blobs * 20%)                    | 400        |
+| **Cost to read (operations * price to read)**                   | **$0.22**  |
 | Total file size (GB)                                            | 20,000     |
 | Data retrieval size (20% of file size)                          | 4,000      |
 | **Cost to retrieve (data retrieval size * price of retrieval)** | **$88.00** |
-
-| Early deletion fee cost factors                                 | Value     |
-|-----------------------------------------------------------------|-----------|
-| Total file size (GB)                                            | 20,000    |
-| Data retrieval size (20% of file size)                          | 4,000     |
-| Rough number of months penalty (180 days - 90 days) / 30 days   | 3         |
-| **Early deletion penalty (200 * price of archive storage) / 3** | **24.00** |
+| Rough number of months penalty (180 days - 90 days) / 30 days   | 3          |
+| **Early deletion penalty (200 * price of archive storage) / 3** | **24.00**  |
 
 ## Estimate variations
 
