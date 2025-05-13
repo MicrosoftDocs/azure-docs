@@ -16,4 +16,3 @@ The following table lists quota information specific to Azure Service Bus messag
 ### Basic vs. standard vs. premium tiers
 [!INCLUDE [tier-limits](../articles/service-bus-messaging/includes/tier-limits.md)]
 
-[!INCLUDE [tier-features](../articles/service-bus-messaging/includes/tier-features.md)]
