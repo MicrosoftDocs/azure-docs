@@ -3,7 +3,7 @@ title: Set the scope for discovery of servers on VMware vSphere with Azure Migra
 description: Describes how to set the discovery scope for servers hosted on VMware vSphere assessment and migration with Azure Migrate.
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 03/21/2025
+ms.date: 05/12/2025
 ms.custom: vmware-scenario-422, engagement-fy23
 ---
 
@@ -11,14 +11,14 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 This article describes how to limit the scope of discovery for servers in VMware vSphere environment when you are:
 
-- Discovering servers with the [Azure Migrate appliance](../migrate-appliance-architecture.md) when you're using the Azure Migrate: Discovery and assessment tool.
-- Discovering servers with the [Azure Migrate appliance](../migrate-appliance-architecture.md) when you're using the Migration and modernization tool, for agentless migration of servers from VMware vSphere environment to Azure.
+- Discovering servers with the [Azure Migrate appliance](migrate-appliance-architecture.md) when you're using the Azure Migrate: Discovery and assessment tool.
+- Discovering servers with the [Azure Migrate appliance](migrate-appliance-architecture.md) when you're using the Migration and modernization tool, for agentless migration of servers from VMware vSphere environment to Azure.
 
 When you set up the appliance, it connects to vCenter Server and starts discovery. Before you connect the appliance to vCenter Server, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers. To set the scope, you assign permissions on the account that the appliance uses to access the vCenter Server.
 
 ## Before you start
 
-If you haven't set up a vCenter Server user account that Azure Migrate uses for discovery, do that now for [assessment](./tutorial-discover-vmware.md#prepare-vmware) or [agentless migration](./migrate-support-matrix-vmware-migration.md#agentless-migration).
+If you haven't set up a vCenter Server user account that Azure Migrate uses for discovery, do that now for [assessment](tutorial-discover-vmware.md#prepare-vmware) or [agentless migration](migrate-support-matrix-vmware-migration.md#agentless-migration).
 
 
 ## Assign permissions and roles
@@ -36,7 +36,7 @@ You can't scope inventory discovery at the vCenter Server folder level. If you n
 1. On the appliance vCenter Server account you're using for discovery, apply the **Read-only** role for all parent objects that host servers you want to discover and assess (host, cluster, hosts folder, clusters folder, up to datacenter).
 2. Propagate these permissions  to child objects in the hierarchy.
 
-    ![Assign permissions](../media/tutorial-assess-vmware/assign-perms.png)
+    ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
 
 ### Assign a role for agentless migration
 
@@ -62,7 +62,7 @@ The role-based access control setup ensures that the corresponding vCenter user 
 1. Grant read-only access to all the parent objects that host the virtual machines including host, cluster, hosts folder, clusters folder, up to data center. You don't need to propagate the permissions to all child objects.
 1. From vSphere client, make sure that the read permissions are applied to the parent objects both from the Hosts and Clusters view and from the VMs & templates view.
 
-   ![Screenshot showing Add permission.](../media/tutorial-assess-vmware/add-permissions.png)
+   ![Screenshot showing Add permission.](./media/tutorial-assess-vmware/add-permissions.png)
 
 1. The role-based access control setup ensures that the corresponding vCenter user account has access to only tenant-specific servers. 
 ::: moniker-end

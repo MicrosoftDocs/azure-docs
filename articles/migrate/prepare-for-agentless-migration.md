@@ -5,15 +5,15 @@ author: vijain
 ms.author: vijain
 ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 04/17/2025
+ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 ---
 
 # Prepare for VMware agentless migration
 
-This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](../tutorial-migrate-vmware.md) method using the Migration and modernization tool.
+This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](tutorial-migrate-vmware.md) method using the Migration and modernization tool.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
+
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
@@ -47,7 +47,7 @@ You can also use this article to manually prepare the VMs for migration to Azure
 
 You have to make some changes to the VMs configuration before the migration to ensure that the migrated VMs function properly on Azure. Azure Migrate handles these configuration changes via the *hydration* process. The hydration process is only performed for the versions of Azure supported operating systems given above. Before you migrate, you may need to perform the required changes manually for other operating system versions that aren't listed above. If the VM is migrated without the required changes, the VM may not boot, or you may not have connectivity to the migrated VM. The following diagram shows you that Azure Migrate performs the hydration process.
 
- [![Hydration steps](../media/concepts-prepare-vmware-agentless-migration/hydration-process-inline.png)](../media/concepts-prepare-vmware-agentless-migration/hydration-process-expanded.png#lightbox)
+ [![Hydration steps](./media/concepts-prepare-vmware-agentless-migration/hydration-process-inline.png)](./media/concepts-prepare-vmware-agentless-migration/hydration-process-expanded.png#lightbox)
 
 When a user triggers *Test Migrate* or *Migrate*, Azure Migrate performs the hydration process to prepare the on-premises VM for migration to Azure.
 To set up the hydration process, Azure Migrate creates a temporary Azure VM and attaches the disks of the source VM to perform changes to make the source VM ready for Azure. The temporary Azure VM is an intermediate VM created during the migration process before the final migrated VM is created. The temporary VM will be created with a similar OS type (Windows/Linux) using one of the marketplace OS images. If the on-premises VM is running Windows, the operating system disk of the on-premises VM will be attached as a data disk to the temporary VM for performing changes. If it's a Linux server, all the disks attached to the on-premises VM will be attached as data disks to the temporary Azure VM.
@@ -56,7 +56,7 @@ Azure Migrate will create the network interface, a new virtual network, subnet, 
 
 After the virtual machine is created, Azure Migrate will invoke the [Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows) on the temporary VM using the Azure Virtual Machine REST API. The Custom Script Extension utility will execute a preparation script containing the required configuration for Azure readiness on the on-premises VM disks attached to the temporary Azure VM. The preparation script is downloaded from an Azure Migrate owned storage account. The network security group rules of the virtual network will be configured to permit the temporary Azure VM to access the Azure Migrate storage account for invoking the script.
 
- ![Migration steps](../media/concepts-vmware-agentless-migration/migration-steps.png)
+ ![Migration steps](./media/concepts-vmware-agentless-migration/migration-steps.png)
 
 >[!NOTE]
 >Hydration VM disks do not support Customer Managed Key (CMK). Platform Managed Key (PMK) is the default option.
@@ -103,19 +103,19 @@ The preparation script executes the following changes based on the OS type of th
 
       - On the on-premises server, open the command prompt with elevated privileges and enter **diskpart**.
 
-        ![Manual Configuration](../media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png)
+        ![Manual Configuration](./media/concepts-prepare-vmware-agentless-migration/command-prompt-diskpart.png)
 
       - Enter SAN. If the drive letter of the guest operating system isn't maintained, Offline All or Offline Shared is returned.
 
       - At the DISKPART prompt, enter SAN Policy=OnlineAll. This setting ensures that disks are brought online, and that you can read and write to both disks.
 
-        ![Administrator Command Prompt diskpart online policy](../media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
+        ![Administrator Command Prompt diskpart online policy](./media/concepts-prepare-vmware-agentless-migration/diskpart-online-policy.png)
 
 1. **Set the DHCP start type**
 
    The preparation script will also set the DHCP service start type as Automatic. This will enable the migrated VM to obtain an IP address and establish connectivity post-migration. Make sure the DHCP service is configured, and the status is running.
 
-    ![Set DHCP Start Type](../media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png)
+    ![Set DHCP Start Type](./media/concepts-prepare-vmware-agentless-migration/get-service-dhcp.png)
 
    To edit the DHCP startup settings manually, run the following example in Windows PowerShell:
 
@@ -130,7 +130,7 @@ The preparation script executes the following changes based on the OS type of th
    Make “VMware Tools” service start-type to disabled if it exists as they aren't required for the VM in Azure.
 
    >[!NOTE]
-   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](../prepare-windows-server-2003-migration.md) to install and prepare for migration.
+   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](./prepare-windows-server-2003-migration.md) to install and prepare for migration.
 
 1. **Install the Windows Azure Guest Agent**
 
@@ -140,7 +140,7 @@ The preparation script executes the following changes based on the OS type of th
 
     To check if the Azure VM Agent was successfully installed, open Task Manager, select the **Details** tab, and look for the process name *WindowsAzureGuestAgent.exe*. The presence of this process indicates that the VM agent is installed. You can also use [PowerShell to detect the VM agent.](/azure/virtual-machines/extensions/agent-windows#powershell)
 
-    ![Successful Installation of Azure VM Agent](../media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
+    ![Successful Installation of Azure VM Agent](./media/concepts-prepare-vmware-agentless-migration/installation-azure-vm-agent.png)
 
     After the aforementioned changes are performed, the system partition will be unloaded. The VM is now ready for migration.
     [Learn more about the changes for Windows servers.](/azure/virtual-machines/windows/prepare-for-upload-vhd-image)
@@ -299,4 +299,4 @@ After this, the modified OS disk and the data disks that contain the replicated 
 
 ## Learn more
 
-- [Prepare on-premises machines for migration to Azure.](../prepare-for-migration.md)
+- [Prepare on-premises machines for migration to Azure.](./prepare-for-migration.md)

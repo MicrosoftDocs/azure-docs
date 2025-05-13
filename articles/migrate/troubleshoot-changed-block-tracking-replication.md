@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 08/08/2024
+ms.date: 05/08/2025
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
 
@@ -14,7 +14,6 @@ ms.custom: vmware-scenario-422, engagement-fy24
 
 This article describes some common issues and specific errors that you might encounter when you replicate on-premises VMware VMs using the Migration and modernization agentless method.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 When you replicate a VMware virtual machine using the agentless replication method, data from the virtual machine's disks (vmdks) are replicated to replica managed disks in your Azure subscription. When replication starts for a VM, an initial replication cycle occurs, in which full copies of the disks are replicated. After the initial replication completes, incremental replication cycles are scheduled periodically to transfer any changes that have occurred since the previous replication cycle.
 
@@ -29,23 +28,23 @@ Use the following steps to monitor the replication status for your virtual machi
 
 1. Go to the **Servers, databases and web apps** page in Azure Migrate on the Azure portal.
   
-    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/Overview.png" alt-text="Screenshot of the Get started screen of Azure Migrate.":::
 
 1. In the **Migration and modernization** tile, under **Replications**, select the number next to **Azure VM**.
 
-    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/replicating-servers.png" alt-text="Screenshot of the Migration and Modernization screen.":::
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/replicating-servers.png" alt-text="Screenshot of the Migration and Modernization screen.":::
 
 1. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The **Replication health** column indicates the current replication health of the VM. A *Critical* or *Warning* value typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select **Health error Details**. The **Error Details** page contains information on the error and additional details on how to troubleshoot.
 
-    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/health-error-details.png" alt-text="Screenshot of Health error details option in the Replication machines screen.":::
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/health-error-details.png" alt-text="Screenshot of Health error details option in the Replication machines screen.":::
 
 1. Select **Recent Events** to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type *Replication cycle failed* or *Replication cycle failed* for disk" for the VM.
 
-    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/recent-events.png" alt-text="Screenshot of Recent Events option.":::
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/recent-events.png" alt-text="Screenshot of Recent Events option.":::
 
 1. Select the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
 
-    :::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/error-details.png" alt-text="Screenshot of error message in the Error details screen.":::
+    :::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/error-details.png" alt-text="Screenshot of error message in the Error details screen.":::
 
 ## Common Replication Errors
 
@@ -57,7 +56,7 @@ This section describes some of the common errors, and how you can troubleshoot t
 
 **Error:** “Key Vault operation failed. Operation: Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
 
-:::image type="content" source="../media/troubleshoot-changed-block-tracking-replication/key-vault.png" alt-text="Screenshot of Key Vault.":::
+:::image type="content" source="./media/troubleshoot-changed-block-tracking-replication/key-vault.png" alt-text="Screenshot of Key Vault.":::
 
 This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies.
 
@@ -105,7 +104,7 @@ The component trying to replicate data to Azure is either down or not responding
     ```
     **Steps to run the performance benchmark test:**
 
-      1. [Download](../../storage/common/storage-use-azcopy-v10.md) azcopy.
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
 
       2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles *migrategwsa\*\*\*\*\*\*\*\*\*\**. This is the value of parameter [account] in the above command.
 
@@ -193,7 +192,7 @@ The possible causes include:
 
     **Steps to run the performance benchmark test:**
 
-      1. [Download](../../storage/common/storage-use-azcopy-v10.md) azcopy.
+      1. [Download](../storage/common/storage-use-azcopy-v10.md) azcopy.
 
       2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
 
@@ -382,4 +381,4 @@ This might happen if:
 
 ## Next Steps
 
-Continue VM replication, and perform [test migration](../tutorial-migrate-vmware.md#run-a-test-migration).
+Continue VM replication, and perform [test migration](tutorial-migrate-vmware.md#run-a-test-migration).

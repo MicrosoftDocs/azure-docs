@@ -6,7 +6,7 @@ ms.author: piyushdhore
 ms.manager: vijain
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 12/31/2024
+ms.date: 05/08/2025
 ms.custom: vmware-scenario-422, mvc, engagement-fy25
 ---
 
@@ -14,7 +14,6 @@ ms.custom: vmware-scenario-422, mvc, engagement-fy25
 
 This article helps you troubleshoot slow replication or stuck migration issues that you may encounter when you replicate on-premises VMware VMs using the Server Migration agentless method.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 
 ## Replication is slow or stuck for VM 

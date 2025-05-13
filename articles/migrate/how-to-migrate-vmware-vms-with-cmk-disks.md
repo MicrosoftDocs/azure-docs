@@ -4,20 +4,17 @@ description: Learn how to migrate VMware VMs to Azure with server-side encryptio
 author: SnehaSudhirG
 ms.author: sudhirsneha 
 ms.topic: how-to
-ms.date: 10/20/2024
+ms.date: 05/09/2025
 ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy25
 
 ---
-
-
 
 # Migrate VMware VMs to Azure VMs enabled with server-side encryption and customer-managed keys
 
 This article describes how to migrate VMware VMs to Azure virtual machines with disks encrypted using server-side encryption(SSE) with customer-managed keys(CMK), using Migration and modernization (agentless replication).
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
-The Migration and modernization portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience supports DES/CMK. DES should be created before starting replication and must be provided while starting replication. It cannot be provided at the time of migration. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
+The Migration and modernization portal experience lets you [migrate VMware VMs to Azure with agentless replication.](tutorial-migrate-vmware.md) The portal experience supports DES/CMK. DES should be created before starting replication and must be provided while starting replication. It cannot be provided at the time of migration. In this article, you'll see how to create and deploy an [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to replicate a VMware VM and configure the replicated disks in Azure to use SSE with CMK.
 
 The examples in this article use [Azure PowerShell](/powershell/azure/new-azureps-module-az) to perform the tasks needed to create and deploy the Resource Manager template.
 
@@ -26,7 +23,7 @@ The examples in this article use [Azure PowerShell](/powershell/azure/new-azurep
 ## Prerequisites
 
 - [Review the tutorial](tutorial-migrate-vmware.md) on migration of VMware VMs to Azure with agentless replication to understand tool requirements.
-- [Follow these instructions](../create-manage-projects.md) to create an Azure Migrate project and add the **Migration and modernization** tool to the project.
+- [Follow these instructions](create-manage-projects.md) to create an Azure Migrate project and add the **Migration and modernization** tool to the project.
 - [Follow these instructions](how-to-set-up-appliance-vmware.md) to set up the Azure Migrate appliance for VMware in your on-premises environment and complete discovery.
 
 ## Prepare for replication
@@ -252,7 +249,7 @@ uuid                                 label       name    maxSizeInBytes
 
 ## Set up replication
 
-You can now deploy the edited Resource Manager template to the project resource group to set up replication for the VM. Learn how to [deploy resource with Azure Resource Manager templates and Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md)
+You can now deploy the edited Resource Manager template to the project resource group to set up replication for the VM. Learn how to [deploy resource with Azure Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $ProjectResourceGroup -TemplateFile "C:\Users\Administrator\Downloads\template.json"

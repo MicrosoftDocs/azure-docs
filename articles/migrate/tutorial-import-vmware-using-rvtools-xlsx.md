@@ -4,7 +4,7 @@ description: Learn how to import on-premises servers in a VMware environment by 
 author: snehasudhirG
 ms.author: sudhirsneha
 ms.topic: tutorial
-ms.date: 02/07/2025
+ms.date: 05/12/2025
 ms.service: azure-migrate
 ms.custom: vmware-scenario-422
 #Customer intent: As an VMware admin, I want to import my on-premises servers running in a VMware environment.
@@ -36,7 +36,7 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - Less than 20,000 servers in a single RVTools XLSX file.
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
-- [Operating system names](../tutorial-discover-import.md#supported-operating-system-names) specified in the RVTools XLSX (preview) file contains and matches the supported names.
+- [Operating system names](tutorial-discover-import.md#supported-operating-system-names) specified in the RVTools XLSX (preview) file contains and matches the supported names.
 - The XLSX file should contain the vInfo, vPartition & vMemory sheets. The columns in these sheets are as follows:
     - **vInfo** - VM, Powerstate, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID.
     - **vPartition** - VM, VM UUID, Capacity MiB, Consumed MiB.
@@ -57,7 +57,7 @@ To create a project and register the Azure Migrate appliance, you must have an A
 
 ## Set up an Azure Migrate project
 
-Follow the instructions on [how to set up an Azure Migrate project](../tutorial-discover-import.md#set-up-a-project).
+Follow the instructions on [how to set up an Azure Migrate project](tutorial-discover-import.md#set-up-a-project).
 
 
 ## Import the servers using the RVTools XLSX file (preview)
@@ -68,19 +68,19 @@ To import the servers using RVTools XLSX (preview) file, follow these steps:
 1. Under **Migration goals**, select **Servers, databases and web apps**.
 1. On **Azure Migrate | Servers, databases and web apps** page, under **Assessment tools**, select **Discover** and then select **Using import**.
 
-    :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
+    :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png" alt-text="Screenshot that shows how to navigate to the RVTools import option." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/navigation-using-import.png":::
 
 1. In **Discover** page, in **File type**, select **VMware inventory (RVTools XLSX)**.
 1. In the **Step 1: Import the file** section, select the RVTools XLSX file and then select **Import**.
 
-    :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png" alt-text="Screenshot that shows to upload, check status and selecting import." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png":::
+    :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png" alt-text="Screenshot that shows to upload, check status and selecting import." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/select-import.png":::
 
     We recommend that you don't close the browser tab or attempt to import again while the current import is in progress. The import status provides information on the following:
     - If there are warnings in the status, you can either fix them or continue without addressing them.
     - To improve assessment accuracy, improve the server information as suggested in warnings. 
     - If the import status appears as **Failed**, you must fix the errors to continue with the import.
     
-      :::image type="content" source="../media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="../media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
+      :::image type="content" source="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png" alt-text="Screenshot that shows to status as failed." lightbox="./media/tutorial-import-vmware-using-rvtools-xlsx/failed-status.png"::: 
    
     - To view and fix errors, follow these steps:
         - Select *Download error details.XLSX* file. This operation downloads the XLSX with warnings included.
