@@ -11,7 +11,7 @@ ms.author: allensu
 
 Network Optimized Virtual Machines in Azure introduce advanced performance enhancements to networking, including accelerated connection setup, increased network bandwidth per vCPU, and support for more virtual network interfaces per vCPU. These improvements significantly reduce connection setup latency and enable higher connection creation rates, making them ideal for demanding workloads.
 
-Building on the foundation of [Accelerated Networking](../../virtual-network/accelerated-networking-overview?tabs=redhat), Network Optimized Virtual Machines offload initial connection setup to hardware using [SR-IOV](../../windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-). This enhancement reduces connection setup latency and enables virtual machines to manage more connections efficiently within application constraints.
+Network Optimized Virtual Machines is built on the foundation of [Accelerated Networking](../../virtual-network/accelerated-networking-overview?tabs=redhat). Network Optimized Virtual Machines offload initial connection setup to hardware using [SR-IOV](../../windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-). This enhancement reduces connection setup latency and enables virtual machines to manage more connections efficiently within application constraints.
 
 Network Optimized Virtual Machines feature updated network flow limits that scale with vCPU count, offering greater capacity compared to general-purpose Azure virtual machines. These capabilities make Network Optimized Virtual Machines a powerful choice for applications requiring high-performance networking and scalability.
 
@@ -19,10 +19,9 @@ Network Optimized Virtual Machines feature updated network flow limits that scal
 > Network Optimized Virtual Machines - Enhanced Performance and Connection Setup is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Traffic and SDN features that currently support enhanced connection setup
+## Traffic and Software Defined Networking features that currently support enhanced connection setup
 
-When using Network Optimized Virtual Machines, you can expect to see performance
-improvements for the following supported scenarios.
+When using Network Optimized Virtual Machines, you can expect to see performance improvements for the following supported scenarios.
 
 - Virtual machine to virtual machine traffic within virtual network
 
@@ -32,11 +31,11 @@ improvements for the following supported scenarios.
 
 - Virtual network peering, across region
 
-Additional virtual network configurations work as expected but lack enhanced connection setup performance, similar to general-purpose virtual machines. It's planned to expand scenario support for hardware connection setup acceleration in the future.
+More virtual network configurations function as expected but didn't include enhanced connection setup performance, similar to general-purpose virtual machines. Plans exist to expand scenario support for hardware connection setup acceleration in the future.
 
 ## Supported virtual machine size families enablement
 
-You can take advantage of enhanced connection setup capabilities by utilizing a supported virtual machine type, no further enablement steps are required.
+You can take advantage of enhanced connection setup capabilities by utilizing a supported virtual machine type. Further enablement steps aren't required.
 
 - The following virtual machine size families support enhanced connection setup capabilities.
 
@@ -46,13 +45,13 @@ You can take advantage of enhanced connection setup capabilities by utilizing a 
   
   - Ensv6
 
-Virtual machines with **`n`** included in their includes enhanced connection setup capabilities.
+Virtual machines with **`n`** included in their name includes enhanced connection setup capabilities.
 
 ## Network connection limits for network optimized virtual machines
 
-Connection and flow limits for Network Optimized Virtual Machines have been adjusted to enhance scalability and ensure consistent performance. These limits are based on the vCPU count of the virtual machine. When the connection or flow limit is reached, any new packets attempting to create connections or flows beyond the limit will be dropped. 
+Connection and flow limits for Network Optimized Virtual Machines are adjusted to enhance scalability and ensure consistent performance. These limits depend on the vCPU count of the virtual machine. When the connection or flow limit is reached, any new packets attempting to create connections or flows beyond the limit are dropped. 
 
-For more details on the concepts and accounting for connection and flow limits, see [Azure virtual machine network throughput](virtual-machine-network-throughput.md).
+For more information on the concepts and accounting for connection and flow limits, see [Azure virtual machine network throughput](virtual-machine-network-throughput.md).
 
 | **vCPU** | **Connection Limit** |
 |----------|----------------------|
@@ -66,13 +65,13 @@ For more details on the concepts and accounting for connection and flow limits, 
 | 192+     | 4,000,000            |
 
 > [!WARNING]  
-> These limits are provided as guidance. Each application and guest operating system manages network flows and timeouts differently. Your actual maximum achievable connection limit will vary and will be fewer than the limits posted below.
+> These limits are provided as guidance. Each application and guest operating system manages network flows and timeouts differently. Your actual maximum achievable connection limit varies and can be less than the limits posted in the previous table.
 
 ## Connection setup performance (CPS)
 
 Network Optimized Virtual Machines reduce latency for connection creation and enable higher connection creation rates. The connection creation rate, also known as connections per second (CPS), depends on several factors. These factors include virtual machine performance, operating system configuration, application settings, network traffic type and behavior, and infrastructure load. By optimizing these elements, you can achieve improved CPS performance in supported scenarios.
 
-CPS throttling occurs for network optimized virtual machines based on the number of vCPUs in the virtual machine. If the workload creates connections at a rate exceeding the infrastructure limit, the system drops packets. Once the connection creation rate falls below the limit, the system allows additional connections to succeed. When testing CPS, consider that virtual machine connection limits and flow expiration directly affect the sustained testing of the maximum connection creation rate.
+CPS throttling occurs for network optimized virtual machines based on the number of vCPUs in the virtual machine. If the workload creates connections at a rate exceeding the infrastructure limit, the system drops packets. Once the connection creation rate falls below the limit, the system allows more connections to succeed. When testing CPS, consider that virtual machine connection limits and flow expiration directly affect the sustained testing of the maximum connection creation rate.
 
 | **vCPUs (#)** |  **Connections per Second** |
 |----------------|----------------------------|
@@ -88,21 +87,21 @@ CPS throttling occurs for network optimized virtual machines based on the number
 
 ## Limitations
 
-- Virtual network and NSG flow logging is not supported for Network Optimized Virtual Machine
+- Virtual network and Network Security Group flow logging isn't supported for Network Optimized Virtual Machine
   sizes during preview
 
 - Live Migration is disabled for Network Optimized Virtual Machine sizes during
   preview
 
 - TCP Reset on idle timeout is currently enabled for all load balancing
-  rules regardless of user configuration. This will result in TCP resets
+  rules regardless of user configuration. This setting results in TCP resets
   being set for idle connections at the default value of 4 minutes.
 
-- Azure Monitor Metrics for network flows and flow creation rate are not
+- Azure Monitor Metrics for network flows and flow creation rate aren't
   accurate.
 
-- Increased connection setup performance is not currently applicable to
+- Increased connection setup performance isn't currently applicable to
   network traffic destined to private link endpoints.
 
-- Increased connection setup performance is not applicable to certain
+- Increased connection setup performance isn't applicable to certain
   container networking scenarios.
