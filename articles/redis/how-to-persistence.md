@@ -11,7 +11,7 @@ ms.custom:
 ---
 # Configure data persistence (preview) for an Azure Managed Redis instance
 
-[Redis persistence (preview)](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your [high availability and disaster recovery](high-availability.md) strategy with Azure Managed Redis.
+[Redis persistence (preview)](https://redis.io/topics/persistence) allows you to persist data stored in cache instance. If there's a hardware failure, the cache instance is rehydrated with data from the persistence file when it comes back online. The ability to persist data is an important way to boost the durability of a cache instance because all cache data is stored in memory. Data loss is possible if a failure occurs when cache nodes are down. Persistence should be a key part of your high availability and disaster recovery strategy with Azure Managed Redis.
 
 > [!IMPORTANT]
 >
@@ -187,4 +187,3 @@ For more information on scaling, see [What happens if I've scaled to a different
 
 - [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)
 - [Export data from Azure Managed Redis](how-to-import-export-data.md)
-- [High availability and disaster recovery](high-availability.md)
