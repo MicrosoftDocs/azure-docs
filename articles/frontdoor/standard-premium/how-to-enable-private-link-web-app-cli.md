@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 
 # Connect Azure Front Door Premium to an App Service origin with Private Link using Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article guides you through configuring Azure Front Door Premium to connect to your App Service privately using Azure Private Link with Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]

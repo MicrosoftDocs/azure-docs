@@ -101,11 +101,13 @@ You can create and test image definition files by using VS Code. In addition to 
  
 ### System Tasks and User Tasks 
 
-All tasks in the userTasks section run as the user after the user's first sign-in to the Dev Box. Tasks in the tasks section run as LocalSystem during the Dev Box provisioning stage. Both sections share the same parameters based on the task definitions in your catalog.
+You can use both System and User tasks in your image definition file. The tasks section of the image definition file is divided into two sections: tasks and  userTasks. Both sections share the same parameters based on the task definitions in your catalog. 
+ 
+- **System tasks**: These tasks run as LocalSystem during the provisioning stage of the dev box. They are typically used for system-level configurations, such as installing software or configuring system settings that require administrative privileges. 
 
-### When should I use Run-as-user Tasks? 
+- **User tasks**: These tasks run as the user after the user's first sign-in to the dev box. They are typically used for user-level configurations, such as installing user-specific applications or configuring user settings under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of system-wide. Put WinGet tasks in the userTasks section for better results when they don't work under tasks. 
 
-Use run-as-user tasks to install software and packages under user context. For example, users often prefer to install Python and Visual Studio Code under user context instead of system-wide. Put WinGet tasks in the userTasks section for better results when they don't work under tasks. 
+Standard users configuring user customizations can only use user tasks, they cannot use system tasks.
 
 ## Optional: Customize your dev box by using existing Desired State Configuration files
 Desired State Configuration (DSC) is a management platform in PowerShell that enables you to manage your development environment with configuration as code. You can use DSC to define the desired state of your dev box, including software installations, configurations, and settings.
