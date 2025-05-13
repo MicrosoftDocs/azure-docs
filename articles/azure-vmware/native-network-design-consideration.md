@@ -30,6 +30,8 @@ The following functionality is limited during this time. These limitations will 
 - Support for **AzCLI**, **PowerShell**, and **.NET SDK** are not available during Public Preview.
 - **Run commands** interacting with customer segments aren't supported, including Zerto, JetStream, and other 3rd-party integrations.
 
+- **Network Security Groups** associated with the private cloud host virtual network must be created in the same resource group as the private cloud and its virtual network.
+
 ## Unsupported integrations during Public Preview
 
 The following 1st-party and 3rd-party integrations won't be available during Public Preview:
