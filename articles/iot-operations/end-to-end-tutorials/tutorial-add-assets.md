@@ -68,34 +68,74 @@ The following snippet shows the YAML file that you applied:
 
 :::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-tutorial-deployment.yaml":::
 
-Review the `opcplc-000000-execute-commands-script` configuration in the YAML file to see how the [mutual trust](../discover-manage-assets/overview-opcua-broker-certificates-management.md) is established between the OPC PLC simulator and the connector for OPC UA.
+## Establish mutual trust
 
-## Sign into the operations experience
+Before the OPC PLC simulator can send data to the connector for OPC UA, you need to establish mutual trust between them. In this tutorial, the OPC PLC simulator and the connector for OPC UA use self-signed certificates to establish the mutual trust with the connector for OPC UA:
 
-To create asset endpoints, assets and subscribe to OPC UA tags and events, use the operations experience.
+- The simulator's application instance certificate is stored in the `opc-plc-default-application-cert` Kubernetes secret.
+- The connector for OPC UA's application instance certificate is stored in the `aio-opc-opcuabroker-default-application-cert` Kubernetes secret.
 
-Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
+> [!IMPORTANT]
+> In a production environment use enterprise grade application instance certificates to establish the mutual trust. To learn more, see [Configure an enterprise grade application instance certificate](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-an-enterprise-grade-application-instance-certificate).
 
-## Select your site
+### Add the connector's certificate to the simulator's trust list
 
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](/azure/azure-arc/site-manager/overview). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previously by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+Each OPC UA server has it's own mechanism for managing the trust list. To add the connector's certificate to the simulator's trust list, run the following commands:
 
-:::image type="content" source="media/tutorial-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
+```bash
+cert=$(kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d)
+data=$(kubectl create secret generic temp --from-literal=opcuabroker.crt="$cert" --dry-run=client -o jsonpath='{.data}')
+kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{\"data\": $data}"
+```
 
-## Select your instance
+```powershell
+$cert = kubectl -n azure-iot-operations get secret aio-opc-opcuabroker-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d
+$data = kubectl create secret generic temp --from-literal=opcuabroker.crt="$cert" --dry-run=client -o jsonpath='{.data}'
+kubectl patch secret opc-plc-trust-list -n azure-iot-operations -p "{""data"": $data}"
+```
 
-Select the instance where you deployed Azure IoT Operations in the previous tutorial:
+### Add the simulator's certificate to the connector's trust list
 
-:::image type="content" source="media/tutorial-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
+Every OPC UA server type has it's own mechanism for managing its application instance certificate. To download the simulator's certificate to a file called `opcplc-000000.crt`, run the following command:
 
-> [!TIP]
-> If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
+```console
+kubectl -n azure-iot-operations get secret opc-plc-default-application-cert -o jsonpath='{.data.tls\.crt}' | base64 -d > opcplc-000000.crt
+```
+
+To add the simulator's certificate to the connector's trust list:
+
+- Go to the [operations experience](https://iotoperations.azure.com) web UI and sign in with your Microsoft Entra ID credentials.
+
+- Select your site. If you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previously by selecting **View unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+
+    :::image type="content" source="media/tutorial-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
+
+- Select the instance where you deployed Azure IoT Operations:
+
+    :::image type="content" source="media/tutorial-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
+
+    > [!TIP]
+    > If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
+
+- Select **Asset endpoints**~ and then **Manage certificates and secrets**:
+
+    :::image type="content" source="media/tutorial-add-assets/manage-certificates.png" alt-text="Screenshot that shows how to find the manage certificates page in the operations experience.":::
+
+- On the **Certificates page**, select **Trust list** and then **Add new certificate**:
+
+    :::image type="content" source="media/tutorial-add-assets/add-certificate.png" alt-text="Screenshot that shows how to add a certificate to the trust list in the operations experience.":::
+
+- Select **Upload certificate** and choose the `opcplc-000000.crt` file you downloaded previously. Then select **Upload**:
+
+    :::image type="content" source="media/tutorial-add-assets/uploaded-certificate.png" alt-text="Screenshot that shows a successful certificate upload.":::
+
+- Select **Apply**.
+
+The simulator's application instance certificate is now in the connector for OPC UA's trust list.
 
 ## Add an asset endpoint
 
-When you deployed Azure IoT Operations in the previous article, you included a built-in OPC PLC simulator. In this step, you add an asset endpoint that enables you to connect to the OPC PLC simulator.
-
-To add an asset endpoint:
+In this step, you use the operations experience to add an asset endpoint that enables you to connect to the OPC PLC simulator.To add an asset endpoint:
 
 1. Select **Asset endpoints** and then **Create asset endpoint**:
 
