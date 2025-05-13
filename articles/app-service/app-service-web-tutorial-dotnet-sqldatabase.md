@@ -76,7 +76,7 @@ The database context in this sample is a connection string named `MyDbConnection
 
 ### Configure the Azure App Service
 
-On the **App Service (Windows)** screen, configure the App Service **Name**, **Resource group**, and **Hosting Plan**.
+1. On the **App Service (Windows)** screen, configure the App Service **Name**, **Resource group**, and **Hosting Plan**.
 
    ![Screenshot that shows creating an App Service plan.](./media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
@@ -132,7 +132,7 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
    ![Screenshot that shows creating the server.](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database-server.png)
 
    > [!IMPORTANT]
-   > Your password in the connection strings is masked in both Visual Studio and App Service), but maintaining it still adds to the attack surface of your app. App Service can use [managed service identities](overview-managed-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration. For more information, see [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md).
+   > Your password in the connection strings is masked in both Visual Studio and App Service, but maintaining it still adds to the attack surface of your app. App Service can use [managed service identities](overview-managed-identity.md) to eliminate this risk by removing the need to maintain secrets in your code or app configuration. For more information, see [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md).
 
 1. Select **OK**.
 
