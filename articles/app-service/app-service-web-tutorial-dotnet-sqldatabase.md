@@ -22,16 +22,15 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 >
-> - Publish a web app to Azure.
-> - Create a database in Azure SQL Database to hold app data.
-> - Connect the ASP.NET app to the Azure SQL database.
+> - Publish a web app that has a SQL database back end to Azure.
+> - Create an Azure SQL database to hold the app data, and connect the ASP.NET app to the Azure SQL database.
 > - Update the data model and redeploy the app.
-> - Stream logs from Azure to your machine.
+> - Stream application logs from Azure to Visual Studio.
 
 ## Prerequisites
 
 - [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. You can add the workloads to an existing Visual Studio installation by selecting **Tools** > **Get Tools and Features** in Visual Studio.
+- Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. You can add the workloads to an existing Visual Studio installation by selecting **Get Tools and Features** in the Visual Studio **Tools** menu.
 
 ## Create and run the app
 
@@ -54,9 +53,9 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 ## Publish the app to Azure
 
-The app uses a database context to connect with the database. The database context in this sample is a connection string named `MyDbConnection`.
+To publish the app to Azure, you create and configure a Publish profile that has an Azure App Service and App Service Plan to host the app. You then create an Azure SQL Server and Azure SQL database to contain the app data, and configure a database context to connect the app with the database.
 
-The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
+The database context in this sample is a connection string named `MyDbConnection`. The connection string is set in the *Web.config* file and referenced in the *Models/MyDatabaseContext.cs* file. The Azure app uses the connection string name to connect to the Azure SQL database.
 
 1. In Visual Studio **Solution Explorer**, right-click the **DotNetAppSqlDb** project and select **Publish**.
 
@@ -123,7 +122,7 @@ Before you can create a database, you need a [logical SQL server](/azure/azure-s
 
 1. On the **Azure SQL Database** screen, next to **Database server**, select **New**.
 
-   Change the server name to a value you want. The server name must be unique across all servers in Azure SQL. 
+1. Change the server name to a value you want. The server name must be unique across all servers in Azure SQL. 
 
 1. Add an administrator username and password. For password requirements, see [Password policy](/sql/relational-databases/security/password-policy).
 
@@ -322,7 +321,7 @@ Now that you enabled Code First Migrations in your Azure app, publish your code 
 
 You can stream tracing messages directly from your Azure app to Visual Studio.
 
-Open _Controllers\TodosController.cs_, and note that each action starts with a `Trace.WriteLine()` method. This code is added to show you how to add trace messages to your Azure app.
+Open _Controllers\TodosController.cs_, and note that each action starts with a `Trace.WriteLine()` method. This code shows you how to add trace messages to your Azure app.
 
 ### Enable log streaming
 
@@ -336,27 +335,27 @@ Open _Controllers\TodosController.cs_, and note that each action starts with a `
 
    ![Screenshot that shows Log streaming in the Output window.](./media/app-service-web-tutorial-dotnet-sqldatabase/log-streaming-pane.png)
 
-   However, you don't see any trace messages yet. That's because when you first select **View streaming logs**, your Azure app sets the trace level to `Error`, which logs only error events using the `Trace.TraceError()` method.
-
+   You don't see any trace messages yet, because when you first select **View streaming logs**, your Azure app sets the trace level to `Error`, which logs only error events using the `Trace.TraceError()` method.
+   
 ### Change trace levels
 
 1. To change the trace levels to output other trace messages, in the **Hosting** section of the **Publish** page, select the **...** at upper right and select **Open in Azure portal**.
 
-1. On the portal page for your app, select **App Service logs** under **Monitoring** in the left menu.
+1. On the Azure portal page for your app, select **App Service logs** under **Monitoring** in the left menu.
 
 1. Under **Application logging (Filesystem)**, select **Verbose** under **Level**, and then select **Save**.
 
    > [!TIP]
    > You can experiment with different trace levels to see what types of messages are displayed for each level. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
 
-1. In your browser, navigate to your app again at *http://&lt;your app name>.azurewebsites.net*, then try clicking around the to-do list application in Azure. The trace messages are now streamed to the **Output** window in Visual Studio.
+1. In your browser, go to your Azure to-do list application again and navigate around the app. Trace messages like the following examples now stream to the **Output** window in Visual Studio.
 
-    ```console
+   ```console
    Application:2025-05-12T23:41:11  PID[17108] Verbose     GET /Todos/Index
    Application:2025-05-12T23:42:04  PID[17108] Verbose     GET /Todos/Index
    Application:2025-05-12T23:42:06  PID[17108] Verbose     POST /Todos/Create
    Application:2025-05-12T23:42:07  PID[17108] Verbose     GET /Todos/Index
-```
+   ```
 
 ### Stop log streaming
 
