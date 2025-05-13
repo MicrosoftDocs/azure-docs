@@ -1,5 +1,5 @@
 ---
-title: 'Cost estimate: Archive & retrieve data (Azure Blob Storage)' 
+title: 'Cost estimate: Archival & retrieval (Azure Blob Storage)' 
 description: This article shows an example of what it costs to archive and then retrieve data in Azure Blob Storage.
 services: storage
 author: normesta
@@ -10,12 +10,9 @@ ms.topic: concept-article
 ms.author: normesta
 ---
 
-# Cost estimate: Archive and retrieve data in Azure Blob Storage 
+# Cost estimate: Large-scale data archival and retrieval 
 
 This sample estimate shows the cost of to archive data and then retrieve some portion of that data before the 180 day limit.
-
-> [!IMPORTANT]
-> These estimates are based on [sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
 
 ## Scenario
 
@@ -27,7 +24,10 @@ The account is located in the East US region, and is configured for locally-redu
 
 ## Estimate
 
-The following table shows the sample estimate at a glance. This sample estimate doesn't include the cost of data storage which is billed per GB. See [The cost to store data](blob-storage-estimate-costs.md#the-cost-to-store-data).
+The following table shows the sample estimate at a glance. 
+
+> [!IMPORTANT]
+> This estimate is based on [these sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
 
 | Cost component               | Estimate    |
 |--------------------------|-------------|
@@ -36,6 +36,8 @@ The following table shows the sample estimate at a glance. This sample estimate 
 | Data retrieval fee       | $88.00      |
 | Early deletion penalty   | $24.00      |
 | **Total cost**           | **$140.40** |
+
+This sample estimate doesn't include the [cost of data storage](blob-storage-estimate-costs.md#the-cost-to-store-data) which is billed per GB.
 
 ## Breakdown
 
@@ -51,11 +53,11 @@ The following table shows how each cost component is calculated.
 | **Cost of read operations**      | 400 operations * read operation price         | **$0.22**  |
 | <br>                             |                                               |            |
 | Total file size (GB)             |                                               | 20,000     |
-| Data retrieval size              | 20% of blobs in archive storage               | 4,000      |
+| Data retrieval size              | 20,000 GB * 20%                               | 4,000      |
 | **Data retrieval fee**           | 4,000 blobs * price of data retrieval         | **$88.00** |
 | <br>                             |                                               |            |
 | Rough number of months penalty   | (180 days - 90 days) / 30 days                | 3          |
-| **Early deletion penalty**       | 4000 blobs * price of archive storage / 3     | **24.00**  |
+| **Early deletion penalty**       | 4000 blobs * price of archive storage / 3     | **$24.00** |
 
 ## Factors that can impact the cost
 
