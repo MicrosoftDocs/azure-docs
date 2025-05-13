@@ -40,7 +40,7 @@ Azure Managed Grafana is available in the two service tiers presented below.
 | Tier      | Description                                                                                                                                                                               |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Essential (preview) | Provides the core Grafana functionalities in use with Azure data sources. Since it doesn't provide an SLA guarantee, this tier should only be used for non-production environments.   |
-| Standard            | The default tier, offering better performance, more features and an SLA. It's recommended for most situations. Two instance sizes are available within the Standard tier: **X1** and **X2**. The X2 size offers double the memory and supports 1,000 alert rules per organization, compared to 500 for the X1 size. The X2 size comes with at an additional cost. |
+| Standard            | The default tier, offering better performance, more features and an SLA. It's recommended for most situations. Two instance sizes are available within the Standard tier: **X1** (default) and **X2**. The X2 size offers double the memory and supports 1,000 alert rules per organization, compared to 500 for the X1 size. The X2 size comes with at an additional cost. |
 
 Refer to the [Azure Managed Grafana pricing page](https://azure.microsoft.com/pricing/details/managed-grafana/) for details about the costs of each tier and instance size.
 
@@ -59,7 +59,7 @@ The following table lists the main features supported in each tier:
 | [Grafana Enterprise](how-to-grafana-enterprise.md)                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
-> Users can upgrade an workspace from Essential (preview) to Standard by going to **Settings** > **Configuration** > **Pricing Plans**. Downgrading from Standard to Essential (preview) however isn't supported.
+> Users can upgrade a workspace from Essential (preview) to Standard, or increase their Standard instance size by going to **Settings** > **Configuration** > **Pricing Plans**. However, downgrading from Standard to Essential (preview) or from a larger to a smaller instance size, is not supported.
 
 > [!NOTE]
 > Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure.
