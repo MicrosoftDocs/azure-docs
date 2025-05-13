@@ -14,7 +14,7 @@ ms.author: danlep
 
 **APPLIES TO: Developer | Basic | Basic v2 | Standard | Standard v2 | Premium | Premium v2 | Isolated**
 
-APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers. This articles describes how to add caching to your APIs. 
+APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers. This article describes how to add caching to your APIs. 
 
 > [!IMPORTANT]
 > Built-in cache is volatile and is shared by all units in the same region in the same API Management service. Regardless of the cache type being used (internal or external), if cache-related operations fail to connect to the cache because of the volatility of the cache or for any other reason, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a fallback mechanism to retrieve data that's not found in the cache.
