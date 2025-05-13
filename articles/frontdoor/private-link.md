@@ -11,6 +11,8 @@ ms.custom: references_regions, ignite-2024
 
 # Secure your Origin with Private Link in Azure Front Door Premium
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 [Azure Private Link](../private-link/private-link-overview.md) enables you to access Azure PaaS services and services hosted in Azure over a private endpoint in your virtual network. Traffic between your virtual network and the service goes over the Microsoft backbone network, eliminating exposure to the public Internet.
 
 Azure Front Door Premium can connect to your origin using Private Link. Your origin can be hosted in a virtual network or hosted as a PaaS service such as Azure Web App or Azure Storage. Private Link removes the need for your origin to be accessed publicly.

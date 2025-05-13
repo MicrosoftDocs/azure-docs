@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 04/16/2025
+ms.date: 05/14/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -20,6 +20,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 - May 2025
   - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
+  - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
 - April 2025
   - [Vaulted backup support for  Azure Data Lake Storage (preview)](#vaulted-backup-support-for-azure-data-lake-storage-preview)
 - March 2025
@@ -123,6 +124,16 @@ Key features include:
 >This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
 
 For more information, see [About Azure Elastic SAN backup (preview)](azure-elastic-storage-area-network-backup-overview.md).
+
+## Back up SAP ASE (Sybase) database is now generally available
+
+Azure Backup now supports SAP ASE (Sybase) database backups on Azure VMs. Backups stream directly to managed Recovery Services vault of Azure Backup, ensuring security with [Immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault), [Soft Delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multiuser Authorization](multi-user-authorization-concept.md?tabs=recovery-services-vault), and [Customer Managed Key (CMK)](encryption-at-rest-with-cmk.md?tabs=portal). Data is stored in a Microsoft-managed subscription, isolating it from user environments for enhanced protection.
+
+With stream-based backup, log backups can occur every **15 minutes**, enabling **Point-In-Time recovery**. Restore options include Alternate Location Restore, Original Location Restore, and Restore as Files.
+
+Azure Backup also offers cost-effective policies (weekly full + daily differential) to reduce storage costs, alongside [Multi-SID](sap-hana-backup-support-matrix.md#support-for-azure-backup-multiple-components-on-one-system-mcos) and [Cross Subscription Restore (CSR)](sap-ase-database-about.md#cross-subscription-restore-for-sap-ase-sybase-database) support. [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables protection, monitoring, and alert configuration for SAP ASE backups.
+
+For more information, see [Back up SAP ASE (Sybase) database](sap-ase-database-about.md).
 
 ## Vaulted backup support for Azure Data Lake Storage (preview)
 
