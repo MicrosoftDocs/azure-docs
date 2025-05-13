@@ -100,7 +100,7 @@ This section shows how to add a wildcard operation. A wildcard operation enables
 ### Add an operation
 
 1. Select the API you created earlier.
-1. On the **Desgin** tab, select **+ Add operation**.
+1. On the **Design** tab, select **+ Add operation**.
 1. In **URL**, select **GET** and enter **/*** in the text box.
 1. In **Display name**, enter **WildcardGet**.
 1. Select **Save**.
