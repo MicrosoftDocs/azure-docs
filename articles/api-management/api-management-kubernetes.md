@@ -1,6 +1,6 @@
 ---
 title: Use API Management with Microservices Deployed in AKS | Microsoft Docs
-description: Learn about using Azure API Management to publish microservices-based architectures that are deployed in AKS as APIs.
+description: Learn about options for using Azure API Management to publish microservices-based architectures that are deployed in AKS as APIs.
 services: api-management
 author: dlepow
 manager: cfowler
@@ -61,7 +61,7 @@ Pros:
 
 Cons:
 * Creates potential security risk because of public visibility of endpoints
-* Does not create a single entry point for inbound cluster traffic
+* Doesn't create a single entry point for inbound cluster traffic
 * Complicates microservices with duplicate authentication logic
 
 ### Option 2: Install an ingress controller
@@ -73,7 +73,7 @@ Mutual TLS authentication is [natively supported](./api-management-howto-mutual-
 :::image type="content" source="./media/api-management-aks/ingress-controller.png" alt-text="Diagram that shows an architecture for publishing via an ingress controller." border="false" lightbox="./media/api-management-aks/ingress-controller.png":::
 
 Pros:
-* Enables easy configuration on the API Management side because API Managment doesn't need to be injected into the cluster virtual network and mTLS is natively supported
+* Enables easy configuration on the API Management side because API Management doesn't need to be injected into the cluster virtual network and mTLS is natively supported
 * Centralizes protection for inbound cluster traffic at the ingress controller layer
 * Reduces security risk by minimizing publicly visible cluster endpoints
 
@@ -91,7 +91,7 @@ In some cases, customers that have regulatory constraints or strict security req
 
 There are two modes of [deploying API Management into a virtual network](./virtual-network-concepts.md): external and internal. 
 
-If API consumers don't reside in the cluster virtual network, you should use the external mode. (See the following diagram.) In this mode, the API Management gateway is injected into the cluster virtual network but accessible from the public internet via an external load balancer. This architecure helps to hide the cluster completely while still allowing external clients to consume the microservices. Additionally, you can use Azure networking capabilities like Network Security Groups (NSG) to restrict network traffic.
+If API consumers don't reside in the cluster virtual network, you should use the external mode. (See the following diagram.) In this mode, the API Management gateway is injected into the cluster virtual network but accessible from the public internet via an external load balancer. This architecture helps to hide the cluster completely while still allowing external clients to consume the microservices. Additionally, you can use Azure networking capabilities like Network Security Groups (NSG) to restrict network traffic.
 
 :::image type="content" source="./media/api-management-aks/vnet-external.png" alt-text="Diagram that shows an architecture that uses external virtual network mode." border="false" lightbox="./media/api-management-aks/vnet-external.png":::
 
