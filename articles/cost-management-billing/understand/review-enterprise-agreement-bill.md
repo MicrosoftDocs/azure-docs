@@ -32,7 +32,7 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 
 ## Review invoiced charges
 
-This section doesn't apply to Azure customers in Australia, Japan, or Singapore.
+This section doesn't apply to Azure customers in Australia or Singapore.
 
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
@@ -51,7 +51,7 @@ You receive an Azure invoice when any of the following events occur during your 
     - Visual Studio Professional (Annual)
 - **Marketplace charges**: Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
-Your invoice shows Azure usage charges with costs associated to them first, followed by any marketplace charges. If you have a credit balance, it gets applied to Azure usage and your invoice shows Azure usage and marketplace usage without any cost, last in the list.
+Your invoice shows Azure usage charges with costs associated to them first, followed by any marketplace charges. If you have a credit balance, it gets applied to Azure usage and your invoice shows Azure usage and marketplace usage without any cost, last in the list. This doesn't apply to Azure customers in Japan.
 
 If an invoice includes over 1,000 line items, it gets split into multiple invoices.
 
