@@ -18,7 +18,7 @@ This document outlines the support policy for Azure App Configuration client lib
 
 ## Support lifecycle
 
-Each major version of [Our Libraries] follows this support lifecycle:
+Each major version of Azure App Configuration libraries follows this support lifecycle:
 
 - **Active Support Period:** A minimum of 12 months from the release date of the major version. During this time, the library is fully supported with updates and enhancements.
 - **Deprecation Mode:** Begins either:
