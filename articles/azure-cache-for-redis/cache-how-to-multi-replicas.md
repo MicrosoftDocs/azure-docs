@@ -1,6 +1,6 @@
 ---
 title: Add replicas to a Premium cache
-description: Learn how to create a Premium tier Azure Cache for Redis instances with added replicas.
+description: Learn how to create Premium tier Azure Cache for Redis instances with added replicas.
 
 
 
@@ -10,13 +10,22 @@ appliesto:
   - ✅ Azure Cache for Redis
 ---
 
-# Add replicas to Azure Cache for Redis
+# Add replicas to Premium tier Azure Cache for Redis
 
 Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs) configured as primary and replica. If the primary VM becomes unavailable, the replica automatically takes over as the new primary.
 
-For a Premium cache, you can increase the number of replicas up to three, giving a total of four VMs backing a cache. Having multiple replicas provides higher resilience than a single replica.
+When you create a Premium cache, you can increase the number of replicas up to three, giving a total of four VMs backing a cache. Multiple replicas provide higher resilience than a single replica.
 
-This article describes how to create an Azure Cache for Redis Premium cache with added replicas by using the Azure portal. You can't change the number of replicas after you create the cache.
+This article describes how to create an Azure Cache for Redis Premium cache with added replicas by using the Azure portal.
+
+## Limitations
+
+Creating more than one replica has the following limitations:
+
+- Only Premium-tier Azure Redis supports adding more than one replica.
+- You can't change the number of replicas after you create the cache.
+- You can't use geo-replication with caches that have more than one replica.
+- You can't use Append-only File (AOF) data persistence if you create more than one replica.
 
 ## Prerequisites
 
@@ -24,16 +33,14 @@ You need an Azure subscription. If you don't have one, [create a free account](h
 
 ## Create a Premium cache with added replicas
 
-1. Create a cache by following the instructions at [Quickstart: Create an Azure Redis cache](quickstart-create-redis.md).
+1. Create a cache by following the instructions at [Quickstart: Create an Azure Redis cache](quickstart-create-redis.md). On the **Basics** tab, select [Premium](https://azure.microsoft.com/pricing/details/cache/) for **Cache SKU**, and select a **Size** from **P0** to **P6**.
 
-   On the **Basics** page, select [Premium](https://azure.microsoft.com/pricing/details/cache/) for **Cache SKU** and select a **Size** from **P0** to **P6**.
-
-1. On the **Advanced** tab, increase the number of replicas for **Replica count** to **2** or **3** replicas.
+1. On the **Advanced** tab, for **Replica count**, increase the number of replicas to **2** or **3** replicas.
 
 1. Configure clustering, data persistence, and other settings as desired.
 
-   > [!IMPORTANT]
-   > You can't use Append-only File (AOF) data persistence or geo-replication if you create more than one replica.
+   > [!NOTE]
+   > You can't use Append-only File (AOF) data persistence if you create more than one replica.
 
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
 
