@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 title: Azure load balancing and content delivery documentation
-summary: Discover Azure load balancing and content delivery services to secure and optimize your applications. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance. Start now!
+summary: Discover how to secure and optimize your application with Azure load balancing and content delivery services. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance.
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
   title: Azure load balancing and content delivery
-  summary: Learn how Azure load balancing and content delivery services help secure and optimize your applications in the cloud. ervices include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+  summary: Discover how to secure and optimize your application with Azure load balancing and content delivery services. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance.
   ms.service: azure-load-balancer
   ms.topic: hub-page
   author: mbender-ms
