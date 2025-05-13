@@ -119,12 +119,12 @@ If you modify or delete Azure-created tags, resources, and other resource proper
 
 A common scenario where customers want to modify resources is through tags. Azure Virtual Enclaves allows you to create and modify tags that are propagated to resources in the enclave managed resource group, and you can add those tags when creating the enclave. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the enclave managed resource group.
 
-> [!NOTE]
+> [!WARNING]
 > 
-> If you don't have enclave managed resource group lockdown enabled, you can directly modify any resource in the enclave managed resource group. Directly modifying resources in the enclave managed resource group can cause your enclave to become unstable or unresponsive.
+> Modifying resources in the enclave managed resource group can cause your enclave to become unstable or unresponsive.
 
-### Workload managed resource group
-The _workload managed resource group_ contains the infrastructure resources described in [What is a workload?](./what-workload.md).
+### Workload resource group
+The workload is linked to one or more resource groups where you can create and organize your Azure resources.  contains the infrastructure resources described in [What is a workload?](./what-workload.md#workload-resource-group).
 
 The workload managed resource group is assigned a name by default following this convention `myWorkloadName`. When you delete your workload, the Azure Virtual Enclaves resource provider automatically deletes the workload managed resource group.
 
