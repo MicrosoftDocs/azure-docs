@@ -278,7 +278,3 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 | China East 3         | ✅          | ✅ *        |                   |
 | China North 3        | ✅          | ✅ *        |                   |
 
-## Next step
-
-> [!div class="nextstepaction"]
-> [Whitepaper: App Service Environment v3 in compliance-oriented industries](https://gigaom.com/report/using-app-service-environment-v3-in-compliance-oriented-industries/)
