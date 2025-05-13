@@ -1,5 +1,5 @@
 ---  
-title: 'Network Optimized Virtual Machines: Enhanced Performance and Connection Setup (Preview)'
+title: Network Optimized Virtual Machine Connection Acceleration (Preview)
 titleSuffix: Azure Virtual Network 
 description: Learn how Azure Network Optimized Virtual Machines improve performance with faster connection setup and higher scalability. Explore key benefits and use cases.  
 author: asudbring  
@@ -8,9 +8,9 @@ ms.date: 05/13/2025
 ms.author: allensu
 ---  
 
-# Network Optimized Virtual Machines: Enhanced Performance and Connection Setup (Preview)
+# Network Optimized Virtual Machine Connection Acceleration (Preview)
 
-Azure Network Optimized Virtual Machines offer advanced networking performance enhancements, including accelerated connection setup and increased bandwidth per vCPU. These features reduce latency and enable higher connection rates, ideal for demanding workloads.
+Azure Network Optimized Virtual Machines offer advanced networking performance enhancements, including accelerated connection setup and increased bandwidth and virtual network interfaces per vCPU. These features reduce latency and enable higher connection rates, ideal for demanding workloads.
 
 Network Optimized Virtual Machines are built on the foundation of [Accelerated Networking](accelerated-networking-overview.md?tabs=redhat). These virtual machines offload initial connection setup to hardware using [SR-IOV](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-). This enhancement reduces connection setup latency and enables virtual machines to manage more connections efficiently within application constraints.
 
