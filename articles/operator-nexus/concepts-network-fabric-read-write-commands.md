@@ -556,6 +556,45 @@ Expected output
 > [!Note]
 > RW configuration persists during a reboot without ZTP but does not persist upgrades, device RMA, or a reboot with ZTP. After these events, the rwDeviceConfig property is empty unless the user reapplies the RW configuration manually.
 
+## Persistent RW configuration during device upgrades
+
+In Azure Operator Nexus, Read-Write (RW) configurations on network devices are now preserved across device software upgrades. This ensures that user-defined RW changes remain intact after an upgrade, maintaining consistency and reducing the risk of configuration drift.
+
+### How it works
+The upgrade process follows a two-step approach:
+
+- Device Upgrade: The device’s EOS software is upgraded and bootstrapped.
+
+- RW Reapplication: After the upgrade completes, the system automatically reapplies all previously configured RW commands to the device.
+
+This reapplication ensures that persistent configurations are restored and remain effective after a device reboot or version transition.
+
+> [!Important]
+> Arista EOS does not currently support pre-validation of RW configurations. If any command is deprecated, invalid, or non-functional, it may cause the upgrade to fail.
+
+### Failure handling
+
+If an RW configuration fails during reapplication, the device will enter a failed state, and the upgrade process will not complete.
+
+Users will receive error output via Azure CLI.
+
+#### In such cases:
+
+Open a support ticket with the updated and corrected RW configuration.
+
+The support team will coordinate with you to reapply the new RW configuration through a Lockbox-enabled admin action.
+
+If the reapplication still fails, the admin action may need to be retried with further corrections.
+
+### Summary
+
+| Feature                      | Behavior                                                                         |
+| ---------------------------- | -------------------------------------------------------------------------------- |
+| RW command persistence       | Automatically reapplied after upgrade                                            |
+| Pre-validation of RW configs | Not supported                                                                    |
+| On failure                   | Device enters failed state                                                       |
+| Recovery                     | Submit support ticket; corrected config applied via Lockbox-enabled admin action |
+
 ## Limitations 
 
 **Common Questions:**
