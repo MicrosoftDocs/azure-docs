@@ -80,7 +80,7 @@ The following example uses the **Starter** product, but choose any published pro
 
 1. Sign in to the Azure portal at the following test URL:
 
-    [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true)
+    [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applications=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applications=true)
 1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Products**.
 1. Choose the product you want to configure, such as the **Starter** product.
@@ -105,10 +105,15 @@ Review application settings in **App registrations**:
 1. Sign in to the Azure portal and navigate to **Microsoft Entra ID** > **Manage** > **App registrations**.
 1. Select **All applications**.
 1. Search for and select the application created by API Management.
+1. On the **Overview** page, note the **Application (client) ID**. This ID is set as the **Audience** value when creating a client application to access the product.
 1. In the left menu, under **Manage**, select **App roles**.
 1. Confirm that an application role was set by Azure API Management, as shown in the following screenshot:
 
 :::image type="content" source="media/applications/application-roles.png" alt-text="Screenshot of app roles in the portal.":::
+
+The backend application ID is also displayed in API management in the product's **Properties** pane. This ID is set as the **Audience** value when creating a client application to access the product. Also use this value when generating a token to call the product API.
+
+:::image type="content" source="media/applications/product-application-settings.png" alt-text="Screenshot of product's application settings in the portal.":::
 
 ## Create client application to access product
 
@@ -120,7 +125,7 @@ Now create a client application that is registered in Microsoft Entra ID and lim
 
 1. Sign in to the Azure portal at the following test URL:
 
-    [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applicationNewRoleValueFormat=true)
+    [`https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applications=true`](https://portal.azure.com/?showversion=true&feature.customPortal=false&Microsoft_Azure_ApiManagement=javierbo2&applications=true)
 1. Navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **Applications** > **+ Register application**.
 1. In the **Register an application** pane, enter the following application settings:
@@ -172,7 +177,7 @@ A developer or client app can run the following Azure PowerShell scripts to call
 
 $clientId = "00001111-aaaa-2222-bbbb-3333cccc4444" # Client (application) ID of client application
 $clientSecret = "******" # Retrieve secret of client application in developer portal
-$scopeOfOtherApp = "api://055556666-ffff-7777-aaaa-8888bbbb9999/.default" # Value of Audience in product properties
+$scopeOfOtherApp = "api://55556666-ffff-7777-aaaa-8888bbbb9999/.default" # Value of Audience in product properties
 $tenantId = "aaaabbbb-0000-cccc-1111-dddd2222eeee" # Your tenant id
 
 $body = @{
