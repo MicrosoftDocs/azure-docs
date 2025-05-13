@@ -45,8 +45,8 @@ Although it's not required, you might want to [configure](set-edit-policies.md) 
 
 ## Create a policy fragment
 
-1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments** > **+ Create**.
-1. In the **Create a new policy fragment** window, enter a **Name** and an optional **Description** of the policy fragment. The name must be unique within your API Management instance.
+1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments**. In the **Policy fragments** pane, **+ Create**.
+1. In the **Create a new policy fragment** window, enter a **Name** and, optionally, a **Description** of the policy fragment. The name must be unique within your API Management instance.
 
     Example name: *ForwardContext*
 
@@ -69,7 +69,7 @@ Although it's not required, you might want to [configure](set-edit-policies.md) 
 
 ## Include a fragment in a policy definition
 
-Configure the [`include-fragment`](include-fragment-policy.md) policy to insert a policy fragment in a policy definition. For more information about policy definitions, see [Set or edit policies](set-edit-policies.md).
+Use the [`include-fragment`](include-fragment-policy.md) policy to insert a policy fragment in a policy definition. For more information about policy definitions, see [Set or edit policies](set-edit-policies.md).
 
 * You can include a fragment at any scope and in any policy section, as long as the underlying policy or policies in the fragment support the usage.
 * You can include multiple policy fragments in a policy definition.
@@ -96,12 +96,12 @@ After you create a policy fragment, you can view and update its properties or de
 
 1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments**. Select the name of your fragment.
 1. On the **Overview** page, review the **Policy document references** to see the policy definitions that include the fragment.
-1. On the **Properties** page, review the name and description of the policy fragment. The name can't be changed.
+1. On the **Properties** page, under **Settings**, review the name and description of the policy fragment. The name can't be changed.
 
 **To edit a policy fragment:**
 
 1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments**. Select the name of your fragment.
-1. Select **Policy editor**. 
+1. Under **Settings**, select **Policy editor**. 
 1. Update the statements in the fragment, and then select **Apply**.
 
 > [!NOTE]
