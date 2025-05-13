@@ -10,7 +10,7 @@ author: cephalin
 ms.author: cephalin
 ---
 
-# Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
+# Tutorial: Deploy an ASP.NET app with Azure SQL database to Azure
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview).
 
@@ -48,7 +48,7 @@ The sample project contains a basic [ASP.NET MVC](https://www.asp.net/mvc) creat
 
 1. In the app, select **Create New** and create a couple of *to-do* items.
 
-   ![Screenshot that shows the ASP.NET Project dialog box.](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
+   ![Screenshot that shows the ASP.NET web app.](media/app-service-web-tutorial-dotnet-sqldatabase/local-app-in-browser.png)
 
 1. Test the **Edit**, **Details**, and **Delete** links.
 
@@ -62,13 +62,13 @@ The database context in this sample is a connection string named `MyDbConnection
 
    ![Screenshot that shows Publish from Solution Explorer.](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-1. Select **Azure** as your target and select **Next**.
+1. On the **Publish** screen, select **Azure** as your target and select **Next**.
 
-1. Make sure that **Azure App Service (Windows)** is selected and select **Next**.
+1. On the next screen, make sure that **Azure App Service (Windows)** is selected and select **Next**.
 
 ### Sign in and add an Azure App Service
 
-1. On the **Publish** dialog screen, sign in to your Microsoft account and the subscription you want to use.
+1. On the next **Publish** screen, sign in to your Microsoft account and the subscription you want to use.
 
 1. Next to **App Service**, select **Create new**.
 
@@ -77,6 +77,8 @@ The database context in this sample is a connection string named `MyDbConnection
 ### Configure the Azure App Service
 
 On the **App Service (Windows)** screen, configure the App Service **Name**, **Resource group**, and **Hosting Plan**.
+
+   ![Screenshot that shows creating an App Service plan.](./media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
 
 1. Under **Name**, you can keep the generated web app name, or change it to another name with characters `a-z`, `0-9`, and `-`. The web app name must be unique across all Azure apps.
 
@@ -98,9 +100,7 @@ On the **App Service (Windows)** screen, configure the App Service **Name**, **R
 
    ![Screenshot that shows creating the Hosting Plan.](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-1. Select **Create**, and wait for the Azure resources to be created.
-
-   ![Screenshot that shows creating an App Service plan.](./media/app-service-web-tutorial-dotnet-sqldatabase/new_rg2.png)
+1. On the **App Service (Windows)** screen, select **Create**, and wait for the Azure resources to be created.
 
 1. The **Publish** screen shows the resources you configured. Select **Finish**, and then select **Close**.
 
@@ -110,14 +110,14 @@ On the **App Service (Windows)** screen, configure the App Service **Name**, **R
 
 Before you can create a database, you need a [logical SQL server](/azure/azure-sql/database/logical-servers). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
-1. On the **Publish** tab of the **DotNetAppSqlDb** screen, in the **Service Dependencies** section, select the ellipsis **...** next to **SQL Server Database**, and select **Connect**.
+1. On the **Publish** screen for the **DotNetAppSqlDb** app, in the **Service Dependencies** section, select the ellipsis **...** next to **SQL Server Database**, and select **Connect**.
 
    > [!NOTE]
    > Be sure to configure the SQL Database from the **Publish** tab, not the **Connected Services** tab.
 
    ![Screenshot that shows configuring the SQL Database dependency.](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sqldb-dependency.png)
 
-1. Select **Azure SQL Database** and then select **Next**.
+1. On the **Connect to dependency** screen, select **Azure SQL Database** and then select **Next**.
 
 1. On the **Configure Azure SQL Database** screen, select **Create new**.
 
@@ -159,46 +159,46 @@ The connection string is set in the *Web.config* file and referenced in the *Mod
 
 1. When the connection succeeds, at the top of the **Publish** tab, select **Publish**. Your ASP.NET app deploys to Azure, and your default browser launches to the URL of the deployed app.
 
-1. Add a few to-do items.
+1. To test the app, add a few to-do items.
 
    ![Screenshot that shows the published ASP.NET application in Azure App Service.](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
 Congratulations! Your data-driven ASP.NET application is running live in Azure App Service.
 
-## Access the database locally
+## Use SQL Server Object Explorer
 
-You can use **SQL Server Object Explorer** in Visual Studio to easily explore and manage your Azure SQL database. In **SQL Server Object Explorer**, you can perform most common database operations, such as running queries or creating views and stored procedures.
+You can use Visual Studio **SQL Server Object Explorer** to easily explore and manage your Azure SQL database. In **SQL Server Object Explorer**, you can perform most common database operations, such as running queries or creating tables, views, and stored procedures.
 
-The new database opened its firewall to the App Service app you created. To access the database from your local computer, such as from Visual Studio, you must open a firewall for your local machine's public IP address.
-
->[!NOTE]
->If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
-
-### Create a database connection
+### Connect to the database locally
 
 1. From the **View** menu, select **SQL Server Object Explorer**.
 
 1. At the top of the **SQL Server Object Explorer** window, select the icon to **Add SQL Server**.
 
-1. On the **Connect** screen, your connection appears under the **Azure** node. Fill in the information for your **Server Name**, **User Name**, **Password**, and **Database Name**, and select **Connect**.
+1. On the **Connect** screen, your connection appears under the **Azure** node. Complete the information for your **Server Name**, **User Name**, **Password**, and **Database Name**, and select **Connect**.
 
    ![Screenshot that shows configuring the database connection from Visual Studio.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-to-sql-database.png)
 
-### Allow client connection from your computer
+1. Once Visual Studio finishes configuring the connection for your SQL Database instance, your database appears in **SQL Server Object Explorer**. Expand **\<your connection name>** > **Databases** > **\<your database name>** > to see the data.
 
-By default, a server allows connections to its databases only from Azure services, such as your Azure app. To connect to your database from outside of Azure, such as from Visual Studio, you create a firewall rule at the server level. 
-
-If the **Create a new firewall rule** screen opens, make sure **Add my client IP** is selected and select **OK**. This firewall rule allows the public IP address of your local computer. The dialog box is already populated with your computer's public IP address.
-
-Once Visual Studio finishes configuring the connection for your SQL Database instance, your database appears in **SQL Server Object Explorer**.
-
-Expand your connection's > **Databases** > **\<your database>** > **Tables**. Right-click the `Todoes` table and select **View Data** to work with the database data.
+1. Expand **Tables**, right-click the `ToDoes` table, and select **View Data** to interact with the database data.
 
 ![Screenshot that shows exploring SQL Database objects.](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
+### Allow client connection from your computer
+
+By default, the Azure server allows connections to its databases only from Azure services, such as your Azure app. The new database opened its firewall to the App Service app you created.
+
+To access the database from your local computer, such as from Visual Studio, the Azure server must open the firewall to allow access for the machine's public IP address.
+
+If prompted to add access for your local client IP address, make sure to select the option to **Allow your computer's public IP address**. This option creates a firewall rule to allow the public IP address of your local computer. The dialog box is already populated with your computer's current IP address.
+
+>[!NOTE]
+>If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
+
 ## Update the app with Code First Migrations
 
-You can use familiar tools in Visual Studio to update your database and app in Azure. In this step, you use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
+You can use familiar tools in Visual Studio to update your database and app in Azure. In this step, you use Code First Migrations in Entity Framework to change your database schema and publish the change to Azure.
 
 For more information about using Entity Framework Code First Migrations, see [Getting Started with Entity Framework 6 Code First using MVC 5](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
