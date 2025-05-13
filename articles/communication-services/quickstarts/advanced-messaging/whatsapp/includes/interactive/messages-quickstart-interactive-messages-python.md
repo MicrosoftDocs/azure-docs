@@ -7,7 +7,7 @@ manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 02/20/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: Include file
 ms.author: shamkh
@@ -427,4 +427,4 @@ if __name__ == '__main__':
 
 ### Other samples
 
-You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
+You can review and download other sample codes from GitHub [Python Messages SDK](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).

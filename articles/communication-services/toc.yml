@@ -30,6 +30,8 @@ items:
     items:
     - name: Data residency and user privacy
       href: concepts/privacy.md
+    - name: Create a Network Security Perimeter (NSP)
+      href: quickstarts/network-security-perimeter.md
     - name: European Union Data Boundary
       href: concepts/european-union-data-boundary.md
     - name: Azure Government
@@ -1164,6 +1166,8 @@ items:
         href: tutorials/calling-widget/calling-widget-js-tutorial.md
     - name: Enable audio conferencing
       href: how-tos/calling-sdk/audio-conferencing.md
+    - name: Manage Teams meeting lobby
+      href: how-tos/calling-sdk/lobby.md
     - name: Enable breakout rooms
       href: how-tos/calling-sdk/breakoutrooms.md
     - name: Enable Together Mode
