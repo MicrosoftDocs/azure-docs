@@ -15,32 +15,54 @@ zone_pivot_groups: azure-maps-coverage
 
 This article provides coverage information for the Azure Maps Route service. Upon a search query, Azure Maps returns an optimal route from location A to location B. You're provided with accurate travel times, live updates of travel information, and route instructions. You can also add more search parameters such as current traffic, vehicle type, and conditions to avoid. The optimization of the route depends on the region. That's because, Azure Maps has various levels of information and accuracy for different regions. The tables in this article list the regions and what kind of information you can request for them.
 
-## Routing information supported
+::: zone pivot="service-latest"
 
-The following information is available in the [Azure Maps Route service coverage tables]:
+## Route directions
+
+Route Directions API returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
+
+For more information about the Route Directions API, see [Azure Maps Route Service] in the REST API documentation.
+
+## Real-time Traffic
+
+Delivers real-time information to show current traffic conditions, including congestion, accidents, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic service] in the REST API documentation.
+
+## Route Matrix
+
+The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It doesn't provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service] in the REST API documentation.
+
+## Route Range
+
+The Route Range API generates a polygon that illustrates the area accessible from a specified location within a certain time or distance limit. For more information, see [Post Route Range](/rest/api/maps/route/post-route-range) in the REST API documentation.
+
+## Snap to Roads
+
+Snap to Roads processes GPS point data, represented by longitude and latitude coordinates, to generate points that align with existing roadways on a map. This process, known as "snapping to roads," creates a series of objects that trace a path closely following the road network. For more information, see [Post Snap To Roads](/rest/api/maps/route/post-snap-to-roads) in the REST API documentation.
+
+::: zone-end
 
 ::: zone pivot="service-previous"
 <!-----------------------------  ROUTING v1   ---------------------------------------------------------------------------->
 
-### Calculate Route
+## Calculate Route
 
 The Calculate Route service calculates a route between an origin and a destination, passing through waypoints if they're specified. For more information, see [Get Route Directions] in the REST API documentation.
 
-### Calculate Reachable Range
+## Calculate Reachable Range
 
 The Calculate Reachable Range service calculates a set of locations that can be reached from the origin point. For more information, see [Get Route Range] in the REST API documentation.
 
-### Matrix Routing
+## Matrix Routing
 
 The Matrix Routing service calculates travel time and distance between all possible pairs in a list of origins and destinations. It doesn't provide any detailed information about the routes. You can get one-to-many, many-to-one, or many-to-many route options simply by varying the number of origins and/or destinations. For more information, see [Matrix Routing service] in the REST API documentation.
 
+## Traffic
+
+Delivers real-time information to show current traffic conditions, including congestion, accidents, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic service](/rest/api/maps/traffic?view=rest-maps-1.0) in the REST API documentation.
+
 ::: zone-end
 
-### Real-time Traffic
-
-Delivers real-time information about traffic jams, road closures, and a detailed view of the current speed and travel times across the entire road network. For more information, see [Traffic service] in the REST API documentation.
-
-### Truck routes
+## Truck routes
 
 The Azure Maps Truck Routing API provides travel routes that take truck attributes into consideration. Truck attributes include things such as width, height, weight, turning radius and type of cargo. This is important as not all trucks can travel the same routes as other vehicles. Here are some examples:
 
@@ -51,16 +73,6 @@ The Azure Maps Truck Routing API provides travel routes that take truck attribut
 - Certain trucks may want to avoid roads that have steep gradients.
 
 Azure Maps supports truck routing in the countries/regions indicated in the following tables.
-
-::: zone pivot="service-latest"
-
-### Route direction services
-
-Route Directions API returns the ideal route between a start location, or origin, and an end location, or destination. You can choose to get a route for walking, automobile (driving) or commercial trucks. You can also request route details such as distance, estimated travel time, and step-by-step instructions to navigate the route.
-
-For more information about the Route Directions API, see [Azure Maps Route Service] in the REST API documentation.
-
-::: zone-end
 
 ## Azure Maps Route service coverage tables
 
@@ -391,6 +403,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Central African Republic               |               ✓                  |                    |                        |          ✓           |
 | Chad                                   |               ✓                  |                    |                        |          ✓           |
 | Chile                                  |               ✓                  |         ✓          |                        |          ✓           |
+| China                                  |               ✓                  |                    |                        |                      |
 | Christmas Island                       |               ✓                  |                    |                        |          ✓           |
 | Cocos (Keeling) Islands                |               ✓                  |                    |                        |          ✓           |
 | Colombia                               |               ✓                  |         ✓          |                        |          ✓           |
@@ -456,6 +469,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Israel                                 |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Italy                                  |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Jamaica                                |               ✓                  |                    |                        |          ✓           |
+| Japan                                  |               ✓                  |                    |                        |                      |
 | Jan Mayen                              |               ✓                  |                    |                        |                      |
 | Jersey                                 |               ✓                  |         ✓          |                        |          ✓           |
 | Jordan                                 |               ✓                  |                    |                        |          ✓           |
@@ -530,6 +544,7 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | Romania                                |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Russia                                 |               ✓                  |                    |           ✓            |          ✓           |
 | Rwanda                                 |               ✓                  |                    |                        |          ✓           |
+| Saba                                   |               ✓                  |                    |                        |                      |
 | Samoa                                  |               ✓                  |                    |                        |          ✓           |
 | San Marino                             |               ✓                  |         ✓          |           ✓            |          ✓           |
 | São Tomé & Príncipe                    |               ✓                  |                    |                        |          ✓           |
@@ -550,13 +565,13 @@ The Azure Maps Routing service contains different levels of geographic coverage 
 | South Sudan                            |               ✓                  |                    |                        |          ✓           |
 | Spain                                  |               ✓                  |         ✓          |           ✓            |          ✓           |
 | Sri Lanka                              |               ✓                  |                    |                        |          ✓           |
-| St. Barthélemy                         |                                  |                    |                        |          ✓           |
+| St. Barthélemy                         |               ✓                  |                    |                        |          ✓           |
 | St Helena, Ascension, Tristan da Cunha |               ✓                  |                    |                        |          ✓           |
-| St. Kitts & Nevis                      |                                  |                    |                        |          ✓           |
-| St. Lucia                              |                                  |                    |                        |          ✓           |
-| St. Martin                             |                                  |                    |                        |          ✓           |
-| St. Pierre & Miquelon                  |                                  |                    |                        |          ✓           |
-| St. Vincent & Grenadines               |                                  |                    |                        |          ✓           |
+| St. Kitts & Nevis                      |               ✓                  |                    |                        |          ✓           |
+| St. Lucia                              |               ✓                  |                    |                        |          ✓           |
+| St. Martin                             |               ✓                  |                    |                        |          ✓           |
+| St. Pierre & Miquelon                  |               ✓                  |                    |                        |          ✓           |
+| St. Vincent & Grenadines               |               ✓                  |                    |                        |          ✓           |
 | Sudan                                  |               ✓                  |                    |                        |          ✓           |
 | Suriname                               |               ✓                  |                    |                        |          ✓           |
 | Svalbard                               |               ✓                  |                    |                        |                      |
@@ -607,7 +622,6 @@ For more coverage tables, see:
 - Check out coverage for [Traffic].  
 - Check out coverage for [Render].
 
-[Azure Maps Route service coverage tables]: #azure-maps-route-service-coverage-tables
 [Azure Maps Route Service]: /rest/api/maps/route/
 [Geocoding]: geocoding-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
