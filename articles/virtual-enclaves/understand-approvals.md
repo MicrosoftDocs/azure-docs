@@ -18,7 +18,7 @@ Approvals in Azure Virtual Enclaves (AVE) form a critical layer of governance, e
 ## Which resources are approval enabled
 Currently, the below resources are approval enabled:
 - [Enclave](./create-enclave-portal.md) creation
--  [Enclave endpoint](./create-enclave-endpoint-portal.md) modification
+- [Enclave endpoint](./create-enclave-endpoint-portal.md) modification
 - [Enclave connection](./create-enclave-connection-portal.md) creation and update
 - Turn on [maintenance mode](./maintenance-mode.md) for an enclave.
 
@@ -90,6 +90,8 @@ Furthermore, the metadata of deleted requests remain in logs for auditing purpos
 >
 > Make sure to not enter any PII data or any personal details in Ticket ID field.
 
+### 6. Does approvals work with templates and other infrastructure as code (IaC)?
+Yes, approvals can be enabled during resource creation in the case of community and endpoints or updates to endpoints and connections. Child resources that depend on a resource that is pending an approval (for example, an enclave endpoint) may fail to deploy due to missing configuration information for the pending resource. In this situation, resource deployments should be orchestrated so the approver can review and complete the deployment of the pending resource before attempting to deploy the child resources. This includes breaking a deployment into multiple deployment steps or scripts that can start once a required approval is complete. 
 
 ## References
 - [What is Azure Virtual Enclaves?](/docs/overview/what%20is%20azure%20virtual%20enclaves)
