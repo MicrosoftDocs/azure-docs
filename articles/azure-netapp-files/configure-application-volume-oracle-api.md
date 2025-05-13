@@ -16,7 +16,7 @@ This article describes the creation of application volume group (AVG) for Oracle
 
 In a create request, use the following URI format:
 
-```/subscriptions/<subscriptionId>/providers/Microsoft.NetApp/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<accountName>/volumeGroups/<volumeGroupName>?api-version=<apiVersion>```
+```/subscriptions/<subscriptionId>/providers/Microsoft.NetApp/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<accountName>/volumeGroups/<volumeGroupName>?api-version=<apiVersion>```
 
 | URI parameter | Description | Restrictions for Oracle AVG |
 | ---- | ----- | ----- |
@@ -61,11 +61,9 @@ The following tables describe the request body parameters and volume properties 
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | The subnet ID must be the same for all volumes. |
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it isn't a requirement. |
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
-| `Properties:dataProtection:replication:endpointType` | Endpoint type for a replication configuration | The allowed value is `dst` |
-| `Properties:dataProtection:replication:remoteVolumeResourceId` | The resource ID of the remote volume | The volume ID |
-| `Properties:dataProtection:replication:replicationSchedule` | The frequency of replication (daily, hourly, or every 10 minutes) | Allowed values are `daily`, `hourly`, or `_10minutely` |
-
-
+| `endpointType` | Endpoint type for a replication configuration. | The allowed value is `dst` |
+| `remoteVolumeResourceId` |  The resource ID of the remote volume | The volume ID |
+| `replication:replicationSchedule` |  The frequency of replication (daily, hourly, or every 10 minutes) | The allowed values are `daily`, `hourly`, or `_10minutely` |
 
 ## Examples: Application volume group for Oracle API request content
 
