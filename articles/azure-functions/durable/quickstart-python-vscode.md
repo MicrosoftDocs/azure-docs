@@ -379,10 +379,6 @@ After you verify that the function runs correctly on your local computer, it's t
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-## Unit testing
-
-For more information on unit testing functions in Python, see our [Python unit testing guide](durable-functions-unit-testing-python.md)
-
 ## Test your function in Azure
 
 ::: zone pivot="python-mode-configuration"
@@ -412,3 +408,4 @@ If you no longer need the resources that you created to complete the quickstart,
 ## Related content
 
 * Learn about [common Durable Functions app patterns](durable-functions-overview.md#application-patterns).
+* Learn about [Unit Testing Durable Functions in Python](durable-functions-unit-testing-python.md)
