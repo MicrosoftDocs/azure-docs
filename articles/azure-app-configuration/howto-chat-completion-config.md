@@ -30,25 +30,31 @@ Azure OpenAI chat models support several [parameters](/azure/ai-services/openai/
 ## Create a chat completion configuration
 
 ## Prerequisites
-- An [Azure subscription](https://azure.microsoft.com/free/dotnet/)
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free)
 - An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
 
- 1. Select **Operations** > **Configuration explorer** > **Create** > **AI configuration**.
+> [!NOTE]
+> This tutorial demonstrates chat completion configuration management using Azure OpenAI models. However the configuration management demonstrated in the tutorial can be applied to any AI model you choose to work with in your application. Users are not limited to using only Azure OpenAI models.
+>
+
+ 1. In Azure portal, navigate to your App configuration store. From the **Operations** menu, select **Configuration explorer** > **Create**. Then select **AI configuration**.
 
  1. Specify the following values:
-    - **Key**: Select **ChatLLM**.
+    - **Key**: Type **ChatLLM:Model**.
     - **Label**: Leave this value blank.
     - **Model**: Select **gpt-4o**.
     - **Messages**: 
+        1. The **System** role is added by default. Update the content to "You're from the 1800s. Express amazement at modern inventions"
         1. Select **User** from the Role dropdown
-        2. In the **Content** text field, type "What is Azure App Configuration in 20 words ?"
+        1. In the **Content** text field, type "Tell me about smartphones in 20 words."
     
-    ![Screen shot of the create new AI configuration form](./media/create-ai-chat-completion-config.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screen shot shows the create new AI configuration form](./media/create-ai-chat-completion-config.png)
 
 1. To view the JSON representation of the chat completion configuration, switch to the **JSON** tab:
-
-    ![Screen shot of the create new AI configuration form JSON tab](./media/create-ai-chat-completion-config-json.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screen shot shows the create new AI configuration form JSON tab](./media/create-ai-chat-completion-config-json.png)
 
 1.  Leave the rest of the values as default then select **Apply**.
 
@@ -76,26 +82,22 @@ When the deployment completes, your model deployment status changes to _succeede
 1. Select **Operations** > **Configuration explorer** > **Create** > **Key-Value**
 
 1. Specify the following values:
-    - **Key**: Select **ChatLLM:Endpoint**.
+    - **Key**: Type **ChatLLM:Endpoint**.
     - **Label**: Leave this value blank.
     - **Value**: Paste the model endpoint we copied in the previous step.
     
     Leave the rest of the values as default then select **Apply**.
 
-    ![Screen shot of the create model endpoint](./media/create-model-endpoint.png)
+    > [!div class="mx-imgBorder"]
+    > ![Screen shot shows the create model endpoint form](./media/create-model-endpoint.png)
 
 1. Continue to the following instructions to implement the chat completion configuration into your application for the language or platform you are using.
 
-    - [.NET Core](./quickstart-chat-completion-dotnet.md)
+    - [.NET](./quickstart-chat-completion-dotnet.md)
     - [Node.js](./quickstart-chat-completion-javascript.md)
     - [Python](./quickstart-chat-completion-python.md)
 
-## Clean up resources
-
-[!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
-
 ## Next steps
-To learn how to configure your app to dynamically refresh configuration settings, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Enable dynamic configuration](./enable-dynamic-configuration-aspnet-core.md)
+> [AI configuration](./concept-ai-configuration.md)

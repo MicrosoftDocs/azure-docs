@@ -174,7 +174,7 @@
     items:
     - name: Overview
       href: howto-chat-completion-config.md
-    - name: .NET Core
+    - name: .NET
       href: quickstart-chat-completion-dotnet.md
     - name: Python
       href: quickstart-chat-completion-python.md

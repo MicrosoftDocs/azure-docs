@@ -1,5 +1,5 @@
 ---
-title: Quickstart for adding chat completion configuration to .NET apps
+title: Quickstart for using chat completion configuration in a .NET app
 titleSuffix: Azure App Configuration
 description: Learn to implement chat completion configuration in your .NET application using Azure App Configuration.
 services: azure-app-configuration
@@ -13,19 +13,16 @@ ms.date: 4/19/2025
 ms.author: mgichohi
 ---
 
-# Quickstart: Add chat completion configuration to a .NET console
+# Quickstart: Use chat completion configuration in a .NET console app
 
-In this quickstart, you will use the [Azure App Configuration .NET provider](https://github.com/Azure/AppConfiguration-DotnetProvider) in a .NET console application to centralize the storage and management of your chat completion configuration.
+In this quickstart you will create a .NET console app that retrieves chat completion configuration from your configuration store and generates AI responses based on the stored settings.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/)
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
-- [Azure OpenAI access](/azure/ai-services/openai/overview#get-started-with-azure-openai-service)
+
+- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config#create-a-chat-completion-configuration).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 
 ## Create a console app
-
-You can use  the .NET command-line interface(CLI) to create a new .NET console app project. The advantage of using the .NET CLI over Visual Studio is that it's available across the Windows, macOS and Linux platforms.
 
 1. Create a new directory for the project named *app-config-chat-completion*:
 
@@ -69,8 +66,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
 
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the _Program.cs_ file.
 
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    Use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
         var credential = new DefaultAzureCredential();
@@ -81,25 +77,13 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
                 string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
 
                 options.Connect(new Uri(endpoint), credential);
-            }).Build();`
+            }).Build();
 
-        var model = configuration.GetSection("ChatLLM")["model"];
+        var model = configuration.GetSection("ChatLLM:Model")["model"];
         string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
 
         Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
     ```
-
-    ### [Connection string](#tab/connection-string)
-    ```csharp
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddAzureAppConfiguration(Environment.GetEnvironmentVariable("AZURE_APPCONFIG_CONNECTION_STRING"));
-        
-        var model = configuration.GetSection("ChatLLM")["model"];
-        string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
-
-        Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
-    ```
-    ---
 
 1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
 
@@ -121,9 +105,9 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
         // Configure chat completion options
         ChatCompletionOptions options = new ChatCompletionOptions
         {
-            Temperature = float.Parse(configuration.GetSection("ChatLLM")["temperature"]),
-            MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM")["max_tokens"]),
-            TopP = float.Parse(configuration.GetSection("ChatLLM")["top_p"])
+            Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
+            MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
+            TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
         };
         
     ```
@@ -135,7 +119,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
         {
             var chatMessages = new List<ChatMessage>();
 
-            foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:messages").GetChildren())
+            foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
             {
                 switch (configuration["role"])
                 {
@@ -147,7 +131,6 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
                         break;
                 }
             }
-
             return chatMessages;
         }
     ```
@@ -186,7 +169,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
 
             }).Build();
 
-        var model = configuration.GetSection("ChatLLM")["model"];
+        var model = configuration.GetSection("ChatLLM:Model")["model"];
         string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
 
         // Initialize the AzureOpenAIClient
@@ -196,9 +179,9 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
         // Configure chat completion options
         ChatCompletionOptions options = new ChatCompletionOptions
         {
-            Temperature = float.Parse(configuration.GetSection("ChatLLM")["temperature"]),
-            MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM")["max_tokens"]),
-            TopP = float.Parse(configuration.GetSection("ChatLLM")["top_p"])
+            Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
+            MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
+            TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
         };
             
         IEnumerable<ChatMessage> messages = GetChatMessages();
@@ -214,7 +197,7 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
         {
             var chatMessages = new List<ChatMessage>();
 
-            foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:messages").GetChildren())
+            foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
             {
                 switch (configuration["role"])
                 {
@@ -233,46 +216,23 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
 
 ## Build and run the app locally
 
-1. Set the environment variable.
-
-    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
-    Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+1. Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
     setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
+
     If you use PowerShell, run the following command:
     ```pwsh
     $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
+
     If you use macOS or Linux run the following command:
     ```
     export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
     ```
-    
-    ### [Connection string](#tab/connection-string)
-    Set the environment variable named **AZURE_APPCONFIG_CONNECTION_STRING** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
-
-    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
-
-    ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
-    ```
-
-    If you use PowerShell, run the following command:
-
-    ```pwsh
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "connection-string-of-your-app-configuration-store"
-    ```
-
-    If you use macOS or Linux, run the following command:
-
-    ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
-    ```
-    ---
 
 1. After the environment variable is properly set, run the following command to run and build your app locally:
     ``` bash
@@ -284,15 +244,10 @@ You can use  the .NET command-line interface(CLI) to create a new .NET console a
 
     ```Output
     Hello, I am your AI assistant powered by Azure App Configuration (gpt-4o)
-
     -------------------Model response--------------------------
-    Azure App Configuration is a managed service for centralizing and managing application settings and feature flags across cloud environments.
+    Good heavens! A pocket-sized contraption combining telegraph, camera, library, and more—instant communication and knowledge at one’s fingertips! Astonishing!
     -----------------------------------------------------------
     ```
-
-## Clean up resources
-
-[!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 To learn how to configure your app to dynamically refresh configuration settings, continue to the following document.
