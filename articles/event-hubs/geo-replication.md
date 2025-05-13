@@ -20,27 +20,6 @@ This feature ensures that metadata and data of a namespace is continuously repli
 
 At any time, the secondary region can be promoted to become a primary region. Promoting a secondary repoints the namespace to the selected secondary region, and the previous primary region is demoted to a secondary region.
 
-
-## Geo-replication vs other business continuity options
-
-In this section, we touch upon other BCDR (business continuity and disaster recovery story) offerings, the distinction they have with geo-replication and the compatibility between these features.
-
-### Availability Zones
-
-Event Hubs offers [Availability Zones support](../reliability/reliability-event-hubs.md#availability-zone-support), depending on the Azure regions where the Event Hubs namespace is provisioned. Availability zones support offers fault isolation and provide resiliency **within** the same datacenter region.
-
-Geo-replication provides fault isolation **across** Azure regions, by pairing 2 regions together and ensuring the data is copied over for an RPO (recovery point objective).
-
-Availability Zones are **fully supported** along with geo-replication.
-
-### Metadata disaster recovery (DR)
-
-The [Metadata disaster recovery feature](./event-hubs-geo-dr.md) replicates configuration information (or metadata) for a namespace from a primary namespace to a secondary namespace. It supports a one time only failover to the secondary region. During customer initiated failover, the alias name for the namespace is repointed to the secondary namespace and then the pairing is broken. No data is replicated other than configuration information nor are permission assignments replicated. 
-
-Geo-replication feature replicates configuration information and all of the data from a primary namespace to the secondary region. Failover is performed by promoting the selected secondary to primary (and demoting the previous primary to a secondary). Users can fail back to the original primary when desired.
-
-Metadata disaster recovery (DR) is ***not supported*** along with geo-replication. You can migrate from *Metadata disaster recovery (DR)* to *Geo-replication*, by breaking the metadata DR pairing and enabling Geo-replication as mentioned in this document.
-
 ## Scenarios
 
 Event Hubs Geo-replication can be used in multiple different scenarios, as described here.
