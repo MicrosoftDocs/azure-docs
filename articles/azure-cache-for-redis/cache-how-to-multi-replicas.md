@@ -14,7 +14,9 @@ appliesto:
 
 Azure Cache for Redis Standard and Premium tiers offer redundancy by hosting each cache on two dedicated virtual machines (VMs) configured as primary and replica. If the primary VM becomes unavailable, the replica automatically takes over as the new primary.
 
-For a Premium cache, you can increase the number of replicas up to three, giving a total of four VMs backing a cache. Having multiple replicas provides higher resilience than a single replica. This article describes how to create an Azure Cache for Redis Premium cache with added replicas by using the Azure portal. You can't change the number of replicas after you create the cache.
+For a Premium cache, you can increase the number of replicas up to three, giving a total of four VMs backing a cache. Having multiple replicas provides higher resilience than a single replica.
+
+This article describes how to create an Azure Cache for Redis Premium cache with added replicas by using the Azure portal. You can't change the number of replicas after you create the cache.
 
 ## Prerequisites
 
@@ -28,12 +30,12 @@ You need an Azure subscription. If you don't have one, [create a free account](h
 
 1. On the **Advanced** tab, increase the number of replicas for **Replica count** to **2** or **3** replicas.
 
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
-
 1. Configure clustering, data persistence, and other settings as desired.
 
    > [!IMPORTANT]
    > You can't use Append-only File (AOF) data persistence or geo-replication if you create more than one replica.
+
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
 
 1. Select **Review + Create**, and when validation passes, select **Create**.
 
