@@ -6,7 +6,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: overview
-ms.date: 02/19/2024
+ms.date: 05/13/2025
 ms.author: mbender
 ms.custom: template-overview, engagement-fy23
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
@@ -30,6 +30,9 @@ Alternatively, an [internal (or private) load balancer](./components.md#frontend
 For more information on the service's individual components, see [Azure Load Balancer components](./components.md).
 
 Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. For more information, see [Azure Load Balancer SKUs](skus.md).
+
+>[!NOTE]
+> Azure Load Balancer is one of the services that make up the Load Balancing and Content Delivery category in Azure. Other services in this category include [Azure Front Door](../frontdoor/front-door-overview.md) and [Azure Application Gateway](../application-gateway/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Load Balancing and Content Delivery](/articles/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md).
 
 ## Why use Azure Load Balancer?
 

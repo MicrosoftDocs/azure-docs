@@ -39,7 +39,7 @@ productDirectory:
       url: /azure/application-gateway
     - title: Azure Load Balancer
       imageSrc: ./media/load-balancer.svg
-      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
+      summary: "Manage distribution of load-balanced public and internal traffic with Azure Load Balancer."
       url: /azure/load-balancer
     - title: Azure Front Door
       imageSrc: ./media/front-door-cdn.svg
