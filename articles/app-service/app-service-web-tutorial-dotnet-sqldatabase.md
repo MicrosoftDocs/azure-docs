@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: ASP.NET app with Azure SQL Database'
-description: Learn how to deploy a data-driven C# ASP.NET app in Azure App Service and connect it to Azure SQL Database.
+description: Learn how to deploy a data-driven C# ASP.NET app to Azure App Service and connect it to Azure SQL Database.
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
@@ -22,8 +22,9 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 >
-> - Publish a web app that has a SQL database back end to Azure.
-> - Create an Azure SQL database to hold the app data, and connect the ASP.NET app to the Azure SQL database.
+> - Publish a data-driven web app to Azure.
+> - Create an Azure SQL database to hold the app data.
+> - Connect the ASP.NET app to the Azure SQL database.
 > - Update the data model and redeploy the app.
 > - Stream application logs from Azure to Visual Studio.
 
@@ -150,7 +151,7 @@ The connection string is set in the *Web.config* file and referenced in the *Mod
 1. Under **Connection string name**, enter the name of the connection string referenced in *Models/MyDatabaseContext.cs*, in this case *MyDbConnection*.
 
    > [!NOTE]
-   > If you see **Local user secrets files** instead, you might have configured SQL Database from the **Connected Services** page instead of the **Publish** page.
+   > If you see **Local user secrets files** instead, make sure you used the **Publish** page, not the **Connected Services** page, to configure SQL Database.
 
 1. Select **Additional settings**, make sure **Azure App Settings** is selected, and select **Finish**.
 
@@ -168,7 +169,7 @@ Congratulations! Your data-driven ASP.NET application is running live in Azure A
 
 You can use **SQL Server Object Explorer** in Visual Studio to easily explore and manage your Azure SQL database. In **SQL Server Object Explorer**, you can perform most common database operations, such as running queries or creating views and stored procedures.
 
-The new database opened its firewall to the App Service app you created, but to access the database from your local computer, such as from Visual Studio, you must open a firewall for your local machine's public IP address.
+The new database opened its firewall to the App Service app you created. To access the database from your local computer, such as from Visual Studio, you must open a firewall for your local machine's public IP address.
 
 >[!NOTE]
 >If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
@@ -200,7 +201,7 @@ This firewall rule allows the public IP address of your local computer. The dial
 
    ![Screenshot that shows exploring SQL Database objects.](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
-## Update app with Code First Migrations
+## Update the app with Code First Migrations
 
 You can use familiar tools in Visual Studio to update your database and app in Azure. In this step, you use Code First Migrations in Entity Framework to make a change to your database schema and publish it to Azure.
 
@@ -339,7 +340,7 @@ Open _Controllers\TodosController.cs_, and note that each action starts with a `
    
 ### Change trace levels
 
-1. To change the trace levels to output other trace messages, in the **Hosting** section of the **Publish** page, select the **...** at upper right and select **Open in Azure portal**.
+1. To change the trace levels to output other trace messages, in the **Hosting** section of the **Publish** page, select the **...** at upper right and then select **Open in Azure portal**.
 
 1. On the Azure portal page for your app, select **App Service logs** under **Monitoring** in the left menu.
 
@@ -367,10 +368,10 @@ To stop the log-streaming service, select the **Stop monitoring** icon in the **
 
 ## Related content
 
-- [Configure ASP.NET app](configure-language-dotnet-framework.md)
-- [Start analyzing costs with Cost Management](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+- [Configure an ASP.NET app for Azure App Service](configure-language-dotnet-framework.md)
+- [Quickstart: Start using Cost analysis](/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
-Advance to the next tutorial to learn how to use managed identity to improve your Azure SQL Database connection security.
+Go to the next tutorial to learn how to use managed identity to improve your Azure SQL Database connection security.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
