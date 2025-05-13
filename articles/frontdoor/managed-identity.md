@@ -5,13 +5,15 @@ description: This article shows you how to set up managed identities with Azure 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 11/12/2024
 ---
 
 # Use managed identities to access Azure Key Vault certificates
 
-Managed identities provided by Microsoft Entra ID enable your Azure Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Key Vault, without the need to manage credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
+Managed identities provided by Microsoft Entra ID enable your Azure Front Door instance to securely access other Microsoft Entra protected resources, such as Azure Key Vault, without the need to manage credentials. For more information, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 After you enable managed identity for Azure Front Door and granting the necessary permissions to your Azure Key Vault, Front Door will use the managed identity to access certificates. Without these permissions, custom certificate autorotation and adding new certificates fail. If managed identity is disabled, Azure Front Door will revert to using the original configured Microsoft Entra App, which isn't recommended and will be deprecated in the future.
 
