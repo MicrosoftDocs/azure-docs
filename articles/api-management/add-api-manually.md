@@ -35,6 +35,7 @@ In this article, you learn how to create a blank API. You'll specify [httpbin.or
 1. Under **APIs** in the left menu, select **APIs**.
 1. Select **+ Add API**.
 1. Select the **HTTP** tile:
+
     :::image type="content" source="media/add-api-manually/blank-api-1.png" alt-text="Screenshot that shows the HTTP tile in the Azure portal.":::     
       
 1. Enter the backend **Web service URL** (for example, `https://httpbin.org`) and other settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
@@ -65,7 +66,7 @@ Test the operation in the Azure portal. (You can also test it in the developer p
 2. Select **FetchData**.
 3. Select **Send**.
 
-The response that the `http://httpbin.org/get` operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
+The response that the `http://httpbin.org/get` operation generates appears in the **HTTP response** section. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
 ## Add and test a parameterized operation
 
@@ -87,7 +88,7 @@ Test the operation in the Azure portal. (You can also test it in the developer p
 2. Select **GetStatus**. Under **code**, enter **200**. 
 3. Select **Send**.
 
-    The response that the `http://httpbin.org/status/200` operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
+    The response that the `http://httpbin.org/status/200` operation generates appears in the **HTTP response** section. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
 
 ## Add and test a wildcard operation
 
@@ -111,10 +112,10 @@ Test the operation in the Azure portal. (You can also test it in the developer p
 1. Select the **Test** tab.
 2. Select **WildcardGet**. Try the GET operations that you tested in previous sections, or try a different supported GET operation.
 
-    For example, in **Template parameters**, change the value next to the wildcard (*) name to `headers`. The operation returns the incoming request's HTTP headers.
-1. Press **Send**.
+    For example, in **Template parameters**, change the value next to the wildcard (*) name to **headers**. The operation returns the incoming request's HTTP headers.
+1. Select **Send**.
 
-    The response that the `http://httpbin.org/headers` operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
+    The response that the `http://httpbin.org/headers` operation generates appears in the **HTTP response** section. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
   
 >[!NOTE]
 > It can be important to understand how the host for the backend API you're integrating with handles trailing slashes on an operation URL. For more information, see this [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
