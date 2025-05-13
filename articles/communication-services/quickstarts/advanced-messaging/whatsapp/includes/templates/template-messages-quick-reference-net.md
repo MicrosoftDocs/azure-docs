@@ -78,7 +78,7 @@ Follow these steps to add required code snippets to the Main function of your `P
 
 ### List WhatsApp templates
 
-List of templates can be viewed in Azure portal or In WhatsApp Manager or Using SDK. All options are listed below in detail.
+List of templates can be viewed in Azure portal or In WhatsApp Manager or Using SDK. All options are listed as follows:
 
 You can view your templates in the Azure portal by going to your Azure Communication Service resource > **Advanced Messaging** > **Templates**.
 
@@ -573,7 +573,7 @@ Response<SendMessageResult> sendTemplateMessageResult4 =
 ```
 
 ### Send Authentication Template message
-This sample template sends authentication template message with one-time password buttons. More details can be find [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages)
+This sample template sends authentication template message with one-time password buttons. For more information, see the Facebook Auth Template API article [Sending Authentication Templates](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates/auth-otp-template-messages).
 
 #### Example
 

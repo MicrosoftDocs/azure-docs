@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 11/2/2021
+ms.date: 05/07/2025
 ms.custom: devx-track-azurecli
 ---
 
@@ -15,11 +15,18 @@ ms.custom: devx-track-azurecli
 
 API Management integrates with [Azure Event Grid](../event-grid/overview.md) so that you can send event notifications to other services and trigger downstream processes. Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks.
 
+You can subscribe to the following types of API Management events:
+
+* **Control plane events**: These events are generated when you create, update, or delete certain API Management resources. For example, you can receive an event when a new user or new product is created in your API Management instance.
+* **Data plane events** (preview): These events are generated  during operation of the API Management gateway. Currently, API Management can generate events for [backend circuit breakers](backends.md#circuit-breaker) and for the lifecycle of self-hosted gateway [access tokens](self-hosted-gateway-overview.md#authentication-options).
+
+For a complete list of available events, see the [Event Grid schema for API Management](../event-grid/event-schema-api-management.md).
+
+:::image type="content" source="media/how-to-event-grid/event-grid-intro.png" alt-text="Diagram of API Management integration with Event Grid.":::
+
 For example, using integration with Event Grid, you can build an application that updates a database, creates a billing account, and sends an email notification each time a user is added to your API Management instance.
 
 In this article, you subscribe to Event Grid events in your API Management instance, trigger events, and send the events to an endpoint that processes the data. To keep it simple, you send events to a sample web app that collects and displays the messages:
-
-:::image type="content" source="media/how-to-event-grid/event-grid-viewer-intro.png" alt-text="API Management events in Event Grid viewer":::
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 - If you don't already have an API Management service, complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md)

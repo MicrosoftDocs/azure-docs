@@ -207,6 +207,24 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
+- id: reliability-functions-hosting-plan
+  title: Function app hosting options for Availability Zones support
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: flex-consumption-plan
+    title: Flex Consumption plan
+  - id: premium-plan
+    title: Premium plan
+- id: functions-hosting-plan-dynamic
+  title: Function app hosting options
+  prompt: Choose a hosting option for your function app
+  pivots:
+  - id: flex-consumption-plan
+    title: Flex Consumption plan
+  - id: premium-plan
+    title: Premium plan
+  - id: consumption-plan
+    title: Consumption plan
 - id: functions-hosting-plan
   title: Function app hosting options
   prompt: Choose a hosting option for your function app
