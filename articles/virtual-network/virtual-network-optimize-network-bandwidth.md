@@ -89,7 +89,7 @@ sudo reboot
 
 Most modern distributions should have significant improvements with kernels newer than 4.19+. Check the current kernel version to make sure that you're running a newer kernel.
 
-### Optimizing network performance in Linux VMs on Azure 
+## Optimizing cross-region transfer speeds in Azure Linux VMs
 
 Azure Linux VMs often experience network performance issues, particularly when transferring large files (1GB to 50GB) between regions, such as West Europe and West US. These issues are caused by suboptimal kernel configurations, network buffer settings, and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
 
@@ -97,56 +97,56 @@ To enhance network performance, consider implementing the following optimization
 
 - **Network buffer settings**: Adjust kernel parameters to maximize read and write memory buffers. Add these configurations to `/etc/sysctl.d/99-azure-network-buffers.conf`: 
 
-```plaintext
-net.core.rmem_max = 2147483647 
-net.core.wmem_max = 2147483647 
-net.ipv4.tcp_rmem = 4096 67108864 1073741824 
-net.ipv4.tcp_wmem = 4096 67108864 1073741824 
-```
+  ```plaintext
+  net.core.rmem_max = 2147483647 
+  net.core.wmem_max = 2147483647 
+  net.ipv4.tcp_rmem = 4096 67108864 1073741824 
+  net.ipv4.tcp_wmem = 4096 67108864 1073741824 
+  ```
  
 - **Congestion control**: Enabling BBR congestion control can often result in better throughput. Add this configuration to `/etc/sysctl.d/99-azure-congestion-control.conf`: 
 
 - Ensure the BBR module is loaded by adding it to `/etc/modules-load.d/99-azure-tcp-bbr.conf`: 
 
-```plaintext
-tcp_bbr 
-```
+  ```plaintext
+  tcp_bbr 
+  ```
 
-```plaintext
-net.ipv4.tcp_congestion_control = bbr 
-```
+  ```plaintext
+  net.ipv4.tcp_congestion_control = bbr 
+  ```
 
 - **Queue discipline (qdisc)**: Packet processing in Azure is generally improved by setting the default qdisc to `fq`. Add this configuration to `/etc/sysctl.d/99-azure-qdisc.conf`: 
 
-```plaintext
-net.core.default_qdisc = fq 
-```
+  ```plaintext
+  net.core.default_qdisc = fq 
+  ```
 
 - Create a udev rule in `/etc/udev/rules.d/99-azure-qdisc.rules` to ensure the qdisc is applied to network interfaces: 
 
-```plaintext
-ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue" 
-ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
-```
+  ```plaintext
+  ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="enP*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root noqueue" 
+  ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
+  ```
 
 - **IRQ scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. Update `/etc/default/irqbalance` with the following configuration: 
 
-```bash
-IRQBALANCE_BANNED_CPULIST=0-2 
-```
+  ```bash
+  IRQBALANCE_BANNED_CPULIST=0-2 
+  ```
 
 - **udev rules**: Add rules to optimize queue length and manage device flags efficiently. Create the following rule in `/etc/udev/rules.d/99-azure-txqueue-len.rules`: 
 
-```plaintext
-SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
-```
+  ```plaintext
+  SUBSYSTEM=="net", ACTION=="add|change", KERNEL=="eth*", ATTR{tx_queue_len}="10000“ 
+  ```
 
-#### For Packets delayed twice 
+### For Packets delayed twice 
 
 When it comes to Linux performance networking we use SR-IOV with Mellanox drivers (mlx4 or mlx5), something specific to Azure is that this creates two interfaces a synthetic and a virtual interface. [Learn More](/azure/virtual-network/accelerated-networking-how-it-works).  
  
 
-#### Additional Notes 
+### Additional Notes 
 
 System administrators can implement these solutions by editing configuration files such as `/etc/sysctl.d/`, `/etc/modules-load.d/`, and `/etc/udev/rules.d/`. Ensure that kernel driver updates and systemd configurations are reviewed for potential regressions. 
 
