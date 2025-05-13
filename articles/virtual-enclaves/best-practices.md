@@ -126,7 +126,35 @@ A common scenario where customers want to modify resources is through tags. Azur
 ### Workload resource group
 The workload is linked to one or more resource groups where you can create and organize your Azure resources.  contains the infrastructure resources described in [What is a workload?](./what-workload.md#workload-resource-group).
 
-The workload managed resource group is assigned a name by default following this convention `myWorkloadName`. When you delete your workload, the Azure Virtual Enclaves resource provider automatically deletes the workload managed resource group.
+#### Add a resource group to a workload
+Adding a new resource group normally requires the user to have permissions to create a new resource group. Subscription `Owner` or `Contributor` roles have this permission but the person creating the workload resource group may not have this priviledged permission. Azure Virtual Enclaves will attempt three ways to create the resource group:
+
+1. Check if the user has the required permissions to create a new resource group, if not
+2. Check if the `Mission Enclave` application was given `Owner` or `Contributor` roles on the subscription, if not
+3. Create the workload resource group using a method that is currently restricted to one resource group of this type per workload. A warning will be displayed after this workload resource group is created to alert users that method #1 or #2 will be needed for additional workload resource groups on this workload. You can also create a new workload with a new workload resource group.
+
+A custom role can be given to users needing to create a resource group that includes the `Microsoft.Resources/subscriptions/resourceGroups/write` permission.
+
+Add a resource group to your enclave:
+1. Open the Azure portal page for the Workload
+2. Select `Manage` and then `Resource Groups`
+3. Select `Add a resource group`
+4. In the side window that opens, select `Create new` to provide the name of the new, empty resource group or select the `Resource Group` drop down to select an existing resource group.
+5. Select `Ok` and then `Save`
+
+#### How is a workload resource group different from other Azure resource groups?
+A workload resource group is a critical component of the Azure Virtual Enclaves security and compliance because that is where important customer resources are created. Since these workload resource groups are linked to a workload, and the workload is linked to an enclave, [deletion of the workload managed resource groups](#workload-deletion) is managed by Azure Virtual Enclaves.
+
+#### Organizing resources in workload resource groups
+If you wanted to split your resources into two resource groups, you can choose either of these options:
+
+- split those resources between two resource groups linked to one workload
+- split those resources between two workloads with one resource group each
+
+#### Workload deletion
+When a workload deletion is requested, the workload resource groups are checked to make sure they are empty. If the workload resource groups contain resources, the requested workload deletion with fail and show an error. If you want to delete the workload and workload resource groups, the workload resource groups need to be empty. This help to avoid deleting important resources by accident.
+
+Deletion of a resource that is linked to the workload will also follow this same behavior. For example: if a Community deletion is requested but all of the workload resource groups are not empty, the operation will show an error. Empty the workload resource groups and try again.
 
 The workload managed resource group has the following limitations:
 - You can't specify an existing resource group for the workload managed resource group.
