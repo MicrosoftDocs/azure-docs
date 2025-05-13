@@ -87,7 +87,7 @@ To test caching, call an operation in the portal.
 1. Select the **Test** tab at the top of the window.
 1. Select **Trace** two or three times in quick succession.
 1. Under **HTTP response**, select the **Trace** tab.
-1. Go to the **Inbound** section and scroll to the `cache-lookup` policy. You should see a message similar to the one in the following screenshot, which indicates a cache hit:
+1. Jump to the **Inbound** section and scroll to the `cache-lookup` policy. You should see a message similar to the one in the following screenshot, which indicates a cache hit:
     :::image type="content" source="media/api-management-howto-cache/test-api-cache-lookup.png" alt-text="Screenshot of cache-lookup when testing an API in the portal.":::
 
 ## Related content
