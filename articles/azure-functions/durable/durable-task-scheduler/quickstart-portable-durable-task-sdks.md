@@ -74,7 +74,7 @@ The application code looks for a deployed scheduler and task hub resource. If no
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the .NET SDK sample directory. 
     
      ```bash
-     cd samples/portable-sdks/dotnet/FanOutFanIn
+     cd samples/durable-task-sdks/dotnet/FanOutFanIn
      ```
 
 1. Pull the Docker image for the emulator.
@@ -101,7 +101,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Python SDK sample directory. 
 
      ```bash
-     cd samples/portable-sdks/python/fan-out-fan-in
+     cd samples/durable-task-sdks/python/fan-out-fan-in
      ```
 
 1. Pull the Docker image for the emulator.
@@ -127,7 +127,7 @@ Since the example code automatically uses the default emulator settings, you don
 1. From the `Azure-Samples/Durable-Task-Scheduler` root directory, navigate to the Java SDK sample directory. 
 
      ```bash
-     cd samples/portable-sdks/java/fan-out-fan-in
+     cd samples/durable-task-sdks/java/fan-out-fan-in
      ```
 
 1. Pull the Docker image for the emulator.
