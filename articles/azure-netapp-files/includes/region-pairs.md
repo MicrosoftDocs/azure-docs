@@ -4,7 +4,7 @@ ms.service: azure-netapp-files
 ms.topic: include
 ms.date: 05/02/2025
 ms.author: anfdocs
-ms.custom: include file
+ms.custom: include file, references_regions
 
 # azure-netapp-files/cross-region-replication-introduction.md
 # azure-netapp-files/cross-zone-region-replication.md
