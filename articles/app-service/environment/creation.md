@@ -31,7 +31,7 @@ Before you deploy your App Service Environment, consider the virtual IP (VIP) ty
 
 With an *internal VIP*, your apps are accessible through an address within your App Service Environment subnet and aren’t listed in a public Domain Name System (DNS). When you create your App Service Environment in the Azure portal, you can set up an Azure private DNS zone for your App Service Environment.  
 
-With an *external VIP*, your apps use an address that faces the public internet and are listed in a public DNS. For both *internal VIP* and *external VIP*, you can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option. If you select the *Manual* option for an *external VIP*, you must first create a standard *Public IP address* in Azure. 
+With an *external VIP*, your apps use an address that faces the public internet and are listed in a public DNS. For both *internal VIP* and *external VIP*, you can specify an *Inbound IP address* and select either the *Automatic* or *Manual* option. If you select the *Manual* option for *external VIP*, you must first create a standard *Public IP address* in Azure. 
 
 You can select *single zone*, *zone redundant*, or *host group* for the deployment type. The single zone is available in all regions where App Service Environment v3 is available. With the single-zone deployment type, you have a minimum charge in your App Service plan of one instance of Windows Isolated v2. When you use one or more instances, the charge is immediately removed. This fee isn't additive.
 
