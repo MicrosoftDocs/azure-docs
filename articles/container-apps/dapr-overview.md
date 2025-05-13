@@ -25,6 +25,10 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 | 2     | Dapr                             | The fully managed Dapr APIs are exposed to each container app through a Dapr sidecar. The Dapr APIs can be invoked from your container app via HTTP or gRPC. The Dapr sidecar runs on HTTP port 3500 and gRPC port 50001.                                                         |
 | 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
 
+## Dapr in Azure Container Apps vs. Dapr open source
+
+
+
 ## Versioning
 
 Instead of following a fixed release schedule, Dapr in Azure Container Apps releases new features and functionality based on the prioritization and stability of the Dapr binaries. [Learn more about Dapr releases in Azure Container Apps.](./faq.yml#how-often-are-dapr-versions-released-for-azure-container-apps-)
