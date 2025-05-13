@@ -19,6 +19,9 @@ Back up network traffic between Azure VMware Solution VMs and the backup reposit
 >**Support Guidance for 3P Backup and recovery solution customer(s):**
 >For any issues related to 3 P backup and Recovery solutions, customers must contact the respective partner's support team directly. AVS does not provide direct support for partner products. If advanced troubleshooting becomes necessary, the partner’s support team engages AVS support as appropriate. We appreciate your understanding and recommend not opening a support request with Microsoft for partner solution-related matters.
 
+> [!IMPORTANT] 
+> Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. Use the CloudAdmin role to create, modify, or delete custom roles with privileges less than or equal to their current role. Roles that have privileges greater than that of CloudAdmin is unsupported. Please refer to the https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-identity#view-the-vcenter-server-privileges.
+
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
