@@ -208,7 +208,7 @@ If you’re going to use different versions of the same module between runbooks,
 For a DSC resource, use the following command to specify a particular version:
 
 ```powershell
-Import-DscResource -ModuleName <ModuleName> -ModuleVersion <version>
+Import-DscResource -ModuleName "<ModuleName>" -ModuleVersion "<version>"
 ```
 
 ### Help information
@@ -359,7 +359,11 @@ To import a module in the Azure portal:
 You can use the [New-AzAutomationModule](/powershell/module/az.automation/new-azautomationmodule) cmdlet to import a module into your Automation account. The cmdlet takes a URL for a module .zip package.
 
 ```azurepowershell-interactive
-New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+$moduleName = "<ModuleName>"
+$contentLinkUri = "<ModuleUri>"
+$resourceGroupName = "<ResourceGroupName>"
+$automationAccountName = "<AutomationAccountName>"
+New-AzAutomationModule -Name $moduleName -ContentLinkUri $contentLinkUri -ResourceGroupName $resourceGroupName -AutomationAccountName $automationAccountName
 ```
 
 You can also use the same cmdlet to import a module from the PowerShell Gallery directly. Make sure to grab `ModuleName` and `ModuleVersion` from the [PowerShell Gallery](https://www.powershellgallery.com).
