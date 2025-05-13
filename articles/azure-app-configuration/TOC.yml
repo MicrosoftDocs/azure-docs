@@ -331,7 +331,7 @@
     - name: Overview
       href: ./configuration-provider-overview.md
     - name: Support policy
-      href: ./support-policy.md
+      href: ./client-library-support-policy.md
     - name: .NET
       items:
       - name: API reference
@@ -374,7 +374,7 @@
     - name: Overview
       href: ./feature-management-overview.md
     - name: Support policy
-      href: ./support-policy.md
+      href: ./client-library-support-policy.md
     - name: .NET
       items:
       - name: Feature reference
