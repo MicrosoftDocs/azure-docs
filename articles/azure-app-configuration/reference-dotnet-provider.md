@@ -153,7 +153,7 @@ public class Settings
 builder.Services.Configure<Settings>(builder.Configuration.GetSection("TestApp:Settings"));
 ```
 
-For more information about options pattern in .NET, go to the [documentation](https://learn.microsoft.com/dotnet/core/extensions/options).
+For more information about options pattern in .NET, go to the [documentation](/dotnet/core/extensions/options/).
 
 ### JSON content type handling
 
@@ -289,7 +289,7 @@ builder.Services.AddAzureAppConfiguration();
 
 #### ASP.NET Core applications
 
-For ASP.NET Core applications, you can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to achieve [request-driven configuration refresh](./enable-dynamic-configuration-aspnet-core#request-driven-configuration-refresh) with a built-in middleware.
+For ASP.NET Core applications, you can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to achieve [request-driven configuration refresh](./enable-dynamic-configuration-aspnet-core.md#request-driven-configuration-refresh) with a built-in middleware.
 
 ```console
 dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
