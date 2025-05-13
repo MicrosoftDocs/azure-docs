@@ -28,7 +28,8 @@ The following table summarizes the differences between Gen 1 and Gen 2 private c
 With the Azure VMware Solution Gen 2 private clouds offering, you get the following benefits: 
 
 ### Simplified deployment and cost efficiency 
-- You can deploy Azure VMware Solution Gen 2 private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, AV48, or AV52 seed cluster. 
+You can deploy Azure VMware Solution Gen 2 private clouds directly with the AV64 SKU, eliminating the need for AV36, AV36P, AV48, or AV52 seed clusters.
+> [!NOTE]An Azure VMware Solution Gen 2 private cloud requires a minimum of 3 hosts
 
 ### Seamless Azure integration 
 - Azure VMware Solution Gen 2 private clouds are now deployed inside an Azure Virtual Network by default, providing instant connectivity to other Azure services.
