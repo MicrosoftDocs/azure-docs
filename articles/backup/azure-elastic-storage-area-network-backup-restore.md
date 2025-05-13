@@ -2,7 +2,7 @@
 title: Restore Azure Elastic SAN using Azure portal (preview)
 description: Learn how to restore Azure Elastic Storage Area Network (SAN)  backups (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 05/21/2025
 author: jyothisuri
 ms.author: jsuri
 ---

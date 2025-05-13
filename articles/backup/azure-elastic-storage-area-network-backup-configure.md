@@ -2,7 +2,7 @@
 title: Configure backup for Azure Elastic storage area network using Azure portal (preview)
 description: Learn how to configure backup for Azure Elastic storage area network (SAN) (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 05/21/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -97,7 +97,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
    After you add the backup instances, backup readiness validation starts on the **Configure Backup** pane, under **Datasources** tab. If the required roles are assigned, the  validation succeeds with the **Success** message.
 
-   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) doesn't have the **Elastic SAN Snapshot Exporter** and **Contributor** roles  assigned.
+   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) doesn't have the **Elastic SAN Snapshot Exporter** and **Disk snapshot Contributor** roles  assigned.
 
 1. To assign the required roles, on the **Configure Backup** pane, on the **Datasources** tab, select **Assign missing roles**.
 

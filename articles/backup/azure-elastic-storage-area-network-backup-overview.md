@@ -2,7 +2,7 @@
 title: About Azure Elastic storage area network protection (preview)
 description: Learn how the Azure Elastic storage area network (Azure Elastic SAN) backup works.
 ms.topic: overview
-ms.date: 05/15/2025
+ms.date: 05/21/2025
 author: jyothisuri
 ms.author: jsuri
 ms.custom: engagement-fy24
