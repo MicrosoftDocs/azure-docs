@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.custom: mvc
+ms.custom: mvc, portfolio-consolidation-2025
 ms.date: 09/27/2023
 ms.author: greglin
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.

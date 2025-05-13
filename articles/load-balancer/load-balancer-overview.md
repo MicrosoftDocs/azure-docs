@@ -8,7 +8,7 @@ ms.service: azure-load-balancer
 ms.topic: overview
 ms.date: 05/13/2025
 ms.author: mbender
-ms.custom: template-overview, engagement-fy23
+ms.custom: portfolio-consolidation-2025
 # Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ---
 

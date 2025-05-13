@@ -6,6 +6,7 @@ ms.topic: article
 ms.date: 04/28/2025
 ms.author: mbender
 author: mbender-ms
+ms.custom: portfolio-consolidation-2025
 ---
 
 # What is load balancing and content delivery?
