@@ -103,7 +103,7 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 
 ### Prerequisites
 
--	Retrieve Azure VMware solution vCenter VMCA certificate manually by going to https://<your vCenterFQDN> and then select **download trusted root CA certificate**. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. 
+-	Retrieve Azure VMware solution vCenter VMCA certificate manually by going to https://vCenterFQDN and then select **download trusted root CA certificate**. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. 
     - You must perform this task before adding Azure VMware Solution vCenter server is added to VMware Cloud Director, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads. Learn more using this link.
 -	[Create a support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) to perform customization on NSX-T before you integrate Azure VMware Solution NSX-T manager with VMware cloud director and create provider gateway.
     - You must perform this task before adding Azure VMware Solution NSX-T manager is added to VMware Cloud Director, else adding provide gateway will fail.
@@ -118,14 +118,14 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 
 ### Add Azure VMware Solution vCenter server and NSX-T manager to VMware Cloud Director
 -	Ensure the above pre-configuration steps are completed.
--	Navigate to VMware Cloud Director Service Provider portal https://<your VCD FQDN>/provider as administrator. 
+-	Navigate to VMware Cloud Director Service Provider portal https://VCD FQDN/provider as administrator. 
 -	Under **Infrastructure resources**, select **vCenter server** and select **ADD**.
     - Provide the name, Azure VMware solution vCenter URL, and “CloudAdmin” credential. 
     - Ensure status is **Normal**, and connection is **connected**.
 
 ### Add Azure VMware Solution vCenter server and NSX-T manager to VMware Cloud Director     
 - Ensure the above pre-configuration steps are completed.
-- Navigate to VMware Cloud Director Service Provider portal https://<your VCD FQDN>/provider as administrator. 
+- Navigate to VMware Cloud Director Service Provider portal https://VCD FQDN/provider as administrator. 
 - Under **Infrastructure** resources, select **NSX-T** and select **ADD**.
     - Provide a name, the URL of the Azure VMware solution NSX Manager instance, and the CloudAdmin credentials of the NSX Manager account.
 
@@ -162,7 +162,7 @@ You can configure external storage such as Azure Network file storage with VMwar
 Please create a support ticket to perform customization on NSX-T before you integrate it with VMware cloud director and prior to importing NSX-T tier-0 as provider gateway.
 
 ### How to import VMCA certificate from Azure VMware solution to VMware Cloud Director?
-To integrate Azure VMware Solution with VMware Cloud Director, you will need to retrieve vCenter VMCA certificate manually by navigating to https://<your vCneterFQDN>and then select “download trusted root CA certificate”. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. Learn more using this link.
+To integrate Azure VMware Solution with VMware Cloud Director, you will need to retrieve vCenter VMCA certificate manually by navigating to https://vCneterFQDN and then select “download trusted root CA certificate”. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. Learn more using this link.
 
 You must perform this task before adding Azure VMware Solution vCenter is added to VMware Cloud Director, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads.
 
