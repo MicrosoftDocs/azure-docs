@@ -79,6 +79,10 @@ Orchestrator functions manage the execution of multiple activity functions. To t
 import unittest
 from unittest.mock import Mock, patch, call
 from datetime import timedelta
+from azure.durable_functions.testing import orchestrator_generator_wrapper
+
+from function_app import my_orchestrator
+
 
 class TestFunction(unittest.TestCase):
   @patch('azure.durable_functions.DurableOrchestrationContext')
@@ -91,7 +95,8 @@ class TestFunction(unittest.TestCase):
     # Create a generator using the method and mocked context
     user_orchestrator = func_call(context)
 
-    # Use a method defined above to get the values from the generator. Quick unwrap for easy access
+    # Use orchestrator_generator_wrapper to get the values from the generator.
+    # Processes the orchestrator in a way that is equivalent to the Durable replay logic
     values = [val for val in orchestrator_generator_wrapper(user_orchestrator)]
 
     expected_activity_calls = [call('say_hello', 'Tokyo'),
