@@ -45,6 +45,41 @@ With Azure Virtual Enclaves, you can easily create new isolated, zero-trust soft
 
 ![Diagram showing the layers Azure Virtual Enclaves within the management layers in Azure.](./media/ave-azure-layers-hierarchy.png)
 
+## What gets deployed
+When you deploy Azure Virtual Enclave resources, these are the resources that are deployed for you:
+
+- [**Communities**](./what-community.md) - The community managed resource group contains these resources depending on your selections during community creation.
+  - Azure Virtual WAN
+  - Azure Firewall
+  - Firewall Policy
+  - Log Analytics Workspace
+  - Virtual WAN regional hub - A hub is created during enclave creation for each new region an enclave is deployed in.
+  - Virtual WAN hub for transit - Select one below per transit hub.
+    - (Optional) VPN Gateway - Based on the transit hub configuration.
+    - (Optional) ExpressRoute Gateway - Based on the transit hub configuration.
+    - (Optional) Virtual Network Connection - Based on the transit hub configuration.
+
+- [**Enclaves**](./what-enclave.md)
+  - Azure monitor private link scope
+  - Data collection endpoint
+  - Data collection rule
+  - IP Group
+  - Managed Identity
+  - Network Interface
+  - Network security group / subnet (1 required, 1 for each customer subnet)
+  - Private DNS zone x5
+  - Private endpoint
+  - Storage Account (for network flow logs)
+  - May require Key Vault with Customer Managed Key (CMK)
+  - (Optional) Log Analytics
+  - (Optional) Bastion
+  - (Optional) Bastion Subnet
+  - (Optional) Public IP
+
+- [**Workloads**](./what-workload.md)
+  - Resource Groups - You create each [resource group]() you need to organize your resources.
+
+
 ## Virtual connection management
 With Azure Virtual Enclaves, you can easily connect your communities, enclaves, and workloads to other networks and resources, both on Azure and on-premises.
 
