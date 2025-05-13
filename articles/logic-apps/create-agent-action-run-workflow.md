@@ -65,11 +65,11 @@ For more information, see the following documentation:
 
   This requirement includes deploying a model in Azure OpenAI Service for the agent to use. The agent is where you create an action that can run a workflow.
 
-- To use an existing Consumption logic app workflow as an action in your agent, the workflow must meet the following requirements:
+- To use an existing Consumption logic app workflow as an action in your agent, check that the workflow meets the following requirements by , so check your workflow in the designer in Azure Logic Apps:
 
    - The workflow must start with the [**When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
-   - The trigger requires a description, which you can find on the trigger information pane in the designer.
+   - The trigger requires a description, which you can find on the trigger information pane in the workflow designer.
 
    - The workflow must end with the [**Response** action](/azure/connectors/connectors-native-reqres#add-a-response-action).
 
@@ -112,11 +112,14 @@ Follow these steps to add and define an action that your agent can use to call a
 
    :::image type="content" source="media/create-agent-action-run-workflow/azure-logic-apps.png" alt-text="Screenshot shows Azure AI Foundry window named Add action." lightbox="media/create-agent-action-run-workflow/azure-logic-apps.png":::
 
-1. Under **Select an action**, select a predefined action to jump start your workflow.
+1. Under **Select an action**, select a predefined action with one of the following labels:
 
-   Many predefined actions include a data source or service to use, such as Microsoft Dataverse, SQL, Outlook, and so on.
+   | Action label | Description |
+   |--------------|-------------|
+   | **Microsoft Authored** | This action uses a Microsoft authored template to create the workflow for the action. |
+   | **Workflow** | This action uses an eligible logic app workflow in your Azure subscription as a template to create the workflow for the action. <br><br>**Note**: If you select this option, skip to the section named [Confirm action details](#confirm-action-details). |
 
-   This example uses the action named **Get Weather forecast for today via MSN Weather**.
+   The following example uses the Microsoft authored action named **Get Weather forecast for today via MSN Weather**:
 
    :::image type="content" source="media/create-agent-action-run-workflow/get-weather-forecast-action.png" alt-text="Screenshot shows Azure AI Foundry window named Add Logic App action with selected action named Get Weather forecast." lightbox="media/create-agent-action-run-workflow/get-weather-forecast-action.png":::
 
@@ -124,7 +127,7 @@ Follow these steps to add and define an action that your agent can use to call a
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Your action name** | Yes | <*action-name*> | A concise task-oriented name to use for the action and for the logic app resource and workflow name in Azure Logic Apps. The name can use only letters, numbers and the following special characters: **-**, **(**, **)**, **_**, or **'**. You can't use whitespace or other special characters. <br><br>This example uses **Get-weather-forecast-today**. |
+   | **Your action name** | Yes | <*action-name*> | A friendly, but task-focused, verb-first, concise name for the action. This name is also used for the logic app resource and workflow in Azure Logic Apps. <br><br>**Note**: <br><br>- The action name can use only letters, numbers and the following special characters: **-**, **(**, **)**, **_**, or **'**. <br><br>- You can't use whitespace or other special characters. <br><br>- A Consumption logic app resource and workflow are combined with a 1:1 relationship, so they use the same name. By comparison, a Standard logic app resource can have multiple workflows that use different names. <br><br>This example uses **Get-weather-forecast-today**. |
    | **Your action description** | Yes | <*action-description*> | A description that clearly describes the purpose for the action. <br><br>This example uses **This action creates a callable Consumption logic app workflow that gets the weather forecast for today and runs in global, multitenant Azure Logic Apps.** |
    | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription to use, presumably the same as your project and model. |
    | **Resource group** | Yes | <*Azure-resource-group*> | The Azure resource group to use. |
@@ -154,28 +157,32 @@ Follow these steps to create any connections that the action needs and authentic
 
 1. When you're done, select **Next**.
 
-## Confirm all action information
+## Confirm action details
 
-Confirm that all the provided information appears correct and review the acknowledgment statement.
+Review and check that all the action information appears correct. If you selected a Microsoft authored action, review and consent to the acknowledgment statement.
 
 1. In the **Add Logic App action** window, under **Resource**, check all the provided action information.
 
-1. Review the acknowledgment statement that you understand the subsequent events that happen after you select **Next**, which goes to the **Schema** page:
+1. For a selected Microsoft authored action, complete the following steps:
 
-   - You can't return to the previous steps.
+   1. Review the statement that you acknowledge and understand the following events that happen after you leave **Resource** page by selecting **Next**:
 
-   - The action creates a Consumption logic app resource.
+      - You can't return to the previous steps.
 
-   - Connecting to Azure Logic Apps incurs charges in your Azure account.
+      - The action creates a Consumption logic app resource.
 
-     For more information about the billing model for Consumption logic app workflows, see the following documentation:
+      - Connecting to Azure Logic Apps incurs charges in your Azure account.
 
-     - [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant).
-     - [Azure Logic Apps pricing (Consumption Plan - Multitenant)](https://azure.microsoft.com/pricing/details/logic-apps/)
+        For more information about the billing model for Consumption logic app workflows, see the following documentation:
 
-1. To consent, select the confirmation box, and then select **Next**, for example:
+        - [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant).
+        - [Azure Logic Apps pricing (Consumption Plan - Multitenant)](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-   :::image type="content" source="media/create-agent-action-run-workflow/resource-create.png" alt-text="Screenshot shows Azure AI Foundry window with Resource page and selected confirmation box to create a logic app resource." lightbox="media/create-agent-action-run-workflow/resource-create.png":::
+   1. To consent, select the confirmation box, for example:
+
+      :::image type="content" source="media/create-agent-action-run-workflow/resource-create.png" alt-text="Screenshot shows Azure AI Foundry window with Resource page and selected confirmation box to create a logic app resource." lightbox="media/create-agent-action-run-workflow/resource-create.png":::
+
+1. When you're ready, select **Next**
 
 ## Finish creating the action
 
@@ -185,7 +192,7 @@ For the final step, review the information that the portal generates about the t
 
    | Parameter | Description |
    |-----------|-------------|
-   | **Tool name** | The editable name for the tool that the agent uses to run your action and access Azure, Microsoft, external services, data sources, or specialized AI models so that the agent can get data, run tasks, and interact with other platforms. |
+   | **Tool name** | The editable name for the tool that the agent uses to run your action and access Azure, Microsoft, external services, data sources, or specialized AI models so that the agent can get data, run tasks, and interact with other platforms. <br><br>**Note**: <br><br>- The action name can use only letters, numbers and the underscore (**_**) character. <br><br>- You can't use whitespace or other special characters. |
    | **Connection for authentication** | The read-only name for the the connection that the agent uses to access Azure, Microsoft, and external resources without having to ask for credentials every time. For more information, see [Connections in Azure AI Foundry portal](/azure/ai-foundry/concepts/connections). |
    | **Describe how to invoke the tool** | The description that specifies the circumstances for when the agent calls the tool. |
    | **Schema** | The schema for the logic app workflow in JavaScript Object Notation (JSON) format. |
