@@ -68,7 +68,7 @@ The database context in this sample is a connection string named `MyDbConnection
 
 ### Sign in and add an Azure App Service
 
-1. On the **Publish** dialog screen, select **Sign In**, and sign in to your Microsoft account and the subscription you want to use.
+1. On the **Publish** dialog screen, sign in to your Microsoft account and the subscription you want to use.
 
 1. Next to **App Service**, select **Create new**.
 
@@ -184,22 +184,17 @@ The new database opened its firewall to the App Service app you created. To acce
 
    ![Screenshot that shows configuring the database connection from Visual Studio.](./media/app-service-web-tutorial-dotnet-sqldatabase/connect-to-sql-database.png)
 
-<!--### Allow client connection from your computer
+### Allow client connection from your computer
 
-The **Create a new firewall rule** dialog opens. By default, a server allows connections to its databases only from Azure services, such as your Azure app. To connect to your database from outside of Azure, create a firewall rule at the server level.
+By default, a server allows connections to its databases only from Azure services, such as your Azure app. To connect to your database from outside of Azure, such as from Visual Studio, you create a firewall rule at the server level. 
 
-This firewall rule allows the public IP address of your local computer. The dialog box is already populated with your computer's public IP address.
+If the **Create a new firewall rule** screen opens, make sure **Add my client IP** is selected and select **OK**. This firewall rule allows the public IP address of your local computer. The dialog box is already populated with your computer's public IP address.
 
-1. Make sure **Add my client IP** is selected and select **OK**.
+Once Visual Studio finishes configuring the connection for your SQL Database instance, your database appears in **SQL Server Object Explorer**.
 
-   ![Screenshot that shows creating the firewall rule.](./media/app-service-web-tutorial-dotnet-sqldatabase/sql-set-firewall.png)
+Expand your connection's > **Databases** > **\<your database>** > **Tables**. Right-click the `Todoes` table and select **View Data** to work with the database data.
 
-    Once Visual Studio finishes creating the firewall setting for your SQL Database instance, your connection appears in **SQL Server Object Explorer**.
--->
-
-1. Expand your connection's > **Databases** > **\<your database>** > **Tables**. Right-click the `Todoes` table and select **View Data**.
-
-   ![Screenshot that shows exploring SQL Database objects.](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
+![Screenshot that shows exploring SQL Database objects.](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
 ## Update the app with Code First Migrations
 
