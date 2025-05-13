@@ -12,7 +12,7 @@ ms.author: danlep
 
 # Add caching to improve performance in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
+**APPLIES TO: Developer | Basic | Basic v2 | Standard | Standard v2 | Premium | Premium v2 | Isolated**
 
 APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers. 
 
@@ -45,7 +45,7 @@ What you'll learn:
 With the caching policies shown in this example, the first request to a test operation returns a response from the backend service. This response is cached, keyed by the specified headers and query string parameters. Subsequent calls to the operation, with matching parameters, will return the cached response until the cache duration interval expires.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Browse to your API Management instance.
+1. Go to your API Management instance.
 1. Select **APIs** > **APIs** in the menu on the left.
 1. Select an API for which you want to configure caching.
 1. At the top of the screen, select the **Design** tab.
@@ -71,10 +71,12 @@ With the caching policies shown in this example, the first request to a test ope
 
     In this policy, `duration` specifies the expiration interval of the cached responses. The interval is 20 seconds.
 
+1. Select **Save**.
+
 > [!TIP]
 > If you're using an external cache, as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md), you might want to specify the `caching-type` attribute of the caching policies. See [API Management caching policies](api-management-policies.md#caching) for more information.
 
-## Call an operation and test the caching
+## Call an operation to test the caching
 
 To test caching, call an operation in the portal.
 
