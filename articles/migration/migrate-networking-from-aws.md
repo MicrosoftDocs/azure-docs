@@ -30,14 +30,13 @@ Use the following migration guides as examples to help structure your migration 
 
 | Scenario | Key services | Description |
 |--|--|--|
-| [Connect AWS and Azure using a BGP-enabled VPN gateway](/azure/architecture/aws-professional/networking?branch=main) |  AWS virtual private gateway to Azure VPN gateway | Demonstrates how to setup a BGP-enabled connection between Azure and Amazon Web Services (AWS). |
+| [Connect AWS and Azure using a BGP-enabled VPN gateway](/azure/vpn-gateway/vpn-gateway-howto-aws-bgp) |  AWS virtual private gateway to Azure VPN gateway | Demonstrates how to setup a BGP-enabled connection between Azure and Amazon Web Services (AWS). |
 
 ## Related workload components
 
 Networking makes up only part of your workload. Explore other components that you might migrate:
 
-- [Compute](./migrate-compute-from-aws.md)
-- [Databases and data](./migrate-databases-from-aws.md)
-- [Storage](./migrate-storage-from-aws.md)
-
-Use the table of contents to explore other articles that relate to your workload's architecture.
+- [Compute](migrate-compute-from-aws.md)
+- [Databases](migrate-databases-from-aws.md)
+- [Storage](migrate-storage-from-aws.md)
+- [Security](migrate-security-from-aws.md)

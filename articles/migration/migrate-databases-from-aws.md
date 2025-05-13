@@ -46,7 +46,7 @@ Use the following scenarios as examples for your migration process.
 
 Databases make up only part of your workload. Explore other components that you might migrate:
 
-- [Compute](./migrate-compute-from-aws.md)
-- [Storage](./migrate-storage-from-aws.md)
-
-Use the table of contents to explore other articles that relate to your workload's architecture.
+- [Compute](migrate-compute-from-aws.md)
+- [Storage](migrate-storage-from-aws.md)
+- [Networking](migrate-networking-from-aws.md)
+- [Security](migrate-security-from-aws.md)
