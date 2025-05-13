@@ -69,7 +69,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (January 2024)
 
-- Public preview: By using the RVTools XLSX file, you can import an on-premises VMware environment's server configuration data into Azure Migrate and create a quick business case. You can also assess the cost of hosting these workloads on Azure and Azure VMware Solution environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-by-using-rvtools-xlsx-preview).
+- Public preview: By using the RVTools XLSX file, you can import an on-premises VMware environment's server configuration data into Azure Migrate and create a quick business case. You can also assess the cost of hosting these workloads on Azure and Azure VMware Solution environments. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
 
 ## Update (December 2023)
 
