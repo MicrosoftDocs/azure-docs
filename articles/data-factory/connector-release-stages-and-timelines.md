@@ -63,6 +63,8 @@ For comprehensive details on support levels and recommended usage at each stage,
 | [Snowflake V1](connector-snowflake-legacy.md)              | /              | End of support announced          | June 30, 2025         | September 30, 2025    |
 | [Spark](connector-spark.md)                               | version 2.0    | Public Preview                    | /                   | /                   |
 |                                    | version 1.0    | GA                                | To be determined      | /                     |
+| [Teradata](connector-teradata.md)                          | version 2.0    | Public Preview                    | /                   | /                   |
+|                                    | version 1.0    | GA                                | To be determined      | /                     |
 | [Vertica](connector-vertica.md)                            | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | End of support announced          | July 31, 2025         | September 30, 2025    |
 | [Zoho (Preview)](connector-zoho.md)                        | /              | End of support                    | December 31, 2024     | December 31, 2024     |
