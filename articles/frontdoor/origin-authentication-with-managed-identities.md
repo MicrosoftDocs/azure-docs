@@ -5,7 +5,7 @@ description: This article shows you how to set up managed identities with Azure 
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: concept-article
+ms.topic: how-to
 ms.date: 05/12/2025
 ---
 
@@ -22,14 +22,16 @@ After you enable managed identity for Azure Front Door and granting the managed 
 
 Azure Front Door supports two types of managed identities:
 
-* **System-assigned identity**: This identity is tied to your service and is deleted if the service is deleted. Each service can have only one system-assigned identity.
-* **User-assigned identity**: This identity is a standalone Azure resource that can be assigned to your service. Each service can have multiple user-assigned identities.
+- **System-assigned identity**: This identity is tied to your service and is deleted if the service is deleted. Each service can have only one system-assigned identity.
+- **User-assigned identity**: This identity is a standalone Azure resource that can be assigned to your service. Each service can have multiple user-assigned identities.
 
 Managed identities are specific to the Microsoft Entra tenant where your Azure subscription is hosted. If a subscription is moved to a different directory, you need to recreate and reconfigure the identity.
 
 ## Prerequisites
 
-Before setting up managed identity for Azure Front Door, ensure you have an Azure Front Door Standard or Premium profile. To create a new profile, see [create an Azure Front Door](create-front-door-portal.md).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- An Azure Front Door Standard or Premium profile. To create a new profile, see [create an Azure Front Door](create-front-door-portal.md).
 
 ## Enable managed identity
 
@@ -37,9 +39,9 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 
 1. Choose either a **System assigned** or **User assigned** managed identity.
 
-    * **[System assigned](#system-assigned)** - A managed identity tied to the Azure Front Door profile lifecycle, used to access Azure Key Vault.
+    - **[System assigned](#system-assigned)** - A managed identity tied to the Azure Front Door profile lifecycle, used to access Azure Key Vault.
     
-    * **[User assigned](#user-assigned)** - A standalone managed identity resource with its own lifecycle, used to authenticate to Azure Key Vault.
+    - **[User assigned](#user-assigned)** - A standalone managed identity resource with its own lifecycle, used to authenticate to Azure Key Vault.
 
     ### System assigned
     
@@ -65,24 +67,26 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 
         :::image type="content" source="./media/managed-identity/user-assigned-configured.png" alt-text="Screenshot of the user-assigned managed identity added to the Front Door profile.":::
 
-    ---
-
-## Associating the identity to an Origin Group
+## Associate the identity to an origin group
 
 > [!Note]
 > The association will not work if the origin group contains any origins with private link enabled and/or the forwarding/accepted/health probe protocol is set to HTTP.
 
-1.	Navigate to your existing Azure Front Door profile and open origin groups.
-2.	Select an existing origin group which has origins already configured.
-3.	Scroll down to the **Authentication** section.
-4.	Enable **Origin authentication**.
-5.	Choose between system assigned or user assigned managed identity.
-6.	Enter the correct [scope](/entra/identity-platform/scopes-oidc) within the **Scope** field.
-7.	Select **Update**.
+1.	Go to your existing Azure Front Door profile and open origin groups.
+
+1.	Select an existing origin group which has origins already configured.
+
+1.	Under the **Authentication** section, enable **Origin authentication**.
+
+1.	Select **System assigned managed identity** or **User assigned managed identity**.
+
+1.	Enter the correct [scope](/entra/identity-platform/scopes-oidc) in the **Scope** box.
 
     :::image type="content" source="./media/managed-identity/origin-auth.png" alt-text="Screenshot of associating the identity to an origin group.":::
 
-## Providing access at the origin resource
+1.	Select **Update**.
+
+## Provide access at the origin resource
 
 1.	Go to the management page of your origin resource. For example, if the origin is an Azure Blob Storage, go to that Storage Account management page.
 
@@ -106,9 +110,10 @@ Before setting up managed identity for Azure Front Door, ensure you have an Azur
 1.	Select **Review and assign** and then select **Review and assign** once more after the validation is complete.
 
 ## Common troubleshooting tips
-* Error during origin group configuration.
-    * Ensure that health probe protocol is set to HTTPS.
-    * Ensure that forwarding protocol and accepted protocols within route settings are HTTPS.
-    * Ensure that there are no private link enabled origins within the origin group.
-* Access Denied: Verify that the Managed Identity has the appropriate role assigned to access the origin resource.
-* Transition from SAS Tokens for Storage: If transitioning from SAS tokens to Managed Identities, follow a step-wise approach to avoid downtime. Enable Managed Identity, associate it with the origin, and then stop using SAS tokens.
+
+- Error during origin group configuration.
+    - Ensure that health probe protocol is set to HTTPS.
+    - Ensure that forwarding protocol and accepted protocols within route settings are HTTPS.
+    - Ensure that there are no private link enabled origins within the origin group.
+- Access Denied: Verify that the Managed Identity has the appropriate role assigned to access the origin resource.
+- Transition from SAS Tokens for Storage: If transitioning from SAS tokens to Managed Identities, follow a step-wise approach to avoid downtime. Enable Managed Identity, associate it with the origin, and then stop using SAS tokens.
