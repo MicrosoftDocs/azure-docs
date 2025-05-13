@@ -357,7 +357,7 @@ Then, for each file or class affected by the incident, you can jump into the sou
 This release contains the following fixes and enhancements.
 
 - The `--input` flag now accepts multiple values, allowing you to analyze multiple applications in a single command execution.
-- The static report output has been refined to ensure consistency with the IDE report.
+- The static report categorizes its issue list for better readability.
 - AppCAT can now be installed in directories other than the user’s home directory.
 - Fixed an issue where running `analyze` with both `--bulk` and `--skip-static-report` failed to generate multiple output files.
 - Resolved a failure when analyzing with `--bulk` and `--rules` if no Java provider was launched.
@@ -532,3 +532,9 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 ## License
 
 Azure Migrate application and code assessment for Java is a free, open source-based tool.
+
+## Data collection
+
+AppCAT collects telemetry data by default. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of AppCAT CLI. Microsoft AppCAT CLI doesn't collect any private or personal data. For example, the usage data helps identify issues such as commands with low success rate and helps prioritize our work.
+
+While we appreciate the insights this data provides, we also understand that not everyone wants to send usage data. You can disable data collection with the `appcat analyze --disable-telemetry` command. You can also read our [privacy statement](https://www.microsoft.com/privacy/privacystatement) to learn more.
