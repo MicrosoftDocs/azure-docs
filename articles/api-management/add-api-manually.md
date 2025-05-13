@@ -52,8 +52,8 @@ This section shows how to add a `/get` operation to map it to the backend `http:
 ### Add an operation
 
 1. Select the API you created in the previous step.
-2. Select **+ Add Operation**.
-3. In the **URL**, select **GET** and enter `/get` in the resource.
+2. Select **+ Add operation**.
+3. In **URL**, select **GET** and enter **/get** in the text box.
 4. In **Display name**, enter **FetchData**.
 5. Select **Save**.
 
@@ -74,8 +74,8 @@ This section shows how to add an operation that takes a parameter. In this examp
 ### Add an operation
 
 1. Select the API that you created earlier.
-2. Select **+ Add Operation**.
-3. In the **URL**, select **GET** and enter `/status/{code}` in the resource. Optionally, you can provide information that's associated with the parameter. For example, enter **Number** under **TYPE** and **200** (the default) under **VALUES**.
+2. On the **Design** tab, select **+ Add operation**.
+3. In **URL**, select **GET** and enter **/status/{code}** in the text box. 
 4. In **Display name**, enter **GetStatus**.
 5. Select **Save**.
 
@@ -84,7 +84,7 @@ This section shows how to add an operation that takes a parameter. In this examp
 Test the operation in the Azure portal. (You can also test it in the developer portal.)
 
 1. Select the **Test** tab.
-2. Select **GetStatus**. By default, the code value is set to **200**. You can change it to test other values. For example, type **418**.
+2. Select **GetStatus**. Under **code**, enter **200**. 
 3. Select **Send**.
 
     The response that the `http://httpbin.org/status/200` operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
@@ -99,8 +99,8 @@ This section shows how to add a wildcard operation. A wildcard operation enables
 ### Add an operation
 
 1. Select the API you created earlier.
-2. Select **+ Add Operation**.
-3. In the **URL**, select **GET** and enter `/*` in the resource.
+2. On the **Desgin** tab, select **+ Add operation**.
+3. In **URL**, select **GET** and enter **/*** in the text box.
 4. In **Display name**, enter **WildcardGet**.
 5. Select **Save**.
 
