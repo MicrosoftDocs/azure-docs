@@ -201,7 +201,7 @@ The Azure Communication Services Calling SDK supports sending following video re
 - Once the call size reaches 100+ participants, the Calling SDK only displays the top four dominant speakers that have their video camera active.
 - When the number of people on the call is 100+, the viewable number of incoming videos automatically decreases from 4x4 (16 incoming videos) down to 2x2 (4 incoming videos).
 - When the number of users goes below 100, the number of supported incoming videos goes back up to 4x4 (16 incoming videos).
-- Screen sharing from a mobile browser is not available due to limications within mobile browsers.
+- Screen sharing from a mobile browser is not available due to limitations within mobile browsers.
 
 ## Calling SDK timeouts
 The following timeouts apply to the Communication Services Calling SDKs:
