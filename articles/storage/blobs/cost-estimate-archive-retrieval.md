@@ -33,25 +33,28 @@ The account is located in the East US region, and is configured for locally-redu
 | Read operations (archive tier)  | $0.22       |
 | Data retrieval fee              | $88.00      |
 | Early deletion fee              | $24.00      |
-| Total cost                      | **$140.40** |
+| **Total cost**                  | **$140.40** |
 
 This estimate doesn't include the cost of data storage. Storage is billed per GB. See [The cost to store data](blob-storage-estimate-costs.md#the-cost-to-store-data).
 
 ## Breakdown
 
-| Cost factor                                                     | Value      |
-|-----------------------------------------------------------------|------------|
-| PutBlock operations per blob (10 GiB / 8-MiB block)             | 1280       |
-| PutBlockList operations per blob                                | 1          |
-| Total write operations (2,000 * 1,281)                          | 2,562,000  |
-| **Cost of write operations (2,562,000 * operation price)**      | **$28.18** |
-| Number of read operations (2000 blobs * 20%)                    | 400        |
-| **Cost to read (operations * price to read)**                   | **$0.22**  |
-| Total file size (GB)                                            | 20,000     |
-| Data retrieval size (20% of file size)                          | 4,000      |
-| **Cost to retrieve (data retrieval size * price of retrieval)** | **$88.00** |
-| Rough number of months penalty (180 days - 90 days) / 30 days   | 3          |
-| **Early deletion penalty (200 * price of archive storage) / 3** | **24.00**  |
+| Cost factor                      | Calculation                              | Value      |
+|----------------------------------|------------------------------------------|------------|
+| PutBlock operations per blob     | 10 GiB / 8-MiB block                     | 1280       |
+| PutBlockList operations per blob |                                          | 1          |
+| Total write operations           | 2,000 * 1,281                            | 2,562,000  |
+| **Cost of write operations**     | 2,562,000 * operation price              | **$28.18** |
+|                                  |                                          |            |
+| Number of read operations        | 2000 blobs * 20%                         | 400        |
+| **Cost to read**                 | operations * price to read               | **$0.22**  |
+|                                  |                                          |            |
+| Total file size (GB)             |                                          | 20,000     |
+| Data retrieval size              | 20% of file size                         | 4,000      |
+| **Cost to retrieve**             | data retrieval size * price of retrieval | **$88.00** |
+|                                  |                                          |            |
+| Rough number of months penalty   | (180 days - 90 days) / 30 days           | 3          |
+| **Early deletion penalty**       | 200 * price of archive storage / 3       | **24.00**  |
 
 ## Estimate variations
 
