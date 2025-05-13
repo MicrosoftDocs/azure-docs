@@ -65,7 +65,7 @@ Microsoft uses two shipping partners to return Data Box Disk devices to Azure Da
 
 #### [United States - FedEx](#tab/fedex)
 
-Take the following steps if you are a US Public Cloud customer returning a Data Box Disk device in the US or Canada.
+Take the following steps if you are returning a Data Box Disk device in the US.
 
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
@@ -78,9 +78,9 @@ Take the following steps if you are a US Public Cloud customer returning a Data 
 
 You can also drop your Data Box Disk at your nearest FedEx drop-off location.
 
-#### [US Government and Canada - UPS](#tab/ups)
+#### [Canada - UPS](#tab/ups)
 
-Take the following steps if returning the device in US or Canada.
+Take the following steps if you are returning a Data Box Disk device in Canada.
 
 1. Use the return shipping label that has the clear plastic sleeve affixed to the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and download a return ship label.
@@ -190,7 +190,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
     ```
-    To: g-corpsgcs@singpost.com
+    To:  g-keyacct@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name

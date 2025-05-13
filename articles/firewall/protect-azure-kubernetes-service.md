@@ -1,13 +1,13 @@
 ---
 title: Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
 description: Learn how to use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.custom: devx-track-azurecli, build-2023
 services: firewall
 ms.topic: how-to
 ms.date: 09/30/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Use Azure Firewall to protect Azure Kubernetes Service (AKS) clusters

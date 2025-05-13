@@ -1,8 +1,9 @@
 ---
 title: Quickstart - Create a budget with Bicep
 description: Quickstart showing how to create a budget with Bicep.
-author: bandersmsft 
-ms.author: banders 
+author: jojohpm 
+ms.author: jojoh
+ms.reviewer: jojoh 
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
@@ -38,9 +39,6 @@ Budgets are supported for the following types of Azure account types and scopes:
     - Billing profile
     - Invoice section
     - Customer
-- AWS scopes
-    - External account
-    - External subscription
 
 To view budgets, you need at least read access for your Azure account.
 

@@ -1,16 +1,16 @@
 ---
 title: Template with dependent resources
-description: Learn how to create an Azure Resource Manager template (ARM template) with multiple resources, and how to deploy it using the Azure portal
-ms.date: 06/20/2024
+description: Learn how to create an Azure Resource Manager template (ARM template) with multiple resources, and how to deploy it using the Azure portal.
+ms.date: 01/30/2025
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Create ARM templates with dependent resources
 
-Learn how to create an Azure Resource Manager template (ARM template) to deploy multiple resources and configure the deployment order. After you create the template, you deploy the template using Azure Cloud Shell from the Azure portal.
+Learn how to create an Azure Resource Manager template (ARM template) to deploy multiple resources and configure the deployment order. After you create the template, you deploy it using Azure Cloud Shell from the Azure portal.
 
-In this tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Some of the resources cannot be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource as dependent on the other resources. Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
+In this tutorial, you create a storage account, a virtual machine, a virtual network, and some other dependent resources. Some of the resources can't be deployed until another resource exists. For example, you can't create the virtual machine until its storage account and network interface exist. You define this relationship by making one resource dependent on the other resources. Resource Manager evaluates the dependencies between resources and deploys them in their dependent order. When resources aren't dependent on each other, Resource Manager deploys them in parallel. For more information, see [Define the order for deploying resources in ARM templates](./resource-dependency.md).
 
 :::image type="content" source="./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png" alt-text="Diagram that shows the deployment order of dependent resources in a Resource Manager template.":::
 
@@ -29,7 +29,7 @@ For a Learn module that covers resource dependencies, see [Manage complex cloud 
 
 To complete this article, you need:
 
-* Visual Studio Code with Resource Manager Tools extension. See [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
+* Visual Studio Code with Resource Manager Tools extension. For more information, see [Quickstart: Create ARM templates with Visual Studio Code](quickstart-create-templates-use-visual-studio-code.md).
 * To increase security, use a generated password for the virtual machine administrator account. You can use [Azure Cloud Shell](../../cloud-shell/overview.md) to run the following command in PowerShell or Bash:
 
     ```shell
@@ -38,7 +38,7 @@ To complete this article, you need:
 
     To learn more, run `man openssl rand` to open the manual page.
 
-    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you to update your password every three months.
+    Azure Key Vault is designed to safeguard cryptographic keys and other secrets. For more information, see [Tutorial: Integrate Azure Key Vault in ARM template deployment](./template-tutorial-use-key-vault.md). We also recommend you update your password every three months.
 
 ## Open a Quickstart template
 
@@ -58,7 +58,7 @@ Azure Quickstart Templates is a repository for ARM templates. Instead of creatin
 
 When you explore the template in this section, try to answer these questions:
 
-* How many Azure resources defined in this template?
+* How many Azure resources are defined in this template?
 * One of the resources is an Azure storage account. Does the definition look like the one used in the last tutorial?
 * Can you find the template references for the resources defined in this template?
 * Can you find the dependencies of the resources?
@@ -118,13 +118,13 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
 1. Sign in to [Cloud Shell](https://shell.azure.com).
 
-1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) on the upper left corner.  Restarting the shell is required when you switch.
+1. Choose your preferred environment by selecting either **PowerShell** or **Bash** (for CLI) in the upper left corner. Restart the shell when you switch.
 
     :::image type="content" source="./media/template-tutorial-use-template-reference/azure-portal-cloud-shell-upload-file.png" alt-text="Screenshot of Azure portal Cloud Shell with the upload file option highlighted.":::
 
-1. Select **Upload/download files**, and then select **Upload**. See the previous screenshot. Select the file you saved earlier. After uploading the file, you can use the `ls` command and the `cat` command to verify the file was uploaded successfully.
+1. Select **Upload/download files**, and then select **Upload**. See the preceding screenshot. Select the file you saved earlier. After uploading the file, use the `ls` command and the `cat` command to verify the file was uploaded successfully.
 
-1. Run the following PowerShell script to deploy the template.
+1. To deploy the template, run the following PowerShell script.
 
     # [CLI](#tab/CLI)
 
@@ -165,15 +165,15 @@ By specifying the dependencies, Resource Manager efficiently deploys the solutio
 
     ---
 
-1. RDP to the virtual machine to verify the virtual machine has been created successfully.
+1. RDP to the virtual machine to verify that the virtual machine was created successfully.
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group.
+When you no longer need the Azure resources, clean up the resources you deployed by deleting the resource group.
 
 1. From the Azure portal, select **Resource group** from the left menu.
 2. Enter the resource group name in the **Filter by name** field.
-3. Select the resource group name. You'll see a total of six resources in the resource group.
+3. Select the resource group name. You see a total of six resources in the resource group.
 4. Select **Delete resource group** from the top menu.
 
 ## Next steps

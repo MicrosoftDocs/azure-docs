@@ -1,5 +1,5 @@
 ---
-title:  Discover and register your Spring Boot applications in Azure Spring Apps
+title:  Discover and Register Your Spring Boot Applications in Azure Spring Apps
 description: Discover and register your Spring Boot applications with managed Spring Cloud Service Registry (OSS) in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -44,7 +44,7 @@ For information about how to set up service registration for a Steeltoe app, see
 
 ## Register your application using Spring Cloud Service Registry
 
-Before your application can manage service registration and discovery using Spring Cloud Service Registry, you must include the following dependency for `spring-cloud-starter-netflix-eureka-client` in your *pom.xml* file:
+Before your application can manage service registration and discovery using Spring Cloud Service Registry, you must include the following dependency for `spring-cloud-starter-netflix-eureka-client` in your **pom.xml** file:
 
 ```xml
 <dependency>

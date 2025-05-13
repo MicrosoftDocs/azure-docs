@@ -14,7 +14,7 @@ ms.custom: include file, build-2024
 At this point, Microsoft Graph API events should be arriving on your activated partner topic whenever there are changes to the resources specified when your created the Microsoft Graph API subscription. In order to process the events, you must create an event subscription that forwards the events to an event handler like a webhook or any of the [supported Azure services](../event-handlers.md).
 
 >[!IMPORTANT]
->In this section you find a way to receive events using a sample application, the [Event Grid Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer). This application helps you test the data pipeline to receive events before you create your own application to handle the events according to your business requirements. When you are ready to build your application, see the complete [application samples](../subscribe-to-graph-api-events.md#samples-with-detailed-instructions).
+>In this section, you find a way to receive events using a sample application, the [Event Grid Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer). This application helps you test the data pipeline to receive events before you create your own application to handle the events according to your business requirements. When you're ready to build your application, see the complete [application samples](../subscribe-to-graph-api-events.md#samples-with-detailed-instructions).
 
 ### Deploy the Event viewer application
 

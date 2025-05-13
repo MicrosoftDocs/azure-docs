@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 11/20/2024
+ms.date: 04/29/2025
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -39,7 +39,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Korea Central | ✅ | ✅ | ✅ | | 
 | North Central US | ✅ | ✅ |  | ✅ |
 | North Europe | ✅ | ✅ |  | ✅ |
-| Norway East | ✅ | ✅ | ✅ | |
+| Norway East | ✅ | ✅ | ✅ | ✅ |
 | South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
@@ -47,10 +47,11 @@ Information in the following table is updated regularly. Capacity availability i
 | Switzerland North | ✅ |✅ |  | |
 | UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | |  |
+| West Europe  | ✅ | ✅ | | ✅<sup>1</sup> |
 | West US | ✅ | ✅ |  | ✅ |
 | West US 2 | ✅ | ✅ |  | |
 
+<sup>1</sup> Request access to this region by emailing `apimworkspacesext@microsoft.com` 
 
 ## Related content
 

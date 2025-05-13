@@ -1,17 +1,18 @@
 ---
-title: Integrate Azure OpenAI Service with service connector
+title: Connect Azure OpenAI Service to other Azure services
+titleSuffix: Service Connector
 description: In this document, learn how to integrate Azure OpenAI Service into your application with Service Connector
 author: wchigit
 ms.author: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 01/29/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Integrate Azure OpenAI Service with Service Connector
+# Connect to Azure OpenAI Service using Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure OpenAI Service to other cloud services using Service Connector. You might still be able to connect to Azure OpenAI Service using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
+This page provides information about supported authentication methods and clients, along with sample code for connecting Azure OpenAI Service to other cloud services using Service Connector. This page also lists default environment variable names and values obtained when creating service connections.
 
 ## Supported compute services
 
@@ -22,6 +23,7 @@ Service Connector can be used to connect the following compute services to Azure
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
+
 ## Supported authentication types and client types
 
 The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure OpenAI Service using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
@@ -39,7 +41,7 @@ This table indicates that all combinations of client types and authentication me
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure OpenAI Service. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the connection details below to connect compute services to Azure OpenAI Service. For more information about naming conventions, refer to [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity
 
@@ -59,6 +61,7 @@ Refer to the steps and code below to connect to Azure OpenAI Service using a sys
 | AZURE_OPENAI_CLIENTID   | Your client ID             | `<client-ID>`                                 |
 
 #### Sample code
+
 Refer to the steps and code below to connect to Azure OpenAI Service using a user-assigned managed identity.
 [!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
 
@@ -71,6 +74,7 @@ Refer to the steps and code below to connect to Azure OpenAI Service using a use
 > | AZURE_OPENAI_KEY | Azure OpenAI Service API key | `<api-key>` |
 
 #### Sample Code 
+
 Refer to the steps and code below to connect to Azure OpenAI Service using a connection string.
 [!INCLUDE [code sample for azure openai service](./includes/code-openai-secret.md)]
 
@@ -88,9 +92,8 @@ Refer to the steps and code below to connect to Azure OpenAI Service using a con
 Refer to the steps and code below to connect to Azure OpenAI Service using a service principaL.
 [!INCLUDE [code sample for azure openai service](./includes/code-openai-microsoft-entra-id.md)]
 
-## Next steps
+### Related content
 
-Follow the tutorial listed below to learn more about Service Connector.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+* [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
+* [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
+* [Connect to Azure AI services](./how-to-integrate-ai-services.md)

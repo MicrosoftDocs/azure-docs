@@ -19,6 +19,8 @@
     href: application-gateway-for-containers-components.md
   - name: Migrate from AGIC to Application Gateway for Containers
     href: migrate-from-agic-to-agc.md
+  - name: Container networking
+    href: container-networking.md
   - name: Custom health probe
     href: custom-health-probe.md
   - name: ECDSA and RSA certificates
@@ -85,6 +87,8 @@
       href: how-to-end-to-end-tls-ingress-api.md
     - name: Header rewrite
       href: how-to-header-rewrite-ingress-api.md
+    - name: Managed certificates with cert-manager
+      href: how-to-cert-manager-lets-encrypt-ingress-api.md
     - name: Multi-site hosting
       href: how-to-multiple-site-hosting-ingress-api.md
     - name: SSL Offloading
@@ -97,6 +101,8 @@
     href: troubleshooting-guide.md
 - name: Kubernetes Reference
   items:
+  - name: ALB Controller Helm Chart
+    href: alb-controller-helm-chart.md
   - name: API Specification
     href: api-specification-kubernetes.md
 - name: Reference
@@ -123,12 +129,10 @@
   - name: Author templates
     displayName: ARM
     href: ../../azure-resource-manager/templates/syntax.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/application-gateway/
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-application-gateway-for-containers
+    href: https://stackoverflow.com/questions/tagged/azure-app-gateway-for-containers
  

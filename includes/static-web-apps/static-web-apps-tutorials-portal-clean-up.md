@@ -1,9 +1,9 @@
 ---
-author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 07/21/2023
-ms.author: cshoe
+author: v1212
+ms.author: wujia
 ---
 
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the following steps:

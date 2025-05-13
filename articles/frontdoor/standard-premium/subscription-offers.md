@@ -1,16 +1,17 @@
 ---
 title: Azure Front Door Standard/Premium subscription offers and bandwidth throttling
 description: Learn about Azure Front Door Standard/Premium availability for a specific subscription type.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-frontdoor
 ms.topic: troubleshooting
 ms.date: 11/18/2024
-ms.author: duau
 ---
 
 # Azure Front Door Standard/Premium Subscription Offers and Bandwidth Throttling
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door Standard/Premium profiles are subject to bandwidth throttling based on your subscription type.
 

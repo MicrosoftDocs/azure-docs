@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: build-2023, build-2024
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/25/2024
+ms.date: 02/24/2025
 ms.topic: how-to
 #customer intent: As a platform engineer, I want to learn how to add a catalog in my Azure Deployment Environments dev center or project so that I can provide environment definitions for my developers.
 ---
@@ -36,7 +36,7 @@ In this article, you learn how to:
 
 Attaching catalogs at the project level enables platform engineers to provide curated environment definitions that are specific to the development teams. Additionally, it empowers dev team leads assigned as Project Admins to manage the environment definitions made available to their teams.
  
-Platform engineers have full control over the use of catalogs at the project level. The use of project level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
+Platform engineers have full control over the use of catalogs at the project level. The use of project-level catalogs must be enabled at the dev center level before a catalog can be added to a project. Platform engineers can also configure which types of catalogs items, such as environment definitions, can be consumed at the project level.
  
 By default, use of catalogs at the project level is disabled and none of the catalog item types are enabled. Environment definitions from a project-level catalog are synced and usable under two conditions. First, you must enable project-based catalogs at the corresponding dev center level. Second, you must enable the use of environment definitions for the project.
 
@@ -47,13 +47,10 @@ You must enable project-level catalogs at the dev center level before you can ad
 To enable the use of project-level catalogs at the dev center level:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your dev center.
-1. In the left menu, under **Settings**, select **Configuration**.
- 
-    :::image type="content" source="media/how-to-configure-catalog/dev-center-overview.png" alt-text="Screenshot showing the Overview page for a dev center with Configuration highlighted." lightbox="media/how-to-configure-catalog/dev-center-overview.png"::: 
- 
-1. In the **Project level catalogs** pane, select **Enable catalogs per project**, and then select **Apply**.
+1. In the left menu, under **Settings**, select **Dev center settings**.
+1. Under **Project level catalogs**, select **Enable catalogs per project**, and then select **Apply**.
 
-    :::image type="content" source="media/how-to-configure-catalog/dev-center-project-catalog-selected.png" alt-text="Screenshot showing the Project level catalogs pane, with Enable catalogs per project highlighted." lightbox="media/how-to-configure-catalog/dev-center-project-catalog-selected.png":::
+    :::image type="content" source="media/how-to-configure-catalog/dev-center-settings-project-catalog.png" alt-text="Screenshot showing the Dev center settings, with Enable catalogs per project selected and highlighted." lightbox="media/how-to-configure-catalog/dev-center-settings-project-catalog.png":::
 
 To enable the use of environment definitions in the project:
 
@@ -212,7 +209,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
 
-If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 
@@ -418,7 +415,7 @@ Use the following steps to create an RBAC key vault:
 
 1. On the **Review + create** tab, select **Create**.
  
-If your organization's policies require you to keep your Key Vault private from the internet, you can set your Key Vault to allow trusted Microsoft services to bypass your firewall rule. 
+If your organization's policies require you to keep your Key Vault private from the internet, you can create a firewall rule to disable or limit public access and set your Key Vault to allow trusted Microsoft services to bypass your rule. Key vaults with private endpoints or private link integration are not currently supported for this scenario.
 
 :::image type="content" source="media/how-to-configure-catalog/key-vault-configure-firewall.png" alt-text="Screenshot showing Azure firewall configuration with Allow trusted Microsoft services to bypass this firewall selected." lightbox="media/how-to-configure-catalog/key-vault-configure-firewall.png":::
 

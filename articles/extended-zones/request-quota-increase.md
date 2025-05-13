@@ -5,7 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 03/07/2025
+#customer intent: As a user, I want to request a quota increase for my Azure Extended Zone resources so that I can manage my resources effectively.
 ---
 
 # Request a quota increase in the Azure portal
@@ -20,35 +21,59 @@ In this article, you learn how to request a quota increase for your Azure Extend
 
 In this section, you request a quota increase in the Azure portal.
 
-1. In the search box at the top of the portal, enter ***quota***. Select **Quotas** from the search results.
+1. Select the **?** in the global header. 
 
-    :::image type="content" source="./media/request-quota-increase/portal-search.png" alt-text="Screenshot that shows how to search for Quotas in the Azure portal." lightbox="./media/request-quota-increase/portal-search.png":::
+    :::image type="content" source="./media/request-quota-increase/support-and-troubleshoot.png" alt-text="Screenshot of reaching support request page.":::
 
-1. On the Overview page, select a provider, such as **Compute**.
+1. In the **Support + troubleshooting** search box, enter **compute quota**, then select **Subscription Management**. Select **Next**.
 
-    :::image type="content" source="./media/request-quota-increase/quotas-overview.png" alt-text="Screenshot that shows the Overview page of Quotas in the Azure portal." lightbox="./media/request-quota-increase/quotas-overview.png":::
+1. Select your subscription, select **Next**, then select **Compute-VM (cores-vCPUs) subscription limit increases**. Select **Next**.
+
+1. Select **Create a Support Request**.
+
+1. In the New support request pane, enter the following details:
+
+    | Field          | Value                                                   |
+    |----------------|---------------------------------------------------------|
+    | What is your issue related to? | Select **Azure services**.                    |    
+    | Issue type     | Select **Service and subscription limits (quotas)**.            |
+    | Subscription   | Select your subscription.                                       |
+    | Quota type     | Select **Compute-VM (cores-vCPUs) subscription limit increases**. |
+
+1. Select **Next**. 
+
+1. In the **Additional details** tab, select **Enter details**.
+
+    :::image type="content" source="./media/request-quota-increase/select-request-details.png" alt-text="Screenshot that shows where to select to select Enter details.":::
+ 
+1. In the **Request Details** pane, enter the following information:
+
+    :::image type="content" source="./media/request-quota-increase/request-details.png" alt-text="Screenshot that shows how to fill out the Request details form.":::
+
+
+    | Field          | Value                                                   |
+    |----------------|---------------------------------------------------------|
+    | Deployment model | Select **Resource Manager**.                           |
+    | Choose request types | Select **Extended Zone Access**.                           |
+    | Locations       | Select the Extended Zone region.                     |
+    | Extended Zones   | Select the location of your extended zone.                          |
+    | Quotas        | Select the quota you want to increase.               |
+    | Available to increase | Enter the new quota limit in the **New limit** box.              |
+
 
     > [!NOTE]
-    > For all providers other than Compute, there is a **Request adjustment** column instead of the **Adjustable** column available for **Compute**. From the **Request adjustment**, you can request an increase for a specific quota, or create a support request for the increase.
+    > You need to select the parent region first, and then choose the paired Extended Zone to select the correct Extended Zone location. For example, if you select West US, you can then choose Los Angeles as the Extended Zone. If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
 
-1. On the **My quotas** page, select the quota you want to increase from the **Quota name** column. Make sure that the **Adjustable** column shows **Yes** for this quota.
+1. Select **Save and Continue**. 
 
-    > [!TIP]
-    > You can request an increase for a quota that is non-adjustable by submitting a support request. For more information, see [Request an increase for non-adjustable quotas](/azure/quotas/per-vm-quota-requests#request-an-increase-for-non-adjustable-quotas).
+1. In the **Advanced diagnostic information** section, select **Yes (Recommended)** to allow Azure support to gather advanced diagnostic information from your resources, or **No** if you prefer not to share this information.
 
-1. Select **New Quota Request**, then select **Enter a new limit**.
+1. In the Support Method section, provide your preferred contact method, availability, and support language, and confirm your region. Complete the *Contact info* section to ensure we can reach you.
 
-    :::image type="content" source="./media/request-quota-increase/quota-request.png" alt-text="Screenshot that shows how to request a new quota in the Azure portal." lightbox="./media/request-quota-increase/quota-request.png":::
+1. Select **Next**. Review your request and select **Create**. Your request will be processed by the Extended Zones engineering team accordingly.
 
-1. On the **New quota request** page, enter the new limit you want to request, then select **Submit**.
-
-    :::image type="content" source="./media/request-quota-increase/new-quota-request.png" alt-text="Screenshot that shows the New quota request page in the Azure portal." lightbox="./media/request-quota-increase/new-quota-request.png":::
-
-1. Wait a few minutes while your request is reviewed. Once the request is approved, the **New quota request** page will show the new quota.
-
-    :::image type="content" source="./media/request-quota-increase/approved-request.png" alt-text="Screenshot that shows the New approved quota." lightbox="./media/request-quota-increase/approved-request.png":::
-    
-    If your request wasn't approved, you'll see a link to create a support request. When you use this link, a support engineer will assist you with your increase request.
+> [!NOTE]
+> The Quota's view will only show the quota from the Extended Zone's parent region, given Extended Zones respect quota from their parent region. Nevertheless, providing the Extended Zone's information is needed when requesting quotas, as that's where the SKU is intended to be deployed. Consequently, there may be situations where the parent region is capacity constrained while the Extended Zone is not. 
 
 ## Related content
 

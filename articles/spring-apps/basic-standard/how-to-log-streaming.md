@@ -1,5 +1,5 @@
 ---
-title:  Stream Azure Spring Apps application console logs in real time
+title:  Stream Azure Spring Apps Application Console Logs in Real Time
 description: Describes how to use log streaming to view application logs in real time
 author: KarlErickson
 ms.author: karler

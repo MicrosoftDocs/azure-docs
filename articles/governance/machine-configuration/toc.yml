@@ -24,6 +24,8 @@ items:
       href: ./whats-new/docs.md
     - name: Migrating from Azure Automation DSC
       href: ./whats-new/migrating-from-azure-automation.md
+    - name: Migrating from Azure DSC Extension
+      href: ./whats-new/migrating-from-dsc-extension.md
     - name: Behavioral changes for PowerShell DSC
       href: ./whats-new/psdsc-in-machine-configuration.md
 
@@ -58,6 +60,8 @@ items:
           href: ./how-to/assign-configuration/azure-resource-manager.md
         - name: Using Bicep
           href: ./how-to/assign-configuration/bicep.md
+        - name: Using Rest API
+          href: ./how-to/assign-configuration/rest-api.md
         - name: Using Terraform
           href: ./how-to/assign-configuration/terraform.md
 

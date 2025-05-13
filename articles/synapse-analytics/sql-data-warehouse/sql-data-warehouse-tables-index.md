@@ -1,9 +1,9 @@
 ---
 title: Indexing tables
 description: Recommendations and examples for indexing tables in dedicated SQL pool.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.date: 01/21/2025
+author: ajagadish-24
+ms.author: ajagadish
+ms.date: 03/05/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: concept-article
@@ -193,6 +193,9 @@ If you have identified tables with poor segment quality, you want to identify th
 4. Too many partitions
 
 These factors can cause a columnstore index to have significantly less than the optimal 1 million rows per row group. They can also cause rows to go to the delta row group instead of a compressed row group.
+
+> [!NOTE]
+> Columnstore tables typically do not push data into a compressed columnstore segment until there are more than 1 million rows per table. If a table with a clustered columnstore index has many open rowgroups with a total number of rows that do not meet the threshold for compression (1 million rows), these rowgroups will remain open and be stored as row data. Consequently, this will increase the distribution database size as they are not compressed. Moreover, these open rowgroups will not benefit from the CCI and will require more resources to maintain. It may be advisable to use the [ALTER INDEX REORGANIZE](/sql/t-sql/statements/alter-index-transact-sql?view=azure-sqldw-latest&preserve-view=true#reorganize-a-columnstore-index).
 
 ### Memory pressure when index was built
 

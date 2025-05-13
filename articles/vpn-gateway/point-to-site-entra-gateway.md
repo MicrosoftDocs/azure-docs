@@ -6,17 +6,14 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 11/04/2024
+ms.date: 02/13/2025
 ms.author: cherylmc
 # Customer intent: As an VPN Gateway administrator, I want to configure point-to-site to allow Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client APP ID.
 ---
 
-# Configure P2S VPN Gateway for Microsoft Entra ID authentication – Microsoft-registered app
+# Configure P2S VPN Gateway for Microsoft Entra ID authentication
 
-This article helps you configure your point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID. 
-
-> [!NOTE]
-> The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For the manually registered Azure VPN Client steps, see [Configure P2S using manually registered VPN client](openvpn-azure-ad-tenant.md).
+This article helps you configure your point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication using the new **Microsoft-registered Azure VPN Client App ID**.
 
 [!INCLUDE [About Microsoft-registered app](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
@@ -75,11 +72,14 @@ This article assumes the following prerequisites:
 
    * **Tenant:** TenantID for the Microsoft Entra ID tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` (backslash) at the end. Forward slash is permissible.
 
-      * Azure Public: `https://login.microsoftonline.com/{Microsoft ID Entra Tenant ID}`
+     * Azure Public: `https://login.microsoftonline.com/{TenantID}`
+     * Azure Government: `https://login.microsoftonline.us/{TenantID}`
+     * Azure Germany: `https://login-us.microsoftonline.de/{TenantID}`
+     * China 21Vianet: `https://login.chinacloudapi.cn/{TenantID}`
 
    * **Audience**: The corresponding value for the Microsoft-registered Azure VPN Client App ID. [Custom audience](point-to-site-entra-register-custom-app.md) is also supported for this field.
 
-     * Azure Public: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`
+     * `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`
 
    * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection might fail. Example:
 

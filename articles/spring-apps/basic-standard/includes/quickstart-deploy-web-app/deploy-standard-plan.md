@@ -88,8 +88,8 @@ Use the following steps to create a service instance:
    | Setting            | Suggested value                   | Description                                                                                                                                                                                                                                                                                        |
    |--------------------|-----------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
    | **Subscription**   | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource.                                                                                                                        |
-   | **Resource group** | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
-   | **Name**           | *myasa*                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
+   | **Resource group** | **myresourcegroup**                 | A new resource group name or an existing one from your subscription.                                                                                                                                                                                                                               |
+   | **Name**           | **myasa**                           | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**           | **Basic**                         | The pricing plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                   |
    | **Region**         | The region closest to your users. | The location that is closest to your users.                                                                                                                                                                                                                                                        |
    | **Zone Redundant** | Unselected                        | Whether to create your Azure Spring Apps service in an Azure availability zone. Currently, this feature is supported only in some regions.                                                                                                                                                         |
@@ -114,7 +114,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation pane, open the **Apps** pane and select **Create App**.
 
-1. On the **Create App** page, for the app name, use *simple-todo-web* and for the runtime platform, select **Java 17**.
+1. On the **Create App** page, for the app name, use **simple-todo-web** and for the runtime platform, select **Java 17**.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/create-app.png" alt-text="Screenshot of the Azure portal that shows the Create app pane." lightbox="../../media/quickstart-deploy-web-app/create-app.png":::
 
@@ -129,7 +129,7 @@ Use the following steps to connect your service instances:
    - **Service type**: **DB for PostgreSQL flexible server**
    - **Connection name**: Populated with an automatically generated name that you can modify.
    - **Subscription**: Select your subscription.
-   - **PostgreSQL flexible server**: *my-demo-pgsql*
+   - **PostgreSQL flexible server**: **my-demo-pgsql**
    - **PostgreSQL database**: Select the database you created.
    - **Client type**: **SpringBoot**
 
@@ -139,7 +139,7 @@ Use the following steps to connect your service instances:
 
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
    - **Continue with...**: Select **Database credentials**.
-   - **Username**: *myadmin*
+   - **Username**: **myadmin**
    - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Created connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-web-app/app-service-connector-authentication.png":::

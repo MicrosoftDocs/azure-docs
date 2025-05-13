@@ -5,7 +5,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 12/04/2024
+ms.date: 02/03/2025
 ms.author: hannahhunter
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
@@ -41,13 +41,13 @@ With the environment deployed, deploy an Azure Blob Storage account that is used
 
 # [Bash](#tab/bash)
 
-```azurecli-interactive
+```azurecli
 STORAGE_ACCOUNT_NAME="<storage account name>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $StorageAcctName = '<storage account name>'
 ```
 
@@ -57,7 +57,7 @@ Use the following command to create the Azure Storage account.
 
 # [Bash](#tab/bash)
 
-```azurecli-interactive
+```azurecli
 az storage account create \
   --name $STORAGE_ACCOUNT_NAME \
   --resource-group $RESOURCE_GROUP \
@@ -66,9 +66,9 @@ az storage account create \
   --kind StorageV2
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Install-Module Az.Storage
 
 $StorageAcctArgs = @{
@@ -91,13 +91,13 @@ While Container Apps supports both user-assigned and system-assigned managed ide
 
     # [Bash](#tab/bash)
     
-    ```azurecli-interactive
+    ```azurecli
     az identity create --resource-group $RESOURCE_GROUP --name "nodeAppIdentity"     --output json
     ```
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     
-    ```azurepowershell-interactive
+    ```azurepowershell
     Install-Module -Name AZ.ManagedServiceIdentity
     
     New-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name     'nodeAppIdentity' -Location $Location
@@ -110,15 +110,15 @@ While Container Apps supports both user-assigned and system-assigned managed ide
 
     # [Bash](#tab/bash)
     
-    ```azurecli-interactive
+    ```azurecli
     PRINCIPAL_ID=$(az identity show -n "nodeAppIdentity" --resource-group     $RESOURCE_GROUP --query principalId | tr -d \")
     IDENTITY_ID=$(az identity show -n "nodeAppIdentity" --resource-group     $RESOURCE_GROUP --query id | tr -d \")
     CLIENT_ID=$(az identity show -n "nodeAppIdentity" --resource-group $RESOURCE_GROUP     --query clientId | tr -d \")
     ```
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     
-    ```azurepowershell-interactive
+    ```azurepowershell
     $PrincipalId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName     -Name 'nodeAppIdentity').PrincipalId
     $IdentityId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName     -Name 'nodeAppIdentity').Id
     $ClientId = (Get-AzUserAssignedIdentity -ResourceGroupName $ResourceGroupName -Name     'nodeAppIdentity').ClientId
@@ -130,13 +130,13 @@ While Container Apps supports both user-assigned and system-assigned managed ide
 
     # [Bash](#tab/bash)
     
-    ```azurecli-interactive
+    ```azurecli
     SUBSCRIPTION_ID=$(az account show --query id --output tsv)
     ```
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     
-    ```azurepowershell-interactive
+    ```azurepowershell
     $SubscriptionId=$(Get-AzContext).Subscription.id
     ```
     
@@ -146,15 +146,15 @@ While Container Apps supports both user-assigned and system-assigned managed ide
 
     # [Bash](#tab/bash)
     
-    ```azurecli-interactive
+    ```azurecli
     az role assignment create --assignee $PRINCIPAL_ID  \
     --role "Storage Blob Data Contributor" \
     --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/    Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME"
     ```
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     
-    ```azurepowershell-interactive
+    ```azurepowershell
     Install-Module Az.Resources
     
     New-AzRoleAssignment -ObjectId $PrincipalId -RoleDefinitionName 'Storage Blob Data     Contributor' -Scope "/subscriptions/$SubscriptionId/resourceGroups/    $ResourceGroupName/providers/Microsoft.Storage/storageAccounts/$StorageAcctName"
@@ -189,16 +189,16 @@ While you have multiple options for authenticating to external resources via Dap
 
     # [Bash](#tab/bash)
     
-    ```azurecli-interactive
+    ```azurecli
     az containerapp env dapr-component set \
         --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP \
         --dapr-component-name statestore \
         --yaml statestore.yaml
     ```
     
-    # [Azure PowerShell](#tab/azure-powershell)
+    # [PowerShell](#tab/powershell)
     
-    ```azurepowershell-interactive
+    ```azurepowershell
     
     $AcctName = New-AzContainerAppDaprMetadataObject -Name "accountName" -Value     $StorageAcctName
     
@@ -225,7 +225,7 @@ While you have multiple options for authenticating to external resources via Dap
 
 # [Bash](#tab/bash)
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name nodeapp \
   --resource-group $RESOURCE_GROUP \
@@ -242,9 +242,9 @@ az containerapp create \
 
 If you're using an Azure Container Registry, include the `--registry-server <REGISTRY_NAME>.azurecr.io` flag in the command.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
 $EnvVars = New-AzContainerAppEnvironmentVarObject -Name APP_PORT -Value 3000
@@ -285,7 +285,7 @@ By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapri
 
 # [Bash](#tab/bash)
 
-```azurecli-interactive
+```azurecli
 az containerapp create \
   --name pythonapp \
   --resource-group $RESOURCE_GROUP \
@@ -299,9 +299,9 @@ az containerapp create \
 
 If you're using an Azure Container Registry, include the `--registry-server <REGISTRY_NAME>.azurecr.io` flag in the command.
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 
 $TemplateArgs = @{
   Name = 'pythonapp'
@@ -357,7 +357,7 @@ View logs using the command line using the following CLI command.
 
 # [Bash](#tab/bash)
 
-```azurecli-interactive
+```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
 
 az monitor log-analytics query \
@@ -366,9 +366,9 @@ az monitor log-analytics query \
   --out table
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId  -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5 "
 $queryResults.Results
@@ -400,13 +400,13 @@ If you'd like to delete the resources created as a part of this walkthrough, run
 
 # [Bash](#tab/bash)
 
-```azurecli-interactive
+```azurecli
 az group delete --resource-group $RESOURCE_GROUP
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 

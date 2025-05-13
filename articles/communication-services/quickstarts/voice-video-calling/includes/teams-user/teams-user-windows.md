@@ -12,6 +12,7 @@ ms.service: azure-communication-services
 
 - A working [Communication Services calling Windows app](../../getting-started-with-calling.md).
 - A [Teams deployment](/deployoffice/teams-install).
+- Teams users must have a Teams Phone license and be [Enterprise Voice enabled](/microsoftteams/direct-routing-enable-users#use-powershell-1)
 
 ## Add the Teams UI controls and Enable the Teams UI controls
 

@@ -1,13 +1,13 @@
 ---
 title: Attribute based virtual machine selection 
 description: Learn about attribute based virtual machine (VM) selection to configure your VM requirements.
-author: rrajeesh
-ms.author: rajeeshr
+author: shandilvarun
+ms.author: vashan
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/12/2024
+ms.date: 04/21/2025
 ms.reviewer: jushiman
 ---
 
@@ -236,7 +236,7 @@ The following list of VM attributes are supported and provide examples of config
 
 - Optional
 - The `acceleratorManufacturers` is specified as a list
-- Valid values are *AMD*, *Nvidia*, and *Xilinx*
+- Valid values are *AMD*, *NVIDIA*, and *Xilinx*
 - `acceleratorSupport` should be set to *Included* or *Required* to use this VM attribute
 - If `acceleratorSupport` is set to *Excluded*, this VM attribute can't be used
 - The default for `acceleratorManufacturers`, if not specified, is *ANY* of the valid values

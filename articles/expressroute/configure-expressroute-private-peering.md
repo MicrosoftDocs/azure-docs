@@ -6,7 +6,7 @@ author: duongau
 ms.author: duau
 ms.service: azure-expressroute
 ms.topic: tutorial
-ms.date: 01/02/2024
+ms.date: 01/31/2025
 # Customer intent: As a network engineer, I want to establish a private connection from my on-premises network to my Azure virtual network using ExpressRoute.
 ---
 

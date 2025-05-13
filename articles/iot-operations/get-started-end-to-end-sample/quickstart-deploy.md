@@ -1,11 +1,11 @@
 ---
 title: "Quickstart: Run Azure IoT Operations in Codespaces"
 description: "Quickstart: Deploy Azure IoT Operations to a Kubernetes cluster running in GitHub Codespaces."
-author: kgremban
-ms.author: kgremban
+author: SoniaLopezBravo
+ms.author: sonialopez
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/22/2024
+ms.date: 01/30/2025
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -166,8 +166,8 @@ Run the following CLI commands in your Codespaces terminal.
    | Placeholder | Value |
    | ----------- | ----- |
    | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
-   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. |
-   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. |
+   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
+   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
 
    ```azurecli
    STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>

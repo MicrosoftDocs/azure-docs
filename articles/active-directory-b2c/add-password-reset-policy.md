@@ -6,7 +6,7 @@ author: garrodonnell
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 11/27/2024
+ms.date: 01/05/2025
 ms.author: godonnell
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -15,6 +15,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up a password reset flow in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -40,16 +42,16 @@ The default name of the **Change email** button in *selfAsserted.html* is **chan
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
 
 
-- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**,  select **Authentication methods**, ensure **Authentication contact info** is set. B2C users created via a SignUp flow will have this set by default. For users created via Azure Portal or by Graph API need to have this set for SSPR to work. 
+- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**, select **Authentication methods**. Ensure **Authentication contact info** is set. B2C users created via a Sign-up flow has this set by default. For users created via Azure Portal or by Graph API, you need to set **Authentication contact info** for SSPR to work. 
 
 
 ## Self-service password reset (recommended)
 
-The new password reset experience is now part of the sign-up or sign-in policy. When the user selects the **Forgot your password?** link, they are immediately sent to the Forgot Password experience. Your application no longer needs to handle the [AADB2C90118 error code](#password-reset-policy-legacy), and you don't need a separate policy for password reset.
+The new password reset experience is now part of the sign-up or sign-in policy. When the user selects the **Forgot your password?** link, they're immediately sent to the Forgot Password experience. Your application no longer needs to handle the [AADB2C90118 error code](#password-reset-policy-legacy), and you don't need a separate policy for password reset.
 
 ::: zone pivot="b2c-user-flow"
 
-The self-service password reset experience can be configured for the Sign in (Recommended) or Sign up and sign in (Recommended) user flows. If you don't have one of these user flows set up, create a [sign-up or sign-in](add-sign-up-and-sign-in-policy.md) user flow.
+The self-service password reset experience can be configured for the Sign in (Recommended) or Sign up and sign in (Recommended) user flows. If you don't have one of these user flows setup, create a [sign-up or sign-in](add-sign-up-and-sign-in-policy.md) user flow.
 
 To set up self-service password reset for the sign-up or sign-in user flow:
 
@@ -192,7 +194,7 @@ The sub journey is called from the user journey and performs the specific steps 
 
 ### Prepare your user journey
 
-Next, to connect the **Forgot your password?** link to the **Forgot Password** sub journey you will need to reference the **Forgot Password** sub journey ID in the **ClaimsProviderSelection** element of the **CombinedSignInAndSignUp** step.
+Next, to connect the **Forgot your password?** link to the **Forgot Password** sub journey you need to reference the **Forgot Password** sub journey ID in the **ClaimsProviderSelection** element of the **CombinedSignInAndSignUp** step.
 
 If you don't have your own custom user journey that has a **CombinedSignInAndSignUp** step, complete the following steps to duplicate an existing sign-up or sign-in user journey. Otherwise, continue to the next section.
 
@@ -352,14 +354,14 @@ To test the user flow:
 
 ### Create a password reset policy
 
-Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide [starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) that have several pre-built policies, including sign up and sign in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+Custom policies are a set of XML files that you upload to your Azure AD B2C tenant to define user journeys. We provide [starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) that have several prebuilt policies, including sign up and sign in, password reset, and profile editing policies. For more information, see [Get started with custom policies in Azure AD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 
 ::: zone-end
 
 ## Troubleshoot Azure AD B2C user flows and custom policies
 Your application needs to handle certain errors coming from Azure B2C service. Learn [how to troubleshoot Azure AD B2C's user flows and custom policies](troubleshoot.md).
 
-## Next steps
+## Related content
 
 Set up a [force password reset](force-password-reset.md).
 

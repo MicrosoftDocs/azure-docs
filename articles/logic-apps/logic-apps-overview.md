@@ -7,7 +7,7 @@ author: ecfan
 ms.reviewer: azla
 ms.topic: overview
 ms.collection: ce-skilling-ai-copilot
-ms.date: 01/24/2025
+ms.date: 01/29/2025
 ---
 
 # What is Azure Logic Apps?
@@ -46,7 +46,7 @@ For more information, visit [Azure Logic Apps](https://azure.microsoft.com/servi
 
 ## Why use Azure Logic Apps
 
-The Azure Logic Apps platform provides [1,400+ prebuilt connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that connects and integrates your workflows with various services, systems, apps, and data. This constantly expanding connector ecosystem helps you reduce or eliminate the work required to access your resources. Instead, you can focus more on designing and developing the business logic and functionality required for your solutions to meet your business needs.
+The Azure Logic Apps platform provides [1,400+ prebuilt connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use to integrate your workflows with various services, systems, apps, and data. This constantly expanding connector ecosystem helps you reduce or eliminate the work required to access your resources. Instead, you can focus more on designing and developing the business logic and functionality required for your solutions to meet your business needs.
 
 To communicate with any service endpoint, run your own code, control your workflow structure, manipulate data, or connect to commonly used resources with increased speed, capacity, and throughput, you can use [built-in connector operations](#logic-app-concepts). These operations natively run on the Azure Logic Apps runtime, rather than in Azure, for better performance.
 
@@ -179,7 +179,7 @@ You can visually create workflows using the Azure Logic Apps workflow designer i
 
 ## Pricing options
 
-Each logic app hosting option (multitenant, single-tenant, App Service Environment (ASE) v3, or partially connected environment) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. Learn more about [pricing and metering for Azure Logic Apps](logic-apps-pricing.md).
+Each logic app hosting option (multitenant, single-tenant, App Service Environment (ASE) v3, or partially connected environment) has a different [pricing model](logic-apps-pricing.md). For example, multitenant Consumption logic app workflows follow the Consumption pricing model, while single-tenant Standard logic app workflows follow the Standard pricing model. For specific pricing details, see [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 ## How does Azure Logic Apps differ from Functions, WebJobs, and Power Automate?
 

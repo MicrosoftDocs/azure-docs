@@ -2,11 +2,11 @@
 title: Customer provided public IP address support in secured hubs (preview)
 description: Learn about customer provided public IP address support in secured hubs.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
 ms.date: 01/15/2025
-ms.author: victorh
+ms.author: duau
 ---
 
 # Customer provided public IP address support in secured hubs (preview)

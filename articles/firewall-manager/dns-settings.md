@@ -2,12 +2,12 @@
 title: Azure Firewall policy DNS settings
 description: You can configure Azure Firewall policies with  DNS server and DNS proxy settings.
 services: firewall-manager
-author: vhorne
+author: duau
 ms.service: azure-firewall-manager
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/21/2024
-ms.author: victorh
+ms.author: duau
 ---
 
 # Azure Firewall policy DNS settings
@@ -30,8 +30,6 @@ A DNS server maintains and resolves domain names to IP addresses. By default, Az
 3. Select **Apply**.
 
 The firewall now directs DNS traffic to the specified DNS servers for name resolution.
-
-:::image type="content" source="../firewall/media/dns-settings/dns-servers.png" alt-text="Screenshot showing settings for DNS servers.":::
 
 #### [CLI](#tab/azure-devops-cli)
 

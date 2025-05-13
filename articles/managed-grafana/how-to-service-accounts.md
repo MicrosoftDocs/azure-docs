@@ -25,11 +25,11 @@ Common use cases include:
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An Azure Managed Grafana instance. If you don't have one yet, [create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 
 ## Enable service accounts
 
-If your existing Grafana workspace doesn't have service accounts enabled, enable them by updating the preference settings of your Grafana instance using the Azure portal or the Azure CLI.
+If your existing Grafana workspace doesn't have service accounts enabled, enable them by updating the preference settings of your Grafana workspace using the Azure portal or the Azure CLI.
 
 ### [Portal](#tab/azure-portal)
 
@@ -42,7 +42,7 @@ If your existing Grafana workspace doesn't have service accounts enabled, enable
 ### [Azure CLI](#tab/azure-cli)
 
 1. Azure Managed Grafana CLI extension 0.3.0 or above is required. To update your extension, run `az extension update --name amg`.
-1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana instance. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana instance to update.
+1. Run the [az grafana update](/cli/azure/grafana#az-grafana-update) command to enable the creation of API keys and service accounts in an existing Azure Managed Grafana workspace. In the command below, replace `<azure-managed-grafana-name>` with the name of the Azure Managed Grafana workspace to update.
 
     ```azurecli-interactive
     az grafana update --name <azure-managed-grafana-name> ---service-account Enabled
@@ -55,7 +55,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 ### [Grafana UI](#tab/grafana-ui)
 
-1. Go to your Grafana instance endpoint, then select **Users and access** > **Service accounts** from the left menu, and **Add service account**.
+1. Go to your Grafana workspace endpoint, then select **Users and access** > **Service accounts** from the left menu, and **Add service account**.
 
     :::image type="content" source="media/service-accounts/service-accounts.png" alt-text="Screenshot of Grafana. Add service account page.":::
 
@@ -63,7 +63,7 @@ Follow the steps below to create a new Grafana service account and list existing
 
 1. Once the service account is created, Grafana displays information about the new service account, including its creation date, existing tokens and permissions associated with it. You will create a first token in a next step.
 
-1. Optionally select **Service accounts** from the left menu to view a list of all the service accounts in your Grafana instance.
+1. Optionally select **Service accounts** from the left menu to view a list of all the service accounts in your Grafana workspace.
 
 ### [Azure CLI](#tab/cli)
 
@@ -75,7 +75,7 @@ Follow the steps below to create a new Grafana service account and list existing
     az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role <role>
     ```
 
-1. Run the `az grafana service-account list` command to get a list of all service accounts that belong to a given Azure Managed Grafana instance. Replace `<azure-managed-grafana-name>` with the name of your Azure Managed Grafana workspace.
+1. Run the `az grafana service-account list` command to get a list of all service accounts that belong to a given Azure Managed Grafana workspace. Replace `<azure-managed-grafana-name>` with the name of your Azure Managed Grafana workspace.
     
     ```azurecli
     az grafana service-account list --name <azure-managed-grafana-name> --output table

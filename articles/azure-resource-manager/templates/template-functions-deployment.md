@@ -3,14 +3,14 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 12/10/2024
+ms.date: 02/12/2025
 ---
 
 # Deployment functions for ARM templates
 
 Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 
-* [developer](#deployer)
+* [deployer](#deployer)
 * [deployment](#deployment)
 * [environment](#environment)
 * [parameters](#parameters)
@@ -52,7 +52,7 @@ The following example returns the deployer object.
   "outputs": {
     "developerOutput": {
       "type": "object",
-      "value": "[developer()]"
+      "value": "[deployer()]"
     }
   }
 }

@@ -1,17 +1,17 @@
 ---
-title: Get started with enterprise IoT monitoring in Microsoft Defender XDR | Microsoft Defender for IoT
-description: Learn how to get added value for enterprise IoT devices in Microsoft Defender XDR.
+title: Set up enterprise IoT security - Defender for IoT
+description: Enable enterprise IoT security for your IoT devices, using added security value in Microsoft Defender for IoT.
 ms.topic: quickstart
 ms.date: 09/13/2023
 ms.custom: enterprise-iot
-#CustomerIntent: As a Microsoft 365 administrator, I want to understand how to turn on support for enterprise IoT monitoring in Microsoft Defender XDR and where I can find the added security value so that I can keep my EIoT devices safe.
+#CustomerIntent: As a security administrator, I want to understand how to set up enterprise IoT monitoring so that I can keep my EIoT devices safe.
 ---
 
-# Get started with enterprise IoT monitoring in Microsoft Defender XDR
+# Get started with enterprise IoT security monitoring
 
-This article describes how [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) customers can monitor enterprise IoT devices in their environment, using added security value in Microsoft Defender XDR.
+This article describes how [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/) customers can enable enterprise IoT security for their IoT devices, using added security value in Microsoft Defender for IoT.
 
-While IoT device inventory is already available for Defender for Endpoint P2 customers, turning on enterprise IoT security adds alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your enterprise network.
+While the IoT device inventory is already available for Defender for Endpoint P2 customers, turning on enterprise IoT security adds alerts, recommendations, and vulnerability data, purpose-built for IoT devices in your enterprise network.
 
 IoT devices include printers, cameras, VOIP phones, smart TVs, and more. Turning on enterprise IoT security means, for example, that you can use a recommendation in Microsoft Defender XDR to open a single IT ticket for patching vulnerable applications across both servers and printers.
 
@@ -39,7 +39,7 @@ Make sure that you have:
 
     For more information, see [Enterprise IoT security in Microsoft Defender XDR](concept-enterprise.md#enterprise-iot-security-in-microsoft-defender-xdr).
 
-## Turn on enterprise IoT monitoring
+## Turn on enterprise IoT security monitoring
 
 This procedure describes how to turn on enterprise IoT monitoring in Microsoft Defender XDR, and is relevant only for ME5/E5 Security customers.
 

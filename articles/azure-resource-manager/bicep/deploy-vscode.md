@@ -2,19 +2,21 @@
 title: Deploy Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to deploy Bicep files.
 ms.topic: how-to
-ms.date: 01/10/2025
+ms.date: 03/19/2025
 ms.custom: devx-track-bicep
 ---
 
 # Deploy Bicep files with Visual Studio Code
 
-You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.md#deploy-bicep-file-command) to deploy a Bicep file. You can deploy to any scope. This article shows how to deploy to a resource group.
+You can use [Visual Studio Code with the Bicep extension](./visual-studio-code.md#deploy-bicep-file-command) to deploy a Bicep file. Additionally, Bicep files can also be deployed from deployment pane. For more information, see [Deployment pane](./visual-studio-code.md#deployment-pane).
+
+You can deploy to any scope. This article shows how to deploy to a resource group.
 
 There are three ways you can find the command from an open Bicep file in Visual Studio Code:
 
 - Right-click the Bicep file name from the Explorer pane instead of the one under **OPEN EDITORS**:
 
-    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Screenshot of Deploying Bicep File in the Context menu from the explore pane.":::
+    :::image type="content" source="./media/deploy-vscode/bicep-deploy-from-explorer.png" alt-text="Screenshot of Deploying Bicep File in the Context menu from the explorer pane.":::
 
 - Right-click anywhere inside a Bicep file, and then select **Deploy Bicep File**.
 

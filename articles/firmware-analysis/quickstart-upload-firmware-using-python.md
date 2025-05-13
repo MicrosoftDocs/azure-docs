@@ -1,29 +1,29 @@
 ---
-title: "Quickstart: Upload firmware images to Firmware analysis using Python"
+title: "Quickstart: Upload firmware images to firmware analysis using Python"
 description: "Learn how to upload firmware images for analysis using a Python script."
 author: karengu0
 ms.author: karenguo
 ms.topic: quickstart
 ms.custom: devx-track-python
-ms.date: 04/10/2024
+ms.date: 02/07/2025
 ms.service: azure
 ---
 
-# Quickstart: Upload firmware images to Firmware analysis using Python
+# Quickstart: Upload firmware images to firmware analysis using Python
 
-This article explains how to use a Python script to upload firmware images to Firmware analysis.
+This article explains how to use a Python script to upload firmware images to firmware analysis.
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
 
 ## Prerequisites
 
-This quickstart assumes a basic understanding of Firmware Analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about Firmware Analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
+This quickstart assumes a basic understanding of firmware analysis. For more information, see [Firmware analysis for device builders](./overview-firmware-analysis.md). For a list of the file systems that are supported, see [Frequently asked Questions about firmware analysis](./firmware-analysis-faq.md#what-types-of-firmware-images-does-firmware-analysis-support).
 
 ### Prepare your environment
 
 1. Python version 3.8+ is required to use this package. Run the command `python --version` to check your Python version.
 2. Make note of your Azure subscription ID, the name of your Resource Group where you'd like to upload your images, your workspace name, and the name of the firmware image that you'd like to upload.
-3. Ensure that your Azure account has the necessary permissions to upload firmware images to Firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware Analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
+3. Ensure that your Azure account has the necessary permissions to upload firmware images to firmware analysis for your Azure subscription. You must be an Owner, Contributor, Security Admin, or Firmware Analysis Admin at the Subscription or Resource Group level to upload firmware images. For more information, visit [Firmware analysis Roles, Scopes, and Capabilities](./firmware-analysis-rbac.md#firmware-analysis-roles-scopes-and-capabilities).
 4. Ensure that your firmware image is stored in the same directory as the Python script.
 5. Install the packages needed to run this script:
     ```python

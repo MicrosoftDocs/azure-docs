@@ -6,18 +6,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 01/29/2025
 ms.custom: devx-track-azurecli
 
 #CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
 ---
 
 # Troubleshoot VPN virtual network gateways and connections using the Azure CLI
-
-> [!div class="op_single_selector"]
-> - [Portal](diagnose-communication-problem-between-networks.md)
-> - [PowerShell](vpn-troubleshoot-powershell.md)
-> - [Azure CLI](vpn-troubleshoot-cli.md)
 
 In this article, you learn how to use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot VPN virtual network gateways and their connections to solve connectivity issues between your virtual network and on-premises network. VPN troubleshoot requests are long running requests, which could take several minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
@@ -117,6 +112,8 @@ Additionally, detailed logs are stored in the storage account container you spec
 
 ## Related content
 
-- [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md).
+- [VPN troubleshoot overview](vpn-troubleshoot-overview.md)
 
-- [VPN troubleshoot overview](vpn-troubleshoot-overview.md).
+- [Troubleshoot VPN virtual network gateways and connections using PowerShell](vpn-troubleshoot-powershell.md)
+
+- [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md)

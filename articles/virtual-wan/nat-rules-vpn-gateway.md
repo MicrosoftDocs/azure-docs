@@ -38,8 +38,6 @@ Another consideration is the address pool size for translation. If the target ad
 > [!NOTE]
 > Site-to-site NAT is not supported with site-to-site VPN connections where policy-based traffic selectors are used.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/edit-rules.png" alt-text="Screenshot showing how to edit rules."lightbox="./media/nat-rules-vpn-gateway/edit-rules.png":::
-
 1. Navigate to your virtual hub.
 1. Select **VPN (Site to site)**.
 1. Select **NAT rules (Edit)**.
@@ -85,8 +83,6 @@ The following diagram shows the projected result:
 
 1. Toggle **BGP Route Translation** to 'Enable'.
 
-   :::image type="content" source="./media/nat-rules-vpn-gateway/enable-bgp.png" alt-text="Screenshot showing how to enable BGP translation.":::
-
 1. Ensure the site-to-site VPN gateway can peer with the on-premises BGP peer.
 
    In this example, the **Ingress NAT Rule** will need to translate 10.30.0.132 to 172.30.0.132. To do that, click 'Edit VPN site' to configure VPN site Link A BGP address to reflect this translated BGP peer address (172.30.0.132).
@@ -130,8 +126,6 @@ In this example, we'll NAT VPN site 1 to 172.30.0.0.0/24. However, because the V
    * Go to the virtual hub resource that contains the site-to-site VPN gateway. On the virtual hub page, under Connectivity, select **VPN (Site-to-site)**.
 
    * Select the VPN site that is connected to the Virtual WAN hub via Link A. Select **Edit Site** and input 172.30.0.0/24 as the private address space for the VPN site.
-
-     :::image type="content" source="./media/nat-rules-vpn-gateway/vpn-site-static.png" alt-text="Screenshot showing how to edit the Private Address space of a VPN site" lightbox="./media/nat-rules-vpn-gateway/vpn-site-static.png":::
 
 ### <a name="considerationsnobgp"></a>Considerations if VPN sites are statically configured (not connected via BGP)
 

@@ -6,6 +6,8 @@ items:
     items:
     - name: What is Event Grid?
       href: overview.md
+    - name: Use cases
+      href: use-cases.md
     - name: What's new?
       href: whats-new.md
     - name: Choose the right tier
@@ -77,8 +79,10 @@ items:
             href: oauth-json-web-token-authentication.md
           - name: MQTT client authentication using certificates
             href: mqtt-client-certificate-authentication.md        
-          - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+          - name: Microsoft Entra JWT authentication and RBAC authorization for clients 
             href: mqtt-client-microsoft-entra-token-and-rbac.md
+          - name: OAuth 2.0 JSON Web Token authentication and authorization for clients 
+            href: mqtt-client-custom-jwt.md
           - name: Transport Layer Security connection with MQTT broker
             href: mqtt-transport-layer-security-flow.md
         - name: Reliability
@@ -108,7 +112,7 @@ items:
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
-        - name: Send events to Microsoft Fabric via Azure Event Hubs
+        - name: Send MQTT events to Microsoft Fabric
           href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
@@ -433,8 +437,6 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
-          - name: SAP
-            href: subscribe-to-sap-events.md
           - name: Tribal Group
             href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
@@ -556,8 +558,6 @@ items:
           href: onboard-partner.md
         - name: Subscribe to partner events
           href: subscribe-to-partner-events.md
-        - name: Subscribe to SAP events
-          href: subscribe-to-sap-events.md        
         - name: Subscribe to Tribal Group events
           href: subscribe-to-tribal-group-events.md        
         - name: Auth0
@@ -615,11 +615,11 @@ items:
       - name: Relocate
         items:
         - name: Relocate system topics across regions
-          href: ../operational-excellence/relocation-event-grid-system-topics.md?toc=/azure/event-grid/toc.json
+          href: ../azure-resource-manager/management/relocation/relocation-event-grid-system-topics.md?toc=/azure/event-grid/toc.json
         - name: Relocate custom topics across regions
-          href: ../operational-excellence/relocation-event-grid-custom-topics.md?toc=/azure/event-grid/toc.json
+          href: ../azure-resource-manager/management/relocation/relocation-event-grid-custom-topics.md?toc=/azure/event-grid/toc.json
         - name: Relocate domains across regions
-          href: ../operational-excellence/relocation-event-grid-domains.md?toc=/azure/event-grid/toc.json
+          href: ../azure-resource-manager/management/relocation/relocation-event-grid-domains.md?toc=/azure/event-grid/toc.json
       - name: Secure
         items:
         - name: Publish events securely over a private link

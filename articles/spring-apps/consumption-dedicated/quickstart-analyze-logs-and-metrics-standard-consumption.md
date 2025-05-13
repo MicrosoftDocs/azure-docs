@@ -1,8 +1,9 @@
 ---
-title: Quickstart - Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan
+title: Quickstart - Analyze Logs and Metrics in the Azure Spring Apps Standard Consumption and Dedicated Plan
 description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
-ms.author: shiqiu
+ms.author: karler
+ms.reviewer: shiqiu
 ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 08/29/2024

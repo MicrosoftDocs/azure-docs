@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
+title: Troubleshooting Guide for Azure Spring Apps
 description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
@@ -23,7 +23,7 @@ This article provides instructions for troubleshooting Azure Spring Apps develop
 
 When your application can't start, you might find that its endpoint can't be connected or it returns a 502 after a few retries.
 
-For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named *AppPlatformLogsforSpring*. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
+For troubleshooting, export the logs to Azure Log Analytics. The table for Spring application logs is named `AppPlatformLogsforSpring`. To learn more, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
 The following error message might appear in your logs: `org.springframework.context.ApplicationContextException: Unable to start web server`
 
@@ -36,15 +36,15 @@ Service bindings might also cause application start failures. To query the logs,
 
 > "java.sql.SQLException: The server time zone value 'Coordinated Universal Time' is unrecognized or represents more than one time zone."
 
-To fix this error, go to the `server parameters` of your MySQL instance, and change the `time_zone` value from *SYSTEM* to *+0:00*.
+To fix this error, go to the **server parameters** of your MySQL instance, and change the **time_zone** value from **SYSTEM** to **+0:00**.
 
 ### My application crashes or throws an unexpected error
 
-When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are *Running* and *UP*.
+When you're debugging application crashes, start by checking the running status and discovery status of the application. To do so, go to **Apps** in the Azure portal to ensure that the statuses of all the applications are **Running** and **UP**.
 
-* If the status is *Running* but the discovery status isn't *UP*, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
+* If the status is **Running** but the discovery status isn't **UP**, go to the ["My application can't be registered"](#my-application-cant-be-registered) section.
 
-* If the discovery status is *UP*, go to Metrics to check the application's health. Inspect the following metrics:
+* If the discovery status is **UP**, go to Metrics to check the application's health. Inspect the following metrics:
 
   * `tomcat.global.error`:
 
@@ -129,11 +129,11 @@ The name of the Azure Spring Apps service instance is used for requesting a subd
 
 ### I can't deploy a .NET Core app
 
-You can't upload a *.zip* file for a .NET Core Steeltoe app by using the Azure portal or the Resource Manager template.
+You can't upload a **.zip** file for a .NET Core Steeltoe app by using the Azure portal or the Resource Manager template.
 
 When you deploy your application package by using the [Azure CLI](/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
 
-Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process stops responding or you receive an error message.
+Ensure that your application is packaged in the correct **.zip** file format. If it isn't packaged correctly, the process stops responding or you receive an error message.
 
 ### I can't deploy a JAR package
 
@@ -184,7 +184,7 @@ Environment variables inform the Azure Spring Apps framework, ensuring that Azur
 
 1. Go to `https://<your-application-test-endpoint>/actuator/health`.
 
-   A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled. If the response is negative, include the following dependency in your *POM.xml* file:
+   A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled. If the response is negative, include the following dependency in your **POM.xml** file:
 
    ```xml
    <dependency>
@@ -220,9 +220,9 @@ Look for the child node named `systemEnvironment`. This node contains your appli
 
 ### I can't find metrics or logs for my application
 
-Go to **Apps** to ensure that the application statuses are *Running* and *UP*.
+Go to **Apps** to ensure that the application statuses are **Running** and **UP**.
 
-Check to see whether *JMX* is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
+Check to see whether `JMX` is enabled in your application package. This feature can be enabled with the configuration property `spring.jmx.enabled=true`.
 
 Check to see whether the `spring-boot-actuator` dependency is enabled in your application package and that it successfully boots up.
 

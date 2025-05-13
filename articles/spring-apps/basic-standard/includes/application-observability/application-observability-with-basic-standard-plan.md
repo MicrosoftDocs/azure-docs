@@ -67,11 +67,11 @@ The availability or liveness of an application is determined using the Spring Bo
 
 1. On the **Create Standard test** page, provide the following information:
 
-   - **Test name**: Enter *api-gateway* for the API gateway app.
-   - **URL**: Enter *https://\<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/actuator/health/liveness* for the corresponding URL.
+   - **Test name**: Enter **api-gateway** for the API gateway app.
+   - **URL**: Enter **https://\<your-Azure-Spring-Apps-instance-name>-api-gateway.azuremicroservices.io/actuator/health/liveness** for the corresponding URL.
    - **Success criteria**: Extend the option.
    - **Content match**: Select the checkbox.
-   - **Content must contain**: Enter *UP*.
+   - **Content must contain**: Enter **UP**.
 
 1. Select **Save** to finish the configuration.
 
@@ -156,7 +156,7 @@ To pin the "Availability" chart, use the following steps:
 
 1. On the navigation menu, select **Application Insights** to go to the Application Insights overview page.
 
-1. On the navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to *Availability*.
+1. On the navigation menu, select **Metrics**, select the edit icon in the chart title, and then rename the chart title to **Availability**.
 
 1. Select **Add metric**.
 
@@ -248,11 +248,11 @@ To set up an action group, use the following steps:
 
 1. On the **Create action group** page, select the subscription and resource group you want to cover. Enter the following information:
 
-   - **Action group name**: Enter *email-notification*.
-   - **Short name**: Enter *email*.
+   - **Action group name**: Enter **email-notification**.
+   - **Short name**: Enter **email**.
    - **Region**: Select the region you want to use.
 
-1. Navigate to the **Notification** tab on the **Create action group** page. For **Notification type**, select **Email/SMS message/Push/Voice**. For **Name**, enter *email-support*.
+1. Navigate to the **Notification** tab on the **Create action group** page. For **Notification type**, select **Email/SMS message/Push/Voice**. For **Name**, enter **email-support**.
 
 1. On the **Email/SMS message/Push/Voice** page, select **Email**, enter your production email address, and then select **OK** to finish the configuration. You can also add other notification types if you want, such as SMS, Azure mobile app notification, Voice, and so on.
 
@@ -277,7 +277,7 @@ To set up an alert rule, use the following steps:
    - For threshold type, select **Static**.
    - For **Aggregation type**, select **Average**.
    - For **Operator**, select **Greater than**.
-   - For **Threshold value**, enter *90*.
+   - For **Threshold value**, enter **90**.
 
 1. In the **Split by dimensions** section, use the following inputs:
 
@@ -290,32 +290,32 @@ To set up an alert rule, use the following steps:
 
 1. Navigate to the **Actions** tab on the **Create an alert rule** page, and then select **Select action groups**.
 
-1. On the **Select action groups** page, search for your email action group name, such as *email-notification*. Select the corresponding action group, and then select **Select** to finish the configuration.
+1. On the **Select action groups** page, search for your email action group name, such as **email-notification**. Select the corresponding action group, and then select **Select** to finish the configuration.
 
 1. Navigate to the **Details** tab on the **Create an alert rule** page.
 
-1. For **Alert rule name**, enter *app-cpu-high-alert*.
+1. For **Alert rule name**, enter **app-cpu-high-alert**.
 
 1. Select **Review and Create** to review your selections. Select **Create** to create the alert rule.
 
 1. To create an alert rule for **App Memory Usage** metric signal, use the following inputs:
 
    - **Signal name**: *App Memory Usage*
-   - **Threshold value**: *90*
-   - **Dimension name**: *App*
+   - **Threshold value**: **90**
+   - **Dimension name**: **App**
    - **Dimension values**: Select all
-   - **Action group name**: *email-notification*
-   - **Alert rule name**: *app-memory-high-alert*
+   - **Action group name**: **email-notification**
+   - **Alert rule name**: **app-memory-high-alert**
 
 1. To create an alert rule for **App Network In** metric signal, use the following inputs:
 
    - **Signal name**: *App Network In*
-   - **Unit**: *GB*
-   - **Threshold value**: *1*
-   - **Dimension name**: *App*
-   - **Dimension values**: *api-gateway*
-   - **Action group name**: *email-notification*
-   - **Alert rule name**: *network-in-high-alert*
+   - **Unit**: **GB**
+   - **Threshold value**: **1**
+   - **Dimension name**: **App**
+   - **Dimension values**: **api-gateway**
+   - **Action group name**: **email-notification**
+   - **Alert rule name**: **network-in-high-alert**
 
 1. After you've created all the alert rules, you can view the alert rules list.
 

@@ -9,20 +9,22 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
 
-#Customer intent: As a developer implementing custom policies in Azure Active Directory B2C, I want to define a technical profile for a JWT token issuer, so that I can emit a JWT token that is returned to the relying party application during the authentication flow.
+#Customer intent: As a developer implementing custom policies in Azure Active Directory B2C, I want to define a technical profile for a JWT issuer, so that I can emit a JWT that is returned to the relying party application during the authentication flow.
 
 ---
 
-# Define a technical profile for a JWT token issuer in an Azure Active Directory B2C custom policy
+# Define a technical profile for a JWT issuer in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each authentication flow. A technical profile for a JWT token issuer emits a JWT token that is returned back to the relying party application. Usually this technical profile is the last orchestration step in the user journey.
+Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each authentication flow. A technical profile for a JWT issuer emits a JWT that is returned back to the relying party application. Usually this technical profile is the last orchestration step in the user journey.
 
 ## Protocol
 
@@ -73,7 +75,7 @@ The CryptographicKeys element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT token. This is the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
+| issuer_secret | Yes | The X509 certificate (RSA key set) to use to sign the JWT. This is the `B2C_1A_TokenSigningKeyContainer` key you configure in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy). |
 | issuer_refresh_token_key | Yes | The X509 certificate (RSA key set) to use to encrypt the refresh token. You configured the `B2C_1A_TokenEncryptionKeyContainer` key in [Get started with custom policies](tutorial-create-user-flows.md?pivots=b2c-custom-policy) |
 
 ## Session management

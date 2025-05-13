@@ -2,8 +2,8 @@
 title: Developer integration with multimedia redirection for WebRTC-based calling apps in a remote session
 description: Learn how to integrate a website with multimedia redirection for WebRTC-based calling apps in a remote session from Azure Virtual Desktop, a Windows 365 Cloud PC, or Microsoft Dev Box.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/04/2024
 ---
 
@@ -130,6 +130,10 @@ document.addEventListener('mmrExtensionLog', () =>
     console.log("MMR event, level:" + event.detail.level + " : " + event.detail.message);
 );
 ```
+
+## Submit your website for review or request assistance
+
+If you represent an ISV and you want your website to be added to the list of [Websites for call redirection](multimedia-redirection-video-playback-calls.md#websites-for-call-redirection), or if you need assistance with integrating your website with call redirection, [complete and submit this form](https://forms.microsoft.com/r/BtDs4pdYzB).
 
 ## Related content
 

@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 01/23/2025
+ms.collection: ce-skilling-ai-copilot
+ms.date: 04/28/2025
 #CustomerIntent: I want a guide that introduces starting points, building blocks, examples, samples, and other resources to help me learn about using AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
 
@@ -33,7 +34,7 @@ For more information, see the following resources:
 
 | Resource type | Link |
 |---------------|------|
-| **Video overview** | - [Integrate AI into your workflows with Azure Logic Apps](https://www.youtube.com/live/Lxw9epgl_FM) <br><br>- [Accelerate generative AI development with Azure Logic Apps - Integrate 2024](https://youtu.be/HSl8OI-aT3A) |
+| **Video overview** | - [Modernize enterprise integration with Azure Integration Services](https://ignite.microsoft.com/sessions/BRK150) <br><br>- [Integrate AI into your workflows with Azure Logic Apps](https://www.youtube.com/live/Lxw9epgl_FM) <br><br>- [Accelerate generative AI development with Azure Logic Apps - Integrate 2024](https://youtu.be/HSl8OI-aT3A) |
 
 #### Prep your content
 
@@ -176,15 +177,20 @@ For more information, see the following resources:
 
 ## Quickstart with workflow templates
 
-When you add a new workflow to your Standard logic app, you can select a prebuilt template as your starting point. Each template follows a common workflow pattern that supports a specific scenario. You can also create workflow templates that you can then share with other workflow developers by publishing them in the templates GitHub repository.
+When you add a new workflow to your Standard or Consumption logic app, you can select a prebuilt template as your starting point. Each template follows a common workflow pattern that supports a specific scenario. You can also create workflow templates that you can then share with other workflow developers by publishing them in the templates GitHub repository.
 
 The following table describes some example workflow templates:
 
 | Document source | Template description | AI services |
 |-----------------|----------------------|-------------|
-| SharePoint Online | Ingest and index files using the RAG pattern. | - Azure OpenAI <br>- Azure AI Search |
-| OneDrive | Ingest and index files using the RAG pattern. | - Azure OpenAI <br>- Azure AI Search |
-| Azure Blob Storage | Retrieve, parse, and chunk a file from a blob storage container. Process each chunk to generate embeddings, map embeddings to an Azure SQL DB table schema. Finally, index the files in a SQL DB vector table for retrieval and analysis. | - Azure OpenAI |
+| Azure AI Document Intelligence | Standard: <br>- Analyze complex documents using Azure OpenAI | - Azure OpenAI |
+| Azure Blob Storage | Standard: <br>- Ingest and index files using the RAG pattern <br>- Ingest and vectorize documents into Azure Cosmos DB for NoSQL using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
+| Azure File Storage | Standard: <br>- Ingest documents on a schedule into AI Search <br>- Ingest and index files on a schedule using the RAG pattern <br>- Ingest and index files using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
+| Request-based | Standard: <br>- Chat with your documents using the RAG pattern <br>- Ingest and index documents using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
+| OneDrive for Business | Consumption: <br>- Vectorize files on a schedule from OneDrive for Busines to AI Search <br><br>Standard: <br>- Ingest and index files using the RAG pattern <br>- Ingest documents on a schedule from OneDrive to AI Search | - Azure OpenAI <br>- Azure AI Search |
+| SAP | Consumption: <br>- Synch business partners to SharePoint folder using OData |
+| SFTP | Standard: <br>- Ingest and index files using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
+| SharePoint Online | Consumption: <br>-Vectorize files on request from SharePoint Online to AI Search <br><br>Standard: <br>- Ingest and index files using the RAG pattern <br>- Index documents to AI Search, retrieve and reason with Azure OpenAI LLMs using the RAG pattern | - Azure OpenAI <br>- Azure AI Search |
 
 For more information, see the following resources:
 

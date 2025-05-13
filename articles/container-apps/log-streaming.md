@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 12/02/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ---
 
@@ -71,7 +71,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -95,7 +95,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -130,7 +130,7 @@ az containerapp revision list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -153,7 +153,7 @@ az containerapp replica list \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp replica list `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -180,7 +180,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show  `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -212,7 +212,7 @@ az containerapp logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp logs show  `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -240,7 +240,7 @@ az containerapp env logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp env logs show  `
   --name <ENVIRONMENT_NAME> `
   --resource-group <RESOURCE_GROUP> `
@@ -264,7 +264,7 @@ az containerapp env logs show \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp env logs show `
   --name <CONTAINER_APP_NAME> `
   --resource-group <RESOURCE_GROUP> `

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 02/04/2025
 ms.author: cherylmc
 
 ---
@@ -20,7 +20,11 @@ You can use the steps in the [Download profiles](global-hub-profile.md) article 
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 
-* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate. For more information, see [Configure OpenVPN clients](../virtual-wan/howto-openvpn-clients.md#windows).
+* The **OpenVPN folder** contains the *ovpn* profile that needs to be modified to include the key and the certificate.
+
+For information about how to configure a VPN client, select the article from the following table that corresponds to you P2S gateway configuration and client.
+
+[!INCLUDE [P2S client configuration articles](../../includes/virtual-wan-vpn-client-install-articles.md)]
 
 ## Next steps
 

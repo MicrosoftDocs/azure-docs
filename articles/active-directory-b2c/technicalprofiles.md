@@ -1,7 +1,7 @@
 ---
-title: Technical profiles
+title: Custom policy technical profiles
 titleSuffix: Azure AD B2C
-description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
+description: Specify the TechnicalProfiles element of a custom policy in Azure AD B2C. Understand different types of technical profiles for user creation, authentication, and more.
 
 author: kengaderdus
 manager: CelesteDG
@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -19,9 +19,9 @@ ms.subservice: b2c
 ---
 
 # Technical profiles
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
 A *technical profile* provides a framework with a built-in mechanism to communicate with different types of parties. Technical profiles are used to communicate with your Azure Active Directory B2C (Azure AD B2C) tenant to create a user or read a user profile. A technical profile can be self-asserted to enable interaction with the user. For example, a technical profile can collect the user's credential to sign in and then render the sign-up page or password reset page.
 
 ## Types of technical profiles
@@ -32,8 +32,8 @@ A technical profile enables these types of scenarios:
 - [Microsoft Entra ID](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
 - [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Microsoft Entra multifactor authentication.
 - [Claims transformation](claims-transformation-technical-profile.md): Calls output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
-- [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT token signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
-- [JWT token issuer](jwt-issuer-technical-profile.md): Emits a JWT token that's returned back to the relying party application.
+- [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
+- [JWT issuer](jwt-issuer-technical-profile.md): Emits a JWT that's returned back to the relying party application.
 - [OAuth1](oauth1-technical-profile.md): Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md): Federation with any OAuth 2.0 protocol identity provider.
 - [One-time password](one-time-password-technical-profile.md): Provides support for managing the generation and verification of a one-time password.

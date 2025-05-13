@@ -1,9 +1,9 @@
 ---
 title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python
-author: ekote
-ms.author: eskot
-ms.reviewer: maghan, whhender, whhender
+author: ms-arali
+ms.author: arali
+ms.reviewer: maghan
 ms.date: 03/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
@@ -29,10 +29,9 @@ The following table lists the runtime name, Apache Spark version, and release da
 | Runtime name | Release date | Release stage                | End of Support announcement date | End of Support effective date |
 | --- | --- |------------------------------| --- | --- |
 | [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) | Nov 21, 2023 | GA (as of Apr 8, 2024)       | Q2 2025| Q1 2026|
-| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**end of support announced**|July 12th, 2024| 3/31/2025 |
+| [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**end of support announced**|July 12, 2024| 3/31/2025 |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __deprecated and soon disabled__ | July 8, 2023 | __July 8, 2024__ |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated and soon disabled__         | January 26, 2023 | __January 26, 2024__ |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated and soon disabled__           | July 29, 2022 | __September 29, 2023__ |
 
 ## Runtime release stages
 
@@ -60,7 +59,7 @@ Azure Synapse runtimes for Apache Spark patches are rolled out monthly containin
 > * ```org/apache/log4j/jdbc/JDBCAppender.class```
 > * ```org/apache/log4j/chainsaw/*```
 >  
-> While the above classes were not used in the default Log4j configurations in Synapse, it is possible that some user application could still depend on it. If your application needs to use these classes, use Library Management to add a secure version of Log4j to the Spark Pool. __Do not use Log4j version 1.2.17__, as it would be reintroducing the vulnerabilities.
+> While the above classes weren't used in the default Log4j configurations in Synapse, it's possible that some user application could still depend on it. If your application needs to use these classes, use Library Management to add a secure version of Log4j to the Spark Pool. __Do not use Log4j version 1.2.17__, as it would be reintroducing the vulnerabilities.
 
 The patch policy differs based on the [runtime lifecycle stage](./runtime-for-apache-spark-lifecycle-and-supportability.md):
 
@@ -75,20 +74,20 @@ The patch policy differs based on the [runtime lifecycle stage](./runtime-for-ap
 
 ## Migration between Apache Spark versions - support
 
-This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads from versions 2.4, 3.1, 3.2, or 3.3 to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It is important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
+This guide provides a structured approach for users looking to upgrade their Azure Synapse Runtime for Apache Spark workloads from versions 2.4, 3.1, 3.2, or 3.3 to [the latest GA version, such as 3.4](./apache-spark-34-runtime.md). Upgrading to the most recent version enables users to benefit from performance enhancements, new features, and improved security measures. It's important to note that transitioning to a higher version may require adjustments to your existing Spark code due to incompatibilities or deprecated features.
 
 ### Step 1: Evaluate and plan
-- **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version (2.4, 3.1, 3.2, or 3.3) and the target version (e.g., 3.4).
+- **Assess Compatibility:** Start with reviewing Apache Spark migration guides to identify any potential incompatibilities, deprecated features, and new APIs between your current Spark version (2.4, 3.1, 3.2, or 3.3) and the target version (for example, 3.4).
 - **Analyze Codebase:** Carefully examine your Spark code to identify the use of deprecated or modified APIs. Pay particular attention to SQL queries and User Defined Functions (UDFs), which may be affected by the upgrade.
 
 ### Step 2: Create a new Spark pool for testing
-- **Create a New Pool:** In Azure Synapse, go to the Spark pools section and set up a new Spark pool. Select the target Spark version (e.g., 3.4) and configure it according to your performance requirements.
+- **Create a New Pool:** In Azure Synapse, go to the Spark pools section and set up a new Spark pool. Select the target Spark version (for example, 3.4) and configure it according to your performance requirements.
 - **Configure Spark Pool Configuration:** Ensure that all libraries and dependencies in your new Spark pool are updated or replaced to be compatible with Spark 3.4.
 
 ### Step 3: Migrate and test your code
 - **Migrate Code:** Update your code to be compliant with the new or revised APIs in Apache Spark 3.4. This involves addressing deprecated functions and adopting new features as detailed in the official Apache Spark documentation.
 - **Test in Development Environment:** Test your updated code within a development environment in Azure Synapse, not locally. This step is essential for identifying and fixing any issues before moving to production.
-- **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.4 pool. It is critical to monitor the application for any unexpected behaviors.  Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
+- **Deploy and Monitor:** After thorough testing and validation in the development environment, deploy your application to the new Spark 3.4 pool. It's critical to monitor the application for any unexpected behaviors. Utilize the monitoring tools available in Azure Synapse to keep track of your Spark applications' performance.
 
 **Question:** What steps should be taken in migrating from 2.4 to 3.X?
 
@@ -102,7 +101,7 @@ This guide provides a structured approach for users looking to upgrade their Azu
 
 **Question:** Why can't I upgrade to 3.4 without recreating a new Spark pool?
 
-**Answer:** This is not allowed from UX, customer can use Azure PowerShell to update Spark version. Please use "ForceApplySetting", so that any existing clusters (with old version) are decommissioned. 
+**Answer:** This isn't allowed from UX, customer can use Azure PowerShell to update Spark version. Use "ForceApplySetting", so that any existing clusters (with old version) are decommissioned. 
 
 **Sample query:**
 

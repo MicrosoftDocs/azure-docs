@@ -4,8 +4,8 @@ description: include file
 author: chez-charlie
 ms.service: azure-data-factory
 ms.topic: include
-ms.date: 12/12/2024
-ms.author: chez
+ms.date: 2/6/2025
+ms.author: n0elleli
 ms.custom: include file
 ---
 
@@ -15,13 +15,13 @@ Azure Data Factory is a multitenant service that has the following default limit
 | -------- | ------------- | ------------- |
 | Total number of entities, such as pipelines, data sets, triggers, linked services, Private Endpoints, and integration runtimes, within a data factory | 5,000 |5,000   |
 | Total CPU cores for Azure-SSIS Integration Runtimes under one subscription | 64 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
-| Concurrent pipeline runs per data factory that's shared among all pipelines in the factory | 10,000  | 10,000 |
+| Concurrent pipeline runs per data factory shared among all pipelines in the factory | 10,000  | 10,000 |
 | Concurrent External activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>External activities are managed on integration runtime but execute on linked services, including Databricks, stored procedure, Web, and others. This limit doesn't apply to Self-hosted IR. | 3,000 | 3,000 |
 | Concurrent Pipeline activity runs per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location) <br>Pipeline activities execute on integration runtime, including Lookup, GetMetadata, and Delete. This limit doesn't apply to Self-hosted IR. | 1,000 | 1,000                                                        |
 | Concurrent authoring operations per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit doesn't apply to Self-hosted IR. | 200 | 200                                                          |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network|  2,400 | 2,400 |
-| Maximum activities per pipeline, which includes inner activities for containers | 80 | 120 |
+| Maximum activities per pipeline, which includes inner activities for containers | 120 | 120 |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | 100 |
 | Maximum number of nodes that can be created against a single self-hosted integration runtime | 4 | 4 |
 | Maximum parameters per pipeline | 50 | 50 |
@@ -43,7 +43,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Concurrent number of data flows per integration runtime | 50 | 50 |
 | Concurrent number of data flows per integration runtime in managed vNet| 50 | 50 |
 | Concurrent number of data flow debug sessions per user per factory | 3 | 3 |
-| Data Flow Azure IR TTL limit | 4 hrs |  4 hrs |
+| Data Flow Azure IR TTL (time to live) limit | 4 hrs |  4 hrs |
 | Meta Data Entity Size limit in a factory | 2 GB | 2 GB |
 
 <sup>1</sup> The data integration unit (DIU) is used in a cloud-to-cloud copy operation. Learn more from [Data integration units (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). For information on billing, see [Azure Data Factory pricing](https://azure.microsoft.com/pricing/details/data-factory/).
@@ -60,7 +60,7 @@ If managed virtual network is enabled, the data integration unit (DIU) in all re
 
 <sup>3</sup> Pipeline, data set, and linked service objects represent a logical grouping of your workload. Limits for these objects don't relate to the amount of data you can move and process with Azure Data Factory. Data Factory is designed to scale to handle petabytes of data.
 
-<sup>4</sup> The payload for each activity run includes the activity configuration, the associated dataset(s) and linked service(s) configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Data Factory. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
+<sup>4</sup> The payload for each activity run includes the activity configuration, one or more associated datasets, and linked service configurations if any, and a small portion of system properties generated per activity type. Limit for this payload size doesn't relate to the amount of data you can move and process with Azure Data Factory. Learn about the [symptoms and recommendation](../articles/data-factory/data-factory-troubleshoot-guide.md#payload-is-too-large) if you hit this limit.
 
 #### Web service call limits
 Azure Resource Manager has limits for API calls. You can make API calls at a rate within the [Azure Resource Manager API limits](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#azure-resource-group-limits).

@@ -2,12 +2,12 @@
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Resource Manager template'
 description: In this quickstart, you deploy Azure Firewall using a template. The virtual network has one VNet with three subnets. Two Windows Server virtual machines are deployed; a jump box and a server.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 05/10/2021
-ms.author: victorh
+ms.author: duau
 ---
 
 # Quickstart: Deploy Azure Firewall with Availability Zones - ARM template

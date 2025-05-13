@@ -2,7 +2,8 @@
 title: Job in Azure Spring Apps
 description: Learn more about the Job concept in Azure Spring Apps.
 author: KarlErickson
-ms.author: ninpan
+ms.author: karler
+ms.reviewer: ninpan
 ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/06/2024
@@ -19,7 +20,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 *Job* is a key concept in the resource model of Azure Spring Apps. Like *App* in Azure Spring Apps, both are considered resources managed within the service.
 
-An *App* runs a workload continuously, whereas a *Job* enables customers to run workloads that complete within a finite duration. Examples of apps include web apps and background services that process input continuously. Examples of jobs include batch processes and on-demand tasks.
+An App runs a workload continuously, whereas a Job enables customers to run workloads that complete within a finite duration. Examples of apps include web apps and background services that process input continuously. Examples of jobs include batch processes and on-demand tasks.
 
 Spring developers who write jobs probably choose the Spring Batch framework or Spring Cloud Task. While Spring Batch excels in handling large-scale batch processing tasks, Spring Cloud Task is specialized for managing short-lived tasks with minimal overhead. You can run both types efficiently in Azure Spring Apps jobs to meet diverse requirements.
 

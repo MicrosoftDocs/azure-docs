@@ -29,19 +29,20 @@ A load test configuration uses the following keys:
 | `testType` | string | Y | | Test type. Possible values:<br/><ul><li>`URL`: URL-based load test</li><li>`JMX`: JMeter-based load test</li><li>`Locust`: Locust-based load test</li></ul> |
 | `testPlan` | string | Y |  | Reference to the test plan file.<br/><ul><li>If `testType: JMX`: relative path to the JMeter test script.</li><li>If `testType: Locust`: relative path to the Locust test script.</li><li>If `testType: URL`: relative path to the [requests JSON file](./how-to-add-requests-to-url-based-test.md).</li></ul> |
 | `engineInstances` | integer | Y |  | Number of parallel test engine instances for running the test plan. Learn more about [configuring high-scale load](./how-to-high-scale-load.md). |
-| `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script or the Locust script, only refer to external files using the file name, and remove any file path information. |
-| `failureCriteria` | object | N |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
+| `configurationFiles` | array of string | N |  | List of external files, required by the test script. For example, JMX fragment files, CSV data files, images, or any other data file.<br/>Azure Load Testing uploads all files in the same folder as the test script. In the JMeter script or the Locust script, only refer to external files using the file name, and remove any file path information. |
+| `failureCriteria` | object | N |  | Load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
 | `autoStop` | string or object | N |  | Automatically stop the load test when the error percentage exceeds a value.<br/>Possible values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object*: see [autostop](#autostop-configuration) configuration for more details. |
 | `properties` | object | N |  | <ul><li>If `testType: JMX`: JMeter user property file references.</li><li>If `testType: Locust`: Locust configuration file references.</li></ul> See [properties](#properties-configuration) for more details. |
-| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than JMeter scripts and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
+| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than the main test script and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
 | `splitAllCSVs` | boolean | N | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object | N |  | List of secrets that the Apache JMeter or Locust script references. See [secrets](#secrets-configuration) for more details. |
 | `env` | object | N |  | List of environment variables that the Apache JMeter script or Locust references. See [environment variables](#env-configuration) for more details. |
 | `certificates` | object | N |  | List of client certificates for authenticating with application endpoints in the JMeter or Locust script. See [certificates](#certificates-configuration) for more details.|
-| `keyVaultReferenceIdentity` | string | N |  | Resource ID of the user-assigned managed identity for accessing the secrets from your Azure Key Vault. If you use a system-managed identity, this information isn't needed. Make sure to grant this user-assigned identity access to your Azure key vault. Learn more about [managed identities in Azure Load Testing](./how-to-use-a-managed-identity.md). |
+| `appComponents` | object | N |  | List of server -side resources to monitor during the load test. See [appComponents](#appcomponents-configuration) for more details. |
 | `subnetId` | string | N |  | Resource ID of the virtual network subnet for testing privately hosted endpoints. This subnet hosts the injected test engine VMs. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `publicIPDisabled` | boolean | N |  | Disable the deployment of a public IP address, load balancer, and network security group while testing a private endpoint. For more information, see [how to load test privately hosted endpoints](./how-to-test-private-endpoint.md). |
 | `regionalLoadTestConfig` | object | N |  | Distribute load across regions to simulate user traffic from multiple regions. For more information, See [regional load test configuration](#regional-load-test-configuration) for more details. |
+| `referenceIdentities` | object | N |  | List of managed identities used in the test for accessing the secrets from your Azure Key Vault, metrics for server-side failure criteria and authentication of your endpoints. See [referenceIdentities](#referenceidentities-configuration) for more details. |
 
 ### Load test configuration sample
 
@@ -58,6 +59,7 @@ engineInstances: 1
 subnetId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Network/virtualNetworks/load-testing-vnet/subnets/load-testing
 configurationFiles:
   - 'sampledata.csv'
+  - 'testfragment.jmx'
 zipArtifacts:
    - bigdata.zip
 splitAllCSVs: True
@@ -76,14 +78,14 @@ keyVaultReferenceIdentity: /subscriptions/abcdef01-2345-6789-0abc-def012345678/r
 
 ### `failureCriteria` configuration
 
-Test fail criteria enable you to define conditions to determine if a load test run was successful or not. If one or more fail criteria are met, the test gets a failed test result. Learn more about [using load test fail criteria](./how-to-define-test-criteria.md).
+Test fail criteria enable you to define conditions to determine if a load test run was successful or not. If one or more fail criteria are met, the test gets a failed test result. Learn more about [using load test fail criteria](./how-to-define-test-criteria.md). You can define failure criteria on client metrics, such as response time, latency, etc., and on server-side metrics for your server-side app components.
+
+#### Client metrics
 
 You can define fail criteria that apply to the entire load test, or that apply to a specific request. Fail criteria have the following structure:
 
 - Test criteria at the load test level: `Aggregate_function (client_metric) condition threshold`.
-- Test criteria applied to specific JMeter requests: `Request: Aggregate_function (client_metric) condition threshold`.
-
-#### Supported client metrics
+- Test criteria applied to specific requests: `Request: Aggregate_function (client_metric) condition threshold`.
 
 Azure Load Testing supports the following client metrics:
 
@@ -95,7 +97,23 @@ Azure Load Testing supports the following client metrics:
 |`requests_per_sec`     |  `avg` (average)       | Numerical value with up to two decimal places.      |   `>` (greater than) <BR> `<` (less than)     | Number of requests per second. |
 |`requests`     |  `count`       | Integer value.      |   `>` (greater than) <BR> `<` (less than)     | Total number of requests. |
 
-#### Fail criteria configuration sample
+#### Server-side metrics
+
+You can define fail criteria on server-side metrics for your server-side app components.
+
+The following table describes the different fields in the `serverMetrics:` configuration:
+
+|Parameter            |Description  |
+|---------------------|-------------|
+|`resourceId`      | *Required.* The resource ID of app component on which the criteria should be applied   |
+|`metricNamespace` | *Required.* The server-side metric namespace.  |
+|`metricName`          | *Required.* The server-side metrics on which the criteria should be applied. |
+|`aggregation`          | *Required.* The aggregation to apply on the server-side metrics. |
+|`condition`            | *Optional.* The comparison operator, such as `greater than`, or `less than`. |
+|`value`          | *Required.* The numeric value to compare with the metric.  |
+
+
+#### Failure criteria configuration sample
 
 The following code snippet shows a load test configuration, which has three load test fail criteria.
 
@@ -108,9 +126,71 @@ testPlan: SampleTest.jmx
 testType: JMX
 engineInstances: 1
 failureCriteria:
-  - avg(response_time_ms) > 300
-  - percentage(error) > 50
-  - GetCustomerDetails: avg(latency) >200
+  clientMetrics:
+    - avg(responseTimeMs) > 300
+    - percentage(error) > 50
+    - getCustomerDetails: avg(latency) > 200
+  serverMetrics:
+    - resourceId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
+      metricNamespace: Microsoft.Compute/virtualMachines
+      metricName: Percentage CPU
+      aggregation: Average
+      condition: GreaterThan
+      value: 80
+    - resourceId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
+      metricNamespace: Microsoft.Compute/virtualMachines
+      metricName: Available Memory
+      aggregation: Average
+      condition: LessThan
+      value: 20
+```
+
+### `appComponents` configuration
+
+You can monitor server-side resources during the load test. Learn more about [monitoring server-side resources](./how-to-monitor-server-side-metrics.md). When you run a load test for an Azure-hosted application, Azure Load Testing collects resource metrics for your application components and presents them in the load testing dashboard.
+
+The following table describes the different fields in the `appComponents:` configuration:
+
+|Parameter            |Description  |
+|---------------------|-------------|
+|`resourceId`      | *Required.* The resource ID of app component on which the criteria should be applied. |
+|`resourceName` | *Optional.* The name of the resource to be monitored.  |
+|`kind`          | *Optional.* The kind of the resource to be monitored. |
+|`metrics`          | *Required.* The list of metrics to be monitored for the app component. This contains the name, namespace, and aggregation for the metric. |
+
+#### App Components configuration sample
+
+The following code snippet shows a load test configuration, which has two app components.
+
+```yaml
+version: v0.1
+testId: SampleTest
+displayName: Sample Test
+description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
+engineInstances: 1
+appComponents:
+  - resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplerg/providers/microsoft.insights/components/appComponentResource"
+    resourceName: appComponentResource #Optional
+    kind: web # Optional
+    metrics:
+      - name: "requests/duration"
+        namespace: microsoft.insights/components 
+        aggregation: "Average"
+      - name: "requests/count"
+        aggregation: "Total"
+        namespace: microsoft.insights/components   
+  - resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplerg/providers/microsoft.insights/components/appComponentResource"
+    resourceName: appComponentResource #Optional
+    kind: web # Optional
+    metrics:
+      - name: "requests/duration"
+        aggregation: "Average"
+        namespace: microsoft.insights/components
+      - name: "requests/count"
+        aggregation: "Total"
+        namespace: microsoft.insights/components
 ```
 
 ### `autoStop` configuration
@@ -255,9 +335,58 @@ certificates:
     value: https://akv-contoso.vault.azure.net/certificates/MyCertificate/abc1234567890def12345
 ```
 
+### `referenceIdentities` configuration
+
+You can use managed identities for various scenarios in your load test. Managed identities can be used in the test for accessing the secrets or certificates from your Azure Key Vault, fetching metrics for server-side failure criteria and authentication of your endpoints. 
+
+The following table describes the different fields in the `referenceIdentities:` configuration:
+
+|Parameter            |Description  |
+|---------------------|-------------|
+|`kind`      | *Required.* This defines the scenario for which the managed identity is being used. This can be one of the following `KeyVault`, `Metrics`or `Engine`. There can be multiple items for the kind `Engine`. |
+|`type`      | *Required.* The type of identity. This can be `UserAssigned` or `SystemAssigned`. |
+|`value` | *Required.* The resource ID of the managed identity. This need not be provided if the type is `SystemAssigned`.  |
+
+#### Reference identities configuration sample
+
+The following code snippet shows a load test configuration, for multiple identities.
+
+```yaml
+version: v0.1
+testId: SampleTest
+displayName: Sample Test
+description: Load test website home page
+testPlan: SampleTest.jmx
+testType: JMX
+engineInstances: 1
+secrets:
+  - name: my-secret
+    value: https://akv-contoso.vault.azure.net/secrets/MySecret/abc1234567890def12345
+failureCriteria:
+  serverMetrics:
+    - resourceId: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.Compute/virtualMachines/sample-vm
+      metricNamespace: Microsoft.Compute/virtualMachines
+      metricName: Percentage CPU
+      aggregation: Average
+      condition: GreaterThan
+      value: 80
+referenceIdentities:
+  - kind: KeyVault
+    type: UserAssigned
+    value: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+  - kind: Metrics
+    type: SystemAssigned
+  - kind: Engine
+    type: UserAssigned
+    value: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity
+  - kind: Engine
+    type: UserAssigned
+    value: /subscriptions/abcdef01-2345-6789-0abc-def012345678/resourceGroups/sample-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sample-identity1
+```
+
 ## Requests JSON file
 
-If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a JMeter test script. Make sure to set the `testType` to `URL` in the test configuration YAML file and reference the requests JSON file.
+If you use a URL-based test, you can specify the HTTP requests in a JSON file instead of using a test script. Make sure to set the `testType` to `URL` in the test configuration YAML file and reference the requests JSON file.
 
 ### HTTP requests
 

@@ -5,7 +5,7 @@ services: traffic-manager
 author: greg-lindsay
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 12/03/2024
+ms.date: 01/28/2025
 ms.author: greglin
 ---
 
@@ -340,7 +340,7 @@ Yes. Cloud Service 'staging' slots can be configured in Traffic Manager as Exter
 
 ### Does Traffic Manager support IPv6 endpoints?
 
-Traffic Manager doesn't currently provide IPv6-addressable name servers. However, Traffic Manager can still be used by IPv6 clients connecting to IPv6 endpoints if the client's recursive DNS server supports IPv4. A client doesn't make DNS request directly to Traffic Manager. Instead, the client uses a recursive DNS service. An IPv6-only client sends requests to the recursive DNS service via IPv6. The recursive service must then be able to contact the Traffic Manager name servers using IPv4. Traffic Manager responds with the DNS name or IP address of the endpoint. 
+Yes, Traffic Manager fully supports IPv6 endpoints. Traffic Manager provides both IPv4 and IPv6-addressable name servers, allowing clients to connect seamlessly using either protocol. IPv6 clients can make DNS requests directly through IPv6-enabled recursive DNS services, and Traffic Manager can respond with the DNS name or IP address of the IPv6 endpoint, enabling full compatibility with IPv6 networks. 
 
 ### Can I use Traffic Manager with more than one Web App in the same region?
 

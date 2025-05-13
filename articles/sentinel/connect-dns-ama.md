@@ -1,9 +1,9 @@
 ---
 title: Stream and filter Windows DNS logs with the AMA connector 
-description: Use the AMA connector to upload and filter data from your Windows DNS server logs. You can then dive into your logs to protect your DNS servers from threats and attacks.
+description: Ingest and filter data from your Windows DNS server logs with this data connector. Query this data to protect your DNS servers from threats and attacks.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/11/2024
+ms.date: 03/25/2025
 ms.author: yelevin
 
 #Customer intent: As a security engineer, I want to stream and filter DNS server logs using a cloud-based monitoring agent so that analysts can detect and mitigate potential threats efficiently.
@@ -19,16 +19,17 @@ DNS is a widely used protocol, which maps between host names and computer readab
 While some mechanisms were introduced to improve the overall security of this protocol, DNS servers are still a highly targeted service. Organizations can monitor DNS logs to better understand network activity, and to identify suspicious behavior or attacks targeting resources within the network. The **Windows DNS Events via AMA** connector provides this type of visibility. For example, use the connector to identify clients that try to resolve malicious domain names, view and monitor request loads on DNS servers, or view dynamic DNS registration failures.
 
 > [!NOTE]
-> The Windows DNS Events via AMA connector currently supports analytic event activities only.
+> The Windows DNS Events via AMA connector only supports analytical log events.
 
 ## Prerequisites
 
 Before you begin, verify that you have:
 
 - A Log Analytics workspace enabled for Microsoft Sentinel.
-- The Windows Server DNS solution installed on your workspace.
-- Windows Server 2012 R2 with auditing hotfix and later.
-- A Windows DNS Server.
+- The **Windows DNS Events via AMA** data connector installed as part of the **Windows Server DNS** solution from content hub.
+- Windows server 2016 and later supported, or Windows Server 2012 R2 with the auditing hotfix.
+- DNS server role installed with **DNS-Server** analytical event logs enabled.
+  DNS analytical event logs aren't enabled by default. For more information, see [Enable analytical event logging](/windows-server/networking/dns/dns-logging-and-diagnostics#enable-analytical-event-logging).
 
 To collect events from any system that isn't an Azure virtual machine, ensure that [Azure Arc](/azure/azure-monitor/agents/azure-monitor-agent-manage) is installed. Install and enable Azure Arc before you enable the Azure Monitor Agent-based connector. This requirement includes:
 
@@ -69,18 +70,20 @@ Use the following example as a template to create or update a DCR:
 
 ### Request URL and header  
 
-```rest
-
-PUT 
-
-    https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version=2019-11-01-preview 
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dataCollectionRuleName}?api-version={latest-supported-version}
 ```
- 
+
+For the latest supported API version, see [Data Collection Rules - REST API (Azure Monitor) | Microsoft Learn](/rest/api/monitor/data-collection-rules).
+
+:::image type="content" source="media/connect-dns-ama/windows-dns-ama-connector-dcr-api-version.png" border="false" alt-text="Screenshot of the API version's appearance in the DCR documentation.":::
+
 ### Request body
 
-```rest
-
+```json
 {
+    "location": "eastus2",
+    "kind" : "Windows",
     "properties": {
         "dataSources": {
             "windowsEventLogs": [],
@@ -112,9 +115,9 @@ PUT
         "destinations": {
             "logAnalytics": [
                 {
-                    "workspaceResourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.OperationalInsights/workspaces/{sentinelWorkspaceName}",
-                    "workspaceId": {WorkspaceGuid}",
-                    "name": "WorkspaceDestination"
+                    "name" : "WorkspaceDestination",
+                    "workspaceId" : "{WorkspaceGuid}",
+                    "workspaceResourceId" : "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.OperationalInsights/workspaces/{sentinelWorkspaceName}"
                 }
             ]
         },
@@ -124,17 +127,12 @@ PUT
                     "Microsoft-ASimDnsActivityLogs"
                 ],
                 "destinations": [
-                    " WorkspaceDestination "
+                    "WorkspaceDestination"
                 ]
             }
         ],
     },
-    "location": "eastus2",
-    "tags": {},
-    "kind": "Windows",
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Insights/dataCollectionRules/{workspaceName}-microsoft-sentinel-asimdnsactivitylogs ",
-    "name": " {workspaceName}-microsoft-sentinel-asimdnsactivitylogs ",
-    "type": "Microsoft.Insights/dataCollectionRules",
+    "tags" : {}
 }
 ```
 
@@ -202,7 +200,7 @@ This filter instructs the connector not to collect EventID 256 or EventID 257 or
 
 **Using the API**:
 
-```rest
+```json
 "Filters": [
     {
         "FilterName": "SampleFilter",
@@ -259,32 +257,20 @@ To define different values in a single field, use the **OR** operator.
 
 Review these considerations for [using wildcards](#use-wildcards). 
 
-```rest
+```json
 "Filters": [ 
-
     { 
-
         "FilterName": "SampleFilter", 
-
         "Rules": [ 
-
             { 
-
                 "Field": "DnsQuery", 
-
                 "FieldValues": [ 
-
                     "*.microsoft.com", "*.google.com", "facebook.com", "*.amazon.com","center.local"                                                                               
-
-                ] 
-
-            }, 
-
-         } 
-
-    } 
-
-] 
+                ]
+            }
+        ]
+    }
+]
 ```
 
 ## Normalization using ASIM
