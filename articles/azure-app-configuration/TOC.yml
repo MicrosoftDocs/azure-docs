@@ -373,6 +373,8 @@
     items:
     - name: Overview
       href: ./feature-management-overview.md
+    - name: Support policy
+      href: ./support-policy.md
     - name: .NET
       items:
       - name: Feature reference
