@@ -262,4 +262,3 @@ Manage access to the feature using [Azure role-based access control](/azure/role
 ## Next steps
 
 - [Azure Managed Redis service tiers](overview.md#choosing-the-right-tier)
-- [High availability for Azure Cache for Redis](high-availability.md)

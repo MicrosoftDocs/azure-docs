@@ -87,8 +87,6 @@ landingContent:
            url: how-to-redis-cli-tool.md
       - linkListType: concept
         links:
-         - text: High availability
-           url: high-availability.md
          - text: Storing embeddings vectors and performing vector similarity search
            url: overview-vector-similarity.md
          - text: Redis modules
