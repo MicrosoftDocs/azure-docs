@@ -365,9 +365,11 @@ New-AzAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceG
 You can also use the same cmdlet to import a module from the PowerShell Gallery directly. Make sure to grab `ModuleName` and `ModuleVersion` from the [PowerShell Gallery](https://www.powershellgallery.com).
 
 ```azurepowershell-interactive
-$moduleName = <ModuleName>
-$moduleVersion = <ModuleVersion>
-New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+$moduleName = "<ModuleName>"
+$moduleVersion = "<ModuleVersion>"
+$resourceGroupName = "<ResourceGroupName>"
+$automationAccountName = "<AutomationAccountName>"
+New-AzAutomationModule -AutomationAccountName $automationAccountName -ResourceGroupName $resourceGroupName -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
 ```
 
 ### Import modules from the PowerShell Gallery
