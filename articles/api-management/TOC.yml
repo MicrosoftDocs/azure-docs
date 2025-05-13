@@ -414,6 +414,8 @@
     items:
     - name: Synchronize APIs to API Center
       href: ../api-center/synchronize-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Export API to MCP server
+      href: export-rest-mcp-server.md
     - name: Export APIs to Postman for API development
       displayName: collection
       href: export-api-postman.md
