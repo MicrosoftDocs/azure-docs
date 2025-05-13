@@ -22,7 +22,7 @@ An App Service Environment provides hosting capabilities for various workloads:
 
 - Functions
 
-- Logic apps (standard) - in [supported regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=logic-apps&regions=all)
+- Logic apps (standard) in [supported regions](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=logic-apps&regions=all)
 
 App Service Environments are designed to support application workloads that require specific performance and security features:
 
