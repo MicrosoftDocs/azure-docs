@@ -2,12 +2,61 @@
 title: Azure Update Manager update sources, and types
 description: This article provides information on update sources, update types, Microsoft updates and Third party updates for managing updates on your Azure VMs and servers.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 02/26/2025
+author: mccoylstevens
+ms.author: mccoylstevens
+ms.date: 13-05-2025
 ms.topic: overview
 ---
+PS C:\Users\webma>   $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
+>>     $ServiceManager.Services
+>>     $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
+>>     $ServiceManager.AddService2($ServiceId,7,"")
 
+
+Name                  : DCat Flighting Prod
+ContentValidationCert : {}
+ExpirationDate        :
+IsManaged             : False
+IsRegisteredWithAU    : False
+IssueDate             : 01/01/1601 00:00:00
+OffersWindowsUpdates  : True
+RedirectUrls          : System.__ComObject
+ServiceID             : 8b24b027-1dee-babb-9a95-3517dfb9c552
+IsScanPackageService  : False
+CanRegisterWithAU     : False
+ServiceUrl            : https://fe3cr.delivery.mp.microsoft.com/
+SetupPrefix           : wu
+IsDefaultAUService    : False
+
+Name                  : Windows Store (DCat Prod)
+ContentValidationCert : {}
+ExpirationDate        :
+IsManaged             : False
+IsRegisteredWithAU    : False
+IssueDate             : 01/01/1601 00:00:00
+OffersWindowsUpdates  : False
+RedirectUrls          : System.__ComObject
+ServiceID             : 855e8a7c-ecb4-4ca3-b045-1dfa50104289
+IsScanPackageService  : False
+CanRegisterWithAU     : True
+ServiceUrl            : https://fe3cr.delivery.mp.microsoft.com/
+SetupPrefix           : ws
+IsDefaultAUService    : False
+
+Name                  : Windows Update
+ContentValidationCert : {}
+ExpirationDate        :
+IsManaged             : False
+IsRegisteredWithAU    : True
+IssueDate             : 01/01/1601 00:00:00
+OffersWindowsUpdates  : True
+RedirectUrls          : System.__ComObject
+ServiceID             : 9482f4b4-e343-43b6-b170-9a65bc822c77
+IsScanPackageService  : False
+CanRegisterWithAU     : True
+ServiceUrl            : https://fe2cr.update.microsoft.com/v6/
+SetupPrefix           : wu
+IsDefaultAUService    : True
 # Supported update sources, types, Microsoft application updates and Third party updates
 
 This article provides detailed information on the supported update sources, update types, Microsoft application and Third party updates that can be managed using Azure Update Manager.
@@ -22,8 +71,8 @@ The following types of updates are supported.
 
 **Operating system updates** - Azure Update Manager supports operating system updates for both Windows and Linux.
 
->[!NOTE]
-> Update Manager doesn't support driver updates.
+<[!NOTE]
+< Update Manager doesn't support driver updates.
 
 
 ## Microsoft application updates on Windows
@@ -46,8 +95,8 @@ Use one of the following options to perform the settings change at scale:
 
 •	For servers running Windows Server 2016 or later, you can use Group Policy to control this process by downloading and using the latest Group Policy Administrative template files.
 
-> [!NOTE]
-> Run the following PowerShell script on the server to disable Microsoft applications updates:
+< [!NOTE]
+< Run the following PowerShell script on the server to disable Microsoft applications updates:
 
    ```azurepowershell-interactive
     $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
