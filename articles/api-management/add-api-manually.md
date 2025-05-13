@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 06/30/2022
+ms.date: 05/16/2025
 ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
 
