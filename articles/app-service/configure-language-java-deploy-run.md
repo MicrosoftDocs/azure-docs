@@ -197,22 +197,22 @@ Deployment clients such as the [Maven plugin](#maven), GitHub Actions using `azu
 
 ::: zone pivot="java-javase"
 
-When these deployment methods are used, this will automatically rename the provided Jar file to `app.jar` during the deployment process. This will be placed under `/home/site/wwwwroot`. To deploy Jar files to Java SE see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+When these deployment methods are used, these will automatically rename the provided JAR file to `app.jar` during the deployment process. This will be placed under `/home/site/wwwwroot`. To deploy JAR files to Java SE see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
-> If you use alternative methods like FTP or older ZipDeploy API's, this method of renaming the provided Jar file will not be invoked. Take note of this if using the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal to explicitly call your Jar file.
+> If you use alternative methods like FTP or older ZipDeploy APIs, this method of renaming the provided JAR file will not be invoked. Take note of this if using the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal to explicitly call your JAR file.
 
 ::: zone-end
 
 ::: zone pivot="java-tomcat"
 
-You can deploy War files to your Tomcat application by following [this documentation](./deploy-zip.md#deploy-warjarear-packages). When these deployment methods above are used, this will automatically rename the provided War file to `app.war` during the deployment process. This will be placed under `/home/site/wwwwroot` and by default only supports deploying one War file under `wwwroot`. This will **not** be placed under the `/home/site/wwwroot/webapps` directory like seen when using deployment API's such as WarDeploy. To avoid any issues with file structure clashes, it is advised to only use one or the other deployment type.
+You can deploy WAR files to your Tomcat application by following [this documentation](./deploy-zip.md#deploy-warjarear-packages). When these deployment methods above are used, this will automatically rename the provided War file to `app.war` during the deployment process. This will be placed under `/home/site/wwwwroot` and by default only supports deploying one WAR file under `wwwroot`. This will **not** be placed under the `/home/site/wwwroot/webapps` directory like seen when using deployment APIs such as WarDeploy. To avoid any issues with file structure clashes, it is advised to only use one or the other deployment type.
 
 ::: zone-end
 
 ::: zone pivot="java-jboss"
 
-To deploy WAR files to JBoss EAP, see [this documentation](./deploy-zip.md#deploy-warjarear-packages). When OneDeploy is used, this will automatically rename the War file to `app.war` and be placed under `/home/site/wwwroot`. 
+To deploy WAR files to JBoss EAP, see [this documentation](./deploy-zip.md#deploy-warjarear-packages). When OneDeploy is used, this will automatically rename the WAR file to `app.war` and be placed under `/home/site/wwwroot`. 
 
 To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
