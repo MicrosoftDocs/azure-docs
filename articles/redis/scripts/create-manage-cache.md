@@ -38,6 +38,7 @@ This article describes how to create and delete an Azure Redis cache instance by
 :::code language="azurecli" source="~/azure_cli_scripts/redis-cache/create-cache/create-manage-cache.sh" id="FullScript"::: 
 This sample is broken. When it is fixed, we can fix this include.
 -->
+
 To create an Azure Managed Redis cache by using Azure CLI, the `name`, `location`, `resourceGroup`, and `sku` parameters are required. Other parameters are optional and have defaults.
 
 You can use the Azure CLI script in this section to create an Azure Managed Redis cache with default settings. You can also use the following other methods to create a cache:
