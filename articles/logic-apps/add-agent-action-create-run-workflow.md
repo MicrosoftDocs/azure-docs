@@ -1,6 +1,6 @@
 ---
 title: Run Workflows from Actions on Agents in Azure AI Foundry
-description: Learn how to add actions to agents that create and run automation workflows by using Azure AI Foundry and Azure Logic Apps.
+description: Learn how to add actions on agents to create and run automation workflows by using Azure AI Foundry and Azure Logic Apps.
 services: logic-apps, azure-ai-foundry
 author: ecfan
 ms.suite: integration
@@ -8,10 +8,10 @@ ms.reviewers: estfan, divswa, psamband, aahi, miemonts, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/19/2025
-# Customer intent: As an integration solutions developer, I want to add an action to an agent in Azure AI Foundry so that the action creates and runs a logic app workflow in Azure Logic Apps.
+# Customer intent: As an integration solutions developer, I want to add an action to an agent in Azure AI Foundry so that the agent creates and runs a logic app workflow in Azure Logic Apps.
 ---
 
-# Create and run workflows from actions on agents in Azure AI Foundry with Azure Logic Apps (Preview)
+# Create and run workflows using actions on agents in Azure AI Foundry with Azure Logic Apps (Preview)
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
