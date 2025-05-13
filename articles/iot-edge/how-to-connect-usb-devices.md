@@ -6,7 +6,7 @@ ms.author: patricka
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/21/2025
 ---
 

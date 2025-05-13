@@ -48,4 +48,4 @@ az networkcloud baremetalmachine list -g <resource-group> --sub <subscription> -
 | x01dev01c1co01 | True | Provisioned | The OS is provisioned to the machine | On | platform.afo-nc.microsoft.com/compute-plane=true | Compute plane node |
 | x01dev01c1co02  | True | Provisioned | The OS is provisioned to the machine | On | platform.afo-nc.microsoft.com/compute-plane=true | Compute plane node |
 
-*In this example, x01dev01c2mg02 is the spare control plane node that is currently in powered off state. And is still available to take up the role of control plane, in scenarios where active control plane node goes down for any reason.
+*In this example, x01dev01c2mg02 serves as the spare control plane node, which is currently powered off. This spare control plane machine functions as a standby, ready to be provisioned just-in-time during cluster upgrades or to replace another control plane machine deemed unhealthy. A spare control plane machine remains in a powered-off, cordoned state, with its Kubernetes Version and IP Address information unset.
