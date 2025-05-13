@@ -196,7 +196,7 @@ An App Service Environment stores customer data, including app content, settings
 The following sections list the regional pricing tiers, or SKUs, availability for App Service Environment v3.
 
 > [!NOTE]
-> Windows Container plans don't support memory intensive SKUs.
+> Windows Container plans don't support memory-intensive SKUs.
  
 ### Azure Public:
 
@@ -281,4 +281,4 @@ The following sections list the regional pricing tiers, or SKUs, availability fo
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Whitepaper on using App Service Environment v3 in compliance-oriented industries](https://gigaom.com/report/using-app-service-environment-v3-in-compliance-oriented-industries/)
+> [Whitepaper: App Service Environment v3 in compliance-oriented industries](https://gigaom.com/report/using-app-service-environment-v3-in-compliance-oriented-industries/)
