@@ -25,7 +25,7 @@ In contrast, the **Standard**, **HighPerformance**, and **UltraPerformance** SKU
 
 This article will help guide you through the migration process of a Non-Az Gateway with Basic SKU Public IP Address to Az-enabled Gateway with Standard SKU Public IP Address.
 
-For other Networking services with Basic SKU Public IP Address, see [azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance#steps-to-complete-the-upgrade](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-basic-upgrade-guidance#steps-to-complete-the-upgrade)
+For other Networking services with Basic SKU Public IP Address, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade)
 
 ### Recommendation for enhanced reliability
 
