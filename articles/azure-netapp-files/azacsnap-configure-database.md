@@ -84,7 +84,7 @@ The following example commands set up a user (`AZACSNAP`) in SYSTEMDB on an SAP 
 
     > [!NOTE]
     > This step to setup the SAP HANA Secure User Store `KEY` will need to be done for all SAP HANA databases AzAcSnap will communicate with.
-    > For example, if AzAcSnap is on `client01` and you have the SAP HANA database server installed on the hosts `dbserver01` and `dbserver02`, then the `hdbuserstore Set` command  will need to be setup on `client01` so AzAcSnap can communicate with both servers.
+    > For example, if AzAcSnap is on `client01` and you have the SAP HANA database server installed on the hosts `dbserver01` and `dbserver02`, then the `hdbuserstore Set` command  will need to be run twice to setup two keys on `client01` so AzAcSnap can communicate with both servers.
 
 1. Check that you correctly set up the SAP HANA Secure User Store. Use the `hdbuserstore` command to list the output, similar to the following example. More details on using `hdbuserstore` are available on the SAP website.
 
