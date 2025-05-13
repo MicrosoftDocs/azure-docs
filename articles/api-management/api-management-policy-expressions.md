@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: devx-track-dotnet
 ms.topic: reference
-ms.date: 03/07/2023
+ms.date: 05/13/2025
 ms.author: danlep
 ---
 # API Management policy expressions
