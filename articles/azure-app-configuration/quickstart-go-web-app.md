@@ -146,14 +146,12 @@ func loadConfiguration() (Config, error) {
 	endpoint := os.Getenv("AZURE_APPCONFIG_ENDPOINT")
 	if endpoint == "" {
 		log.Fatal("AZURE_APPCONFIG_ENDPOINT environment variable is not set")
-		return Config{}, nil
 	}
 
 	// Create a credential using DefaultAzureCredential
 	credential, err := azidentity.NewDefaultAzureCredential(nil)
 	if err != nil {
 		log.Fatalf("Failed to create credential: %v", err)
-		return Config{}, err
 	}
 
 	// Set up authentication options
@@ -267,7 +265,6 @@ func loadConfiguration() (Config, error) {
 	connectionString := os.Getenv("AZURE_APPCONFIG_CONNECTION_STRING")
 	if connectionString == "" {
 		log.Fatal("AZURE_APPCONFIG_CONNECTION_STRING environment variable is not set")
-		return Config{}, nil
 	}
 
 	// Set up authentication options
