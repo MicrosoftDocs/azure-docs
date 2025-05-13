@@ -17,14 +17,14 @@ ms.author: danlep
 APIs and operations in API Management can be configured with response caching. Response caching can significantly reduce latency for API callers and backend load for API providers. This article describes how to add caching to your APIs. 
 
 > [!IMPORTANT]
-> Built-in cache is volatile and is shared by all units in the same region in the same API Management service. Regardless of the cache type being used (internal or external), if cache-related operations fail to connect to the cache because of the volatility of the cache or for any other reason, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a fallback mechanism to retrieve data that's not found in the cache.
+> Built-in cache is volatile and is shared by all units in the same region in the same API Management instance. Regardless of the cache type used (internal or external), if cache-related operations fail to connect to the cache because of the volatility of the cache or for any other reason, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. In the case of a read operation, a null value is returned to the calling policy expression. Your policy code should be designed to ensure that there's a fallback mechanism to retrieve data that's not found in the cache.
 
 For more detailed information about caching, see [API Management caching policies](api-management-policies.md#caching) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 :::image type="content" source="media/api-management-howto-cache/cache-policies.png" alt-text="Screenshot that shows cache policies in API Management." lightbox="media/api-management-howto-cache/cache-policies.png":::
 
 
-What you'll learn:
+In this article you: 
 
 > [!div class="checklist"]
 > * Add response caching for your API
