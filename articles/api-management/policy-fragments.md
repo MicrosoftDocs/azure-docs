@@ -45,7 +45,7 @@ Although it's not required, you might want to [configure](set-edit-policies.md) 
 
 ## Create a policy fragment
 
-1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments**. In the **Policy fragments** pane, **+ Create**.
+1. In the left pane of your API Management instance, under **APIs**, select **Policy fragments**. In the **Policy fragments** pane, select **+ Create**.
 1. In the **Create a new policy fragment** window, enter a **Name** and, optionally, a **Description** of the policy fragment. The name must be unique within your API Management instance.
 
     Example name: *ForwardContext*
