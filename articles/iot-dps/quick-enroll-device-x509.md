@@ -362,7 +362,7 @@ This section shows you how to create a Node.js script that adds an enrollment gr
 
 :::zone pivot="programming-language-nodejs"
 
-1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` withe connection string you copied in the previous section, and `<certificate .pem file>` with the path to your certificate `.pem` file. This file represents the public part of a either a root CA X.509 certificate that was previously uploaded and verified with your provisioning service, or an intermediate certificate that was uploaded and verified or had a certificate in its signing chain uploaded and verified.
+1. Run the following command in your command prompt. Include the quotes around the command arguments and replace `<connection string>` with connection string you copied in the previous section, and `<certificate .pem file>` with the path to your certificate `.pem` file. This file represents the public part of a either a root CA X.509 certificate that was previously uploaded and verified with your provisioning service, or an intermediate certificate that was uploaded and verified or had a certificate in its signing chain uploaded and verified.
 
     ```cmd\sh
     node create_enrollment_group.js "<connection string>" "<certificate .pem file>"
