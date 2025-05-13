@@ -19,7 +19,7 @@ In this quickstart you will create a Node js console app that retrieves chat com
 
 ## Prerequisites
 
-- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config#create-a-chat-completion-configuration).
+- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config.md#create-a-chat-completion-configuration).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 
@@ -46,6 +46,7 @@ In this quickstart you will create a Node js console app that retrieves chat com
     ```
 
 1. Create a file named app.js in the *app-config-chat-completion* directory and import the required packages:
+
     ```javascript
     const { load } = require("@azure/app-configuration-provider");
     const { DefaultAzureCredential, getBearerTokenProvider } = require("@azure/identity");
@@ -99,6 +100,7 @@ In this quickstart you will create a Node js console app that retrieves chat com
     ```
 
 1. Next will update the existing code in _app.js_ file to configure the chat completion options:
+
     ```javascript
     // Existing code to initialize the AzureOpenAIClient
     const client = new AzureOpenAI({
@@ -191,7 +193,7 @@ In this quickstart you will create a Node js console app that retrieves chat com
     ```
     
 1. After the environment variable is properly set, run the following command to run the app locally:
-    ``` bash
+    ```bash
     node app.js
     ```
 
@@ -199,6 +201,7 @@ In this quickstart you will create a Node js console app that retrieves chat com
 
     ```Output
     Hello, I am your AI assistant powered by Azure App Configuration (gpt-4o)
+
     -------------------Model response--------------------------
     Good heavens! A pocket-sized contraption combining telegraph, camera, library, and more—instant communication and knowledge at one’s fingertips! Astonishing!
     -----------------------------------------------------------

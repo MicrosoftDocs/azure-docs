@@ -19,7 +19,7 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
 ## Prerequisites
 
-- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config#create-a-chat-completion-configuration).
+- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config.md#create-a-chat-completion-configuration).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
 
 ## Create a console app
@@ -58,10 +58,10 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 1. Open the _Program.cs_, and add the following namespaces at the top of the file:
 
     ```csharp
-        using Microsoft.Extensions.Configuration;
-        using Azure.Identity;
-        using Azure.AI.OpenAI;
-        using OpenAI.Chat;
+    using Microsoft.Extensions.Configuration;
+    using Azure.Identity;
+    using Azure.AI.OpenAI;
+    using OpenAI.Chat;
     ```
 
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the _Program.cs_ file.
@@ -69,149 +69,148 @@ In this quickstart you will create a .NET console app that retrieves chat comple
     You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
-        var credential = new DefaultAzureCredential();
+    var credential = new DefaultAzureCredential();
 
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddAzureAppConfiguration(options =>
-            {
-                string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
+    IConfiguration configuration = new ConfigurationBuilder()
+        .AddAzureAppConfiguration(options =>
+        {
+            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
 
-                options.Connect(new Uri(endpoint), credential);
-            }).Build();
+            options.Connect(new Uri(endpoint), credential);
+        }).Build();
 
-        var model = configuration.GetSection("ChatLLM:Model")["model"];
-        string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
+    var model = configuration.GetSection("ChatLLM:Model")["model"];
+    string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
 
-        Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
+    Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
     ```
 
 1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
-        // Existing code to connect to your App configuration store
-        // ...
+    // Existing code to connect to your App configuration store
+    // ...
 
-        // Initialize the AzureOpenAIClient
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
-        ChatClient chatClient = client.GetChatClient(model);
+    // Initialize the AzureOpenAIClient
+    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
+    ChatClient chatClient = client.GetChatClient(model);
 
     ```
 
 1. Next will update the existing code in _Program.cs_ file to configure the chat completion options:
     ```csharp
-        ...
-        // Existing code to initialize the AzureOpenAIClient
+    ...
+    // Existing code to initialize the AzureOpenAIClient
 
-        // Configure chat completion options
-        ChatCompletionOptions options = new ChatCompletionOptions
-        {
-            Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
-            MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
-            TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
-        };
-        
+    // Configure chat completion options
+    ChatCompletionOptions options = new ChatCompletionOptions
+    {
+        Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
+        MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
+        TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
+    };
     ```
 
 1. Update the _Program.cs_ file to add a helper method `GetChatMessages` to process chat messages:
     ```csharp
-        // Helper method to convert configuration messages to chat API format
-        IEnumerable<ChatMessage> GetChatMessages()
-        {
-            var chatMessages = new List<ChatMessage>();
+    // Helper method to convert configuration messages to chat API format
+    IEnumerable<ChatMessage> GetChatMessages()
+    {
+        var chatMessages = new List<ChatMessage>();
 
-            foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
+        foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
+        {
+            switch (configuration["role"])
             {
-                switch (configuration["role"])
-                {
-                    case "system":
-                        chatMessages.Add(ChatMessage.CreateSystemMessage(configuration["content"]));
-                        break;
-                    case "user":
-                        chatMessages.Add(ChatMessage.CreateUserMessage(configuration["content"]));
-                        break;
-                }
+                case "system":
+                    chatMessages.Add(ChatMessage.CreateSystemMessage(configuration["content"]));
+                    break;
+                case "user":
+                    chatMessages.Add(ChatMessage.CreateUserMessage(configuration["content"]));
+                    break;
             }
-            return chatMessages;
         }
+        return chatMessages;
+    }
     ```
 
 1. Update the code in the _Program.cs_ file to call the helper method `GetChatMessages` and pass the ChatMessages to the `CompleteChatAsync` method:
     ```csharp
-        ...
-        // Existing code to configure chat completion options
-        //
-        IEnumerable<ChatMessage> messages = GetChatMessages();
+    ...
+    // Existing code to configure chat completion options
+    //
+    IEnumerable<ChatMessage> messages = GetChatMessages();
 
-        // CompleteChatAsync method generates a completion for the given chat
-        ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
+    // CompleteChatAsync method generates a completion for the given chat
+    ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
 
-        Console.WriteLine("-------------------Model response--------------------------");
-        Console.WriteLine(completion.Content[0].Text);
-        Console.WriteLine("-----------------------------------------------------------");
-        ...
+    Console.WriteLine("-------------------Model response--------------------------");
+    Console.WriteLine(completion.Content[0].Text);
+    Console.WriteLine("-----------------------------------------------------------");
+    ...
     ```
 
 1. After completing the previous steps, your _Program.cs_ file should now contain the complete implementation as shown below:
     ```c#
-        using Microsoft.Extensions.Configuration;
-        using Azure.Identity;
-        using Azure.AI.OpenAI;
-        using OpenAI.Chat;
+    using Microsoft.Extensions.Configuration;
+    using Azure.Identity;
+    using Azure.AI.OpenAI;
+    using OpenAI.Chat;
 
-        var credential = new DefaultAzureCredential();
+    var credential = new DefaultAzureCredential();
 
-        IConfiguration configuration = new ConfigurationBuilder()
-            .AddAzureAppConfiguration(options =>
-            {
-                string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
-
-                options.Connect(new Uri(endpoint), credential);
-
-            }).Build();
-
-        var model = configuration.GetSection("ChatLLM:Model")["model"];
-        string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
-
-        // Initialize the AzureOpenAIClient
-        AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
-        ChatClient chatClient = client.GetChatClient(model);
-
-        // Configure chat completion options
-        ChatCompletionOptions options = new ChatCompletionOptions
+    IConfiguration configuration = new ConfigurationBuilder()
+        .AddAzureAppConfiguration(options =>
         {
-            Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
-            MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
-            TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
-        };
-            
-        IEnumerable<ChatMessage> messages = GetChatMessages();
+            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
 
-        ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
-        Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
+            options.Connect(new Uri(endpoint), credential);
 
-        Console.WriteLine("-------------------Model response--------------------------");
-        Console.WriteLine(completion.Content[0].Text);
-        Console.WriteLine("-----------------------------------------------------------");
+        }).Build();
 
-        IEnumerable<ChatMessage> GetChatMessages()
+    var model = configuration.GetSection("ChatLLM:Model")["model"];
+    string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
+
+    // Initialize the AzureOpenAIClient
+    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
+    ChatClient chatClient = client.GetChatClient(model);
+
+    // Configure chat completion options
+    ChatCompletionOptions options = new ChatCompletionOptions
+    {
+        Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
+        MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
+        TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
+    };
+    
+    IEnumerable<ChatMessage> messages = GetChatMessages();
+
+    ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
+    Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
+
+    Console.WriteLine("-------------------Model response--------------------------");
+    Console.WriteLine(completion.Content[0].Text);
+    Console.WriteLine("-----------------------------------------------------------");
+
+    IEnumerable<ChatMessage> GetChatMessages()
+    {
+        var chatMessages = new List<ChatMessage>();
+
+        foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
         {
-            var chatMessages = new List<ChatMessage>();
-
-            foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
+            switch (configuration["role"])
             {
-                switch (configuration["role"])
-                {
-                    case "system":
-                        chatMessages.Add(ChatMessage.CreateSystemMessage(configuration["content"]));
-                        break;
-                    case "user":
-                        chatMessages.Add(ChatMessage.CreateUserMessage(configuration["content"]));
-                        break;
-                }
+                case "system":
+                    chatMessages.Add(ChatMessage.CreateSystemMessage(configuration["content"]));
+                    break;
+                case "user":
+                    chatMessages.Add(ChatMessage.CreateUserMessage(configuration["content"]));
+                    break;
             }
-
-            return chatMessages;
         }
+
+        return chatMessages;
+    }
     ```
 
 ## Build and run the app locally
@@ -244,6 +243,7 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
     ```Output
     Hello, I am your AI assistant powered by Azure App Configuration (gpt-4o)
+
     -------------------Model response--------------------------
     Good heavens! A pocket-sized contraption combining telegraph, camera, library, and more—instant communication and knowledge at one’s fingertips! Astonishing!
     -----------------------------------------------------------

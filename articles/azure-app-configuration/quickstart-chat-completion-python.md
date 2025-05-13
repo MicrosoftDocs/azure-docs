@@ -19,7 +19,7 @@ In this quickstart you will create a python app that retrieves chat completion c
 
 ## Prerequisites
 
-- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config#create-a-chat-completion-configuration).
+- Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config.md#create-a-chat-completion-configuration).
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
 
 ## Create a python app
@@ -205,6 +205,7 @@ In this quickstart you will create a python app that retrieves chat completion c
 
     ```Output
     Hello, I am your AI assistant powered by Azure App Configuration (gpt-4o)
+
     -------------------Model response--------------------------
     Good heavens! A pocket-sized contraption combining telegraph, camera, library, and more—instant communication and knowledge at one’s fingertips! Astonishing!
     -----------------------------------------------------------
