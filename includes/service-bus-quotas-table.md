@@ -1,6 +1,6 @@
 ---
-title: include file
-description: include file
+title: Quotas and limits for Azure Service Bus 
+description: Provides the list of quotas and limits for Azure Service Bus resources. 
 author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
