@@ -9,7 +9,7 @@
     href: overview-v2.md
   - name: Application Gateway for Containers
     href: ./for-containers/overview.md
-    - name: What is load balancing and content delivery?
+  - name: What is load balancing and content delivery?
     href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md
   - name: Choose a load balancing solution
     href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json

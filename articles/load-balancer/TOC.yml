@@ -30,7 +30,7 @@
     href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json
   - name: FAQ
     href: load-balancer-faqs.yml
-  - expanded: false
+  expanded: false
 - name: Deploy
   items:
   - name: Portal settings
