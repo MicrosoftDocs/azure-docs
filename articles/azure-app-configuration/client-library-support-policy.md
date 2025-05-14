@@ -49,41 +49,69 @@ For major versions released prior to the adoption of this policy, a grace period
 
 #### [.NET](#tab/dotnet)
 
-| Library Name                                              | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|----------------------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| Microsoft.Azure.AppConfiguration.AspNetCore              | 8.x.x   | October 9, 2024    | --                          | --                        |
-| Microsoft.Azure.AppConfiguration.AspNetCore              | 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
-| Microsoft.Azure.AppConfiguration.AspNetCore              | 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
-| Microsoft.Azure.AppConfiguration.Functions.Worker        | 8.x.x   | October 9, 2024    | --                          | --                        |
-| Microsoft.Azure.AppConfiguration.Functions.Worker        | 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
-| Microsoft.Azure.AppConfiguration.Functions.Worker        | 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
-| Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration | 3.x.x   | April 12, 2023     | --                          | --                        |
-| Microsoft.Extensions.Configuration.AzureAppConfiguration | 8.x.x   | October 9, 2024    | --                          | --                        |
-| Microsoft.Extensions.Configuration.AzureAppConfiguration | 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
-| Microsoft.Extensions.Configuration.AzureAppConfiguration | 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
+##### Microsoft.Azure.AppConfiguration.AspNetCore
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 8.x.x   | October 9, 2024    | --                          | --                        |
+| 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
+| 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
+
+##### Microsoft.Azure.AppConfiguration.Functions.Worker
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 8.x.x   | October 9, 2024    | --                          | --                        |
+| 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
+| 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
+
+##### Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 3.x.x   | April 12, 2023     | --                          | --                        |
+
+##### Microsoft.Extensions.Configuration.AzureAppConfiguration
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 8.x.x   | October 9, 2024    | --                          | --                        |
+| 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
+| 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
 
 #### [Java](#tab/java)
 
-| Library Name                                              | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|----------------------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| spring-cloud-azure-appconfiguration-config               | 5.x.x   | April 27, 2023     | --                          | --                        |
-| spring-cloud-azure-appconfiguration-config               | 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
-| spring-cloud-azure-appconfiguration-config-web           | 5.x.x   | April 27, 2023     | --                          | --                        |
-| spring-cloud-azure-appconfiguration-config-web           | 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
+##### spring-cloud-azure-appconfiguration-config
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 5.x.x   | April 27, 2023     | --                          | --                        |
+| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
+
+##### spring-cloud-azure-appconfiguration-config-web
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 5.x.x   | April 27, 2023     | --                          | --                        |
+| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
 
 #### [Python](#tab/python)
 
-| Library Name                                              | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|----------------------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| azure-appconfiguration-provider                          | 2.x.x   | January 7, 2025    | --                          | --                        |
-| azure-appconfiguration-provider                          | 1.x.x   | March 9, 2023      | January 7, 2025             | May 20, 2026*             |
+##### azure-appconfiguration-provider
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 2.x.x   | January 7, 2025    | --                          | --                        |
+| 1.x.x   | March 9, 2023      | January 7, 2025             | May 20, 2026*             |
 
 #### [JavaScript](#tab/javascript)
 
-| Library Name                                              | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|----------------------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| @azure/app-configuration-provider                        | 2.x.x   | February 13, 2025  | --                          | --                        |
-| @azure/app-configuration-provider                        | 1.x.x   | June 5, 2024       | June 5, 2025                | June 5, 2026             |
+##### @azure/app-configuration-provider
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 2.x.x   | February 13, 2025  | --                          | --                        |
+| 1.x.x   | June 5, 2024       | June 5, 2025                | June 5, 2026             |
 
 ---
 
@@ -91,37 +119,55 @@ For major versions released prior to the adoption of this policy, a grace period
 
 #### [.NET](#tab/dotnet)
 
-| Library Name                               | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|--------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| Microsoft.FeatureManagement                 | 4.x.x   | November 1, 2024   | --                          | --                        |
-| Microsoft.FeatureManagement                 | 3.x.x   | October 27, 2023   | November 1, 2024            | May 20, 2026*             |
-| Microsoft.FeatureManagement                 | 2.x.x   | February 27, 2020  | October 27, 2023            | October 27, 2024          |
-| Microsoft.FeatureManagement.AspNetCore      | 4.x.x   | November 1, 2024   | --                          | --                        |
-| Microsoft.FeatureManagement.AspNetCore      | 3.x.x   | October 27, 2023   | November 1, 2024            | May 20, 2026*             |
-| Microsoft.FeatureManagement.AspNetCore      | 2.x.x   | February 27, 2020  | October 27, 2023            | October 27, 2024          |
+##### Microsoft.FeatureManagement
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 4.x.x   | November 1, 2024   | --                          | --                        |
+| 3.x.x   | October 27, 2023   | November 1, 2024            | May 20, 2026*             |
+| 2.x.x   | February 27, 2020  | October 27, 2023            | October 27, 2024          |
+
+##### Microsoft.FeatureManagement.AspNetCore
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 4.x.x   | November 1, 2024   | --                          | --                        |
+| 3.x.x   | October 27, 2023   | November 1, 2024            | May 20, 2026*             |
+| 2.x.x   | February 27, 2020  | October 27, 2023            | October 27, 2024          |
 
 #### [Java](#tab/java)
 
-| Library Name                               | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|--------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| spring-cloud-azure-feature-management       | 5.x.x   | April 27, 2023     | --                          | --                        |
-| spring-cloud-azure-feature-management       | 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
-| spring-cloud-azure-feature-management-web   | 5.x.x   | April 27, 2023     | --                          | --                        |
-| spring-cloud-azure-feature-management-web   | 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
+##### spring-cloud-azure-feature-management
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 5.x.x   | April 27, 2023     | --                          | --                        |
+| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
+
+##### spring-cloud-azure-feature-management-web
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 5.x.x   | April 27, 2023     | --                          | --                        |
+| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
 
 #### [Python](#tab/python)
 
-| Library Name                               | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|--------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| FeatureManagement                           | 2.x.x   | January 7, 2025    | --                          | --                        |
-| FeatureManagement                           | 1.x.x   | July 1, 2024       | July 1, 2025                | July 1, 2026             |
+##### FeatureManagement
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 2.x.x   | January 7, 2025    | --                          | --                        |
+| 1.x.x   | July 1, 2024       | July 1, 2025                | July 1, 2026             |
 
 #### [JavaScript](#tab/javascript)
 
-| Library Name                               | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|--------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
-| @microsoft/feature-management               | 2.x.x   | January 14, 2025   | --                          | --                        |
-| @microsoft/feature-management               | 1.x.x   | September 25, 2024 | September 25, 2025          | September 25, 2026        |
+##### @microsoft/feature-management
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 2.x.x   | January 14, 2025   | --                          | --                        |
+| 1.x.x   | September 25, 2024 | September 25, 2025          | September 25, 2026        |
 
 ---
 
