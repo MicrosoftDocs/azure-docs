@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, ignite-2023
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/14/2025
 ms.author: cshoe
 ---
 
@@ -89,7 +89,7 @@ To push images, the action automatically authenticates with the container regist
 
 To pull images, Azure Container Apps uses either managed identity (recommended) or admin credentials to authenticate with the Azure Container Registry. To use managed identity, the container app the action is deploying must be [configured to use managed identity](managed-identity-image-pull.md). To authenticate with the registry's admin credentials, set the action's `acrUsername` and `acrPassword` inputs.
 
-## Deploy images from GitHub Container Registry (GHCR) or other non-ACR registries
+## Deploy images from non-ACR registries
 
 In addition to Azure Container Registry (ACR), Azure Container Apps supports container images hosted in other registries, such as GitHub Container Registry (GHCR). This section shows how to deploy container images from GHCR, including public and private images.
 
@@ -99,6 +99,8 @@ In addition to Azure Container Registry (ACR), Azure Container Apps supports con
 ### Deploy a public image from GHCR
 
 If the container image is public, you can deploy it without specifying authentication credentials. The following example shows how to deploy a public image from GHCR using the deploy action.
+
+Before you run this command, replace `<YOUR-GITHUB-USERNAME>` with your actual GitHub username.
 
 ```yaml
 - name: Deploy public GHCR image to Container App
@@ -117,7 +119,6 @@ az containerapp registry set \
   --resource-group my-container-app-rg \
   --server ghcr.io
 ```
-Replace `<YOUR-GITHUB-USERNAME>` with your actual GitHub username.
 
 ### Deploy a private image from GHCR
 
