@@ -12,11 +12,12 @@ ms.author: danlep
 
 1. If you don't already have a key vault, create one. For information about creating a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
-    To create a certificate in the key vault or import a certificate to the key vault, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
-
+    
 1. Enable a system-assigned or user-assigned [managed identity](../articles/api-management/api-management-howto-use-managed-service-identity.md) in API Management.
 
 [!INCLUDE [api-management-key-vault-access](./api-management-key-vault-access.md)]
+
+To create a certificate in the key vault or import a certificate to the key vault, see [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
 
 [!INCLUDE [api-management-key-vault-network](./api-management-key-vault-network.md)]
 

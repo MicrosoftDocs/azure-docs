@@ -49,7 +49,7 @@ We recommend that you use key vault certificates because doing so improves API M
     
         > [!NOTE]
         > CA certificates for certificate validation aren't supported in the Consumption tier.
-    * [Disable certificate chain validation](#disable-certificate-chain-validation-for-self-signed-certificates).
+    * Disable certificate chain validation. See [Disable certificate chain validation for self-signed certificates](#disable-certificate-chain-validation-for-self-signed-certificates) later in this article.
 
 [!INCLUDE [api-management-client-certificate-key-vault](../../includes/api-management-client-certificate-key-vault.md)]
 
