@@ -26,7 +26,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **Support for <1GB pre-extraction and <70GB tarball**: You can analyze images up to 1GB before it's extracted, and up to 70GB as a tarball. The analysis will fail if the image expands to greater than 70GB.
 
-- **Azure Monitor**:
+- **Azure Monitor**: You can now use Azure Monitor to track certain statistics, such as firmware images' analysis behavior in a workspace over time and the rate of upload for a given workspace.
 
 ## October 2024
 
