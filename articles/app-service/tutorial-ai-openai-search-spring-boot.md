@@ -1,18 +1,18 @@
 ---
-title: RAG application with Azure OpenAI and Azure AI Search (.NET)
+title: RAG application with Azure OpenAI and Azure AI Search (Spring Boot)
 description: Learn how to build and deploy a Retrieval Augmented Generation (RAG) application using Blazor, Azure OpenAI, and Azure AI Search.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
-ms.devlang: csharp
+ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/19/2025
-ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (.NET)
+# Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (Spring Boot)
 
-In this tutorial, you'll create a .NET Retrieval Augmented Generation (RAG) application using .NET Blazor, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a Spring Boot Retrieval Augmented Generation (RAG) application using Spring Boot, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
 :::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface in introduction.":::
 
@@ -31,14 +31,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/java).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## 1. Open the sample with Codespaces
 
 The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools pre-installed.
 
-1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-dotnet](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-dotnet).
+1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-springboot](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-springboot).
 
 2. Select the **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
 
@@ -62,7 +62,11 @@ If you prefer to test the application locally before or after deployment, you ca
     azd env get-values
     ```
 
-1. Open *appsettings.Development.json*. Using the terminal output, update the values of `OpenAIEndpoint`, `SearchServiceUrl`, and `SearchIndexName`. 
+1. Open *src/main/resources/application.properties*. Using the terminal output, update the following values, in the respective placeholders `<input-manually-for-local-testing>`:
+
+    - `azure.openai.endpoint`
+    - `azure.search.url`
+    - `azure.search.index.name`
 
 2. Sign in to Azure with the Azure CLI:
 
@@ -75,12 +79,14 @@ If you prefer to test the application locally before or after deployment, you ca
 3. Run the application locally:
 
    ```bash
-   dotnet run
+   mvn spring-boot:run
    ```
 
-4. When you see **Your application running on port 5017 is available**, select **Open in Browser**.
+4. When you see **Your application running on port 8080 is available**, select **Open in Browser**.
 
 1. Try asking a few questions in the chat interface. If you get a response, your application is connecting successfully to the Azure OpenAI resource.
+
+1. Stop the development server with Ctrl+C.
 
 2. Redeploy the application to apply the configuration:
 
@@ -118,18 +124,35 @@ This command will delete all resources associated with your application.
 
 The sample retrieves citations by using the `AzureSearchChatDataSource()` as the data source for the chat client. When a chat completion is requested, the response includes a `Citations` object within the message context. The code extracts these citations as follows:
 
-```csharp
-var result = await _chatClient.CompleteChatAsync(messages, options);
+```java
+public static ChatResponse fromChatCompletions(ChatCompletions completions) {
+    ChatResponse response = new ChatResponse();
+    
+    if (completions.getChoices() != null && !completions.getChoices().isEmpty()) {
+        var message = completions.getChoices().get(0).getMessage();
+        if (message != null) {
+            response.setContent(message.getContent());
 
-var ctx = result.Value.GetMessageContext();
-
-var response = new ChatResponse
-{
-    Content = result.Value.Content,
-    Citations = ctx?.Citations
-};
-
-return response;
+            if (message.getContext() != null && message.getContext().getCitations() != null) {
+                var azureCitations = message.getContext().getCitations();
+                for (int i = 0; i < azureCitations.size(); i++) {
+                    var azureCitation = azureCitations.get(i);
+                    
+                    Citation citation = new Citation();
+                    citation.setIndex(i + 1);
+                    citation.setTitle(azureCitation.getTitle());
+                    citation.setContent(azureCitation.getContent());
+                    citation.setFilePath(azureCitation.getFilepath());
+                    citation.setUrl(azureCitation.getUrl());
+                    
+                    response.getCitations().add(citation);
+                }
+            }
+        }
+    }
+    
+    return response;
+}
 ```
 
 In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents.
@@ -140,44 +163,54 @@ Managed identities eliminate the need to store credentials in your code or confi
 
 ### How is the system-assigned managed identity used in this architecture and sample application?
 
-The AZD deployment created the system-assigned managed identity for the Azure App Service resource, and also granted it access permissions to Azure OpenAI and Azure AI Search resources. In the sample application, the Azure SDKs use this managed identity to authenticate requests securely, without storing credentials or secrets in code or configuration. For example, the `AzureOpenAIClient` is initialized with `DefaultAzureCredential`, which uses the managed identity when running in Azure:
+The AZD deployment creates a system-assigned managed identity for the Azure App Service resource and grants it access to Azure OpenAI and Azure AI Search. In the sample Java application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets in your code or configuration.
 
-```csharp
-_openAIClient = new AzureOpenAIClient(
-    new Uri(_settings.OpenAIEndpoint),
-    new DefaultAzureCredential()
-);
+For example, the `OpenAIAsyncClient` is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
+
+```java
+@Bean
+public TokenCredential tokenCredential() {
+   return new DefaultAzureCredentialBuilder().build();
+}
+
+@Bean
+public OpenAIAsyncClient openAIClient(TokenCredential tokenCredential) {
+   return new OpenAIClientBuilder()
+         .endpoint(openAiEndpoint)
+         .credential(tokenCredential)
+         .buildAsyncClient();
+}
 ```
 
 Similarly, when configuring the data source for Azure AI Search, the managed identity is specified for authentication:
 
-```csharp
-options.AddDataSource(new AzureSearchChatDataSource()
-{
-    Endpoint = new Uri(_settings.SearchServiceUrl ?? throw new ArgumentNullException(nameof(_settings.SearchServiceUrl))),
-    IndexName = _settings.SearchIndexName,
-    Authentication = DataSourceAuthentication.FromSystemManagedIdentity(), // Use system-assigned managed identity
-    // ...
-});
+```java
+AzureSearchChatExtensionConfiguration searchConfiguration =
+   new AzureSearchChatExtensionConfiguration(
+      new AzureSearchChatExtensionParameters(appSettings.getSearch().getUrl(), appSettings.getSearch().getIndex().getName())
+         .setAuthentication(new OnYourDataSystemAssignedManagedIdentityAuthenticationOptions())
+         // ...
+   );
 ```
 
-This enables secure, passwordless communication between the Blazor app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) and [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+This setup enables secure, passwordless communication between your Spring Boot app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](https://learn.microsoft.com/java/api/com.azure.identity.defaultazurecredential) and the [Azure Identity client library for Java](https://learn.microsoft.com/java/api/overview/azure/identity-readme).
 
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
-The sample application configures hybrid search with semantic ranking using the Azure.AI.Search.Documents SDK. In the backend, the data source is set up as follows:
+The sample application configures hybrid search with semantic ranking using the Azure OpenAI and Azure AI Search Java SDKs. In the backend, the data source is set up as follows:
 
-```csharp
-options.AddDataSource(new AzureSearchChatDataSource()
-{
+```java
+AzureSearchChatExtensionParameters parameters = new AzureSearchChatExtensionParameters(
+   appSettings.getSearch().getUrl(),
+   appSettings.getSearch().getIndex().getName())
     // ...
-    QueryType = DataSourceQueryType.VectorSemanticHybrid, // Combines vector search with keyword matching and semantic ranking
-    VectorizationSource = DataSourceVectorizer.FromDeploymentName(_settings.OpenAIEmbeddingDeployment),
-    SemanticConfiguration = _settings.SearchIndexName + "-semantic-configuration", // Build semantic configuration name from index name
-});
+    .setQueryType(AzureSearchQueryType.VECTOR_SEMANTIC_HYBRID)
+    .setEmbeddingDependency(new OnYourDataDeploymentNameVectorizationSource(appSettings.getOpenai().getEmbedding().getDeployment()))
+    .setSemanticConfiguration(appSettings.getSearch().getIndex().getName() + "-semantic-configuration");
 ```
 
 This configuration enables the application to combine vector search (semantic similarity), keyword matching, and semantic ranking in a single query. The semantic ranker reorders the results to return the most relevant and contextually appropriate answers, which are then used by Azure OpenAI for generating responses.
+
 The semantic configuration name is automatically defined by the integrated vectorization process. It uses the search index name as the prefix and appends `-semantic-configuration` as the suffix. This ensures that the semantic configuration is uniquely associated with the corresponding index and follows a consistent naming convention.
 
 ### Why are all resources created in East US 2?
@@ -194,7 +227,7 @@ You can improve response quality by:
 - Uploading higher quality, more relevant documents.
 - Adjusting chunking strategies in the Azure AI Search indexing pipeline. However, you can't customize chunking with the integrated vectorization shown in this tutorial.
 - Experimenting with different prompt templates in the application code.
-- Fine-tuning the search with additional properties in the [AzureSearchChatDataSource class](/dotnet/api/azure.ai.openai.chat.azuresearchchatdatasource).
+- Fine-tuning the search with additional properties in the [AzureSearchChatExtensionParameters class](/java/api/com.azure.ai.openai.models.azuresearchchatextensionparameters).
 - Using more specialized Azure OpenAI models for your specific domain.
 
 ## More resources
@@ -203,4 +236,4 @@ You can improve response quality by:
 - [Implement monitoring for your Azure App Service](/azure/app-service/web-sites-monitor).
 - [Configure scaling for Azure App Service](/azure/app-service/manage-scale-up).
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
-- [.NET Client SDK for Azure OpenAI Service](/dotnet/api/overview/azure/ai.openai-readme)
+- [Azure OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
