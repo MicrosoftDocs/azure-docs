@@ -30,27 +30,28 @@ CA certificates uploaded to API Management can be used for certificate validatio
 
 ## Upload a CA certificate
 
-Follow the steps below to upload a new CA certificate. If you have not created an API Management service instance yet, see the tutorial [Create an API Management service instance](get-started-create-service-instance.md).
+Complete the following steps to upload a new CA certificate. If you haven't created an API Management instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 
-1. Navigate to your Azure API Management service instance in the Azure portal.
+1. Go to your Azure API Management instance in the Azure portal.
 
 1. In the menu, under **Security**, select **Certificates > CA certificates > + Add**.
 
-1. Browse for the certificate .cer file and decide on the certificate store. Only the public key is needed, so the password is optional.
+1. Browse for the certificate .cer file and choose a certificate store. Only the public key is needed, so the password is optional.
 
     :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Add CA certificate in the Azure portal"::: 
-1. Select **Save**. This operation may take a few minutes.
+
+1. Select **Save**. This operation might take a few minutes.
 
 > [!NOTE]
-> You can also upload a CA certificate using the `New-AzApiManagementSystemCertificate` PowerShell command.
+> You can also upload a CA certificate by using the `New-AzApiManagementSystemCertificate` PowerShell command.
 
-## <a name="step1a"> </a>Delete a CA certificate
+## Delete a CA certificate
 
-Select the certificate, and select **Delete** in the context menu (**...**).
+Select the certificate, and then select **Delete** in the **...** menu.
 
-## Create custom CA for self-hosted gateway 
+## Create custom CA for a self-hosted gateway 
 
-If you use a [self-hosted gateway](self-hosted-gateway-overview.md), validation of server and client certificates using CA root certificates uploaded to API Management service is not supported. To establish trust, configure a specific client certificate so that it's trusted by the gateway as a custom certificate authority.
+If you use a [self-hosted gateway](self-hosted-gateway-overview.md), validation of server and client certificates via CA root certificates uploaded to API Management service isn't supported. To establish trust, configure a specific client certificate so that it's trusted by the gateway as a custom certificate authority.
 
 Use the [Gateway Certificate Authority](/rest/api/apimanagement/current-ga/gateway-certificate-authority) REST APIs to create and manage custom CAs for a self-hosted gateway. To create a custom CA:
 
