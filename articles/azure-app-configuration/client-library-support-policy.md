@@ -33,11 +33,6 @@ This ensures a minimum of 24 months of total support from the release date of ea
 
 For illustration:
 
-- **Microsoft.FeatureManagement 4.x.x:**
-  - Released: November 1, 2024
-  - Active Support: Until at least November 1, 2025 (12 months)
-  - Maintenance Mode: Begins November 1, 2025, or upon release of 5.x (whichever is later), lasting at least 12 months
-  - Out of Support: After maintenance mode ends (e.g., November 1, 2026, or later if 5.x is released after November 1, 2025)
 - **Microsoft.Extensions.Configuration.AzureAppConfiguration 8.x.x:**
   - Released: October 9, 2024
   - Active Support: Until at least October 9, 2025 (12 months)
