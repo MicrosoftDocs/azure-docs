@@ -16,14 +16,13 @@ ms.date:     05/12/2025
 
 VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) has enhanced capabilities that are configured by default with each Azure VMware Solution deployment, and each cluster utilizes its own high-performance vSAN ESA datastore. Below are the Azure VMware Solution SKUs that support vSAN ESA as the default architecture type, with the following configurations per cluster:
 
+| **Field** | **Value** |
+| --- | --- |
+| **TRIM/UNMAP** | Enabled by default.|
+| **Space Efficiency** | Compression only (Storage policy managed compression). Deduplication isn't supported.|
 
-  | **Field** | **Value** |
-  | --- | --- |
-  | **TRIM/UNMAP** | Enabled by default (Cannot be disabled in vSAN ESA based clusters).|
-  | **Space Efficiency** | Compression (Storage policy managed compression). Deduplication is not supported in vSAN ESA.|
-
-   >[!NOTE]
-   >Run commands are executed one at a time in the order submitted.
+> [!NOTE]
+> Run commands are executed one at a time in the order submitted.
 
 In this article, learn how to:
 
@@ -32,32 +31,33 @@ In this article, learn how to:
 > - Enable or Disable vSAN TRIM/UNMAP
 > - Enable vSAN Compression
 > - Enable or Disable vSAN Data-In-Transit Encryption
+> - vSAN features availability
 ## Supported host types
 
 vSAN ESA (Express Storage Architecture) is supported on the following Azure VMware Solution host types:
 
-- AV48
-
+- AV48 (Korea Central)
 
 ## Set VMware vSAN TRIM/UNMAP
 
-Guest Trim/Unmap is enabled by default and cannot be disabled for cluster with vSAN ESA. Run command Set-AVSVSANClusterUNMAPTRIM is not applicable for vSAN ESA based clusters.
+Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vSAN ESA. Run command Set-AVSVSANClusterUNMAPTRIM isn't applicable for vSAN ESA based clusters.
 
-   >[!NOTE]
-   >vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following additional requirements are needed for it to function as intended.
-   >- All VMs in vSAN ESA cluster(s) are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
-   >- The guest operating system must be able to identify the virtual disk as thin.
+> [!NOTE]
+> vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following other requirements are needed for it to function as intended.
+> - All VMs in vSAN ESA clusters are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
+- The guest operating system must be able to identify the virtual disk as thin.
+
 
 ## Set VMware vSAN Space Efficiency
 
-In vSAN ESA (Express Storage Architecture), compression is enabled by default on the cluster. See [VMware documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/increasing-space-efficiency-in-a-vsan-cluster/using-deduplication-and-compression-in-vsan-cluster.html).
+In vSAN ESA (Express Storage Architecture), space efficiency is enabled through Storage policy managed compression. See [VMware documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/increasing-space-efficiency-in-a-vsan-cluster/using-deduplication-and-compression-in-vsan-cluster.html).
 
 ## Set VMware vSAN Data-In-Transit Encryption
 
-Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a SDDC.
+Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of an SDDC.
 
-   >[!NOTE]
-   >Changing this setting will cause a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
+> [!NOTE]
+> Changing this setting causes a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -67,8 +67,8 @@ Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-tr
 
    | **Field** | **Value** |
    | --- | --- |
-   | **ClusterName**  | Name of the cluster. Leave blank if required to enable for whole SDDC else enter comma separated list of names. |
-   | **Enable**  |  Specify True/False to Enable/Disable the feature.|
+   | **Cluster Name** | Name of the cluster. Leave blank if necessary to enable for whole SDDC else enter comma separated list of names. |
+   | **Enable**| Specify True/False to Enable/Disable the feature.|
    
 1. Check Notifications to see the progress.
 
@@ -78,6 +78,26 @@ Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-tr
    > [!NOTE]
    > Now that you learned how to configure VMware vSAN, learn more about:
    
+## vSAN services availability
+
+The table below shows the list of vSAN features available in Azure VMware Solution.
+
+  | **vSAN Features** | **Availability** |
+  | --- | --- |
+  | **Auto-Policy Management** | Not supported|
+  | **Compression** | Supported|
+  | **Data-at-rest encryption** | Supported, enabled by default|
+  | **Data-in-transit encryption** | Supported|
+  | **Deduplication** | Not supported|
+  | **File Service** | Not supported|
+  | **Guest Trim/Unmap** | Supported, enabled by default|
+  | **iSCSI Target Service** | Not supported|
+  | **Support for Windows Server Failover Clusters (WSFC)** | Supported|
+  | **vSAN Data Protection** | Not supported|
+  | **vSAN Performance Service** | Supported|
+  | **vSAN Stretched cluster** | Supported|
+  | **vSAN Support Insight** | Not supported|
+
 ## Next steps
 
 Now that you learned how to configure VMware vSAN, learn more about:
