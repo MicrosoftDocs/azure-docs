@@ -28,9 +28,9 @@ Storage Explorer makes requests to various endpoints while in use. The following
   - `login.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `login.microsoftonline.us` (Azure US Government)
 - Graph endpoints:
-  - `graph.windows.net` (global Azure)
-  - `graph.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
-  - `graph.windows.net` (Azure US Government)
+  - `graph.microsoft.com` (global Azure)
+  - `microsoftgraph.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
+  - `graph.microsoft.us` (Azure US Government)
 - Azure Storage endpoints:
   - `(blob|file|queue|table|dfs).core.windows.net` (global Azure)
   - `(blob|file|queue|table|dfs).core.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
