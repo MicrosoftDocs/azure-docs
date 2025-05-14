@@ -222,7 +222,7 @@ third-party platform in the content artifact.
 
 <!-- Reference link definitions -->
 [01]: ../../overview.md
-[02]: /powershell/dsc/overview?view=dsc-2.0
+[02]: /powershell/dsc/overview?view=dsc-2.0&preserve-view=true
 [03]: ./1-set-up-authoring-environment.md
 [05]: /powershell/dsc/resources/authoringResourceClass
 [06]: https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22
