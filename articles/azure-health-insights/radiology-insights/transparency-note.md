@@ -53,7 +53,7 @@ Radiology Insights can receive unstructured text in English as part of its curre
 |FollowupRecommendation| Annotation that identifies and highlights one or more recommendations in the report text and provides a normalization of each recommendation to a set of structured data fields.
 |RadiologyProcedure| Normalization of procedure order information present in meta-data using Loinc/Radlex codes.
 |Communication| Annotation that identifies and highlights when noted in report text that the findings are strict or nonstrictly communicated with the recipient.
-|Clinical Guidance| Clinical guidance can be considered as a decision tree, providing a structured approach of evidence-based guidelines (ACR Guidelines1 and Fleischner Society Guidelines2) to help healthcare providers make the most appropriate imaging or treatment decisions for clinical conditions. The model surfaces the key information from the documentation to feed the decision tree, as such to propose one or more candidate recommendations.|
+|Clinical Guidance| Clinical guidance can be considered as a decision tree, providing a structured approach of evidence-based guidelines (ACR Guidelines<sup>1<sup> and Fleischner Society Guidelines<sup>2</sup>) to help healthcare providers make the most appropriate imaging or treatment decisions for clinical conditions. The model surfaces the key information from the documentation to feed the decision tree, as such to propose one or more candidate recommendations.|
 |Quality Measures| The model evaluates if quality measure performance was met or not when executing a medical procedure. The quality measure performance is explained by surfacing evidence from the document and/or lack of evidence from the document.|
 |Risk Scoring and Assessment| Risk scoring and assessment systems are used in medical imaging and diagnostics to standardize the evaluation and reporting of clinical findings. The model surfaces key scoring and assessment risks with values the radiologist dictates in a radiology note or report.|
 
@@ -79,7 +79,7 @@ The Radiology Insight adds several types of inferences/annotations to the origin
 
 Example of a Clinical Radiology document with inferences:
 
-![[Screenshot of a radiology document with a Mismatch and Follow-up Recommendation inference.](../media/radiology-insights/radiology-doc-with-inferences.png)](../media/radiology-insights/radiology-doc-with-inferences.png#lightbox)
+![[Screenshot of a radiology document with a Mismatch and Follow-up Recommendation inference.](../media/radiology-insights/radiology-with-inferences.png)](../media/radiology-insights/radiology-with-inferences.png#lightbox)
 
 ### Functional description of the inferences in scope and examples
 
@@ -87,7 +87,7 @@ Example of a Clinical Radiology document with inferences:
 
 Age mismatches are identified based on comparison of available Patient age information within Patient’s demographic meta-data and the report text. Conflicting age information are tagged in the text.
 
-![[Screenshot of a radiology document with an Age Mismatch.](../media/radiology-insights/radiology-doc-age-mismatch.png)](../media/radiology-insights/radiology-doc-age-mismatch.png#lightbox)
+![[Screenshot of a radiology document with an Age Mismatch.](../media/radiology-insights/radiology-age-mismatch.png)](../media/radiology-insights/radiology-age-mismatch.png#lightbox)
 
 
 **Sex Mismatch**
@@ -95,7 +95,7 @@ Age mismatches are identified based on comparison of available Patient age infor
 Sex mismatches identification is based on a comparison of the patient sex information within patient’s demographic meta-data on the one hand and on the other hand patient references, sex specific findings, and sex specific body parts in the text.
 Conflicting sex information are tagged in the text.
 
-![[Screenshot of a radiology document with an Sex Mismatch.](../media/radiology-insights/radiology-doc-sex-mismatch.png)](../media/radiology-insights/radiology-doc-sex-mismatch.png#lightbox)
+![[Screenshot of a radiology document with a Sex Mismatch.](../media/radiology-insights/radiology-sex-mismatch.png)](../media/radiology-insights/radiology-sex-mismatch.png#lightbox)
 
 
 **Laterality Discrepancy**
@@ -104,7 +104,7 @@ A laterality, defined as "Left" (Lt, lft) and "Right" (rt, rght), along with an 
 No Mismatches on past content.
 If only Laterality and no Anatomy is available in the Procedure Description, all opposite laterality in the text is tagged. For example: "left views" in Procedure Description will list all "right" words in the report text.
 
-![[Screenshot of a radiology document with an Laterality Mismatch.](../media/radiology-insights/radiology-doc-laterality-mismatch.png)](../media/radiology-insights/radiology-doc-laterality-mismatch.png#lightbox)
+![[Screenshot of a radiology document with a Laterality Mismatch.](../media/radiology-insights/radiology-laterality-mismatch.png)](../media/radiology-insights/radiology-laterality-mismatch.png#lightbox)
 
 
 **CompleteOrder Discrepancy**
@@ -112,7 +112,7 @@ If only Laterality and no Anatomy is available in the Procedure Description, all
 Completeness mismatches can be made if the ordered procedure is an ultrasound for the ABDOMEN, RETROPERITONEAL, PELVIS, or US BREAST.
 A completeness mismatch is made if either the order is complete and the text isn't, or vice versa.
 
-![[Screenshot of a radiology document with a Complete Order Mismatch.](../media/radiology-insights/radiology-doc-completeness-mismatch.png)](../media/radiology-insights/radiology-doc-completeness-mismatch.png#lightbox)
+![[Screenshot of a radiology document with a Complete Order Mismatch.](../media/radiology-insights/radiology-completeness-mismatch.png)](../media/radiology-insights/radiology-completeness-mismatch.png#lightbox)
 
 
 **LimitedOrder Discrepancy**
@@ -120,7 +120,7 @@ A completeness mismatch is made if either the order is complete and the text isn
 Completeness mismatches can be made if the ordered procedure is an ultrasound for the ABDOMEN, RETROPERITONEAL, PELVIS, or US BREAST.
 A completeness mismatch is made if either the order is complete and the text isn't, or vice versa.
 
-![[Screenshot of a radiology document with a Limited Order Mismatch.](../media/radiology-insights/radiology-doc-completeness-limited-mismatch.png)](../media/radiology-insights/radiology-doc-completeness-limited-mismatch.png#lightbox)
+![[Screenshot of a radiology document with a Limited Order Mismatch.](../media/radiology-insights/radiology-completeness-limited-mismatch.png)](../media/radiology-insights/radiology-completeness-limited-mismatch.png#lightbox)
 
 
 **Finding**
@@ -139,7 +139,7 @@ Only Identifies Critical Result in the report text (not in meta-data)
 The terms are based on Mass Coalition for the Prevention of Medical Errors: 
 <http://www.macoalition.org/Initiatives/docs/CTRstarterSet.xls>.
 
-![[Screenshot of a radiology document with a Critical Result.](../media/radiology-insights/radiology-doc-critical-result.png)](../media/radiology-insights/radiology-doc-critical-result.png#lightbox)
+![[Screenshot of a radiology document with a Critical Result.](../media/radiology-insights/radiology-critical-result.png)](../media/radiology-insights/radiology-critical-result.png#lightbox)
 
 
 **FollowupRecommendation**
@@ -154,7 +154,7 @@ Cfr Sex Mismatch example
 Radiology Insights extracts information such as modality, body part, laterality, view, and contrast from the procedure order. Ordered procedures are normalized using the Loinc codes using the LOINC/RSNA Radiology Playbook that is developed and maintained by the LOINC/RadLex Committee: 
 <http://playbook.radlex.org/playbook/SearchRadlexAction>.
 
-![[Screenshot of a radiology document with a Procedure normalization.](../media/radiology-insights/radiology-doc-procedure.png)](../media/radiology-insights/radiology-doc-procedure.png#lightbox)
+![[Screenshot of a radiology document with a Procedure normalization.](../media/radiology-insights/radiology-procedure.png)](../media/radiology-insights/radiology-procedure.png#lightbox)
 
 
 **Communication**
@@ -180,7 +180,7 @@ In the findings section of the sample below:
 
 "An 8 mm nodule in the right upper lobe, image #15 series 4. New posterior right upper lobe nodule measuring 6 mm, image #28 series 4. New 1.2-cm pulmonary nodule, right upper lobe, image #33 series 4."
 
-The Radiology Insight model extracts from this information guidance values present in the document and surfaces candidate recommendations based on the clinical guideline for Pulmonary Nodule (Fleishner Society Guideline5). In this case the model will suggest different recommendations for the same lung structure using different modalities: Computerized Axial Tomography, Positron Emission Tomography, and Imaging Guided Biopsy.  
+The Radiology Insight model extracts from this information guidance values present in the document and surfaces candidate recommendations based on the clinical guideline for Pulmonary Nodule (Fleishner Society Guideline<sup>5</sup>). In this case the model will suggest different recommendations for the same lung structure using different modalities: Computerized Axial Tomography, Positron Emission Tomography, and Imaging Guided Biopsy.  
 
 Additionally, the sample documents in the impression section: 
 
@@ -189,10 +189,10 @@ Additionally, the sample documents in the impression section:
 The observation in the right upper lobe will also be surfaced by the model as present guidance values. However, the model will also surface guidance values that are missed and not documented in the report. If these values are documented, the model could propose other candidate recommendations according to the clinical guideline for Pulmonary Nodule. This allows the radiologist to propose a candidate recommendation and/or enhance the documentation to include additional recommendations as part of the options.  
 
 
-![[Screenshot of a radiology document with Clinical Guidance.](../media/radiology-insights/radiology-doc-clinical-guidance.png)](../media/radiology-insights/radiology-doc-clinical-guidance.png#lightbox)
+![[Screenshot of a radiology document with Clinical Guidance.](../media/radiology-insights/radiology-clinical-guidance.png)](../media/radiology-insights/radiology-clinical-guidance.png#lightbox)
 
   
-From the finding in the findings section (blue), the model proposes two recommendation candidates: Positron Emission Tomography and Imaging Guided Biopsy, both of the Lung. The guidance values surfaced for this finding are for the Lobe, Right Uper Lobe and for the Size, 12 mm. From the finding in the Impression section, the guidance value for the Lobe is returned, but the Size is missing and hence returned as a missing guidance value. No recommendations candidates are proposed.    
+From the finding in the findings section (blue), the model proposes two recommendation candidates: Positron Emission Tomography and Imaging Guided Biopsy, both of the Lung. The guidance values surfaced for this finding are for the Lobe, Right Upper Lobe and for the Size, 12 mm. From the finding in the Impression section, the guidance value for the Lobe is returned, but the Size is missing and hence returned as a missing guidance value. No recommendations candidates are proposed.    
 
 ***Table ACR Clinical Guidelines supported by the model***
 
@@ -238,7 +238,7 @@ In the sample below, a CVC or Central Venous Catheter needs to be inserted into 
 In the case of missing criteria, the documentation could be updated to also cover for the missing documented but executed criteria or a retrospect could be organized to understand why these important criteria weren't included in the procedure executed.
 
 
-![[Screenshot of a radiology document with Qulaity Measure.](../media/radiology-insights/radiology-doc-quality-measure.png)](../media/radiology-insights/radiology-doc-quality-measure.png#lightbox)
+![[Screenshot of a radiology document with Quality Measure.](../media/radiology-insights/radiology-quality-measure.png)](../media/radiology-insights/radiology-quality-measure.png#lightbox)
 
 
 Figure Quality Measures: The model reports that for the Quality Measure CVC INSERTION, the documentation doesn't comply with its quality criteria and classifies the type of compliance as "performance not met" in the model response. There's missing information regarding the use of a sterile probe cover.   
@@ -287,7 +287,7 @@ The Model surfaces and highlights Risks, Scorings and Assessments with classific
 In the sample below the model identifies two inferences: the ASCVD (Atherosclerotic Cardiovascular Disease) risk with value 17.6% and the Agatston Score (measure used to quantify the amount of calcium in the coronary arteries) with value zero. The 10-year ASCVD (Atherosclerotic Cardiovascular Disease) risk score is an estimate of the likelihood that a person will experience a cardiovascular event (like a heart attack or stroke) within the next 10 years. This score is calculated (not by the model) based on various risk factors, including age, cholesterol levels, blood pressure, smoking status, diabetes, and others. In this case, a risk score of 17.6% means that, based on the person's risk factors, there's a 17.6% chance of experiencing a cardiovascular event in the next 10 years.
 
 
-![[Screenshot of a radiology document with Scoring and Assessement.](../media/radiology-insights/radiology-doc-scoring-assessment.png)](../media/radiology-insights/radiology-doc-scoring-assessment.png#lightbox)
+![[Screenshot of a radiology document with Scoring and Assessment.](../media/radiology-insights/radiology-scoring-assessment.png)](../media/radiology-insights/radiology-scoring-assessment.png#lightbox)
 
 Figure Risk Scoring and Assessment: The model identifies two Scoring and Assessment instances (blue), one of category ASCVD Risk with value 17.6% and one of category Calcium Score with value 0.
 
@@ -334,7 +334,7 @@ Thus, the specific use cases by customers and how the information would be prese
 **Use Case 1 – Identifying Mismatches**: A radiologist is provided with possible mismatches that are identified by the model between what the radiologist has documented in the radiology report and the information that was present in the meta-data of the report. Mismatches can be identified for sex, age, and body site laterality. Mismatches identify potential discrepancies between the dictated text and the provided meta-data. They also identify potential inconsistencies within the dictated/written text. Inconsistencies are limited to gender, age, laterality, and type of imaging. This is only to allow the radiologist to rectify any potential inconsistencies during reporting. The system isn't aware of the image the radiologist is reporting on. In no way does this model provides any clinical judgment of the radiologist's interpretation of the image. The radiologist is responsible for the diagnosis and treatment of patient and the correct documentation thereof.
 
 **Use Case 2 – Providing Clinical Findings**: The model extracts as structured data two types of clinical findings: critical findings and actionable findings. Only clinical findings that are explicitly documented in the report by the radiologist are extracted by the model. Clinical findings produced by the model aren't deduced from pieces of information in the report nor from the image. These merely serve as a potential reminder for the radiologist to communicate with the provider.
-The model produces two categories of clinical findings, Actionable Finding and Critical Result, and is based on the clinical finding, explicitly stated in the report, and criteria formulated by ACR (American College of Radiology). The model always extract all findings explicitly documented by the radiologist. The extracted findings can be used to alert a radiologist of possible clinical findings that need to be clearly communicated and acted on in a timely fashion by a healthcare professional. Customers can also utilize the extracted findings to populate downstream or related systems (such as EHRs or autoschedule functions).
+The model produces two categories of clinical findings, Actionable Finding and Critical Result, and is based on the clinical finding, explicitly stated in the report, and criteria formulated by ACR (American College of Radiology). The model always extracts all findings explicitly documented by the radiologist. The extracted findings can be used to alert a radiologist of possible clinical findings that need to be clearly communicated and acted on in a timely fashion by a healthcare professional. Customers can also utilize the extracted findings to populate downstream or related systems (such as EHRs or autoschedule functions).
 
 **Use Case 3 – Communicating Follow-up Recommendations**: A radiologist uncovers findings for which in some cases a follow-up is recommended. The documented recommendation is extracted and normalized by the model for communication to a healthcare professional (physician).
 Follow-up recommendations aren't generated, deduced, or proposed. The model merely extracts follow-up recommendation statements documented explicitly by the radiologist. Follow-up recommendations are normalized by coding to SNOMED.
@@ -407,7 +407,7 @@ The set used provides almost equal representation of US based male and female pa
 Accuracy or regression of the logic is tested using unit and functional tests covering the complete logic scope. Generalization of RI models is assessed by using left-out sets of documents sharing the same characteristics of the train set.
 
 Targeted minimum performance levels for each inference across the complete population are evaluated, tracked, and reviewed with Subject matter experts.
-All underlying core NLP & NLU components are separately checked and reviewed using specific testsets.
+All underlying core NLP & NLU components are separately checked and reviewed using specific test sets.
 
 ### Evaluation results
 
