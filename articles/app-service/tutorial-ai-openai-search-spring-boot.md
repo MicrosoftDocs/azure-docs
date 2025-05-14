@@ -14,12 +14,12 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 In this tutorial, you'll create a Spring Boot Retrieval Augmented Generation (RAG) application using Spring Boot, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
-:::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface in introduction.":::
+:::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Spring Boot chat interface in introduction.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy a Blazor application that uses RAG pattern with Azure AI services.
+> * Deploy a Spring Boot application that uses RAG pattern with Azure AI services.
 > * Configure Azure OpenAI and Azure AI Search for hybrid search.
 > * Upload and index documents for use in your AI-powered application.
 > * Use managed identities for secure service-to-service communication.
@@ -122,7 +122,7 @@ This command will delete all resources associated with your application.
 
 ### How does the sample code retrieve citations from Azure OpenAI chat completions?
 
-The sample retrieves citations by using the `AzureSearchChatDataSource()` as the data source for the chat client. When a chat completion is requested, the response includes a `Citations` object within the message context. The code extracts these citations as follows:
+The sample retrieves citations by using the `AzureSearchChatExtensionConfiguration` as the data source for the chat client. When a chat completion is requested, the response includes a `Citations` object within the message context. The code extracts these citations as follows:
 
 ```java
 public static ChatResponse fromChatCompletions(ChatCompletions completions) {
@@ -155,7 +155,10 @@ public static ChatResponse fromChatCompletions(ChatCompletions completions) {
 }
 ```
 
-In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents.
+In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents. For more information, see:
+
+- [Azure OpenAI On Your Data API Reference](/azure/ai-services/openai/references/on-your-data)
+- [Data source - Azure AI Search](/azure/ai-services/openai/references/azure-search)
 
 ### What's the advantage of using managed identities in this solution?
 
@@ -237,3 +240,4 @@ You can improve response quality by:
 - [Configure scaling for Azure App Service](/azure/app-service/manage-scale-up).
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
 - [Azure OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
+- [Azure OpenAI client library samples for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)

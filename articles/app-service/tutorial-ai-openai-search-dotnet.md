@@ -132,7 +132,10 @@ var response = new ChatResponse
 return response;
 ```
 
-In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents.
+In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents. For more information, see:
+
+- [Azure OpenAI On Your Data API Reference](/azure/ai-services/openai/references/on-your-data)
+- [Data source - Azure AI Search](/azure/ai-services/openai/references/azure-search)
 
 ### What's the advantage of using managed identities in this solution?
 
