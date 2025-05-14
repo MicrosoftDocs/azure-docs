@@ -1,9 +1,9 @@
 ---
 title: RAG application with Azure OpenAI and Azure AI Search (.NET)
 description: Learn how to build and deploy a Retrieval Augmented Generation (RAG) application using Blazor, Azure OpenAI, and Azure AI Search.
+ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
-ms.service: app-service
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 05/19/2025
@@ -12,23 +12,9 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 
 # Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (.NET)
 
-In this tutorial, you'll create a .NET Retrieval Augmented Generation (RAG) application using .NET Blazor, Azure OpenAI, and Azure AI Search. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations.
+In this tutorial, you'll create a .NET Retrieval Augmented Generation (RAG) application using .NET Blazor, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
-The solution is deployed to Azure App Service and uses managed identities for secure, passwordless authentication between services. You'll deploy the application using Azure Developer CLI (azd) for a streamlined experience.
-
-> [!TIP]
-> To learn more about the concepts covered in this tutorial, see:
-> * [What is Retrieval Augmented Generation (RAG)?](/azure/ai-services/openai/concepts/retrieval-augmented-generation)
-> * [Introduction to Azure OpenAI Service](/azure/ai-services/openai/overview)
-> * [What is Azure AI Search?](/azure/search/search-what-is-azure-search)
-> * [Blazor: Build web apps with .NET](/aspnet/core/blazor/)
-
-The architecture of this solution offers several key advantages:
-
-- **Integrated Vectorization**: Azure AI Search's integrated vectorization capabilities make it easy and quick to ingest all your documents for searching, without requiring separate infrastructure for generating embeddings.
-- **Simplified API Access**: By using Azure AI Search as a data source for Azure OpenAI completions, you get vector search functionality without having to generate embeddings for your queries—it's just one API call and Azure OpenAI handles everything.
-- **Advanced Search Capabilities**: The integrated vectorization provides everything needed for advanced hybrid search with semantic reranking, which combines the strengths of keyword matching, vector similarity, and AI-powered ranking.
-- **Complete Citation Support**: Responses automatically include citations to source documents, making information verifiable and traceable.
+:::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface in introduction.":::
 
 In this tutorial, you learn how to:
 
@@ -37,25 +23,25 @@ In this tutorial, you learn how to:
 > * Configure Azure OpenAI and Azure AI Search for hybrid search.
 > * Upload and index documents for use in your AI-powered application.
 > * Use managed identities for secure service-to-service communication.
-> * Test your RAG implementation with natural language queries.
+> * Test your RAG implementation locally with production services.
+
+## Architecture overview
+
+Before you begin deployment, it's helpful to understand the architecture of the application you'll be building. The following diagram is from [Custom RAG pattern for Azure AI Search](/azure/search/retrieval-augmented-generation-overview?tabs=docs#custom-rag-pattern-for-azure-ai-search):
+
+:::image type="content" source="media/tutorial-ai-openai-search-dotnet/architecture-diagram.png" alt-text="Architecture diagram showing a web app connecting to Azure OpenAI and Azure AI Search, with Storage as the data source":::
+
+In this tutorial, the Blazer application in App Service takes care of both the app UX and the app server. However, it doesn't make a separate knowledge query to Azure AI Search. Instead, it tells Azure OpenAI to do the knowledge querying specifying Azure AI Search as a data source. This architecture offers several key advantages:
+
+- **Integrated Vectorization**: Azure AI Search's integrated vectorization capabilities make it easy and quick to ingest all your documents for searching, without requiring more code for generating embeddings.
+- **Simplified API Access**: By using Azure AI Search as a data source for Azure OpenAI completions, you get vector search functionality without having to generate embeddings for your queries. It's just one API call and Azure OpenAI handles everything.
+- **Advanced Search Capabilities**: The integrated vectorization provides everything needed for advanced hybrid search with semantic reranking, which combines the strengths of keyword matching, vector similarity, and AI-powered ranking.
+- **Complete Citation Support**: Responses automatically include citations to source documents, making information verifiable and traceable.
 
 ## Prerequisites
 
 - An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
-
-## Architecture overview
-
-Before you begin deployment, it's helpful to understand the architecture of the application you'll be building:
-
-![Architecture diagram showing Blazor App connecting to Azure OpenAI and Azure AI Search, with Storage as the data source](media/tutorial-openai-search/architecture-diagram.png)
-
-The application consists of these key components:
-
-- **Blazor Server App**: Provides the web interface and chat functionality.
-- **Azure OpenAI**: Delivers both chat completions and text embeddings for vectorization.
-- **Azure AI Search**: Offers hybrid search capabilities combining vector search, keyword matching, and semantic ranking.
-- **Azure Storage**: Stores your documents that will be indexed and queried.
 
 ## 1. Deploy the sample architecture from GitHub
 
@@ -112,13 +98,13 @@ Now that the infrastructure is deployed, you need to upload documents and create
 
 3. Upload sample documents by clicking **Upload**. You can use the sample documents from the `sample-docs` folder in the repository, or your own PDF, Word, or text files.
 
-   :::image type="content" source="media/tutorial-openai-search/storage-upload-files.png" alt-text="Screenshot showing how to upload documents to the storage container.":::
+   :::image type="content" source="media/tutorial-ai-openai-search-dotnet/storage-upload-files.png" alt-text="Screenshot showing how to upload documents to the storage container.":::
 
 4. Navigate to your Azure AI Search service in the Azure portal.
 
 5. Select **Import and vectorize data** to start the process of creating a search index.
 
-   :::image type="content" source="media/tutorial-openai-search/ai-search-import-vectorize.png" alt-text="Screenshot showing the Import and vectorize data button in Azure AI Search.":::
+   :::image type="content" source="media/tutorial-ai-openai-search-dotnet/ai-search-import-vectorize.png" alt-text="Screenshot showing the Import and vectorize data button in Azure AI Search.":::
 
 6. In the **Connect to your data** step:
    - Select **Azure Blob Storage** as the Data Source.
@@ -149,7 +135,7 @@ Now that the infrastructure is deployed, you need to upload documents and create
     - Copy the **Objects name prefix** value. It is your search index name.
     - Select **Create** to start the indexing process.
 
-    :::image type="content" source="media/tutorial-openai-search/review-create-index.png" alt-text="Screenshot showing the review and create screen with the search index name.":::
+    :::image type="content" source="media/tutorial-ai-openai-search-dotnet/review-create-index.png" alt-text="Screenshot showing the review and create screen with the search index name.":::
 
 12. Wait for the indexing process to complete. This might take a few minutes depending on the size and number of your documents.
 
@@ -209,7 +195,7 @@ With the application fully deployed and configured, you can now test the RAG fun
 
 2. You see a chat interface where you can enter questions about the content of your uploaded documents.
 
-   :::image type="content" source="media/tutorial-openai-search/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface.":::
+   :::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface.":::
 
 3. Try asking questions that are specific to the content of your documents. For example, if you uploaded the documents in the *sample-docs* folder, you can try out these questions:
 
@@ -218,7 +204,7 @@ With the application fully deployed and configured, you can now test the RAG fun
 
 4. Notice how the responses include citations that reference the source documents. These citations help users verify the accuracy of the information and find additional details in the source material.
 
-   :::image type="content" source="media/tutorial-openai-search/citations.png" alt-text="Screenshot showing a response with citations to source documents.":::
+   :::image type="content" source="media/tutorial-ai-openai-search-dotnet/citations.png" alt-text="Screenshot showing a response with citations to source documents.":::
 
 5. Test the hybrid search capabilities by asking questions that might benefit from different search approaches:
    - Questions with specific terminology (good for keyword search).
@@ -234,25 +220,6 @@ azd down --purge
 ```
 
 This command will delete all resources associated with your application.
-
-## How it works
-
-The application uses a sophisticated approach to retrieve and generate information:
-
-1. **Document Processing**: Your documents are uploaded to Azure Storage, then processed and indexed by Azure AI Search. Learn more about [indexing documents in Azure AI Search](/azure/search/search-what-is-an-index).
-
-2. **Vectorization**: The text-embedding-ada-002 model converts document chunks into vector embeddings that capture the semantic meaning of the text. Learn more about [vector embeddings in AI](/azure/ai-services/openai/tutorials/embeddings).
-
-3. **Hybrid Search Implementation**: When you ask a question, the application uses three complementary search approaches:
-   - **Vector Search**: Finds semantically similar content based on meaning rather than exact keywords. [Learn more about vector search](/azure/search/vector-search-overview).
-   - **Keyword Matching**: Catches exact terms and specific information. [Learn more about full-text search](/azure/search/search-lucene-query-architecture).
-   - **Semantic Ranking**: Re-ranks results based on deeper understanding of meaning. [Learn more about semantic ranking](/azure/search/semantic-search-overview).
-
-4. **Context Generation**: The most relevant search results are compiled and sent as context to Azure OpenAI. [Learn more about prompt engineering](/azure/ai-services/openai/concepts/prompt-engineering).
-
-5. **Response Generation**: Azure OpenAI generates a response based on the provided context, including citations to the source documents. [Learn more about chat completions](/azure/ai-services/openai/how-to/chatgpt).
-
-6. **Managed Identity Security**: All service-to-service communication uses Azure managed identities instead of keys or secrets, following zero trust security principles. [Learn more about zero trust with managed identities](/azure/active-directory/develop/zero-trust-for-developers#use-managed-identities-for-azure-resources).
 
 ## Frequently asked questions
 
@@ -311,7 +278,7 @@ options.AddDataSource(new AzureSearchChatDataSource()
 });
 ```
 
-This enables secure, passwordless communication between the Blazor app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential) and [Azure Identity client library for .NET](https://learn.microsoft.com/dotnet/api/overview/azure/identity-readme).
+This enables secure, passwordless communication between the Blazor app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) and [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
@@ -332,7 +299,7 @@ The semantic configuration name is automatically defined by the integrated vecto
 
 ### Why are all resources created in East US 2?
 
-The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they are not scheduled to expire in the near future, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and expiration dates to avoid disruptions. You can review model availability and expiration information at [Azure OpenAI Service models](https://learn.microsoft.com/azure/ai-services/openai/concepts/models) and check for model retirements at [Azure OpenAI Service model deprecations and retirements](https://learn.microsoft.com/azure/ai-services/openai/concepts/model-retirements).
+The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they are not scheduled to expire in the near future, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and expiration dates to avoid disruptions. You can review model availability and expiration information at [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models) and check for model retirements at [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
 
 ### Can I use my own OpenAI models instead of the ones provided by Azure?
 
@@ -341,11 +308,11 @@ This solution is specifically designed to work with Azure OpenAI Service. While 
 ### How can I improve the quality of responses?
 
 You can improve response quality by:
-- Uploading higher quality, more relevant documents
-- Adjusting chunking strategies in the Azure AI Search indexing pipeline
-- Enabling semantic ranking (as shown in this tutorial)
-- Experimenting with different prompt templates in the application code
-- Using more specialized Azure OpenAI models for your specific domain
+- Uploading higher quality, more relevant documents.
+- Adjusting chunking strategies in the Azure AI Search indexing pipeline. However, you can't customize chunking with the integrated vectorization shown in this tutorial.
+- Experimenting with different prompt templates in the application code.
+- Fine-tuning the search with additional properties in the [AzureSearchChatDataSource class](/dotnet/api/azure.ai.openai.chat.azuresearchchatdatasource).
+- Using more specialized Azure OpenAI models for your specific domain.
 
 ## More resources
 
@@ -353,5 +320,4 @@ You can improve response quality by:
 - [Implement monitoring for your Azure App Service](/azure/app-service/web-sites-monitor).
 - [Configure scaling for Azure App Service](/azure/app-service/manage-scale-up).
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
-- [Learn Path: Implement Retrieval Augmented Generation with Azure AI Services](https://learn.microsoft.com/training/paths/implement-rag-with-azure-ai-services/)
-- [.NET Client SDK for Azure OpenAI Service](https://learn.microsoft.com/dotnet/api/overview/azure/ai.openai-readme)
+- [.NET Client SDK for Azure OpenAI Service](/dotnet/api/overview/azure/ai.openai-readme)
