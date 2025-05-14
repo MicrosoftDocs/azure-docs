@@ -59,7 +59,7 @@ The following table lists the main features supported in each tier:
 | [Grafana Enterprise](how-to-grafana-enterprise.md)                       | -                                   | Optional, with licensing costs                                                                                  |
 
 > [!NOTE]
-> Users can upgrade a workspace from Essential (preview) to Standard, or increase their Standard instance size by going to **Settings** > **Configuration** > **Pricing Plans**. However, downgrading from Standard to Essential (preview) or from a larger to a smaller instance size, is not supported.
+> You can upgrade your workspace from Essential (preview) to Standard, or increase your Standard instance size by going to **Settings** > **Configuration** > **Pricing Plans**. However, downgrading from Standard to Essential (preview) or from a larger to a smaller instance size, is not supported.
 
 > [!NOTE]
 > Grafana Enterprise is an option within the Standard plan, not a separate plan within Azure.
