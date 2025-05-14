@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 
 ---
 
-# Configure VMware vSAN
+# Configure VMware vSAN (OSA)
 
 VMware vSAN has more capabilities that are set with every Azure VMware Solution deployment.  Each cluster has their own VMware vSAN Datastore.
 Azure VMware Solution defaults with the following configurations per cluster:
@@ -53,16 +53,18 @@ Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
-   >[!NOTE]
-   >After vSAN TRIM/UNMAP is Enabled, the following lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
-   >- Prerequisites -  VM Level
-   >- A minimum of virtual machine hardware version 11 for Windows
-   >- A minimum of virtual machine hardware version 13 for Linux.
-   >- disk.scsiUnmapAllowed flag is not set to false. The default is implied true. This setting can be used as a "stop switch" at the virtual machine level should you wish to disable this behavior on a per VM basis and do not want to use in guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
-   >- The guest operating system must be able to identify the virtual disk as thin.
-   >- After enabling at a cluster level, the VM must be powered off and back on (a reboot is insufficient).
+   > [!NOTE]
+   > After vSAN TRIM/UNMAP is Enabled, the following lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
+   > - Prerequisites - VM Level
+- A minimum of virtual machine hardware version 11 for Windows
+- A minimum of virtual machine hardware version 13 for Linux.
+   > - disk.scsiUnmapAllowed flag is not set to false. The default is implied true. This setting can be used as a "stop switch" at the virtual machine level should you wish to disable this behavior on a per VM basis and do not want to use in-guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
+- The guest operating system must be able to identify the virtual disk as thin.
+- After enabling at a cluster level, the VM must be powered off and back on (a reboot is insufficient).
    
-   >[!TIP]
+   
+   
+      >[!TIP]
    >Articles on reclaiming space for Windows and Linux systems for TRIM/UNMAP to execute.
    >-https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html
    >-https://knowledge.broadcom.com/external/article/326595/procedure-to-enable-trimunmap.html
@@ -102,8 +104,8 @@ Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
 
 Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a SDDC.
 
-   >[!NOTE]
-   >Changing this setting will cause a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
+> [!NOTE]
+> Changing this setting will causes a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
