@@ -143,6 +143,7 @@ Functions also enables your apps to reference third-party libraries and framewor
 + [Azure Functions scenarios](functions-scenarios.md)
 + [Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code](functions-add-openai-text-completion.md)
 
+[OpenAI binding extension]: functions-bindings-openai.md
  
 
  
