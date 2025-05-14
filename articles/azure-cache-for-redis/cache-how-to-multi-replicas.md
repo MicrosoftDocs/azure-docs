@@ -5,7 +5,7 @@ description: Learn how to create Premium tier Azure Cache for Redis instances wi
 
 
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 05/14/2025
 appliesto:
   - ✅ Azure Cache for Redis
 ---
@@ -18,18 +18,18 @@ When you create a Premium cache, you can increase the number of replicas up to t
 
 This article describes how to create an Azure Cache for Redis Premium cache with added replicas by using the Azure portal.
 
+## Prerequisites
+
+You need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+
 ## Limitations
 
-Creating more than one replica has the following limitations:
+Creating more than one replica for a cache has the following limitations:
 
 - Only Premium-tier Azure Redis supports adding more than one replica.
 - You can't change the number of replicas after you create the cache.
 - You can't use geo-replication with caches that have more than one replica.
-- You can't use Append-only File (AOF) data persistence if you create more than one replica.
-
-## Prerequisites
-
-You need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- You can't use Append-only File (AOF) data persistence with caches that have more than one replica.
 
 ## Create a Premium cache with added replicas
 
