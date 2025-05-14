@@ -41,7 +41,7 @@ This sample estimate doesn't include the [cost of data storage](blob-storage-est
 
 ## Breakdown
 
-The following table shows how each cost component is calculated.
+Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated.
 
 | Cost factor                      | Calculation                                   | Value      |
 |----------------------------------|-----------------------------------------------|------------|
@@ -70,4 +70,6 @@ The following table describes factors that can impact the cost of this scenario.
 ## See also
 
 - [Estimate the cost of archiving data](archive-cost-estimation.md)
+- [Estimate the cost of using Azure Blob Storage](blob-storage-estimate-costs.md)
+- [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md)
 - [Plan and manage costs for Azure Blob Storage](../common/storage-plan-manage-costs.md)

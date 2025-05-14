@@ -19,7 +19,7 @@ This sample estimates the costs associated with uploading and downloading data f
 
 ## Scenario
 
-In this scenario, client applications are located in different Azure regions across the continent. These client applications generate and upload **50,000** log files. Each file is **1 GB** in size. Because the account is configured for Geo-redundant storage (GRS), each file that is uploaded incurs a data transfer fee and a network bandwidth fee because data is replicated in a secondary region. 
+In this scenario, client applications are located in different Azure regions across the continent. These client applications generate and upload **50,000** log files. Each file is **1 GB** in size. Because the account is configured for Geo-redundant storage (GRS), each file that is uploaded incurs a data transfer fee and a network bandwidth fee. 
 
 Client applications download about half of those log files for diagnostic analysis. However, **75%** of those client applications are not located in the same region as the storage account so they incur a data transfer fee and a network bandwidth fee for each download. 
 
@@ -41,7 +41,7 @@ This sample estimate doesn't include the [cost of data storage](blob-storage-est
 
 ## Breakdown
 
-The following table shows how each cost component is calculated.
+Based on [these sample prices](blob-storage-estimate-costs.md#sample-prices), the following table shows how each cost component is calculated.
 
 | Cost factor                                           | Calculation                                  | Value       |
 |-------------------------------------------------------|----------------------------------------------|-------------|
@@ -70,5 +70,7 @@ The following table describes factors that can impact the cost of this scenario.
 
 ## See also
 
+- [Estimate the cost of using Azure Blob Storage](blob-storage-estimate-costs.md)
+- [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation.md)
 - [Estimate the cost of archiving data](archive-cost-estimation.md)
 - [Plan and manage costs for Azure Blob Storage](../common/storage-plan-manage-costs.md)
