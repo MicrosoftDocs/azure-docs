@@ -44,7 +44,7 @@ If you need to manually connect to an emulator that is running locally, open the
 ### Remote emulator
 
 > [!NOTE]
-> Connecting Storage Explorer to a remote emulator isn't recommended. Certain remote emulator configurations might make it difficult for Storage Explorer to understand that an emulator is being connected to, which might affect some features. For best results, configure your emulator to use the default development account name and key, and then use a name and key connection string to connect.
+> Connecting Storage Explorer to a remote emulator isn't recommended. Certain remote emulator configurations might make it difficult for Storage Explorer to recognize these as emulator connections, which might affect some features. For best results, configure your emulator to use the default development account name and key, and then use a name and key connection string to connect.
 
 If you need to manually connect to an emulator running on a different machine, then you need to construct a connection string that details how to connect to your emulator. The connection string likely needs to explicitly define the endpoint for each service type.
 
