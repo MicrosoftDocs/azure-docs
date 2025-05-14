@@ -12,6 +12,8 @@ ms.author: anfdocs
 
 All deployments start with the volumes for a single SAP HANA host. This is the case even for large, multiple-host installations. The shared, log-backup, and data-backup volumes are created only for the first host. All other hosts in a multiple-host environment share these volumes, and they add only data and log volumes for each additional host.
 
+[!INCLUDE [Application volume group CLI & PowerShell limitation](includes/application-volume-group-powershell.md)]
+
 This article describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA.
 
 ## Before you begin

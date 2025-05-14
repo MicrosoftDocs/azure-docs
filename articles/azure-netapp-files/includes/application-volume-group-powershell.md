@@ -15,4 +15,4 @@ ms.author: anfdocs
 >[!IMPORTANT]
 >Currently, using the the Azure CLI or PowerShell to create or modify SAP HANA application volume groups with availability zones or Standard network features isn't supported.
 
-[!INCLUDE [Application volume group CLI & PowerShell limitation](includes/application-volume-group-powershell.md)]
+
