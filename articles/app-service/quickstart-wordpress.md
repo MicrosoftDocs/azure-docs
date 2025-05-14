@@ -64,6 +64,8 @@ In the Add-ins tab, recommended settings are already enabled by default:
    - Azure Front Door (AFD) provides dynamic site acceleration that reduces response times while also allowing content delivery by caching at nearest edge servers for faster media downloads.
    - Azure Blob Storage allows you to store and access images, videos and other files. This effectively reduces the load on your web server thereby improving performance and user experience.
 
+See [add-ins and more](https://techcommunity.microsoft.com/blog/appsonazureblog/add-ins-and-more-%E2%80%93-wordpress-on-app-service/4408925) to learn more about WordPress add-ins.
+
 ## Manage the MySQL flexible server, username, or password (optional)
 
 - The MySQL Flexible Server is created behind a private [Virtual Network](../virtual-network/virtual-networks-overview.md) and can't be accessed directly. To access or manage the database, use phpMyAdmin that's deployed with the WordPress site. You can access phpMyAdmin by following these steps:
