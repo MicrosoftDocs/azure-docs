@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: concept-article
-ms.date: 08/08/2024
+ms.date: 05/14/2025
 ms.author: anfdocs
 ---
 # Configure application volume group for Oracle using REST API
