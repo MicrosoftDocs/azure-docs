@@ -39,6 +39,8 @@ For illustration:
   - Maintenance Mode: Begins October 9, 2025, or upon release of 9.x (whichever is later), lasting at least 12 months
   - Out of Support: After maintenance mode ends (e.g., October 9, 2026, or later if 9.x is released after October 9, 2025)
 
+---
+
 ## Existing releases
 
 For major versions released prior to the adoption of this policy, a grace period will be enacted. Any major version currently in deprecation mode as of the announcement of this policy will receive at least 12 months of maintenance support starting from May 20, 2025.
@@ -83,6 +85,8 @@ For major versions released prior to the adoption of this policy, a grace period
 | @azure/app-configuration-provider                        | 2.x.x   | February 13, 2025  | --                          | --                        |
 | @azure/app-configuration-provider                        | 1.x.x   | June 5, 2024       | June 5, 2025                | June 5, 2026             |
 
+---
+
 ### Feature management
 
 #### [.NET](#tab/dotnet)
@@ -118,6 +122,8 @@ For major versions released prior to the adoption of this policy, a grace period
 |--------------------------------------------|---------|--------------------|-----------------------------|---------------------------|
 | @microsoft/feature-management               | 2.x.x   | January 14, 2025   | --                          | --                        |
 | @microsoft/feature-management               | 1.x.x   | September 25, 2024 | September 25, 2025          | September 25, 2026        |
+
+---
 
 Dates marked with an asterisk '*' denote an extension due to the initial announcement grace period. This table lists the highest out-of-support version for any given library. Any existing library version lower than the ones listed here is considered to be out of support.
 
