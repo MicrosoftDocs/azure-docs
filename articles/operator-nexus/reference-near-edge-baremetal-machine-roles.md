@@ -40,11 +40,6 @@ az networkcloud baremetalmachine list \
   --sub <subscription> \
   --query "sort_by([].{name:name,readyState:readyState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,powerState:powerState,cordonStatus:cordonStatus,machineRoles:machineRoles | join(', ', @)}, &name)" \
   --output table
-```
-
-### Sample output for green field deployment
-
-```azurecli
 
 | Name             | ReadyState | DetailedStatus | DetailedStatusMessage                    | PowerState | CordonStatus | MachineRoles                                         | Notes                    |
 |------------------|------------|----------------|------------------------------------------|------------|--------------|------------------------------------------------------|--------------------------|
@@ -58,6 +53,7 @@ az networkcloud baremetalmachine list \
 | x01dev01c4mg02   | True       | Provisioned    | The OS is provisioned to the machine.    | On         | Uncordoned   | platform.afo-nc.microsoft.com/management-plane=true  | Management plane node    |
 | x01dev01c1co01   | True       | Provisioned    | The OS is provisioned to the machine.    | On         | Uncordoned   | platform.afo-nc.microsoft.com/compute-plane=true     | Compute plane node       |
 | x01dev01c1co02   | True       | Provisioned    | The OS is provisioned to the machine.    | On         | Uncordoned   | platform.afo-nc.microsoft.com/compute-plane=true     | Compute plane node       |
+```
 
 In the example, the BMM `x01dev01c2mg02` serves as the spare control plane node, which is currently powered off but in `Available` state.
 
@@ -65,9 +61,7 @@ In the example, the BMM `x01dev01c2mg02` serves as the spare control plane node,
 
 This spare control plane machine functions as a standby, ready to be provisioned just-in-time during Cluster upgrades or to replace another control plane machine deemed unhealthy.
 
-For any initial Cluster deployment *(green field, GF)*, we have a total of 144 nodes available.
-Out of these, 143 nodes are active, and 1 node is designated as a spare.
-The spare node is always one of the servers in the control plane pool.
+For any initial Cluster deployment *(greenfield, GF)*, there will always be one BMM designated as the spare node from the control plane pool.
 The spare node is never provisioned and doesn't have the Cluster version, Kubernetes version, and Operations, Administration, and Maintenance (OAM) IP information populated on the resource.
 The spare node’s `cordonState` is set to `Uncordoned`, the `powerState` is set to `Off`, and the Kubernetes version value is unset.
 The `detailedStatus` is made `Available` and its `detailedStatusMessage` is `Available to participate in the cluster.`
