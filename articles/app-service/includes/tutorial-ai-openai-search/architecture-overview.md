@@ -8,7 +8,7 @@ ms.author: cephalin
 
 Before you begin deployment, it's helpful to understand the architecture of the application you'll be building. The following diagram is from [Custom RAG pattern for Azure AI Search](/azure/search/retrieval-augmented-generation-overview?tabs=docs#custom-rag-pattern-for-azure-ai-search):
 
-:::image type="content" source="media/tutorial-ai-openai-search-dotnet/architecture-diagram.png" alt-text="Architecture diagram showing a web app connecting to Azure OpenAI and Azure AI Search, with Storage as the data source":::
+:::image type="content" source="../../media/tutorial-ai-openai-search-dotnet/architecture-diagram.png" alt-text="Architecture diagram showing a web app connecting to Azure OpenAI and Azure AI Search, with Storage as the data source":::
 
 In this tutorial, the Blazer application in App Service takes care of both the app UX and the app server. However, it doesn't make a separate knowledge query to Azure AI Search. Instead, it tells Azure OpenAI to do the knowledge querying specifying Azure AI Search as a data source. This architecture offers several key advantages:
 

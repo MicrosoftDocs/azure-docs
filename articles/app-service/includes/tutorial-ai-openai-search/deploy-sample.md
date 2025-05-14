@@ -37,7 +37,7 @@ ms.author: cephalin
    - Set up the necessary role assignments for secure access between services.
 
    > [!NOTE]
-   > To learn more about how managed identities work, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) and [How to use managed identities with App Service](../overview-managed-identity.md).
+   > To learn more about how managed identities work, see [What are managed identities for Azure resources?](/azure/active-directory/managed-identities-azure-resources/overview) and [How to use managed identities with App Service](../../overview-managed-identity.md).
 
 7. After successful deployment, you'll see a URL for your deployed application. Make note of this URL, but don't access it yet because you still need to set up the search index.
 

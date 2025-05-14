@@ -1,6 +1,6 @@
 ---
 title: RAG application with Azure OpenAI and Azure AI Search (Spring Boot)
-description: Learn how to build and deploy a Retrieval Augmented Generation (RAG) application using Blazor, Azure OpenAI, and Azure AI Search.
+description: Learn how to build and deploy a Springi Boot Retrieval Augmented Generation (RAG) application using App Service, Azure OpenAI, and Azure AI Search.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
@@ -193,7 +193,7 @@ AzureSearchChatExtensionConfiguration searchConfiguration =
    );
 ```
 
-This setup enables secure, passwordless communication between your Spring Boot app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](https://learn.microsoft.com/java/api/com.azure.identity.defaultazurecredential) and the [Azure Identity client library for Java](https://learn.microsoft.com/java/api/overview/azure/identity-readme).
+This setup enables secure, passwordless communication between your Spring Boot app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](/java/api/com.azure.identity.defaultazurecredential) and the [Azure Identity client library for Java](/java/api/overview/azure/identity-readme).
 
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
