@@ -42,7 +42,7 @@ In this tutorial, you learn to:
 
 - An Azure Front Door with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
 
-- Azure Cloud Shell or Azure PowerShell.
+- Azure Cloud Shell or Azure PowerShell to register Front Door service principal in your Microsoft Entra ID when [using your own certificate](#option-2-use-your-own-certificate).
 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
@@ -54,7 +54,7 @@ In this tutorial, you learn to:
 
 - An Azure Front Door with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
 
-- Azure Cloud Shell or Azure CLI.
+- Azure Cloud Shell or Azure CLI to register Front Door service principal in your Microsoft Entra ID when [using your own certificate](#option-2-use-your-own-certificate).
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
@@ -112,10 +112,9 @@ Use [New-AzADServicePrincipal](/powershell/module/az.resources/new-azadservicepr
 New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"
 ```
 
-
 # [**Azure CLI**](#tab/cli)
 
-Use [/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create](/cli/azure/ad/sp#az-ad-sp-create) command to register the Front Door service principal in your Microsoft Entra ID.
+Use [az-ad-sp create](/cli/azure/ad/sp#az-ad-sp-create) command to register the Front Door service principal in your Microsoft Entra ID.
 
 ```azurecli-interactive
 az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
@@ -162,7 +161,7 @@ az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
 
 ## Validate the domain
 
-If your CNAME record still exists and doesn't contain the afdverify subdomain, DigiCert automatically validates ownership of your custom domain.
+If your CNAME record still exists and doesn't contain the `afdverify` subdomain, DigiCert automatically validates ownership of your custom domain.
 
 Your CNAME record should be in the following format:
 
