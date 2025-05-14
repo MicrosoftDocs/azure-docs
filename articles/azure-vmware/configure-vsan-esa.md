@@ -14,7 +14,7 @@ ms.date:     05/12/2025
 
 # Configure VMware vSAN (ESA)
 
-VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) has enhanced capabilities that are configured by default with each Azure VMware Solution deployment, and each cluster utilizes its own high-performance vSAN ESA datastore. Below are the Azure VMware Solution SKUs that support vSAN ESA as the default architecture type, with the following configurations per cluster:
+VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) offers enhanced capabilities that are configured by default with each Azure VMware Solution deployment. Each cluster uses its own high-performance vSAN ESA datastore. Below are the Azure VMware Solution SKUs that support vSAN ESA as the default architecture type, along with the following configurations per cluster:
 
 | **Field** | **Value** |
 | --- | --- |
