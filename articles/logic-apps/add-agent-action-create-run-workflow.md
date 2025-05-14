@@ -76,7 +76,7 @@ This release has the following limitations or known issues:
 
    - The logic app resource that contains the workflow must use the **Consumption** hosting option.
 
-   - The logic app resource must use the same Azure subscripton that you use with Azure AI Foundry.
+   - The logic app resource must use the same Azure subscription that you use with Azure AI Foundry.
 
    - The workflow must start with the [trigger named **When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
