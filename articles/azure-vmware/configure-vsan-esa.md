@@ -8,7 +8,7 @@ description: Configure VMware vSAN (ESA)
 author:      jkpravinkumar # GitHub alias
 ms.author:   pjeyakumar # Microsoft alias
 ms.service: azure-vmware
-ms.topic: article
+ms.topic: how-to
 ms.date:     05/12/2025
 ---
 
