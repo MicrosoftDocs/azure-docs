@@ -151,7 +151,7 @@ VMware Cloud Director on Azure VMware solution is supported for eligible enterpr
 
 ### VMware Cloud Director responsibility matrix on Azure VMware Solution
 
-The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](azure-vmware/introduction.md)
+The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](introduction.md)
 
 ### Can I use non vSAN storage using VMware Cloud Director with Azure VMware Solution?
 
