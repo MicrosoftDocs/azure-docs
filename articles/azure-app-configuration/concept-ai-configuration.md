@@ -9,7 +9,7 @@ ms.date: 04/18/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# AI configuration
+## AI configuration
 
 AI application development often requires rapid iteration of prompts and frequent tuning of model parameters to meet evolving goals such as quality, responsiveness, customer satisfaction, and cost efficiency. AI configuration in Azure App Configuration helps streamline this process by decoupling model settings from application code, enabling faster, safer, and more flexible iteration. Here are some key benefits:
 

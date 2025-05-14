@@ -66,7 +66,7 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the _Program.cs_ file.
 
-    You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your user account the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     var credential = new DefaultAzureCredential();
@@ -74,7 +74,7 @@ In this quickstart you will create a .NET console app that retrieves chat comple
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
-            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
+            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential);
         }).Build();
@@ -85,7 +85,7 @@ In this quickstart you will create a .NET console app that retrieves chat comple
     Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
     ```
 
-1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your credential the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor). For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
+1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your user account the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor) role. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     // Existing code to connect to your App configuration store
@@ -162,7 +162,7 @@ In this quickstart you will create a .NET console app that retrieves chat comple
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
-            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIG_ENDPOINT");
+            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential);
 
@@ -215,22 +215,22 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
 ## Build and run the app locally
 
-1. Set the environment variable named **AZURE_APPCONFIG_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
+1. Set the environment variable named **AZURE_APPCONFIGURATION_ENDPOINT** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use PowerShell, run the following command:
     ```pwsh
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
     ```
 
     If you use macOS or Linux run the following command:
     ```
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIGURATION_ENDPOINT ='<endpoint-of-your-app-configuration-store>'
     ```
 
 1. After the environment variable is properly set, run the following command to run and build your app locally:
