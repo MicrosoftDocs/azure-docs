@@ -383,7 +383,7 @@ spec:
 
 ### Configuration refresh
 
-When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. In the following sample, the Kubernetes provider checks Azure App Configuration for updates every minute. The associated ConfigMap and Secret are regenerated only when changes are detected. For more details on monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
+When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. In the following sample, the Kubernetes provider checks Azure App Configuration for updates every minute. The associated ConfigMap and Secret are regenerated only when changes are detected.
 
 ``` yaml
 apiVersion: azconfig.io/v1
