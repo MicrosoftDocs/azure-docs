@@ -35,7 +35,7 @@ The following table lists PowerShell scripts built for use with Azure PowerShell
 |**Back up and restore app**||
 | [Back up a web app using PowerShell](./scripts/powershell-backup-onetime.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app and creates a one-time backup for it. |
 | [Create a scheduled backup for a web app using PowerShell](./scripts/powershell-backup-scheduled.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app and creates a scheduled backup for it. |
-| [Delete a backup for a web using Azure PowerShell](./scripts/powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deletes an existing backup for an app. |
+| [Delete a backup for a web app using Azure PowerShell](./scripts/powershell-backup-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Deletes an existing backup for an app. |
 | [Restore a web app from a backup using Azure PowerShell](./scripts/powershell-backup-restore.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Restores an app from a previously completed backup. |
 | [Restore a web app from a backup in another subscription](./scripts/powershell-backup-restore-diff-sub.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Restores a web app from a backup in another subscription. |
 |**Monitor app**||
