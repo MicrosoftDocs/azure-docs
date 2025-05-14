@@ -14,6 +14,9 @@ ms.author: normesta
 
 This sample estimate shows the cost of to archive data and then retrieve some portion of that data before the 180 day limit.
 
+> [!IMPORTANT]
+> This estimate is based on [these sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
+
 ## Scenario
 
 In this scenario you upload **2000** blobs to the archive access tier by using the `blob.core.windows.net` storage endpoint. Each blob is **10 GB** in size and is uploaded in **8 MiB** blocks. 
@@ -25,9 +28,6 @@ The account is located in the East US region, and is configured for locally-redu
 ## Estimate
 
 The following table shows the sample estimate at a glance. 
-
-> [!IMPORTANT]
-> This estimate is based on [these sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
 
 | Cost component               | Estimate    |
 |--------------------------|-------------|
@@ -46,16 +46,13 @@ The following table shows how each cost component is calculated.
 | Cost factor                      | Calculation                                   | Value      |
 |----------------------------------|-----------------------------------------------|------------|
 | PutBlock operations per blob     | 10 GiB / 8-MiB block                          | 1280       |
-| PutBlockList operations per blob |                                               | 1          |
+| PutBlockList operations per blob | 1 per blob                                    | 1          |
 | **Cost of write operations**     | (2,000 blobs * 1,281) * write operation price | **$28.18** |
-| <br>                             |                                               |            |
 | SetBlobTier operations           | 2000 blobs * 20%                              | 400        |
 | **Cost of read operations**      | 400 operations * read operation price         | **$0.22**  |
-| <br>                             |                                               |            |
 | Total file size (GB)             |                                               | 20,000     |
 | Data retrieval size              | 20,000 GB * 20%                               | 4,000      |
 | **Data retrieval fee**           | 4,000 blobs * price of data retrieval         | **$88.00** |
-| <br>                             |                                               |            |
 | Rough number of months penalty   | (180 days - 90 days) / 30 days                | 3          |
 | **Early deletion penalty**       | 4000 blobs * price of archive storage / 3     | **$24.00** |
 
