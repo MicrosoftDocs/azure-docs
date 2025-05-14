@@ -33,8 +33,15 @@ A Storage Explorer direct link always starts with protocol `storageexplorer://`.
 | `resourcetype` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. Must be either one of `Azure.BlobContainer`, `Azure.FileShare`, `Azure.Queue`, or `Azure.Table`.
 | `resourcename` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. The name of the linked resource.
 
-Here's an example direct link to a blob container. 
-`storageexplorer://v=1&accountid=/subscriptions/the_subscription_id/resourceGroups/the_resource_group_name/providers/Microsoft.Storage/storageAccounts/the_storage_account_name&subscriptionid=the_subscription_id&resourcetype=Azure.BlobContainer&resourcename=the_blob_container_name`
+Here's an example direct link to a blob container:
+
+```
+storageexplorer://v=1
+&accountid=/subscriptions/the_subscription_id/resourceGroups/the_resource_group_name/providers/Microsoft.Storage/storageAccounts/the_storage_account_name
+&subscriptionid=the_subscription_id
+&resourcetype=Azure.BlobContainer
+&resourcename=the_blob_container_name
+```
 
 ## Get a direct link from Storage Explorer
 
