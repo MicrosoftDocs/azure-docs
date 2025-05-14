@@ -251,7 +251,7 @@ return response;
 
 In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents.
 
-### What is the advantage of using managed identities in this solution?
+### What's the advantage of using managed identities in this solution?
 
 Managed identities eliminate the need to store credentials in your code or configuration. By using managed identities, the application can securely access Azure services like Azure OpenAI and Azure AI Search without managing secrets. This approach follows zero trust security principles and reduces the risk of credential exposure.
 
