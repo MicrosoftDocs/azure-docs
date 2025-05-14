@@ -33,9 +33,9 @@ In this article learn how to:
 > * Remove storage policy
 
 
-## Prerequisites
+## Prerequisites (For vSAN OSA based clusters)
 
-Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.com/us/en/vmware-cis/cloud/vmware-cloud-on-aws/SaaS/operations-guide/managing-sddc-hosts-and-clusters/vsan-storage-in-vmware-cloud-on-aws/virtual-san-policies-aws.html).
+Make sure that the minimum level of hosts are met.
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
@@ -46,6 +46,17 @@ Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.co
 | RAID-1 (Mirroring)  | 3  | 7  |
 
 
+## Prerequisites (For vSAN ESA based clusters)
+
+Make sure that the minimum level of hosts are met.
+
+|  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
+| --- | :---: | :---: |
+| RAID-1 (Mirroring) <br />Default setting.  | 1  | 3  |
+| RAID-5 (ESA Optimized)  | 1  | 3  |
+| RAID-1 (Mirroring)  | 2  | 5  |
+| RAID-6 (ESA Optimized)  | 2  | 5  |
+| RAID-1 (Mirroring)  | 3  | 7  |
 
 
 ## List storage policies
