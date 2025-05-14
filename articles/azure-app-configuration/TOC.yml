@@ -330,8 +330,6 @@
     items:
     - name: Overview
       href: ./configuration-provider-overview.md
-    - name: Support policy
-      href: ./client-library-support-policy.md
     - name: .NET
       items:
       - name: API reference
@@ -373,8 +371,6 @@
     items:
     - name: Overview
       href: ./feature-management-overview.md
-    - name: Support policy
-      href: ./client-library-support-policy.md
     - name: .NET
       items:
       - name: Feature reference
@@ -418,6 +414,8 @@
     href: https://azure.microsoft.com/pricing/details/app-configuration/
   - name: Roadmap
     href: https://github.com/Azure/AppConfiguration/projects/1
+  - name: Support policy
+    href: ./client-library-support-policy.md
   - name: Videos
     items:
     - name: Getting started with App Configuration
