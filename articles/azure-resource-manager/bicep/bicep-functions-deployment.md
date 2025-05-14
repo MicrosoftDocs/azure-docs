@@ -20,7 +20,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-This function returns the information about the current deployment principal, including tenant ID, object ID, and user principal name.
+This function returns the information about the current deployment principal, including object ID, tenant ID, and user principal name.
 
 ```json
 {
@@ -44,7 +44,7 @@ The preceding example returns the following object:
 {
   "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
   "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
-  "userPrincipalName":"someone@contoso.com"
+  "userPrincipalName":"john.doe@contoso.com"
 }
 ```
 
