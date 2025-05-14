@@ -1,3 +1,11 @@
+---
+title: Azure Resource Graph GET/LIST API Guidance
+description: Learn to use the GET/LIST API to avoid requests being throttled in Azure Resource Graph.
+ms.date: 05/14/2025
+ms.topic: conceptual
+ms.custom: devx-track-csharp
+---
+
 # Azure Resource Graph (ARG) GET/LIST API 
 
 ARG GET/LIST API significantly reduces READ throttling by serving all incoming GET and LIST calls against ARG platform with smart routing controls in control plane. The API aligns with the existing request and response contracts of Azure control plane APIs while addressing throttling issues for customers. 
