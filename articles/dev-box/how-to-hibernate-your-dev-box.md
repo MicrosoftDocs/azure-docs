@@ -14,6 +14,8 @@ ms.topic: how-to
 
 # Hibernate a dev box in Microsoft Dev Box
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
 In this article, you learn how to hibernate and resume a dev box in Microsoft Dev Box. 
 
 Hibernation is a power-saving state that saves your running applications to your hard disk and then shuts down the virtual machine (VM). When you resume the VM, all your previous work is restored. 
