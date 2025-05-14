@@ -143,7 +143,7 @@ Use the NFDV template to set a default value for `applicationEnablement`. The fo
       }
 ```
 
-To manage the `applicationEnablement` value more dynamically, the Operator can pass a realtime value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead it's suggested to parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. This requires the following modifications to the CGS, NF templates and finally the CGV.
+To manage the `applicationEnablement` value more dynamically, the Operator can pass a real-time value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead it's suggested to parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. This requires the following modifications to the CGS, NF templates and finally the CGV.
 
 #### CGS template
 The CGS template must be updated to include one variable declaration for each line to parameterize under `roleOverrideValues`. The below example demonstrates three override values, one to for nfConfiguration [0] and two for nfApplication options [1,2].
