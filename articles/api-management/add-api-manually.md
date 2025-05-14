@@ -85,7 +85,7 @@ This section shows how to add an operation that takes a parameter. In this examp
 Test the operation in the Azure portal. (You can also test it in the developer portal.)
 
 1. Select the **Test** tab.
-1. Select **GetStatus**. Under **code**, enter **200**. 
+1. Select **GetStatus**. In **code**, enter **200**. 
 1. Select **Send**.
 
     The response that the `http://httpbin.org/status/200` operation generates appears in the **HTTP response** section. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
