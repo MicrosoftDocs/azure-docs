@@ -16,18 +16,16 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled in custom log tables and provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#auxiliary-logs). Summary rules can help optimize your data for:
+Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate insights from large sets of data in any log tier, including the [auxiliary log tier](billing.md#auxiliary-logs), at a regular cadence. Working with summarized data enhances query performance and helps optimize your data for:
 
 - **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
 - **Security and data privacy**, by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
 
-Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer periods in historical investigations, hunting, and compliance activities.
-
-Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
+Microsoft Sentinel stores summary rule results in custom tables with the **Analytics** data plan. For more information on data plans and storage costs, see [Log table plans](/azure/azure-monitor/logs/basic-logs-configure).
 
 > [!IMPORTANT]
-> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 >
@@ -48,24 +46,24 @@ We recommend that you [experiment with your summary rule query](hunts.md) in the
 
 1. To view the available summary rule templates, open the Content Hub page and filter **Content type** by **Summary rules**.
 
-   <img src="media/summary-rule-templatesmd/image3.png" style="width:6.5in;height:4.05208in" alt="A screenshot of a computer Description automatically generated" />
+   <img src="media/summary-rule-templatesmd/image3.png" alt="A screenshot of a computer Description automatically generated" />
 
 1. Select a summary rule template. A detailed panel with information about the summary rule template opens. 
 
 1. Select **Install** to install the summary rule template.
 
-   <img src="media/summary-rule-templatesmd/image4.png" style="width:6.5in;height:3.21111in" alt="A screenshot of a computer Description automatically generated" />
+   <img src="media/summary-rule-templatesmd/image4.png" alt="A screenshot of a computer Description automatically generated" />
 
 1. Select **Templates** tab on the **Summary rules** page to view and manage all the installed summary rules templates.
 
-   <img src="media/summary-rule-templatesmd/image5.png" style="width:6.5in;height:3.18958in" alt="A screenshot of a computer Description automatically generated" />
+   <img src="media/summary-rule-templatesmd/image5.png" alt="A screenshot of a computer Description automatically generated" />
 
 1. Select a summary rule template. This opens the details panel with all of the summary rule information. 
 
 1. Select **Create** to customize the summary rule template or install it as-is if it suits your requirements. Follow the [summary rules
 documentation](https://learn.microsoft.com/en-us/azure/sentinel/summary-rules) to create the rule.
 
-   <img src="media/summary-rule-templatesmd/image6.png" style="width:6.5in;height:3.64722in" alt="A screenshot of a computer Description automatically generated" />
+   <img src="media/summary-rule-templatesmd/image6.png" alt="A screenshot of a computer Description automatically generated" />
 
 ## Create a new summary rule
 
@@ -92,7 +90,7 @@ Create a new summary rule to aggregate a specific large set of data into a dynam
     If **SummaryLogs** diagnostic settings are already enabled, but you want to modify the settings, select **Configure advanced diagnostic settings**. When you come back to the **Summary rule wizard** page, make sure to select **Refresh** to refresh your setting details.
 
     > [!IMPORTANT]
-    > The **SummaryLogs** diagnostic settings has additional costs. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
+    > The **SummaryLogs** diagnostic setting has additional costs. For more information, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
     >
 
 1. Select **Next: Set summary logic >** to continue.
