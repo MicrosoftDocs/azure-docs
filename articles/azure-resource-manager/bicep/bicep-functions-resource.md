@@ -3,7 +3,7 @@ title: Bicep functions - resources
 description: Describes the functions to use in a Bicep file to retrieve values about resources.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/09/2025
+ms.date: 05/14/2025
 ---
 
 # Resource functions for Bicep
@@ -764,7 +764,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 |:--- |:--- |:--- |:--- |
 | subscriptionId | Yes | string | The ID of the Azure subscription (for example, `12345678-1234-1234-1234-1234567890ab`). |
 | location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
-| physicalZone | Yes | string | The physical availability zone identifier (for example, a data center-specific identifier like `West US 2 - Zone A`). |
+| physicalZone | Yes | string | The physical availability zone identifier (for example, a data center-specific identifier like `westus2-az1`). |
 
 ### Return value
 
@@ -785,12 +785,12 @@ The following example retrieves the logical zone for a physical zone in West US 
 
 ```bicep
 param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
-param physicalZone string = 'West US 2 - Zone A'
+param physicalZone string = 'westus2-az1'
 
 output logicalZone string = toLogicalZone(subscriptionId, 'westus2', physicalZone)
 ```
 
-Expected output (assuming `West US 2 - Zone A` maps to logical zone `1`):
+Expected output:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -800,7 +800,7 @@ The following example uses `toLogicalZone` to configure a virtual machine with t
 
 ```bicep
 param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
-param physicalZone string = 'West US 2 - Zone A'
+param physicalZone string = 'westus2-az1'
 param location string = 'westus2'
 
 var logicalZone = toLogicalZone(subscriptionId, location, physicalZone)
@@ -829,7 +829,7 @@ Expected output:
 
 `toPhysicalZone(subscriptionId, location, logicalZone)`
 
-Returns the physical availability zone identifier (e.g., a data center-specific identifier like `West US 2 - Zone A`) corresponding to a logical availability zone for a specified subscription in a given Azure region.
+Returns the physical availability zone identifier (e.g., a data center-specific identifier like `westus2-az1`) corresponding to a logical availability zone for a specified subscription in a given Azure region.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
@@ -843,7 +843,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions)
 
 ### Return value
 
-A string representing the physical availability zone identifier (e.g., `West US 2 - Zone A`) that corresponds to the specified logical zone in the given region and subscription. If the logical zone is invalid or not supported, an empty string (`''`) is returned.
+A string representing the physical availability zone identifier (e.g., `westus2-az1`) that corresponds to the specified logical zone in the given region and subscription. If the logical zone is invalid or not supported, an empty string (`''`) is returned.
 
 ### Remarks
 
@@ -865,11 +865,11 @@ param logicalZone string = '1'
 output physicalZone string = toPhysicalZone(subscriptionId, 'westus2', logicalZone)
 ```
 
-Expected output (assuming logical zone `1` maps to `West US 2 - Zone A`):
+Expected output (assuming logical zone `1` maps to `westus2-az1`):
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| physicalZone | String | `West US 2 - Zone A` |
+| physicalZone | String | `westus2-az1` |
 
 The following example uses `toPhysicalZone` to log the physical zone for a virtual machine deployment:
 
@@ -896,7 +896,7 @@ Expected output:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| physicalZone | String | `West US 2 - Zone A` |
+| physicalZone | String | `westus2-az1` |
 
 ---
 
