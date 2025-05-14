@@ -2,10 +2,10 @@
 title: Configure Premium V4 tier
 description: Learn how to better performance for your web, mobile, and API app in Azure App Service by scaling to the new Premium V4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost
-ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
-ms.date: 05/3/2025
+ms.date: 05/12/2025
 ms.author: msangapu
+ms.custom: references_regions
 author: msangapu-msft
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 #customer intent: As a deployment engineer, I want to understand the process and the benefits of scaling up apps to the Premium V4 pricing tier in Azure App Service.
@@ -97,7 +97,6 @@ Premium V4 is available in the following regions:
 - West Central US
 - North Europe
 
-
 ## Scale up from an unsupported resource group and region combination
 
 If your app runs where Premium V4 isn't available (either the deployment or the region), redeploy it to use Premium V4. Two options exist:
@@ -129,7 +128,7 @@ az appservice plan create \
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-The following command creates an App Service plan in _P1V4_. The options for `-WorkerSize` are *Small*, *Medium*, and *Large*.
+The following command creates an App Service plan in *P1V4*. The options for `-WorkerSize` are *Small*, *Medium*, and *Large*.
 
 ```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `

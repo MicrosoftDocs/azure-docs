@@ -182,7 +182,7 @@ Azure uses UDP port 30,000 to do network health checks. If you block this traffi
 
 #### Private ports
 
-The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range need to be open both inbound and outbound.
+The App Service private ports feature uses ports 20,000 to 30,000 on both TCP and UDP to route traffic between instances through the integrated network. The mentioned port range needs to be open both inbound and outbound.
 
 #### On-premises traffic
 
