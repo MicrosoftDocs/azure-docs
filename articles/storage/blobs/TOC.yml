@@ -513,7 +513,9 @@ items:
       - name: Estimates
         items:
         - name: Archive & retrieve
-          href: cost-estimate-archive-retrieval.md 
+          href: cost-estimate-archive-retrieval.md
+        - name: Data access from multiple regions
+          href: cost-estimate-multi-region-access.md
     - name: Optimize costs
       items:
       - name: Access tiers

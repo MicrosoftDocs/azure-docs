@@ -12,7 +12,7 @@ ms.author: normesta
 
 # Cost estimate: Large-scale data archival and retrieval 
 
-This sample estimate shows the cost of to archive data and then retrieve some portion of that data before the 180 day limit.
+This sample estimates the cost to archive data and then retrieve some portion of that data before the 180 day limit.
 
 > [!IMPORTANT]
 > This estimate is based on [these sample prices](blob-storage-estimate-costs.md#sample-prices). Sample prices shouldn't be used to calculate your production costs. To find official prices, see [Find the unit price for each meter](../common/storage-plan-manage-costs.md#find-the-unit-price-for-each-meter).
@@ -23,7 +23,7 @@ In this scenario you upload **2000** blobs to the archive access tier by using t
 
 After **3** months, you must rehydrate **20%** of archived data for analysis. You choose to rehydrate data by setting the access tier of these blobs to the hot tier However, because that data is retrieved before 180 days, your assessed an early deletion fee. 
 
-The account is located in the East US region, and is configured for locally-redundant storage (LRS), and hierarchical namespaces are not enabled.
+The account is located in the West US region, and is configured for locally-redundant storage (LRS), and hierarchical namespaces are not enabled.
 
 ## Estimate
 
