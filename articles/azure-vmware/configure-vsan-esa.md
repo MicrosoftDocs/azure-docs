@@ -40,7 +40,7 @@ vSAN ESA (Express Storage Architecture) is supported on the following Azure VMwa
 
 ## Set VMware vSAN TRIM/UNMAP
 
-Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vSAN ESA. Run command 'Set-AVSVSANClusterUNMAPTRIM' isn't applicable for vSAN ESA based clusters.
+Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vSAN ESA. Run command `Set-AVSVSANClusterUNMAPTRIM` isn't applicable for vSAN ESA based clusters.
 
 > [!NOTE]
 > - vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following other requirements are needed for it to function as intended.
@@ -53,7 +53,7 @@ In vSAN ESA (Express Storage Architecture), space efficiency is enabled through 
 
 ## Set VMware vSAN Data-In-Transit Encryption
 
-Run the 'Set-vSANDataInTransitEncryption' cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of an SDDC.
+Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of an SDDC.
 
 > [!NOTE]
 > Changing this setting causes a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
@@ -72,7 +72,7 @@ Run the 'Set-vSANDataInTransitEncryption' cmdlet to enable or disable data-in-
 1. Check Notifications to see the progress.
 
 >[!NOTE]
->You can also use the 'Get-vSANDataInTransitEncryptionStatus' command to check for the current status or status after performing the 'Set-vSANDataInTransitEncryptionStatus' operation and verify the cluster's current encryption state.
+>You can also use the `Get-vSANDataInTransitEncryptionStatus` command to check for the current status or status after performing the `Set-vSANDataInTransitEncryptionStatus` operation and verify the cluster's current encryption state.
 
 ## vSAN services availability
 
