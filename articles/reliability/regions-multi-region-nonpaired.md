@@ -104,7 +104,7 @@ To achieve geo-replication in nonpaired regions:
    
     - For premium page blob accounts and Azure Data Lake Storage Gen2 accounts, you can use tools such as [AzCopy](../storage/common/storage-use-azcopy-blobs-copy.md) or [Azure Data Factory](/azure/data-factory/connector-azure-blob-storage?tabs=data-factory.md).
 
-- **For Azure NetApp Files (ANF)**, you can replicate to a set of nonstandard pairs besides Azure region pairs. See [Azure NetApp Files (ANF) cross-region replication](/azure/azure-netapp-files/cross-region-replication-introduction).
+- **For Azure NetApp Files (ANF)**, you can replicate to a set of nonstandard pairs besides Azure region pairs. To learn more, see [Reliability in Azure NetApp Files](reliability-azure-netapp-files.md).
 
 - **For Azure Files:**
 
