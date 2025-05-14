@@ -79,7 +79,7 @@ The Radiology Insight adds several types of inferences/annotations to the origin
 
 Example of a Clinical Radiology document with inferences:
 
-![[Screenshot of a radiology document with a Mismatch and Follow-up Recommendation inference.](../media/radiology-insights/radiology-with-inferences.png)](../media/radiology-insights/radiology-with-inferences.png#lightbox)
+[![Screenshot of a radiology document with a Mismatch and Follow-up Recommendation inference.](../media/radiology-insights/radiology-with-inferences.png)](../media/radiology-insights/radiology-with-inferences.png#lightbox)
 
 ### Functional description of the inferences in scope and examples
 
@@ -95,7 +95,7 @@ Age mismatches are identified based on comparison of available Patient age infor
 Sex mismatches identification is based on a comparison of the patient sex information within patient’s demographic meta-data on the one hand and on the other hand patient references, sex specific findings, and sex specific body parts in the text.
 Conflicting sex information are tagged in the text.
 
-![[Screenshot of a radiology document with a Sex Mismatch.](../media/radiology-insights/radiology-sex-mismatch.png)](../media/radiology-insights/radiology-sex-mismatch.png#lightbox)
+[![Screenshot of a radiology document with a Sex Mismatch.](../media/radiology-insights/radiology-sex-mismatch.png)](../media/radiology-insights/radiology-sex-mismatch.png#lightbox)
 
 
 **Laterality Discrepancy**
@@ -104,7 +104,7 @@ A laterality, defined as "Left" (Lt, lft) and "Right" (rt, rght), along with an 
 No Mismatches on past content.
 If only Laterality and no Anatomy is available in the Procedure Description, all opposite laterality in the text is tagged. For example: "left views" in Procedure Description will list all "right" words in the report text.
 
-![[Screenshot of a radiology document with a Laterality Mismatch.](../media/radiology-insights/radiology-laterality-mismatch.png)](../media/radiology-insights/radiology-laterality-mismatch.png#lightbox)
+[![Screenshot of a radiology document with a Laterality Mismatch.](../media/radiology-insights/radiology-laterality-mismatch.png)](../media/radiology-insights/radiology-laterality-mismatch.png#lightbox)
 
 
 **CompleteOrder Discrepancy**
@@ -112,7 +112,7 @@ If only Laterality and no Anatomy is available in the Procedure Description, all
 Completeness mismatches can be made if the ordered procedure is an ultrasound for the ABDOMEN, RETROPERITONEAL, PELVIS, or US BREAST.
 A completeness mismatch is made if either the order is complete and the text isn't, or vice versa.
 
-![[Screenshot of a radiology document with a Complete Order Mismatch.](../media/radiology-insights/radiology-completeness-mismatch.png)](../media/radiology-insights/radiology-completeness-mismatch.png#lightbox)
+[![Screenshot of a radiology document with a Complete Order Mismatch.](../media/radiology-insights/radiology-completeness-mismatch.png)](../media/radiology-insights/radiology-completeness-mismatch.png#lightbox)
 
 
 **LimitedOrder Discrepancy**
@@ -120,7 +120,7 @@ A completeness mismatch is made if either the order is complete and the text isn
 Completeness mismatches can be made if the ordered procedure is an ultrasound for the ABDOMEN, RETROPERITONEAL, PELVIS, or US BREAST.
 A completeness mismatch is made if either the order is complete and the text isn't, or vice versa.
 
-![[Screenshot of a radiology document with a Limited Order Mismatch.](../media/radiology-insights/radiology-completeness-limited-mismatch.png)](../media/radiology-insights/radiology-completeness-limited-mismatch.png#lightbox)
+[![Screenshot of a radiology document with a Limited Order Mismatch.](../media/radiology-insights/radiology-completeness-limited-mismatch.png)](../media/radiology-insights/radiology-completeness-limited-mismatch.png#lightbox)
 
 
 **Finding**
@@ -139,7 +139,7 @@ Only Identifies Critical Result in the report text (not in meta-data)
 The terms are based on Mass Coalition for the Prevention of Medical Errors: 
 <http://www.macoalition.org/Initiatives/docs/CTRstarterSet.xls>.
 
-![[Screenshot of a radiology document with a Critical Result.](../media/radiology-insights/radiology-critical-result.png)](../media/radiology-insights/radiology-critical-result.png#lightbox)
+[![Screenshot of a radiology document with a Critical Result.](../media/radiology-insights/radiology-critical-result.png)](../media/radiology-insights/radiology-critical-result.png#lightbox)
 
 
 **FollowupRecommendation**
@@ -154,7 +154,7 @@ Cfr Sex Mismatch example
 Radiology Insights extracts information such as modality, body part, laterality, view, and contrast from the procedure order. Ordered procedures are normalized using the Loinc codes using the LOINC/RSNA Radiology Playbook that is developed and maintained by the LOINC/RadLex Committee: 
 <http://playbook.radlex.org/playbook/SearchRadlexAction>.
 
-![[Screenshot of a radiology document with a Procedure normalization.](../media/radiology-insights/radiology-procedure.png)](../media/radiology-insights/radiology-procedure.png#lightbox)
+[![Screenshot of a radiology document with a Procedure normalization.](../media/radiology-insights/radiology-procedure.png)](../media/radiology-insights/radiology-procedure.png#lightbox)
 
 
 **Communication**
@@ -189,7 +189,7 @@ Additionally, the sample documents in the impression section:
 The observation in the right upper lobe will also be surfaced by the model as present guidance values. However, the model will also surface guidance values that are missed and not documented in the report. If these values are documented, the model could propose other candidate recommendations according to the clinical guideline for Pulmonary Nodule. This allows the radiologist to propose a candidate recommendation and/or enhance the documentation to include additional recommendations as part of the options.  
 
 
-![[Screenshot of a radiology document with Clinical Guidance.](../media/radiology-insights/radiology-clinical-guidance.png)](../media/radiology-insights/radiology-clinical-guidance.png#lightbox)
+[![Screenshot of a radiology document with Clinical Guidance.](../media/radiology-insights/radiology-clinical-guidance.png)](../media/radiology-insights/radiology-clinical-guidance.png#lightbox)
 
   
 From the finding in the findings section (blue), the model proposes two recommendation candidates: Positron Emission Tomography and Imaging Guided Biopsy, both of the Lung. The guidance values surfaced for this finding are for the Lobe, Right Upper Lobe and for the Size, 12 mm. From the finding in the Impression section, the guidance value for the Lobe is returned, but the Size is missing and hence returned as a missing guidance value. No recommendations candidates are proposed.    
@@ -238,7 +238,7 @@ In the sample below, a CVC or Central Venous Catheter needs to be inserted into 
 In the case of missing criteria, the documentation could be updated to also cover for the missing documented but executed criteria or a retrospect could be organized to understand why these important criteria weren't included in the procedure executed.
 
 
-![[Screenshot of a radiology document with Quality Measure.](../media/radiology-insights/radiology-quality-measure.png)](../media/radiology-insights/radiology-quality-measure.png#lightbox)
+[![Screenshot of a radiology document with Quality Measure.](../media/radiology-insights/radiology-quality-measure.png)](../media/radiology-insights/radiology-quality-measure.png#lightbox)
 
 
 Figure Quality Measures: The model reports that for the Quality Measure CVC INSERTION, the documentation doesn't comply with its quality criteria and classifies the type of compliance as "performance not met" in the model response. There's missing information regarding the use of a sterile probe cover.   
@@ -287,7 +287,7 @@ The Model surfaces and highlights Risks, Scorings and Assessments with classific
 In the sample below the model identifies two inferences: the ASCVD (Atherosclerotic Cardiovascular Disease) risk with value 17.6% and the Agatston Score (measure used to quantify the amount of calcium in the coronary arteries) with value zero. The 10-year ASCVD (Atherosclerotic Cardiovascular Disease) risk score is an estimate of the likelihood that a person will experience a cardiovascular event (like a heart attack or stroke) within the next 10 years. This score is calculated (not by the model) based on various risk factors, including age, cholesterol levels, blood pressure, smoking status, diabetes, and others. In this case, a risk score of 17.6% means that, based on the person's risk factors, there's a 17.6% chance of experiencing a cardiovascular event in the next 10 years.
 
 
-![[Screenshot of a radiology document with Scoring and Assessment.](../media/radiology-insights/radiology-scoring-assessment.png)](../media/radiology-insights/radiology-scoring-assessment.png#lightbox)
+[![Screenshot of a radiology document with Scoring and Assessment.](../media/radiology-insights/radiology-scoring-assessment.png)](../media/radiology-insights/radiology-scoring-assessment.png#lightbox)
 
 Figure Risk Scoring and Assessment: The model identifies two Scoring and Assessment instances (blue), one of category ASCVD Risk with value 17.6% and one of category Calcium Score with value 0.
 
