@@ -260,4 +260,4 @@ The following table shows the operation progress when disabling HTTPS:
 ## Next step
 
 > [!div class="nextstepaction"]
-> [set up a geo-filtering policy](/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering?toc=/azure/frontdoor/TOC.json)
+> [Set up a geo-filtering policy](/azure/web-application-firewall/afds/waf-front-door-tutorial-geo-filtering?toc=/azure/frontdoor/toc.json)
