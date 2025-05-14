@@ -28,7 +28,7 @@ This article shows you how to provide security for the [custom domain](app-servi
 
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 
-1. On the left menu, select **App Services** > *\<app-name>*.
+1. On the left pane, select **App Services** > *\<app-name>*.
 
 1. On the left pane of your app, select **Custom domains**.
 

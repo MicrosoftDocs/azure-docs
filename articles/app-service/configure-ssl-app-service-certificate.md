@@ -13,7 +13,7 @@ author: msangapu-msft
 
 # Buy and manage App Service certificates
 
-This article shows how to create an App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. After  you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that's managed by Azure. It combines the simplicity of automated certificate management and the flexibility of renewal and export options.
+This article shows how to create an Azure App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. After you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that Azure manages. It combines the simplicity of automated certificate management and the flexibility of renewal and export options.
 
 If you purchase an App Service certificate from Azure, Azure manages the following tasks:
 
@@ -38,7 +38,7 @@ Currently, App Service certificates aren't supported in Azure national clouds.
 1. Go to the [Create App Service certificate page](https://portal.azure.com/#create/Microsoft.SSL) to start the purchase.
 
    > [!NOTE]
-   > App Service certificates purchased from Azure are issued by GoDaddy. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [CAA domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value `0 issue godaddy.com`.
+   > GoDaddy issues App Service certificates that are purchased from Azure. For some domains, you must explicitly allow GoDaddy as a certificate issuer by creating a [Certification Authority Authorization domain record](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) with the value `0 issue godaddy.com`.
 
    :::image type="content" source="./media/configure-ssl-certificate/purchase-app-service-cert.png" alt-text="Screenshot that shows the Create App Service certificate pane with purchase options.":::
 
@@ -57,9 +57,9 @@ Currently, App Service certificates aren't supported in Azure national clouds.
 
 #### Store the certificate in Azure Key Vault
 
-[Azure Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, we recommend that you use Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using the certificate.
+[Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, we recommend that you use Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using the certificate.
 
-1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate menu, select **Certificate Configuration** > **Step 1: Store**.
+1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate pane, select **Certificate Configuration** > **Step 1: Store**.
 
     :::image type="content" source="media/configure-ssl-certificate/configure-key-vault.png" alt-text="Screenshot that shows the Certificate Configuration pane with Step 1: Store selected.":::
 
@@ -84,23 +84,23 @@ Currently, App Service certificates aren't supported in Azure national clouds.
 
 #### Confirm domain ownership
 
-1. From the same **Certificate Configuration** page as in the previous section, select **Step 2: Verify**.
+1. On the same **Certificate Configuration** page as in the previous section, select **Step 2: Verify**.
 
     :::image type="content" source="media/configure-ssl-certificate/verify-domain.png" alt-text="Screenshot the shows the Certificate Configuration pane with Step 2: Verify selected.":::
 
-1. Select **App Service Verification**. Because you mapped the domain to your web app earlier in this section, the domain is already verified. To finish this step, just select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
+1. Select **App Service Verification**. Because you mapped the domain to your web app earlier in this section, the domain is already verified. To finish this step, select **Verify**, and then select **Refresh** until the message **Certificate is Domain Verified** appears.
 
 The following domain verification methods are supported:
 
 | Method | Description |
 |--------|-------------|
-| App Service verification | The most convenient option when the domain is already mapped to an App Service app in the same subscription because the App Service app has already verified the domain ownership. Review the last step in [Confirm domain ownership](#confirm-domain-ownership). |
-| Domain verification | Confirm an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process. |
+| App Service verification | The most convenient option when the domain is already mapped to an App Service app in the same subscription because the App Service app verified the domain ownership. Review the last step in [Confirm domain ownership](#confirm-domain-ownership). |
+| Domain verification | Confirm an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and finishes the process. |
 | Mail verification | Confirm the domain by sending an email to the domain administrator. Instructions are provided when you select the option. |
-| Manual verification | Confirm the domain by using either a DNS TXT record or an HTML page. (The latter applies only to Standard certificates. See the following note.) The steps are provided after you select the option. The HTML page option doesn't work for web apps with **HTTPS Only** enabled. For domain verification via DNS TXT record for either the root domain (for example, `contoso.com`) or the subdomain (for example, `www.contoso.com` or `test.api.contoso.com`) and regardless of the certificate SKU, you need to add a TXT record at the root domain level. Use `@` for the name and the domain verification token for the value in your DNS record. |
+| Manual verification | Confirm the domain by using either a Domain Name System (DNS) TXT record or an HTML page. (The latter applies only to Standard certificates. See the following note.) The steps are provided after you select the option. The HTML page option doesn't work for web apps with **HTTPS Only** enabled. For domain verification via DNS TXT record for either the root domain (for example, `contoso.com`) or the subdomain (for example, `www.contoso.com` or `test.api.contoso.com`) and regardless of the certificate SKU, you need to add a TXT record at the root domain level. Use `@` for the name and the domain verification token for the value in your DNS record. |
 
 > [!IMPORTANT]
-> With the Standard certificate, you get a certificate for the requested top-level domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. However, App Service Verification and Manual Verification both use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use Domain Verification and Mail Verification to include the `www` subdomain with the requested top-level domain in the certificate.
+> With the Standard certificate, you get a certificate for the requested top-level domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. App Service verification and manual verification both use HTML page verification, which doesn't support the `www` subdomain when you issue, rekey, or renew a certificate. For the Standard certificate, use domain verification and mail verification to include the `www` subdomain with the requested top-level domain in the certificate.
 
 After your certificate is domain verified, [you can import it into an App Service app](configure-ssl-certificate.md#import-an-app-service-certificate).
 
@@ -108,7 +108,7 @@ After your certificate is domain verified, [you can import it into an App Servic
 
 By default, App Service certificates have a one-year validity period. Before the expiration date, you can automatically or manually renew App Service certificates in one-year increments. The renewal process effectively gives you a new App Service certificate with the expiration date extended to one year from the existing certificate's expiration date.
 
-Starting September 23, 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renew, autorenew, or rekey process. The new certificate order remains in "pending issuance" mode during the renew, autorenew, or rekey process until you finish the domain verification.
+As of September 23, 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renewal, autorenewal, or rekey process. The new certificate order remains in **Pending issuance** mode during the renewal, autorenewal, or rekey process until you finish the domain verification.
 
 Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain reverification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 
@@ -116,7 +116,7 @@ The renewal process requires that the service principal for App Service has the 
 
 1. To change the automatic renewal setting for your App Service certificate at any time, on the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate.
 
-1. On the left menu, select **Auto Renew Settings**.
+1. On the left pane, select **Auto Renew Settings**.
 
 1. Select **On** or **Off**, and then select **Save**.
 
@@ -126,7 +126,7 @@ The renewal process requires that the service principal for App Service has the 
 
 1. To manually renew the certificate instead, select **Manual Renew**. You can request to manually renew your certificate 60 days before expiration, but [certificates can't be issued for longer than 397 days](https://www.godaddy.com/help/important-notification-about-ssl-offerings-9322).
 
-1. After the renew operation completes, select **Sync**.
+1. After the renewal operation finishes, select **Sync**.
 
    The sync operation automatically updates the hostname bindings for the certificate in App Service without causing any downtime to your apps.
 
@@ -136,13 +136,13 @@ The renewal process requires that the service principal for App Service has the 
 
 If you think your certificate's private key is compromised, you can rekey your certificate. This action rotates the certificate with a new certificate issued from the certificate authority.
 
-Starting September 23, 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renew, autorenew, or rekey process. The new certificate order remains in "pending issuance" mode during the renew, autorenew, or rekey process until you finish the domain verification.
+As of September 23, 2021, if you haven't verified the domain in the last 395 days, App Service certificates require domain verification during a renewal, autorenewal, or rekey process. The new certificate order remains in **Pending issuance** mode during the renewal, autorenewal, or rekey process until you finish the domain verification.
 
 Unlike the free App Service managed certificate, purchased App Service certificates don't have automated domain reverification. Failure to verify domain ownership results in failed renewals. For more information about how to verify your App Service certificate, review [Confirm domain ownership](#confirm-domain-ownership).
 
 The rekey process requires that the service principal for App Service has the required permissions on your key vault. These permissions are set up for you when you import an App Service certificate through the Azure portal. Make sure that you don't remove these permissions from your key vault.
 
-1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the left menu, select **Rekey and Sync**.
+1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the left pane, select **Rekey and Sync**.
 
 1. To start the process, select **Rekey**. This process can take 1 to 10 minutes to finish.
 
@@ -166,7 +166,7 @@ The exported certificate is an unmanaged artifact. App Service doesn't sync such
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate.
 
-1. On the left menu, select **Export Certificate**.
+1. On the left pane, select **Export Certificate**.
 
 1. Select **Open Key Vault Secret**.
 
@@ -208,9 +208,9 @@ Set-Content -Path appservicecertificate.pfx -Value $CertBytes -AsByteStream
 
 The downloaded .pfx file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](configure-ssl-certificate.md#upload-a-private-certificate) because the file isn't [password protected](configure-ssl-certificate.md#private-certificate-requirements).
 
-## Use Azure Advisor for App Service certificate
+## Use Azure Advisor for App Service certificates
 
-The App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. You must verify domain ownership for your certificate during the renewal, autorenewal, or rekey process if you haven't verified the domain in the last 395 days. To ensure that you don't miss any certificate that requires verification or risk any certificate from expiring, you can use Azure Advisor to view and set up alerts for the App Service certificate.
+An App Service certificate is integrated with [Azure Advisor](/azure/advisor/advisor-overview) to provide reliability recommendations for when your certificate requires domain verification. If you haven't verified the domain in the last 395 days, you must verify domain ownership for your certificate during the renewal, autorenewal, or rekey process. To make sure that you don't miss any certificate that requires verification or risk any certificate from expiring, use Advisor to view and set up alerts for the App Service certificate.
 
 ### View Advisor recommendations
 
@@ -218,17 +218,17 @@ To view Advisor recommendations for the App Service certificate:
 
 1. Go to the [Azure Advisor page](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview).
 
-1. On the left menu, select **Recommendations** > **Reliability**.
+1. On the left pane, select **Recommendations** > **Reliability**.
 
 1. Select the filter option **Type equals** and search for **App Service Certificates** from the dropdown list. If the value doesn't exist on the dropdown menu, that means no recommendation was generated for your App Service certificate resources because none of them requires domain ownership verification.
 
-### Create Advisor Alerts
+### Create Advisor alerts
 
-You [create Azure Advisor alerts on new recommendations] by using different configurations. To set up Advisor Alerts specifically for an App Service certificate so that you can get notifications when your certificate requires domain ownership validation:
+You create Advisor alerts on new recommendations by using different configurations. To set up Advisor alerts specifically for an App Service certificate so that you can get notifications when your certificate requires domain ownership validation:
 
 1. Go to the [Azure Advisor page](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/overview).
 
-1. On the left menu, select **Monitoring** > **Alerts (Preview)**.
+1. On the left pane, select **Monitoring** > **Alerts (Preview)**.
 
 1. Select **+ New Advisor Alert** on the bar at the top to open the **Create Advisor Alerts** pane.
 
@@ -246,26 +246,26 @@ If you delete an App Service certificate, the delete operation is irreversible a
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate.
 
-1. On the left menu, select **Overview** > **Delete**.
+1. On the left pane, select **Overview** > **Delete**.
 
 1. When the confirmation box opens, enter the certificate name, and then select **OK**.
 
 ## Frequently asked questions
 
-#### My App Service certificate doesn't have any value in Key Vault
+#### Why doesn't my App Service certificate have a value in Key Vault?
 
-Your App Service certificate is probably not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. As a Key Vault secret, it maintains an `Initialize` tag, and its value and content-type remain empty. When domain ownership is confirmed, the key vault secret shows a value and a content-type, and the tag changes to `Ready`.
+Your App Service certificate is probably not yet domain verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. As a key vault secret, it maintains an `Initialize` tag, and its value and content type remain empty. When domain ownership is confirmed, the key vault secret shows a value and a content type, and the tag changes to `Ready`.
 
-#### I can't export my App Service certificate with PowerShell
+#### Why can't I export my App Service certificate with PowerShell?
 
-Your App Service certificate is probably not yet domain-verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use. 
+Your App Service certificate is probably not yet domain verified. Until [domain ownership is confirmed](#confirm-domain-ownership), your App Service certificate isn't ready for use.
 
 #### What changes does the App Service certificate creation process make to my existing key vault?
 
 The creation process makes the following changes:
 
 - Adds two access policies in the vault:
-    - **Microsoft.Azure.WebSites** (or `Microsoft Azure App Service`)
+    - **Microsoft Azure App Service** (or `Microsoft.Azure.WebSites`)
     - **Microsoft certificate reseller CSM Resource Provider** (or `Microsoft.Azure.CertificateRegistration`)
 - Creates a [delete lock](../azure-resource-manager/management/lock-resources.md) called `AppServiceCertificateLock` on the vault to prevent accidental deletion of the key vault.
 

@@ -15,7 +15,7 @@ author: msangapu-msft
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. These certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Socket Layer (SSL) certificates. These private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
+You can add digital security certificates to [use in your application code](configure-ssl-certificate-in-code.md) or to [help secure custom Domain Name System (DNS) names](configure-ssl-bindings.md) in [Azure App Service](overview.md), which provides a highly scalable, self-patching web hosting service. These certificates are currently called Transport Layer Security (TLS) certificates. They were previously known as Secure Sockets Layer (SSL) certificates. These private or public certificates help you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.
 
 The following table lists the options for you to add certificates in App Service:
 
@@ -91,11 +91,11 @@ The free certificate comes with the following limitations:
 
 ---
 
-1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > *\<app-name>*.
+1. In the [Azure portal](https://portal.azure.com), on the left pane, select **App Services** > *\<app-name>*.
 
 1. On left pane of your app, select **Certificates**. In the **Managed certificates** pane, select **Add certificate**.
 
-   :::image type="content" source="media/configure-ssl-certificate/create-free-cert.png" alt-text="Screenshot that shows the app menu with Certificates, Managed certificates, and Add certificate selected.":::
+   :::image type="content" source="media/configure-ssl-certificate/create-free-cert.png" alt-text="Screenshot that shows the app pane with Certificates, Managed certificates, and Add certificate selected.":::
 
 1. Select the custom domain for the free certificate, and then select **Validate**. When validation finishes, select **Add**. You can create only one managed certificate for each supported custom domain.
 
@@ -109,7 +109,7 @@ The free certificate comes with the following limitations:
 
 To import an App Service certificate, first [buy and configure an App Service certificate](configure-ssl-app-service-certificate.md#buy-and-configure-an-app-service-certificate), and then follow the steps here.
 
-1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > *\<app-name>*.
+1. In the [Azure portal](https://portal.azure.com), on the left pane, select **App Services** > *\<app-name>*.
 
 1. On the left pane of your app, select **Certificates** > **Bring your own certificates (.pfx)** > **Add certificate**.
 
@@ -176,7 +176,7 @@ New-AzRoleAssignment -RoleDefinitionName "Key Vault Certificate User" -Applicati
 
 ### Import a certificate from your vault to your app
 
-1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > *\<app-name>*.
+1. In the [Azure portal](https://portal.azure.com), on the left pane, select **App Services** > *\<app-name>*.
 
 1. On the left pane of your app, select **Certificates** > **Bring your own certificates (.pfx)** > **Add certificate**.
 
@@ -259,7 +259,7 @@ Now, export your merged TLS/SSL certificate with the private key that was used t
 
 You're now ready to upload the certificate to App Service.
 
-1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > *\<app-name>*.
+1. In the [Azure portal](https://portal.azure.com), on the left pane, select **App Services** > *\<app-name>*.
 
 1. On the left pane of your app, select **Certificates** > **Bring your own certificates (.pfx)** > **Upload Certificate**.
 
@@ -289,7 +289,7 @@ After you upload a public certificate to an app, it's accessible only by the app
 >
 > You can upload up to 1,000 public certificates per App Service plan.
 
-1. In the [Azure portal](https://portal.azure.com), on the left menu, select **App Services** > *\<app-name>*.
+1. In the [Azure portal](https://portal.azure.com), on the left pane, select **App Services** > *\<app-name>*.
 
 1. On the left pane of your app, select **Certificates** > **Public key certificates (.cer)** > **Add certificate**.
 
