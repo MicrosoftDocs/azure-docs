@@ -69,42 +69,55 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
 - Create updated artifacts using Operator workflow.
   - If necessary, create new configuration group values (CGVs) based on new CGS.
   - Reuse and craft payload by confirming the existing site and site network service objects.
-
 - Update templates to ensure that upgrade parameters are set based on confidence in the upgrade and desired failure behavior.
   - Settings used for production may suppress failures details, while settings used for debugging, or testing, may choose to expose these details.
 
 ## Safe upgrade procedure
 Follow the following process to trigger an upgrade with Azure Operator Service Manager.
 
-### Create new NFDV resource
-For new NFDV versions, it must be in a valid SemVer format. The new version can be an upgrade, a greater value versus the deployed version, or a downgrade, a lower value versus the deployed version. The new version can differ by major, minor, or patch values.
-
-### Update new NFDV parameters
-Helm chart versions can be updated, or Helm values can be updated or parameterized as necessary. New nfApps can also be added where they didn't exist in deployed version.
-
-### Update NFDV for desired nfApp order
-UpdateDependsOn is an NFDV parameter used to specify ordering of nfApps during update operations. If `updateDependsOn` isn't provided, serial ordering of CNF applications, as appearing in the NFDV is used.
-
-### Update ARM template for desired upgrade behavior
-Make sure to set any desired CNF application `timeout`, the `atomic` parameter, and `rollbackOnTestFailure` parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
-
-### Issue SNS reput
-With onboarding complete, the reput operation is submitted. Depending on the number, size and complexity of the nfApps, the reput operation could take some time to complete (multiple hours).
-
-### Examine reput results
-If the reput is reporting a successful result, the upgrade is complete and the user should validate the state and availability of the service. If the reput is reporting a failure, follow the steps in the upgrade failure recovery section to continue.
+* Create new NFDV resource
+  * For new NFDV versions, it must be in a valid SemVer format. The new version can be an upgrade, a greater value versus the deployed version, or a downgrade, a lower value versus the deployed version. The new version can differ by major, minor, or patch values.
+* Update new NFDV parameters
+  * Helm chart versions can be updated, or Helm values can be updated or parameterized as necessary. New nfApps can also be added where they didn't exist in deployed version.
+* Update NFDV for desired nfApp order
+  * UpdateDependsOn is an NFDV parameter used to specify ordering of nfApps during update operations. If `updateDependsOn` isn't provided, serial ordering of CNF applications, as appearing in the NFDV is used.
+* Update ARM template for desired upgrade behavior
+  * Make sure to set any desired CNF application `timeout`, the `atomic` parameter, and `rollbackOnTestFailure` parameter. It may be useful to change these parameters over time as more confidence is gained in the upgrade.
+* Issue SNS reput
+  * With onboarding complete, the reput operation is submitted. Depending on the number, size and complexity of the nfApps, the reput operation could take some time to complete (multiple hours).
+* Examine reput results
+  * If the reput is reporting a successful result, the upgrade is complete and the user should validate the state and availability of the service. If the reput is reporting a failure, follow the steps in the upgrade failure recovery section to continue.
 
 ## Safe upgrade retry procedure
 In cases where a reput update fails, the following process can be followed to retry the operation.
 
-### Diagnose failed nfApp
-Resolve the root cause for nfApp failure by analyzing logs and other debugging information.
+* Diagnose failed nfApp
+  * Resolve the root cause for nfApp failure by analyzing logs and other debugging information.
+* Manually skip completed charts
+  * After fixing the failed nfApp, but before attempting an upgrade retry, consider changing the `applicationEnablement` parameter to accelerate retry behavior. This parameter can be set false, where an nfApp should be skipped. This parameter can be useful where an nfApp doesn't require an upgraded.
+* Issue SNS reput retry (repeat until success)
+  * By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
 
-### Manually skip completed charts
-After fixing the failed nfApp, but before attempting an upgrade retry, consider changing the `applicationEnablement` parameter to accelerate retry behavior. This parameter can be set false, where an nfApp should be skipped. This parameter can be useful where an nfApp doesn't require an upgraded. 
+## Control timeouts with installOptions and UpgradeOptions
+When an SNS operation starts either a helm install and helm upgrade, a 27 minute default timeout value. While this value can be customized at the global NF level, it's recommended to instead customize these values at the NF component level. This can be achieved by defining override values in the NF payload template. Further the values in the NF payload template and be exposed as operator values, allowing final customization at run-time. The following example demonstrates supported installOptions and upgradeOptions parameters applied to a single nfApp component;
 
-### Issue SNS reput retry (repeat until success)
-By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
+```
+"roleOverrideValues": ["{ 
+   "name": "hellotest",
+    "deployParametersMappingRuleProfile": {
+      "helmMappingRuleProfile": {
+       "options": {
+        "installOptions": {
+         "atomic": true,
+         "wait": true,
+         "timeout": "1" },
+        "upgradeOptions": {
+         "atomic": true,
+         "wait": true,
+         "timeout": "2" }
+        } } } }"
+    ]
+```
 
 ## Skip nfApps using applicationEnablement
 In the NFDV resource, under `deployParametersMappingRuleProfile` there's a supported property `applicationEnablement` of type enum, which takes values of Unknown, Enabled, or disabled. It can be used to manually exclude nfApp operations during network function (NF) deployment. The following example demonstrates a generic method to parameterize `applicationEnablement` as an included value in `roleOverrideValues` property.
@@ -112,7 +125,7 @@ In the NFDV resource, under `deployParametersMappingRuleProfile` there's a suppo
 ### Template changes
 While no NFDV changes are necessarily required, optionally the publisher can use the NFDV to set a default value for the `applicationEnablement` property. The default value will be used, unless its changed via `roleOverrideValues`. 
 
-#### NFDV Template
+#### NFDV template
 Use the NFDV template to set a default value for `applicationEnablement`. The following example sets `enabled` state as the default value for `hellotest` networkfunctionApplication. 
 
 ```json
@@ -132,7 +145,7 @@ Use the NFDV template to set a default value for `applicationEnablement`. The fo
 
 To manage the `applicationEnablement` value more dynamically, the Operator can pass a realtime value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead it's suggested to parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. This requires the following modifications to the CGS, NF templates and finally the CGV.
 
-#### CGS Template
+#### CGS template
 The CGS template must be updated to include one variable declaration for each line to parameterize under `roleOverrideValues`. The below example demonstrates three override values, one to for nfConfiguration [0] and two for nfApplication options [1,2].
 
 ```json
@@ -147,7 +160,7 @@ The CGS template must be updated to include one variable declaration for each li
         }
 ```
 
-#### NF Template
+#### NF payload template
 The NF template must be update three ways. First, the implicit config parameter must be defined as type object. Second, roleOverrideValues0, roleOverrideValues1 and roleOverrideValues2 must be declared as variables mapped to config parameter. Third, roleOverrideValues0, roleOverrideValues1 and roleOverrideValues2 must be referenced for substitution under `roleOverrideValues` in proper order and following proper syntax.
 
 ```json
@@ -173,7 +186,7 @@ The NF template must be update three ways. First, the implicit config parameter 
    }
 ```
 
-#### CGV Template
+#### CGV template
 The CGV template can now be updated to include the content for each variable to be substituted into `roleOverrideValues` property at run-time. The below example sets `rollbackEnabled` to true, followed by override sets for `hellotest` and `hellotest1` nfApplications.
 
 ```json
