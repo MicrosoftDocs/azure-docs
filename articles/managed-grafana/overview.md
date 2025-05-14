@@ -19,6 +19,8 @@ Azure Managed Grafana is optimized for the Azure environment. It works seamlessl
 * User authentication and access control using Microsoft Entra identities
 * Direct import of existing charts from the Azure portal
 
+Grafana is also available within Azure Monitor. For more information, see [Difference between Azure Managed Grafana and Grafana in Azure Monitor](./faq.md#whats-the-difference-between-azure-managed-grafana-and-grafana-in-azure-monitor).
+
 To learn more about how Grafana works, visit the [Getting Started documentation](https://grafana.com/docs/grafana/latest/getting-started/) on the Grafana Labs website.  
 
 ## Why use Azure Managed Grafana?
