@@ -39,7 +39,7 @@ For technical information about trigger and action parameters, see the following
 * [HTTP trigger parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [HTTP action parameters](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-<a name="http-trigger"></a>
+<a id="http-trigger"></a>
 
 ## Add an HTTP trigger
 
@@ -91,7 +91,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 ---
 
-<a name="http-action"></a>
+<a id="http-action"></a>
 
 ## Add an HTTP action
 
@@ -169,7 +169,7 @@ An HTTP trigger or action outputs the following information:
 
 For information about encryption, security, and authorization for outbound calls from your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), self-signed certificates, or [Microsoft Entra ID Open Authentication](../active-directory/develop/index.yml), see [Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
-<a name="single-tenant-authentication"></a>
+<a id="single-tenant-authentication"></a>
 
 ## Authentication for single-tenant environment
 
@@ -179,7 +179,7 @@ If you have a Standard logic app resource in single-tenant Azure Logic Apps, and
 
 * [Client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the *Certificate* credential type](#client-certificate-authentication): Add the app setting `WEBSITE_LOAD_USER_PROFILE`, and set the value to *1*.
 
-<a name="tls-certificate-authentication"></a>
+<a id="tlsssl-certificate-authentication"></a>
 
 ### TLS certificate authentication
 
@@ -217,9 +217,9 @@ For example, if you're working in Visual Studio Code, follow these steps:
 
 For more information, see [Manage app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings).
 
-<a name="client-certificate-authentication"></a>
+<a id="client-certificate-authentication"></a>
 
-<a name='client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication'></a>
+<a id='client-certificate-or-azure-ad-oauth-with-certificate-credential-type-authentication'></a>
 
 ### Client certificate or Microsoft Entra ID OAuth with *Certificate* credential type authentication
 
@@ -303,7 +303,7 @@ For example, suppose you have a logic app that sends an HTTP POST request to a w
 
 :::image type="content" source="./media/connectors-native-http/http-action-urlencoded.png" alt-text="Screenshot that shows the workflow with HTTP request and content-type header set to application slash x-www-form-urlencoded." lightbox="./media/connectors-native-http/http-action-urlencoded.png":::
 
-<a name="asynchronous-pattern"></a>
+<a id="asynchronous-pattern"></a>
 
 ## Asynchronous request-response behavior
 
@@ -321,7 +321,7 @@ For *stateless* workflows in single-tenant Azure Logic Apps, HTTP-based actions 
   1. On the information pane that opens, select **Settings**.
   1. Under **Networking**, find the **Asynchronous pattern** setting.
 
-<a name="disable-asynchronous-operations"></a>
+<a id="disable-asynchronous-operations"></a>
 
 ## Disable asynchronous operations
 
@@ -330,7 +330,7 @@ Sometimes, you might want to disable the HTTP action's asynchronous behavior in 
 * [Avoid HTTP timeouts for long-running tasks](#avoid-http-timeouts)
 * [Disable checking location headers](#disable-location-header-check)
 
-<a name="turn-off-asynchronous-pattern-setting"></a>
+<a id="turn-off-asynchronous-pattern-setting"></a>
 
 ### Turn off asynchronous pattern setting
 
@@ -338,13 +338,13 @@ Sometimes, you might want to disable the HTTP action's asynchronous behavior in 
 
 1. Under **Networking**, find the **Asynchronous pattern** setting. Turn the setting to **Off** if enabled.
 
-<a name="add-disable-async-pattern-option"></a>
+<a id="add-disable-async-pattern-option"></a>
 
 ### Disable asynchronous pattern in action's JSON definition
 
 In the HTTP action's underlying JSON definition, [add the `DisableAsyncPattern` operation option](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options) to the action's definition so that the action follows the synchronous operation pattern instead. For more information, see also [Run actions in a synchronous operation pattern](../logic-apps/logic-apps-workflow-actions-triggers.md#disable-asynchronous-pattern).
 
-<a name="avoid-http-timeouts"></a>
+<a id="avoid-http-timeouts"></a>
 
 ## Avoid HTTP timeouts for long-running tasks
 
@@ -373,7 +373,7 @@ Here's the same example that shows the HTTP action response that contains `Retry
 
 Sometimes, the destination service responds by returning the results one page at a time. If the response specifies the next page with the `nextLink` or `@odata.nextLink` property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
 
-<a name="disable-location-header-check"></a>
+<a id="disable-location-header-check"></a>
 
 ## Disable checking location headers
 
@@ -385,7 +385,7 @@ Some endpoints, services, systems, or APIs return a `202 ACCEPTED` response that
 
 ## Known issues
 
-<a name="omitted-headers"></a>
+<a id="omitted-headers"></a>
 
 ### Omitted HTTP headers
 
@@ -404,7 +404,7 @@ If an HTTP trigger or action includes these headers, Azure Logic Apps removes th
 
 Although Azure Logic Apps doesn't stop you from saving logic apps that use an HTTP trigger or action with these headers, Azure Logic Apps ignores these headers.
 
-<a name="mismatch-content-type"></a>
+<a id="mismatch-content-type"></a>
 
 ### Response content doesn't match the expected content type
 

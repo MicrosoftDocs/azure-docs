@@ -10,7 +10,7 @@ ms.custom: fasttrack-edit
 # Customer intent: As a logic app workflow developer, I want to learn about application settings and host settings that I can edit to customize the way that my Standard workflows run.
 ---
 
-# Edit host and app settings for single-tenant Standard Azure Logic Apps
+# Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -583,6 +583,10 @@ To add a host setting, follow these steps:
       }
    }
    ```
+
+### [Azure CLI](#tab/azure-cli)
+
+Not available.
 
 ---
 
