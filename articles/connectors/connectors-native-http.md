@@ -175,19 +175,19 @@ For information about encryption, security, and authorization for outbound calls
 
 If you have a Standard logic app resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
-* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
+* [TLS certificate](#tls-certificate-authentication): Add the app setting `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS certificate.
 
 * [Client certificate or Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth) with the *Certificate* credential type](#client-certificate-authentication): Add the app setting `WEBSITE_LOAD_USER_PROFILE`, and set the value to *1*.
 
-<a name="tls-ssl-certificate-authentication"></a>
+<a name="tls-certificate-authentication"></a>
 
-### TLS/SSL certificate authentication
+### TLS certificate authentication
 
 1. In your logic app resource's app settings, add or update the app setting called `WEBSITE_LOAD_ROOT_CERTIFICATES`. For specific steps, see [Manage app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#manage-app-settings).
 
-1. For the setting value, provide the thumbprint for your TLS/SSL certificate as the root certificate to be trusted.
+1. For the setting value, provide the thumbprint for your TLS certificate as the root certificate to be trusted.
 
-   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>"`
+   `"WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS-certificate>"`
 
 For example, if you're working in Visual Studio Code, follow these steps:
 
@@ -201,7 +201,7 @@ For example, if you're working in Visual Studio Code, follow these steps:
       "Values": {
          <...>
          "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS/SSL-certificate>",
+         "WEBSITE_LOAD_ROOT_CERTIFICATES": "<thumbprint-for-TLS-certificate>",
          <...>
       }
    }

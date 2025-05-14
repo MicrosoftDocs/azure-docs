@@ -1,6 +1,6 @@
 ---
-title: Edit Runtime and Environment Settings for Standard Apps
-description: Learn how to change the runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
+title: Edit Host and App Settings for Standard Logic Apps
+description: Learn how to change runtime and environment settings for Standard logic apps in single-tenant Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -10,11 +10,13 @@ ms.custom: fasttrack-edit
 # Customer intent: As a logic app workflow developer, I want to learn about application settings and host settings that I can edit to customize the way that my Standard workflows run.
 ---
 
-# Edit host and app settings for Standard logic apps in single-tenant Azure Logic Apps
+# Edit host and app settings for single-tenant Standard Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-In *single-tenant* Azure Logic Apps, the *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
+This guide explains how to manage environment and runtime settings for Standard logic apps in single-tenant Azure Logic Apps.
+
+The *app settings* for a Standard logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
 
@@ -117,7 +119,7 @@ To add, update, or delete app settings, select and review the following sections
 
 ##### View app settings in Visual Studio Code
 
-1. In your logic app project, at the root project level, find and open the *local.settings.json* file.
+1. In your logic app project, at the root project level, find and open the **local.settings.json** file.
 
 1. In the `Values` object, review the app settings for your logic app.
 
@@ -142,7 +144,7 @@ To add, update, or delete app settings, select and review the following sections
 
 ### [Azure CLI](#tab/azure-cli)
 
-To review your current app settings using the Azure CLI, run the command `az logicapp config appsettings list`. Make sure that your command includes the `--name -n` and `--resource-group -g` parameters, for example:
+To review your current app settings using the Azure CLI, run the command `az logicapp config appsettings list`. Make sure that your command includes the `--name` and `--resource-group` parameters, for example:
 
 ```azurecli
 az logicapp config appsettings list --name <MyLogicApp> --resource-group <MyResourceGroup>
@@ -150,7 +152,7 @@ az logicapp config appsettings list --name <MyLogicApp> --resource-group <MyReso
 
 For more information about these settings, see [Reference for app settings - local.settings.json](#reference-local-settings-json).
 
-To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name n` and `--resource-group -g` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
+To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name`, `--resource-group`, and `--settings` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
 
 ```azurecli
 az logicapp config appsettings set --name <MyLogicApp> --resource-group <MyResourceGroup> --settings CUSTOM_LOGIC_APP_SETTING=12345 
@@ -458,7 +460,7 @@ You can add, update, or delete host settings, which specify the runtime configur
 
 <a name="manage-host-settings-portal"></a>
 
-### Azure portal - host.json
+### [Azure portal](#tab/azure-portal)
 
 To review the host settings for your single-tenant based logic app in the Azure portal, follow these steps:
 
@@ -533,7 +535,7 @@ To add a setting, follow these steps:
 
 <a name="manage-host-settings-visual-studio-code"></a>
 
-### Visual Studio Code - host.json
+### [Visual Studio Code](#tab/visual-studio-code)
 
 To review the host settings for your logic app in Visual Studio Code, follow these steps:
 

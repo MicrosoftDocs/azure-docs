@@ -12,13 +12,13 @@ ms.date: 05/12/2025
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This guide shows how to create a logic app workflow that can receive and handle an inbound HTTPS request or call from another service by using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS request by using the Response built-in action.
+This guide shows how to create a logic app workflow that can receive and handle an inbound HTTPS request from another service by using the Request built-in trigger. When your workflow uses this trigger, you can then respond to the HTTPS call by using the Response built-in action.
 
 > [!NOTE]
 >
 > The **Response** action works only when you use the **Request** trigger.
 
-For example, this list describes some tasks that your workflow can perform when you use the Request trigger and Response action:
+For example, your workflow can perform the following tasks when you use the Request trigger and Response action:
 
 * Receive and respond to an HTTPS request for data in an on-premises database.
 
@@ -103,9 +103,9 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    }
    ```
 
-   When you enter a JSON schema, the designer might show a reminder to include the **Content-Type** header in your request and set that header value to **application/json**. For more information, see [Handle content types](../logic-apps/logic-apps-content-type.md).
+   When you enter a JSON schema, the designer might show a reminder to include the `Content-Type` header in your request and set that header value to `application/json`. For more information, see [Handle content types](../logic-apps/logic-apps-content-type.md).
 
-   The following example shows how the **Content-Type** header appears in JSON format:
+   The following example shows how the `Content-Type` header appears in JSON format:
 
    ```json
    {
@@ -247,9 +247,9 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
    }
    ```
 
-   When you enter a JSON schema, the designer might show a reminder to include the **Content-Type** header in your request and set that header value to **application/json**. For more information, see [Handle content types](../logic-apps/logic-apps-content-type.md).
+   When you enter a JSON schema, the designer might show a reminder to include the `Content-Type` header in your request and set that header value to `application/json`. For more information, see [Handle content types](../logic-apps/logic-apps-content-type.md).
 
-   The following example shows how the **Content-Type** header appears in JSON format:
+   The following example shows how the `Content-Type` header appears in JSON format:
 
    ```json
    {
@@ -361,18 +361,18 @@ For information about security, authentication, and encryption for inbound calls
 
 ## Trigger outputs
 
-The following table lists the outputs from the **Request** trigger:
+The following table lists the outputs from the Request trigger:
 
 | JSON property name | Data type | Description |
 |--------------------|-----------|-------------|
-| **headers** | Object | A JSON object that describes the headers from the request |
-| **body** | Object | A JSON object that describes the body content from the request |
+| `headers` | Object | A JSON object that describes the headers from the request |
+| `body` | Object | A JSON object that describes the body content from the request |
 
 <a name="add-response"></a>
 
 ## Add a Response action
 
-When you use the **Request** trigger to receive inbound requests, you can model the response and send the payload results back to the caller by using the Response built-in action, which works *only* with the **Request** trigger. This combination with the **Request** trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside Foreach loops and Until loops, and parallel branches, you can add the Response action anywhere in your workflow.
+When you use the Request trigger to receive inbound requests, you can model the response and send the payload results back to the caller by using the Response built-in action, which works *only* with the Request trigger. This combination with the Request trigger and Response action creates the [request-response pattern](https://en.wikipedia.org/wiki/Request%E2%80%93response). Except for inside `For each` loops and `Until` loops, and parallel branches, you can add the Response action anywhere in your workflow.
 
 > [!IMPORTANT]
 >
@@ -382,7 +382,7 @@ When you use the **Request** trigger to receive inbound requests, you can model 
 > stop you from saving workflows that have a Response action with these headers.
 >
 >   * `Allow`
->   * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use POST and PUT operations, but aren't included for GET operations
+>   * `Content-*` headers except for `Content-Disposition`, `Content-Encoding`, and `Content-Type` when you use `POST` and `PUT` operations, but aren't included for `GET` operations
 >   * `Cookie`
 >   * `Expires`
 >   * `Last-Modified`
@@ -414,7 +414,7 @@ When you use the **Request** trigger to receive inbound requests, you can model 
 
    When you select inside any text fields, the dynamic content list automatically opens. You can then select tokens that represent any available outputs from previous steps in the workflow. The properties from the schema that you specify also appear in this dynamic content list. You can select these properties to use in your workflow.
 
-   For example, in the **Headers** field, include **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
+   For example, in the **Headers** field, include `Content-Type` as the key name, and set the key value to `application/json` as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
    :::image type="content" source="media/connectors-native-reqres/response-details-consumption.png" alt-text="Screenshot showing Azure portal, Consumption workflow, and Response action information.":::
 
@@ -442,7 +442,7 @@ When you use the **Request** trigger to receive inbound requests, you can model 
 
    When you select inside any text fields, you get the option to open the dynamic content list (lightning icon). You can then select tokens that represent any available outputs from previous steps in the workflow. The properties from the schema that you specify also appear in this dynamic content list. You can select these properties to use in your workflow.
 
-   For example, for the **Headers** box, enter **Content-Type** as the key name, and set the key value to **application/json** as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
+   For example, for the **Headers** box, enter `Content-Type` as the key name, and set the key value to `application/json` as mentioned earlier in this article. For the **Body** box, you can select the trigger body output from the dynamic content list.
 
    :::image type="content" source="media/connectors-native-reqres/response-details-standard.png" alt-text="Screenshot showing Azure portal, Standard workflow, and Response action information.":::
 
