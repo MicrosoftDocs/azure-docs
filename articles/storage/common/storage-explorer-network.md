@@ -19,7 +19,7 @@ Storage Explorer uses your network to make requests to your storage resources an
 
 Storage Explorer makes requests to various endpoints while in use. The following list details common hostnames that Storage Explorer makes requests to:
 
-- Azure Resource Management (ARM) endpoints:
+- Azure Resource Manager (ARM) endpoints:
   - `management.azure.com` (global Azure)
   - `management.chinacloudapi.cn` (Microsoft Azure operated by 21Vianet)
   - `management.usgovcloudapi.net` (Azure US Government)
@@ -55,7 +55,7 @@ In some situations, Storage Explorer might automatically change the proxy source
 
 ### Do not use proxy
 
-When this option is selected, Storage Explorer won't connect to a proxy. This option is the default.
+When this option is selected, Storage Explorer doesn't connect to a proxy. This option is the default.
 
 ### Use environment variables
 

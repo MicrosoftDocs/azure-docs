@@ -92,7 +92,7 @@ If you must use keys to access your storage resources, we recommend the followin
 - **Treat your storage account keys like passwords.** If you must make your keys accessible, use secure storage solutions such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 > [!NOTE]
-> If you believe a storage account key has been shared or distributed unintentionally, you can generate new keys for your storage account from the Azure portal.
+> If you believe a storage account key was shared or distributed unintentionally, you can generate new keys for your storage account from the Azure portal.
 
 ### Anonymous access to blob containers
 
