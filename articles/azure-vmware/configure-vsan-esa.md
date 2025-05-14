@@ -14,7 +14,7 @@ ms.date:     05/12/2025
 
 # Configure VMware vSAN (ESA)
 
-VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) offers enhanced capabilities that are configured by default with each Azure VMware Solution deployment. Each cluster uses its own high-performance vSAN ESA datastore. Below are the Azure VMware Solution SKUs that support vSAN ESA as the default architecture type, along with the following configurations per cluster:
+VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) offers enhanced capabilities that are configured by default with each Azure VMware Solution deployment. Each cluster uses its own high-performance vSAN ESA datastore. The following table shows the Azure VMware Solution host types that support vSAN ESA as the default architecture type, along with the configurations per cluster:
 
 | **Field** | **Value** |
 | --- | --- |
@@ -24,7 +24,7 @@ VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/relea
 > [!NOTE]
 > Run commands are executed one at a time in the order submitted.
 
-In this article, learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > - Supported host types
@@ -47,7 +47,7 @@ Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vS
 > - All VMs in vSAN ESA clusters are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
 > - The guest operating system must be able to identify the virtual disk as thin.
 
-## Set VMware vSAN Space Efficiency
+## Set VMware vSAN space efficiency
 
 In vSAN ESA (Express Storage Architecture), space efficiency is enabled through Storage policy managed compression. See [VMware documentation](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/vsan-administration/increasing-space-efficiency-in-a-vsan-cluster/using-deduplication-and-compression-in-vsan-cluster.html).
 
@@ -56,7 +56,7 @@ In vSAN ESA (Express Storage Architecture), space efficiency is enabled through 
 Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of an SDDC.
 
 > [!NOTE]
-> Changing this setting causes a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
+> Changing this setting impacts performance. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -76,7 +76,7 @@ Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-
 
 ## vSAN services availability
 
-The table below shows the list of vSAN features available in Azure VMware Solution.
+The following table shows the list of vSAN features available in Azure VMware Solution.
 
   | **vSAN Features** | **Availability** |
   | --- | --- |
