@@ -32,7 +32,7 @@ In this article, learn how to:
 > - Enable or Disable vSAN Data-In-Transit Encryption
 > - Next steps
 ## Set VMware vSAN TRIM/UNMAP
-> Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
+Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
