@@ -9,7 +9,7 @@ ms.custom:
   - build-2025
 ---
 
-# Azure Cosmos DB for MongoDB(vCore) output binding for Azure Functions
+# Azure Cosmos DB for MongoDB (vCore) output binding for Azure Functions
 
 This article explains how to work with the [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) output binding in Azure Functions. 
 

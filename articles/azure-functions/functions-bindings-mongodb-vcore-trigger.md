@@ -9,7 +9,7 @@ ms.custom:
   - build-2025
 ---
 
-# Azure Cosmos DB for MongoDB(vCore) trigger for Azure Functions
+# Azure Cosmos DB for MongoDB (vCore) trigger for Azure Functions
 
 This article explains how to work with the [Azure Cosmos DB for MongoDB vCore](/azure/cosmos-db/mongodb/vcore/introduction) trigger in Azure Functions. The bindings use [change streams in Azure Cosmos DB’s API for MongoDB](/azure/cosmos-db/mongodb/change-streams) to listen for inserts and updates. 
 
