@@ -188,6 +188,9 @@ Lifecycle management supports tiering and deletion of current versions, previous
 
 The run conditions are based on age. Current versions use the last modified time or last access time, previous versions use the version creation time, and blob snapshots use the snapshot creation time to track age.
 
+Automatic uptiering of objects on access is limited to once in 30 days. This safeguard is in place to avoid multiple early deletion penalities from the Cool tier. If the object tiers back to Cool due to the policy, any transactions on the blob is charged at the Cool tier prices. It is more cost-efficient to keep the blob in Hot tier if it needs to be auto-uptiered more than once.
+Enabling a rule with "enableAutoTierToHotFromCool" only applies to objects that are tiered down with this rule. Blobs already in Cool tier will not be eligible for "enableAutoTierToHotFromCool" property to be enabled, and hence will not automatically tier to Hot on access.
+
 | Action run condition | Condition value | Description |
 |--|--|--|
 | daysAfterModificationGreaterThan | Integer value indicating the age in days | The condition for actions on a current version of a blob |
@@ -210,6 +213,9 @@ The `LifecyclePolicyCompleted` event is generated when the actions defined by a 
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "data": {
         "scheduleTime": "2022/05/24 22:57:29.3260160",
+        “policyRunSummary”: { 
+            “completionStatus”: “Completed/CompletedWithError/Incomplete” 
+        },
         "deleteSummary": {
             "totalObjectsCount": 16,
             "successCount": 14,
