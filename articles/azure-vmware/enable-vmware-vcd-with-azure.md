@@ -151,7 +151,7 @@ VMware Cloud Director on Azure VMware solution is supported for eligible enterpr
 
 ### VMware Cloud Director responsibility matrix on Azure VMware Solution
 
-The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](articles/azure-vmware/introduction.md)
+The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](azure-vmware/introduction.md)
 
 ### Can I use non vSAN storage using VMware Cloud Director with Azure VMware Solution?
 
@@ -162,7 +162,7 @@ You can configure external storage such as Azure Network file storage with VMwar
 Please create a support ticket to perform customization on NSX-T before you integrate it with VMware cloud director and prior to importing NSX-T tier-0 as provider gateway.
 
 ### How to import VMCA certificate from Azure VMware solution to VMware Cloud Director?
-To integrate Azure VMware Solution with VMware Cloud Director, you will need to retrieve vCenter VMCA certificate manually by navigating to https://vCneterFQDN and then select “download trusted root CA certificate”. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. Learn more using this link.
+To integrate Azure VMware Solution with VMware Cloud Director, you will need to retrieve vCenter VMCA certificate manually by navigating to https://vcenterFQDN and then select “download trusted root CA certificate”. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. Learn more using this link.
 
 You must perform this task before adding Azure VMware Solution vCenter is added to VMware Cloud Director, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads.
 
@@ -183,4 +183,4 @@ Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](e
 
 Learn more about [VMware Cloud Director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html)
 
-Learn more about [Architecture - Network interconnectivity - Azure VMware Solution](/architecture-networking.md)
+Learn more about [Architecture - Network interconnectivity - Azure VMware Solution](architecture-networking.md)
