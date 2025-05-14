@@ -25,7 +25,6 @@ This article explains how you can encrypt data in transit for NFS Azure file sha
 > [!IMPORTANT]
 > - Encryption in transit for NFS Azure file shares is currently in **preview**. 
 > - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 # How encryption in transit for NFS shares works
  
 Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
