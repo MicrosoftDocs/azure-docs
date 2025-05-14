@@ -9,7 +9,7 @@ ARG GET/LIST provides a default quota of 4k /min /user / subscription on a movin
 
 ## Using the ARG GET/LIST API 
 
-Using ARG GET/LIST API is very straightforward. If you feel your scenario matches the conditions mentioned here <link to when to use ARG GET/LIST API >, you can simply append the flag &useResourceGraph=true to your control plane API calls, and the request will be routed to the ARG GET/LIST API backend.  
+Using ARG GET/LIST API is very straightforward. If you feel your scenario matches the conditions mentioned [here](./guidance-for-throttled-requests.md#arg-getlist-api), you can simply append the flag &useResourceGraph=true to your control plane API calls, and the request will be routed to the ARG GET/LIST API backend.  
 
 Contact the ARG Product group by sending an email to Azure Resource Graph team sharing a brief overview of your scenario and the ARG team will reach out to you with next steps. Callers must also design appropriate retry logic and implement fallback mechanisms to ensure smooth and reliable experience. This opt-in model has been deliberately chosen to allow the Azure Resource Graph team to better understand customer usage patterns and make improvements as needed. 
 
@@ -22,19 +22,23 @@ Refer to some known limitations [here](#known-limitations) and [frequently asked
 This request is used for looking up a single resource by providing resource Id. 
 
 **Traditional Point Get Request:**
+
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}?api-version={apiVersion} 
 
 **ARG Point Get Request:**
+
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}/{resourceName}?api-version={apiVersion}&**useResourceGraph=true** 
 
-## Subscription Collection Get- 
+## Subscription Collection Get
 
 This request is used for listing all resources under a single resource type in a subscription. 
 
 **Traditional Subscription Collection Get Request:**
+
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion} 
 
 **ARG Subscription Collection Get Request:**
+
 GET https://management.azure.com/subscriptions/{subscriptionId}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&**useResourceGraph=true** 
 
 ## Resource Group Collection Get
@@ -42,9 +46,11 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/providers/{pro
 This request is used for listing all resources under a single resource type in a resource group. 
 
 **Traditional Point Get Request:**
+
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion} 
 
 **ARG GET/LIST Point Get Request:**
+
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/{providerNamespace}/{resourceType}?api-version={apiVersion}&**useResourceGraph=true** 
 
 ## Some frequently used examples
@@ -62,6 +68,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 Resources 
 
 | where type =~ 'microsoft.compute/virtualmachines' 
+
 | where id =~ '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines/{vm}' 
 
 #### CRP Request 
@@ -82,6 +89,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 Resources 
 
 | where resourceGroup =~ ‘{resourceGroup}’ 
+
 | where type =~ 'microsoft.compute/virtualmachines' 
 
 ### CRP Request 
@@ -99,6 +107,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 ComputeResources 
 
 | where type =~ 'microsoft.compute/virtualmachinescalesets/virtualmachines' 
+
 | where id startswith ‘/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}’ 
 
 ### CRP Request 
@@ -118,11 +127,10 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 Resources 
 
 | where type =~ ‘microsoft.compute/virtualmachines’ 
+
 | where properties.virtualMachineScaleSet.id =~‘/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}’ 
 
 ### CRP Request 
-
-Virtual Machines - List - REST API (Azure Compute) | Microsoft Learn 
 
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines?api-version=2024-07-01&$expand=instanceView&$filter=’virtualMachineScaleSet/id’ eq ‘/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachinescalesets/{vmss}’ 
 
@@ -145,7 +153,7 @@ Resources
 HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.storage/storageAccounts?api-version=2024-01-01 
 
 
-# Known Limitations  
+## Known Limitations  
 
 1. **VMSS VM Health status** is not supported by default. If you have a requirement for that, do let us know by emailing Azure Resource Graph team. 
 2. **Supported Resources** - The ARG GET/LIST API supports resources part of  ‘resources’ and ‘computeresources’ table. If you have a requirement for a specific resource type outside of these tables do let us know by emailing Azure Resource Graph team. 
@@ -205,7 +213,7 @@ internal class ARG GET/LISTHttpPipelinePolicy : HttpPipelineSynchronousPolicy
 }
 ```
 
-# Frequently asked questions  
+## Frequently asked questions  
 
 1. How do you ensure the response is returned by ARG GET/LIST API? 
 
@@ -221,9 +229,9 @@ There are a few ways that you can identify when a request is served by ARG GET/L
 
 This is returned in “apiVersion” field in resource response today.  
 
-3. What happens if a caller calls ARG GET/LIST API with useResourceGraph=true flag for a resource not supported by ARG GET/LIST?   
+3. What happens if a caller calls ARG GET/LIST API with `useResourceGraph=true` flag for a resource not supported by ARG GET/LIST?   
 
-Any unsupported/unrouteable requests will result in “useResourceGraph=true” ignored and the call will be automatically routed to be Resource Provider. User does not have to take any action.   
+Any unsupported/unroutable requests will result in `useResourceGraph=true` ignored and the call will be automatically routed to be Resource Provider. User does not have to take any action.   
 
 4. What permissions are required for querying ARG GET/LIST APIs? 
 

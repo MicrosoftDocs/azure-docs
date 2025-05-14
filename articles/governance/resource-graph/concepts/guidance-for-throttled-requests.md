@@ -242,7 +242,7 @@ You should consider Pacific if your service falls into one (or many) of categori
 - Your service requires high availability and faster performance for GET requests for single  
 - Resource management or enumeration of a list of resources within a certain scope. 
 
-If the resource you’re interested in, is in the ‘resources’ table or ‘computeresources’ table, *and* it falls in one of the above categories, then use the ARG GET/LIST API <link> 
+If the resource you’re interested in, is in the ‘resources’ table or ‘computeresources’ table, *and* it falls in one of the above categories, then use the [ARG GET/LIST API](./arg-get-list-api.md)
 
 ## Still being throttled?
 
