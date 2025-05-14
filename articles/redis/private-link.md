@@ -106,12 +106,12 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 
 In this section, you add a private endpoint to an existing Azure Managed Redis instance.
 
-1. The first step is to [create a virtual network](#create-a-virtual-network-with-subnet) for use with your existing cache.
+1. The first step is to [create a virtual network](#create-a-virtual-network-with-a-subnet) for use with your existing cache.
 1. Then, you open your cache in the portal and add the subnet that you created to in the first step.
 
 ### Create a virtual network with a subnet for your existing cache
 
-To create a virtual network, follow these [steps](#create-a-virtual-network-with-subnet).
+To create a virtual network, follow these [steps](#create-a-virtual-network-with-a-subnet).
 
 ### Add a private endpoint to an existing Azure Managed Redis cache
 
