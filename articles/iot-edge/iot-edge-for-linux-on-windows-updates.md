@@ -5,7 +5,7 @@ author: PatAltimore
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/05/2024
 ms.author: patricka
 ---

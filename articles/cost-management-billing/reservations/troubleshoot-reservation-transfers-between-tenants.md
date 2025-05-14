@@ -5,7 +5,7 @@ author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.author: primittal
-ms.reviewer: bshy
+ms.reviewer: primittal
 ms.topic: troubleshooting
 ms.date: 03/26/2025
 ---

@@ -66,14 +66,18 @@
       href: vpn-gateway-about-skus-legacy.md
   - name: Public IP addresses
     items:
-    - name: About public IP address Basic SKU migration
+    - name: About Basic SKU public IP address migration
       href: basic-public-ip-migrate-about.md
+    - name: How to migrate a Basic SKU public IP address to Standard
+      href: basic-public-ip-migrate-howto.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About zone-redundant gateways
     href: about-zone-redundant-vnet-gateways.md
   - name: VPN Gateway configuration settings
     href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: IPv6 configuration settings
+    href: ipv6-configuration.md
 - name: Create & manage a VPN gateway
   items:
   - name: Create a VPN gateway

@@ -3,8 +3,8 @@ title: Add session hosts to a host pool - Azure Virtual Desktop
 description: Learn how to add session host virtual machines to a host pool in Azure Virtual Desktop.
 ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-host-pool-management-approaches
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/18/2025
 ---
 

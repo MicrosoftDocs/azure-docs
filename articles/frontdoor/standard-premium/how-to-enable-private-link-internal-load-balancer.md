@@ -11,6 +11,8 @@ ms.date: 08/12/2024
 
 # Connect Azure Front Door Premium to an internal load balancer origin with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article guides you through how to configure Azure Front Door Premium to connect to your internal load balancer origin using the Azure Private Link service.
 
 ## Prerequisites

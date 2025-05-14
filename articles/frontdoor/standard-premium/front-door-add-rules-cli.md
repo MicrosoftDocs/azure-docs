@@ -1,6 +1,6 @@
 ---
 title: Add delivery rules to Azure Front Door with the Azure CLI
-description: Learn how to create an Azure Front Door Standard/Premium (Preview) with the Azure CLI. Then, add delivery rules to enhance control over your web app behavior.
+description: Learn how to create an Azure Front Door Standard/Premium with the Azure CLI. Then, add delivery rules to enhance control over your web app behavior.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
@@ -9,14 +9,13 @@ ms.date: 12/30/2021
 ms.custom: devx-track-azurecli
 ---
 
-# Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium (Preview) with Azure CLI
+# Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium with Azure CLI
 
-Azure Front Door Standard/Premium (Preview) is a fast and secure modern cloud CDN.  Azure Front Door uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-> [!NOTE]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+Azure Front Door Standard/Premium  is a fast and secure modern cloud CDN.  Azure Front Door uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
 
-In this tutorial, you'll learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create an Azure Front Door profile.
@@ -69,7 +68,7 @@ If you don't already have a web app, use the following script to set up two exam
 
 #### Create app service plans
 
-Before you can create the web apps you'll need two app service plans, one in *Central US* and the second in *East US*.
+Before you can create the web apps, you must have two app service plans, one in *Central US* and the second in *East US*.
 
 Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create&preserve-view=true) to create your app service plans.
 
@@ -237,7 +236,7 @@ To test instant global failover, we'll use the following steps:
 4. Refresh your browser. You should see the same information page.
 
    >[!TIP]
-   >There is a little bit of delay for these actions. You might need to refresh again.
+   >There's some delay for these actions. You might need to refresh again.
 
 5. Find the other web app, and stop it as well.
 

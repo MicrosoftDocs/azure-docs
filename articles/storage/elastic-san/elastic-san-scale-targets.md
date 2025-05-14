@@ -3,7 +3,7 @@ title: Elastic SAN scalability and performance targets
 description: Learn about the capacity, IOPS, and throughput rates for Azure Elastic SAN. Learn which regions support higher capacities.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom: references_regions

@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Query acceleration enables applications and analytics frameworks to dramatically optimize data processing by retrieving only the data that is required for a processing operation.
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.date: 11/18/2024

@@ -3,8 +3,9 @@ title: Overview of Assessments for Migration to Azure Database for MySQL (previe
 description: Learn how to assess your on-premises MySQL database instances for migration to Azure Database for MySQL using the Azure Migrate Discovery and Assessment tool. This article provides an overview of the assessment process, types of assessments, and key criteria for evaluating readiness, sizing, and cost.
 author: ankitsurkar06
 ms.author: ankitsurkar
-ms.topic: conceptual
-ms.date: 02/24/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
+monikerRange: migrate-classic
 ---
 
 # Assessment overview - Migrate to Azure Database for MySQL (preview)
@@ -21,10 +22,10 @@ The Azure Migrate: Discovery and assessment tool supports the following types of
 
 **Assessment Type** | **Details**
 --- | ---
-**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](vmware/how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines.<br/><br>You can assess your on-premises servers in [VMware environment](how-to-set-up-appliance-vmware.md), [Hyper-V environment](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure VMs using this assessment type.
 **Azure Databases** | Assessments to migrate your on-premises [SQL servers to Azure SQL Database or Azure SQL Managed Instance](concepts-azure-sql-assessment-calculation.md), or on-premises MySQL database instances to Azure Database for MySQL.
 **Web apps on Azure** | Assessments to migrate your on-premises [Spring Boot apps to Azure Spring Apps](concepts-azure-spring-apps-assessment-calculation.md) or [ASP.NET/Java web apps to Azure App Service](concepts-azure-webapps-assessment-calculation.md).
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](vmware/how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) to [Azure VMware Solution (AVS)](/azure/azure-vmware/introduction). [Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 
 ## MySQL assessments - Overview and sizing criteria
@@ -83,7 +84,7 @@ The appliance collects the following performance data for compute settings:
 - The appliance collects a real-time sample point. For MySQL instances, it collects a sample point every 30 seconds.
 - The appliance aggregates the sample data points collected every 30 seconds over 10 minutes. To create the data point, the appliance selects the peak values from all samples. It sends the max and means for each counter to Azure.
 - Azure Migrate stores all the 10-minute data points for the last month.
-- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right-sizing. Identification is based on the percentile values for performance history and percentile utilization.
+- When you create an assessment, Azure Migrate identifies the appropriate data point to use for right sizing. Identification is based on the percentile values for performance history and percentile utilization.
     - For example, if the performance history spans a week and the utilization is at 95th percentile, the assessment sorts the 10-minute sample points for the last week. It sorts them in ascending order and picks the 95th percentile value for right-sizing.
     - The 95th percentile value ensures you ignore any outliers, which might be included if you picked the 99th percentile.
     - If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization.
@@ -104,7 +105,7 @@ Readiness to migrate a MySQL instance to Azure Database for MySQL is determined 
 
 An instance is then marked as:
 - **Ready**: If no major compatibility issues were found between source and target MySQL instances.
-- **Ready with conditions**: If there are non-critical compatibility issues such as degraded or unsupported features, that don't block the migration to Azure Database for MySQL. Azure Migrate displays the migration warnings with impact details and recommended remediation guidelines.
+- **Ready with conditions**: If there are non-critical compatibility issues such as degraded or unsupported features that don't block the migration to Azure Database for MySQL. Azure Migrate displays the migration warnings with impact details and recommended remediation guidelines.
 - **Not ready**: If there are any compatibility issues that may block the migration to Azure Database for MySQL. Azure Migrate displays the migration issues with impact details and recommended remediation guidance.
 - **Unknown**:  If the discovery is still in progress or there are any discovery issues in the source instance.
 
