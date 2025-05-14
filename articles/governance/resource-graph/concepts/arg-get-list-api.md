@@ -75,9 +75,8 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 Resources 
 
-| where type =~ 'microsoft.compute/virtualmachines' 
-
-| where id =~ '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines/{vm}' 
+| where type =~ 'microsoft.compute/virtualmachines'  
+| where id = ~ '/subscriptions/{subscriptionId}<br>/resourceGroups/{resourceGroup}/providers/microsoft.compute/virtualmachines/{vm}' 
 
 #### CRP Request 
 
