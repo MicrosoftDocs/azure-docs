@@ -3,7 +3,7 @@ title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 05/14/2025
 ---
 
 # Deployment functions for Bicep
@@ -20,12 +20,13 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-This function returns the information about the current deployment principal, including tenant ID and object ID.
+This function returns the information about the current deployment principal, including tenant ID, object ID, and user principal name.
 
 ```json
 {
   "objectId": "",
-  "tenantId": ""
+  "tenantId": "",
+  "userPrincipalName": ""
 }
 ```
 
@@ -42,7 +43,8 @@ The preceding example returns the following object:
 ```json
 {
   "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
-  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "userPrincipalName":"someone@contoso.com"
 }
 ```
 
@@ -141,7 +143,7 @@ The preceding example returns the following object:
 
 `environment()`
 
-Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
+Returns information about the Azure environment used for deployment. The `environment()` function isn't aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
