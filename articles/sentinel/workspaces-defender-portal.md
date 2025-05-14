@@ -31,7 +31,7 @@ In such cases:
 - The Defender XDR data connector is disconnected in secondary workspaces. This means that Defender XDR data is no longer available in a secondary workspace, and analytics rules and automation that you have configured based on Defender XDR data no longer function.
 - One primary workspace must always be connected to the Defender portal.
 
-For example, you might be working on a global SOC team in a company that has multiple, autonomous workspaces. In such cases, you might not want to see incidents and alerts from each of these workspaces in your global SOC queue in the Defender portal. Since these workspaces are onboarded to the Defender portal as secondary workspaces, they show in the Defender portal as Microsoft Sentinel only, without any Defender data, and continue to function autonomously.
+For example, you might be working on a global SOC team in a company that has multiple, autonomous workspaces. In such cases, you might not want to see incidents and alerts from each of these workspaces in your global SOC queue in the Defender portal. Since these workspaces are onboarded to the Defender portal as secondary workspaces, they show in the Defender portal as Microsoft Sentinel only, without any Defender data, and continue to function autonomously. When looking at your global SOC workspace, you won't see data from these secondary workspaces.
 
 Where you have multiple Microsoft Sentinel workspaces within a Microsoft Entra ID tenant, consider using the primary workspace for your global security operations center.
 
