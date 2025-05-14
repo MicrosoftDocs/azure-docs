@@ -180,7 +180,7 @@ HTTP GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGro
 
 The following is a .NET Code sample to call ARG GET/LIST API by creating an ARMClient with policy that adds the flag `useResourceGraph=true` to each call:
 
-First, We create custom ArmClientOption with policy that adds the `useResourceGraph=True` flag per call  
+First, We create custom ArmClientOption with policy that adds the `useResourceGraph=True` flag per call: 
 
 ```bicep
 var ArmClientOptions = new ArmClientOptions(); 
@@ -191,7 +191,7 @@ HttpPipelinePosition.PerCall);
 
 ```
 
-Then, we create ArmClient using the custom ArmClientOptions  
+Then, we create ArmClient using the custom ArmClientOptions:
 
 ```bicep
 ArmClient client = new ArmClient(new DefaultAzureCredential(), null,  
