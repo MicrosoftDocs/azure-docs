@@ -76,7 +76,7 @@ To deploy Azure Virtual Desktop resources, you need to register the `Microsoft.D
 
 Here's how to use quickstart to deploy a sample Azure Virtual Desktop environment:
 
-1. Go to the [Quickstart options for Azure Virtual Desktop options](https://portal.azure.com/#view/Microsoft_Azure_WVD/WvdManagerMenuBlade/~/quickstart) in the Azure portal and sign in. Alternatively the **Quickstart Center** has Azure Virtual Desktop options found in the option **Deliver virtual desktops and stream remote applications**.
+1. Go to the [Quickstart options for Azure Virtual Desktop](https://portal.azure.com/#view/Microsoft_Azure_WVD/WvdManagerMenuBlade/~/quickstart) in the Azure portal and sign in. Alternatively, the **Quickstart Center** has Azure Virtual Desktop options found in **Deliver virtual desktops and stream remote applications**.
 
    :::image type="content" source="media/quickstart/quickstart-center-options.png" alt-text="A screenshot showing the Azure Virtual Desktop options in the Quickstart Center." lightbox="media/quickstart/quickstart-center-options.png":::
 

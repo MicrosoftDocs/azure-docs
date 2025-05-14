@@ -1,46 +1,49 @@
 ---
-title: Deploy modules from the Azure CLI command line - Azure IoT Edge 
+title: Deploy Azure IoT Edge Modules Using Azure CLI
 description: Use the Azure CLI with the Azure IoT Extension to push an IoT Edge module from your IoT Hub to your IoT Edge device, as configured by a deployment manifest.
 author: PatAltimore
-
 ms.author: patricka
-ms.date: 10/13/2020
-ms.topic: conceptual
+ms.date: 05/08/2025
+ms.topic: concept-article
 ms.service: azure-iot-edge
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:05/08/2025
 services: iot-edge
 ---
 
-# Deploy Azure IoT Edge modules with Azure CLI
+# Deploy Azure IoT Edge modules using Azure CLI
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Once you create Azure IoT Edge modules with your business logic, you want to deploy them to your devices to operate at the edge. If you have multiple modules that work together to collect and process data, you can deploy them all at once. You can also declare the routing rules that connect them.
+After creating Azure IoT Edge modules with your business logic, deploy them to your devices to operate at the edge. If multiple modules work together to collect and process data, deploy them all at once. Declare the routing rules that connect them as well.
 
-[Azure CLI](/cli/azure) is an open-source cross platform, command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
+[Azure CLI](/cli/azure) is an open-source, cross-platform command-line tool for managing Azure resources like IoT Edge. It lets you manage Azure IoT Hub resources, device provisioning service instances, and linked hubs out of the box. The new IoT extension enriches Azure CLI with features like device management and full IoT Edge capabilities.
 
-This article shows how to create a JSON deployment manifest, then use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-cli-at-scale.md)
+This article explains how to create a JSON deployment manifest and use that file to push the deployment to an IoT Edge device. For information about creating a deployment that targets multiple devices based on their shared tags, see [Deploy and monitor IoT Edge modules at scale](how-to-deploy-cli-at-scale.md).
 
 ## Prerequisites
 
-* An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
+* An [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
 * An IoT Edge device
 
-  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+  If you don't have an IoT Edge device set up, create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [create a virtual Linux device](quickstart-linux.md) or [create a virtual Windows device](quickstart.md).
 
-* [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or higher. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
-* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](/cli/azure/install-azure-cli) in your environment. Your Azure CLI version must be 2.0.70 or higher. Use `az --version` to check. This version supports az extension commands and uses the Knack command framework.
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension)
 
 ## Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-To deploy modules using the Azure CLI, save the deployment manifest locally as a .json file. You use the file path in the next section when you run the command to apply the configuration to your device.
+To deploy modules using the Azure CLI, save the deployment manifest locally as a .json file. Use the file path in the next section to run the command and apply the configuration to your device.
 
-Here's a basic deployment manifest with one module as an example:
+Here is a basic deployment manifest with one module as an example:
 
 >[!NOTE]
->This sample deployment manifest uses schema version 1.1 for the IoT Edge agent and hub. Schema version 1.1 was released along with IoT Edge version 1.0.10, and enables features like module startup order and route prioritization.
+>This sample deployment manifest uses schema version 1.1 for the IoT Edge agent and hub. Schema version 1.1 is included with IoT Edge version 1.0.10 and enables features like module startup order and route prioritization.
 
 ```json
 {
