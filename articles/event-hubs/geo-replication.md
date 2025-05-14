@@ -196,20 +196,30 @@ Note the following considerations to keep in mind with this feature:
 
 ## Pricing
 
-Geo-replication pricing has 2 parameters -
+The pricing varies based on the tier you pick, but generally has 2 parameters -
 
    * The compute charge for the cluster or namespace.
    * The bandwidth charge for the data being replicated between the primary and secondary regions.
+
+> [!NOTE]
+> Please refer to the pricing details listed at [Azure Event Hubs](https://azure.microsoft.com/products/event-hubs/) to determine the charges. The geo-replication charge depends on location of the primary region.
+>
 
 ### Dedicated clusters
 
 Use of geo-replication with Event Hubs dedicated requires you to have at least two dedicated clusters in separate regions, which can be used to host namespaces other than the one being geo-replicated. These dedicated clusters are billed separately based on the number of Capacity Units (CUs) allocated to each.
 
-Bandwidth is charged based on the data transferred between the primary and secondary regions.
+When geo-replication is enabled, the only additional charge is the bandwidth charge for the data replicated from primary to secondary. This charge depends on the location of the primary region.
 
 ### Premium namespaces
 
-For Premium namespaces, enabling geo-replication provisions the same number of processing units (PUs) in the secondary region. Thus, enabling geo-replication on a premium namespace doubles the Processing Units (PUs) billed.
+For Premium namespaces, enabling geo-replication provisions the same number of processing units (PUs) in the secondary region. Thus, you pay for the **number of PUs** you are using and the **bandwidth for the data transferred between the primary and secondary region**.
+
+For example, if you enable geo-replication on a Premium namespace which has been provisioned with **4 PU**, you will be billed for
+
+   * 4 PUs in the primary region,
+   * 4 PUs in the secondary region,
+   * Geo-replication charge per GB of data replicated. 
 
 Bandwidth is charged based on the data transferred between the primary and secondary regions.
 
