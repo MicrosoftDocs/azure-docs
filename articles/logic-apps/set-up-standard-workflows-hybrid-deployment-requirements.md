@@ -145,7 +145,7 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The ID for your Azure subscription |
    | **AKS_CLUSTER_GROUP_NAME** | Yes | <*aks-cluster-resource-group-name*> | The name for the Azure resource group to use with your Kubernetes cluster. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. |
    | **AKS_NAME** | Yes | <*aks-cluster-name*> | The name for your Kubernetes cluster. |
-   | **LOCATION** | Yes | <*Azure-region*> | An Azure region that [supports Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **eastus**. |
+   | **LOCATION** | Yes | <*Azure-region*> | An Azure region that [supports Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#limitations). <br><br>This example uses **eastus**. |
 
 1. Run the following commands either by using the Bash environment in [Azure Cloud Shell](/azure/cloud-shell/overview) or locally using [Azure CLI installed on your computer](/cli/azure/install-azure-cli):
 
