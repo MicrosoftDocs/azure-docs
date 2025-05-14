@@ -135,8 +135,6 @@ Now that the infrastructure is deployed, you need to upload documents and create
     - Copy the **Objects name prefix** value. It is your search index name.
     - Select **Create** to start the indexing process.
 
-    :::image type="content" source="media/tutorial-ai-openai-search-dotnet/review-create-index.png" alt-text="Screenshot showing the review and create screen with the search index name.":::
-
 12. Wait for the indexing process to complete. This might take a few minutes depending on the size and number of your documents.
 
 1. To test the data import, select **Start searching** and try a search query like *"Tell me about your company."* 
