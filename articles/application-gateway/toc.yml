@@ -7,10 +7,12 @@
     href: overview.md
   - name: Application Gateway v2
     href: overview-v2.md
-  - name: What is load balancing and content delivery?
-    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview?toc=/azure/application-gateway/toc.json&bc=/azure/application-gateway/breadcrumb/toc.json
   - name: Application Gateway for Containers
     href: ./for-containers/overview.md
+    - name: What is load balancing and content delivery?
+    href: /azure/networking/load-balancer-content-delivery/load-balancing-content-delivery-overview.md
+  - name: Choose a load balancing solution
+    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/load-balancer/toc.json
   - name: Create Application Gateway - Portal
     href: quick-create-portal.md
   - name: Create Application Gateway - PowerShell
@@ -25,6 +27,8 @@
     href: quick-create-template.md
   - name: Create Application Gateway - Terraform
     href: quick-create-terraform.md
+  - name: FAQ
+    href: application-gateway-faq.yml
 - name: Design
   items:
   - name: Architecture best practices for Azure Application Gateway v2
@@ -75,8 +79,6 @@
     href: ingress-controller-overview.md
   - name: Understanding pricing
     href: understanding-pricing.md
-  - name: FAQ
-    href: application-gateway-faq.yml
 - name: Security
   items:
   - name: Security baseline
