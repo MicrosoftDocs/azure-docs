@@ -24,11 +24,14 @@ Azure Private Endpoint is a network interface that connects you privately and se
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
-## Create a new Azure Managed Redis instance with Private Endpoint connection
+## Create a new Azure Managed Redis cache with a private endpoint connection
 
-In this section, you create a new Azure Managed Redis instance with a private endpoint.
+In this section, you create a new Azure Managed Redis cache with a private endpoint.
 
-### 1. Create a virtual network with Subnet for your new cache
+1. The first step is to create a virtual network for your new cache.
+1. Then, you create a new cache. During the create experience, add the subnet that you created to in the first step.
+
+### Create a virtual network with a subnet
 
 To create a cache using the portal:
 
@@ -36,154 +39,124 @@ To create a cache using the portal:
 
     :::image type="content" source="media/private-link/1-create-resource.png" alt-text="Select Create a resource.":::
 
-2. On the **New** page, select **Networking** and then select **Virtual network**.
+1. On the **New** pane, select **Networking** and then select **Virtual network**.
 
-3. Select **Add** to create a virtual network.
+1. Select **Add** to create a virtual network.
 
-4. In **Create virtual network**, enter or select this information in the **Basics** tab:
+1. In **Create virtual network**, enter or select this information in the **Basics** pane:
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Subscription** | Drop down and select your subscription. | The subscription where you create this virtual network. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your virtual network and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **Name** | Enter a virtual network name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and contain only letters, numbers, underscores, periods, or hyphens. |
+   | **Virtual network name** | Enter a virtual network name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and contain only letters, numbers, underscores, periods, or hyphens. |
    | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your virtual network. |
 
-5. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
+1. Select the **IP Addresses** pane or select the **Next: IP Addresses** button at the bottom of the pane.
 
-6. In the **IP Addresses** tab, specify the **IPv4 address space** as one or more address prefixes in CIDR notation (for example, 192.168.1.0/24).
+1. In the **IP Addresses** pane, specify the **IPv4 address space**  or **IPv6 address space**. For this procedure, use **IPv4 address space**.
 
-7. Under **Subnet name**, select on **default** to edit the subnet's properties.
+1. Select **Add a subnet**. Under **Subnet name**, select  **default** or add a name. You can also edit the subnet properties as needed for your application.
 
-8. In the **Edit subnet** pane, specify a **Subnet name** and the **Subnet address range**. The subnet's address range should be in CIDR notation (for example, 192.168.1.0/24). It must be contained by the address space of the virtual network.
+1. Select **Add**.
 
-9. Select **Save**.
+1. Select the **Review + create** pane or select the **Review + create** button.
 
-10. Select the **Review + create** tab or select the **Review + create** button.
+1. Verify that all the information is correct and select **Create** to create the virtual network.
 
-11. Verify that all the information is correct and select **Create** to create the virtual network.
-
-### 2. Create an Azure Managed Redis instance with a private endpoint connected to a Virtual Network Subnet
+### Create an Azure Managed Redis instance with a private endpoint connected to a Virtual Network Subnet
 
 To create a cache instance, follow these steps:
 
-1. Go back to the Azure portal homepage or open the sidebar menu, then select **Create a resource**.
+1. Go back to the Azure portal home page or open the sidebar menu, then select **Create a resource**.
 
-1. In the search box, type _Azure Cache for Redis_. Refine your search to Azure services only, and select **Azure Cache for Redis**.
+1. In the search box, type _Azure Managed Redis_. Refine your search to Azure services only, and select **Azure Managed Redis**.
 
-1. On the **New Redis Cache** page, configure the settings for your new cache.
+1. On the **New Redis Cache** pane, configure the settings for your new cache.
     1. Select an Azure Managed Redis cache in **Cache SKU**.
     1. Select an appropriate option in **Cache size**.
 
-1. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
+1. Select the **Networking** pane or select the **Networking** at the bottom of the pane.
 
-1. In the **Networking** tab, select **Private Endpoint** for the connectivity method.
+1. In the **Networking** pane, select **Private Endpoint** for the connectivity method.
 
 1. Select the **Add** button to create your private endpoint.
 
    :::image type="content" source="media/private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
 
-1. On the **Create a private endpoint** page, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**.
+1. On the **Create a private endpoint** pane, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**.
 
-1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
+1. On the **Active geo-replication** pane, make the setting required for your resource.
 
-1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port.
+1. Select the **Next: Advanced** pane or select the **Next: Advanced** button on the bottom of the pane.
 
-1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence.
+1. In the **Advanced** pane for Azure Managed Redis instance, configure the settings needed for your resource.
 
-1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
+1. Select the **Next: Tags** pane or select the **Next: Tags** button at the bottom of the pane.
 
-1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
+1. Optionally, in the **Tags** pane, enter the name and value if you wish to categorize the resource.
 
-1. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
+1. Select **Review + create**. You're taken to the Review + create pane where Azure validates your configuration.
 
 1. After the green Validation passed message appears, select **Create**.
 
-It takes a while for the cache to create. You can monitor progress on the Azure Managed Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
+It takes a while for the cache to create. You can monitor progress on the Azure Managed Redis **Overview** pane. When **Status** shows as **Running**, the cache is ready to use.
 
-## Create a private endpoint with an existing Azure Managed Redis instance
+## Create a private endpoint for use with an existing Azure Managed Redis instance
 
 In this section, you add a private endpoint to an existing Azure Managed Redis instance.
 
-### 1. Create a virtual network wuth Subnet for your existing cache
+1. The first step is to [create a virtual network](#create-a-virtual-network-with-subnet) for use with your existing cache.
+1. Then, you open your cache in the portal and add the subnet that you created to in the first step.
 
-To create a virtual network, follow these steps:
+### Create a virtual network with a subnet for your existing cache
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
+To create a virtual network, follow these [steps](#create-a-virtual-network-with-subnet).
 
-1. On the **New** page, select **Networking** and then select **Virtual network**.
-
-1. Select **Add** to create a virtual network.
-
-1. In **Create virtual network**, enter or select this information in the **Basics** tab:
-
-   | Setting      | Suggested value  | Description |
-   | ------------ |  ------- | -------------------------------------------------- |
-   | **Subscription** | Drop down and select your subscription. | The subscription where you create this virtual network. |
-   | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your virtual network and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
-   | **Name** | Enter a virtual network name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and contain only letters, numbers, underscores, periods, or hyphens. |
-   | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your virtual network. |
-
-1. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
-
-1. In the **IP Addresses** tab, specify the **IPv4 address space** as one or more address prefixes in CIDR notation (for example, 192.168.1.0/24).
-
-1. Under **Subnet name**, select on **default** to edit the subnet's properties.
-
-1. In the **Edit subnet** pane, specify a **Subnet name** and the **Subnet address range**. The subnet's address range should be in CIDR notation (for example, 192.168.1.0/24). It must be contained by the address space of the virtual network.
-
-1. Select **Save**.
-
-1. Select the **Review + create** tab or select the **Review + create** button.
-
-1. Verify that all the information is correct and select **Create** to create the virtual network.
-
-### 2. Add a private endpoint for your existing Azure Managed Redis
+### Add a private endpoint to an existing Azure Managed Redis cache
 
 To create a private endpoint, follow these steps:
 
-1. In the Azure portal, search for **Azure Cache for Redis**. Then, press enter or select it from the search suggestions for your cache.
+1. In the Azure portal, select the cache instance you want to add a private endpoint to.
 
-1. Select the cache instance you want to add a private endpoint to.
+1. Select **Private Endpoint** from the resource menu to create your private endpoint for your cache.
 
-1. On the left side of the screen, select **Private Endpoint**.
-
-1. Select the **Private Endpoint** button to create your private endpoint.
-
-1. On the **Create a private endpoint page**, configure the settings for your private endpoint.
+1. On the **Create a private endpoint** pane, configure the settings for your private endpoint.
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Subscription** | Drop down and select your subscription. | The subscription where you create this private endpoint. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your private endpoint and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Name** | Enter a private endpoint name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and can contain only letters, numbers, underscores, periods, or hyphens. |
+   | **Network Interface Name** | Autogenerated based on the **Name**. | The name must: begin with a letter or number; end with a letter, number, or underscore; and can contain only letters, numbers, underscores, periods, or hyphens. |
    | **Region** | Drop down and select a region. | Select a [region](https://azure.microsoft.com/regions/) near other services that use your private endpoint. |
 
-1. Select the **Next: Resource** button at the bottom of the page.
+1. Select the **Next: Resource** at the bottom of the pane.
 
-1. In the **Resource** tab, select your subscription, choose the resource type as `Microsoft.Cache/redisEnterprise`, and then select the cache you want to connect the private endpoint to.
+1. In the **Resource** pane, select your **Subscription**. 
+    1. Then, choose the **Resource type** as `Microsoft.Cache/redisEnterprise`.
+    1. Then select the cache you want to connect the private endpoint to for the **Resource** property.
 
-1. Select the **Next: Configuration** button at the bottom of the page.
+1. Select the **Next: Virtual Network** button at the bottom of the pane.
 
-1. Select the **Next: Virtual Network** button at the bottom of the page.
+1. In the **Virtual Network** pane, select the **Virtual Nnetwork** and **Subnet** you created in the previous section.
 
-1. In the **Configuration** tab, select the virtual network and subnet you created in the previous section.
+<!-- We don't talk about DNS zones -->
 
-1. In the **Virtual Network** tab, select the virtual network and subnet you created in the previous section.
+1. Select the **Next: Tags** button at the bottom of the pane.
 
-1. Select the **Next: Tags** button at the bottom of the page.
+1. Optionally, in the **Tags** pane, enter the name and value if you wish to categorize the resource.
 
-1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
-
-1. Select **Review + create**. You're taken to the **Review + create** tab where Azure validates your configuration.
+1. Select **Review + create**. You're taken to the **Review + create** pane where Azure validates your configuration.
 
 1. After the green **Validation passed** message appears, select **Create**.
 
 > [!IMPORTANT]
 >
 > There is currently no `publicNetworkAccess` property for Azure Managed Redis resource.
-> If there is a Private Endpoint connected to the Azure Managed Redis resource, it would only accept private traffic from the Virtual Network it's connected to
-> If you delete the Private Endpoint, the resource will automatically be opened to public network access
+> If there is a Private Endpoint connected to the Azure Managed Redis resource, it would only accept private traffic from the Virtual Network it's connected to.
+> If you delete the Private Endpoint, the resource is automatically opened to public network access.
+
 ## Create an AMR connected to a private endpoint using Azure PowerShell
 
 To create a private endpoint named _MyPrivateEndpoint_ for an existing Azure Managed Redis instance, run the following PowerShell script. Replace the variable values with the details for your environment:
@@ -295,7 +268,7 @@ To remove a private endpoint, use the following CLI command:
 az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
 ```
 ## Azure Managed Redis Private Endpoint Private DNS zone value
-Your application should connect to `<cachename>.<region>.redis.azure.net` on port `10000`. A private DNS zone, named `*.privatelink.redis.azure.net`, is automatically created in your subscription. The private DNS zone is vital for establishing the TLS connection with the private endpoint. We recommend avoiding the use of `<cachename>.privatelink.redis.azure.net` in configuration for client connection.
+Your application should connect to `<cachename>.<region>.redis.azure.net` on port `10000`. A private DNS zone, named `*.privatelink.redis.azure.net`, is automatically created in your subscription. The private DNS zone is vital for espanelishing the TLS connection with the private endpoint. We recommend avoiding the use of `<cachename>.privatelink.redis.azure.net` in configuration for client connection.
 
 For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
 
