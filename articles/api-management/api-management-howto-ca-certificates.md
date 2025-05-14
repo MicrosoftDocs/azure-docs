@@ -15,7 +15,7 @@ ms.custom:
 
 # How to add a custom CA certificate in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-no-v2](../../includes/api-management-availability-premium-dev-standard-basic-no-v2.md)]
+**APPLIES TO: Developer | Basic | Standard | Premium**
 
 Azure API Management allows you to install CA certificates on the machine inside the trusted root and intermediate certificate stores. You should use this functionality if your services require a custom CA certificate.
 
@@ -38,7 +38,7 @@ Complete the following steps to upload a new CA certificate. If you haven't crea
 
 1. In the **Upload CA certificate** window, select the file icon and browse for the certificate .cer file. In the **Store** box, select a certificate store. Only the public key is needed, so the password is optional.
 
-    :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Add CA certificate in the Azure portal"::: 
+    :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Screenshot that shows the steps for adding a CA certificate in the Azure portal." lightbox="media/api-management-howto-ca-certificates/02.png"::: 
 
 1. Select the **Add** button at the bottom of the window, and then select **Save**. This operation might take a few minutes.
 
