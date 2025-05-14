@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 11/15/2024
+ms.date: 05/14/2025
 ms.author: robiro
 ---
 
@@ -22,7 +22,7 @@ A virtual network (vnet) peering is the most performant way to connect securely 
 
 For SAP RISE/ECS deployments, virtual peering is the preferred way to establish connectivity with customer’s existing Azure environment. Primary benefits are:
 - Minimized network latency and maximum throughput between SAP RISE landscape and own applications and services running in Azure.
-- No extra complexity and cost with a dedicated on-premises communication path for SAP RISE workload. Instead using on-premises communication path of the existing Azure network hub(s).
+- No extra complexity and cost with a dedicated on-premises communication path for the SAP RISE workload. Instead your existing Azure network hub(s) provides the on-premises communication path.
 
 Virtual network peering can be set up within the same region as your SAP managed environment, but also through [global virtual network peering](../../virtual-network/virtual-network-peering-overview.md) between any two Azure regions. With SAP RISE/ECS available in many [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/), the region should match with workload running in customer virtual networks due to latency and peering cost considerations. However, some of the scenarios (for example, central S/4HANA deployment for a globally present company) also require to peer networks globally. For such globally distributed SAP landscape, we recommend to use multi-region network architecture within your own Azure environment, with SAP RISE peering locally in each geography to your network hubs.
 
@@ -56,7 +56,7 @@ With an existing customer Azure deployment, on-premises network is already conne
 
 With this architecture, central policies and security rules governing network connectivity to customer workloads also apply to SAP RISE/ECS managed workloads. The same on-premises network path is used for both customer's and SAP RISE/ECS virtual network.
 
-If currently there's no present Azure to on-premises connectivity, contact your SAP representative for details which connections models are possible for the RISE workload. If SAP RISE/ECS establishes on-premises within RISE directly, such on-premises connection is available for reaching the SAP managed virtual network only. Such dedicated ExpressRoute or VPN connection within SAP RISE can't be used to access customer's own Azure virtual networks.
+If currently there's no present Azure to on-premises connectivity, contact your SAP representative for details which connections models are possible for the RISE workload. If SAP RISE/ECS establishes on-premises within RISE directly, such on-premises connection is available for reaching the SAP managed virtual network only. Such dedicated ExpressRoute or VPN connection within SAP RISE can't be used to access customer's own Azure virtual networks. Ensure your ExpressRoute is [architected for resiliency](../../expressroute/design-architecture-for-resiliency.md) in mind, with high or maximum resiliency recommended.
 
 > [!NOTE] 
 > A virtual network can have [only have one gateway](../../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity), local or remote. With virtual network peering established between SAP RISE using remote gateway transit, no gateways can be added in the SAP RISE/ECS virtual network. A combination of virtual network peering with remote gateway transit together with another virtual network gateway in the SAP RISE/ECS virtual network isn't possible.
@@ -110,7 +110,7 @@ Should you enable Internet bound or incoming traffic with SAP RISE, the network 
 
 [![Diagram shows SAP Cloud Connector VM from SAP RISE virtual network connecting through Internet to SAP BTP. SAP RISE/ECS provides inbound/outbound internet connectivity. Customer's own workloads go through own internet breakout, not crossing over to SAP RISE virtual network](./media/sap-rise-integration/sap-rise-internet.png)](./media/sap-rise-integration/sap-rise-internet.png#lightbox)
 
-Applications within a customer’s own virtual network connect to the Internet directly from respective virtual network or through customer’s centrally managed services such as Azure Firewall, Azure Application Gateway, NAT Gateway and others. Connectivity to SAP BTP from non-SAP RISE/ECS applications takes the same network Internet bound path on your side. Should an SAP Cloud Connecter be needed for such integration, run it on customer’s VMs. In other words, SAP BTP or any public endpoint communication is on a network path managed by customers themselves if SAP RISE workload is not involved.
+Applications within a your own virtual network connect to the Internet from respective virtual network directly or through customer’s centrally managed services such as Azure Firewall, NAT Gateway and others. Connectivity to SAP BTP from non-SAP RISE/ECS applications takes the same network Internet bound path on your side. Should an SAP Cloud Connecter be needed for such integration, run it on customer’s VMs. In other words, communication from your own applications to SAP BTP or any public RISE endpoint is on a network path managed by you. Communication from your SAP RISE landscape to SAP BTP or other public SAP endpoints is on a network path managed by SAP RISE/ECS.
 
 ## SAP BTP connectivity
 
@@ -118,7 +118,9 @@ SAP Business Technology Platform (BTP) provides a multitude of applications typi
 
 SAP offers [Private Link Service](https://help.sap.com/docs/private-link/private-link1/what-is-sap-private-link-service) for customers using SAP BTP on Azure for uni-directional requests originating from BTP. The SAP Private Link Service connects SAP BTP services through a private IP range into customer’s Azure network and thus accessible privately through the private link service instead of through the Internet. Contact SAP for availability of this service for SAP RISE/ECS workloads. Learn more about the SAP Private Link support for RISE [here](https://community.sap.com/t5/technology-blogs-by-sap/quot-sap-private-link-and-azure-private-link-quot-in-the-context-of-sap/ba-p/13719685).
 
-See [SAP's documentation](https://help.sap.com/docs/private-link/private-link1/consume-azure-services-in-sap-btp) and a series of blog posts on the architecture of the SAP BTP Private Link Service and private connectivity methods, dealing with DNS and certificates in following SAP blog series [Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/). 
+See [SAP's documentation](https://help.sap.com/docs/private-link/private-link1/consume-azure-services-in-sap-btp) and a series of blog posts on the architecture of the SAP BTP Private Link Service and private connectivity methods from BTP, dealing with DNS and certificates in following SAP blog series [Getting Started with BTP Private Link Service for Azure](https://blogs.sap.com/2021/12/29/getting-started-with-btp-private-link-service-for-azure/).
+
+Connection into BTP does not utilize Private Link and communicates with a public interface. If both SAP BTP and your SAP RISE landscape are running in Azure, the default routing behavior is to keep such Internet bound communication on Azure backbone. See the documentation on [Azure traffic routing](../../virtual-network/virtual-networks-udr-overview.md) for more details.
 
 ## Network communication ports with SAP RISE
 
