@@ -34,13 +34,13 @@ Complete the following steps to upload a new CA certificate. If you haven't crea
 
 1. Go to your Azure API Management instance in the Azure portal.
 
-1. In the menu, under **Security**, select **Certificates > CA certificates > + Add**.
+1. In the left menu, under **Security**, select **Certificates**. On the **Certificates** page, select **CA certificates** > **+ Add**.
 
-1. Browse for the certificate .cer file and choose a certificate store. Only the public key is needed, so the password is optional.
+1. In the **Upload CA certificate** window, select the file icon and browse for the certificate .cer file. In the **Store** box, select a certificate store. Only the public key is needed, so the password is optional.
 
     :::image type="content" source="media/api-management-howto-ca-certificates/02.png" alt-text="Add CA certificate in the Azure portal"::: 
 
-1. Select **Save**. This operation might take a few minutes.
+1. Select the **Add** button at the bottom of the window, and then select **Save**. This operation might take a few minutes.
 
 > [!NOTE]
 > You can also upload a CA certificate by using the `New-AzApiManagementSystemCertificate` PowerShell command.
