@@ -13,7 +13,7 @@ ms.date: 04/29/2025
 #Customer intent: I want to learn how to use the Azure App Configuration .NET configuration provider library.
 ---
 
-# .NET Configuration Provider
+# .NET configuration provider
 
 [![Microsoft.Extensions.Configuration.AzureAppConfiguration](https://img.shields.io/nuget/v/Microsoft.Extensions.Configuration.AzureAppConfiguration?label=Microsoft.Extensions.Configuration.AzureAppConfiguration)](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureAppConfiguration)
 
@@ -287,7 +287,7 @@ builder.Services.AddAzureAppConfiguration();
 
 `builder.Services.AddAzureAppConfiguration()` adds the `IConfigurationRefreshProvider` service to the DI container, which gives you access to the refreshers of all Azure App Configuration sources in the application's configuration.
 
-#### ASP.NET Core applications
+##### ASP.NET Core applications
 
 For ASP.NET Core applications, you can use the `Microsoft.Azure.AppConfiguration.AspNetCore` package to achieve [request-driven configuration refresh](./enable-dynamic-configuration-aspnet-core.md#request-driven-configuration-refresh) with a built-in middleware.
 
@@ -315,7 +315,7 @@ app.UseRouting();
 
 The `AzureAppConfigurationRefreshMiddleware` automatically checks for configuration changes at the configured refresh interval. This approach is efficient as it only refreshes when both conditions are met: an HTTP request is received and the refresh interval has elapsed.
 
-#### Background services
+##### Background services
 
 For background services, you can inject the `IConfigurationRefresherProvider` service and manually refresh each of the registered refreshers.
 
@@ -583,8 +583,8 @@ Azure App Configuration enables you to configure secret refresh intervals indepe
 
 To ensure your application always uses the most current secret values, configure the `SetSecretRefreshInterval` method. This forces the provider to retrieve fresh secret values from Key Vault when:
 
-1. Your application calls `IConfigurationRefresher.TryRefreshAsync`
-2. The configured refresh interval for the secret has elapsed
+- Your application calls `IConfigurationRefresher.TryRefreshAsync`
+- The configured refresh interval for the secret has elapsed
 
 This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
 

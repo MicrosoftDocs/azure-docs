@@ -13,7 +13,7 @@ ms.date: 02/02/2025
 #Customer intent: I want to learn how to use Azure App Configuration JavaScript client library.
 ---
 
-# JavaScript Configuration Provider
+# JavaScript configuration provider
 
 [![configuration-provider-npm-package](https://img.shields.io/npm/v/@azure/app-configuration-provider?label=@azure/app-configuration-provider)](https://www.npmjs.com/package/@azure/app-configuration-provider)
 
