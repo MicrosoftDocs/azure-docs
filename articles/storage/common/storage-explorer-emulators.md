@@ -39,7 +39,7 @@ If any of the conditions aren't true, then you need to manually add a connection
 
 ### Local emulator
 
-If you need to manually connect to an emulator that is running locally, open the "Connect" dialog (plug icon in the vertical toolbar side) and choose **Local storage emulator**. Then fill out all required fields. Make sure to set the ports for each service type to their appropriate values. If your emulator is configured to use HTTPS, also make sure to check the checkbox for HTTPS. After you finish connecting, you can find the storage account node for your emulator under  **Local & Attached** > **Storage Accounts**.
+If you need to manually connect to an emulator that is running locally, open the "Connect" dialog (plug icon in the vertical toolbar) and choose **Local storage emulator**. Then fill out all required fields. Make sure to set the ports for each service type to their appropriate values. If your emulator is configured to use HTTPS, also make sure to check the checkbox for HTTPS. After you finish connecting, you can find the storage account node for your emulator under  **Local & Attached** > **Storage Accounts**.
 
 ### Remote emulator
 
