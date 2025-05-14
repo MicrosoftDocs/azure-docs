@@ -1,13 +1,13 @@
 ---
 title: Determine what Azure reservation you should purchase
 description: This article helps you determine which reservation you should purchase.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Determine what reservation to purchase

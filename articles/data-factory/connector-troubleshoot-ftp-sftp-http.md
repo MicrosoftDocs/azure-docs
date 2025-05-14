@@ -58,7 +58,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Message**: `Invalid SFTP credential provided for '%type;' authentication type.`
 
-- **Cause**: Private key content is fetched from the Azure key vault or SDK, but it's not encoded correctly.
+- **Cause**: Private key content is fetched from the Azure Key Vault or SDK, but it's not encoded correctly.
 
 - **Recommendation**:  
 

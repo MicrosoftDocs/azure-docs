@@ -3,7 +3,7 @@ title: Resolve errors for storage account names
 description: Describes how to resolve errors for Azure storage account names that can occur during deployment with a Bicep file or Azure Resource Manager template (ARM template).
 ms.topic: troubleshooting
 ms.custom: devx-track-arm-template, devx-track-bicep
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ---
 
 # Resolve errors for storage account names
@@ -58,8 +58,9 @@ There are two main causes for this error.
 ## Cause 1
 
 The storage account name uses invalid characters or is a duplicate name. Storage account names must meet the following criteria:
-   - Length between 3 and 24 characters with only lowercase letters and numbers.
-   - Must be globally unique across Azure. Storage account names can't be duplicated in Azure.
+
+- Length between 3 and 24 characters with only lowercase letters and numbers.
+- Must be globally unique across Azure. Storage account names can't be duplicated in Azure.
   
 ## Solution 1
 
@@ -130,13 +131,14 @@ name: '${storageNamePrefix}${uniqueString(resourceGroup().id)}'
 "name": "[concat(parameters('storageNamePrefix'), uniquestring(resourceGroup().id))]"
 ```
 
+---
+
 ## Cause 2
 
 The storage account was recently deleted.
-   - If a request to create the storage account comes from a different subscription and tenant than where it was previously located, it will be denied for security purposes as described here, [Prevent dangling DNS entries and avoid subdomain takeover](https://docs.microsoft.com/azure/security/fundamentals/subdomain-takeover). 
+
+If a request to create the storage account comes from a different subscription and tenant than where it was previously located, it is denied for security purposes as described here, [Prevent dangling DNS entries and avoid subdomain takeover](/azure/security/fundamentals/subdomain-takeover).
   
 ## Solution 2
 
-[Create a Support Request](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request****) and choose **Create new storage account** for the problem type, and **Failure(s) during new account creation** for the Problem subtype. Please make sure to include the name of the storage account and the approximate time when account creation failed.
-
----
+[Create a Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request****) and choose **Create new storage account** for the problem type, and **Failure(s) during new account creation** for the Problem subtype. Make sure to include the name of the storage account and the approximate time when account creation failed.

@@ -1,8 +1,8 @@
 ---
 title: Sample events for Microsoft Azure Data Manager for Agriculture Preview based on Azure Event Grid #Required; page title is displayed in search results. Include the brand.
 description: This article provides samples of Azure Data Manager for Agriculture Preview events. #Required; article description that is displayed in search results. 
-author: gourdsay #Required; your GitHub user alias, with correct capitalization.
-ms.author: angour #Required; microsoft alias of author; optional team alias.
+author: BlackRider97 #Required; your GitHub user alias, with correct capitalization.
+ms.author: ramithar #Required; microsoft alias of author; optional team alias.
 ms.service: azure-data-manager-agriculture
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 04/18/2023 #Required; mm/dd/yyyy format.

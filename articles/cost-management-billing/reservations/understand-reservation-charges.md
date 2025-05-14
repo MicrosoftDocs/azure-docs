@@ -1,13 +1,13 @@
 ---
 title: Understand reservations discount for Azure SQL Database
 description: Learn how a reservation discount is applied to running Azure SQL databases. The discount is applied to these databases on an hourly basis.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/20/2025
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # How a reservation discount is applied to Azure SQL Database

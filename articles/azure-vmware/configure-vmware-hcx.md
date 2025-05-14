@@ -14,7 +14,7 @@ After you [install the VMware HCX add-on](install-vmware-hcx.md), configure the 
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Pair your on-premises VMware HCX Connector with your Azure VMware > Solution HCX Cloud Manager
+> * Pair your on-premises VMware HCX Connector with your Azure VMware Solution HCX Cloud Manager
 > * Configure the network profile, compute profile, and service mesh
 > * Check the appliance status and validate that migration is possible
 
@@ -78,7 +78,7 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
    - Uplink
    
    > [!NOTE]
-   > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPSec overhead.
+   > * For Azure VMware Solution connected via VPN, set Uplink Network Profile MTU's to 1350 to account for IPsec overhead.
    > * Azure VMware Solution defaults to 1500 MTU, which is sufficient for most ExpressRoute implementations.
    >   * If your ExpressRoute provider does not support jumbo frames, you may need to lower the MTU in ExpressRoute setups as well.
    >   * Adjust MTU settings on both HCX Connector (on-premises) and HCX Cloud Manager (Azure VMware Solution) network profiles.

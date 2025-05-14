@@ -40,7 +40,7 @@ In this section, you create a route server. Prior to creating the route server, 
     New-AzResourceGroup = -Name 'myResourceGroup' -Location 'EastUS'
     ```
 
-1. The route server requires a dedicated subnet named *RouteServerSubnet*. Please configure a subnet size of minimum /26 or larger. Create a subnet configuration for **RouteServerSubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet.
+1. The route server requires a dedicated subnet named *RouteServerSubnet*, with a minimum subnet size of /26 or larger. Create a subnet configuration for **RouteServerSubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) cmdlet.
 
     ```azurepowershell-interactive
     # Create subnet configuration.
@@ -80,6 +80,8 @@ In this section, you learn how to configure BGP peering with a network virtual a
 # Add a peer.
 Add-AzRouteServerPeer -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer' -PeerName 'myNVA' -PeerAsn '65001' -PeerIp '10.0.0.4'
 ```
+> [!NOTE]
+> The peer name doesn't have to be the same name of the NVA.
 
 ## Complete the configuration on the NVA
 

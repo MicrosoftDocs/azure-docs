@@ -188,7 +188,7 @@ if (acsEvent is RecognizeCompleted recognizeCompleted)
         case DtmfResult dtmfResult: 
             //Take action for Recognition through DTMF 
             var tones = dtmfResult.Tones; 
-            logger.LogInformation("Recognize completed succesfully, tones={tones}", tones); 
+            logger.LogInformation("Recognize completed successfully, tones={tones}", tones); 
             break; 
         case ChoiceResult choiceResult: 
             // Take action for Recognition through Choices 
@@ -196,15 +196,15 @@ if (acsEvent is RecognizeCompleted recognizeCompleted)
             var phraseDetected = choiceResult.RecognizedPhrase; 
             // If choice is detected by phrase, choiceResult.RecognizedPhrase will have the phrase detected, 
             // If choice is detected using dtmf tone, phrase will be null 
-            logger.LogInformation("Recognize completed succesfully, labelDetected={labelDetected}, phraseDetected={phraseDetected}", labelDetected, phraseDetected);
+            logger.LogInformation("Recognize completed successfully, labelDetected={labelDetected}, phraseDetected={phraseDetected}", labelDetected, phraseDetected);
             break; 
         case SpeechResult speechResult: 
             // Take action for Recognition through Choices 
             var text = speechResult.Speech; 
-            logger.LogInformation("Recognize completed succesfully, text={text}", text); 
+            logger.LogInformation("Recognize completed successfully, text={text}", text); 
             break; 
         default: 
-            logger.LogInformation("Recognize completed succesfully, recognizeResult={recognizeResult}", recognizeCompleted.RecognizeResult); 
+            logger.LogInformation("Recognize completed successfully, recognizeResult={recognizeResult}", recognizeCompleted.RecognizeResult); 
             break; 
     } 
 } 
@@ -218,7 +218,7 @@ if (acsEvent is RecognizeFailed recognizeFailed)
     if (MediaEventReasonCode.RecognizeInitialSilenceTimedOut.Equals(recognizeFailed.ReasonCode)) 
     { 
         // Take action for time out 
-        logger.LogInformation("Recognition failed: initial silencev time out"); 
+        logger.LogInformation("Recognition failed: initial silence time out"); 
     } 
     else if (MediaEventReasonCode.RecognizeSpeechOptionNotMatched.Equals(recognizeFailed.ReasonCode)) 
     { 

@@ -3,7 +3,7 @@ title: Azure to Azure disaster recovery architecture in Azure Site Recovery
 description: Overview of the architecture used when you set up disaster recovery between Azure regions for Azure VMs, using the Azure Site Recovery service.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/28/2024
+ms.date: 03/17/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -37,7 +37,7 @@ When you enable replication for a VM, Site Recovery gives you the option of crea
 **Target resource group** | The resource group to which VMs belong after failover.<br/><br/> It can be in any Azure region except the source region.<br/><br/> Site Recovery creates a new resource group in the target region, with an "asr" suffix.
 **Target VNet** | The virtual network (VNet) in which replicated VMs are located after failover. A network mapping is created between source and target virtual networks, and vice versa.<br/><br/> Site Recovery creates a new VNet and subnet, with the "asr" suffix.
 **Target storage account** |  If the VM doesn't use a managed disk, this is the storage account to which data is replicated.<br/><br/> Site Recovery creates a new storage account in the target region, to mirror the source storage account.
-**Replica managed disks** | If the VM uses a managed disk, this is the managed disks to which data is replicated.<br/><br/> Site Recovery creates replica managed disks in the storage region to mirror the source.
+**Replica managed disks** | If the VM uses a managed disk, a copy of the original disk is created with an `-ASRReplica` suffix. The copies created are used for replication. <br> This `-ASRReplica` disk's **Disk state** should be *ActiveSAS* which automatically creates a tag with `ASR-ReplicaDisk` prefix. 
 **Target availability sets** |  Availability set in which replicating VMs are located after failover.<br/><br/> Site Recovery creates an availability set in the target region with the suffix "asr", for VMs that are located in an availability set in the source location. If an availability set exists, it's used and a new one isn't created.
 **Target availability zones** | If the target region supports availability zones, Site Recovery assigns the same zone number as that used in the source region.
 

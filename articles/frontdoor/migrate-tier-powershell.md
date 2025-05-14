@@ -1,16 +1,17 @@
 ---
 title: Migrate Azure Front Door (classic) to Standard/Premium tier with Azure PowerShell
 description: This article provides step-by-step instructions on how to migrate from an Azure Front Door (classic) profile to an Azure Front Door Standard or Premium tier profile with Azure PowerShell.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/15/2024
-ms.author: duau
+ms.custom: devx-track-azurepowershell
 ---
 
 # Migrate Azure Front Door (classic) to Standard/Premium tier with Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 

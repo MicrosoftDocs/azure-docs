@@ -23,19 +23,19 @@ Virtual machines support availability zones with three availability zones per su
 To learn more about availability zone readiness options, see:
 
 - See [availability options for VMs](/azure/virtual-machines/availability)
-- Review [availability zone service support](./availability-zones-service-support.md) and [region support](availability-zones-region-support.md)
+- Review [availability zone service support](./availability-zones-service-support.md) and [region support](regions-list.md)
 - [Migrate existing VMs](migrate-vm.md) to availability zones
 
  
 ### Prerequisites
 
-- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](availability-zones-region-support.md).
+- Your virtual machine SKUs must be available across the zones in for your region. To review which regions support availability zones, see the [list of supported regions](regions-list.md).
 
 - Your VM SKUs must be available across the zones in your region. To check for VM SKU availability, use one of the following methods:
 
     - Use PowerShell to [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability).
     - Use the Azure CLI to [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability).
-    - Go to [Azure services with availability zone support](availability-zones-service-support.md#compute).
+    - Go to [Azure services with availability zone support](availability-zones-service-support.md).
     
 
 ### SLA improvements

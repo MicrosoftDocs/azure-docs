@@ -143,11 +143,11 @@ function envVarMatchesHeader(headerValue) {
 
 ## Instances
 
-Once Health check is enabled, you can restart and monitor the status of your application instances from the instances tab. The instances tab shows your instance's name and the status of that application's instance. You can also manually restart the instance from this tab.
+Once Health check is enabled, you can restart and monitor the status of your application instances from the instances tab. The instances tab shows your instance's name and the status of that application's instance. You can also manually do an advanced application restart from this tab by using the "Restart" button.
 
-If the status of your application instance is "unhealthy," you can restart the instance manually by using the restart button in the table. Keep in mind that any other applications hosted on the same App Service plan as the instance will also be affected by the restart. If there are other applications using the same App Service plan as the instance, they're listed on the opening blade from the restart button.
+If the status of your application instance is "unhealthy," you can restart the worker process of the respective app manually by using the restart button in the table. This will not be affecting any of the other applications hosted on the same App Service plan. If there are other applications using the same App Service plan as the instance, they're listed on the opening blade from the restart button.
 
-If you restart the instance and the restart process fails, you'll be given the option to replace the worker. (Only one instance can be replaced per hour.)  This will also affect any applications using the same App Service plan.
+If you restart the instance and the restart process fails, you'll be given the option to replace the worker. (Only one instance can be replaced per hour.)  This will affect any applications using the same App Service plan.
 
 For Windows applications, you can also view processes via the Process Explorer. This gives you further insight on the instance's processes, including thread count, private memory, and total CPU time.
 

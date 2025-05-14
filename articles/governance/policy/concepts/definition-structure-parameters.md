@@ -1,7 +1,7 @@
 ---
 title: Details of the policy definition structure parameters
 description: Describes how policy definition parameters are used to establish conventions for Azure resources in your organization.
-ms.date: 04/01/2024
+ms.date: 03/04/2025
 ms.topic: conceptual
 ---
 

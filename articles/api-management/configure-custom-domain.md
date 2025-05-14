@@ -27,6 +27,8 @@ When you create an Azure API Management service instance in the Azure cloud, Azu
 > [!NOTE]
 > Currently, custom domain names aren't supported in a [workspace gateway](workspaces-overview.md#workspace-gateway).
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
 ## Prerequisites
 
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
@@ -167,11 +169,6 @@ Choose the steps according to the [domain certificate](#domain-certificate-optio
 1. Select **Add**, or select **Update** for an existing endpoint.
 1. Select **Save**.
 
-> [!NOTE]
-> The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer tier has downtime, while Basic and higher tiers do not.
-
-
-
 ---
 
 ## DNS configuration
@@ -205,7 +202,7 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
-## Next steps
+## Related content
 
 [Upgrade and scale your service](upgrade-and-scale.md)
 

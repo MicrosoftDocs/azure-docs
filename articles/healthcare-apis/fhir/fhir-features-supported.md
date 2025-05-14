@@ -62,6 +62,7 @@ All the operations that are supported that extend the REST API.
 ## Role-based access control
 
 FHIR service uses [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) for access control. 
+SMART on FHIR Implementation Guide defines access to FHIR resource types with scopes. These scopes impact the access an application may have to FHIR resources. A user with the SMART user role has access to perform read API interactions on FHIR service. SMART user role does not grant write access to FHIR service.
 
 ## Service limits
 

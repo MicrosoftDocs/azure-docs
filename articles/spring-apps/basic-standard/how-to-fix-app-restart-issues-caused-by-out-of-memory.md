@@ -41,7 +41,7 @@ The **Resource health** page on the Azure portal shows app restart events due to
 
 ### Configure memory size
 
-The metrics *App memory Usage*, `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information, see the [Metrics](tools-to-troubleshoot-memory-issues.md#metrics) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). Configure the maximum memory sizes in JVM options to ensure that memory is under the limit.
+The metrics `App memory usage`, `jvm.memory.used`, and `jvm.memory.committed` provide a view of memory usage. For more information, see the [Metrics](tools-to-troubleshoot-memory-issues.md#metrics) section of [Tools to troubleshoot memory issues](tools-to-troubleshoot-memory-issues.md). Configure the maximum memory sizes in JVM options to ensure that memory is under the limit.
 
 The sum of the maximum memory sizes of all the parts in the [Java memory model](concepts-for-java-memory-management.md#java-memory-model) should be less than the real available app memory. To set your maximum memory sizes, see the typical memory layout described in the [Memory usage layout](concepts-for-java-memory-management.md#memory-usage-layout) section of [Java memory management](concepts-for-java-memory-management.md).
 

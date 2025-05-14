@@ -2,15 +2,16 @@
 title: Configure security headers with Standard/Premium Rule Set
 titleSuffix: Azure Front Door
 description: Learn how to use Azure Front Door Standard/Premium rule sets to configure security headers and prevent browser-based vulnerabilities.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: yuajia
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 02/25/2025
-ms.author: yuajia
 ---
 
 # Configure security headers with Azure Front Door Standard/Premium Rule Set
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 This article shows how to implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, or X-Frame-Options. Security-based attributes can also be defined with cookies.
 

@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Firewall
 description: You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
-ms.date: 08/08/2024
+ms.date: 04/15/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: duongau
@@ -95,8 +95,14 @@ New resource specific tables are now available in Diagnostic setting that allows
 - [Application rule aggregation log](/azure/azure-monitor/reference/tables/azfwapplicationruleaggregation) - Contains aggregated Application rule log data for Policy Analytics.
 - [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
 - [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
-- [Top flow log](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall.
+- [Top flow log](/azure/azure-monitor/reference/tables/azfwfatflow) - The Top Flows (Fat Flows) log shows the top connections that are contributing to the highest throughput through the firewall. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 - [Flow trace](/azure/azure-monitor/reference/tables/azfwflowtrace) - Contains flow information, flags, and the time period when the flows were recorded. You can see full flow information such as SYN, SYN-ACK, FIN, FIN-ACK, RST, INVALID (flows).
+
+All resource specific tables now support the *Basic* table plan, which can reduce logging costs by up to 80%. For more information on the limitations and differences of this new logging plan, see [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs#table-plans). To learn about the new querying experience, see [Query data in a basic and auxiliary table](/azure/azure-monitor/logs/basic-logs-query).
+
+> [!NOTE]
+> - [Policy Analytics](policy-analytics.md) and [Security Copilot integrations](firewall-copilot.md) aren't compatible with the *Basic* table plan. To enable these features, make sure the required log tables are configured with the *Analytics* table plan.
+> - The table plan can be updated only once every **7 days**.
 
 ### Enable structured logs
 
@@ -105,9 +111,10 @@ To enable Azure Firewall structured logs, you must first configure a Log Analyti
 Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
 
 > [!NOTE]
-> There's no requirement to enable this feature with a feature flag or Azure PowerShell commands.
+> * To enable Azure Firewall Fat Flow Log (Top flow log) you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
 
 :::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
+
 
 ### Structured log queries
 

@@ -16,7 +16,7 @@ This article defines and describes business continuity and business continuity p
 
 *Business continuity* is the state in which a business can continue operations during failures, outages, or disasters. Business continuity requires proactive planning, preparation, and the implementation of resilient systems and processes.
 
-Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on the risks and their likelihoods, design for both *high availability* (HA) and *disaster recovery* (DR). 
+Planning for business continuity requires identifying, understanding, classifying, and managing risks. Based on understanding the risks and their likelihoods, you can design a healthy business continuity plan to achieve a high availability (HA) and disaster recovery (DR) strategy that suits your business needs.
 
 *High availability* is about designing a solution to be resilient to day-to-day issues and to meet the business needs for availability. 
 

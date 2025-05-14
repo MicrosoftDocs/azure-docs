@@ -1,4 +1,3 @@
-
 - name: Azure Private Link documentation
   href: index.yml
 - name: Get started
@@ -9,10 +8,12 @@
     href: private-endpoint-overview.md
   - name: Private Link service
     href: private-link-service-overview.md
-  - name: Network security perimeter
-    items:
-    - name: What is a network security perimeter?
-      href: network-security-perimeter-concepts.md  
+  - name: What is a network security perimeter?
+    href: network-security-perimeter-concepts.md  
+  - name: Availability
+    href: availability.md
+  - name: FAQ
+    href: private-link-faq.yml
 - name: Configure
   items:
   - name: Create a private endpoint
@@ -45,6 +46,10 @@
     - name: Create a Private Link service - ARM template
       displayName: Azure Resource Manager
       href: create-private-link-service-template.md
+  - name: Disable SNAT for traffic through NVA
+    href: private-link-disable-snat.md
+  - name: Increase Private Endpoint virtual network limits
+    href: increase-private-endpoint-vnet-limits.md
   - name: Create a network security perimeter
     items:
     - name: Create a network security perimeter - Azure portal
@@ -53,6 +58,10 @@
       href: create-network-security-perimeter-powershell.md
     - name: Create a network security perimeter - Azure CLI
       href: create-network-security-perimeter-cli.md
+    - name: Create a network security perimeter - Bicep
+      href: create-network-security-perimeter-bicep.md
+    - name: Create a network security perimeter - ARM template
+      href: create-network-security-perimeter-template.md
     - name: Transition to a network security perimeter
       href: network-security-perimeter-transition.md
   - name: DNS
@@ -83,24 +92,6 @@
     href: /azure/cosmos-db/how-to-configure-private-endpoints?toc=/azure/private-link/toc.json
   - name: Approve private link connections across subscriptions
     href: how-to-approve-private-link-cross-subscription.md
-- name: Resiliency
-  items:
-  - name: Availability
-    href: availability.md
-- name: Security
-  items:
-  - name: Configure an application security group
-    href: configure-asg-private-endpoint.md
-  - name: Inspect private endpoint traffic with Azure Firewall
-    href: tutorial-inspect-traffic-azure-firewall.md
-  - name: RBAC permissions
-    href: rbac-permissions.md 
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
-  - name: Network security perimeter
-    items:
-    - name: Role-based access control permissions
-      href: network-security-perimeter-role-based-access-control-requirements.md
 - name: Operational excellence
   items:
   - name: Monitor Private Link
@@ -112,11 +103,29 @@
   - name: Manage private endpoints
     href: manage-private-endpoint.md
   - name: Relocate Private Link Service to another region
-    href: ../operational-excellence/relocation-private-link.md?toc=/azure/private-link/toc.json
+    href: ../azure-resource-manager/management/relocation/relocation-private-link.md?toc=/azure/private-link/toc.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
   - name: Network security perimeter
     items:
     - name: Diagnostic logs
       href: network-security-perimeter-diagnostic-logs.md
+- name: Security
+  items:
+  - name: Configure an application security group
+    href: configure-asg-private-endpoint.md
+  - name: Inspect private endpoint traffic with Azure Firewall
+    href: tutorial-inspect-traffic-azure-firewall.md
+  - name: RBAC permissions
+    href: rbac-permissions.md 
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/azure-private-link-security-baseline?toc=/azure/private-link/toc.json
+  - name: Azure Security blog
+    href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
+  - name: Network security perimeter
+    items:
+    - name: Role-based access control permissions
+      href: network-security-perimeter-role-based-access-control-requirements.md
 - name: Troubleshoot
   items:
   - name: Troubleshoot private endpoint connectivity problems
@@ -165,8 +174,8 @@
   items:
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/
-  - name: Networking blog
-    href: https://azure.microsoft.com/blog/category/networking
+  - name: Azure Networking blog
+    href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
   - name: Microsoft Q&A question page for Networking
     href: /answers/topics/azure-virtual-network.html
   - name: Networking feedback
@@ -177,5 +186,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
-  - name: FAQ
-    href: private-link-faq.yml

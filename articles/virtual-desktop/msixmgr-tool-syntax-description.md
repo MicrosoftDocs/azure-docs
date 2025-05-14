@@ -1,13 +1,16 @@
 ---
-title: MSIXMGR tool parameters - Azure Virtual Desktop
+title: MSIXMGR tool parameters - Azure Virtual Desktop 
 description: Learn about the command line parameters and syntax you can use with the MSIXMGR tool.
 ms.topic: conceptual
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/05/2024
 ---
 
 # MSIXMGR tool parameters
+
+> [!IMPORTANT]
+> MSIX App Attach will be deprecated on June 1, 2025. Make sure to move all apps to App Attach by this date.
 
 This article contains the command line parameters and syntax you can use with the MSIXMGR tool.
 

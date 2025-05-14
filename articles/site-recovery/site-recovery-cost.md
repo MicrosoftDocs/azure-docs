@@ -3,7 +3,7 @@ title: Understanding Azure Site Recovery for Managed Disks Charges
 description: This article summarizes the costs disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 01/21/2025
+ms.date: 04/22/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -12,7 +12,7 @@ author: ankitaduttaMSFT
 
 Azure to Azure (A2A) disaster recovery in Site Recovery is a robust disaster recovery solution offering seamless replication and failover capabilities for virtual and physical machines. It is important to understand the cost components associated with using Site Recovery to manage expenses effectively. Following is a detailed breakdown of the charges you may incur when using this service.
 
-You can use this [pricing calculator](https://download.microsoft.com/download/6/3/4/634d782a-883f-4834-876d-a7c6eb25e199/ASR_A2A_Calculator.xlsm) to simulate the estimated costs for Azure to Azure Managed Disks. 
+You can use this [pricing calculator](https://aka.ms/asr_a2a_calculator) to simulate the estimated costs for Azure to Azure Managed Disks. 
 
 > [!NOTE]
 > This calculator gives an estimate of Site Recovery usage costs. It shouldn't be taken as the final cost. If you have any issues or feedback, contact askasr@microsoft.com.
@@ -46,7 +46,7 @@ Network egress costs, also known as outbound data transfer charges, occur when r
 This cost includes:
 
 - **Source**:
-  - For Pv1 disks, incremental snapshots are charged.
+  - For Standard and Pv1 disks, incremental snapshots are charged.
   - For Pv2 disks, one full snapshot followed by incremental snapshots is charged. 
 - **Target**:
   - Snapshot costs are associated with the recovery points created by Azure Site Recovery. These snapshots capture the replica storage at a point in time and are charged based on the consumed capacity. Pricing details align with Page Blob Snapshots. [Learn more](https://azure.microsoft.com/pricing/details/storage/page-blobs/#:~:text=Note%3A%20Snapshots%20are%20charged,at%20%240.12%20%2FGB%20per%20month.?msockid=3816c7206e2268e7035dd3316f7069f4).
@@ -61,7 +61,7 @@ This cost is applicable only during the initial replication. The duration for re
 
 ### Capacity Reservation cost
 
-Site Recovery doesn't reserve any capacity on the target. If users need a higher probability of capacity for failover in the target region, they can use Capacity Reservation, which incurs additional costs. After deployment, capacity is reserved for your use and is always available within the scope of applicable service-level agreements (SLAs). This is not an Azure Site Recovery cost but an auxiliary cost for better infrastructure availability. After creating the capacity reservation, you can use the resources immediately. Capacity is reserved until the user deletes the reservation. [Learn more](https://learn.microsoft.com/azure/virtual-machines/capacity-reservation-overview#pricing-and-billing).
+Site Recovery doesn't reserve any capacity on the target. If users need a higher probability of capacity for failover in the target region, they can use Capacity Reservation, which incurs additional costs. After deployment, capacity is reserved for your use and is always available within the scope of applicable service-level agreements (SLAs). This is not an Azure Site Recovery cost but an auxiliary cost for better infrastructure availability. After creating the capacity reservation, you can use the resources immediately. Capacity is reserved until the user deletes the reservation. [Learn more](/azure/virtual-machines/capacity-reservation-overview#pricing-and-billing).
 
 
 ## Conclusion

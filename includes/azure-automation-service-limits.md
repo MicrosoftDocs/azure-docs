@@ -32,6 +32,7 @@ ms.custom: "include file"
 | Maximum amount of memory given to a sandbox<sup>1</sup> |400 MB |Applies to Azure sandboxes only.|
 | Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,000 |Applies to Azure sandboxes only.|
 | Maximum runtime allowed per runbook<sup>1</sup> |3 hours |Applies to Azure sandboxes only.|
+| Maximum number of runbooks per Automation account | 800 |
 | Maximum number of system hybrid runbook workers per Automation Account|4,000||
 | Maximum number of user hybrid runbook workers per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||

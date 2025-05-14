@@ -32,7 +32,7 @@ Azure Managed Grafana has the following known limitations:
 
 * Unified alerting is enabled by default for all workspaces created after December 2022. For workspaces created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
 
-* > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
+* Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 
 ## Current User authentication
 
@@ -44,11 +44,12 @@ Some Azure Managed Grafana features aren't available in Azure Government and Mic
 
 | Feature                           | Azure Government | Microsoft Azure operated by 21Vianet (Preview) |
 |-----------------------------------|:----------------:|:----------------------------------------------:|
-| Private link                      |   Not supported  |                  Not supported                 |
-| Managed private endpoint          |   Not supported  |                  Not supported                 |
+| Private link                      |     Supported    |                    Supported                   |
+| Managed private endpoint          |     Supported    |                    Supported                   |
 | Team sync with Microsoft Entra ID |      Preview     |                     Preview                    |
 | Enterprise plugins                |   Not supported  |                  Not supported                 |
-| Essential plan                    |     Supported    |                  Not supported                 |
+| Essential plan                    |   Not supported  |                  Not supported                 |
+| MemoryUsagePercentage metric      |   Not supported  |                  Not supported                 |
 
 ## Throttling limits and quotas
 

@@ -1,6 +1,6 @@
 ---
-title: Sign an HTTP request with C#
-description: This tutorial explains the C# version of signing an HTTP request with an HMAC signature for Azure Communication Services.
+title: Sign an HTTP Request with C#
+description: This article describes how to use C# to sign an HTTP request with an HMAC signature for Azure Communication Services.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -12,11 +12,9 @@ ms.service: azure-communication-services
 ---
 ## Prerequisites
 
-Before you get started, make sure to:
-
-- Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. If you don't have an Azure subscription, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
-- Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to record your **resourceEndpoint** and **resourceAccessKey** for this tutorial.
+- Create an Azure Communication Services resource. If you don't have a resource, see [Create a Communication Services resource](../../quickstarts/create-communication-resource.md). You need to record your `resourceEndpoint` and `resourceAccessKey` parameters for this tutorial.
 
 ## Sign an HTTP request with C#
 
@@ -34,19 +32,19 @@ The `hmac-sha256-signature` consists of:
 - Host
 - x-ms-content-sha256
 
-## Setup
+## Set up the authorization header
 
-The following steps describe how to construct the authorization header.
+Complete the following steps to construct the authorization header.
 
 ### Create a new C# application
 
-In a console window, such as cmd, PowerShell, or Bash, use the `dotnet new` command to create a new console app with the name `SignHmacTutorial`. This command creates a simple "Hello World" C# project with a single source file: **Program.cs**.
+In a console window, such as cmd, PowerShell, or Bash, use the `dotnet new` command to create a new console app with the name `SignHmacTutorial`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`.
 
 ```console
 dotnet new console -o SignHmacTutorial
 ```
 
-Change your directory to the newly created app folder. Use the `dotnet build` command to compile your application.
+Change your directory to the newly created app folder. To compile your application, use the `dotnet build` command.
 
 ```console
 cd SignHmacTutorial
@@ -87,7 +85,7 @@ namespace SignHmacTutorial
 
 ## Create a request message
 
-For this example, we'll sign a request to create a new identity by using the Communication Services Authentication API (version `2021-03-07`).
+For this example, you sign a request to create a new identity by using the Communication Services Authentication API (version `2021-03-07`).
 
 Add the following code to the `Main` method.
 
@@ -143,20 +141,20 @@ Replace `resourceAccessKey` with an access key of your real Communication Servic
 
 ## Create an authorization header string
 
-We'll now construct the string that we'll add to our authorization header.
+Now you construct the string that you add to your authorization header.
 
 1. Prepare values for the headers to be signed.
-   1. Specify the current timestamp using the Coordinated Universal Time (UTC) timezone.
-   1. Get the request authority (DNS host name or IP address and the port number).
+   1. Specify the current timestamp by using the Coordinated Universal Time (UTC) timezone.
+   1. Get the request authority. Use the Domain Name System (DNS) host name or IP address and the port number.
    1. Compute a content hash.
 1. Prepare a string to sign.
 1. Compute the signature.
-1. Concatenate the string, which will be used in the authorization header.
- 
+1. Concatenate the string, which is used in the authorization header.
+
 Add the following code to the `Main` method.
 
 ```csharp
-// Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard
+// Specify the 'x-ms-date' header as the current UTC timestamp according to the RFC1123 standard.
 var date = DateTimeOffset.UtcNow.ToString("r", CultureInfo.InvariantCulture);
 // Get the host name corresponding with the 'host' header.
 var host = requestUri.Authority;
@@ -173,7 +171,7 @@ var authorizationHeader = $"HMAC-SHA256 SignedHeaders=x-ms-date;host;x-ms-conten
 
 ## Add headers to requestMessage
 
-Use the following code to add the required headers to your `requestMessage`.
+Use the following code to add the required headers to your `requestMessage` parameter.
 
 ```csharp
 // Add a date header.

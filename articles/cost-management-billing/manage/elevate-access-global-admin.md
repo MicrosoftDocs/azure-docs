@@ -2,13 +2,13 @@
 title: Elevate access to manage billing accounts
 titleSuffix: Microsoft Cost Management
 description: Describes how to elevate access for a Global Administrator to manage billing accounts using the Azure portal or REST API.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.date: 01/22/2025
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Elevate access to manage billing accounts

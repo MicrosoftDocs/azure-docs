@@ -8,16 +8,20 @@ ms.service: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 12/31/2024
 ms.custom: template-concept
-appliesto: Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+appliesto:
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to manage dynamic Microsoft Sentinel content as code based on source control repositories using CI/CD pipelines so that I can automate updates and ensure consistent configurations across workspaces. As an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 
 ---
 
-# Manage custom content with Microsoft Sentinel repositories (public preview)
+# Manage content as code with Microsoft Sentinel repositories (public preview)
 
-The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allow connections to an external source control for continuous integration / continuous delivery (CI/CD). This automation removes the burden of manual processes to update and deploy your custom content across workspaces. For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
+The Microsoft Sentinel repositories feature provides a central experience for the deployment and management of Sentinel content as code. Repositories allow connections to an external source control for continuous integration / continuous delivery (CI/CD). This automation removes the burden of manual processes to update and deploy your custom content across workspaces. A subset of content as code is *detections* as code (DaC). Microsoft Sentinel **Repositories** implements DaC as well.
+
+For more information on Sentinel content, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
 > [!IMPORTANT]
 > The Microsoft Sentinel **Repositories** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

@@ -1,8 +1,8 @@
 ---
 title: "Azure Operator Nexus: Availability"
 description: Overview of the availability features of Azure Operator Nexus.
-author: joemarshallmsft
-ms.author: joemarshall
+author: scottsteinbrueck
+ms.author: ssteinbrueck
 ms.service: azure-operator-nexus
 ms.topic: conceptual
 ms.date: 02/15/2024
@@ -59,7 +59,7 @@ Go through the following steps to help plan an Operator Nexus deployment.
 
 6.  Operator Nexus supports between 1 and 8 racks per site inclusive, with each rack containing 4, 8, 12 or 16 servers. All racks must be identical in terms of number of servers. See [here](./reference-near-edge-compute.md) for specifics of the resource available for workloads. See the following diagram, and also [this article](./reference-limits-and-quotas.md) for other limits and quotas that might have an impact.
 
-7.  Operator Nexus supports one or two storage appliances. Currently, these arrays are available to workload NFs running as Kubernetes nodes. Workloads running as VMs use local storage from the server they're instantiated on.
+7.  Operator Nexus supports one or two Pure storage appliances. Storage appliances typically reach high levels of availability and data durability; precise numbers vary per vendor and per product. Azure Operator Nexus has redundant connectivity to the storage appliances on the management and data networks. Storage appliances provide storage to workload NFs running on Kubernetes. There is no support for automatic or manual migration of volumes between storage appliances, and both storage appliances are located in the aggregator rack. This means, from a storage appliance perspective, Nexus deployments with two storage appliances have the same availability characteristics as deployments with one storage appliance: a volume is only ever on one storage appliance.
 
 8.  Other factors to consider are the number of available physical sites, and any per-site limitations such as bandwidth or power.
 

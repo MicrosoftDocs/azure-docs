@@ -15,7 +15,7 @@ ms.service: azure-communication-services
 
 # Reference documentation overview
 
-[!INCLUDE [Survey Request](../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 ## External links and docs
 
@@ -36,9 +36,9 @@ For each area, we have external pages to track and review our SDKs. Consult the 
 | Rooms| [npm](https://www.npmjs.com/package/@azure/communication-rooms)           | [NuGet](https://www.nuget.org/packages/Azure.Communication.Rooms)                 | [PyPi](https://pypi.org/project/azure-communication-rooms/)          | [Maven](https://search.maven.org/search?q=a:azure-communication-rooms)           | -       | -                 | -      |
 | Signaling              | [npm](https://www.npmjs.com/package/@azure/communication-signaling)       | -         |                | -        | -       | -                 | -      |
 | SMS  | [npm](https://www.npmjs.com/package/@azure/communication-sms)             | [NuGet](https://www.nuget.org/packages/Azure.Communication.Sms) | [PyPi](https://pypi.org/project/azure-communication-sms/)            | [Maven](https://search.maven.org/artifact/com.azure/azure-communication-sms)     | -       | -                 | -      |
-| UI Library             | [npm](https://www.npmjs.com/package/@azure/communication-react)           | -         | -              | -        | [GitHub](https://github.com/Azure/communication-ui-library-ios)                 | [GitHub](https://github.com/Azure/communication-ui-library-android)     | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| UI Library             | [npm](https://www.npmjs.com/package/@azure/communication-react)           | -         | -              | -        | [GitHub](https://github.com/Azure/communication-ui-library-ios)                 | [GitHub](https://github.com/Azure/communication-ui-library-android)     | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs) |
 
-## Related lass/method articles
+## Related class/method articles
 
 For more information about class/reference information for each SDK, see:
 

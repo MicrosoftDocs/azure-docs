@@ -4,7 +4,10 @@ description: Follow this Apache HBase tutorial to start using hadoop on HDInsigh
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 12/23/2024
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: nijelsf
+ms.date:  03/05/2024
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -199,7 +202,7 @@ You can query data in HBase tables by using [Apache Hive](https://hive.apache.or
 
 1. To exit your ssh connection, use `exit`.
 
-### Separate Hive and Hbase Clusters
+### Separate Hive and HBase Clusters
 
 The Hive query to access HBase data need not be executed from the HBase cluster. Any cluster that comes with Hive (including Spark, Hadoop, HBase, or Interactive Query) can be used to query HBase data, provided the following steps are completed:
 
@@ -211,10 +214,10 @@ The Hive query to access HBase data need not be executed from the HBase cluster.
 HBase data can also be queried from Hive using ESP-enabled HBase: 
 
 1. When following a multi-cluster pattern, both clusters must be ESP-enabled. 
-2. To allow Hive to query HBase data, make sure that the `hive` user is granted permissions to access the HBase data via the Hbase Apache Ranger plugin
+2. To allow Hive to query HBase data, make sure that the `hive` user is granted permissions to access the HBase data via the HBase Apache Ranger plugin
 3. When you use separate, ESP-enabled clusters, the contents of `/etc/hosts` from the HBase cluster headnodes must be appended to `/etc/hosts` of the Hive cluster headnodes and worker nodes. 
 > [!NOTE]
-> After scaling either clusters, `/etc/hosts` must be appended again
+> After you scale either clusters, `/etc/hosts` must be appended again
 
 ## Use the HBase REST API via Curl
 
@@ -282,7 +285,7 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
     -v
     ```
 
-    Base64 encode the values specified in the -d switch. In the example:
+    Base64 encode the values specified in the `-d` switch. In the example:
 
    * MTAwMA==: 1000
    * UGVyc29uYWw6TmFtZQ==: Personal: Name
@@ -300,12 +303,12 @@ The HBase REST API is secured via [basic authentication](https://en.wikipedia.or
     ```
 
 > [!NOTE]
-> Scan through the cluster endpoint is not supported yet.
+> Scan through the cluster endpoint isn't supported yet.
 
 For more information about HBase Rest, see [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_rest).
 
 > [!NOTE]
-> Thrift is not supported by HBase in HDInsight.
+> Thrift isn't supported by HBase in HDInsight.
 >
 > When you use Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server:
 >

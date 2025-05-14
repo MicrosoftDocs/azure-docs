@@ -1,17 +1,18 @@
 ---
 title: 'Cache purging - Azure Front Door - Azure PowerShell'
 description: Learn how to purge cache on an Azure Front Door Standard or Premium profile using Azure PowerShell.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.custom: devx-track-azurepowershell
 ms.date: 11/18/2024
-ms.author: duau
+ms.custom: devx-track-azurepowershell
 ---
 
 # Cache purging in Azure Front Door with Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door caches assets until their time-to-live (TTL) expires. When a client requests an asset with an expired TTL, Azure Front Door retrieves and caches a new copy of the asset.
 

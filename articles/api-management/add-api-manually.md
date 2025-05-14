@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/30/2022
 ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit, devdivchpfy22
 
 This article shows steps to add an API manually to the API Management instance. When you want to mock the API, you can create a blank API or define it manually. For details about mocking an API, see [Mock API responses](mock-api-responses.md).
 
-If you want to import an existing API, see [related topics](#related-topics) section.
+If you want to import an existing API, see [related content](#related-content) section.
 
 In this article, we create a blank API and specify [httpbin.org](https://httpbin.org) (a public testing service) as a backend API.
 
@@ -119,8 +119,3 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Transform and protect a published API](transform-api.md)

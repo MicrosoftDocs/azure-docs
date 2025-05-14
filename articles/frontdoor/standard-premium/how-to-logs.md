@@ -1,15 +1,16 @@
 ---
 title: Configure Azure Front Door logs
 description: This article explains how to configure Azure Front Door logs.
-services: front-door
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 01/06/2025
-ms.author: duau
 ---
 
 # Configure Azure Front Door logs
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door captures several types of logs. Logs can help you monitor your application, track requests, and debug your Front Door configuration. For more information about Azure Front Door's logs, see [Monitor metrics and logs in Azure Front Door](../front-door-diagnostics.md).
 

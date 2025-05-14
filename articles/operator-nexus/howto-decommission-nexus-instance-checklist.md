@@ -24,7 +24,7 @@ ms.date: 12/03/2024
 
 4. [Delete Keysets resources](./howto-baremetal-bmc-ssh.md#deleting-a-bmc-keyset)
 
-5. [Delete Cluster resource](./howto-configure-cluster.md#delete-a-cluster)
+5. [Delete Cluster resource](./howto-configure-cluster.md#deleting-a-cluster)
 
 6. [Delete Cluster Manager resource](./howto-cluster-manager.md#delete-cluster-manager)
 

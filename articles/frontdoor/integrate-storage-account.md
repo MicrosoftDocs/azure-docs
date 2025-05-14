@@ -2,16 +2,17 @@
 title: Integrate an Azure Storage account with Azure Front Door
 titleSuffix: Azure Front Door
 description: This article shows you how to use Azure Front Door to deliver high-bandwidth content by caching blobs from Azure Storage.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 11/13/2024
-ms.author: duau
 ms.custom: mvc, mode-other
 ---
 
 # Integrate an Azure Storage account with Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door can be used to deliver high-bandwidth content by caching blobs from Azure Storage. In this article, you create an Azure Storage account and enable Front Door to cache and accelerate content from Azure Storage.
 

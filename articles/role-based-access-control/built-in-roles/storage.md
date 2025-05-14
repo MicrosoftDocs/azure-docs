@@ -2,12 +2,12 @@
 title: Azure built-in roles for Storage - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Storage category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.author: rolyon
-ms.date: 01/25/2025
+ms.date: 04/25/2025
 ms.custom: generated
 ---
 
@@ -263,6 +263,8 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/SuspendBackups/action | Suspend Backups operation stops only backups of backup instance. Retention activities will continue and hence data will be ratained as per policy. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -366,7 +368,9 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
-        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action"
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/SuspendBackups/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -626,6 +630,7 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -745,7 +750,8 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
         "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
-        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action"
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action"
       ],
       "notActions": [],
       "dataActions": [],

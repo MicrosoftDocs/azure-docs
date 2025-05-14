@@ -3,7 +3,7 @@ title: Apache Spark version support
 description: Supported versions of Spark, Scala, Python
 author: ms-arali
 ms.author: arali
-ms.reviewer: maghan, whhender, whhender
+ms.reviewer: maghan
 ms.date: 03/08/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
@@ -32,7 +32,6 @@ The following table lists the runtime name, Apache Spark version, and release da
 | [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) | Nov 17, 2022 |**end of support announced**|July 12, 2024| 3/31/2025 |
 | [Azure Synapse Runtime for Apache Spark 3.2](./apache-spark-32-runtime.md) | July 8, 2022 | __deprecated and soon disabled__ | July 8, 2023 | __July 8, 2024__ |
 | [Azure Synapse Runtime for Apache Spark 3.1](./apache-spark-3-runtime.md) | May 26, 2021 | __deprecated and soon disabled__         | January 26, 2023 | __January 26, 2024__ |
-| [Azure Synapse Runtime for Apache Spark 2.4](./apache-spark-24-runtime.md) | December 15, 2020 | __deprecated and soon disabled__           | July 29, 2022 | __September 29, 2023__ |
 
 ## Runtime release stages
 

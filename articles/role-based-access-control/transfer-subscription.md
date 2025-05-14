@@ -2,7 +2,7 @@
 title: Transfer an Azure subscription to a different Microsoft Entra directory
 description: Learn how to transfer an Azure subscription and known related resources to a different Microsoft Entra directory.
 author: rolyon
-manager: amycolannino
+manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli

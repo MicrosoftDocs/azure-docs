@@ -1,25 +1,34 @@
 ---
-title: Audit logs for Azure Data Box, Azure Data Box Heavy events| Microsoft Docs 
-description: Describes the full audit logs for Data Box that are collected at the various stages of your Azure Data Box and Azure Data Box Heavy order.
+title: Audit logs for Azure Data Box, Azure Data Box Next Gen, and Azure Data Box Heavy events | Microsoft Docs
+description: Describes the full audit logs for Data Box that are collected at the various stages of your Azure Data Box, Data Box Next Gen, and Data Box Heavy order.
 services: databox
 author: stevenmatthew
 
 ms.service: azure-databox
-ms.topic: conceptual
-ms.date: 07/10/2020
+ms.topic: concept-article
+ms.date: 03/06/2025
 ms.author: shaas
 ---
 
-# Audit logs for your Azure Data Box and Azure Data Box Heavy
+# Audit logs for your Azure Data Box
 
-Logs are immutable, timestamped records of discrete events that happened over time. The logs contain diagnostic, audit, and security information from your device.  
+Audit logs contain immutable, timestamped records of discrete events that happened over time. The logs contain diagnostic, audit, and security information from your Data Box device.
 
-A Data Box or Data Box Heavy order goes through the following steps during the course of its operation: order, set up, data copy, return, upload to Azure and verify, and data erasure. For each of these steps, all the events are audited and logged.
+An Azure Data Box order goes through the following steps during the course of its operation: 
+1. Order, 
+1. Set up, 
+1. Data copy, 
+1. Return, 
+1. Upload to Azure and verify, and 
+1. Data erasure.
 
-This article contains information on the Data Box audit logs including the types of logs and the information collected as well as the location of logs. 
+All events are audited and logged during each of these steps.
 
-The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy. The logs collected from the Data Box service running in Azure are not covered in this article. 
+This article contains information on the Data Box audit logs including the types of logs, the type information collected, and the location of logs.
 
+The information in this article applies to Azure Data Box 120, Data Box 525, and Data Box. In the subsequent sections, any references to Data Box apply to all Data Box SKUs.
+
+The logs collected from the Data Box service running in Azure are not covered in this article.
 
 ## About audit logs 
 
@@ -37,24 +46,23 @@ Each of these logs is discussed in the following section.
 
 The following system log event IDs are collected as system audit logs on your Data Box:
 
-|Event provider name     |Event ID collected   |Event description   |
-|-------------------|----------|----------------|
-|Microsoft-Windows-Kernel-General|12  |UTC time when OS was rebooted.   |
-|                                |13  |UTC time when OS was shut down. |
-|    |                              |
-|Microsoft-Windows-Kernel-Power  |41  |System rebooted without a clean shutdown.| 
-|    |                              |
-|Microsoft-Windows-BitLocker-Driver|All|    |
+| Event provider name              | Event ID collected   | Event description              |
+|----------------------------------|----------------------|--------------------------------|
+| Microsoft-Windows-Kernel-General | 12                   | UTC time when OS was rebooted. |
+|                                  | 13                   | UTC time when OS was shut down.|
+|                                  |                      |                                |
+| Microsoft-Windows-Kernel-Power   | 41                   | System rebooted without a clean shutdown.| 
+|                                  |                      |                                |
+| Microsoft-Windows-BitLocker-Driver | All                |                                |
 
 ### Security logs
 
 The following security log event IDs are collected as security audit logs on your Data Box:
 
 |Event provider name                   |Event ID collected    |Event description       |
-|--------------------------------------|------------|----------|
-|Microsoft-Windows-Security-Auditing   |4624        |Successful logon. |
-|                                      |4625        |An account logon failed. Unknown user name or bad password. |
-|                                     
+|--------------------------------------|----------------------|------------------------|
+|Microsoft-Windows-Security-Auditing   |4624                  | Successful logon.      |
+|                                      |4625                  | An account logon failed. Unknown user name or bad password. |
 
 ### Application logs
 
@@ -112,4 +120,4 @@ Once the support ticket is filed, Microsoft will download and provide you access
 
 ## Next steps
 
-- Learn how to [Troubleshoot issues on your Data Box and Data Box Heavy](data-box-troubleshoot.md).
+- Learn how to [Troubleshoot issues on your Data Box](data-box-troubleshoot.md).

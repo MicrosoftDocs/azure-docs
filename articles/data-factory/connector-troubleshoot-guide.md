@@ -15,7 +15,11 @@ ai-usage: ai-assisted
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics.  
+This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics. If you do not see your specific error message listed here, you can follow these steps:
+
+1. Check the full error message. Some error messages provide guidance to resolve the issue.
+1. Check [your connector's troubleshooting page](#connector-specific-problems) for more details.
+1. Open a ticket with support to troubleshoot the issue.
 
 ## Connector specific problems
 
@@ -142,7 +146,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Cause**: The dataset type is Binary, which isn't supported.
 
-- **Recommendation**: Use the DelimitedText, Json, Avro, Orc, or Parquet dataset instead.
+- **Recommendation**: Use the DelimitedText, JSON, Avro, Orc, or Parquet dataset instead.
 
 - **Cause**: For the file storage, the format settings are missing in the dataset.
 

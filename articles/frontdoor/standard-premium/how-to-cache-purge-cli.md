@@ -1,17 +1,18 @@
 ---
 title: 'Cache purging - Azure Front Door - Azure CLI'
 description: This article helps you understand how to purge cache on an Azure Front Door Standard and Premium profile using Azure CLI.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.custom: devx-track-azurecli
 ms.date: 11/18/2024
-ms.author: duau
+ms.custom: devx-track-azurecli
 ---
 
 # Cache Purging in Azure Front Door Using Azure CLI
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door caches assets until their time-to-live (TTL) expires. When a client requests an asset with an expired TTL, Azure Front Door retrieves a new copy of the asset, serves the request, and updates the cache.
 

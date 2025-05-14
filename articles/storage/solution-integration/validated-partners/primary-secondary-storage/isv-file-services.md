@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Basic guidance for different ISV options on running file services in Azure
 author: dukicn
 ms.author: nikoduki
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/22/2022
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -107,7 +107,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Operating Environment**                           | UniFS                | ONTAP                          | PFOS                      | Qumulo Core           | Windows Server        | WekaFS                | Windows Server        |
 | **High-Availability**                               | Yes                  | Yes                            | Yes                       | Yes                   | Yes (requires setup)  | Yes                   | Yes                   |
 | **Automatic failover between nodes in the cluster** | Yes                  | Yes                            | Yes                       | Yes                   | Yes (windows cluster) | Yes                   | Yes (windows cluster) |
-| **Automatic failover across availability zones**    | Yes                  | No                             | Yes                       | No                    | Yes (windows cluster) | No                    | Yes (windows cluster) |
+| **Automatic failover across availability zones**    | Yes                  | No                             | Yes                       | Yes                   | Yes (windows cluster) | No                    | Yes (windows cluster) |
 | **Automatic failover across regions**               | Yes (with Nasuni support)| No                         | No                        | No                    | Yes (windows cluster) | No                    | Yes (windows cluster) |
 | **Snapshot support**                                | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
 | **Consistent snapshot support**                     | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |

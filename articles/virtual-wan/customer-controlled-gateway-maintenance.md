@@ -6,12 +6,12 @@ author: cherylmc
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 03/11/2025
 ms.author: cherylmc
 ---
-# Configure customer-controlled gateway maintenance for Virtual WAN (Preview)
+# Configure customer-controlled gateway maintenance for Virtual WAN
 
-This article helps you configure customer-controlled maintenance windows for Virtual WAN site-to-site VPN gateways and Virtual WAN ExpressRoute gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
+This article helps you configure customer-controlled maintenance windows for Virtual WAN site-to-site VPN gateways, Virtual WAN user VPN (or point-to-site VPN) gateways and Virtual WAN ExpressRoute gateways. Learn how to schedule customer-controlled maintenance for your gateways using the Azure portal or PowerShell.
 
 [!INCLUDE [Overview](../../includes/vpn-gateway-customer-controlled-gateway-maintenance-article-overview.md)]
 

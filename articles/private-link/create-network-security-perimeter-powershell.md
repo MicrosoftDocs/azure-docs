@@ -1,27 +1,24 @@
 ---
 title: Quickstart - Create a network security perimeter - Azure PowerShell
+titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using Azure PowerShell. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-private-link
-ms.custom:
-  - ignite-2024
 ms.topic: quickstart
-ms.date: 11/06/2024
+ms.date: 03/25/2025
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource using Azure PowerShell, so that I can control the network traffic to and from the resource.
 ---
 
 # Quickstart: Create a network security perimeter - Azure PowerShell
 
-Get started with network security perimeter by creating a network security perimeter for an Azure key vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
+Get started with network security perimeter by creating a network security perimeter for an Azure Key Vault using Azure PowerShell. A [network security perimeter](network-security-perimeter-concepts.md) allows [Azure Platform as a Service (PaaS)](./network-security-perimeter-concepts.md#onboarded-private-link-resources) resources to communicate within an explicit trusted boundary. You create and update a PaaS resource's association in a network security perimeter profile. Then you create and update network security perimeter access rules. When you're finished, you delete all resources created in this quickstart.
 
 [!INCLUDE [network-security-perimeter-preview-message](../../includes/network-security-perimeter-preview-message.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-[!INCLUDE [network-security-perimeter-add-preview](../../includes/network-security-perimeter-add-preview.md)]
 
 - Install the Az.Tools.Installer module:
   
@@ -70,7 +67,6 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 Before you can create a network security perimeter, you have to create a resource group and a key vault resource.  
 This example creates a resource group named `test-rg` in the WestCentralUS location and a key vault named `demo-keyvault-<RandomValue>` in the resource group with the following commands:
-
 
 ```azurepowershell-interactive
 # Create a resource group
