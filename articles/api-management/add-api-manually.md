@@ -18,7 +18,7 @@ ms.custom: fasttrack-edit, devdivchpfy22
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows how to manually add an API to Azure API Management. When you want to create mock responses from the API, you can create a blank API or define it manually. For information about creating mock API responses, see [Mock API responses](mock-api-responses.md).
+This article shows how to manually add an API to Azure API Management. When you want to create mock responses from the API, you can create a blank API. For information about creating mock API responses, see [Mock API responses](mock-api-responses.md).
 
 If you want to import an existing API, see the [Related content](#related-content) section of this article.
 
