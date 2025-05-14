@@ -74,10 +74,7 @@ Run the Set-vSANDataInTransitEncryption cmdlet to enable or disable data-in-tr
 
 >[!NOTE]
 >You can also use the Get-vSANDataInTransitEncryptionStatus command to check for the current status or status after performing the Set-vSANDataInTransitEncryptionStatus operation and verify the cluster's current encryption state.
-   
-   > [!NOTE]
-   > Now that you learned how to configure VMware vSAN, learn more about:
-   
+
 ## vSAN services availability
 
 The table below shows the list of vSAN features available in Azure VMware Solution.
