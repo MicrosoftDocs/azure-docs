@@ -28,7 +28,7 @@ The `machineRoles` property is derived from the Kubernetes labels applied to the
 
 ## How to determine the BareMetal Machine role?
 
-In any standard Nexus multi-rack instance with three or more compute racks, there are 3 powered-on control plane nodes.
+In any standard Nexus multi-rack instance with three or more compute racks, there are three powered-on control plane nodes.
 Additionally, there's one node that is powered off but available to join the cluster.
 The new `machineRoles` field is used in addition to the `powerState` and `detailedStatus` fields to determine the spare control plane node in a Nexus instance.
 
