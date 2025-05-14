@@ -54,8 +54,6 @@ Azure VMware Solution Gen 2 private clouds are available in the following region
 | Region | Status |
 |--------|--------|
 | East US | Preview |
-| UK South | Preview |
-| Japan East | Preview |
 | Switzerland North | Preview |
 
 ## Next steps
