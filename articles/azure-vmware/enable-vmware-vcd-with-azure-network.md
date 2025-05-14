@@ -16,7 +16,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 - To achieve internet connectivity, the provider can create organization virtual data center's with an organization edge gateway (Tier-1) router and assign Public IP for NAT configuration. 
 
--  Learn about how to [Turn on public IP addresses to an NSX Edge node for VMware NSX](https://learn.microsoft.com/azure/azure-vmware/enable-public-ip-nsx-edge).
+-  Learn about how to [Turn on public IP addresses to an NSX Edge node for VMware NSX](enable-public-ip-nsx-edge.md).
 
 - VMware Cloud Director Tenants can use the above NSX-T public IP address for SNAT configuration to enable Internet access for virtual machine in tenant's organization virtual data center.
 
@@ -33,7 +33,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 ## Connect VMware Cloud Director tenants workloads with Azure services
 
 - To enable access to Azure services in Azure vNet, configure Azure VNet with an azure vPN gateway. 
-- Follow this document to create an [Azure virtual network gateway](https://learn.microsoft.com/azure/azure-vmware/tutorial-configure-networking#create-a-virtual-network-gateway)
+- Follow this document to create an [Azure virtual network gateway](tutorial-configure-networking.md)
 - A site-to-site vpn is established between tenant’s organization virtual data center and azure VNet. To achieve this connectivity, the tenant provides a public IP to the organization virtual datacenter. Both source and destination of the tunnel should have identical settings for IKE,SA, DPD etc.
 - The organization virtual datacenter administrator can configure IPsec VPN connectivity using VMware Cloud Director.
 
@@ -52,4 +52,4 @@ Learn about [How to enable VMware Cloud Director on Azure VMware Solution](enabl
 
 Learn about [VMware Cloud Director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html)
 
-Learn about [Architecture - Network interconnectivity - Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/architecture-networking)
+Learn about [Architecture - Network interconnectivity - Azure VMware Solution](architecture-networking.md)

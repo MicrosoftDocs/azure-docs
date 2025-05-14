@@ -109,7 +109,7 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
     - You must perform this task before adding Azure VMware Solution NSX-T manager is added to VMware Cloud Director, else adding provide gateway will fail.
 -	Integrate Azure VMware Solution vCenter and NSX-T using credentials mapped with “CloudAdmin” role
     - CloudAdmin credentials can be found under your Azure private cloud portal. 
-    - Learn about [CloudAdmin role and permissions](https://learn.microsoft.com/azure/azure-vmware/architecture-identity).
+    - Learn about [CloudAdmin role and permissions](architecture-identity.md).
 
 :::image type="content" source="media/vmware-vcd/VCD_cloudadmin_creds.png" alt-text="Diagram showing how to obtain cloud admin credentials." border="false" lightbox="media/vmware-vcd/VCD_cloudadmin_creds.png":::
 
@@ -143,7 +143,7 @@ Eligible Enterprise and hosters can self-install and self-managed VMware Cloud D
 
 ### What limitations does **CloudAdmin** role have for VMware Cloud Director in Azure VMware Solution?
 
-**CloudAdmin** Role is restricted role, and it currently does not allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](https://learn.microsoft.com/azure/azure-vmware/architecture-identity)
+**CloudAdmin** Role is restricted role, and it currently does not allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](architecture-identity.md)
 
 ### How is VMware Cloud Director supported on Azure VMware Solution?
 
@@ -151,11 +151,11 @@ VMware Cloud Director on Azure VMware solution is supported for eligible enterpr
 
 ### VMware Cloud Director responsibility matrix on Azure VMware Solution
 
-The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](https://learn.microsoft.com/azure/azure-vmware/introduction#azure-vmware-solution-responsibility-matrix---microsoft-vs-customer)
+The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](articles/azure-vmware/introduction.md)
 
 ### Can I use non vSAN storage using VMware Cloud Director with Azure VMware Solution?
 
-You can configure external storage such as Azure Network file storage with VMware Cloud Director on Azure VMware Solution. Learn more about [Attach Azure NetApp Files datastores to Azure VMware Solution VMs](https://learn.microsoft.com/azure/azure-vmware/netapp-files-with-azure-vmware-solution)
+You can configure external storage such as Azure Network file storage with VMware Cloud Director on Azure VMware Solution. Learn more about [Attach Azure NetApp Files datastores to Azure VMware Solution VMs](netapp-files-with-azure-vmware-solution.md)
 
 ### Do I need to have any customizations done on my private cloud before I can integrate it with VMware Cloud Director.
 
@@ -172,7 +172,7 @@ You must perform this task before adding Azure VMware Solution vCenter is added 
 
 VMware cloud director tenants can drive self-serve one-way warm migration from the on-premises Cloud Director Availability vSphere plugin, or they can run the Cloud Director Availability plugin from the provider-managed Cloud Director instance and move workloads into Azure VMware Solution.
 
-VMware Cloud Director Availability can be enabled using Run commands in Azure VMware Solution. Learn more about Deploy [VMware Cloud Director Availability in Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/deploy-vmware-cloud-director-availability-in-azure-vmware-solution)
+VMware Cloud Director Availability can be enabled using Run commands in Azure VMware Solution. Learn more about Deploy [VMware Cloud Director Availability in Azure VMware Solution](deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md)
 
 ### How VMware Cloud Director tenant's virtual datacenter access Azure native services in their Azure vNET.
 
@@ -183,4 +183,4 @@ Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](e
 
 Learn more about [VMware Cloud Director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html)
 
-Learn more about [Architecture - Network interconnectivity - Azure VMware Solution](https://learn.microsoft.com/azure/azure-vmware/architecture-networking)
+Learn more about [Architecture - Network interconnectivity - Azure VMware Solution](/architecture-networking.md)
