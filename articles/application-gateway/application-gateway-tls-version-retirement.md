@@ -15,13 +15,14 @@ Starting **31st August 2025**, Azure Application Gateway will no longer support 
 
 ## Frontend TLS connections
 
-With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policies** and certain cipher suites from the **Custom TLS policy** will be removed. Depending on the configuration of your gateway, it is necessary to review the policy association for both general [TLS policy](application-gateway-ssl-policy-overview.md) and the [Listener-specific TLS policy](application-gateway-configure-listener-specific-ssl-policy.md).
+With deprecation of TLS versions 1.0 and 1.1, the **older Predefined TLS policies** and certain cipher suites from the **Custom TLS policy** will be removed. Depending on the configuration of your gateway, it's necessary to review the policy association for both general [TLS policy](application-gateway-ssl-policy-overview.md) and the [Listener-specific TLS policy](application-gateway-configure-listener-specific-ssl-policy.md).
 
 **General TLS policy - Portal view**
-![A diagram showing general TLS policy configuration in the Portal.](media/application-gateway-tls-version-retirement/general-tls-policy.png)
+:::image source="media/application-gateway-tls-version-retirement/general-tls-policy.png" alt-text="A diagram showing general TLS policy configuration in the Portal.":::
 
 **Listener-specific TLS policy - Portal view**
-![A diagram showing Listener-specific TLS policy configuration in the Portal.](media/application-gateway-tls-version-retirement/listener-specific-tls-policy.png)
+:::image source="media/application-gateway-tls-version-retirement/listener-specific-tls-policy.png" alt-text="A diagram showing Listener-specific TLS policy configuration in the Portal.":::
+
 
 ### Predefined policies for V2 SKUs
 
@@ -80,7 +81,7 @@ You don't need to configure anything on your Application Gateway for the backend
 * For V2 SKUs: the connections to backend servers will always be with preferred TLS v1.3 and minimum up to TLS v1.2
 * For V1 SKUs: the connections to backend servers will always be with TLS v1.2
 
-You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
+You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing an TLS/HTTPS connection with those backend servers.
 
 ## Next steps
 
