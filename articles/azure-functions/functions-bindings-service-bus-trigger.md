@@ -200,6 +200,46 @@ Write-Host "PowerShell ServiceBus queue trigger function processed message: $myS
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
+This example uses SDK types to directly access the underlying [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage?view=azure-python) object provided by the Service Bus trigger:
+
+The function reads various properties of the `ServiceBusReceivedMessage` type and logs them.
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.servicebus as servicebus
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.service_bus_queue_trigger(arg_name="receivedmessage",
+                               queue_name="QUEUE_NAME",
+                               connection="SERVICEBUS_CONNECTION")
+def servicebus_queue_trigger(receivedmessage: servicebus.ServiceBusReceivedMessage):
+    logging.info("Python ServiceBus queue trigger processed message.")
+    logging.info("Receiving: %s\n"
+                 "Body: %s\n"
+                 "Enqueued time: %s\n"
+                 "Lock Token: %s\n"
+                 "Message ID: %s\n"
+                 "Sequence number: %s\n",
+                 receivedmessage,
+                 receivedmessage.body,
+                 receivedmessage.enqueued_time_utc,
+                 receivedmessage.lock_token,
+                 receivedmessage.message_id,
+                 receivedmessage.sequence_number)
+```
+For more examples using Service Bus SDK types, see the [`ServiceBusReceivedMessage`](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Service Bus Sample](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-servicebus/samples/README.md).
+
+> [!NOTE]  
+> Known limitations include:
+> - The `message` property is not supported.
+> - Batch message support is supported with runtime version 4.1039 or greater.
+> - Message settlement is not yet supported.
+
+
+To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
+
+
 The following example demonstrates how to read a Service Bus queue message via a trigger. The example depends on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
 # [v2](#tab/python-v2)
@@ -572,6 +612,15 @@ The Service Bus instance is available via the parameter configured in the *funct
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
+
+Functions also supports Python SDK type bindings for Azure Service Bus, which lets you work with data using these underlying SDK types:
+
++ [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage?view=azure-python)
+
+> [!IMPORTANT]  
+> Support for Service Bus SDK types support in Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+
+
 ::: zone-end 
 For a complete example, see [the examples section](#example).
 

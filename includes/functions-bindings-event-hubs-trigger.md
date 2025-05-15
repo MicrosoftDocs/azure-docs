@@ -201,6 +201,33 @@ $eventHubMessages | ForEach-Object { Write-Host "Processed message: $_" }
 
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
+This example uses SDK types to directly access the underlying [`EventData`](python/api/azure-eventhub/azure.eventhub.eventdata?view=azure-python) object provided by the Event Hub trigger: 
+
+The function reads the event body and logs it.
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.eventhub as eh
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.event_hub_message_trigger(
+    arg_name="event", event_hub_name="EVENTHUB_NAME", connection="EventHubConnection"
+)
+def eventhub_trigger(event: eh.EventData):
+    logging.info(
+        "Python EventHub trigger processed an event %s",
+        event.body_as_str()
+    )
+```
+For examples of using the EventData type, see the [`EventData`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-eventhub/samples/eventhub_samples_eventdata/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Event Hub Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python).
+
+> [!NOTE]  
+> Known limitations include:
+> - The `enqueued_time` property is not supported.
+> - Batch message support is supported with runtime version 4.1039 or greater.
+
+To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
 
 The following example shows an Event Hubs trigger binding and a Python function that uses the binding. The function reads [event metadata](#event-metadata) and logs the message. The example depends on whether you use the [v1 or v2 Python programming model](../articles/azure-functions/functions-reference-python.md).
 
@@ -466,6 +493,16 @@ The following table explains the trigger configuration properties that you set i
 ## Usage
 
 To learn more about how Event Hubs trigger and IoT Hub trigger scales, see [Consuming Events with Azure Functions](/azure/architecture/serverless/event-hubs-functions/event-hubs-functions#consuming-events-with-azure-functions).
+
+::: zone pivot="programming-language-python" 
+Functions also supports Python SDK type bindings for Azure Event Hubs, which lets you work with data using these underlying SDK types:
+
++ [`EventData`](/python/api/azure-eventhub/azure.eventhub.eventdata)
+
+> [!IMPORTANT]  
+> Support for Event Hub SDK types in Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+
+::: zone-end 
 
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the Event Hubs output binding depends on the Functions runtime version, the extension package version, and the C# modality used. 

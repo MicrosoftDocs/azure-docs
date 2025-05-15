@@ -1260,6 +1260,34 @@ This section contains the following examples that read a single document by spec
 
 The examples depend on whether you use the [v1 or v2 Python programming model](functions-reference-python.md).
 
+### Using SDK-Type Bindings for CosmosDB (Preview)
+This example uses SDK types to directly access the underlying [`CosmosClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_cosmosclient/function_app.py) object provided by the CosmosDB input binding:
+
+The function loops through all the databases and logs their IDs.
+```python
+import logging
+import azure.functions as func
+import azurefunctions.extensions.bindings.cosmosdb as cosmos
+
+app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+
+@app.route(route="cosmos")
+@app.cosmos_db_input(arg_name="client",
+                     connection="CosmosDBConnection",
+                     database_name=None,
+                     container_name=None)
+def get_docs(req: func.HttpRequest, client: cosmos.CosmosClient):
+    databases = client.list_databases()
+    for db in databases:
+        logging.info(f"Found database with ID: {db.get('id')}")
+
+    return "ok"
+```
+
+For examples of using other SDK types, see the [`ContainerProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_containerproxy/function_app.py) and [`DatabaseProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_databaseproxy/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for CosmosDB Sample](https://github.com/Azure-Samples/azure-functions-cosmosdb-sdk-bindings-python).
+
+To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
+
 ### Queue trigger, look up ID from JSON
 
 The following example shows an Azure Cosmos DB input binding. The function reads a single document and updates the document's text value. 
@@ -1682,6 +1710,15 @@ Updates to documents are not made automatically upon function exit. To update do
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 Data is made available to the function via a `DocumentList` parameter. Changes made to the document are not automatically persisted.
+Functions also supports Python SDK type bindings for Azure Cosmos, which lets you work with data using these underlying SDK types:
+
++ [`ContainerProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_containerproxy/function_app.py)
++ [`CosmosClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_cosmosclient/function_app.py)
++ [`DatabaseProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_databaseproxy/function_app.py)
+
+> [!IMPORTANT]  
+> > Support for CosmosDB SDK types for Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+
 ::: zone-end  
 
 [!INCLUDE [functions-cosmosdb-connections](../../includes/functions-cosmosdb-connections.md)]
