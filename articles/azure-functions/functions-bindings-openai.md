@@ -95,12 +95,30 @@ You can add the preview extension by adding or replacing the following code in y
 
 To use the Azure OpenAI binding extension, you need to add one or more of these settings, which are used to connect to your OpenAI resource. During local development, you also need to add these settings to your `local.settings.json` file. 
 
-| Setting name | Description |
-| ---- | ----- |
-| **`AZURE_OPENAI_ENDPOINT`** | Required. Sets the endpoint of the OpenAI resource used by your bindings.   |
-| **`AZURE_OPENAI_KEY`** | Sets the key used to access an Azure OpenAI resource. |
-| **`OPENAI_API_KEY`** | Sets the key used to access a non-Azure OpenAI resource. |
-| **`AZURE_CLIENT_ID`** | Sets a user-assigned managed identity used to access the Azure OpenAI resource.  |
+It is strongly recommended to use managed identity and ensure the user or function app's managed identity has the role - `Cognitive Services OpenAI User`
+
+### AIConnectionName Property
+
+The optional `AIConnectionName` property specifies the name of a configuration section that contains connection details for the AI service:
+
+#### For Azure OpenAI Service
+
+* If AIConnectionName is specified, the extension looks for `Endpoint` and `Key` values in the named configuration section
+* If not specified or the configuration section doesn't exist, the extension falls back to environment variables:
+  * `AZURE_OPENAI_ENDPOINT` and/or
+  * `AZURE_OPENAI_KEY`
+* For user-assigned managed identity authentication, a configuration section is required
+
+    ```json
+        "<ConnectionNamePrefix>__endpoint": "Placeholder for the Azure OpenAI endpoint value",
+        "<ConnectionNamePrefix>__credential": "managedidentity",
+        "<ConnectionNamePrefix>__managedIdentityResourceId": "Resource Id of managed identity", 
+        "<ConnectionNamePrefix>__clientId": "Client Id of managed identity"
+    ```
+
+  * Only one of managedIdentityResourceId or clientId should be specified, not both.
+  * If no Resource Id or Client Id is specified, the `system-assigned managed identity` will be used by default.
+  * Pass the configured `ConnectionNamePrefix` value, example `AzureOpenAI` to the `AIConnectionName` property.
 
 For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
  

@@ -86,13 +86,15 @@ Apply the `SemanticSearchInput` attribute to define a semantic search input bind
 
 | Parameter | Description |
 | --------- | ----------- |
-| **ConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **SearchConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **Collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 | **Query** |  The semantic query text to use for searching. This property supports binding expressions.|
-| **EmbeddingsModel** | The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
-| **ChatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **EmbeddingsModel** | _Optional_. The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **ChatModel** | _Optional_. Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **AIConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **SystemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **MaxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
+| **IsReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 
 ::: zone-end
@@ -104,13 +106,15 @@ The `SemanticSearchInput` annotation enables you to define a semantic search inp
 | Element | Description |
 | ------- | ----------- |
 | **name** | Gets or sets the name of the input binding. |
-| **connectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **searchConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 | **query** |  The semantic query text to use for searching. This property supports binding expressions.|
-| **embeddingsModel** | The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
-| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **embeddingsModel** | _Optional_. The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chatModel** | _Optional_. Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **maxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 
 ::: zone-end  
@@ -122,13 +126,15 @@ During the preview, define the input binding as a `generic_input_binding` bindin
 |Parameter | Description |
 |---------|-------------|
 | **arg_name** | The name of the variable that represents the binding parameter. |
-| **connection_name** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **search_connection_name** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 | **query** |  The semantic query text to use for searching. This property supports binding expressions.|
-| **embeddings_model** | The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
-| **chat_model** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **embeddings_model** |  _Optional_. The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chat_model** |  _Optional_. Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **ai_connection_name** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **system_prompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **max_knowledge_count** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
+| **is_reasoning _model** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -141,13 +147,15 @@ The binding supports these configuration properties that you set in the function
 | **type** | Must be `semanticSearch`. |
 | **direction** | Must be `in`. |
 | **name** | The name of the input binding. |
-| **connectionName** | Gets or sets the name of an app setting or environment variable that contains a connection string value. This property supports binding expressions. |
+| **searchConnectionName** | Gets or sets the name of an app setting or environment variable that contains a connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 | **query** |  The semantic query text to use for searching. This property supports binding expressions.|
-| **embeddingsModel** | The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
-| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **embeddingsModel** |  _Optional_. The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chatModel** |  _Optional_. Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **maxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -157,13 +165,15 @@ The binding supports these properties, which are defined in your code:
 
 |Property | Description |
 |-----------------------|-------------|
-| **connectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
+| **searchConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 | **query** |  The semantic query text to use for searching. This property supports binding expressions.|
-| **embeddingsModel** | The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
-| **chatModel** | Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **embeddingsModel** |  _Optional_.The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **chatModel** |  _Optional_. Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
+| **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **maxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end  
 
@@ -173,6 +183,8 @@ See the [Example section](#example) for complete examples.
 
 ## Related content
 
-+ [Semantic search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch)
++ [Semantic AI Search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-aisearch)
++ [Semantic Cosmos DB No SQL Search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-cosmosdb-nosql)
++ [Semantic Cosmos DB Mongo VCore Search samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/rag-cosmosdb)
 + [Azure OpenAI extensions for Azure Functions](functions-bindings-openai.md)
 + [Azure OpenAI embeddings store output binding for Azure Functions](functions-bindings-openai-embeddingsstore-output.md)
