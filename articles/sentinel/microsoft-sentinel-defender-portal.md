@@ -105,6 +105,7 @@ The following table lists the changes in navigation between the Azure and Defend
 | **Automation**        |**Microsoft Sentinel** > **Configuration** > **Automation**      |
 | **Settings**          | **System** > **Settings** >**Microsoft Sentinel**              |
 
+
 ## Related content
 
 - [What is Microsoft's unified security operations platform?](/unified-secops-platform/overview-unified-security)
