@@ -101,6 +101,10 @@ For more information, see [Azure service tags](service-tags-overview.md). For an
 
 Application security groups enable you to configure network security as a natural extension of an application's structure, allowing you to group virtual machines and define network security policies based on those groups. You can reuse your security policy at scale without manual maintenance of explicit IP addresses. To learn more, see [Application security groups](application-security-groups.md).
 
+## Flow timeout
+
+Flow timeout settings determine how long a flow record remains active before expiring. You can configure this setting using the Azure portal or through the command line. For more details, see [NSG flow logs overview](../network-watcher/nsg-flow-logs-overview.md?tabs=Americas#non-default-inbound-tcp-rules).
+
 ## Azure platform considerations
 
 - **Virtual IP of the host node**: Basic infrastructure services like DHCP, DNS, IMDS, and health monitoring are provided through the virtualized host IP addresses 168.63.129.16 and 169.254.169.254. These IP addresses belong to Microsoft and are the only virtualized IP addresses used in all regions for this purpose. By default, these services aren't subject to the configured network security groups unless targeted by [service tags](service-tags-overview.md) specific to each service. To override this basic infrastructure communication, you can create a security rule to deny traffic by using the following service tags on your Network Security Group rules: AzurePlatformDNS, AzurePlatformIMDS, AzurePlatformLKM. Learn how to [diagnose network traffic filtering](diagnose-network-traffic-filter-problem.md) and [diagnose network routing](diagnose-network-routing-problem.md).
