@@ -86,7 +86,6 @@ Apply the `AssistantSkillTrigger` attribute to define an assistant trigger, whic
 | **FunctionDescription** | Gets the description of the assistant function, which is provided to the model. |
 | **FunctionName** | _Optional_. Gets or sets the name of the function called by the assistant.|
 | **ParameterDescriptionJson** | _Optional_. Gets or sets a JSON description of the function parameter, which is provided to the model. For more information, see [Usage](#usage).|
-| **Model** | _Optional_. Gets or sets the OpenAI chat model deployment to use, with a default value of `gpt-3.5-turbo`. |
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -100,7 +99,6 @@ The `AssistantSkillTrigger` annotation enables you to define an assistant trigge
 | **functionDescription** | Gets the description of the assistant function, which is provided to the model. |
 | **functionName** | _Optional_. Gets or sets the name of the function called by the assistant.|
 | **parameterDescriptionJson** | _Optional_. Gets or sets a JSON description of the function parameter, which is provided to the model. For more information, see [Usage](#usage).|
-| **model** | _Optional_. Gets or sets the OpenAI chat model deployment to use, with a default value of `gpt-3.5-turbo`. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -113,7 +111,6 @@ During the preview, define the input binding as a `generic_trigger` binding of t
 | **function_description** | Gets the description of the assistant function, which is provided to the model. |
 | **function_name** | _Optional_. Gets or sets the name of a function called by the assistant.|
 | **parameterDescriptionJson** | _Optional_. Gets or sets a JSON description of the function parameter, which is provided to the model. For more information, see [Usage](#usage).|
-| **model** | _Optional_. Gets or sets the OpenAI chat model deployment to use, with a default value of `gpt-3.5-turbo`. |
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -129,7 +126,6 @@ The binding supports these configuration properties that you set in the function
 | **functionName** | Gets or sets the name of the function called by the assistant.|
 | **functionDescription** | Gets the description of the assistant function, which is provided to the LLM|
 | **parameterDescriptionJson** | _Optional_. Gets or sets a JSON description of the function parameter, which is provided to the model. For more information, see [Usage](#usage).|
-| **model** | _Optional_. Gets or sets the OpenAI chat model deployment to use, with a default value of `gpt-3.5-turbo`. |
 
  
 ::: zone-end  
@@ -145,7 +141,6 @@ The binding supports these properties, which are defined in your code:
 | **functionName** | Gets or sets the name of the function called by the assistant.|
 | **functionDescription** | Gets the description of the assistant function, which is provided to the LLM|
 | **parameterDescriptionJson** | _Optional_. Gets or sets a JSON description of the function parameter, which is provided to the model. For more information, see [Usage](#usage).|
-| **model** | _Optional_. Gets or sets the OpenAI chat model deployment to use, with a default value of `gpt-3.5-turbo`. |
 
 ::: zone-end  
 See the [Example section](#example) for complete examples.
