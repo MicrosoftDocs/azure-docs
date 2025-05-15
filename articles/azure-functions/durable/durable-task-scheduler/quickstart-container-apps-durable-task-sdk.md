@@ -417,9 +417,11 @@ with DurableTaskSchedulerWorker(
 
 ::: zone pivot="java"
 
-### Sample
+The sample container app contains both the worker and client code. 
 
-The sample container app contains both the worker and client code. The client code: 
+### Client
+
+The client code: 
 
 - Uses the same connection string logic as the worker
 - Implements a sequential orchestration scheduler that:
@@ -451,8 +453,6 @@ logger.info("Output: {}", completedInstance.readOutputAs(String.class))
 ```
 
 ### Worker
-
-#### Orchestration Implementation
 
 The orchestration directly calls each activity in sequence using the standard `callActivity` method:
 
