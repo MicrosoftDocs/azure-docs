@@ -123,7 +123,11 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 ## Enable diagnostic settings for monitoring workspace APIs
 
-Configure settings to collect Azure Monitor logs for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels.
+Configure settings to collect Azure Monitor logs for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. See the following diagram:
+
+:::image type="content" source="media/how-to-create-workspace/federated-logs.png" alt-text="Diagram of federated logging in API Management.":::
+
+To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels:
 
 1. First, enable a diagnostics setting at the *service level* for collection of API Management gateway logs, if a setting isn't already enabled. We recommend sending logs to a Log Analytics workspace. For more information, see [Configure diagnostic settings for API Management](api-management-howto-use-azure-monitor.md#resource-logs).
 
