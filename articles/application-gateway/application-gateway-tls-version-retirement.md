@@ -81,7 +81,7 @@ You don't need to configure anything on your Application Gateway for the backend
 * For V2 SKUs: the connections to backend servers will always be with preferred TLS v1.3 and minimum up to TLS v1.2
 * For V1 SKUs: the connections to backend servers will always be with TLS v1.2
 
-You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing an TLS/HTTPS connection with those backend servers.
+You must ensure that your servers in the backend pools are compatible with these updated protocol versions. This compatibility avoids any disruptions when establishing a TLS/HTTPS connection with those backend servers.
 
 ## Next steps
 
