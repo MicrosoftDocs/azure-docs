@@ -28,13 +28,13 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example shows how to perform a semantic search on a file.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="63-70"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="76-82"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example shows how to perform a semantic search on a file.  
 
-:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="70-84":::
+:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="75-89,101-109":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -64,15 +64,11 @@ For more information about *function.json* file properties, see the [Configurati
 :::code language="powershell" source="~/functions-openai-extension/samples/rag-aisearch/powershell/PromptFile/run.ps1" :::
 
 ::: zone-end   
-::: zone pivot="programming-language-python"  
-[!INCLUDE [functions-examples-not-available-note](../../includes/functions-examples-not-available-note.md)]
-<!---uncomment when code example is available:
-{{This comes from the example code comment}} 
+::: zone pivot="programming-language-python" 
 
-:::code language="python" source="~/functions-openai-extension/samples/{{link to the correct sample.py}}" range="{{named is better than range}}":::
+This example shows how to perform a semantic search on a file.
+:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="38-56":::
 
-{{Add more examples if available}}
--->
 ::: zone-end  
 <!--- End code examples section -->  
 <!--- Begin the actual references (Attributes/Annotations/Properties/Decorators) sections 

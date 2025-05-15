@@ -29,13 +29,13 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="29-70"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="17-21,29-66"::: 
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="24-68":::
+:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="29-73":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -66,7 +66,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-25":::
+:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-35":::
 
 ::: zone-end  
 <!--- End code examples section -->  

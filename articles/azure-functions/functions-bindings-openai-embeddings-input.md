@@ -29,7 +29,7 @@ For information on setup and configuration details of the Azure OpenAI extension
 ::: zone pivot="programming-language-csharp"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="41-57"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57"::: 
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
@@ -39,11 +39,11 @@ This example shows how to retrieve embeddings stored at a specified file that is
 ::: zone pivot="programming-language-java"
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-55":::
+:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-53":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="61-90":::
+:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="59-86":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -51,7 +51,7 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-31":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-27":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
@@ -86,7 +86,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-21":::
+:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-27":::
 
 ::: zone-end  
 <!--- End code examples section -->  
