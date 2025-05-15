@@ -9,6 +9,8 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Create your first containerized functions on Azure Container Apps 
 
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
+
 In this article, you create a function app running in a Linux container and deploy it to an Azure Container Apps environment from a container registry. By deploying to Container Apps, you're able to integrate your function apps into cloud-native microservices. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md).
 
 This article shows you how to create functions running in a Linux container and deploy the container to a Container Apps environment. 
