@@ -48,9 +48,9 @@ There are required fields (identified with a red asterisk) in each section that 
 
 1. Enter the values for each required setting under *ArizeAI Organization Details*.
 
-    | Setting           | Action                                     |
-    |-------------------|--------------------------------------------|
-    |Description        |          |
+    | Setting           | Action                                        |
+    |-------------------|-----------------------------------------------|
+    |Description        | Provide a description for your organization.  |
 
 1. Select the **Next** button at the bottom of the page.
 
