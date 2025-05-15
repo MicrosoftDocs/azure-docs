@@ -16,15 +16,15 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## June 2025
 
+- **Standalone and embedded experiences**: Firmware analysis now exists as a standalone service in Azure and continues to exist as a blade within Defender for IoT. You can easily reach firmware analysis by searching for "firmware analysis" in the Azure portal search bar.
+
 - **Free and Premium SKUs for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, all features and functionality will be free of charge, and we look forward to gathering your feedback. Looking toward GA, some feature sets will be bundled with new feature releases to be included in the paid Premium SKU. Pricing of these features will also be announced in GA.
 
-- **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results 30% faster. This means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by 30%.
+- **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results 30% faster. This means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by up to 30%.
 
 - **New UI with multiple workspaces per resource group**: You can now create and manage multiple workspaces for resource groups, which helps you organize your firmware images better.
 
-- **Standalone and embedded experiences**: Firmware analysis now exists as a standalone service in Azure and continues to exist as a blade within Defender for IoT. You can easily reach firmware analysis by searching for "firmware analysis" in the Azure portal search bar.
-
-- **Support for <1GB pre-extraction and <70GB tarball**: You can analyze images up to 1GB before it's extracted, and up to 70GB as a tarball. The analysis will not complete if the image expands to greater than 70GB.
+- **Support for <1GB pre-extraction and <70GB fully extracted**: You can analyze images up to 1GB before it's extracted, and up to 70GB fully extracted. The analysis will not complete if the expanded image is greater than 70GB.
 
 - **Azure Monitor**: You can now use Azure Monitor to track certain statistics, such as firmware images' analysis behavior in a workspace over time and the rate of upload for a given workspace.
 
