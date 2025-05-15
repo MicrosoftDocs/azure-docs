@@ -49,7 +49,7 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.OpenAI  --prerele
 When using a vector database for storing content, you should also install at least one of these NuGet packages:
 
 + Azure AI Search: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.AzureAISearch](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.AzureAISearch)
-+ Azure Cosmos DB for MongoDB: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch)
++ Azure Cosmos DB for MongoDB vCore: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch)
 + Azure Cosmos DB for NoSQL: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.CosmosDBNoSQLSearch)
 + Azure Data Explorer: [Microsoft.Azure.Functions.Worker.Extensions.OpenAI.Kusto](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.OpenAI.Kusto)
 
@@ -64,7 +64,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.OpenAI --prerelease
 When using a vector database for storing content, you should also install at least one of these NuGet packages:
 
 + Azure AI Search: [Microsoft.Azure.WebJobs.Extensions.OpenAI.AzureAISearch](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.AzureAISearch)
-+ Azure Cosmos DB for MongoDB: [Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch)
++ Azure Cosmos DB for MongoDB vCore: [Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch)
 + Azure Cosmos DB for NoSQL: [Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBSearch](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.CosmosDBNoSQLSearch)
 + Azure Data Explorer: [Microsoft.Azure.WebJobs.Extensions.OpenAI.Kusto](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.OpenAI.Kusto)
 
@@ -93,9 +93,9 @@ You can add the preview extension by adding or replacing the following code in y
 
 ## Application settings
 
-To use the Azure OpenAI binding extension, you need to add one or more of these settings, which are used to connect to your OpenAI resource. During local development, you also need to add these settings to your `local.settings.json` file. 
+To use the Azure OpenAI binding extension, you need to add one or more of these settings, which are used to connect to your OpenAI resource. During local development, you also need to add these settings to your `local.settings.json` file.
 
-It is strongly recommended to use managed identity and ensure the user or function app's managed identity has the role - `Cognitive Services OpenAI User`
+It is strongly recommended to use managed identity and to be ensured the user or function app's managed identity has the role - `Cognitive Services OpenAI User`
 
 ### AIConnectionName Property
 
