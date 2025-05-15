@@ -25,12 +25,12 @@ The [Response Buffers on Application Gateway resource](proxy-buffers.md) should 
 
 ### Backend Setting - Request timeout 
 
-Ensure that the [Request time-out (seconds) in Backend Settings](configuration-http-settings.md?tabs=backendhttpsettings#request-timeout) is configured to exceed the idle time between events. Otherwise, your application gateway resource will terminate the connection prematurely.
+Ensure that the [Request time-out (seconds) in Backend Settings](configuration-http-settings.md?tabs=backendhttpsettings#request-timeout) is configured to exceed the idle time between events. Otherwise, your application gateway resource terminates the connection prematurely.
 
 
 ## Configuring backend server
 
-The backend server should send the following Response headers to ensure proper stream handling by the clients and any intermediaries. Note, these headers are not a requirement for Application Gateway as a proxy.
+The backend server should send the following Response headers to ensure proper stream handling by the clients and any intermediaries. Note, these headers aren't a requirement for Application Gateway as a proxy.
 
 ### Content-Type: text/event-stream
 This header notifies the client that the response will be a stream of events, enabling them to correctly handle the Server-Sent Events (SSE) protocol.
@@ -39,10 +39,10 @@ This header notifies the client that the response will be a stream of events, en
 This header maintains the TCP connection, allowing the backend server to send events to the client continuously.
 
 ### Transfer-Encoding: chunked 
-This header allows the server to send responses in chunks without requiring a Content-Length header. It is necessary for streaming responses through SSE when the total size cannot be determined in advance.
+This header allows the server to send responses in chunks without requiring a Content-Length header. It's necessary for streaming responses through SSE when the total size can't be determined in advance.
 
 ### Cache-Control: no-cache 
-It is generally advisable to use this header to prevent intermediaries like CDNs from caching the SSE response.
+It's advisable to use this header to prevent intermediaries like CDNs from caching the SSE response.
 
 ## Next steps
 Learn about [Request and Response Proxy Buffers](proxy-buffers.md) in Application Gateway.
