@@ -3,10 +3,10 @@ title: Bicep Kubernetes extension
 description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 05/14/2025
+ms.date: 04/28/2025
 ---
 
-# Bicep Kubernetes extension
+# Bicep Kubernetes extension (Preview)
 
 The Kubernetes extension allows you to create Kubernetes resources directly with Bicep. Bicep can deploy anything that can be deployed with the [Kubernetes command-line client (kubectl)](https://kubernetes.io/docs/reference/kubectl/kubectl/) and a [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests).
 
@@ -24,6 +24,18 @@ The Kubernetes extension allows you to create Kubernetes resources directly with
 > }
 > 
 > ```
+
+## Enable the preview feature
+
+This preview feature can be enabled by configuring the [bicepconfig.json](./bicep-config.md):
+
+```json
+{
+  "experimentalFeaturesEnabled": {
+    "extensibility": true
+  }
+}
+```
 
 ## Import Kubernetes extension
 
