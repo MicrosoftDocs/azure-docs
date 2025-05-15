@@ -94,7 +94,7 @@ python3 -m uvicorn fastapi_app:app --reload --port=8000
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
+* The **Name** for the web app. It's the name used as part of the DNS name for your webapp.
 * The **Region** to run the app physically in the world.
 * The **Runtime stack** for the app. It's where you select the version of Python to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
