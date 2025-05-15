@@ -183,7 +183,7 @@ items:
         - name: Discover VMware estate
           href: tutorial-discover-vmware.md
         - name: Assess VMWare servers  
-          href: ../azure-vmware/tutorial-access-private-cloud.md
+          href: ../azure-vmware/tutorial-access-private-cloud.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json  
         - name: Migrate to Azure Cloud
           href: tutorial-migrate-vmware.md
         - name: Migrate to Azure Local 
