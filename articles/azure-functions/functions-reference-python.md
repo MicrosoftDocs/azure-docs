@@ -504,12 +504,14 @@ For select triggers and bindings, you can work with data types implemented by th
 ::: zone pivot="python-mode-decorators" 
 
 > [!IMPORTANT]  
-> SDK type bindings support for Python is only supported in the Python V2 programming model.
+> SDK type bindings support for Python is only supported in the Python v2 programming model.
 
 ### Prerequisites
 
 * [Azure Functions runtime version](functions-versions.md?pivots=programming-language-python) version 4.34, or a later version.
 * [Python](https://www.python.org/downloads/) version 3.9, or a later [supported version](#python-version).
+
+### SDK Types
 
 | Service | Trigger | Input binding | Output binding |
 |-|-|-|-|

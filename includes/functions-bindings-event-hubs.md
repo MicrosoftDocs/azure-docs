@@ -211,7 +211,7 @@ Functions version 1.x doesn't support the isolated worker process. To use the is
 
 ## SDK Binding Types
 
-SDK Types for Azure EventHub are in Preview. Follow the [Python SDK Bindings for EventHub Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python) to get started with SDK Types for Blob in Python. 
+SDK Types for Azure EventHub are in Preview. Follow the [Python SDK Bindings for EventHub Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python) to get started with SDK Types for Event Hubs in Python. 
 > [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](../articles/azure-functions/functions-reference-python.md#sdk-type-bindings).
 
