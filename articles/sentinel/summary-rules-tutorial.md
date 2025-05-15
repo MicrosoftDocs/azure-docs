@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel (Preview)
-description: Learn how to aggregate large sets of Microsoft Sentinel data across log tiers with summary rules.
+title: Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel (Preview)
+description: This article walks you through a sample process for using summary rules with auxiliary logs in Microsoft Sentinel.
 author: batamig
 ms.author: bagol
 ms.topic: how-to #Don't change
@@ -16,15 +16,7 @@ ms.collection: usx-security
 
 # Tutorial: Summarize insights from raw data in an Auxiliary table to an Analytics table in Microsoft Sentinel (Preview)
 
-Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate large sets of data in the background for a smoother security operations experience across all log tiers. Summary data is precompiled in custom log tables and provide fast query performance, including queries run on data derived from [low-cost log tiers](billing.md#auxiliary-logs). Summary rules can help optimize your data for:
-
-- **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. 
-- **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
-- **Security and data privacy**, by removing or obfuscating privacy details in summarized shareable data and limiting access to tables with raw data.
-
-Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer periods in historical investigations, hunting, and compliance activities.
-
-Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
+This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -46,8 +38,6 @@ We recommend that you [experiment with your summary rule query](hunts.md) in the
 
 
 ## Use summary rules with auxiliary logs (sample process)
-
-This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
 
 1. Set up your custom CEF connector from Logstash:
 
