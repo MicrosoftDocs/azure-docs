@@ -3,32 +3,32 @@ title: Variables in Bicep
 description: Describes how to define variables in Bicep
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 05/15/2025
 ---
 
 # Variables in Bicep
 
 This article describes how to define and use variables in your Bicep file. You use variables to simplify your Bicep file development. Rather than repeating complicated expressions throughout your Bicep file, you define a variable that contains the complicated expression. Then, you use that variable as needed throughout your Bicep file.
 
-Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
-
-You're limited to 512 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value. You're limited to 512 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 ## Define variables
 
-The syntax for defining a variable is:
+A variable can't have the same name as a parameter, module, or resource. You can add one or more decorators for each variable. For more information, see Use [decorators](#use-decorators).
+
+### Untyped variables
+
+When you define a variable without specifying a data type, the type is inferred from the value. The syntax for defining a untyped variable is:
 
 ```bicep
 @<decorator>(<argument>)
 var <variable-name> = <variable-value>
 ```
 
-A variable can't have the same name as a parameter, module, or resource.
-
-Notice that you don't specify a [data type](data-types.md) for the variable. The type is inferred from the value. The following example sets a variable to a string.
+The following example sets a variable to a string.
 
 ```bicep
-var stringVar = 'example value'
+var stringVar = 'preset variable'
 ```
 
 You can use the value from a parameter or another variable when constructing the variable.
@@ -44,7 +44,7 @@ output addToVar string = concatToVar
 output addToParam string = concatToParam
 ```
 
-The preceding example returns:
+The output from the preceding example returns:
 
 ```json
 {
@@ -76,6 +76,117 @@ The preceding example returns a value like the following:
   "value": "stghzuunrvapn6sw"
 }
 ```
+
+### Typed variables
+
+Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. By specifying a type, you help the Bicep compiler catch type-related errors during compilation and make the code more maintainable.
+
+#### Syntax for typed variables
+
+To define a typed variable, use the `var` keyword followed by the variable name, a colon (`:`), the type, and the assigned value.
+
+```bicep
+var resourceName: string = 'myResource'
+var instanceCount: int = 3
+var isProduction: bool = true
+var tags: object = { environment: 'dev' }
+var subnets: array = ['subnet1', 'subnet2']
+```
+
+#### Supported types
+
+Bicep supports the following types for variables:
+
+- **Primitive types**:
+  - `string`: Text values (e.g., `'hello'`)
+  - `int`: Integer values (e.g., `42`)
+  - `bool`: Boolean values (`true` or `false`)
+- **Complex types**:
+  - `array`: A list of values (e.g., `[1, 2, 3]`)
+  - `object`: A key-value collection (e.g., `{ key: 'value' }`)
+- **Union types** (Bicep 0.4 or later):
+  - Allows a variable to accept multiple types (e.g., `string | int`).
+  - Example:
+
+    ```bicep
+    var flexibleId: string | int = 'resource123'
+    ```
+
+- **Literal types**:
+  - Restrict a variable to specific literal values (e.g., `'small' | 'medium' | 'large'`).
+  - Example:
+
+    ```bicep
+    var size: 'small' | 'medium' | 'large' = 'medium'
+    ```
+
+#### Object schemas
+
+For `object` types, you can define a schema to enforce a specific structure.
+
+```bicep
+var config: {
+  name: string
+  count: int
+  enabled: bool
+} = {
+  name: 'myApp'
+  count: 5
+  enabled: true
+}
+```
+
+The compiler ensures the object adheres to the defined schema.
+
+#### Benefits of typed variables
+
+- **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
+- **Code clarity**: Explicit types make it clear what kind of data a variable holds.
+- **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
+- **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
+
+#### Example with typed variables
+
+The following example uses typed variables with decorators to enforce constraints:
+
+```bicep
+@description('The environment to deploy to')
+@allowed(['dev', 'test', 'prod'])
+param environment: string = 'dev'
+
+var instanceCount: int = environment == 'prod' ? 5 : 2
+var resourcePrefix: string = 'app'
+var tags: object = {
+  environment: environment
+  deployedBy: 'bicep'
+}
+
+resource storage 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+  name: '${resourcePrefix}storage${instanceCount}'
+  location: 'westus'
+  tags: tags
+  kind: 'Storage'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+```
+
+In this example:
+
+- `instanceCount` is typed as `int` and uses a conditional expression.
+- `resourcePrefix` is typed as `string`.
+- `tags` is typed as `object` with a flexible structure.
+
+#### Best practices for typed variables
+
+- **Always specify types**: Explicitly declare types for clarity and to avoid unintended type changes.
+- **Use decorators**: Combine typed variables with decorators like `@minValue`, `@maxLength`, or `@allowed` for additional validation.
+- **Define object schemas**: For complex objects, use schemas to enforce structure.
+- **Keep types simple**: Avoid overly complex union types to maintain readability.
+- **Validate with Bicep CLI**: Use `az bicep build` to catch type errors before deployment.
+
+## Use iterative loops
 
 You can use iterative loops when defining a variable. The following example creates an array of objects with three properties.
 
