@@ -43,6 +43,7 @@ Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, en
    - Microsoft Power Platform Admin Activity
    
    - Microsoft Power Automate
+   - Microsoft Dynamics 365 Finance and Operations
       
 1. For each data connector, on the side pane, select **Open connector page > Connect**.
 
