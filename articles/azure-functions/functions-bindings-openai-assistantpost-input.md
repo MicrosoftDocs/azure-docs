@@ -164,7 +164,7 @@ The binding supports these properties, which are defined in your code:
 
 ## Usage
 
-See the [Example section](#example) for complete examples.
+See the [Example section](#example) for complete examples. 
 
 ## Related content
 
