@@ -68,13 +68,11 @@ If you've just onboarded your subscription, are signed into the Azure portal, an
 
 1. Sign into the Azure portal and go to firmware analysis.
 
-1. Select **Firmware workspaces**, then select the workspace in which you'd like to upload images. Click the **Upload** button.
+1. Go to the **Firmware workspaces** page, then select the workspace in which you'd like to upload images. Click the **Upload** button.
 
 1. In the **Upload a firmware image** pane, drag and drop your firmware image or click on the grey box. Browse to and select the firmware image file you want to upload.
 
     :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within firmware analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
-
-1. Select a **Subscription** that you have onboarded onto Defender for IoT firmware analysis. Then select a **Resource group** that you would like to upload your firmware image to.
 
 1. Enter the following details:
 
@@ -85,13 +83,13 @@ If you've just onboarded your subscription, are signed into the Azure portal, an
     
 1. Select **Upload** to upload your firmware for analysis.
 
-    Your firmware appears in the grid on the **Firmware inventory** page. 
+    Your firmware appears in the grid on the **All firmware** page. 
 
 ## View firmware analysis results
 
 The analysis time will vary based on the size of the firmware image and the number of files discovered in the image. While the analysis is taking place, the status will say *Extracting* and then *Analyzing*.  When the status is *Ready*, you can see the firmware analysis results.
 
-1. Sign into the Azure portal and go to Microsoft Defender for IoT > **Firmware analysis** > **Firmware inventory**.
+1. Sign into the Azure portal and go to firmware analysis > **All firmware** page. Alternatively, you can go to the **Firmware workspaces** page, and select the workspace in which you have your firmware image.
 
 1. Select the row of the firmware you want to view. The **Firmware overview** pane shows basic data about the firmware on the right.
 
