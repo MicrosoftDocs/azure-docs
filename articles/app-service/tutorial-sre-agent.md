@@ -51,6 +51,8 @@ In the *Basics* tab, do the following actions.
 
 1. Enter the following values in the *Instance details* section.
 
+    | Setting | Action |
+    |---|---|
     | Name app name |  Enter **my-sre-app**. |
     | Publish |  Select **Code**. |
     | Runtime stack|  Select **PHP 8.4**. |
@@ -178,7 +180,7 @@ Now that you have an agent that sees your container app, you can create an oppor
 
 This action fails and produces a `HTTP 500` error that wasn't tested during development.
 
-    ![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
+![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
 ## 5. Fix the app
 
@@ -243,6 +245,5 @@ Now you can prompt your agent to return your app's fully qualified domain name (
 ## Next steps
 
 * [Overview of Azure App Service](overview.md)
-* [Use Azure Developer CLI for modern app development](https://learn.microsoft.com/azure/developer/azure-developer-cli/overview)
-* [Agent Space documentation](https://learn.microsoft.com/azure/agent-space/overview)
-
+* [Use Azure Developer CLI for modern app development](/azure/developer/azure-developer-cli/overview)
+* [Agent Space documentation](/azure/agent-space/overview)
