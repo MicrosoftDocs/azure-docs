@@ -60,7 +60,7 @@ In the *Basics* tab, do the following actions.
 
 1. Select the **Deployment** tab.
 
-1. Enable **Basic authentication** in the *Authentication settings* section.
+1. Enable **Basic authentication** in the *Authentication settings* section. This is used later for a one-time deployment from GitHub. In production, [disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) and use secure deployment methods like GitHub Actions or Azure DevOps.
 
 1. Select **Review and create** at the bottom of the page.  
 
@@ -76,27 +76,39 @@ In the *Basics* tab, do the following actions.
 
 1. To view your new App Service, select **Go to resource**.
 
-1. Go to the [Azure portal](https://portal.azure.com) and search for **App Services** in the top search bar.
-
-1. Select **App Services** in the search results.
-
-1. Select **my-sre-app** from the list of App Services.
-
-1. In the left menu, select **Deployment center** from the *Deployment* section.
+1. In the left menu, find the *Deployment* section and select **Deployment center**.
 
 1. Enter the following values in the *Settings* tab.
 
     | Property | Value | Remarks |
     |---|---|---|
     | Source | Select **External Git**. |  |
-    | Repository | Enter **https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor**. |  |
-    | Branch | Enter **master**. |  |
+    | Repository | Enter **https://github.com/Azure-Samples/App-Service-Agent-Tutorial**. |  |
+    | Branch | Select **working**. |  |
+
+1. Select **Save**.
+
+## 2. Configure the app
+
+These steps configure the sample app with a *Startup command* and enable App Service logs.
+
+### Configure the startup command
+
+The default NGINX configuration expects a 50x.html file in the root */html* directory. This startup command copies *50x.html* from the *wwwroot* directory into /*html*.
+
+1. In the left menu, browse to the *Settings* section and select **Configuration**.
+
+1. Copy-paste the startup command as shown:
+
+    ```bash
+    /home/site/wwwroot/startup.sh
+    ```
 
 1. Select **Save**.
 
 ### Enable App Service logs
 
-This step is required to create applicaton logs that the SRE Agent can use to troubleshoot the app.
+This step configures application logs required by the SRE Agent to diagnose and troubleshoot the app.
 
 1. In the left menu, browse to the *Monitoring* section and select **App Service logs**.
 
@@ -113,23 +125,49 @@ This step is required to create applicaton logs that the SRE Agent can use to tr
 
 1. Select **Overview** in the left menu.
 
-1. Select **Browse** to verify the sample app.
+1. Select **Browse** to verify the sample app. It may take a minute to load as Azure App Service initializes the web app instance during the first request.
 
 1. To convert images, click `Tools` and select `Convert to PNG`.
 
     ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first two images and click `convert`. This converts successfully.
+1. Select three images and click `convert`. This converts successfully.
 
     ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
-## 2. Create an agent
+## 3. Create a deployment slot
+
+1. In the left menu, find the *Deployment* section and select **Deployment slots**.
+
+1. Select **+ Add** to add a new deployment slot.
+
+1. In the *Add Slot* dialog window, enter **broken**.
+
+1. Scroll to the bottom of the dialog window and Select **Add**. The deployment slot takes a minute to complete.
+
+### Configure the deployment slot
+
+1. Select the **broken** deployment slot.
+
+1. In the left menu, find the *Deployment* section and select **Deployment center**.
+
+1. Enter the following values in the *Settings* tab.
+
+    | Property | Value | Remarks |
+    |---|---|---|
+    | Source | Select **External Git**. |  |
+    | Repository | Enter **https://github.com/Azure-Samples/App-Service-Agent-Tutorial**. |  |
+    | Branch | Select **broken**. |  |
+
+1. Select **Save**.
+
+## 4. Create an agent
 
 Next, create an agent to monitor the *my-aca-app-group* resource group.
 
-1. Go to the Azure portal and search for and select **Azure SRE Agent**.
+1. Go to the Azure portal and search for and select **SRE Agent**.
 
-1. Select **Create**.
+1. Select **Create**. This can take a few minutes to complete.
 
 1. Enter the following values in the *Create agent* window.
 
@@ -141,6 +179,7 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
     | Resource group | Enter **my-sre-agent-group**.  |  |
     | Name | Enter **my-app-service-sre-agent**. |  |
     | Region | Select **Sweden Central**. | During preview, SRE Agents are only available in the *Sweden Central* region, but they can monitor resources in any Azure region. |
+    | Choose role | Select **Contributor role**. |  |
 
 1. Select the **Select resource groups** button.
 
@@ -150,7 +189,7 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
 1. Select **Create**.
 
-## 3. Chat with your agent
+## 5. Chat with your agent
 
 Your agent has access to any resource inside the resource groups associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
 
@@ -166,23 +205,23 @@ Your agent has access to any resource inside the resource groups associated with
     List my app service apps
     ```
 
-1. The agent responds with details about the container app deployed in the *my-aca-app-group* resource group.
+1. The agent responds with details about the container app deployed in the *my-app-service-group* resource group.
 
-Now that you have an agent that sees your container app, you can create an opportunity for the agent to make a repair on your behalf.
+Now that you have an agent that sees your App Service app, you can create an opportunity for the agent to make a fix on your behalf.
 
-## 4. Break the app
+## 6. Break the app
 
 1. Now that the agent has been created, browse to the app's URL.
 
-1. Try to convert the first five images.
+1. Try to convert all the images.
 
     ![Convert first five images](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
 
-This action fails and produces a `HTTP 500` error that wasn't tested during development.
+This action fails and produces an error that wasn't tested during development.
 
 ![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
-## 5. Fix the app
+## 7. Fix the app
 
 1. Go to the Azure portal, search for and select **Azure SRE Agent**.
 
@@ -230,7 +269,7 @@ This action fails and produces a `HTTP 500` error that wasn't tested during deve
 
     > Rollback complete! Your container app has been reverted to the last known working image: mcr.microsoft.com/k8se/quickstart:latest. Please monitor your app to ensure it starts successfully.
 
-## 6. Verify repair
+## 8. Verify repair
 
 Now you can prompt your agent to return your app's fully qualified domain name (FQDN) so you can verify a successful deployment.
 
