@@ -14,7 +14,9 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
-## Update (April 2025)
+## Update (May 2025)
+
+- General availability: Azure Migrate now offers expanded support for configuring disk settings across multiple migration scenarios, including Change Block Tracking (CBT), Physical, and Hyper-V based migrations. The users can choose Premium SSD v2 [Pv2](/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli), [Ultra](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal), or [ZRS](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) disks when migrating servers using VMware Agentless, Hyper-V, or Physical migration methods. It empowers users to fine-tune their target disk setup, enabling more efficient and tailored migrations to Azure infrastructure.
 
 - General availability: Azure Migrate now supports a simplified experience through its upgraded version of the agent-based migration stack. This stack offers a streamlined experience for customers and is set to replace the classic experience over the next three years. [Learn more](simplified-experience-for-azure-migrate.md).
 
