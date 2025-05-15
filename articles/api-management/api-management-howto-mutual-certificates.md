@@ -61,8 +61,8 @@ After the certificate is uploaded, it shows in the **Certificates** window. If y
 1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
 1. Under **APIs**, select **APIs**.
 1. Select an API from the list. 
-1. In the **Design** tab, select the editor icon in the **Backend** section.
-1. In **Gateway credentials**, select **Client cert** and select your certificate from the dropdown list.
+1. On the **Design** tab, select the pencil icon in the **Backend** section.
+1. In **Gateway credentials**, select **Client cert** and then select your certificate in the **Client certificate** list.
 1. Select **Save**.
 
     :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png" alt-text="Use client certificate for gateway authentication":::
