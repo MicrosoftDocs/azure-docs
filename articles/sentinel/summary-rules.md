@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Aggregate Microsoft Sentinel data with summary rules (preview)
 
-Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate insights from large sets of data in any log tier, including the [auxiliary log tier](billing.md#auxiliary-logs), at a regular cadence. Working with summarized data enhances query performance and helps optimize your data for:
+Use prebuilt or custom [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentinel to aggregate insights from large sets of data in any log tier, including the [auxiliary log tier](billing.md#auxiliary-logs), at a regular cadence. Working with summarized data enhances query performance and helps optimize your data for:
 
 - **Analysis and reports**, especially over large data sets and time ranges, as required for security and incident analysis, month-over-month or annual business reports, and so on. 
 - **Cost savings** on verbose logs, which you can retain for as little or as long as you need in a less expensive log tier, and send as summarized data only to an Analytics table for analysis and reports.
@@ -44,40 +44,45 @@ To create summary rules in Microsoft Sentinel:
 
 We recommend that you [experiment with your summary rule query](hunts.md) in the **Logs** page before creating your rule. Verify that the query doesn't reach or near the [query limit](/azure/azure-monitor/logs/summary-rules#restrictions-and-limitations), and check that the query produces the intended schema and expected results. If the query is close to the query limits, consider using a smaller `binSize` to process less data per bin. You can also modify the query to return fewer records or remove fields with higher volume.
 
-## Deploy pre-built summary rule templates
+## Install pre-built summary rule templates
 
-Summary rule templates are pre-built summary rules that you can install and customize to your needs. 
+Summary rule templates are pre-built summary rules that you can deploy as-is or customize to your needs. 
 
 To install a summary rule template:
 
-1. Open the Content Hub page and filter **Content type** by **Summary rules** to view the available summary rule templates.
+1. Open the **Content hub** and filter **Content type** by **Summary rules** to view the available summary rule templates.
 
-     :::image type="content" source="media/summary-rule-templatesmd/image3.png" alt-text="A screenshot of a computer Description automatically generated":::
+    :::image type="content" source="media/summary-rules/summary-rule-templates-content-hub.png" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates.":::
 
 1. Select a summary rule template. 
 
-    A detailed panel with information about the summary rule template opens. 
+    A detailed panel with information about the summary rule template opens, displaying fields such as description, summary query, and destination table.
+
+        :::image type="content" source="media/summary-rules/summary-rule-template-details.png" alt-text="Screenshot showing the details panel of a summary rule template in Microsoft Sentinel, including fields like description, summary query, and destination table.":::
 
 1. Select **Install** to install the template.
 
-     :::image type="content" source="media/summary-rule-templatesmd/image4.png" alt-text="A screenshot of a computer Description automatically generated":::
+1. Select the **Templates** tab on the **Summary rules** page, where you can view and manage all of your installed summary rule templates.
 
-1. Select the **Templates** tab on the **Summary rules** page, which lets you view and manage all of the installed summary rules templates.
+    :::image type="content" source="media/summary-rules/summary-rule-template-details.png" alt-text="A screenshot of a computer Description automatically generated":::
 
-    :::image type="content" source="media/summary-rule-templatesmd/image5.png" alt-text="A screenshot of a computer Description automatically generated":::
+1. Select a summary rule template. This opens the details panel. 
 
-1. Select a summary rule template. This opens the details panel with all of the summary rule information. 
+1. Select **Create** to open the Summary rule wizard, where all of the fields are prepopulated. 
 
-1. Select **Create** to customize the summary rule template or install it as-is if it suits your requirements. Follow the [summary rules
-documentation](https://learn.microsoft.com/en-us/azure/sentinel/summary-rules) to create the rule.
+1. Go through the the Summary rule wizard and select **Save** to deploy the summary rule.
 
-     :::image type="content" source="media/summary-rule-templatesmd/image6.png" alt-text="A screenshot of a computer Description automatically generated":::
+    For more information about the Summary rule wizard, see [Create a new summary rule](#create-a-new-summary-rule).
 
 ## Create a new summary rule
 
 Create a new summary rule to aggregate a specific large set of data into a dynamic table. Configure your rule frequency to determine how often your aggregated data set is updated from the raw data.
 
-1. In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**. In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. For example:
+1. Open the Summary rule wizard: 
+
+    - In the Defender portal, select **Microsoft Sentinel > Configuration > Summary rules (Preview)**. 
+    
+    - In the Azure portal, from the Microsoft Sentinel navigation menu, under **Configuration**, select **Summary rules (Preview)**. For example:
 
     :::image type="content" source="media/summary-rules/summary-rules-azure.png" alt-text="Screenshot of the Summary rules page in the Azure portal.":::
 
