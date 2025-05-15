@@ -128,7 +128,7 @@ Depending on the log destination you choose, it can take a few minutes for data 
 
 [!INCLUDE [api-management-log-analytics](../../includes/api-management-log-analytics.md)]
 
-#### View logs in storage account*
+#### View logs in storage account
 
 If you send logs to a storage account, you can access the data in the Azure portal and download it for analysis.
 
