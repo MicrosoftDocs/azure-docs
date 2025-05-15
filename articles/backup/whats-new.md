@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/14/2025
+ms.date: 05/21/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -112,7 +112,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Operational backup support for Azure Elastic SAN (preview)
 
-Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution simplifies scheduling backups, removing expired restore points, and restoring to new Elastic SAN volumes.
+Azure Backup now allows secure backup and restoration for Azure Elastic storage area network (SAN) volumes through Azure Backup vault, ensuring seamless data protection. This fully managed solution seamlessly allows you to schedule backups, set expiration timelines for restore points, and restore data to a new volume.
 
 Key features include:
 

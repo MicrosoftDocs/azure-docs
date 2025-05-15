@@ -2,20 +2,20 @@
 title: Restore Azure Elastic SAN using Azure portal (preview)
 description: Learn how to restore Azure Elastic Storage Area Network (SAN)  backups (preview) using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 05/21/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
 # Restore Azure Elastic SAN using Azure portal (preview)
 
-This article describes how to restore Azure Elastic Storage Area Network (SAN) backups (preview) using Azure portal.
+This article describes how to restore Azure Elastic storage area network (SAN) backups (preview) using Azure portal.
 
 Learn about the [supported scenarios, limitations, and region availability for Azure Elastic SAN backup/restore (preview)](azure-elastic-storage-area-network-backup-support-matrix.md).
 
 ## Restore the Azure Elastic SAN backups (preview)
 
-To  restore Azure Elastic SAN  backups, follow these steps:
+To  restore the Azure Elastic SAN  backups, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center**, and then select **Recover**.
 1. On the **Recover** pane, select **Datasource type** as **Elastic SAN volumes (Preview)**,  and then under **Protected item**, click **Select**.
@@ -29,24 +29,25 @@ To  restore Azure Elastic SAN  backups, follow these steps:
    By default, the latest restore point is selected.
 
 1. On the **Select restore point** pane, select the required restore point from the list.
-1. On the **Restore** pane, on the **Restore parameters** tab, specify the restore configuration parameters by clicking **Select**.
+1. On the **Restore** pane, on the **Restore parameters** tab, click **Select** to specify the restore configuration parameters.
 
    :::image type="content" source="./media/azure-elastic-storage-area-network-backup-restore/set-restore-parameter.png" alt-text="Screenshot shows how to configure restore." lightbox="./media/azure-elastic-storage-area-network-backup-restore/set-restore-parameter.png":::
 
-1. On the **Restore configuration** pane, select the **Target subscription**, **Resource group**, **Target Elastic SAN instance**, and **Target Elastic SAN volume group**, to recover.
+1. On the **Restore configuration** pane, select the **Target subscription**, **Resource group**, **Target Elastic SAN instance**, and **Target Elastic SAN volume group**, to restore.
 
-   By default the source Elastic SAN instance is selected.
+   By default, the source Elastic SAN instance is selected.
 
 1. Under **Target volume details**, select the volumes you want to restore.
 1. Under **Volume name**, enter a name for the volume to be created, and then click **Select**.
 
    >[!Note]
-   >- You can't overwrite an existing volume. If a volume with the same name exists, the restore operation fails.
    >- An Elastic SAN volume name, once assigned, can't be changed.
+   >- You can't overwrite an existing volume. If a volume with the same name exists, the restore operation fails.
+
 
 1. On the **Restore parameters** tab, select **Validate** to ensure that the required permissions to perform the restore are assigned to the backed-up Elastic SAN volume. 
 
-   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) don't have the **Elastic SAN Volume Importer** and **Reader (on the snapshot resource group)** roles assigned.
+   Validation errors appear if the selected Backup vault's Managed-system Identity (MSI) doesn't have the **Elastic SAN Volume Importer** and **Reader (on the snapshot resource group)** roles assigned.
 
 1. To assign the required roles, select **Assign missing roles**.
 

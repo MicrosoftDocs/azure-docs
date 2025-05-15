@@ -2,7 +2,7 @@
 title: Support matrix for Azure Elastic SAN Backup (preview)
 description: Learn about the  regional availability, supported scenarios, and limitations for backups of Azure Elastic SAN (preview).
 ms.topic: reference
-ms.date: 04/16/2025
+ms.date: 05/21/2025
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: jyothisuri
@@ -11,29 +11,29 @@ ms.author: jsuri
 
 # Support matrix for Azure Elastic SAN backup (preview)
 
-This article summarizes the regional availability, supported scenarios, and limitations for Azure Elastic Storage Area Network (SAN) backups (preview).
+This article summarizes the regional availability, supported scenarios, and limitations for Azure Elastic storage area network (SAN) backups (preview).
 
 ## Supported regions
 
-Backups of Azure Elastic SAN are available in the following regions: Australia East, North Europe, West Europe, East US, East US2, Germany West Central.
+Backups of Azure Elastic SAN are available in the following regions: Australia East, North Europe, East US 2.
 
 ## Supported and unsupported scenarios for Azure Elastic SAN protection (preview)
 
 Azure Elastic SAN protection (preview) has the following supported and unsupported scenarios:
 
-- Operational-tier backup is supported for Elastic SAN; vault-tier isn't currently supported. So, the security-related settings (immutability, soft-delete, MUA, CMK) applicable for vault-tier aren't supported.
+- Operational-tier backup is supported for Elastic SAN; vault-tier isn't currently supported. So, the security-related settings ([immutability](backup-azure-immutable-vault-concept.md?tabs=backup-vault), [soft-delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multi-user authorization](multi-user-authorization-concept.md?tabs=backup-vault), and [customer-managed keys](encryption-at-rest-with-cmk.md?tabs=portal)) that are applicable for vault-tier aren't supported.
 - Same volume can't be protected multiple times as part of multiple backup instances.
 - Hourly backups aren't supported; only daily backups are available.
 - The Original Location Recovery (OLR) is currently not supported; only Alternate Location Recovery (ALR) is supported.
 - Azure [subscription and service](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machine-disk-limits) limits apply to the total number of disk snapshots per region per subscription.
 - The Backup vault and the volumes to be backed up must be in the same subscription and region.
-- Restoring a volume from backup to the same or a different subscription is supported.
+- Restoring a volume from backups to the same or a different subscription is supported.
 - For [configuration of backup](azure-elastic-storage-area-network-backup-configure.md#configure-backup-for-azure-elastic-san-using-azure-portal-preview), the Elastic SAN volume and the snapshot resource group (where snapshots are stored) must be in the same subscription. The creation of incremental snapshots for a volume outside its subscription isn't supported. Learn more [about incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disks.
 - For the backup and restore operations, the Backup vault’s managed identity must have the following roles assigned:
 
    | Operation | Role |
    | --- | --- |
-   | Backup | - Elastic SAN Snapshot Exporter <br><br> - Contributor |
+   | Backup | - Elastic SAN Snapshot Exporter <br><br> - Disk snapshot Contributor (on the snapshot resource group) |
    | Restore | - Reader (on the snapshot resource group) <br><br> - Elastic SAN Volume Importer |
 
   >[!Note]
