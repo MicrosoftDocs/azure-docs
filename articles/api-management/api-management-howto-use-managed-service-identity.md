@@ -71,7 +71,7 @@ Set-AzApiManagement -InputObject $apimService -SystemAssignedIdentity
 
 ### Azure Resource Manager (ARM) template
 
-You can create an API Management instance with a system-assigned identity by including the following property in the resource definition:
+You can create an API Management instance with a system-assigned identity by including the following property in the ARM template resource definition:
 
 ```json
 "identity" : {
@@ -131,17 +131,17 @@ The following configurations are required if you want to use API Management to a
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
-## Supported scenarios using system-assigned identity
+## Supported scenarios that use system-assigned identity
 
 ### Obtain a custom TLS/SSL certificate for the API Management instance from Key Vault
 
 You can use the system-assigned identity of an API Management instance to retrieve custom TLS/SSL certificates that are stored in Key Vault. You can then assign these certificates to custom domains in the API Management instance. Take these considerations into account:
 
 - The content type of the secret must be *application/x-pkcs12*. For more information, see [Domain certificate options](configure-custom-domain.md?tabs=key-vault#domain-certificate-options).
-- Use the Key Vault certificate secret endpoint, which contains the secret.
+- You must use the Key Vault certificate secret endpoint, which contains the secret.
 
 > [!Important]
-> If you don't provide the object version of the certificate, API Management automatically obtains the newer version of the certificate within four hours after it's updated in Key Vault.
+> If you don't provide the object version of the certificate, API Management automatically obtains any newer version of the certificate within four hours after it's updated in Key Vault.
 
 The following example shows an ARM template that uses the system-assigned managed identity of an API Management instance to retrieve a custom domain certificate from Key Vault.
 
@@ -450,15 +450,15 @@ The `principalId` property is a unique identifier for the identity that's used f
 You can use a user-assigned identity to establish trust between an API Management instance and Key Vault. This trust can then be used to retrieve custom TLS/SSL certificates that are stored in Key Vault. You can then assign these certificates to custom domains in the API Management instance.
 
 > [!IMPORTANT]
-> If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must also be enabled.
+> If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must be enabled.
 
 Take these considerations into account:
 
 - The content type of the secret must be *application/x-pkcs12*.
-- Use the Key Vault certificate secret endpoint, which contains the secret.
+- You must use the Key Vault certificate secret endpoint, which contains the secret.
 
 > [!Important]
-> If you don't provide the object version of the certificate, API Management automatically obtains the newer version of the certificate within four hours after it's updated in Key Vault.
+> If you don't provide the object version of the certificate, API Management automatically obtains any newer version of the certificate within four hours after it's updated in Key Vault.
 
 
 ### Store and manage named values from Key Vault
@@ -466,7 +466,7 @@ Take these considerations into account:
 You can use a user-assigned managed identity to access Key Vault to store and manage secrets for use in API Management policies. For more information, see [Use named values in Azure API Management policies](api-management-howto-properties.md). 
 
 > [!NOTE]
-> If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must also be enabled.
+> If [Key Vault firewall](/azure/key-vault/general/network-security) is enabled on your key vault, you can't use a user-assigned identity for access from API Management. You can use the system-assigned identity instead. In Key Vault firewall, the **Allow Trusted Microsoft Services to bypass this firewall** option must be enabled.
 
 ### Authenticate to a backend by using a user-assigned identity
 
