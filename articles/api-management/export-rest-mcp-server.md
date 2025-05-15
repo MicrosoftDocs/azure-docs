@@ -18,17 +18,17 @@ Document need an IcM for SKUv2 --
 
 Need to use the GenAI release group -->
 
-In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that can be called by clients using the MCP protocol. 
+In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
 
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
 > [!NOTE]
-> This feature is currently in preview and is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). 
+> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). 
 
-In this article, you learn how to:.
+In this article, you learn how to:
 
 * Expose a REST API in API Management as an MCP server
-* Test the generated MCP server
+* Test the generated MCP server from an MCP client
 
 [!INCLUDE [about-mcp-servers](../api-center/includes/about-mcp-servers.md)]
 
@@ -56,6 +56,26 @@ The MCP server is created and the API operations are exposed as tools. The MCP s
 
 :::image type="content" source="media/export-rest-mcp-server/mcp-server-list.png" alt-text="Screenshot of the MCP server list in the portal.":::
 
+## Configure policies for the MCP server
+
+You can configure one or more API Management [policies](api-management-howto-policies.md) for the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tool.
+
+For a tutorial on how to configure policies, see [Transform and protect your API](transform.md).
+
+To configure policies for the MCP server:
+
+1. In the portal, under **APIs**, select **MCP Servers**.
+1. Select the MCP server you created.
+1. In the left menu, under **MCP**, select **Policies**.
+1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add an inbound policy to add an API Management subscription key for all requests to the MCP server. Substitute `your-subscription-key` with an actual subscription key configured in your API Management instance.
+
+    ```xml
+    <set-header name="Ocp-Apim-Subscription-Key" exists-action="override">
+        <value>your-subscription-key</value>
+    </set-header>
+    ```
+
+    :::image type="content" source="media/export-rest-mcp-server/mcp-server-policies.png" alt-text="Screenshot of the policy editor for an MCP server.":::
 
 ## Test and use the MCP server
 
@@ -70,8 +90,9 @@ To use MCP inspector:
     ```bash
     npx @modelcontextprotocol/inspector
     ```
+1. Navigate to the local URL of the MCP Inspector that's displayed in the console. 
 
-1. Enter the following settings:
+1. In the browser, enter the following settings:
 
     | **Setting**           | **Description**                                                                                     |
     |------------------------|-----------------------------------------------------------------------------------------------------|
