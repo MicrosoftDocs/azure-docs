@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 06/27/2024
+ms.date: 05/14/2025
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -15,7 +15,7 @@ services: iot-edge
 
 This article shows settings and options for configuring the IoT Edge */etc/aziot/config.toml* file of an IoT Edge device. IoT Edge uses the *config.toml* file to initialize settings for the device. Each of the sections of the *config.toml* file has several options. Not all options are mandatory, as they apply to specific scenarios.
 
-A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You can copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you have already defined.
+A template containing all options can be found in the *config.toml.edge.template* file within the */etc/aziot* directory on an IoT Edge device. You can copy the contents of the whole template or sections of the template into your *config.toml* file. Uncomment the sections you need. Be aware not to copy over parameters you previously defined.
 
 If you change a device's configuration, use `sudo iotedge config apply` to apply the changes.
 
@@ -28,9 +28,9 @@ The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_d
 To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The *edgeHub* module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-be-told-about-its-own-hostname).
 
 > [!NOTE]
-> When the hostname value isn't set, IoT Edge attempts to find it automatically. However, clients in the network may not be able to discover the device if it isn't set.
+> When the hostname value isn't set, IoT Edge attempts to find it automatically. However, clients in the network might not be able to discover the device if it isn't set.
 
-For **hostname**, replace **fqdn-device-name-or-ip-address** with your device name to override the default hostname of the device. The value can be a fully qualified domain name (FQDN) or an IP address. Use this setting as the gateway hostname on a IoT Edge gateway device.
+For **hostname**, replace **fqdn-device-name-or-ip-address** with your device name to override the default hostname of the device. The value can be a fully qualified domain name (FQDN) or an IP address. Use this setting as the gateway hostname on an IoT Edge gateway device.
 
 ```toml
 hostname = "fqdn-device-name-or-ip-address"
@@ -46,7 +46,7 @@ Replace **fqdn-parent-device-name-or-ip-address** with the name of your parent d
 parent_hostname = "fqdn-parent-device-name-or-ip-address"
 ```
 
-For more information about setting the *parent_hostname* parameter, see [Connect Azure IoT Edge devices together to create a hierarchy](how-to-connect-downstream-iot-edge-device.md#update-downstream-configuration-file).
+For more information about setting the *parent_hostname* parameter, see [Connect Azure IoT Edge devices to create a hierarchy](how-to-connect-downstream-iot-edge-device.md#update-downstream-configuration-file).
 
 ### Trust bundle certificate
 
@@ -56,7 +56,7 @@ To provide a custom certificate authority (CA) certificate as a root of trust fo
 trust_bundle_cert = "file:///var/aziot/certs/trust-bundle.pem"
 ```
 
-For more information about the IoT Edge trust bundle, see [Manage trusted root CA](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).
+For more information about the IoT Edge trust bundle, see [Manage trusted root CA (trust bundle)](how-to-manage-device-certificates.md#manage-trusted-root-ca-trust-bundle).
 
 ### Elevated Docker Permissions
 
@@ -70,13 +70,13 @@ allow_elevated_docker_permissions = false
 
 ### Auto reprovisioning mode
 
-The optional **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. Auto provisioning mode is ignored if the device has been provisioned manually. For more information about setting DPS provisioning mode, see the [Provisioning](#provisioning) section in this article for more information.
+The optional **auto_reprovisioning_mode** parameter specifies the conditions that decide when a device attempts to automatically reprovision with Device Provisioning Service. Auto provisioning mode is ignored if the device is provisioned manually. For more information about setting DPS provisioning mode, see the [Provisioning](#provisioning) section in this article.
 
 One of the following values can be set:
 
 | Mode | Description |
 |------|-------------|
-| Dynamic | Reprovision when the device detects that it may have been moved from one IoT Hub to another. This mode is *the default*. |
+| Dynamic | Reprovision when the device detects that it might have been moved from one IoT Hub to another. This mode is *the default*. |
 | AlwaysOnStartup | Reprovision when the device is rebooted or a crash causes the daemons to restart. |
 | OnErrorOnly | Never trigger device reprovisioning automatically. Device reprovisioning only occurs as fallback, if the device is unable to connect to IoT Hub during identity provisioning due to connectivity errors. This fallback behavior is implicit in Dynamic and AlwaysOnStartup modes as well. |
 
@@ -227,7 +227,7 @@ These settings control the timeout and retries for cloud operations, such as com
 
 The **cloud_timeout_sec** parameter is the deadline in seconds for a network request to cloud services. For example, an HTTP request. A response from the cloud service must be received before this deadline, or the request fails as a timeout.
 
-The **cloud_retries** parameter controls how many times a request may be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of three attempts.
+The **cloud_retries** parameter controls how many times a request might be retried after the first try fails. The client always sends at least once, so the value is number of retries after the first try fails. For example, `cloud_retries = 2` means that the client makes a total of three attempts.
 
 ```toml
 cloud_timeout_sec = 10
@@ -260,7 +260,7 @@ identity_pk = "pkcs11:slot-id=0;object=est-id?pin-value=1234" # PKCS#11 URI
 
 ### EST ID cert requested via EST bootstrap ID cert
 
-Authentication with a TLS client certificate that is used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the users *aziotcs* and *aziotks*, respectively.
+Authentication with a TLS client certificate that is used once to create the initial EST ID certificate. After the first certificate issuance, an `identity_cert` and `identity_pk` are automatically created and used for future authentication and renewals. The Subject Common Name (CN) of the generated EST ID certificate is always the same as the configured device ID under the provisioning section. These files must be readable by the *aziotcs* and *aziotks* users, respectively.
 
 ```toml
 bootstrap_identity_cert = "file:///var/aziot/certs/est-bootstrap-id.pem"
@@ -433,7 +433,7 @@ bootstrap_identity_pk = "pkcs11:slot-id=0;object=est-bootstrap-id?pin-value=1234
 
 ### Edge CA certificate issued from a local CA certificate
 
-Requires [cert_issuance.local_ca] to be set.
+Requires `[cert_issuance.local_ca]` to be set.
 
 ```toml
 [edge_ca]
@@ -449,7 +449,7 @@ expiry_days = 90
 If you don't have your own Edge CA certificate used to issue all module certificates, use this section and set the number of days for the lifetime of the autogenerated self-signed Edge CA certificate. Expiration defaults to 90 days.
 
 > [!CAUTION]
-> This setting is **NOT recommended for production usage**. Please configure your own Edge CA certificate in the Edge CA certificate sections.
+> This setting is **NOT recommended for production usage**. Configure your own Edge CA certificate in the Edge CA certificate sections.
 
 ```toml
 [edge_ca]
