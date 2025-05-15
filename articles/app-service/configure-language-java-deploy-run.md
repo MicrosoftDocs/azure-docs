@@ -192,7 +192,7 @@ Azure provides seamless Java App Service development experience in popular Java 
 - **IntelliJ IDEA**: [Create a Hello World web app for Azure App Service by using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
 - **Eclipse IDE**: [Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 
-### Kudu and OneDeploy API's
+### Kudu and OneDeploy APIs
 Deployment clients such as the [Maven plugin](#maven), GitHub Actions using `azure/webapps-deploy@v3` and newer, or the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command use OneDeploy, which is invoked by calling the `/api/publish` endpoint of the Kudu site under the hood. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages)
 
 ::: zone pivot="java-javase"
