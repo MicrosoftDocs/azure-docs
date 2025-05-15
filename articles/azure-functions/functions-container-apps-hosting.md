@@ -9,6 +9,8 @@ ms.custom: build-2024, linux-related-content
 
 # Azure Container Apps hosting of Azure Functions 
 
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
+
 Azure Functions provides integrated support for developing, deploying, and managing containerized function apps on [Azure Container Apps](../container-apps/overview.md). Use Azure Container Apps to host your function app containers when you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Container Apps hosting lets you run your functions in a fully managed, Kubernetes-based environment with built-in support for open-source monitoring, mTLS, Dapr, and Kubernetes Event-driven Autoscaling (KEDA).
 
 You can write your function code in any [language stack supported by Functions](supported-languages.md). You can use the same Functions triggers and bindings with event-driven scaling. You can also use existing Functions client tools and the Azure portal to create containers, deploy function app containers to Container Apps, and configure continuous deployment. 
