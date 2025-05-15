@@ -96,8 +96,6 @@ items:
       href: best-practices-memory-management.md
     - name: Performance testing best practice
       href: best-practices-performance.md
-    - name: Azure Managed Redis tiers best practices
-      href: best-practices-managed-cache.md
     - name: Vector Search
       href: overview-vector-similarity.md
     - name: Connection resilience best practices
