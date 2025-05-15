@@ -462,7 +462,7 @@ $virtualNetworkConfig | Set-AzVirtualNetwork
 
 Flow timeout can also be set using the Azure portal:
 
-:::image type="content" source="./media/nsg-flow-logs-overview/virtual-network-timeout-settings.png" alt-text="Screenshot showing the virtual network timeout settings in the Azure portal." lightbox="./media/nsg-flow-logs-overview/virtual-network-timeout-settings.png":::
+:::image type="content" source="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png" alt-text="Screenshot showing the virtual network timeout settings in the Azure portal." lightbox="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png":::
 
 
 ### Inbound flows logged from internet IPs to VMs without public IPs
