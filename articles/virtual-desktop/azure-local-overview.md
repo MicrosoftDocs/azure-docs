@@ -45,7 +45,7 @@ Once your instance is ready, you can use the following 64-bit operating system i
 - Windows 11 Enterprise
 - Windows 10 Enterprise multi-session
 - Windows 10 Enterprise
-- Windows Server 20225
+- Windows Server 2025
 - Windows Server 2022
 - Windows Server 2019
 
