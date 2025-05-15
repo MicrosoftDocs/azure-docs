@@ -142,3 +142,5 @@ Keep in mind the following considerations when deploying your function app conta
 
 + [Hosting and scale](./functions-scale.md)
 + [Create your first containerized functions on Container Apps](./functions-deploy-container-apps.md)
++ [Native Azure Functions Support in Azure Container Apps](../articles/container-apps/functions-overview)
++ [Create your Native Azure Functions on Azure Container Apps](../articles/container-apps/functions-usage)
