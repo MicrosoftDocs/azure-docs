@@ -4,7 +4,7 @@ description: Learn about storage capacity, storage policies, fault tolerance, an
 ms.topic: concept-article
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 5/15/2024
+ms.date: 5/15/2025
 ---
 
 # Azure VMware Solution storage concepts
