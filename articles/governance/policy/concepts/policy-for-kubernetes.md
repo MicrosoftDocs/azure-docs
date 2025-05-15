@@ -617,7 +617,7 @@ Security improvements.
 ##### Gatekeeper 3.19.1-1
 Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.19.1
 Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.18.2...v3.19.1
-Patch CVE-2025-22872.
+Patch [CVE-2025-22872](https://nvd.nist.gov/vuln/detail/CVE-2025-22872).
 
 #### 1.10.1
 Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
