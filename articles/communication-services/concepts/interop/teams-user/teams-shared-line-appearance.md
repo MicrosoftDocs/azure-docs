@@ -14,7 +14,6 @@ ms.subservice: teams-interop
 ---
 # Microsoft Teams shared line appearance
 
-[!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 Microsoft Teams shared line appearance lets a user choose a delegate to answer or handle calls on their behalf. This feature is helpful if a user has an administrative assistant who regularly handles the user's calls. In the context of Teams shared line appearance, a manager is someone who authorizes a delegate to make or receive calls on their behalf. A delegate can make or receive calls on behalf of the delegator.
 
 ## Prerequisites
