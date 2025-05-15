@@ -18,7 +18,7 @@ A variable can't have the same name as a parameter, module, or resource. You can
 
 ### Untyped variables
 
-When you define a variable without specifying a data type, the type is inferred from the value. The syntax for defining a untyped variable is:
+When you define a variable without specifying a data type, the type is inferred from the value. The syntax for defining an untyped variable is:
 
 ```bicep
 @<decorator>(<argument>)
@@ -68,7 +68,7 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 output uniqueStorageName string = storageName
 ```
 
-The preceding example returns a value like the following:
+The preceding example returns a value like the following output:
 
 ```json
 "uniqueStorageName": {
@@ -79,7 +79,7 @@ The preceding example returns a value like the following:
 
 ### Typed variables
 
-Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. The Benefits of typed variables:
+Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. The benefits of typed variables:
 
 - **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
 - **Code clarity**: Explicit types make it clear what kind of data a variable holds.
@@ -106,14 +106,14 @@ var subnets: array = ['subnet1', 'subnet2']
 Bicep supports the following types for variables:
 
 - **Primitive types**:
-  - `string`: Text values (e.g., `'hello'`)
-  - `int`: Integer values (e.g., `42`)
+  - `string`: Text values (for example, `'hello'`)
+  - `int`: Integer values (for example, `42`)
   - `bool`: Boolean values (`true` or `false`)
 - **Complex types**:
-  - `array`: A list of values (e.g., `[1, 2, 3]`)
-  - `object`: A key-value collection (e.g., `{ key: 'value' }`)
+  - `array`: A list of values (for example, `[1, 2, 3]`)
+  - `object`: A key-value collection (for example, `{ key: 'value' }`)
 - **Union types** (Bicep 0.4 or later):
-  - Allows a variable to accept multiple types (e.g., `string | int`).
+  - Allows a variable to accept multiple types (for example, `string | int`).
   - Example:
 
     ```bicep
@@ -121,7 +121,7 @@ Bicep supports the following types for variables:
     ```
 
 - **Literal types**:
-  - Restrict a variable to specific literal values (e.g., `'small' | 'medium' | 'large'`).
+  - Restrict a variable to specific literal values (for example, `'small' | 'medium' | 'large'`).
   - Example:
 
     ```bicep
@@ -240,30 +240,6 @@ Markdown-formatted text can be used for the description text.
 ### Export
 
 Use `@export()` to share the variable with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
-
-## Use variables
-
-The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
-
-```bicep
-param rgLocation string
-param storageNamePrefix string = 'STG'
-
-var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
-
-resource demoAccount 'Microsoft.Storage/storageAccounts@2024-01-01' = {
-  name: storageName
-  location: rgLocation
-  kind: 'Storage'
-  sku: {
-    name: 'Standard_LRS'
-  }
-}
-
-output stgOutput string = storageName
-```
-
-Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
 
 ## Configuration variables
 
