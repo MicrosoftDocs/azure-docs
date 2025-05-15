@@ -47,7 +47,7 @@ Here are some reference samples for RAG-based scenarios:
 ::: zone pivot="programming-language-javascript"   
 **[RAG with Azure AI Search](https://github.com/Azure-Samples/azure-functions-openai-aisearch-node)**
 ::: zone-end  
-> For RAG, you can use SDKs, including but not limited to Azure Open AI and Azure SDKs to build out your scenarios. This reference sample uses the [OpenAI bindings extension] to highlight OpenAI RAG with Azure AI Search.
+> For RAG, you can use SDKs, including but not limited to Azure Open AI and Azure SDKs to build out your scenarios. This reference sample uses the [OpenAI binding extension] to highlight OpenAI RAG with Azure AI Search.
 
 ::: zone pivot="programming-language-csharp"   
 **[Custom chat bot](https://github.com/Azure-Samples/function-dotnet-ai-openai-chatgpt/)**
@@ -62,7 +62,7 @@ Here are some reference samples for RAG-based scenarios:
 **[Custom chat bot](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)**
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
-> Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI bindings extension].
+> Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI binding extension].
 ::: zone-end
 
 ### Assistant function calling
@@ -81,7 +81,7 @@ Here are some reference samples for assistant function calling scenarios:
 **[Assistants function calling (OpenAI bindings)](https://github.com/Azure-Samples/azure-functions-assistants-python)**
 ::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-python"  
-> Uses the [OpenAI bindings extension] to enable calling custom functions with the assistant skill trigger.
+> Uses the [OpenAI binding extension] to enable calling custom functions with the assistant skill trigger.
 ::: zone-end
 ::: zone pivot="programming-language-csharp"  
 **[Agents function calling (Azure AI SDKs)](https://github.com/Azure-Samples/azure-functions-ai-services-agent-dotnet)**
@@ -143,7 +143,7 @@ Functions also enables your apps to reference third-party libraries and framewor
 + [Azure Functions scenarios](functions-scenarios.md)
 + [Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code](functions-add-openai-text-completion.md)
 
-[OpenAI bindings extension]: functions-bindings-openai.md
+[OpenAI binding extension]: functions-bindings-openai.md
  
 
  
