@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Troubleshoot with SRE Agent on Azure App Service'
+title: 'Tutorial: Troubleshoot an app using Azure SRE Agent (preview) in Azure App Service'
 description: Learn how to use SRE Agent and Azure App Service to identify and fix app issues with AI-assisted troubleshooting.
 author: msangapu-msft
 ms.author: msangapu
@@ -10,106 +10,143 @@ ms.date: 04/22/2025
 
 # Tutorial: Troubleshoot an App Service app using SRE Agent
 
-This tutorial shows how to deploy a broken web app to Azure App Service, create an Agent Space, and use its AI-assisted capabilities to troubleshoot and fix application issues. You'll use the Azure Developer CLI (azd) to provision and deploy resources, simulate a bug, and use Agent Space to diagnose and resolve the error.
+The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf.
+
+In this tutorial, you:
 
 > [!div class="checklist"]
-> * Deploy a sample broken app using azd
-> * Set up Agent Space and link the resource group
+> * Deploy a sample container app using the Azure portal
+> * Create an Azure SRE Agent to monitor the app
+> * Intentionally misconfigure the container app
 > * Use AI-driven prompts to troubleshoot and fix errors
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+To complete this tutorial, you need an [Azure subscription](https://azure.microsoft.com/free/).
 
-- [Azure subscription](https://azure.microsoft.com/free/)
-- [Azure CLI installed](https://learn.microsoft.com/en-us/cli/azure/install-azure-cli)
-- [Azure Developer CLI (azd) installed](https://learn.microsoft.com/en-us/azure/developer/azure-developer-cli/install-azd)
-- Git installed
+## 1. Create an App Service app
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+Begin by creating an app for your agent to monitor.
 
-## Create Azure resources
+1. Go to the [Azure portal](https://portal.azure.com) and search for **App Services** in the top search bar.
 
-### Clone and deploy the app
+1. Select **App Services** in the search results.
 
-Clone a broken app sample:
+1. Select the **Create** button and select **Web App**.
 
-```bash
-git clone https://github.com/Azure-Samples/broken-python-webapp.git
-cd broken-python-webapp
-```
+### Basics tab
 
-Initialize the environment and project:
+In the *Basics* tab, do the following actions.
 
-```bash
-azd init --template . --environment brokenapp-env
-```
+1. Enter the following values in the *Project details* section.
 
-Provision and deploy the app:
+    | Setting | Action |
+    |---|---|
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select **Create new** and enter **my-app-service-group**. |
 
-```bash
-azd up
-```
+1. Enter the following values in the *Instance details* section.
 
-### Create Agent Space
+    | Name app name |  Enter **my-sre-app**. |
+    | Publish |  Select **Code**. |
+    | Runtime stack|  Select **PHP 8.4**. |
+    | Region | Select a region near you. |
 
-1. Go to the [Azure Portal](https://portal.azure.com)
-2. Search for **Agent Space** and select **+ Create**
-3. Choose a name, region, and link the same resource group created by `azd`
-4. Complete the creation
+1. Select the **Deployment** tab.
 
-## Troubleshoot the broken app
+1. Enable **Basic authentication** in the *Authentication settings* section.
 
-### Verify the app is running
+1. Select **Review and create** at the bottom of the page.  
 
-Browse to your app’s URL from the `azd` output. You should see the app loading or returning an error.
+    If no errors are found, the *Create* button is enabled.  
 
-### Simulate a broken state
+    If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error are highlighted in red. Once all errors are fixed, select **Review and create** again.
 
-In the Azure Portal:
+1. Select **Create**.
 
-1. Go to your App Service
-2. Select **Configuration > Application settings**
-3. Remove a key like `APP_MODE` or alter it to trigger a runtime error
-4. Save and restart the app
+    A page with the message *Deployment is in progress* is displayed. Once the deployment is successfully completed, you see the message: *Your deployment is complete*.
 
-### Use Agent Space to identify and fix the issue
+### Deploy the sample app
 
-Open your Agent Space and begin chatting:
+1. To view your new App Service, select **Go to resource**.
 
-#### Prompt to identify the issue:
+1. Go to the [Azure portal](https://portal.azure.com) and search for **App Services** in the top search bar.
 
-> "My App Service app in resource group `brokenapp-env-rg` is returning a 500 error. Can you help me figure out why?"
+1. Select **App Services** in the search results.
 
-#### Prompt to confirm recent change:
+1. Select **my-sre-app** from the list of App Services.
 
-> "I recently removed the `APP_MODE` setting. Could this be causing the issue?"
+1. In the left menu, select **Deployment center** from the *Deployment* section.
 
-Agent Space will analyze logs, configurations, and suggest a fix.
+1. Enter the following values in the *Settings* tab.
 
-### Apply the fix
+    | Property | Value | Remarks |
+    |---|---|---|
+    | Source | Select **External Git**. |  |
+    | Repository | Enter **https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor**. |  |
+    | Branch | Enter **master**. |  |
 
-Restore the environment variable in App Service or make the recommended code change, then redeploy:
+1. Select **Save**.
 
-```bash
-azd deploy
-```
+### Verify the sample app
 
-## Verify the fix
+1. Select **Overview** in the left menu.
 
-- Browse to your app again
-- Confirm the 500 error is resolved
-- Repeat the steps that caused the issue to verify it's fixed
+1. Select **Browse** to verify the sample app.
 
-## Clean up resources
+1. The following message appears in your browser.
 
-To remove all created resources:
+## 2. Create an agent
 
-```bash
-azd down
-```
+Next, create an agent to monitor the *my-aca-app-group* resource group.
+
+1. Go to the Azure portal and search for and select **Azure SRE Agent**.
+
+1. Select **Create**.
+
+1. Enter the following values in the *Create agent* window.
+
+    During this step, you create a new resource group specifically for your agent which is independent of the group you create for your application.
+
+    | Property | Value | Remarks |
+    |---|---|---|
+    | Subscription | Select your Azure subscription. |  |
+    | Resource group | Enter **my-sre-agent-group**.  |  |
+    | Name | Enter **my-app-svc-sre-agent**. |  |
+    | Region | Select **Sweden Central**. | During preview, SRE Agents are only available in the *Sweden Central* region, but they can monitor resources in any Azure region. |
+
+1. Select the **Select resource groups** button.
+
+1. In the *Select resource groups to monitor* window, search for and select the **my-aca-app-group** resource group.
+
+1. Scroll to the bottom of the dialog window and select **Save**.
+
+1. Select **Create**.
+
+## 3. Chat with your agent
+
+Your agent has access to any resource inside the resource groups associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
+
+1. Go to the Azure portal, search for and select **Azure SRE Agent**.
+
+1. Select **my-app-svc-agent** from the list.
+
+1. Select **Chat with agent**.
+
+1. In the chat box, give your agent the following command.
+
+    ```text
+    List my app service apps
+    ```
+
+1. The agent responds with details about the container app deployed in the *my-aca-app-group* resource group.
+
+Now that you have an agent that sees your container app, you can create an opportunity for the agent to make a repair on your behalf.
+
+## 4. Break the app
+
 
 ## Next steps
 
