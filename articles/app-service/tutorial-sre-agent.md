@@ -131,7 +131,7 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
     ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select three images and click `convert`. This converts successfully.
+1. Select the first three images and click `convert`. This converts successfully.
 
     ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
@@ -139,9 +139,14 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
 1. In the left menu, find the *Deployment* section and select **Deployment slots**.
 
-1. Select **+ Add** to add a new deployment slot.
+1. Select **Add slot**.
 
-1. In the *Add Slot* dialog window, enter **broken**.
+1. Enter the following values.
+
+    | Property | Value | Remarks |
+    |---|---|---|
+    | Name | Enter **broken**. |  |
+    | Clone settings from: | Select **my-sre-app**. |  |
 
 1. Scroll to the bottom of the dialog window and Select **Add**. The deployment slot takes a minute to complete.
 
@@ -211,15 +216,28 @@ Now that you have an agent that sees your App Service app, you can create an opp
 
 ## 6. Break the app
 
-1. Now that the agent has been created, browse to the app's URL.
+1. In your App Service app page, find **Deployment* section in the left menu and select **Deployment slots**.
+ 
+1. Select **Swap**.
 
-1. Try to convert all the images.
+1. Enter the following values in the *Swap* dialog window.
+
+    | Property | Value | Remarks |
+    |---|---|---|
+    | Source | Select **my-sre-app-broken**. |  |
+    | Target  | Select **my-sre-app**.  |  |
+
+1. Scroll to the bottom of the dialog window and select **Start Swap**. The swap can take a minute to complete.
+
+1. Now that the slot has been swapped, browse to the app's URL.
+
+1. Try to convert 5 images.
 
     ![Convert first five images](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
 
-This action fails and produces an error that wasn't tested during development.
+1. This action fails and produces an error that wasn't tested during development.
 
-![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
+    ![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
 ## 7. Fix the app
 
