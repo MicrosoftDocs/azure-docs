@@ -86,7 +86,7 @@ You can also disable certificate chain validation by using the [Backend](/rest/a
 
 ## Delete a client certificate
 
-To delete a certificate, select **Delete** on the ellipsis (**...**) menu.
+To delete a certificate, select **Delete** on the ellipsis (**...**) menu:
 
 :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png" alt-text="Delete a certificate":::
 
