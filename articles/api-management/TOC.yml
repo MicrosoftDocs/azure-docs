@@ -210,6 +210,8 @@
         href: genai-gateway-capabilities.md
       - name: Import Azure OpenAI API
         href: azure-openai-api-from-specification.md
+      - name: Import LLM API
+        href: openai-compatible-llm-api.md
       - name: Authenticate and authorize to Azure OpenAI
         href: api-management-authenticate-authorize-azure-openai.md
       - name: Semantic caching for Azure OpenAI API requests

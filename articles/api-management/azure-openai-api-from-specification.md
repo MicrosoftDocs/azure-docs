@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 04/30/2025
+ms.date: 05/14/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -71,6 +71,7 @@ To import an Azure OpenAI API to API Management:
     * [Manage token consumption](azure-openai-token-limit-policy.md)
     * [Track token usage](azure-openai-emit-token-metric-policy.md) 
     * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
+    * [Configure AI Content Safety](llm-content-safety-policy.md) for the API.
     
     Select **Review + Create**.
 1. After settings are validated, select **Create**. 
@@ -141,12 +142,5 @@ To ensure that your Azure OpenAI API is working as expected, test it in the API 
     When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your Azure OpenAI API token consumption.
 
     :::image type="content" source="media/azure-openai-api-from-specification/api-response-usage.png" alt-text="Screenshot of token usage data in API response in the portal." :::
-
-## Caching policies for Azure OpenAI APIs
-
-In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies that you can configure when importing an Azure OpenAI Service API, API Management provides the following caching policies to help you optimize performance and reduce latency for Azure OpenAI APIs: 
-
-* `azure-openai-semantic-cache-store`
-* `azure-openai-semantic-cache-lookup` 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
