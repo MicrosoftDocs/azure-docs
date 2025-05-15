@@ -43,7 +43,7 @@ We recommend the following approach to upgrade to Standard SKU public IP address
   | Virtual Machine Scale Sets | [Replace basic SKU instance public IP addresses](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine) with new standard SKU. |
   | Load Balancer (Basic SKU) | New Load Balancer SKU required. Use the upgrade script [Upgrade Basic Load Balancer to Standard SKU](../../load-balancer/upgrade-basic-standard-with-powershell.md) to upgrade to Standard Load Balancer. |
   | VPN Gateway (using Basic IPs) | A migration path will be provided in the future. When this migration path is available, we update this decision path with migration information and send out a service health alert. For more information, see [Migrating a basic SKU FAQ](../../vpn-gateway/vpn-gateway-vpn-faq.md#migrating-a-basic-sku-public-ip-address-to-standard-sku). |
-  |  ExpressRoute Gateway (using Basic IPs) | New ExpressRoute Gateway is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md) for upgrading from Basic to Standard SKU.  |
+  |  ExpressRoute Gateway (using Basic IPs) | ExpressRoute Gateway migration is required. Follow the [ExpressRoute Gateway migration guidance](../../expressroute/gateway-migration.md)   |
   | Application Gateway (v1 SKU) | New AppGW SKU required. Use this [migration script to migrate from v1 to v2](../../application-gateway/migrate-v1-v2.md).  |
 
 > [!NOTE]
