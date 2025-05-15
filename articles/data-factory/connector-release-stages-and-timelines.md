@@ -18,9 +18,9 @@ For comprehensive details on support levels and recommended usage at each stage,
 > [!NOTE]
 > If you encounter any gaps while upgrading your connector to the latest version, please contact for help via the way provided in the [FAQ article](connector-deprecation-frequently-asked-questions.md#what-should-i-do-if-i-encounter-the-feature-gaps-and-errors-bugs-that-are-preventing-me-from-migrating-to-the-new-connectors).
 
-| Connector                          | Latest Version | Release Stage                     | End-of-Support Date   | End-of-Life Date      |
+| Connector                          | Latest Version | Release Stage                     | End-of-Support Date   | Removal date     |
 |------------------------------------|----------------|------------------------------------|-----------------------|-----------------------|
-| [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md) | /              | End of life                     | /                     | /                     |
+| [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md) | /              | Removed                 | /                     | /                     |
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)         | /              | End of support                    | December 31, 2024     | December 31, 2024     |
 | [Azure Database for PostgreSQL](connector-azure-database-for-postgresql.md)   | version 2.0    | GA                                | /                   | /                   |
 |                                    | version 1.0    | GA                                | To be determined      | /                     |

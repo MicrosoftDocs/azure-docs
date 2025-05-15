@@ -16,7 +16,7 @@ This article provides guidance for upgrading connectors in Azure Data Factory.
 
 ## How to receive notifications in Azure Service Health portal
 
-Regular notifications are sent to you to help you upgrade related connectors or notify you the key dates for EOS and EOL. You can find the notification under Service Health portal - Health advisories tab.
+Regular notifications are sent to you to help you upgrade related connectors or notify you the key dates for EOS and removal. You can find the notification under Service Health portal - Health advisories tab.
 
 Here's the steps to help you find the notification: 
 
