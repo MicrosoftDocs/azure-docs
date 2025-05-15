@@ -64,13 +64,13 @@ If this is your first interaction with **firmware analysis**, then you'll need t
 
 ## Upload a firmware image for analysis
 
-If you've just onboarded your subscription, are signed into the Azure portal, and already in the Defender for IoT portal, skip to step two.
+If you've just onboarded your subscription, are signed into the Azure portal, and already in the firmware analysis portal, skip to step two.
 
-1. Sign into the Azure portal and go to Defender for IoT.
+1. Sign into the Azure portal and go to firmware analysis.
 
-1. Select **Firmware analysis** > **Firmware inventory** > **Upload**.
+1. Select **Firmware workspaces**, then select the workspace in which you'd like to upload images. Click the **Upload** button.
 
-1. In the **Upload a firmware image** pane, select **Choose file**. Browse to and select the firmware image file you want to upload.
+1. In the **Upload a firmware image** pane, drag and drop your firmware image or click on the grey box. Browse to and select the firmware image file you want to upload.
 
     :::image type="content" source="media/tutorial-firmware-analysis/upload.png" alt-text="Screenshot that shows clicking the Upload option within firmware analysis." lightbox="media/tutorial-firmware-analysis/upload.png":::
 
