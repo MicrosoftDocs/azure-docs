@@ -47,7 +47,7 @@ More details on eligible subscription types are as follows:
 |Canada|
 |United States|
 
-## Azure subscription billing locations where United States local and toll-Free phone numbers are available
+## Azure subscription billing locations where United States local and toll-free phone numbers are available
 
 | Country/Region |
 | :---------- |

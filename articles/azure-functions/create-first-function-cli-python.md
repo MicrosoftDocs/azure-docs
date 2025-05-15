@@ -29,7 +29,7 @@ Before you begin, you must have the following requirements in place:
 
   + The Azure [Az PowerShell module](/powershell/azure/install-azure-powershell) version 5.9.0 or later.
 
-+ [A Python version supported by Azure Functions](supported-languages.md#languages-by-runtime-version).
++ [A Python version supported by Azure Functions](supported-languages.md?pivot=programming-language-python#languages-by-runtime-version).
 
 + The [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite). While you can also use an actual Azure Storage account, the article assumes you're using this emulator.
 

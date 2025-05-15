@@ -4,7 +4,7 @@ description: Learn how to review assessment for web apps in Azure Migrate
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
-ms.date: 04/17/2025
+ms.date: 05/08/2025
 ms.service: azure-migrate
 ms.custom: engagement-fy24
 monikerRange: migrate
@@ -24,7 +24,7 @@ In this article, you'll learn how to:
 
 ## Prerequisites 
 
-- Deploy and configure the Azure Migrate appliance in your [VMware](./vmware/tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
+- Deploy and configure the Azure Migrate appliance in your [VMware](tutorial-discover-vmware.md), [Hyper-V](tutorial-discover-hyper-v.md), or [physical](tutorial-discover-physical.md) environments. 
 - Check the [appliance requirements](migrate-appliance.md#appliance---vmware) and [URL access](migrate-appliance.md#url-access) to be provided. 
 - [Discover web apps running on your environment](how-to-discover-sql-existing-project.md) 
 - [Create a web app assessment](create-web-app-assessment.md).
