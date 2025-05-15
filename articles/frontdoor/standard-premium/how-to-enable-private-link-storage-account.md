@@ -11,6 +11,8 @@ ms.date: 03/31/2024
 
 # Connect Azure Front Door Premium to a storage account origin with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article guides you through how to configure Azure Front Door Premium tier to connect to your storage account origin privately using the Azure Private Link service.
 
 ## Prerequisites
