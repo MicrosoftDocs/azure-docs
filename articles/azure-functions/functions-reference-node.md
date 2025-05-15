@@ -943,6 +943,13 @@ app.http("listBlobs", {
 4. Handle errors appropriately with try/catch blocks
 5. For large blob operations, consider using streaming methods to avoid memory issues
 
+### Next Steps
+Check out the [Blob Storage SDK Bindings for Node.js Samples](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs) 
+for more examples on how to incorporate SDK Bindings for Blob into your function app.
+- [BlobClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientSdkBinding)
+- [ContainerClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/containerClientInputBinding)
+- [Readable Stream](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientWithReadableStream)
+
 ::: zone-end
 
 <a name="context-object"></a>
