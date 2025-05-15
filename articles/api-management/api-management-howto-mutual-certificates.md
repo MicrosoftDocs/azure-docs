@@ -11,7 +11,7 @@ ms.date: 05/19/2025
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell, engagement-fy23
 
-#customer intent: As an API developer, I want to sucure backend services by using client certificate authentication. 
+#customer intent: As an API developer, I want to secure backend services by using client certificate authentication. 
 ---
 
 # Secure backend services by using client certificate authentication in Azure API Management
@@ -78,7 +78,7 @@ After the certificate is uploaded, it shows in the **Certificates** window. If y
 If you're using self-signed certificates, you need to disable certificate chain validation to enable API Management to communicate with the backend system. Otherwise you'll get a 500 error code. To disable this validation, you can use the [`New-AzApiManagementBackend`](/powershell/module/az.apimanagement/new-azapimanagementbackend) (for a new backend) or [`Set-AzApiManagementBackend`](/powershell/module/az.apimanagement/set-azapimanagementbackend) (for an existing backend) PowerShell cmdlets and set the `-SkipCertificateChainValidation` parameter to `True`:
 
 ```powershell
-$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+$context = New-AzApiManagementContext -ResourceGroupName 'ContosoResourceGroup' -ServiceName 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
@@ -86,7 +86,7 @@ You can also disable certificate chain validation by using the [Backend](/rest/a
 
 ## Delete a client certificate
 
-To delete a certificate, select it and then select **Delete** in the **...** menu.
+To delete a certificate, select **Delete** on the ellipsis (**...**) menu.
 
 :::image type="content" source="media/api-management-howto-mutual-certificates/apim-client-cert-delete-new.png" alt-text="Delete a certificate":::
 
