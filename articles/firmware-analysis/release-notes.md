@@ -20,7 +20,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **Free and Premium SKUs for Public Preview**: Firmware analysis is now in Public Preview as a standalone offering. While in Public Preview, all features and functionality will be free of charge, and we look forward to gathering your feedback. Looking toward GA, some feature sets will be bundled with new feature releases to be included in the paid Premium SKU. Pricing of these features will also be announced in GA.
 
-- **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results 30% faster. This means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by up to 30%.
+- **Faster analysis**: Firmware analysis service now can extract, analyze, and produce results up to 30% faster. This means that the time it takes from when you upload your firmware image to when the image is in the Ready state to review results is reduced by up to 30%.
 
 - **New UI with multiple workspaces per resource group**: You can now create and manage multiple workspaces for resource groups, which helps you organize your firmware images better.
 
