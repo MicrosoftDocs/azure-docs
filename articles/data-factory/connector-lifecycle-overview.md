@@ -32,11 +32,11 @@ Connector upgrades are essential to evolve innovation in a fast manner, maintain
 
 By adopting a structured connector lifecycle with versioning, the service provides customers with transparency, control, and predictability when connector upgrades are introduced. Users can confidently evaluate new versions, mitigate risks associated with behavior changes, and benefit from continuous improvements while maintaining operational stability.
 
-**The diagram outlines the lifecycle of a connector version from its private preview to its end of life and removal.**
+**The diagram outlines the lifecycle of a connector version from its private preview to its removal.**
 
 :::image type="content" source="media/connector-lifecycle/connector-lifecycle.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-lifecycle/connector-lifecycle.png":::
 
-A connector lifecycle includes multiple stages with thorough and measurable assessment to ensure the quality. It includes private preview, public preview, general availability, end of support and end of life. The following table lists the stage name and the relevant criteria.
+A connector lifecycle includes multiple stages with thorough and measurable assessment to ensure the quality. It includes private preview, public preview, general availability, end of support and version removed. The following table lists the stage name and the relevant criteria.
 
 | Stage                     | Description                                                                                     | Lifecycle                |
 |---------------------------|-------------------------------------------------------------------------------------------------|--------------------------|
