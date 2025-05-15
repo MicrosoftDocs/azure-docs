@@ -22,11 +22,12 @@ As a network administrator, I want to securely connect to Azure Files NFS v4.1 v
  
 This article explains how you can encrypt data in transit for NFS Azure file shares (preview).
  
+# How encryption in transit for NFS shares works
+
 > [!IMPORTANT]
 > - Encryption in transit for NFS Azure file shares is currently in **preview**. 
 > - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-# How encryption in transit for NFS shares works
- 
+
 Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
 
 Using [Stunnel](https://www.stunnel.org/), an open-source TLS wrapper, Azure Files encrypts the TCP stream between the NFS client and Azure Files with strong encryption using AES-GCM, without needing Kerberos. This ensures data confidentiality while eliminating the need for complex setups or external authentication systems like Active Directory.
@@ -44,27 +45,31 @@ The AZNFS utility simplifies encrypted mounts by installing and setting up Stunn
 
 ## Supported regions
 
-| *Supported regions* | *Supported regions* | *Supported regions* | *Supported regions* |
+All regions are supported except Korea Central, West Europe, Japan West, China North3 and Central US.
 
-|:-------------------|:-------------------|:-------------------|:-------------------|
-
-| - South Africa North <br> - South Africa West <br> - Australia Central <br> - Australia Central 2 <br> - Australia East <br> - Australia Southeast <br> - Central India <br> - East Asia <br> - Indonesia Central <br> - Jio India Central <br> - Jio India West <br> - Korea South <br> - Malaysia West <br> | - South India <br> - Southeast Asia <br> - Taiwan North <br> - Taiwan Northwest <br> - West India <br> - Belgium Central <br> - France Central <br> - France South <br> - Germany North <br> - Germany West Central <br> - Italy North <br> - North Europe <br> - Norway East <br> | - Norway West <br> - Poland Central <br> - Spain Central <br> - Sweden Central <br> - Switzerland West <br> - Switzerland North <br> - UK South <br> - UK West <br> - Qatar Central <br> - UAE Central <br> - UAE North <br> Canada East <br> Canada Central <br> | - Mexico Central <br> - North Central US <br> - South Central US <br> - South Central US 2 <br> - Southeast US <br> - Southeast US 3 <br> - West US <br> - West US 2 <br> - West US 3 <br> - West Central US <br> - Brazil South <br> - Brazil Southeast <br> - Chile Central <br> |
- 
 ## Enforce encryption in transit
  
 By enabling 'Secure transfer required' setting on the storage account, you are able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted.
  
-:::image type="content" source="media/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="media/powershell-capture.png":::
+:::image type="content" source=".media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox=".media/eit-for-nfs-shares/powershell-capture.png":::
  
 However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the 'Secure transfer' setting must remain OFF.
  
 ## Register for preview
  
 To enable encryption in transit for Azure NFS file shares, the following permissions are required for your Azure subscription:
- 
+
+### [Portal](#tab/Portal)
+
+Portal support will be added soon, use Azure PowerShell or Azure CLI to enroll into the public preview.
+
+### [PowerShell](#tab/PowerShell)
+
 - Register through PowerShell using [Get-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)
- 
+
    `$ Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"`
+
+### [Azure CLI](#tab/CLI)
  
 - Register through Azure CLI using [az feature register](/cli/azure/feature)
  
@@ -170,7 +175,7 @@ export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
  
 - Run the command `df -Th`.
  
-:::image type="content" source="media/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="media/powershell-capture.png":::
+:::image type="content" source=".media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox=".media/eit-for-nfs-shares/powershell-capture.png":::
  
 It indicates that the client is connected through the local port 127.0.0.1, not an external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel then **intercepts** this traffic and securely forwards it over **TLS** to the Azure Files NFS server on Azure.
  
@@ -180,7 +185,7 @@ sudo tcpdump -i any port 2049 -w nfs_traffic.pcap
 ```
 When you open the capture in Wireshark, the payload will appear as "Application Data" instead of readable text.
  
-:::image type="content" source="media/wireshark-capture.png" alt-text="Diagram showing the Wireshark screen to test if EiT is applied." lightbox="media/wireshark-capture.png":::
+:::image type="content" source=".media/eit-for-nfs-shares/wireshark-capture.png" alt-text="Diagram showing the Wireshark screen to test if EiT is applied." lightbox=".media/eit-for-nfs-shares/wireshark-capture.png":::
  
 ## Troubleshooting
  
