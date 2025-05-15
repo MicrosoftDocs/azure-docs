@@ -10,14 +10,16 @@ ms.date: 04/22/2025
 
 # Tutorial: Troubleshoot an App Service app using SRE Agent
 
-The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf.
+The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using SRE Agent. 
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Deploy a sample container app using the Azure portal
+> * Create an App Service app using the Azure portal
+> * Deploy a sample App Service app using the Azure portal
+> * Enable App Service logs
 > * Create an Azure SRE Agent to monitor the app
-> * Intentionally misconfigure the container app
+> * Cause the app to produce a HTTP 500 error
 > * Use AI-driven prompts to troubleshoot and fix errors
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -90,13 +92,34 @@ In the *Basics* tab, do the following actions.
 
 1. Select **Save**.
 
+### Enable App Service logs
+
+This step is required to create applicaton logs that the SRE Agent can use to troubleshoot the app.
+
+1. In the left menu, browse to the *Monitoring* section and select **App Service logs**.
+
+1. Enter the following values.
+
+    | Property | Value | Remarks |
+    |---|---|---|
+    | Application logging | Select **File System**. |  |
+    | Retention Period (Days) | Enter **3**. |  |
+
+1. Select **Save**.
+
 ### Verify the sample app
 
 1. Select **Overview** in the left menu.
 
 1. Select **Browse** to verify the sample app.
 
-1. The following message appears in your browser.
+1. To convert images, click `Tools` and select `Convert to PNG`.
+
+    ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
+
+1. Select the first two images and click `convert`. This converts successfully.
+
+    ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
 ## 2. Create an agent
 
@@ -114,12 +137,12 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
     |---|---|---|
     | Subscription | Select your Azure subscription. |  |
     | Resource group | Enter **my-sre-agent-group**.  |  |
-    | Name | Enter **my-app-svc-sre-agent**. |  |
+    | Name | Enter **my-app-service-sre-agent**. |  |
     | Region | Select **Sweden Central**. | During preview, SRE Agents are only available in the *Sweden Central* region, but they can monitor resources in any Azure region. |
 
 1. Select the **Select resource groups** button.
 
-1. In the *Select resource groups to monitor* window, search for and select the **my-aca-app-group** resource group.
+1. In the *Select resource groups to monitor* window, search for and select the **my-app-service-group** resource group.
 
 1. Scroll to the bottom of the dialog window and select **Save**.
 
@@ -131,7 +154,7 @@ Your agent has access to any resource inside the resource groups associated with
 
 1. Go to the Azure portal, search for and select **Azure SRE Agent**.
 
-1. Select **my-app-svc-agent** from the list.
+1. Select **my-app-service-agent** from the list.
 
 1. Select **Chat with agent**.
 
@@ -147,6 +170,75 @@ Now that you have an agent that sees your container app, you can create an oppor
 
 ## 4. Break the app
 
+1. Now that the agent has been created, browse to the app's URL.
+
+1. Try to convert the first five images.
+
+    ![Convert first five images](./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png)
+
+This action fails and produces a `HTTP 500` error that wasn't tested during development.
+
+    ![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
+
+## 5. Fix the app
+
+1. Go to the Azure portal, search for and select **Azure SRE Agent**.
+
+1. Select **my-app-service-agent** from the list.
+
+1. Select **Chat with agent**.
+
+1. In the chat box, give your agent the following command and wait for a response.
+
+    ```text
+    What's wrong with my-app-service-app?
+    ```
+
+    From here, the agent should recognize that the tag name is invalid.
+
+    While every chat session is different, you should see a response that resembles the following response.
+
+    > The container app my-container-app appears to be in a healthy state ("Succeeded"), but I did notice a potential issue:
+    >
+    > - The container image specified is mcr.microsoft.com/k8se/quickstart:latest1. The ":latest1" tag is unusual and might be a typo (the standard tag is usually ":latest"). If this is not intentional, it could cause image pull failures or unexpected container behavior.
+    >
+    > Other than that, there are no critical errors or warning states reported for my-container-app.
+    >
+    > Would you like me to investigate further for hidden issues such as image pull errors, app crashes, or logs? If yes, please specify what symptoms you're experiencing (e.g., app not responding, errors in logs, etc.).
+
+1. In the chat box, give your agent the following command and wait for a response.
+
+    ```text
+    Rollback to the last working version.
+    ```
+
+    As your agent processes this command, it runs diagnostics and reports back status information. After the agent inspects the previous revisions, the agent's response will include with something that resembles the following message:
+
+    > You have requested to roll back your container app to the last known working image. This action will cause a brief restart of your app. Proceeding with the rollback now.
+
+1. As the agent concludes the rollback analysis, it asks you for approval to execute the rollback operation.
+
+    To approve the action, reply with the following prompt:
+
+    ```text
+    approved
+    ```
+
+    After the rollback is successful, you should see a response similar to:
+
+    > Rollback complete! Your container app has been reverted to the last known working image: mcr.microsoft.com/k8se/quickstart:latest. Please monitor your app to ensure it starts successfully.
+
+## 6. Verify repair
+
+Now you can prompt your agent to return your app's fully qualified domain name (FQDN) so you can verify a successful deployment.
+
+1. In the chat box, enter the following prompt.
+
+    ```text
+    What is the FQDN for my-container-app?
+    ```
+
+1. To verify your container app is working properly, open the FQDN in a web browser.
 
 ## Next steps
 
