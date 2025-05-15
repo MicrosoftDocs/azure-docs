@@ -1,28 +1,19 @@
 ---
-
 title: How to encrypt data in transit for NFS shares (preview)
-
 description: This article explains how data is encrypted while in transit for NFS shares.
-
 author: guptasonia
-
 ms.service: azure-file-storage
-
 ms.topic: how-to
-
 ms.date: 05/07/2025
-
 ms.author: kendownie
-
 ms.custom: devx-track-azurepowershell
-
 ---
- 
+
+# How encryption in transit for NFS shares works
+
 As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception, including MITM attacks. By using Stunnel for strong encryption like AES-GCM and the AZNFS utility for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
  
 This article explains how you can encrypt data in transit for NFS Azure file shares (preview).
- 
-# How encryption in transit for NFS shares works
 
 > [!IMPORTANT]
 > - Encryption in transit for NFS Azure file shares is currently in **preview**. 
@@ -40,9 +31,6 @@ The AZNFS utility simplifies encrypted mounts by installing and setting up Stunn
 
 - **AZNFS watchdog**: The AZNFS package runs a background job that ensures stunnel processes are running, automatically restarts terminated tunnels, and cleans up unused processes after all associated NFS mounts are unmounted.
 
- 
-
-
 ## Supported regions
 
 All regions are supported except Korea Central, West Europe, Japan West, China North3 and Central US.
@@ -51,7 +39,7 @@ All regions are supported except Korea Central, West Europe, Japan West, China N
  
 By enabling 'Secure transfer required' setting on the storage account, you are able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted.
  
-:::image type="content" source=".media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox=".media/eit-for-nfs-shares/powershell-capture.png":::
+:::image type="content" source="./media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/powershell-capture.png":::
  
 However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the 'Secure transfer' setting must remain OFF.
  
@@ -59,17 +47,17 @@ However, for users who prefer to maintain flexibility between TLS and non-TLS co
  
 To enable encryption in transit for Azure NFS file shares, the following permissions are required for your Azure subscription:
 
-### [Portal](#tab/Portal)
+### [Portal](#tab/azure-portal)
 
 Portal support will be added soon, use Azure PowerShell or Azure CLI to enroll into the public preview.
 
-### [PowerShell](#tab/PowerShell)
+### [PowerShell](#tab/azure-powershell)
 
 - Register through PowerShell using [Get-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature)
 
    `$ Register-AzProviderFeature -FeatureName "AllowEncryptionInTransitNFS4" -ProviderNamespace "Microsoft.Storage"`
 
-### [Azure CLI](#tab/CLI)
+### [Azure CLI](#tab/azure-cli)
  
 - Register through Azure CLI using [az feature register](/cli/azure/feature)
  
@@ -144,8 +132,8 @@ sudo yum install -y aznfs
 > - SUSE (SLES 15) 
 > - Oracle Linux
 > - Alma Linux
- 
-### Step 2a: Mount the NFS Azure file share with TLS encryption
+### Step 2: Mount the NFS Azure file share
+#### Step 2a: With TLS encryption
  
 To mount an NFS Azure file share **with TLS encryption**:
  
@@ -157,25 +145,23 @@ sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
-### Step 2b: Mount NFS Azure file share without TLS encryption
+#### Step 2b: Without TLS encryption
  
 To mount the NFS share **without TLS encryption**:
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4,notls
 ```
-Before running the mount command, you must set the environment variable AZURE_ENDPOINT_OVERRIDE for mounting non-Public Azure Cloud regions and when using Custom DNS. For example, for Azure China Cloud:
-```bash
-export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
-```
- 
 > [!NOTE]
->  All traffic from a virtual machine to the same server endpoint uses a single connection. The AZNFS mount helper ensures that you can't mix TLS and non-TLS configurations when mounting shares to that server. This rule applies to shares from the same storage account and different storage accounts that resolve to the same IP address.
+> Before running the mount command, you must set the environment variable AZURE_ENDPOINT_OVERRIDE for mounting non-Public Azure Cloud regions and when using Custom DNS. For example, for Azure China Cloud:
+> ```bash
+> export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
+> ```
  
 ### Step 3:  Verify that the data encryption succeeded
  
 - Run the command `df -Th`.
  
-:::image type="content" source=".media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox=".media/eit-for-nfs-shares/powershell-capture.png":::
+:::image type="content" source="./media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/powershell-capture.png":::
  
 It indicates that the client is connected through the local port 127.0.0.1, not an external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel then **intercepts** this traffic and securely forwards it over **TLS** to the Azure Files NFS server on Azure.
  
@@ -185,8 +171,11 @@ sudo tcpdump -i any port 2049 -w nfs_traffic.pcap
 ```
 When you open the capture in Wireshark, the payload will appear as "Application Data" instead of readable text.
  
-:::image type="content" source=".media/eit-for-nfs-shares/wireshark-capture.png" alt-text="Diagram showing the Wireshark screen to test if EiT is applied." lightbox=".media/eit-for-nfs-shares/wireshark-capture.png":::
- 
+:::image type="content" source="./media/eit-for-nfs-shares/wireshark-capture.png" alt-text="Diagram showing the Wireshark screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/wireshark-capture.png":::
+
+> [!NOTE]
+>  All traffic from a virtual machine to the same server endpoint uses a single connection. The AZNFS mount helper ensures that you can't mix TLS and non-TLS configurations when mounting shares to that server. This rule applies to shares from the same storage account and different storage accounts that resolve to the same IP address.
+
 ## Troubleshooting
  
 A **non-TLS (notls) mount** operation may fail if a previous **TLS-encrypted** mount to the same server was terminated before completing successfully. Although the *aznfswatchdog* service automatically cleans up stale entries after a timeout, attempting a new non-TLS mount before cleanup completes can fail.
