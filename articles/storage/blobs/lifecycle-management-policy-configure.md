@@ -129,6 +129,8 @@ To define a lifecycle management policy with an Azure Resource Manager template,
 
 ---
 
+<a id="optionally-enable-access-time-tracking"></a>
+
 ## Enable access time tracking
 
 Enable access tracking if you want to include an action based on the time that the blob was last accessed with a read or write operation. To learn about the behavior of this capability, see [Access time tracking](lifecycle-management-policy-structure.md#access-time-tracking).
