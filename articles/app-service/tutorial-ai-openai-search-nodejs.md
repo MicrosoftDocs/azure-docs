@@ -1,6 +1,6 @@
 ---
 title: RAG application with Azure OpenAI and Azure AI Search (Express.js)
-description: Learn how to build and deploy a Springi Boot Retrieval Augmented Generation (RAG) application using App Service, Azure OpenAI, and Azure AI Search.
+description: Learn how to quickly deploy a production-ready, document-aware AI chat application using Node.js with Azure App Service, Azure OpenAI, and Azure AI Search with integrated vectorization and semantic ranking.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
@@ -12,7 +12,7 @@ ms.custom: devx-track-javascript, devx-track-azurecli
 
 # Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (Express.js)
 
-In this tutorial, you'll create a Express.js Retrieval Augmented Generation (RAG) application using Express.js, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a Node.js Retrieval Augmented Generation (RAG) application using Express.js, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
 :::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Express.js chat interface in introduction.":::
 
@@ -141,9 +141,9 @@ Managed identities eliminate the need to store credentials in your code or confi
 
 ### How is the system-assigned managed identity used in this architecture and sample application?
 
-The AZD deployment creates a system-assigned managed identity for the Azure App Service resource and grants it access to Azure OpenAI and Azure AI Search. In the sample Express.js application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets in your code or configuration.
+The AZD deployment creates system-assigned managed identities for Azure App Service, Azure OpenAI, and Azure AI Search. It also makes respective role assigments for each of them (see the [main.bicep]() file). For information on the required role assignments, see [Network and access configuration for Azure OpenAI On Your Data](/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments).
 
-For example, the `AzureOpenAI` is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
+In the sample Express.js application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets anywhere. For example, the `AzureOpenAI` is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
 
 ```javascript
 const scope = "https://cognitiveservices.azure.com/.default";
@@ -176,7 +176,7 @@ This setup enables secure, passwordless communication between your Express.js ap
 
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
-The sample application configures hybrid search with semantic ranking using the Azure OpenAI and Azure AI Search JavaScript SDKs. In the backend, the data source is set up as follows:
+The sample application configures hybrid search with semantic ranking using the Azure OpenAI SDK. In the backend, the data source is set up as follows:
 
 ```javascript
 const searchDataSource = {
@@ -216,9 +216,7 @@ You can improve response quality by:
 
 ## More resources
 
-- [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview).
-- [Implement monitoring for your Azure App Service](/azure/app-service/web-sites-monitor).
-- [Configure scaling for Azure App Service](/azure/app-service/manage-scale-up).
+- [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview)
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
 - [Azure OpenAI SDK for JavaScript](/javascript/api/overview/azure/openai)
 - [Azure OpenAI SDK samples for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/openai_2.0.0/sdk/openai/openai/samples/v2/javascript)

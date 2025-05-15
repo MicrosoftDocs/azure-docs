@@ -13,7 +13,7 @@ Before you begin deployment, it's helpful to understand the architecture of the 
 In this tutorial, the Blazer application in App Service takes care of both the app UX and the app server. However, it doesn't make a separate knowledge query to Azure AI Search. Instead, it tells Azure OpenAI to do the knowledge querying specifying Azure AI Search as a data source. This architecture offers several key advantages:
 
 - **Integrated Vectorization**: Azure AI Search's integrated vectorization capabilities make it easy and quick to ingest all your documents for searching, without requiring more code for generating embeddings.
-- **Simplified API Access**: By using Azure AI Search as a data source for Azure OpenAI completions, you get vector search functionality without having to generate embeddings for your queries. It's just one API call and Azure OpenAI handles everything.
+- **Simplified API Access**: By using the [Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data) pattern with Azure AI Search as a data source for Azure OpenAI completions, there's no need to implement complex vector search or embedding generation. It's just one API call and Azure OpenAI handles everything, including prompt engineering and query optimization.
 - **Advanced Search Capabilities**: The integrated vectorization provides everything needed for advanced hybrid search with semantic reranking, which combines the strengths of keyword matching, vector similarity, and AI-powered ranking.
 - **Complete Citation Support**: Responses automatically include citations to source documents, making information verifiable and traceable.
 

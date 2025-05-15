@@ -1,6 +1,6 @@
 ---
 title: RAG application with Azure OpenAI and Azure AI Search (Spring Boot)
-description: Learn how to build and deploy a Springi Boot Retrieval Augmented Generation (RAG) application using App Service, Azure OpenAI, and Azure AI Search.
+description: Learn how to quickly deploy a production-ready, document-aware AI chat application using Java with Azure App Service, Azure OpenAI, and Azure AI Search with integrated vectorization and semantic ranking.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
@@ -12,7 +12,10 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 # Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (Spring Boot)
 
-In this tutorial, you'll create a Spring Boot Retrieval Augmented Generation (RAG) application using Spring Boot, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a Java Retrieval Augmented Generation (RAG) application using Spring Boot, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+
+> [!TIP]
+> While this tutorial uses Spring Boot, the core concepts of building a RAG application with Azure OpenAI and Azure AI Search apply to any Java web application. If you're using a different hosting option on App Service, such as Tomcat or JBoss EAP, you can adapt the authentication patterns and Azure SDK usage shown here to your preferred framework.
 
 :::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Spring Boot chat interface in introduction.":::
 
@@ -38,7 +41,7 @@ In this tutorial, you learn how to:
 
 The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools pre-installed.
 
-1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-springboot](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-springboot).
+1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-java](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-java).
 
 2. Select the **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
 
@@ -166,9 +169,9 @@ Managed identities eliminate the need to store credentials in your code or confi
 
 ### How is the system-assigned managed identity used in this architecture and sample application?
 
-The AZD deployment creates a system-assigned managed identity for the Azure App Service resource and grants it access to Azure OpenAI and Azure AI Search. In the sample Java application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets in your code or configuration.
+The AZD deployment creates system-assigned managed identities for Azure App Service, Azure OpenAI, and Azure AI Search. It also makes respective role assigments for each of them (see the [main.bicep]() file). For information on the required role assignments, see [Network and access configuration for Azure OpenAI On Your Data](/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments).
 
-For example, the `OpenAIAsyncClient` is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
+In the sample Java application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets anywhere. For example, the `OpenAIAsyncClient` is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
 
 ```java
 @Bean
@@ -235,9 +238,7 @@ You can improve response quality by:
 
 ## More resources
 
-- [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview).
-- [Implement monitoring for your Azure App Service](/azure/app-service/web-sites-monitor).
-- [Configure scaling for Azure App Service](/azure/app-service/manage-scale-up).
+- [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview)
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
 - [Azure OpenAI client library for Java](/java/api/overview/azure/ai-openai-readme)
 - [Azure OpenAI client library samples for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/openai/azure-ai-openai/src/samples)

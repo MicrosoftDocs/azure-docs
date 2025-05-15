@@ -1,25 +1,25 @@
 ---
-title: RAG application with Azure OpenAI and Azure AI Search (.NET)
-description: Learn how to quickly deploy a production-ready, document-aware AI chat application using .NET with Azure App Service, Azure OpenAI, and Azure AI Search with integrated vectorization and semantic ranking.
+title: RAG application with Azure OpenAI and Azure AI Search (FastAPI)
+description: Learn how to quickly deploy a production-ready, document-aware AI chat application using Python with Azure App Service, Azure OpenAI, and Azure AI Search with integrated vectorization and semantic ranking.
 ms.service: azure-app-service
 author: cephalin
 ms.author: cephalin
-ms.devlang: csharp
+ms.devlang: python
 ms.topic: tutorial
 ms.date: 05/19/2025
-ms.custom: devx-track-dotnet, devx-track-azurecli
+ms.custom: devx-track-python, devx-track-azurecli
 ---
 
-# Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (.NET)
+# Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (FastAPI)
 
-In this tutorial, you'll create a .NET Retrieval Augmented Generation (RAG) application using .NET Blazor, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a Python Retrieval Augmented Generation (RAG) application using FastAPI, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
-:::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface in introduction.":::
+:::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the FastAPI chat interface in introduction.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy a Blazor application that uses RAG pattern with Azure AI services.
+> * Deploy a FastAPI application that uses RAG pattern with Azure AI services.
 > * Configure Azure OpenAI and Azure AI Search for hybrid search.
 > * Upload and index documents for use in your AI-powered application.
 > * Use managed identities for secure service-to-service communication.
@@ -31,14 +31,14 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription - [Create an account for free](https://azure.microsoft.com/free/python).
 - GitHub account to use GitHub Codespaces - [Learn more about GitHub Codespaces](https://docs.github.com/codespaces/overview).
 
 ## 1. Open the sample with Codespaces
 
 The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools pre-installed.
 
-1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-dotnet](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-dotnet).
+1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-python](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-python).
 
 2. Select the **Code** button, select the **Codespaces** tab, and click **Create codespace on main**.
 
@@ -62,7 +62,11 @@ If you prefer to test the application locally before or after deployment, you ca
     azd env get-values
     ```
 
-1. Open *appsettings.Development.json*. Using the terminal output, update the values of `OpenAIEndpoint`, `SearchServiceUrl`, and `SearchIndexName`. 
+1. Open `.env`. Using the terminal output, update the following values, in the respective placeholders `<input-manually-for-local-testing>`:
+
+    - `AZURE_OPENAI_ENDPOINT`
+    - `AZURE_SEARCH_SERVICE_URL`
+    - `AZURE_SEARCH_INDEX_NAME`
 
 2. Sign in to Azure with the Azure CLI:
 
@@ -75,12 +79,15 @@ If you prefer to test the application locally before or after deployment, you ca
 3. Run the application locally:
 
    ```bash
-   dotnet run
+   pip install -r requirements.txt
+   uvicorn main:app
    ```
 
-4. When you see **Your application running on port 5017 is available**, select **Open in Browser**.
+4. When you see **Your application running on port 8000 is available** output, select **Open in Browser**.
 
 1. Try asking a few questions in the chat interface. If you get a response, your application is connecting successfully to the Azure OpenAI resource.
+
+1. Stop the development server with Ctrl+C.
 
 2. Redeploy the application to apply the configuration:
 
@@ -116,23 +123,27 @@ This command will delete all resources associated with your application.
 
 ### How does the sample code retrieve citations from Azure OpenAI chat completions?
 
-The sample retrieves citations by using the `AzureSearchChatDataSource()` as the data source for the chat client. When a chat completion is requested, the response includes a `Citations` object within the message context. The code extracts these citations as follows:
+The sample retrieves citations by using a data source with Azure AI Search for the chat client. When a chat completion is requested, the response includes a `citations` object within the message context. The sample application passes the response object to the client code, which extracts the citations as follows:
 
-```csharp
-var result = await _chatClient.CompleteChatAsync(messages, options);
+```javascript
+fetch('/api/chat/completion', {
+    // ...
+})
+// ...
+.then(data => {
 
-var ctx = result.Value.GetMessageContext();
-
-var response = new ChatResponse
-{
-    Content = result.Value.Content,
-    Citations = ctx?.Citations
-};
-
-return response;
+    // ...
+    const message = choice.message;
+    const content = message.content;
+    
+    // Extract citations from context
+    const citations = message.context?.citations || [];
+    
+    // ...
+})
 ```
 
-In the chat response, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents. For more information, see:
+In the response message, the content uses `[doc#]` notation to reference the corresponding citation in the list, allowing users to trace information back to the original source documents. For more information, see:
 
 - [Azure OpenAI On Your Data API Reference](/azure/ai-services/openai/references/on-your-data)
 - [Data source - Azure AI Search](/azure/ai-services/openai/references/azure-search)
@@ -145,44 +156,70 @@ Managed identities eliminate the need to store credentials in your code or confi
 
 The AZD deployment creates system-assigned managed identities for Azure App Service, Azure OpenAI, and Azure AI Search. It also makes respective role assigments for each of them (see the [main.bicep]() file). For information on the required role assignments, see [Network and access configuration for Azure OpenAI On Your Data](/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments).
 
-In the sample application, the Azure SDKs use this managed identity to authenticate requests securely, without storing credentials or secrets anywhere. For example, the `AzureOpenAIClient` is initialized with `DefaultAzureCredential`, which uses the managed identity when running in Azure:
+In the sample FastAPI application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets anywhere. For example, the `AsyncAzureOpenAI` client is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
 
-```csharp
-_openAIClient = new AzureOpenAIClient(
-    new Uri(_settings.OpenAIEndpoint),
-    new DefaultAzureCredential()
-);
+```python
+self.credential = DefaultAzureCredential()
+token_provider = get_bearer_token_provider(
+    self.credential,
+    "https://cognitiveservices.azure.com/.default"
+)
+
+self.openai_client = AsyncAzureOpenAI(
+    azure_endpoint=self.openai_endpoint,
+    azure_ad_token_provider=token_provider,
+    api_version="2024-10-21"
+)
 ```
 
 Similarly, when configuring the data source for Azure AI Search, the managed identity is specified for authentication:
 
-```csharp
-options.AddDataSource(new AzureSearchChatDataSource()
-{
-    Endpoint = new Uri(_settings.SearchServiceUrl ?? throw new ArgumentNullException(nameof(_settings.SearchServiceUrl))),
-    IndexName = _settings.SearchIndexName,
-    Authentication = DataSourceAuthentication.FromSystemManagedIdentity(), // Use system-assigned managed identity
-    // ...
-});
+```python
+data_source = {
+    "type": "azure_search",
+    "parameters": {
+        "endpoint": self.search_url,
+        "index_name": self.search_index_name,
+        "authentication": {
+            "type": "system_assigned_managed_identity"
+        },
+        # ...
+    }
+}
+
+response = await self.openai_client.chat.completions.create(
+    model=self.gpt_deployment,
+    messages=messages,
+    extra_body={
+        "data_sources": [data_source]
+    },
+    stream=False
+)
 ```
 
-This enables secure, passwordless communication between the Blazor app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) and [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
+This setup enables secure, passwordless communication between your FastAPI app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme).
 
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
-The sample application configures hybrid search with semantic ranking using the Azure.AI.Search.Documents SDK. In the backend, the data source is set up as follows:
+The sample application configures hybrid search with semantic ranking using the Azure OpenAI SDK. In the backend, the data source is set up as follows:
 
-```csharp
-options.AddDataSource(new AzureSearchChatDataSource()
-{
-    // ...
-    QueryType = DataSourceQueryType.VectorSemanticHybrid, // Combines vector search with keyword matching and semantic ranking
-    VectorizationSource = DataSourceVectorizer.FromDeploymentName(_settings.OpenAIEmbeddingDeployment),
-    SemanticConfiguration = _settings.SearchIndexName + "-semantic-configuration", // Build semantic configuration name from index name
-});
+```python
+data_source = {
+    "type": "azure_search",
+    "parameters": {
+        # ...
+        "query_type": "vector_semantic_hybrid",
+        "semantic_configuration": f"{self.search_index_name}-semantic-configuration",
+        "embedding_dependency": {
+            "type": "deployment_name",
+            "deployment_name": self.embedding_deployment
+        }
+    }
+}
 ```
 
 This configuration enables the application to combine vector search (semantic similarity), keyword matching, and semantic ranking in a single query. The semantic ranker reorders the results to return the most relevant and contextually appropriate answers, which are then used by Azure OpenAI for generating responses.
+
 The semantic configuration name is automatically defined by the integrated vectorization process. It uses the search index name as the prefix and appends `-semantic-configuration` as the suffix. This ensures that the semantic configuration is uniquely associated with the corresponding index and follows a consistent naming convention.
 
 ### Why are all resources created in East US 2?
@@ -199,11 +236,13 @@ You can improve response quality by:
 - Uploading higher quality, more relevant documents.
 - Adjusting chunking strategies in the Azure AI Search indexing pipeline. However, you can't customize chunking with the integrated vectorization shown in this tutorial.
 - Experimenting with different prompt templates in the application code.
-- Fine-tuning the search with additional properties in the [AzureSearchChatDataSource class](/dotnet/api/azure.ai.openai.chat.azuresearchchatdatasource).
+- Fine-tuning the search with additional properties in the [`type: "azure_search`](/azure/ai-services/openai/references/azure-search) data source.
 - Using more specialized Azure OpenAI models for your specific domain.
 
 ## More resources
 
 - [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview)
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
-- [.NET Client SDK for Azure OpenAI Service](/dotnet/api/overview/azure/ai.openai-readme)
+- [OpenAI client library for Python](/azure/ai-services/openai/how-to/switching-endpoints)
+- [FastAPI documentation](https://fastapi.tiangolo.com/)
+- [Deploy Python web apps to Azure App Service](/azure/app-service/configure-language-python)
