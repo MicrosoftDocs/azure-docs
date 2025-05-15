@@ -28,7 +28,7 @@ In Azure Logic Apps, a logic app workflow automates processes and can integrate 
 
 The following diagram shows how an action on an agent in Azure AI Foundry relates to a logic app workflow in Azure Logic Apps:
 
-**[DIAGRAM]**
+:::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that accesses external APIs." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png":::
 
 This guide shows how to add an action to an agent in Azure AI Foundry so that the action creates a **Consumption** logic app workflow that runs in multitenant Azure Logic Apps. A wizard guides you through the steps to set up this action with a predefined logic app workflow. After you finish adding the action, you can extend this workflow, based on your scenario's needs, by using the graphical designer in Azure Logic Apps.
 
@@ -44,17 +44,17 @@ This release has the following limitations or known issues:
 
 | Limitation | Description |
 |------------|-------------|
-| Logic app workflow support | Agent actions currently support only [Consumption logic app workflows](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments), which run in global, multitenant Azure Logic Apps. A Consumption logic app resource can have only one workflow. <br><br>Agent actions currently don't support Standard logic app workflows, which run in single-tenant Azure Logic Apps. A Standard logic app can have multiple workflows. For more information, see - [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). |
+| Logic app workflow support | Agent actions currently support only Consumption logic app workflows, which run in global, multitenant Azure Logic Apps. A Consumption logic app resource can have only one workflow. For more information, see [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). <br><br>Agent actions currently don't support Standard logic app workflows, which run in single-tenant Azure Logic Apps. A Standard logic app can have multiple workflows. For more information, see [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). |
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [Azure AI Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio) and [hub](/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal).
+- An [Azure AI Foundry project](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio), which is created with a default [hub](/azure/ai-foundry/how-to/create-azure-ai-resource?tabs=portal).
 
   This project organizes your work and saves the state while you build your AI apps. The hub hosts your project and provides a team collaboration environment.
 
-  To create a project and hub, you need one of the following roles for Microsoft Entra role-based access control (RBAC), based on the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access):
+  To create a project with a hub, you need one of the following roles for Microsoft Entra role-based access control (RBAC), based on the [principle of least privilege](/entra/identity-platform/secure-least-privileged-access):
 
   - **Contributor** (least privilege)
   - **Owner**
@@ -64,7 +64,7 @@ This release has the following limitations or known issues:
   - [Default roles for projects](/azure/ai-foundry/concepts/rbac-azure-ai-foundry#default-roles-for-projects)
   - [Default roles for hubs](/azure/ai-foundry/concepts/rbac-azure-ai-foundry#default-roles-for-the-hub)
 
-- A deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models).
+- A deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) in your project.
 
   If you don't have a model, see [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model).
 
