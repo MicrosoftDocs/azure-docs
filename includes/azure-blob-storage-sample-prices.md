@@ -2,18 +2,18 @@
  author: normesta
  ms.service: storage
  ms.topic: include
- ms.date: 05/14/2025
+ ms.date: 05/15/2025
  ms.author: normesta
 ---
 
 The following tables include sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). 
 
-Sample prices are organized into tabs based on either locally-redundant storage (LRS) or geo-redundant storage (GRS).
-
 > [!IMPORTANT]
 > These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../articles/storage/common/storage-plan-manage-costs.md).
 
-# [LRS](#tab/LRS)
+# [Locally-redundant storage (LRS)](#tab/LRS)
+
+The following tables assume that an account is configured for LRS redundancy.
 
 | Price factor                                                    | Hot            | Cool           | Cold           | Archive |
 |-----------------------------------------------------------------|----------------|----------------|----------------|---------|
@@ -48,7 +48,9 @@ The following table includes sample prices (fictitious) prices for each request 
 | Price of high priority data retrieval (per GB)                  | Not applicable | Not applicable | Not applicable | $0.13          |
 | Index (GB / month)                                              | $0.0297        | Not applicable | Not applicable | Not applicable |
 
-# [GRS](#tab/GRS)
+# [Geo-redundant storage (GRS)](#tab/GRS)
+
+The following tables assume that an account is configured for GRS redundancy.
 
 | Price factor                                                    | Hot            | Cool           | Cold           | Archive |
 |-----------------------------------------------------------------|----------------|----------------|----------------|---------|
