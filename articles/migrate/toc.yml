@@ -151,6 +151,8 @@ items:
       items:
       - name: Agent-based migration using portal
         href: tutorial-migrate-vmware-agent.md
+      - name: Hydration process
+        href: hydration-process.md
     - name: Agentless migrations
       items:
       - name: Agentless migrations using portal
