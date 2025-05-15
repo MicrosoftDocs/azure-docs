@@ -1041,6 +1041,14 @@
             - name: Output
               href: functions-bindings-kafka-output.md
               displayName: Kafka
+        - name: MCP tool
+          items:
+            - name: Overview
+              href: functions-bindings-mcp.md
+              displayName: MCP tool
+            - name: Trigger
+              href: functions-bindings-mcp-trigger.md
+              displayName: MCP tool
         - name: Mobile Apps
           href: functions-bindings-mobile-apps.md
         - name: Notification Hubs
