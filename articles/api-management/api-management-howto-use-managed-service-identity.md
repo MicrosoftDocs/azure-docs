@@ -330,9 +330,9 @@ You can configure and use a system-assigned managed identity to access an event 
 
 ### Azure portal
 
-To set up a managed identity in the portal, you first create an API Management instance and [create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). You then enable the feature.
+To set up a managed identity in the portal, you must first create an API Management instance and [create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Then complete the following steps.
 
-1. Create an API Management instance in the portal as you normally would. Go to it in the portal.
+1. Go to your API Management instance in the portal.
 2. In the left menu, under **Security**, select **Managed identities**.
 3. On the **User assigned** tab, select **Add**.
 4. Search for the identity that you created earlier and select it. Select **Add**.
