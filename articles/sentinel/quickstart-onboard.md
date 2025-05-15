@@ -76,13 +76,13 @@ The content hub in Microsoft Sentinel is the centralized location to discover an
 
 1. Find and select the **Azure Activity** solution.
 
-   #### [Azure portal](#tab/azure-portal)
-
-   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity.png" alt-text="Screenshot of the content hub in the Azure portal with the solution for Azure Activity selected.":::
-
    #### [Defender portal](#tab/defender-portal)
 
    :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity-defender.png" alt-text="Screenshot of the content hub in the Defender portal with the solution for Azure Activity selected.":::
+
+   #### [Azure portal](#tab/azure-portal)
+
+   :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity.png" alt-text="Screenshot of the content hub in the Azure portal with the solution for Azure Activity selected.":::
 
    ---
 
@@ -132,22 +132,6 @@ Now that you've enabled the Azure Activity data connector and generated some act
 
 1. Select a tab to continue, depending on which portal you're using:
 
-   #### [Azure portal](#tab/azure-portal)
-
-    1. Select **Go to query** to open the **Logs** page in the Azure portal.
-
-    1. On the top of the pane, next to the **New query 1** tab, select the **+** to add a new query tab.
-
-    1. On the side, switch from **Simple mode** to **KQL mode**, and run the following query to view the activity date ingested into the workspace:
-
-        ```kusto
-        AzureActivity
-       ```
-
-    For example:
-
-   :::image type="content" source="media/quickstart-onboard/azure-activity-logs-query.png" alt-text="Screenshot of the AzureActivity query in the Logs page of the Azure portal.":::
-
    #### [Defender portal](#tab/defender-portal)
 
    1. Select **Go to log analytics** to open the **Advanced hunting** page.
@@ -163,6 +147,22 @@ Now that you've enabled the Azure Activity data connector and generated some act
     For example:
 
    :::image type="content" source="media/quickstart-onboard/content-hub-azure-activity-defender.png" alt-text="Screenshot of the AzureActivity query in the Logs page of the Defender portal.":::
+
+   #### [Azure portal](#tab/azure-portal)
+
+    1. Select **Go to query** to open the **Logs** page in the Azure portal.
+
+    1. On the top of the pane, next to the **New query 1** tab, select the **+** to add a new query tab.
+
+    1. On the side, switch from **Simple mode** to **KQL mode**, and run the following query to view the activity date ingested into the workspace:
+
+        ```kusto
+        AzureActivity
+       ```
+
+    For example:
+
+   :::image type="content" source="media/quickstart-onboard/azure-activity-logs-query.png" alt-text="Screenshot of the AzureActivity query in the Logs page of the Azure portal.":::
 
    ---
 
