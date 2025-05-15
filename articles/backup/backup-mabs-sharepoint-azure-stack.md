@@ -1,8 +1,8 @@
 ---
-title: Back up a SharePoint farm on Azure Stack by using Azure Backup
-description: Use Azure Backup Server to back up and restore your SharePoint data on Azure Stack. This article provides the information to configure your SharePoint farm so that desired data can be stored in Azure. You can restore protected SharePoint data from disk or from Azure.
+title: Back up a SharePoint farm on Azure Stack using Microsoft Azure Backup Server
+description: Learn how to back up and restore SharePoint data using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 03/15/2024
+ms.date: 03/25/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
@@ -47,6 +47,8 @@ Azure Backup for MABS supports the following scenarios:
 Before you continue, ensure that you've met all the [prerequisites for using Microsoft Azure Backup](backup-azure-dpm-introduction.md#prerequisites-and-limitations) to protect workloads. The tasks in prerequisites also include: create a backup vault, download vault credentials, install Azure Backup Agent, and register the Azure Backup Server with the vault.
 
 ### Additional prerequisites
+
+Before you back up a SharePoint farm, review the following additional prerequisites:
 
 * By default when you protect SharePoint, all content databases (and the SharePoint_Config and SharePoint_AdminContent* databases) are protected.
 
@@ -124,13 +126,15 @@ Follow these steps:
 
 ## Monitor operations
 
-After the protection group is created, the initial replication occurs and MABS starts backing up and synchronizing the SharePoint data. MABS monitors the initial synchronization and subsequent backups.  You can monitor the SharePoint data in a couple of ways:
+After the protection group is created, the initial replication occurs and MABS starts backing up and synchronizing the SharePoint data. MABS monitors the initial synchronization and subsequent backups.  You can monitor the SharePoint data using one of the following ways:
 
 * Using default MABS monitoring, you can set up notifications for proactive monitoring by publishing alerts and configuring notifications. You can send notifications by e-mail for critical, warning, or informational alerts, and for the status of instantiated recoveries.
 
 * If you use Operations Manager, you can centrally publish alerts.
 
 ### Set up monitoring notifications
+
+To set up monitoring notifications, follow these steps:
 
 1. In the MABS Administrator Console, select **Monitoring** > **Action** > **Options**.
 
@@ -141,6 +145,8 @@ After the protection group is created, the initial replication occurs and MABS s
 4. To test the SMTP server settings, select **Send Test E-mail**, type the e-mail address where you want MABS to send the test message, and then select **OK**. Select **Options** > **Notifications** and select the types of alerts about which recipients want to be notified. In **Recipients** type the e-mail address for each recipient to whom you want MABS to send copies of the notifications.
 
 ### Publish Operations Manager alerts
+
+To publish Operations Manager alerts, follow these steps:
 
 1. In the MABS Administrator Console, select **Monitoring** > **Action** > **Options** > **Alert Publishing** > **Publish Active Alerts**
 
@@ -259,6 +265,8 @@ The following procedure uses the example of a server farm with two front-end Web
 
 ### Change the front-end Web server that MABS uses to protect the farm
 
+To change the front-end Web server, follow these steps:
+
 1. Stop the SharePoint VSS Writer service on `Server1` by running the following command at a command prompt:
 
     ```CMD
@@ -286,7 +294,7 @@ The following procedure uses the example of a server farm with two front-end Web
 
 1. If you performed step 6, you can now remove the volume from the protection group.
 
-## Next steps
+## Related content
 
-* See the [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
-* See the [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.
+* [Backup files and application](backup-mabs-files-applications-azure-stack.md) article.
+* [Backup SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md) article.

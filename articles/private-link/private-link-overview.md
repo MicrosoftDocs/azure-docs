@@ -5,7 +5,7 @@ services: private-link
 author: abell
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 12/03/2024
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: template-overview, fasttrack-edit, references_regions, FY23 content-maintenance, ignite-2024
 ---
@@ -77,7 +77,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 For FAQs, see [Azure Private Link FAQs](private-link-faq.yml).
  
 ## Limits  
-For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
+For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-private-link-limits).
 
 ## Service Level Agreement
 For service level agreement, see [SLA for Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).

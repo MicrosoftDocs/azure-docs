@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: devx-track-terraform
 author: mbender-ms
 ms.author: mbender
-ms.date: 06/07/2023
+ms.date: 02/05/2025
 content_well_notification: 
   - AI-contribution
 zone_pivot_groups: azure-virtual-network-manager-quickstart-options
@@ -38,13 +38,13 @@ In this article, you learn how to:
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization is not supported
+- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization isn't supported
 
 :::zone pivot="sub"
 
 ## Implement the Terraform code
 
-This code sample will implement Azure Virtual Network Manager at the subscription scope.
+This code sample implements Azure Virtual Network Manager at the subscription scope.
 
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-mesh/TestRecord.md).
@@ -131,7 +131,7 @@ This code sample will implement Azure Virtual Network Manager at the management 
     terraform output virtual_network_names
     ``` 
   
-1. For each virtual network name printed in the previous step, run [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the vnet name.
+1. For each virtual network name printed in the previous step, run [az network manager list-effective-connectivity-config](/cli/azure/network/manager#az-network-manager-list-effective-connectivity-config) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the virtual network name.
 
     ```azurecli
     az network manager list-effective-connectivity-config \
@@ -153,7 +153,7 @@ This code sample will implement Azure Virtual Network Manager at the management 
     Get-AzResourceGroup -Name $resource_group_name
     ```
 
-1. For each virtual network name printed in the previous step, run [Get-AzNetworkManagerEffectiveConnectivityConfiguration](/powershell/module/az.network/get-aznetworkmanagereffectiveconnectivityconfiguration) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the vnet name.
+1. For each virtual network name printed in the previous step, run [Get-AzNetworkManagerEffectiveConnectivityConfiguration](/powershell/module/az.network/get-aznetworkmanagereffectiveconnectivityconfiguration) to print the effective (applied) configurations. Replace the `<virtual_network_name>` placeholder with the virtual network name.
 
 ```azurepowershell
     Get-AzNetworkManagerEffectiveConnectivityConfiguration 

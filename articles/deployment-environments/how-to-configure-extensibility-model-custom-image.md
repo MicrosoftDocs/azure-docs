@@ -73,13 +73,11 @@ Creating a custom container image allows you to customize your deployments to fi
 
 The script builds an image and pushes it to the specified Azure Container Registry (ACR) under the repository 'ade' and the tag 'latest'. This script requires your registry name and directory for your custom image, have the Azure CLI and Docker Desktop installed and in your PATH variables, and requires that you have permissions to push to the specified registry. 
 
-To use the script, you must:
+To use the quickstart script to quickly build and push this sample image to an Azure Container Registry, you will need to:
 
-1. Create a Dockerfile and scripts folder to support the ADE extensibility model. 
-1. Supply a registry name and directory for your custom image.
-1. Have the Azure CLI and Docker Desktop installed and in your PATH variables.
-1. Have Docker Desktop running.
-1. Have permissions to push to the specified registry.
+- Fork this repository into your personal account.
+- Ensure the Azure CLI and the Docker Desktop application are installed on your computer and within your PATH variables.
+- Ensure you have permissions to push images to your selected Azure Container Registry.
 
 You can call the script using the following command in PowerShell:
 

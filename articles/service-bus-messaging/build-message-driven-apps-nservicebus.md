@@ -140,7 +140,7 @@ public class SenderWorker : BackgroundService
             var round = 0;
             while (!stoppingToken.IsCancellationRequested)
             {
-                await messageSession.Send(new Ping { Round = round++ });;
+                await messageSession.Send(new Ping { Round = round++ });
 
                 logger.LogInformation($"Message #{round}");
 

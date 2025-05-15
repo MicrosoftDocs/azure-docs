@@ -3,7 +3,7 @@ title: Configure HCX network extension high availability
 description: Learn how to configure HCX network extension high availability
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 02/26/2023
 ms.custom: engagement-fy23
 ---
 
@@ -27,7 +27,7 @@ When you create a service mesh, set the appliance count to a minimum of two. For
 
 - The Network Extension appliances selected for HA activation must have no networks extended over them.
 - Only Network Extension appliances upgraded to HCX 4.3.0 or later can be added to HA Groups.
-- Learn more about the [Network Extension High Availability](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/extending-networks-with-vmware-hcx/understand-network-extension-high-availability.html) feature, prerequisites, considerations and limitations.
+- Learn more about the [Network Extension High Availability](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/understand-network-extension-high-availability.html) feature, prerequisites, considerations and limitations.
 
 ## Activate high availability (HA)
 
@@ -74,4 +74,4 @@ Use the following steps to activate HA, create HA groups, and view the HA roles 
 
  Now that you learned how to configure and extend HCX network extension high availability (HA), use the following resource to learn more about how to manage HCX network extension HA.
 
-[Managing Network Extension High Availability](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/extending-networks-with-vmware-hcx/understand-network-extension-high-availability/managing-network-extension-high-availability.html)
+[Managing Network Extension High Availability](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-10/vmware-hcx-user-guide-4-10/extending-networks-with-vmware-hcx/understand-network-extension-high-availability/managing-network-extension-high-availability.html)

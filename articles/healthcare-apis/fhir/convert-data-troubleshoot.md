@@ -2,11 +2,11 @@
 title: Troubleshoot $convert-data for the FHIR service in Azure Health Data Services
 description: Learn how to troubleshoot issues with the $convert-data operation.
 services: healthcare-apis
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.topic: troubleshooting
-ms.date: 08/28/2023
-ms.author: jasteppe
+ms.date: 02/12/2025
+ms.author: kesheth
 ---
 
 # Troubleshoot $convert-data
@@ -28,6 +28,10 @@ The `$convert-data` operation applies post processing logic after the template i
 
 ## Message size
 There isn’t a hard limit on the size of the messages allowed for the `$convert-data` operation. However, for content with a request size greater than 10 MB, server errors `500` are possible. If you're receiving `500` server errors, ensure your requests are under 10 MB.
+
+## Template size and complexity
+
+If you receive `504 Gateway Timeout` errors, it may be the result of template processing time. Updating templates to reduce loops and iterations can greatly increase performance. Consider retrying your request with a smaller or simpler template. 
 
 ## Why are my dates being converted when transforming JSON data?
  

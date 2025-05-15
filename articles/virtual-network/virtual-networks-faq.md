@@ -80,7 +80,7 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 
 ### Is there a limit to the number of subnets in my virtual network?
 
-Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces can't overlap one another.
+Yes. See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits) for details. Subnet address spaces can't overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 
@@ -195,7 +195,7 @@ Yes. You can specify IP addresses for DNS servers in the virtual network setting
 
 ### How many DNS servers can I specify?
 
-See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
+See [Networking limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
 
 ### Can I modify my DNS servers after I create the network?
 
@@ -697,6 +697,10 @@ Scenarios that aren't supported include:
 ### Where can I find more information about migration from classic to Resource Manager?
 
 See [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq).
+
+### Can I recover a deleted public IP address?
+
+No. Once an Azure public IP address is deleted, it cannot be recovered. For more information, see [View, modify settings for, or delete a public IP address](ip-services/virtual-network-public-ip-address.md#view-modify-settings-for-or-delete-a-public-ip-address).
 
 ### How can I report a problem?
 

@@ -3,7 +3,7 @@ title: Create a volume group
 description: Explains how to create an ALI for Epic volume group.
 titleSuffix: Azure Large Instances for Epic
 ms.title: Create a volume group
-ms.topic: conceptual
+ms.topic: concept-article
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-baremetal-infrastructure

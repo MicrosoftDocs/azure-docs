@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create Consumption logic app workflow with Bicep
-description: How to create and deploy a Consumption logic app workflow with Bicep.
+description: Learn how to create and deploy a Consumption logic app workflow with Bicep.
 services: logic-apps
 ms.suite: integration
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
-ms.date: 01/04/2024
+ms.date: 02/20/2025
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Bicep.
 ---
 

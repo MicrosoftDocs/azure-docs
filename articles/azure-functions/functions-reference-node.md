@@ -1,9 +1,9 @@
 ---
 title: Node.js developer reference for Azure Functions
-description: Understand how to develop functions by using Node.js.
+description: Learn how to develop serverless applications using Node.js in Azure Functions, including triggers, bindings, and best practices.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 02/28/2024
+ms.date: 05/05/2025
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
 ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
@@ -15,7 +15,7 @@ zone_pivot_groups: functions-nodejs-model
 This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you have already read the [Azure Functions developer guide](functions-reference.md).
 
 > [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you are using in your app. If you do not have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [migration guide](./functions-node-upgrade-v4.md).
+> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you're using in your app. If you don't have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [migration guide](./functions-node-upgrade-v4.md).
 
 As a Node.js developer, you might also be interested in one of the following articles:
 
@@ -44,7 +44,7 @@ The following table shows each version of the Node.js programming model along wi
 
 The required folder structure for a JavaScript project looks like the following example:
 
-```
+```text
 <project_root>/
  | - .vscode/
  | - node_modules/
@@ -74,7 +74,7 @@ The main project folder, *<project_root>*, can contain the following files:
 
 The required folder structure for a TypeScript project looks like the following example:
 
-```
+```text
 <project_root>/
  | - .vscode/
  | - dist/
@@ -114,7 +114,7 @@ The main project folder, *<project_root>*, can contain the following files:
 
 The recommended folder structure for a JavaScript project looks like the following example:
 
-```
+```text
 <project_root>/
  | - .vscode/
  | - node_modules/
@@ -146,7 +146,7 @@ The main project folder, *<project_root>*, can contain the following files:
 
 The recommended folder structure for a TypeScript project looks like the following example:
 
-```
+```text
 <project_root>/
  | - .vscode/
  | - dist/
@@ -292,7 +292,7 @@ The programming model loads your functions based on the `main` field in your `pa
 
 In order to register a function, you must import the `app` object from the `@azure/functions` npm module and call the method specific to your trigger type. The first argument when registering a function is the function name. The second argument is an `options` object specifying configuration for your trigger, your handler, and any other inputs or outputs. In some cases where trigger configuration isn't necessary, you can pass the handler directly as the second argument instead of an `options` object.
 
-Registering a function can be done from any file in your project, as long as that file is loaded (directly or indirectly) based on the `main` field in your `package.json` file. The function should be registered at a global scope because you can't register functions once executions have started.
+Registering a function can be done from any file in your project, as long as that file is loaded (directly or indirectly) based on the `main` field in your `package.json` file. The function should be registered at a global scope because you can't register functions once executions start.
 
 The following example is a simple function that logs that it was triggered and responds with `Hello, world!`:
 
@@ -336,7 +336,7 @@ app.http('helloWorld1', {
 
 ::: zone pivot="nodejs-model-v3"
 
-Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs and/or outputs. Inputs and outputs are configured in your `function.json` files and are also referred to as [bindings](./functions-triggers-bindings.md).
+Your function is required to have exactly one primary input called the trigger. It might also have secondary inputs and/or outputs. Inputs and outputs are configured in your `function.json` files and are also referred to as [bindings](./functions-triggers-bindings.md).
 
 ### Inputs
 
@@ -344,7 +344,7 @@ Inputs are bindings with `direction` set to `in`. The main difference between a 
 
 Inputs can be accessed in several ways:
 
-- **_[Recommended]_ As arguments passed to your function:** Use the arguments in the same order that they're defined in `function.json`. The `name` property defined in `function.json` doesn't need to match the name of your argument, although it's recommended for the sake of organization.
+- **_[Recommended]_ As arguments passed to your function:** Use the arguments in the same order that they're defined in `function.json`. The `name` property defined in `function.json` doesn't need to match the name of your argument, although we recommend it for the sake of organization.
 
     # [JavaScript](#tab/javascript)
 
@@ -530,7 +530,8 @@ Outputs are bindings with `direction` set to `out` and can be set in several way
 
 ### Bindings data type
 
-You can use the `dataType` property on an input binding to change the type of your input, however it has some limitations:
+You can use the `dataType` property on an input binding to change the type of your input. However, the approach has some limitations:
+
 - In Node.js, only `string` and `binary` are supported (`stream` isn't)
 - For HTTP inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [HTTP request](#http-request).
 
@@ -584,7 +585,7 @@ export default queueTrigger1;
 
 ::: zone pivot="nodejs-model-v4"
 
-Your function is required to have exactly one primary input called the trigger. It may also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as [bindings](./functions-triggers-bindings.md) outside the context of the Node.js programming model. Before v4 of the model, these bindings were configured in `function.json` files.
+Your function is required to have exactly one primary input called the trigger. It might also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as [bindings](./functions-triggers-bindings.md) outside the context of the Node.js programming model. Before v4 of the model, these bindings were configured in `function.json` files.
 
 ### Trigger input
 
@@ -666,7 +667,7 @@ app.timer('timerTrigger1', {
 
 ### Extra inputs and outputs
 
-In addition to the trigger and return, you may specify extra inputs or outputs on the `options` argument when registering a function. The `input` and `output` objects exported from the `@azure/functions` module provide type-specific methods to help construct the configuration. During execution, you get or set the values with `context.extraInputs.get` or `context.extraOutputs.set`, passing in the original configuration object as the first argument.
+In addition to the trigger and return, you might specify extra inputs or outputs on the `options` argument when registering a function. The `input` and `output` objects exported from the `@azure/functions` module provide type-specific methods to help construct the configuration. During execution, you get or set the values with `context.extraInputs.get` or `context.extraOutputs.set`, passing in the original configuration object as the first argument.
 
 The following example is a function triggered by a [storage queue](./functions-bindings-storage-queue-trigger.md), with an extra [storage blob input](./functions-bindings-storage-blob-input.md) that is copied to an extra [storage blob output](./functions-bindings-storage-blob-output.md). The queue message should be the name of a file and replaces `{queueTrigger}` as the blob name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
 
@@ -909,7 +910,7 @@ export default httpTrigger;
 
 ---
 
-Now, it's recommended to remove the call to `context.done()` and mark your function as async so that it returns a promise (even if you don't `await` anything). As soon as your function finishes (in other words, the returned promise resolves), the v3 model knows your function is done.
+We recommend that you remove the call to `context.done()` and mark your function as async so that it returns a promise (even if you don't `await` anything). As soon as your function finishes (in other words, the returned promise resolves), the v3 model knows your function is done.
 
 # [JavaScript](#tab/javascript)
 
@@ -974,7 +975,7 @@ For more information, see [`retry-policies`](./functions-bindings-errors.md#retr
 In Azure Functions, it's recommended to use `context.log()` to write logs. Azure Functions integrates with Azure Application Insights to better capture your function app logs. Application Insights, part of Azure Monitor, provides facilities for collection, visual rendering, and analysis of both application logs and your trace outputs. To learn more, see [monitoring Azure Functions](functions-monitoring.md).
 
 > [!NOTE]
-> If you use the alternative Node.js `console.log` method, those logs are tracked at the app-level and will *not* be associated with any specific function. It is *highly recommended* to use `context` for logging instead of `console` so that all logs are associated with a specific function.
+> If you use the alternative Node.js `console.log` method, those logs are tracked at the app-level and will *not* be associated with any specific function. We *highly recommend* that your use `context` for logging instead of `console` so that all logs are associated with a specific function.
 
 The following example writes a log at the default "information" level, including the invocation ID:
 
@@ -1235,7 +1236,7 @@ In order to access a request or response's body, the following methods can be us
 | **`text()`**        | `Promise<string>` |
 
 > [!NOTE]
-> The body functions can be run only once; subsequent calls will resolve with empty strings/ArrayBuffers.
+> The body functions can be run only once. Subsequent calls resolve with empty strings/ArrayBuffers.
 
 ::: zone-end
 
@@ -1586,7 +1587,7 @@ By default, Azure Functions automatically monitors the load on your application 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes. You can increase the number of worker processes per host from the default of 1 up to a max of 10 by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. This behavior makes it less likely that a CPU-intensive function blocks other functions from running. The setting applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
 > [!WARNING]
-> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, it's *highly recommended* to offset these downsides by [running from a package file](./run-functions-from-deployment-package.md).
+> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, we *highly recommend* that you offset these downsides by [running from a package file](./run-functions-from-deployment-package.md).
 
 ## Node version
 
@@ -1598,11 +1599,11 @@ The way that you upgrade your Node.js version depends on the OS on which your fu
 
 # [Windows](#tab/windows)
 
-When running on Windows, the Node.js version is set by the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. This setting can be updated either by using the Azure CLI or in the Azure portal.
+When it runs on Windows, the Node.js version is set by the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. This setting can be updated either by using the Azure CLI or in the Azure portal.
 
 # [Linux](#tab/linux)
 
-When running on Linux, the Node.js version is set by the [linuxfxversion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
+When it runs on Linux, the Node.js version is set by the [linuxFxVersion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
 
 ---
 
@@ -1734,7 +1735,7 @@ There are several Functions environment variables specific to Node.js:
 This setting allows you to specify custom arguments when starting your Node.js process. It's most often used locally to start the worker in debug mode, but can also be used in Azure if you need custom arguments.
 
 > [!WARNING]
-> If possible, avoid using `languageWorkers__node__arguments` in Azure because it can have a negative effect on cold start times. Rather than using pre-warmed workers, the runtime has to start a new worker from scratch with your custom arguments.
+> If possible, avoid using `languageWorkers__node__arguments` in Azure because it can have a negative effect on cold start times. Rather than using prewarmed workers, the runtime has to start a new worker from scratch with your custom arguments.
 
 #### logging__logLevel__Worker
 
@@ -1829,7 +1830,7 @@ By default, a JavaScript function is executed from `index.js`, a file that share
 
 `scriptFile` can be used to get a folder structure that looks like the following example:
 
-```
+```text
 <project_root>/
  | - node_modules/
  | - myFirstFunction/
@@ -1892,7 +1893,7 @@ export default { logHello };
 
 ## Local debugging
 
-It's recommended to use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./create-first-function-vs-code-node.md#run-the-function-locally).
+We recommend that you use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./create-first-function-vs-code-node.md#run-the-function-locally).
 
 If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/learn/getting-started/debugging).
 
@@ -1927,7 +1928,7 @@ When writing Azure Functions in Node.js, you should write code using the `async`
 
 ::: zone pivot="nodejs-model-v4"
 
-In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the http response will sometimes have an empty body (issue #2).
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the http response sometimes has an empty body (issue #2).
 
 # [JavaScript](#tab/javascript)
 

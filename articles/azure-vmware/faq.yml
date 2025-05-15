@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to common questions about Azure VMware Solution."
   ms.topic: faq
   ms.service: azure-vmware
-  ms.date:  1/16/2025
+  ms.date:  3/5/2025
 title: Common questions about Azure VMware Solution
 summary: This article answers commonly asked questions about Azure VMware Solution.
 
@@ -115,7 +115,7 @@ sections:
          Remember that you can only resize a VM within the same series or to an available series in the same Azure region. Ensure the new plan supports your VM's storage and networking configurations.
 
       - question: Is VMware HCX supported on VPNs?
-        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://docs.vmware.com/en/VMware-HCX/4.9/hcx-user-guide/GUID-8128EB85-4E3F-4E0C-A32C-4F9B15DACC6D.html) are met.
+        answer: Yes, provided VMware HCX [Network Underlay Minimum Requirements](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-11/vmware-hcx-user-guide-4-11/preparing-for-hcx-installations/network-underlay-minimum-requirements.html) are met.
 
       - question: What versions of VMware software are used in private clouds?
         answer: |
@@ -271,6 +271,14 @@ sections:
       - question: What is the RAID configuration of the disk groups?
         answer: The disk groups aren't RAID configured. Instead, they're just a bunch of disks (JBOD) and are [directly controlled by vSAN](https://core.vmware.com/vsan-learn-and-evaluate).
 
+      - question: Why does a vSphere Storage vMotion from Azure NetApp Files (ANF) to another datastore take an extended period of time?
+        answer: This is due to the use of the Data Mover agent in the ESXi kernel. The Data Mover agent requires that all the blocks in the VMDK (Virtual Machine Disk) file be read and transferred to the ESXi host regardless of content. This results in the entire size of the VMDK to be transferred from the external array through the ESXi host to the destination datastore. The entire disk must be read in order to create a complete replica at the destination. The destination format and consumed space depends upon the destination datastore capabilities, protocol and format. Since all blocks must be read from the source datastore, the time to complete this operation may be longer than expected.
+
+      - question: What Fault tolerance setting should I maintain in a standard Azure VMware Solution deployment to remain compliant with Microsoft's SLA?
+        answer: Per Microsoft's [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) when the cluster has between 3 and 5 hosts, the number of failures to tolerate = 1; and when the cluster has between 6 and 16 hosts, the number of failures to tolerate = 2. Please note storage policies are not automatically upgraded based on cluster size. 
+
+      - question: What Fault tolerance setting should I maintain in a stretched Azure VMware Solution deployment to remain compliant with Microsoft's SLA?
+        answer: Per Microsoft's [SLA](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1) A minimum of 6 nodes are deployed in the cluster (3 in each availability zone), and you must have a minimum virtual machine storage policy of (i) primary level of failures to tolerate of "Dual-Site Mirroring" and (ii) a secondary level of failures to tolerate of 1 is used by the workload virtual machines
 
   - name: Hosts, clusters, and private clouds
     questions:

@@ -2,7 +2,7 @@
 title: About the MARS Agent
 description: Learn how the MARS Agent supports the backup scenarios
 ms.topic: overview
-ms.date: 08/13/2024
+ms.date: 02/28/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: jyothisuri
@@ -69,7 +69,7 @@ To proceed with the backup operation, review the following additional details:
 
 - The **Initial Backup** (first backup) runs according to your backup settings.  The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup. The agent only uses the Windows System Writer operation to capture the snapshot. It doesn't use any application VSS writers, and doesn't capture app-consistent snapshots. After VSS agent takes the snapshot, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified during the backup configuration. The agent also stores checksums for each data block.
 
-- **Incremental backups** (subsequent backups) run according to the schedule you specify. During incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup.
+- **Incremental backups** (subsequent backups) run according to the schedule you specify. During incremental backups, changed files are identified and a new VHD is created. The VHD is compressed and encrypted, and then it's sent to the vault. After the incremental backup finishes, the new VHD is merged with the VHD created after the initial replication. This merged VHD provides the latest state to be used for comparison for ongoing backup. Microsoft Azure Recovery Services (MARS) agent performs a full backup of the system state each time a backup job is run. There're no incremental backups for the system state with the MARS agent.
 
 - The MARS agent can run the backup job in **optimized mode** using the USN (Update Sequence Number) change journal, or in **unoptimized mode** by checking for changes in directories or files via scanning the entire volume. Unoptimized mode is slower because the agent has to scan each file on the volume and compare it against the metadata to determine the changed files.  The **Initial backup** will always run in unoptimized mode. If the previous backup failed, then the next scheduled backup job will run in unoptimized mode. To learn more about these modes and how to verify them, refer to [this article](backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-backup-job-running-in-unoptimized-mode).
 

@@ -1,8 +1,8 @@
 ---
 title: Microsoft Azure Data Manager for Energy tier concepts
 description: This article describes tier concepts
-author: tiannaward
-ms.author: tiannaward
+author: bharathim
+ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: conceptual
 ms.date: 07/11/2023

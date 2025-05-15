@@ -80,7 +80,7 @@ To get information about all participants with spotlight state changes on the cu
 // event : { added: SpotlightedParticipant[]; removed: SpotlightedParticipant[] }
 // SpotlightedParticipant = { identifier: CommunicationIdentifier, order?: number }
 // where: 
-//  identifier: ID of participant whos spotlight state is changed
+//  identifier: ID of participant whose spotlight state is changed
 //  order: sequence of the event
 
 const spotlightChangedHandler = (event) => {

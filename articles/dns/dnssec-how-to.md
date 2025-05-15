@@ -1,23 +1,18 @@
 ---
-title: How to sign your Azure Public DNS zone with DNSSEC (Preview)
+title: How to sign your Azure Public DNS zone with DNSSEC
 description: Learn how to sign your Azure public DNS zone with DNSSEC. 
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 10/30/2024
+ms.date: 01/31/2025
 ms.author: greglin
 ---
 
-# How to sign your Azure Public DNS zone with DNSSEC (Preview)
+# How to sign your Azure Public DNS zone with DNSSEC
 
 This article shows you how to sign your DNS zone with [Domain Name System Security Extensions (DNSSEC)](dnssec.md). 
 
 To remove DNSSEC signing from a zone, see [How to unsign your Azure Public DNS zone](dnssec-unsign.md).
-
-> [!NOTE]
-> DNSSEC zone signing is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
-> This DNSSEC preview is offered without a requirement to enroll in a preview. You can use Cloud Shell to sign or unsign a zone with Azure PowerShell or Azure CLI. Signing a zone by using the Azure portal is available in the next portal update. 
 
 ## Prerequisites
 
@@ -49,6 +44,9 @@ To sign your zone with DNSSEC using the Azure portal:
 
     [ ![Screenshot of a signed zone with DS record missing.](./media/dnssec-how-to/ds-missing.png) ](./media/dnssec-how-to/ds-missing.png#lightbox)
 
+    > [!NOTE]
+    > If your Azure network configuration doesn't allow delegation checking, the delegation message shown here is suppressed. In this case, you can use a public [DNSSEC debugger](https://aka.ms/DNSSECdebugger) to verify delegation status.
+
 6. Copy the delegation information and use it to create a DS record in the parent zone. 
 
     1. If the parent zone is a top level domain (for example: `.com`), you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
@@ -70,6 +68,9 @@ To sign your zone with DNSSEC using the Azure portal:
 7. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed. Your DNS zone is now fully DNSSEC signed.
 
     [ ![Screenshot of a fully signed and delegated zone.](./media/dnssec-how-to/delegated.png) ](./media/dnssec-how-to/delegated.png#lightbox)
+
+    > [!NOTE]
+    > If your Azure network configuration doesn't allow delegation checking, the delegation message shown here is suppressed. In this case, you can use a public [DNSSEC debugger](https://aka.ms/DNSSECdebugger) to verify delegation status.
 
 ## [Azure CLI](#tab/sign-cli)
 

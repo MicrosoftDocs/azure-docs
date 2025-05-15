@@ -2,13 +2,13 @@
 title: Customize views in cost analysis
 titleSuffix: Microsoft Cost Management
 description:  This article helps you customize views in cost analysis to understand how you're being charged and to investigate unexpected changes.
-author: bandersmsft
-ms.author: banders
+author: shasulin
+ms.author: shasulin
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: micflan
+ms.reviewer: shasulin
 ---
 
 # Customize views in cost analysis
@@ -46,7 +46,7 @@ Classic virtual machines, networking, and storage resources don't share detailed
 
 Cost analysis doesn't support grouping by multiple attributes. To work around it, you can apply a filter for a desired attribute and group by the more detailed attribute. For instance, filter down to a specific resource group, then group by resource.
 
-Pivot charts under the main chart show different groupings, which give you a broader picture of your overall costs for the selected time period and filters. Select a property or tag to view aggregated costs by any dimension.
+Pivot charts under the main chart show different groupings, which give you a broader picture of your overall costs for the selected time period and filters. Select a property or tag to view aggregated costs by any dimension. When you apply a filter to the main chart, the filter also affects pivot charts. Costs are filtered, too. Pivot charts also align to the actual or amortized metric selected for the main chart and to the currency. Pivot charts aren't aligned with **Group by** or **Granularity** selections applied to the main chart.
 
 :::image type="content" source="./media/customize-cost-analysis-views/pivot-charts.png" alt-text="Screenshot showing pivot charts." lightbox="./media/customize-cost-analysis-views/pivot-charts.png" :::
 

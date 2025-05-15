@@ -1,8 +1,9 @@
 ---
 title: Azure Event Grid - Troubleshooting subscription validation
-description: This article shows you how you can troubleshoot subscription validations. 
-ms.topic: conceptual
-ms.date: 09/28/2021
+description: This article shows you how you can troubleshoot subscription validations for Event Grid events and cloud events. 
+ms.topic: how-to
+ms.date: 01/22/2025
+# Customer intent: I want to know how to troubleshoot issues with event subscriptions in Azure Event Grid. 
 ---
 
 # Troubleshoot Azure Event Grid subscription validations
@@ -21,7 +22,7 @@ During event subscription creation, if you're seeing an error message such as `T
 > [!IMPORTANT]
 > For detailed information on endpoint validation for webhooks, see [Webhook event delivery](end-point-validation-cloud-events-schema.md).
 
-Here is a sample **SubscriptionValidationEvent** JSON you can send using a tool such as CURL: 
+Here's a sample **SubscriptionValidationEvent** JSON you can send using a tool such as CURL: 
 
 ```json
 [
@@ -40,7 +41,7 @@ Here is a sample **SubscriptionValidationEvent** JSON you can send using a tool 
 ]
 ```
 
-Here is the sample successful response:
+Here's the sample successful response:
 
 ```json
 {
@@ -58,12 +59,10 @@ curl -X POST -d '[{"id": "2d1781af-3a4c-4d7c-bd0c-e34b19da4e66","topic": "/subsc
 
 
 
-To learn more about Event Grid event validation for webhooks, see [Endpoint validation with event grid events](end-point-validation-cloud-events-schema.md).
+To learn more about Event Grid event validation for webhooks, see [Endpoint validation with Event Grid events](end-point-validation-cloud-events-schema.md).
 
 ## Validate cloud event subscription
 Use the **HTTP OPTIONS** method for validation with cloud events. To learn more about cloud event validation for webhooks, see [Endpoint validation with cloud events](end-point-validation-cloud-events-schema.md).
 
-## Troubleshoot event subscription validation
-
-## Next steps
+## Related content
 If you need more help, post your issue in the [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-eventgrid) or open a [support ticket](https://azure.microsoft.com/support/options/). 

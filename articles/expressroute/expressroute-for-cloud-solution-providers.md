@@ -16,7 +16,7 @@ Microsoft provides hyper-scale services for traditional resellers and distributo
 ExpressRoute is composed of a pair of circuits for high availability that are attached to a single customer's subscription(s) and can't be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
 
 > [!NOTE]
-> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation. For more information, see [ExpressRoute limits](../azure-resource-manager/management/azure-subscription-service-limits.md#expressroute-limits).
+> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation. For more information, see [ExpressRoute limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-expressroute-limits).
 > 
 
 Microsoft Azure provides a growing number of services that you can offer to your customers. ExpressRoute helps you and your customers take advantage of these services by providing high-speed low latency access to the Microsoft Azure environment.

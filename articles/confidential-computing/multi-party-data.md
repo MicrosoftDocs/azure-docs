@@ -12,7 +12,7 @@ ms.service: azure-virtual-machines
 
 ms.subservice: azure-confidential-computing
 
-ms.topic: conceptual
+ms.topic: concept-article
 
 ms.date: 04/20/2023
 
@@ -63,6 +63,11 @@ _Code integrity and confidential ledgers:_ With distributed ledger technology (D
 
 ## What are options to get started?
 
+### Azure Confidential Clean Rooms (Preview)
+[Azure Confidential Clean Rooms (ACCR)](./confidential-clean-rooms.md) is designed for organizations that need to share privacy sensitive data such as personally identifiable information (PII) or protected health information (PHI) securely with other organizations to derive business critical insights which can be securely fine-tuning your ML model with sensitive data from other organizations for improved accuracy or performing secure analytics on joint data with your partner organizations. ACCR uses confidential containers on Azure Container Instances to ensure that your data stays protected from other collaborators and from Azure operators. It has applications spanning multiple industries such as healthcare, advertising, banking and financial services and retail.
+
+You can enrol yourself for the ACCR preview by submititng this [form](https://aka.ms/ACCR-Preview-Onboarding).
+
 ### ACC platform offerings that help enable confidential cleanrooms
 Roll up your sleeves and build a data clean room solution directly on these confidential computing service offerings.
 
@@ -84,4 +89,3 @@ Use a partner that has built a multi-party data analytics solution on top of the
 - [**Habu**](https://habu.com) delivers an interoperable data clean room platform that enables businesses to unlock collaborative intelligence in a smart, secure, scalable, and simple way. Habu connects decentralized data across departments, partners, customers, and providers for better collaboration, decision-making, and results.
 - [**Mithril Security**](https://www.mithrilsecurity.io/) provides tooling to help SaaS vendors serve AI models inside secure enclaves, and providing an on-premises level of security and control to data owners. Data owners can use their SaaS AI solutions while remaining compliant and in control of their data.
 - [**Opaque**](https://opaque.co/) provides a confidential computing platform for collaborative analytics and AI, giving the ability to perform collaborative scalable analytics while protecting data end-to-end and enabling organizations to comply with legal and regulatory mandates.
-- [**SafeLiShare**](https://safelishare.com/) provides policy-driven encrypted data clean rooms where access to data is auditable, trackable, and visible, while keeping data protected during multi-party data sharing.

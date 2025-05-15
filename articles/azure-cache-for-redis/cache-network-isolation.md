@@ -6,6 +6,8 @@ description: In this article, you learn how to determine the best network isolat
 
 ms.topic: conceptual
 ms.date: 11/11/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 
 
 ---

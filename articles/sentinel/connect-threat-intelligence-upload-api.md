@@ -1,31 +1,31 @@
 ---
-title: Connect your TIP with STIX objects API
+title: Connect your TIP with the upload API (Preview)
 titleSuffix: Microsoft Sentinel
 
-description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the STIX objects API to Microsoft Sentinel.
+description: Learn how to connect your threat intelligence platform (TIP) or custom feed using the upload API to Microsoft Sentinel.
 author: austinmccollum
 ms.topic: how-to
 ms.date: 3/14/2024
 ms.author: austinmc
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security admin, I want to connect my threat intelligence platform with Microsoft Sentinel using the appropriate API so that I can centralize and enhance threat detection and response capabilities.
 ---
 
-# Connect your threat intelligence platform to Microsoft Sentinel with the STIX objects API
+# Connect your threat intelligence platform to Microsoft Sentinel with the upload API (Preview)
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat intelligence feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. The industry standard for describing cyberthreat information is called, "Structured Threat Information Expression" or STIX. By using the STIX objects API, you use an expressive way to import threat intelligence into Microsoft Sentinel.
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat intelligence feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. The industry standard for describing cyberthreat information is called, "Structured Threat Information Expression" or STIX. By using the upload API which supports STIX objects, you use a more expressive way to import threat intelligence into Microsoft Sentinel.
 
-The STIX objects API ingests threat intelligence into Microsoft Sentinel without the need for a data connector. This article describes what you need to connect. For more information on the API details, see the reference document [Microsoft Sentinel STIX objects API](stix-objects-api.md).
+The upload API ingests threat intelligence into Microsoft Sentinel without the need for a data connector. This article describes what you need to connect. For more information on the API details, see the reference document [Microsoft Sentinel upload API](stix-objects-api.md).
 
-:::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-stix-objects-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
+:::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
 
 For more information about threat intelligence, see [Threat intelligence](understand-threat-intelligence.md).
 
 > [!IMPORTANT]
-> The Microsoft Sentinel threat intelligence STIX objects API is in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Microsoft Sentinel threat intelligence upload API is in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
@@ -62,7 +62,7 @@ After you register your application, record its application (client) ID from the
 
 ## Assign a role to the application
 
-The STIX objects API ingests threat intelligence objects at the workspace level and requires the role of Microsoft Sentinel Contributor.
+The upload API ingests threat intelligence objects at the workspace level and requires the role of Microsoft Sentinel Contributor.
 
 1. From the Azure portal, go to **Log Analytics workspaces**.
 1. Select **Access control (IAM)**.
@@ -79,7 +79,7 @@ For more information on assigning roles to applications, see [Assign a role to t
 
 ## Configure your threat intelligence platform solution or custom application
 
-The following configuration information is required by the STIX objects API:
+The following configuration information is required by the upload API:
 
 - Application (client) ID
 - Microsoft Entra access token with [OAuth 2.0 authentication](../active-directory/fundamentals/auth-oauth2.md)
@@ -87,7 +87,7 @@ The following configuration information is required by the STIX objects API:
 
 Enter these values in the configuration of your integrated TIP or custom solution where required.
 
-1. Submit the threat intelligence to the STIX objects API. For more information, see [Microsoft Sentinel STIX objects API](stix-objects-api.md).
+1. Submit the threat intelligence to the upload API. For more information, see [Microsoft Sentinel upload API](stix-objects-api.md).
 1. Within a few minutes, threat intelligence objects should begin flowing into your Microsoft Sentinel workspace. Find the new STIX objects on the **Threat intelligence** page, which is accessible from the Microsoft Sentinel menu.
 
 ## Related content

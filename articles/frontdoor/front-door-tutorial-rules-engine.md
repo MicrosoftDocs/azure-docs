@@ -2,17 +2,19 @@
 title: 'Tutorial: Configure rules engine'
 titleSuffix: Azure Front Door
 description: This article provides a tutorial on how to configure Rules engine in both the Azure portal and Azure CLI.
-services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
 ms.date: 11/18/2024
-ms.author: duau
+ms.custom: devx-track-azurecli
+
 # Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI.
 ---
 
 # Tutorial: Configure your rules engine
+
+**Applies to:** :heavy_check_mark: Front Door (classic)
 
 This tutorial shows how to create a Rules engine configuration and your first rule in both Azure portal and CLI.
 
@@ -29,8 +31,6 @@ In this tutorial, you learn how to:
 
 1. Within your Azure Front Door (classic) resource, select **Rule Engine configuration** from under *Settings* on the left side menu pane. Select **+ Add**, give your configuration a name, and start creating your first Rules Engine configuration.
 
-    :::image type="content" source="./media/front-door-rules-engine/rules-engine-tutorial-1.png" alt-text="Screenshot of the rules engine configuration from the Azure Front Door overview page.":::
-
 1. Enter a name for your first rule. Then select **+ Add condition** or **+ Add action** to define your rule.
     
     > [!NOTE]
@@ -39,8 +39,6 @@ In this tutorial, you learn how to:
     > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.
     > - All paths in the rules engine configuration are case sensitive.
     > - Header names should adhere to [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6).
-
-    :::image type="content" source="./media/front-door-rules-engine/rules-engine-tutorial-4.png" alt-text="Screenshot of the rules engine configuration page with a single rule.":::
 
 1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
@@ -106,11 +104,7 @@ To remove the Rules Engine configuration from your Front Door (classic):
 
 1. Disassociate any routing rules from the rule engine configuration by selecting the three dots next to the rule engine name and selecting **Associate routing rule**:
 
-    :::image type="content" source="./media/front-door-rules-engine/front-door-rule-engine-routing-association.png" alt-text="Screenshot of the associate routing rules from the menu.":::
-
 1. Uncheck all routing rules associated with this Rule Engine configuration and select **Save**:
-
-    :::image type="content" source="./media/front-door-rules-engine/front-door-routing-rule-association.png" alt-text="Routing rule association":::
 
 1. Delete the Rule Engine configuration from your Front Door:
 

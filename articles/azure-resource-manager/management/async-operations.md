@@ -2,12 +2,12 @@
 title: Status of asynchronous operations
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
 ms.topic: conceptual
-ms.date: 09/26/2024
+ms.date: 01/22/2025
 ---
 
 # Track asynchronous Azure operations
 
-Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.  
+Some Azure REST operations run asynchronously because the operation can't be completed quickly. This article describes how to track the status of asynchronous operations through values returned in the response.
 
 ## Status codes for asynchronous operations
 
@@ -46,7 +46,7 @@ When the `Retry-after` header isn't returned, [implement your own retry logic](/
 
 ## Permission for tracking async status
 
-To track the status of an asynchronous operation, you need sufficient permission at the level of the resource group. If you only have permission at the level of the resource, you can start the operation but you can't track its status. Permission at the level of the resource group is required because the URL for tracking status isn't scoped to the resource.
+To track the status of an asynchronous operation, you need sufficient permission at the resource group level. If you only have permission at the resource level, you can start the operation but you can't track its status. Resource group-level permission is required because the URL for tracking status isn't scoped to the resource.
 
 For example, to start a virtual machine, you need the Virtual Machine Contributor role for the resource group that contains the virtual machine. The URL for tracking a start request doesn't include the virtual machine in its path.
 
@@ -87,11 +87,11 @@ The following example shows other values that might be returned from the operati
 }
 ```
 
-The error object is returned when the status is Failed or Canceled. All other values are optional. The response you receive may look different than the example.
+The error object is returned when the status is Failed or Canceled. All other values are optional. The response you receive might look different than the example.
 
 ## provisioningState values
 
-Operations that create, update, or delete (PUT, PATCH, DELETE) a resource typically return a `provisioningState` value. When an operation completes, one of following three values is returned:
+Operations that create, update, or delete (PUT, PATCH, DELETE) a resource typically return a `provisioningState` value. When an operation completes, one of the following three values is returned:
 
 * Succeeded
 * Failed
@@ -154,7 +154,7 @@ Among the header values, you see:
 Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2020-06-01
 ```
 
-To check the status of the asynchronous operation, sending another request to that URL.
+To check the status of the asynchronous operation, send another request to the operation URL.
 
 ```HTTP
 GET 
@@ -186,7 +186,7 @@ PUT
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2019-06-01
 ```
 
-And the request body contains properties for the storage account:
+The request body contains properties for the storage account:
 
 ```json
 {
@@ -206,7 +206,7 @@ Location: https://management.azure.com/subscriptions/{subscription-id}/providers
 Retry-After: 17
 ```
 
-After waiting for number of seconds specified in Retry-After, check the status of the asynchronous operation by sending another request to that URL.
+After waiting for number of seconds specified in `Retry-After`, check the status of the asynchronous operation by sending another request to that URL.
 
 ```HTTP
 GET 

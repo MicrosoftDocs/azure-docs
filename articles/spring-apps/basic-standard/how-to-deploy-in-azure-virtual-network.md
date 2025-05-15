@@ -1,5 +1,5 @@
 ---
-title:  "Deploy Azure Spring Apps in a virtual network"
+title:  "Deploy Azure Spring Apps in a Virtual Network"
 description: Deploy Azure Spring Apps in a virtual network (VNet injection).
 author: KarlErickson
 ms.author: karler
@@ -53,7 +53,7 @@ The virtual network to which you deploy your Azure Spring Apps instance must mee
   * One for the service runtime.
   * One for your Spring applications.
   * There's a one-to-one relationship between these subnets and an Azure Spring Apps instance. Use a new subnet for each service instance you deploy. Each subnet can only include a single service instance.
-* Address space: CIDR blocks up to */28* for both the service runtime subnet and the Spring applications subnet.
+* Address space: CIDR blocks up to `/28` for both the service runtime subnet and the Spring applications subnet.
 * Route table: By default the subnets don't need existing route tables associated. You can [bring your own route table](#bring-your-own-route-table).
 
 Use the following steps to set up the virtual network to contain the Azure Spring Apps instance.
@@ -72,16 +72,16 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
    |-----------------|--------------------------------------------------|
    | Subscription    | Select your subscription.                        |
    | Resource group  | Select your resource group, or create a new one. |
-   | Name            | Enter *azure-spring-apps-vnet*.                  |
+   | Name            | Enter **azure-spring-apps-vnet**.                  |
    | Location        | Select **East US**.                              |
 
 1. Select **Next: IP Addresses**.
 
-1. For the IPv4 address space, enter *10.1.0.0/16*.
+1. For the IPv4 address space, enter **10.1.0.0/16**.
 
-1. Select **Add subnet**. Then enter *service-runtime-subnet* for **Subnet name** and enter *10.1.0.0/24* for **Subnet address range**. Then select **Add**.
+1. Select **Add subnet**. Then enter **service-runtime-subnet** for **Subnet name** and enter **10.1.0.0/24** for **Subnet address range**. Then select **Add**.
 
-1. Select **Add subnet** again, and then enter the subnet name and subnet address range. For example, enter *apps-subnet* and *10.1.1.0/24*. Then select **Add**.
+1. Select **Add subnet** again, and then enter the subnet name and subnet address range. For example, enter **apps-subnet** and **10.1.1.0/24**. Then select **Add**.
 
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
@@ -157,10 +157,10 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the `Network Contributor` and `User Access Administrator` roles to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the **Network Contributor** and **User Access Administrator** roles to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
    > [!NOTE]
-   > Role `User Access Administrator` is in the **Privileged administrator roles** and `Network Contributor` is in the **Job function roles**.
+   > Role **User Access Administrator** is in the **Privileged administrator roles** and **Network Contributor** is in the **Job function roles**.
 
 ### [Azure CLI](#tab/azure-CLI)
 
@@ -245,11 +245,11 @@ az spring create  \
 
 After the deployment, two more resource groups are created in your subscription to host the network resources for the Azure Spring Apps instance. Go to **Home**, and then select **Resource groups** from the top menu items to find the following new resource groups.
 
-The resource group named as `ap-svc-rt_{service instance name}_{service instance region}` contains network resources for the service runtime of the service instance.
+The resource group named as **ap-svc-rt_{service instance name}_{service instance region}** contains network resources for the service runtime of the service instance.
 
 :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/service-runtime-resource-group.png" alt-text="Screenshot of the Azure portal showing the resources for the service runtime." lightbox="media/how-to-deploy-in-azure-virtual-network/service-runtime-resource-group.png":::
 
-The resource group named as `ap-app_{service instance name}_{service instance region}` contains network resources for your Spring applications of the service instance.
+The resource group named as **ap-app_{service instance name}_{service instance region}** contains network resources for your Spring applications of the service instance.
 
 :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/apps-resource-group.png" alt-text="Screenshot of the Azure portal showing the resources for the Spring applications." lightbox="media/how-to-deploy-in-azure-virtual-network/apps-resource-group.png":::
 
@@ -258,7 +258,7 @@ Those network resources are connected to your virtual network created in the pre
 :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/vnet-with-connected-device.png" alt-text="Screenshot of the Azure portal showing the Connected devices page for a virtual network." lightbox="./media/how-to-deploy-in-azure-virtual-network/vnet-with-connected-device.png":::
 
 > [!IMPORTANT]
-> The resource groups are fully managed by the Azure Spring Apps service. Do *not* manually delete or modify any resource inside.
+> The resource groups are fully managed by the Azure Spring Apps service. Do not manually delete or modify any resource inside.
 
 ## Using smaller subnet ranges
 

@@ -1,11 +1,9 @@
 ---
-title: Restore an existing dedicated SQL pool (formerly SQL DW)
+title: "Restore an Existing Dedicated SQL Pool (formerly SQL DW)"
 description: How-to guide for restoring an existing dedicated SQL pool in Azure Synapse Analytics.
-author: realAngryAnalytics
-ms.author: ajagadish
-manager: joannapea
-ms.reviewer: joannapea, wiassaf
-ms.date: 01/23/2024
+author: fr3dgu1s
+ms.author: fresantos
+ms.date: 02/10/2025
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
@@ -15,7 +13,7 @@ ms.custom:
 
 # Restore an existing dedicated SQL pool (formerly SQL DW)
 
-In this article, you learn how to restore an existing dedicated SQL pool (formerly SQL DW) using Azure portal and PowerShell.
+In this article, you learn how to restore an existing dedicated SQL pool (formerly SQL Data Warehouse) using Azure portal and PowerShell.
 
 > [!NOTE]
 > This guidance is for standalone dedicated SQL pools (formerly SQL DW) only. For dedicated SQL pools in an Azure Synapse Analytics workspace, see [Restore an existing dedicated SQL pool](../backuprestore/restore-sql-pool.md).
@@ -29,6 +27,14 @@ In this article, you learn how to restore an existing dedicated SQL pool (former
    [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 1. Have an existing restore point that you want to restore from. If you want to create a new restore, see [the tutorial to create a new user-defined restore point](sql-data-warehouse-restore-points.md).
+
+1. **Permissions:** Make sure the user performing the restore must have proper permissions in both the source and target subscriptions.
+
+   | Task                     | Required role (minimum)                | Additional requirements                                      |
+   |--------------------------|----------------------------------------|--------------------------------------------------------------|
+   | Backup Source SQL Pool   | SQL Server Contributor (source server) | Requires access to storage account with Storage Blob Data Contributor |
+   | Access Backup File       | Storage Blob Data Reader (on storage account) |                                                              |
+   | Restore to Target Server | SQL Server Contributor (target server) | Requires Storage Blob Data Reader for the backup             |
 
 ## Restore an existing dedicated SQL pool (formerly SQL DW) through PowerShell
 
@@ -46,8 +52,8 @@ To restore an existing dedicated SQL pool (formerly SQL DW) from a restore point
 
 1. Restore the dedicated SQL pool (formerly SQL DW) to the desired restore point using [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet.
 
-    1. To restore the dedicated SQL pool (formerly SQL DW) to a different server, make sure to specify the other server name.  This server can also be in a different resource group and region.
-    1. To restore to a different subscription, see the [below section](#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
+    1. To restore the dedicated SQL pool (formerly SQL DW) to a different server, make sure to specify the other server name. This server can also be in a different resource group and region.
+    1. To restore to a different subscription, see the [Restore an existing dedicated SQL pool to a different subscription through PowerShell](#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
 
 1. Verify that the restored dedicated SQL pool (formerly SQL DW) is online.
 
@@ -93,15 +99,15 @@ To restore an existing dedicated SQL pool (formerly SQL DW) from a restore point
 1. Navigate to the dedicated SQL pool that you want to restore from.
 1. At the top of the **Overview** page, select **Restore**.
 
-    :::image type="content" source="./media/sql-data-warehouse-restore-active-paused-dw/restore-button.png" alt-text="Screenshot from the Azure portal, the Overview page navigation bar of a SQL pool, the Restore button is highlighted.":::
+    :::image type="content" source="media/sql-data-warehouse-restore-active-paused-dw/restore-button.png" alt-text="Screenshot from the Azure portal, the Overview page navigation bar of a SQL pool, the Restore button is highlighted.":::
 
 1. Select either **Automatic Restore Points** or **User-Defined Restore Points**. If the dedicated SQL pool (formerly SQL DW) doesn't have any automatic restore points, wait a few hours or create a user defined restore point before restoring. For User-Defined Restore Points, select an existing one or create a new one. For **Server**, you can pick a server in a different resource group and region or create a new one. After providing all the parameters, select **Review + Restore**.
 
-    :::image type="content" source="./media/sql-data-warehouse-restore-active-paused-dw/restore-user-defined-restore-points.png" alt-text="Screenshot from the dedicated SQL pool Restore page of the Azure portal. For Restore point type, the radio button for User-defined restore points is selected.":::
+    :::image type="content" source="media/sql-data-warehouse-restore-active-paused-dw/restore-user-defined-restore-points.png" alt-text="Screenshot from the dedicated SQL pool Restore page of the Azure portal. For Restore point type, the radio button for User-defined restore points is selected.":::
 
 ## Restore an existing dedicated SQL pool (formerly SQL DW) to a different subscription through PowerShell
 
-This is similar guidance to restoring an existing dedicated SQL pool, however the below instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating subscription while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination subscription. The user performing the restore must have proper permissions in both the source and target subscriptions.
+This is similar guidance to restoring an existing dedicated SQL pool. However, the following instructions show that [Get-AzSqlDatabase](/powershell/module/az.sql/Get-AzSqlDatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the originating subscription while the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell cmdlet should be performed in the destination subscription. The user performing the restore must have proper permissions in both the source and target subscriptions.
 
 1. Open PowerShell.
 

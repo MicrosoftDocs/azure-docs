@@ -28,7 +28,7 @@ The state store allows an edge application to persist data on the edge. Typical 
 * Creating stateless applications
 * Sharing state between applications
 * Developing highly available applications
-* Storing data to be used by dataflows
+* Storing data to be used by data flows
 
 ## State store authorization
 

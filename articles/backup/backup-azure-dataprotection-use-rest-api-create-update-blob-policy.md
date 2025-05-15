@@ -2,7 +2,7 @@
 title: Create Azure Backup policies for blobs using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for blobs using REST API.
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 02/09/2025
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
 ms.service: azure-backup
 ms.custom: engagement-fy23
@@ -236,3 +236,4 @@ For more information on the Azure Backup REST APIs, see the following documents:
 
 - [Azure Data Protection REST API](/rest/api/dataprotection/)
 - [Get started with Azure REST API](/rest/api/azure/)
+- [Manage backup and restore jobs](backup-azure-arm-userestapi-managejobs.md)

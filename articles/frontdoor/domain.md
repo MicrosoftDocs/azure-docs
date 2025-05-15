@@ -1,7 +1,6 @@
 ---
 title: 'Domains in Azure Front Door'
 description: Learn about custom domains when using Azure Front Door.
-services: frontdoor
 author: johndowns
 ms.service: azure-frontdoor
 ms.topic: concept-article
@@ -10,6 +9,8 @@ ms.author: jodowns
 ---
 
 # Domains in Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 A *domain* represents a custom domain name that Azure Front Door uses to receive your application's traffic. Azure Front Door supports adding three types of domain names:
 

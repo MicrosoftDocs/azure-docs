@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 01/10/2024
+ms.date: 02/03/2025
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -24,26 +24,6 @@ In this quickstart, you create and deploy your first container app using the `az
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
-
-## Create an Azure resource group
-
-Create a resource group to organize the services related to your container app deployment.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name my-container-apps \
-  --location centralus
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup -Location centralus -Name my-container-apps
-```
-
----
 
 ## Create and deploy the container app
 
@@ -70,7 +50,7 @@ az containerapp up \
   --query properties.configuration.ingress.fqdn
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `

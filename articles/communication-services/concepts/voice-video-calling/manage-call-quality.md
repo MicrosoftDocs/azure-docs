@@ -22,6 +22,10 @@ Before you read this article, become familiar with overview information about ca
 - Voice and video calling: [Azure Communication Services Calling SDK overview](calling-sdk-features.md)
 - Phone calling: [Public Switched Telephone Network (PSTN) integration concepts](../telephony/telephony-concept.md)
 
+## Stay up to date with the most recent SDKs
+
+To see if your SDK is recent you can refer to Azure Advisor in your Azure portal. See, [Azure Advisor for Azure Communication Services](../advisor-overview.md) to learn more.
+
 ## Prepare your network and prioritize important network traffic by using QoS
 
 As your users start using Azure Communication Services for calls and meetings, they might experience a caller's voice breaking up or cutting in and out of a call or meeting. Shared video might freeze, or pixelate, or fail altogether. This problem is due to the IP packets that represent voice and video traffic encountering network congestion and arriving out of sequence or not at all. If it happens (or to prevent it from happening in the first place), use Quality of Service (QoS) by following the [network recommendations](network-requirements.md).

@@ -5,7 +5,7 @@ description: Learn how to connect to your virtual machines using a specified pri
 author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 03/03/2025
 ms.author: cherylmc
 
 ---
@@ -37,7 +37,7 @@ Before you begin these steps, verify that you have the following environment set
 * A VNet with Bastion already deployed.
 
   * Make sure that you have deployed Bastion to the virtual network. Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM deployed in any of the virtual networks that is reachable from Bastion.
-  * To deploy Bastion, see [Quickstart: Deploy Bastion with default settings](quickstart-host-portal.md).
+  * To deploy Bastion, see [Quickstart: Deploy Bastion with default settings and the Standard SKU](quickstart-host-portal.md).
 
 * A virtual machine in any reachable virtual network. This is the virtual machine to which you'll connect.
 
@@ -48,9 +48,8 @@ Before you begin these steps, verify that you have the following environment set
 1. In the Azure portal, go to your Bastion deployment.
 
 1. IP based connection requires the Standard SKU tier or higher. On the **Configuration** page, for **Tier**, verify the tier is set to the **Standard** SKU or higher. If the tier is set to the Basic SKU, select a higher SKU from the dropdown.
-1. To enable **IP based connection**, select **IP based connection**.
 
-    :::image type="content" source="./media/connect-ip-address/ip-connection.png" alt-text="Screenshot that shows the Configuration page." lightbox="./media/connect-ip-address/ip-connection.png":::
+1. To enable **IP based connection**, select **IP based connection**.
 
 1. Select **Apply** to apply the changes. It takes a few minutes for the Bastion configuration to complete.
 

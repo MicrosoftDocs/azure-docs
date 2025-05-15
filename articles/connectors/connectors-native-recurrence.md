@@ -68,6 +68,16 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
    |----------|-----------|----------|------|-------------|
    | **Interval** | `interval` | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <br><br>- Month: 1-16 months <br>- Week: 1-71 weeks <br>- Day: 1-500 days <br>- Hour: 1-12,000 hours <br>- Minute: 1-72,000 minutes <br>- Second: 1-9,999,999 seconds<br><br>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
    | **Frequency** | `frequency` | Yes | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** <br><br>**Important**: If you select the **Day**, **Week**, or **Month** frequency, and you specify a future start date and time, make sure that you set up the recurrence in advance. Otherwise, the workflow might skip the first recurrence. <br><br>- **Day**: Set up the daily recurrence at least 24 hours in advance. <br><br>- **Week**: Set up the weekly recurrence at least 7 days in advance. <br><br>- **Month**: Set up the monthly recurrence at least one month in advance. |
+   | **Time Zone** | `timeZone` | No | String | Applies only when you specify a start time because this trigger doesn't accept a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. For more information, see [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones#time-zones). |
+   | **Start Time** | `startTime` | No | String | Provide a start date and time, which has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset): <br><br>YYYY-MM-DDThh:mm:ss if you select a time zone <br><br>-or- <br><br>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <br><br>So for example, if you want September 18, 2024 at 2:00 PM, then specify "2024-09-18T8:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2024-09-18T8:00:00Z" without a time zone. <br><br>**Important:** If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" signifies a UTC time format with a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you select a time zone value, you don't need to add a "Z" to the end of your **Start time** value. If you do, Azure Logic Apps ignores the time zone value because the "Z" signifies a UTC time format. <br><br>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+
+   The following properties are available, based on whether you select **Week** or **Day**:
+
+   | Property | JSON name | Required | Type | Description |
+   |----------|-----------|----------|------|-------------|
+   | **On These Days** | `weekDays` | No | String or string array | If you select **Week**, you can select one or more days when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** |
+   | **At These Hours** | `hours` | No | Integer or integer array | If you select **Day** or **Week**, you can select one or more integers from 0 to 23 as the hours of the day for when you want to run the workflow. For example, if you specify **10**, **12**, and **14**, you get 10 AM, 12 PM, and 2 PM for the hours of the day. <br><br>**Note**: By default, the minutes of the day are calculated based on when the recurrence starts. To set specific minutes of the day, for example, 10:00 AM, 12:00 PM, and 2:00 PM, specify those values by using the property named **At these minutes**. |
+   | **At These Minutes** | `minutes` | No | Integer or integer array | If you select **Day** or **Week**, you can select one or more integers from 0 to 59 as the minutes of the hour when you want to run the workflow. <br><br>For example, you can specify **30** as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. <br><br>**Note**: Sometimes, the timestamp for the triggered run might vary up to 1 minute from the scheduled time. If you need to pass the timestamp exactly as scheduled to subsequent actions, you can use template expressions to change the timestamp accordingly. For more information, see [Date and time functions for expressions](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
 
 1. Review the following considerations when you use the **Recurrence** trigger:
 
@@ -83,23 +93,11 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
 
    * If you deploy a disabled Consumption workflow that has a **Recurrence** trigger using an ARM template, the trigger instantly fires when you enable the workflow unless you set the **Start time** parameter before deployment.
 
-1. To set advanced scheduling options, open the **Add new parameter** list. Any options that you select appear on the trigger after selection.
-
-   | Property | JSON name | Required | Type | Description |
-   |----------|-----------|----------|------|-------------|
-   | **Time zone** | `timeZone` | No | String | Applies only when you specify a start time because this trigger doesn't accept a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. For more information, see [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones#time-zones). |
-   | **Start time** | `startTime` | No | String | Provide a start date and time, which has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset): <br><br>YYYY-MM-DDThh:mm:ss if you select a time zone <br><br>-or- <br><br>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <br><br>So for example, if you want September 18, 2020 at 2:00 PM, then specify "2020-09-18T14:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2020-09-18T14:00:00Z" without a time zone. <br><br>**Important:** If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" signifies a UTC time format with a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you select a time zone value, you don't need to add a "Z" to the end of your **Start time** value. If you do, Azure Logic Apps ignores the time zone value because the "Z" signifies a UTC time format. <br><br>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **On these days** | `weekDays` | No | String or string array | If you select "Week", you can select one or more days when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** |
-   | **At these hours** | `hours` | No | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 23 as the hours of the day for when you want to run the workflow. For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM for the hours of the day. <br><br>**Note**: By default, the minutes of the day are calculated based on when the recurrence starts. To set specific minutes of the day, for example, 10:00 AM, 12:00 PM, and 2:00 PM, specify those values by using the property named **At these minutes**. |
-   | **At these minutes** | `minutes` | No | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minutes of the hour when you want to run the workflow. <br><br>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. <br><br>**Note**: Sometimes, the timestamp for the triggered run might vary up to 1 minute from the scheduled time. If you need to pass the timestamp exactly as scheduled to subsequent actions, you can use template expressions to change the timestamp accordingly. For more information, see [Date and time functions for expressions](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
-
-   ![Screenshot for Consumption workflow designer and Recurrence trigger with advanced scheduling options.](./media/connectors-native-recurrence/recurrence-trigger-advanced-consumption.png)
-
-   For example, suppose that today is Friday, September 4, 2020. The following **Recurrence** trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   For example, suppose that today is Wednesday, September 4, 2024. The following **Recurrence** trigger doesn't fire *any sooner* than the specified start date and time, which is Wednesday, September 18, 2024 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
-   ![Screenshot showing Consumption workflow and Recurrence trigger with advanced scheduling example.](./media/connectors-native-recurrence/recurrence-trigger-advanced-example-consumption.png)
+   :::image type="content" source="media/connectors-native-recurrence/recurrence-trigger-advanced-example-consumption.png" alt-text="Screenshot shows Consumption workflow and Recurrence trigger with advanced scheduling example.":::
 
    > [!NOTE]
    >
@@ -122,16 +120,15 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
    | **Interval** | `interval` | Yes | Integer | A positive integer that describes how often the workflow runs based on the frequency. Here are the minimum and maximum intervals: <br><br>- Month: 1-16 months <br>- Week: 1-71 weeks <br>- Day: 1-500 days <br>- Hour: 1-12,000 hours <br>- Minute: 1-72,000 minutes <br>- Second: 1-9,999,999 seconds<br><br>For example, if the interval is 6, and the frequency is "Month", then the recurrence is every 6 months. |
    | **Frequency** | `frequency` | Yes | String | The unit of time for the recurrence: **Second**, **Minute**, **Hour**, **Day**, **Week**, or **Month** <br><br>**Important**: If you select the **Day**, **Week**, or **Month** frequency, and you specify a future start date and time, make sure that you set up the recurrence in advance. Otherwise, the workflow might skip the first recurrence. <br><br>- **Day**: Set up the daily recurrence at least 24 hours in advance. <br><br>- **Week**: Set up the weekly recurrence at least 7 days in advance. <br><br>- **Month**: Set up the monthly recurrence at least one month in advance. |
    | **Time Zone** | `timeZone` | No | String | Applies only when you specify a start time because this trigger doesn't accept a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). Select the time zone that you want to apply. |
-   | **Start Time** | `startTime` | No | String | Provide a start date and time, which has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset): <br><br>YYYY-MM-DDThh:mm:ss if you select a time zone <br><br>-or- <br><br>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <br><br>So for example, if you want September 18, 2020 at 2:00 PM, then specify "2020-09-18T14:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2020-09-18T14:00:00Z" without a time zone. <br><br>**Important:** If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" signifies a UTC time format with a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you select a time zone value, you don't need to add a "Z" to the end of your **Start time** value. If you do, Azure Logic Apps ignores the time zone value because the "Z" signifies a UTC time format. <br><br>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
-   | **On These Days** | `weekDays` | No | String or string array | If you select "Week", you can select one or more days when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** |
+   | **Start Time** | `startTime` | No | String | Provide a start date and time, which has a maximum of 49 years in the future and must follow the [ISO 8601 date time specification](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) in [UTC date time format](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), but without a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset): <br><br>YYYY-MM-DDThh:mm:ss if you select a time zone <br><br>-or- <br><br>YYYY-MM-DDThh:mm:ssZ if you don't select a time zone <br><br>So for example, if you want September 18, 2024 at 2:00 PM, then specify "2024-09-18T8:00:00" and select a time zone such as Pacific Standard Time. Or, specify "2024-09-18T8:00:00Z" without a time zone. <br><br>**Important:** If you don't select a time zone, you must add the letter "Z" at the end without any spaces. This "Z" signifies a UTC time format with a [UTC offset](https://en.wikipedia.org/wiki/UTC_offset). If you select a time zone value, you don't need to add a "Z" to the end of your **Start time** value. If you do, Azure Logic Apps ignores the time zone value because the "Z" signifies a UTC time format. <br><br>For simple schedules, the start time is the first occurrence, while for complex schedules, the trigger doesn't fire any sooner than the start time. [*What are the ways that I can use the start date and time?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+
+   The following properties are available, based on whether you select **Week** or **Day**:
+
+   | Property | JSON name | Required | Type | Description |
+   |----------|-----------|----------|------|-------------|
+   | **On These Days** | `weekDays` | No | String or string array | If you select **Week**, you can select one or more days when you want to run the workflow: **Monday**, **Tuesday**, **Wednesday**, **Thursday**, **Friday**, **Saturday**, and **Sunday** |
    | **At These Hours** | `hours` | No | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 23 as the hours of the day for when you want to run the workflow. <br><br>For example, if you specify "10", "12" and "14", you get 10 AM, 12 PM, and 2 PM for the hours of the day, but the minutes of the day are calculated based on when the recurrence starts. To set specific minutes of the day, for example, 10:00 AM, 12:00 PM, and 2:00 PM, specify those values by using the property named **At these minutes**. |
    | **At These Minutes** | `minutes` | No | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minutes of the hour when you want to run the workflow. <br><br>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. <br><br>**Note**: Sometimes, the timestamp for the triggered run might vary up to 1 minute from the scheduled time. If you need to pass the timestamp exactly as scheduled to subsequent actions, you can use template expressions to change the timestamp accordingly. For more information, see [Date and time functions for expressions](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
-
-   ![Screenshot for Standard workflow designer and Recurrence trigger with advanced scheduling options.](./media/connectors-native-recurrence/recurrence-trigger-advanced-standard.png)
-
-   > [!NOTE]
-   >
-   > The trigger shows a preview for your specified recurrence only when you select **Day** or **Week** as the frequency.
 
 1. Review the following considerations when you use the **Recurrence** trigger:
 
@@ -141,11 +138,15 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
 
    * To make sure that your workflow doesn't miss a recurrence, especially when the frequency is in days or longer, try providing a start date and time for the recurrence and the specific times to run subsequent recurrences. You can use the properties named **At These hours** and **At These minutes**, which are available only for the **Day** and **Week** frequencies.
 
-   For example, suppose that today is Friday, September 4, 2020. The following **Recurrence** trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   For example, suppose that today is Wednesday, September 4, 2024. The following **Recurrence** trigger doesn't fire *any sooner* than the specified start date and time, which is Wednesday, September 18, 2024 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
-   ![Screenshot showing Standard workflow and Recurrence trigger with advanced scheduling example.](./media/connectors-native-recurrence/recurrence-trigger-advanced-example-standard.png)
+   :::image type="content" source="media/connectors-native-recurrence/recurrence-trigger-advanced-example-standard.png" alt-text="Screenshot showing Standard workflow and Recurrence trigger with advanced scheduling example.":::
+
+   > [!NOTE]
+   >
+   > The trigger shows a preview for your specified recurrence only when you select **Day** or **Week** as the frequency.
 
 1. Now continue building your workflow with other actions.
 
@@ -183,7 +184,7 @@ The following example shows how a **Recurrence** trigger definition might appear
                "Monday"
             ]
          },
-         "startTime": "2020-09-07T14:00:00Z",
+         "startTime": "2024-09-18T8:00:00Z",
          "timeZone": "Pacific Standard Time"
       }
    }
@@ -213,30 +214,6 @@ The following example shows how to update the trigger definition so that the tri
     }
 }
 ```
-
-<a name="run-once"></a>
-
-## Run one time only
-
-To run your workflow only at one time in the future, you can apply the **Scheduler: Run once jobs** workflow template, which is available only for Consumption logic app workflows. This template uses the **Request** trigger and **HTTP** action, rather than the **Recurrence** trigger, which doesn't support this recurrence pattern.
-
-1. In the [Azure portal](https://portal.azure.com), create a Consumption logic app.
-
-1. In the designer, open the blank workflow. On the designer toolbar, select **Enable Legacy Designer**.
-
-1. On the designer toolbar, select **Templates**.
-
-1. On the page that opens, scroll past the video to the **Templates** section.
-
-1. From the **Category** list, select **Schedule**, and then select the following template:
-
-   :::image type="content" source="media/connectors-native-recurrence/choose-run-once-template.png" alt-text="Screenshot shows the selected template named Scheduler Run once jobs." lightbox="media/connectors-native-recurrence/choose-run-once-template.png":::
-
-1. On the designer toolbar, select **Generally Available Designer**.
-
-1. [Follow these general steps to add the **Schedule** action named **Delay until**](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action), and provide the time for when the next action starts running.
-
- Or, you can start your workflow with the **Request** trigger named **When a HTTP request is received**, and pass the start time as a parameter for the trigger.
 
 <a name="run-only-last-day-of-month"></a>
 

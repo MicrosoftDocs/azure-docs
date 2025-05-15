@@ -2,7 +2,7 @@
 title: "Threat Intelligence Upload API (Preview) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Threat Intelligence Upload API (Preview) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
+ms.topic: generated-reference
 ms.date: 12/24/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
@@ -58,7 +58,7 @@ You can send the supported STIX object types by calling our Upload API. For more
 
 >HTTP method: POST 
 
->Endpoint: https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01  
+>Endpoint: `https://api.ti.sentinel.azure.com/workspaces/[WorkspaceID]/threatintelligence-stix-objects:upload?api-version=2024-02-01`  
 
 >WorkspaceID: the workspace that the STIX objects are uploaded to.  
 

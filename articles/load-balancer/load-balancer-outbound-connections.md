@@ -86,7 +86,7 @@ For more information about outbound rules, see [Outbound rules](outbound-rules.m
 
 ## 4. Use the frontend IP address(es) of a load balancer for outbound without outbound rules
 
-This option is similar to the previous one, except when no outbound rules are created. In this case, the load balancer frontend(s) are still used for outbound, but this is done implicitly without rules that specify which frontend would be used.  Not using outbound rules also decreases scalability of outbound, as implicit outbound connectivity has a fixed number of SNAR ports per frontend IP address, which could lead to port exhaustion in high-traffic scenarios.
+This option is similar to the previous one, except when no outbound rules are created. In this case, the load balancer frontend(s) are still used for outbound, but this is done implicitly without rules that specify which frontend would be used.  Not using outbound rules also decreases scalability of outbound, as implicit outbound connectivity has a fixed number of SNAT ports per frontend IP address, which could lead to port exhaustion in high-traffic scenarios.
 
 ## 5. Default outbound access
 
@@ -95,7 +95,7 @@ This option is similar to the previous one, except when no outbound rules are cr
 In Azure, virtual machines created in a virtual network without explicit outbound connectivity defined are assigned a default outbound public IP address. This IP address enables outbound connectivity from the resources to the Internet. This access is referred to as [default outbound access](../virtual-network/ip-services/default-outbound-access.md).  This method of access is **not recommended** as it's insecure and the IP addresses are subject to change.
 
 >[!Important]
->On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/).  It is recommended to use one the explicit forms of connectivity as shown in options 1-3 above.
+>On September 30, 2025, default outbound access for new deployments will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates?id=default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access). It is recommended to use one the explicit forms of connectivity as shown in options 1-3 above.
 
 ### What are SNAT ports?
 
@@ -120,7 +120,11 @@ If using SNAT without outbound rules via a public load balancer, SNAT ports are 
 
 ## <a name="preallocatedports"></a> Default port allocation table
 
-When load balancing rules are selected to use default port allocation, or outbound rules are configured with "Use the default number of outbound ports", SNAT ports are allocated by default based on the backend pool size. Backends receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports.
+When default port allocation is enabled, SNAT ports will be allocated by default based on the backend pool size. Backends receive the number of ports defined by the table, per frontend IP, up to a maximum of 1024 ports. Default port allocation is NOT recommended for production workloads, as doing so allocates a minimal number of ports to each backend instance and increases the risk of SNAT port exhaustion. Instead, consider leveraging NAT Gateway or manually allocating ports on your load balancer outbound rules.
+
+There are multiple ways default port allocation can be enabled:
+- Configuring a load balancing rule with disableOutboundSnat set to false, or by selecting the default port allocation option on a load balancer rule in the Azure portal
+- Configuring an outbound rule but setting the allocatedOutboundPorts	property to 0, or by selecting "Enable default port allocation" in the Azure portal
 
 As an example, with 100 VMs in a backend pool and only one frontend IP, each VM receives 512 ports. If a second frontend IP is added, each VM receives an extra 512 ports. This means each VM is allocated a total of 1,024 ports. As a result, adding a third frontend IP will NOT increase the number of allocated SNAT ports beyond 1024 ports.
 

@@ -5,7 +5,7 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/24/2022
 ms.author: shaas
 ---
@@ -73,7 +73,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 

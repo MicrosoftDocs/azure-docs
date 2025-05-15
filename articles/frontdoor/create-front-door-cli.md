@@ -1,15 +1,17 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Azure CLI'
 description: Learn how to create an Azure Front Door using Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
-ms.topic: quickstart
-author: duongau
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
+ms.topic: quickstart
 ms.date: 11/18/2024
 ms.custom: devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Front Door using Azure CLI
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 In this quickstart, you learn how to create an Azure Front Door using Azure CLI. You set up a profile with two Azure Web Apps as origins and add a WAF security policy. Finally, you verify connectivity to your Web Apps using the Azure Front Door endpoint hostname.
 

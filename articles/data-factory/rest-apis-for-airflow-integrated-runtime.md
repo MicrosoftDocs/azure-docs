@@ -78,7 +78,7 @@ This article documents the REST APIs for the Azure Data Factory Workflow Orchest
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or BitBucket. |
+  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or Bitbucket. |
   |gitCredentialType | string | Type of Git credential. Values are PAT (for personal access token) and None. |
   |repo | string | Repository link. |
   |branch | string | Branch to use in the repository. |

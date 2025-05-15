@@ -12,7 +12,7 @@ This article describes how to manage the settings for Azure Native New Relic Ser
 
 ## Resource overview 
 
-[!INCLUDE [change-plan](../includes/manage.md)]
+[!INCLUDE [manage](../includes/manage.md)]
 
 :::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a New Relic resource in the Azure portal with the overview displayed in the working pane.":::
 

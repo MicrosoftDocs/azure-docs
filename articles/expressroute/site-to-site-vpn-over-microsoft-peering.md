@@ -55,8 +55,6 @@ To configure a site-to-site VPN connection over ExpressRoute, you must use Expre
 
 Once you configured your circuit and Microsoft peering, you can easily view it using the **Overview** page in the Azure portal.
 
-:::image type="content" source="./media/site-to-site-vpn-over-microsoft-peering/circuit.png" alt-text="Screenshot of the overview page of an ExpressRoute circuit.":::
-
 ## <a name="routefilter"></a>2. Configure route filters
 
 A route filter lets you identify services you want to consume through your ExpressRoute circuit's Microsoft peering. It's essentially an allowlist of all the BGP community values. 

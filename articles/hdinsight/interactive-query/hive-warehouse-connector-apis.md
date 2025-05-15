@@ -1,10 +1,11 @@
 ---
 title: Hive Warehouse Connector APIs in Azure HDInsight
 description: Learn about the different APIs of Hive Warehouse Connector.
-author: reachnijel
-ms.author: nijelsf
 ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 

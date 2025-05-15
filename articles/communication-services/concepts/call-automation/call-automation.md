@@ -50,6 +50,8 @@ The following features are currently available in the Azure Communication Servic
 |                       | Stop continuous DTMF recognition                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Send DTMF                                         | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Mute participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Hold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
+|                       | Unhold participant                                  | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Start/Stop audio streaming (public preview)       | ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Start/Stop real-time transcription (public preview)| ✔️    | ✔️    |     ✔️         |    ✔️   |
 |                       | Remove one or more endpoints from an existing call| ✔️    | ✔️    |     ✔️         |    ✔️   |

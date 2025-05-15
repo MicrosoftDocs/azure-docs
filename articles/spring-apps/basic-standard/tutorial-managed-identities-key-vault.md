@@ -1,5 +1,5 @@
 ---
-title:  Connect Azure Spring Apps to Key Vault using managed identities
+title:  Connect Azure Spring Apps to Key Vault Using Managed Identities
 description: Set up managed identity to connect Key Vault to an app deployed to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
@@ -263,7 +263,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
    vim src/main/resources/application.properties
    ```
 
-1. To use managed identity for an app deployed to Azure Spring Apps, add properties with the following content to the *src/main/resources/application.properties* file.
+1. To use managed identity for an app deployed to Azure Spring Apps, add properties with the following content to the **src/main/resources/application.properties** file.
 
    ### [System-assigned managed identity](#tab/system-assigned-managed-identity)
 
@@ -292,9 +292,9 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
     ---
 
    > [!NOTE]
-   > You must add the key vault URL in the *application.properties* file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
+   > You must add the key vault URL in the **application.properties** file as shown previously. Otherwise, the key vault URL may not be captured during runtime.
 
-1. Update *src/main/java/com/example/demo/DemoApplication.java* with the following code example. This code retrieves the connection string from the Key Vault.
+1. Update **src/main/java/com/example/demo/DemoApplication.java** with the following code example. This code retrieves the connection string from the Key Vault.
 
    ```Java
    package com.example.demo;
@@ -328,7 +328,7 @@ This app has access to get secrets from Azure Key Vault. Use the Azure Key Vault
    }
    ```
 
-   If you open the *pom.xml* file, you can see the `spring-cloud-azure-starter-keyvault` dependency, as shown in the following example:
+   If you open the **pom.xml** file, you can see the `spring-cloud-azure-starter-keyvault` dependency, as shown in the following example:
 
    ```xml
    <dependency>

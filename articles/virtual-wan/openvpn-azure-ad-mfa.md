@@ -5,7 +5,7 @@ services: virtual-wan
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 09/24/2024
+ms.date: 01/17/2025
 ms.author: cherylmc
 
 ---
@@ -31,4 +31,4 @@ ms.author: cherylmc
 
 ## Next steps
 
-To connect to your virtual network, you must create and configure a VPN client profile. See [Configure Microsoft Entra authentication for Point-to-Site connection to Azure](virtual-wan-point-to-site-azure-ad.md).
+To connect to your virtual network, you must create and configure a VPN client profile. See [Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).

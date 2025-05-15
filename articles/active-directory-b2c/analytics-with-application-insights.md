@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: how-to
 
-ms.date: 01/26/2024
+ms.date: 04/17/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
@@ -21,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Track user behavior in Azure AD B2C by using Application Insights
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-user-flow"
@@ -31,7 +33,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-In Azure Active Directory B2C (Azure AD B2C), you can send event data directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview) by using the instrumentation key provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
+In Azure Active Directory B2C (Azure AD B2C), you can send event data directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview) by using the connection string provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
 
 - Gain insights on user behavior.
 - Troubleshoot your own policies in development or in production.
@@ -42,7 +44,7 @@ In Azure Active Directory B2C (Azure AD B2C), you can send event data directly t
 
 ## Overview
 
-To enable custom event logs, add an Application Insights technical profile. In the technical profile, you define the Application Insights instrumentation key, the event name, and the claims to record. To post an event, add the technical profile as an orchestration step in a [user journey](userjourneys.md).
+To enable custom event logs, add an Application Insights technical profile. In the technical profile, you define the Application Insights connection string, the event name, and the claims to record. To post an event, add the technical profile as an orchestration step in a [user journey](userjourneys.md).
 
 When you use Application Insights, consider the following:
 
@@ -57,7 +59,7 @@ When you use Application Insights, consider the following:
 
 ## Create an Application Insights resource
 
-When you use Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key. For information, see [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource).
+When you use Application Insights with Azure AD B2C, all you need to do is create a resource and get the connection string. For information, see [Create an Application Insights resource](/previous-versions/azure/azure-monitor/app/create-new-resource).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Microsoft Entra ID tenant from the **Directories + subscriptions** menu.
@@ -67,9 +69,9 @@ When you use Application Insights with Azure AD B2C, all you need to do is creat
 1. For **Application Type**, select **ASP.NET web application**.
 1. For **Resource Group**, select an existing group or enter a name for a new group.
 1. Select **Create**.
-1. Open the new Application Insights resource, expand **Essentials**, and copy the instrumentation key.
+1. Open the new Application Insights resource, expand **Essentials**, and copy the connection string.
 
-![Screenshot that shows the Instrumentation Key on the Application Insights Overview tab.](./media/analytics-with-application-insights/app-insights.png)
+![Screenshot that shows the connection string on the Application Insights Overview tab.](./media/analytics-with-application-insights/app-insights.png)
 
 ## Define claims
 
@@ -122,7 +124,7 @@ Technical profiles can be considered functions in the custom policy. These funct
 
 | Technical profile | Task |
 | ----------------- | -----|
-| AppInsights-Common | The common technical profile with typical configuration. It includes the Application Insights instrumentation key, a collection of claims to record, and developer mode. The other technical profiles include the common technical profile and add more claims, such as the event name. |
+| AppInsights-Common | The common technical profile with typical configuration. It includes the Application Insights connection string, a collection of claims to record, and developer mode. The other technical profiles include the common technical profile and add more claims, such as the event name. |
 | AppInsights-SignInRequest | Records a **SignInRequest** event with a set of claims when a sign-in request has been received. |
 | AppInsights-UserSignUp | Records a **UserSignUp** event when the user triggers the sign-up option in a sign-up or sign-in journey. |
 | AppInsights-SignInComplete | Records a **SignInComplete** event upon successful authentication, when a token has been sent to the relying party application. |
@@ -137,8 +139,8 @@ Open the *TrustFrameworkExtensions.xml* file from the starter pack. Add the tech
       <DisplayName>Application Insights</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.Insights.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
-        <!-- The ApplicationInsights instrumentation key, which you use for logging the events -->
-        <Item Key="InstrumentationKey">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
+        <!-- The ApplicationInsights connection string, which you use for logging the events -->
+        <Item Key="ConnectionString">xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</Item>
         <Item Key="DeveloperMode">false</Item>
         <Item Key="DisableTelemetry ">false</Item>
       </Metadata>
@@ -181,7 +183,7 @@ Open the *TrustFrameworkExtensions.xml* file from the starter pack. Add the tech
 ```
 
 > [!IMPORTANT]
-> Change the instrumentation key in the `AppInsights-Common` technical profile to the GUID that your Application Insights resource provides.
+> Change the connection string in the `AppInsights-Common` technical profile to the GUID that your Application Insights resource provides.
 
 ## Add the technical profiles as orchestration steps
 

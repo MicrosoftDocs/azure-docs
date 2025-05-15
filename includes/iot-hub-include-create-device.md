@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: iot-hub
- author: kgremban
+ author: SoniaLopezBravo
  ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 12/20/2022
- ms.author: kgremban
+ ms.author: sonialopez
  ms.custom: include file
 ---
 <!-- put the ## header in the file that includes this file -->

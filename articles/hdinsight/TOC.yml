@@ -215,6 +215,8 @@ items:
           href: ./interactive-query/hive-migration-across-storage-accounts.md 
     - name: Manage
       items:
+      - name: Use Managed Identity for SQL Database authentication in Azure HDInsight
+        href: .//use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md
       - name: Manage clusters using the Apache Ambari web UI
         href: ./hdinsight-hadoop-manage-ambari.md
       - name: Disable auto logout from Ambari Web UI
@@ -435,6 +437,8 @@ items:
         href: ./spark/spark-best-practices.md
       - name: Configure Apache Spark settings
         href: ./spark/apache-spark-settings.md
+      - name: What is speculative execution in Spark?
+        href: ./spark/what-is-speculative-execution-in-spark.md  
       - name: Optimization
         items:
         - name: Optimize Apache Spark jobs
@@ -745,8 +749,6 @@ items:
           href: ./apache-kafka-spark-structured-streaming-cosmosdb.md
         - name: Apache Kafka and Apache Spark (DStream)
           href: ./hdinsight-apache-spark-with-kafka.md
-        - name: Use Apache Kafka with Azure Kubernetes Service
-          href: ./kafka/apache-kafka-azure-container-services.md
     - name: Manage
       items:
       - name: Use Apache Kafka in a virtual network

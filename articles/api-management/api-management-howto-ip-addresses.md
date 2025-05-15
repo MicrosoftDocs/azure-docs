@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/15/2024
 ms.author: danlep
 ms.custom: fasttrack-edit
@@ -133,7 +133,7 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * The service subscription is disabled or warned (for example, for nonpayment) and then reinstated. [Learn more about subscription states](/azure/cost-management-billing/manage/subscription-states)
 * (Developer and Premium tiers) Azure Virtual Network is added to or removed from the service.
 * (Developer and Premium tiers) API Management service is switched between external and internal VNet deployment mode.
-* (Developer and Premium tiers) API Management service is moved to a different subnet, [migrated](migrate-stv1-to-stv2.md) from the `stv1` to the `stv2` compute platform, or configured with a different public IP address resource.
+* (Developer and Premium tiers) API Management service is moved to a different subnet or configured with a different public IP address resource.
 * (Premium tier) [Availability zones](../reliability/migrate-api-mgt.md) are enabled, added, or removed.
 * (Premium tier) In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
     

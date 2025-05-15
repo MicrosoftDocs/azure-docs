@@ -4,101 +4,100 @@ description: This article describes how to use SendGrid with Apache Ambari for e
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.date: 06/15/2024
-
-#Customer intent: As a HDInsight user, I want to configure Apache Ambari to send email notifications.
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: sairamyeturi
+#Customer intent: As an Azure HDInsight user, I want to configure Apache Ambari to send email notifications.
 ---
 
 # Tutorial: Configure Apache Ambari email notifications in Azure HDInsight
 
-In this tutorial, you'll configure Apache Ambari email notifications using SendGrid as an example. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) simplifies the management and monitoring of an HDInsight cluster by providing an easy to use web UI and REST API. Ambari is included on HDInsight clusters, and is used to monitor the cluster and make configuration changes. [SendGrid](https://sendgrid.com/solutions/) is a free cloud-based email service that provides reliable transactional email delivery, scalability, and real-time analytics along with flexible APIs that make custom integration easy. Azure customers can unlock 25,000 free emails each month.
+In this tutorial, you configure Apache Ambari email notifications by using SendGrid as an example. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md) simplifies the management and monitoring of an Azure HDInsight cluster by providing an easy-to-use web UI and REST API. Ambari is included on HDInsight clusters and is used to monitor the cluster and make configuration changes. [SendGrid](https://sendgrid.com/solutions/) is a free cloud-based email service that provides reliable transactional email delivery, scalability, and real-time analytics along with flexible APIs that make custom integration easy. Azure customers can unlock 25,000 free emails each month.
 
 > [!NOTE]
-> SendGrid is not mandatory to configure Apache Ambari email notifications. You can also use other third party email box. For example, outlook, gmail and so on.
+> SendGrid isn't mandatory to configure Ambari email notifications. You can also use other third-party email apps, like Outlook and Gmail.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Obtain Sendgrid Username
-> * Configure Apache Ambari email notifications
+> * Obtain a SendGrid username.
+> * Configure Ambari email notifications.
 
 ## Prerequisites
 
-* A SendGrid email account. See [How to Send Email Using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) for instructions.
-
-* An HDInsight cluster. See [Create Apache Hadoop clusters using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
+* A SendGrid email account. See [How to send email by using SendGrid with Azure](https://docs.sendgrid.com/for-developers/partners/microsoft-azure-2021#create-a-twilio-sendgrid-accountcreate-a-twilio-sendgrid-account) for instructions.
+* An HDInsight cluster. See [Create Apache Hadoop clusters by using the Azure portal](./hdinsight-hadoop-create-linux-clusters-portal.md).
 
 > [!NOTE]
-> Users can no longer set passwords for their SendGrid account, so we need use apikey to send email.
+> Users can no longer set passwords for their SendGrid accounts. You need to use an API key to send email.
 
-## Obtain SendGrid apikey
+## Obtain a SendGrid API key
 
-1. From the [Azure portal](https://portal.azure.com), navigate to your SendGrid resource.
+1. In the [Azure portal](https://portal.azure.com), go to your SendGrid resource.
 
-1. From the Overview page, click **Open SaaS Account on publisher’s site**, to go the SendGrid webpage for your account.
+1. On the **Overview** page, select **Open SaaS Account on publisher’s site** to go to the SendGrid webpage for your account.
 
-    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in Azure portal.":::
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="Screenshot that shows a SendGrid overview in the Azure portal.":::
 
-1. From the left menu, navigate to your **Settings** and then **API Keys**.
+1. On the left menu, go to **Settings** and then select **API Keys**.
 
-    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="SendGrid dashboard navigation.":::
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="Screenshot that shows SendGrid dashboard navigation.":::
 
-1. Click **Create API Key** to create an apikey and copy the apikey as smtp password in later use.
+1. Select **Create API Key** to create an API key. Copy the API key as an SMTP password to use later.
 
-    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="SendGrid account details.":::
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="Screenshot that shows SendGrid account details.":::
 
 ## Configure Ambari e-mail notification
 
-1. From a web browser, navigate to `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`, where `CLUSTERNAME` is the name of your cluster.
+1. Use a web browser to go to `https://CLUSTERNAME.azurehdinsight.net/#/main/alerts`, where `CLUSTERNAME` is the name of your cluster.
 
-1. From the **Actions** drop-down list, select **Manage Notifications**.
+1. In the **Actions** dropdown list, select **Manage Notifications**.
 
-1. From the **Manage Alert Notifications** window, select the **+** icon.
+1. On the **Manage Alert Notifications** pane, select the **+** icon.
 
-    :::image type="content" source="./media/apache-ambari-email/azure-portal-create-notification.png" alt-text="Screenshot shows the Manage Alert Notifications dialog box.":::
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-create-notification.png" alt-text="Screenshot that shows the Manage Alert Notifications dialog box.":::
 
-1. From the **Create Alert Notification** dialog, provide the following information:
+1. In the **Create Alert Notification** dialog, provide the following information:
 
     |Property |Description |
     |---|---|
-    |Name|Provide a name for the notification.|
-    |Groups|Configure as desired.|
-    |Severity|Configure as desired.|
-    |Description|Optional.|
-    |Method|Leave at **EMAIL**.|
-    |Email To|Provide e-mail(s) to receive notifications, separated by a comma.|
-    |SMTP Server|`smtp.sendgrid.net`|
-    |SMTP Port|25 or 587 (for unencrypted/TLS connections).|
-    |Email From|Provide an email address. The address doesn't need to be authentic.|
-    |Use authentication|Select this check box.|
-    |Username|Use "apikey" directly if using SendGrid|
-    |Password|Provide the password you copied when you created the SendGrid apikey in Azure.|
-    |Password Confirmation|Reenter password.|
-    |Start TLS|Select this check box|
+    |**Name**|Provide a name for the notification.|
+    |**Groups**|Configure as desired.|
+    |**Severity**|Configure as desired.|
+    |**Description**|Optional.|
+    |**Method**|Leave as **EMAIL**.|
+    |**Email To**|Provide emails to receive notifications, separated by a comma.|
+    |**SMTP Server**|`smtp.sendgrid.net`|
+    |**SMTP Port**|Use 25 or 587, for unencrypted/Transport Layer Security (TLS) connections.|
+    |**Email From**|Provide an email address. The address doesn't need to be authentic.|
+    |**Use authentication**|Select this checkbox.|
+    |**Username**|Use `apikey` directly if you use SendGrid.|
+    |**Password**|Provide the password that you copied when you created the SendGrid API key in Azure.|
+    |**Password Confirmation**|Reenter password.|
+    |**Start TLS**|Select this checkbox.|
 
-    :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="Screenshot shows the Create Alert Notification dialog box.":::
+    :::image type="content" source="./media/apache-ambari-email/ambari-create-alert-notification.png" alt-text="Screenshot that shows the Create Alert Notification dialog.":::
 
-    Select **Save**. You'll return to the **Manage Alert Notifications** window.
+1. Select **Save** to return to the **Manage Alert Notifications** pane.
 
-1. From the **Manage Alert Notifications** window, select **Close**.
+1. On the **Manage Alert Notifications** pane, select **Close**.
 
 ## FAQ
 
-### No appropriate protocol error if the TLS checkbox is checked
+This section describes a problem that you might encounter.
 
-If you select **Start TLS** from the **Create Alert Notification** page, and you receive a *"No appropriate protocol"* exception in the Ambari server log:
+### No appropriate protocol error if the Start TLS checkbox is selected
 
-1. Go to the Apache Ambari UI.
-2. Go to **Alerts > ManageNotifications > Edit (Edit Notification)**.
-3. Select **Add Property**.
-4. Add the new property, `mail.smtp.ssl.protocols` with a value of `TLSv1.2`.
+If you select the **Start TLS** checkbox in the **Create Alert Notification** dialog and you receive a `No appropriate protocol` exception in the Ambari server log:
 
+1. Go to the Ambari UI.
+1. Go to **Alerts** > **ManageNotifications** > **Edit (Edit Notification)**.
+1. Select **Add Property**.
+1. Add the new property **mail.smtp.ssl.protocols** with a value of **TLSv1.2**.
 
+## Related content
 
+In this tutorial, you learned how to configure Ambari email notifications by using SendGrid. To learn more about Ambari, see the following articles:
 
-## Next steps
-
-In this tutorial, you learned how to configure Apache Ambari email notifications using SendGrid. Use the following to learn more about Apache Ambari:
-
-* [Manage HDInsight clusters by using the Apache Ambari Web UI](./hdinsight-hadoop-manage-ambari.md)
-
+* [Manage HDInsight clusters by using the Apache Ambari web UI](./hdinsight-hadoop-manage-ambari.md)
 * [Create an alert notification](https://docs.cloudera.com/HDPDocuments/Ambari-latest/managing-and-monitoring-ambari/content/amb_create_an_alert_notification.html)

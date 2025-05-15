@@ -1,5 +1,6 @@
 ---
 title: What is a network security perimeter?
+titleSuffix: Azure Private Link
 description: Learn about the components of network security perimeter, a feature that allows Azure PaaS resources to communicate within an explicit trusted boundary, or perimeter.
 author: mbender-ms
 ms.author: mbender
@@ -22,8 +23,6 @@ Features of a network security perimeter include:
 - External public access management with explicit rules for PaaS resources associated with the perimeter.
 - Access logs for audit and compliance.
 - Unified experience across PaaS resources.
-
-
 
 :::image type="content" source="media/network-security-perimeter-concepts/network-security-perimeter-overview.png" alt-text="Diagram of securing a service with network security perimeter." lightbox="media/network-security-perimeter-concepts/network-security-perimeter-overview-large.png":::
 
@@ -75,7 +74,7 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 - Enable access rules to grant access outside the secure perimeter.
 - Manage access rules for all the PaaS resources within the network security perimeter in a single pane of glass.
 - Enable diagnostic settings to generate access logs of PaaS resources within the perimeter for Audit and Compliance.
-- Allow private endpoint traffic without other access rules.
+- Allow private endpoint traffic without the need for explicit access rules.
 
 
 ## How does a network security perimeter work?
@@ -94,21 +93,32 @@ A network security perimeter-aware private link resource is a PaaS resource that
 | [Azure Monitor](/azure/azure-monitor/essentials/network-security-perimeter)             | Microsoft.Insights/dataCollectionEndpoints</br>Microsoft.Insights/ScheduledQueryRules</br>Microsoft.Insights/actionGroups</br>Microsoft.OperationalInsights/workspaces | Log Analytics Workspace, Application Insights, Alerts, Notification Service |
 | [Azure AI Search](/azure/search/search-security-network-security-perimiter)          | Microsoft.Search/searchServices | - |
 | [Cosmos DB](/azure/cosmos-db/how-to-configure-nsp)                | Microsoft.DocumentDB/databaseAccounts | - |
-| Event Hubs                | Microsoft.EventHub/namespaces | - |
+| [Event Hubs](/azure/event-hubs/network-security-perimeter)                | Microsoft.EventHub/namespaces | - |
 | [Key Vault](/azure/key-vault/general/network-security#network-security-perimeter-preview)                 | Microsoft.KeyVault/vaults | - |
 | [SQL DB](/azure/azure-sql/database/network-security-perimeter)                    | Microsoft.Sql/servers | - |
 | [Storage](/azure/storage/common/storage-network-security#network-secuirty-perimeter-preview)               | Microsoft.Storage/storageAccounts | - |
 
 > [!NOTE]
-> 
+> Refer to the respective private link resource documentation for information on currently unsupported scenarios.
+
+## Supported access rules' types
+
+Network security perimeter supports the following access rule types:
+
+| Direction | Access rule type | 
+|---------------------------|---------------|
+| Inbound | Subscription based rules |
+| Inbound | IP based rules (check respective onboarded private link resources for v6 support)| 
+| Outbound | FQDN based rules |
+
 ## Limitations of a network security perimeter
 
-### Regional limitations
+### Logging limitations
 
-Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions. Currently, those regions are **East US**, **East US 2**, **North Central US**, **South Central US**, **West US**, and **West US 2**.
+Network security perimeter is currently available in all Azure public cloud regions. However, while enabling access logs for network security perimeter, the Log Analytics workspace to be associated with the network security perimeter needs to be located in one of the Azure Monitor supported regions.
 
 > [!NOTE]
-> For PaaS resource logs, use **Storage and Event Hub** as the log destination for any region associated to the same perimeter.
+> For PaaS resource logs, use **Log Analytics Workspace, Storage or Event Hub** as the log destination associated to the same perimeter as the PaaS resource.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 

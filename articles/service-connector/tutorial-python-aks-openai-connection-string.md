@@ -9,12 +9,12 @@ ms.service: service-connector
 ms.custom: devx-track-python, build-2024, devx-track-azurecli
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 01/29/2025
 ---
 
-# Tutorial: Connect to Azure OpenAI Service in AKS using a connection string (preview)
+# Tutorial: Connect to Azure OpenAI Service in AKS using a connection string
 
-In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster, which talks to Azure OpenAI Service using a connection string. You complete the following tasks:
+In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) cluster that communicates with Azure OpenAI Service using a connection string. You complete the following tasks:
 
 > [!div class="checklist"]
 >
@@ -109,7 +109,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --anonymous-pull-enabled
     ```
 
-## Create a service connection in AKS with Service Connector (preview)
+## Create a service connection in AKS with Service Connector
 
 Create a service connection between an AKS cluster and Azure OpenAI Service in the Azure portal or the Azure CLI.
 
@@ -138,16 +138,23 @@ Once the connection has been created, you can view its details in the **Service 
 
 ## [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI command to create a service connection to the Azure OpenAI service, providing the following information:
-
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure OpenAI service.
-* **OpenAI service name:** the Azure OpenAI service that is connected.
+Create a service connection to the Azure OpenAI service in AKS by running the [az aks connection create cognitiveservices](/cli/azure/aks/connection/create#az-aks-connection-create-cognitiveservices) command in the Azure CLI. 
 
 ```azurecli
 az aks connection create cognitiveservices --secret
+```
 
+When using the above command, Service Connector prompts you to specify the AKS resource group, AKS cluster name, target service resource group, and cognitive service account name step by step.
+
+Alternatively, you can provide the complete command directly:
+
+```azurecli
+az aks connection create cognitiveservices \
+   --secret \
+   --resource-group <aks-cluster-resource-group> \
+   --name <aks-cluster-name> \
+   --target-resource-group <target-cognitive-services-resource-group> \
+   --account <target-cognitive-services-account>
 ```
 
 ---
@@ -216,12 +223,8 @@ az group delete \
     --resource-group MyResourceGroup
 ```
 
-## Next steps
+## Related content
 
-Read the following articles to learn more about Service Connector concepts and how it helps AKS connect to Azure services.
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
-
-> [!div class="nextstepaction"]
-> [Use Service Connector to connect an AKS cluster to other cloud services](./how-to-use-service-connector-in-aks.md)
+* [Connect to Azure OpenAI Service](./how-to-integrate-openai.md)
+* [Connect to Azure OpenAI Service in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
+* [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)

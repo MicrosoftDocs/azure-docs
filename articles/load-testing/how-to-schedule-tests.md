@@ -12,16 +12,12 @@ ms.topic: how-to
 
 # Define schedules on load tests
 
-In this article, you learn how to schedule load tests with Azure Load Testing. Scheduling tests allows you to run tests at a later time or run at a regular cadence. Azure Load Testing supports adding one schedule to a test. You can add a schedule to a test after creating it.
+In this article, you learn how to schedule load tests with Azure Load Testing. Scheduling tests allows you to run tests at a later time or run at a regular cadence. Azure Load Testing supports adding multiple schedules to a test. You can add a schedule to a test after creating it.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - An Azure load testing resource and test. If you need to create an Azure Load Testing resource and test, see the quickstart [Create and run a load test](./quickstart-create-and-run-load-test.md).
-
-> [!IMPORTANT]
-> Scheduling tests in Azure Load Testing is currently in limited preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Sign up [here](https://aka.ms/alt/test-scheduling-signup) to onboard your Azure subscription for the preview. 
 
 ## Add a schedule to a test
 
@@ -78,11 +74,11 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
 6. Select **Add** to add the schedule to the test.
 
 > [!NOTE]
-> If a scheduled test run is in progress when the next scheduled run is due, the next run is skipped. The next run will be scheduled for the next recurrence time.
+> If a scheduled test run is in progress when the next scheduled run is due, the next run is skipped. The next run will be scheduled for the next recurrence time. This happens only for test runs that overlap within a schedule. Overlapping test runs across multiple schedules are not skipped.
 
 ## View schedules
 
-You can view the schedule in the Schedule pane of the test. The schedule shows the next run time and the status of the schedule. You can have only one schedule in an active, paused, or disabled state. You can add another schedule after the current schedule is completed or deleted.
+You can view the schedule in the Schedule pane of the test. The schedule shows the next run time and the status of the schedule. You can have up to 50 schedules in an active, paused, or disabled state for a test. 
 
 You can view the trigger for a test run in the **Test runs** grid of the test. The trigger shows as Scheduled for a scheduled test run. You can filter the test runs grid to view only the scheduled test runs.
 

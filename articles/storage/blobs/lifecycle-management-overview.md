@@ -5,9 +5,9 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 11/25/2024
+ms.date: 02/10/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -73,6 +73,20 @@ Each rule within the policy has several parameters, described in the following t
 | `type` | An enum value | The current valid type is `Lifecycle`. | True |
 | `definition` | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
+## Lifecycle policy characteristics
+
+When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
+
+An active policy processes objects periodically, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
+
+The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads.  To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+Learn more about [Lifecycle Management Performance Characteristics](lifecycle-management-performance-characteristics.md).
+
+To view default scale limits, see the following articles:
+
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
+- [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
 ## Lifecycle management rule definition
 
 Each rule definition within a policy includes a filter set and an action set. The [filter set](#rule-filters) limits rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
@@ -183,21 +197,7 @@ The run conditions are based on age. Current versions use the last modified time
 
 <sup>1</sup> If [last access time tracking](#move-data-based-on-last-accessed-time) is not enabled, **daysAfterLastAccessTimeGreaterThan** uses the date the lifecycle policy was enabled instead of the `LastAccessTime` property of the blob. This date is also used when the `LastAccessTime` property is a null value. For more information about using last access time tracking, see [Move data based on last accessed time](#move-data-based-on-last-accessed-time).
 
-## Lifecycle policy runs
-
-When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
-
-An active policy processes objects continuously, and is interrupted if changes are made to the policy. If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
-
-The time required for a run to complete depends on the number of blobs evaluated and operated on. The latency with which a blob is evaluated and operated on may be longer if the request rate for the storage account approaches the storage account limit. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second, and as that limit approaches, priority is given to requests made by workloads. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
-
-To view default scale limits, see the following articles:
-
-- [Scalability and performance targets for Blob storage](scalability-targets.md)
-- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
-- [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
-
-### Lifecycle policy completed event
+## Lifecycle policy completed event
 The `LifecyclePolicyCompleted` event is generated when the actions defined by a lifecycle management policy are performed. A summary section appears for each action that is included in the policy definition. The following json shows an example `LifecyclePolicyCompleted` event for a policy. Because the policy definition includes the `delete`, `tierToCool`, `tierToCold`, and `tierToArchive` actions, a summary section appears for each one. 
 
 
@@ -282,7 +282,7 @@ This example shows how to transition block blobs prefixed with `sample-container
 
 You can enable last access time tracking to keep a record of when your blob is last read or written and as a filter to manage tiering and retention of your blob data. To learn how to enable last access time tracking, see [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
 
-When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. A [Get Blob](/rest/api/storageservices/get-blob) operation is considered an access operation. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
+When last access time tracking is enabled, the blob property called `LastAccessTime` is updated when a blob is read or written. [Get Blob](/rest/api/storageservices/get-blob) and [Put Blob](/rest/api/storageservices/put-blob) operations are considered access operations. [Get Blob Properties](/rest/api/storageservices/get-blob-properties), [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata), and [Get Blob Tags](/rest/api/storageservices/get-blob-tags) aren't access operations, and therefore don't update the last access time. 
 
 If last access time tracking is enabled, lifecycle management uses `LastAccessTime` to determine whether the run condition **daysAfterLastAccessTimeGreaterThan** is met. Lifecycle management uses the date the lifecycle policy was enabled instead of `LastAccessTime` in the following cases:
 
@@ -476,7 +476,7 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
 
-- A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
+- A lifecycle management policy can't be used to change the tier of a blob that uses an encryption scope to the archive tier.
 
 - The delete action of a lifecycle management policy won't work with any blob in an immutable container. With an immutable policy, objects can be created and read, but not modified or deleted. For more information, see [Store business-critical blob data with immutable storage](./immutable-storage-overview.md).
 

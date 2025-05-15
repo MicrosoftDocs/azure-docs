@@ -3,7 +3,7 @@ title: Understand IoT Plug and Play digital twins
 description: Understand how IoT Plug and Play uses digital twins
 author: dominicbetts
 ms.author: dobett
-ms.date: 1/23/2024
+ms.date: 03/18/2025
 ms.topic: conceptual
 ms.service: azure-iot
 ---
@@ -15,7 +15,7 @@ An IoT Plug and Play device implements a model described by the [Digital Twins D
 > [!NOTE]
 > DTDL isn't exclusive to IoT Plug and Play. Other IoT services, such as [Azure Digital Twins](../digital-twins/overview.md), use it to represent entire environments such as buildings and energy networks.
 
-The Azure IoT service SDKs include APIs that let a service interact a device's digital twin. For example, a service can read device properties from the digital twin or use the digital twin to call a command on a device. To learn more, see [IoT Hub digital twin examples](concepts-developer-guide-service.md#iot-hub-digital-twin-examples).
+The Azure IoT service SDKs include APIs that let a service interact with a device's digital twin. For example, a service can read device properties from the digital twin or use the digital twin to call a command on a device. To learn more, see [IoT Hub digital twin examples](concepts-developer-guide-service.md#iot-hub-digital-twin-examples).
 
 The example IoT Plug and Play device in this article implements a [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) that has [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) components.
 
@@ -226,12 +226,12 @@ In this example, `3.0` is the current value of the `fanSpeed` property reported 
 
 Components let you build a model interface as an assembly of other interfaces. For example, the [Thermostat](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/Thermostat.json) interface can be incorporated as components `thermostat1` and  `thermostat2` in the [Temperature Controller model](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) model.
 
-In a device twin, a component is identified by the `{ "__t": "c"}` marker. In a digital twin, the presence of `$metadata` marks a component.
+In a device twin, the `{ "__t": "c"}` marker identifies a component. In a digital twin, the presence of `$metadata` marks a component.
 
 In this example, `thermostat1` is a component with two properties:
 
 - `maxTempSinceLastReboot` is a read-only property.
-- `targetTemperature` is a writable property that's been successfully synchronized by the device. The desired value and synchronization state of these properties are in the component's `$metadata`.
+- `targetTemperature` is a writable property that was successfully synchronized by the device. The desired value and synchronization state of these properties are in the component's `$metadata`.
 
 The following snippets show the side-by-side JSON representation of the `thermostat1` component:
 
@@ -297,7 +297,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations more managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through one of the [service SDKs](concepts-developer-guide-service.md#service-sdks).
+The digital twin APIs include **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** operations for managing a digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through one of the [service SDKs](concepts-developer-guide-service.md#service-sdks).
 
 ## Digital twin change events
 
@@ -305,7 +305,7 @@ When digital twin change events are enabled, an event is triggered whenever the 
 
 To learn how to enable routing for device and digital twin events, see [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events). To understand the message format, see [Create and read IoT Hub messages](../iot-hub/iot-hub-devguide-messages-construct.md).
 
-For example, the following digital twin change event is triggered when `targetTemperature` is set by the solution:
+For example, the following digital twin change event is triggered when the solution sets a `targetTemperature` value:
 
 ```json
 iothub-connection-device-id:sample-device
@@ -326,7 +326,7 @@ content-encoding:utf-8
 ]
 ```
 
-The following digital twin change event is triggered when the device reports that the above desired change was applied:
+The following digital twin change event is triggered when the device reports that the previous desired change was applied:
 
 ```json
 iothub-connection-device-id:sample-device
@@ -366,12 +366,3 @@ content-encoding:utf-8
 
 > [!NOTE]
 > Twin change notification messages are doubled when turned on in both device and digital twin change notification.
-
-## Next steps
-
-Now that you've learned about digital twins, here are some more resources:
-
-- [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
-- [Interact with a device from your solution](./tutorial-service.md)
-- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
-- [Azure IoT explorer](../iot/howto-use-iot-explorer.md)

@@ -46,7 +46,7 @@ If the region supports availability zones, the instance metadata is automaticall
 
 ### Prerequisites
 
-- To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions supports availability zones, see the [list of supported regions](availability-zones-region-support.md).
+- To deploy with availability zone support, you must choose a region that supports availability zones. To see which regions supports availability zones, see the [list of supported regions](regions-list.md).
 
 - (Optional) If your target storage account doesn't support availability zones, and you would like to migrate the account to AZ support, see [Migrate Azure Storage accounts to availability zone support](migrate-storage.md).
 

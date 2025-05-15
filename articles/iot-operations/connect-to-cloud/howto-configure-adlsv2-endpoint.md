@@ -1,62 +1,63 @@
 ---
-title: Configure dataflow endpoints for Azure Data Lake Storage Gen2
-description: Learn how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations.
+title: Configure data flow endpoints for Azure Data Lake Storage Gen2
+description: Learn how to configure data flow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 04/01/2025
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
+#CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
 ---
 
-# Configure dataflow endpoints for Azure Data Lake Storage Gen2
+# Configure data flow endpoints for Azure Data Lake Storage Gen2
 
 [!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
-To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
+Send data to Azure Data Lake Storage Gen2 in Azure IoT Operations by configuring a data flow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
-- A pre-created storage container in the storage account
+- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+- An [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md).
+- A storage container that is already created in the storage account.
 
 ## Assign permission to managed identity
 
-To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+To configure a data flow endpoint for Azure Data Lake Storage Gen2, use either a user-assigned or system-assigned managed identity. This approach is secure and removes the need to manage credentials manually.
 
 After the Azure Data Lake Storage Gen2 is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account.
 
-If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
+If you're using a system-assigned managed identity, in the Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
 Then, go to the Azure Storage account > **Access control (IAM)** > **Add role assignment**.
 
-1. On the **Role** tab select an appropriate role like `Storage Blob Data Contributor`. This gives the managed identity the necessary permissions to write to the Azure Storage blob containers. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
+1. On the **Role** tab, select an appropriate role, such as `Storage Blob Data Contributor`. This gives the managed identity the necessary permissions to write to the Azure Storage blob containers. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 1. On the **Members** tab:
-    1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
-    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+    1. If you're using a system-assigned managed identity, for **Assign access to**, select **User, group, or service principal**, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
+    1. If you're using a user-assigned managed identity, for **Assign access to**, select **Managed identity**, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
-## Create dataflow endpoint for Azure Data Lake Storage Gen2
+## Create data flow endpoint for Azure Data Lake Storage Gen2
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
+1. In the IoT Operations portal, select the **Data flow endpoints** tab.
+1. Under **Create new data flow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
 
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience to create a new ADLS V2 dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience to create a new ADLS V2 data flow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
     | Setting               | Description                                                                                       |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint.                                                              |
+    | Name                  | The name of the data flow endpoint.                                                              |
     | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
     | Authentication method | The method used for authentication. We recommend that you choose [*System assigned managed identity*](#system-assigned-managed-identity) or [*User assigned managed identity*](#user-assigned-managed-identity). |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Synced secret name | The reference name for the secret in the data flow endpoint settings and Kubernetes cluster. Required if using *Access token*. |
     | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
 
 1. Select **Apply** to provision the endpoint.
@@ -136,9 +137,9 @@ Follow the steps in the [access token](#access-token) section to get a SAS token
 
 Then, create the *DataflowEndpoint* resource and specify the access token authentication method. Here, replace `<SAS_SECRET_NAME>` with name of the secret containing the SAS token and other placeholder values.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-See the [access token](#access-token) section for steps to create a secret in the operations experience portal.
+See the [access token](#access-token) section for steps to create a secret in the operations experience web UI.
 
 # [Bicep](#tab/bicep)
 
@@ -218,7 +219,7 @@ The following authentication methods are available for Azure Data Lake Storage G
 
 ### System-assigned managed identity
 
-Before you configure the dataflow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account:
+Before you configure the data flow endpoint, assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account:
 
 1. In Azure portal, go to your Azure IoT Operations instance and select **Overview**.
 1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*.
@@ -226,11 +227,11 @@ Before you configure the dataflow endpoint, assign a role to the Azure IoT Opera
 1. On the **Role** tab select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the Azure IoT Operations managed identity. For example, *azure-iot-operations-xxxx7*.
 
-Then, configure the dataflow endpoint with system-assigned managed identity settings.
+Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -258,7 +259,7 @@ dataLakeStorageSettings:
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -291,17 +292,17 @@ dataLakeStorageSettings:
 
 To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-Before you configure the dataflow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the storage account:
+Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the storage account:
 
 1. In Azure portal, go to the cloud resource you need to grant permissions. For example, go to the Azure Storage account > **Access control (IAM)** > **Add role assignment**.
 1. On the **Role** tab select an appropriate role.
 1. On the **Members** tab, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your user-assigned managed identity.
 
-Then, configure the dataflow endpoint with user-assigned managed identity settings.
+Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -350,16 +351,16 @@ Get a [SAS token](../../storage/common/storage-sas-overview.md) for an Azure Dat
 | Allowed resource types | Object, Container           |
 | Allowed permissions    | Read, Write, Delete, List, Create |
 
-To enhance security and follow the principle of least privilege, you can generate a SAS token for a specific container. To prevent authentication errors, ensure that the container specified in the SAS token matches the dataflow destination setting in the configuration.
+To enhance security and follow the principle of least privilege, you can generate a SAS token for a specific container. To prevent authentication errors, ensure that the container specified in the SAS token matches the data flow destination setting in the configuration.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience portal to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
-In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
+In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
 
-Here, under **Synced secret name**, enter a name for the secret. This name is used to reference the secret in the dataflow endpoint settings and is the name of the secret as stored in the Kubernetes cluster.
+Here, under **Synced secret name**, enter a name for the secret. This name is used to reference the secret in the data flow endpoint settings and is the name of the secret as stored in the Kubernetes cluster.
 
 Then, under **Access token secret name**, select **Add reference** to add the secret from Azure Key Vault. On the next page, select the secret from Azure Key Vault with **Add from Azure Key Vault** or **Create new** secret.
 
@@ -419,9 +420,9 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
-In the operations experience, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
 :::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations experience to set ADLS V2 advanced settings.":::
 
@@ -449,5 +450,5 @@ dataLakeStorageSettings:
 
 ## Next steps
 
-- To learn more about dataflows, see [Create a dataflow](howto-create-dataflow.md).
-- To see a tutorial on how to use a dataflow to send data to Azure Data Lake Storage Gen2, see [Tutorial: Send data to Azure Data Lake Storage Gen2](./tutorial-opc-ua-to-data-lake.md).
+- To learn more about data flows, see [Create a data flow](howto-create-dataflow.md).
+- To see a tutorial on how to use a data flow to send data to Azure Data Lake Storage Gen2, see [Tutorial: Send data to Azure Data Lake Storage Gen2](./tutorial-opc-ua-to-data-lake.md).
