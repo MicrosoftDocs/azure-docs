@@ -116,7 +116,7 @@ To import an App Service certificate, first [buy and configure an App Service ce
 1. On the left pane of your app, select **Certificates** > **Bring your own certificates (.pfx)** > **Add certificate**.
 
 1. Under **Source**, select **Import App Service Certificate**.
-1. Under **App Service certificate**, select the certificate you created.
+1. Under **App Service certificate**, select the certificate that you created.
 1. Under **Certificate friendly name**, give the certificate a name in your app.
 1. Select **Validate**. When validation succeeds, select **Add**.
 

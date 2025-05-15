@@ -46,9 +46,9 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 1. In **TLS/SSL type**, select either **SNI SSL** or **IP based SSL**:
 
     - [SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication): You can add multiple Server Name Indication (SNI) Secure Sockets Layer (SSL) bindings. This option allows multiple Transport Layer Security (TLS)/SSL certificates to help secure multiple domains on the same IP address. Most modern browsers (including Microsoft Edge, Chrome, Firefox, and Opera) support SNI. (For more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication).)
-    - **IP based SSL**: You can add only one IP SSL binding. This option allows only one TLS/SSL certificate to help secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap records for IP-based SSL](#remap-records-for-ip-based-ssl).<br/>IP-based SSL is supported only in the Standard tier or higher.
+    - **IP based SSL**: You can add only one IP SSL binding. This option allows only one TLS/SSL certificate to help secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap records for IP-based SSL](#remap-records-for-ip-based-ssl). IP-based SSL is supported only in the Standard tier or higher.
 
-1. When you add a new certificate, validate the new certificate by selecting **Validate**.
+1. When you add a new certificate, select **Validate** to validate the new certificate.
 
 1. Select **Add**.
 
@@ -86,7 +86,7 @@ If your app gives you certificate validation errors, you're probably using a sel
 
 #### How do I make sure that the app's IP address doesn't change when I make changes to the certificate binding?
 
-Your inbound IP address can change when you delete a binding, even if that binding is IP SSL. This behavior is especially important when you renew a certificate that's already in an IP SSL binding. To avoid a change in your app's IP address, follow these steps, in order:
+Your inbound IP address can change when you delete a binding, even if that binding is IP SSL. This behavior is especially important when you renew a certificate that's already in an IP SSL binding. To avoid a change in your app's IP address, follow these steps:
 
 1. Upload the new certificate.
 1. Bind the new certificate to the custom domain that you want without deleting the old one. This action replaces the binding instead of removing the old one.

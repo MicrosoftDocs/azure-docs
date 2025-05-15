@@ -13,7 +13,7 @@ author: msangapu-msft
 
 # Buy and manage App Service certificates
 
-This article shows how to create an Azure App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. After you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that Azure manages. It combines the simplicity of automated certificate management and the flexibility of renewal and export options.
+This article shows you how to create an Azure App Service certificate and perform management tasks like renewing, synchronizing, and deleting certificates. After you have an App Service certificate, you can then import it into an App Service app. An App Service certificate is a private certificate that Azure manages. It combines the simplicity of automated certificate management and the flexibility of renewal and export options.
 
 If you purchase an App Service certificate from Azure, Azure manages the following tasks:
 
@@ -53,7 +53,7 @@ Currently, App Service certificates aren't supported in Azure national clouds.
    | **Certificate name** | The friendly name for your App Service certificate. |
    | **Enable auto renewal** | Select whether to automatically renew the certificate before expiration. Each renewal extends the certificate expiration by one year. The cost is charged to your subscription. |
 
-1. When deployment is finished, select **Go to resource**.
+1. After the deployment is finished, select **Go to resource**.
 
 #### Store the certificate in Azure Key Vault
 
@@ -63,7 +63,7 @@ Currently, App Service certificates aren't supported in Azure national clouds.
 
     :::image type="content" source="media/configure-ssl-certificate/configure-key-vault.png" alt-text="Screenshot that shows the Certificate Configuration pane with Step 1: Store selected.":::
 
-1. On the **Key Vault Status** page, select **Select from Key Vault**.
+1. On the **Key Vault Status** page, choose **Select from Key Vault**.
 
 1. If you create a new vault, set up the vault based on the following table. Make sure to use the same subscription and resource group as your App Service app.
 
@@ -206,7 +206,7 @@ Set-Content -Path appservicecertificate.pfx -Value $CertBytes -AsByteStream
 
 ---
 
-The downloaded .pfx file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as-is into App Service](configure-ssl-certificate.md#upload-a-private-certificate) because the file isn't [password protected](configure-ssl-certificate.md#private-certificate-requirements).
+The downloaded .pfx file is a raw PKCS12 file that contains both the public and private certificates and has an import password that's an empty string. You can locally install the file by leaving the password field empty. You can't [upload the file as it is into App Service](configure-ssl-certificate.md#upload-a-private-certificate) because the file isn't [password protected](configure-ssl-certificate.md#private-certificate-requirements).
 
 ## Use Azure Advisor for App Service certificates
 
@@ -220,7 +220,7 @@ To view Advisor recommendations for the App Service certificate:
 
 1. On the left pane, select **Recommendations** > **Reliability**.
 
-1. Select the filter option **Type equals** and search for **App Service Certificates** from the dropdown list. If the value doesn't exist on the dropdown menu, that means no recommendation was generated for your App Service certificate resources because none of them requires domain ownership verification.
+1. Select the filter option **Type equals** and search for **App Service Certificates** in the dropdown list. If the value doesn't exist in the dropdown list, that means no recommendation was generated for your App Service certificate resources because none of them requires domain ownership verification.
 
 ### Create Advisor alerts
 
