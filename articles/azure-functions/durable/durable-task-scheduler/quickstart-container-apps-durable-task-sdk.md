@@ -3,7 +3,7 @@ title: "Quickstart: Host a Durable Task SDK app on Azure Container Apps (preview
 description: Learn how to configure an existing container app for the Durable Task Scheduler using the Durable Task SDKs and deploy using Azure Developer CLI.
 ms.subservice: durable-task-scheduler
 ms.topic: quickstart
-ms.date: 05/06/2025
+ms.date: 05/15/2025
 zone_pivot_groups: df-languages
 ---
 
@@ -179,6 +179,10 @@ In the Azure portal, verify the orchestrations are running successfully.
 
 1. Select **Monitoring** > **Log stream**.
 
+::: zone-end
+
+::: zone pivot="csharp,python"
+
 1. Confirm the client container is logging the function chaining tasks.
 
    :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/client-app-log-stream.png" alt-text="Screenshot of the client container's log stream in the Azure portal.":::
@@ -190,6 +194,14 @@ In the Azure portal, verify the orchestrations are running successfully.
 1. Confirm the worker container is logging the function chaining tasks.
 
    :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/worker-app-log-stream.png" alt-text="Screenshot of the worker container's log stream in the Azure portal.":::
+
+::: zone-end
+
+::: zone pivot="java"
+
+1. Confirm the sample container app is logging the function chaining tasks.
+
+   :::image type="content" source="media/quickstart-container-apps-durable-task-sdk/java-sample-app-log-stream.png" alt-text="Screenshot of the Java sample app's log stream in the Azure portal.":::
 
 ::: zone-end
 
@@ -405,9 +417,9 @@ with DurableTaskSchedulerWorker(
 
 ::: zone pivot="java"
 
-### Client
+### Sample
 
-The Client project:
+The sample container app contains both the worker and client code. The client code: 
 
 - Uses the same connection string logic as the worker
 - Implements a sequential orchestration scheduler that:
@@ -419,7 +431,9 @@ The Client project:
 
 ```java
 // Create client using Azure-managed extensions
-DurableTaskClient client = DurableTaskSchedulerClientExtensions.createClientBuilder(connectionString).build();
+DurableTaskClient client = (credential != null 
+    ? DurableTaskSchedulerClientExtensions.createClientBuilder(endpoint, taskHubName, credential)
+    : DurableTaskSchedulerClientExtensions.createClientBuilder(connectionString)).build();
 
 // Start a new instance of the registered "ActivityChaining" orchestration
 String instanceId = client.scheduleNewOrchestrationInstance(
@@ -443,7 +457,9 @@ logger.info("Output: {}", completedInstance.readOutputAs(String.class))
 The orchestration directly calls each activity in sequence using the standard `callActivity` method:
 
 ```java
-DurableTaskGrpcWorker worker = DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(connectionString)
+DurableTaskGrpcWorker worker = (credential != null 
+    ? DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(endpoint, taskHubName, credential)
+    : DurableTaskSchedulerWorkerExtensions.createWorkerBuilder(connectionString))
     .addOrchestration(new TaskOrchestrationFactory() {
         @Override
         public String getName() { return "ActivityChaining"; }
