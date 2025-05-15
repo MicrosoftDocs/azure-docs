@@ -49,7 +49,7 @@ The following steps lead you through creating an API Management instance and ass
 
 1. If you need to, install Azure PowerShell by following the instructions in the [Azure PowerShell guide](/powershell/azure/install-azure-powershell). Then run `Connect-AzAccount` to create a connection with Azure.
 
-2. Use the following code to create the instance with a system-assigned managed identity. For more examples of how to use Azure PowerShell with API Management, see [API Management PowerShell samples](powershell-samples.md).
+2. Use the following code to create an instance with a system-assigned managed identity. For more examples of how to use Azure PowerShell with API Management, see [API Management PowerShell samples](powershell-samples.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -121,7 +121,7 @@ When the instance is created, it has the following additional properties:
 The `tenantId` property identifies which Microsoft Entra tenant the identity belongs to. The `principalId` property is a unique identifier for the instance's new identity. Within Microsoft Entra ID, the service principal has the same name that you gave to your API Management instance.
 
 > [!NOTE]
-> An API Management instance can have both system-assigned and user-assigned identities at the same time. In that scenario, the `type` property is `SystemAssigned,UserAssigned`.
+> An API Management instance can have both system-assigned and user-assigned identities. In that scenario, the `type` property is `SystemAssigned,UserAssigned`.
 
 ## Configure Key Vault access by using a managed identity
 
