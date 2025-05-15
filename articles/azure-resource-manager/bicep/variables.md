@@ -79,11 +79,21 @@ The preceding example returns a value like the following:
 
 ### Typed variables
 
-Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. By specifying a type, you help the Bicep compiler catch type-related errors during compilation and make the code more maintainable.
+Bicep supports **typed variables**, where you explicitly declare the data type of a variable to ensure type safety and improve code clarity. The Benefits of typed variables:
 
-#### Syntax for typed variables
+- **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
+- **Code clarity**: Explicit types make it clear what kind of data a variable holds.
+- **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
+- **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
 
-To define a typed variable, use the `var` keyword followed by the variable name, a colon (`:`), the type, and the assigned value.
+To define a typed variable, use the `var` keyword followed by the variable name, a colon (`:`), the type, and the assigned value:
+
+```bicep
+@<decorator>(<argument>)
+var <variable-name>: <data-type> = <variable-value>
+```
+
+The following examples show how to define typed variables:
 
 ```bicep
 var resourceName: string = 'myResource'
@@ -92,8 +102,6 @@ var isProduction: bool = true
 var tags: object = { environment: 'dev' }
 var subnets: array = ['subnet1', 'subnet2']
 ```
-
-#### Supported types
 
 Bicep supports the following types for variables:
 
@@ -120,8 +128,6 @@ Bicep supports the following types for variables:
     var size: 'small' | 'medium' | 'large' = 'medium'
     ```
 
-#### Object schemas
-
 For `object` types, you can define a schema to enforce a specific structure.
 
 ```bicep
@@ -137,15 +143,6 @@ var config: {
 ```
 
 The compiler ensures the object adheres to the defined schema.
-
-#### Benefits of typed variables
-
-- **Error detection**: The Bicep compiler validates that assigned values match the declared type, catching errors early.
-- **Code clarity**: Explicit types make it clear what kind of data a variable holds.
-- **Intellisense support**: Tools like Visual Studio Code provide better autocompletion and validation for typed variables.
-- **Refactoring safety**: Ensures that changes to variable assignments don’t inadvertently break type expectations.
-
-#### Example with typed variables
 
 The following example uses typed variables with decorators to enforce constraints:
 
@@ -177,14 +174,6 @@ In this example:
 - `instanceCount` is typed as `int` and uses a conditional expression.
 - `resourcePrefix` is typed as `string`.
 - `tags` is typed as `object` with a flexible structure.
-
-#### Best practices for typed variables
-
-- **Always specify types**: Explicitly declare types for clarity and to avoid unintended type changes.
-- **Use decorators**: Combine typed variables with decorators like `@minValue`, `@maxLength`, or `@allowed` for additional validation.
-- **Define object schemas**: For complex objects, use schemas to enforce structure.
-- **Keep types simple**: Avoid overly complex union types to maintain readability.
-- **Validate with Bicep CLI**: Use `az bicep build` to catch type errors before deployment.
 
 ## Use iterative loops
 
