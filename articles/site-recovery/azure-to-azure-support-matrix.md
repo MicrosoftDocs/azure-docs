@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 04/07/2025
+ms.date: 05/11/2025
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -139,6 +139,8 @@ Rocky Linux | [See supported versions](#supported-rocky-linux-kernel-versions-fo
 
 > [!NOTE]
 > For Linux versions, Azure Site Recovery doesn't support custom OS kernels. Only the stock kernels that are part of the distribution minor version release/update are supported.
+>
+> VMs created on ARM64 CPU architecture aren't supported by Azure Site Recovery. 
 
 > [!NOTE] 
 > To support latest Linux kernels within 15 days of release, Azure Site Recovery rolls out hot fix patch on top of latest mobility agent version. This fix is rolled out in between two major version releases. To update to latest version of mobility agent (including hot fix patch), follow steps mentioned in [this article](service-updates-how-to.md#azure-vm-disaster-recovery-to-azure). This patch is currently rolled out for mobility agents used in Azure to Azure DR scenario.
@@ -447,6 +449,7 @@ Internal Load balancer | Supported | Associate the preconfigured load balancer u
 Public IP address | Supported | Associate an existing public IP address with the NIC. Or, create a public IP address and associate it with the NIC using an Azure Automation script in a recovery plan.
 NSG on NIC | Supported | Associate the NSG with the NIC using an Azure Automation script in a recovery plan.
 NSG on subnet | Supported | Associate the NSG with the subnet using an Azure Automation script in a recovery plan.
+ASG | Unsupported | Azure Site Recovery doesn't support ASGs.
 Reserved (static) IP address | Supported | If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the failed over VM.<br/><br/> If the target subnet doesn't have the same IP address available, one of the available IP addresses in the subnet is reserved for the VM.<br/><br/> You can also specify a fixed IP address and subnet in **Replicated items** > **Settings** > **Network** > **Network interfaces**.
 Dynamic IP address | Supported | If the NIC on the source has dynamic IP addressing, the NIC on the failed over VM is also dynamic by default.<br/><br/> You can modify this to a fixed IP address if required.
 Multiple IP addresses | Supported | When you fail over a VM that has a NIC with multiple IP addresses, only the primary IP address of the NIC in the source region is kept by default. To failover Secondary IP Configurations, go to the **Network** blade and configure them. <br> This is supported only for region replication, zone to zone replication isn't supported.
