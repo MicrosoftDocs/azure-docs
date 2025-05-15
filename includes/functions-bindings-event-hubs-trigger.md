@@ -80,7 +80,7 @@ public void Run(
 To receive events in a batch, make `string` or `EventData` an array.  
 
 > [!NOTE]
-> When receiving in a batch you cannot bind to method parameters like in the above example with `DateTime enqueuedTimeUtc` and must receive these from each `EventData` object  
+> When receiving in a batch, you cannot bind to method parameters like in the above example with `DateTime enqueuedTimeUtc` and must receive these from each `EventData` object  
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
@@ -201,7 +201,7 @@ $eventHubMessages | ForEach-Object { Write-Host "Processed message: $_" }
 
 ::: zone-end 
 ::: zone pivot="programming-language-python"  
-This example uses SDK types to directly access the underlying [`EventData`](python/api/azure-eventhub/azure.eventhub.eventdata?view=azure-python) object provided by the Event Hub trigger: 
+This example uses SDK types to directly access the underlying [`EventData`](python/api/azure-eventhub/azure.eventhub.eventdata?view=azure-python) object provided by the Event Hubs trigger: 
 
 The function reads the event body and logs it.
 ```python
@@ -220,7 +220,7 @@ def eventhub_trigger(event: eh.EventData):
         event.body_as_str()
     )
 ```
-For examples of using the EventData type, see the [`EventData`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-eventhub/samples/eventhub_samples_eventdata/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Event Hub Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python).
+For examples of using the EventData type, see the [`EventData`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-eventhub/samples/eventhub_samples_eventdata/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Event Hubs Sample](https://github.com/Azure-Samples/azure-functions-eventhub-sdk-bindings-python).
 
 > [!NOTE]  
 > Known limitations include:
@@ -500,7 +500,7 @@ Functions also supports Python SDK type bindings for Azure Event Hubs, which let
 + [`EventData`](/python/api/azure-eventhub/azure.eventhub.eventdata)
 
 > [!IMPORTANT]  
-> Support for Event Hub SDK types in Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+> Support for Event Hubs SDK types in Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
 
 ::: zone-end 
 
@@ -533,7 +533,7 @@ In-process C# class library functions supports the following types:
 
 # [Extension v3.x+](#tab/extensionv3/isolated-process)
 
-Requires you to define a custom type, or use a string. Additional options are available to **Extension v5.x+**.
+Requires you to define a custom type, or use a string. More options are available to **Extension v5.x+**.
 
 ---
 

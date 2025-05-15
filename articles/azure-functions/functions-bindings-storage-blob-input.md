@@ -476,7 +476,7 @@ Access the blob data via a parameter that matches the name designated by binding
 ::: zone pivot="programming-language-python"  
 Access blob data via the parameter typed as [InputStream](/python/api/azure-functions/azure.functions.inputstream). Refer to the [input example](#example) for details.
 
-Functions also supports Python SDK type bindings for Azure Blob storage, which lets you work with blob data using these underlying SDK types:
+Functions also support Python SDK type bindings for Azure Blob storage, which lets you work with blob data using these underlying SDK types:
 
 + [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient)
 + [`ContainerClient`](/python/api/azure-storage-blob/azure.storage.blob.containerclient)
