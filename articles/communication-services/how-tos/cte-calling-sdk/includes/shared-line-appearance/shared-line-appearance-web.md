@@ -7,7 +7,7 @@ ms.author: charithg
 ---
 
 > [!NOTE]
-> This API is available with Azure Communication Services Calling Web SDK (1.35 or higher).
+> This API is available with Azure Communication Services Calling Web SDK (1.35.1 or higher).
 
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
