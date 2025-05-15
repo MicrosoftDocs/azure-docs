@@ -42,22 +42,23 @@ To use the **firmware analysis** page to analyze your firmware security, your fi
 
 If this is your first interaction with **firmware analysis**, then you'll need to onboard your subscription to the service and select a region in which to upload and store your firmware images.
 
-1. Sign into the Azure portal and go to Defender for IoT.
+1. Sign into the Azure portal and search for "firmware analysis" in the Azure portal search bar.
 
-    :::image type="content" source="media/tutorial-firmware-analysis/defender-portal.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/defender-portal.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/firmware-analysis-landing.png" alt-text="Screenshot of the 'Getting started' page." lightbox="media/tutorial-firmware-analysis/firmware-analysis-landing.png":::
 
-2. Select **Set up a subscription** in the **Get Started** card, or select the **Subscription management** subtab.
+2. Select the blue **Get started** button in the **Get Started** card, or select the **Firmware workspaces** subtab.
 
     :::image type="content" source="media/tutorial-firmware-analysis/subscription-management.png" alt-text="Screenshot of the 'Subscription management' page." lightbox="media/tutorial-firmware-analysis/subscription-management.png":::
 
-3. Select **Onboard a new subscription**
+3. Select **Create a Workspace**
 
-    :::image type="content" source="media/tutorial-firmware-analysis/onboard-subscription.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen." lightbox="media/tutorial-firmware-analysis/onboard-subscription.png":::
+    :::image type="content" source="media/tutorial-firmware-analysis/create-workspace.png" alt-text="Screenshot of the 'Onboard subscription' pane appearing on the right side of the screen." lightbox="media/tutorial-firmware-analysis/create-workspace.png":::
 
-4. In the **Onboard subscription** pane, select a subscription from the drop-down list.
+4. In the **Create a workspace** pane, select a subscription from the drop-down list.
 5. Select a resource group from the **Resource group** drop-down or create a new resource group.
-6. Select a region to use for storage in the **Location** drop-down.
-7. Select **Onboard** to onboard your subscription to firmware analysis.
+6. Enter your **Workspace name**.
+7. Select a region to use for storage in the **Location** drop-down.
+8. Select **Onboard** to create your workspace in your selected resource group and onboard your subscription to firmware analysis.
 
     :::image type="content" source="media/tutorial-firmware-analysis/completed-onboarding.png" alt-text="Screenshot of the 'Onboard subscription' pane when it's completed." lightbox="media/tutorial-firmware-analysis/completed-onboarding.png":::
 
