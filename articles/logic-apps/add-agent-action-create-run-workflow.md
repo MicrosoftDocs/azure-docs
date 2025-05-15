@@ -284,9 +284,17 @@ Follow these steps to review the workflow definition and operations, or edit the
    > | **Method** | This setting specifies whether the trigger accepts all or only specific HTTPS methods. |
    > | **Request Body JSON Schema** | This schema describes the input that the trigger  expects to receive the HTTPS request sent from external callers. |
 
-   You have so many options to integrate your AI app by using a workflow that interacts with Azure, Microsoft, and other services or products plus operations that help you manage, shape, convert, and transform data, that the possible scenarios seem endless:
+   You have so many options to integrate your AI app by using a workflow that interacts with Azure, Microsoft, and other services or products plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want do, you can also create your own.
 
    :::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
+
+   For more information, see the following documentation:
+
+   - [What are connectors in Azure Logic Apps](/azure/connectors/introduction)
+   - [Managed connectors that run in global, multitenant Azure](/azure/connectors/managed)
+   - [Managed connectors technical reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+   - [Built-in operations that run with Azure Logic Apps runtime](/azure/connectors/built-in)
+   - [Custom connectors in Azure Logic Apps](/azure/logic-apps/custom-connector-overview)
 
 1. To save any changes that you make, on the designer toolbar, select **Save**.
 
