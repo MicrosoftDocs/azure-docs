@@ -73,7 +73,7 @@ This article described how to:
 > - Update the properties of a room
 > - Delete a room
 
-# Related articles
+## Related articles
 
  - Learn about [rooms concept](../../concepts/rooms/room-concept.md).
  - Learn about [voice and video calling concepts](../../concepts/voice-video-calling/about-call-types.md).
