@@ -34,32 +34,35 @@ This article provides a guide for importing and exporting data with Azure Manage
 - Instances running Redis 7.2 support RDB version 11 and below.
 - Exported backups from newer versions of Redis (for example, Redis 7.2) can't be imported into older versions of Redis (for example, Redis 6.0)
 - RDB files from _Premium_ tier Azure Cache for Redis instances can be imported into Azure Managed Redis, but not vice-versa.
-- RDB files from _Enterprise_ or _Enterprise Flash_ tier Azure Cache for Redis instances can be imported into Azure Managed Redis. RDB files from Azure Managed Redis can be imported back into these tiers if the Enterprise tier cache is running the same Redis version (e.g. Redis 7.2) 
+- RDB files from _Enterprise_ or _Enterprise Flash_ tier Azure Cache for Redis instances can be imported into Azure Managed Redis. RDB files from Azure Managed Redis can be imported back into these tiers if the Enterprise tier cache is running the same Redis version (e.g. Redis 7.2)
+
+## Requirements
+
+- Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Managed Redis instance. If you are using managed identity for authentication, the storage account can be in a different subscription. For more information, see [Get started with Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet). If you exported your RDB file using the [export](#export) feature, your RDB file is already stored in a block blob and is ready for importing.
+- 
+
 
 ## Import
 
 Use import to bring Redis compatible RDB files from any Redis server running in any cloud or environment, including Redis running on Linux, Windows, or any cloud provider such as Amazon Web Services and others. Importing data is an easy way to create a cache with prepopulated data. During the import process, Azure Managed Redis loads the RDB files from Azure storage into memory and then inserts the keys into the cache.
 
-> [!NOTE]
-> Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Managed Redis instance. If you are using managed identity for authentication, the storage account can be in a different subscription. For more information, see [Get started with Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet). If you exported your RDB file using the [Azure Cache for Redis Export](#export) feature, your RDB file is already stored in a block blob and is ready for importing.
-
 1. To import one or more exported cache blobs, [browse to your cache](configure.md#configure-azure-managed-redis-settings) in the Azure portal and select **Import data** from the **Resource menu**. In the working pane, you see **Choose Blob(s)** where you can find RDB files.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-import-data.png" alt-text="Screenshot showing Import data selected in the Resource menu."::: -->
 
-2. Select **Choose Blob(s)** and select the storage account that contains the data to import.
+1. Select **Choose Blob(s)** and select the storage account that contains the data to import.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-import-choose-storage-account.png" alt-text="Screenshot showing a list of storage accounts."::: -->
 
-3. Select the container that contains the data to import.
+1. Select the container that contains the data to import.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-import-choose-container.png" alt-text="Screenshot showing list of containers from the previously chosen storage account."::: -->
 
-4. Select one or more blobs to import by selecting the area to the left of the blob name, and then **Select**.
+1. Select one or more blobs to import by selecting the area to the left of the blob name, and then **Select**.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-import-choose-blobs.png" alt-text="Screenshot showing a blob from the container. "::: -->
 
-5. Select **Import** to begin the import process.
+1. Select **Import** to begin the import process.
 
    > [!IMPORTANT]
    > The cache is not accessible by cache clients during the import process, and any existing data in the cache is deleted.
@@ -83,7 +86,7 @@ Export allows you to export the data stored in Azure Managed Redis. You can use 
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-storage-container.png" alt-text="Screenshot showing Export data selected in the Resource menu"::: -->
 
-2. Select **Choose Storage Container** and to display a list of available storage accounts. Select the storage account you want. The storage account must be in the same region as your cache. If you're using managed identity for authentication, the storage account can be in a different subscription. Otherwise, the storage account must be in the same subscription as your cache.
+1. Select **Choose Storage Container** and to display a list of available storage accounts. Select the storage account you want. The storage account must be in the same region as your cache. If you're using managed identity for authentication, the storage account can be in a different subscription. Otherwise, the storage account must be in the same subscription as your cache.
 
    > [!IMPORTANT]
    >
@@ -94,11 +97,11 @@ Export allows you to export the data stored in Azure Managed Redis. You can use 
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane."::: -->
 
-3. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first, and then select it from the list.
+1. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first, and then select it from the list.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-container.png" alt-text="Screenshot of a list of containers with one highlighted and a select button."::: -->
 
-4. Type a **Blob name prefix** and select **Export** to start the export process. The blob name prefix is used to prefix the names of files generated by this export operation.
+1. Type a **Blob name prefix** and select **Export** to start the export process. The blob name prefix is used to prefix the names of files generated by this export operation.
 
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data.png" alt-text="Screenshot showing a blob name prefix and an Export button."::: -->
 
