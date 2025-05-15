@@ -63,7 +63,7 @@ Instance spreading with a zone-redundant deployment is determined using the foll
     az appservice plan show -n <app-service-plan-name> -g <resource-group-name> --query properties.maximumNumberOfZones
     ```
 
-**Instance distribution:** When zone redundancy is enabled, plan instances are distributed across multiple availability zones automatically. The distribution is based on the following rules:
+- **Instance distribution:** When zone redundancy is enabled, plan instances are distributed across multiple availability zones automatically. The distribution is based on the following rules:
 
     - The instances distribute evenly if you specify a capacity (number of instances) greater than *maximumNumberOfZones* and the number of instances is divisible by *maximumNumberOfZones*.
     - Any remaining instances are distributed across the remaining zones.
@@ -296,7 +296,8 @@ If you enable availability zones but specify a capacity less than two, the platf
     az appservice plan update -g <resource group name> -n <app service plan name> --set zoneRedundant=true sku.capacity=2
     ```
 
-    > [!NOTE] > If you use the Azure CLI to modify the `zoneRedundant` property, you must specify the `sku.capacity` property, which is the number of instances, and use a capacity greater than or equal to 2.
+    > [!NOTE]
+    > If you use the Azure CLI to modify the `zoneRedundant` property, you must specify the `sku.capacity` property, which is the number of instances, and use a capacity greater than or equal to 2.
 
     # [Bicep](#tab/bicep)
 
