@@ -36,8 +36,8 @@ You can grant two types of identities to an API Management instance:
 To set up a managed identity in the Azure portal, you create an API Management instance and then enable the feature.
 
 1. Create an API Management instance in the portal as you normally would. Go to it in the portal.
-2. In the left menu, under **Security**, select **Managed identities**.
-3. On the **System assigned** tab, change the **Status** to **On**. Select **Save**.
+1. In the left menu, under **Security**, select **Managed identities**.
+1. On the **System assigned** tab, change the **Status** to **On**. Select **Save**.
 
     :::image type="content" source="./media/api-management-howto-use-managed-service-identity/enable-system-identity.png" alt-text="Screenshot that shows how to enable a system-assigned managed identity." border="true":::
 
@@ -49,7 +49,7 @@ The following steps lead you through creating an API Management instance and ass
 
 1. If you need to, install Azure PowerShell by following the instructions in the [Azure PowerShell guide](/powershell/azure/install-azure-powershell). Then run `Connect-AzAccount` to create a connection with Azure.
 
-2. Use the following code to create an instance with a system-assigned managed identity. For more examples of how to use Azure PowerShell with API Management, see [API Management PowerShell samples](powershell-samples.md).
+1. Use the following code to create an instance with a system-assigned managed identity. For more examples of how to use Azure PowerShell with API Management, see [API Management PowerShell samples](powershell-samples.md).
 
     ```azurepowershell-interactive
     # Create a resource group.
@@ -147,7 +147,7 @@ The following example shows an ARM template that uses the system-assigned manage
 
 #### Prerequisites
 
-* An API Management instance that's configured with a system-assigned managed identity. To create the instance, you can use an [Azure quickstart template](https://azure.microsoft.com/resources/templates/api-management-create-with-msi/).
+* An API Management instance that's configured with a system-assigned managed identity. To create the instance, you can use an [Azure Quickstart Template](https://azure.microsoft.com/resources/templates/api-management-create-with-msi/).
 * A Key Vault instance in the same resource group. The instance must host a certificate that will be used as a custom domain certificate in API Management.
 
 The template contains the following steps. 
@@ -333,9 +333,9 @@ You can configure and use a system-assigned managed identity to access an event 
 To set up a managed identity in the portal, you must first create an API Management instance and [create a user-assigned identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md). Then complete the following steps.
 
 1. Go to your API Management instance in the portal.
-2. In the left menu, under **Security**, select **Managed identities**.
-3. On the **User assigned** tab, select **Add**.
-4. Search for the identity that you created earlier and select it. Select **Add**.
+1. In the left menu, under **Security**, select **Managed identities**.
+1. On the **User assigned** tab, select **Add**.
+1. Search for the identity that you created earlier and select it. Select **Add**.
 
    :::image type="content" source="./media/api-management-howto-use-managed-service-identity/enable-user-assigned-identity.png" alt-text="Screenshot that shows how to enable a user-assigned managed identity." border="true" lightbox="./media/api-management-howto-use-managed-service-identity/enable-user-assigned-identity.png":::
 
