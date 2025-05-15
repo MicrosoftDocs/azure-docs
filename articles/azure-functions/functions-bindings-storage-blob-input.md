@@ -59,8 +59,8 @@ public static void Run(
 
 This section contains the following examples:
 
-* [HTTP trigger, look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string)
-* [Queue trigger, receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message)
+* [HTTP trigger: look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string)
+* [Queue trigger: receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message)
 
 #### HTTP trigger, look up blob name from query string
 
@@ -87,7 +87,7 @@ This section contains the following examples:
   }
 ```
 
-#### Queue trigger, receive blob name from queue message
+#### Queue trigger: receive blob name from queue message
 
  The following example shows a Java function that uses the `QueueTrigger` annotation to receive a message containing the name of a file in a blob storage container. The `BlobInput` annotation then reads the file and passes its contents to the function as a `byte[]`.
 
@@ -109,7 +109,7 @@ This section contains the following examples:
   }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -448,7 +448,7 @@ See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding
 
 ---
 
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small, since the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
 
 If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
 
@@ -486,8 +486,8 @@ Functions also support Python SDK type bindings for Azure Blob storage, which le
 > Only synchronous SDK types are supported.
 
 > [!IMPORTANT]  
-> > SDK types support for Python is Generally Available and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
-> ::: zone-end  
+> SDK types support for Python is Generally Available and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+::: zone-end  
 
 [!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
 

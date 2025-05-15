@@ -500,7 +500,7 @@ For select triggers and bindings, you can work with data types implemented by th
 ::: zone pivot="python-mode-configuration" 
 `> [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
-`::: zone-end  
+::: zone-end  
 ::: zone pivot="python-mode-decorators" 
 
 > [!IMPORTANT]  
@@ -520,7 +520,7 @@ For select triggers and bindings, you can work with data types implemented by th
 
 [blob-sdk-types]: ./functions-bindings-storage-blob.md?pivots=programming-language-python#sdk-binding-types
 [cosmos-sdk-types]: ./functions-bindings-cosmosdb-v2.md?pivots=programming-language-python#sdk-binding-types
-[eventhub-sdk-types]: ../../includes/functions-bindings-event-hubs.md
+[eventhub-sdk-types]: ./functions-bindings-event-hubs.md
 [servicebus-sdk-types]: ./functions-bindings-service-bus.md?pivots=programming-language-python#sdk-binding-types
 <sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding.
 <sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
@@ -535,7 +535,7 @@ HTTP streams lets you accept and return data from your HTTP endpoints using Fast
 This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
 ::: zone pivot="python-mode-configuration" 
 > [!IMPORTANT]  
-> Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams-preview).
+> Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams).
 ::: zone-end  
 ::: zone pivot="python-mode-decorators"
 > [!IMPORTANT]  

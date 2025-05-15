@@ -1665,9 +1665,9 @@ HTTP streams is a feature that makes it easier to process large data, stream Ope
 
 > [!IMPORTANT]
 > HTTP streams aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use the HTTP streaming feature.
-> ::: zone-end  
-> ::: zone pivot="nodejs-model-v4"  
 > The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support various ways of handling the message body, including as a stream.
+::: zone-end  
+::: zone pivot="nodejs-model-v4"
 
 ### Prerequisites
 

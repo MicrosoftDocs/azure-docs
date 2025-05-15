@@ -256,9 +256,9 @@ SDK Types for Azure Storage Blob are Generally Available! Follow the [Python SDK
 
 ---
 
-[BlobClient]: /python/api/azure-storage-blob/azure.storage.blob.blobclient?view=azure-python
-[ContainerClient]: /python/api/azure-storage-blob/azure.storage.blob.containerclient?view=azure-python
-[StorageStreamDownloader]: /python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader?view=azure-python
+[BlobClient]: /python/api/azure-storage-blob/azure.storage.blob.blobclient
+[ContainerClient]: /python/api/azure-storage-blob/azure.storage.blob.containerclient
+[StorageStreamDownloader]: /python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader
 
 :::zone-end
 

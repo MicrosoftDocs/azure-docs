@@ -200,7 +200,7 @@ Write-Host "PowerShell ServiceBus queue trigger function processed message: $myS
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 
-This example uses SDK types to directly access the underlying [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage?view=azure-python) object provided by the Service Bus trigger:
+This example uses SDK types to directly access the underlying [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage) object provided by the Service Bus trigger:
 
 The function reads various properties of the `ServiceBusReceivedMessage` type and logs them.
 ```python
@@ -615,7 +615,7 @@ The queue message is available to the function via a parameter typed as `func.Se
 
 Functions also support Python SDK type bindings for Azure Service Bus, which lets you work with data using these underlying SDK types:
 
-+ [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage?view=azure-python)
++ [`ServiceBusReceivedMessage`](/python/api/azure-servicebus/azure.servicebus.servicebusreceivedmessage)
 
 > [!IMPORTANT]  
 > Support for Service Bus SDK types support in Python is in Preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).

@@ -414,11 +414,11 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ::: zone pivot="programming-language-python"  
 # [v2](#tab/python-v2)
 
-This example uses [HTTP streams](functions-reference-python.md#http-streams-preview) to return chunked response data.
+This example uses [HTTP streams](functions-reference-python.md#http-streams) to return chunked response data.
 
 :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
 
-To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-reference-python.md#http-streams-preview).
+To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-reference-python.md#http-streams).
 
 This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -1011,7 +1011,7 @@ You can now stream requests to and responses from your HTTP endpoint in Node.js 
 ::: zone pivot="programming-language-python"  
 ### HTTP streams
 
-HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
+HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams)
 
 >[!IMPORTANT]  
 > HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.

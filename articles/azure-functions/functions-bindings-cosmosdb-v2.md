@@ -214,9 +214,9 @@ SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings
 
 ---
 
-[CosmosClient]: /python/api/azure-cosmos/azure.cosmos.cosmosclient?view=azure-python
-[DatabaseProxy]: python/api/azure-cosmos/azure.cosmos.databaseproxy?view=azure-python
-[ContainerProxy]: /python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python
+[CosmosClient]: /python/api/azure-cosmos/azure.cosmos.cosmosclient
+[DatabaseProxy]: /python/api/azure-cosmos/azure.cosmos.databaseproxy
+[ContainerProxy]: /python/api/azure-cosmos/azure.cosmos.containerproxy
 
 :::zone-end
 
