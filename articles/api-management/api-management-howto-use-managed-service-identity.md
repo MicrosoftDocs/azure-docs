@@ -37,7 +37,7 @@ To set up a managed identity in the Azure portal, you create an API Management i
 
 1. Create an API Management instance in the portal as you normally would. Go to it in the portal.
 2. In the left menu, under **Security**, select **Managed identities**.
-3. On the **System assigned** tab, switch **Status** to **On**. Select **Save**.
+3. On the **System assigned** tab, change the **Status** to **On**. Select **Save**.
 
     :::image type="content" source="./media/api-management-howto-use-managed-service-identity/enable-system-identity.png" alt-text="Screenshot that shows how to enable a system-assigned managed identity." border="true":::
 
