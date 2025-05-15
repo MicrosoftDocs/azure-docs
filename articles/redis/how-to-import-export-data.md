@@ -123,7 +123,8 @@ This section contains frequently asked questions about the Import/Export feature
 - [Can I automate Import/Export using PowerShell, CLI, or other management clients?](#can-i-automate-importexport-using-powershell-cli-or-other-management-clients)
 - [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
 - [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
-- [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account)
+- [Are storage accounts that enable firewalls or private links supported?](#are-storage-accounts-that-enable-firewalls-or-private-links-supported)
+  <!-- - [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account) -->
 - [Can I import or export data from a storage account in a different subscription than my cache?](#can-i-import-or-export-data-from-a-storage-account-in-a-different-subscription-than-my-cache)
 - [Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?](#which-permissions-need-to-be-granted-to-the-storage-account-container-shared-access-signature-sas-token-to-allow-export)
 
@@ -185,11 +186,15 @@ To resolve this error, start the import or export operation before 15 minutes ha
 
 Export works only with RDB files stored as block blobs. Other blob types aren't currently supported. For more information, see [Azure storage account overview](/azure/storage/common/storage-account-overview). If you're using an access key to authenticate a storage account, having firewall exceptions on the storage account tends to cause the import/export process to fail.
 
-### What if I have firewall enabled on my storage account?
+### Are storage accounts that enable firewalls or private links supported?
+
+No, these settings on storage accounts are not supported.
+
+<!-- ### What if I have firewall enabled on my storage account?
 
 You need to check “Allow Azure services on the trusted services list to access this storage account” in your storage account settings. Then, use managed identity (System or User assigned) and provision Storage Blob Data Contributor RBAC role for that object ID.
 
-For more information, see [managed identity for storage accounts - Azure Cache for Redis](managed-identity)
+For more information, see [managed identity for storage accounts - Azure Cache for Redis](managed-identity) -->
 
 ### Can I import or export data from a storage account in a different subscription than my cache?
 
