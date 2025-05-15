@@ -191,7 +191,11 @@ az group delete --name AzureFunctionsContainers-rg
 ## Next steps
 
 > [!div class="nextstepaction"]  
-> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)   
+> [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)  
+> [!div class="nextstepaction"]  
+> [Native Azure Functions Support in Azure Container Apps](../articles/container-apps/functions-overview)  
+> [!div class="nextstepaction"]  
+> [Create your Native Azure Functions on Azure Container Apps](../articles/container-apps/functions-usage)  
 > [!div class="nextstepaction"]  
 > [Working with containers and Azure Functions](./functions-how-to-custom-container.md)  
 > [!div class="nextstepaction"]  
