@@ -34,8 +34,8 @@ At any given time, the event log of a compacted event hub can have a *cleaned* p
 The Event Hubs service manages the execution of the compaction job and user can't control it. Therefore, Event Hubs service determines when to start compaction and how fast it compact a given compacted event hub. 
 
 > [!NOTE]
-> Event Hubs performs compaction to eliminate duplicates, but this process is only triggered non-deterministically, which can result in visible duplicates between compaction job runs.
-> 
+> Event Hubs performs compaction to eliminate event payloads with the same key, but this process is triggered non-deterministically, which can result in multiple event payloads with the same key between compaction job runs.
+>
 
 
 
