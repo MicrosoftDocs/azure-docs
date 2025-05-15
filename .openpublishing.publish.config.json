@@ -70,7 +70,7 @@
         },
         {
             "path_to_root": "azure_cli_scripts",
-            "url": "https://github.com/Azure-Samples/azure-cli-samples",
+            "url": "https://github.com/ggailey777/azure-cli-samples",
             "branch": "master",
             "branch_mapping": {}
         },

@@ -137,14 +137,11 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-flex-cli.md)]
 
-4. Create the function app in Azure:
+7. Create the function app in Azure:
     <!---Replace tabs when PowerShell cmdlets support Flex Consumption plans.
     ### [Azure CLI](#tab/azure-cli)
     -->
-    ```azurecli
-    userId=$(az identity show --name func-host-storage-user --resource-group AzureFunctionsQuickstart-rg --query 'id' -o tsv)
-    az functionapp create --resource-group AzureFunctionsQuickstart-rg --flexconsumption-location <REGION> --runtime dotnet-isolated --runtime-version 8.0 --assign-identity $userId --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value $userId  --name <APP_NAME> --storage-account <STORAGE_NAME>
-    ```
+    :::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-flex-plan-identities/create-function-app-flex-plan-identities.md" range="37-39":::
 
     The [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command creates the function app in Azure.
     <!---
@@ -158,28 +155,24 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
     ---
     -->
-    In this example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, replace `<REGION>` with your region, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+    In this example, replace these placholders:
+
+    + `<STORAGE_NAME>`: the name of the account you used in the previous step.
+    + `<REGION>`: your region. 
+    + `<APP_NAME>`: a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
+    + `<USER_NAME>`: the name of the user-assigned managed identity.
+    + `<LANGUAGE>`: use `dotnet-isolated`.
+    + `<LANGUAGE_VERSION>`: use `8.0`.
 
     This command creates a function app running in your specified language runtime on Linux in the [Flex Consumption Plan](flex-consumption-plan.md), which is free for the amount of usage you incur here. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md). The instance incurs no costs until you activate it.
 
-## Update application settings
+8. Add your user-assigned managed identity to the [Monitoring Metrics Publisher](../role-based-access-control/built-in-roles/monitor#monitoring-metrics-publisher) role in your Application Insights instance:
 
-To enable the Functions host to connect to the default storage account using shared secrets, you must replace the `AzureWebJobsStorage` connection string setting with an equivalent setting that uses the user-assigned managed identity to connect to the storage account.
+    :::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-flex-plan-identities/create-function-app-flex-plan-identities.md" range="42-44":::
 
-1. Remove the existing `AzureWebJobsStorage` connection string setting:
+    The [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command adds your user to the role. The resource ID of your Application Insights instance is obtained by using [az monitor app-insights component show](/cli/azure/monitor/app-insights/component#az-monitor-app-insights-component-show).
 
-    ```azurecli    
-    az functionapp config appsettings delete --name `<APP_NAME>` --resource-group AzureFunctionsQuickstart-rg --setting-names AzureWebJobsStorage 
-    ```
-
-    The [az functionapp config appsettings delete](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-delete) command removes this setting from your app.
-
-1. Add equivalent settings, with an `AzureWebJobsStorage__` prefix, that define a user-assigned managed identity connection to the default storage account:
- 
-    ```azurecli
-    clientId=$(az identity show --name func-host-storage-user --resource-group AzureFunctionsQuickstart-rg --query 'clientId' -o tsv)
-    az functionapp config appsettings set --name `<APP_NAME>` --resource-group AzureFunctionsQuickstart-rg --settings AzureWebJobsStorage__accountName=<STORAGE_NAME> AzureWebJobsStorage__credential=managedidentity AzureWebJobsStorage__clientId=$clientId
-    ```
+[!INCLUDE [functions-update-app-settings-flex-cli](../../includes/functions-update-app-settings-flex-cli.md)]
      
 At this point, the Functions host is able to connect to the storage account securely using managed identities. You can now deploy your project code to the Azure resources
 
