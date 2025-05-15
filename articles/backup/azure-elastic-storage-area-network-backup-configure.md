@@ -114,7 +114,7 @@ To configure backup for Azure Elastic SAN, follow these steps:
 
 1. On the **Review + configure** tab, review the configuration details, and then select **Configure Backup**.
 
-You can [track the progress of the backup configuration](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points. You can also [trigger an on-demand backup](azure-elastic-storage-area-network-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
+You can [track the progress of the backup configuration](azure-elastic-storage-area-network-backup-manage.md#view-the-azure-elastic-san-backup-and-restore-jobs-preview) under **Backup instances**. When configured, Azure Backup runs backups as per the policy schedule to create recovery points. You can also [trigger an on-demand backup](azure-elastic-storage-area-network-backup-manage.md#run-an-on-demand-backup) to create the first full backup.
 
 ## Next steps
 

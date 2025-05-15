@@ -33,7 +33,7 @@ To  restore the Azure Elastic SAN  backups, follow these steps:
 
    :::image type="content" source="./media/azure-elastic-storage-area-network-backup-restore/set-restore-parameter.png" alt-text="Screenshot shows how to configure restore." lightbox="./media/azure-elastic-storage-area-network-backup-restore/set-restore-parameter.png":::
 
-1. On the **Restore configuration** pane, select the **Target subscription**, **Resource group**, **Target Elastic SAN instance**, and **Target Elastic SAN volume group**, to recover.
+1. On the **Restore configuration** pane, select the **Target subscription**, **Resource group**, **Target Elastic SAN instance**, and **Target Elastic SAN volume group**, to restore.
 
    By default, the source Elastic SAN instance is selected.
 

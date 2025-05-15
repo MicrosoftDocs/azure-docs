@@ -27,7 +27,7 @@ Azure Elastic SAN protection (preview) has the following supported and unsupport
 - The Original Location Recovery (OLR) is currently not supported; only Alternate Location Recovery (ALR) is supported.
 - Azure [subscription and service](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-virtual-machine-disk-limits) limits apply to the total number of disk snapshots per region per subscription.
 - The Backup vault and the volumes to be backed up must be in the same subscription and region.
-- Restoring a volume from backup to the same or a different subscription is supported.
+- Restoring a volume from backups to the same or a different subscription is supported.
 - For [configuration of backup](azure-elastic-storage-area-network-backup-configure.md#configure-backup-for-azure-elastic-san-using-azure-portal-preview), the Elastic SAN volume and the snapshot resource group (where snapshots are stored) must be in the same subscription. The creation of incremental snapshots for a volume outside its subscription isn't supported. Learn more [about incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disks.
 - For the backup and restore operations, the Backup vault’s managed identity must have the following roles assigned:
 
