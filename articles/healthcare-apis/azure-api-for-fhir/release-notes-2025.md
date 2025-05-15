@@ -6,7 +6,7 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 01/22/2025
+ms.date: 5/14/2025
 ms.custom: references_regions
 ms.author: kesheth
 ---
@@ -18,7 +18,7 @@ ms.author: kesheth
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
 ## May 2025
-**Enhanced error handling for $export**: Previously, 409 and 412 errors from Cosmos DB weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests will be retried. 
+**Enhanced error handling for $export**: Previously, 409 and 412 errors from Cosmos DB weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
 
 #### Bug fixes:
 **Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
