@@ -30,7 +30,7 @@ In this article, learn how to:
 > - Enable vSAN Compression Only
 > - Disable vSAN Deduplication and Compression
 > - Enable or Disable vSAN Data-In-Transit Encryption
-> - Next steps
+
 ## Set VMware vSAN TRIM/UNMAP
 Run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet to enable or disable TRIM/UNMAP.
 
@@ -100,7 +100,7 @@ Run the `Set-vSANCompressDedupe` cmdlet to set preferred space efficiency model.
 
 ## Set VMware vSAN Data-In-Transit Encryption
 
-Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a SDDC.
+Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of an SDDC.
 
 > [!NOTE]
 > Changing this setting will cause a performance impact. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
