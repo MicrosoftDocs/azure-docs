@@ -137,16 +137,11 @@ After deployment and configuration, verify that the sample app is running correc
 
 1. In the left menu of your App Service, select **Overview**.
 
-1. Select **Browse** to open the app in a new browser tab.
+1. Select **Browse** to open the app in a new browser tab. It may take a minute to load as Azure App Service initializes the app on the first request.
 
-    > It may take a minute to load as Azure App Service initializes the app on the first request.
+1. Once the app loads, select **Tools** in the app’s navigation bar and select **Convert to PNG**.
 
-1. Once the app loads, test its functionality:
-
-    - Click **Tools** in the app’s navigation bar.
-    - Select **Convert to PNG**.
-
-    ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
+    ![Select Tools and select Convert to PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
 1. Select the first three images and select **Convert**.
 
@@ -312,7 +307,7 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
 1. In the app interface, select **Tools** in the navigation bar and select **Convert to PNG**.
 
-    ![Select `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
+    ![Select Tools and select Convert to PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
 1. Select the first five images and select **Convert**.
 
