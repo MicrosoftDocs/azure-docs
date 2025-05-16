@@ -172,7 +172,8 @@ sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-accou
  
 ### Step 3:  Verify that the in-transit data encryption succeeded
  
-- Run the command `df -Th`.
+Run the command `df -Th`.
+
  
 :::image type="content" source="./media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/powershell-capture.png":::
  
