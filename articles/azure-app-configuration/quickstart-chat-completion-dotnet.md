@@ -117,6 +117,36 @@ In this quickstart you will create a .NET console app with dynamic configuration
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
     ```
 
+1. Alternatively, you can authenticate to your Azure OpenAI resource using an API key stored as a Key Vault reference in App Configuration with the key name "ChatLLM:ApiKey". Ensure to [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault). To read the Key Vault reference, update your configuration builder code in _Program.cs_ as follows:
+
+    ```csharp
+    IConfiguration configuration = new ConfigurationBuilder()
+        .AddAzureAppConfiguration(options =>
+        {
+            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
+
+            options.Connect(new Uri(endpoint), credential)
+                .Select("ChatLLM*")
+                .ConfigureKeyVault(keyVaultOptions =>
+                {
+                    keyVaultOptions.SetCredential(credential);
+                })
+                .ConfigureRefresh(refresh =>
+                {
+                    refresh.RegisterAll()
+                            .SetRefreshInterval(TimeSpan.FromSeconds(10));
+                });
+
+                _refresher = options.GetRefresher();
+        }).Build();
+
+    string apiKey = configuration["ChatLLM:ApiKey"];
+
+    // Initialize the AzureOpenAIClient with API key
+    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), new AzureKeyCredential(apiKey));
+
+    ```
+
 1. Next, update the existing code in _Program.cs_ file to configure the chat completion options:
 
     ```csharp
