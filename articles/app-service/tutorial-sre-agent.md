@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Troubleshoot an App using Azure SRE Agent (preview) in Azure App Service'
-description: Learn how to use SRE Agent and Azure App Service to identify and fix app issues with AI-assisted troubleshooting.
+description: Learn how to use Azure SRE Agent and Azure App Service to identify and fix app issues with AI-assisted troubleshooting.
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 05/15/2025
 ---
 
-# Troubleshoot an App Service app using SRE Agent (preview)
+# Troubleshoot an App Service app using Azure SRE Agent (preview)
 
 > [!NOTE]
 > Site Reliability Engineering (SRE) Agent is in preview.
 
-The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using SRE Agent.
+The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure SRE Agent.
 
 In this tutorial, you will:
 
@@ -31,7 +31,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you need:
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- To create the SRE Agent, your account needs Microsoft.Authorization/roleAssignments/write permissions using either Role Based Access Control Administrator or User Access Administrator. 
+- To create the Azure SRE Agent, your account needs Microsoft.Authorization/roleAssignments/write permissions using either Role Based Access Control Administrator or User Access Administrator. 
 
 ## 1. Create an App Service app
 
@@ -143,9 +143,7 @@ After deployment and configuration, verify that the sample app is running correc
 
     ![Select Tools and select Convert to PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first three images and select **Convert**.
-
-    - The conversion should complete successfully.
+1. Select the first three images and select **Convert**. The conversion should complete successfully.
 
     ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
@@ -184,11 +182,11 @@ In the *Settings* tab, configure the following:
 
 1. Select **Save** to apply the deployment settings.
 
-## 6. Create an SRE Agent
+## 6. Create an Azure SRE Agent
 
 Now, create an Azure SRE Agent to monitor your App Service app.
 
-1. In the Azure portal, search for and select **SRE Agent**.
+1. In the Azure portal, search for and select **Azure SRE Agent**.
 
 1. Select **+ Create**.
 
@@ -197,8 +195,8 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 | Property         | Value                     | Remarks                                                                 |
 |------------------|---------------------------|-------------------------------------------------------------------------|
 | Subscription     | Your Azure subscription   |                                                                         |
-| Resource group   | `my-sre-agent-group`      | New group for the SRE Agent                                             |
-| Name             | `my-app-service-sre-agent`|                                                                         |
+| Resource group   | `my-sre-agent-group`      | New group for the Azure SRE Agent                                             |
+| Name             | `my-sre-agent`|                                                                         |
 | Region           | **Sweden Central**        | Required during preview; can monitor resources in any Azure region      |
 | Choose role      | **Contributor**           | Grants the agent permission to take action on your behalf               |
 
@@ -252,12 +250,12 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 1. Once the swap is complete, browse to the app’s URL.
 
 1. Attempt to convert five images using the app interface:
-
-    ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
+    
+    ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
 1. The conversion should fail and return an HTTP 500 error:
-
-    ![HTTP 500](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
+     
+    ![HTTP 500](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
 1. Repeat the conversion step a few more times to generate additional HTTP 500 errors. These errors help the SRE Agent detect and diagnose the issue.
 
@@ -309,9 +307,7 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
     ![Select Tools and select Convert to PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first five images and select **Convert**.
-
-    - The conversion should now complete successfully without HTTP 500 errors.
+1. Select all the images and select **Convert**. The conversion should now complete successfully without HTTP 500 errors.
 
     ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
@@ -321,8 +317,8 @@ If you no longer need the app and agent created in this tutorial, you can delete
 
 Repeat the following steps for both of these resource groups:
 
-- `my-app-service-group`
-- `my-sre-agent-group`
+- `my-app-service-group` (App Service resource group)
+- `my-sre-agent-group` (Azure SRE Agent resource group)
 
 1. In the Azure portal, navigate to **Resource groups**.
 
@@ -332,9 +328,7 @@ Repeat the following steps for both of these resource groups:
 
 1. In the confirmation dialog, enter the name of the resource group.
 
-1. Select **Delete**.
-
-    > Deletion takes a few minutes to complete.
+1. Select **Delete**. Deletion takes a few minutes to complete.
 
 ## Next steps
 
