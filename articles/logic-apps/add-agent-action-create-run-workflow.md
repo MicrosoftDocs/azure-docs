@@ -1,6 +1,6 @@
 ---
 title: Run Workflows as Actions on Agents in Azure AI Foundry
-description: Learn how to run automation workflows as actions in agents by using Azure AI Foundry and Azure Logic Apps.
+description: Learn how to create and run automation workflows as actions in agents by using Azure AI Foundry and Azure Logic Apps.
 services: logic-apps, azure-ai-foundry
 author: ecfan
 ms.suite: integration

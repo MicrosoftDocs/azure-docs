@@ -219,7 +219,7 @@ items:
       href: create-parameters-workflows.md
     - name: Call Azure Functions
       href: call-azure-functions-from-workflows.md
-    - name: Create and run workflows from actions in AI agents
+    - name: Run workflows from actions in AI agents
       href: add-agent-action-create-run-workflow.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
