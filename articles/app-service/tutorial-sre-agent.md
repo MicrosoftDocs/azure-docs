@@ -12,7 +12,7 @@ ms.date: 05/15/2025
 > [!NOTE]
 > Site Reliability Engineering (SRE) Agent is in preview.
 
-The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure SRE Agent.
+The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure SRE Agent. By using SRE Agent you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 In this tutorial, you will:
 
