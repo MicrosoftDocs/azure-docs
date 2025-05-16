@@ -4,7 +4,7 @@ description: Learn how to create and run automation workflows as actions in agen
 services: logic-apps, azure-ai-foundry
 author: ecfan
 ms.suite: integration
-ms.reviewers: estfan, divswa, psamband, aahi, miemonts, azla
+ms.reviewers: estfan, divswa, psamband, aahi, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.date: 05/19/2025
@@ -38,14 +38,6 @@ For more information, see the following documentation:
 - [What is Azure Logic Apps?](/azure/logic-apps/logic-apps-overview)
 - [Consumption logic app workflow - Hosting options](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments)
 
-## Limitations and known issues
-
-This release has the following limitations or known issues:
-
-| Limitation | Description |
-|------------|-------------|
-| Logic app workflow support | Agent actions currently support only Consumption logic app workflows in multitenant Azure Logic Apps. A Consumption logic app resource can have only one workflow. For more information, see [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). <br><br>Agent actions currently don't support Standard logic app workflows in single-tenant Azure Logic Apps, App Service Environments, or hybrid deployments. A Standard logic app can have multiple workflows. For more information, see [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). |
-
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -66,13 +58,13 @@ This release has the following limitations or known issues:
 
   - [Default roles for hubs](/azure/ai-foundry/concepts/rbac-azure-ai-foundry#default-roles-for-the-hub)
 
-- A deployed [Azure OpenAI Service model](/azure/ai-services/openai/concepts/models) in your project.
+- A deployed Azure OpenAI Service [model for your project](/azure/ai-services/openai/concepts/models).
 
-  If you don't have a model, see [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model).
+  If you don't have a deployed model, see [Deploy a model](/azure/ai-services/openai/how-to/create-resource?pivots=web-portal#deploy-a-model).
 
 - An [agent in your project](/azure/ai-services/agents/quickstart?context=%2Fazure%2Fai-foundry%2Fcontext%2Fcontext&pivots=ai-foundry-portal).
 
-  This requirement includes deploying a model in Azure OpenAI Service for the agent to use when running the workflow.
+  This requirement includes deploying a model in Azure OpenAI Service for the agent to use while the workflow runs.
 
 #### Can I create and use my own workflows as actions?
 
@@ -101,17 +93,13 @@ For more information, see the following documentation:
 - [Built-in operations that run with Azure Logic Apps runtime](/azure/connectors/built-in)
 - [Custom connectors in Azure Logic Apps](/azure/logic-apps/custom-connector-overview)
 
-## Billing
+## Limitations and known issues
 
-Consumption logic app workflows incur charges based the "pay-for-use" billing model. For more information about this model, see the following resources:
+This release has the following limitations or known issues:
 
-- [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant)
-- [Azure Logic Apps pricing (Consumption Plan - Multitenant)](https://azure.microsoft.com/pricing/details/logic-apps/)
-
-For Azure AI Foundry, see the following resources:
-
-- [Plan and manage costs for Azure AI Foundry](/azure/ai-foundry/how-to/costs-plan-manage)
-- [Azure AI Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/)
+| Limitation | Description |
+|------------|-------------|
+| Logic app workflow support | Agent actions currently support only Consumption logic app workflows in multitenant Azure Logic Apps. A Consumption logic app resource can have only one workflow. For more information, see [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). <br><br>Agent actions currently don't support Standard logic app workflows in single-tenant Azure Logic Apps, App Service Environments, or hybrid deployments. A Standard logic app can have multiple workflows. For more information, see [Hosting options for deployments](/azure/logic-apps/logic-apps-overview#create-and-deploy-to-different-environments). |
 
 ## Add an action to your agent
 
@@ -332,6 +320,18 @@ If you made changes to the weather workflow or to test a different workflow, fol
    On the **Output** tab, the **Response Body** contains the results and response from the workflow.
 
 1. If your workflow run produces errors or requires troubleshooting, open to the workflow's run history so that you can examine each operation's inputs and outputs by using the relevant steps in [Review underlying logic app and workflow](#review-underlying-logic-app-and-workflow).
+
+## Billing and pricing
+
+Consumption logic app workflows incur charges based the "pay-for-use" billing model. For more information about this model, see the following resources:
+
+- [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant)
+- [Azure Logic Apps pricing (Consumption Plan - Multitenant)](https://azure.microsoft.com/pricing/details/logic-apps/)
+
+For Azure AI Foundry, see the following resources:
+
+- [Plan and manage costs for Azure AI Foundry](/azure/ai-foundry/how-to/costs-plan-manage)
+- [Azure AI Foundry pricing](https://azure.microsoft.com/pricing/details/ai-foundry/)
 
 ## Clean up resources
 
