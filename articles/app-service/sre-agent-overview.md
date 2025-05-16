@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Azure SRE Agent overview (preview)
 
-Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your Azure hosted applications by providing AI-powered monitoring, troubleshooting, and remediation capabilities to your app environments. The agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. Azure SRE Agent brings these principles to your Azure hosted applications by providing AI-powered monitoring, troubleshooting, and remediation capabilities to your app environments. The agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chat interface, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
 Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
 
