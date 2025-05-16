@@ -196,7 +196,8 @@ When you open the capture in Wireshark, the payload will appear as "Application 
 
 ## Troubleshooting
  
-A **non-TLS (notls) mount** operation may fail if a previous **TLS-encrypted** mount to the same server was terminated before completing successfully. Although the *aznfswatchdog* service automatically cleans up stale entries after a timeout, attempting a new non-TLS mount before cleanup completes can fail.
+A **non-TLS (notls) mount** operation might fail if a previous **TLS-encrypted** mount to the same server was terminated before completing successfully. Although the *aznfswatchdog* service automatically cleans up stale entries after a timeout, attempting a new non-TLS mount before cleanup completes can fail.
+
  
 To resolve this issue, remount the share using the clean option, which immediately clears any stale entries:
 ```bash
