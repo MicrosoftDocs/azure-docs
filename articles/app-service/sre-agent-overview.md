@@ -50,7 +50,7 @@ Reports include:
 
 - **Incident summary:** Generates information about incidents raised by the SRE Agent on the previous day. Categories include: active, mitigated, or resolved.
 
-- **Application group performance and health:** Key metrics for each application group to assess system stability and performance. Metrics include: availability, CPU usage, and memory usage, .
+- **Application group performance and health:** Key metrics for each application group to assess system stability and performance. Metrics include: availability, CPU usage, and memory usage.
 
 - **Action summary:** Summaries of important details and insights relevant to the health and maintenance of your Azure resources.
 
