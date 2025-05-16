@@ -169,7 +169,6 @@ sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-accou
 
 
 
-> export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
  
 ### Step 3:  Verify that the in-transit data encryption succeeded
  
