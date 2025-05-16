@@ -147,8 +147,6 @@ For major versions released prior to the adoption of this policy, a grace period
 
 #### [Kubernetes](#tab/kubernetes)
 
-There is no feature management library for Kubernetes
-
 ---
 
 Dates marked with an asterisk '*' denote an extension due to the initial announcement grace period. This table lists the highest out-of-support version for any given library. Any existing library version lower than the ones listed here is considered to be out of support.
