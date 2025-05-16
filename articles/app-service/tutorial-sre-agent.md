@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Troubleshoot an app using Azure SRE Agent (preview) in Azure App Service'
+title: 'Tutorial: Troubleshoot an App using Azure SRE Agent (preview) in Azure App Service'
 description: Learn how to use SRE Agent and Azure App Service to identify and fix app issues with AI-assisted troubleshooting.
 author: msangapu-msft
 ms.author: msangapu
@@ -9,11 +9,10 @@ ms.date: 05/15/2025
 
 # Troubleshoot an App Service app using SRE Agent (preview)
 
-> ![NOTE]
+> [!NOTE]
 > Site Reliability Engineering (SRE) Agent is in preview.
->
 
-The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using SRE Agent. 
+The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using SRE Agent.
 
 In this tutorial, you:
 
@@ -22,7 +21,7 @@ In this tutorial, you:
 > * Deploy a sample App Service app using the Azure portal
 > * Enable App Service logs
 > * Create an Azure SRE Agent (preview) to monitor the app
-> * Cause the app to produce a HTTP 500 error
+> * Trigger an HTTP 500 error in the app
 > * Use AI-driven prompts to troubleshoot and fix errors
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -31,7 +30,7 @@ In this tutorial, you:
 
 To complete this tutorial, you need an [Azure subscription](https://azure.microsoft.com/free/).
 
-## 1. Create an App Service app
+## Create an App Service app
 
 Begin by creating an app for your agent to monitor.
 
@@ -56,18 +55,18 @@ In the *Basics* tab, do the following actions.
 
     | Setting | Action |
     |---|---|
-    | Name app name |  Enter **my-sre-app**. |
-    | Publish |  Select **Code**. |
-    | Runtime stack|  Select **PHP 8.4**. |
+    | Name app name | Enter **my-sre-app**. |
+    | Publish | Select **Code**. |
+    | Runtime stack | Select **PHP 8.4**. |
     | Region | Select a region near you. |
 
 1. Select the **Deployment** tab.
 
 1. Enable **Basic authentication** in the *Authentication settings* section. This is used later for a one-time deployment from GitHub. In production, [disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) and use secure deployment methods like GitHub Actions or Azure DevOps.
 
-1. Select **Review and create** at the bottom of the page.  
+1. Select **Review and create** at the bottom of the page.
 
-    If no errors are found, the *Create* button is enabled.  
+    If no errors are found, the *Create* button is enabled.
 
     If there are errors, any tab containing errors is marked with a red dot. Navigate to the appropriate tab. Fields containing an error are highlighted in red. Once all errors are fixed, select **Review and create** again.
 
@@ -85,13 +84,13 @@ In the *Basics* tab, do the following actions.
 
     | Property | Value | Remarks |
     |---|---|---|
-    | Source | Select **External Git**. |  |
-    | Repository | Enter **https://github.com/Azure-Samples/App-Service-Agent-Tutorial**. |  |
-    | Branch | Select **working**. |  |
+    | Source | Select **External Git**. | |
+    | Repository | Enter **https://github.com/Azure-Samples/App-Service-Agent-Tutorial**. | |
+    | Branch | Select **working**. | |
 
 1. Select **Save**.
 
-## 2. Configure the app
+## Configure the app
 
 These steps configure the sample app with a *Startup command* and enable App Service logs.
 
@@ -124,7 +123,7 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
 1. Select **Save**.
 
-## 3. Verify the sample app
+## Verify the sample app
 
 1. Select **Overview** in the left menu.
 
@@ -138,7 +137,7 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
     ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
-## 4. Create a deployment slot
+## Create a deployment slot
 
 1. In the left menu, find the *Deployment* section and select **Deployment slots**.
 
@@ -169,7 +168,7 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
 1. Select **Save**.
 
-## 5. Create an SRE agent
+## Create an SRE agent
 
 Next, create an agent to monitor the *my-aca-app-group* resource group.
 
@@ -197,7 +196,7 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
 1. Select **Create**.
 
-## 6. Chat with your agent
+## Chat with your agent
 
 Your agent has access to any resource inside the resource groups associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
 
@@ -217,7 +216,7 @@ Your agent has access to any resource inside the resource groups associated with
 
 Now that you have an agent that sees your App Service app, you can create an opportunity for the agent to make a fix on your behalf.
 
-## 7. Break the app
+## Break the app
 
 1. In your App Service app page, find **Deployment* section in the left menu and select **Deployment slots**.
  
@@ -244,7 +243,7 @@ Now that you have an agent that sees your App Service app, you can create an opp
 
 1. Repeat the convert step several more times to log more HTTP 500s.
 
-## 7. Fix the app
+## Fix the app
 
 1. Go to the Azure portal, search for and select **Azure SRE Agent**.
 
@@ -262,25 +261,23 @@ Now that you have an agent that sees your App Service app, you can create an opp
 
     While every chat session is different, you should see a response that resembles the following response.
 
-    >I will now perform mitigation for my-sre-app by swapping the slots back to recover the application to a healthy state. Please note that swapping slots back may not always immediately restore health. I will keep you updated on the progress.
-    >
+    > I will now perform mitigation for my-sre-app by swapping the slots back to recover the application to a healthy state. Please note that swapping slots back may not always immediately restore health. I will keep you updated on the progress.
 
     Given that enough time has passed for the SRE Agent to detect the errors, it will prompt you with the following message:
 
-    >Performing Slot Swap rollback to Restore Application Avaialibilty for my-sre-app
-    >[Approve]   [Deny]
-
+    > Performing Slot Swap rollback to Restore Application Availability for my-sre-app
+    > [Approve]   [Deny]
 
 1. Select the **Approve** button to rollback the swap.
 
-    As your agent processes this command. After the swap, the agent's response will include with something that resembles the following message:
+    As your agent processes this command. After the swap, the agent's response will include something that resembles the following message:
 
     > The slot swap for my-sre-app has been completed successfully <timestamp>. The production slot has been restored. I will now continue with post-mitigation steps:
-    >>I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.
-    >>I will monitor the app and provide an availability update in 5 minutes.
+    >> I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.
+    >> I will monitor the app and provide an availability update in 5 minutes.
     > Please provide the GitHub repository URL where you want the issue to be raised.
 
-## 8. Verify the fix
+## Verify the fix
 
 1. To verify your App Service app is working properly, open the app's URL in a browser.
 
@@ -288,7 +285,7 @@ Now that you have an agent that sees your App Service app, you can create an opp
 
     ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first 5 images and click `convert`. Converting images should not longer produce the HTTP 500 errors.
+1. Select the first 5 images and click `convert`. Converting images should no longer produce HTTP 500 errors.
 
     ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
