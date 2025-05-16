@@ -72,9 +72,7 @@ To create a cache instance, follow these steps:
 
 1. In the search box, type _Azure Managed Redis_. Refine your search to Azure services only, and select **Azure Managed Redis**.
 
-1. On the **New Redis Cache** pane, configure the settings for your new cache.
-    1. Select an Azure Managed Redis cache in **Cache SKU**.
-    1. Select an appropriate option in **Cache size**.
+1. On the **New Azure Managed Redis** pane, configure the basic settings for your new cache.
 
 1. Select the **Networking** pane or select the **Networking** at the bottom of the pane.
 
@@ -86,15 +84,7 @@ To create a cache instance, follow these steps:
 
 1. On the **Create a private endpoint** pane, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**.
 
-1. On the **Active geo-replication** pane, make the setting required for your resource.
-
-1. Select the **Next: Advanced** pane or select the **Next: Advanced** button on the bottom of the pane.
-
-1. In the **Advanced** pane for Azure Managed Redis instance, configure the settings needed for your resource.
-
-1. Select the **Next: Tags** pane or select the **Next: Tags** button at the bottom of the pane.
-
-1. Optionally, in the **Tags** pane, enter the name and value if you wish to categorize the resource.
+1. Proceed with other tabs to fill out the configuration settings as needed.
 
 1. Select **Review + create**. You're taken to the Review + create pane where Azure validates your configuration.
 
