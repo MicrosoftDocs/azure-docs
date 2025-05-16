@@ -61,6 +61,8 @@ items:
       - name: Monitor Dev Box
         href: monitor-dev-box.md
         displayName: diagnostic, logs
+      - name: Configure conditional access policies for dev tunnels service
+        href: configure-conditional-access-policies-for-dev-tunnels-service.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
