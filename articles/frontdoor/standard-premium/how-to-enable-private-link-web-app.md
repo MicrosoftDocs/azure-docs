@@ -11,6 +11,8 @@ ms.date: 11/15/2024
 
 # Connect Azure Front Door Premium to an App Service (Web App) origin with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article guides you through configuring Azure Front Door Premium to connect to your App Service (Web App) privately using Azure Private Link.
 
 ## Prerequisites
