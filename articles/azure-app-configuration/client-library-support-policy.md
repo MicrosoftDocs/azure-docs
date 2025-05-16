@@ -94,7 +94,7 @@ For major versions released prior to the adoption of this policy, a grace period
 | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
 |---------|--------------------|-----------------------------|---------------------------|
 | 2.x.x   | February 13, 2025  | --                          | --                        |
-| 1.x.x   | June 5, 2024       | June 5, 2025                | June 5, 2026             |
+| 1.x.x   | June 5, 2024       | June 5, 2025                | June 5, 2026              |
 
 #### [Kubernetes](#tab/kubernetes)
 
@@ -144,6 +144,10 @@ For major versions released prior to the adoption of this policy, a grace period
 |---------|--------------------|-----------------------------|---------------------------|
 | 2.x.x   | January 14, 2025   | --                          | --                        |
 | 1.x.x   | September 25, 2024 | September 25, 2025          | September 25, 2026        |
+
+#### [Kubernetes](#tab/kubernetes)
+
+There is no feature management library for Kubernetes
 
 ---
 
