@@ -38,7 +38,8 @@ All regions supported by Azure Premium Files now support encryption in transit, 
 
 ## Enforce encryption in transit
  
-By enabling 'Secure transfer required' setting on the storage account, you are able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted.
+By enabling the **Secure transfer required** setting on the storage account, you can ensure that all the mounts to the NFS volumes in the storage account are encrypted.
+
  
 :::image type="content" source="./media/eit-for-nfs-shares/storage-account-settings.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/storage-account-settings.png":::
  
