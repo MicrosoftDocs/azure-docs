@@ -18,7 +18,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 -  Learn about how to [Turn on public IP addresses to an NSX Edge node for VMware NSX](enable-public-ip-nsx-edge.md).
 
-- VMware Cloud Director Tenants can use the above NSX-T public IP address for SNAT configuration to enable Internet access for virtual machine in tenant's organization virtual data center.
+- VMware Cloud Director Tenants can use the public IP address for SNAT configuration to enable Internet access for virtual machine in tenant's organization virtual data center.
 
 :::image type="content" source="media/vmware-vcd/VCD_internet_diag.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to internet in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/VCD_internet_diag.png":::
 
@@ -32,9 +32,9 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 ## Connect VMware Cloud Director tenants workloads with Azure services
 
-- To enable access to Azure services in Azure vNet, configure Azure VNet with an azure vPN gateway. 
+- To enable access to Azure services in Azure virtual network, configure Azure virtual network with an Azure vPN gateway. 
 - Follow this document to create an [Azure virtual network gateway](tutorial-configure-networking.md)
-- A site-to-site vpn is established between tenant’s organization virtual data center and azure VNet. To achieve this connectivity, the tenant provides a public IP to the organization virtual datacenter. Both source and destination of the tunnel should have identical settings for IKE,SA, DPD etc.
+- A site-to-site vpn is established between tenant’s organization virtual data center and Azure virtual network. To achieve this connectivity, the tenant provides a public IP to the organization virtual datacenter. Both source and destination of the tunnel should have identical settings for IKE, SA, DPD etc.
 - The organization virtual datacenter administrator can configure IPsec VPN connectivity using VMware Cloud Director.
 
 > [!Note]
@@ -42,7 +42,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 - Organization virtual data center edge router firewall denies traffic by default. You need to apply specific rules to enable connectivity. Use the following steps to apply firewall rules.
 
-:::image type="content" source="media/vmware-vcd/VCD_Azure_Services_diag.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to azure services in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/VCD_Azure_Services_diag.png":::
+:::image type="content" source="media/vmware-vcd/VCD_Azure_Services_diag.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to Azure services in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/VCD_Azure_Services_diag.png":::
 
 ## Related topics
 
