@@ -9,7 +9,8 @@ ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
 
-# How encryption in transit for NFS shares works
+# How encryption in transit for NFS Azure file shares works (preview)
+
 
 
 
