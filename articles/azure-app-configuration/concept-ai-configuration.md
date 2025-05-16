@@ -52,7 +52,7 @@ For more details about models provided by Google, see the [Gemini models documen
 
 ## Next steps
 
-To learn more about the AI configuration, continue to the following document:
+Continue to the following instructions to use AI configuration in your application:
 
 > [!div class="nextstepaction"]
-> [Getting started with Chat completion configuration](./howto-chat-completion-config.md)
+> [Chat completion configuration](./howto-chat-completion-config.md)

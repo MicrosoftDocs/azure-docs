@@ -11,11 +11,12 @@ ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.date: 4/19/2025
 ms.author: mgichohi
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Quickstart: Use chat completion configuration in a .NET console app
 
-In this quickstart you will create a .NET console app that retrieves chat completion configuration from your configuration store and generates AI responses based on the stored settings.
+In this quickstart you will create a .NET console app with dynamic configuration enabled that retrieves and updates chat completion settings without requiring application restarts.
 
 ## Prerequisites
 
@@ -24,18 +25,9 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
 ## Create a console app
 
-1. Create a new directory for the project named *app-config-chat-completion*:
+1. Create a new folder for your project.
 
-    ```console
-    mkdir app-config-chat-completion
-    ```
-1. Switch to the newly created *app-config-chat-completion* directory:
-
-    ```console
-    cd app-config-chat-completion
-    ```
-
-1. Run the following command to create a new .NET console app project:
+1. In the new folder, run the following command to create a new .NET console app project:
     ```bash
     dotnet new console
     ```
@@ -44,9 +36,8 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
     ```bash
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    dotnet add package Microsoft.Extensions.Configuration.Binder
     dotnet add package Azure.Identity
-
-    # Install the Azure OpenAI client library
     dotnet add package Azure.AI.OpenAI --prerelease
     ```
 
@@ -59,77 +50,109 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 
     ```csharp
     using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     using Azure.Identity;
     using Azure.AI.OpenAI;
     using OpenAI.Chat;
+
     ```
 
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the _Program.cs_ file.
 
-    You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your user account the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
+    You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow these [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to enable your application to access App Configuration by assigning the **App Configuration Data Reader** role to the identity represented by `DefaultAzureCredential`.
 
     ```csharp
     var credential = new DefaultAzureCredential();
+
+    IConfigurationRefresher _refresher = null;
 
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
-            options.Connect(new Uri(endpoint), credential);
+            options.Connect(new Uri(endpoint), credential)
+                    .Select("ChatLLM*")
+                    .ConfigureRefresh(refresh =>
+                    {
+                        refresh.RegisterAll()
+                               .SetRefreshInterval(TimeSpan.FromSeconds(10));
+                    });
+
+                _refresher = options.GetRefresher();
         }).Build();
 
-    var model = configuration.GetSection("ChatLLM:Model")["model"];
     string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
-
-    Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
     ```
 
-1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your user account the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor) role. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
+1. Define the `ModelConfiguration` class in _Program.cs_ file:
 
     ```csharp
-    // Existing code to connect to your App configuration store
-    // ...
+    public class ModelConfiguration
+    {
+        public string Model { get; set; }
 
+        public float Temperature { get; set; }
+
+        [ConfigurationKeyName("max_tokens")]
+        public int MaxTokens { get; set; }
+
+        [ConfigurationKeyName("top_p")]
+        public float TopP { get; set; }
+
+        public List<Message> Messages { get; set; }
+    }
+
+    public class Message
+    {
+        public string Role { get; set; }
+        public string Content { get; set; }
+    }
+    ```
+
+1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your identity the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor) role. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```csharp
     // Initialize the AzureOpenAIClient
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
-    ChatClient chatClient = client.GetChatClient(model);
-
     ```
 
 1. Next will update the existing code in _Program.cs_ file to configure the chat completion options:
+
     ```csharp
     ...
-    // Existing code to initialize the AzureOpenAIClient
+    ChatClient chatClient = client.GetChatClient(modelConfig.Model);
 
     // Configure chat completion options
     ChatCompletionOptions options = new ChatCompletionOptions
     {
-        Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
-        MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
-        TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
+        Temperature = modelConfig.Temperature,
+        MaxOutputTokenCount = modelConfig.MaxTokens,
+        TopP = modelConfig.TopP
     };
     ```
 
 1. Update the _Program.cs_ file to add a helper method `GetChatMessages` to process chat messages:
+
     ```csharp
     // Helper method to convert configuration messages to chat API format
-    IEnumerable<ChatMessage> GetChatMessages()
+    IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration model)
     {
         var chatMessages = new List<ChatMessage>();
 
-        foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
+        foreach (Message message in model.Messages)
         {
-            switch (configuration["role"])
+            switch (message.Role)
             {
                 case "system":
-                    chatMessages.Add(ChatMessage.CreateSystemMessage(configuration["content"]));
+                    chatMessages.Add(ChatMessage.CreateSystemMessage(message.Content));
                     break;
                 case "user":
-                    chatMessages.Add(ChatMessage.CreateUserMessage(configuration["content"]));
+                    chatMessages.Add(ChatMessage.CreateUserMessage(message.Content));
                     break;
             }
         }
+
         return chatMessages;
     }
     ```
@@ -137,79 +160,152 @@ In this quickstart you will create a .NET console app that retrieves chat comple
 1. Update the code in the _Program.cs_ file to call the helper method `GetChatMessages` and pass the ChatMessages to the `CompleteChatAsync` method:
     ```csharp
     ...
-    // Existing code to configure chat completion options
-    //
-    IEnumerable<ChatMessage> messages = GetChatMessages();
 
     // CompleteChatAsync method generates a completion for the given chat
+    IEnumerable<ChatMessage> messages = GetChatMessages(modelConfig);
+
     ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
 
     Console.WriteLine("-------------------Model response--------------------------");
     Console.WriteLine(completion.Content[0].Text);
     Console.WriteLine("-----------------------------------------------------------");
+
+    Console.ReadLine();
+    Console.Clear();
     ...
     ```
 
+1. Update the code in _Program.cs_ to refresh data from Azure App Configuration by calling `RefreshAsync()`:
+
+    ```csharp
+    ...
+    // Existing code to initialize the AzureOpenAIClient
+    //
+    
+    while (true)
+    {
+        if (_refresher != null)
+        {
+            await _refresher.RefreshAsync();
+
+            // Existing code
+            //
+            
+            Console.WriteLine("-------------------Model response--------------------------");
+            Console.WriteLine(completion.Content[0].Text);
+            Console.WriteLine("-----------------------------------------------------------");
+
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+    ```
+
 1. After completing the previous steps, your _Program.cs_ file should now contain the complete implementation as shown below:
-    ```c#
+
+    ```csharp
     using Microsoft.Extensions.Configuration;
     using Azure.Identity;
     using Azure.AI.OpenAI;
     using OpenAI.Chat;
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 
     var credential = new DefaultAzureCredential();
+
+    IConfigurationRefresher _refresher = null;
 
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
-            options.Connect(new Uri(endpoint), credential);
+            options.Connect(new Uri(endpoint), credential)
+                .Select("ChatLLM*")
+                .ConfigureRefresh(refresh =>
+                {
+                    refresh.RegisterAll()
+                            .SetRefreshInterval(TimeSpan.FromSeconds(10));
+                });
+
+            _refresher = options.GetRefresher();
 
         }).Build();
 
-    var model = configuration.GetSection("ChatLLM:Model")["model"];
     string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
 
     // Initialize the AzureOpenAIClient
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
-    ChatClient chatClient = client.GetChatClient(model);
 
-    // Configure chat completion options
-    ChatCompletionOptions options = new ChatCompletionOptions
+    while (true)
     {
-        Temperature = float.Parse(configuration.GetSection("ChatLLM:Model")["temperature"]),
-        MaxOutputTokenCount = int.Parse(configuration.GetSection("ChatLLM:Model")["max_tokens"]),
-        TopP = float.Parse(configuration.GetSection("ChatLLM:Model")["top_p"])
-    };
-    
-    IEnumerable<ChatMessage> messages = GetChatMessages();
+        if (_refresher != null)
+        {
+            await _refresher.RefreshAsync();
 
-    ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
-    Console.WriteLine($"Hello, I am your AI assistant powered by Azure App Configuration ({model})");
+            var modelConfig = configuration.GetSection("ChatLLM:Model").Get<ModelConfiguration>();
+        
+            ChatClient chatClient = client.GetChatClient(modelConfig.Model);
 
-    Console.WriteLine("-------------------Model response--------------------------");
-    Console.WriteLine(completion.Content[0].Text);
-    Console.WriteLine("-----------------------------------------------------------");
+            // Configure chat completion options
+            ChatCompletionOptions options = new ChatCompletionOptions
+            {
+                Temperature = modelConfig.Temperature,
+                MaxOutputTokenCount = modelConfig.MaxTokens,
+                TopP = modelConfig.TopP
+            };
 
-    IEnumerable<ChatMessage> GetChatMessages()
+            IEnumerable<ChatMessage> messages = GetChatMessages(modelConfig);
+
+            ChatCompletion completion = await chatClient.CompleteChatAsync(messages, options);
+
+            Console.WriteLine("-------------------Model response--------------------------");
+            Console.WriteLine(completion.Content[0].Text);
+            Console.WriteLine("-----------------------------------------------------------");
+
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+
+    IEnumerable<ChatMessage> GetChatMessages(ModelConfiguration model)
     {
         var chatMessages = new List<ChatMessage>();
 
-        foreach (IConfiguration configuration in configuration.GetSection("ChatLLM:Model:messages").GetChildren())
+        foreach (Message message in model.Messages)
         {
-            switch (configuration["role"])
+            switch (message.Role)
             {
                 case "system":
-                    chatMessages.Add(ChatMessage.CreateSystemMessage(configuration["content"]));
+                    chatMessages.Add(ChatMessage.CreateSystemMessage(message.Content));
                     break;
                 case "user":
-                    chatMessages.Add(ChatMessage.CreateUserMessage(configuration["content"]));
+                    chatMessages.Add(ChatMessage.CreateUserMessage(message.Content));
                     break;
             }
         }
 
         return chatMessages;
+    }
+
+    public class ModelConfiguration
+    {
+        public string Model { get; set; }
+
+        public float Temperature { get; set; }
+
+        [ConfigurationKeyName("max_tokens")]
+        public int MaxTokens { get; set; }
+
+        [ConfigurationKeyName("top_p")]
+        public float TopP { get; set; }
+
+        public List<Message> Messages { get; set; }
+    }
+
+    public class Message
+    {
+        public string Role { get; set; }
+        public string Content { get; set; }
     }
     ```
 
@@ -242,15 +338,24 @@ In this quickstart you will create a .NET console app that retrieves chat comple
     You should see the following output:
 
     ```Output
-    Hello, I am your AI assistant powered by Azure App Configuration (gpt-4o)
-
     -------------------Model response--------------------------
-    Good heavens! A pocket-sized contraption combining telegraph, camera, library, and more—instant communication and knowledge at one’s fingertips! Astonishing!
+    Of course! How can I assist you today?
     -----------------------------------------------------------
+
     ```
 
-## Next steps
-To learn how to configure your app to dynamically refresh configuration settings, continue to the following document.
+1. In Azure portal, select the App Configuration store instance that you created. From the **Operations** menu, select **Configuration explorer** and select the **ChatLLM:Model** key. Update the value of the Messages property:
+    - For the first message:
+        - Role: **system**
+        - Content: "You are a historian who always speaks with a pirate accent".
+    - Add a second message:
+        - Role: **user**
+        - Content: "Tell me about the Roman empire in 20 words"
 
-> [!div class="nextstepaction"]
-> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)
+1. Press the Enter key to trigger a refresh and you should see the updated value in the Command Prompt or Powershell window:
+
+    ```Output
+    -------------------Model response--------------------------
+    Arrr, the Roman Empire be a mighty force, spanin' lands far 'n wide, with legions, emperors, roads, and grand gladiator games!
+    -----------------------------------------------------------
+    ```
