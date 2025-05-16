@@ -33,7 +33,8 @@ The AZNFS utility package simplifies encrypted mounts by installing and setting 
 
 ## Supported regions
 
-All regions supported by Azure Premium Files now support encryption in transit, with the exception of Korea Central, West Europe, Japan West, China North3, Israel Central, and Austria East. Support for these remaining regions is planned and will be available soon.
+All regions supported by Azure Premium Files now support encryption in transit, with the exception of Korea Central, West Europe, Japan West, China North3, Israel Central, and Austria East.
+
 
 ## Enforce encryption in transit
  
