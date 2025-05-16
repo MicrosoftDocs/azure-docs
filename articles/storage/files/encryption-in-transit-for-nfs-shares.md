@@ -61,7 +61,8 @@ Azure Portal support for this feature will be added soon. In the meantime, you c
  
 - Register through Azure CLI using [az feature register](/cli/azure/feature)
  
-   `$ az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft. Storage`
+   `$ az feature register --name AllowEncryptionInTransitNFS4 --namespace Microsoft.Storage`
+---
  
 ## How to encrypt data in transit for NFS shares (preview)
  
