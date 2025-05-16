@@ -133,7 +133,9 @@ sudo yum update
 sudo yum install -y aznfs
 ```
 ---
+
 > [!IMPORTANT]
+
 >
 > AZNFS supported Linux distributions are:
 >
