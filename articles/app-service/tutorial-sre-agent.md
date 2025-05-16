@@ -4,11 +4,14 @@ description: Learn how to use SRE Agent and Azure App Service to identify and fi
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.custom: devx-track-azurecli
-ms.date: 04/22/2025
+ms.date: 05/15/2025
 ---
 
-# Tutorial: Troubleshoot an App Service app using SRE Agent
+# Troubleshoot an App Service app using SRE Agent (preview)
+
+> ![NOTE]
+> Site Reliability Engineering (SRE) Agent is in preview.
+>
 
 The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using SRE Agent. 
 
@@ -18,7 +21,7 @@ In this tutorial, you:
 > * Create an App Service app using the Azure portal
 > * Deploy a sample App Service app using the Azure portal
 > * Enable App Service logs
-> * Create an Azure SRE Agent to monitor the app
+> * Create an Azure SRE Agent (preview) to monitor the app
 > * Cause the app to produce a HTTP 500 error
 > * Use AI-driven prompts to troubleshoot and fix errors
 
@@ -121,7 +124,7 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
 1. Select **Save**.
 
-### Verify the sample app
+## 3. Verify the sample app
 
 1. Select **Overview** in the left menu.
 
@@ -131,11 +134,11 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
     ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first three images and click `convert`. This converts successfully.
+1. Select the first 3 images and click `convert`. This converts successfully.
 
     ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
-## 3. Create a deployment slot
+## 4. Create a deployment slot
 
 1. In the left menu, find the *Deployment* section and select **Deployment slots**.
 
@@ -166,7 +169,7 @@ This step configures application logs required by the SRE Agent to diagnose and 
 
 1. Select **Save**.
 
-## 4. Create an agent
+## 5. Create an SRE agent
 
 Next, create an agent to monitor the *my-aca-app-group* resource group.
 
@@ -194,7 +197,7 @@ Next, create an agent to monitor the *my-aca-app-group* resource group.
 
 1. Select **Create**.
 
-## 5. Chat with your agent
+## 6. Chat with your agent
 
 Your agent has access to any resource inside the resource groups associated with the agent. Use the chat feature to help you inquire about and resolve issues related to your resources.
 
@@ -214,7 +217,7 @@ Your agent has access to any resource inside the resource groups associated with
 
 Now that you have an agent that sees your App Service app, you can create an opportunity for the agent to make a fix on your behalf.
 
-## 6. Break the app
+## 7. Break the app
 
 1. In your App Service app page, find **Deployment* section in the left menu and select **Deployment slots**.
  
@@ -239,6 +242,8 @@ Now that you have an agent that sees your App Service app, you can create an opp
 
     ![The convert will result in a HTTP 500 error](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
+1. Repeat the convert step several more times to log more HTTP 500s.
+
 ## 7. Fix the app
 
 1. Go to the Azure portal, search for and select **Azure SRE Agent**.
@@ -253,51 +258,55 @@ Now that you have an agent that sees your App Service app, you can create an opp
     What's wrong with my-app-service-app?
     ```
 
-    From here, the agent should recognize that the tag name is invalid.
+    From here, the agent investigates any potential issues with the app. You will see a series of messages regarding the availability, CPU utilization, memory usage, and slot swap.
 
     While every chat session is different, you should see a response that resembles the following response.
 
-    > The container app my-container-app appears to be in a healthy state ("Succeeded"), but I did notice a potential issue:
+    >I will now perform mitigation for my-sre-app by swapping the slots back to recover the application to a healthy state. Please note that swapping slots back may not always immediately restore health. I will keep you updated on the progress.
     >
-    > - The container image specified is mcr.microsoft.com/k8se/quickstart:latest1. The ":latest1" tag is unusual and might be a typo (the standard tag is usually ":latest"). If this is not intentional, it could cause image pull failures or unexpected container behavior.
-    >
-    > Other than that, there are no critical errors or warning states reported for my-container-app.
-    >
-    > Would you like me to investigate further for hidden issues such as image pull errors, app crashes, or logs? If yes, please specify what symptoms you're experiencing (e.g., app not responding, errors in logs, etc.).
 
-1. In the chat box, give your agent the following command and wait for a response.
+    Given that enough time has passed for the SRE Agent to detect the errors, it will prompt you with the following message:
 
-    ```text
-    Rollback to the last working version.
-    ```
+    >Performing Slot Swap rollback to Restore Application Avaialibilty for my-sre-app
+    >[Approve]   [Deny]
 
-    As your agent processes this command, it runs diagnostics and reports back status information. After the agent inspects the previous revisions, the agent's response will include with something that resembles the following message:
 
-    > You have requested to roll back your container app to the last known working image. This action will cause a brief restart of your app. Proceeding with the rollback now.
+1. Select the **Approve** button to rollback the swap.
 
-1. As the agent concludes the rollback analysis, it asks you for approval to execute the rollback operation.
+    As your agent processes this command. After the swap, the agent's response will include with something that resembles the following message:
 
-    To approve the action, reply with the following prompt:
+    > The slot swap for my-sre-app has been completed successfully <timestamp>. The production slot has been restored. I will now continue with post-mitigation steps:
+    >>I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.
+    >>I will monitor the app and provide an availability update in 5 minutes.
+    > Please provide the GitHub repository URL where you want the issue to be raised.
 
-    ```text
-    approved
-    ```
+## 8. Verify the fix
 
-    After the rollback is successful, you should see a response similar to:
+1. To verify your App Service app is working properly, open the app's URL in a browser.
 
-    > Rollback complete! Your container app has been reverted to the last known working image: mcr.microsoft.com/k8se/quickstart:latest. Please monitor your app to ensure it starts successfully.
+1. To convert images, click `Tools` and select `Convert to PNG`.
 
-## 8. Verify repair
+    ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-Now you can prompt your agent to return your app's fully qualified domain name (FQDN) so you can verify a successful deployment.
+1. Select the first 5 images and click `convert`. Converting images should not longer produce the HTTP 500 errors.
 
-1. In the chat box, enter the following prompt.
+    ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
-    ```text
-    What is the FQDN for my-container-app?
-    ```
+## Clean up resources
 
-1. To verify your container app is working properly, open the FQDN in a web browser.
+If you're not going to continue to use this application, you can delete the App Service app and all the associated services by removing the resource groups created in this article.
+
+Execute the following steps for both the *my-app-service-group* and *my-sre-agent-group* resource groups.
+
+1. Go to the resource group in the Azure portal.
+
+1. From the *Overview* section, select **Delete resource group**.
+
+1. Enter the resource group name in the confirmation dialog.
+
+1. Select **Delete**.
+
+    The process to delete the resource group can take a few minutes to complete.
 
 ## Next steps
 
