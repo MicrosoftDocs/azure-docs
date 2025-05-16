@@ -94,8 +94,7 @@ Your AI app has almost endless options for running workflows that interact with 
 
 For more information, see the following documentation:
 
-For more information about how to create Consumption logic app workflows, see [Quickstart: Create an example Consumption logic app workflow using the Azure portal](/azure/logic-apps/quickstart-create-example-consumption-workflow).
-
+- [Quickstart: Create an example Consumption logic app workflow using the Azure portal](/azure/logic-apps/quickstart-create-example-consumption-workflow)
 - [What are connectors in Azure Logic Apps](/azure/connectors/introduction)
 - [Managed connectors that run in global, multitenant Azure](/azure/connectors/managed)
 - [Managed connectors technical reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
