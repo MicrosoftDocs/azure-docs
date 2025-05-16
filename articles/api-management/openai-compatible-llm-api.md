@@ -14,34 +14,37 @@ ms.custom: template-how-to, build-2024
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-[INTRO]
+You can import AI model endpoints deployed outside Azure to your API Management instance as a REST API. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
 * [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
+## Language model API types
+
+API Management supports two types of self-hosted language model APIs. The option you select determines how clients call the API and how the API Management instance routes requests to the AI service.
+
+* **OpenAI-compatible** - Self-hosted model endpoints that are compatible with OpenAI's API. Examples include models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index).
+
+    API Management configures an OpenAI-compatible chat completions endpoint. Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. 
+
+* **Passthrough** - Other self-hosted model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
+
+    API Management configures wildcard operations for common HTTP verbs. Clients can append paths to the wildcard operations, and API Management passes requests to the backend.  
+
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A self-hosted LLM with an API endpoint. You can use an OpenAI-compatible LLM that's exposed by an inference provider such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index). Alternatively, you can access an LLM through a provider such as [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html).
-    > [!NOTE]
-    > API Management policies such as [llm-token-limit](llm-token-limit-policy.md) and [llm-emit-token-metric](llm-emit-token-metric-policy.md) are supported for APIs available through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) or with OpenAI-compatible models served through third-party inference providers.
+- A self-hosted (non-Azure-hosted) language model deployment with an API endpoint.  
 
 
 ## Import language model API using the portal
 
-Use the following steps to import an LLM API directly to API Management. 
+Use the following steps to import a language model API to API Management. 
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-Depending on the API type you select to import, API Management automatically configures different operations to call the API: 
-
-* **OpenAI-compatible API** - An operation for the LLM API's chat completion endpoint
-* **Passthrough API** - Wildcard operations for standard verbs `GET`, `HEAD`, `OPTIONS`, and `TRACK`. When you call the API, append any required path or parameters to the API request to pass a request to an LLM API endpoint.
-
-For an OpenAI-compatible API, you can optionally configure policies to help you monitor and manage the API.
-
-To import an LLM API to API Management:
+To import a language model API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
@@ -54,9 +57,12 @@ To import an LLM API to API Management:
     1. Enter the **URL** to the LLM API endpoint.
     1. Optionally select one or more **Products** to associate with the API.  
     1. In **Path**, append a path that your API Management instance uses to access the LLM API endpoints.
-    1. In **Type**, select either **Create OpenAI API** or **Create a passthrough API**.   
+    1. In **Type**, select either **Create OpenAI API** or **Create a passthrough API**. See [Language model API types](#language-model-api-types) for more information.
     1. In **Access key**, optionally enter the authorization header name and API key used to access the LLM API. 
     1. Select **Next**.
+
+    :::image type="content" source="media/openai-compatible-llm-api/configure-api.png" alt-text="Screenshot of language model API configuration in the portal.":::
+
 1. On the **Manage token consumption** tab, optionally enter settings or accept defaults that define the following policies to help monitor and manage the API:
     * [Manage token consumption](llm-token-limit-policy.md)
     * [Track token usage](llm-emit-token-metric-policy.md) 
@@ -74,12 +80,12 @@ To ensure that your LLM API is working as expected, test it in the API Managemen
 1. Select the **Test** tab.
 1. Select an operation that's compatible with the model in the LLM API.
     The page displays fields for parameters and headers.
-1. Enter parameters and headers as needed. Depending on the operation, you may need to configure or update a **Request body**.
+1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
     > [!NOTE]
     > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
 1. Select **Send**.
 
-    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your Azure OpenAI API token consumption.
+    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

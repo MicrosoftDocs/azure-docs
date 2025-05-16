@@ -5,40 +5,44 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 05/16/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
 
-# Import an LLM API 
+# Import an Azure AI Foundry API 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-[INTRO]
+You can import AI model endpoints deployed in Azure AI Foundry to your API Management instance as a REST API. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
-* [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
 
-## AI service options
-* **Azure OpenAI service** - Deployment name of a model is passed in the URL path of the API request.
+## Client compatibility options
 
-* **Azure AI** - These are models that are available in Azure AI Foundry through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api). Deployment name of a model is passed in the request body of the API request. 
+API Management supports two client compatibility options for AI APIs. The option you select determines how clients call the API and how the API Management instance routes requests to the AI service.
 
+* **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
+
+    Clients call the deployment at a `/models` endpoint such as `/Deepseek-3/models/chat/completions`. Deployment name is passed in the request body. Use this option if your service includes models exposed through the Azure AI Model Inference API.
+
+* **Azure OpenAI Service** - Manage model endpoints deployed in Azure OpenAI Service. 
+
+    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your service only includes Azure OpenAI Service model deployments. 
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
 - One or more Azure AI services with models deployed, such as:
-    - An Azure OpenAI resource. For information about model deployment in Azure OpenAI service, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
-    -  An Azure AI Foundry project. For information about creating a project, see [Create a project in the Azure AI Foundry portal](/azure/ai-foundry/how-to/create-projects). 
-    
 
+- An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI Service.
 
-## Import AI Foundry API using the portal
+## Import AI API using the portal
 
-Use the following steps to import an AI Foundry API directly to API Management. 
+Use the following steps to import an AI API to API Management. 
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
@@ -58,19 +62,21 @@ To import an AI Foundry API to API Management:
 
     :::image type="content" source="media/azure-ai-foundry-api/ai-foundry-api.png" alt-text="Screenshot of creating an OpenAI-compatible API in the portal." :::
 1. On the **Select AI service** tab:
-    1. Select the **Subscription** in which to search for AI services (Azure OpenAI services or Azure AI Foundry projects). To get information about the deployments in a service, select the **deployments** link next to the service name.
+    1. Select the **Subscription** in which to search for AI services such as Azure AI Foundry or Azure OpenAI Service. To get information about the model deployments in a service, select the **deployments** link next to the service name.
        :::image type="content" source="media/azure-ai-foundry-api/deployments.png" alt-text="Screenshot of deployments for an AI service in the portal.":::
     1. Select an AI service. 
     1. Select **Next**.
 1. On the **Configure API** tab:
     1. Enter a **Display name** and optional **Description** for the API.
-    1. In **Path**, enter a path that your API Management instance uses to access the API endpoints.
+    1. In **Path**, enter a path that your API Management instance uses to access the deployment endpoint.
     1. Optionally select one or more **Products** to associate with the API.  
-    1. In **Client compatibility**, select either of the following based on the types of client you intend to support:
-        * **Azure OpenAI** - Clients call the model deployment using the OpenAI API format. Select this option if you use only Azure OpenAI deployments.
-        * **Azure AI** - Clients call the model deployment by passing 
-    1. In **Access key**, optionally enter the authorization header name and API key used to access the LLM API. 
+    1. In **Client compatibility**, select either of the following based on the types of client you intend to support. See [AI service options](#ai-service-options) for more information.
+        * **Azure OpenAI** - Select this option if your deployment only includes Azure OpenAI Service model deployments.
+        * **Azure AI** - Select this option if your deployment includes other models available through Azure AI Foundry. 
     1. Select **Next**.
+
+        :::image type="content" source="media/azure-ai-foundry-api/client-compatibility.png" alt-text="Screenshot of AI Foundry API configuration in the portal.":::
+
 1. On the **Manage token consumption** tab, optionally enter settings or accept defaults that define the following policies to help monitor and manage the API:
     * [Manage token consumption](llm-token-limit-policy.md)
     * [Track token usage](llm-emit-token-metric-policy.md) 
@@ -81,19 +87,19 @@ On the **AI content safety**, optionally enter settings or accept defaults to co
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
 
-## Test the LLM API
+## Test the AI API
 
-To ensure that your LLM API is working as expected, test it in the API Management test console. 
+To ensure that your AI API is working as expected, test it in the API Management test console. 
 1. Select the API you created in the previous step.
 1. Select the **Test** tab.
-1. Select an operation that's compatible with the model in the LLM API.
+1. Select an operation that's compatible with the model in the lanaguage API.
     The page displays fields for parameters and headers.
-1. Enter parameters and headers as needed. Depending on the operation, you may need to configure or update a **Request body**.
+1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
     > [!NOTE]
     > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
 1. Select **Send**.
 
-    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your Azure OpenAI API token consumption.
+    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your language model token consumption.
 
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
