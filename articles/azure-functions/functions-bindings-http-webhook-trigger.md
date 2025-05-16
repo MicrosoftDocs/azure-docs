@@ -1016,7 +1016,7 @@ HTTP streams support in Python lets you accept and return data from your HTTP en
 ### Prerequisites
 
 * [Azure Functions runtime](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
-* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](functions-reference-python?tabs=get-started&pivots=python-mode-decorators#python-version).
+* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](functions-reference-python.md?tabs=get-started&pivots=python-mode-decorators#python-version).
 
 ### Enable HTTP streams
 
