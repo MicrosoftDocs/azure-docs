@@ -98,10 +98,10 @@ items:
       href: overview-vector-similarity.md
     - name: Connection resilience best practices
       href: best-practices-connection.md
-    - name: Use Azure Functions triggers and bindings
-      items:
-      - name: Create a simple Function app for Redis triggers 
-        href: tutorial-functions-getting-started.md 
+    # - name: Use Azure Functions triggers and bindings
+    #   items:
+    #   - name: Create a simple Function app for Redis triggers 
+    #     href: tutorial-functions-getting-started.md 
 
   - name: Logs and monitoring
     items:
@@ -205,8 +205,8 @@ items:
   items:
   - name: Use Azure Functions triggers and bindings
     items:
-    - name: Create a simple Function app for Redis triggers
-      href: tutorial-functions-getting-started.md
+    # - name: Create a simple Function app for Redis triggers
+    #   href: tutorial-functions-getting-started.md
     - name: Using Azure Functions to create a write-behind cache
       href: tutorial-write-behind.md
   - name: Use Azure Kubernetes Service with a cache
