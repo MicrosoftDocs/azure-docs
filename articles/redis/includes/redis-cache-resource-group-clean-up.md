@@ -1,6 +1,8 @@
 ---
-ms.date: 12/20/2024
+ms.date: 05/18/2025
 ms.topic: include
+ms.custom:
+  - build-2025
 ---
 
 ## Clean up resources

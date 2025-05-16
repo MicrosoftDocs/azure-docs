@@ -1,15 +1,12 @@
 ---
 title: Import and Export data in Azure Managed Redis
 description: Learn how to import and export data to and from blob storage with your Azure Managed Redis instances
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: how-to
-ms.date: 05/14/2025
-appliesto:
-  - ✅ Azure Managed Redis
+  - build-2025
 ---
 # Import and Export data in Azure Managed Redis
 

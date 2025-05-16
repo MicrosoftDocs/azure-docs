@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial: Get started connecting an AKS application to a cache'
+title: "Tutorial: Get started connecting an AKS application to a cache"
 description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
+ms.date: 10/01/2024
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
-ms.date: 10/01/2024
-appliesto:
-  - ✅ Azure Cache for Redis
-
-#CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
+  - build-2025
+# CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 ---
 
-# Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis (preview) from your application hosted on Azure Kubernetes Service
+# Tutorial: Connect to Azure Cache for Redis or Azure Managed Redis from your application hosted on Azure Kubernetes Service
 
-In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis or Azure Managed Redis(preview) instance.
+In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis or Azure Managed Redis instance.
 
 ## Prerequisites
 
@@ -31,7 +29,7 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
     For this tutorial, use a Standard C1 cache.
     :::image type="content" source="media/tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
 
-1. Follow the steps through to create the cache.
+1. Complete the steps to create the cache.
 
 1. Once your Redis cache instance is created, navigate to the **Authentication** tab. Select the user assigned managed identity you want to use to connect to your Redis cache instance, then select **Save**.
 
@@ -40,7 +38,6 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 1. Take note of the user name for your Redis user from the portal. You use this user name with the AKS workload.
 
 ## Run sample locally
-
 
 To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample uses your user principal through [DefaultAzureCredential](/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application) to connect to Redis instance.
 
