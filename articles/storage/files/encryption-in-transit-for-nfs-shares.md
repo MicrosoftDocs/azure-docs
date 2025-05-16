@@ -161,7 +161,8 @@ sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
-#### Step 2b: Without TLS encryption
+
+
  
 To mount the NFS share **without TLS encryption**:
 ```bash
