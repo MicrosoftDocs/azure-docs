@@ -2,7 +2,7 @@
 title: Azure VM assessments in Azure Migrate 
 description: Learn about assessments in Azure Migrate 
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/06/2025
 ms.custom: engagement-fy24
 ---

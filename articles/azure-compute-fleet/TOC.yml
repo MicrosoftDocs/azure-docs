@@ -6,6 +6,8 @@
     href: quickstart-create-portal.md
   - name: Create with ARM template
     href: quickstart-create-rest-api.md
+  - name: Create using Azure CLI
+    href: quickstart-create-azure-cli.md
   expand: true 
 - name: Allocation strategies
   href: allocation-strategies.md
