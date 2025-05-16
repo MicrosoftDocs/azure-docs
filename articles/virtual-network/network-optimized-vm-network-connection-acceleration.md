@@ -10,9 +10,13 @@ ms.author: allensu
 
 # Network Optimized Virtual Machine Connection Acceleration (Preview)
 
-Azure Network Optimized Virtual Machines offer advanced networking performance enhancements, including accelerated connection setup and increased bandwidth and virtual network interfaces per vCPU. These features reduce latency and enable higher connection rates, ideal for demanding workloads.
+Network Optimized virtual machines enhance accelerated networking by providing hardware acceleration of initial connection setup for certain traffic types. This task was previously performed in software. These enhancements reduce the end-to-end latency for initially establishing a connection or initial packet flow. The enhancements allow a virtual machine to scale up the number of connections it manages more quickly, subject to application constraints.
 
-Network Optimized Virtual Machines are built on the foundation of [Accelerated Networking](accelerated-networking-overview.md?tabs=redhat). These virtual machines offload initial connection setup to hardware using [SR-IOV](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-). This enhancement reduces connection setup latency and enables virtual machines to manage more connections efficiently within application constraints.
+Azure introduced accelerated networking to enhance virtual machine networking performance. This feature gives VMs direct access to the host's physical networking hardware using a technology called SR-IOV.
+
+For information on how accelerated networking works in Azure, see [Accelerated networking overview](accelerated-networking-overview.md?tabs=redhat).
+
+For information about SR-IOV, see [Overview of single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-).
 
 Network Optimized Virtual Machines feature updated network flow limits that scale with vCPU count, offering greater capacity compared to general-purpose Azure virtual machines. These capabilities make Network Optimized Virtual Machines a powerful choice for applications requiring high-performance networking and scalability.
 
@@ -29,7 +33,7 @@ When using Network Optimized Virtual Machines, you can expect to see performance
 - Virtual network peering, within region
 - Virtual network peering, across region
 
-More virtual network configurations function as expected but do not include enhanced connection setup performance, similar to general-purpose virtual machines. Plans exist to expand scenario support for hardware connection setup acceleration in the future.
+More virtual network configurations function as expected but don't include enhanced connection setup performance, similar to general-purpose virtual machines. Plans exist to expand scenario support for hardware connection setup acceleration in the future.
 
 ## Supported virtual machine size families
 
@@ -41,6 +45,9 @@ You can take advantage of enhanced connection setup capabilities by utilizing a 
   - Ensv6
 
 Virtual machines with **`n`** included in their name include enhanced connection setup capabilities.
+
+> [!NOTE]
+> More virtual machine types will be available as the preview expands.
 
 ## Network connection limits for network optimized virtual machines
 
