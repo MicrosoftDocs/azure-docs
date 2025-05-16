@@ -303,4 +303,3 @@ Now you can prompt your agent to return your app's fully qualified domain name (
 
 * [Overview of Azure App Service](overview.md)
 * [Use Azure Developer CLI for modern app development](/azure/developer/azure-developer-cli/overview)
-* [Agent Space documentation](/azure/agent-space/overview)
