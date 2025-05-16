@@ -99,11 +99,7 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | elements | positiveInt | 3 |
 
-As of [Bicep CLI version 0.30.X](https://github.com/Azure/bicep/releases/tag/v0.30.3), user-defined functions can access variables defined in the same Bicep file.
-
-## Example: Accessing variables in a user-defined function
-
-The following example demonstrates how a user-defined function can reference a variable:
+As of [Bicep CLI version 0.30.X](https://github.com/Azure/bicep/releases/tag/v0.30.3), user-defined functions can access variables defined in the same Bicep file. The following example demonstrates how a user-defined function can reference a variable:
 
 ```bicep
 var greetingPrefix = 'Hello'
@@ -145,8 +141,7 @@ The output from the preceding example is:
 | ------------ | ------ | --------------- |
 | resourceName | String | Contoso-storage |
 
-> [!NOTE]
-> For more details on importing variables, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+For more information on importing variables, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
 
 ## Use decorators
 
