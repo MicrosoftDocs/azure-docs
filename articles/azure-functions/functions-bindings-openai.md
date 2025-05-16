@@ -91,36 +91,62 @@ You can add the preview extension by adding or replacing the following code in y
 
 ::: zone-end
 
-## Application settings
+## Connecting to OpenAI
 
-To use the Azure OpenAI binding extension, you need to add one or more of these settings, which are used to connect to your OpenAI resource. During local development, you also need to add these settings to your `local.settings.json` file.
+To use the Azure OpenAI binding extension, you need to specify a connection to OpenAI. This connection is defined using application settings, and the `AIConnectionName` property of the trigger or binding. You can also use environment variables to define key-based connections. 
 
-It is strongly recommended to use managed identity and to be ensured the user or function app's managed identity has the role - `Cognitive Services OpenAI User`
+We recommend that you use managed identity-based connections and the `AIConnectionName` property. 
 
-### AIConnectionName Property
+### [AIConnectionName Property](#tab/ai-connection-name)
 
-The optional `AIConnectionName` property specifies the name of a configuration section that contains connection details for the AI service:
+The OpenAI bindings have an `AIConnectionName` property that you can use to specify the `<ConnectionNamePrefix>` for this group of app settings that define the connection to Azure OpenAI:
 
-#### For Azure OpenAI Service
+| Setting name |   Description |
+|---|---|
+| `<CONNECTION_NAME_PREFIX>__endpoint` | Sets the URI endpoint of the Azure OpenAI service. This setting is always required. |
+| `<CONNECTION_NAME_PREFIX>__clientId` | Sets the specific user-assigned identity to use when obtaining an access token. Requires that `<CONNECTION_NAME_PREFIX>__credential` is set to `managedidentity`. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-develop-local.md#identity-based-connections), when `credential` shouldn't be set. |
+|  `<CONNECTION_NAME_PREFIX>__credential` | Defines how an access token is obtained for the connection. Use `managedidentity` for managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
+|  `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-develop-local.md#identity-based-connections), when `credential` shouldn't be set. |
+| `<CONNECTION_NAME_PREFIX>__key` | Sets the shared secret key required to access the endpoint of the Azure OpenAI service using key-based authentication. As a security best practice, you should always use Microsoft Entra ID with managed identities for authentication. | 
 
-* If AIConnectionName is specified, the extension looks for `Endpoint` and `Key` values in the named configuration section
-* If not specified or the configuration section doesn't exist, the extension falls back to environment variables:
-  * `AZURE_OPENAI_ENDPOINT` and/or
-  * `AZURE_OPENAI_KEY`
-* For user-assigned managed identity authentication, a configuration section is required
+Consider these managed identity connection settings when then `AIConnectionName` property is set to `myAzureOpenAI`:
 
-    ```json
-        "<ConnectionNamePrefix>__endpoint": "Placeholder for the Azure OpenAI endpoint value",
-        "<ConnectionNamePrefix>__credential": "managedidentity",
-        "<ConnectionNamePrefix>__managedIdentityResourceId": "Resource Id of managed identity", 
-        "<ConnectionNamePrefix>__clientId": "Client Id of managed identity"
-    ```
++ `myAzureOpenAI__endpoint=https://contoso.openai.azure.com/`
++ `myAzureOpenAI__credential=managedidentity`
++ `myAzureOpenAI__clientId=aaaaaaaa-bbbb-cccc-1111-222222222222`
 
-  * Only one of managedIdentityResourceId or clientId should be specified, not both.
-  * If no Resource Id or Client Id is specified, the `system-assigned managed identity` will be used by default.
-  * Pass the configured `ConnectionNamePrefix` value, example `AzureOpenAI` to the `AIConnectionName` property.
+At runtime, these settings are collectively interpreted by the host as a single `myAzureOpenAI` setting like this:
 
-For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).
+```json
+"myAzureOpenAI":
+{
+    "endpoint": "https://contoso.openai.azure.com/",
+    "credential": "managedidentity",
+    "clientId": "aaaaaaaa-bbbb-cccc-1111-222222222222"
+}
+```
+
+When using managed identities, make sure to add your identity to the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning#cognitive-services-openai-user) role.
+
+When running locally, you must add these settings to the *local.settings.json* project file. For more information, see [Local development with identity-based connections](functions-reference.md#local-development-with-identity-based-connections).
+
+### [Environment variables](#tab/envars)
+
+To support legacy apps and for providers other than Azure OpenAI, you can also define key-based authentication to OpenAI using these environment variables. 
+
+| Variable name |   Description |
+|---|---|
+| `AZURE_OPENAI_ENDPOINT` | Sets the URI endpoint of OpenAI.|
+| `AZURE_OPENAI_KEY` | Sets the shared secret key required to access the endpoint using key-based authentication.  |
+
+You can set these variables in your app settings. 
+
+When running locally, you must add these settings to the *local.settings.json* project file. 
+
+---
+
+For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). 
+
  
 <!---Include this section if there are any host.json settings defined by the extension:
 ## host.json settings
