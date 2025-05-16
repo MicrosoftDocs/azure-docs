@@ -37,7 +37,7 @@ When you select Azure regions for your solution, consider the following factors:
 - **Availability zones**. Select regions that support availability zones to provide redundancy and fault isolation. Make sure that you spread your resources across multiple availability zones in the region. 
 - **Multi-region**. Multi-region may be required for your workload, based on your business continuity planning. Some Azure services use region pairs to support geo-replication and geo-redundancy, while others use availability zones as their primary means of redundancy. Furthermore, many Azure services support geo-redundancy whether the regions are paired or not, and you can design a highly resilient solution whether you use paired regions, nonpaired regions, or a combination of both. To learn more about the approach for each service see [Reliability guides by service](./overview-reliability-guidance.md).
 
-For more detailed information on how to select regions, see [Select Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
+For more detailed information on how to select regions, see [Select Azure regions in the Microsoft Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions).
 
 ## List of regions
 
