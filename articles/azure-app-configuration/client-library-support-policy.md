@@ -36,8 +36,8 @@ For illustration:
 - **Microsoft.Extensions.Configuration.AzureAppConfiguration 8.x.x:**
   - Released: October 9, 2024
   - Active Support: Until at least October 9, 2025 (12 months)
-  - Maintenance Mode: Begins October 9, 2025, or upon release of 9.x (whichever is later), lasting at least 12 months
-  - Out of Support: After maintenance mode ends (e.g., October 9, 2026, or later if 9.x is released after October 9, 2025)
+  - Deprecation Mode: Begins October 9, 2025, or upon release of 9.x (whichever is later), lasting at least 12 months
+  - Out of Support: After deprecation mode ends (e.g., October 9, 2026, or later if 9.x is released after October 9, 2025)
 
 ---
 
