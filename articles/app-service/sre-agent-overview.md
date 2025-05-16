@@ -48,13 +48,11 @@ The SRE Agent offers several key features that enhance the reliability and perfo
 
 An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports which provide insights into the health and status of your applications. Reports include:
 
-- **Actionable steps**: Measures you can take each day to reduce errors and harden security practices.
+- **Incident summary:** Generates information about incidents raised by the SRE Agent on the previous day. Categories include: active, mitigated, or resolved.
 
-- **Key insights**: Summaries of important details relevant to the health and maintenance of your Azure resources.
+- **Application group performance and health:** Key metrics for each application group to assess system stability and performance. Metrics include: availability, CPU usage, and memory usage, .
 
-- **Reasoning**: Summaries of analysis done by your agent helping surface possible problem areas in your apps.
-
-- **Actions already taken by the agent**: A list of tasks the agent did on your behalf for the day.
+- **Action summary:** Summaries of important details and insights relevant to the health and maintenance of your Azure resources.
 
 ## Scenarios
 
