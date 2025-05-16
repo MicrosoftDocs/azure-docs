@@ -31,7 +31,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you need an [Azure subscription](https://azure.microsoft.com/free/).
 
-## Create an App Service app
+## 1. Create an App Service app
 
 Start by creating a web app that the SRE Agent will monitor.
 
@@ -46,19 +46,19 @@ In the *Basics* tab, provide the following details:
 
 **Project details**
 
-| Setting         | Value                          |
+| Setting         | Value                          |
 |-----------------|--------------------------------|
-| Subscription     | Your Azure subscription        |
-| Resource group   | **Create new** → `my-app-service-group` |
+| Subscription    | Your Azure subscription       |
+| Resource group  | **Create new** → `my-app-service-group` |
 
 **Instance details**
 
-| Setting         | Value                          |
+| Setting         | Value                          |
 |-----------------|--------------------------------|
-| Name            | `my-sre-app`                   |
-| Publish         | **Code**                       |
-| Runtime stack   | **PHP 8.4**                    |
-| Region          | A region near you              |
+| Name            | `my-sre-app`                  |
+| Publish         | **Code**                      |
+| Runtime stack   | **PHP 8.4**                   |
+| Region          | A region near you             |
 
 
 1. Select the **Deployment** tab.
@@ -70,15 +70,14 @@ In the *Basics* tab, provide the following details:
 
 1. Select **Review and create**.
 
-    - If validation passes, the **Create** button becomes active.
-    - If there are errors, tabs with issues are marked with a red dot. Fix the highlighted fields and try again.
+    - If validation passes, the **Create** button becomes active.
+    - If there are errors, tabs with issues are marked with a red dot. Fix the highlighted fields and try again.
 
 1. Select **Create** to deploy the app.
 
     Once deployment completes, you’ll see the message: *Your deployment is complete*.
 
-### Deploy the sample app
-
+## 2. Deploy the sample app
 
 Now that your App Service app is created, deploy the sample application from GitHub.
 
@@ -88,16 +87,15 @@ Now that your App Service app is created, deploy the sample application from Git
 
 1. In the *Settings* tab, configure the following:
 
-    | Property   | Value                                                              |
-    |------------|--------------------------------------------------------------------|
-    | Source     | **External Git**                                                   |
-    | Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial`     | 
-    | Branch     | `working`                                                          |
-
+| Property   | Value                                                      |
+|------------|------------------------------------------------------------|
+| Source     | **External Git**                                           |
+| Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial` |
+| Branch     | `working`                                                  |
 
 1. Select **Save** to apply the deployment settings.
 
-## Configure the app
+## 3. Configure the app
 
 Next, configure your app with a startup command and enable logging to support diagnostics with the SRE Agent.
 
@@ -112,9 +110,9 @@ The sample app uses NGINX. The default NGINX configuration expects a `50x.html` 
 
 1. Enter the following command:
 
-    ```bash
-    /home/site/wwwroot/startup.sh
-    ```
+    ```bash
+    /home/site/wwwroot/startup.sh
+    ```
 
 1. Select **Save** to apply the changes.
 
@@ -126,14 +124,14 @@ Enable logging so the SRE Agent can collect diagnostic data from your app.
 
 1. Configure the following settings:
 
-    | Property               | Value           | Remarks                                |
-    |------------------------|------------------|----------------------------------------|
-    | Application logging    | **File System**  | Enables log collection for diagnostics |
-    | Retention Period (Days)| `3`              | Retains logs for 3 days                |
+| Property               | Value           | Remarks                                |
+|------------------------|-----------------|----------------------------------------|
+| Application logging    | **File System** | Enables log collection for diagnostics |
+| Retention Period (Days)| `3`             | Retains logs for 3 days               |
 
 1. Select **Save** to apply the logging configuration.
 
-## Verify the sample app
+## 4. Verify the sample app
 
 After deployment and configuration, verify that the sample app is running correctly.
 
@@ -145,8 +143,8 @@ After deployment and configuration, verify that the sample app is running correc
 
 1. Once the app loads, test its functionality:
 
-    - Click **Tools** in the app’s navigation bar.
-    - Select **Convert to PNG**.
+    - Click **Tools** in the app’s navigation bar.
+    - Select **Convert to PNG**.
 
     ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
@@ -156,7 +154,7 @@ After deployment and configuration, verify that the sample app is running correc
 
     ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
 
-## Create a deployment slot
+## 5. Create a deployment slot
 
 To simulate a failure scenario, create a secondary deployment slot.
 
@@ -167,10 +165,10 @@ To simulate a failure scenario, create a secondary deployment slot.
 1. Enter the following values.
 
 
-    | Property           | Value         | Remarks                          |
-    |--------------------|---------------|----------------------------------|
-    | Name               | `broken`      | Name of the slot to simulate failure |
-    | Clone settings from| `my-sre-app`  | Copies configuration from the main app |
+| Property           | Value         | Remarks                          |
+|--------------------|---------------|----------------------------------|
+| Name               | `broken`      | Name of the slot to simulate failure |
+| Clone settings from| `my-sre-app`  | Copies configuration from the main app |
 
 
 1. Scroll to the bottom of the dialog window and select **Add**.
@@ -185,15 +183,15 @@ To simulate a failure scenario, create a secondary deployment slot.
 
 In the *Settings* tab, configure the following:
 
-    | Property   | Value                                                              |
-    |------------|--------------------------------------------------------------------|
-    | Source     | **External Git**                                                   |
-    | Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial`      |
-    | Branch     | `broken`                                                           |
+| Property   | Value                                                      |
+|------------|------------------------------------------------------------|
+| Source     | **External Git**                                           |
+| Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial` |
+| Branch     | `broken`                                                   |
 
 1. Select **Save** to apply the deployment settings.
 
-## Create an SRE Agent
+## 6. Create an SRE Agent
 
 Now, create an Azure SRE Agent to monitor your App Service app.
 
@@ -203,15 +201,15 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. In the *Create agent* window, enter the following values:
 
-    > During this step, you’ll create a new resource group for the agent. This group is separate from the one used for your app.
+> During this step, you’ll create a new resource group for the agent. This group is separate from the one used for your app.
 
-    | Property         | Value                     | Remarks                                                                 |
-    |------------------|---------------------------|-------------------------------------------------------------------------|
-    | Subscription     | Your Azure subscription   |                                                                         |
-    | Resource group   | `my-sre-agent-group`      | New group for the SRE Agent                                             |
-    | Name             | `my-app-service-sre-agent`|                                                                         |
-    | Region           | **Sweden Central**        | Required during preview; can monitor resources in any Azure region     |
-    | Choose role      | **Contributor**           | Grants the agent permission to take action on your behalf              |
+| Property         | Value                     | Remarks                                                                 |
+|------------------|---------------------------|-------------------------------------------------------------------------|
+| Subscription     | Your Azure subscription   |                                                                         |
+| Resource group   | `my-sre-agent-group`      | New group for the SRE Agent                                             |
+| Name             | `my-app-service-sre-agent`|                                                                         |
+| Region           | **Sweden Central**        | Required during preview; can monitor resources in any Azure region      |
+| Choose role      | **Contributor**           | Grants the agent permission to take action on your behalf               |
 
 1. Select **Select resource groups**.
 
@@ -221,10 +219,9 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. Back in the *Create agent* window, select **Create**.
 
-    > The agent creation process may take a few minutes to complete.
+> The agent creation process may take a few minutes to complete.
 
-
-## Chat with your agent
+## 7. Chat with your agent
 
 Once your SRE Agent is deployed and connected to your resource group, you can interact with it using natural language to monitor and troubleshoot your app.
 
@@ -244,9 +241,7 @@ Once your SRE Agent is deployed and connected to your resource group, you can in
 
 Now that the agent can see your app, you’re ready to simulate a failure and let the agent help you resolve it.
 
-
-
-## Break the app
+## 8. Break the app
 
 Now simulate a failure scenario by swapping to the broken deployment slot.
 
@@ -255,11 +250,11 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 1. Select **Swap**.
 
 1. In the *Swap* dialog, configure the following:
-
-    | Property | Value             | Remarks                          |
-    |----------|-------------------|----------------------------------|
-    | Source   | `my-sre-app-broken` | The slot with the faulty version |
-    | Target   | `my-sre-app`        | The production slot              |
+    
+    | Property | Value               | Remarks                          |
+    |----------|---------------------|----------------------------------|
+    | Source   | `my-sre-app-broken` | The slot with the faulty version |
+    | Target   | `my-sre-app`        | The production slot              |
 
 1. Scroll to the bottom and select **Start Swap**.
 
@@ -269,18 +264,17 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Attempt to convert five images using the app interface:
 
-    ./media/tutorial-azure-monitor/sample-monitor-app-convert-five-images.png
+    ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
 
 1. The conversion should fail and return an HTTP 500 error:
 
-    ./media/tutorial-azure-monitor/sample-monitor-app-http-500.png
+    ![HTTP 500](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
 1. Repeat the conversion step a few more times to generate additional HTTP 500 logs.
 
     > These logs will help the SRE Agent detect and diagnose the issue.
 
-
-## Fix the app
+## 9. Fix the app
 
 Now that the app is experiencing failures, use the SRE Agent to diagnose and resolve the issue.
 
@@ -304,7 +298,7 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
 
 1. After a short delay, the agent will prompt you to approve the rollback:
 
-    > *Performing Slot Swap rollback to Restore Application Availability for my-sre-app*  
+    > *Performing Slot Swap rollback to Restore Application Availability for my-sre-app*
     > **[Approve]**   **[Deny]**
 
 1. Select **Approve** to initiate the rollback.
@@ -318,8 +312,7 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
     >
     > *Please provide the GitHub repository URL where you want the issue to be raised.*
 
-
-## Verify the fix
+## 10. Verify the fix
 
 After the SRE Agent rolls back the slot swap, confirm that your app is functioning correctly.
 
