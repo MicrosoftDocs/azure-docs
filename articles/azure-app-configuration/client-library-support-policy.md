@@ -113,6 +113,15 @@ For major versions released prior to the adoption of this policy, a grace period
 | 2.x.x   | February 13, 2025  | --                          | --                        |
 | 1.x.x   | June 5, 2024       | June 5, 2025                | June 5, 2026             |
 
+#### [Kubernetes](#tab/kubernetes)
+
+##### mcr.microsoft.com/azure-app-configuration/kubernetes-provider
+
+| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
+|---------|--------------------|-----------------------------|---------------------------|
+| 2.x.x   | September 10, 2024 | --                          | --                        |
+| 1.x.x   | November 14, 2023  | November 14, 2024           | May 20, 2026*             |
+
 ---
 
 ### Feature management
