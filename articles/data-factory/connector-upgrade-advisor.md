@@ -27,6 +27,7 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 - Salesforce
 - Salesforce Service Cloud
 - ServiceNow
+- Snowflake
 - PostgreSQL
 - Google BigQuery
 
