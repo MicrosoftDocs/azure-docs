@@ -157,7 +157,8 @@ To mount the NFS file share **with TLS encryption**:
 ```bash
 sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```
-2. Mount the NFS share by using the following cmdlet. Replace the `<storage-account-name>` placeholder with the name of your storage account and replace `<share-name>` with the name of your file share.
+2. Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with the name of your storage account and replace `<share-name>` with the name of your file share.
+
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
