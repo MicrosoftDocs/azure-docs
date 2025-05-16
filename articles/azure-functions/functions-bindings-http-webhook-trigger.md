@@ -418,7 +418,7 @@ This example is an HTTP triggered function that uses [HTTP streams](functions-re
 
 :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/function_app.py" range="5-26" ::: 
 
-To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams).
+To learn more, including how to enable HTTP streams in your project, see [HTTP streams](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1).
 
 This example shows a trigger binding and a Python function that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
@@ -1016,7 +1016,7 @@ HTTP streams support in Python lets you accept and return data from your HTTP en
 ### Prerequisites
 
 * [Azure Functions runtime](functions-versions.md?pivots=programming-language-python) version 4.34.1, or a later version.
-* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](#python-version).
+* [Python](https://www.python.org/downloads/) version 3.8, or a later [supported version](functions-reference-python?tabs=get-started&pivots=python-mode-decorators#python-version).
 
 ### Enable HTTP streams
 

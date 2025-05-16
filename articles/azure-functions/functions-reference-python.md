@@ -536,7 +536,7 @@ HTTP streams lets you accept and return data from your HTTP endpoints using Fast
 
 This feature makes it possible to handle large data stream, OpenAI integrations, deliver dynamic content, and support other core HTTP scenarios requiring real-time interactions over HTTP. You can also use FastAPI response types with HTTP streams. Without HTTP streams, the size of your HTTP requests and responses are limited by memory restrictions that can be encountered when processing entire message payloads all in memory. 
 
-To learn more, including how to enable HTTP streams in your project, see [HTTP Streams](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams).
+To learn more, including how to enable HTTP streams in your project, see [HTTP Streams](functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1).
 ::: zone pivot="python-mode-configuration" 
 > [!IMPORTANT]  
 > Support for HTTP streams requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#http-streams).
