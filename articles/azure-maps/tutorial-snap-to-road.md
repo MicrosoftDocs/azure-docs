@@ -142,7 +142,7 @@ The code in this notebook cell reads raw GPS data from the data file in lakehous
     import json
     
     az_maps_subkey = ""
-    az_maps_snaproads_url = "https://atlas.microsoft.com/route/snapToRoads?api-version=2024-07-01-preview&subscription-key=" + az_maps_subkey
+    az_maps_snaproads_url = "https://atlas.microsoft.com/route/snapToRoads?api-version=2025-01-01&subscription-key=" + az_maps_subkey
     
     # Function to process snap to road for each given trip
     def process_route(df, outputFilePath):
