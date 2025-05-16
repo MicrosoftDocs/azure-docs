@@ -202,7 +202,7 @@ If you enable availability zones but specify a capacity less than two, the platf
     If you're on a plan or a stamp that doesn't support availability zones, you must create a new App Service plan in a new resource group so that you land on the App Service footprint that supports zones.
 
     > [!NOTE]
-    > Changing the zone redundancy status of an App Service plan is almost instaneous. You don't experience downtime or performance issues during the process.
+    > Changing the zone redundancy status of an App Service plan is almost instantaneous. You don't experience downtime or performance issues during the process.
 
 - **Disable zone redundancy.** To disable zone redundancy, you can set the App Service plan `zoneRedundant` property to `false` or use the Azure CLI.
 
