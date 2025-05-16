@@ -103,7 +103,7 @@ For major versions released prior to the adoption of this policy, a grace period
 | Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
 |---------|--------------------|-----------------------------|---------------------------|
 | 2.x.x   | September 10, 2024 | --                          | --                        |
-| 1.x.x   | November 14, 2023  | November 14, 2024           | May 20, 2026*             |
+| 1.x.x   | November 14, 2023  | November 14, 2024           | November 14, 2025**       |
 
 ---
 
@@ -147,9 +147,14 @@ For major versions released prior to the adoption of this policy, a grace period
 
 #### [Kubernetes](#tab/kubernetes)
 
+Not applicable.
+
 ---
 
-Dates marked with an asterisk '*' denote an extension due to the initial announcement grace period. This table lists the highest out-of-support version for any given library. Any existing library version lower than the ones listed here is considered to be out of support.
+This table lists the highest out-of-support version for any given library. Any existing library version lower than the ones listed here is considered to be out of support.
+
+\* Dates marked with an asterisk '*' denote an extension due to the initial announcement grace period.  
+\*\* The aforementioned grace period does not apply to the Kubernetes configuration provider.
 
 ## Using unsupported versions
 
