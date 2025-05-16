@@ -59,7 +59,7 @@ Your agent has access to any resource inside the resource group associated with 
 
 1. Go to the Azure portal, search for and select **SRE Agent**.
 
-1. Locate your agent in the list and select **Chat with agent**.
+1. Locate your agent in the list and select the agent name.
 
 Once the chat window loads, you can begin asking your agent questions. Here's a series of questions that can help you get started:
 
