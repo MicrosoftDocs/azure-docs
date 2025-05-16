@@ -1,122 +1,115 @@
 ---
-title: Configure custom responses for Web Application Firewall with Azure Front Door
+title: Configure custom responses for Azure Front Door WAF policy
 description: Learn how to configure a custom response code and message when Azure Web Application Firewall blocks a request.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 04/04/2025
+ms.date: 05/08/2025
 ms.custom: devx-track-azurepowershell
-zone_pivot_groups: front-door-tiers
 ---
 
 # Configure a custom response for Azure Web Application Firewall
 
-In this article, you learn how to configure a custom response page when Azure Web Application Firewall blocks a request.
+By default, when Azure Front Door Web Application Firewall (WAF) blocks a request because of a matched rule, it returns a 403 status code with the message "The request is blocked." The default message also includes the tracking reference string that's used to link to [log entries](./waf-front-door-monitor.md) for the request.
 
-By default, when Azure Web Application Firewall blocks a request because of a matched rule, it returns a 403 status code with the message "The request is blocked." The default message also includes the tracking reference string that's used to link to [log entries](./waf-front-door-monitor.md) for the request. You can configure a custom response status code and a custom message with a reference string for your use case.
+In this article, you learn how to configure a custom response status code and a custom message with a reference string for your use case using the Azure portal, PowerShell, or the Azure CLI.
+
+## Prerequisites
+
+# [**Portal**](#tab/portal)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+
+# [**PowerShell**](#tab/powershell)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Azure Cloud Shell or Azure PowerShell.
+
+    The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. This article requires the Azure PowerShell module. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+
+# [**Azure CLI**](#tab/cli)
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- Azure Cloud Shell or Azure CLI.
+
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.67.0 or higher and  **front-door** extension. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+
+---
 
 ## Configure a custom response status code and message
 
 # [**Portal**](#tab/portal)
 
-You can configure a custom response status code and body under **Policy settings** on the Azure Web Application Firewall portal.
+To customize the response status code and body, follow these steps:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings.":::
+1. Go to your Front Door WAF policy in the Azure portal.
 
-In the preceding example, we kept the response code as 403 and configured a short "Please contact us" message, as shown in the following image:
+1. Under **Settings**, select **Policy settings**.
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Screenshot that shows a custom response example.":::
+1. Enter the custom response status code and response body in the **Block response status code** and **Block response body** boxes, respectively.
+
+    :::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png" alt-text="Screenshot that shows Azure Web Application Firewall Policy settings." lightbox="../media/waf-front-door-configure-custom-response-code/custom-response-settings.png":::
+
+    > [!NOTE]
+    > The [JavaScript challenge](../waf-javascript-challenge.md) and [CAPTCHA](captcha-challenge.md) features are available only in WAF policies on the Azure Front Door Premium tier.
+
+1. Select **Save**.
 
 # [**PowerShell**](#tab/powershell)
 
-Follow these steps to configure a custom response status code and message by using PowerShell.
+To customize the response status code and body, use [Update-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy) cmdlet.
 
-### Set up your PowerShell environment
-
-Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](../../azure-resource-manager/management/overview.md) model for managing your Azure resources.
-
-You can install [Azure PowerShell](/powershell/azure/) on your local machine and use it in any PowerShell session. Follow the instructions on the page to sign in with your Azure credentials. Then install the Az PowerShell module.
-
-### Connect to Azure with an interactive dialog for sign-in
-
-```
-Connect-AzAccount
-Install-Module -Name Az
-
-```
-Make sure you have the current version of PowerShellGet installed. Run the following command and reopen PowerShell.
-
-```
-Install-Module PowerShellGet -Force -AllowClobber
-``` 
-
-### Install the Az.FrontDoor module
-
-```
-Install-Module -Name Az.FrontDoor
-```
-
-### Create a resource group
-
-In Azure, you allocate related resources to a resource group. Here, we create a resource group by using [New-AzResourceGroup](/powershell/module/Az.resources/new-Azresourcegroup).
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name myResourceGroupWAF
+# Update WAF policy settings to customize response body and status code
+Update-AzFrontDoorWafPolicy `
+-Name 'myWAFPolicy' `
+-ResourceGroupName 'myResourceGroup' `
+-RequestBodyCheck 'Enabled' `
+-RedirectUrl 'https://learn.microsoft.com/en-us/azure/web-application-firewall/' `
+-CustomBlockResponseStatusCode '403' `
+-CustomBlockResponseBody '<html><head><title>WAF Demo</title></head><body><p><h1><strong>WAF Custom Response Page</strong></h1></p><p>Please contact us with this information:<br>{{azure-ref}}</p></body></html>'
 ```
 
-### Create a new WAF policy with a custom response
+# [**Azure CLI**](#tab/cli)
 
-The following example shows how to create a new web application firewall (WAF) policy with a custom response status code set to 405 and a message of "You are blocked" by using
-[New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+To customize the response status code and body, use [az network front-door waf-policy update](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-update) command.
 
-```azurepowershell
-# WAF policy setting
-New-AzFrontDoorWafPolicy `
--Name myWAFPolicy `
--ResourceGroupName myResourceGroupWAF `
--EnabledState enabled `
--Mode Detection `
--CustomBlockResponseStatusCode 405 `
--CustomBlockResponseBody "<html><head><title>You are blocked.</title></head><body></body></html>"
+
+```azurecli-interactive
+# Update WAF policy settings to customize response body and status code
+az network front-door waf-policy update \
+	--name 'myWAFPolicy' \
+	--resource-group 'myResourceGroup' \
+	--request-body-check 'Enabled' \
+	--redirect-url 'https://learn.microsoft.com/en-us/azure/web-application-firewall/' \
+	--custom-block-response-status-code '403' \
+    --custom-block-response-body 'PGh0bWw+PGhlYWQ+PHRpdGxlPldBRiBEZW1vPC90aXRsZT48L2hlYWQ+PGJvZHk+PHA+PGgxPjxzdHJvbmc+V0FGIEN1c3RvbSBSZXNwb25zZSBQYWdlPC9zdHJvbmc+PC9oMT48L3A+PHA+UGxlYXNlIGNvbnRhY3QgdXMgd2l0aCB0aGlzIGluZm9ybWF0aW9uOjxicj57e2F6dXJlLXJlZn19PC9wPjwvYm9keT48L2h0bWw+'
 ```
 
-Modify the custom response code or response body settings of an existing WAF policy by using [Update-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/Update-AzFrontDoorWafPolicy).
-
-```azurepowershell
-# modify WAF response code
-Update-AzFrontDoorFireWallPolicy `
--Name myWAFPolicy `
--ResourceGroupName myResourceGroupWAF `
--EnabledState enabled `
--Mode Detection `
--CustomBlockResponseStatusCode 403
-```
-
-```azurepowershell
-# modify WAF response body
-Update-AzFrontDoorFireWallPolicy `
--Name myWAFPolicy `
--ResourceGroupName myResourceGroupWAF `
--CustomBlockResponseBody "<html><head><title>Forbidden</title></head><body>{{azure-ref}}</body></html>"
-```
+> [!NOTE]
+> The value of the `--custom-block-response-body` parameter must be a **base64** encoded string.
 
 ---
 
+In the previous example, the response code was kept as 403 with a custom message: "*Please contact us with this information:*".
+
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Screenshot that shows a custom response example.":::
+
 > [!NOTE]
-> If you leave the block response body blank, the WAF returns a *403 Forbidden* response for normal WAF blocks and a *429 Too many requests* for rate limit blocks. 
+> `{{azure-ref}}` inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
 
-::: zone pivot="front-door-standard-premium"
-
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontDoorAccessLog` and `FrontDoorWebApplicationFirewallLog` logs.
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-"{{azure-ref}}" inserts the unique reference string in the response body. The value matches the TrackingReference field in the `FrontdoorAccessLog` and `FrontdoorWebApplicationFirewallLog` logs.
-
-::: zone-end
+> [!IMPORTANT]
+> If you leave the block response body blank, the WAF returns a ***403 Forbidden*** response for normal WAF blocks and a ***429 Too many requests*** for rate limit blocks. 
 
 ## Next step
 
