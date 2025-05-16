@@ -45,7 +45,8 @@ However, for users who prefer to maintain flexibility between TLS and non-TLS co
  
 ## Register for preview
  
-To enable encryption in transit for your NFS shares, the following permissions are required for your Azure subscription:
+To enable encryption in transit for your NFS shares, you must register for the preview feature.
+
 
 ### [Portal](#tab/azure-portal)
 
