@@ -26,15 +26,21 @@ An SRE Agent also integrates with [PagerDuty](https://www.pagerduty.com/) to sup
 > [!NOTE]
 > The SRE Agent feature is in limited preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
-By using SRE Agent you consent the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+By using an SRE Agent, you consent the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Key features
 
 The SRE Agent offers several key features that enhance the reliability and performance of your Azure resources:
 
-- **Proactive monitoring**: Continuous resource monitoring with real-time alerts for potential issues and daily resource reports.
+- **Proactive monitoring**: Continuous 24x7 resource monitoring with real-time alerts for potential issues and daily resource reports.
 
 - **Automated mitigation:** Automatic detection and mitigation of common issues, reducing downtime and improving resource health. While agents attempt to work on your behalf, all automation requires your approval.
+
+- **Infrastructure best practices:** Identify and remediate resources not following security best practices and help updates.
+
+- **Automates incident response:** Automatically respond to Azure Monitor alerts or PagerDuty incidents with initial analysis.
+
+- **Accelerates root cause analysis:** Diagnose root causes of app issues by analyzing metrics and logs and suggest mitigations.
 
 - **Resource visualization**: Comprehensive views of your resource dependencies and health status.
 
