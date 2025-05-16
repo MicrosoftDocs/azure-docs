@@ -4,7 +4,7 @@ description: Use the Azure portal to create automatic deployments for groups of 
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/15/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
 ---
