@@ -11,7 +11,8 @@ ms.custom: devx-track-azurepowershell
 
 # How encryption in transit for NFS shares works
 
-As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception. By using AZNFS mount helper package for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
+
+
  
 This article explains how you can encrypt data in transit for NFS Azure file shares (preview).
 
