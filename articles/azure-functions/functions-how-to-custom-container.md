@@ -410,8 +410,8 @@ SSH enables secure communication between a container and a client. With SSH enab
 The following articles provide more information about deploying and managing containers:
 
 + [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)
-+ [Native Azure Functions Support in Azure Container Apps](../articles/container-apps/functions-overview)
-+ [Create your Native Azure Functions on Azure Container Apps](../articles/container-apps/functions-usage)
++ [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)
++ [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)
 + [Scale and hosting options](functions-scale.md)
 + [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
 
