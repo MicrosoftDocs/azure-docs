@@ -272,7 +272,7 @@ Now that you have an agent that sees your App Service app, you can create an opp
 
     As your agent processes this command. After the swap, the agent's response will include something that resembles the following message:
 
-    > The slot swap for my-sre-app has been completed successfully <timestamp>. The production slot has been restored. I will now continue with post-mitigation steps:
+    > The slot swap for my-sre-app has been completed successfully (timestamp). The production slot has been restored. I will now continue with post-mitigation steps:
     >> I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.
     >> I will monitor the app and provide an availability update in 5 minutes.
     > Please provide the GitHub repository URL where you want the issue to be raised.
