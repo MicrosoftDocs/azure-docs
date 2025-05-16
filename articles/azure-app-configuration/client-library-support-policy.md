@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ---
 # Support policy for Azure App Configuration client libraries
 
-This document outlines the support policy for Azure App Configuration client libraries. The policy is aligned with the [Azure SDK Support Policy](https://azure.github.io/azure-sdk/policies_support.html) and it applies to all programming languages. For the list of libraries in scope, see [existing releases](./client-library-support-policy.md#existing-releases). This policy excludes libraries for the Java Spring framework which are governed by the Azure Spring support policy outlined [here](../spring-apps/basic-standard/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions) and [here](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
+This document outlines the support policy for Azure App Configuration client libraries. The policy is aligned with the [Azure SDK Support Policy](https://azure.github.io/azure-sdk/policies_support.html) and it applies to all programming languages. For the list of libraries in scope, see [existing releases](./client-library-support-policy.md#existing-releases). This policy excludes libraries for the Java Spring framework which are governed by the Azure Spring support policy outlined [here](../spring-apps/basic-standard/concept-app-customer-responsibilities.md#spring-boot-and-spring-cloud-versions) and [here](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
 
 ## Key terms
 
