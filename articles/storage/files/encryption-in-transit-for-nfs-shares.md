@@ -130,6 +130,7 @@ sudo rpm -i packages-microsoft-prod.rpm
 rm packages-microsoft-prod.rpm 
 sudo yum update 
 sudo yum install -y aznfs
+```
 ---
 > [!IMPORTANT]
 
