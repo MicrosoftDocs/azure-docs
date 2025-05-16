@@ -1,6 +1,6 @@
 ---
-title: Run Workflows with Actions on Agents in Azure AI Foundry
-description: Learn how to add actions in agents that run automation workflows by using Azure AI Foundry and Azure Logic Apps.
+title: Run Workflows as Actions on Agents in Azure AI Foundry
+description: Learn how to run automation workflows as actions in agents by using Azure AI Foundry and Azure Logic Apps.
 services: logic-apps, azure-ai-foundry
 author: ecfan
 ms.suite: integration
@@ -135,7 +135,7 @@ Follow these steps to set up an action for your agent to create and run a logic 
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **Your action name** | Yes | <*action-name*> | A friendly, but task-focused, verb-first, concise name for the action. This name is also used for the logic app resource and workflow in Azure Logic Apps. <br><br>**Note**: <br><br>- The action name can use only letters, numbers, and the following special characters: **-**, **(**, **)**, **_**, or **'**. <br><br>- You can't use whitespace or other special characters. <br><br>- A Consumption logic app resource and workflow are combined with a 1:1 relationship, so they use the same name. By comparison, a Standard logic app resource can have multiple workflows that use different names. <br><br>This example uses **Get-weather-forecast-today**. |
+   | **Your action name** | Yes | <*action-name*> | A friendly, but task-focused, verb-first, concise name for the action. This name is also used for the logic app resource and workflow in Azure Logic Apps. <br><br>**Note**: <br><br>- The action name can use only letters, numbers, and the following special characters: **-**, **(**, **)**, **_**, or **'**. <br><br>- You can't use whitespace or other special characters. <br><br>- A Consumption logic app resource and workflow are combined and have a 1:1 relationship, so they use the same name. By comparison, a Standard logic app resource can have multiple workflows that use different names. <br><br>This example uses **Get-weather-forecast-today**. |
    | **Your action description** | Yes | <*action-description*> | A description that clearly describes the purpose for the action. <br><br>This example uses **This action creates a callable Consumption logic app workflow that gets the weather forecast for today and runs in global, multitenant Azure Logic Apps.** |
    | **Subscription** | Yes | <*Azure-subscription*> | The Azure subscription to use, presumably the same as your project and model. |
    | **Resource group** | Yes | <*Azure-resource-group*> | The Azure resource group to use. |
