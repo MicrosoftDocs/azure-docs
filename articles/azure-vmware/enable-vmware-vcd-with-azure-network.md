@@ -9,7 +9,7 @@ ms.date: 4/24/2025
 
 # VMware Cloud Director on Azure VMware Solution network scenarios 
 
-VMware Cloud Director on Azure VMware Solution offers a robust platform for managing multi-tenant environments, enabling organizations to create secure, isolated virtual data centers. This article provides various network connectivity scenarios for VMware Cloud Director tenants, including connecting to the internet and accessing Azure services. By leveraging the flexibility of VMware Cloud Director and Azure VMware Solution, tenants can achieve seamless integration with external networks and Azure resources, ensuring efficient and scalable operations.
+VMware Cloud Director on Azure VMware Solution offers a robust platform for managing multitenancy, enabling organizations to create secure, isolated virtual data centers. This article provides various network connectivity scenarios for VMware Cloud Director tenants, including connecting to the internet and accessing Azure services. By leveraging the flexibility of VMware Cloud Director and Azure VMware Solution, tenants can achieve seamless integration with external networks and Azure resources, ensuring efficient and scalable operations.
 
 
 ## Connect VMware Cloud Director tenants on Azure VMware Solution to internet
@@ -27,7 +27,7 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 **Overlapping IP address**
 
 > [!Note]
->  Overlapping IP address can be managed using NAT to prevent conflicts in end-to-end routing scenarios.
+>  To manage overlapping IP address, use NAT to prevent conflicts in end-to-end routing scenarios.
 
 
 ## Connect VMware Cloud Director tenants workloads with Azure services
@@ -44,11 +44,9 @@ VMware Cloud Director on Azure VMware Solution offers a robust platform for mana
 
 :::image type="content" source="media/vmware-vcd/VCD_Azure_Services_diag.png" alt-text="Diagram showing how tenants in VMware Cloud Director connects to azure services in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/VCD_Azure_Services_diag.png":::
 
-## Related content
+## Related topics
 
 Learn about [How to enable VMware Cloud Director on Azure VMware Solution](enable-vmware-vcd-with-azure.md)
-
-## Learn more
 
 Learn about [VMware Cloud Director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html)
 

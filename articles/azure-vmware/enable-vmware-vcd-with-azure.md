@@ -14,12 +14,12 @@ This article explains how to install VMware Cloud Director to enable Enterprise 
 [VMware Cloud director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html) is a cloud services platform that delivers secure, isolated, and elastic virtual data center compute, network, storage, and security in a self-service model. VMware Cloud Director obtains its resources from an underlying virtual infrastructure.
 
 > [!Note]
-> VMware Cloud Director on Azure VMware Solution is currently available for eligible hosters and select Enterprise customers only. Please contact your account team for more information.
+> VMware Cloud Director on Azure VMware Solution is currently available for eligible hosters and select Enterprise customers only. Contact your account team for more information.
 
-Eligible Enterprise and hoster can install VMware Cloud director on Azure VMware solution and integrate it with Azure VMware Solution private cloud datacenter to enable multi tenancy, using its underlying resources to deliver the secure, isolated virtual datacenters that VMware Cloud Director offers.
+Eligible Enterprise and hoster can install VMware Cloud director on Azure VMware solution and integrate it with Azure VMware Solution private cloud datacenter to enable multitenancy, using its underlying resources to deliver the secure, isolated virtual datacenters that VMware Cloud Director offers.
 
 
-## VMware Cloud Director on Azure VMware Solution Architecture Overview
+## VMware Cloud Director on Azure VMware Solution architecture overview
 
 Azure VMware Solution provides private clouds that contain VMware vSphere clusters built from dedicated bare-metal Azure infrastructure. The minimum initial deployment is three hosts, with the option to add more hosts, up to a maximum of 16 hosts per cluster. All provisioned private clouds have VMware vCenter Server, VMware vSAN, VMware vSphere, and VMware NSX. 
 
@@ -179,7 +179,7 @@ VMware Cloud Director Availability can be enabled using Run commands in Azure VM
 Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](enable-vmware-vcd-with-azure-network.md)
 
 
-## Learn More
+## Related topics
 
 Learn more about [VMware Cloud Director](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/overview.html)
 
