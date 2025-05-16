@@ -30,7 +30,7 @@ The following diagram shows how an action on an agent in Azure AI Foundry relate
 
 :::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that accesses external APIs." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch.png":::
 
-This guide shows how to add an action on an agent in Azure AI Foundry so that the agent creates a Consumption logic app workflow that runs in multitenant Azure Logic Apps. A wizard guides you through the steps to set up this action with a predefined logic app workflow. After you finish adding the action, you can extend this workflow, based on your scenario's needs, by using the graphical designer in Azure Logic Apps.
+This guide shows how to add an action to an agent in Azure AI Foundry so that the agent creates a Consumption logic app workflow that runs in multitenant Azure Logic Apps. A wizard guides you through the steps to set up this action with a predefined logic app workflow. After you finish adding the action, you can extend this workflow, based on your scenario's needs, by using the graphical designer in Azure Logic Apps.
 
 For more information, see the following documentation:
 
@@ -74,9 +74,9 @@ This release has the following limitations or known issues:
 
   This requirement includes deploying a model in Azure OpenAI Service for the agent to use when running the workflow.
 
-##### Can I use my own logic app workflows as actions?
+#### Can I create and use my own workflows as actions?
 
-Yes, workflows that you create with Azure Logic Apps automatically appear in the actions gallery in Azure AI Foundry when they meet the following requirements:
+Yes, to make your own logic app workflows available through the actions gallery in the Azure AI Foundry portal, your workflows need to meet the following requirements:
 
 - The logic app resource that contains the workflow uses the **Consumption** hosting option.
 
@@ -88,7 +88,19 @@ Yes, workflows that you create with Azure Logic Apps automatically appear in the
 
 - The workflow ends with the [**Response** action](/azure/connectors/connectors-native-reqres#add-a-response-action).
 
+Your AI app has almost endless options for running workflows that interact with Azure, Microsoft, and other services or products, plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want to do, you can also create your own.
+
+:::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
+
+For more information, see the following documentation:
+
 For more information about how to create Consumption logic app workflows, see [Quickstart: Create an example Consumption logic app workflow using the Azure portal](/azure/logic-apps/quickstart-create-example-consumption-workflow).
+
+- [What are connectors in Azure Logic Apps](/azure/connectors/introduction)
+- [Managed connectors that run in global, multitenant Azure](/azure/connectors/managed)
+- [Managed connectors technical reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- [Built-in operations that run with Azure Logic Apps runtime](/azure/connectors/built-in)
+- [Custom connectors in Azure Logic Apps](/azure/logic-apps/custom-connector-overview)
 
 ## Billing
 
@@ -296,18 +308,6 @@ Follow these steps to review the workflow definition and operations, or edit the
    > | **HTTPS URL** | When the workflow is saved for the first time, this URL is generated and used for calling an endpoint that the trigger creates for the workflow. |
    > | **Method** | This setting specifies whether the trigger accepts all or only specific HTTPS methods. |
    > | **Request Body JSON Schema** | If you want to validate the input that the trigger expects to receive in the HTTPS request sent from external callers, this schema specifies the JSON schema to use for validating that input. |
-
-   Your AI app has almost endless options for working with Azure, Microsoft, and other services or products, plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want to do, you can also create your own.
-
-   :::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
-
-   For more information, see the following documentation:
-
-   - [What are connectors in Azure Logic Apps](/azure/connectors/introduction)
-   - [Managed connectors that run in global, multitenant Azure](/azure/connectors/managed)
-   - [Managed connectors technical reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-   - [Built-in operations that run with Azure Logic Apps runtime](/azure/connectors/built-in)
-   - [Custom connectors in Azure Logic Apps](/azure/logic-apps/custom-connector-overview)
 
 1. To save any changes that you make, on the designer toolbar, select **Save**.
 
