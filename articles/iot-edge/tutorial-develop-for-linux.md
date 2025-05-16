@@ -318,7 +318,7 @@ Check if your credentials exist. If not, add them now:
 1. Save your changes to the *.env* file.
 
 > [!NOTE]
-> This tutorial uses administrator login credentials for Azure Container Registry that are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals or repository-scoped tokens. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
+> This tutorial uses administrator credentials for Azure Container Registry that are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals or repository-scoped tokens. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ::: zone-end
 
