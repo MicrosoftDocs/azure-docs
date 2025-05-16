@@ -357,7 +357,7 @@ This release contains the following fixes and enhancements.
 - Fixed an issue where running `analyze` with both `--bulk` and `--skip-static-report` failed to generate multiple output files.
 - Resolved a failure when analyzing with `--bulk` and `--rules` if no Java provider was launched.
 - Fixed an issue where analysis would fail if a specified package wasn't found when using the `--packages` flag.
-- The `--exclude-paths` flag is deprecated. To exclude files or directories, use an **.appcat-ignore** file - supporting glob patterns - placed in the input directory or installation directory.
+- The `--exclude-paths` flag is deprecated. To exclude files or directories, use a **.appcat-ignore** file - supporting glob patterns - placed in the input directory or installation directory.
 
 ### 7.6.0.4
 
