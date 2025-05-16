@@ -130,7 +130,9 @@ sudo rpm -i packages-microsoft-prod.rpm
 rm packages-microsoft-prod.rpm 
 sudo yum update 
 sudo yum install -y aznfs
+---
 > [!IMPORTANT]
+
 > AZNFS supported Linux distributions are:
 >
 > - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS) 
