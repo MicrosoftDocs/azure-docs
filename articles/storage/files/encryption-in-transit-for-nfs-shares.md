@@ -148,7 +148,8 @@ sudo yum install -y aznfs
 
 
 ### Step 2: Mount the NFS file share
-#### Step 2a: With TLS encryption
+
+
  
 To mount the NFS file share **with TLS encryption**:
 
