@@ -284,7 +284,7 @@ Follow these steps to review the workflow definition and operations, or edit the
    > | **Method** | This setting specifies whether the trigger accepts all or only specific HTTPS methods. |
    > | **Request Body JSON Schema** | This schema describes the input that the trigger  expects to receive the HTTPS request sent from external callers. |
 
-   You have so many options to integrate your AI app by using a workflow that interacts with Azure, Microsoft, and other services or products plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want do, you can also create your own.
+   You have so many options to integrate your AI app by using a workflow that interacts with Azure, Microsoft, and other services or products plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want to do, you can also create your own.
 
    :::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
 
