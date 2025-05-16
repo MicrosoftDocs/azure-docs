@@ -14,15 +14,16 @@ ms.date: 05/15/2025
 
 The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using SRE Agent.
 
-In this tutorial, you:
+In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create an App Service app using the Azure portal
-> * Deploy a sample App Service app using the Azure portal
-> * Enable App Service logs
-> * Create an Azure SRE Agent (preview) to monitor the app
-> * Trigger an HTTP 500 error in the app
-> * Use AI-driven prompts to troubleshoot and fix errors
+> * Create an App Service app using the Azure portal.
+> * Deploy a sample App Service app using the Azure portal.
+> * Configure the app with a startup command and enable App Service logs.
+> * Create a deployment slot for testing.
+> * Create an Azure SRE Agent (preview) to monitor the app.
+> * Simulate an app failure by swapping to the broken deployment slot.
+> * Use AI-driven prompts to diagnose and fix the app by rolling back the slot swap.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
