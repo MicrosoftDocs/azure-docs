@@ -137,7 +137,7 @@ Follow these steps to set up an action for your agent to create and run a logic 
    | Action label | Description |
    |--------------|-------------|
    | **Microsoft Authored** | This action uses a Microsoft authored template to create the workflow for the action. |
-   | **Workflow** | This action uses an eligible logic app workflow in your Azure subscription as a template to create the workflow for the action. <br><br>**Note**: If you select this option, skip to the section named [Confirm action details](#confirm-action-details). If your workflows don't appear as expected in the actions gallery, [check the requirements](#can-i-use-my-own-logic-app-workflows-as-actions). |
+   | **Workflow** | This action uses an eligible logic app workflow in your Azure subscription as a template to create the workflow for the action. <br><br>**Note**: If you select this option, skip to the section named [Confirm action details](#confirm-action-details). If your workflows don't appear as expected in the actions gallery, [check the requirements](#can-i-create-and-use-my-own-workflows-as-actions). |
 
    The following example uses the Microsoft authored action named **Get Weather forecast for today via MSN Weather**:
 
