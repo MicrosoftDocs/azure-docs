@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 06/10/2024
+ms.date: 05/15/2025
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-edge
@@ -22,20 +22,20 @@ A Windows device with the following minimum requirements:
   * Minimum Free Disk Space: 10 GB
 
 * Virtualization support
-  * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
+  * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
   * On Windows Server, install the Hyper-V role and create a default network switch. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](../nested-virtualization.md).
-  * On a virtual machine, configure nested virtualization. For more information, see [nested virtualization](../nested-virtualization.md).
+  * On a virtual machine, configure nested virtualization. For more information, see [Nested virtualization for Azure IoT Edge for Linux on Windows](../nested-virtualization.md).
 
 * Networking support
-  * Windows Server does not come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch. For more information, see [Create virtual switch for Linux on Windows](../how-to-create-virtual-switch.md).
+  * Windows Server doesn't come with a default switch. Before you can deploy EFLOW to a Windows Server device, you need to create a virtual switch. For more information, see [Azure IoT Edge for Linux on Windows virtual switch creation](../how-to-create-virtual-switch.md).
   * Windows Desktop versions come with a default switch that can be used for EFLOW installation. If needed, you can create your own custom virtual switch.
 
 > [!TIP]
 > If you want to use **GPU-accelerated Linux modules** in your Azure IoT Edge for Linux on Windows deployment, there are several configuration options to consider.
 >
-> You will need to install the correct drivers depending on your GPU architecture, and you may need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](../gpu-acceleration.md).
+> You need to install the correct drivers depending on your GPU architecture, and you might need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](../gpu-acceleration.md).
 >
-> Make sure you take the time to satisfy the prerequisites for GPU acceleration now. You will need to restart the installation process if you decide you want GPU acceleration during installation.
+> Make sure you take the time to satisfy the prerequisites for GPU acceleration now. You need to restart the installation process if you decide you want GPU acceleration during installation.
 
 ### Developer tools
 
@@ -47,7 +47,7 @@ Prepare your target device for the installation of Azure IoT Edge for Linux on W
    Get-ExecutionPolicy -List
    ```
 
-   If the execution policy of `local machine` is not `AllSigned`, you can set the execution policy using:
+   If the execution policy of `local machine` isn't `AllSigned`, you can set the execution policy using:
 
    ```powershell
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force

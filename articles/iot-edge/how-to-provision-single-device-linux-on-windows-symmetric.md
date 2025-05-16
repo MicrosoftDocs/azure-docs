@@ -6,7 +6,7 @@ ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 06/03/2024
+ms.date: 05/16/2025
 ms.author: patricka
 ---
 
@@ -33,9 +33,9 @@ This article covers using symmetric keys as your authentication method. If you w
 > [!NOTE]
 > If you have many devices to set up and don't want to manually provision each one, use one of the following articles to learn how IoT Edge works with the IoT Hub device provisioning service:
 >
-> * [Create and provision IoT Edge devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
-> * [Create and provision IoT Edge devices at scale with a TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
-> * [Create and provision IoT Edge devices at scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
+> * [Create and provision IoT Edge for Linux on Windows devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
+> * [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
+> * [Create and provision IoT Edge for Linux on Windows devices at scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
    >[!NOTE]
    >The only account allowed to SSH to the virtual machine is the user that created it.
 
-1. Once you are logged in, you can check the list of running IoT Edge modules using the following Linux command:
+1. Once you're logged in, you can check the list of running IoT Edge modules using the following Linux command:
 
    ```bash
    sudo iotedge list
@@ -101,7 +101,7 @@ Verify that IoT Edge for Linux on Windows was successfully installed and configu
        ```
 
     >[!NOTE]
-    >On a newly provisioned device, you may see an error related to IoT Edge Hub:
+    >On a newly provisioned device, you might see an error related to IoT Edge Hub:
     >
     >**× production readiness: Edge Hub's storage directory is persisted on the host filesystem - Error**
     >
