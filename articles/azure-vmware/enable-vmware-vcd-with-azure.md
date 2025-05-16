@@ -29,16 +29,16 @@ VMware Cloud Director enables multi-tenancy by using organizations. Each organiz
 
 ## How to install and configure VMware Cloud Director on Azure VMware Solution
 
-You can self-install and self-manage VMware Cloud Director on Azure VMware Solution. This document will cover VMware Cloud Director appliance-based installation. 
+You can self-install and self-manage VMware Cloud Director on Azure VMware Solution. This document covers VMware Cloud Director appliance-based installation. 
 
-A VMware Cloud Director server group consists of one or more VMware Cloud Director servers which runs a collection of services called a VMware Cloud Director cell. All cells share a single VMware Cloud Director database and transfer server storage and connect to the vSphere and network resources. 
+A VMware Cloud Director server group consists of one or more VMware Cloud Director servers which run a collection of services called a VMware Cloud Director cell. All cells share a single VMware Cloud Director database and transfer server storage and connect to the vSphere and network resources. 
 
 The VMware Cloud Director appliance includes an embedded PostgreSQL database with a high availability function. 
 
 
-### VMware Cloud Director Installation Pre-requisites 
+### VMware Cloud Director Installation Prerequisites 
 
-Ensure all installation pre-requisites are completed before proceeding with installation.
+Ensure all installation prerequisites are completed before proceeding with installation.
 
 - Review [VMware Cloud Director appliance sizing guidelines](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/vcd-appliance-sizing-guidelines.html) to determine resource requirements of VMware Cloud Director appliances.
 - [VMware Cloud Director network configuration requirements](https://techdocs.broadcom.com/us/en/vmware-cis/cloud-director/vmware-cloud-director/10-6/vmware-cloud-director-installation-and-upgrade-guide-10-6/vmware-cloud-director-hardware-and-software-requirements-install/network-configuration-requirements-install.html)
@@ -80,7 +80,7 @@ VMware Cloud Director is deployed in two stages:
 :::image type="content" source="media/vmware-vcd/VCD_ovf_install.png" alt-text="Diagram showing ovf installation of VMware Cloud Director in Azure VMware Solution." border="false" lightbox="media/vmware-vcd/VCD_ovf_install.png":::
 
 
-2.	For initial configuration of primary appliance, login to VMware Cloud Director’s Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
+2.	For initial configuration of primary appliance, sign-in to VMware Cloud Director’s Virtual Appliance Management Interface (VAMI) at https://VCD_eth1_ip_address:5480
     - Fill the form (NFS Share, DB Password, and Admin User, VMware Cloud Director Settings) and start the configuration.
     - When the initial configuration is complete, you can access the VMware Cloud Director instance.
     - Verify that the primary cell is up and running by logging  to the VMware Cloud Director Service Provider Admin Portal at https://primary_eth0_ip_address/provider
@@ -117,14 +117,14 @@ VMware Cloud Director derives its resources from an underlying virtual infrastru
 -	Create a resource pool to map with Provide Virtual datacenter (PVDC). The cluster or resource pool must be available for use in a connected vCenter server instance. 
 
 ### Add Azure VMware Solution vCenter server and NSX-T manager to VMware Cloud Director
--	Ensure the above pre-configuration steps are completed.
+-	Ensure the above preconfiguration steps are completed.
 -	Navigate to VMware Cloud Director Service Provider portal https://VCD FQDN/provider as administrator. 
 -	Under **Infrastructure resources**, select **vCenter server** and select **ADD**.
     - Provide the name, Azure VMware solution vCenter URL, and “CloudAdmin” credential. 
     - Ensure status is **Normal**, and connection is **connected**.
 
 ### Add Azure VMware Solution vCenter server and NSX-T manager to VMware Cloud Director     
-- Ensure the above pre-configuration steps are completed.
+- Ensure the above preconfiguration steps are completed.
 - Navigate to VMware Cloud Director Service Provider portal https://VCD FQDN/provider as administrator. 
 - Under **Infrastructure** resources, select **NSX-T** and select **ADD**.
     - Provide a name, the URL of the Azure VMware solution NSX Manager instance, and the CloudAdmin credentials of the NSX Manager account.
@@ -143,26 +143,26 @@ Eligible Enterprise and hosters can self-install and self-managed VMware Cloud D
 
 ### What limitations does **CloudAdmin** role have for VMware Cloud Director in Azure VMware Solution?
 
-**CloudAdmin** Role is restricted role, and it currently does not allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](architecture-identity.md)
+**CloudAdmin** Role is restricted role, and it currently doesn't allow BGP configuration or prefix on NSX-T Tier-0, NSX projects/NSX tenancy, VM encryption, and CMK with VMware Cloud Director on Azure VMware Solution. Note:  VM encryption works at vCenter level. Learn more about CloudAdmin role and permissions under, [Architecture - Identity and access](architecture-identity.md)
 
 ### How is VMware Cloud Director supported on Azure VMware Solution?
 
-VMware Cloud Director on Azure VMware solution is supported for eligible enterprise customers and hosters only. BYOL (Bring your own license) VMware Cloud Director customers must open a support ticket directly with Broadcom for VMware Cloud Director issues. Non-BYOL customers open all support tickets to Microsoft support. Broadcom and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director issues on Azure VMware Solution. Please contact your account team to learn more.
+VMware Cloud Director on Azure VMware solution is supported for eligible enterprise customers and hosters only. BYOL (Bring your own license) VMware Cloud Director customers must open a support ticket directly with Broadcom for VMware Cloud Director issues. Non-BYOL customers open all support tickets to Microsoft support. Broadcom and Microsoft support teams collaborate as necessary to address and resolve VMware Cloud Director issues on Azure VMware Solution. Contact your account team to learn more.
 
 ### VMware Cloud Director responsibility matrix on Azure VMware Solution
 
-The customer is responsible for installing, configuring, monitoring and managing lifecycle of VMware Cloud Director. This includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](introduction.md)
+The customer is responsible for installing, configuring, monitoring, and managing lifecycle of VMware Cloud Director. It includes applying security vulnerabilities patching and upgrading VMware Cloud Director. Learn about [Azure VMware Solution responsibility matrix.](introduction.md)
 
 ### Can I use non vSAN storage using VMware Cloud Director with Azure VMware Solution?
 
 You can configure external storage such as Azure Network file storage with VMware Cloud Director on Azure VMware Solution. Learn more about [Attach Azure NetApp Files datastores to Azure VMware Solution VMs](netapp-files-with-azure-vmware-solution.md)
 
-### Do I need to have any customizations done on my private cloud before I can integrate it with VMware Cloud Director.
+### Do I need to have any customizations done on my private cloud before I can integrate it with VMware Cloud Director?
 
-Please create a support ticket to perform customization on NSX-T before you integrate it with VMware cloud director and prior to importing NSX-T tier-0 as provider gateway.
+Create a support ticket to perform customization on NSX-T before you integrate it with VMware cloud director and before importing NSX-T tier-0 as provider gateway.
 
 ### How to import VMCA certificate from Azure VMware solution to VMware Cloud Director?
-To integrate Azure VMware Solution with VMware Cloud Director, you will need to retrieve vCenter VMCA certificate manually by navigating to https://vcenterFQDN and then select “download trusted root CA certificate”. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. Learn more using this link.
+To integrate Azure VMware Solution with VMware Cloud Director, you need to retrieve vCenter VMCA certificate manually by navigating to https://vcenterFQDN and then select “download trusted root CA certificate”. Locate the VMCA in the zip file contents and then add it to VMware Cloud Director’s trusted certificates. Learn more using this link.
 
 You must perform this task before adding Azure VMware Solution vCenter is added to VMware Cloud Director, else it may impact features such as Console proxy, Powering on VM with guest customization and OVF/Media uploads.
 
@@ -174,7 +174,7 @@ VMware cloud director tenants can drive self-serve one-way warm migration from t
 
 VMware Cloud Director Availability can be enabled using Run commands in Azure VMware Solution. Learn more about Deploy [VMware Cloud Director Availability in Azure VMware Solution](deploy-vmware-cloud-director-availability-in-azure-vmware-solution.md)
 
-### How VMware Cloud Director tenant's virtual datacenter access Azure native services in their Azure vNET.
+### How VMware Cloud Director tenant's virtual datacenter access Azure native services in their Azure virtual network.
 
 Learn about [VMware Cloud Director Network scenarios on Azure VMware Solution](enable-vmware-vcd-with-azure-network.md)
 
