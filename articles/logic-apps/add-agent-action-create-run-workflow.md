@@ -183,7 +183,8 @@ Review and check that all the action information appears correct. If you selecte
 
         For more information about the billing model for Consumption logic app workflows, see the following documentation:
 
-        - [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant).
+        - [Usage metering, billing, and pricing](/azure/logic-apps/logic-apps-pricing#consumption-multitenant)
+
         - [Azure Logic Apps pricing (Consumption Plan - Multitenant)](https://azure.microsoft.com/pricing/details/logic-apps/)
 
    1. To consent, select the confirmation box, for example:
@@ -217,7 +218,7 @@ For the final step, review the information that the portal generates about the t
 
 To try the new action for your agent by using the **Agents playground**, follow these steps:
 
-1. On the **Agents** page, at the top of the **Setup** section, select **Try in playground**
+1. On the **Agents** page, at the top of the **Setup** section, select **Try in playground**.
 
 1. On the **Agents playground** page, in the user query chat box, ask a question about the weather, for example:
 
@@ -267,7 +268,11 @@ Follow these steps to review the workflow definition and operations, or edit the
 
 1. To expand the workflow's behavior, you can add more actions by following the steps in [Build a workflow with a trigger or action](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-   For this workflow or other supported logic app workflow that operates with an action that you set up on an agent, the workflow must always meet the following requirements:
+   For this workflow or any other workflow to appear in the actions gallery and run as an action in an agent, the workflow must always meet the following requirements:
+
+   - The logic app resource that contains the workflow must use the Consumption hosting option.
+
+   - The logic app resource must use the same Azure subscription that you use with Azure AI Foundry.
 
    - The workflow must start with the [**When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
