@@ -73,7 +73,7 @@ Points to note:
 - The pattern should be as per the following RG naming rules and the total length shouldn't exceed the maximum allowed RG name length.
   - Resource group names only allow alphanumeric characters, periods, underscores, hyphens, and parenthesis. They can't end in a period.
   - Resource group names can contain up to 74 characters, including the name of the RG and the suffix.
-- The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This naming patern applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
+- The first `<alpha-numeric-string>` is mandatory while the second one after 'n' is optional. This naming pattern applies only if you give a customized name. If you don't enter anything in either of the textboxes, the default name is used.
 - You can edit the name of the RG by modifying the policy if and when required. If the name pattern is changed, new recovery points (RPs) is created in the new RG. However, the old RPs still reside in the old RG and aren't moved, as RP Collection doesn't support resource move. Eventually the RPs get garbage collected as the points expire.
 
    :::image type="content" source="./media/backup-during-vm-creation/modify-policy.png" alt-text="Screenshot shows the change of name when modifying a policy." lightbox="./media/backup-during-vm-creation/modify-policy.png":::
