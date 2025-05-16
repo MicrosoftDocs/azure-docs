@@ -27,17 +27,17 @@ The Dev Box service gives you an alternative connectivity method on top of Dev t
 
 ## CA Configurations
 
-The conditional access policies work correctly for the Dev tunnels service. Because registering the Dev tunnels service app to a tenant and making it available to the CA picker is unique, this article documents the steps for engineering, PM, and technical writers.
+The conditional access policies work correctly for the Dev tunnels service. Because registering the Dev tunnels service app to a tenant and making it available to the CA picker is unique, this article documents the steps.
 
 ### Register Dev tunnels service to a tenant
 
 According to [Apps & service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser), a service principal is created in each tenant where the application is used. However, this doesn't apply to the Dev tunnels service. This article doesn't explore the root cause. If you know about app definitions, review the [Dev tunnels service app registration specification](https://msazure.visualstudio.com/One/_git/AAD-FirstPartyApps?path=/Customers/Configs/AppReg/46da2f7e-b5ef-422a-88d4-2a7f9de6a0b2/AppReg.Parameters.Production.json&version=GBmaster&_a=contents).
 
-Therefore, we are using [Microsoft.Graph PowerShell](/powershell/module/microsoft.graph.authentication/connect-mggraph?view=graph-powershell-1.0) to register the app to a tenant.
+Therefore, we are using [Microsoft.Graph PowerShell](/powershell/module/microsoft.graph.authentication/connect-mggraph?view=graph-powershell-1.0&preserve-view=true) to register the app to a tenant.
 
 1. Install PowerShell 7.x
 
-1. Follow [Install the Microsoft Graph PowerShell SDK | Microsoft Learn](/powershell/microsoftgraph/installation?view=graph-powershell-1.0) to install Microsoft.Graph PowerShell
+1. Follow [Install the Microsoft Graph PowerShell SDK | Microsoft Learn](/powershell/microsoftgraph/installation?view=graph-powershell-1.0&preserve-view=true) to install Microsoft.Graph PowerShell
 
 1. Run the following commands
 
@@ -88,4 +88,4 @@ The Entra ID team is working on removing the need to onboard apps for them to ap
 - Limit Dev tunnels that are not managed by the Dev Box service. In the context of Dev Boxes, if the Dev tunnels GPO is configured **to allow only selected Microsoft Entra tenant IDs**, Conditional Access policies can also restrict self-created Dev tunnels.
 
 ## Related content
-- [Conditional Access policies](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-policies)
+- [Conditional Access policies](/entra/identity/conditional-access/concept-conditional-access-policies)
