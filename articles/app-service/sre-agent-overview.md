@@ -1,7 +1,7 @@
 ---
 title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
-services: container-apps
+services: app-service
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
