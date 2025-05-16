@@ -1,9 +1,7 @@
 ---
 title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
-services: app-service
 author: craigshoemaker
-ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/16/2025
 ms.author: cshoe
@@ -46,7 +44,9 @@ The SRE Agent offers several key features that enhance the reliability and perfo
 
     :::image type="content" source="media/sre-agent/sre-agent-knowldege-graph.png" alt-text="Screenshot of an SRE Agent knowledge graph.":::
 
-An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports which provide insights into the health and status of your applications. Reports include:
+An SRE Agent works to proactively monitor and maintain your Azure services. Each day your agent creates daily resource reports which provide insights into the health and status of your applications.
+
+Reports include:
 
 - **Incident summary:** Generates information about incidents raised by the SRE Agent on the previous day. Categories include: active, mitigated, or resolved.
 
@@ -107,11 +107,15 @@ The agent aims to reduce the toil of SREs by automating routine tasks and provid
 
 ### How was SRE Agent evaluated? What metrics are used to measure performance?
 
-The SRE Agent was evaluated through various assessment activities, including user validation, measurement, and mitigations. Metrics used to measure performance include the accuracy of diagnostics, the effectiveness of mitigations, and user feedback on the agent's recommendations. The evaluation process involved testing the agent's capabilities across different scenarios, such as app availability and incident response, to ensure its reliability and effectiveness. Results are generalizable across use cases that weren't part of the initial evaluation. The agent's design allows it to adapt to different situations and provide consistent performance.
+The SRE Agent was evaluated through various assessment activities, including user validation, measurement, and mitigations. Metrics used to measure performance include the accuracy of diagnostics, the effectiveness of mitigations, and user feedback on the agent's recommendations.
+
+The evaluation process involved testing the agent's capabilities across different scenarios, such as app availability and incident response, to ensure its reliability and effectiveness. Results are generalizable across use cases that weren't part of the initial evaluation. The agent's design allows it to adapt to different situations and provide consistent performance.
 
 ### What are the limitations of SRE Agent? How can impact of SRE Agent’s limitations be minimized?
 
-The known limitations of the SRE Agent include its reliance on user approval for performing actions, which can slow down the response time in critical situations. Additionally, the agent might not be able to solve all problems or could produce inaccurate recommendations due to limitations in its knowledge base. You can minimize the impact of these limitations by providing detailed and accurate inputs, regularly updating the agent's configuration, and closely monitoring its actions. Ensuring a human SRE reviews and validates the agent's recommendations also helps mitigate potential errors.
+The known limitations of the SRE Agent include its reliance on user approval for performing actions, which can slow down the response time in critical situations. Additionally, the agent might not be able to solve all problems or could produce inaccurate recommendations due to limitations in its knowledge base.
+
+You can minimize the impact of these limitations by providing detailed and accurate inputs, regularly updating the agent's configuration, and closely monitoring its actions. Ensuring a human SRE reviews and validates the agent's recommendations also helps mitigate potential errors.
 
 ### What operational factors and settings allow for effective and responsible use of SRE Agent?
 
