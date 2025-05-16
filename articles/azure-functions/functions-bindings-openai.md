@@ -104,9 +104,9 @@ The OpenAI bindings have an `AIConnectionName` property that you can use to spec
 | Setting name |   Description |
 |---|---|
 | `<CONNECTION_NAME_PREFIX>__endpoint` | Sets the URI endpoint of the Azure OpenAI service. This setting is always required. |
-| `<CONNECTION_NAME_PREFIX>__clientId` | Sets the specific user-assigned identity to use when obtaining an access token. Requires that `<CONNECTION_NAME_PREFIX>__credential` is set to `managedidentity`. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-develop-local.md#identity-based-connections), when `credential` shouldn't be set. |
+| `<CONNECTION_NAME_PREFIX>__clientId` | Sets the specific user-assigned identity to use when obtaining an access token. Requires that `<CONNECTION_NAME_PREFIX>__credential` is set to `managedidentity`. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. It's invalid to specify both a Resource ID and a client ID. If not specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
 |  `<CONNECTION_NAME_PREFIX>__credential` | Defines how an access token is obtained for the connection. Use `managedidentity` for managed identity authentication. This value is only valid when a managed identity is available in the hosting environment. |
-|  `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-develop-local.md#identity-based-connections), when `credential` shouldn't be set. |
+|  `<CONNECTION_NAME_PREFIX>__managedIdentityResourceId` | When `credential` is set to `managedidentity`, this property can be set to specify the resource Identifier to be used when obtaining a token. The property accepts a resource identifier corresponding to the resource ID of the user-defined managed identity. It's invalid to specify both a resource ID and a client ID. If neither are specified, the system-assigned identity is used. This property is used differently in [local development scenarios](functions-reference.md#local-development-with-identity-based-connections), when `credential` shouldn't be set. |
 | `<CONNECTION_NAME_PREFIX>__key` | Sets the shared secret key required to access the endpoint of the Azure OpenAI service using key-based authentication. As a security best practice, you should always use Microsoft Entra ID with managed identities for authentication. | 
 
 Consider these managed identity connection settings when then `AIConnectionName` property is set to `myAzureOpenAI`:
@@ -126,7 +126,7 @@ At runtime, these settings are collectively interpreted by the host as a single 
 }
 ```
 
-When using managed identities, make sure to add your identity to the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning#cognitive-services-openai-user) role.
+When using managed identities, make sure to add your identity to the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role.
 
 When running locally, you must add these settings to the *local.settings.json* project file. For more information, see [Local development with identity-based connections](functions-reference.md#local-development-with-identity-based-connections).
 
@@ -136,8 +136,9 @@ To support legacy apps and for providers other than Azure OpenAI, you can also d
 
 | Variable name |   Description |
 |---|---|
-| `AZURE_OPENAI_ENDPOINT` | Sets the URI endpoint of OpenAI.|
-| `AZURE_OPENAI_KEY` | Sets the shared secret key required to access the endpoint using key-based authentication.  |
+| `AZURE_OPENAI_ENDPOINT` | Sets the URI endpoint of your Azure OpenAI instance.|
+| `AZURE_OPENAI_KEY` | Sets the shared secret key required to access your Azure OpenAI endpoint using key-based authentication.  |
+| `Open_API_Key` | Sets the shared secret key required to access the `https://api.openai.com` endpoint using key-based authentication.  |
 
 You can set these variables in your app settings. 
 
