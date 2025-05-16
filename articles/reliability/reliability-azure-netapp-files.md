@@ -118,7 +118,7 @@ This section describes what to expect when Azure NetApps Files volumes are confi
 
     Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination availability zone), you need to break the replication peering then mount the destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
-- **Active requests:** During a zone-down event, active requests can experience disruptions or increased latencies. Azure NetApp Files ensures that data remains accessible through redundancy mechanisms, such as cross-zone replication (if configured). Requests are rerouted to alternative zones to mitigate downtime for mission-critical workloads.
+- **Active requests:** During a zone-down event, active requests can experience disruptions or increased latencies.
 
 - **Expected data loss:** The amount of data loss (also called the recovery point objective, or RPO) you can expect during a zone failover depends on the cross-zone replication schedule you configure.
 
@@ -134,9 +134,7 @@ This section describes what to expect when Azure NetApps Files volumes are confi
 
 ### Failback
 
-Failback is a manual process that requires performing a resync operation, reestablishing the replication, and remounting the source volume for the client to access.
-
-For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md)
+Failback is a manual process that requires performing a resync operation, reestablishing the replication, and remounting the source volume for the client to access. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
 ### Testing for zone failures
 
@@ -144,23 +142,74 @@ To learn about a high-level approach to test your cross-zone replication configu
 
 ## Multi-region support
 
-Azure NetApp Files provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region. This capability enables you to fail over your critical application if a region-wide outage or disaster happens. To learn more, see:
+Azure NetApp Files is a single-region service. If the region becomes unavailable, volumes stored in that region are also unavailable.
 
-- [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
-- [Supported regions for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#supported-region-pairs)
-- [Requirements and considerations for using cross-region replication in Azure NetApp Files](../azure-netapp-files/cross-region-replication-requirements-considerations.md)
-- [Create volume replication for Azure NetApp Files](../azure-netapp-files/cross-region-replication-create-peering.md)
-- [Display health and monitor status of replication relationship](../azure-netapp-files/cross-region-replication-display-health-status.md)
+However, Azure NetApp Files provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region preselected by Microsoft. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
+
+### Region support
+
+The secondary region that you can replicate your volumes to depends on the primary region. For a list of primary and secondary regions, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md#supported-cross-region-replication-pairs).
+
+### Considerations
+
+For considerations related to cross-region replication in Azure NetApp Files, see [Requirements and considerations for using cross-region replication](../azure-netapp-files/cross-region-replication-requirements-considerations.md).
+
+### Cost
+
+Cross-region replication is charged based on the maount of data you replicate. For more details and some example scenarios, see [Cost model for cross-region replication](../azure-netapp-files/cross-region-replication-introduction.md#cost-model-for-cross-region-replication).
+
+### Configure multi-region support
+
+- **Enable cross-region replication:** To improve the resiliency of your solution, [configure cross-region replication](../azure-netapp-files/cross-region-replication-create-peering.md).
+
+- **Disable cross-region replication:** You can disable cross-region replication by breaking the replication pairing. To learn more, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume). <!-- Please verify that this is accurate. -->
+
+### Normal operations
+
+This section describes what to expect when Azure NetApps Files volumes are configured to use cross-region replication is enabled, and both regions are operational.
+
+- **Traffic routing between regions:** Incoming requests are routed to the specific volume, which is located in the primary region.
+
+- **Data replication between regions:** Azure NetApp Files cross-region replication means that all changes to the source volume are asynchronously replicated to destination volumes. You can decide how frequently the replication should happen. Cross-region replication supports three replication schedules: 10 minutes, hourly, and daily.
+
+    > [!IMPORTANT]
+    > The 10-minute replication schedule isn't supported for [large volumes](../azure-netapp-files/azure-netapp-files-understand-storage-hierarchy.md#large-volumes) using cross-region replication.
+
+- **Monitor replication health:** You can monitor the health of the peering relationship, and you can configure alerts to notify you if the replication lag increases beyond your expected threshold. To learn more, see [Display health and monitor status of replication relationship](../azure-netapp-files/cross-region-replication-display-health-status.md).
+
+### Region-down experience
+
+This section describes what to expect when Azure NetApps Files volumes are configured to use cross-region replication is enabled, and there's an outage of the primary region.
+
+<!-- Note that the info here is mostly the same as in the AZ section. Should we collapse it somehow? -->
+
+- **Detection and response:** You're responsible for detecting the loss of a region and initiating a failover.
+
+    To monitor the health of your Azure NetApp Files volume, you can use Azure Monitor metrics. Any anomalies indicating a region-down scenario are detected via real-time metrics such as IOPS, latency, and capacity usage. Alerts and notifications can be configured to be sent to administrators, enabling immediate response actions such as rebalancing file shares or initiating failover or other disaster recovery protocols.
+
+    Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break the replication peering then mount the destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
+
+- **Active requests:** During a region-down event, active requests can experience disruptions or increased latencies.
+
+- **Expected data loss:** The amount of data loss (also called the recovery point objective, or RPO) you can expect during a region failover depends on the cross-region replication schedule you configure.
+
+    - For the replication schedule of 10 minutes, the typical RPO is less than 20 minutes.
+    - For the hourly replication schedule, the typical RPO is less than two hours.
+    - For the daily replication schedule, the typical RPO is less than two days.
+
+- **Expected downtime:** Failover to another region requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. You can expect these to be completed within one minute.
+
+    However, the total amount of downtime (also called the recovery time objective, or RTO) you can expect during a region failover depends on multiple factors, including how long it takes for your systems or processes to detect the loss of the region and to initiate failover processes. Depending on your processes, this typically lasts a few minutes to an hour for well-prepared configurations.
+
+- **Traffic rerouting:** You're responsible for redirecting your application traffic to connect to to the newly active destination volume. For more information, see [fail over to the destination volume](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
 
 ### Failback
 
-Both failover and failback are manual processes in Azure NetApp Files cross-region replication. For more information including how to manage these processes, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
-
-It's also recommended you [set alert rules to monitor replication status](../azure-netapp-files/cross-region-replication-display-health-status.md#set-alert-rules-to-monitor-replication).
+Failback is a manual process that requires performing a resync operation, reestablishing the replication, and remounting the source volume for the client to access. For more information, see [Manage disaster recovery using Azure NetApp Files](../azure-netapp-files/cross-region-replication-manage-disaster-recovery.md).
 
 ### Testing for region failures
 
-To test your cross-region replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
+To learn about a high-level approach to test your cross-region replication configuration, see [Test disaster recovery for Azure NetApp Files](../azure-netapp-files/test-disaster-recovery.md).
 
 ## Backups
 
