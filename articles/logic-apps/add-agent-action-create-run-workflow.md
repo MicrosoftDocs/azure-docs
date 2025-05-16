@@ -76,17 +76,17 @@ This release has the following limitations or known issues:
 
 ##### Can I use my own logic app workflows as actions?
 
-Yes, you can add logic app workflows that you create in Azure Logic Apps to the actions gallery in Azure AI Foundry. Your workflows need to meet the following requirements:
+Yes, workflows that you create with Azure Logic Apps automatically appear in the actions gallery in Azure AI Foundry when they meet the following requirements:
 
-- The logic app resource that contains the workflow must use the **Consumption** hosting option.
+- The logic app resource that contains the workflow uses the **Consumption** hosting option.
 
-- The logic app resource must use the same Azure subscription that you use with Azure AI Foundry.
+- The logic app resource uses the same Azure subscription that you use with Azure AI Foundry.
 
-- The workflow must start with the [trigger named **When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
+- The workflow starts with the [trigger named **When a HTTP request is received** trigger](/azure/connectors/connectors-native-reqres#add-request-trigger).
 
-- The trigger requires a description, which you can provide on the trigger information pane in the workflow designer.
+- The trigger includes a description, which you provide on the trigger information pane in the workflow designer.
 
-- The workflow must end with the [**Response** action](/azure/connectors/connectors-native-reqres#add-a-response-action).
+- The workflow ends with the [**Response** action](/azure/connectors/connectors-native-reqres#add-a-response-action).
 
 For more information about how to create Consumption logic app workflows, see [Quickstart: Create an example Consumption logic app workflow using the Azure portal](/azure/logic-apps/quickstart-create-example-consumption-workflow).
 
@@ -277,18 +277,22 @@ Follow these steps to review the workflow definition and operations, or edit the
 
    > [!CAUTION]
    >
-   > Although you can add actions to the workflow, don't edit the original trigger and actions. 
-   > Their parameters are set up to work with the agent and action that create this workflow. 
-   > Changes to these operations bear the risk of breaking the agent action. For example, the 
-   > trigger uses the following parameters, which are essential for the agent to call the trigger:
+   > Although you can add actions and change the workflow, don't edit the original trigger 
+   > and actions to avoid breaking the relationship between the workflow, agent, and action. 
+   > Their parameters are set up to work together, so changes to these operations bear the 
+   > risk of breaking the action in the agent. Instead, consider creating a custom version 
+   > or a different workflow that you can add as an action to an agent.
+   >
+   > For example, the trigger uses the following parameters, which are necessary to call the trigger:
    >
    > | Parameter | Description |
    > |-----------|-------------|
-   > | **Name** | This name is part of the trigger's HTTPS URL. External callers, such as other services, outside the workflow send an HTTPS request to this URL, which "fires" the trigger and starts the workflow. The trigger is always the first step in a workflow and specifies the condition to meet for the trigger to run. |
+   > | **Name** | This name is part of the trigger's HTTPS URL. External callers, such as other services, outside the workflow send an HTTPS request to this URL, which fires the trigger and starts the workflow. The trigger is always the first step in a workflow and specifies the condition to meet for the trigger to run. |
+   > | **HTTPS URL** | When the workflow is saved for the first time, this URL is generated and used for calling an endpoint that the trigger creates for the workflow. |
    > | **Method** | This setting specifies whether the trigger accepts all or only specific HTTPS methods. |
-   > | **Request Body JSON Schema** | This schema describes the input that the trigger  expects to receive the HTTPS request sent from external callers. |
+   > | **Request Body JSON Schema** | If you want to validate the input that the trigger expects to receive in the HTTPS request sent from external callers, this schema specifies the JSON schema to use for validating that input. |
 
-   You have so many options to integrate your AI app by using a workflow that interacts with Azure, Microsoft, and other services or products plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want to do, you can also create your own.
+   Your AI app has almost endless options for working with Azure, Microsoft, and other services or products, plus operations that help you manage, shape, convert, and transform data. If no prebuilt connector exists for what you want to do, you can also create your own.
 
    :::image type="content" source="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png" alt-text="Architecture diagram shows Azure AI Foundry portal with example AI agent and action connected to Azure portal with multitenant Azure Logic Apps and example logic app workflow that can access Azure, Microsoft, and REST APIs for other services and systems." border="false" lightbox="media/add-agent-action-create-run-workflow/azure-ai-foundry-logic-apps-arch-full.png":::
 
