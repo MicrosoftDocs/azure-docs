@@ -1,6 +1,6 @@
 ---
-title: Import a Language Model API as REST API - Azure API Management
-description: How to import an OpenAI-compatible language model API or other AI model as a REST API in Azure API Management.
+title: Import an Azure AI Foundry API - Azure API Management
+description: How to import an API from Azure AI Foundry as a REST API in Azure API Management.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
@@ -10,7 +10,7 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
 
-# Import a language model API 
+# Import an LLM API 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
@@ -20,41 +20,55 @@ Learn more about managing AI APIs in API Management:
 
 * [Generative AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
+
+## AI service options
+* **Azure OpenAI service** - Deployment name of a model is passed in the URL path of the API request.
+
+* **Azure AI** - These are models that are available in Azure AI Foundry through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api). Deployment name of a model is passed in the request body of the API request. 
+
+
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A self-hosted LLM with an API endpoint. You can use an OpenAI-compatible LLM that's exposed by an inference provider such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index). Alternatively, you can access an LLM through a provider such as [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html).
-    > [!NOTE]
-    > API Management policies such as [llm-token-limit](llm-token-limit-policy.md) and [llm-emit-token-metric](llm-emit-token-metric-policy.md) are supported for APIs available through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api) or with OpenAI-compatible models served through third-party inference providers.
+- One or more Azure AI services with models deployed, such as:
+    - An Azure OpenAI resource. For information about model deployment in Azure OpenAI service, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
+    -  An Azure AI Foundry project. For information about creating a project, see [Create a project in the Azure AI Foundry portal](/azure/ai-foundry/how-to/create-projects). 
+    
 
 
-## Import language model API using the portal
+## Import AI Foundry API using the portal
 
-Use the following steps to import an LLM API directly to API Management. 
+Use the following steps to import an AI Foundry API directly to API Management. 
 
 [!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
-Depending on the API type you select to import, API Management automatically configures different operations to call the API: 
+When you import the API, API Management automatically configures:
 
-* **OpenAI-compatible API** - An operation for the LLM API's chat completion endpoint
-* **Passthrough API** - Wildcard operations for standard verbs `GET`, `HEAD`, `OPTIONS`, and `TRACK`. When you call the API, append any required path or parameters to the API request to pass a request to an LLM API endpoint.
+* Operations for each of the API's REST API endpoints
+* A system-assigned identity with the necessary permissions to access the AI service deployment.
+* A [backend](backends.md) resource and a [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the AI service endpoint.
+* Authentication to the backend using the instance's system-assigned managed identity.
+* (optionally) Policies to help you monitor and manage the API.
 
-For an OpenAI-compatible API, you can optionally configure policies to help you monitor and manage the API.
-
-To import an LLM API to API Management:
+To import an AI Foundry API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
-1. Under **Define a new API**, select **Language Model API**.
+1. Under **Create from Azure resource**, select **Azure AI Foundry**.
 
-    :::image type="content" source="media/openai-compatible-llm-api/openai-api.png" alt-text="Screenshot of creating an OpenAI-compatible API in the portal." :::
-
+    :::image type="content" source="media/azure-ai-foundry-api/ai-foundry-api.png" alt-text="Screenshot of creating an OpenAI-compatible API in the portal." :::
+1. On the **Select AI service** tab:
+    1. Select the **Subscription** in which to search for AI services (Azure OpenAI services or Azure AI Foundry projects). To get information about the deployments in a service, select the **deployments** link next to the service name.
+       :::image type="content" source="media/azure-ai-foundry-api/deployments.png" alt-text="Screenshot of deployments for an AI service in the portal.":::
+    1. Select an AI service. 
+    1. Select **Next**.
 1. On the **Configure API** tab:
     1. Enter a **Display name** and optional **Description** for the API.
-    1. Enter the **URL** to the LLM API endpoint.
+    1. In **Path**, enter a path that your API Management instance uses to access the API endpoints.
     1. Optionally select one or more **Products** to associate with the API.  
-    1. In **Path**, append a path that your API Management instance uses to access the LLM API endpoints.
-    1. In **Type**, select either **Create OpenAI API** or **Create a passthrough API**.   
+    1. In **Client compatibility**, select either of the following based on the types of client you intend to support:
+        * **Azure OpenAI** - Clients call the model deployment using the OpenAI API format. Select this option if you use only Azure OpenAI deployments.
+        * **Azure AI** - Clients call the model deployment by passing 
     1. In **Access key**, optionally enter the authorization header name and API key used to access the LLM API. 
     1. Select **Next**.
 1. On the **Manage token consumption** tab, optionally enter settings or accept defaults that define the following policies to help monitor and manage the API:
@@ -62,7 +76,7 @@ To import an LLM API to API Management:
     * [Track token usage](llm-emit-token-metric-policy.md) 
 1. On the **Apply semantic caching** tab, optionally enter settings or accept defaults that define the policies to help optimize performance and reduce latency for the API:
     * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
-1. On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service checks for API requests:
+On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service checks for API requests:
     * [Enforce content safety checks on LLM requests](llm-content-safety-policy.md)
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
