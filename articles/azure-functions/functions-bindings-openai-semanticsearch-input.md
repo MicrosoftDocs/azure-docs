@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 # Azure OpenAI Semantic Search Input Binding for Azure Functions
@@ -90,7 +90,7 @@ Apply the `SemanticSearchInput` attribute to define a semantic search input bind
 | **AIConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **SystemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **MaxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
-| **IsReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **IsReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 
 ::: zone-end
@@ -110,7 +110,7 @@ The `SemanticSearchInput` annotation enables you to define a semantic search inp
 | **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **maxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
-| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 
 ::: zone-end  
@@ -130,7 +130,7 @@ During the preview, define the input binding as a `generic_input_binding` bindin
 | **ai_connection_name** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **system_prompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **max_knowledge_count** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
-| **is_reasoning _model** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **is_reasoning _model** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -151,7 +151,7 @@ The binding supports these configuration properties that you set in the function
 | **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **maxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
-| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -164,12 +164,12 @@ The binding supports these properties, which are defined in your code:
 | **searchConnectionName** | The name of an app setting or environment variable that contains the connection string value. This property supports binding expressions. |
 | **collection** | The name of the collection or table or index to search. This property supports binding expressions.|
 | **query** |  The semantic query text to use for searching. This property supports binding expressions.|
-| **embeddingsModel** |  _Optional_.The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
+| **embeddingsModel** |  _Optional_. The ID of the model to use for embeddings. The default value is `text-embedding-3-small`. This property supports binding expressions.|
 | **chatModel** |  _Optional_. Gets or sets the name of the Large Language Model to invoke for chat responses. The default value is `gpt-3.5-turbo`. This property supports binding expressions.|
 | **aiConnectionName** |  _Optional_. Gets or sets the name of the configuration section for AI service connectivity settings. For Azure OpenAI: If specified, looks for "Endpoint" and "Key" values in this configuration section. If not specified or the section doesn't exist, falls back to environment variables: AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY. For user-assigned managed identity authentication, this property is required. For OpenAI service (non-Azure), set the OPENAI_API_KEY environment variable.|
 | **systemPrompt** | _Optional_. Gets or sets the system prompt to use for prompting the large language model. The system prompt is appended with knowledge that is fetched as a result of the `Query`. The combined prompt is sent to the OpenAI Chat API. This property supports binding expressions.|
 | **maxKnowledgeCount** | _Optional_. Gets or sets the number of knowledge items to inject into the `SystemPrompt`.|
-| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end  
 

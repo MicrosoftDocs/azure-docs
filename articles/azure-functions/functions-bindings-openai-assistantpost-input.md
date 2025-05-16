@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI assistant post input binding lets you send prompts to assistant chat bots.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](../ai-services/openai/
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI assistants, see [Azure OpenAI Assistants API](/azure/ai-services/openai/concepts/assistants).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)] 
 
@@ -85,7 +85,7 @@ Apply the `PostUserQuery` attribute to define an assistant post input binding, w
 | **Temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
 | **TopP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
 | **MaxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
-| **IsReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **IsReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -103,7 +103,7 @@ The `PostUserQuery` annotation enables you to define an assistant post input bin
 | **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
 | **topP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
 | **maxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
-| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -121,7 +121,7 @@ During the preview, define the output binding as a `generic_output_binding` bind
 | **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
 | **top_p** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
 | **max_tokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
-| **is_reasoning _model** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **is_reasoning _model** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
@@ -141,7 +141,7 @@ The binding supports these configuration properties that you set in the function
 | **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
 | **topP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
 | **maxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
-| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -158,7 +158,7 @@ The binding supports these properties, which are defined in your code:
 | **temperature** | _Optional_. Gets or sets the sampling temperature to use, as a string between `0` and `2`. Higher values (`0.8`) make the output more random, while lower values like (`0.2`) make output more focused and deterministic. You should use either  `Temperature` or `TopP`, but not both. |
 | **topP** | _Optional_. Gets or sets an alternative to sampling with temperature, called nucleus sampling, as a string. In this sampling method, the model considers the results of the tokens with `top_p` probability mass. So `0.1` means only the tokens comprising the top 10% probability mass are considered. You should use either  `Temperature` or `TopP`, but not both. |
 | **maxTokens** | _Optional_. Gets or sets the maximum number of tokens to generate in the completion, as a string with a default of `100`. The token count of your prompt plus `max_tokens` can't exceed the model's context length. Most models have a context length of 2,048 tokens (except for the newest models, which support 4096). |
-| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
+| **isReasoningModel** | _Optional_. Gets or sets a value indicating whether the chat completion model is a reasoning model. This option is experimental and associated with the reasoning model until all models have parity in the expected properties, with a default value of `false`.|
 
 ::: zone-end  
 

@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-ts
 ms.collection: 
   - ce-skilling-ai-copilot
-ms.date: 01/07/2025
+ms.date: 05/15/2025
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -124,7 +124,7 @@ The binding supports these configuration properties that you set in the function
 | **direction** | Must be `in`. |
 | **name** | The name of the trigger. |
 | **functionName** | Gets or sets the name of the function called by the assistant.|
-| **functionDescription** | Gets the description of the assistant function, which is provided to the LLM|
+| **functionDescription** | Gets the description of the assistant function, which is provided to the language model. |
 | **parameterDescriptionJson** | _Optional_. Gets or sets a JSON description of the function parameter, which is provided to the model. For more information, see [Usage](#usage).|
 
  
