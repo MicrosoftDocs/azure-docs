@@ -165,7 +165,8 @@ sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-accou
 ```
 > [!NOTE]
 > Before running the mount command, ensure that the environment variable AZURE_ENDPOINT_OVERRIDE is set. This is required when mounting file shares in non-public Azure cloud regions or when using custom DNS configurations.
-> For example, for Azure China Cloud:
+> For example, for Azure China Cloud: `export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn"`
+
 > ```bash
 > export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
 > ```
