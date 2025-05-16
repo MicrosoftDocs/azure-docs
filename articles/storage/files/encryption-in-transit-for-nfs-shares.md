@@ -179,7 +179,9 @@ Run the command `df -Th`.
  
 It indicates that the client is connected through the local port 127.0.0.1, not an external network. The **stunnel** process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client. Stunnel then **intercepts** this traffic and securely forwards it over **TLS** to the Azure Files NFS server on Azure.
  
-- To check if traffic to the NFS server is encrypted, use the `tcpdump` command to capture packets on port 2049.
+To check if traffic to the NFS server is encrypted, use the `tcpdump` command to capture packets on port 2049.
+
+
 ```bash
 sudo tcpdump -i any port 2049 -w nfs_traffic.pcap
 ```
