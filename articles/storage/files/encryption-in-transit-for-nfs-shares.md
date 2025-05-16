@@ -56,7 +56,8 @@ To enable encryption in transit for your NFS shares, you must register for the p
 
 ### [Portal](#tab/azure-portal)
 
-Azure Portal support for this feature isn't currently available. In the meantime, you can enroll in the public preview using either Azure PowerShell or Azure CLI.
+Azure Portal support for this feature isn't currently available. In the meantime, you can enroll in the preview using either Azure PowerShell or Azure CLI.
+
 
 
 ### [PowerShell](#tab/azure-powershell)
