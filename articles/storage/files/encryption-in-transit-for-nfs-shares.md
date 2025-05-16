@@ -134,7 +134,8 @@ sudo yum install -y aznfs
 > - Oracle Linux
 > - Alma Linux
 
----
+
+
 ### Step 2: Mount the NFS file share
 #### Step 2a: With TLS encryption
  
