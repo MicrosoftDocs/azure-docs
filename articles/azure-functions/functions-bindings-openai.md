@@ -136,8 +136,8 @@ To support legacy apps and for providers other than Azure OpenAI, you can also d
 
 | Variable name |   Description |
 |---|---|
-| `AZURE_OPENAI_ENDPOINT` | Sets the URI endpoint of your Azure OpenAI instance.|
-| `AZURE_OPENAI_KEY` | Sets the shared secret key required to access your Azure OpenAI endpoint using key-based authentication.  |
+| `AZURE_OPENAI_ENDPOINT` | Sets the URI endpoint of your Azure OpenAI instance. Don't use with `Open_API_Key`. |
+| `AZURE_OPENAI_KEY` | Sets the shared secret key required to access your Azure OpenAI endpoint (`AZURE_OPENAI_ENDPOINT`) using key-based authentication.  |
 | `Open_API_Key` | Sets the shared secret key required to access the `https://api.openai.com` endpoint using key-based authentication.  |
 
 You can set these variables in your app settings. 
