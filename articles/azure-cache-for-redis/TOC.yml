@@ -115,10 +115,10 @@
       href: /azure/redis/overview-vector-similarity
     - name: Connection resilience best practices
       href: cache-best-practices-connection.md
-    - name: Use Azure Functions triggers and bindings
-      items:
-      - name: Create a simple Function app for Redis triggers 
-        href: /azure/redis/tutorial-functions-getting-started
+    # - name: Use Azure Functions triggers and bindings
+    #   items:
+    #   - name: Create a simple Function app for Redis triggers 
+    #     href: /azure/redis/tutorial-functions-getting-started
 
   - name: Logs and monitoring
     items:
