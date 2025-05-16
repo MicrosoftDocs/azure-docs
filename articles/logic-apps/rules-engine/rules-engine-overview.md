@@ -23,19 +23,19 @@ Organizations deal with decisions every day, but when you have clear business ru
 
 Traditional programming languages, such as C++, Java, COBOL, Python, JavaScript, or C#, are designed for programmers. So, non-programmers have difficulties changing the business rules that guide how software applications work. These languages also require much time and work to create and update applications. However, business rules engines solve this problem by offering a low-code environment that lets you build applications faster and easier. You can use a rules engine to create and change business rules without having to write code or restart the applications that use them.
 
-## Rules engines in a world of microservices
+## Rules engines in a world of Artificial Intelligence (AI)
 
-In a world of microservices that promotes decoupling, rules engines are vital because they provide consistency, clarity, and compliance across different services and domains. Rules help define the logic, constraints, and policies that govern how to process validate, and exchange data across microservices. Rules also help you make sure that applications follow the regulations and standards of their respective industries and markets. By using a rules engine, you can manage and update business logic independently from the code and the infrastructure of the microservices. This way, you can reduce the complexity and maintenance costs of your applications and increase their agility and scalability.
+In a world of AI that essentially follows a probabilistic approach, rules engines are vital because they provide consistency, clarity, and compliance across different business goals. The use of Rules in a Logic Apps workflow will help you define the logic, constraints, and policies that will govern how to process, validate, and exchange data across systems, while avoiding AI hallucinations. Rules also help you make sure that applications follow the regulations and standards of their respective industries and markets. By using a rules engine, you can manage and update business logic independently from the code or without altering your workflow. This way, you can reduce the complexity and maintenance costs of your applications and increase their agility and scalability.
 
 ## Rules engine benefits
 
 A decision management rules engine can offer many benefits, for example:
 
-- Increases application flexibility and adaptability by empowering users to change the business rules without modifying the code or redeploying microservices.
+- Increases application flexibility and adaptability by empowering users to change the business rules without modifying the code or redeploying logic apps workflows.
 
-- Improves application performance and efficiency by offloading complex and computationally intensive decision-making to the rules engine from microservices.
+- When used with AI, provides enhanced Reliability and Predictability by ensuring that certain decisions or actions always follow predefined logic, which is crucial in regulated industries or safety-critical applications.
 
-- Enhances application consistency and reliability by ensuring that the same business rules are applied across different microservices and cloud environments.
+- For routine or well-understood business cases, rules engine can handle decisions instantly without invoking AI models.
 
 - Facilitates application governance and compliance by providing a centralized and auditable repository of the business rules that you can easily access and verify.
 
