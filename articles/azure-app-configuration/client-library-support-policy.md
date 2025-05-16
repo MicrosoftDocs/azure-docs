@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ---
 # Support policy for Azure App Configuration client libraries
 
-This document outlines the support policy for Azure App Configuration client libraries. The policy is aligned with the [Azure SDK Support Policy](https://azure.github.io/azure-sdk/policies_support.html) and it applies to all programming languages. For the list of libraries in scope, see [existing releases](./client-library-support-policy.md#existing-releases).
+This document outlines the support policy for Azure App Configuration client libraries. The policy is aligned with the [Azure SDK Support Policy](https://azure.github.io/azure-sdk/policies_support.html) and it applies to all programming languages. For the list of libraries in scope, see [existing releases](./client-library-support-policy.md#existing-releases). This policy excludes libraries for the Java Spring framework which are governed by the Azure Spring support policy outlined [here](../spring-apps/basic-standard/concept-app-customer-responsibilities#spring-boot-and-spring-cloud-versions) and [here](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping).
 
 ## Key terms
 
@@ -78,23 +78,6 @@ For major versions released prior to the adoption of this policy, a grace period
 | 8.x.x   | October 9, 2024    | --                          | --                        |
 | 7.x.x   | November 21, 2023  | November 21, 2024           | May 20, 2026*             |
 | 6.x.x   | March 28, 2023     | March 28, 2024              | March 28, 2025            |
-
-#### [Java](#tab/java)
-
-##### spring-cloud-azure-appconfiguration-config
-
-| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|---------|--------------------|-----------------------------|---------------------------|
-| 5.x.x   | April 27, 2023     | --                          | --                        |
-| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
-
-##### spring-cloud-azure-appconfiguration-config-web
-
-| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|---------|--------------------|-----------------------------|---------------------------|
-| 5.x.x   | April 27, 2023     | --                          | --                        |
-| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
-
 #### [Python](#tab/python)
 
 ##### azure-appconfiguration-provider
@@ -143,22 +126,6 @@ For major versions released prior to the adoption of this policy, a grace period
 | 4.x.x   | November 1, 2024   | --                          | --                        |
 | 3.x.x   | October 27, 2023   | November 1, 2024            | May 20, 2026*             |
 | 2.x.x   | February 27, 2020  | October 27, 2023            | October 27, 2024          |
-
-#### [Java](#tab/java)
-
-##### spring-cloud-azure-feature-management
-
-| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|---------|--------------------|-----------------------------|---------------------------|
-| 5.x.x   | April 27, 2023     | --                          | --                        |
-| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
-
-##### spring-cloud-azure-feature-management-web
-
-| Version | Release Date       | Deprecation Mode Start Date | Out of Support Start Date |
-|---------|--------------------|-----------------------------|---------------------------|
-| 5.x.x   | April 27, 2023     | --                          | --                        |
-| 4.x.x   | April 6, 2023      | April 6, 2024               | April 6, 2025             |
 
 #### [Python](#tab/python)
 
