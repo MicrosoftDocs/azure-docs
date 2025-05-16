@@ -1,17 +1,17 @@
 ---
-title: SRE Agent overview (preview)
+title: Azure SRE Agent overview (preview)
 description: Learn how AI-enabled agents help solve problems and support resilient and self-healing systems on your behalf.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 05/08/2025
+ms.date: 05/16/2025
 ms.author: cshoe
 ---
 
-# SRE Agent overview (preview)
+# Azure SRE Agent overview (preview)
 
-Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An Azure SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
 Agents have access to every resource inside the resource groups associated to the agent. Therefore, agents:
 
@@ -67,3 +67,52 @@ An agent can provide detailed information about different aspects of your apps a
 ## Preview access
 
 Access to an SRE Agent is only available as a limited preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
+
+## Frequently asked questions
+
+### What is Azure SRE Agent, what can it do, and what are its intended uses?
+
+The Azure SRE Agent is a system designed to assist Site Reliability Engineers (SREs) in managing their Azure resources. Agents perform tasks such as monitoring, diagnosing, and mitigating issues.
+
+The system takes your input on the resources it manages, the health or status of specific resources, and any issues to those resources.
+
+Outputs from the agent include:
+
+- Information about resources
+- Mitigations and solutions to issues
+- Recommendations on best practices
+- Actions to resolve issues or implement best practices with user approval
+
+The Azure SRE Agent offers functionalities to assist SREs in managing Azure resources. Agents monitor system metrics and logs to detect issues early, diagnose the root causes of problems, and implement fixes and preventive measures to avoid future incidents. Examples of tasks the agent can handle include:
+
+- Diagnosing and troubleshooting "application down" scenarios
+- Getting resource availability information
+- Ensuring Azure resources are following best practices.
+
+The agent performs actions on behalf of the user with the right approvals and permissions, ensuring that humans remain in control.
+
+The intended use of the SRE Agent is to help you monitor, diagnose issues, and maintain your Azure resources. The agent is designed to improve the reliability and efficiency of software systems by handling tasks like:
+
+- Reading customer resource metrics and logs
+- Provide mitigations or recommendations
+- Perform actions on the customer's behalf with the right approvals and permissions
+
+The agent aims to reduce the toil of SREs by automating routine tasks and providing insights and recommendations to enhance system reliability.
+
+### How was SRE Agent evaluated? What metrics are used to measure performance?
+
+The SRE Agent was evaluated through various assessment activities, including user validation, measurement, and mitigations. Metrics used to measure performance include the accuracy of diagnostics, the effectiveness of mitigations, and user feedback on the agent's recommendations. The evaluation process involved testing the agent's capabilities across different scenarios, such as app availability and incident response, to ensure its reliability and effectiveness. Results are generalizable across use cases that weren't part of the initial evaluation. The agent's design allows it to adapt to different situations and provide consistent performance.
+
+### What are the limitations of SRE Agent? How can impact of SRE Agent’s limitations be minimized?
+
+The known limitations of the SRE Agent include its reliance on user approval for performing actions, which can slow down the response time in critical situations. Additionally, the agent might not be able to solve all problems or could produce inaccurate recommendations due to limitations in its knowledge base. You can minimize the impact of these limitations by providing detailed and accurate inputs, regularly updating the agent's configuration, and closely monitoring its actions. Ensuring a human SRE reviews and validates the agent's recommendations also helps mitigate potential errors.
+
+### What operational factors and settings allow for effective and responsible use of SRE Agent?
+
+Effective and responsible use of the SRE Agent requires configuring the system to manage the appropriate resources and setting up permissions and approvals for actions. Ensuring that the agent operates within defined parameters and regularly reviewing its actions can help maintain reliability and safety.
+
+### How do I provide feedback?
+
+The current feedback system for the Azure SRE Agent includes thumbs-up and thumbs-down buttons for you to rate the quality of the agent's responses.
+
+When you select either the thumbs-up or thumbs-down button, a small pop-up appears in the same view containing a text box for free-form text feedback. You can enter submit comments here to help the development identify areas for improvement.
