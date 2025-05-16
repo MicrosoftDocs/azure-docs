@@ -119,7 +119,7 @@ sudo zypper install aznfs
 curl -sSL -O <https://packages.microsoft.com/config/$(source> /etc/os-release && echo "alma/${VERSION_ID%%.\*}")/packages-microsoft-prod.rpm 
 sudo rpm -i packages-microsoft-prod.rpm 
 rm packages-microsoft-prod.rpm 
-sdo yum update 
+sudo yum update 
 sudo yum install -y aznfs 
 ```
  
