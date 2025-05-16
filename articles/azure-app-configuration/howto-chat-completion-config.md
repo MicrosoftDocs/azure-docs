@@ -36,10 +36,6 @@ In this section, we will create a chat completion configuration in Azure Portal 
     
     > [!div class="mx-imgBorder"]
     > ![Screen shot shows the create new AI configuration form](./media/create-ai-chat-completion-config.png)
-
-1. To view the JSON representation of the chat completion configuration, switch to the **JSON** tab:
-    > [!div class="mx-imgBorder"]
-    > ![Screen shot shows the create new AI configuration form JSON tab](./media/create-ai-chat-completion-config-json.png)
     
 1. Leave the rest of the values as default then select **Apply**.
 
