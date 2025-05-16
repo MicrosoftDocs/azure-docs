@@ -33,7 +33,7 @@ To complete this tutorial, you need an [Azure subscription](https://azure.micros
 
 ## 1. Create an App Service app
 
-Start by creating a web app that the SRE Agent will monitor.
+Start by creating a web app that the SRE Agent can monitor.
 
 1. Sign in to the https://portal.azure.com.
 1. In the top search bar, search for **App Services**, then select it from the results.
@@ -66,7 +66,7 @@ In the *Basics* tab, provide the following details:
 1. Under *Authentication settings*, enable **Basic authentication**.
 
 > [!NOTE]
-> This is used later for a one-time deployment from GitHub. In production, [disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) and use secure deployment methods like GitHub Actions or Azure DevOps.
+> Basic authentication is used later for a one-time deployment from GitHub. In production, [disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) and use secure deployment methods like GitHub Actions or Azure DevOps.
 
 1. Select **Review and create**.
 
@@ -75,7 +75,7 @@ In the *Basics* tab, provide the following details:
 
 1. Select **Create** to deploy the app.
 
-    Once deployment completes, you’ll see the message: *Your deployment is complete*.
+    Once deployment completes, you see the message: *Your deployment is complete*.
 
 ## 2. Deploy the sample app
 
@@ -233,9 +233,9 @@ Once your SRE Agent is deployed and connected to your resource group, you can in
 
 1. In the chat box, enter the following command:
 
-    ```text
-    List my App Service apps
-    ```
+    ```text
+    List my App Service apps
+    ```
 
 1. The agent will respond with a list of App Service apps deployed in the `my-app-service-group` resource group.
 
@@ -270,9 +270,9 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
     ![HTTP 500](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
 
-1. Repeat the conversion step a few more times to generate additional HTTP 500 logs.
+1. Repeat the conversion step a few more times to generate additional HTTP 500 errors.
 
-    > These logs will help the SRE Agent detect and diagnose the issue.
+    > These errors help the SRE Agent detect and diagnose the issue.
 
 ## 9. Fix the app
 
@@ -303,7 +303,7 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
 
 1. Select **Approve** to initiate the rollback.
 
-1. Once the rollback is complete, the agent will confirm:
+1. Once the rollback is complete, the agent confirms:
 
     > *The slot swap for my-sre-app has been completed successfully (timestamp). The production slot has been restored. I will now continue with post-mitigation steps:*
     >
@@ -320,12 +320,12 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
 1. In the app interface:
 
-    - Click **Tools** in the navigation bar.
+    - Select **Tools** in the navigation bar.
     - Select **Convert to PNG**.
 
-    ![Click `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
+    ![Select `Tools` and select `Convert to PNG`](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first five images and click **Convert**.
+1. Select the first five images and select **Convert**.
 
     - The conversion should now complete successfully without HTTP 500 errors.
 
@@ -350,7 +350,7 @@ Repeat the following steps for both of these resource groups:
 
 1. Select **Delete**.
 
-    > Deletion may take a few minutes to complete.
+    > Deletion takes a few minutes to complete.
 
 ## Next steps
 
