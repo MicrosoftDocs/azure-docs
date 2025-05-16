@@ -11,19 +11,19 @@ ms.custom: devx-track-azurepowershell
 
 # How encryption in transit for NFS shares works
 
-As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception, including MITM attacks. By using Stunnel for strong encryption like AES-GCM and the AZNFS utility for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
+As a network administrator, I want to securely connect to Azure Files NFS v4.1 volumes using a TLS channel so that I can protect data in transit from interception. By using AZNFS mount helper package for simplified setup, I can ensure data confidentiality without needing complex setups or external authentication systems.
  
 This article explains how you can encrypt data in transit for NFS Azure file shares (preview).
 
 > [!IMPORTANT]
-> - Encryption in transit for NFS Azure file shares is currently in **preview**. 
+> - Encryption in transit for Azure file shares NFS v4.1 is currently in **preview**. 
 > - See the [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
 
 Using [Stunnel](https://www.stunnel.org/), an open-source TLS wrapper, Azure Files encrypts the TCP stream between the NFS client and Azure Files with strong encryption using AES-GCM, without needing Kerberos. This ensures data confidentiality while eliminating the need for complex setups or external authentication systems like Active Directory.
  
-The AZNFS utility simplifies encrypted mounts by installing and setting up Stunnel on the client. Available on [GitHub](https://github.com/Azure/AZNFS-mount), AZNFS creates a local secure endpoint that transparently forwards NFS client requests over an encrypted connection. The key architectural components include:
+The AZNFS utility package simplifies encrypted mounts by installing and setting up Stunnel on the client. Available on packages.microsoft.com, AZNFS creates a local secure endpoint that transparently forwards NFS client requests over an encrypted connection. The key architectural components include:
  
 - **AZNFS Mount Helper**: A client utility package that abstracts the complexity of establishing secure tunnels for NFSv4.1 traffic.
 
@@ -33,23 +33,23 @@ The AZNFS utility simplifies encrypted mounts by installing and setting up Stunn
 
 ## Supported regions
 
-All regions are supported except Korea Central, West Europe, Japan West, China North3 and Central US.
+All regions supported by Azure Premium Files now support encryption in transit, with the exception of Korea Central, West Europe, Japan West, China North3, Israel Central, and Austria East. Support for these remaining regions is planned and will be available soon.
 
 ## Enforce encryption in transit
  
 By enabling 'Secure transfer required' setting on the storage account, you are able to ensure that "all" the mounts to the NFS volumes in the storage account are encrypted.
  
-:::image type="content" source="./media/eit-for-nfs-shares/powershell-capture.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/powershell-capture.png":::
+:::image type="content" source="./media/eit-for-nfs-shares/storage-account-settings.png" alt-text="Diagram showing the Powershell screen to test if EiT is applied." lightbox="./media/eit-for-nfs-shares/storage-account-settings.png":::
  
 However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the 'Secure transfer' setting must remain OFF.
  
 ## Register for preview
  
-To enable encryption in transit for Azure NFS file shares, the following permissions are required for your Azure subscription:
+To enable encryption in transit for your NFS shares, the following permissions are required for your Azure subscription:
 
 ### [Portal](#tab/azure-portal)
 
-Portal support will be added soon, use Azure PowerShell or Azure CLI to enroll into the public preview.
+Azure Portal support for this feature will be added soon. In the meantime, you can enroll in the public preview using either Azure PowerShell or Azure CLI.
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -67,16 +67,16 @@ Portal support will be added soon, use Azure PowerShell or Azure CLI to enroll i
  
 Follow these steps to encrypt data in transit:
  
-1. Ensure the required AZNFS Mount Helper package is installed on the client.
-2. Mount the NFS Azure file share with TLS encryption.
+1. Ensure the required AZNFS mount helper package is installed on the client.
+2. Mount the NFS file share with TLS encryption.
 3. Verify that the encryption of data succeeded.
-### Step 1: Check AZNFS Mount Helper package installation
+### Step 1: Check AZNFS mount helper package installation
  
-To check if the AZNFS Mount Helper package is installed on your client, run the following command:
+To check if the AZNFS mount helper package is installed on your client, run the following command:
 ```bash
 systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
 ```
-If the package is installed, you'll see the message `AZNFS mounthelper is installed!`. If it isn't installed, you'll need to use the appropriate command to install the AZNFS mount helper program and the *aznfswatchdog* service.
+If the package is installed, you'll see the message `AZNFS mounthelper is installed!`. If it isn't installed, you'll need to use the appropriate command to install the AZNFS mount helper package on your client.
  
 ### [Ubuntu/Debian](#tab/Ubuntu)
 ```bash
@@ -132,10 +132,11 @@ sudo yum install -y aznfs
 > - SUSE (SLES 15) 
 > - Oracle Linux
 > - Alma Linux
-### Step 2: Mount the NFS Azure file share
+
+### Step 2: Mount the NFS file share
 #### Step 2a: With TLS encryption
  
-To mount an NFS Azure file share **with TLS encryption**:
+To mount NFS file share **with TLS encryption**:
  
 1. Create a directory on your client.
 ```bash
@@ -152,12 +153,13 @@ To mount the NFS share **without TLS encryption**:
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4,notls
 ```
 > [!NOTE]
-> Before running the mount command, you must set the environment variable AZURE_ENDPOINT_OVERRIDE for mounting non-Public Azure Cloud regions and when using Custom DNS. For example, for Azure China Cloud:
+> Before running the mount command, ensure that the environment variable AZURE_ENDPOINT_OVERRIDE is set. This is required when mounting file shares in non-public Azure cloud regions or when using custom DNS configurations.
+> For example, for Azure China Cloud:
 > ```bash
 > export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn
 > ```
  
-### Step 3:  Verify that the data encryption succeeded
+### Step 3:  Verify that the in-transit data encryption succeeded
  
 - Run the command `df -Th`.
  
