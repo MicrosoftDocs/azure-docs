@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 07/18/2023
+ms.date: 05/15/2025
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-edge
@@ -17,7 +17,7 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
-1. In the left pane, select **Devices** from the menu, then select **Add Device**.
+1. In the resource menu, expand the **Device management** group and select **Devices**, then select **Add Device** from the command bar.
 
 1. On the **Create a device** page, provide the following information:
 
@@ -27,7 +27,7 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
    * Provide the primary and secondary identity certificate thumbprints. Thumbprint values are 40-hex characters for SHA-1 hashes or 64-hex characters for SHA-256 hashes. The Azure portal supports hexadecimal values only. Remove column separators and spaces from the thumbprint values before entering them in the portal. For example, `D2:68:D9:04:9F:1A:4D:6A:FD:84:77:68:7B:C6:33:C0:32:37:51:12` is entered as `D268D9049F1A4D6AFD8477687BC633C032375112`.
 
    > [!TIP]
-   > If you are testing and want to use one certificate, you can use the same certificate for both the primary and secondary thumbprints.
+   > If you're testing and want to use one certificate, you can use the same certificate for both the primary and secondary thumbprints.
 
 1. Select **Save**.
 
@@ -61,7 +61,7 @@ Devices that use X.509 certificate authentication need their IoT hub name, their
 
 # [Portal](#tab/azure-portal)
 
-The edge-enabled devices that connect to your IoT hub are listed on the **Devices** page. You can filter the list by device type *IoT Edge devices*.
+The edge-enabled devices that connect to your IoT hub are listed on the **Devices** page. You can filter the list by the device type, *IoT Edge devices*.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -77,6 +77,6 @@ Use the [az iot hub device-identity list](/cli/azure/iot/hub/device-identity) co
    az iot hub device-identity list --hub-name <hub_name_here>
    ```
 
-Any device that's registered as an IoT Edge device has the property **capabilities.iotEdge** set to **true**.
+Any device registered as an IoT Edge device has the property **capabilities.iotEdge** set to **true**.
 
 ---
