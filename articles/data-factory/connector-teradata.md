@@ -104,7 +104,7 @@ More connection properties you can set in connection string per your case:
 | sslMode | The SSL mode for connections to the database. Valid values including `Disable`, `Allow`, `Prefer`, `Require`, `Verify-CA`, `Verify-Full`.  | `Verify-Full` |
 | portNumber  |The port numbers when connecting to server through non-HTTPS/TLS connections.  | 1025|
 | httpsPortNumber |The port numbers when connecting to server through HTTPS/TLS connections. |443 |
-| UseDataEncryption | Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1.<br><br/>- **0 (disabled, default)**: Encrypts authentication information only.<br/>- **1 (enabled)**: Encrypts all data that is passed between the driver and the database. This setting is ignored for HTTPS/TLS connections.| `0` |
+| UseDataEncryption | Specifies whether to encrypt all communication with the Teradata database. Allowed values are 0 or 1.<br><br/>- **0 (disabled)**: Encrypts authentication information only.<br/>- **1 (enabled, default)**: Encrypts all data that is passed between the driver and the database. This setting is ignored for HTTPS/TLS connections.| `1` |
 | CharacterSet | The character set to use for the session. For example, `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following predefined character sets: <br/>- ASCII<br/>- ARABIC1256_6A0<br/>- CYRILLIC1251_2A0<br/>- HANGUL949_7R0<br/>- HEBREW1255_5A0<br/>- KANJI932_1S0<br/>- KANJISJIS_0S<br/>- LATIN1250_1A0<br/>- LATIN1252_3A0<br/>- LATIN1254_7A0<br/>- LATIN1258_8A0<br/>- SCHINESE936_6R0<br/>- TCHINESE950_8R0<br/>- THAI874_4A0<br/>- UTF8<br/>- UTF16  | `ASCII` |
 | MaxRespSize |The maximum size of the response buffer for SQL requests, in bytes. For example, `MaxRespSize=10485760`.<br/><br/>Range of permissible values are from `4096` to `16775168`. The default value is `524288`.  | `524288`  |
 
@@ -451,7 +451,7 @@ The Teradata connector version 2.0 (Preview) offers new functionalities and is c
 
 | Version 2.0 (Preview)  | Version 1.0 | 
 | :----------- | :------- |
-| The default value of `UseDataEncryption` is `0`. | The default value of `UseDataEncryption` is `1`. |
+| The default value of `UseDataEncryption` is `1`. | The default value of `UseDataEncryption` is `0`. |
 | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> Date<br>Time With Time Zone -> String <br>Timestamp With Time Zone -> DateTimeOffset <br>Graphic -> String<br>Interval Day  -> TimeSpan<br>Interval Day To Hour -> TimeSpan<br>Interval Day To Minute -> TimeSpan<br>Interval Day To Second -> TimeSpan<br>Interval Hour -> TimeSpan<br>Interval Hour To Minute -> TimeSpan<br>Interval Hour To Second -> TimeSpan<br>Interval Minute -> TimeSpan<br>Interval Minute To Second -> TimeSpan<br>Interval Month -> String<br>Interval Second -> TimeSpan<br>Interval Year -> String<br>Interval Year To Month -> String<br>Number -> Double<br>Period (Date) -> String<br>Period (Time) -> String<br>Period (Time With Time Zone) -> String<br>Period (Timestamp) -> String<br>Period (Timestamp With Time Zone) -> String<br>VarGraphic -> String<br>Xml -> String | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> DateTime<br>Time With Time Zone ->  TimeSpan    <br>Timestamp With Time Zone -> DateTime <br>Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. Please apply an explicit cast in the source query.   |  
 
 
