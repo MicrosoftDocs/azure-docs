@@ -26,6 +26,8 @@ An SRE Agent also integrates with [PagerDuty](https://www.pagerduty.com/) to sup
 > [!NOTE]
 > The SRE Agent feature is in limited preview. To sign up for access, fill out the [SRE Agent application](https://go.microsoft.com/fwlink/?linkid=2319540).
 
+By using SRE Agent you consent the product-specific [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## Key features
 
 The SRE Agent offers several key features that enhance the reliability and performance of your Azure resources:
