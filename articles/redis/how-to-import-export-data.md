@@ -85,13 +85,6 @@ Export allows you to export the data stored in Azure Managed Redis. You can use 
 
 1. Select **Choose Storage Container** and to display a list of available storage accounts. Select the storage account you want. The storage account must be in the same region as your cache. If you're using managed identity for authentication, the storage account can be in a different subscription. Otherwise, the storage account must be in the same subscription as your cache.
 
-   > [!IMPORTANT]
-   >
-   > If your cache data export to Firewall-enabled storage accounts fails, refer to [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account)
-   >
-   > For more information, see [Azure storage account overview](/azure/storage/common/storage-account-overview).
-   >
-
     <!-- :::image type="content" source="media/how-to-import-export-data/managed-redis-export-data-choose-account.png" alt-text="Screenshot showing a list of containers in the working pane."::: -->
 
 1. Choose the storage container you want to hold your export, then **Select**. If you want a new container, select **Add Container** to add it first, and then select it from the list.
@@ -121,7 +114,6 @@ This section contains frequently asked questions about the Import/Export feature
 - [I received a timeout error during my Import/Export operation. What does it mean?](#i-received-a-timeout-error-during-my-importexport-operation-what-does-it-mean)
 - [I got an error when exporting my data to Azure Blob Storage. What happened?](#i-got-an-error-when-exporting-my-data-to-azure-blob-storage-what-happened)
 - [Are storage accounts that enable firewalls or private links supported?](#are-storage-accounts-that-enable-firewalls-or-private-links-supported)
-  <!-- - [What if I have firewall enabled on my storage account?](#what-if-i-have-firewall-enabled-on-my-storage-account) -->
 - [Can I import or export data from a storage account in a different subscription than my cache?](#can-i-import-or-export-data-from-a-storage-account-in-a-different-subscription-than-my-cache)
 - [Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?](#which-permissions-need-to-be-granted-to-the-storage-account-container-shared-access-signature-sas-token-to-allow-export)
 
@@ -187,17 +179,12 @@ Export works only with RDB files stored as block blobs. Other blob types aren't 
 
 No, these settings on storage accounts are not supported.
 
-<!-- ### What if I have firewall enabled on my storage account?
-
-You need to check “Allow Azure services on the trusted services list to access this storage account” in your storage account settings. Then, use managed identity (System or User assigned) and provision Storage Blob Data Contributor RBAC role for that object ID.
-
-For more information, see [managed identity for storage accounts - Azure Cache for Redis](managed-identity) -->
-
 ### Can I import or export data from a storage account in a different subscription than my cache?
 
 You can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](managed-identity) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export.
 
 ### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
+
 In order for export to an Azure storage account to work successfully, the [shared access signature (SAS) token](/azure/storage/common/storage-sas-overview) must have the following permissions:
 - `read`
 - `add`

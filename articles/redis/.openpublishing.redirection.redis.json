@@ -12,7 +12,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/redis/best-practice-managed-cache.md",
+            "source_path_from_root": "/articles/redis/best-practices-managed-cache.md",
             "redirect_url": "/azure/redis/overview",
             "redirect_document_id": false
         }
