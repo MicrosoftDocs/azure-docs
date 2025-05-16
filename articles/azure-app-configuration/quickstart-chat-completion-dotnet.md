@@ -110,14 +110,14 @@ In this quickstart you will create a .NET console app with dynamic configuration
     }
     ```
 
-1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` we created in the previous step to authenticate to your Azure OpenAI resource. Assign your identity the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor) role. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
+1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` you created in the previous step to authenticate to your Azure OpenAI resource. Assign your identity the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor) role. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     // Initialize the AzureOpenAIClient
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
     ```
 
-1. Next will update the existing code in _Program.cs_ file to configure the chat completion options:
+1. Next, update the existing code in _Program.cs_ file to configure the chat completion options:
 
     ```csharp
     ...

@@ -9,7 +9,7 @@ ms.date: 04/18/2025
 ms.collection: ce-skilling-ai-copilot
 ---
 
-## AI configuration
+# AI configuration
 
 AI application development often requires rapid iteration of prompts and frequent tuning of model parameters to meet evolving goals such as quality, responsiveness, customer satisfaction, and cost efficiency. AI configuration in Azure App Configuration helps streamline this process by decoupling model settings from application code, enabling faster, safer, and more flexible iteration. Here are some key benefits:
 
@@ -45,7 +45,6 @@ Chat completion is an AI capability that produces human-like dialogue responses 
 | Anthropic      | Claude 3.7 Sonnet     |
 | Google         | Gemini 2.5 Pro        |
 | DeepSeek       | DeepSeek-R1           |
-
 
 Azure OpenAI Service supports a diverse set of models from OpenAI. For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models). To learn more about models from Anthropic, refer to the [Claude models documentation](https://docs.anthropic.com/docs/about-claude/models/overview).  
 For more details about models provided by Google, see the [Gemini models documentation](https://ai.google.dev/gemini-api/docs/models).

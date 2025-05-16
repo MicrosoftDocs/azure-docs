@@ -1,5 +1,5 @@
 ---
-title: Getting started with chat completion configuration
+title: Chat completion configuration
 titleSuffix: Azure App Configuration
 description: Learn how to create chat completion configuration in Azure App Configuration.
 ms.service: azure-app-configuration
