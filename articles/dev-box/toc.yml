@@ -63,6 +63,8 @@ items:
         displayName: diagnostic, logs
       - name: Configure conditional access policies for dev tunnels service
         href: configure-conditional-access-policies-for-dev-tunnels-service.md
+      - name: How to setup dev tunnels
+        href: how-to-setup-dev-tunnels.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
