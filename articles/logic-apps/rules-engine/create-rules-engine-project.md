@@ -139,7 +139,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    The following example shows the complete sample code for the function named **`RulesFunction`**:
 
    ```csharp
-    //------------------------------------------------------------
+   //------------------------------------------------------------
     // Copyright (c) Microsoft Corporation. All rights reserved.
     //------------------------------------------------------------
     
