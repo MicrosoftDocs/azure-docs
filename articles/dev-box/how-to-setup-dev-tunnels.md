@@ -71,7 +71,7 @@ Once everything is set up, you can open the Dev Box in VS Code by clicking the *
 
 You can open any folder or workspace on the remote Dev Box using **File > Open File/Folder/Workspace** just as you would locally!
 
-If you have WSL environment on the Dev Box, you can connect to it using **Remote Explorer**.
+If you have Windows Subsystem for Linux (WSL) environment on the Dev Box, you can connect to it using **Remote Explorer**.
 
 :::image type="content" source="media/how-to-setup-dev-tunnels/dev-tunnels-wsl-targets.png" alt-text="Screenshot of the Remote Explorer in VS Code showing WSL targets.":::
 
