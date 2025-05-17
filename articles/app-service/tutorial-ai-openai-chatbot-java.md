@@ -16,7 +16,7 @@ In this tutorial, you'll build an intelligent AI application by integrating Azur
 > [!TIP]
 > While this tutorial uses Spring Boot, the core concepts of building a chat application with Azure OpenAI apply to any Java web application. If you're using a different hosting option on App Service, such as Tomcat or JBoss EAP, you can adapt the authentication patterns and Azure SDK usage shown here to your preferred framework.
 
-:::image type="content" source="media/tutorial-ai-openai-chatbot-java/chat-completion-response.png" alt-text="Screenshot showing a TLDR version of what App Service that's returned by Azure OpenAI.":::
+:::image type="content" source="media/tutorial-ai-openai-chatbot-java/chat-in-browser.png" alt-text="Screenshot showing a chatbot running in Azure App Service.":::
 
 In this tutorial, you learn how to:
 
@@ -53,8 +53,8 @@ In this tutorial, you learn how to:
 
     ```xml
     <dependency>
-    	<groupId>org.springframework.boot</groupId>
-    	<artifactId>spring-boot-starter-webflux</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-thymeleaf</artifactId>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
@@ -85,8 +85,11 @@ In this tutorial, you learn how to:
     import org.springframework.beans.factory.annotation.Value;
     import org.springframework.context.annotation.Bean;
     import org.springframework.context.annotation.Configuration;
+    import org.springframework.stereotype.Controller;
+    import org.springframework.ui.Model;
     import org.springframework.web.bind.annotation.RequestMapping;
-    import org.springframework.web.bind.annotation.RestController;
+    import org.springframework.web.bind.annotation.RequestMethod;
+    import org.springframework.web.bind.annotation.RequestParam;
     
     import com.azure.ai.openai.OpenAIAsyncClient;
     import com.azure.ai.openai.models.ChatChoice;
@@ -97,11 +100,9 @@ In this tutorial, you learn how to:
     import com.azure.core.credential.TokenCredential;
     import com.azure.identity.DefaultAzureCredentialBuilder;
     
-    import reactor.core.publisher.Mono;
-    
     @Configuration
     class AzureConfig {
-        // Reads the endpoint from application.properties
+        // Reads the endpoint from environment variable AZURE_OPENAI_ENDPOINT
         @Value("${azure.openai.endpoint}")
         private String openAiEndpoint;
     
@@ -121,7 +122,7 @@ In this tutorial, you learn how to:
         }
     }
     
-    @RestController
+    @Controller
     public class ChatController {
         private final OpenAIAsyncClient openAIClient;
     
@@ -130,29 +131,63 @@ In this tutorial, you learn how to:
             this.openAIClient = openAIClient;
         }
     
-        @RequestMapping("/")
-        Mono<String> sayHello() {
-            String deploymentName = "gpt-4o-mini";
-            // Prepare chat messages
-            List<ChatRequestMessage> chatMessages = new ArrayList<>();
-            chatMessages.add(new ChatRequestUserMessage("What's is Azure App Service in one line tldr?"));
+        @RequestMapping(value = "/", method = RequestMethod.GET)
+        public String chatFormOrWithMessage(Model model, @RequestParam(value = "userMessage", required = false) String userMessage) {
+            String aiResponse = null;
+            if (userMessage != null && !userMessage.isBlank()) {
     
-            // Call Azure OpenAI and return the response
-            return openAIClient.getChatCompletions(deploymentName, new ChatCompletionsOptions(chatMessages))
-                .map(chatCompletions -> {
-                    String serverResponse = "";
+                // Create a list of chat messages
+                List<ChatRequestMessage> chatMessages = new ArrayList<>();
+                chatMessages.add(new ChatRequestUserMessage(userMessage));
+    
+                // Send the chat completion request
+                String deploymentName = "gpt-4o-mini";
+                StringBuilder serverResponse = new StringBuilder();
+                var chatCompletions = openAIClient.getChatCompletions(
+                    deploymentName, 
+                    new ChatCompletionsOptions(chatMessages)
+                ).block();
+                if (chatCompletions != null) {
                     for (ChatChoice choice : chatCompletions.getChoices()) {
                         ChatResponseMessage message = choice.getMessage();
-                        serverResponse = message.getContent();
+                        serverResponse.append(message.getContent());
                     }
-                    return serverResponse;
-                });
+                }
+                aiResponse = serverResponse.toString();
+            }
+            model.addAttribute("aiResponse", aiResponse);
+            return "chat";
         }
     }
     ```
 
     > [!TIP]
-    > To minimize the files in this tutorial, the code combines the Spring `@Configuration` and `@RestController` classes in one file. In production, you would normally separate configuration and business logic for maintainability.
+    > To minimize the files in this tutorial, the code combines the Spring `@Configuration` and `@Controller` classes in one file. In production, you would normally separate configuration and business logic for maintainability.
+
+5. Under *src/main/resources*, create a *templates* directory, and add a *chat.html* with the following content for the chat interface:
+
+    ```html
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Azure OpenAI Chat</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+    <div class="container py-4">
+        <h2 class="mb-4">Azure OpenAI Chat</h2>
+        <form action="/" method="get" class="d-flex mb-3">
+            <input name="userMessage" class="form-control me-2" type="text" placeholder="Type your message..." autocomplete="off" required />
+            <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+        <div class="mb-3">
+            <div th:if="${aiResponse}" class="alert alert-info">AI: <span th:text="${aiResponse}"></span></div>
+        </div>
+    </div>
+    </body>
+    </html>
+    ```
 
 5. In the terminal, retrieve your OpenAI endpoint:
 
@@ -170,7 +205,9 @@ In this tutorial, you learn how to:
    AZURE_OPENAI_ENDPOINT=<output-from-previous-cli-command> mvn spring-boot:run
    ```
 
-7. Select **Open in browser** to launch the app in a new browser tab. If you see a one-line blurb about Azure App Service, chat completions are working.
+7. Select **Open in browser** to launch the app in a new browser tab. 
+
+8. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
 The application uses [DefaultAzureCredential](/azure/developer/java/sdk/authentication/credential-chains#defaultazurecredential-overview), which automatically uses your Azure CLI signed in user for token authentication. Later in this tutorial, you'll deploy your web app to Azure App Service and configure it to securely connect to your Azure OpenAI resource using managed identity. The same `DefaultAzureCredential` in your code can detect the managed identity and use it for authentication. No extra code is needed.
 
@@ -217,13 +254,15 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-4. Open the deployed web app in the browser. If you can see a blurb about Azure App Service, your app has successfully received a chat response from Azure OpenAI.
+4. Open the deployed web app in the browser. 
 
     ```azurecli
     az webapp browse
     ```    
 
-    :::image type="content" source="media/tutorial-ai-openai-chatbot-java/chat-completion-response.png" alt-text="Screenshot showing a TLDR version of what App Service that's returned by Azure OpenAI.":::
+5. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
+
+    :::image type="content" source="media/tutorial-ai-openai-chatbot-java/chat-in-browser.png" alt-text="Screenshot showing a chatbot running in Azure App Service.":::
 
 Your app is now deployed and connected to Azure OpenAI with managed identity. Note that is it accessing the `AZURE_OPENAI_ENDPOINT` app setting through the [@Configuration](https://docs.spring.io/spring-boot/reference/features/external-config.html) injection.
 

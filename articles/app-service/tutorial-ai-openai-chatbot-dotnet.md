@@ -11,15 +11,15 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a simple "TLDR generator" with Semantic Kernel [function invocation](/semantic-kernel/concepts/ai-services/chat-completion/function-calling/function-invocation?pivots=programming-language-java), which defines a function with a prompt, and then invoke the function in your code, even with input variables.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a Razor page that sends chat completion requests to a model in Azure OpneAI and streams the response back to the page.
 
-:::image type="content" source="media/tutorial-ai-openai-chatbot-dotnet/tldr-generator.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
+:::image type="content" source="media/tutorial-ai-openai-chatbot-dotnet/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure OpenAI resource and deploy a language model
-> * Build a Blazor application that uses Semantic Kernel with Azure OpenAI
+> * Build a Blazor application with Azure OpenAI
 > * Deploy the application to Azure App Service
 > * Implement passwordless authentication both in the development environment and in Azure
 
@@ -50,66 +50,64 @@ In this section, you'll create a new Blazor web application using the .NET CLI.
 3. Install the required NuGet packages for working with Azure OpenAI:
 
     ```bash
-    dotnet add package Microsoft.SemanticKernel
-    dotnet add package Microsoft.SemanticKernel.Connectors.OpenAI
+    dotnet add package Azure.AI.OpenAI
     dotnet add package Azure.Identity
     ```
 
-4. Update the `Components/Pages/Home.razor` file to add OpenAI integration. Replace its contents with the following code:
+4. Open `Components/Pages/Home.razor` and replace its content with the following code, for a simple chat completion stream call with Azure OpenAI:
 
     ```csharp
     @page "/"
     @rendermode InteractiveServer
-    @using Microsoft.SemanticKernel
-    @using Microsoft.SemanticKernel.Connectors.OpenAI
+    @using Azure.AI.OpenAI
     @using Azure.Identity
+    @using OpenAI.Chat
     @inject Microsoft.Extensions.Configuration.IConfiguration _config
-  
-    <PageTitle>TLDR Generator</PageTitle>
-  
-    <h3>TLDR Generator</h3> 
-    <input class="col-sm-4" @bind="newQuery" ton class="btn btn-primary" @onclick="SemanticKernelClient">Generate</button>
-  
-    <br <br <h4>Server response:</h4> <p>@serverResponse</p>
-  
+    
+    <h3>Azure OpenAI Chat</h3>
+    <div class="mb-3 d-flex align-items-center" style="margin:auto;">
+        <input class="form-control me-2" @bind="userMessage" placeholder="Type your message..." />
+        <button class="btn btn-primary" @onclick="SendMessage">Send</button>
+    </div>
+    <div class="card p-3" style="margin:auto;">
+        @if (!string.IsNullOrEmpty(aiResponse))
+        {
+            <div class="alert alert-info mt-3 mb-0">@aiResponse</div>
+        }
+    </div>
+    
     @code {
-      private string? newQuery;
-      private string? serverResponse;
-  
-      private async Task SemanticKernelClient()
-      {
-        // Create the kernel builder
-        var builder = Kernel.CreateBuilder();
-        
-        // Add Azure OpenAI chat completion using DefaultAzureCredential
-        builder.Services.AddAzureOpenAIChatCompletion(
-          deploymentName: "gpt-4o-mini",
-          endpoint: _config["AZURE_OPENAI_ENDPOINT"]!,
-          credentials: new DefaultAzureCredential()
-        );
-  
-        // Build the kernel
-        var kernel = builder.Build();
-  
-        // Create a summarization function, which takes one input
-        var prompt = @"{{$input}}
-  
-        Give a one-line TLDR summary using the user's prompt. Don't answer any question.";
-  
-        var summarize = kernel.CreateFunctionFromPrompt(
-          prompt, 
-          executionSettings: new OpenAIPromptExecutionSettings 
-          { 
-            MaxTokens = 100
-          }
-        );
-  
-        // Invoke the function with the input query
-        var result = await kernel.InvokeAsync(summarize, new() { ["input"] = newQuery });
-  
-        serverResponse = result.ToString();
-  
-      }
+        private string? userMessage;
+        private string? aiResponse;
+    
+        private async Task SendMessage()
+        {
+            if (string.IsNullOrWhiteSpace(userMessage)) return;
+    
+            // Initialize the Azure OpenAI client
+            var endpoint = new Uri(_config["AZURE_OPENAI_ENDPOINT"]!);
+            var client = new AzureOpenAIClient(endpoint, new DefaultAzureCredential());
+            var chatClient = client.GetChatClient("gpt-4o-mini");
+    
+            aiResponse = string.Empty;
+            StateHasChanged();
+    
+            // Create a chat completion streaming request
+            var chatUpdates = chatClient.CompleteChatStreamingAsync(
+                [
+                    new UserChatMessage(userMessage)
+                ]);
+    
+                await foreach(var chatUpdate in chatUpdates)
+                {
+                    // Update the UI with the streaming response
+                    foreach(var contentPart in chatUpdate.ContentUpdate)
+                {
+                    aiResponse += contentPart.Text;
+                    StateHasChanged();
+                }
+            }
+        }
     }
     ```
 
@@ -131,7 +129,7 @@ In this section, you'll create a new Blazor web application using the .NET CLI.
 
 8. Select **Open in browser** to launch the app in a new browser tab.
 
-9. Test your application by copying a paragraph of text from anywhere into the textbox and selecting "**Generate**. You should receive a response from Azure OpenAI. 
+9. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
 The application uses [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which automatically uses your Azure CLI signed in user for token authentication. Later in this tutorial, you'll deploy your Blazor app to Azure App Service and configure it to securely connect to your Azure OpenAI resource using managed identity. The same `DefaultAzureCredential` in your code can detect the managed identity and use it for authentication. No extra code is needed.
 
@@ -180,9 +178,9 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     az webapp browse
     ```    
 
-4. Test your application by copying a paragraph of text from anywhere into the textbox and selecting "**Generate**. 
+4. Type a message in the textbox and select "**Send**, and give the app a few seconds to reply with the message from Azure OpenAI.
 
-    :::image type="content" source="media/tutorial-ai-openai-chatbot-dotnet/tldr-generator.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
+    :::image type="content" source="media/tutorial-ai-openai-chatbot-dotnet/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
 ## Frequently asked questions
 
@@ -191,10 +189,9 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 To connect to OpenAI instead, use the following code:
 
 ```csharp
-builder.Services.AddOpenAIChatCompletion(
-  modelId: "<model-id-hosted-in-openai>",
-  apiKey: "<openai-api-key>"
-);
+@using OpenAI.Client
+
+var client = new OpenAIClient("<openai-api-key>");
 ```
 
 For more information, see [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication).
@@ -203,7 +200,10 @@ When working with connection secrets in App Service, you should use [Key Vault r
 
 ### Can I connect to Azure OpenAI with an API key instead?
 
-Yes, you can connect to Azure OpenAI using an API key instead of managed identity. This approach is supported by the Azure OpenAI SDKs and Semantic Kernel. For details on using API keys with Semantic Kernel in C#, see the [Semantic Kernel C# Quickstart](/semantic-kernel/get-started/quick-start-guide?pivots=programming-language-csharp).
+Yes, you can connect to Azure OpenAI using an API key instead of managed identity. This approach is supported by the Azure OpenAI SDKs and Semantic Kernel.
+
+- For details on using API keys with Semantic Kernel in C#, see the [Semantic Kernel C# Quickstart](/semantic-kernel/get-started/quick-start-guide?pivots=programming-language-csharp).
+- For details on using API keys with the Azure OpenAI client library: [Quickstart: Get started using chat completions with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp).
 
 When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
@@ -221,5 +221,4 @@ This approach lets your code run securely and seamlessly in both local and cloud
 - [Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (.NET)](tutorial-ai-openai-search-dotnet.md)
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
-- [Learn more about Semantic Kernel](/semantic-kernel/overview)
 - [Learn more about managed identity in App Service](overview-managed-identity.md)
