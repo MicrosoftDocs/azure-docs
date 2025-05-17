@@ -79,7 +79,7 @@ Select WSL targets from the dropdown and all the WSL distributions are listed. Y
 
 :::image type="content" source="media/how-to-setup-dev-tunnels/dev-tunnels-ubuntu.png" alt-text="Screenshot of a WSL distribution terminal in VS Code.":::
 
-For more information on the WSL development experience, see the [Remote - WSL](https://code.visualstudio.com/docs/remote/wsl) and [Set up a WSL development environment](https://learn.microsoft.com/en-us/windows/wsl/setup/environment) documentation.
+For more information on the WSL development experience, see the [Remote - WSL](https://code.visualstudio.com/docs/remote/wsl) and [Set up a WSL development environment](/windows/wsl/setup/environment) documentation.
 
 FAQ
 
