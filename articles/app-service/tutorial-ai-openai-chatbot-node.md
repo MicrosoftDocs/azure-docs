@@ -1,5 +1,5 @@
 ---
-title: Inetlligent app with Azure OpenAI (Express.js)
+title: Intelligent app with Azure OpenAI (Express.js)
 description: Learn how to build and deploy a Node.js web app to Azure App Service that connects to Azure OpenAI using managed identity.
 author: jefmarti
 ms.author: jefmarti
@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Express.js)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create a simple Express app with a view and a controller that sends chat completion requests to a model in Azure OpneAI.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Node.js application and deploying it to Azure App Service. You'll create an Express app with a view and a controller that sends chat completion requests to a model in Azure OpneAI.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-nodejs/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
@@ -42,9 +42,9 @@ In this tutorial, you learn how to:
     npm install && npm start
     ```
 
-    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select "Open in browser" to launch the app in a new browser tab.
+    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab.
 
-2. Back in the Codesapce terminal, stop the app with Ctrl+C.
+2. Back in the Codespace terminal, stop the app with Ctrl+C.
 
 3. Install the NPM dependencies for working with Azure OpenAI:
 
@@ -218,7 +218,7 @@ When working with connection secrets in App Service, you should use [Key Vault r
 
 ### Can I connect to Azure OpenAI with an API key instead?
 
-Yes, you can connect to Azure OpenAI using an API key instead of managed identity. For more information, see the [Azure OpenAI Javascript quickstart](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript).
+Yes, you can connect to Azure OpenAI using an API key instead of managed identity. For more information, see the [Azure OpenAI JavaScript quickstart](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript).
 
 When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 

@@ -19,7 +19,7 @@ With the application fully deployed and configured, you can now test the RAG fun
 - How does Contoso use my personal data?
 - How do you file a warranty claim?
 
-4. Notice how the responses include citations that reference the source documents. These citations help users verify the accuracy of the information and find additional details in the source material.
+4. Notice how the responses include citations that reference the source documents. These citations help users verify the accuracy of the information and find more details in the source material.
 
    :::image type="content" source="../../media/tutorial-ai-openai-search-dotnet/citations.png" alt-text="Screenshot showing a response with citations to source documents.":::
 

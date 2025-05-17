@@ -1,9 +1,11 @@
 ---
-title: include file
-description: include file
-ms.date: 05/17/2025
+author: cephalin
+ms.service: azure-app-service
 ms.topic: include
+ms.date: 05/17/2025
+ms.author: cephalin
 ---
+
 
 In this section, you'll use GitHub Codespaces to create an Azure OpenAI resource with the Azure CLI.
 
@@ -15,7 +17,7 @@ In this section, you'll use GitHub Codespaces to create an Azure OpenAI resource
     curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
     ```
   
-4. Log in to your Azure account:
+4. Sign in to your Azure account:
 
     ```azurecli
     az login

@@ -1,5 +1,5 @@
 ---
-title: Inetlligent app with Azure OpenAI (Flask)
+title: Intelligent app with Azure OpenAI (Flask)
 description: Learn how to build and deploy a Python web app to Azure App Service that connects to Azure OpenAI using managed identity.
 author: jefmarti
 ms.author: jefmarti
@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Flask)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Python web application and deploying it to Azure App Service. You'll create a simple Flask app that sends chat completion requests to a model in Azure OpneAI.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Python web application and deploying it to Azure App Service. You'll create a Flask app that sends chat completion requests to a model in Azure OpneAI.
 
 :::image type="content" source="media/tutorial-ai-openai-chatbot-python/chat-in-browser.png" alt-text="Screenshot showing chatbot running in Azure App Service.":::
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ## 2. Create and set up a Flask app
 
-1. In your codespace terminal, create a virtual environment and install the PIP packages you will need.
+1. In your codespace terminal, create a virtual environment and install the PIP packages you need.
 
     ```bash
     python3 -m venv .venv

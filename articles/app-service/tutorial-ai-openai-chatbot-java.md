@@ -1,5 +1,5 @@
 ---
-title: Inetlligent app with Azure OpenAI (Spring Boot)
+title: Intelligent app with Azure OpenAI (Spring Boot)
 description: Learn how to build and deploy a Java web app to Azure App Service that connects to Azure OpenAI using managed identity.
 author: cephalin
 ms.author: cephalin
@@ -11,7 +11,7 @@ ms.collection: ce-skilling-ai-copilot
 
 # Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (Spring Boot)
 
-In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a Spring Boot controller that send a simple query to a model in Azure OpenAI and sends the response to the browser.
+In this tutorial, you'll build an intelligent AI application by integrating Azure OpenAI with a Java Spring Boot application and deploying it to Azure App Service. You'll create a Spring Boot controller that sends a query to Azure OpenAI and sends the response to the browser.
 
 > [!TIP]
 > While this tutorial uses Spring Boot, the core concepts of building a chat application with Azure OpenAI apply to any Java web application. If you're using a different hosting option on App Service, such as Tomcat or JBoss EAP, you can adapt the authentication patterns and Azure SDK usage shown here to your preferred framework.
@@ -45,9 +45,9 @@ In this tutorial, you learn how to:
     mvn spring-boot:run
     ```
 
-    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select "Open in browser" to launch the app in a new browser tab. When you see the white label error page, the Spring Boot app is working.
+    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab. When you see the white label error page, the Spring Boot app is working.
 
-2. Back in the Codesapce terminal, stop the app with Ctrl+C.
+2. Back in the Codespace terminal, stop the app with Ctrl+C.
 
 3. Open *pom.xml* and add the following dependencies:
 
@@ -151,7 +151,8 @@ In this tutorial, you learn how to:
     }
     ```
 
-    > [!TIP] To minimize the files in this tutorial, the code combines the Spring `@Configuration` and `@RestController` classes in one file. In production, you would normally separate configuration and business logic for maintainability.
+    > [!TIP]
+    > To minimize the files in this tutorial, the code combines the Spring `@Configuration` and `@RestController` classes in one file. In production, you would normally separate configuration and business logic for maintainability.
 
 5. In the terminal, retrieve your OpenAI endpoint:
 

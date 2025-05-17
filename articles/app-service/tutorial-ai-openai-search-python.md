@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 ## 1. Open the sample with Codespaces
 
-The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools pre-installed.
+The easiest way to get started is by using GitHub Codespaces, which provides a complete development environment with all required tools preinstalled.
 
 1. Navigate to the GitHub repository at [https://github.com/Azure-Samples/app-service-rag-openai-ai-search-python](https://github.com/Azure-Samples/app-service-rag-openai-ai-search-python).
 
@@ -95,7 +95,7 @@ If you prefer to test the application locally before or after deployment, you ca
    azd up
    ```
 
-3. This deployment will be faster since it only needs to update the application configuration.
+3. This deployment should be faster since it only needs to update the application configuration.
 
 ## 5. Test the deployed RAG application
 
@@ -109,7 +109,7 @@ When you're done with the application, you can delete all the resources to avoid
 azd down --purge
 ```
 
-This command will delete all resources associated with your application.
+This command deletes all resources associated with your application.
 
 ## Frequently asked questions
 
@@ -150,11 +150,11 @@ In the response message, the content uses `[doc#]` notation to reference the cor
 
 ### What's the advantage of using managed identities in this solution?
 
-Managed identities eliminate the need to store credentials in your code or configuration. By using managed identities, the application can securely access Azure services like Azure OpenAI and Azure AI Search without managing secrets. This approach follows zero trust security principles and reduces the risk of credential exposure.
+Managed identities eliminate the need to store credentials in your code or configuration. By using managed identities, the application can securely access Azure services like Azure OpenAI and Azure AI Search without managing secrets. This approach follows Zero Trust security principles and reduces the risk of credential exposure.
 
 ### How is the system-assigned managed identity used in this architecture and sample application?
 
-The AZD deployment creates system-assigned managed identities for Azure App Service, Azure OpenAI, and Azure AI Search. It also makes respective role assigments for each of them (see the [main.bicep]() file). For information on the required role assignments, see [Network and access configuration for Azure OpenAI On Your Data](/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments).
+The AZD deployment creates system-assigned managed identities for Azure App Service, Azure OpenAI, and Azure AI Search. It also makes respective role assignments for each of them (see the [main.bicep]() file). For information on the required role assignments, see [Network and access configuration for Azure OpenAI On Your Data](/azure/ai-services/openai/how-to/on-your-data-configuration#role-assignments).
 
 In the sample FastAPI application, the Azure SDKs use this managed identity for secure authentication, so you don't need to store credentials or secrets anywhere. For example, the `AsyncAzureOpenAI` client is initialized with `DefaultAzureCredential`, which automatically uses the managed identity when running in Azure:
 
@@ -197,7 +197,7 @@ response = await self.openai_client.chat.completions.create(
 )
 ```
 
-This setup enables secure, passwordless communication between your FastAPI app and Azure services, following best practices for zero trust security. Learn more about [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme).
+This setup enables secure, passwordless communication between your FastAPI app and Azure services, following best practices for Zero Trust security. Learn more about [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) and the [Azure Identity client library for Python](/python/api/overview/azure/identity-readme).
 
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
@@ -224,11 +224,11 @@ The semantic configuration name is automatically defined by the integrated vecto
 
 ### Why are all resources created in East US 2?
 
-The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they are not scheduled to expire in the near future, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and expiration dates to avoid disruptions. You can review model availability and expiration information at [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models) and check for model retirements at [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
+The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they aren't scheduled to expire soon, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and expiration dates to avoid disruptions. You can review model availability and expiration information at [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models) and check for model retirements at [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
 
 ### Can I use my own OpenAI models instead of the ones provided by Azure?
 
-This solution is specifically designed to work with Azure OpenAI Service. While you could modify the code to use other OpenAI models, you would lose the integrated security features, managed identity support, and the seamless integration with Azure AI Search that this solution provides.
+This solution is designed to work with Azure OpenAI Service. While you could modify the code to use other OpenAI models, you would lose the integrated security features, managed identity support, and the seamless integration with Azure AI Search that this solution provides.
 
 ### How can I improve the quality of responses?
 
@@ -236,7 +236,7 @@ You can improve response quality by:
 - Uploading higher quality, more relevant documents.
 - Adjusting chunking strategies in the Azure AI Search indexing pipeline. However, you can't customize chunking with the integrated vectorization shown in this tutorial.
 - Experimenting with different prompt templates in the application code.
-- Fine-tuning the search with additional properties in the [`type: "azure_search`](/azure/ai-services/openai/references/azure-search) data source.
+- Fine-tuning the search with other properties in the [`type: "azure_search`](/azure/ai-services/openai/references/azure-search) data source.
 - Using more specialized Azure OpenAI models for your specific domain.
 
 ## More resources
@@ -244,5 +244,4 @@ You can improve response quality by:
 - [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview)
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
 - [OpenAI client library for Python](/azure/ai-services/openai/how-to/switching-endpoints)
-- [Azure OpenAI SDK for Python](/python/api/overview/azure/openai)
 - [Deploy Python web apps to Azure App Service](/azure/app-service/configure-language-python)

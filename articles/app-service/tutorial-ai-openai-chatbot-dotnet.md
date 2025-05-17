@@ -43,9 +43,9 @@ In this section, you'll create a new Blazor web application using the .NET CLI.
     dotnet run
     ```
   
-    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select "Open in browser" to launch the app in a new browser tab.
+    You should see a notification in GitHub Codespaces indicating that the app is available at a specific port. Select **Open in browser** to launch the app in a new browser tab.
 
-2. Back in the Codesapce terminal, stop the app with Ctrl+C.
+2. Back in the Codespace terminal, stop the app with Ctrl+C.
 
 3. Install the required NuGet packages for working with Azure OpenAI:
 
@@ -129,7 +129,7 @@ In this section, you'll create a new Blazor web application using the .NET CLI.
    AZURE_OPENAI_ENDPOINT=<output-from-previous-cli-command> dotnet run
    ```
 
-8. Select **Open in browser**to launch the app in a new browser tab.
+8. Select **Open in browser** to launch the app in a new browser tab.
 
 9. Test your application by copying a paragraph of text from anywhere into the textbox and selecting "**Generate**. You should receive a response from Azure OpenAI. 
 
@@ -172,7 +172,7 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
     - Adding the Cognitive Services OpenAI Contributor role to the managed identity for the Azure OpenAI resource.
     - Adding the `AZURE_OPENAI_ENDPOINT` app setting to your web app.
 
-    Your app is now deployed and connected to Azure OpenAI with managed identity. Note that is it accessing the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
+    Your app is now deployed and connected to Azure OpenAI with managed identity. I reads the `AZURE_OPENAI_ENDPOINT` app setting through the [IConfiguration](/dotnet/api/microsoft.extensions.configuration.iconfiguration) injection.
 
 3. Open the deployed web app in the browser. Find the URL of the deployed web app in the terminal output. Open your web browser and navigate to it.
 
@@ -219,7 +219,7 @@ This approach lets your code run securely and seamlessly in both local and cloud
 ## More resources
 
 - [Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (.NET)](tutorial-ai-openai-search-dotnet.md)
-- [Tutorial: Run chatbot in App Service with a Phi-3 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
+- [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
 - [Learn more about Semantic Kernel](/semantic-kernel/overview)
 - [Learn more about managed identity in App Service](overview-managed-identity.md)
