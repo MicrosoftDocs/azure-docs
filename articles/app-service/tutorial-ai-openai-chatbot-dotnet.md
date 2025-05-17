@@ -184,6 +184,12 @@ Now that your app works locally, let's deploy it to Azure App Service and set up
 
 ## Frequently asked questions
 
+- [What if I want to connect to OpenAI instead of Azure OpenAI?](#what-if-i-want-to-connect-to-openai-instead-of-azure-openai)
+- [Can I connect to Azure OpenAI with an API key instead?](#can-i-connect-to-azure-openai-with-an-api-key-instead)
+- [How does DefaultAzureCredential work in this tutorial?](#how-does-defaultazurecredential-work-in-this-tutorial)
+
+---
+
 ### What if I want to connect to OpenAI instead of Azure OpenAI?
 
 To connect to OpenAI instead, use the following code:
@@ -198,6 +204,8 @@ For more information, see [OpenAI API authentication](https://platform.openai.co
 
 When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
+---
+
 ### Can I connect to Azure OpenAI with an API key instead?
 
 Yes, you can connect to Azure OpenAI using an API key instead of managed identity. This approach is supported by the Azure OpenAI SDKs and Semantic Kernel.
@@ -206,6 +214,8 @@ Yes, you can connect to Azure OpenAI using an API key instead of managed identit
 - For details on using API keys with the Azure OpenAI client library: [Quickstart: Get started using chat completions with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-csharp).
 
 When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+
+---
 
 ### How does DefaultAzureCredential work in this tutorial?
 

@@ -114,6 +114,8 @@ This command deletes all resources associated with your application.
 - [Can I use my own OpenAI models instead of the ones provided by Azure?](#can-i-use-my-own-openai-models-instead-of-the-ones-provided-by-azure)
 - [How can I improve the quality of responses?](#how-can-i-improve-the-quality-of-responses)
 
+---
+
 ### How does the sample code retrieve citations from Azure OpenAI chat completions?
 
 The sample retrieves citations by using the `AzureSearchChatDataSource()` as the data source for the chat client. When a chat completion is requested, the response includes a `Citations` object within the message context. The code extracts these citations as follows:
@@ -137,9 +139,13 @@ In the chat response, the content uses `[doc#]` notation to reference the corres
 - [Azure OpenAI On Your Data API Reference](/azure/ai-services/openai/references/on-your-data)
 - [Data source - Azure AI Search](/azure/ai-services/openai/references/azure-search)
 
+---
+
 ### What's the advantage of using managed identities in this solution?
 
 Managed identities eliminate the need to store credentials in your code or configuration. By using managed identities, the application can securely access Azure services like Azure OpenAI and Azure AI Search without managing secrets. This approach follows Zero Trust security principles and reduces the risk of credential exposure.
+
+---
 
 ### How is the system-assigned managed identity used in this architecture and sample application?
 
@@ -168,6 +174,8 @@ options.AddDataSource(new AzureSearchChatDataSource()
 
 This enables secure, passwordless communication between the Blazor app and Azure services, following best practices for Zero Trust security. Learn more about [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) and [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme).
 
+---
+
 ### How is hybrid search with semantic ranker implemented in the sample application?
 
 The sample application configures hybrid search with semantic ranking using the Azure.AI.Search.Documents SDK. In the backend, the data source is set up as follows:
@@ -185,13 +193,19 @@ options.AddDataSource(new AzureSearchChatDataSource()
 This configuration enables the application to combine vector search (semantic similarity), keyword matching, and semantic ranking in a single query. The semantic ranker reorders the results to return the most relevant and contextually appropriate answers, which are then used by Azure OpenAI for generating responses.
 The semantic configuration name is automatically defined by the integrated vectorization process. It uses the search index name as the prefix and appends `-semantic-configuration` as the suffix. This ensures that the semantic configuration is uniquely associated with the corresponding index and follows a consistent naming convention.
 
+---
+
 ### Why are all resources created in East US 2?
 
 The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they aren't scheduled to expire soon, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and expiration dates to avoid disruptions. You can review model availability and expiration information at [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models) and check for model retirements at [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
 
+---
+
 ### Can I use my own OpenAI models instead of the ones provided by Azure?
 
 This solution is designed to work with Azure OpenAI Service. While you could modify the code to use other OpenAI models, you would lose the integrated security features, managed identity support, and the seamless integration with Azure AI Search that this solution provides.
+
+---
 
 ### How can I improve the quality of responses?
 

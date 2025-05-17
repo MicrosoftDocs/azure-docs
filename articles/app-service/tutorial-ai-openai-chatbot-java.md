@@ -268,6 +268,11 @@ Your app is now deployed and connected to Azure OpenAI with managed identity. No
 
 ## Frequently asked questions
 
+- [Why does the sample use `@Configuration` and Spring beans for the OpenAI client?](#why-does-the-sample-use-configuration-and-spring-beans-for-the-openai-client)
+- [What if I want to connect to OpenAI instead of Azure OpenAI?](#what-if-i-want-to-connect-to-openai-instead-of-azure-openai)
+- [Can I connect to Azure OpenAI with an API key instead?](#can-i-connect-to-azure-openai-with-an-api-key-instead)
+- [How does DefaultAzureCredential work in this tutorial?](#how-does-defaultazurecredential-work-in-this-tutorial)
+
 ### Why does the sample use `@Configuration` and Spring beans for the OpenAI client?
 
 Using a Spring bean for the `OpenAIAsyncClient` ensures that:
