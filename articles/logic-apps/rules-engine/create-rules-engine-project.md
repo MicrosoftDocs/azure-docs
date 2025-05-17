@@ -464,7 +464,7 @@ After you confirm that your code compiles and that your logic app rules engine p
 
    :::image type="content" source="media/create-rules-engine-project/workflow-run-history.png" alt-text="Screenshot shows Visual Studio Code and finished workflow run." lightbox="media/create-rules-engine-project/workflow-run-history.png":::
 
-1. To deploy your Logic Apps with Rules Engine project to Azure Logic Apps, follow the steps at [Prepare for deployment](../create-standard-workflows-visual-studio-code.md#prepare-for-deployment).
+1. To deploy your logic apps with the Rules Engine project to Azure Logic Apps, follow the steps at [Prepare for deployment](../create-standard-workflows-visual-studio-code.md#prepare-for-deployment).
 
    
 
