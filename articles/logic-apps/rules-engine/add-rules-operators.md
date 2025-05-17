@@ -131,7 +131,7 @@ As another possible solution, you can create a rule such as the following exampl
 
 In the preceding example, the `<CheckQuantityAndDoSomething>` function checks the parameter value and executes if the condition is met.
 
-If you want to determine if the value of an existing argument is null, you can use the composer:
+To determine whether an existing argument is null, use the composer:
 
 `argument is equal to <null>`
  
