@@ -14,7 +14,7 @@ ms.custom: template-how-to, build-2024
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import AI model endpoints deployed in Azure AI Foundry to your API Management instance as a REST API. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import AI model endpoints deployed in Azure AI Foundry to your API Management instance. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
@@ -23,28 +23,24 @@ Learn more about managing AI APIs in API Management:
 
 ## Client compatibility options
 
-API Management supports two client compatibility options for AI APIs. The option you select determines how clients call the API and how the API Management instance routes requests to the AI service.
+API Management supports two client compatibility options for AI APIs. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
 * **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
 
-    Clients call the deployment at a `/models` endpoint such as `/Deepseek-3/models/chat/completions`. Deployment name is passed in the request body. Use this option if your service includes models exposed through the Azure AI Model Inference API.
+    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if your AI service includes models exposed through the Azure AI Model Inference API.
 
 * **Azure OpenAI Service** - Manage model endpoints deployed in Azure OpenAI Service. 
 
-    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your service only includes Azure OpenAI Service model deployments. 
+    Clients call the deployment at an `/openai` endpoint such as `/openai/deployments/my-deployment/chat/completions`. Deployment name is passed in the request path. Use this option if your AI service only includes Azure OpenAI Service model deployments. 
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- One or more Azure AI services with models deployed, such as:
-
 - An Azure AI service in your subscription with one or more models deployed. Examples include models deployed in Azure AI Foundry or Azure OpenAI Service.
 
-## Import AI API using the portal
+## Import AI Foundry API using the portal
 
 Use the following steps to import an AI API to API Management. 
-
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 When you import the API, API Management automatically configures:
 
@@ -68,11 +64,11 @@ To import an AI Foundry API to API Management:
     1. Select **Next**.
 1. On the **Configure API** tab:
     1. Enter a **Display name** and optional **Description** for the API.
-    1. In **Path**, enter a path that your API Management instance uses to access the deployment endpoint.
+    1. In **Base path**, enter a path that your API Management instance uses to access the deployment endpoint.
     1. Optionally select one or more **Products** to associate with the API.  
-    1. In **Client compatibility**, select either of the following based on the types of client you intend to support. See [AI service options](#ai-service-options) for more information.
-        * **Azure OpenAI** - Select this option if your deployment only includes Azure OpenAI Service model deployments.
-        * **Azure AI** - Select this option if your deployment includes other models available through Azure AI Foundry. 
+    1. In **Client compatibility**, select either of the following based on the types of client you intend to support. See [Client compatibility options](#client-compatibility-options) for more information.
+        * **Azure OpenAI** - Select this option if your clients only need to access Azure OpenAI Service model deployments.
+        * **Azure AI** - Select this option if your clients need to access other model in Azure AI Foundry. 
     1. Select **Next**.
 
         :::image type="content" source="media/azure-ai-foundry-api/client-compatibility.png" alt-text="Screenshot of AI Foundry API configuration in the portal.":::
@@ -82,7 +78,7 @@ To import an AI Foundry API to API Management:
     * [Track token usage](llm-emit-token-metric-policy.md) 
 1. On the **Apply semantic caching** tab, optionally enter settings or accept defaults that define the policies to help optimize performance and reduce latency for the API:
     * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
-On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service checks for API requests:
+1. On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service checks for API requests:
     * [Enforce content safety checks on LLM requests](llm-content-safety-policy.md)
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
@@ -92,7 +88,7 @@ On the **AI content safety**, optionally enter settings or accept defaults to co
 To ensure that your AI API is working as expected, test it in the API Management test console. 
 1. Select the API you created in the previous step.
 1. Select the **Test** tab.
-1. Select an operation that's compatible with the model in the lanaguage API.
+1. Select an operation that's compatible with the model deployment.
     The page displays fields for parameters and headers.
 1. Enter parameters and headers as needed. Depending on the operation, you might need to configure or update a **Request body**.
     > [!NOTE]
