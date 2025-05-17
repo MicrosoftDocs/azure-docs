@@ -3,7 +3,7 @@ title: Build AI-powered applications with Azure App Service
 description: Learn how to build applications with AI capabilities using Azure OpenAI, local small language models (SLMs), and other AI features in different programming languages and frameworks.
 author: cephalin
 ms.author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: overview
 ms.date: 05/17/2025
 ms.custom: 
