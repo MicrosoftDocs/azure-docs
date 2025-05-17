@@ -277,7 +277,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows. The **<*function-name*>.cs** file also includes the **`FileStoreRuleExplorer`** object that accesses the ruleset. As you can observe, the constructor for the **`FileStoreRuleExplorer`** uses the **`loggerFactory`** to send telemetry information also to Application Insights:
 
    ```csharp
-        private readonly ILogger<RulesFunction> logger;
+private readonly ILogger<RulesFunction> logger;
 
         private FileStoreRuleExplorer ruleExplorer;
 
