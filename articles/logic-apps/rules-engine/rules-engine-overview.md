@@ -25,7 +25,7 @@ Traditional programming languages, such as C++, Java, COBOL, Python, JavaScript,
 
 ## Rules engines in a world of Artificial Intelligence (AI)
 
-In a world of AI that essentially follows a probabilistic approach, rules engines are vital because they provide consistency, clarity, and compliance across different business goals. The use of Rules in a Logic Apps workflow will help you define the logic, constraints, and policies that will govern how to process, validate, and exchange data across systems, while avoiding AI hallucinations. Rules also help you make sure that applications follow the regulations and standards of their respective industries and markets. By using a rules engine, you can manage and update business logic independently from the code or without altering your workflow. This way, you can reduce the complexity and maintenance costs of your applications and increase their agility and scalability.
+In a world of AI that essentially follows a probabilistic approach, rules engines are vital because they provide consistency, clarity, and compliance across different business goals. When you use rules with a workflow in Azure Logic Apps, you can define the logic, constraints, and policies that govern how to process, validate, and exchange data across systems, while you avoid AI hallucinations. Rules also help you make sure that applications follow the regulations and standards of their respective industries and markets. By using a rules engine, you can manage and update your workflow's business logic independently from the code and without having to alter your workflow. This approach helps you reduce the complexity and maintenance costs of your applications and increase their agility and scalability.
 
 ## Rules engine benefits
 
