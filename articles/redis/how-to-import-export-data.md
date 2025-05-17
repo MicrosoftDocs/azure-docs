@@ -181,7 +181,7 @@ No, these settings on storage accounts are not supported.
 
 ### Can I import or export data from a storage account in a different subscription than my cache?
 
-You can import and export data from a storage account in a different subscription than your cache, but you must use [managed identity](managed-identity) as the authentication method. You will need to select the chosen subscription holding the storage account when configuring the import or export.
+You can import and export data from a storage account in a different subscription than your cache, but you must use managed identity as the authentication method. You need to select the chosen subscription holding the storage account when configuring the import or export.
 
 ### Which permissions need to be granted to the storage account container shared access signature (SAS) token to allow export?
 

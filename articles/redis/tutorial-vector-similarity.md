@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 
 ## Create an Azure Managed Redis Instance
 
-1. Follow the [Quickstart](create-manage-cache) guide to create a cache, but make sure you add the RedisSearch module at create time.
+1. Follow the [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md) guide to create a cache, but make sure you add the RedisSearch module at create time.
 
 1. On the **Advanced** page, make sure that you've added the **RediSearch** module and have chosen the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
