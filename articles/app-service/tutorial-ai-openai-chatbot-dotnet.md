@@ -199,13 +199,13 @@ builder.Services.AddOpenAIChatCompletion(
 
 For more information, see [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
 ### Can I connect to Azure OpenAI with an API key instead?
 
 Yes, you can connect to Azure OpenAI using an API key instead of managed identity. This approach is supported by the Azure OpenAI SDKs and Semantic Kernel. For details on using API keys with Semantic Kernel in C#, see the [Semantic Kernel C# Quickstart](/semantic-kernel/get-started/quick-start-guide?pivots=programming-language-csharp).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
 ### How does DefaultAzureCredential work in this tutorial?
 

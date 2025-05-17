@@ -252,7 +252,7 @@ OpenAIClient client = new OpenAIClientBuilder()
 
 For more information, see [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
 ---
 
@@ -263,7 +263,7 @@ Yes, you can connect to Azure OpenAI using an API key instead of managed identit
 - For details on using API keys with Semantic Kernel: [Semantic Kernel C# Quickstart](/semantic-kernel/get-started/quick-start-guide?pivots=programming-language-java).
 - For details on using API keys with the Azure OpenAI client library: [Quickstart: Get started using chat completions with Azure OpenAI Service](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-java).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
 ---
 
@@ -282,5 +282,5 @@ This approach lets your code run securely and seamlessly in both local and cloud
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Spring Boot)](tutorial-ai-slm-spring-boot.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
 - [Configure Azure App Service](/azure/app-service/configure-common)
-- [Enable managed identity for your app](../overview-managed-identity.md)
+- [Enable managed identity for your app](overview-managed-identity.md)
 - [Configure Java on Azure App Service](/azure/app-service/configure-language-java)

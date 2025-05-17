@@ -214,13 +214,13 @@ const client = new OpenAI({
 
 For more information, see [OpenAI API authentication](https://platform.openai.com/docs/api-reference/authentication).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
 ### Can I connect to Azure OpenAI with an API key instead?
 
 Yes, you can connect to Azure OpenAI using an API key instead of managed identity. For more information, see the [Azure OpenAI Javascript quickstart](/azure/ai-services/openai/chatgpt-quickstart?pivots=programming-language-javascript).
 
-When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
+When working with connection secrets in App Service, you should use [Key Vault references](app-service-key-vault-references.md) instead of storing secrets directly in your codebase. This ensures that sensitive information remains secure and is managed centrally.
 
 ### How does DefaultAzureCredential work in this tutorial?
 
@@ -237,4 +237,4 @@ This approach lets your code run securely and seamlessly in both local and cloud
 - [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (Express.js)](tutorial-ai-slm-expressjs.md)
 - [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource)
 - [Configure Azure App Service](/azure/app-service/configure-common)
-- [Enable managed identity for your app](../overview-managed-identity.md)
+- [Enable managed identity for your app](overview-managed-identity.md)

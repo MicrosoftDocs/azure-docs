@@ -244,5 +244,5 @@ You can improve response quality by:
 - [Explore hybrid search capabilities in Azure AI Search](/azure/search/hybrid-search-overview)
 - [Use Azure OpenAI On Your Data](/azure/ai-services/openai/concepts/use-your-data)
 - [OpenAI client library for Python](/azure/ai-services/openai/how-to/switching-endpoints)
-- [FastAPI documentation](https://fastapi.tiangolo.com/)
+- [Azure OpenAI SDK for Python](/python/api/overview/azure/openai)
 - [Deploy Python web apps to Azure App Service](/azure/app-service/configure-language-python)
