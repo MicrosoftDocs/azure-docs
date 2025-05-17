@@ -61,17 +61,7 @@ Implement AI capabilities in your Python web applications:
 - [Run a chatbot with a local SLM (FastAPI)](tutorial-ai-slm-fastapi.md) - Deploy a FastAPI application with a local small language model sidecar.
 - [Azure AI Foundry tutorial: Deploy an enterprise chat web app](/azure/ai-foundry/tutorials/deploy-chat-web-app?toc=/azure/app-service/toc.json&bc=/azure/bread/toc.json) - Deploy fully-integrated AI web app straight from your deployment in Azure AI Foundry. 
 
-## Key AI integration patterns
-
-Across all tutorials, you'll find these common integration patterns:
-
-- **Passwordless authentication** - Connect to AI services using managed identity for secure, passwordless authentication in both development and production environments.
-- **RAG pattern** - Implement retrieval augmented generation to enable LLMs to use your own data sources.
-- **Local LLM deployment** - Deploy small language models directly alongside your applications with sidecar extensions.
-- **Chat interfaces** - Create conversational UIs that interact with AI models.
-- **AI Agent API integration** - Make your application's functionality available to AI agents.
-
-## Additional resources
+## More resources
 
 - [Azure OpenAI Service documentation](/azure/ai-services/openai/)
 - [Semantic Kernel documentation](/semantic-kernel/)
