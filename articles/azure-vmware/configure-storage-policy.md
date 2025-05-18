@@ -35,20 +35,17 @@ Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.co
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
-| `RAID-1` (mirroring) <br />Default setting.  | 1  | 3  |
-| `RAID-5` (erasure coding)  | 1  | 4  |
-| `RAID-1` (mirroring)  | 2  | 5  |
-| `RAID-6` (erasure coding)  | 2  | 6  |
-| `RAID-1` (mirroring)  | 3  | 7  |
+| `RAID-1` (mirroring). <br />Default setting.  | 1  | 3  |
+| `RAID-5` (erasure coding).  | 1  | 4  |
+| `RAID-1` (mirroring).  | 2  | 5  |
+| `RAID-6` (erasure coding).  | 2  | 6  |
+| `RAID-1` (mirroring).  | 3  | 7  |
 
 ## List storage policies
 
 Run the `Get-StoragePolicy` cmdlet to list the vSAN-based storage policies that are available to set on a VM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-   >[!NOTE]
-   >If you need access to the Azure US Government portal, go to https://portal.azure.us/.
+1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure US Government portal](https://portal.azure.us/).
 
 1. Select **Run command** > **Packages** > **Get-StoragePolicies**.
 
