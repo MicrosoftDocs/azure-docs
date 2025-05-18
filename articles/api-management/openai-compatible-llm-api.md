@@ -14,7 +14,7 @@ ms.custom: template-how-to, build-2024
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import self-hosted AI model endpoints to your API Management instance. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import self-hosted AI model endpoints to your API Management instance as APIs. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
@@ -40,9 +40,8 @@ API Management supports two types of self-hosted language model APIs. Choose the
 
 ## Import language model API using the portal
 
-Use the following steps to import a language model API to API Management. 
 
-To import a language model API to API Management:
+To import a self-hosted language model API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
@@ -66,7 +65,7 @@ To import a language model API to API Management:
     * [Track token usage](llm-emit-token-metric-policy.md) 
 1. On the **Apply semantic caching** tab, optionally enter settings or accept defaults that define the policies to help optimize performance and reduce latency for the API:
     * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
-1. On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service checks for API requests:
+1. On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service to block prompts with unsafe content:
     * [Enforce content safety checks on LLM requests](llm-content-safety-policy.md)
 1. Select **Review**.
 1. After settings are validated, select **Create**. 

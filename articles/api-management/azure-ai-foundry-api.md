@@ -14,7 +14,7 @@ ms.custom: template-how-to, build-2024
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import AI model endpoints deployed in Azure AI Foundry to your API Management instance. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import AI model endpoints deployed in Azure AI Foundry to your API Management instance as APIs. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
@@ -27,7 +27,7 @@ API Management supports two client compatibility options for AI APIs. Choose the
 
 * **Azure AI** - Manage model endpoints in Azure AI Foundry that are exposed through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api).
 
-    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if your AI service includes models exposed through the Azure AI Model Inference API.
+    Clients call the deployment at a `/models` endpoint such as `/my-model/models/chat/completions`. Deployment name is passed in the request body. Use this option if you want flexibility to switch between models exposed through the Azure AI Model Inference API and those deployed in Azure OpenAI Service.
 
 * **Azure OpenAI Service** - Manage model endpoints deployed in Azure OpenAI Service. 
 
@@ -58,7 +58,7 @@ To import an AI Foundry API to API Management:
 
     :::image type="content" source="media/azure-ai-foundry-api/ai-foundry-api.png" alt-text="Screenshot of creating an OpenAI-compatible API in the portal." :::
 1. On the **Select AI service** tab:
-    1. Select the **Subscription** in which to search for AI services such as Azure AI Foundry or Azure OpenAI Service. To get information about the model deployments in a service, select the **deployments** link next to the service name.
+    1. Select the **Subscription** in which to search for AI services. To get information about the model deployments in a service, select the **deployments** link next to the service name.
        :::image type="content" source="media/azure-ai-foundry-api/deployments.png" alt-text="Screenshot of deployments for an AI service in the portal.":::
     1. Select an AI service. 
     1. Select **Next**.
@@ -68,7 +68,7 @@ To import an AI Foundry API to API Management:
     1. Optionally select one or more **Products** to associate with the API.  
     1. In **Client compatibility**, select either of the following based on the types of client you intend to support. See [Client compatibility options](#client-compatibility-options) for more information.
         * **Azure OpenAI** - Select this option if your clients only need to access Azure OpenAI Service model deployments.
-        * **Azure AI** - Select this option if your clients need to access other model in Azure AI Foundry. 
+        * **Azure AI** - Select this option if your clients need to access other models in Azure AI Foundry. 
     1. Select **Next**.
 
         :::image type="content" source="media/azure-ai-foundry-api/client-compatibility.png" alt-text="Screenshot of AI Foundry API configuration in the portal.":::
@@ -78,7 +78,7 @@ To import an AI Foundry API to API Management:
     * [Track token usage](llm-emit-token-metric-policy.md) 
 1. On the **Apply semantic caching** tab, optionally enter settings or accept defaults that define the policies to help optimize performance and reduce latency for the API:
     * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
-1. On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service checks for API requests:
+1. On the **AI content safety**, optionally enter settings or accept defaults to configure the Azure AI Content Safety service to block prompts with unsafe content:
     * [Enforce content safety checks on LLM requests](llm-content-safety-policy.md)
 1. Select **Review**.
 1. After settings are validated, select **Create**. 
