@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/05/2024
+ms.date: 05/19/2025
 ms.custom:
   - template-concept
   - devx-track-dotnet
@@ -128,8 +128,7 @@ var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.Services
     .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights()
-    .AddSingleton<IHttpResponderService, DefaultHttpResponderService>();
+    .ConfigureFunctionsApplicationInsights();
 
 builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
     {
