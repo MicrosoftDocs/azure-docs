@@ -26,12 +26,11 @@ This article provides an example of how to use summary rules to aggregate insigh
 
 ## Prerequisites
 
-To create summary rules in Microsoft Sentinel:
+To complete this tutorial, you need:
 
-- Microsoft Sentinel must be enabled in at least one workspace, and actively consume logs.
-
-- You must be able to access Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
-
+- A Microsoft Sentinel-enabled workspace into which you actively consume CEF logs.
+- Access to Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
+- [Monitoring Contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor) permissions to create a data collection rule (DCR) and a data collection endpoint (DCE). For more information, see [Data collection rules](https://learn.microsoft.com/azure/azure-monitor/logs/data-collection-rules).
 - To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Use summary rules with auxiliary logs (sample process)
