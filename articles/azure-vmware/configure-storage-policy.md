@@ -136,7 +136,7 @@ Run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy.
 Keep the following information in mind:
 
 * You can't modify existing Azure VMware Solution default storage policies.
-* Certain options enabled in storage policies produce warnings to associated risks.
+* Certain options enabled in storage policies produce a warning that a policy is out of compliance.
 * Out of compliance: When you modify existing storage policies, existing associated vSAN objects like VMs, VMDK files, and ISO files appear to be "out of compliance." This means that existing objects are running against premodified policy settings. To update to match the modified policy settings, reapply the storage policy to objects.
 
 1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
@@ -186,5 +186,5 @@ Run the `Remove-AVSStoragePolicy` cmdlet to specify the default storage policy f
 
 Now that you know how to configure VMware vSAN storage policies, learn more about:
 
-* [Attach disk pools to Azure VMware Solution hosts (Preview)](attach-disk-pools-to-azure-vmware-solution-hosts.md)
+* [Learn about external storage options](https://learn.microsoft.com/en-us/azure/azure-vmware/ecosystem-external-storage-solutions)
 * [Configure external identity for vCenter Server](configure-identity-source-vcenter.md)
