@@ -34,7 +34,7 @@ In this article, learn how to:
 
 ## Set VMware vSAN TRIM/UNMAP
 
-To enable or disable the TRIM or UNMAP command (TRIM/UNMAP), run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet.
+To enable or disable the TRIM/UNMAP command, run the `Set-AVSVSANClusterUNMAPTRIM` cmdlet.
 
 > [!NOTE]
 > When you enable TRIM/UNMAP on your vSAN datastore, there might be a negative impact on performance.
@@ -98,7 +98,7 @@ Learn more about the `Set-vSANCompressDedupe` cmdlet:
 - When you set `Compression` to `False` and `Deduplication` to `False`, all space efficiency is disabled.
 - The default settings for Azure VMware Solution are `Deduplication` and `Compression`.
 - The `Compression` setting provides only slightly better performance.
-- When you disable both the `Compression` and `Deduplication` settings, you can achieve the greatest performance gains, but at the cost of space utilization.
+- When you disable both the `Compression` and `Deduplication` settings, you can achieve the greatest performance gains, but at the cost of space efficiency.
 
 ## Set VMware vSAN data-in-transit encryption
 
