@@ -66,14 +66,14 @@ In this guide, you build an AI chat application and iterate on the prompt using 
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential)
-                    // Load all keys that start with `ChatLLM:` and have no label.
-                    .Select("ChatLLM:*")
-                    // Reload configuration if any selected key-values have changed.
-                    // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval.
-                    .ConfigureRefresh(refresh =>
-                    {
-                        refresh.RegisterAll();
-                    });
+                   // Load all keys that start with `ChatLLM:` and have no label.
+                   .Select("ChatLLM:*")
+                   // Reload configuration if any selected key-values have changed.
+                   // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval.
+                   .ConfigureRefresh(refresh =>
+                   {
+                       refresh.RegisterAll();
+                   });
 
                 _refresher = options.GetRefresher();
         }).Build();
@@ -81,7 +81,7 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
 1. Create an instance of the `AzureOpenAIClient` to connect to your Azure OpenAI resource. You can use either Microsoft Entra ID or API key for authentication.
 
-    To access your Azure OpenAI resource with Microsoft Entra ID, you use `DefaultAzureCredential`. Assign the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role to the identity represented by `DefaultAzureCredential`. For detailed steps, refer to the [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control) guide. Be sure to allow sufficient time for the permission to propagate before running your application.
+    To access your Azure OpenAI resource with Microsoft Entra ID, you use `DefaultAzureCredential`. Assign the **Cognitive Services OpenAI User** role to the identity represented by `DefaultAzureCredential`. For detailed steps, refer to the [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control) guide. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     // Initialize the AzureOpenAIClient
@@ -241,9 +241,9 @@ In this guide, you build an AI chat application and iterate on the prompt using 
                    // Reload configuration if any selected key-values have changed.
                    // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval
                    .ConfigureRefresh(refresh =>
-                    {
-                        refresh.RegisterAll();
-                    });
+                   {
+                       refresh.RegisterAll();
+                   });
 
             _refresher = options.GetRefresher();
 
