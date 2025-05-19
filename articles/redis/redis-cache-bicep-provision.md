@@ -9,7 +9,9 @@ ms.custom:
   - ignite-2024
   - build-2025
 appliesto:
-  - ✅ Azure Cache for Redis---
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
+---
 
 # Quickstart: Create an Azure Cache for Redis using Bicep
 
