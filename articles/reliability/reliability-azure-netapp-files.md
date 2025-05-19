@@ -40,8 +40,7 @@ From a file protocol (e.g. NFS and SMB) perspective, transient faults are not di
 
 The NFS protocol is especially robust, and client-server file operations generally continue normally. Some applications might require tuning to handle I/O pauses for as long as 30-45 seconds. Ensure that you're aware of the application’s resiliency settings to cope with the storage service maintenance events.
 
-
-For human-interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. Azure NetApp Files also supports [SMB continuous availability](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#continuous-availability), which enables SMB Transparent Failover. SMB Transparent Failover eliminates disruptions caused by service maintenance events. It also improves reliability and user experience. 
+For human-interactive applications leveraging the SMB protocol, the standard protocol settings are usually sufficient. Azure NetApp Files also supports [SMB continuous availability](../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#continuous-availability), which enables SMB Transparent Failover. SMB Transparent Failover eliminates disruptions caused by service maintenance events. It also improves reliability and user experience.
 
 SMB continuous availability is only available for [specific applications](../azure-netapp-files/faq-application-resilience.md#do-i-need-to-take-special-precautions-for-smb-based-applications).
 
@@ -56,7 +55,6 @@ Azure NetApp Files supports *zonal* deployments of volumes. [Azure NetApp Files'
 In the diagram below, all virtual machines (VMs) within the region in (peered) VNets can access all Azure NetApp Files resources (blue arrows). VMs accessing Azure NetApp Files volumes in the same zone (green arrows) share the availability zone failure domain. Note there's no replication between the different volumes at the platform level.
 
 :::image type="content" source="./media/reliability-netapps-files/availability-zone-diagram.png" alt-text="Diagram that shows NetApp Files availability zone volume placement." border="false" **lightbox="./media/reliability-netapps-files/availability-zone-diagram.png":::**
-
 
 A single-zone deployment isn't sufficient to meet high reliability requirements.  To asynchronously replicate data between volumes in different availability zones, you can use [cross-zone replication](../azure-netapp-files/cross-zone-replication-introduction.md). You must configure cross-zone replication separately from availability zone volume placement.
 
@@ -128,12 +126,11 @@ This section describes what to expect when Azure NetApps Files volumes are confi
 
 - **Expected data loss:** The amount of data loss (also called the recovery point objective, or RPO) you can expect during a zone failover depends on the cross-zone replication schedule you configure.
 
-
-| Replication schedule | Typical RPO|
-|---|---|
-| Every 10 minutes | 20 minutes|
-| Hourly | two hours |
-| Daily | < 48 hours |
+    | Replication schedule | Typical RPO |
+    |---|---|
+    | Every 10 minutes | 20 minutes|
+    | Hourly | Two hours |
+    | Daily | < 48 hours |
 
 - **Expected downtime:** Failover to another zone requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. You can expect these to be completed within one minute.
 
@@ -202,11 +199,11 @@ This section describes what to expect when Azure NetApps Files volumes are confi
 
 - **Expected data loss:** The amount of data loss (also called the recovery point objective, or RPO) you can expect during a region failover depends on the cross-region replication schedule you configure.
 
-| Replication schedule | Typical RPO|
-|---|---|
-| Every 10 minutes | < 20 minutes|
-| Hourly | < two hours |
-| Daily | < 48 hours |
+    | Replication schedule | Typical RPO |
+    |---|---|
+    | Every 10 minutes | < 20 minutes|
+    | Hourly | < Two hours |
+    | Daily | < 48 hours |
 
 - **Expected downtime:** Failover to another region requires that you break the peering relationship to activate the destination volume and provide read and write data access in the second site. You can expect these to be completed within one minute.
 
