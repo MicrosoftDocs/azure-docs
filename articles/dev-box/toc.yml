@@ -99,7 +99,7 @@ items:
       - name: Use multiple monitors
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
       - name: Connect to a dev box with a dev tunnel
-        href: how-to-setup-dev-tunnels.md
+        href: how-to-set-up-dev-tunnels.md
   - name: Security
     items:
       - name: Provide access to project admins
