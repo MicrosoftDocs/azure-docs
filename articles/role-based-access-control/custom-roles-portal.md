@@ -5,13 +5,15 @@ author: rolyon
 manager: femila
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 03/30/2025
+ms.date: 05/19/2025
 ms.author: rolyon
 ---
 
 # Create or update Azure custom roles using the Azure portal
 
-If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes. Custom roles are stored in a Microsoft Entra directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API. This article describes how to create custom roles using the Azure portal.
+If the [Azure built-in roles](built-in-roles.md) don't meet the specific needs of your organization, you can create your own Azure custom roles. Just like built-in roles, you can assign custom roles to users, groups, and service principals at management group, subscription, and resource group scopes. Custom roles are stored in a Microsoft Entra directory and can be shared across subscriptions. Each directory can have up to 5000 custom roles. Custom roles can be created using the Azure portal, Azure PowerShell, Azure CLI, or the REST API.
+
+This article describes how to create custom roles for use with Azure resources using the Azure portal. If you want to instead create a custom role for use with Microsoft Entra resources, see [Create a custom role in Microsoft Entra ID](/entra/identity/role-based-access-control/custom-create).
 
 ## Prerequisites
 
