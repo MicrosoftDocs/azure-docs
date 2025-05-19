@@ -32,7 +32,7 @@ Azure has thousands of permissions that you can potentially include in your cust
 
 ## Step 2: Choose how to start
 
-There are three ways that you can start to create a custom role. You can clone an existing role, start from scratch, or start with a JSON file. The easiest way is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
+There are three ways that you can start to create a custom role. You can clone an existing built-in or custom role, start from scratch, or start with a JSON file. The easiest way is to find an existing role that has most of the permissions you need and then clone and modify it for your scenario. 
 
 ### Clone a role
 
@@ -46,7 +46,7 @@ If an existing role does not quite have the permissions you need, you can clone 
 
 1. Click the **Roles** tab to see a list of all the built-in and custom roles.
 
-1. Search for a role you want to clone such as the Billing Reader role.
+1. Search for a built-in or custom role you want to clone such as the Billing Reader role.
 
 1. At the end of the row, click the ellipsis (**...**) and then click **Clone**.
 
