@@ -1,10 +1,10 @@
 ---
 title: Check access to required FQDNs and endpoints for Azure Virtual Desktop
 description: The Azure Virtual Desktop Agent URL Tool enables you to check that your session host virtual machines can access the required FQDNs and endpoints to ensure Azure Virtual Desktop works as intended.
-author: dknappettmsft
+author: dougeby
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: daknappe
+ms.author: avdcontent
 ---
 
 # Check access to required FQDNs and endpoints for Azure Virtual Desktop

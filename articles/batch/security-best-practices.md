@@ -2,7 +2,7 @@
 title: Batch security and compliance best practices
 description: Learn best practices and useful tips for enhancing security with your Azure Batch solutions.
 ms.date: 11/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Batch security and compliance best practices

@@ -4,7 +4,7 @@ description: This article helps you understand NFS group memberships and supplem
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/02/2023
 ms.author: anfdocs
 ---

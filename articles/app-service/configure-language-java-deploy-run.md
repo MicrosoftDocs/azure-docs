@@ -91,6 +91,8 @@ az webapp list-runtimes --os windows | grep java
 
 For more information on version support, see [App Service language runtime support policy](language-support-policy.md).
 
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
 ## Deploying your app
 
 ### Build tools
@@ -399,25 +401,9 @@ To configure the app setting from the Maven plugin, add setting/value tags in th
 
 ::: zone-end
 
-Developers running a single application with one deployment slot in their App Service plan can use the following options:
+By default, App Service sets the JVM Max Heap size to 70% of the total memory available for the App Service Plan. To disable the default setting, you can use app setting WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION=”true".
 
-- B1 and S1 instances: `-Xms1024m -Xmx1024m`
-- B2 and S2 instances: `-Xms3072m -Xmx3072m`
-- B3 and S3 instances: `-Xms6144m -Xmx6144m`
-- P1v2 instances: `-Xms3072m -Xmx3072m`
-- P2v2 instances: `-Xms6144m -Xmx6144m`
-- P3v2 instances: `-Xms12800m -Xmx12800m`
-- P1v3 instances: `-Xms6656m -Xmx6656m`
-- P2v3 instances: `-Xms14848m -Xmx14848m`
-- P3v3 instances: `-Xms30720m -Xmx30720m`
-- I1 instances: `-Xms3072m -Xmx3072m`
-- I2 instances: `-Xms6144m -Xmx6144m`
-- I3 instances: `-Xms12800m -Xmx12800m`
-- I1v2 instances: `-Xms6656m -Xmx6656m`
-- I2v2 instances: `-Xms14848m -Xmx14848m`
-- I3v2 instances: `-Xms30720m -Xmx30720m`
-
-When tuning application heap settings, review your App Service plan details. Consider the needs of multiple applications and deployment slots to find the optimal allocation of memory.
+Enhancing your application's performance on the platform may involve adjusting the heap size to better suit your specific needs. When tuning application heap settings, please review your App Service plan details and consider the requirements of multiple applications and deployment slots to find the optimal memory allocation.
 
 ### Turn on web sockets
 

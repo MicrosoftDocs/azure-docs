@@ -5,7 +5,7 @@ author: prasadmsft
 ms.author: reprasa
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/29/2022
 ms.custom: template-concept
 ---

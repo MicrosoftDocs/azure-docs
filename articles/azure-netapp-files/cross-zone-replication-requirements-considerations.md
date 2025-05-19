@@ -4,8 +4,8 @@ description: Describes the requirements and considerations for using the volume 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 02/13/2025
+ms.topic: concept-article
+ms.date: 05/08/2025
 ms.author: anfdocs
 ---
 # Requirements and considerations for using cross-zone replication 
@@ -22,7 +22,7 @@ This article describes requirements and considerations about [using the volume c
 * The replication destination volume is read-only until you fail over to the destination zone to enable the destination volume for read and write. For more information about the failover process, see [fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
     >[!IMPORTANT]
     >Failover is a manual process. When you need to activate the destination volume (for example, when you want to fail over to the destination region), you need to break replication peering then mount the destination volume. For more information, see [fail over to the destination volume](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume).
-* Azure NetApp Files replication doesn't currently support multiple subscriptions; all replications must be performed under a single subscription.
+* Azure NetApp Files replication is supported within a subscription and between subscriptions under the same tenant. You must [register this feature](cross-region-replication-create-peering.md#register-for-cross-subscription-replication) before using it for the first time. 
 * See [resource limits](azure-netapp-files-resource-limits.md) for the maximum number of cross-zone destination volumes. You can open a support ticket to [request a limit increase](azure-netapp-files-resource-limits.md#request-limit-increase) in the default quota of replication destination volumes (per subscription in a region). 
 * There can be a delay up to five minutes for the interface to reflect a newly added snapshot on the source volume.  
 * Cross-zone replication doesn't support cascading and fan in/out topologies.

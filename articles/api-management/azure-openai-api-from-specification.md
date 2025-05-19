@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.date: 04/30/2025
 ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
@@ -65,11 +65,12 @@ To import an Azure OpenAI API to API Management:
     
         For example, if your API Management gateway endpoint is `https://contoso.azure-api.net`, set a **Base URL** similar to `https://contoso.azure-api.net/my-openai-api/openai`.
     1. Optionally select one or more products to associate with the API. Select **Next**.
-1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption. You can also set or edit policies later.
+1. On the **Policies** tab, optionally enable policies to help monitor and manage the API. You can also set or edit policies later.
 
     If selected, enter settings or accept defaults that define the following policies (see linked articles for prerequisites and configuration details):
     * [Manage token consumption](azure-openai-token-limit-policy.md)
     * [Track token usage](azure-openai-emit-token-metric-policy.md) 
+    * [Enable semantic caching of responses](azure-openai-enable-semantic-caching.md)
     
     Select **Review + Create**.
 1. After settings are validated, select **Create**. 

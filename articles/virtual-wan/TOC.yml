@@ -331,6 +331,8 @@
     href: effective-routes-virtual-hub.md
   - name: Configure routing intent and policies
     href: how-to-routing-policies.md
+  - name: Next hop IP support
+    href: next-hop-ip.md
   - name: Route traffic from a virtual hub to an NVA (legacy)
     items:
     - name: Azure portal

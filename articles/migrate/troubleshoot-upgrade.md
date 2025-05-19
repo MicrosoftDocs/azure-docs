@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Windows OS upgrade feat
 author: AnuragMehrotra
 ms.author: anuragm
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/07/2023
 ms.custom: engagement-fy25
 ---

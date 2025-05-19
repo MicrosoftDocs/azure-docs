@@ -3,9 +3,9 @@ title: Prepare machines for agentless migration with Azure Migrate
 description: Learn how to prepare on-premises machines for agentless migration with Azure Migrate.
 author: vijain
 ms.author: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 10/25/2024
+ms.date: 04/17/2025
 ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 ---
 
@@ -27,14 +27,15 @@ Azure Migrate automatically handles these configuration changes for the followin
 **Operating system versions supported for hydration**
 
 - Windows Server 2008 or later
-- Red Hat Enterprise Linux 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x
+- Red Hat Enterprise Linux 9.5, 9.x, 8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x
 - CentOS Stream
 - SUSE Linux Enterprise Server 15 SP6, 15 SP5, 15 SP4, 15 SP3, 15 SP2, 15 SP1, 15 SP0, 12, 11 SP4, 11 SP3
 - Ubuntu 22.04, 21.04, 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Kali Linux (2016, 2017, 2018, 2019, 2020, 2021, 2022)
 - Debian 11, 10, 9, 8, 7
 - Oracle Linux 9, 8, 7.7-CI, 7.7, 6
-
+- Alma Linux 8.x, 9.x
+- Rocky Linux 8.x, 9.x
 You can also use this article to manually prepare the VMs for migration to Azure for operating systems versions not listed above. At a high level, these changes include:
 
 - Validate the presence of the required drivers

@@ -14,6 +14,9 @@ ms.date: 04/18/2025
 
 # Microsoft Dev Box customizations
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
+
 Starting developers on a new project or team is often complex and time consuming. The Microsoft Dev Box customizations feature helps you streamline the setup of the developer environment. With customizations, you can configure ready-to-code workstations with the necessary applications, tools, repositories, code libraries, packages, and build scripts.
 
 Dev Box customizations let you:

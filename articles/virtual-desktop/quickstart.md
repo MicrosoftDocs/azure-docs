@@ -3,8 +3,8 @@ title: "Quickstart: deploy a sample Azure Virtual Desktop environment"
 description: Quickly and easily deploy a sample Azure Virtual Desktop environment from the Azure portal using quickstart.
 ms.topic: quickstart
 ms.custom: mode-portal
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/05/2025
 #customer intent: As an IT admin, I want quickly and easily deploy Azure Virtual Desktop so that I can evaluate and become familiar with the service before deploying it in production.
 ---

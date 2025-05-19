@@ -1,6 +1,6 @@
 ---
 title: Add delivery rules to Azure Front Door with the Azure CLI
-description: Learn how to create an Azure Front Door Standard/Premium (Preview) with the Azure CLI. Then, add delivery rules to enhance control over your web app behavior.
+description: Learn how to create an Azure Front Door Standard/Premium with the Azure CLI. Then, add delivery rules to enhance control over your web app behavior.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
@@ -9,12 +9,12 @@ ms.date: 12/30/2021
 ms.custom: devx-track-azurecli
 ---
 
-# Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium (Preview) with Azure CLI
+# Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium with Azure CLI
 
-Azure Front Door Standard/Premium (Preview) is a fast and secure modern cloud CDN.  Azure Front Door uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
+Azure Front Door Standard/Premium  is a fast and secure modern cloud CDN.  Azure Front Door uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
 
 > [!NOTE]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+> This documentation is for Azure Front Door Standard/Premium. Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
 
 In this tutorial, you'll learn how to:
 

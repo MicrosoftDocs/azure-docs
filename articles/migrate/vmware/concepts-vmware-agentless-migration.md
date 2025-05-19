@@ -4,16 +4,14 @@ description: Describes concepts related to agentless migration of VMware VMs in 
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 11/26/2024
+ms.date: 02/03/2025
 ms.custom: vmware-scenario-422, engagement-fy24
 ---
 # Agentless migration architecture
 
 This article describes the replication concepts when migrating VMware VMs using the Migration and modernization tool's agentless migration method.
-
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
 
 ## Replication process
 
@@ -209,7 +207,7 @@ Azure Migrate provides a configuration-based mechanism through which customers c
 
 > [!NOTE]
 > - The existing replication cycles at the start of the blackout window will complete before the replication pauses.
-> - For any migration initiated during the blackout window, the final replication will not run, causing the migration to fail.
+> - For any migration initiated during the blackout window, the final replication won't run, causing the migration to fail.
 
 A blackout window can be specified for the appliance by creating/updating the file GatewayDataWorker.json in C:\ProgramData\Microsoft Azure\Config. A typical file would be of the form:
 

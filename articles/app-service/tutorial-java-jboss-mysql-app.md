@@ -142,6 +142,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Name*: **msdocs-jboss-mysql**. A resource group named **msdocs-jboss-mysql_group** will be generated for you.
         1. *Runtime stack*: **Java 17**.
         1. *Java web server stack*: **Red Hat JBoss EAP 8**. If you configured your Red Hat subscription with Azure already, select **Red Hat JBoss EAP 8 BYO License**.
+        1. *Operating system*: **Linux**.
         1. *Region*: Any Azure region near you.
         1. *Linux Plan*: **Create new** and use the name **msdocs-jboss-mysql**.
         1. *Pricing plan*: **Premium V3 P0V3**. When you're ready, you can [scale up](manage-scale-up.md) to a different pricing tier.
@@ -709,7 +710,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-In this tutorial, the App Service app is already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
+In this tutorial, the App Service app already has network connectivity to the MySQL server and can authenticate with Microsoft Entra by using its system-assigned managed identity. You can connect to MySQL directly from within the app container by running the following commands in the SSH session (get your `<server>`, `<user>`, and `<database>` values from the `AZURE_MYSQL_CONNECTIONSTRING` app setting):
 
 ```bash
 apt-get update

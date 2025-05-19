@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, no-azure-ad-ps-ref
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2025
 ms.author: anfdocs
 ---

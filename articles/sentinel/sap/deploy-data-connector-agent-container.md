@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 10/28/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 zone_pivot_groups: sentinel-sap-connection
 

@@ -2,8 +2,8 @@
 title: What's new in the MSIXMGR tool - Azure Virtual Desktop
 description: Learn about what's new in the release notes for the MSIXMGR tool.
 ms.topic: release-notes
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 04/18/2023
 ms.custom: docs_inherited
 ---

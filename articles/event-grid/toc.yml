@@ -112,7 +112,7 @@ items:
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
-        - name: Send events to Microsoft Fabric via Azure Event Hubs
+        - name: Send MQTT events to Microsoft Fabric
           href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
@@ -437,8 +437,6 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
-          - name: SAP
-            href: subscribe-to-sap-events.md
           - name: Tribal Group
             href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
@@ -560,8 +558,6 @@ items:
           href: onboard-partner.md
         - name: Subscribe to partner events
           href: subscribe-to-partner-events.md
-        - name: Subscribe to SAP events
-          href: subscribe-to-sap-events.md        
         - name: Subscribe to Tribal Group events
           href: subscribe-to-tribal-group-events.md        
         - name: Auth0

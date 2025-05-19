@@ -78,8 +78,6 @@
       href: https://youtu.be/OxmVds31qL8
     - name: Communicate between multiple apps
       href: connect-apps.md
-    - name: Reduce cold-start times
-      href: cold-start.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -171,6 +169,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflows
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -225,6 +225,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -315,7 +317,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
@@ -406,6 +408,9 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Introduction to containers
+        href: java-containers-intro.md
+        displayName: java
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
@@ -414,7 +419,7 @@
         displayName: java
       - name: Build environment variables (preview)
         href: java-build-environment-variables.md
-        displayName: java    
+        displayName: java
       - name: Launch your first Java app
         items:
         - name: Dockerfile
@@ -432,14 +437,13 @@
       - name: Artificial intelligence
         items:
         - name: PetClinic AI
-          items: 
+          items:
           - name: Overview
             href: java-petclinic-ai-overview.md
             displayName: java
           - name: Deploy the PetClinic AI sample
             href: java-petclinic-ai-tutorial.md
             displayName: java
-        displayName: java
       - name: Java components
         items:
         - name: Launch your first Java microservice apps with managed Java components
@@ -486,7 +490,7 @@
           href: java-dynamic-log-level.md
           displayName: java
     - name: JavaScript
-      items: 
+      items:
       - name: Overview
         href: javascript-overview.md
         displayName: javascript, typescript, node.js
@@ -496,12 +500,16 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
+    - name: Make quota requests
+      href: quota-requests.md
 - name: Product updates
   items:
     - name: What's new
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

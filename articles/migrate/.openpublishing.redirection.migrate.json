@@ -346,6 +346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/migrate/how-to-delete-project.md",
+            "redirect_url": "/azure/migrate/create-manage-projects",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/migrate/contoso-migration-overview.md",
             "redirect_url": "/azure/cloud-adoption-framework/migrate/",
             "redirect_document_id": false

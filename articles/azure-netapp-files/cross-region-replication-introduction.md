@@ -4,7 +4,7 @@ description: Describes what Azure NetApp Files cross-region replication does, su
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/21/2025
 ms.author: anfdocs
 ms.custom: references_regions

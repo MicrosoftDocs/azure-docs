@@ -11,6 +11,7 @@
         ],
         "exclude": [
           "iot-edge/**",
+          "migrate/**",
           "cyclecloud/**",
           "**/_themes/**",
           "**/includes/**",
@@ -36,6 +37,20 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+            "**/_themes/**",
+            "**/includes/**",
+            "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.md",
           "**/*.yml"
@@ -97,6 +112,22 @@
         "group": "grp-iot-edge",
         "src": "articles/iot-edge",
         "dest": "./iot-edge/",
+        "files": [
+          "**/*.gif",
+          "**/*.jpeg",
+          "**/*.jpg",
+          "**/*.png",
+          "**/*.svg"
+        ],
+        "exclude": [
+          "**/_themes/**",
+          "**/obj/**"
+        ]
+      },
+      {
+        "group": "migrate",
+        "src": "articles/migrate",
+        "dest": "./migrate/",
         "files": [
           "**/*.gif",
           "**/*.jpeg",
@@ -240,6 +271,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "flang-msft",
         "articles/azure-fluid-relay/**/*.md": "GrantMeStrength",
         "articles/azure-functions/**/*.md": "ggailey777",
+        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hhunter-ms",
         "articles/azure-government/**/*.md": "EliotSeattle",
         "articles/azure-monitor/*.md": "bwren",
         "articles/azure-monitor/agents/*.md": "guywi-ms",
@@ -847,6 +879,7 @@
         "articles/azure-cache-for-redis/**/*.yml": "franlanglois",
         "articles/azure-fluid-relay/**/*.md": "jken",
         "articles/azure-functions/**/*.md": "glenga",
+        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "hannahhunter",
         "articles/azure-government/**/*.md": "eliotgra",
         "articles/azure-monitor/*.*": "bwren",
         "articles/azure-monitor/agents/*.md": "guywild",
@@ -986,6 +1019,8 @@
         "articles/peering-service/*.yml": "networking",
         "articles/private-link/*.md": "networking",
         "articles/private-link/*.yml": "networking",
+        "articles/route-server/*.md": "networking",
+        "articles/route-server/*.yml": "networking",
         "articles/traffic-manager/*.md": "networking",
         "articles/traffic-manager/*.yml": "networking",
         "articles/virtual-network/*.md": "networking",
@@ -995,7 +1030,7 @@
         "articles/vpn-gateway/*.md": "networking",
         "articles/vpn-gateway/*.yml": "networking",
         "articles/web-application-firewall/*.md": "networking",
-        "articles/web-application-firewall/*.yml": "anetworking"
+        "articles/web-application-firewall/*.yml": "networking"
       },
       "ms.service": {
         "articles/advisor/**/*.md": "azure-advisor",
@@ -1090,6 +1125,7 @@
         "articles/avere-vfxt/**/*.yml": "wwilliams, jushiman",
         "articles/azure-boost/**/*.yml": "wwilliams, jushiman",
         "articles/azure-compute-fleet/**/*.yml": "jushiman",
+        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "azfuncdf, jiayma",
         "articles/azure-large-instances/**/*.yml": "jacobjaygbay",
         "articles/azure-netapp-files/**/*.yml": "padmalathas",
         "articles/azure-vmware/**/*.yml": "jacobjaygbay",
@@ -1108,6 +1144,7 @@
         "articles/dns/**/*.yml": "cherylmc, abell",
         "articles/expressroute/**/*.yml": "cherylmc, abell",
         "articles/firewall/**/*.yml": "cherylmc, abell",
+        "articles/frontdoor/**/*.yml": "cherylmc, abell, halkazwini",
         "articles/fxt-edge-filer/**/*.yml": "padmalathas",
         "articles/high-performance-computing/**/*.yml": "padmalathas",
         "articles/hpc-cache/**/*.yml": "padmalathas",
@@ -1117,7 +1154,7 @@
         "articles/migrate/**/*.yml": "ankitadutta",
         "articles/nat-gateway/**/*.yml": "cherylmc, abell",
         "articles/networking/**/*.yml": "cherylmc, abell",
-        "articles/network-watcher/**/*.yml": "cherylmc, abell",
+        "articles/network-watcher/**/*.yml": "cherylmc, abell, halkazwini",
         "articles/openshift/**/*.yml": "jacobjaygbay",
         "articles/oracle/**/*.yml": "jacobjaygbay",
         "articles/peering-service/**/*.yml": "cherylmc, abell",
@@ -1131,7 +1168,7 @@
         "articles/virtual-network/**/*.yml": "cherylmc, abell",
         "articles/vmware-cloudsimple/**/*.yml": "jacobjaygbay",
         "articles/vpn-gateway/**/*.yml": "cherylmc, abell",
-        "articles/web-application-firewall/**/*.yml": "cherylmc, abell",
+        "articles/web-application-firewall/**/*.yml": "cherylmc, abell, halkazwini",
         "articles/application-gateway/**/*.md": "cherylmc, abell",
         "articles/automanage/**/*.md": "jacobjaygbay",
         "articles/avere-vfxt/**/*.md": "wwilliams, jushiman",
@@ -1155,6 +1192,7 @@
         "articles/dns/**/*.md": "cherylmc, abell",
         "articles/expressroute/**/*.md": "cherylmc, abell",
         "articles/firewall/**/*.md": "cherylmc, abell",
+        "articles/frontdoor/**/*.md": "cherylmc, abell, halkazwini",
         "articles/fxt-edge-filer/**/*.md": "padmalathas",
         "articles/high-performance-computing/**/*.md": "padmalathas",
         "articles/hpc-cache/**/*.md": "padmalathas",
@@ -1164,7 +1202,7 @@
         "articles/migrate/**/*.md": "ankitadutta",
         "articles/nat-gateway/**/*.md": "cherylmc, abell",
         "articles/networking/**/*.md": "cherylmc, abell",
-        "articles/network-watcher/**/*.md": "cherylmc, abell",
+        "articles/network-watcher/**/*.md": "cherylmc, abell, halkazwini",
         "articles/openshift/**/*.md": "jacobjaygbay",
         "articles/oracle/**/*.md": "jacobjaygbay",
         "articles/peering-service/**/*.md": "cherylmc, abell",
@@ -1178,7 +1216,7 @@
         "articles/virtual-network/**/*.md": "cherylmc, abell",
         "articles/vmware-cloudsimple/**/*.md": "jacobjaygbay",
         "articles/vpn-gateway/**/*.md": "cherylmc, abell",
-        "articles/web-application-firewall/**/*.md": "cherylmc, abell"
+        "articles/web-application-firewall/**/*.md": "cherylmc, abell, halkazwini"
       },
       "search.appverid": {
         "articles/private-5g-core/**/*.md": "ap5gc",
@@ -1189,6 +1227,7 @@
         "articles/azure-arc/kubernetes/**/*.md": "azure-arc-kubernetes",
         "articles/azure-arc/servers/**/*.md": "azure-arc-servers",
         "articles/azure-functions/durable/**/*.md": "durable",
+        "articles/azure-functions/durable/durable-task-scheduler/**/*.md": "durable-task-scheduler",
         "articles/azure-monitor/*.md": "general",
         "articles/azure-monitor/agents/**/*.md": "agents",
         "articles/azure-monitor/alerts/**/*.md": "alerts",
@@ -1240,6 +1279,9 @@
         "articles/partner-solutions/split-experimentation/**/*.md": "split-experimentation",
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation",
         "articles/governance/management-groups/**/*.md": "azure-governance"
+      },
+      "monikerRange": {
+        "articles/migrate/**/*.md": "<=migrate-classic >=migrate"
       },
       "recommendations": {
       },
@@ -1320,6 +1362,8 @@
         "articles/iot-edge/**/*.yml": ["Azure","IoT","Azure IoT Edge"],
         "articles/iot-hub/**/*.md": ["Azure","IoT","Azure IoT Hub"],
         "articles/iot-hub/**/*.yml": ["Azure","IoT","Azure IoT Hub"],
+        "articles/iot-operations/**/*.md": ["Azure","IoT","Azure IoT Operations"],
+        "articles/iot-operations/**/*.yml": ["Azure","IoT","Azure IoT Operations"],
         "articles/iot/**/*.md": ["Azure","IoT"],
         "articles/iot/**/*.yml": ["Azure","IoT"],
         "articles/notebooks/**/*.md": ["Azure","Azure Notebooks"],
@@ -1478,6 +1522,10 @@
       "cyclecloud-7-group": {
         "dest": "tempdest_cyclecloud_7",
         "moniker_range": ">= cyclecloud-7"
+      },
+      "migrate": {
+        "dest": "migrate",
+        "moniker_range": "<=migrate-classic >=migrate"
       }
     },
     "dest": "azure",

@@ -2,12 +2,17 @@
 author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 09/03/2024
+ms.date: 04/25/2025
 ms.author: msangapu
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v3) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
-| [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup>|
+| [Apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup>|
+| App Service environments | | | | | | X |
+| Windows code-only |X | X | X | X | X | X |
+| Windows containers | | | | | X | X |
+| Linux code-only and containers |X | | X | X | X | X |
+| Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
 | [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
 | [Scale out](../articles/app-service/manage-scale-up.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> | 20 dedicated for v1; 30 dedicated for v2 and v3.<sup>3</sup>|100 dedicated<sup>4</sup>|
@@ -64,4 +69,4 @@ ms.author: msangapu
 
 <sup>11</sup> Only issuing standard certificates (wildcard certificates aren't available). Limited to only one free certificate per custom domain.
 
-<sup>12</sup> Total storage usage across all apps deployed in a single App Service Environment (regardless of how they're allocated across different resource groups).
+<sup>12</sup> Total storage usage across all apps deployed in a single App Service environment (regardless of how they're allocated across different resource groups).

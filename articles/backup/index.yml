@@ -64,7 +64,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Azure Data Lake Storage Gen2 backup support (preview)
+          - text: Azure Data Lake Storage backup support (preview)
             url: azure-data-lake-storage-backup-overview.md
           - text: Azure Files vaulted backup support
             url: azure-file-share-backup-overview.md?tabs=vault-standard

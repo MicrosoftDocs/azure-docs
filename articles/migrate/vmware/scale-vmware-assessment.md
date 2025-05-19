@@ -3,17 +3,16 @@ title: Assess large numbers of servers in VMware environment for migration to Az
 description: Describes how to assess large numbers of servers in VMware environment for migration to Azure using the Azure Migrate service.
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 06/30/2023
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy23
 ---
 
 # Assess large numbers of servers in VMware environment for migration to Azure
 
+
 This article describes how to assess large numbers (1000-35,000) of on-premises servers in a VMware environment for migration to Azure, using the Azure Migrate Discovery and assessment tool.
 
-[!INCLUDE [scenario-banner.md](../includes/scenario-banner.md)]
-
-[Azure Migrate](../migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and partner independent software vendor (ISV) offerings. 
+[Azure Migrate](../migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -24,15 +23,15 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](tutorial-discover-vmware.md).
+> If you want to try out a proof-of-concept to assess a couple of servers before assessing at scale, follow our [tutorial series](./tutorial-discover-vmware.md).
 
 ## Plan for assessment
 
-When you plan for assessment of large number of servers in VMware environment, there are a couple of things to think about:
+When planning for assessment of large number of servers in VMware environment, there are a couple of things to think about:
 
 - **Plan Azure Migrate projects**: Figure out how to deploy Azure Migrate projects. For example, if your data centers are in different geographies, or you need to store discovery, assessment, or migration-related metadata in a different geography, you might need multiple projects. 
 - **Plan appliances**: Azure Migrate uses an on-premises Azure Migrate appliance, deployed as a VMware VM, to continually discover servers. The appliance monitors environment changes such as adding servers, disks, or network adapters. It also sends metadata and performance data about them to Azure. You need to figure out how many appliances you need to deploy.
-- **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover servers for assessment and migration. If you're discovering more than 10,000 servers, set up multiple accounts as it is necessary that there's no overlap among servers discovered from any two appliances in a project. 
+- **Plan accounts for discovery**: The Azure Migrate appliance uses an account with access to vCenter Server in order to discover servers for assessment and migration. If you're discovering more than 10,000 servers, set up multiple accounts as it is necessary that there is no overlap among servers discovered from any two appliances in a project. 
 
 > [!NOTE]
 > If you are setting up multiple appliances, ensure there is no overlap among the servers on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a server is discovered by more than one appliance, this results in duplicates in discovery and in issues while enabling replication for the server using the Azure portal in the Migration and modernization tool.
@@ -53,9 +52,9 @@ With these limits in mind, here are some example deployments:
 **vCenter server** | **Servers to be discovered** | **Recommendation** | **Action** |
 --- |--- |--- |--- |
 One | < 10,000 | One Azure Migrate project.<br><br> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br><br> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to discover servers from up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. <br> <br>You can analyze dependencies on servers across vCenter Servers discovered from the same appliance.|
-One | > 10,000 | One Azure Migrate project.<br><br> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br><br> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to connect up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. You need to deploy additional appliances for every 10,000 servers.<br><br> If the number of servers is greater than 10,000, set up additional appliances with the vCenter Server accounts scoped accordingly. <br><br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance.<br> <br> Ensure there's no overlap among the servers on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a server is discovered by more than one appliance, this results in a duplicate in discovery and in issues while enabling replication for the server using the Azure portal in the Migration and modernization tool. |
+One | > 10,000 | One Azure Migrate project.<br><br> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br><br> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to connect up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. You need to deploy additional appliances for every 10,000 servers.<br><br> If the number of servers is greater than 10,000, set up additional appliances with the vCenter Server accounts scoped accordingly. <br><br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance.<br> <br> Ensure there is no overlap among the servers on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a server is discovered by more than one appliance, this results in a duplicate in discovery and in issues while enabling replication for the server using the Azure portal in the Migration and modernization tool. |
 Multiple | < 10,000 |  One Azure Migrate project.<br><br> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br><br> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to connect up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. <br><br> You need to deploy additional appliances for every 10 vCenter Servers.<br> <br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance. |
-Multiple | > 10,000 | One Azure Migrate project.<br><br> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br><br> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to discover VMs from up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. You need to deploy additional appliances for every 10 vCenter Servers. <br><br> If the number of servers is greater than 10,000, set up additional appliances with the vCenter Server accounts scoped accordingly. <br><br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance. <br><br> Ensure there's no overlap among the servers on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a server is discovered by more than one appliance, this results in a duplicate in discovery and in issues while enabling replication for the server using the Azure portal in the Migration and modernization tool. |
+Multiple | > 10,000 | One Azure Migrate project.<br><br> One appliance can discover up to 10,000 servers running on up to 10 vCenter Servers.<br><br> Provide one or more vCenter Server accounts for discovery. | Set up an appliance to discover VMs from up to 10 vCenter Servers mapped to one or more vCenter Server accounts, scoped to discover less than 10,000 servers. You need to deploy additional appliances for every 10 vCenter Servers. <br><br> If the number of servers is greater than 10,000, set up additional appliances with the vCenter Server accounts scoped accordingly. <br><br> You can analyze dependencies on servers across vCenter Servers discovered from the same appliance. <br><br> Ensure there is no overlap among the servers on the vCenter accounts provided. A discovery with such an overlap is an unsupported scenario. If a server is discovered by more than one appliance, this results in a duplicate in discovery and in issues while enabling replication for the server using the Azure portal in the Migration and modernization tool. |
 
 
 
@@ -65,7 +64,7 @@ If you're planning for a multitenant environment, you can scope the discovery on
 
 - You can set the appliance discovery scope to a vCenter Server data centers, clusters, or folder of clusters, hosts or folder of hosts, or individual servers.
 - If your environment is shared across tenants and you want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 
-    - You might want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover servers if the vCenter account has access granted at the vCenter VM folder level. If you're looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a server level. [Learn more](set-discovery-scope.md).
+    - You may want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover servers if the vCenter account has access granted at the vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a server level. [Learn more](set-discovery-scope.md).
 
 ## Prepare for assessment
 
@@ -75,7 +74,7 @@ Prepare Azure and VMware for Discovery and assessment tool:
 2. Set up permissions for your Azure account to interact with Azure Migrate.
 3. Prepare VMware for assessment.
 
-Follow the instructions in [this tutorial](tutorial-discover-vmware.md) to configure these settings.
+Follow the instructions in [this tutorial](./tutorial-discover-vmware.md) to configure these settings.
 
 
 ## Create a project

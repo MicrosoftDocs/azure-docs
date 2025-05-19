@@ -74,6 +74,6 @@ The local MQTT broker message queue is stored in memory by default. You can conf
 
 ## Related content
 
-- [Tutorial: Send asset telemetry to the cloud by using a data flow](../end-to-end-tutorials/tutorial-upload-telemetry-to-cloud.md)
+- [Tutorial: Send asset telemetry to the cloud by using a data flow](../end-to-end-tutorials/tutorial-upload-messages-to-cloud.md)
 - [Create a data flow](howto-create-dataflow.md)
 - [Create a data flow endpoint](howto-configure-dataflow-endpoint.md)

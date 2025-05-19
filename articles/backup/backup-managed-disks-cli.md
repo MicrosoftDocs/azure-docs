@@ -3,7 +3,7 @@ title: Back up Azure Managed Disks using Azure CLI
 description: Learn how to back up Azure Managed Disks using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 04/16/2025
+ms.date: 04/23/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -16,6 +16,10 @@ This article describes how to back up [Azure Managed Disk](/azure/virtual-machin
 > Support for Azure Managed Disks backup and restore via CLI is in preview and available as an extension in Az 2.15.0 version and later. The extension is automatically installed when you run the **az dataprotection** commands. [Learn more](/cli/azure/azure-cli-extensions-overview) about extensions.
 
 Learn about the [Azure Disk backup region availability, supported scenarios and limitations](disk-backup-support-matrix.md).
+
+>[!Note]
+>- If the target disk is attached as a Persistent Volume to an AKS cluster, choose [Azure Backup for AKS](./azure-kubernetes-service-cluster-backup.md) over the standalone Disk Backup solution. It enables backing up the disk as snapshots along with the containerized application in a Kubernetes-aware manner, all as a single unit.  Additionally, you get Cross Region Restore and ransomware protection capabilities with AKS Backup.
+
 
 ## Create a Backup vault
 
@@ -487,6 +491,12 @@ You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Us
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --status Completed
 ```
 
-## Next step
+## Next steps
 
-[Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md)
+[Restore Azure Managed Disks using Azure CLI](restore-managed-disks-cli.md).
+
+## Related content
+
+- [Create a backup policy to protect Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Back up Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
