@@ -143,7 +143,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    // Copyright (c) Microsoft Corporation. All rights reserved.
    //------------------------------------------------------------
     
-    namespace Contoso
+   namespace Contoso
     {
         using System;
         using System.Collections.Generic;
