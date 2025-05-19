@@ -671,12 +671,14 @@ Here are some approaches to reduce your agent's chat history:
 
 - Carefully craft your system instructions and prompts to control the model's behavior.
 
-- (Experimental) Opt in to chat reduction to lower the maximum number of tokens or messages kept in chat history and passed into the model.
-  A workflow agent has almost the same advanced parameters as the
-[Azure OpenAI built-in, service provider connector](/azure/logic-apps/connectors/built-in/reference/openai/), except for the **Agent History Reduction Type** advanced parameter, which exists only in the agent. This parameter controls the chat history that the agent maintains, based on the maximum number of tokens or messages. This feature is in active development and may not work for all scenarios.
-  To opt in, follow these steps:
-  - Switch the **Agent History Reduction Type** between tokens and messages.
-  - Change the maximum number of tokens or messages in chat history.
+- **Experimental capability**: You have the option to try chat reduction so you can reduce the maximum number of tokens or messages to keep in chat history and pass into the model.
+
+  A workflow agent has almost the same advanced parameters as the [Azure OpenAI built-in, service provider connector](/azure/logic-apps/connectors/built-in/reference/openai/), except for the **Agent History Reduction Type** advanced parameter, which exists only in the agent. This parameter controls the chat history that the agent maintains, based on the maximum number of tokens or messages.
+
+  This capability is in active development and might not work for all scenarios. You can change the **Agent History Reduction Type** option to reduce the limit on tokens or messages. You then specify the numerical limit that you want.
+  
+  To try the capability, follow these steps:
+
   1. On the designer, select the agent's title bar to open the information pane.
   1. On the **Parameters** tab, find the **Advanced parameters** section.
   1. Check whether the parameter named **Agent History Reduction Type** exists. If not, open the **Advanced parameters** list, and select that parameter.
