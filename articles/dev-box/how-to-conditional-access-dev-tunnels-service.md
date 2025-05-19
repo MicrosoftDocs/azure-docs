@@ -1,15 +1,15 @@
 ---
-title: Configure Conditional Access Policies for Dev Tunnels Service
+title: Configure Conditional Access Policies for Dev Tunnels
 description: Learn how to configure conditional access policies for the Dev tunnels service in Microsoft Entra ID to secure remote development environments and restrict access based on device management and IP ranges.
 author: RoseHJM
 contributors:
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 05/19/2025
 ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
 ---
 
-# Background
+# Configure Conditional Access Policies for Dev Tunnels
 
 The Dev Box service gives you an alternative connectivity method on top of Dev tunnels. You can develop remotely while coding locally or keep development going during Azure Virtual Desktop (AVD) outages or poor network performance. Many large enterprises using Dev Box have strict security and compliance policies, and their code is valuable to their business. Restricting Dev tunnels with conditional access policies is crucial for these controls.
 
