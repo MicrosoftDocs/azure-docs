@@ -19,6 +19,18 @@ The listed features were released in the last three months. For information abou
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## May 2025
+
+- [Unified *IdentityInfo* table](#unified-identityinfo-table)
+- [Additions to SOC optimization support (Preview)](#additions-to-soc-optimization-support-preview)
+
+### Unified *IdentityInfo* table
+
+Customers of Microsoft Sentinel in the Defender portal who have enabled UEBA can now take advantage of a new version of the IdentityInfo table, located in the Defender portal's *Advanced hunting* section, that includes the largest possible set of fields common to both the Defender and Azure portals. This unified table helps enrich your security investigations across the entire unified SecOps experience.
+
+For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table).
+
+### Additions to SOC optimization support (Preview)
+
 SOC optimization support for: 
  - **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
  - **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 

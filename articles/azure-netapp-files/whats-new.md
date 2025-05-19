@@ -16,6 +16,10 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## May 2025
 
+* [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
+
+    [Cross-zone-region replication](cross-zone-region-replication.md) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
+
 * [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) is now generally available (GA)
 
     The Azure NetApp Files support for Active Directory connection per NetApp account feature is now generally available. The feature allows each NetApp account to connect to its own Active Directory Forest and Domain, providing the ability to manage more than one Active Directory connections within a single region under a subscription. This enhancement enables distinct Active Directory connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. Active Directory connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to these Active Directory connections in the NetApp account, the management of Active Directory environments becomes more scalable, streamlined, and efficient.
