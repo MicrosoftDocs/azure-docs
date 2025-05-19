@@ -10,7 +10,7 @@ ms.date: 05/18/2025
 # Troubleshoot an App Service app using Azure SRE Agent (preview)
 
 > [!NOTE]
-> Site Reliability Engineering (SRE) Agent is in preview. By using SRE Agent you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Site Reliability Engineering (SRE) Agent is in preview. By using SRE Agent, you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Introduction
 
@@ -82,7 +82,7 @@ Now that your App Service app is created, deploy the sample application from Git
 
 1. In the left-hand menu, under the *Deployment* section, select **Deployment Center**.
 
-1. In the *Settings* tab, configure the following:
+1. In the *Settings* tab, configure:
 
 | Property   | Value                                                        |
 |------------|--------------------------------------------------------------|
@@ -97,7 +97,7 @@ Now that your App Service app is created, deploy the sample application from Git
 After deployment, confirm that the sample app is running as expected.
 
 1. In the left menu of your App Service, select **Overview**.
-1. Select **Browse** to open the app in a new browser tab. (It may take a minute to load.)
+1. Select **Browse** to open the app in a new browser tab. (It might take a minute to load.)
 1. The app displays a large counter and two buttons:
  
     :::image type="content" source="media/tutorial-sre-agent/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
@@ -114,16 +114,16 @@ To simulate an app failure scenario, add a secondary deployment slot.
 
     | Property            | Value        | Remarks                                                                                  |
     |---------------------|--------------|------------------------------------------------------------------------------------------|
-    | Name                | `broken`     | The error scenario will be triggered in this slot. |
+    | Name                | `broken`     | The error scenario is triggered in this slot. |
     | Clone settings from | `my-sre-app` | Copies configuration from the main app.                                                  |
 
-1. Scroll to the bottom of the dialog window and select **Add**. Slot creation may take a minute to complete.
+1. Scroll to the bottom of the dialog window and select **Add**. Slot creation might take a minute to complete.
 
 ### Deploy the sample app to the slot
 
 1. Once the slot is created, select the **broken** slot from the list.
 1. In the left menu, under the *Deployment* section, select **Deployment Center**.
-1. In the *Settings* tab, configure the following:
+1. In the *Settings* tab, configure:
 
     | Property   | Value                                                         |
     |------------|---------------------------------------------------------------|
@@ -176,7 +176,7 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. Select **Save**.
 
-1. Back in the *Create agent* window, select **Create**. The agent creation process may take a few minutes to complete.
+1. Back in the *Create agent* window, select **Create**. The agent creation process takes a few minutes to complete.
 
 ## 7. Chat with your agent
 
@@ -194,7 +194,7 @@ Once your SRE Agent is deployed and connected to your resource group, you can in
     List my App Service apps
     ```
 
-1. The agent will respond with a list of App Service apps deployed in the `my-app-service-group` resource group.
+1. The agent responds with a list of App Service apps deployed in the `my-app-service-group` resource group.
 
 Now that the agent can see your app, you’re ready to simulate a failure and let the agent help you resolve it.
 
@@ -206,14 +206,14 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Select **Swap**.
 
-1. In the *Swap* dialog, configure the following:
+1. In the *Swap* dialog, configure:
     
     | Property | Value               | Remarks                          |
     |----------|---------------------|----------------------------------|
     | Source   | `my-sre-app-broken` | The slot with the faulty version |
     | Target   | `my-sre-app`        | The production slot              |
 
-1. Scroll to the bottom and select **Start Swap**. The swap operation may take a minute to complete.
+1. Scroll to the bottom and select **Start Swap**. The swap operation might take a minute to complete.
 
 1. Once the swap is complete, browse to the app’s URL.
 
@@ -223,7 +223,7 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. You should see the app fail and return an HTTP 500 error.
 
-1. Refresh the page (by pressing Command-R or F5) several times to generate additional HTTP 500 errors, which will help the SRE Agent detect and diagnose the issue.
+1. Refresh the page (by pressing Command-R or F5) several times to generate additional HTTP 500 errors, which help the SRE Agent detect and diagnose the issue.
 
 ## 9. Fix the app
 
@@ -241,7 +241,7 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
     What's wrong with my-sre-app?
     ```
 
-1. The agent will begin analyzing the app’s health. You’ll see diagnostic messages related to availability, CPU and memory usage, and the recent slot swap.
+1. The agent begins to analyze the app’s health. You should see diagnostic messages related to availability, CPU and memory usage, and the recent slot swap.
 
     > Each session may vary, but you should see a message similar to:
     > 
