@@ -281,7 +281,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
 
    private FileStoreRuleExplorer ruleExplorer;
 
-        public RulesFunction(ILoggerFactory loggerFactory)
+   public RulesFunction(ILoggerFactory loggerFactory)
         {
             logger = loggerFactory.CreateLogger<RulesFunction>();
             this.ruleExplorer = new FileStoreRuleExplorer(loggerFactory); 
