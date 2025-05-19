@@ -72,13 +72,13 @@ You can use the az networkfabric device run-ro command to issue supported show c
 
 ```Azure CLI
 az networkfabric device run-ro \
-  --resource-group "<resource-group-name>" \
-  --resource-name "<device-name>" \
+  --resource-group "resource-group-name" \
+  --resource-name "device-name" \
   --ro-command "show version"
 
 ```
 
-Replace <resource-group-name> and <device-name> with your specific values.
+Replace `resource-group-name` and `device-name` with your specific values.
 
 Expected Output
 
