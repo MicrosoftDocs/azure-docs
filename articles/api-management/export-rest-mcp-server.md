@@ -13,7 +13,7 @@ ms.author: danlep
 [!INCLUDE [api-management-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
 
-In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
+In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. Expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
 
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
