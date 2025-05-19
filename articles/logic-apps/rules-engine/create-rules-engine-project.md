@@ -277,7 +277,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    The **<*function-name*>.cs** file also includes the **`ILogger`** interface, which provides support for logging events to an Application Insights resource. You can send tracing information to Application Insights and store that information alongside the trace information from your workflows. The **<*function-name*>.cs** file also includes the **`FileStoreRuleExplorer`** object that accesses the ruleset. As you can observe, the constructor for the **`FileStoreRuleExplorer`** uses the **`loggerFactory`** to send telemetry information also to Application Insights:
 
    ```csharp
-private readonly ILogger<RulesFunction> logger;
+   private readonly ILogger<RulesFunction> logger;
 
         private FileStoreRuleExplorer ruleExplorer;
 
@@ -297,17 +297,17 @@ private readonly ILogger<RulesFunction> logger;
    
       For this example, the ruleset file is called **`SampleRuleSet.xml`**, which was created using either the **Microsoft Rules Composer** or exported using **Microsoft BizTalk Server**.
 
-      ```csharp
-                var ruleSet = this.ruleExplorer.GetRuleSet(ruleSetName);
-
-                // Check if ruleset exists
-                if(ruleSet == null)
-                {
-                    // Log an error in finding the rule set
-                    this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
-                    throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
-                }             
-      ```
+   ```csharp
+   var ruleSet = this.ruleExplorer.GetRuleSet(ruleSetName);
+   
+   // Check if ruleset exists
+   if(ruleSet == null)
+   {
+   // Log an error in finding the rule set
+   this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
+   throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
+   }             
+   ```
 
       > [!IMPORTANT]
       >
@@ -323,36 +323,36 @@ private readonly ILogger<RulesFunction> logger;
 
       After the engine runs, the facts' values are overwritten with the values that result from the engine execution:
 
-      ```csharp
-                // Create rule engine instance
-                var ruleEngine = new RuleEngine(ruleSet: ruleSet);
+   ```csharp
+   // Create rule engine instance
+   var ruleEngine = new RuleEngine(ruleSet: ruleSet);
 
-                // Create a typedXml Fact(s) from input xml(s)
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(inputXml);
-                var typedXmlDocument = new TypedXmlDocument(documentType, doc);
+   // Create a typedXml Fact(s) from input xml(s)
+   XmlDocument doc = new XmlDocument();
+   doc.LoadXml(inputXml);
+   var typedXmlDocument = new TypedXmlDocument(documentType, doc);
 
-                // Initialize .NET facts
-                var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
+   // Initialize .NET facts
+   var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
 
-                // Provide facts to rule engine and run it
-                ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
+   // Provide facts to rule engine and run it
+   ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
 
-                // Send the relevant results(facts) back
-                var updatedDoc = typedXmlDocument.Document as XmlDocument;
-      ```
+   // Send the relevant results(facts) back
+      var updatedDoc = typedXmlDocument.Document as XmlDocument;
+   ```
 
    1. The engine uses the **`RuleExecutionResult`** custom class to return the values to the **`RunRules`** method:
 
-      ```csharp
-                var ruleExectionOutput = new RuleExecutionResult()
+   ```csharp
+   var ruleExectionOutput = new RuleExecutionResult()
                 {
                     XmlDoc = updatedDoc.OuterXml,
                     PurchaseAmountPostTax = currentPurchase.PurchaseAmount + currentPurchase.GetSalesTax()
                 };
-
+   
                 return Task.FromResult(ruleExectionOutput);
-      ```
+   ```
 
    1. Replace the sample function code with your own, and edit the default **`RunRules`** method for your own scenarios.
 
