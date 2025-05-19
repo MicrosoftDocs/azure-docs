@@ -196,7 +196,7 @@ When you use this profile:
 Recommendations when you use this profile:
 
 - Only one or two frontends should be used.
-- Clients shouldn't send large packets. You should only send packets smaller than 4 MiB.
+- Clients shouldn't send large packets. You should only send packets smaller than 16 MiB.
 
 ### Medium
 
