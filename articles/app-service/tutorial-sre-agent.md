@@ -12,9 +12,7 @@ ms.date: 05/18/2025
 > [!NOTE]
 > Site Reliability Engineering (SRE) Agent is in preview. By using SRE Agent, you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Introduction
-
-The Azure SRE (Site Reliability Engineering) Agent uses AI to monitor and manage your Azure resources, helping you quickly diagnose and fix issues.
+Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
 This sample app demonstrates error detection by simulating HTTP 500 failures in a controlled way. You can safely test these scenarios using Azure App Service **deployment slots**, which let you run different app configurations side by side.
 
@@ -27,7 +25,7 @@ In this tutorial, you will:
 > * Deploy a sample app from GitHub.
 > * Configure the app with a startup command and enable logging.
 > * Create a deployment slot to simulate failure.
-> * Set up an Azure SRE Agent (preview) to monitor the app.
+> * Set up an Azure SRE Agent to monitor the app.
 > * Trigger a failure by swapping to the broken slot.
 > * Use AI-driven chat to diagnose and resolve the issue by rolling back the swap.
 
@@ -37,7 +35,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you need:
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- Permissions to create role assignments (Role Based Access Control Administrator or User Access Administrator) for SRE Agent setup.
+- `Microsoft.Authorization/roleAssignments/write` permissions to create role assignments (Role Based Access Control Administrator or User Access Administrator) for SRE Agent setup.
 
 ## 1. Create an App Service app
 
@@ -73,7 +71,11 @@ In the *Basics* tab, provide the following details:
 
 1. Select the **Deployment** tab.
 
-1. Under *Authentication settings*, enable **Basic authentication**. Basic authentication is used later for a one-time deployment from GitHub. [Disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) in production.
+1. Under *Authentication settings*, enable **Basic authentication**.
+
+    > [!NOTE]
+    > Basic authentication is used later for a one-time deployment from GitHub. [Disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) in production.
+    >
 
 1. Select **Review and create**, then **Create** when validation passes.
 
@@ -264,7 +266,7 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
     > 
     > *“I will now perform mitigation for my-sre-app by swapping the slots back to recover the application to a healthy state. Please note that swapping slots back may not always immediately restore health. I will keep you updated on the progress.”*
 
-1. After a short delay, the agent will prompt you to approve the rollback:
+1. After a pause, the agent prompts you to approve the rollback:
 
     > *Performing Slot Swap rollback to Restore Application Availability for my-sre-app*
     > **[Approve]**   **[Deny]**
