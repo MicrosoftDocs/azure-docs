@@ -195,7 +195,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
                  * 5. Initialize .NET facts
                  * 6. Execute rule engine
                  * 7. Retrieve relevant updates facts and send them back
-                 */
+            */
                 
                 try
                 {
