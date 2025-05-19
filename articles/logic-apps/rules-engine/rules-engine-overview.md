@@ -29,7 +29,7 @@ A decision management rules engine can offer many benefits, for example:
 
 - Increases application flexibility and adaptability by empowering users to change the business rules without modifying the code or redeploying logic app workflows.
 
-- When used with AI, provides enhanced Reliability and Predictability by ensuring that certain decisions or actions always follow predefined logic, which is crucial in regulated industries or safety-critical applications.
+- Provides enhanced reliability and predictability for AI apps by making sure that certain decisions or actions always follow predefined logic, which is crucial in regulated industries or safety-critical applications.
 
 - For routine or well-understood business cases, a rules engine can handle decisions instantly without invoking AI models.
 
