@@ -40,8 +40,8 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Storage Static Website
 * API Management
 * Application Gateway
-* Azure Container Apps (Public Preview. Don't use in production environments)
-
+* Azure Container Apps
+  
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.
 
