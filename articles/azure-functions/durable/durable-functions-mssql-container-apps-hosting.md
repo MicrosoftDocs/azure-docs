@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 05/06/2025
 ---
 
-# Host a Durable Functions app in Azure Container Apps 
+# Host a Durable Functions app in Azure Container Apps (.NET isolated)
 
 Azure Functions provides integrated support for developing, deploying, and managing containerized Function Apps on Azure Container Apps. Use Azure Container Apps for your Functions apps when you need to run in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs. Learn more about [running Azure Functions in Container Apps](../../container-apps/functions-overview.md). 
 
@@ -163,7 +163,6 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
       --resource-group $resourceGroup \
       --name $containerAppEnv \
       --location $location \
-      --infrastructure-subnet-resource-id $subnetId
     ```
 
 1. Create a container app based on the Durable Functions image.
@@ -178,7 +177,7 @@ A [workload profile](../functions-container-apps-hosting.md#hosting-and-workload
     --query properties.outputs.fqdn
     ```
 
-1. Make note of the app URL, which should look similar to `https://<APP_NAME>.victoriouswave-3866c33e.<REGION>.azurecontainerapps.io`.
+1. Make note of the app URL, which should look similar to `https://<APP_NAME>.<ENVIRONMENT_IDENTIFIER>.<REGION>.azurecontainerapps.io`.
 
 ### Create databases
 
@@ -235,7 +234,7 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
     clientId=$(az identity show --name $identity --resource-group $resourceGroup --query 'clientId' --output tsv)
     ```
 
-1. Assign the role `Storage Blob Data Owner` role for access to the storage account. 
+1. Assign the role **Storage Blob Data Owner** role for access to the storage account. 
 
     ```azurecli
     echo "Assign Storage Blob Data Owner role to identity"
@@ -243,14 +242,14 @@ In this section, you set up **user-assigned managed identity** for Azure Storage
     ```
 
 ### Set up app settings
-
-Authenticating to the MSSQL database using managed identity isn't supported when hosting a Durable Functions app in Azure Container Apps. For now, this guide authenticates using connection strings.
+> [!NOTE]
+> Authenticating to the MSSQL database using managed identity isn't supported when hosting a Durable Functions app in Azure Container Apps. For now, this guide authenticates using connection strings.
 
 1. From the SQL database resource in the Azure portal, navigate to **Settings** > **Connection strings** to find the connection string.
 
     :::image type="content" source="./media/quickstart-mssql/mssql-azure-db-connection-string.png" alt-text="Screenshot showing database connection string.":::
 
-    The connection string should be a format similar to: 
+    The connection string should have a format similar to: 
 
     ```bash
     dbserver=<SQL_SERVER_NAME>

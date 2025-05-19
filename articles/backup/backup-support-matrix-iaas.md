@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
 ms.topic: reference
-ms.date: 05/02/2025
+ms.date: 05/12/2025
 ms.custom: references_regions, linux-related-content
 ms.reviewer: nikhilsarode
 ms.service: azure-backup
@@ -190,7 +190,7 @@ Backup of VMs with SSE and CMK encryption using HSM | Supported. <br><br> You mu
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Support for backup of Azure VMs is up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
+Azure VM data disks | Support for backup of Azure VMs is up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is deprecated. <br><br> *Note that backup support for disks in Azure Classic Storage is no longer available. To ensure continued functionality, migrate these disks to Azure Resource Manager (ARM) Storage, as Classic Storage accounts don't support ARM-based Virtual Machines (VMs). Also, backup for all Classic VMs is set to be deprecated on September 30, 2025. To prevent disruptions, migrate Classic VMs and associated disks to ARM Storage before this timeline.*
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
 Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [zone-redundant storage disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
