@@ -52,8 +52,8 @@ Use the following command to disable the administrative state of the device:
 
 az networkfabric device update-admin-state \
   --state Disable \
-  --resource-name "<networkfabric-device-name>" \
-  -g <rg-name>
+  --resource-name "<networkfabricdevicename>" \
+  -g <resourcegroupname>
 
 ```
 
@@ -77,8 +77,8 @@ Once the replacement device is physically installed, update its serial number in
 
 az networkfabric device update \
   --serial-number "<<Serial number>>" \
-  --resource-name "<networkfabric-device-name>" \
-  -g <rg-name>
+  --resource-name "<networkfabricdevicename>" \
+  -g <resourcegroupname>
 ```
 
 4. Ensure device is in ZTP Mode
@@ -95,8 +95,8 @@ Initiate the RMA process using the following command:
 ```Azure CLI
 az networkfabric device update-admin-state \
   --state RMA \
-  --resource-name "<networkfabric-device-name>" \
-  -g <rg-name>
+  --resource-name "<networkfabricdevicename>" \
+  -g <resourcegroupname>
 ```
 
 This will:
@@ -113,7 +113,7 @@ Once configuration is applied successfully, bring the device back into active se
 az networkfabric device update-admin-state \
   --state Enable \
   --resource-name "<networkfabric-device-name>" \
-  -g <rg-name>
+  -g <resourcegroupname>
 
 This:
 
