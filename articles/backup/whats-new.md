@@ -113,13 +113,13 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Vaulted Backups by Azure Backup for Azure Database for PostgreSQL – flexible server is now generally available
 
-Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across all Azure regions, offering a robust and scalable backup solution designed to enterprise resiliency and compliance needs.
+Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across all Azure regions, offering a robust and scalable backup solution designed to meet the resiliency and compliance needs of enterprises.
 
 **Key Features include**:
 
-- **Automated, policy-based backups**: Eliminates manual intervention, ensuring long-term retention for regulatory and compliance requirements.
+- **Policy-based scheduled backups**: Eliminates manual intervention and increases efficiency.
+- Ensures long-term retention for regulatory and compliance requirements.
 - **Cyber resilience**:Protects from ransomware threats with immutability and role-based access control.
-- **Operational efficiency**: Improves backup and restore processes, reduces downtime, and provides higher efficiency.
  
 You can  also use Azure [Business Continuity Center](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview) to manage the vaulted backup operations.
 
