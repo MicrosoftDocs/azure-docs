@@ -18,5 +18,4 @@ To view the data:
     ApiManagementGatewayLogs
     | where TimeGenerated > ago(1d) 
     ```
-
     :::image type="content" source="media/api-management-log-analytics/query-resource-logs.png" alt-text="Screenshot of querying ApiManagementGatewayLogs table in the portal." lightbox="media/api-management-log-analytics/query-resource-logs.png":::

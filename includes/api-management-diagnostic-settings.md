@@ -2,7 +2,7 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 05/13/2025
+ms.date: 02/24/2025
 ms.author: danlep
 ---
 
@@ -25,10 +25,11 @@ To configure a diagnostic setting for collection of resource logs:
 
    > [!TIP]
    > If you select a Log Analytics workspace, you can choose to store the data in a resource-specific table (for example, an ApiManagementGatewayLogs table) or store in the general AzureDiagnostics table. We recommend using the resource-specific table for log destinations that support it. [Learn more](/azure/azure-monitor/essentials/resource-logs#send-to-log-analytics-workspace)
-
 1. After configuring details for the log destination or destinations, select **Save**. 
 
 > [!NOTE]
 > Adding a diagnostic setting object might result in a failure if the [MinApiVersion property](/dotnet/api/microsoft.azure.management.apimanagement.models.apiversionconstraint.minapiversion) of your API Management service is set to any API version higher than 2022-09-01-preview. 
 
-For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings).
+> [!NOTE]
+> To enable diagnostic settings for API Management workspaces, see [Create and manage a workspace](../articles/api-management/how-to-create-workspace.md#enable-diagnostic-settings-for-monitoring-workspace-apis).
+

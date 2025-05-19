@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure API Management
 description: Learn how to monitor Azure API Management using Azure Monitor, including data collection, analysis, and alerting.
-ms.date: 05/13/2025
+ms.date: 05/14/2025
 ms.custom: horz-monitor
 ms.topic: how-to
 author: dlepow
@@ -118,15 +118,18 @@ For more information, see [API Management monitoring data reference](monitor-api
 
 [!INCLUDE [api-management-diagnostic-settings](../../includes/api-management-diagnostic-settings.md)]
 
-#### View log data
+> [!NOTE]
+> To enable diagnostic settings for API Management workspaces, see [Create and manage a workspace](how-to-create-workspace.md#enable-diagnostic-settings-for-monitoring-workspace-apis)
+
+### View Azure Monitor log data
 
 Depending on the log destination you choose, it can take a few minutes for data to appear.
 
-**View logs in Log Analytics workspace**
+#### View logs in Log Analytics workspace
 
 [!INCLUDE [api-management-log-analytics](../../includes/api-management-log-analytics.md)]
 
-**View logs in storage account**
+#### View logs in storage account
 
 If you send logs to a storage account, you can access the data in the Azure portal and download it for analysis.
 
@@ -136,7 +139,7 @@ If you send logs to a storage account, you can access the data in the Azure port
 1. Navigate to the container for the logs in your API Management instance. The logs are partitioned in intervals of 1 hour.
 1. To retrieve the data for further analysis, select **Download**.
 
-#### Modify API logging settings
+### Modify API logging settings
 
 [!INCLUDE [api-management-api-logging](../../includes/api-management-api-logging.md)]
 

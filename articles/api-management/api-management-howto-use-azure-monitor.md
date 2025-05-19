@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Monitor published APIs in Azure API Management | Microsoft Docs
+title: Tutorial - Monitor APIs in Azure API Management | Microsoft Docs
 description: Learn how to use metrics, alerts, activity logs, and resource logs to monitor your APIs in Azure API Management.
 services: api-management
 author: dlepow
@@ -7,7 +7,7 @@ author: dlepow
 ms.service: azure-api-management
 ms.custom: engagement-fy23, devdivchpfy22
 ms.topic: tutorial
-ms.date: 05/13/2025
+ms.date: 05/14/2025
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
@@ -16,7 +16,7 @@ ms.author: danlep
 
 With Azure Monitor, you can visualize, query, route, archive, and take actions on the metrics or logs coming from your Azure API Management service. For an overview of Azure Monitor for API Management, see [Monitor API Management](monitor-api-management.md).
 
-[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
 
 In this tutorial, you learn how to:
 
@@ -42,9 +42,12 @@ API Management emits [metrics](/azure/azure-monitor/essentials/data-platform-met
 * **Capacity** - helps you make decisions about upgrading/downgrading your API Management services. The metric is emitted per minute and reflects the estimated gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization and other factors.
 
     > [!TIP]
-    > In the [v2 service tiers](v2-service-tiers-overview.md), API Management has replaced the capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
+    > In the [v2 service tiers](v2-service-tiers-overview.md) and in [workspace gateways](workspaces-overview.md#workspace-gateway), API Management has replaced the gateway capacity metric with separate CPU and memory utilization metrics. These metrics can also be used for scaling decisions and troubleshooting. [Learn more](api-management-capacity.md)
 
 * **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. Filter requests by response codes, location, hostname, and errors.
+
+> [!NOTE]
+> The Requests metric is not available in workspaces.
 
 > [!IMPORTANT]
 > The following metrics have been retired: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides closely similar functionality.
@@ -57,6 +60,9 @@ To access metrics:
 1. To investigate metrics in detail, select **Monitoring** > **Metrics** from the left menu.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot of Metrics item in Monitoring menu in the portal.":::
+
+    > [!TIP]
+    > In a workspace, you can view capacity metrics scoped to a workspace gateway. Navigate to **Monitoring** > **Metrics** in the left menu of a workspace gateway.
 
 1. From the drop-down, select metrics you're interested in. For example, **Requests**.
 1. The chart shows the total number of API calls. Adjust the time range to focus on periods of interest.
@@ -139,15 +145,12 @@ Resource logs (Azure Monitor logs) provide rich information about API Management
 [!INCLUDE [api-management-log-analytics](../../includes/api-management-log-analytics.md)]
 
 For more information about using resource logs for API Management, see:
-
 * [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
-
 * [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 ## Modify API logging settings
 
 [!INCLUDE [api-management-api-logging](../../includes/api-management-api-logging.md)]
-
 
 ## Next steps
 

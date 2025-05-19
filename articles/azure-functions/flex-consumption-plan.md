@@ -3,8 +3,8 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 05/08/2025
-ms.custom: references_regions, build-2024, ignite-2024
+ms.date: 05/12/2025
+ms.custom: references_regions, build-2024, ignite-2024, build-2025
 # Customer intent: As a developer, I want to understand the benefits of using the Flex Consumption plan so I can get the scalability benefits of Azure Functions without having to pay for resources I don't need.
 ---
 
@@ -44,11 +44,11 @@ Flex Consumption expands on the traditional benefits of Consumption plan by addi
 
 When you create your function app in a Flex Consumption plan, you can select the memory size of the instances on which your app runs. See [Billing](#billing) to learn how instance memory sizes affect the costs of your function app. 
 
-Currently, Flex Consumption offers instance memory size options of both 2,048 MB and 4,096 MB.
+Currently, Flex Consumption offers these instance memory size options: 512 MB, 2,048 MB, and 4,096 MB.
 
 When deciding on which instance memory size to use with your apps, here are some things to consider:
 
-+ The 2,048-MB instance memory size is the default and should be used for most scenarios. Use the 4,096-MB instance memory size for scenarios where your app requires more concurrency or higher processing power. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
++ The 2,048-MB instance memory size is the default and should be used for most scenarios. The 512 MB and 4,096-MB instance memory sizes are available for scenarios that best suit your application's concurrency or processing power requirements. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory). 
 + You can change the instance memory size at any time. For more information, see [Configure instance memory](flex-consumption-how-to.md#configure-instance-memory).
 + Instance resources are shared between your function code and the Functions host.
 + The larger the instance memory size, the more each instance can handle as far as concurrent executions or more intensive CPU or memory workloads. Specific scale decisions are workload-specific.
@@ -118,6 +118,8 @@ This table shows the language stack versions that are currently supported for Fl
 
 Currently, each region in a given subscription has a memory limit of `512,000 MB` for all instances of apps running on Flex Consumption plans. This quota means that, in a given subscription and region, you could have any combination of instance memory sizes and counts, as long as they stay under the quota limit. For example, each the following examples would mean the quota is reached and the apps would stop scaling:
 
++ You have one 512 MB app scaled to 250 instances and a second 512 MB app scaled to 750 instances. 
++ You have one 512 MB app scaled to 1,000 instances.
 + You have one 2,048 MB app scaled to 100 and a second 2,048 MB app scaled to 150 instances
 + You have one 2,048 MB app that scaled out to 250 instances
 + You have one 4,096 MB app that scaled out to 125 instances
