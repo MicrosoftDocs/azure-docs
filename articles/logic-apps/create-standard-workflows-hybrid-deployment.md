@@ -27,7 +27,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 ## Limitations
 
-- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations).
 
 - Managed identity authentication for managed API connectors currently isn't available in this preview release.
 
@@ -81,7 +81,7 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-logic-app-hybrid**. |
-   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
+   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations). <br><br>This example uses **East US**. |
    | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The Arc-enabled Kubernetes cluster that you created as the deployment environment for your logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
 
@@ -168,7 +168,7 @@ After you meet the prerequisites, but before you create your Standard logic app 
 
    This example uses **Hybrid-RG**.
 
-1. From the location list, select an Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+1. From the location list, select an Azure region that is [supported for Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#limitations).
 
    This example uses **East US**.
 

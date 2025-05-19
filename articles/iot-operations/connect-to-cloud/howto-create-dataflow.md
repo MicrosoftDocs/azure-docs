@@ -44,7 +44,7 @@ To define the source and destination, you need to configure the data flow endpoi
 > [!IMPORTANT]
 > Each data flow must have the Azure IoT Operations local MQTT broker default endpoint [as *either* the source or destination](#proper-data-flow-configuration).
 
-You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep template file, or use Kubernetes to create a data flow using a YAML file.
+You can use the operations experience in Azure IoT Operations to create a data flow. The operations experience provides a visual interface to configure the data flow. You can also use Bicep to create a data flow using a Bicep file, or use Kubernetes to create a data flow using a YAML file.
 
 Continue reading to learn how to configure the source, transformation, and destination.
 
@@ -203,7 +203,7 @@ If the default endpoint isn't used as the source, it must be used as the [destin
 
 # [Bicep](#tab/bicep)
 
-The message broker endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the data flow.
+The message broker endpoint is configured in the Bicep file. For example, the following endpoint is a source for the data flow.
 
 ```bicep
 sourceSettings: {
@@ -1234,7 +1234,7 @@ Select the data flow you want to export and select **Export** from the toolbar.
 
 # [Bicep](#tab/bicep)
 
-Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
+Bicep is infrastructure as code and no export is required. Use the [Bicep file to create a data flow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure data flows.
 
 # [Kubernetes (preview)](#tab/kubernetes)
 
