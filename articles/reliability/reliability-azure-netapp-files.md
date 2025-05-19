@@ -66,8 +66,9 @@ Cross-zone replication is available in all [availability zone-enabled regions](a
 
 ### Considerations
 
-* Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide a lowest latency guarantee. <!-- TODO checking what this means -->
-* For other considerations related to availability zones in Azure NetApp Files, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md) and [Manage availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations).
+- Availability zone volume placement in Azure NetApp Files provides zonal volume placement, with latency within the zonal latency envelopes. It doesn't provide proximity placement towards compute. As such, it doesn't provide a lowest latency guarantee. <!-- TODO checking what this means -->
+- Replication is permitted between different Azure subscriptions as long as they are within the same Microsoft Entra tenant.
+- For other considerations related to availability zones in Azure NetApp Files, see [Requirements and considerations for using cross-zone replication](../azure-netapp-files/cross-zone-replication-requirements-considerations.md) and [Manage availability zone volume placement](../azure-netapp-files/manage-availability-zone-volume-placement.md#requirements-and-considerations).
 
 ### Cost
 
@@ -152,13 +153,18 @@ Azure NetApp Files is a single-region service. If the region becomes unavailable
 
 However, Azure NetApp Files provides data protection through cross-region volume replication. You can asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region preselected by Microsoft. This capability enables you to fail over your critical application if a region-wide outage or disaster happens.
 
+> [!NOTE]
+> You can also replicate a single volume to another availability zone *and* to another region. To learn more, see [Understand cross-zone-region replication in Azure NetApp Files](../azure-netapp-files/cross-zone-region-replication.md).
+
 ### Region support
 
 The secondary region that you can replicate your volumes to depends on the primary region. For a list of primary and secondary regions, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md#supported-cross-region-replication-pairs).
 
 ### Considerations
 
-For considerations related to cross-region replication in Azure NetApp Files, see [Requirements and considerations for using cross-region replication](../azure-netapp-files/cross-region-replication-requirements-considerations.md).
+Replication is permitted between different Azure subscriptions as long as they are within the same Microsoft Entra tenant.
+
+For other considerations related to cross-region replication in Azure NetApp Files, see [Requirements and considerations for using cross-region replication](../azure-netapp-files/cross-region-replication-requirements-considerations.md).
 
 ### Cost
 
