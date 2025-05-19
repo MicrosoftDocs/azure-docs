@@ -279,7 +279,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    ```csharp
    private readonly ILogger<RulesFunction> logger;
 
-        private FileStoreRuleExplorer ruleExplorer;
+   private FileStoreRuleExplorer ruleExplorer;
 
         public RulesFunction(ILoggerFactory loggerFactory)
         {
