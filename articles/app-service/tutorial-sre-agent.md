@@ -87,7 +87,7 @@ Now that your App Service app is created, deploy the sample application from Git
 | Property   | Value                                                        |
 |------------|--------------------------------------------------------------|
 | Source     | **External Git**                                             |
-| Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial`|
+| Repository | `https://github.com/Azure-Samples/app-service-dotnet-agent-tutorial`|
 | Branch     | `main`                                                    |
 
 1. Select **Save** to apply the deployment settings.
@@ -97,16 +97,12 @@ Now that your App Service app is created, deploy the sample application from Git
 After deployment, confirm that the sample app is running as expected.
 
 1. In the left menu of your App Service, select **Overview**.
-2. Select **Browse** to open the app in a new browser tab. (It may take a minute to load.)
+1. Select **Browse** to open the app in a new browser tab. (It may take a minute to load.)
 1. The app displays a large counter and two buttons:
+ 
+    :::image type="content" source="media/tutorial-sre-agent/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
 
-| Button Name  | Description                                                                      |
-|------------------------------|---------------------------------------------------------------------------------------------------|
-| **Refresh / Throw Exception**| Increments the counter. If error simulation (`INJECT_ERROR` app setting) is enabled, throws an error after a set number of clicks. |
-| **Reset Counter**            | Resets the counter to zero.                                                                       |
-
-1. Click the main button several times to observe the counter increase, and verify error behavior if enabled.
-
+1. Select the *Increment* button several times to observe the counter increase.
 
 ## 4. Set up a deployment slot for failure simulation
 
@@ -132,8 +128,8 @@ To simulate an app failure scenario, add a secondary deployment slot.
     | Property   | Value                                                         |
     |------------|---------------------------------------------------------------|
     | Source     | **External Git**                                              |
-    | Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial` |
-    | Branch     | `broken`                                                      |
+    | Repository | `https://github.com/Azure-Samples/app-service-dotnet-agent-tutorial` |
+    | Branch     | `main`                                                      |
 
 1. Select **Save** to apply the deployment settings.
 
@@ -166,13 +162,13 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. In the *Create agent* window, enter the following values:
 
-| Property         | Value                     | Remarks                                                                 |
-|------------------|---------------------------|-------------------------------------------------------------------------|
-| Subscription     | Your Azure subscription   |                                                                         |
-| Resource group   | `my-sre-agent-group`      | New group for the Azure SRE Agent                                             |
-| Name             | `my-sre-agent`|                                                                         |
-| Region           | **Sweden Central**        | Required during preview; can monitor resources in any Azure region      |
-| Choose role      | **Contributor**           | Grants the agent permission to take action on your behalf               |
+    | Property         | Value                     | Remarks                                                                 |
+    |------------------|---------------------------|-------------------------------------------------------------------------|
+    | Subscription     | Your Azure subscription   |                                                                         |
+    | Resource group   | `my-sre-agent-group`      | New group for the Azure SRE Agent                                             |
+    | Name             | `my-sre-agent`|                                                                         |
+    | Region           | **Sweden Central**        | Required during preview; can monitor resources in any Azure region      |
+    | Choose role      | **Contributor**           | Grants the agent permission to take action on your behalf               |
 
 1. Select **Select resource groups**.
 
@@ -221,11 +217,13 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Once the swap is complete, browse to the app’s URL.
 
-1. Select the "Throw Exception" button several times and then refresh the page (using Command-R or F5 button).
+    :::image type="content" source="media/tutorial-sre-agent/verify-sample-broken-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
+
+1. Select the "Increment" button six times.
 
 1. You should see the app fail and return an HTTP 500 error.
 
-1. Refresh the page a few more times to generate additional HTTP 500 errors, which will help the SRE Agent detect and diagnose the issue.
+1. Refresh the page (by pressing Command-R or F5) several times to generate additional HTTP 500 errors, which will help the SRE Agent detect and diagnose the issue.
 
 ## 9. Fix the app
 
@@ -260,8 +258,8 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
 
     > *The slot swap for my-sre-app has been completed successfully (timestamp). The production slot has been restored. I will now continue with post-mitigation steps:*
     > 
-    > *• I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.*  
-    > *• I will monitor the app and provide an availability update in 5 minutes.*  
+    > *I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.*  
+    > *I will monitor the app and provide an availability update in 5 minutes.*  
     > 
     > *Please provide the GitHub repository URL where you want the issue to be raised.*
 
@@ -271,7 +269,9 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
 1. Open your App Service app in a browser by selecting **Browse** from the **Overview** page.
 
-1. Notice the "Throw Exception" button no longer appears and it's been replaced with a "Refresh" button.
+1. Notice the text "ERROR INJECTION ENABLED" no longer appears.
+
+1. Select the **Increment** button six times to ensure no errors take place.
 
 ## Clean up resources
 
