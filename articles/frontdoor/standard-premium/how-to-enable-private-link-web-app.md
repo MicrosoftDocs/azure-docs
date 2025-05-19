@@ -11,6 +11,8 @@ ms.date: 11/15/2024
 
 # Connect Azure Front Door Premium to an App Service (Web App) origin with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article guides you through configuring Azure Front Door Premium to connect to your App Service (Web App) privately using Azure Private Link.
 
 ## Prerequisites
@@ -66,6 +68,13 @@ In this section, you map the Private Link service to a private endpoint within A
 1. Find the *pending* private endpoint request from Azure Front Door Premium and select **Approve**.
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your web app through Azure Front Door Premium. Direct access to the web app from the public internet is disabled once private endpoint is enabled.
+
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group. 
+
 
 ## Next steps
 

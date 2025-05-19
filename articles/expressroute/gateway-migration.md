@@ -14,23 +14,18 @@ ms.author: duau
 # About migrating to an availability zone-enabled ExpressRoute virtual network gateway 
 When you create an ExpressRoute virtual network gateway, selecting the appropriate [gateway SKU](expressroute-about-virtual-network-gateways.md#gateway-types) is crucial. Higher-level SKUs allocate more CPUs and network bandwidth to the gateway, enabling higher network throughput and more reliable connections to the virtual network.
 
-### Available SKUs for ExpressRoute Virtual Network Gateways
-
-The following SKUs are available:
-
-- **Standard**
-- **HighPerformance**
-- **UltraPerformance**
-- **ErGw1Az**
-- **ErGw2Az**
-- **ErGw3Az**
-- **ErGwScale** (Preview)
-
 ### Availability Zone-Enabled SKUs
 
 The SKUs **ErGw1Az**, **ErGw2Az**, **ErGw3Az**, and **ErGwScale** (Preview) are referred to as Availability Zone (Az)-Enabled SKUs. These SKUs support deployment across multiple availability zones, providing enhanced resiliency and high availability by distributing the gateway infrastructure across zones.
 
 In contrast, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs, also known as non-Az-enabled SKUs, are typically associated with Basic IPs and don't support distribution across availability zones.
+
+>[!Important]
+>On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
+
+This article will help guide you through the migration process of a Non-Az Gateway with Basic SKU Public IP Address to Az-enabled Gateway with Standard SKU Public IP Address.
+
+For other Networking services with Basic SKU Public IP Address, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade)
 
 ### Recommendation for enhanced reliability
 
@@ -74,19 +69,15 @@ For enhanced reliability and high availability, we recommend migrating to an Az-
 
 The guided gateway migration experience has the following limitations:
 
+- The migration tool is exclusively designed for ExpressRoute virtual network gateways. It does not support migration for VPN gateways or other gateway types.
+- The migration tool only supports gateway migration within the same virtual network. It does not allow migration across different subscriptions, regions, or gateway types such as VPN gateways.
 - Downgrade scenarios, such as migrating from an Az-enabled SKU to a non-Az-enabled SKU, aren't supported.
 - The GatewaySubnet must have a prefix of /27 or longer to proceed with the migration.
 - Private endpoints (PEs) in the virtual network connected through ExpressRoute private peering can experience connectivity issues during migration. For guidance on mitigating these issues, see [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 - ExpressRoute Gateways that were established or connected to circuits in 2017 or earlier.
 - ExpressRoute Gateways with the SKU named "default" are not supported for migration.
 
-## Common Validation Errors
-
-During the gateway migration process, it's essential to validate whether your resources are ready for migration. Below are some common validation errors you can encounter:
-
-### Virtual Network
-
-- **MaxGatewayCountInVnetReached**: This error indicates that the maximum number of gateways allowed in the virtual network was reached.
+For detailed troubleshooting errors and best practices, see [Troubleshooting Gateway Migration](gateway-migration-error-messaging.md)
 
 ## Next Steps
 

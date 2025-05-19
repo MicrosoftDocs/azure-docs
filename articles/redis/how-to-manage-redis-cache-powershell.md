@@ -6,9 +6,6 @@ description: Learn how to create and perform administrative tasks for Azure Redi
 ms.topic: conceptual
 ms.date: 05/08/2025
 zone_pivot_groups: redis-type
-ms.custom: devx-track-azurepowershell, ignite-2024
-appliesto:
-  - ✅ Azure Managed Redis
 ---
 
 # Manage Azure Redis with Azure PowerShell
@@ -535,4 +532,3 @@ For more information about Microsoft Azure Germany, see [Microsoft Azure Germany
 * [Azure Cache for Redis cmdlets](/powershell/module/az.rediscache)
 * [Azure PowerShell cmdlets](/powershell/module/)
 * [PowerShell Community blog](https://devblogs.microsoft.com/powershell-community/)
-
