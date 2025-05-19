@@ -430,6 +430,8 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 Container Apps scale rules can use managed identity to authenticate with Azure services. The following Bicep template passes in system-based managed identity to authenticate for an Azure Queue scaler.
 
+Before using the following code, replace the placeholders surrounded by `<>` with your values.
+
 ```bicep
 scale: {
   minReplicas: 0
@@ -450,8 +452,6 @@ scale: {
   ]
 }
 ```
-
-Replace the `<PLACEHOLDERS`> with your values.
 
 To learn more about using managed identity with scale rules, see [Managed identity](managed-identity.md#scale-rules).
 
@@ -561,6 +561,8 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
 Container Apps scale rules can use managed identity to authenticate with Azure services. The following ARM template passes in system-based managed identity to authenticate for an Azure Queue scaler.
 
+Before using the following code, replace the placeholders surrounded by `<>` with your values.
+
 ```json
 "scale": {
   "minReplicas": 0,
@@ -581,8 +583,6 @@ Container Apps scale rules can use managed identity to authenticate with Azure s
   ]
 }
 ```
-
-Replace the `<PLACEHOLDERS`> with your values.
 
 To learn more about using managed identity with scale rules, see [Managed identity](managed-identity.md#scale-rules).
 
@@ -636,6 +636,8 @@ A KEDA scaler supports secrets in a [TriggerAuthentication](https://keda.sh/docs
 
 Container Apps scale rules can use managed identity to authenticate with Azure services. The following command creates a container app with a user-assigned managed identity and uses it to authenticate for an Azure Queue scaler.
 
+Before using the following code, replace the placeholders surrounded by `<>` with your values.
+
 ```bash
 az containerapp create \
   --resource-group <RESOURCE_GROUP> \
@@ -647,8 +649,6 @@ az containerapp create \
   --scale-rule-metadata "accountName=<AZURE_STORAGE_ACCOUNT_NAME>" "queueName=queue1" "queueLength=1" \
   --scale-rule-identity <USER_ASSIGNED_IDENTITY_ID>
 ```
-
-Replace the `<PLACEHOLDERS`> with your values.
 
 ::: zone-end
 
