@@ -96,13 +96,14 @@ Yes, you can exclude disks when you set up replication, using PowerShell. [Learn
 
 ### Can I replicate new disks added to replicated virtual machines?
 
-For replicated virtual machines with managed disks, you can add new disks, and enable replication for them. When you add a new disk, the replicated virtual machine shows a warning message that one or more disks on the virtual machine are available for protection.
+For replicated virtual machines with managed disks, you can add new disks, and enable replication for them. When you add a new disk, the replicated virtual machine shows a warning message that one or more disks on the virtual machine are available for protection. 
 
-- If you enable replication for the added disks, the warning disappears after the initial replication.
+- If you enable replication for the added disks, the warning disappears after the initial replication. 
 - If you don't want to enable replication for the disk, you can dismiss the warning.
-- If you fail over a virtual machine with added disks, replication points show the disks available for recovery. For example, if you add a second disk to a virtual machine with one disk, a replication point created before you added shows as "1 of 2 disks."
+- If you fail over a virtual machine with added disks, replication points show the disks available for recovery. For example, if you add a second disk to a virtual machine with one disk, a replication point created before you added shows as *1 of 2 disks*.
+- If you perform an OS Disk swap, you're required to perform disable and enable replication, since Site Recovery doesn't support swapping the OS disk.
 
-Site Recovery doesn't support "hot remove" of disks from a replicated virtual machine. If you remove a virtual machine disk, you need to disable and then reenable replication for the virtual machine.
+Site Recovery doesn't support *hot remove* of disks from a replicated virtual machine. If you remove a virtual machine disk, you need to disable and then reenable replication for the virtual machine. 
 
 ### How often can I replicate to Azure?
 

@@ -7,7 +7,7 @@ ms.title: What is Azure Large Instances?
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
 ms.custom: references_regions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/01/2023
 ---
 

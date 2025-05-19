@@ -9,7 +9,7 @@ ms.author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.topic: quickstart 
-ms.date: 02/12/2024
+ms.date: 05/01/2025
 ms.custom: template-quickstart
 ---
 
@@ -98,7 +98,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
-For more information, see:
 - [Understand Advanced Communication Messages Events](../../../../event-grid/communication-services-advanced-messaging-events.md)
 - [Get started With Advanced Communication Messages SDK](./get-started.md)
 

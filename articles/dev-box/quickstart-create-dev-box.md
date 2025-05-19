@@ -15,6 +15,9 @@ ms.date: 03/03/2025
 
 # Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
+
 In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it through a browser or through a Remote Desktop client like Windows App.
 
 You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow. For example, you might switch to another dev box to fix a bug in a previous version, or if you need to work on a different part of the application.
@@ -94,4 +97,6 @@ When you no longer need your dev box, you can delete it:
 
 In this quickstart, you created a dev box through the developer portal and connected to it by using a browser. 
 
+- Find out [What's new in Microsoft Dev Box](https://aka.ms/devbox/WhatsNew)
+- Discover what's coming up next in Microsoft Dev Box: [Microsoft Dev Box roadmap](dev-box-roadmap.md)
 - Learn how to [Manage a dev box by using the Microsoft Dev Box developer portal](how-to-create-dev-boxes-developer-portal.md)

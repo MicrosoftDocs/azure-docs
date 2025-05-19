@@ -3,7 +3,7 @@ title: Bicep Kubernetes extension
 description: Learn how to Bicep Kubernetes extension to deploy .NET applications to Azure Kubernetes Service clusters.
 ms.topic: conceptual
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 08/07/2024
+ms.date: 04/28/2025
 ---
 
 # Bicep Kubernetes extension (Preview)
@@ -12,9 +12,9 @@ The Kubernetes extension allows you to create Kubernetes resources directly with
 
 > [!NOTE]
 > The Kubernetes extension is not currently supported for private clusters:
-> 
+>
 > ```bicep
-> resource AKS 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
+> resource AKS 'Microsoft.ContainerService/managedClusters@2024-10-01' = {
 >  ...
 >  properties: {
 >   apiServerAccessProfile: {
@@ -60,7 +60,7 @@ extension kubernetes with {
 The following sample shows how to pass `kubeConfig` value from a parent Bicep file:
 
 ```bicep
-resource aks 'Microsoft.ContainerService/managedClusters@2024-08-01' existing = {
+resource aks 'Microsoft.ContainerService/managedClusters@2024-10-01' existing = {
   name: 'demoAKSCluster'
 }
 

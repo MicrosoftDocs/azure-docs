@@ -145,13 +145,13 @@ Different environment types have different subnet requirements:
 
     | Subnet Size | Available IP Addresses<sup>1</sup> | Max nodes (Dedicated workload profile)<sup>2</sup>| Max replicas (Consumption workload profile)<sup>2</sup> |
     |--|--|--|--|
-    | /23 | 500 | 250 | 2,500 |
-    | /24 | 244 | 122 | 1,220 |
-    | /25 | 116 | 58 | 580 |
-    | /26 | 52 | 26 | 260 |
-    | /27 | 20 | 10 | 100 |
+    | /23 | 495 | 247 | 2,470 |
+    | /24 | 239 | 119 | 1,190 |
+    | /25 | 111 | 55 | 550 |
+    | /26 | 47 | 23 | 230 |
+    | /27 | 15 | 7 | 70 |
     
-    <sup>1</sup> The available IP addresses are the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure.  
+    <sup>1</sup> The available IP addresses is the size of the subnet minus the 12 IP addresses required for Azure Container Apps infrastructure and 5 IP addresses reserved by the subnet.  
     <sup>2</sup> This is accounting for apps in single revision mode.  
 
 # [Consumption only environment](#tab/consumption-only-env)
@@ -247,6 +247,7 @@ Application rules allow or deny traffic based on the application layer. The foll
 | Azure Container Registry (ACR) | *Your-ACR-address*, `*.blob.core.windows.net`, `login.microsoft.com` | These FQDNs are required when using Azure Container Apps with ACR and Azure Firewall. |
 | Azure Key Vault | *Your-Azure-Key-Vault-address*, `login.microsoft.com` | These FQDNs are required in addition to the service tag required for the network rule for Azure Key Vault. |
 | Managed Identity | `*.identity.azure.net`, `login.microsoftonline.com`, `*.login.microsoftonline.com`, `*.login.microsoft.com` | These FQDNs are required when using managed identity with Azure Firewall in Azure Container Apps.
+| Aspire Dashboard | `https://northcentralus.ext.azurecontainerapps.dev` | This FQDN is required when using Aspire dashboard in an environment configured with a virtual network. |
 | Docker Hub Registry | `hub.docker.com`, `registry-1.docker.io`, `production.cloudflare.docker.com` | If you're using [Docker Hub registry](https://docs.docker.com/desktop/allow-list/) and want to access it through the firewall, you need to add these FQDNs to the firewall. |
 
 ##### Network rules
@@ -258,7 +259,7 @@ Network rules allow or deny traffic based on the network and transport layer. Th
 | All scenarios | `MicrosoftContainerRegistry`, `AzureFrontDoorFirstParty`  | These Service Tags for Microsoft Container Registry (MCR) are used by Azure Container Apps. Either these network rules or the application rules for MCR must be added to the allowlist when using Azure Container Apps with Azure Firewall. |
 | Azure Container Registry (ACR) | `AzureContainerRegistry`, `AzureActiveDirectory` | When using ACR with Azure Container Apps, you need to configure these network rules used by Azure Container Registry. |
 | Azure Key Vault | `AzureKeyVault`, `AzureActiveDirectory` | These service tags are required in addition to the FQDN for the network rule for Azure Key Vault. |
-| Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you need to configure these network rules used by Managed Identity. | 
+| Managed Identity | `AzureActiveDirectory` | When using Managed Identity with Azure Container Apps, you need to configure these network rules used by Managed Identity. |
 
 > [!NOTE]
 > For Azure resources you're using with Azure Firewall not listed in this article, refer to the [service tags documentation](../virtual-network/service-tags-overview.md#available-service-tags).

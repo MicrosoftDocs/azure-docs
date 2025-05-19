@@ -1,5 +1,5 @@
 ---
-title: Manage volumes in Azure NetApp Files application volume group | Microsoft Docs
+title: Manage volumes in Azure NetApp Files application volume group 
 description: Describes how to manage a volume from its application volume group, including resizing, deleting, or changing throughput for the volume.
 services: azure-netapp-files
 author: b-hchen

@@ -2,7 +2,7 @@
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
 ms.topic: conceptual
-ms.date: 03/19/2025
+ms.date: 03/28/2025
 author: cephalin
 ms.author: cephalin
 ---
@@ -41,7 +41,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively corrected when it uses more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance triggers one of these rules, the recovery process is an overlapping restart of the instance.<br/><br/>Set to `false` to disable this recovery behavior. The default is `true`.<br/><br/>For more information, see the [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html) blog post. |
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance. The debugger process collects a memory dump when the worker process crashes again. This memory dump is then analyzed, and the call stack of the thread that caused the crash is logged in your App Service logs.<br/><br/>Set to `false` to disable this automatic monitoring behavior. The default is `true`.<br/><br/>For more information, see the [Proactive Crash Monitoring in Azure App Service](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html) blog post. |
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the shared access signature (SAS) URI. |
-| `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. |
+| `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html) is disabled. |
 | `WEBSITE_CRASHMONITORING_SETTINGS` | JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. |
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. |
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring).<br/><br/>Example: `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
@@ -180,6 +180,7 @@ This section shows the configurable runtime settings for each supported language
 | `WEBSITE_JAVA_MAX_HEAP_MB` | Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. |
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interfaces](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort`, `getRequestURL`. To disable it, set the value to `1`. |
+| `WEBSITE_AUTH_EXPIRED_SESSION_LOGOFF` | If a webapp uses EasyAuth, set this to `true` or `1` to force a redirect to the EasyAuth logout page if the session associated to a request has expired (e.g. for webapps running on Tomcat, this is defined by the element `session-timeout` in the file `web.xml`). |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters that App Service added, set to `1`. |
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. |
 | `PORT` | Read-only. For Linux apps, the port that the Java runtime listens to in the container. |
@@ -339,7 +340,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description |
 |-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux containers, if this app setting is'nt specified, the `/home` directory is shared across scaled instances by default. You can set it to `false` to disable sharing.<br/><br/>For Windows containers, set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers. |
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux containers, if this app setting isn't specified, the `/home` directory is shared across scaled instances by default. You can set it to `false` to disable sharing.<br/><br/>For Windows containers, set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers. |
 | `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time, in seconds, to wait for the container to terminate gracefully. Default is `5`. You can increase to a maximum of `120`. |
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server when you're running a custom container in App Service. For security, this variable isn't passed on to the container.<br/><br/>Example: `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable isn't passed on to the container. |
@@ -589,8 +590,9 @@ The following environment variables are related to [health checks](monitor-insta
 
 | Setting name | Description |
 |-|-|
-| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | Maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you're scaling up or out, App Service pings the health check's path to ensure that new instances are ready. For more information, see [Health check](monitor-instances-health-check.md). |
+| `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | Maximum number of failed pings before removing the instance. Set to a value between `2` and `10`. When you're scaling up or out, App Service pings the health check's path to ensure that new instances are ready. For more information, see [Health check](monitor-instances-health-check.md). |
 | `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances are excluded. For example, if an App Service plan is scaled to four instances and three are unhealthy, at most two are excluded. The other two instances (one healthy and one unhealthy) continue to receive requests. In the worst-case scenario where all instances are unhealthy, none are excluded.<br/><br/>To override this behavior, set to a value between `1` and `100`. A higher value means more unhealthy instances are removed. The default is `50` (50%). |
+
 
 ## Push notifications
 

@@ -5,7 +5,7 @@ ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
-ms.date: 07/14/2023
+ms.date: 04/29/2025
 ms.author: ankitadutta 
 ms.custom: devx-track-azurepowershell
 ---
@@ -531,7 +531,7 @@ State            : Succeeded
 StateDescription : Completed
 StartTime        : 4/25/2018 4:29:43 AM
 EndTime          : 4/25/2018 4:33:06 AM
-TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
+TargetObjectId   : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
 AllowedActions   :
@@ -606,7 +606,7 @@ State            : Succeeded
 StateDescription : Completed
 StartTime        : 4/25/2018 4:50:58 AM
 EndTime          : 4/25/2018 4:51:01 AM
-TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
+TargetObjectId   : aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
 AllowedActions   :

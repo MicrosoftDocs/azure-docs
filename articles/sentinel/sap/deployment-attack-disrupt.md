@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: concept-article
 ms.date: 04/07/2024
 appliesto:
-  - Microsoft Sentinel in the Azure portal
-  - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
+    - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #Customer intent: As a security engineer, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
 

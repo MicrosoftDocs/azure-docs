@@ -1,7 +1,7 @@
 ---
-title: Tutorial - Learn How to Sign an HTTP Request with HMAC
-titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign an HTTP request for Azure Communication Services by using HMAC.
+title: Sign an HTTP Request using hash-based message authentication code (HMAC)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to sign an HTTP request for Azure Communication Services by using HMAC.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -15,12 +15,12 @@ ms.custom: devx-track-python
 zone_pivot_groups: acs-programming-languages-csharp-python
 ---
 
-# Tutorial: Sign an HTTP request
+# Sign an HTTP request using hash-based message authentication code (HMAC)
 
-In this tutorial, you learn how to sign an HTTP request with a hash-based message authentication code (HMAC) signature.
+This article describes how to sign an HTTP request with a hash-based message authentication code (HMAC) signature.
 
 > [!NOTE]
-> We strongly encourage you to use [Azure SDKs](https://github.com/Azure/azure-sdk). The approach described here is a fallback option for cases when Azure SDKs can't be used for any reason.
+> We recommend using the [Azure SDKs](https://github.com/Azure/azure-sdk) to sign an HTTP request. The approach described in this article is a fallback option if Azure SDKs can't be used for any reason.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]

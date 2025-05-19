@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/04/2025
+ms.date: 04/14/2025
 
 #CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
 ---
@@ -261,10 +261,12 @@ The following table outlines the support scope of flow logs.
 
 ## Availability
 
-Virtual network flow logs are generally available in all Azure public regions and are currently in preview in Azure Government.
+The following tables list the supported regions where you can enable virtual network flow logs.
+
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
 
 ## Related content
 
-- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md), or [Azure CLI](vnet-flow-logs-cli.md) guides.
+- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Manage virtual network flow logs](vnet-flow-logs-manage.md).
+- To learn how to use Azure built-in policies to audit or deploy virtual network flow logs, see [Manage virtual network flow logs using Azure Policy](traffic-analytics-policy-portal.md).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md) and [Schema and data aggregation in Azure Network Watcher traffic analytics](traffic-analytics-schema.md).
-- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).

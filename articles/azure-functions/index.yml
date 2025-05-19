@@ -24,6 +24,8 @@ landingContent:
             url: functions-scale.md  
           - text: Scenarios
             url: functions-scenarios.md 
+          - text: Migrate from AWS Lambda
+            url: ./migration/lambda-functions-migration-overview.md
   - title: Create your first function
     linkLists:
       - linkListType: get-started

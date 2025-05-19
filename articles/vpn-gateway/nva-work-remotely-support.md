@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about the things that you should take into consideration working with Network Virtual Appliances (NVAs) in Azure during the COVID-19 pandemic.
 author: KumudD
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/05/2023
 ms.author: kumud
 

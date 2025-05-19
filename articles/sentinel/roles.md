@@ -7,8 +7,8 @@ ms.date: 03/07/2024
 ms.author: yelevin
 ms.collection: usx-security
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As a security operations manager, I want to assign appropriate roles and permissions in Microsoft Sentinel so that my team can effectively manage incidents, automate responses, and access necessary data without compromising security.
@@ -26,7 +26,6 @@ Use Azure RBAC to create and assign roles within your security operations team t
 ## Roles and permissions for working in Microsoft Sentinel
 
 Grant the appropriate access to the data in your workspace by using built-in roles. You might need to grant more roles or specific permissions depending on a user's job tasks.
-
 
 ### Microsoft Sentinel-specific roles
 
@@ -50,6 +49,10 @@ As another option, assign the roles directly to the Microsoft Sentinel **workspa
 
 Users with particular job requirements might need to be assigned other roles or specific permissions in order to accomplish their tasks.
 
+- **Connect data sources to Microsoft Sentinel**
+
+    For a user to add data connectors, you must assign the user **Write** permissions on the Microsoft Sentinel workspace. Notice the required extra permissions for each connector, as listed on the relevant connector page.
+
 - **Install and manage out-of-the-box content**
 
     Find packaged solutions for end-to-end products or standalone content from the content hub in Microsoft Sentinel. To install and manage content from the content hub, assign the **Microsoft Sentinel Contributor** role at the resource group level.
@@ -63,10 +66,6 @@ Users with particular job requirements might need to be assigned other roles or 
     Microsoft Sentinel uses a special service account to run incident-trigger playbooks manually or to call them from automation rules. The use of this account (as opposed to your user account) increases the security level of the service.
 
     For an automation rule to run a playbook, this account must be granted explicit permissions to the resource group where the playbook resides. At that point, any automation rule can run any playbook in that resource group. To grant these permissions to this service account, your account must have **Owner** permissions to the resource groups containing the playbooks.
-
-- **Connect data sources to Microsoft Sentinel**
-
-    For a user to add data connectors, you must assign the user **Write** permissions on the Microsoft Sentinel workspace. Notice the required extra permissions for each connector, as listed on the relevant connector page.
 
 - **Allow guest users to assign incidents**
 
@@ -126,7 +125,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 |     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
 |  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
 
-More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Security Administrator role, to set up data connectors for services in other Microsoft portals.
+More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Security Administrator role, to [manage multiple workspaces](workspaces-defender-portal.md#permissions-to-manage-workspaces-and-view-workspace-data), or to set up data connectors for services in other Microsoft portals.
 
 ## Resource-based access control
 

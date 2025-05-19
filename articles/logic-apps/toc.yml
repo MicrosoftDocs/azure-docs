@@ -95,7 +95,7 @@ items:
     items:
     - name: Overview
       href: single-tenant-overview-compare.md
-    - name: About the Standard workflow designer
+    - name: Navigate the Standard workflow designer
       href: designer-overview.md
     - name: Built-in versus Azure connector operations
       href: ../connectors/compare-built-in-azure-connectors.md
@@ -121,6 +121,8 @@ items:
       href: add-run-powershell-scripts.md
     - name: Parse or chunk content
       href: parse-document-chunk-text.md
+    - name: Create chat completions with prompt templates
+      href: connectors/create-chat-completions-prompt-template.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
@@ -463,6 +465,10 @@ items:
       href: update-workflow-definition-language-schema.md
   - name: Test
     items:
+    - name: Create unit tests from Standard workflow definitions
+      href: create-unit-tests-standard-workflow-definitions-visual-studio-code.md
+    - name: Create unit tests from Standard workflow runs
+      href: create-unit-tests-standard-workflow-runs-visual-studio-code.md      
     - name: Test workflows with mock outputs
       href: test-logic-apps-mock-data-static-results.md
   - name: Deploy

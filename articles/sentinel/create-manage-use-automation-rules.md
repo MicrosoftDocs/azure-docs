@@ -6,8 +6,8 @@ author: batamig
 ms.author: bagol
 ms.date: 10/16/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -70,11 +70,11 @@ If you want to create an automation rule to apply to a specific analytics rule, 
 
 1. From the **Automation** page in the Microsoft Sentinel navigation menu, select **Create** from the top menu and choose **Automation rule**.
 
-    #### [Azure portal](#tab/azure-portal)
-    :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation.png" alt-text="Screenshot of creating a new automation rule in the Automation page." lightbox="./media/create-manage-use-automation-rules/add-rule-automation.png":::
-
     #### [Defender portal](#tab/defender-portal)
     :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation-defender.png" alt-text="Screenshot of creating a new automation rule in the Automation page." lightbox="./media/create-manage-use-automation-rules/add-rule-automation-defender.png":::
+
+    #### [Azure portal](#tab/azure-portal)
+    :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation.png" alt-text="Screenshot of creating a new automation rule in the Automation page." lightbox="./media/create-manage-use-automation-rules/add-rule-automation.png":::
 
     ---
 

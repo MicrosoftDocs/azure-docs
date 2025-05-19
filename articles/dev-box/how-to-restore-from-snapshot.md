@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: article
-ms.date: 03/13/2025
+ms.date: 04/29/2025
 
 #customer intent: As a developer, I want to restore my dev box from a snapshot so that I can perform testing, or quickly recover from critical issues.
 ---
@@ -25,6 +25,12 @@ Dev Box automatically takes snapshots, retains them for each dev box, and overwr
 | **Product**       | **Requirements**  |
 |-------------------|-------------------|
 | **Microsoft Dev Box**   | - Access to a dev box in the developer portal |
+
+## How does Dev Box manage snapshots?
+
+Microsoft Dev Box automatically takes short snapshots every 12 hours and long snapshots every 7 days.  It retains snapshots for 28 days on a rotating basis, overwriting the oldest snapshot when necessary. 
+
+The retention period includes 10 short snapshots and 4 long snapshots, totaling 14 snapshots over 28 days. Once the maximum number of snapshots is reached, the oldest one will be deleted. Short snapshots and long snapshots operate independently.
 
 ## Restore your dev box from a snapshot
 

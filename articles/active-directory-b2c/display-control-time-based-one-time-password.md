@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # TOTP display control
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Use time-based one-time password (TOTP) [display controls](display-controls.md) to enable multifactor authentication using the TOTP method. End users need to use an authenticator app that generates TOTP codes, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) or any other authenticator app that supports TOTP verification.
 

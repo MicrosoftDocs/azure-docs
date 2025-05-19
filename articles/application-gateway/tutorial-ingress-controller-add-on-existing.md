@@ -54,6 +54,12 @@ To configure more parameters for the above command, see [az aks create](/cli/azu
 > [!NOTE]
 > A node resource group will be created with the name **MC_resource-group-name_cluster-name_location**.
 
+>[!NOTE]
+>If you are planning on using AGIC with an AKS cluster using CNI Overlay, specify the parameter `--aks-custom-headers AKSHTTPCustomFeatures=Microsoft.ContainerService/AppGatewayWithOverlayPreview` to configure AGIC to handle connectivity to the CNI Overlay enabled cluster.
+
+>[!WARNING]
+>This document assumes Azure CNI is installed in the AKS cluster. If you are planning on using CNI Overlay, you must ensure Application Gateway and the AKS cluster are part of the same virtual network.
+
 ## Deploy a new application gateway 
 
 You'll now deploy a new application gateway, to simulate having an existing application gateway that you want to use to load balance traffic to your AKS cluster, **myCluster**. The name of the application gateway will be **myApplicationGateway**, but you'll need to first create a public IP resource, named **myPublicIp**, and a new virtual network called **myVnet** with address space 10.0.0.0/16, and a subnet with address space 10.0.0.0/24 called **mySubnet**, and deploy your application gateway in **mySubnet** using **myPublicIp**. 

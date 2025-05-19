@@ -9,15 +9,15 @@ items:
     - name: IoT solution components
       expanded: true
       items:
-      - name: Device development
+      - name: Asset and device development
         href: iot-overview-device-development.md
-      - name: Device connectivity
+      - name: Asset and device connectivity
         href: iot-overview-device-connectivity.md
-      - name: Device management and control
+      - name: Asset and device management and control
         href: iot-overview-device-management.md
       - name: Process and route messages
         href: iot-overview-message-processing.md
-      - name: Extend your IoT solution
+      - name: Extend your solution
         href: iot-overview-solution-extensibility.md
       - name: Analyze and visualize your IoT data
         href: iot-overview-analyze-visualize.md

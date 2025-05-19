@@ -5,7 +5,7 @@ services: storage
 author: JasonYeMSFT
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/30/2021
 ms.author: chuye
 ---

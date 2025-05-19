@@ -509,7 +509,7 @@ This section has detailed steps for doing specific tasks in the configuration an
 
 ### <a name="31d9ecd6-b136-4c73-b61e-da4a29bbc9cc"></a>Join a VM to an on-premises domain (Windows only)
 
-If you deploy SAP VMs in a cross-premises scenario, where on-premises Active Directory and DNS are extended in Azure, it's expected that the VMs are joining an on-premises domain. The detailed steps you take to join a VM to an on-premises domain, and the additional software required to be a member of an on-premises domain, varies by customer. Usually, to join a VM to an on-premises domain, you need to install additional software, like antimalware software, and backup or monitoring software.
+If you deploy SAP VMs in a cross-premises scenario, where on-premises Active Directory and DNS are extended in Azure, it's expected that the VMs are joining an on-premises domain. The detailed steps you take to join a VM to an on-premises domain, and the additional software required to be a member of an on-premises domain, varies by customer. Usually, to join a VM to an on-premises domain, you need to install additional software, like anti-malware software, and backup or monitoring software.
 
 In this scenario, you also need to make sure that if Internet proxy settings are forced when a VM joins a domain in your environment, the Windows Local System Account (S-1-5-18) in the Guest VM has the same proxy settings. The easiest option is to force the proxy by using a domain Group Policy, which applies to systems in the domain.
 
@@ -596,7 +596,7 @@ Set the following parameters:
 
 If you want to use the Azure repositories, make sure that the traffic to these repositories isn't going through your on-premises intranet. If you created user-defined routes to enable forced tunneling, make sure that you add a route that routes traffic to the repositories directly to the Internet, and not through your site-to-site VPN connection.
 
-The VM Extension for SAP also needs to be able to access the internet. Make sure to install the new VM Extension for SAP and follow the steps in [Configure the Azure VM extension for SAP solutions with Azure CLI](vm-extension-for-sap-new.md#fa4428b9-bed6-459a-9dfb-74cc27454481) in the VM Extension for SAP installation guide to configure the proxy.
+The VM Extension for SAP also needs to be able to access the internet. Make sure to install the new VM Extension for SAP and follow the steps in [Configure the Azure VM extension for SAP solutions](vm-extension-for-sap-new.md#configure) in the VM Extension for SAP installation guide to configure the proxy.
 
 * **SLES**
 

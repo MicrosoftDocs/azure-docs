@@ -19,6 +19,8 @@ ms.subservice: b2c
 
 # API connector REST API samples
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 The following tables provide links to code samples for using web APIs in your user flows using [API connectors](api-connectors-overview.md). These samples are primarily designed to be used with built-in user flows.
 
 ## Azure Function quickstarts

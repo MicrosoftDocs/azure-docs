@@ -115,6 +115,9 @@
           - name: ARM template
             displayName: Resource Manager
             href: functions-create-first-function-resource-manager.md
+          - name: Terraform
+            displayName: Terraform, quickstart, get started
+            href: functions-create-first-function-terraform.md
         - name: Azure Container Apps
           href: functions-deploy-container-apps.md
           displayName: container, Docker, ACA
@@ -415,12 +418,16 @@
         - name: Isolated worker model
           displayName: .NET isolated
           href: dotnet-isolated-process-guide.md
-        - name: In-process model
-          href: functions-dotnet-class-library.md
-        - name: Script (.csx)
-          href: functions-reference-csharp.md
-        - name: Execution mode comparison
-          href: dotnet-isolated-in-process-differences.md
+        - name: .NET Aspire integration (Preview)
+          href: dotnet-aspire-integration.md
+        - name: Legacy models
+          items:
+            - name: Execution mode comparison
+              href: dotnet-isolated-in-process-differences.md
+            - name: In-process model
+              href: functions-dotnet-class-library.md
+            - name: Script (.csx)
+              href: functions-reference-csharp.md
     - name: JavaScript
       href: functions-reference-node.md?tabs=javascript
     - name: TypeScript
@@ -477,12 +484,23 @@
             - name: Core Tools development
               href: functions-run-local.md
               displayName: local, runtime
+        - name: Create a function app
+          items:
+            - name: Infrastructure as code
+              href: functions-infrastructure-as-code.md
+              displayName: bicep, ARM template, create function app 
+            - name: Azure portal 
+              href: functions-create-function-app-portal.md
+              displayName: create function app
+            - name: Azure CLI  
+              href: ./scripts/functions-cli-create-serverless.md
+              displayName: create function app
         - name: Create functions
           items:
             - name: HTTP trigger
               items:
                 - name: Azure portal
-                  href: functions-create-function-app-portal.md
+                  href: functions-create-http-endpoint.md
                 - name: Kotlin using IntelliJ
                   href: functions-create-maven-kotlin-intellij.md
                 - name: Consumption plan
@@ -538,7 +556,7 @@
           href: bring-dependency-to-functions.md
         - name: Develop Python worker extensions
           href: develop-python-worker-extensions.md
-    - name: Deploy
+    - name: Deploy 
       items:
         - name: Continuous deployment
           href: functions-continuous-deployment.md
@@ -561,9 +579,6 @@
           href: deployment-zip-push.md
         - name: Run from package
           href: run-functions-from-deployment-package.md
-        - name: Automate resource deployment
-          href: functions-infrastructure-as-code.md
-          displayName: bicep, ARM template
         - name: Deploy using the Jenkins plugin
           href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json
     - name: Configure
@@ -581,8 +596,6 @@
           href: disable-function.md
         - name: Networking
           href: configure-networking-how-to.md
-        - name: Relocate to another region
-          href: ../operational-excellence/relocation-functions.md?toc=/azure/azure-functions/toc.json
         - name: Work with legacy Functions Proxies
           href: legacy-proxies.md
     - name: Monitor
@@ -736,17 +749,20 @@
   items:
     - name: Migrate from AWS Lambda
       items:
+        - name: Migrate from AWS Lambda
+          href: migration/migrate-aws-lambda-to-azure-functions.md
+          displayName: AWS Lambda, migration
         - name: Overview
-          href: migration/lambda-functions-migration-overview.md
+          href: migration/migrate-lambda-workloads-overview.md
           displayName: AWS Lambda, migration
         - name: Discover
-          href: migration/lambda-functions-migration-discover.md
+          href: migration/discover-lambda-workloads.md
           displayName: AWS Lambda, migration
         - name: Assess
-          href: migration/lambda-functions-migration-assess.md
+          href: migration/assess-lambda-workloads.md
           displayName: AWS Lambda, migration
         - name: Migrate
-          href: migration/lambda-functions-migration-migrate.md
+          href: migration/migrate-lambda-workloads.md
           displayName: AWS Lambda, migration   
     - name: Upgrade runtime versions
       items:
@@ -761,7 +777,14 @@
           displayName: upgrade, migrate, language stack
         - name: Migrate Node.js to model v4.x
           href: functions-node-upgrade-v4.md
-
+    - name: Migrate .NET apps to the isolated model
+      href: migrate-dotnet-to-isolated-model.md
+    - name: Move resources
+      items:
+        - name: Move between subscriptions
+          href: /azure/azure-resource-manager/management/move-resource-group-and-subscription?toc=%2Fazure%2Fazure-functions%2Ftoc.json
+        - name: Move to other regions
+          href: /azure/operational-excellence/relocation-functions?toc=%2Fazure%2Fazure-functions%2Ftoc.json
 - name: Reference
   items:
     - name: API references

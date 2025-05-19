@@ -63,15 +63,21 @@
     - name: Jobs
       href: jobs.md
     - name: Dynamic sessions
-      href: sessions.md
+      items:
+      - name: Overview
+        href: sessions.md
+      - name: Usage
+        href: sessions-usage.md
+      - name: Session pools
+        href: session-pool.md
     - name: Microservices
       href: microservices.md
     - name: Planned maintenance
       href: planned-maintenance.md
     - name: Build and deliver apps with Container Apps (video)
       href: https://youtu.be/OxmVds31qL8
-    - name: Reduce cold-start times
-      href: cold-start.md
+    - name: Communicate between multiple apps
+      href: connect-apps.md
 - name: Develop & deploy
   items:
     - name: Deployment options
@@ -91,7 +97,7 @@
             - name: Overview
               href: services.md
               displayName: Connecting to services overview
-        - name: Connect multiple apps
+        - name: Communicate between multiple apps
           href: connect-apps.md
         - name: Connect to a cloud service using Service Connector
           items:
@@ -129,6 +135,12 @@
           href: storage-mounts.md
         - name: Create an Azure Files storage mount
           href: storage-mounts-azure-files.md
+    - name: Use Azure Functions
+      items:
+        - name: Overview
+          href: functions-overview.md
+        - name: Create a Functions app
+          href: functions-usage.md
     - name: Use dynamic sessions
       items:
         - name: Code interpreter sessions
@@ -157,6 +169,8 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
+    - name: Workflows
+      href: workflows-overview.md
     - name: Troubleshooting
       items:
         - name: Overview
@@ -211,6 +225,8 @@
       displayName: Scale rules and performance overview
     - name: Scale a container app
       href: tutorial-scaling.md
+    - name: Reduce cold-start times
+      href: cold-start.md
 - name: Domains & certificates
   items:
   - name: Overview
@@ -301,7 +317,7 @@
           href: microservices-dapr.md
         - name: Deploy using ARM or Bicep
           href: microservices-dapr-azure-resource-manager.md
-        - name: Enable Dapr on an existing container app
+        - name: Configure Dapr on an existing container app
           href: enable-dapr.md
         - name: Deploy using the Dapr extension for Azure Functions
           href: dapr-functions-extension.md
@@ -362,8 +378,12 @@
           href: waf-app-gateway.md
         - name: Enable User Defined Routes (UDR)
           href: user-defined-routes.md
-        - name: Use rule-based routing
-          href: rule-based-routing.md
+        - name: Rule based routing
+          items:
+          - name: Use rule-based routing
+            href: rule-based-routing.md
+          - name: Configure a custom domain
+            href: rule-based-routing-custom-domain.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
         - name: Use a private endpoint
@@ -388,6 +408,9 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Introduction to containers
+        href: java-containers-intro.md
+        displayName: java
       - name: Turn on Java features
         href: java-feature-switch.md
         displayName: java
@@ -396,7 +419,7 @@
         displayName: java
       - name: Build environment variables (preview)
         href: java-build-environment-variables.md
-        displayName: java    
+        displayName: java
       - name: Launch your first Java app
         items:
         - name: Dockerfile
@@ -414,14 +437,13 @@
       - name: Artificial intelligence
         items:
         - name: PetClinic AI
-          items: 
+          items:
           - name: Overview
             href: java-petclinic-ai-overview.md
             displayName: java
           - name: Deploy the PetClinic AI sample
             href: java-petclinic-ai-tutorial.md
             displayName: java
-        displayName: java
       - name: Java components
         items:
         - name: Launch your first Java microservice apps with managed Java components
@@ -468,7 +490,7 @@
           href: java-dynamic-log-level.md
           displayName: java
     - name: JavaScript
-      items: 
+      items:
       - name: Overview
         href: javascript-overview.md
         displayName: javascript, typescript, node.js
@@ -478,12 +500,16 @@
       href: billing.md
     - name: Quotas
       href: quotas.md
+    - name: Make quota requests
+      href: quota-requests.md
 - name: Product updates
   items:
     - name: What's new
       href: whats-new.md
 - name: API docs & reference
   items:
+    - name: Azure Container Apps extension release notes
+      href: container-apps-extension-release-notes.md
     - name: ARM & YAML specifications
       href: azure-resource-manager-api-spec.md
     - name: Azure CLI

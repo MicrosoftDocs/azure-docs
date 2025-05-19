@@ -8,7 +8,7 @@ ms.reviewer: sonwan
 ms.service: azure-container-apps
 ms.topic: tutorial
 ms.date: 02/12/2025
-ms.custom:
+ms.custom: devx-track-java
 #customer intent: As a developer, I want to see a simple example of an AI application deployed to Azure Container Apps.
 ---
 

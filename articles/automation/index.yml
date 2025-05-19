@@ -93,3 +93,10 @@ landingContent:
         links:
           - text: Deploy a Resource Manager template in an Automation PowerShell runbook
             url: automation-deploy-template-runbook.md
+  
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Recommendations to implement Automation
+            url: /azure/well-architected/operational-excellence/automate-tasks#evaluate-tasks-to-automate
