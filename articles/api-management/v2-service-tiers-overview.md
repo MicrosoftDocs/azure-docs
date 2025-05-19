@@ -48,7 +48,7 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 * **Standard v2** and **Premium v2** support **virtual network integration** to allow your API Management instance to reach API backends that are isolated in a single connected virtual network. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](integrate-vnet-outbound.md).
 
-    In preview, *Standard v2* also supports inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
+* **Standard v2** also supports inbound [private endpoint connections](private-endpoint.md) to the API Management gateway.
 
 * **Premium v2** also supports simplified **virtual network injection** for complete isolation of inbound and outbound gateway traffic without requiring network security group rules, route tables, or service endpoints. The virtual network must be in the same region and subscription as the API Management instance. [Learn more](inject-vnet-v2.md).
 
