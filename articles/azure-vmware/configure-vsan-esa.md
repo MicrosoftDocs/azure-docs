@@ -3,8 +3,8 @@
 # For more information, see https://learn.microsoft.com/en-us/help/platform/learn-editor-add-metadata
 # For valid values of ms.service, ms.prod, and ms.topic, see https://learn.microsoft.com/en-us/help/platform/metadata-taxonomies
 
-title: Configure VMware vSAN (ESA)
-description: Configure VMware vSAN (ESA)
+title: Configure VMware vSAN ESA
+description: Configure VMware vSAN ESA
 author:      jkpravinkumar # GitHub alias
 ms.author:   pjeyakumar # Microsoft alias
 ms.service: azure-vmware
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date:     05/12/2025
 ---
 
-# Configure VMware vSAN (ESA)
+# Configure VMware vSAN ESA
 
 VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) offers enhanced capabilities that are configured by default with each Azure VMware Solution deployment. Each cluster uses its own high-performance vSAN ESA datastore. The following table shows the Azure VMware Solution host types that support vSAN ESA as the default architecture type, along with the configurations per cluster:
 
@@ -36,7 +36,7 @@ In this article, you learn more about:
 ## Supported host types
 vSAN ESA (Express Storage Architecture) is supported on the following Azure VMware Solution host types:
 
-- AV48 (Korea Central)
+- AV48
 
 ## Supported vSAN services
 
@@ -63,7 +63,7 @@ The following table shows the list of vSAN features available in Azure VMware So
 Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vSAN ESA. Run command `Set-AVSVSANClusterUNMAPTRIM` isn't applicable for vSAN ESA based clusters.
 
 > [!NOTE]
-> - vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following other requirements are needed for it to function as intended.
+> - vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following lists additional requirements are needed for it to function as intended.
 > - All VMs in vSAN ESA clusters are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
 > - The guest operating system must be able to identify the virtual disk as thin.
 
