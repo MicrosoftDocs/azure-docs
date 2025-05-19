@@ -1,6 +1,6 @@
 --- 
-title: Set Up and Connect to Azure Dev Box Using VS Code
-description: Learn how to set up and connect to your Azure Dev Box using the Open in VS Code feature. Follow step-by-step instructions to provision a Dev Box, install the Dev Box extension, enable tunnels, and connect remotely for development.
+title: Set Up Dev Tunnels and Connect to Microsoft Dev Box Using VS Code
+description: Learn how to set up and connect to your Microsoft Dev Box using the Open in VS Code feature. Follow step-by-step instructions to provision a Dev Box, install the Dev Box extension, enable tunnels, and connect remotely for development.
 author: RoseHJM
 contributors:
 ms.topic: how-to
@@ -9,19 +9,17 @@ ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
 ---
 
-# Set up and connect to your Dev Box via VS Code
+# Set up Dev Tunnels in VS Code 
 
-Azure Dev Box lets you set up and manage cloud-based development environments. This article shows you how to set up and connect to your Azure Dev Box using Visual Studio Code. You'll learn how to register for the Open in VS Code feature, install the required extension, enable secure tunnels, and connect remotely for a seamless development experience. Follow these steps to get started quickly and work efficiently from anywhere.
+Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-based development environments. This article explains how to set up Dev Tunnels and connect to your Dev Box from VS Code. You'll learn how to install the required extension, enable secure tunnels, and connect remotely for a streamlined development experience. Follow these steps to get started quickly and work efficiently from anywhere.
 
-In this article, you'll learn how to connect to Dev Box with the Open in VS Code feature.
+## Prerequisites
+- A dev box.
+    - If you don't have a dev box, create one following these steps: [Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal](quickstart-create-dev-box.md)
 
-Steps to connect to Dev Box with Open in VS Code Feature
+## Configure a dev tunnel
 
-1. Provision a Dev Box
-
-   You can skip this step if you already have a Dev Box.
-
-   Sign in to [Developer Portal](https://devportal.microsoft.com/) with your Microsoft account, and create a Dev Box. 
+Follow these steps to set up a dev tunnel and connect to your dev box using VS Code.
 
 1. Install VS Code extension
 
