@@ -25,6 +25,7 @@ When you enable Private Link to your origin in Azure Front Door Premium, Front D
 
 > [!IMPORTANT]
 > You must approve the private endpoint connection before traffic can pass to the origin privately. You can approve private endpoint connections by using the Azure portal, Azure CLI, or Azure PowerShell. For more information, see [Manage a Private Endpoint connection](../private-link/manage-private-endpoint.md).
+> Azure Front Door doesn't allow mixing public and private origins in the same origin group.
 
 After you enable an origin for Private Link and approve the private endpoint connection, it can take a few minutes for the connection to be established. During this time, requests to the origin receives an Azure Front Door error message. The error message goes away once the connection is established.
 
@@ -39,8 +40,8 @@ Origin support for direct private endpoint connectivity is currently limited to:
 * Storage Static Website
 * API Management
 * Application Gateway
-* Azure Container Apps (Public Preview. Don't use in production environments)
-
+* Azure Container Apps
+  
 > [!NOTE]
 > * This feature isn't supported with Azure App Service Slots or Functions.
 

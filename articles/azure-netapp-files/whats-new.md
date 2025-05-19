@@ -14,11 +14,17 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## May 2025
+
 * The ability to [transition an existing volume to customer-managed keys](configure-customer-managed-keys.md#transition) is now generally available (GA)
 
     You can now transition existing volumes from platform-managed keys to customer-managed keys seamlessly. This provides you flexibility of encryption key lifecycle (renewals, rotations) and additional security for regulated industry requirements. 
-    
-## May 2025
+
+* [Application volume group for Oracle](configure-application-volume-oracle-api.md#replication) now supports cross-zone and cross-region replication (preview)
+
+    [Application volume group for Oracle](application-volume-group-oracle-introduction.md) now supports [cross-region](cross-region-replication-introduction.md) and [cross-zone replication](cross-zone-replication-introduction.md) to improve the resilience and data protection of your Oracle deployments. With cross-zone and cross-region replication, Azure NetApp Files only replicates changed blocks across regions or zones, enabling a lower restore point objective. To understand more of the benefits of each option, see [Understand data protection and disaster recovery options in Azure NetApp Files](data-protection-disaster-recovery-options.md).
+
+    Cross-zone and cross-region replication for application volume group for Oracle is currently only supported in the REST API. This feature is in preview. 
 
 * [Cross-zone-region replication](cross-zone-region-replication-configure.md) (preview)
 

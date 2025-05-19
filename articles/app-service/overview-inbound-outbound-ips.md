@@ -20,6 +20,9 @@ An App Service app runs in an App Service plan, and App Service plans are deploy
 
 Because you're not allowed to move an App Service plan between deployment units, the virtual IP addresses assigned to your app usually remain the same, but there are exceptions.
 
+> [!NOTE]
+> The Premium V4 tier does not provide a stable set of outbound IP addresses.  This behavior is intentional.  Although applications running on the Premium V4 tier can make outbound calls to internet-facing endpoints, the App Service platform does not provide a stable set of outbound IP addresses for the Premium V4 tier.  This is a change in behavior from previous App Service pricing tiers.  The portal will show "Dynamic" for outbound IP addresses and additional outbound IP addresses information for applications using Premium V4.  ARM and CLI calls will return empty strings for the values of *outboundIpAddresses* and *possibleOutboundIpAddresses*.  If applications running on Premium V4 require a stable outbound IP address(es), developers will need to use a solution like [Azure NAT Gateway](overview-nat-gateway-integration.md) to get a predictable IP address for outbound internet-facing traffic.
+
 ## When inbound IP changes
 
 Regardless of the number of scaled-out instances, each app has a single inbound IP address. The inbound IP address may change when you perform one of the following actions:

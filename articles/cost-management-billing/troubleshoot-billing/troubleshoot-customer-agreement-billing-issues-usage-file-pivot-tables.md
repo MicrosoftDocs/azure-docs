@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure MCA billing issues with usage file pivot tables
 description: This article helps you troubleshoot Microsoft Customer Agreement (MCA) billing issues using pivot tables created from your CSV usage files.
-author: banders
-ms.reviewer: isvargas
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 03/21/2024
-ms.author: banders
+ms.author: jkinma
 ---
 
 # Troubleshoot MCA billing issues with usage file pivot tables
