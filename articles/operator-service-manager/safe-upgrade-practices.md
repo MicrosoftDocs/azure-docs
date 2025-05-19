@@ -53,7 +53,7 @@ When planning for an upgrade using Azure Operator Service Manager, address the f
   - In most cases, use the existing publisher to host new version artifacts.
     - Using an existing publisher supports `helm upgrade` to update an SNS to a different version.
     - Using a new publisher requires a `helm delete` on the current SNS and then a `helm install` for the new SNS version.
-  - Artifact store, network service design group (NSDG), and network function design group (NFDG) are immutable and cannot change.
+  - Artifact store, network service design group (NSDG), and network function design group (NFDG) are immutable and can't change.
     - Changing one of these resources requires deployment of a new SNS.
   - A new artifact manifest is needed to store the new charts and images.
     - See [onboarding documentation](how-to-manage-artifacts-nexus.md) for details on uploading new charts and images.
@@ -99,7 +99,7 @@ In cases where a reput update fails, the following process can be followed to re
   * By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
 
 ## Control timeouts with installOptions and UpgradeOptions
-When an SNS operation starts either a helm install and helm upgrade, a 27 minute default timeout value. While this value can be customized at the global NF level, it's recommended to instead customize these values at the NF component level. This can be achieved by defining override values in the NF payload template. Further the values in the NF payload template and be exposed as operator values, allowing final customization at run-time. The following example demonstrates supported installOptions and upgradeOptions parameters applied to a single nfApp component;
+When an SNS operation starts either a helm install and helm upgrade, a 27-minute default timeout value. This value can be customized at the global NF, but we recommend to customize this value at the component NF levelby defining override values in the NF payload template. Further the values in the NF payload template and be exposed as operator values, allowing final customization at run-time. The following example demonstrates supported installOptions and upgradeOptions parameters applied to a single nfApp component;
 
 ```
 "roleOverrideValues": ["{ 
@@ -123,7 +123,7 @@ When an SNS operation starts either a helm install and helm upgrade, a 27 minute
 In the NFDV resource, under `deployParametersMappingRuleProfile` there's a supported property `applicationEnablement` of type enum, which takes values of Unknown, Enabled, or disabled. It can be used to manually exclude nfApp operations during network function (NF) deployment. The following example demonstrates a generic method to parameterize `applicationEnablement` as an included value in `roleOverrideValues` property.
 
 ### Template changes
-While no NFDV changes are necessarily required, optionally the publisher can use the NFDV to set a default value for the `applicationEnablement` property. The default value will be used, unless its changed via `roleOverrideValues`. 
+While no NFDV changes are necessarily required, optionally the publisher can use the NFDV to set a default value for the `applicationEnablement` property. The default value is used, unless its changed via `roleOverrideValues`. 
 
 #### NFDV template
 Use the NFDV template to set a default value for `applicationEnablement`. The following example sets `enabled` state as the default value for `hellotest` networkfunctionApplication. 
@@ -143,10 +143,10 @@ Use the NFDV template to set a default value for `applicationEnablement`. The fo
       }
 ```
 
-To manage the `applicationEnablement` value more dynamically, the Operator can pass a real-time value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead it's suggested to parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. This requires the following modifications to the CGS, NF templates and finally the CGV.
+To manage the `applicationEnablement` value more dynamically, the Operator can pass a real-time value using the NF template `roleOverrideValues` property. While it's possible for the operator to manipulate the NF template directly, instead parameterize the `roleOverrideValues`, so that values can be passed via a CGV template at runtime. The following examples demonstrate the needed modifications to the CGS, NF templates, and finally the CGV.
 
 #### CGS template
-The CGS template must be updated to include one variable declaration for each line to parameterize under `roleOverrideValues`. The below example demonstrates three override values, one to for nfConfiguration [0] and two for nfApplication options [1,2].
+The CGS template must be updated to include one variable declaration for each line to parameterize under `roleOverrideValues`. The following example demonstrates three override values.
 
 ```json
         "roleOverrideValues0": {
@@ -161,7 +161,7 @@ The CGS template must be updated to include one variable declaration for each li
 ```
 
 #### NF payload template
-The NF template must be update three ways. First, the implicit config parameter must be defined as type object. Second, roleOverrideValues0, roleOverrideValues1 and roleOverrideValues2 must be declared as variables mapped to config parameter. Third, roleOverrideValues0, roleOverrideValues1 and roleOverrideValues2 must be referenced for substitution under `roleOverrideValues` in proper order and following proper syntax.
+The NF template must be update three ways. First, the implicit config parameter must be defined as type object. Second, `roleOverrideValues0`, `roleOverrideValues1`, and `roleOverrideValues2` must be declared as variables mapped to config parameter. Third, `roleOverrideValues0`, `roleOverrideValues1` and `roleOverrideValues2` must be referenced for substitution under `roleOverrideValues` in proper order and following proper syntax.
 
 ```json
   "parameters": {
@@ -187,7 +187,7 @@ The NF template must be update three ways. First, the implicit config parameter 
 ```
 
 #### CGV template
-The CGV template can now be updated to include the content for each variable to be substituted into `roleOverrideValues` property at run-time. The below example sets `rollbackEnabled` to true, followed by override sets for `hellotest` and `hellotest1` nfApplications.
+The CGV template can now be updated to include the content for each variable to be substituted into `roleOverrideValues` property at run-time. The following example sets `rollbackEnabled` to true, followed by override sets for `hellotest` and `hellotest1` nfApplications.
 
 ```json
 {
@@ -241,7 +241,7 @@ To enable the SkipUpgrade feature via `roleOverrideValues`, refer to the followi
 
 
 ## Complete roleOverrideValues option reference
-Bringing together all prior examples in this article, as well as examples in other articles, the below reference provides all presently supported install and upgrade options which can be set through the `roleOverrideValues` mechanism. This example includes setting the `nfConfiguration` level options, and then options for `nfApplication1` and `nfApplication2`
+Bringing together all examples in this and other articles, the following reference demonstrates all presently supported install and upgrade options available through the `roleOverrideValues` mechanism.
 
 ```json
 {
