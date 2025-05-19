@@ -141,7 +141,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    ```csharp
    //------------------------------------------------------------
    // Copyright (c) Microsoft Corporation. All rights reserved.
-    //------------------------------------------------------------
+   //------------------------------------------------------------
     
     namespace Contoso
     {
