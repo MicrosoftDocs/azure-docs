@@ -27,7 +27,7 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
-    - title: Arize AI (preview)
+    - title: Arize AI
       imageSrc: ./media/index/arize-ai.svg
       links: 
       - url: ./arize-ai/overview.md
