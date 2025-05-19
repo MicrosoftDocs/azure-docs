@@ -20,7 +20,7 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 ### Training resources
 
-See the [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
+See the [Build reusable Bicep files by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
 
 ## Define parameters
 
