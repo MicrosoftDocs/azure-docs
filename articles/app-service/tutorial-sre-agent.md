@@ -10,7 +10,7 @@ ms.date: 05/18/2025
 # Troubleshoot an App Service app using Azure SRE Agent (preview)
 
 > [!NOTE]
-> Site Reliability Engineering (SRE) Agent is in preview. By using SRE Agent, you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure SRE Agent is in preview. By using SRE Agent, you consent the product-specific [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Site Reliability Engineering (SRE) focuses on creating reliable, scalable systems through automation and proactive management. An SRE Agent brings these principles to your cloud environment by providing AI-powered monitoring, troubleshooting, and remediation capabilities. An SRE Agent automates routine operational tasks and provides reasoned insights to help you maintain application reliability while reducing manual intervention. Available as a chatbot, you can ask questions and give natural language commands to maintain your applications and services. To ensure accuracy and control, any agent action taken on your behalf requires your approval.
 
@@ -269,6 +269,7 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
 1. After a pause, the agent prompts you to approve the rollback:
 
     > *Performing Slot Swap rollback to Restore Application Availability for my-sre-app*
+    >
     > **[Approve]**   **[Deny]**
 
 1. Select **Approve** to initiate the rollback.
@@ -288,7 +289,7 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
 1. Open your App Service app in a browser by selecting **Browse** from the **Overview** page.
 
-1. Notice the text "ERROR INJECTION ENABLED" no longer appears.
+1. Notice that the text "ERROR INJECTION ENABLED" no longer appears, confirming the app has reverted to its original state.
 
 1. Select the **Increment** button six times to ensure no errors take place.
 
