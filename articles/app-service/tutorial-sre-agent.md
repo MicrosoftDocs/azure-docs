@@ -133,7 +133,7 @@ To simulate an app failure scenario, add a secondary deployment slot.
 
 1. Select **Save** to apply the deployment settings.
 
-## 5. Add an app setting to enable error simulation
+### Add an app setting to enable error simulation
 
 To control error simulation, configure an app setting your app checks at runtime.
 
@@ -152,7 +152,7 @@ To control error simulation, configure an app setting your app checks at runtime
 1. At the bottom of the *Environment variables* page, select **Apply** to apply the changes.
 1. When prompted, select **Confirm** to confirm and restart the app in the selected slot.
 
-## 6. Create an Azure SRE Agent
+## 5. Create an Azure SRE Agent
 
 Now, create an Azure SRE Agent to monitor your App Service app.
 
@@ -178,7 +178,7 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. Back in the *Create agent* window, select **Create**. The agent creation process takes a few minutes to complete.
 
-## 7. Chat with your agent
+## 6. Chat with your agent
 
 Once your SRE Agent is deployed and connected to your resource group, you can interact with it using natural language to monitor and troubleshoot your app.
 
@@ -198,7 +198,7 @@ Once your SRE Agent is deployed and connected to your resource group, you can in
 
 Now that the agent can see your app, you’re ready to simulate a failure and let the agent help you resolve it.
 
-## 8. Break the app
+## 7. Break the app
 
 Now simulate a failure scenario by swapping to the broken deployment slot.
 
@@ -225,7 +225,7 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Refresh the page (by pressing Command-R or F5) several times to generate additional HTTP 500 errors, which help the SRE Agent detect and diagnose the issue.
 
-## 9. Fix the app
+## 8. Fix the app
 
 Now that the app is experiencing failures, use the SRE Agent to diagnose and resolve the issue.
 
@@ -258,12 +258,12 @@ Now that the app is experiencing failures, use the SRE Agent to diagnose and res
 
     > *The slot swap for my-sre-app has been completed successfully (timestamp). The production slot has been restored. I will now continue with post-mitigation steps:*
     > 
-    > *I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.*  
-    > *I will monitor the app and provide an availability update in 5 minutes.*  
+    > *I will ask you for the correct GitHub repo URL to raise an issue for the swap-related downtime.*
+    > *I will monitor the app and provide an availability update in 5 minutes.*
     > 
     > *Please provide the GitHub repository URL where you want the issue to be raised.*
 
-## 10. Verify the fix
+## 9. Verify the fix
 
 After the SRE Agent rolls back the slot swap, confirm that your app is functioning correctly.
 
