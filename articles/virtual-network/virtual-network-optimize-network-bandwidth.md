@@ -51,7 +51,7 @@ RSS is always enabled by default in an Azure Linux VM. Linux kernels released si
 
 ### Ubuntu for new deployments
 
-The Ubuntu on Azure kernel is the most optimized for network performance on Azure. Currently, all Ubuntu images by Canonical come by default with the optimized Azure kernel installed.
+The Ubuntu on Azure kernel is heavily optimized for excellent network performance on Azure. Currently, all Ubuntu images by Canonical come by default with the optimized Azure kernel installed.
 
 Use the following command to make sure that you're using the Azure kernel, which is identified by `-azure` at the end of the version.
 
@@ -91,7 +91,7 @@ Most modern distributions should have significant improvements with kernels newe
 
 ## Optimizing cross-region transfer speeds in Azure Linux VMs
 
-Azure Linux VMs often experience network performance issues, particularly when transferring large files (1GB to 50GB) between regions, such as West Europe and West US. These issues are caused by suboptimal kernel configurations, network buffer settings, and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
+Azure Linux VMs often experience network performance issues, particularly when transferring large files (1GB to 50GB) between regions, such as West Europe and West US. hese issues are caused by generic kernel configurations, network buffer settings, and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
 
 To enhance network performance, consider implementing the following optimizations that have been proven effective in a number of situations on Azure:
 
@@ -129,7 +129,7 @@ To enhance network performance, consider implementing the following optimization
   ACTION=="add|change", SUBSYSTEM=="net", KERNEL=="eth*", PROGRAM="/sbin/tc qdisc replace dev \$env{INTERFACE} root fq“ 
   ```
 
-- **IRQ scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. Update `/etc/default/irqbalance` with the following configuration: 
+- **IRQ scheduling**: Depending on your workload, you may wish to restrict the irqbalance service from scheduling IRQs on certain nodes. Update `/etc/default/irqbalance` to specify which CPUs should not have IRQs scheduled: 
 
   ```bash
   IRQBALANCE_BANNED_CPULIST=0-2 
