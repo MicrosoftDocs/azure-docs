@@ -265,6 +265,12 @@ Your Azure Front Door profile is now fully functional after completing the final
 
 ::: zone-end
 
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an Azure API Management origin with Azure Private Link enabled:
+* Adding the Azure API Management origin with Azure Private Link to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+
+
 ## Next step
 
 > [!div class="nextstepaction"]
