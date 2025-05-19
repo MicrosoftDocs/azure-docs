@@ -26,7 +26,7 @@ The conditional access policies work correctly for the Dev tunnels service. Beca
 
 ## Register Dev tunnels service to a tenant
 
-According to [Apps & service principals in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser), a service principal is created in each tenant where the application is used. However, this doesn't apply to the Dev tunnels service. This article doesn't explore the root conditional access use. If you know about app definitions, review the [Dev tunnels service app registration specification](https://msazure.visualstudio.com/One/_git/AAD-FirstPartyApps?path=/Customers/Configs/AppReg/46da2f7e-b5ef-422a-88d4-2a7f9de6a0b2/AppReg.Parameters.Production.json&version=GBmaster&_a=contents).
+According to [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser), a service principal is created in each tenant where an application is used. However, this doesn't apply to the Dev tunnels service. The Dev tunnels service is a Microsoft service, and the service principal is created in the Microsoft Entra ID tenant where the Dev tunnels service is registered. The Dev tunnels service app isn't registered to your tenant by default, so you need to register it manually.
 
 Therefore, we're using [Microsoft.Graph PowerShell](/powershell/module/microsoft.graph.authentication/connect-mggraph?view=graph-powershell-1.0&preserve-view=true) to register the app to a tenant.
 
