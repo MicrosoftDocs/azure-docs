@@ -14,39 +14,33 @@ ms.author: mgichohi
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Quickstart: Use chat completion configuration in a .NET console app
+# Use chat completion configuration in a .NET console app
 
-In this quickstart you will create a .NET console app with dynamic configuration enabled that retrieves and updates chat completion settings without requiring application restarts.
+In this guide, you build an AI chat application and iterate on the prompt using chat completion configuration dynamically loaded from Azure App Configuration.
 
 ## Prerequisites
 
 - Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config.md#create-a-chat-completion-configuration).
-- [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download)
+- [The latest .NET SDK](https://dotnet.microsoft.com/download)
 
 ## Create a console app
 
-1. Create a new folder for your project.
+1. Create a new folder for your project. In the new folder, run the following command to create a new .NET console app project:
 
-1. In the new folder, run the following command to create a new .NET console app project:
-    ```bash
+    ```dotnetcli
     dotnet new console
     ```
 
-1. Install the  required Nuget packages in your project:
+1. Install the following NuGet packages in your project:
 
-    ```bash
+    ```dotnetcli
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     dotnet add package Microsoft.Extensions.Configuration.Binder
     dotnet add package Azure.Identity
     dotnet add package Azure.AI.OpenAI --prerelease
     ```
 
-1. Run the following command to restore packages for your project:
-    ```bash
-    dotnet restore
-    ```
-
-1. Open the _Program.cs_, and add the following namespaces at the top of the file:
+1. Open the _Program.cs_ file, and add the following namespaces at the top of the file:
 
     ```csharp
     using Microsoft.Extensions.Configuration;
@@ -54,35 +48,63 @@ In this quickstart you will create a .NET console app with dynamic configuration
     using Azure.Identity;
     using Azure.AI.OpenAI;
     using OpenAI.Chat;
-
     ```
 
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the _Program.cs_ file.
 
-    You can connect to App Configuration using **Microsoft Entra ID (recommended)**, or a connection string. In this example, you use Microsoft Entra ID, the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow these [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to enable your application to access App Configuration by assigning the **App Configuration Data Reader** role to the identity represented by `DefaultAzureCredential`.
+    You can connect to App Configuration using either Microsoft Entra ID (recommended) or a connection string. In this example, you use Microsoft Entra ID with `DefaultAzureCredential` to authenticate to your App Configuration store. Follow these [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign the **App Configuration Data Reader** role to the identity represented by `DefaultAzureCredential`. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     var credential = new DefaultAzureCredential();
 
     IConfigurationRefresher _refresher = null;
 
+    // Connect to Azure App Configuration
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential)
-                    .Select("ChatLLM*")
+                    // Load all keys that start with `ChatLLM:` and have no label.
+                    .Select("ChatLLM:*")
+                    // Reload configuration if any selected key-values have changed.
+                    // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval.
                     .ConfigureRefresh(refresh =>
                     {
-                        refresh.RegisterAll()
-                               .SetRefreshInterval(TimeSpan.FromSeconds(10));
+                        refresh.RegisterAll();
                     });
 
                 _refresher = options.GetRefresher();
         }).Build();
+    ```
 
-    string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
+1. Create an instance of the `AzureOpenAIClient` to connect to your Azure OpenAI resource. You can use either Microsoft Entra ID or API key for authentication.
+
+    To access your Azure OpenAI resource with Microsoft Entra ID, you use `DefaultAzureCredential`. Assign the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role to the identity represented by `DefaultAzureCredential`. For detailed steps, refer to the [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control) guide. Be sure to allow sufficient time for the permission to propagate before running your application.
+
+    ```csharp
+    // Initialize the AzureOpenAIClient
+    var openAIEndpoint = configuration["ChatLLM:Endpoint"];
+    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), credential);
+    ```
+
+    To access your Azure OpenAI resource with an API key, add the following code:
+
+    ```csharp
+    // Initialize the AzureOpenAIClient
+    var apiKey = configuration["ChatLLM:ApiKey"];
+
+    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), new AzureKeyCredential(apiKey));
+    ```
+
+    If the key _ChatLLM:ApiKey_ is a Key Vault reference in App Configuration, make sure to add the following code snippet to the `AddAzureAppConfiguration` call and [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault)
+
+    ```cshrap
+    options.ConfigureKeyVault(keyVaultOptions =>
+    {
+        keyVaultOptions.SetCredential(credential);
+    });
     ```
 
 1. Define the `ModelConfiguration` class in _Program.cs_ file:
@@ -108,43 +130,6 @@ In this quickstart you will create a .NET console app with dynamic configuration
         public string Role { get; set; }
         public string Content { get; set; }
     }
-    ```
-
-1. Create an instance of the `AzureOpenAIClient`. Use the existing instance of `DefaultAzureCredential` you created in the previous step to authenticate to your Azure OpenAI resource. Assign your identity the [Cognitive Services OpenAI User](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-user) role or [Cognitive Services OpenAI Contributor](../role-based-access-control/built-in-roles/ai-machine-learning.md#cognitive-services-openai-contributor) role. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control). Be sure to allow sufficient time for the permission to propagate before running your application.
-
-    ```csharp
-    // Initialize the AzureOpenAIClient
-    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
-    ```
-
-1. Alternatively, you can authenticate to your Azure OpenAI resource using an API key stored as a Key Vault reference in App Configuration with the key name "ChatLLM:ApiKey". Ensure to [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault). To read the Key Vault reference, update your configuration builder code in _Program.cs_ as follows:
-
-    ```csharp
-    IConfiguration configuration = new ConfigurationBuilder()
-        .AddAzureAppConfiguration(options =>
-        {
-            string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
-
-            options.Connect(new Uri(endpoint), credential)
-                .Select("ChatLLM*")
-                .ConfigureKeyVault(keyVaultOptions =>
-                {
-                    keyVaultOptions.SetCredential(credential);
-                })
-                .ConfigureRefresh(refresh =>
-                {
-                    refresh.RegisterAll()
-                            .SetRefreshInterval(TimeSpan.FromSeconds(10));
-                });
-
-                _refresher = options.GetRefresher();
-        }).Build();
-
-    string apiKey = configuration["ChatLLM:ApiKey"];
-
-    // Initialize the AzureOpenAIClient with API key
-    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), new AzureKeyCredential(apiKey));
-
     ```
 
 1. Next, update the existing code in _Program.cs_ file to configure the chat completion options:
@@ -244,27 +229,30 @@ In this quickstart you will create a .NET console app with dynamic configuration
 
     IConfigurationRefresher _refresher = null;
 
+    // Connect to Azure App Configuration
     IConfiguration configuration = new ConfigurationBuilder()
         .AddAzureAppConfiguration(options =>
         {
             string endpoint = Environment.GetEnvironmentVariable("AZURE_APPCONFIGURATION_ENDPOINT");
 
             options.Connect(new Uri(endpoint), credential)
-                .Select("ChatLLM*")
-                .ConfigureRefresh(refresh =>
-                {
-                    refresh.RegisterAll()
-                            .SetRefreshInterval(TimeSpan.FromSeconds(10));
-                });
+                   // Load all keys that start with `ChatLLM:` and have no label.
+                   .Select("ChatLLM:*")
+                   // Reload configuration if any selected key-values have changed.
+                   // Use the default refresh interval of 30 seconds. It can be overridden via AzureAppConfigurationRefreshOptions.SetRefreshInterval
+                   .ConfigureRefresh(refresh =>
+                    {
+                        refresh.RegisterAll();
+                    });
 
             _refresher = options.GetRefresher();
 
         }).Build();
 
-    string modelEndpoint = configuration.GetSection("ChatLLM:Endpoint").Value;
+    var openAIEndpoint = configuration["ChatLLM:Endpoint"];
 
     // Initialize the AzureOpenAIClient
-    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(modelEndpoint), credential);
+    AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), credential);
 
     while (true)
     {
@@ -360,7 +348,7 @@ In this quickstart you will create a .NET console app with dynamic configuration
     ```
 
 1. After the environment variable is properly set, run the following command to run and build your app locally:
-    ``` bash
+    ```dotnetcli
     dotnet build
     dotnet run
     ```
