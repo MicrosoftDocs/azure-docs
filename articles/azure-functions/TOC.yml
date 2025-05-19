@@ -6,6 +6,8 @@
       href: functions-overview.md
     - name: Scenarios
       href: functions-scenarios.md
+    - name: AI-enabled functions
+      href: functions-create-ai-enabled-apps.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
