@@ -182,7 +182,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. In the designer, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add the [SQL Server managed action you want](/connectors/sql/#actions).
+1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to add the [SQL Server managed action you want](/connectors/sql/#actions).
 
    This example continues with the action named **Get row**, which gets a single record.
 
@@ -202,7 +202,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
-1. In the designer, [follow these general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to find and add the SQL Server [built-in action](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or [managed action](/connectors/sql/#actions) you want.
+1. Follow these [general steps](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to find and add the SQL Server [built-in action](/azure/logic-apps/connectors/built-in/reference/sql/#actions) or [managed action](/connectors/sql/#actions) you want.
 
    For example, you might select the built-in action named **Execute query** or the managed action named **Get row**, which gets a single record. This example continues with the managed action named **Get row**. 
 

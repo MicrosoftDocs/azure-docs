@@ -12,13 +12,13 @@ ms.date: 05/15/2025
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-To automate tasks for your Office 365 Outlook account in workflows by using Azure Logic Apps, you can add operations from the [Office 365 Outlook connector](/connectors/office365connector/) to your workflow. For example, your workflow can perform the following tasks:
+This guide shows how to add an Office 365 Outlook trigger or action to your workflow in Azure Logic Apps. You can automate tasks for your Office 365 Outlook account by adding operations from the [Office 365 Outlook connector](/connectors/office365connector/).
+
+For example, your workflow can perform the following tasks:
 
 * Get, send, and reply to email.
 * Schedule meetings on your calendar.
 * Add and edit contacts.
-
-This guide shows how to add an Office 365 Outlook trigger or action to your workflow in Azure Logic Apps.
 
 > [!NOTE]
 >
@@ -28,7 +28,7 @@ This guide shows how to add an Office 365 Outlook trigger or action to your work
 
 ## Connector technical reference
 
-For information about this connector's operations and any limits, based on the connector's Swagger file, see the [connector's reference page](/connectors/office365/).
+For information about this connector's operations and any limits, see the [connector's reference page](/connectors/office365/).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
 
-1. Follow these [general steps to add the Office 365 Outlook trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) that you want to your workflow.
+1. Follow these [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to your workflow.
 
    This example continues with the trigger named **When an upcoming event is starting soon**. This *polling* trigger regularly checks for any updated calendar event in your email account, based on the specified schedule.
 
@@ -83,7 +83,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
 1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
 
-1. Follow these [general steps to add the Office 365 Outlook trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) that you want to your workflow.
+1. Follow these [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    This example continues with the trigger named **When an upcoming event is starting soon**. This *polling* trigger regularly checks for any updated calendar event in your email account, based on the specified schedule.
 
@@ -122,7 +122,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example continues with the Office 365 Outlook trigger named **When a new email arrives**.
 
-1. Follow these [general steps to add the Office 365 Outlook action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) that you want to your workflow.
+1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to your workflow.
 
    This example continues with the Office 365 Outlook action named **Create contact**. Select the version under **Office 365 Outlook** in the search results.
 
@@ -157,7 +157,7 @@ Based on whether you have a Consumption or Standard logic app workflow, follow t
 
    This example continues with the Office 365 Outlook trigger named **When a new email arrives**.
 
-1. Follow these [general steps to add the Office 365 Outlook action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) that you want to your workflow.
+1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
    This example continues with the Office 365 Outlook action named **Create contact**. This operation creates a new contact in Office 365 Outlook. You can use the output from a previous operation in the workflow to create the contact.
 

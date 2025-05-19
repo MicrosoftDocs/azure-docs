@@ -86,7 +86,7 @@ The File System connector has different versions, based on [logic app type and h
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
 
-1. Follow these [general steps to add the **File System** trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) that you want to your workflow.
+1. Follow these [general steps to add a trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger) to your workflow.
 
    For more information, see [File System triggers](/connectors/filesystem/#triggers). This example continues with the trigger named **When a file is created**.
 
@@ -142,7 +142,7 @@ The following steps apply only to Standard logic app workflows in an App Service
 
 1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
 
-1. Follow these [general steps to add the **File System** built-in trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. Follow these [general steps to add a built-in trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    For more information, see [File System triggers](/azure/logic-apps/connectors/built-in/reference/filesystem/#triggers). This example continues with the trigger named **When a file is added**.
 
@@ -191,7 +191,7 @@ If successful, your workflow sends an email about the new file.
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app. Under **Get started**, select **Create a workflow in designer**.
 
-1. Follow these [general steps to add the **File System** managed trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
+1. Follow these [general steps to add a managed trigger](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger) to your workflow.
 
    For more information, see [File System triggers](/connectors/filesystem/#triggers). This example continues with the trigger named **When a file is created**.
 
@@ -250,7 +250,7 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Follow these [general steps to add the **File System** action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to your workflow.
+1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action) to your workflow.
 
    For more information, see [File System triggers](/connectors/filesystem/#actions). This example continues with the action named **Create file**.
 
@@ -287,7 +287,7 @@ These steps apply only to Standard logic apps in an App Service Environment v3 w
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. In the designer, [follow these general steps to add the **File System** action that you want to your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
    For more information, see [File System actions](/azure/logic-apps/connectors/built-in/reference/filesystem/#actions). This example continues with the action named **Create file**.
 
@@ -323,7 +323,7 @@ If successful, your workflow creates a file on your file system server, based on
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Follow these [general steps to add the **File System** action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
+1. Follow these [general steps to add an action](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to your workflow.
 
    For more information, see [File System actions](/connectors/filesystem/#actions). This example continues with the action named **Create file**.
 
