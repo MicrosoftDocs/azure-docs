@@ -134,7 +134,7 @@ The cost for Standard or Premium disks is calculated based on the selected/recom
 
 ### Ultra disk 
 
-The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](/pricing/details/managed-disks/).
+The cost for Ultra disk is calculated based on the provisioned size, provisioned IOPS, and provisioned throughput. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 The cost is calculated using the following logic: 
 

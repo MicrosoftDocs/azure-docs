@@ -159,6 +159,13 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Sweden South
 - Australia Central
 - Australia Central 2
+- South Africa North
+- South Africa West
+- Switzerland North
+- Switzerland West
+- Norway East
+- Norway West
+- Israel Central
 
 ### Provisioned v2 provisioning detail
 When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:

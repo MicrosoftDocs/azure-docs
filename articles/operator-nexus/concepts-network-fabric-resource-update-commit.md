@@ -22,7 +22,7 @@ Any update operation carried out on supported Network Fabric resources shown in 
 
 Commit action/updates to resources shall only be valid and applicable when the fabric is in provisioned state and Network Fabric resources are in an **enabled administrative state. Updates to parent and child resources can be batched (across various Network Fabric resources) and a `commitConfiguration` action can be performed to execute all changes in a single POST action.  
 
-Creation of parent resources and enablement via administrative action is independent of Update/Commit Action workflow. Additionally, all administrative actions to enable / disable are independent and shall not require commitConfiguration action trigger for execution. CommitConfiguration action is only applicable to a scenario when operator wants to update any existing Azure Resource Manager resources and fabric, parent resource is in enabled state. Any automation scripts or bicep templates that were used by the operators to create Network Fabric resource and enable require no changes. 
+Creation of parent resources and enablement via administrative action is independent of Update/Commit Action workflow. Additionally, all administrative actions to enable / disable are independent and shall not require commitConfiguration action trigger for execution. CommitConfiguration action is only applicable to a scenario when operator wants to update any existing Azure Resource Manager resources and fabric, parent resource is in enabled state. Any automation scripts or Bicep files that were used by the operators to create Network Fabric resource and enable require no changes. 
 
 ## User workflow
 

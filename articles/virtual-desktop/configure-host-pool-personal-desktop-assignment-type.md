@@ -317,7 +317,7 @@ Multiple personal desktop assignment allows you to assign more than one personal
 >[!IMPORTANT]
 >- This preview feature is only for personal host pools with direct assignment type. Pooled host pools aren't supported and personal host pools with automatic assignment type aren't supported.
 >
->- If you're using FSLogix and have a single FSLogix profile container for a single host pool, be sure to allow concurrent connections to FSLogix profile containers to avoid errors.
+>- If you're using FSLogix and have a single FSLogix profile container for a single host pool, be sure to allow [multiple connections to FSLogix profile containers](/fslogix/concepts-multi-concurrent-connections#concurrent-connections) to avoid errors.
 >
 >- You should [Give session hosts in a personal host pool a friendly name](#give-session-hosts-in-a-personal-host-pool-a-friendly-name) so that your users can distinguish between the multiple personal desktops you assigned to them.
 >
