@@ -318,7 +318,7 @@
   items:
   - name: API authentication and authorization options
     href: authentication-authorization-overview.md
-  - name: Configure Microsoft Entra ID applications for API access
+  - name: Protect product APIs with Microsoft Entra ID applications
     href: applications.md
   - name: Protect your API with Microsoft Entra ID
     href: api-management-howto-protect-backend-with-aad.md

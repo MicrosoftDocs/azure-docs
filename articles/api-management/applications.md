@@ -1,22 +1,22 @@
 ---
-title: Create OAuth 2.0 Application for Access to Product APIs - Azure API Management
+title: Protect Access to Product APIs with Microsoft Entra Application - Azure API Management
 titleSuffix: Azure API Management
-description: Learn how to configure OAuth 2.0 application-based access to product APIs in Azure API Management.
+description: Configure OAuth 2.0 access to product APIs in Azure API Management with Microsoft Entra ID applications.
 services: api-management
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/16/2025
+ms.date: 05/19/2025
 ms.author: danlep
 ms.custom: 
 ---
 
-# Register an OAuth 2.0 application for access to product APIs 
-
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-API Management now supports built-in OAuth 2.0 application-based access to product APIs using the client credentials flow. This feature allows API managers to register applications, streamlining secure API access for developers through OAuth 2.0 authorization.
+# Secure product API access with Microsoft Entra applications
+
+API Management now supports built-in OAuth 2.0 application-based access to product APIs using the client credentials flow. This feature allows API managers to register Microsoft Entra ID applications, streamlining secure API access for developers through OAuth 2.0 authorization.
 
 > [!NOTE]
 > Applications are currently in limited preview. To sign up, fill [this form](https://aka.ms/apimappspreview).
@@ -25,7 +25,8 @@ With this feature:
 
 * API managers set a product property to enable application-based access.
 * API managers register client applications in Microsoft Entra ID to limit access to specific products. 
-* Using the OAuth 2.0 client credentials flow, developers or apps obtain tokens that they can include in API requests. These tokens are validated by the API Management gateway to authorize access to the product's APIs.
+* Using the OAuth 2.0 client credentials flow, developers or apps obtain tokens that they can include in API requests
+* Tokens presented in API requests are validated by the API Management gateway to authorize access to the product's APIs.
 
 ## Prerequisites
 
@@ -65,7 +66,7 @@ The following example uses the **Starter** product, but choose any published pro
 1. Choose the product that you want to configure, such as the **Starter** product.
 1. In the left menu, under **Product**, select **Properties**.
 1. Enable the **Application based access** setting.
-1. Optionally, enable the **Requires subscription** setting. If you enable both settings, the API Management gateway can accept either OAuth 2.0 authorization or a subscription key for access to the product's APIs.
+1. Optionally, enable the **Requires subscription** setting. If you enable both application based access and a subscription requirement, the API Management gateway can accept either OAuth 2.0 authorization or a subscription key for access to the product's APIs.
 1. Select **Save**.
 
 :::image type="content" source="media/applications/enable-application-based-access.png" alt-text="Screenshot of enabling application based access in the portal.":::
@@ -119,7 +120,7 @@ Now register a client application that limits access to one or more products.
 The application is added to the list of applications on the **Applications** page. Select the application to view details such as the **Client ID**. You need this ID to generate a token to call the product API.
 
 > [!TIP]
-> * After creating an application, optionally associate it with other products. Select the application on the **Applications** page, and then select **Details** > **Products** **+ Add product**. 
+> * After creating an application, optionally associate it with other products. Select the application on the **Applications** page, and then select **Details** > **Products** > **+ Add product**. 
 > * You can also create or associate an application by editing a product from the **Products** page.
 
 ## Generate client secret
