@@ -8,9 +8,10 @@ ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 05/19/2025
 ms.custom: devx-track-javascript, devx-track-azurecli
+ms.custom: references_regions
 ---
 
-# Tutorial: Build a Retrieval Augmented Generation with Azure OpenAI and Azure AI Search (Express.js)
+# Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (Express.js)
 
 In this tutorial, you'll create a Node.js Retrieval Augmented Generation (RAG) application using Express.js, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
@@ -209,7 +210,10 @@ The semantic configuration name is automatically defined by the integrated vecto
 
 ### Why are all resources created in East US 2?
 
-The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they aren't scheduled to expire soon, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and expiration dates to avoid disruptions. You can review model availability and expiration information at [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models) and check for model retirements at [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
+The sample uses the **gpt-4o-mini** and **text-embedding-ada-002** models, both of which are available with the Standard deployment type in East US 2. These models are also chosen because they aren't scheduled for retirement soon, providing stability for the sample deployment. Model availability and deployment types can vary by region, so East US 2 is selected to ensure the sample works out of the box. If you want to use a different region or models, make sure to select models that are available for the same deployment type in the same region. When choosing your own models, check both their availability and retirement dates to avoid disruptions.
+
+- Model availability: [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models)
+- Model retirement dates: [Azure OpenAI Service model deprecations and retirements](/azure/ai-services/openai/concepts/model-retirements).
 
 ---
 
