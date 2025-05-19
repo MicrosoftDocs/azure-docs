@@ -11,6 +11,8 @@ ms.date: 11/18/2024
 
 # Azure Front Door Standard/Premium Subscription Offers and Bandwidth Throttling
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door Standard/Premium profiles are subject to bandwidth throttling based on your subscription type.
 
 ## Free and Trial Subscriptions

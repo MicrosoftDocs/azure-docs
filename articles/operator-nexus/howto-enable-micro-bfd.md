@@ -187,9 +187,10 @@ CE1#show bfd peers dest-ip 10.30.0.66 detail
 
 Ensure connectivity between CE and PE devices is stable, and BGP sessions are established with the appropriate routes.
 
+
 #### Step 8: Enable Micro-BFD Flag
 
-Contact Microsoft support through a support incident to enable the Micro-BFD feature flag. After enabling the feature flag, a full reconciliation with the base configuration is required, ensuring the NPB property is set to true.
+Contact Microsoft Support by raising a support incident to enable the Micro-BFD feature flag, after verifying that all prerequisite steps are completed and the Micro-BFD session is `Up`. Once the feature flag is enabled, perform a full reconciliation with the base configuration, ensuring that the NPB property is set to `true`.
 
 #### Step 9: Verify Connectivity and BGP Sessions
 
@@ -215,9 +216,12 @@ Before enabling the **Micro BFD** feature flag, ensure the following:
 
 - The **Provider Edge (PE)** is configured with the required **Micro BFD settings**.  
 
+- Configure **PE devices** to enable Micro BFD and ensure the **min-links** under the PE device for the respective port-channel are considered.
+
 - Inform the **Microsoft Support team** about the planned Micro BFD feature flag enablement.  
 
-- Configure **PE devices** to enable Micro BFD and ensure the **min-links** under the PE device for the respective port-channel are considered.
+> [Note]
+> Ensure that Micro-BFD is enabled by reviewing the Provider Edge (PE) configuration as part of the standard validation checks. Include a confirmation statement in the support ticket indicating that Micro-BFD is enabled.
 
 #### **Configuring Micro BFD on PE devices**  
 

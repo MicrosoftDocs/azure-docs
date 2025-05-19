@@ -3,7 +3,7 @@ title: 'Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azur
 description: Get started connecting Azure SQL to your OpenAI app
 author: jeffwmartinez
 ms.author: jefmarti
-ms.date: 02/10/2025
+ms.date: 04/17/2025
 ms.topic: article
 ms.custom: devx-track-dotnet, linux-related-content
 ms.collection: ce-skilling-ai-copilot
@@ -13,7 +13,7 @@ ms.collection: ce-skilling-ai-copilot
 
 When creating intelligent apps, you may want to ground the context of your app using your own SQL data. With the recent announcement of [Azure SQL vector support (preview)](https://devblogs.microsoft.com/azure-sql/announcing-eap-native-vector-support-in-azure-sql-database/), you can ground the context using the Azure SQL data you already have with new [vector functions](/sql/t-sql/functions/vector-functions-transact-sql) that help manage vector data. 
 
-In this tutorial, you'll create a RAG sample application by setting up a Hybrid vector search against your Azure SQL database using a .NET 8 Blazor app. This example builds from the previous documentation to deploy a [.NET Blazor app with OpenAI](/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet).
+In this tutorial, you'll create a RAG sample application by setting up a Hybrid vector search against your Azure SQL database using a .NET 8 Blazor app. This example builds from the previous documentation to deploy a [.NET Blazor app with OpenAI](/azure/app-service/deploy-intelligent-apps?pivots=openai-dotnet). If you'd like to deploy the app using an azd template, you can visit the [Azure Samples repo](https://github.com/Azure-Samples/blazor-azure-sql-vector-search?tab=readme-ov-file#deploy-with-azure-developer-cli) with deployment instructions.
 
 ## Prerequisites
 

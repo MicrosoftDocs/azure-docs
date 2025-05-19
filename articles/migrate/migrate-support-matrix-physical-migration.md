@@ -4,7 +4,7 @@ description: Learn about support for physical server migration in Azure Migrate 
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
 ms.date: 01/27/2025
 ms.custom: engagement-fy25

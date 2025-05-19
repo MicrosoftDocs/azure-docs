@@ -4,7 +4,7 @@ description: Describes guidelines to help you configure Azure NetApp files on Az
 services: azure-netapp-files, virtual-wan
 author: rambk
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/25/2024
 ms.author: anfdocs
 ---

@@ -1004,6 +1004,8 @@
     items: 
     - name: Overview
       href: sentinel-security-copilot.md
+    - name: Summarize incidents in Azure portal
+      href: sentinel-security-copilot-incident-summary.md
     - name: Microsoft Copilot in Microsoft Defender
       items:
       - name: Overview
@@ -1143,6 +1145,8 @@
   items:
   - name: Overview
     href: sentinel-integration-guide.md
+  - name: Sentinel solution quality guidelines
+    href: sentinel-solution-quality-guidance.md
   - name: Partner integrations best practices
     href: partner-integrations.md
   - name: Creating codeless data connectors (CCP)

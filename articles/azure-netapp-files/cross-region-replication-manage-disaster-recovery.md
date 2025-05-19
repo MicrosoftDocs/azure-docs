@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/09/2022
+ms.date: 05/12/2025
 ms.author: anfdocs 
 ---
 # Manage disaster recovery using Azure NetApp Files 
@@ -15,6 +15,9 @@ An ongoing replication (with [cross-zone](create-cross-zone-replication.md) or [
 When such an event occurs, you can [fail over to the destination volume](#fail-over-to-destination-volume), enabling the client to read and write to the destination volume. 
 
 After disaster recovery, you can perform a [resync](#resync-replication) operation to fail back to the source volume. You then [reestablish the source-to-destination replication](#reestablish-source-to-destination-replication) and remount the source volume for the client to access. 
+
+>[!NOTE]
+> When performing a disaster recovery test in Azure NetApp Files, you have to [manually delete the common snapshot](snapshots-delete.md) after completing the test. 
 
 ## Fail over to destination volume
 
@@ -48,10 +51,15 @@ After disaster recovery, you can reactivate the source volume by performing a re
 > 
 > ***The reverse resync operation overwrites any newer data (than the most common snapshot) in the source volume with the updated destination volume data. The UI warns you about the potential for data loss. You will be prompted to confirm the resync action before the operation starts.***  
 > 
-> In case the source volume did not survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
+> In case the source volume didn't survive the disaster and therefore no common snapshot exists, all data in the destination will be resynchronized to a newly created source volume.
+
+>[!NOTE]
+>To perform a reverse resync with [cross-zone-region replication](cross-zone-region-replication.md), you must break the secondary relationship then perform the reverse resync as described. 
+> 
+> To restore the cross-zone-region replication, delete the secondary DP volume then [reconfigure replication](cross-zone-region-replication-configure.md).
 
 
-1. To reverse resync replication, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
+1. To perform a reverse resync, select the *source* volume. Select **Replication** under Storage Service. Then select **Reverse Resync**.  
 
 2. Type **Yes** when prompted then select **OK**. 
  

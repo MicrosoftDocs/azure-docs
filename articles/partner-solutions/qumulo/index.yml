@@ -20,10 +20,8 @@ landingContent:
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: overview.md
-      - linkListType: video
-        links: 
-          - text: Azure Native Qumulo Scalable File Service
-            url: https://www.youtube.com/watch?v=s-5DXAuYZss 
+          - text: FAQ
+            url: faq.yml
 
 
   # Card
@@ -43,16 +41,6 @@ landingContent:
           url: manage.md
         - text: Troubleshoot resources
           url: troubleshoot.md 
-    - linkListType: concept
-      links:
-        - text: Disaster recovery
-          url: disaster-recovery.md
-        - text: Video editing
-          url: video-editing.md
-        - text: Azure Native Qumulo for PACS VNA
-          url: vendor-neutral-archive.md
-        - text: Azure Native Qumulo for virtual desktops
-          url: virtual-desktop.md
   
   #Card
   - title: Explore reference content

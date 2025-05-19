@@ -91,6 +91,10 @@
     items:
     - name: Overview
       href: effective-security-rules-overview.md
+  - name: VM Network Troubleshooter
+    items:
+    - name: Overview
+      href: vm-network-troubleshooter.md
   - name: VPN troubleshoot
     items:
     - name: Overview
@@ -146,21 +150,17 @@
     - name: Log VM network traffic
       href: nsg-flow-logs-tutorial.md
     - name: Manage NSG flow logs
+      href: nsg-flow-logs-manage.md
+    - name: Deploy NSG flow logs
       items:
-      - name: Azure portal
-        href: nsg-flow-logs-portal.md
-      - name: PowerShell
-        href: nsg-flow-logs-powershell.md
-      - name: Azure CLI
-        href: nsg-flow-logs-cli.md
       - name: ARM template
         href: nsg-flow-logs-template.md
       - name: Bicep
         href: nsg-flow-logs-bicep.md
       - name: REST
         href: /previous-versions/azure/network-watcher/nsg-flow-logs-rest?toc=/azure/network-watcher/toc.json
-      - name: Built-in Policy
-        href: nsg-flow-logs-policy-portal.md
+    - name: Audit and deploy using Azure Policy
+      href: nsg-flow-logs-policy-portal.md
     - name: Migrate NSG flow logs
       href: nsg-flow-logs-migrate.md
     - name: Analyze NSG flow logs

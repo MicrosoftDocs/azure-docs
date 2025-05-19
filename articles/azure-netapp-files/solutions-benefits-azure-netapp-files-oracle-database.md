@@ -4,7 +4,7 @@ description: Describes the technology and provides a performance comparison betw
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/04/2022
 ms.author: anfdocs
 ---

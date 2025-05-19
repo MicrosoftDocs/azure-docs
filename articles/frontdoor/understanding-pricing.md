@@ -10,6 +10,8 @@ ms.date: 08/12/2024
 
 # Compare pricing between Azure Front Door tiers
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+
 > [!NOTE]
 > Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/frontdoor/)
 

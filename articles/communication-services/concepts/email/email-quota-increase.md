@@ -1,7 +1,7 @@
 ---
-title: Quota increase for Azure Email Communication Service
+title: Quota increase for email domains
 titleSuffix: An Azure Communication Services concept document
-description: Learn about requesting an increase to the default limit.
+description: This article describes how to request an increase to the default limit for email domains.
 author: raviverm
 manager: daysha-carter
 services: azure-communication-services
@@ -10,9 +10,10 @@ ms.date: 04/09/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
+
 # Quota increase for email domains
 
-If you're using Azure Email Communication Service, you can raise your default email sending limit. To request an increase in your email sending limit, follow the steps outlined in this article.
+If you're using Azure Communication Services Email, you can request to raise your default email sending limit. To request an increase in your email sending limit, complete the following steps.
 
 ## 1. Understand domain reputation
 
@@ -48,7 +49,7 @@ To request an email quota increase, compile the following information:
 Customer Information 
 Company name: 
 Company website: 
-Please provide a brief description of your business: 
+Provide a brief description of your business: 
 
 Email Service Information 
 Subscription ID: 
@@ -58,23 +59,25 @@ Indicate the domain from which you are currently sending emails:
 
 Usage Information
 1. What type of emails do you send? (such as Transactional, Marketing, Promotional) 
-2. Please specify the expected volume of emails you plan to send:  
+2. Specify the expected volume of emails you plan to send:  
 	- What is the maximum rate of messages per minute that you require? 
 	- What is the maximum rate of messages per hour that you require? 
 	- What is the maximum rate of messages per day that you require? 
 
 Additional Information 
 What is the source of the email addresses that you use for sending your messages?
-Note: The source of the email addresses that you send your messages to plays a crucial role in the 
-effectiveness and compliance of your email marketing campaigns. Providing details about the source 
-of your email addresses helps us understand how you acquire and maintain your subscriber list.
+Note: The source of the email addresses that you send your messages to plays a crucial 
+role in the effectiveness and compliance of your email marketing campaigns. Providing 
+details about the source of your email addresses helps us understand how you acquire 
+and maintain your subscriber list.
 
-How do you currently manage and remove email addresses that have unsubscribed or resulted in 
-bounce backs from your mailing list?
-Please explain if you have an automated process in place that handles unsubscribes when recipients 
-click on the 'unsubscribe' link in your emails. Additionally, if you receive bounce/undeliverable 
-notifications, can you include how you handle those and whether you have any mechanism to 
-automatically remove email addresses that result in consistent bounces.
+How do you currently manage and remove email addresses that have unsubscribed or 
+resulted in bounce backs from your mailing list?
+Explain if you have an automated process in place that handles unsubscribes when 
+recipients click on the 'unsubscribe' link in your emails. Additionally, if you 
+receive bounce/undeliverable notifications, can you include how you handle those and 
+whether you have any mechanism to automatically remove email addresses that result in 
+consistent bounces.
 ```
 
 You can copy this text to a file and add the requested information.

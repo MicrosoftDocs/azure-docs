@@ -7,11 +7,11 @@
   - name: Front Door and CDN comparison
     href: front-door-cdn-comparison.md
   - name: Well-Architected review of Front Door
-    href: /azure/well-architected/service-guides/azure-front-door
+    href: /azure/well-architected/service-guides/azure-front-door?toc=/azure/frontdoor/TOC.json
   - name: Front Door best practices
     href: best-practices.md
   - name: Choosing the right load balancer
-    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/standard-premium/toc.json
+    href: /azure/architecture/guide/technology-choices/load-balancing-overview?toc=/azure/frontdoor/TOC.json
   - name: FAQ
     href: front-door-faq.yml
   expanded: true
@@ -49,7 +49,7 @@
       href: create-front-door-terraform.md
   - name: Endpoints
     items:
-    - name: Overview
+    - name: Endpoints in Azure Front Door
       href: endpoint.md
     - name: Front Door manager
       href: manager.md
@@ -57,23 +57,21 @@
       href: how-to-configure-endpoints.md
     - name: Domains
       items:
-      - name: Overview
+      - name: Domains in Azure Front Door
         href: domain.md
-      - name: Front Door
-        items:
-        - name: Add a custom domain
-          href: standard-premium/how-to-add-custom-domain.md
-        - name: Configure HTTPS on a custom domain
-          href: standard-premium/how-to-configure-https-custom-domain.md
-        - name: Apex domains
-          href: apex-domain.md
-        - name: Add a root or apex domain
-          href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
-        - name: Wildcard domains
-          href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
+      - name: Add a custom domain
+        href: standard-premium/how-to-add-custom-domain.md
+      - name: Configure HTTPS on a custom domain
+        href: standard-premium/how-to-configure-https-custom-domain.md
+      - name: Apex domains
+        href: apex-domain.md
+      - name: Add a root or apex domain
+        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
+      - name: Wildcard domains
+        href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
   - name: Rules engine
     items:
-    - name: Overview
+    - name: What is a rule set?
       href: front-door-rules-engine.md?pivots=front-door-standard-premium
     - name: Match conditions
       href: rules-match-conditions.md?pivots=front-door-standard-premium
@@ -91,7 +89,7 @@
       href: front-door-url-redirect.md?pivots=front-door-standard-premium
   - name: Origins
     items:
-    - name: Overview
+    - name: Origins and origin groups
       href: origin.md
     - name: Traffic acceleration
       href: front-door-traffic-acceleration.md?pivots=front-door-standard-premium
@@ -101,9 +99,11 @@
       href: health-probes.md
     - name: Add origins to origin group
       href: how-to-configure-origin.md
+    - name: Add origin authentication
+      href: origin-authentication-with-managed-identities.md  
   - name: Private Link
     items:
-    - name: Overview
+    - name: Secure your origin with Private Link
       href: private-link.md
     - name: Enable Private Link to secure origins
       items:
@@ -129,7 +129,7 @@
         href: standard-premium/how-to-enable-private-link-apim.md
   - name: Caching
     items:
-    - name: Overview
+    - name: Caching with Azure Front Door
       href: front-door-caching.md?pivots=front-door-standard-premium
     - name: Configure caching
       href: how-to-configure-caching.md
@@ -151,8 +151,6 @@
       href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
     - name: Azure Static Web Apps
       href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
-    - name: Azure Spring Apps
-      href: /azure/architecture/web-apps/spring-apps/guides/spring-cloud-reverse-proxy?toc=/azure/frontdoor/toc.json
 - name: Migration and upgrades
   items:
   - name: Migrate to Standard or Premium tier
@@ -195,7 +193,7 @@
     href: end-to-end-tls.md
   - name: TLS policy
     items:
-    - name: Overview
+    - name: Front Door TLS policy
       href: standard-premium/tls-policy.md
     - name: Configure TLS policy
       href: standard-premium/tls-policy-configure.md
@@ -203,7 +201,7 @@
     href: managed-identity.md
   - name: Sensitive data protection
     items:
-    - name: Overview
+    - name: Front Door sensitive data protection
       href: standard-premium/sensitive-data-protection.md
     - name: Enable log scrubbing
       href: standard-premium/how-to-protect-sensitive-data.md
@@ -211,7 +209,7 @@
     href: origin-security.md
   - name: Web Application Firewall
     items:
-    - name: Overview
+    - name: Web Application Firewall (WAF) on Front Door
       href: web-application-firewall.md
     - name: Configure a security policy
       href: ../web-application-firewall/afds/waf-front-door-create-portal.md?toc=/azure/frontdoor/toc.json

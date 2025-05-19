@@ -433,6 +433,10 @@ The optimal combination of **writeBatchSize** and **parallelCopies** depends on 
 ]
 ```
 
+When you select an [elastic tables](/power-apps/developer/data-platform/elastic-tables#partitioning-and-horizontal-scaling) in the copy activity sink, the connector mapping supports the `partitionid` column. You can map your source data column to the sink's `partitionid` column. If not mapped, the primary key value is used as the default value for the `partitionid` column.
+
+`partitionid` can be used in Dataverse alternate keys or primary key scenarios on the write path. Each elastic table contains a system-defined `partitionid` column and has an alternate key named `KeyForNoSqlEntityWithPKPartitionId`, which combines the primary key of the table with the `partitionid` column. For more information, see this [article](/power-apps/developer/data-platform/elastic-tables).
+
 ## Retrieving data from views
 
 To retrieve data from Dynamics views, you need to get the saved query of the view, and use the query to get the data.

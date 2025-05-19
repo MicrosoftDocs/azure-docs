@@ -14,6 +14,8 @@ ms.custom: mode-ui
 
 # Quickstart: Create an Azure Front Door using Azure portal
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This quickstart guides you through the process of creating an Azure Front Door profile using the Azure portal. You have two options to create an Azure Front Door profile: Quick create and Custom create. The Quick create option allows you to configure the basic settings of your profile, while the Custom create option enables you to customize your profile with more advanced settings.
 
 In this quickstart, you use the Custom create option to create an Azure Front Door profile. You first deploy two App services as your origin servers. Then, you configure the Azure Front Door profile to route traffic to your App services based on certain rules. Finally, you test the connectivity to your App services by accessing the Azure Front Door frontend hostname.

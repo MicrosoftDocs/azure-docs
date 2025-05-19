@@ -19,7 +19,7 @@ Storage services are foundational components of most enterprise workloads. The m
 
 ## Component comparison
 
-Start the migration process by comparing the AWS storage service that's used in the workload with the closest Azure counterpart. The goal is to identify the most suitable Azure services for your workload. For more information, see [Comparing AWS and Azure storage services](/azure/architecture/.aws-professional/storage).
+Start the migration process by comparing the AWS storage service that's used in the workload with the closest Azure counterpart. The goal is to identify the most suitable Azure services for your workload. For more information, see [Comparing AWS and Azure storage services](/azure/architecture/aws-professional/storage).
 
 > [!NOTE]
 > This comparison isn't an exact representation of the functionality that these services provide in your workload.

@@ -6,7 +6,7 @@ ms.service: azure-managed-redis
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 11/15/2024
+ms.date: 04/22/2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -58,7 +58,6 @@ Three tiers are for in-memory data:
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
 One tier stores data both in-memory and on-disk:
-<!--Kyle [umanag] should On-disk section callout the difference from Persistence which uses attached managed disk too -->
 
 - **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduces performance, but allows for cost-effective scaling of caches with large datasets.
 
@@ -154,14 +153,9 @@ To check the availability by region, see [Products available by region](https://
 
 ## Migration from Azure Cache for Redis
 
-For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis](../migrate/migrate-overview.md)
+For more information about migrating from Azure Cache for Redis to Azure Managed Redis, see [Move from Azure Cache for Redis to Azure Managed Redis (preview)](migrate/migrate-overview.md).
 
 ## Related content
 
 - [Create an Azure Managed Redis instance](quickstart-create-managed-redis.md)
-- [Use Azure Managed Redis in an ASP.NET web app](web-app-cache-howto.md)
-- [Use Azure Managed Redis in .NET Core](dotnet-core-quickstart.md)
-- [Use Azure Managed Redis in .NET Framework](dotnet-how-to-use-azure-redis-cache.md)
-- [Use Azure Managed Redis in Node.js](nodejs-get-started.md)
-- [Use Azure Managed Redis in Java](java-get-started.md)
-- [Use Azure Managed Redis in Python](python-get-started.md)
+- [Azure Managed Redis (preview) Architecture](architecture.md)

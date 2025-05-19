@@ -627,6 +627,7 @@ sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPH
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
   operations \$id="rsc_ip_<HANA SID>_HDB<instance number>-operations" \
+  op start timeout=60s on-fail=fence \
   op monitor interval="10s" timeout="20s" \
   params ip="<front-end IP address>"
 
@@ -658,6 +659,7 @@ sudo crm configure rsc_defaults migration-threshold=5000
 # Replace <placeholders> with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer. 
 sudo crm configure primitive rsc_ip_<HANA SID>_HDB<instance number> ocf:heartbeat:IPaddr2 \
   meta target-role="Started" \
+  op start timeout=60s on-fail=fence \
   op monitor interval="10s" timeout="20s" \
   params ip="<front-end IP address>"
 

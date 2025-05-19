@@ -5,8 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.date: 12/22/2024
-appliesto: 
-  - Microsoft Sentinel in the Azure portal
+appliesto:
+    - Microsoft Sentinel in the Azure portal
 #Customer intent: As a security analyst, I want to understand how Microsoft Sentinel incidents in the Azure portal can help me efficiently manage and resolve security threats.
 ---
 

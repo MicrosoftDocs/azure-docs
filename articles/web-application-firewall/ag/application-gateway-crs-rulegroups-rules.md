@@ -446,11 +446,6 @@ The following rule groups and rules are available when using Web Application Fir
 
 *<sup>This rule's action is set to log by default. Set action to Block to prevent against Apache Struts vulnerability. Anomaly Score not supported for this rule.</sup>
 
-> [!NOTE]
-> When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
->
-> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](./ag-overview.md#anomaly-scoring-mode).
-
 
 # [OWASP 3.2](#tab/owasp32)
 
@@ -1027,11 +1022,15 @@ Bot300600 scans both client IP addresses and IPs in the `X-Forwarded-For` header
 
 ---
 
-The following rule groups and rules are no longer supported on Web Application Firewall on Application Gateway.
 > [!NOTE]
-> CRS 3.0 and CRS 2.2.9 are no longer supported in Azure WAF. We recommend you upgrade to DRS 2.1 / CRS 3.2
+> When reviewing your WAF's logs, you might see rule ID 949110. The description of the rule might include *Inbound Anomaly Score Exceeded*.
+>
+> This rule indicates that the total anomaly score for the request exceeded the maximum allowable score. For more information, see [Anomaly scoring](./ag-overview.md#anomaly-scoring-mode).
 
-# [OWASP 3.0](#tab/owasp30)
+
+The following rulesets - CRS 3.0 and CRS 2.2.9  groups and rules are no longer supported in Azure Web Application Firewall on Application Gateway. We recommend you upgrade to DRS 2.1 / CRS 3.2
+
+# [OWASP 3.0 - no longer supported](#tab/owasp30)
 
 ## <a name="owasp30"></a> 3.0 rule sets
 
@@ -1239,7 +1238,7 @@ The following rule groups and rules are no longer supported on Web Application F
 |943110|Possible Session Fixation Attack = SessionID Parameter Name with Off-Domain Referrer|
 |943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
 
-# [OWASP 2.2.9](#tab/owasp2)
+# [OWASP 2.2.9 - no longer supported](#tab/owasp2)
 
 ## <a name="owasp229"></a> 2.2.9 rule sets
 

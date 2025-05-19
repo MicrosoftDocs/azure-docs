@@ -192,6 +192,7 @@ To increase your email quota, follow the instructions in [Quota increase for ema
 
 > [!NOTE]
 > Email quota increase requests might take up to 72 hours for evaluation and approval, especially for requests that come in on Friday afternoon.
+> The quota increase requests for the number of recipients in email of SMTP is not supported at this time.
 
 ## Chat
 
@@ -289,6 +290,19 @@ The following timeouts apply to the Azure Communication Services Calling SDKs:
 | Group call establishment timeout. | 85 |
 | PSTN call establishment timeout. | 115 |
 | Promote a 1:1 call to a group call timeout. | 115 |
+
+### Virtual Rooms 
+The throttling policies of rooms service are determined by grouping requests through **resource id**.
+
+| API | Threshold |
+|--|--|
+| Create Room | 20 req/sec |
+| Update Room | 20 req/sec |
+| Delete Room | 20 req/sec |
+| Get Room    | 40 req/sec |
+| List Rooms  | 10 req/sec |
+| Update participant   | 20 req/sec |
+| List participants    | 40 req/sec |
 
 ### Action to take
 

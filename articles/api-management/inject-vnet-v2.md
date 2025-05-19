@@ -23,7 +23,7 @@ This article guides you through the requirements to inject your Azure API Manage
 When an API Management Premium v2 instance is injected in a virtual network: 
 
 * The API Management gateway endpoint is accessible through the virtual network at a private IP address.
-* API Management can make outbound requests to API backends that are isolated in the network. 
+* API Management can make outbound requests to API backends that are isolated in the network or any peered network, as long as network connectivity is properly configured. 
 
 This configuration is recommended for scenarios where you want to isolate network traffic to both the API Management instance and the backend APIs.
 

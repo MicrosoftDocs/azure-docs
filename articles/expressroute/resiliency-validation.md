@@ -4,7 +4,7 @@ description: This article helps you understand the Azure ExpressRoute Gateway Re
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2025
 ms.author: duau
 ms.custom: ai-usage
@@ -47,15 +47,15 @@ Resiliency validation is a capability designed to assess the resiliency of netwo
 
 ## Using the gateway resiliency validation
 
+> [!IMPORTANT]
+> - During the test, the ExpressRoute virtual network gateway disconnects from the target ExpressRoute circuit, resulting in a temporary loss of connectivity for non-redundant routes. Make sure your routing policies are configured to enable traffic failover.
+> - The targeted ExpressRoute circuit remains connected to other ExpressRoute virtual network gateways, and the gateway performing the test stays connected to other ExpressRoute circuits.
+
 The gateway resiliency validation can be accessed from any ExpressRoute gateway resource by navigating to the **Monitoring** section in the left-hand menu.
 
 :::image type="content" source="media/resiliency-validation/resiliency-validation.png" alt-text="Screenshot of the Resiliency Validation feature, accessible under the monitoring section in the left-hand menu of the ExpressRoute gateway resource.":::
 
 The dashboard provides a detailed overview of all ExpressRoute circuits connected to the ExpressRoute virtual network gateway, categorized by peering location. It displays the most recent test status, the timestamp of the last test conducted, the results of the latest test, and an action button to initiate a new test.
-
-> [!IMPORTANT]
-> - During the test, the ExpressRoute virtual network gateway disconnect from the target ExpressRoute circuit, causing a temporary loss of connectivity for nonredundant routes. Ensure your routing policies are configured to support traffic failover.
-> - The targeted ExpressRoute circuit maintains connectivity to other ExpressRoute virtual network gateways, and the gateway doing the test maintains connectivity to other ExpressRoute circuits.
 
 ### Starting the test
 

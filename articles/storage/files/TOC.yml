@@ -191,10 +191,8 @@
   items:
   - name: Data protection overview
     href: files-data-protection-overview.md
-  - name: Prevent accidental data deletion
+  - name: File share soft delete
     href: storage-files-prevent-file-share-deletion.md
-  - name: Enable soft delete
-    href: storage-files-enable-soft-delete.md
   - name: Share snapshots and restores
     href: storage-snapshots-files.md
   - name: About Azure file share backup

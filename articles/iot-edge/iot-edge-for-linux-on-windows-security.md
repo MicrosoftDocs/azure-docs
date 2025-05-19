@@ -4,7 +4,7 @@ description: Overview of the Azure IoT Edge for Linux on Windows security framew
 author: PatAltimore
 ms.author: patricka
 ms.date: 06/04/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

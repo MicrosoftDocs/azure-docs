@@ -17,6 +17,7 @@ ms.subservice: b2c
 
 ---
 # Roles and resource access control
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When planning your access control strategy, it's best to assign users the least privileged role required to access resources. The following table describes the primary resources in your Azure AD B2C tenant and the most suitable administrative roles for the users who manage them.
 

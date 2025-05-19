@@ -169,15 +169,15 @@ You can use this [sample catalog](https://github.com/Azure/deployment-environmen
 1. Retrieve the secret identifier:
 
    ```azurecli
-   SECRETID=$(az keyvault secret show --vault-name <keyvaultName> --name GHPAT --query id -o tsv)
-   echo $SECRETID
+   $SECRETID = az keyvault secret show --vault-name <keyvaultName> --name GHPAT --query id -o tsv
+   Write-Output $SECRETID
    ```
 
 1. Add the catalog:
 
    ```azurecli
    # Sample catalog example
-   REPO_URL="<clone URL that you copied earlier>"
+   $REPO_URL = "<clone URL that you copied earlier>"
    az devcenter admin catalog create --git-hub path="/Environments" branch="main" secret-identifier=$SECRETID uri=$REPO_URL -n <catalogName> -d <devcenterName>
    ```
 

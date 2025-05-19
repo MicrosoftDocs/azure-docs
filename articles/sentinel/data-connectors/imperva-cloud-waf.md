@@ -90,7 +90,8 @@ Use the following step-by-step instructions to deploy the Imperva Cloud WAF data
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure functions development.
+> [!NOTE]
+> You will need to [prepare VS Code](/azure/azure-functions/functions-create-first-function-python#prerequisites) for Azure functions development.
 
 1. Download the [Azure Functions App](https://aka.ms/sentinel-impervawafcloud-functionapp) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

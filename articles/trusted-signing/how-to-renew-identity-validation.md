@@ -13,7 +13,7 @@ You can renew or delete your Trusted Signing Identity Validations with the right
 
 ## Renew Identity Validation 
 > [!NOTE]
-> At this time Trusted Signing can only onboard organizations that were incorporated more than 3 years ago and were incorporated in USA and Canada.  Renewal of Identity Validation is not available if you do not meet the current onboarding requirements.
+> At this time Trusted Signing is only available to organizations based in the USA and Canada that have a verifiable history of three years or more. Renewal of Identity Validation is not available if you do not meet the current onboarding requirements.
 
 You can check the expiration date of your Identity Validation on the Identity Validation page. You can renew your Trusted Signing Identity Validation **60 days** before the expiration. A notification is to the primary and secondary email addresses with the reminder to renew your Identity Validation.
 **Identity Validation can only be completed in the Azure portal – it can not be completed with Azure CLI.**
