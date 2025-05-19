@@ -144,7 +144,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    //------------------------------------------------------------
     
    namespace Contoso
-    {
+   {
         using System;
         using System.Collections.Generic;
         using System.Threading.Tasks;
