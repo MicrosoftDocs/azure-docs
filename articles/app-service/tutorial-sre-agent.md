@@ -4,15 +4,21 @@ description: Learn how to use Azure SRE Agent and Azure App Service to identify 
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
-ms.date: 05/15/2025
+ms.date: 05/18/2025
 ---
 
 # Troubleshoot an App Service app using Azure SRE Agent (preview)
 
 > [!NOTE]
-> Site Reliability Engineering (SRE) Agent is in preview.
+> Site Reliability Engineering (SRE) Agent is in preview. By using SRE Agent you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Azure SRE (Site Reliability Engineering) Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents guide you in solving problems and aid in building resilient, self-healing systems on your behalf. The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure SRE Agent. By using SRE Agent you consent the product-specific terms on this page: [Preview Terms Of Use | Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+## Introduction
+
+The Azure SRE (Site Reliability Engineering) Agent uses AI to monitor and manage your Azure resources, helping you quickly diagnose and fix issues.
+
+This sample app demonstrates error detection by simulating HTTP 500 failures in a controlled way. You can safely test these scenarios using Azure App Service **deployment slots**, which let you run different app configurations side by side.
+
+You enable error simulation by setting the `INJECT_ERROR` app setting to `1`. When enabled, the app throws an HTTP 500 error after several button clicks, allowing you to see how the SRE Agent responds to application failures.
 
 In this tutorial, you will:
 
@@ -31,7 +37,7 @@ In this tutorial, you will:
 
 To complete this tutorial, you need:
 - An [Azure subscription](https://azure.microsoft.com/free/).
-- To create the Azure SRE Agent, your account needs Microsoft.Authorization/roleAssignments/write permissions using either Role Based Access Control Administrator or User Access Administrator. 
+- Permissions to create role assignments (Role Based Access Control Administrator or User Access Administrator) for SRE Agent setup.
 
 ## 1. Create an App Service app
 
@@ -58,25 +64,15 @@ In the *Basics* tab, provide the following details:
 |-----------------|--------------------------------|
 | Name            | `my-sre-app`                  |
 | Publish         | **Code**                      |
-| Runtime stack   | **PHP 8.4**                   |
+| Runtime stack   | **.NET 9 (STS)**                 |
+| Operating System| **Windows**                 |
 | Region          | A region near you             |
 
 
 1. Select the **Deployment** tab.
-
-1. Under *Authentication settings*, enable **Basic authentication**.
-
-> [!NOTE]
-> Basic authentication is used later for a one-time deployment from GitHub. In production, [disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) and use secure deployment methods like GitHub Actions or Azure DevOps.
-
-1. Select **Review and create**.
-
-    - If validation passes, the **Create** button becomes active.
-    - If there are errors, tabs with issues are marked with a red dot. Fix the highlighted fields and try again.
-
-1. Select **Create** to deploy the app.
-
-    Once deployment completes, you see the message: *Your deployment is complete*.
+1. Under *Authentication settings*, enable **Basic authentication**. Basic authentication is used later for a one-time deployment from GitHub. [Disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) in production.
+1. Select **Review and create**, then **Create** when validation passes.
+1. Once deployment completes, you see *Your deployment is complete*.
 
 ## 2. Deploy the sample app
 
@@ -92,95 +88,73 @@ Now that your App Service app is created, deploy the sample application from Git
 |------------|--------------------------------------------------------------|
 | Source     | **External Git**                                             |
 | Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial`|
-| Branch     | `working`                                                    |
+| Branch     | `main`                                                    |
 
 1. Select **Save** to apply the deployment settings.
 
-## 3. Configure the app
+## 3. Verify the sample app
 
-Next, configure your app with a startup command and enable logging to support diagnostics with the SRE Agent.
-
-### Set the startup command
-
-The sample app uses NGINX. The default NGINX configuration expects a `50x.html` file in the `/html` directory. The following startup command copies this file from the `wwwroot` directory to the expected location.
-
-1. In the left menu, browse to the *Settings* section and select **Configuration**.
-
-1. Under the *General settings* tab, locate the **Startup Command** field.
-
-1. Enter the following command:
-
-    ```bash
-    /home/site/wwwroot/startup.sh
-    ```
-
-1. Select **Save** to apply the changes.
-
-### Enable App Service logs
-
-Enable logging so the SRE Agent can collect diagnostic data from your app.
-
-1. In the left menu, browse to the *Monitoring* section and select **App Service logs**.
-
-1. Configure the following settings:
-
-| Property               | Value           | Remarks                                |
-|------------------------|-----------------|----------------------------------------|
-| Application logging    | **File System** | Enables log collection for diagnostics |
-| Retention Period (Days)| `3`             | Retains logs for 3 days                |
-
-1. Select **Save** to apply the logging configuration.
-
-## 4. Verify the sample app
-
-After deployment and configuration, verify that the sample app is running correctly.
+After deployment, confirm that the sample app is running as expected.
 
 1. In the left menu of your App Service, select **Overview**.
+2. Select **Browse** to open the app in a new browser tab. (It may take a minute to load.)
+1. The app displays a large counter and two buttons:
 
-1. Select **Browse** to open the app in a new browser tab. It may take a minute to load as Azure App Service initializes the app on the first request.
+| Button Name  | Description                                                                      |
+|------------------------------|---------------------------------------------------------------------------------------------------|
+| **Refresh / Throw Exception**| Increments the counter. If error simulation (`INJECT_ERROR` app setting) is enabled, throws an error after a set number of clicks. |
+| **Reset Counter**            | Resets the counter to zero.                                                                       |
 
-1. Once the app loads, select **Tools** in the app’s navigation bar and select **Convert to PNG**.
+1. Click the main button several times to observe the counter increase, and verify error behavior if enabled.
 
-    ![Select Tools and select Convert to PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
 
-1. Select the first three images and select **Convert**. The conversion should complete successfully.
+## 4. Set up a deployment slot for failure simulation
 
-    ![Select the first two images](./media/tutorial-azure-monitor/sample-monitor-app-convert-two-images.png)
-
-## 5. Create a deployment slot
-
-To simulate a failure scenario, create a secondary deployment slot.
+To simulate an app failure scenario, add a secondary deployment slot.
 
 1. In the left menu of your App Service, under the *Deployment* section, select **Deployment slots**.
-
 1. Select **Add slot**.
+1. Enter the following values:
 
-1. Enter the following values.
+    | Property            | Value        | Remarks                                                                                  |
+    |---------------------|--------------|------------------------------------------------------------------------------------------|
+    | Name                | `broken`     | The error scenario will be triggered in this slot. |
+    | Clone settings from | `my-sre-app` | Copies configuration from the main app.                                                  |
 
+1. Scroll to the bottom of the dialog window and select **Add**. Slot creation may take a minute to complete.
 
-| Property           | Value         | Remarks                          |
-|--------------------|---------------|----------------------------------|
-| Name               | `broken`      | Name of the slot to simulate failure |
-| Clone settings from| `my-sre-app`  | Copies configuration from the main app |
+### Deploy the sample app to the slot
 
-
-1. Scroll to the bottom of the dialog window and select **Add**. The slot creation process may take a minute to complete.
-
-### Configure the deployment slot
-
-1. After the slot is created, select the **broken** slot from the list.
-
+1. Once the slot is created, select the **broken** slot from the list.
 1. In the left menu, under the *Deployment* section, select **Deployment Center**.
+1. In the *Settings* tab, configure the following:
 
-In the *Settings* tab, configure the following:
-
-| Property   | Value                                                        |
-|------------|--------------------------------------------------------------|
-| Source     | **External Git**                                             |
-| Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial`|
-| Branch     | `broken`                                                     |
+    | Property   | Value                                                         |
+    |------------|---------------------------------------------------------------|
+    | Source     | **External Git**                                              |
+    | Repository | `https://github.com/Azure-Samples/App-Service-Agent-Tutorial` |
+    | Branch     | `broken`                                                      |
 
 1. Select **Save** to apply the deployment settings.
+
+## 5. Add an app setting to enable error simulation
+
+To control error simulation, configure an app setting your app checks at runtime.
+
+1. In the left menu of your App Service, select **Environment variables** under the *Settings* section.
+1. At the top, make sure you have the correct slot selected (for example, **broken**).
+1. Under the **App settings** tab, select **+ Add**.
+1. Enter the following values:
+
+    | Property   | Value         | Remarks                                                      |
+    |------------|---------------|--------------------------------------------------------------|
+    | Name       | `INJECT_ERROR`| Must be exactly `INJECT_ERROR` (all caps, no spaces).        |
+    | Value      | `1`           | Enables error simulation in the app.                         |
+
+1. Make sure the **Deployment slot setting** box is **not** checked.  
+1. Select **Apply** to add the setting.
+1. At the bottom of the *Environment variables* page, select **Apply** to apply the changes.
+1. When prompted, select **Confirm** to confirm and restart the app in the selected slot.
 
 ## 6. Create an Azure SRE Agent
 
@@ -206,9 +180,7 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. Select **Save**.
 
-1. Back in the *Create agent* window, select **Create**.
-
-> The agent creation process may take a few minutes to complete.
+1. Back in the *Create agent* window, select **Create**. The agent creation process may take a few minutes to complete.
 
 ## 7. Chat with your agent
 
@@ -249,15 +221,11 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Once the swap is complete, browse to the app’s URL.
 
-1. Attempt to convert five images using the app interface:
-    
-    ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
+1. Select the "Throw Exception" button several times and then refresh the page (using Command-R or F5 button).
 
-1. The conversion should fail and return an HTTP 500 error:
-     
-    ![HTTP 500](./media/tutorial-azure-monitor/sample-monitor-app-http-500.png)
+1. You should see the app fail and return an HTTP 500 error.
 
-1. Repeat the conversion step a few more times to generate additional HTTP 500 errors. These errors help the SRE Agent detect and diagnose the issue.
+1. Refresh the page a few more times to generate additional HTTP 500 errors, which will help the SRE Agent detect and diagnose the issue.
 
 ## 9. Fix the app
 
@@ -303,13 +271,7 @@ After the SRE Agent rolls back the slot swap, confirm that your app is functioni
 
 1. Open your App Service app in a browser by selecting **Browse** from the **Overview** page.
 
-1. In the app interface, select **Tools** in the navigation bar and select **Convert to PNG**.
-
-    ![Select Tools and select Convert to PNG](./media/tutorial-azure-monitor/sample-monitor-app-tools-menu.png)
-
-1. Select all the images and select **Convert**. The conversion should now complete successfully without HTTP 500 errors.
-
-    ![Select the first five images](./media/tutorial-azure-monitor/sample-monitor-app-working.png)
+1. Notice the "Throw Exception" button no longer appears and it's been replaced with a "Refresh" button.
 
 ## Clean up resources
 
