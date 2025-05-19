@@ -633,11 +633,9 @@ If the reapplication still fails, the admin action may need to be retried with f
 
     The RW configuration command is persistent, but the API lets you run at a device level. If you want to run the RW command across the fabric, then you must run the RW API across the required fabric devices.
 
-## Known issues
+## Known issue
 
-The following are known issues for the RW configuration:
-
-- There's no support for RW configuration to persist during an upgrade. During the upgrade, the configuration state **Deferred Control** is overwritten. The Fabric service automation overwrites the RW configuration through the Network Fabric reconcile workflow. You must rerun the RW configuration command for the required devices.
+The following is known issue for the RW configuration:
 
 - An error is reported because an internal error or a gNMI set error can't be distinguished with error responses.
 
