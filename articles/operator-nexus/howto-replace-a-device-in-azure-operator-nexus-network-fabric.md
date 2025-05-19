@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # Replace a device in Azure Operator Nexus Network Fabric (NNF)
 
-This article describes how to replace a faulty or underperforming device in Azure Operator Nexus Network Fabric (NNF) using the RMA (Return Material Authorization) process. This ensures minimal disruption and safe reintegration of the replacement hardware into the fabric.
+This article describes how to replace a faulty or underperforming device in Azure Operator Nexus Network Fabric (NNF) using the RMA (Return Material Authorization) process which ensures minimal disruption and safe reintegration of the replacement hardware into the fabric.
 
 ## Scenarios for device replacement
 
@@ -19,7 +19,7 @@ Device replacement may be required in the following situations:
 
 - Inconsistent Performance (Flakiness): The device shows intermittent connectivity or performance degradation.
 
-- Hardware Failure: The device experiences critical hardware malfunctions that cannot be fixed through standard troubleshooting.
+- Hardware Failure: The device experiences critical hardware malfunctions that can't be fixed through standard troubleshooting.
 
 - Persistent Unreachability: The device is permanently unreachable despite repeated recovery attempts.
 
@@ -44,7 +44,7 @@ Manually power it down and remove it from service.
 > [!Important]
 > This step is manual and applicable only if the device is responsive.
 
-2. Disable aministrative state
+2. Disable administrative state
 
 Use the following command to disable the administrative state of the device:
 
@@ -52,7 +52,7 @@ Use the following command to disable the administrative state of the device:
 
 az networkfabric device update-admin-state \
   --state Disable \
-  --resource-name <networkfabric-device-name> \
+  --resource-name "<networkfabric-device-name>" \
   -g <rg-name>
 
 ```
@@ -62,6 +62,7 @@ This action:
 - Moves the device to a degraded state: EnabledDegraded.
 
 - Excludes the device from all control plane actions such as:
+
     - Certificate rotations
     
     - Password rotations
@@ -76,7 +77,7 @@ Once the replacement device is physically installed, update its serial number in
 
 az networkfabric device update \
   --serial-number "<<Serial number>>" \
-  --resource-name <networkfabric-device-name> \
+  --resource-name "<networkfabric-device-name>" \
   -g <rg-name>
 ```
 
@@ -94,7 +95,7 @@ Initiate the RMA process using the following command:
 ```Azure CLI
 az networkfabric device update-admin-state \
   --state RMA \
-  --resource-name <networkfabric-device-name> \
+  --resource-name "<networkfabric-device-name>" \
   -g <rg-name>
 ```
 
@@ -102,7 +103,7 @@ This will:
 
 - Trigger the Network Fabric Controller to push all required configuration files to the replacement device.
 
-- Retry the operation in case of transient failures until success is confirmed.
+- Retry the operation if there is transient failures until success is confirmed.
 
 6. Enable administrative state
 
@@ -111,14 +112,14 @@ Once configuration is applied successfully, bring the device back into active se
 ```Azure CLI```
 az networkfabric device update-admin-state \
   --state Enable \
-  --resource-name <networkfabric-device-name> \
+  --resource-name "<networkfabric-device-name>" \
   -g <rg-name>
 
 This:
 
 - Performs a partial reconcile of the device state.
 
-- Sets device state to Enabled once it is fully healthy and synchronized with the fabric.
+- Sets device state to Enabled once it's fully healthy and synchronized with the fabric.
 
 ## Summary
 The RMA workflow in Network Fabric ensures seamless device replacement with controlled state transitions and full configuration synchronization. This helps maintain service continuity and operational consistency across the network.
