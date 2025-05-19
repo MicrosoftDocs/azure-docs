@@ -246,7 +246,7 @@ Debian 11 | 9.62| 5.10.0-30-amd64 <br> 5.10.0-30-cloud-amd64 <br>6.1.0-0.deb11.2
 Debian 11 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 6.1.0-0.deb11.13-amd64 <br> 6.1.0-0.deb11.13-cloud-amd64 <br> 6.1.0-0.deb11.17-amd64 <br> 6.1.0-0.deb11.17-cloud-amd64 <br> 6.1.0-0.deb11.18-amd64 <br> 6.1.0-0.deb11.18-cloud-amd64  <br> 5.10.0-29-amd64 <br> 5.10.0-29-cloud-amd64  |
 Debian 11 | 9.60| 5.10.0-27-amd64 <br> 5.10.0-27-cloud-amd64 <br> 5.10.0-28-amd64 <br> 5.10.0-28-cloud-amd64 |
 |||
-Debian 12 | 9.65 | 6.1.0-29-amd64 <br> 6.1.0-29-cloud-amd64 <br> 6.1.0-30-amd64 <br> 6.1.0-30-cloud-amd64 <br> 6.1.0-31-amd64 <br> 6.1.0-31-cloud-amd64 <br>6.1.0-15-cloud-amd64 <br> 6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 <br> 6.1.0-27-amd64 <br> 6.1.0-27-cloud-amd64 <br> 6.1.0-28-amd64 <br> 6.1.0-28-cloud-amd64 <br> 6.1.0-32-amd64 <br> 6.1.0-32-cloud-amd64 <br> 6.1.0-33-amd64 <br> 6.1.0-33-cloud-amd64|
+Debian 12 | 9.65 | 6.1.0-32-amd64 <br> 6.1.0-32-cloud-amd64 <br> 6.1.0-33-amd64 <br> 6.1.0-33-cloud-amd64|
 Debian 12 | 9.64 | 6.1.0-29-amd64 <br> 6.1.0-29-cloud-amd64 <br> 6.1.0-30-amd64 <br> 6.1.0-30-cloud-amd64 <br> 6.1.0-31-amd64 <br> 6.1.0-31-cloud-amd64 <br>6.1.0-15-cloud-amd64 <br> 6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 <br> 6.1.0-27-amd64 <br> 6.1.0-27-cloud-amd64 <br> 6.1.0-28-amd64 <br> 6.1.0-28-cloud-amd64 |
 Debian 12 | 9.63 | 6.1.0-25-amd64 <br>6.1.0-25-cloud-amd64 <br>6.1.0-26-amd64 <br> 6.1.0-26-cloud-amd64 |
 Debian 12 | 9.62| 6.1.0-22-amd64 <br> 6.1.0-22-cloud-amd64 <br> 6.1.0-23-amd64 <br> 6.1.0-23-cloud-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64  |
