@@ -63,7 +63,7 @@ The following table shows the list of vSAN features available in Azure VMware So
 Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vSAN ESA. Run command `Set-AVSVSANClusterUNMAPTRIM` isn't applicable for vSAN ESA based clusters.
 
 > [!NOTE]
-> - vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following lists additional requirements are needed for it to function as intended.
+vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following lists additional requirements are needed for it to function as intended.
 > - All VMs in vSAN ESA clusters are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
 > - The guest operating system must be able to identify the virtual disk as thin.
 
