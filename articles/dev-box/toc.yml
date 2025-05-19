@@ -75,6 +75,8 @@ items:
       - name: Write an image definition file
         href: how-to-write-image-definition-file.md
         displayName: customizations, image definition, team customization
+      - name: Create an image defintion file with Copilot
+        href: how-to-use-copilot-generate-image-definition-file.md
       - name: Write an individual customization file
         href: how-to-write-individual-customization-file.md
         displayName: customizations, image definition, personal customization, individual
