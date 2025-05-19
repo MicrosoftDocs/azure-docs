@@ -3,7 +3,7 @@ title: Understanding Azure Site Recovery for Managed Disks Charges
 description: This article summarizes the costs disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 04/22/2025
+ms.date: 05/19/2025
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -26,6 +26,8 @@ The Protected Instance License fee is a fundamental charge for using Azure Site 
 Storage cost is a significant part of the overall expense when using Azure Site Recovery. This cost includes:
 
 - **Replica Storage**: The replica storage in the target location mirrors source storage. This storage is used during replication, and its size and type depend on the source storage configuration. Applicable only for A2A.
+   >[!Note]
+   >Premium SSD v2 source disks will have Premium SSDv1 replica disks. 
 - **Cache Storage Account Cost**:
   - **Azure Virtual Machines**: The cache storage account is in the source region. When a user selects *High Churn* the cache storage account uses Premium Block Blob. For *Normal Churn* it uses a General Purpose Storage Account. The charges depend on the type of storage account used. There are minimal egress costs only in A2A for Delta Replication.
   - **VMware/Physical Machines/Hyper-V Machines**: The cache storage account is in the target region, charged at General Purpose Storage Account pricing as per the user's selection.

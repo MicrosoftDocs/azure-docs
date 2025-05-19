@@ -2,7 +2,7 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 04/07/2025
+ms.date: 05/19/2025
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
@@ -83,10 +83,6 @@ As average churn on the disks increases, the number of disks that a storage acco
 > The cache limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
 >
 > When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
->
-> Azure Site Recovery isn't supported for VMs with Premium SSD v2 disks.
-
-
 
 ## Replicated machine operating systems
 
@@ -403,7 +399,8 @@ Azure Storage firewalls for virtual networks  | Supported | If you want to restr
 General purpose V2 storage accounts (Both Hot and Cool tier) | Supported | Transaction costs increase substantially compared to General purpose V1 storage accounts
 Generation 2 (UEFI boot) | Supported
 NVMe disks | Not supported
-Azure Shared Disks | Not supported
+Managed Shared Disk| Supported 
+Managed Premium SSD v2 Disk| Supported 
 Ultra Disks | Not supported
 Secure transfer option | Supported
 Write accelerator enabled disks | Not supported
