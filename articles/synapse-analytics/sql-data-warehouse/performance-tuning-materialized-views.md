@@ -7,7 +7,7 @@ ms.subservice: sql-dw
 ms.date: 08/17/2021
 author: XiaoyuMSFT
 ms.author: xiaoyul
-ms.reviewer: wiassaf
+
 ---
 
 # Performance tune with materialized views

@@ -1,0 +1,31 @@
+### YamlMime:Landing
+
+title: Azure Native Pure Storage Cloud (preview)
+summary: Pure Storage Cloud provides secure, efficient, and reliable block storage as a native managed service (STaaS).
+metadata:
+  title: Azure Native Pure Storage Cloud (preview) 
+  description: Azure Native Pure Storage Cloud (preview) integrates with Azure to combine the benefits of Pure Storage with the Azure cloud.
+  ms.topic: landing-page
+  ms.date: 04/07/2025
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Native Pure Storage Cloud (preview)
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Native Pure Storage Cloud (preview)?
+            url: overview.md
+
+  # Card
+  - title: Get Started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a resource
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage resources
+            url: manage.md

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 05/20/2024
+ms.date: 03/27/2025
 ms.custom:
 ---
 
@@ -1717,7 +1717,7 @@ This action stops the run for a workflow instance, cancels any actions in progre
 
 *Optional*
 
-The properties for the "runStatus" object apply only 
+The properties for the "runError" object apply only 
 when the "runStatus" property is set to "Failed" status.
 
 | Value | Type | Description |

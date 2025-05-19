@@ -262,7 +262,7 @@ Create data flow endpoint for the Azure Event Grid. This endpoint is the destina
 
 # [Bicep](#tab/bicep)
 
-The data flow and data flow endpoints Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge data flow Tutorial](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary data flow and data flow endpoints.
+The data flow and data flow endpoints Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep file from [Bicep File for MQTT-bridge data flow Tutorial](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary data flow and data flow endpoints.
 
 Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName` with yours. 
 

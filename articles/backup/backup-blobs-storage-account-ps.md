@@ -3,7 +3,7 @@ title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 02/12/2025
+ms.date: 04/17/2025
 author: jyothisuri
 ms.author: jsuri
 ---
@@ -248,4 +248,5 @@ To update the backup instance, run the following cmdlets:
 
 ##  Next steps
 
-[Restore Azure blobs using Azure PowerShell](restore-blobs-storage-account-ps.md)
+- [Restore Azure blobs using Azure PowerShell](restore-blobs-storage-account-ps.md).
+- [Restore Azure Blob using REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).

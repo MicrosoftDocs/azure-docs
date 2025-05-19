@@ -1,13 +1,13 @@
 ---
 title: Manage Azure costs with automation
 description: This article explains how you can manage Azure costs with automation.
-author: bandersmsft
-ms.author: banders
+author: jojopm
+ms.author: jojoh
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojo
+ms.reviewer: jojoh
 ---
 
 # Manage costs with automation
@@ -32,7 +32,7 @@ If you want to analyze your data daily, we recommend using the [Power BI data co
 
 **Cost Management exports**
 
-You might not need to analyze the data daily. If so, consider using Cost Management's [Exports](./tutorial-export-acm-data.md) feature to schedule data exports to an Azure Storage account. Then you can load the data into Power BI as needed, or analyze it in Excel if the file is small enough. Exports are available in the Azure portal or you can configure exports with the [Exports API](/rest/api/cost-management/exports).
+You might not need to analyze the data daily. If so, consider using Cost Management's [Exports](./tutorial-improved-exports.md) feature to schedule data exports to an Azure Storage account. Then you can load the data into Power BI as needed, or analyze it in Excel if the file is small enough. Exports are available in the Azure portal or you can configure exports with the [Exports API](/rest/api/cost-management/exports).
 
 **Usage Details API**
 
@@ -42,7 +42,7 @@ Consider using the [Usage Details API](/rest/api/consumption/usageDetails) if yo
 - Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
 - Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
 - If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
-- If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-export-acm-data.md) as a more scalable solution.
+- If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-improved-exports.md) as a more scalable solution.
 
 ## Automate retrieval with Usage Details API
 
@@ -323,5 +323,5 @@ List of remaining quotas.
 ## Related content
 
 - [Analyze Azure costs with the Power BI template app](./analyze-cost-data-azure-cost-management-power-bi-template-app.md).
-- [Create and manage exported data](./tutorial-export-acm-data.md) with Exports.
+- [Create and manage exported data](./tutorial-improved-exports.md) with Exports.
 - Learn more about the [Usage Details API](/rest/api/consumption/usageDetails).

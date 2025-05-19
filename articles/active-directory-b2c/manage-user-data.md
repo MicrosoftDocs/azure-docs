@@ -20,6 +20,8 @@ ms.custom: fasttrack-edit
 
 # Manage user data in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
  This article discusses how you can manage the user data in Azure Active Directory B2C (Azure AD B2C) by using the operations that are provided by the [Microsoft Graph API](/graph/use-the-api). Managing user data includes deleting or exporting data from audit logs.
 
 [!INCLUDE [gdpr-intro-sentence.md](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]

@@ -26,6 +26,9 @@ The throughput and price of each unit depend on the [service tier](api-managemen
 > [!NOTE]
 > See [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) for features, scale limits, and estimated throughput in each tier. To get more accurate throughput numbers, you need to look at a realistic scenario for your APIs. See [Capacity of an Azure API Management instance](api-management-capacity.md).
 
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
+
 ## Prerequisites
 
 To follow the steps from this article, you must:
@@ -40,7 +43,7 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 
 * The **Developer** tier should be used to evaluate the service; it shouldn't be used for production. The **Developer** tier doesn't have SLA and you can't scale this tier (add/remove units). 
 
-* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** are production tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
+* **Basic**, **Basic v2**, **Standard**, **Standard v2**, **Premium**, and **Premium v2** (preview) are tiers that have SLA and can be scaled. For pricing details and scale limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/#pricing).
 
 * The **Premium** tier enables you to distribute a single Azure API Management instance across any number of desired Azure regions. When you initially create an Azure API Management service, the instance contains only one unit and resides in a single Azure region (the **primary** region).
 
@@ -49,12 +52,10 @@ You can choose between the following dedicated tiers: **Developer**, **Basic**, 
 * You can upgrade and downgrade to and from certain dedicated services tiers: 
     * You can upgrade and downgrade to and from classic tiers (**Developer**, **Basic**, **Standard**, and **Premium**).
     
-    * You can upgrade and downgrade to and from v2 tiers (**Basic v2**, **Standard v2**, and **Premium v2**). 
+    * You can upgrade and downgrade to and from the **Basic v2** and **Standard v2** tiers. 
 
     Downgrading can remove some features. For example, downgrading to **Standard** or **Basic** from the **Premium** tier can remove virtual networks or multi-region deployment.
 
-> [!NOTE]
-> The upgrade or scale process can take up to 15 to 45 minutes to apply. You get notified when it is done.
 
 ## Scale your API Management instance
 

@@ -5,7 +5,7 @@ services: ddos-protection
 author: AbdullahBell
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 02/10/2025
+ms.date: 03/17/2025
 ms.author: abell
 ---
 

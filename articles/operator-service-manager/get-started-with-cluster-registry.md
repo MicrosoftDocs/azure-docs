@@ -76,7 +76,7 @@ The cluster registry feature deploys helper pods on the target edge cluster to a
 
 #### Pod mutating webhook
 * These pods implement Kubernetes mutating admission webhooks, serving an instance of the mutate API. The mutate API does two things:
-  * It modifies the image registry path to the local registry IP, substituting out the AOSM artifact store Azure container registry (ACR).
+  * It modifies the image registry path to the local registry IP, substituting out the AOSM artifact store Azure Container Registry (ACR).
   * It creates an Artifact CR on the edge cluster.
 
 #### Artifact reconciler

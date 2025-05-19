@@ -4,7 +4,7 @@ ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: quickstart
-ms.date: 02/14/2025
+ms.date: 03/18/2025
 ms.author: cephalin
 ---
 
@@ -70,6 +70,23 @@ docker --version
    ENTRYPOINT ["dotnet", "/defaulthome/hostingstart/hostingstart.dll"]
    ```
 
+   # [Java](#tab/java)
+
+   In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at
+   [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine).
+   Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts
+   that app.
+
+   <!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
+   ```dockerfile
+   FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
+
+   ENV PORT 80
+   EXPOSE 80
+
+   ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
+   ```
+
    # [Node.js](#tab/node)
 
    In this Dockerfile, the parent image is one of the built-in Node.js containers of App Service.
@@ -97,20 +114,6 @@ docker --version
    EXPOSE 8080
 
    ENTRYPOINT ["gunicorn", "--timeout", "600", "--access-logfile", "'-'", "--error-logfile", "'-'", "--chdir=/opt/defaultsite", "application:app"]
-   ```
-
-   # [Java](#tab/java)
-
-   In this Dockerfile, the parent image is one of the built-in Java containers of App Service. You can find the source files for it at [java/tree/dev/java11-alpine](https://github.com/Azure-App-Service/java/tree/dev/java11-alpine). Its [Dockerfile](https://github.com/Azure-App-Service/java/blob/dev/java11-alpine/Dockerfile) copies a simple Java app into `/tmp/appservice`. Your Dockerfile starts that app.
-
-   <!-- https://mcr.microsoft.com/v2/azure-app-service%2Fjava/tags/list -->
-   ```dockerfile
-   FROM mcr.microsoft.com/azure-app-service/java:11-java11_stable
-
-   ENV PORT 80
-   EXPOSE 80
-
-   ENTRYPOINT ["java", "-Dserver.port=80", "-jar", "/tmp/appservice/parkingpage.jar"]
    ```
    ---
 
@@ -155,7 +158,7 @@ The **Output** panel shows the status of the deployment operations. When the ope
 
 ## Related content
 
-Congratulations, you've successfully completed this quickstart.
+Congratulations, you successfully completed this quickstart!
 
 The App Service app pulls from the container registry every time it starts. If you rebuild your image, you just need to push it to your container registry, and the app pulls in the updated image when it restarts. To tell your app to pull in the updated image immediately, restart it.
 

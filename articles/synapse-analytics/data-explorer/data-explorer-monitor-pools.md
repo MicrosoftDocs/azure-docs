@@ -2,7 +2,7 @@
 title: 'Quickstart: Use Synapse Studio to monitor your Data Explorer pools (Preview)'
 description: This article provides information for monitoring Data Explorer pools.
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
@@ -12,6 +12,8 @@ ms.custom: mode-ui
 ---
 
 # Quickstart: Use Synapse Studio to monitor your Data Explorer pools (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](includes/data-explorer-deprecation-notice.md)]
 
 With Azure Synapse Analytics, you can use Data Explorer to run queries, dashboards and more on Data Explorer pools in your workspace.
 

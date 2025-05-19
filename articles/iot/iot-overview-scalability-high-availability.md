@@ -16,14 +16,14 @@ This overview introduces the key concepts around the options for scalability, hi
 
 # [Edge-based solution](#tab/edge)
 
-The following diagram shows a high-level view of the components in a typical edge-based IoT solution. This article focuses on the areas relevant to scalability, high availability, and disaster recovery in an edge-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [edge-based IoT solution](iot-introduction.md#edge-based-solution). This article focuses on the areas relevant to scalability, high availability, and disaster recovery in an edge-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-scalability-high-availability/iot-edge-scalability-architecture.svg" alt-text="Diagram that shows the high-level IoT edge-based solution architecture highlighting scalability, high availability, and disaster recovery." border="false":::
 
 # [Cloud-based solution](#tab/cloud)
 
-The following diagram shows a high-level view of the components in a typical cloud-based IoT solution. This article focuses on the areas relevant to scalability, high availability, and disaster recovery in a cloud-based IoT solution:
+The following diagram shows a high-level view of the components in a typical [cloud-based IoT solution](iot-introduction.md#cloud-based-solution). This article focuses on the areas relevant to scalability, high availability, and disaster recovery in a cloud-based IoT solution:
 
 <!-- Art Library Source# ConceptArt-0-000-032 -->
 :::image type="content" source="media/iot-overview-scalability-high-availability/iot-cloud-scalability-architecture.svg" alt-text="Diagram that shows the high-level IoT cloud-based solution architecture highlighting scalability, high availability, and disaster recovery." border="false":::
@@ -89,6 +89,8 @@ On multi-node clusters with at least three nodes, you have the option of enablin
 
 [Dapr is offered as part of MQTT broker](../iot-operations/create-edge-apps/howto-develop-dapr-apps.md), abstracting away details of MQTT session management, message QoS and acknowledgment, and built-in key-value stores, making it a practical choice for developing a highly available application.
 
+The [Azure IoT Operations SDKs (preview)](https://github.com/Azure/iot-operations-sdks) are a suite of tools and libraries across multiple languages designed to aid the development of highly available applications for Azure IoT Operations.
+
 For information on high availability across availability zones and regions for Azure Device Registry, see [Reliability in Azure Device Registry](../reliability/reliability-device-registry.md).
 
 # [Cloud-based solution](#tab/cloud)
@@ -108,3 +110,9 @@ The following tutorials and guides provide more detail and guidance:
 - [IoT Central device best practices](../iot-central/core/concepts-device-implementation.md#best-practices)
 
 ---
+
+## Related content
+
+- [Manage your IoT solution](iot-overview-solution-management.md)
+- [Security best practices for IoT solutions](iot-overview-security.md)
+- [Choose an Azure IoT service](iot-services-and-technologies.md)

@@ -1,14 +1,13 @@
 ---
 title: Microsoft Entra ID Free
 description: Learn about Microsoft Entra ID Free, a cloud-based identity management product included with your billing account, and how it helps manage your subscriptions.
-author: bandersmsft
-ms.reviewer: sasrin
+author: KennyDay
+ms.reviewer: zainzaigham
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
 ms.date: 02/24/2025
-ms.author: banders
-#customer intent: As a billing administrator, I want to understand the Microsoft Entra ID Free subscription so that I can manage my billing account and subscriptions.
+ms.author: zainzaigham
 ---
 
 # Microsoft Entra ID Free

@@ -2,7 +2,7 @@
 title: About Azure Files backup
 description: Learn how to back up Azure Files in the Recovery Services vault
 ms.topic: overview
-ms.date: 03/11/2025
+ms.date: 05/06/2025
 ms.service: azure-backup
 ms.custom:
   - engagement-fy23
@@ -72,9 +72,7 @@ This section shows the backup flow for Azure Files by using the backup tiers - S
 
 7. If you're using Azure File Sync, the Backup service indicates to the Azure File Sync service the paths of the files being restored, which then triggers a background change detection process on these files. Any changed files sync down to the server endpoint. This process happens in parallel with the original restore to the Azure Files.
 
-   >[!NOTE]
-   >Vaulted backup currently doesn't support restore to a File Share registered with File sync service.
-
+   
 8. The backup and restore job monitoring data is pushed to the Azure Backup Monitoring service. This data allows you to monitor cloud backups for your File Shares in a single dashboard. In addition, you can also configure alerts or email notifications when backup health is affected. Emails are sent via the Azure email service.
 
 ## Backup costs
@@ -110,3 +108,4 @@ Learn about the [additional prerequisites](backup-azure-files.md#prerequisites) 
 
 * [Back up Azure Files](backup-afs.md).
 * [Frequently asked questions about backing up Azure Files](backup-azure-files-faq.yml).
+* [Well-architected reliability design principles for Azure Files vaultes backup](/azure/well-architected/service-guides/azure-files#reliability).

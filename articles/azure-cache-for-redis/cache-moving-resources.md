@@ -8,6 +8,8 @@ description: How to move Azure Cache for Redis instances to a different Azure re
 ms.topic: how-to
 ms.custom: subject-moving-resources, engagement-fy23
 ms.date: 10/20/2022
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 

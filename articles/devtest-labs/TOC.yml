@@ -147,6 +147,8 @@
       href: devtest-lab-redeploy-vm.md
     - name: Create a VM with Generation 2 base image
       href: devtest-lab-gen2-vm.md
+    - name: Trusted Launch for Generation 2 VMs
+      href: devtest-lab-trusted-launch.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
@@ -275,4 +277,4 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: DevTest Labs Developer Community
-    href: https://aka.ms/dtl/communityforum
+    href: https://aka.ms/dtl/developer-community-forum

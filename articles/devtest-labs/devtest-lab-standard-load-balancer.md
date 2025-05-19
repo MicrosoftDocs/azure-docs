@@ -24,7 +24,7 @@ These retirements **will not impact VMs with Private IPs**. However, they will i
 
 ## Impact on VMs with Public IPs:
 - **Current Setup**: When you create a Public IP VM, a Basic SKU Public IP address resource with dynamic IP allocation is created.
-- **New Setup**: A Standard SKU Public IP address resource with static IP allocation will be created when you create a Public IP VM. Each VM with a Public IP will be assigned its own public IP address, allowing direct access via RDP or SSH. **You need to create and configure a Network Security Group (NSG) to allow inbound traffic** such as RDP or SSH connection. To learn more about how to create and configure NSGs, please check [Create, change, or delete a network security group](https://learn.microsoft.com/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal).
+- **New Setup**: A Standard SKU Public IP address resource with static IP allocation will be created when you create a Public IP VM. Each VM with a Public IP will be assigned its own public IP address, allowing direct access via RDP or SSH. **You need to create and configure a Network Security Group (NSG) to allow inbound traffic** such as RDP or SSH connection. To learn more about how to create and configure NSGs, please check [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal).
 - **How to View the SKU**:
     - Go to the Azure compute view of the VM under Network settings.
     - Click on the link of the Public IP resource.
@@ -32,7 +32,7 @@ These retirements **will not impact VMs with Private IPs**. However, they will i
 
 ## Impact on VMs with Shared IPs:
 - **Current Setup**: All VMs created with Shared IPs are placed in the same resource group, which has one assigned Basic SKU public IP address. DevTest Labs automatically creates a Basic load balancer to manage traffic for these VMs. When a VM with a shared IP is added to a subnet, it is automatically added to the load balancer and assigned a TCP port number on the public IP address, forwarding to the SSH port on the VM.
-- **New Setup**: A Standard SKU load balancer will be created and used instead of a Basic Load Balancer. **You need to create and configure a Network Security Group (NSG) to allow inbound traffic** such as RDP or SSH connection. To learn more about how to create and configure NSGs, please check [Create, change, or delete a network security group](https://learn.microsoft.com/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal).
+- **New Setup**: A Standard SKU load balancer will be created and used instead of a Basic Load Balancer. **You need to create and configure a Network Security Group (NSG) to allow inbound traffic** such as RDP or SSH connection. To learn more about how to create and configure NSGs, please check [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md?tabs=network-security-group-portal).
 - How to View the SKU:
     - Go to the Azure compute view of the VM under Load Balancing.
     - Click on the link of the load balancer resource.

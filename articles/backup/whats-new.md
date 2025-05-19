@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 03/10/2025
+ms.date: 05/14/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -17,6 +17,11 @@ Azure Backup is constantly improving and releasing new features that enhance the
 You can learn more about the new releases by bookmarking this page or by [subscribing to updates here](https://azure.microsoft.com/updates/?query=backup).
 
 ## Updates summary
+
+- May 2025
+  - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
+- April 2025
+  - [Vaulted backup support for  Azure Data Lake Storage (preview)](#vaulted-backup-support-for-azure-data-lake-storage-preview)
 - March 2025
   - [Vaulted backup support for Azure Files is now generally available](#vaulted-backup-support-for-azure-files-is-now-generally-available)
 
@@ -104,11 +109,31 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+## Back up SAP ASE (Sybase) database is now generally available
+
+Azure Backup now supports SAP ASE (Sybase) database backups on Azure VMs. Backups stream directly to managed Recovery Services vault of Azure Backup, ensuring security with [Immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault), [Soft Delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multiuser Authorization](multi-user-authorization-concept.md?tabs=recovery-services-vault), and [Customer Managed Key (CMK)](encryption-at-rest-with-cmk.md?tabs=portal). Data is stored in a Microsoft-managed subscription, isolating it from user environments for enhanced protection.
+
+With stream-based backup, log backups can occur every **15 minutes**, enabling **Point-In-Time recovery**. Restore options include Alternate Location Restore, Original Location Restore, and Restore as Files.
+
+Azure Backup also offers cost-effective policies (weekly full + daily differential) to reduce storage costs, alongside [Multi-SID](sap-hana-backup-support-matrix.md#support-for-azure-backup-multiple-components-on-one-system-mcos) and [Cross Subscription Restore (CSR)](sap-ase-database-about.md#cross-subscription-restore-for-sap-ase-sybase-database) support. [Azure Business Continuity Center](../business-continuity-center/business-continuity-center-overview.md) enables protection, monitoring, and alert configuration for SAP ASE backups.
+
+For more information, see [Back up SAP ASE (Sybase) database](sap-ase-database-about.md).
+
+## Vaulted backup support for Azure Data Lake Storage (preview)
+
+Azure Backup now supports vaulted backups for block blob data in Azure Data Lake Storage ([hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) enabled storage account), enhancing data protection against ransomware and accidental loss. You can schedule backups, set retention policies, and store recovery points securely in the Backup vault for up to **10 years**. If there is data loss in the source storage account, you can  restore to an alternate account. Security features such as [Immutable vault](backup-azure-immutable-vault-concept.md?tabs=backup-vault) and [Soft delete](backup-azure-security-feature-cloud.md) protect your backup data.
+
+>[!Note]
+>- This feature is currently in limited preview and is available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- To enroll in this preview feature, fill [this signup form](https://forms.office.com/r/sixidTkYb4)  and write to [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+
+For more information, see [Overview of Azure Data Lake Storage backup (preview)](azure-data-lake-storage-backup-overview.md).
+
 ## Vaulted backup support for Azure Files is now generally available
 
 Azure Backup now supports vaulted backup File Shares in standard storage accounts to protect against ransomware and data loss. You can define backup schedules and retention settings to store data in the Backup vault for up to 10 years.
 
-Vaulted backups provide an offsite copy of your data. In case of data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
+Vaulted backups provide an offsite copy of your data. If there is data loss on the source account, you can restore it to an alternate account. You can manage vaulted backups at scale via Azure Business Continuity Center and monitor them using Azure Backup's alerting and reporting features.
 
 We recommend switching from snapshot backups to vaulted backups for comprehensive protection against data loss.
 

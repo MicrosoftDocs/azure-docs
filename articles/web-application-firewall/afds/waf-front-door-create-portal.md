@@ -25,7 +25,7 @@ Create an Azure [Front Door](../../frontdoor/quickstart-create-front-door.md) in
 
 ## Create a WAF policy
 
-First, create a basic WAF policy with the managed Default Rule Set (DRS) by using the Azure portal.
+First, create a basic WAF policy by using the Azure portal.
 
 1. In the upper-left side of the screen, select **Create a resource**. Search for **WAF**, select **Web Application Firewall (WAF)**, and select **Create**.
 

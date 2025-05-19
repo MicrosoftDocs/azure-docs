@@ -1,5 +1,5 @@
 ---
-title: Routing coverage
+title: Azure Maps Route service coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
 author: farazgis
@@ -11,13 +11,13 @@ ms.subservice: routing
 zone_pivot_groups: azure-maps-coverage
 ---
 
-# Azure Maps routing coverage
+# Azure Maps Route service coverage
 
-This article provides coverage information for Azure Maps routing. Upon a search query, Azure Maps returns an optimal route from location A to location B. You're provided with accurate travel times, live updates of travel information, and route instructions. You can also add more search parameters such as current traffic, vehicle type, and conditions to avoid. The optimization of the route depends on the region. That's because, Azure Maps has various levels of information and accuracy for different regions. The tables in this article list the regions and what kind of information you can request for them.
+This article provides coverage information for the Azure Maps Route service. Upon a search query, Azure Maps returns an optimal route from location A to location B. You're provided with accurate travel times, live updates of travel information, and route instructions. You can also add more search parameters such as current traffic, vehicle type, and conditions to avoid. The optimization of the route depends on the region. That's because, Azure Maps has various levels of information and accuracy for different regions. The tables in this article list the regions and what kind of information you can request for them.
 
 ## Routing information supported
 
-The following information is available in the [Azure Maps routing coverage tables]:
+The following information is available in the [Azure Maps Route service coverage tables]:
 
 ::: zone pivot="service-previous"
 <!-----------------------------  ROUTING v1   ---------------------------------------------------------------------------->
@@ -75,7 +75,7 @@ For more information about the Route Directions API, see [Azure Maps Route Servi
 
 ::: zone-end
 
-## Azure Maps routing coverage tables
+## Azure Maps Route service coverage tables
 
 ::: zone pivot="service-previous"
 
@@ -624,7 +624,7 @@ For more coverage tables, see:
 - Check out coverage for [Traffic].  
 - Check out coverage for [Render].
 
-[Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
+[Azure Maps Route service coverage tables]: #azure-maps-route-service-coverage-tables
 [Azure Maps Route Service]: /rest/api/maps/route/
 [Geocoding]: geocoding-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions

@@ -16,6 +16,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Investigate risk with Identity Protection in Azure AD B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 Identity Protection provides ongoing risk detection for your Azure AD B2C tenant. It allows organizations to discover, investigate, and remediate identity-based risks. Identity Protection comes with risk reports that can be used to investigate identity risks in Azure AD B2C tenants. In this article, you learn how to investigate and mitigate risks.
 
 ## Overview

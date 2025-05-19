@@ -2,8 +2,8 @@
 title: Test and troubleshoot MSIX packages for app attach - Azure
 description: Learn how to mount disk images for testing and troubleshooting outside of Azure Virtual Desktop.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 03/04/2024
 ---
 

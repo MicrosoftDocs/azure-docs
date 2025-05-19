@@ -4,7 +4,7 @@ description: Learn how to use Azure AI Language for sentiment analysis in Azure 
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: whhender, garye
+
 ms.date: 12/20/2024
 author: nelgson
 ms.author: negust

@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/11/2024
+ms.date: 04/16/2025
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -50,37 +50,32 @@ In order to function, you configure the Guest OS for the virtual machine to rece
 
 For each VM in the backend pool, run the following commands at a Windows Command Prompt on the server.  
 
-To get the list of interface names you have on your VM, type this command:
+1. To get the list of interface names you have on your VM, enter this command:
 
-```console
-netsh interface ipv4 show interface 
-```
+    ```console
+    netsh interface ipv4 show interface 
+    ```
+2. For the VM NIC (Azure managed), enter the following command after replacing **interface-name** with the name of the interface you want to use:
 
-For the VM NIC (Azure managed), type this command.
+    ```console
+    netsh interface ipv4 set interface <interface-name> weakhostreceive=enabled
+    ```
 
-```console
-netsh interface ipv4 set interface <interfacename> weakhostreceive=enabled
-```
-(replace **"interfacename"** with the name of this interface)
+3. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
 
-For each loopback interface you added, repeat these commands:
+    ```console
+    netsh interface ipv4 add addr <loopback-interface-name> <floating-IP> <floating-IPnetmask>
+    netsh interface ipv4 set interface <loopback-interface-name> weakhostreceive=enabled  weakhostsend=enabled 
+    ```
 
-```console
-netsh interface ipv4 add addr <loopbackinterfacename> floatingip floatingipnetmask
-netsh interface ipv4 set interface <loopbackinterfacename> weakhostreceive=enabled  weakhostsend=enabled 
-```
-(replace **loopbackinterfacename** with the name of this loopback interface and **floatingip** and **floatingipnetmask** with the appropriate values that correspond to the load balancer frontend IP) 
+4. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load balancing rule for port 80:
 
-Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
-
-This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load balancing rule for port 80:
-
-```console
-netsh int ipv4 set int "Ethernet" weakhostreceive=enabled
-netsh int ipv4 add addr "Loopback Pseudo-Interface 1" 1.2.3.4 255.255.255.0
-netsh int ipv4 set int "Loopback Pseudo-Interface 1" weakhostreceive=enabled weakhostsend=enabled
-netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in action=allow enable=yes
-```
+    ```console
+    netsh int ipv4 set int "Ethernet" weakhostreceive=enabled
+    netsh int ipv4 add addr "Loopback Pseudo-Interface 1" 1.2.3.4 255.255.255.0
+    netsh int ipv4 set int "Loopback Pseudo-Interface 1" weakhostreceive=enabled weakhostsend=enabled
+    netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in action=allow enable=yes
+    ```
 </details>
 
 ### Ubuntu
@@ -90,33 +85,31 @@ netsh advfirewall firewall add rule name="http" protocol=TCP localport=80 dir=in
 
 For each VM in the backend pool, run the following commands via an SSH session.
 
-To get the list of interface names you have on your VM, type this command:
+1. To get the list of interface names you have on your VM, type this command:
 
-```console
-ip addr
-```
-For each loopback interface, repeat these commands, which assign the floating IP to the loopback alias:
+    ```console
+    ip addr
+    ```
 
-```console
-sudo ip addr add <floatingip>/<floatingipnetmask> dev lo:0
-```
-(replace **floatingip** and **floatingipnetmask** with the appropriate values that correspond to the load balancer frontend IP) 
+2. For each loopback interface you added, enter these commands after replacing **loopback-interface-name** with the name of the loopback interface and **floating-IP** and **floating-IPnetmask** with the appropriate values that correspond to the load balancer frontend IP:
 
-Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports.
+    ```console
+    sudo ip addr add <floating-IP>/<floating-IPnetmask> dev lo:0
+    ```
 
-This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4 and a load balancing rule for port 80.  This example also assumes the use of [UFW (Uncomplicated Firewall)](https://www.wikipedia.org/wiki/Uncomplicated_Firewall) in Ubuntu.
+3. Finally, if the guest host uses a firewall, ensure a rule set up so the traffic can reach the VM on the appropriate ports. This example configuration assumes a load balancer frontend IP configuration of 1.2.3.4, a load balancing rule for port 80, and the use of [UFW (Uncomplicated Firewall)](https://www.wikipedia.org/wiki/Uncomplicated_Firewall) in Ubuntu.
 
-```console
-sudo ip addr add 1.2.3.4/24 dev lo:0
-sudo ufw allow 80/tcp
-```
+    ```console
+    sudo ip addr add 1.2.3.4/24 dev lo:0
+    sudo ufw allow 80/tcp
+    ```
 </details>
 
 ## <a name = "limitations"></a>Limitations 
 
 -  With Floating IP enabled on a load balancing rule, your application must use the primary IP configuration of the network interface for outbound.
--  If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound won't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).
-- You can't use Floating IP on secondary IP configurations for Load Balancing scenarios. This limitation doesn't apply to Public load balancers where the secondary IP configuration is IPv6 an part of a dual-stack configuration or to architectures that utilize a NAT Gateway for outbound connectivity.
+-  If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound connection doesn't rewrite the outbound flow, and the flow fails. Review [outbound scenarios](load-balancer-outbound-connections.md).
+- You can't use Floating IP on secondary IP configurations for Load Balancing scenarios. This limitation doesn't apply to Public load balancers where the secondary IP configuration is IPv6 and part of a dual-stack configuration, or to architectures that utilize a NAT Gateway for outbound connectivity.
 
 ## Next steps
 

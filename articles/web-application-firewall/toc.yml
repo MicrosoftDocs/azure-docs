@@ -38,6 +38,8 @@ items:
       href: ./ag/quick-create-template.md
     - name: Create Web Application Firewall v2 - Bicep
       href: ./ag/quick-create-bicep.md
+    - name: Create Web Application Firewall v2 – Terraform
+      href: quickstart-web-application-firewall-terraform.md
   - name: Front Door
     items:
     - name: Create WAF policy - portal
@@ -182,6 +184,8 @@ items:
     href: waf-copilot.md
   - name: JavaScript challenge
     href: waf-javascript-challenge.md
+  - name: CAPTCHA challenge
+    href: ./afds/captcha-challenge.md
 - name: Operational excellence
   items:
   - name: Application Gateway

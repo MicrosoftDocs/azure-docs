@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 03/26/2025
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
@@ -463,8 +463,8 @@ $vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 When you create and configure TestVNet5 gateway, you need to connect to Tenant1, Subscription1 using the following commands, adjusting any variables as needed.
 
 ```azurepowershell-interactive
-Connect-AzAccount -TenantID $Tenant2
-Select-AzSubscription -SubscriptionId $subscription2
+Connect-AzAccount -TenantID $Tenant1
+Select-AzSubscription -SubscriptionId $subscription1
 $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG1
 ```
 
@@ -473,7 +473,7 @@ $vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG1
 ```azurepowershell-interactive
 Connect-AzAccount -TenantID $Tenant2
 Select-AzSubscription -SubscriptionId $subscription2
-$vnet1gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
+$vnet5gw = Get-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
 New-AzVirtualNetworkGatewayConnection -Name $Connection51 -ResourceGroupName $RG5 -VirtualNetworkGateway1 $vnet5gw -VirtualNetworkGateway2 $vnet1gw -Location $Location5 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
 

@@ -2,9 +2,9 @@
 title: Overview of Cost Management
 titleSuffix: Microsoft Cost Management
 description: You use Cost Management features to monitor and control Azure spending and to optimize Azure resource use.
-author: bandersmsft
-ms.author: banders
-ms.reviewer: micfaln
+author: shasulin
+ms.author: shasulin
+ms.reviewer: shasulin
 ms.date: 01/07/2025
 ms.topic: overview
 ms.service: cost-management-billing
@@ -39,11 +39,10 @@ Everything up to this point makes up the billing process where charges are final
 
 - The [anomaly detection](../understand/analyze-unexpected-charges.md) model identifies anomalies daily based on normalized usage (not rated usage).
 - The cost allocation engine applies tag inheritance and [splits shared costs](allocate-costs.md).
-- AWS cost and usage reports are pulled based on any [connectors for AWS](aws-integration-manage.md) you may have configured.
 - Azure Advisor cost recommendations are pulled in to enable cost savings insights for subscriptions and resource groups.
 - Cost alerts are sent out for [budgets](tutorial-acm-create-budgets.md), [anomalies](../understand/analyze-unexpected-charges.md#create-an-anomaly-alert), [scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts), and more based on the configured settings.
 
-Lastly, cost details are made available from [cost analysis](quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](tutorial-export-acm-data.md).
+Lastly, cost details are made available from [cost analysis](quick-acm-cost-analysis.md) in the Azure portal and published to your storage account via [scheduled exports](tutorial-improved-exports.md).
 
 ## How Cost Management and Billing relate
 
@@ -75,12 +74,11 @@ During your cloud journey, there are many tools available to help you understand
 
 ## Report on and analyze costs
 
-Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
+Cost Management and Billing include several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud costs.
 
-- [**Cost analysis**](quick-acm-cost-analysis.md) is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
+- **[Cost analysis](quick-acm-cost-analysis.md)** is a tool for ad-hoc cost exploration. Get quick answers with lightweight insights and analytics.
 **Power BI** is an advanced solution to build more extensive dashboards and complex reports or combine costs with other data. Power BI is available for billing accounts and billing profiles.
 - [**Exports and the Cost Details API**](../automate/usage-details-best-practices.md) enable you to integrate cost details into external systems or business processes.
-- **Connectors for AWS** enable you to ingest your AWS cost details into Azure to facilitate managing Azure and AWS costs together. After configured, the connector also enables other capabilities, like budget and scheduled alerts.
 
 For more information, see [Get started with reporting](reporting-get-started.md).
 
@@ -112,7 +110,8 @@ Cost Management and Billing offer many different types of emails and alerts to k
 
 - [**Budget alerts**](tutorial-acm-create-budgets.md) notify recipients when cost exceeds a predefined cost or forecast amount. Budgets can be visualized in cost analysis and are available on every scope supported by Cost Management. Subscription and resource group budgets can also be configured to notify an action group to take automated actions to reduce or even stop further charges.
 - [**Anomaly alerts**](../understand/analyze-unexpected-charges.md) notify recipients when an unexpected change in daily usage has been detected. It can be a spike or a dip. Anomaly detection is only available for subscriptions and can be viewed within Cost analysis smart views. Anomaly alerts can be configured from the cost alerts page.
-- [**Scheduled alerts**](save-share-views.md#subscribe-to-scheduled-alerts) notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost in order to view the email, chart, or linked CSV.
+- **[Scheduled alerts](save-share-views.md#subscribe-to-scheduled-alerts)** notify recipients about the latest costs on a daily, weekly, or monthly schedule based on a saved cost view. Alert emails include a visual chart representation of the view and can optionally include a CSV file. Views are configured in cost analysis, but recipients don't require access to cost to view the email, chart, or linked CSV.
+
 - **EA commitment balance alerts** are automatically sent to any notification contacts configured on the EA billing account when the balance is 90% or 100% used.
 - **Invoice alerts** can be configured for MCA billing profiles and Microsoft Online Services Program (MOSP) subscriptions. For details, see [View and download your Azure invoice](../understand/download-azure-invoice.md).
 

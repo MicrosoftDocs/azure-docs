@@ -4,7 +4,7 @@ description: Choose between deployment models in Azure confidential computing.
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 4/30/2024
 ms.author: jushiman
 ---

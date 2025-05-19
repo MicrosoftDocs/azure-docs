@@ -6,8 +6,8 @@ ms.author: bagol
 ms.topic: reference
 ms.date: 03/03/2025
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 #customer Intent: As a security analyst, I want to understand the functions available in the Microsoft Sentinel solution for SAP applications, so that I can use them in my Kusto queries.
 ---
