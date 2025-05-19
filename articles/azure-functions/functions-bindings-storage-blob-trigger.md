@@ -467,7 +467,7 @@ Functions also support Python SDK type bindings for Azure Blob storage, which le
 > Only synchronous SDK types are supported.
 
 > [!IMPORTANT]  
-> SDK types support for Python is Generally Available and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
+> SDK types support for Python is generally available and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
 
 ::: zone-end  
 

@@ -1089,7 +1089,7 @@ if __name__ == "__main__":
 
 
 >[!IMPORTANT]  
-> HTTP streams support for Python is Generally Available and is only supported for the Python v2 programming model.
+> HTTP streams support for Python is generally available and is only supported for the Python v2 programming model.
 
 ::: zone-end  
 ### Working with client identities

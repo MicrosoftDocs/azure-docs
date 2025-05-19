@@ -244,7 +244,7 @@ Functions version 1.x doesn't support isolated worker process. To use the isolat
 
 ## SDK Binding Types
 
-SDK Types for Azure Storage Blob are Generally Available! Follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python) to get started with SDK Types for Blob in Python. 
+SDK Types for Azure Storage Blob are generally available! Follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python) to get started with SDK Types for Blob in Python. 
 > [!IMPORTANT]  
 > Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
 
