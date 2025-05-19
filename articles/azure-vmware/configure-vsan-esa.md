@@ -24,19 +24,39 @@ VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/relea
 > [!NOTE]
 > Run commands are executed one at a time in the order submitted.
 
-In this article, you learn how to:
+In this article, you learn more about:
 
 > [!div class="checklist"]
 > - Supported host types
-> - Enable or Disable vSAN TRIM/UNMAP
-> - Enable vSAN Compression
-> - Enable or Disable vSAN Data-In-Transit Encryption
-> - vSAN features availability
-## Supported host types
+> - Supported vSAN services
+> - How to enable or disable vSAN TRIM/UNMAP
+> - How to enable vSAN Compression
+> - How to enable or disable vSAN Data-In-Transit Encryption
 
+## Supported host types
 vSAN ESA (Express Storage Architecture) is supported on the following Azure VMware Solution host types:
 
 - AV48 (Korea Central)
+
+## Supported vSAN services
+
+The following table shows the list of vSAN features available in Azure VMware Solution.
+
+  | **vSAN Services** | **Availability** |
+  | --- | --- |
+  | **Auto-Policy Management** | Not supported|
+  | **Compression** | Supported|
+  | **Data-at-rest encryption** | Supported, enabled by default|
+  | **Data-in-transit encryption** | Supported|
+  | **Deduplication** | Not supported|
+  | **File Service** | Not supported|
+  | **Guest Trim/Unmap** | Supported, enabled by default|
+  | **iSCSI Target Service** | Not supported|
+  | **Support for Windows Server Failover Clusters (WSFC)** | Supported|
+  | **vSAN Data Protection** | Not supported|
+  | **vSAN Performance Service** | Supported|
+  | **vSAN Stretched cluster** | Supported|
+  | **vSAN Support Insight** | Not supported|
 
 ## Set VMware vSAN TRIM/UNMAP
 
@@ -73,26 +93,6 @@ Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-
 
 >[!NOTE]
 >You can also use the `Get-vSANDataInTransitEncryptionStatus` command to check for the current status or status after performing the `Set-vSANDataInTransitEncryptionStatus` operation and verify the cluster's current encryption state.
-
-## vSAN services availability
-
-The following table shows the list of vSAN features available in Azure VMware Solution.
-
-  | **vSAN Features** | **Availability** |
-  | --- | --- |
-  | **Auto-Policy Management** | Not supported|
-  | **Compression** | Supported|
-  | **Data-at-rest encryption** | Supported, enabled by default|
-  | **Data-in-transit encryption** | Supported|
-  | **Deduplication** | Not supported|
-  | **File Service** | Not supported|
-  | **Guest Trim/Unmap** | Supported, enabled by default|
-  | **iSCSI Target Service** | Not supported|
-  | **Support for Windows Server Failover Clusters (WSFC)** | Supported|
-  | **vSAN Data Protection** | Not supported|
-  | **vSAN Performance Service** | Supported|
-  | **vSAN Stretched cluster** | Supported|
-  | **vSAN Support Insight** | Not supported|
 
 ## Next steps
 
