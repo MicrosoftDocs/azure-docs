@@ -2395,6 +2395,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-configure-premium-tier.md",
+      "redirect_url": "/azure/app-service/app-service-configure-premium-v4-tier",
+      "redirect_document_id": false
+    },           
+    {
       "source_path_from_root": "/articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
       "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
       "redirect_document_id": false
@@ -6851,7 +6856,27 @@
     },
     {
       "source_path_from_root": "/articles/azure-functions/migration.md",
-      "redirect_url": "/azure/azure-functions/migration/migrate-lambda-workloads-overview",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads-overview.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/discover-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/assess-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/migration/migrate-lambda-workloads.md",
+      "redirect_url": "/azure/azure-functions/migration/migrate-aws-lambda-to-azure-functions",
       "redirect_document_id": false
     },
     {

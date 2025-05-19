@@ -1,17 +1,15 @@
 ---
-title: Best practices for performance testing for Azure Managed Redis (preview)
-description: Learn how to test the performance of Azure Managed Redis (preview).
-
+title: Best practices for performance testing for Azure Managed Redis
+description: Learn how to test the performance of Azure Managed Redis.
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+  - build-2025
 ---
 
-# Performance testing with Azure Managed Redis (preview)
+# Performance testing with Azure Managed Redis
 
 Testing the performance of a Redis instance can be a complicated task. The performance of a Redis instance can vary based on parameters such as the number of clients, the size of data values, and whether pipelining is being used. There also can be a tradeoff between optimizing throughput or latency.
 

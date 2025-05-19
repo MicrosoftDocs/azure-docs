@@ -55,11 +55,49 @@ To use Network Fabric read-only commands, complete the following steps:
     > [!NOTE]
     > The Storage URL must be located in a different region from the Network Fabric. For instance, if the Fabric is hosted in East US, the storage URL should be outside of East US. 
 
-- Bring your own storage account 
-    Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
+## Bring your own storage account 
+
+Users can bring your own storage for storing output files of runRO command by following the steps outlined in the [Bring Your Own Storage for Network Fabric](howto-configure-bring-your-own-storage-network-fabric.md) guide.
 
 >[!Note]
 > Starting with the 2024-06-15-preview API update, bringing your own storage account is the preferred method. Users should create or associate the fabric instances with your storage account referring to [configure Bring-Your-Own (BYO) Storage for Network Fabric](/azure/operator-nexus/howto-configure-network-fabric) article.
+
+### Running read-only (RO) Commands
+
+Azure Operator Nexus supports execution of read-only show commands on fabric devices via the Azure CLI. This feature allows administrators to retrieve diagnostic data for monitoring and troubleshooting while ensuring the underlying device configurations remain unchanged.
+
+#### Example: Executing a Read-Only Command via Azure CLI
+
+You can use the az networkfabric device run-ro command to issue supported show commands. Below is a sample command demonstrating how to query a device for its version details:
+
+```Azure CLI
+az networkfabric device run-ro \
+  --resource-group "resource-group-name" \
+  --resource-name "device-name" \
+  --ro-command "show version"
+
+```
+
+Replace `resource-group-name` and `device-name` with your specific values.
+
+Expected Output
+
+```json
+{
+  "configurationState": "Succeeded",
+  "deviceConfigurationPreview": "{\n  \"architecture\": \"x86_64\",\n  \"bootupTimestamp\": 1745356755.0055325,\n  \"configMacAddress\": \"00:00:00:00:00:00\",\n  \"hardwareRevision\": \"\",\n  \"hwMacAddress\": \"00:00:00:00:00:00\",\n  \"imageFormatVersion\": \"1.0\",\n  \"imageOptimization\": \"None\",\n  \"internalBuildId\": \"b502bfe1-xxxx-xxxx-xxxx-8b78b1fd6e29\",\n  \"internalVersion\": \"4.32.2FX-NX-xxxxxxxxx.xxxxxxxxx\",\n  \"isIntlVersion\": false,\n  \"kernelVersion\": \"5.15.176.3-3.cm2\",\n  \"memFree\": 109383608,\n  \"memTotal\": 131643632,\n  \"mfgName\": \"\",\n  \"modelName\": \"cEOSLab\",\n  \"serialNumber\": \"538C4BE142B0B5D2727B8F412EE68B1B\",\n  \"systemMacAddress\": \"28:b3:de:ad:ce:e6\",\n  \"uptime\": 85639.49509215355,\n  \"version\": \"4.32.2FX-NX-xxxxxxxxx.xxxxxxxxx (engineering build)\"\n}",
+  "outputUrl": "https://<your-storage-account>.blob.core.windows.net/<your-container>"
+}
+```
+
+deviceConfigurationPreview: Returns the parsed result of the show command.
+
+outputUrl: Contains a link to the raw output stored in your designated storage account.
+
+> [!Note] 
+> The output structure may vary depending on the specific show command issued.<br>
+> Ensure the storage account URL (provided during setup) is accessible for the platform to write the output securely.<br>
+> Output is delivered in a secure, JSON format suitable for logging and automation systems.<br>
 
  ## Command restrictions
 

@@ -1,14 +1,13 @@
 ---
 title: About Vector Embeddings and Vector Search in Azure Cache for Redis
 description: Learn about Azure Cache for Redis to store vector embeddings and provide similarity search.
-
-
-ms.collection: ce-skilling-ai-copilot
+ms.date: 05/18/2025
 ms.topic: overview
+ms.collection:
+  - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2024
-ms.date: 02/27/2025
-
+  - build-2025
 ---
 
 # What are Vector Embeddings and Vector Search in Azure Cache for Redis?
@@ -27,7 +26,7 @@ Vector search capabilities in Redis require [Redis Stack](https://redis.io/docs/
 
 This table contains the information for vector search availability in different tiers.
 
-| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis (preview) |
+| Tier      | Basic / Standard | Premium | Enterprise | Enterprise Flash | Azure Managed Redis |
 |-----------|:----------------:|:-------:|:----------:|:----------------:|:-----------------------------:|
 | Available | No               | No      | Yes        | Yes (preview)    | Yes                           |
 
