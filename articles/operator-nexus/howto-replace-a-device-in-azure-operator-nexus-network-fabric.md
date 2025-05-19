@@ -113,7 +113,7 @@ az networkfabric device update-admin-state \
   --resource-group "resource-group-name"
 ```
 
-This:
+This will: 
 
 - Performs a partial reconcile of the device state.
 
