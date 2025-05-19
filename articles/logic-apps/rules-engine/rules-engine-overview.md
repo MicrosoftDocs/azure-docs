@@ -11,13 +11,9 @@ ms.date: 01/27/2025
 #CustomerIntent: As an integration developer, I want to learn about integrating business logic and decision management capabilities with Standard workflows in Azure Logic Apps.
 ---
 
-# Decision management and business logic integration using the Azure Logic Apps Rules Engine (Preview)
+# Decision management and business logic integration using the Azure Logic Apps Rules Engine
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
-
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Organizations deal with decisions every day, but when you have clear business rules that govern your organization's business logic, these decisions are easier to make. Business rules are the guidelines that shape how a business operates. You can find these rules in manuals, contracts, or agreements, or they can be the unwritten knowledge or expertise of employees. Business rules change over time and affect different types of applications. Many business domains, such as finance, healthcare, insurance, transportation, and telecommunications need to communicate their business rules to their staff so they can implement them in software applications.
 
