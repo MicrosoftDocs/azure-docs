@@ -532,10 +532,10 @@ At any point, you can change the instance memory size setting used by your app.
 
 ### [Azure CLI](#tab/azure-cli)
 
-This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 4,096 MB: 
+This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB: 
 
 ```azurecli
-az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAME> --instance-memory 4096
+az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAME> --instance-memory 512
 ```
 
 ### [Azure portal](#tab/azure-portal)

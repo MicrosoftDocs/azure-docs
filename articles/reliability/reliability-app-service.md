@@ -23,7 +23,9 @@ When you deploy Azure App Service, you can create multiple instances of an *App 
 
 ::: zone pivot="free-shared-basic"
 
-[Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
+- Use premium v3/v4 App Service plans.
+
+- [Enable zone redundancy](#availability-zone-support), which requires that you use Premium v3, Premium v4 or Isolated v2 App Service plans and that you have at minimum three instances of the plan. To view more information, make sure that you select the appropriate tier at the top of this page.
 
 ::: zone-end
 
@@ -87,9 +89,9 @@ To see which regions support availability zones for App Service Environment v3, 
 
 ### Requirements
 
-::: zone pivot="free-shared-basic"
+::: zone pivot="free-shared-basic,premium"
 
-You must use the [Premium v2, Premium v3, or Isolated v2 plan types](/azure/app-service/overview-hosting-plans). To view more information, make sure that you select the appropriate tier at the top of this page.
+- You must use either the [Premium v2, Premium v3, or Premium v4 plan types](/azure/app-service/overview-hosting-plans).
 
 ::: zone-end
 
@@ -117,7 +119,7 @@ During an availability zone outage, some aspects of Azure App Service might be i
 
 ::: zone pivot="premium"
 
-When you're using App Service Premium v2 or Premium v3 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
+When you're using App Service Premium v2, Premium v3, or Premium v4 plans, there's no extra cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You're charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria.
 
 If you enable availability zones but specify a capacity less than three, the platform enforces a minimum instance count of three. The platform charges you for those three instances.
 

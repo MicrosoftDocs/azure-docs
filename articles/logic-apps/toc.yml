@@ -199,8 +199,8 @@ items:
         href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
-    - name: Build your workflow with a trigger or action
-      href: create-workflow-with-trigger-or-action.md
+    - name: Add a trigger or action to a workflow
+      href: add-trigger-action-workflow.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -223,6 +223,8 @@ items:
       href: create-parameters-workflows.md
     - name: Call Azure Functions
       href: call-azure-functions-from-workflows.md
+    - name: Run workflows from actions in AI agents
+      href: add-agent-action-create-run-workflow.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps
