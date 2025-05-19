@@ -443,7 +443,9 @@ items:
     - name: Manage App Service plan
       href: app-service-plan-manage.md
     - name: Configure PremiumV3 tier
-      href: app-service-configure-premium-tier.md
+      href: app-service-configure-premium-v3-tier.md
+    - name: Configure PremiumV4 tier
+      href: app-service-configure-premium-v4-tier.md      
     - name: Back up and restore app
       href: manage-backup.md
     - name: Clone app
