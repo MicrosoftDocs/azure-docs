@@ -1,6 +1,6 @@
 ---
-title: Manage a MongoDB Atlas resource through the Azure portal
-description: This article describes management functions for MongoDB Atlas on the Azure portal.
+title: Manage a MongoDB Atlas Resource Through the Azure Portal
+description: This article describes management functions for MongoDB Atlas in the Azure portal.
 ms.topic: how-to
 ms.date: 04/28/2025
 ---
@@ -9,13 +9,13 @@ ms.date: 04/28/2025
 
 This article describes how to manage the settings for MongoDB Atlas resources.
 
-## Resource overview 
+## Resource overview
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a MongoDB Atlas resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot of a MongoDB Atlas resource in the Azure portal with the overview displayed on the working pane." lightbox="media/manage/resource-overview.png":::
 
-The *Essentials* details include:
+The details under **Essentials** include:
 
 - Resource group
 - Location
@@ -23,7 +23,7 @@ The *Essentials* details include:
 - Subscription ID
 - Tags
 - Status
-- Pricing Plan
+- Pricing plan
 - Billing term
 - Portal URL
 
@@ -31,9 +31,9 @@ To manage your resource, select the links next to corresponding details.
 
 ## Access a MongoDB Atlas organization
 
-To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** from the working pane. 
+To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** on the working pane.
 
-:::image type="content" source="media/manage/set-password.png" alt-text="A screenshot of a MongoDB Atlas resource in the Azure portal with the overview displayed in the working pane. Go to MongoDB Atlas is emphasized.":::
+:::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a MongoDB Atlas resource in the Azure portal with an overview displayed in the working pane. The Go to MongoDB Atlas link is emphasized.":::
 
 ## Delete a MongoDB Atlas resource
 
@@ -41,4 +41,4 @@ To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** from t
 
 ## Related content
 
-[MongoDB Atlas resources and tools](tools.md)
+- [MongoDB Atlas resources and tools](tools.md)
