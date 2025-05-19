@@ -4,7 +4,7 @@ description: Learn how to expose a REST API in Azure API Management as an MCP se
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 05/18/2025
 ms.author: danlep
 ---
 
@@ -12,22 +12,18 @@ ms.author: danlep
 
 [!INCLUDE [api-management-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
 
-<!-- Currently only the **Premium**, **Standard**, and **Basic** tiers of API Management support MCP servers.
-
-Document need an IcM for SKUv2 --
-
-Need to use the GenAI release group -->
 
 In API Management, you can expose a REST API managed in API Management as a remote [Model Context Protocol (MCP)](https://www.anthropic.com/news/model-context-protocol) server. You can expose one or more of the API operations as tools that MCP clients can call using the MCP protocol. 
 
 Using API Management to expose remote MCP servers provides centralized control over authentication, authorization, and monitoring. It simplifies the process of exposing APIs as MCP servers while helping to mitigate common security risks and ensuring scalability.
 
 > [!NOTE]
-> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md). 
+> This feature is currently in preview. It's being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
 
 In this article, you learn how to:
 
 * Expose a REST API in API Management as an MCP server
+* Configure policies for the MCP server
 * Test the generated MCP server from an MCP client
 
 [!INCLUDE [about-mcp-servers](../api-center/includes/about-mcp-servers.md)]
@@ -38,13 +34,19 @@ In this article, you learn how to:
 + Make sure that your instance manages a REST API that you'd like to expose as an MCP server. To import a sample API, see [Import and publish your first API](import-and-publish.md).
     > [!NOTE]
     > Only HTTP APIs from API Management can be exposed as MCP servers.
-+ To test the MCP server, you can use a tool like [MCP Inspector](https://modelcontextprotocol.io/docs/tools/inspector) or Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
++ To test the MCP server, you can use Visual Studio Code with access to [GitHub Copilot](https://code.visualstudio.com/docs/copilot/setup).
 
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## Expose API as an MCP server
 
-1. In the portal, under **APIs**, select **MCP Servers** > **+ Create new MCP Server**.
+
+1. In the Azure portal, access the MCP server preview at the following URL:
+
+    ```
+    https://portal.azure.com/?Microsoft_Azure_ApiManagement=mcp
+    ```
+1. Navigate to your API Management instance.
+1. In the left menu, select **APIs** > **MCP Servers** > **+ Create new MCP Server**.
 1. In **API**, select a REST API to expose as an MCP server. 
 1. Select one or more **API Operations** to expose as tools. You can select all operations or only specific operations.
 1. Select **Create**.
@@ -58,56 +60,28 @@ The MCP server is created and the API operations are exposed as tools. The MCP s
 
 ## Configure policies for the MCP server
 
-You can configure one or more API Management [policies](api-management-howto-policies.md) for the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tool.
+Configure one or more API Management [policies](api-management-howto-policies.md) to help manage the MCP server. The policies are applied to all API operations exposed as tools in the MCP server and can be used to control access, authentication, and other aspects of the tools.
 
-For a tutorial on how to configure policies, see [Transform and protect your API](transform.md).
+For a tutorial on how to configure policies, see [Transform and protect your API](transform-api.md).
 
 To configure policies for the MCP server:
 
 1. In the portal, under **APIs**, select **MCP Servers**.
 1. Select the MCP server you created.
 1. In the left menu, under **MCP**, select **Policies**.
-1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add an inbound policy to add an API Management subscription key for all requests to the MCP server. Substitute `your-subscription-key` with an actual subscription key configured in your API Management instance.
+1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. The policies are defined in XML format. For example, you can add a policy to limit calls to the MCP server's tools (in this example, 5 calls per 30 second per client IP address).
 
     ```xml
-    <set-header name="Ocp-Apim-Subscription-Key" exists-action="override">
-        <value>your-subscription-key</value>
-    </set-header>
+	<rate-limit-by-key calls="5" renewal-period="30" counter-key="@(context.Request.IpAddress)" remaining-calls-variable-name="remainingCallsPerIP" />
     ```
 
-    :::image type="content" source="media/export-rest-mcp-server/mcp-server-policies.png" alt-text="Screenshot of the policy editor for an MCP server.":::
+    :::image type="content" source="media/export-rest-mcp-server/mcp-server-policies-small.png" alt-text="Screenshot of the policy editor for an MCP server." lightbox="media/export-rest-mcp-server/mcp-server-policies.png":::
 
 ## Test and use the MCP server
 
-To verify that the MCP server is working, you can use a tool like MCP Inspector or Visual Studio Code to send requests to the MCP server tools. The following sections provide basic instructions.
+To verify that the MCP server is working, you can use Visual Studio Code to send requests to the MCP server tools.
 
-### MCP inspector
-
-To use MCP inspector:
-
-1. Start the MCP Inspector by running the following command in a terminal:
-
-    ```bash
-    npx @modelcontextprotocol/inspector
-    ```
-1. Navigate to the local URL of the MCP Inspector that's displayed in the console. 
-
-1. In the browser, enter the following settings:
-
-    | **Setting**           | **Description**                                                                                     |
-    |------------------------|-----------------------------------------------------------------------------------------------------|
-    | **Transport Type**     | Select **SSE**.                                                                                    |
-    | **URL**                | Enter the MCP server URL that's configured in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/sse` (for SSE endpoint) or `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)                                    |
-    | **Authentication**     | Optionally, provide credentials of the underlying API if necessary in API Management. For example, if a subscription key is required, enter `Ocp-Apim-Subscription-Key` in **Header Name**, and provide the key value in **Bearer token**. |
-1. Select **Connect** to connect to the MCP server.             
-1. In **Tools**, select **List Tools**, and select a tool configured in the MCP server. 
-1. Enter any required parameters for the tool, and select **Run Tool** to run the tool. The results are displayed in the **Tool Result** pane.
-
-:::image type="content" source="media/export-rest-mcp-server/test-mcp-inspector.png" alt-text="Screenshot of testing an MCP server tool in MCP Inspector.":::
-
-### Visual Studio Code
-
-In Visual Studio Code, you can use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
+In Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
 To add the MCP server in Visual Studio Code:
 
@@ -123,7 +97,10 @@ To add the MCP server in Visual Studio Code:
 
         :::image type="content" source="media/export-rest-mcp-server/mcp-servers-visual-studio-code.png" alt-text="Screenshot of MCP servers configured in Visual Studio Code.":::
         
-You can add fields to the JSON configuration for settings such as authentication headers. Learn more about the [configuration format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)     
+Add fields to the JSON configuration for settings such as authentication header. The following example shows the configuration for an API Management subscription key passed in a header as in input value. Learn more about the [configuration format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)   
+
+:::image type="content" source="media/export-rest-mcp-server/mcp-server-with-header-visual-studio-code.png" alt-text="Screenshot of authentication header configuration for an MCP server":::
+
 
 After adding an MCP server, you can use tools in agent mode.
 
@@ -150,6 +127,8 @@ After adding an MCP server, you can use tools in agent mode.
 * [Python sample: Secure remote MCP servers using Azure API Management (experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
 
 * [MCP client authorization lab](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-client-authorization)
+
+* [Use the Azure API Management extension for VS Code to import and manage APIs](visual-studio-code-tutorial.md)
 
 * [Register and discover remote MCP servers in Azure API Center](../api-center/register-discover-mcp-server.md)
 
