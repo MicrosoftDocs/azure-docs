@@ -107,7 +107,7 @@ To trigger bulk migration of VMs protected using Standard policy to an Enhanced 
 
 1. On the **Modify policy** pane, select **Associated items**.   
 
-   :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/select-associated-items-option.png" alt-text="Screenshot shows the selection of the Associated items option." lightbox=./media/backup-azure-vm-migrate-enhanced-policy/select-associated-items-option.png:::
+   :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/select-associated-items-option.png" alt-text="Screenshot shows the selection of the Associated items option." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/select-associated-items-option.png":::
 
 1. On the **Associated items** pane, select the VMs to migrate, and then select **Change policy**.
 
