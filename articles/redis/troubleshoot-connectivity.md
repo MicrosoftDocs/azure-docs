@@ -90,4 +90,3 @@ If you've configured any networking or security resource to use your cache's pub
 ## Related content
 
 - [Best practices for connection resilience](best-practices-connection.md)
-- [High availability for Azure Managed Redis](high-availability.md)
