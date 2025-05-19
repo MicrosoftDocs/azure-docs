@@ -94,11 +94,10 @@ In this guide, you build an AI chat application and iterate on the prompt using 
     ```csharp
     // Initialize the AzureOpenAIClient
     var apiKey = configuration["ChatLLM:ApiKey"];
-
     AzureOpenAIClient client = new AzureOpenAIClient(new Uri(openAIEndpoint), new AzureKeyCredential(apiKey));
     ```
 
-    If the key _ChatLLM:ApiKey_ is a Key Vault reference in App Configuration, make sure to add the following code snippet to the `AddAzureAppConfiguration` call and [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault)
+    If the key _ChatLLM:ApiKey_ is a Key Vault reference in App Configuration, make sure to add the following code snippet to the `AddAzureAppConfiguration` call and [grant your app access to Key Vault](./use-key-vault-references-dotnet-core.md#grant-your-app-access-to-key-vault).
 
     ```cshrap
     options.ConfigureKeyVault(keyVaultOptions =>
