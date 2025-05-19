@@ -687,7 +687,7 @@ Here are some approaches to reduce your agent's chat history:
     | Option | Description |
      |--------|-------------|
      | **Token count reduction** | Shows the parameter named **Maximum Token Count**. Specifies the maximum number of tokens in chat history to keep and pass into the model for the next chat interaction. The default differs based on the currently used model in Azure OpenAI Service. The default limit is **128,000**. |
-    | **Message count reduction** | Shows the parameter named **Message Count Limit**. Specifies the maximum number of messages in chat history to keep and pass into the model for the next chat interaction. No default limit exists. |
+     | **Message count reduction** | Shows the parameter named **Message Count Limit**. Specifies the maximum number of messages in chat history to keep and pass into the model for the next chat interaction. No default limit exists. |
 
 ### Tools
 
