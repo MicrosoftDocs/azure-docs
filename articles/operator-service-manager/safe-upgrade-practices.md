@@ -241,19 +241,21 @@ To enable the SkipUpgrade feature via `roleOverrideValues`, refer to the followi
 
 
 ## Complete roleOverrideValues option reference
-Bringing together all prior examples in this article, as well as examples in other articles, the below reference provides all presently supported install and upgrade options which can be set through the `roleOverrideValues` mechanism. 
+Bringing together all prior examples in this article, as well as examples in other articles, the below reference provides all presently supported install and upgrade options which can be set through the `roleOverrideValues` mechanism. This example includes setting the `nfConfiguration` level options, and then options for `nfApplication1` and `nfApplication2`
 
 ```json
 {
   "roleOverrideValues": [
     {
+      "nfConfiguration": {
+        "rollbackEnabled": "true"
+      }
+    },
+    {
       "name": "nfApplication1",
       "deployParametersMappingRuleProfile": {
         "helmMappingRuleProfile": {
           "options": {
-            "nfConfiguration": {
-              "rollbackEnabled": "true"
-            },
             "installOptions": {
               "atomic": "true",
               "wait": "true",
@@ -280,5 +282,51 @@ Bringing together all prior examples in this article, as well as examples in oth
                 "filter": [
                   "test1",
                   "test2"
-                ] } } } } } } ] }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "nfApplication2",
+      "deployParametersMappingRuleProfile": {
+        "helmMappingRuleProfile": {
+          "options": {
+            "installOptions": {
+              "atomic": "true",
+              "wait": "true",
+              "timeout": "1",
+              "testOptions": {
+                "enable": "true",
+                "timeout": "true",
+                "rollbackOnTestFailure": "true",
+                "filter": [
+                  "test1",
+                  "test2"
+                ]
+              }
+            },
+            "upgradeOptions": {
+              "atomic": "true",
+              "wait": "true",
+              "timeout": "1",
+              "skipUpgrade": "true",
+              "testOptions": {
+                "enable": "true",
+                "timeout": "true",
+                "rollbackOnTestFailure": "true",
+                "filter": [
+                  "test1",
+                  "test2"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
 ```
