@@ -6,6 +6,7 @@ ms.topic: tutorial
 ms.custom:
   - ignite-2024
   - build-2025
+
 # CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 ---
 

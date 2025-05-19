@@ -6,6 +6,8 @@ ms.topic: tutorial
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
 # CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.
 ---
 
