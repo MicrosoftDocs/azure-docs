@@ -118,8 +118,8 @@ Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across a
 **Key Features include**:
 
 - **Policy-based scheduled backups**: Eliminates manual intervention and increases efficiency.
-- Ensures long-term retention for regulatory and compliance requirements.
-- **Cyber resilience**:Protects from ransomware threats with immutability and role-based access control.
+- **Long-term retention**: Ensures long-term retention of backups upto 10 years for regulatory and compliance requirements.
+- **Cyber resiliency**: Protects from ransomware threats with immutability and role-based access control.
  
 You can  also use Azure [Business Continuity Center](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview) to manage the vaulted backup operations.
 
