@@ -49,8 +49,6 @@ In this section, you will create a chat completion configuration in Azure Portal
 
 1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy your Azure OpenAI resource endpoint. It should follow the format: `https://<open-ai-resource-name>.openai.azure.com`.
 
-1. Select **Operations** > **Configuration explorer** > **Create** > **Key-Value**
-
 1. Navigate to your App Configuration store and add the following key-value. Leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
     | **Key**             | **Value**                                                      |
