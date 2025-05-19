@@ -17,7 +17,7 @@ After the deployment is finished, it is necessary to execute the following comma
 
 ```bash
 resource_group=<resource_group_name>
-az deployment group create -g $resource_group --template-uri https://raw.githubusercontent.com/Azure/cyclecloud-slurm-workspace/refs/head/main/bicep/ood/oodEntraApp.json --parameters "$(az deployment group show -g $resource_group -n pid-d5d2708b-a4ef-42c0-a89b-b8bd6dd6d29b-partnercenter --query properties.outputs | jq '.oodManualRegistration.value | with_entries(.value |= {value: .})')"
+az deployment group create -g $resource_group --template-uri https://raw.githubusercontent.com/Azure/cyclecloud-slurm-workspace/refs/heads/main/bicep/ood/oodEntraApp.json --parameters "$(az deployment group show -g $resource_group -n pid-d5d2708b-a4ef-42c0-a89b-b8bd6dd6d29b-partnercenter --query properties.outputs | jq '.oodManualRegistration.value | with_entries(.value |= {value: .})')"
 ```
 
 Once executed, check that the application is indeed registered and copy its client ID. 
