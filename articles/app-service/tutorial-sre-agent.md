@@ -109,7 +109,7 @@ After deployment, confirm that the sample app is running as expected.
 
 1. The app displays a large counter and two buttons:
  
-    :::image type="content" source="media/tutorial-sre-agent/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
+   :::image type="content" source="media/tutorial-sre-agent/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
 
 1. Select the *Increment* button several times to observe the counter increase.
 
