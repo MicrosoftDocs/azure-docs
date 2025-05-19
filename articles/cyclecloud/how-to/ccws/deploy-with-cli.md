@@ -13,9 +13,7 @@ Prerequisites: Users need to install the Azure CLI and Git and then sign into or
 - Clone the Azure CycleCloud Workspace for Slurm on the latest stable release
 
 ```bash
-latest=$(curl -s https://api.github.com/repos/azure/cyclecloud-slurm-workspace/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
-echo "cloning on $latest"
-git clone --depth 1 --branch $latest https://github.com/azure/cyclecloud-slurm-workspace.git
+git clone --depth 1 https://github.com/azure/cyclecloud-slurm-workspace.git
 ```
 
 - Copy the content of the UI definition file `./uidefinitions/createUiDefinition.json`
