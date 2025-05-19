@@ -199,8 +199,8 @@ items:
         href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
-    - name: Build your workflow with a trigger or action
-      href: create-workflow-with-trigger-or-action.md
+    - name: Add a trigger or action to a workflow
+      href: add-trigger-action-workflow.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
