@@ -39,7 +39,8 @@ The following steps enable VM replication to a secondary location.
    >[!Note]
    >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
    >:::image type="High churn" source="media/concepts-azure-to-azure-high-churn-support/churn-for-vms.png" alt-text="Screenshot of Churn for VM.":::
-   >Azure Site Recovery for Premium SSD Pv2 by default uses High Churn and Premium Block Blob type. 
+   >
+   >Azure Site Recovery for Premium SSD Pv2 by default uses High Churn and a Premium Block Blob type. 
 1. To start the job that enables VM replication, select **Start replication**.
 
    :::image type="content" source="media/azure-to-azure-quickstart/enable-replication1.png" alt-text="Enable replication.":::
