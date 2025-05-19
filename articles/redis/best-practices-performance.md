@@ -63,7 +63,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 ```
 
 >[!NOTE]
->This example uses the `--tls`, `--tls-skip-verify`, and `--cluster-mode` flags. You do not need these if you're using Azure Managed Redis in non-TLS mode or if you're using the [Enterprise cluster policy](architecture.md#cluster-policies), respectively.
+>This example uses the `--tls`, `--tls-skip-verify`, and `--cluster-mode` flags. You don't need these if you're using Azure Managed Redis in non-TLS mode or if you're using the [Enterprise cluster policy](architecture.md#cluster-policies), respectively.
 
 **To test throughput:**
 This command tests pipelined GET requests with 1k payload. Use this command to test how much read throughput to expect from your cache instance. This example assumes you're using TLS and the OSS cluster policy. The `--key-pattern=R:R` parameter ensures that keys are randomly accessed, increasing the realism of the benchmark. This test runs for five minutes.
@@ -74,7 +74,7 @@ memtier_benchmark -h {your-cache-name}.{region}.redis.azure.net -p 10000 -a {you
 
 ## Example performance benchmark data
 
-The table below shows optimal throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (i.e. different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
+The table below shows optimal throughput that we observed while testing various sizes of Azure Managed Redis instances with a workload of all read commands and 1KB payload. The workload is same across all SKUs, except for the connection count (that is, different thread and client count as required by memtier_benchmark). The connection count is chosen per SKU to leverage the Azure Managed Redis instance optimally. We used `memtier_benchmark` from an IaaS Azure VM against the Azure Managed Redis endpoint, utilizing the memtier commands shown in the [memtier_benchmark examples](best-practices-performance.md#memtier_benchmark-examples) section. The throughput numbers are only for GET commands. Typically, SET commands have a lower throughput. Real-world performance varies based on Redis configuration and commands. These numbers are provided as a point of reference, not a guarantee.
 
 >[!CAUTION]
 >These values aren't guaranteed and there's no SLA for these numbers. We strongly recommend that you should [perform your own performance testing](best-practices-performance.md) to determine the right cache size for your application.
