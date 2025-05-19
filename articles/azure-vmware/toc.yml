@@ -260,7 +260,7 @@ items:
     items:
     - name: Configure storage policies
       href: configure-storage-policy.md
-    - name: Configure vSAN (ESA)
+    - name: Configure vSAN ESA
       href: configure-vsan-esa.md
       displayName: ESA
     - name: Configure customer-managed key encryption at rest
