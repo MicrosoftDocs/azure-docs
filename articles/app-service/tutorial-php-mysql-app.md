@@ -659,7 +659,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 ## 4. Configure Laravel settings in web app
 
-1. From the explorer, open *infra/resources.bicep*. This is the Bicep template file that defines the created Azure resources.
+1. From the explorer, open *infra/resources.bicep*. This is the Bicep file that defines the created Azure resources.
 
 1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
     

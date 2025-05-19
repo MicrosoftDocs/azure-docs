@@ -310,7 +310,7 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Audit logs
 
-Audit logs contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-jobauditlogs`
 
 The following is a sample of the audit log from a Data Box:
 

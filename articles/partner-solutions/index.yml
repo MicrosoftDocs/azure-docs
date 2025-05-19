@@ -27,7 +27,7 @@ highlightedContent:
 productDirectory:
   title: Available Services
   items:
-    - title: Arize AI (preview)
+    - title: Arize AI
       imageSrc: ./media/index/arize-ai.svg
       links: 
       - url: ./arize-ai/overview.md
@@ -67,7 +67,7 @@ productDirectory:
       links: 
         - url: ./lambda-test/overview.md
           text: An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.
-    - title: Neon Serverless Postgres (preview)
+    - title: Neon Serverless Postgres
       imageSrc: ./media/index/neon.svg
       links:
         - url: ./neon/overview.md
