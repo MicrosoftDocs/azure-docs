@@ -9,9 +9,9 @@ ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
 ---
 
-# Configure Conditional Access Policies for Dev Tunnels
+# Configure conditional access policies for Dev tunnels
 
-The Dev Box service gives you an alternative connectivity method on top of Dev tunnels. You can develop remotely while coding locally or keep development going during Azure Virtual Desktop (AVD) outages or poor network performance. Many large enterprises using Dev Box have strict security and compliance policies, and their code is valuable to their business. Restricting Dev tunnels with conditional access policies is crucial for these controls.
+Microsoft Dev Box gives you an alternative connectivity method on top of Dev tunnels. You can develop remotely while coding locally or keep development going during Azure Virtual Desktop (AVD) outages or poor network performance. Many large enterprises using Dev Box have strict security and compliance policies, and their code is valuable to their business. Restricting Dev tunnels with conditional access policies is crucial for these controls.
 
 Conditional access policies for the Dev tunnels service:
 
