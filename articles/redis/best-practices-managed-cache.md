@@ -1,23 +1,21 @@
 ---
 title: Best practices for the managed tiers
 description: Learn the best practices when using the high performance Azure Managed Redis tiers.
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
+ms.topic: conceptual
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+  - build-2025
 ---
 
-# What are the best practices for the Azure Managed Redis (preview)
+# What are the best practices for the Azure Managed Redis
 
-Here are some best practices for Azure Managed Redis (preview).
+Here are some best practices for Azure Managed Redis.
 
 ## Zone redundancy
 
-We strongly recommend that you deploy new caches in a [zone redundant](high-availability.md) configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. Using zone redundancy increases availability. For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/cache/v1_1/).
+We strongly recommend that you deploy new caches in a zone redundant configuration. Zone redundancy ensures that Redis Enterprise nodes are spread among three availability zones, boosting redundancy from data center-level outages. Using zone redundancy increases availability. For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/cache/v1_1/).
 
 Zone redundancy is important on the Enterprise tier because your cache instance always uses at least three nodes. Two nodes are data nodes, which hold your data, and a _quorum node_. Increasing capacity scales the number of data nodes in even-number increments.
 
