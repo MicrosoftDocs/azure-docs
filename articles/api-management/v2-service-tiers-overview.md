@@ -109,7 +109,7 @@ The following limits apply to the developer portal in the v2 tiers.
 
 ## Deployment
 
-Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep template, or Terraform.
+Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
 
 ## Frequently asked questions
 
