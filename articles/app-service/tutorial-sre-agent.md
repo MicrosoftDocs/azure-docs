@@ -172,7 +172,7 @@ Now, create an Azure SRE Agent to monitor your App Service app.
 
 1. Select **Select resource groups**.
 
-1. In the *Select resource groups to monitor* window, search for and select `my-app-service-group`.
+1. In the *Selected resource groups to monitor* window, search for and select `my-app-service-group`.
 
 1. Select **Save**.
 
@@ -217,7 +217,7 @@ Now simulate a failure scenario by swapping to the broken deployment slot.
 
 1. Once the swap is complete, browse to the app’s URL.
 
-    :::image type="content" source="media/tutorial-sre-agent/verify-sample-broken-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
+    :::image type="content" source="media/tutorial-sre-agent/verify-sample-broken-slot.png" alt-text="Screenshot of the .NET sample in the broken slot." border="false":::
 
 1. Select the "Increment" button six times.
 
