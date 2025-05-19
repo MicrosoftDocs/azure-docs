@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 12/11/2024
+ms.date: 05/19/2025
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -56,6 +56,7 @@ This section provides references for solutions for Linux OSS applications and da
 * [Migrate Product Lifecycle Management (PLM) to Azure](/industry/manufacturing/architecture/ra-migrate-plm-azure)
 
 ### Machine Learning
+* [Building an Enterprise RAG Pipeline in Azure with NVIDIA AI Blueprint for RAG and Azure NetApp Files](https://techcommunity.microsoft.com/blog/azurearchitectureblog/building-an-enterprise-rag-pipeline-in-azure-with-nvidia-ai-blueprint-for-rag-an/4414301)
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 * [Distributed ML Training for Lane Detection, powered by NVIDIA and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-lane-detection-powered-by-nvidia-and/ba-p/3848255)
 * [Distributed ML Training for Click-Through Rate Prediction with NVIDIA, Dask and Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-architecture-blog/distributed-ml-training-for-click-through-rate-prediction-with/ba-p/3848262)
