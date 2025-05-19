@@ -44,25 +44,72 @@ To do the policy migration, follow these steps:
 
    :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/select-backup-item-type.png" alt-text="Screenshot shows the selection of backup type as Azure VM." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/select-backup-item-type.png":::
 
-4. On the **Backup Items** blade, you can view the list of *protected VMs* and *last backup status with latest restore points time*.
+4. On the **Backup Items** pane, you can view the list of *protected VMs* and *last backup status with latest restore points time*.
 
    Select **View details**.
 
    :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-item-details.png" alt-text="Screenshot shows how to view the backup item details." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-item-details.png":::
 
-5. On the **Change Backup Policy** blade, select **Policy subtype** as **Enhanced**, choose a *backup policy* to apply to the virtual machine, and then select **Change**.
+5. On the **Change Backup Policy** pane, select **Policy subtype** as **Enhanced**, choose a *backup policy* to apply to the virtual machine, and then select **Change**.
 
    :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/change-to-enhanced-policy.png" alt-text="Screenshot shows how to change the Azure VM backup policy to enhanced." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/change-to-enhanced-policy.png":::
 
 ## Monitor the policy migration job
 
-To monitor the migration job on the **Backup Items** blade, select **View jobs**.
+To monitor the migration job on the **Backup Items** pane, select **View jobs**.
 
-:::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png" alt-text="Screenshot shows how to go to the Backup Jobs blade." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png":::
+:::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png" alt-text="Screenshot shows how to go to the Backup Jobs pane." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/view-backup-migration-job-progress.png":::
 
 The migration job is listed with Operation type Configure backup (Migrate policy).
 
 :::image type="content" source="./media/backup-azure-vm-migrate-enhanced-policy/configure-backup-migrate-policy.png" alt-text="Screenshot shows the backup migration policy job listed." lightbox="./media/backup-azure-vm-migrate-enhanced-policy/configure-backup-migrate-policy.png":::
+
+## Migrate protected VMs to Enhanced policy in bulk.
+
+Azure Backup allows seamless bulk migration of protected VMs from the Standard policy to the Enhanced policy. This transition strengthens security, enhances operational efficiency, and optimizes data protection across your Azure infrastructure.
+
+**Choose a path to change policy**:
+
+# [Backup Items tile](#tab/backup-items-tile)
+
+To trigger bulk migration of VMs protected using Standard policy to an Enhanced policy using the **Backup Items** tile, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go the the **Recovery Services vault**.
+1. On the **Backup Items** tile, select **Azure Virtual Machine**.
+1. On the **Backup Items** pane, select the VMs from the list of protected VMs (using Standard policy) that you want to migrate, and then select **Change policy**. 
+1. On the **Change policy** pane, on the **Basics** tab, review the VM selection, and then select **Next > Target policy**.
+
+   You can modify the VM selection if required.
+
+1. On the **Target policy** tab, under **Target polict**, select a target Enhanced policy from the dropdown list.
+1. Review the selected Enhanced policy details, and then select **Next > Review + Change policy**.
+1. On the **Review + Change policy** tab, verify the selection of VMs and target policy, and then select **Change policy**.
+
+
+# [Backup Policies pane](#tab/backup-policies-pane)
+
+To trigger bulk migration of VMs protected using Standard policy to an Enhanced policy via the **Backup Policies** pane, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com/), go the the **Recovery Services vault** >**Backup Policies**.
+1. On the **Backup Policy** pane, select a backup policy with **Policy sub type** as **Standard**.
+1. On the **Modify policy** pane, select **Associated items**.   
+1. On the **Associated items** pane, select the VM(s) to migrate, and then select **Change policy**.
+1. On the **Change policy** pane, on the **Basics** tab, review the VM selection, and then select **Next > Target policy**.
+
+   You can modify the VM selection if required.
+
+1. On the **Target policy** tab, under **Target polict**, select a target Enhanced policy from the dropdown list.
+1. Review the selected Enhanced policy details, and then select **Next > Review + Change policy**.
+1. On the **Review + Change policy** tab, verify the selection of VMs and target policy, and then select **Change policy**.
+
+
+
+---
+
+
+
+
+
 
 ## Next steps
 

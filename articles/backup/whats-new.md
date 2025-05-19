@@ -19,6 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2025
+  - [Migration of Azure VM backups from Standard to Enhanced policy is now generally available](#migration-of-azure-vm-backups-from-standard-to-enhanced-policy-is-now-generally-available)
   - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
 - April 2025
   - [Vaulted backup support for  Azure Data Lake Storage (preview)](#vaulted-backup-support-for-azure-data-lake-storage-preview)
@@ -109,7 +110,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-Migration of Azure VM backups from Standard to Enhanced policy is now generally available
+## Migration of Azure VM backups from Standard to Enhanced policy is now generally available
 
 Azure Backup now supports migrating VM backups (protected with Standard policy) to the Enhanced policy, offering greater flexibility and resilience.
 
