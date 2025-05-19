@@ -221,10 +221,6 @@ items:
   items:
     - name: Troubleshoot and resolve issues with an agent
       items:
-        - name: Overview
-          href: sre-agent-overview.md
-        - name: Use an SRE agent
-          href: sre-agent-usage.md
         - name: SRE Agent tutorial
           href: tutorial-sre-agent.md          
     - name: Monitor App Service
