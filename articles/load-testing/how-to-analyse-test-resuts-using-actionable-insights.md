@@ -1,7 +1,7 @@
 ---
 title: Analyze test results using Actionable Insights
 titleSuffix: Azure Load Testing
-description: Learn how to analyse test resulsts using AI powered actionable insights 
+description: Learn how to analyze test results using AI powered actionable insights 
 services: load-testing
 ms.service: azure-load-testing
 ms.author: vanshsingh
@@ -31,7 +31,7 @@ To view actionable insights for a completed test:
 
 2. Select **Tests**, and choose the relevant test run.
 
-2. Actionable insights are generated on demand. If this is your first time visiting the test run dashboard, expand the **AI summary and insights** section, and select **Generate insights**.
+2. Actionable insights are generated on demand. If you're visiting the test run dashboard for the first time, expand the **AI summary and insights** section, and select **Generate insights**.
 
     :::image type="content" source="media/how-to-analyze-test-results-using-actionable-insights/generate-insight.png" alt-text="Screenshot that shows the 'Generate insights' action for a test run." lightbox="media/how-to-analyze-test-results-using-actionable-insights/generate-insight.png":::
 
@@ -41,7 +41,7 @@ To view actionable insights for a completed test:
 
 4. In the detailed insights view, you can explore what went wrong during the test, supporting evidence, and recommended next steps.
 
-       
+
 > [!TIP]
 > For the best insights, configure server-side metrics. The AI engine correlates client-side and server-side data to generate more accurate diagnostics and recommendations.
 
