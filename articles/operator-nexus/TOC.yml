@@ -232,6 +232,8 @@
           href: howto-append-custom-suffix-to-interface-descriptions.md
         - name: How to reboot Network Device in Azure Operator Nexus Network Fabric
           href: howto-reboot-network-device.md
+        - name: How to replace a device in Azure Operator Nexus Network Fabric
+          href: howto-replace-a-device-in-azure-operator-nexus-network-fabric.md
         - name: How to Configure NNF with Bring Your Own (BYO) Storage
           href: howto-configure-bring-your-own-storage-network-fabric.md
         - name: How to upgrade OS of terminal server
