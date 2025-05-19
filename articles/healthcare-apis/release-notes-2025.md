@@ -6,7 +6,7 @@ author: KendalBond007
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: reference
-ms.date: 01/22/2025
+ms.date: 5/14/2025
 ms.author: kesheth
 ms.custom: references_regions
 ---
@@ -14,6 +14,21 @@ ms.custom: references_regions
 # Release notes 2025: Azure Health Data Services
 
 This article describes features, enhancements, and bug fixes released in 2025 for the FHIR&reg; service, Azure API for FHIR, DICOM&reg; service, and MedTech service in Azure Health Data Services.
+
+## May 2025
+### FHIR service
+**Enhanced error handling for $export**: Previously, 412 errors from Azure Storage weren't retried, and would be surfaced as 500 InternalServerError. The issue is fixed, and these requests are now retried. 
+
+**Enhancement for _include and _revinclude searches**: Added a more descriptive message for truncated _include messages. For _include and _revinclude search queries, when the number of included items exceeds the limit on the page, the OperationOutcome in the bundle will now include the message "Included items are truncated. Use the related link in the response to retrieve all included items."
+
+**Transaction handling improvement**: Fixed invisible transaction watchdog to limit number of transactions to process in a single batch to 10000 to avoid timeouts and improve transaction handling.
+
+
+#### Bug fixes:
+**Creation after deletion of search parameters fix**: Previously, creating the same search parameter that was deleted in the past could fail due to an issue in updating the cache for Search Parameter definition manager. The issue is fixed, and now, the cache is synced before validating a search parameter in an incoming request.
+
+**Patient-everything with SMART patient user fix**: An issue was discovered where the patient-everything operation with a SMART patient user was failing. The issue is fixed, and now, the patient-everything operation works as expected with a SMART patient user.
+
 
 ## April 2025
 ### FHIR service

@@ -6,6 +6,8 @@
       href: functions-overview.md
     - name: Scenarios
       href: functions-scenarios.md
+    - name: AI-enabled functions
+      href: functions-create-ai-enabled-apps.md
     - name: Getting started
       href: functions-get-started.md
     - name: Durable Functions
@@ -750,22 +752,8 @@
 - name: Migration guides
   items:
     - name: Migrate from AWS Lambda
-      items:
-        - name: Migrate from AWS Lambda
-          href: migration/migrate-aws-lambda-to-azure-functions.md
-          displayName: AWS Lambda, migration
-        - name: Overview
-          href: migration/migrate-lambda-workloads-overview.md
-          displayName: AWS Lambda, migration
-        - name: Discover
-          href: migration/discover-lambda-workloads.md
-          displayName: AWS Lambda, migration
-        - name: Assess
-          href: migration/assess-lambda-workloads.md
-          displayName: AWS Lambda, migration
-        - name: Migrate
-          href: migration/migrate-lambda-workloads.md
-          displayName: AWS Lambda, migration   
+      href: migration/migrate-aws-lambda-to-azure-functions.md
+      displayName: AWS Lambda, migration
     - name: Upgrade runtime versions
       items:
         - name: Migrate v3.x to v4.x
