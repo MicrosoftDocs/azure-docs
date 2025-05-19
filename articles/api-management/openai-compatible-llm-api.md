@@ -1,6 +1,6 @@
 ---
-title: Import a Self-Hosted Language Model API - Azure API Management
-description: How to import a self-hosted OpenAI-compatible language model or other AI model as a REST API in Azure API Management.
+title: Import OpenAI-Compatible Language Model API - Azure API Management
+description: How to import an OpenAI-compatible language model or a non-Azure-provided AI model as a REST API in Azure API Management.
 ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
@@ -10,11 +10,11 @@ ms.collection: ce-skilling-ai-copilot
 ms.custom: template-how-to, build-2024
 ---
 
-# Import a self-hosted language model API 
+# Import an OpenAI-compatible language model API 
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-You can import self-hosted AI model endpoints to your API Management instance as APIs. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
+You can import OpenAI-compatible language model endpoints to your API Management instance as APIs. For example, you might want to manage an LLM that you self-host, or that's hosted on an inference provider other than Azure AI services. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
 Learn more about managing AI APIs in API Management:
 
@@ -22,26 +22,26 @@ Learn more about managing AI APIs in API Management:
 
 ## Language model API types
 
-API Management supports two types of self-hosted language model APIs. Choose the option  suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
+API Management supports two types of language model APIs for this scenario. Choose the option suitable for your model deployment. The option determines how clients call the API and how the API Management instance routes requests to the AI service.
 
-* **OpenAI-compatible** - Self-hosted model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index).
+* **OpenAI-compatible** - Language model endpoints that are compatible with OpenAI's API. Examples include certain models exposed by inference providers such as [Hugging Face Text Generation Inference (TGI)](https://huggingface.co/docs/text-generation-inference/en/index).
 
     API Management configures an OpenAI-compatible chat completions endpoint. 
 
-* **Passthrough** - Other self-hosted model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
+* **Passthrough** - Other language model endpoints that aren't compatible with OpenAI's API. Examples include models deployed in [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html) or other providers.
 
     API Management configures wildcard operations for common HTTP verbs. Clients can append paths to the wildcard operations, and API Management passes requests to the backend.  
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- A self-hosted (non-Azure-hosted) language model deployment with an API endpoint.  
+- A self-hosted or non-Azure-provided language model deployment with an API endpoint.  
 
 
 ## Import language model API using the portal
 
 
-To import a self-hosted language model API to API Management:
+To import a language model API to API Management:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
@@ -55,7 +55,7 @@ To import a self-hosted language model API to API Management:
     1. Optionally select one or more **Products** to associate with the API.  
     1. In **Path**, append a path that your API Management instance uses to access the LLM API endpoints.
     1. In **Type**, select either **Create OpenAI API** or **Create a passthrough API**. See [Language model API types](#language-model-api-types) for more information.
-    1. In **Access key**, optionally enter the authorization header name and API key used to access the LLM API. 
+    1. In **Access key**, enter the authorization header name and API key used to access the LLM API, if required. 
     1. Select **Next**.
 
     :::image type="content" source="media/openai-compatible-llm-api/configure-api.png" alt-text="Screenshot of language model API configuration in the portal.":::
