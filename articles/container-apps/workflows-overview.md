@@ -2,6 +2,7 @@
 title: Workflow in Azure Container Apps
 description: Learn about your workflow options for Azure Container Apps.
 services: container-apps, azure-functions
+ms.subservice: durable-task-scheduler
 author: lilyjma
 ms.service: azure-container-apps
 ms.topic: overview
