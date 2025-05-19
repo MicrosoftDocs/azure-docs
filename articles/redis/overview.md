@@ -161,7 +161,6 @@ Azure Managed Redis is continually expanding into new regions.
   - Sweden South
   - Switzerland North
   - Switzerland West
-  - Taiwan Northwest
   - UK South
   - UK West
   - West Europe
@@ -192,6 +191,7 @@ Azure Managed Redis is continually expanding into new regions.
   - South East Asia
   - South India
   - Taiwan North
+  - Taiwan Northwest
   
 To check the availability by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=redis-cache&regions=all).
 

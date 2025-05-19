@@ -89,7 +89,6 @@ Azure Managed Redis is current supported in the following regions. This list is 
   - Sweden South
   - Switzerland North
   - Switzerland West
-  - Taiwan Northwest
   - UK South
   - UK West
   - West Europe
@@ -104,12 +103,12 @@ Azure Managed Redis is current supported in the following regions. This list is 
   - South Africa West
   
 - Asia Pacific
-  - East Asia
   - Australia Central
   - Australia Central 2
   - Australia East
   - Australia Southeast
   - Central India
+  - East Asia
   - Indonesia Central
   - Japan East
   - Japan West
@@ -120,7 +119,7 @@ Azure Managed Redis is current supported in the following regions. This list is 
   - South East Asia
   - South India
   - Taiwan North
-
+  - Taiwan Northwest
 ## Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
 > [!NOTE]
