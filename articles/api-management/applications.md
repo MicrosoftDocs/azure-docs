@@ -11,10 +11,9 @@ ms.date: 05/19/2025
 ms.author: danlep
 ms.custom: 
 ---
+# Secure product API access with Microsoft Entra applications
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-# Secure product API access with Microsoft Entra applications
 
 API Management now supports built-in OAuth 2.0 application-based access to product APIs using the client credentials flow. This feature allows API managers to register Microsoft Entra ID applications, streamlining secure API access for developers through OAuth 2.0 authorization.
 
