@@ -269,7 +269,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
                 public int PurchaseAmountPostTax { get; set;}
             }
         }
-    }
+   }
    ```
 
    The function definition for **`RulesFunction`** includes a default **`RunRules`** method that you can use to get started. This sample **`RunRules`** method shows how to pass parameters to the Azure Logic Apps Rules Engine. In this example, the method passes the ruleset name, the input document type, an XML fact, and other values for further processing.
