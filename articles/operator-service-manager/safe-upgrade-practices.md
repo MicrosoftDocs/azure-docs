@@ -237,3 +237,48 @@ To enable the SkipUpgrade feature via `roleOverrideValues`, refer to the followi
   - The `skipUpgrade` flag is enabled. If the upgrade request for `hellotest` meets the precheck criteria, the upgrade is skipped.
 - **nfApplication: `runnerTest`**
   - The `skipUpgrade` flag isn't specified. Therefore, `runnerTest` executes a traditional Helm upgrade at the cluster level, even if the precheck criteria are met.
+
+
+
+## Complete roleOverrideValues option reference
+Bringing together all prior examples in this article, as well as examples in other articles, the below reference provides all presently supported install and upgrade options which can be set through the `roleOverrideValues` mechanism. 
+
+```json
+{
+  "roleOverrideValues": [
+    {
+      "name": "nfApplication1",
+      "deployParametersMappingRuleProfile": {
+        "helmMappingRuleProfile": {
+          "options": {
+            "nfConfiguration": {
+              "rollbackEnabled": "true"
+            },
+            "installOptions": {
+              "atomic": "true",
+              "wait": "true",
+              "timeout": "1",
+              "testOptions": {
+                "enable": "true",
+                "timeout": "true",
+                "rollbackOnTestFailure": "true",
+                "filter": [
+                  "test1",
+                  "test2"
+                ]
+              }
+            },
+            "upgradeOptions": {
+              "atomic": "true",
+              "wait": "true",
+              "timeout": "1",
+              "skipUpgrade": "true",
+              "testOptions": {
+                "enable": "true",
+                "timeout": "true",
+                "rollbackOnTestFailure": "true",
+                "filter": [
+                  "test1",
+                  "test2"
+                ] } } } } } } ] }
+```
