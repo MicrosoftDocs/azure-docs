@@ -11,9 +11,7 @@ ms.author: cshoe
 
 # Tutorial: Troubleshoot an app using an Azure SRE Agent (preview) in Azure Container Apps
 
-> Azure SRE Agent is in preview. By using SRE Agent, you consent the product-specific [Preview Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-The Azure SRE Agent helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf.
+The [Azure SRE Agent](../app-service/sre-agent-overview.md) helps you manage and monitor Azure resources by using AI-enabled capabilities. Agents  guide you in solving problems and aids in build resilient, self-healing systems on your behalf.
 
 In this tutorial, you:
 
