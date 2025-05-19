@@ -198,8 +198,14 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
-    - name: SRE Agent overview
-      href: ../app-service/sre-agent-overview.md?toc=/azure/container-apps/toc.json
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: ../app-service/sre-agent-overview.md
+        - name: Use an SRE agent
+          href: ../app-service/sre-agent-usage.md
+        - name: Fix app issues with an SRE agent
+          href: sre-agent-troubleshoot.md
     - name: Application logging
       href: logging.md
     - name: Real time data
