@@ -191,10 +191,10 @@ Beyond basic interactions, the AI agent can handle more complex scenarios:
 Now that you learned how to connect your AI Agent to an API on Azure App Service, you can explore the other AI integrations available with App Service:
 
 > [!div class="nextstepaction"]
-> [Deploy an application that uses OpenAI on Azure App Service](./deploy-intelligent-apps.md)
+> [Tutorial: Build a chatbot with Azure App Service and Azure OpenAI (.NET)](tutorial-ai-openai-chatbot-dotnet.md)
 
 > [!div class="nextstepaction"]
-> [Run a local SLM in a sidecar container in Azure App Service](./tutorial-sidecar-local-small-language-model.md)
+> [Tutorial: Run chatbot in App Service with a Phi-4 sidecar extension (ASP.NET Core)](tutorial-ai-slm-dotnet.md)
 
 > [!div class="nextstepaction"]
 > [Deploy a .NET Blazor app connected to Azure SQL and Azure OpenAI on Azure App Service](./deploy-intelligent-apps-dotnet-to-azure-sql.md)
