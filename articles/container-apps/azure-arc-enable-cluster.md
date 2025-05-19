@@ -23,10 +23,6 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
 > * Create a custom location.
 > * Create the Azure Container Apps connected environment.
 
-> [!NOTE]
-> During the preview, Azure Container Apps on Arc are not supported in production configurations. This article provides an example configuration for evaluation purposes only.
->
-> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you may not want to enable Azure Arc on an AKS cluster as it is already managed in Azure.
 
 ## Prerequisites
 
