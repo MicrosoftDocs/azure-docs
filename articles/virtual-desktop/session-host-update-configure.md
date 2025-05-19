@@ -4,7 +4,7 @@ description: Learn how to update session hosts in a host pool with a session hos
 ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
-ms.date: 01/24/2025
+ms.date: 05/19/2025
 ---
 
 # Update session hosts using session host update in Azure Virtual Desktop (preview)
