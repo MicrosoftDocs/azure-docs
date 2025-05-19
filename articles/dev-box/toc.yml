@@ -62,11 +62,7 @@ items:
         href: monitor-dev-box.md
         displayName: diagnostic, logs
       - name: Configure conditional access policies for dev tunnels service
-        href: configure-conditional-access-policies-for-dev-tunnels-service.md
-      - name: How to setup dev tunnels
-        href: how-to-setup-dev-tunnels.md
-      - name: Setup a dev tunnel
-        href: how-to-setup-dev-tunnels.md
+        href: how-to-conditional-access-dev-tunnels-service.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
@@ -102,6 +98,8 @@ items:
         displayName: Windows App, connect, access dev box, RDP, iPad
       - name: Use multiple monitors
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
+      - name: Connect to a dev box with a dev tunnel
+        href: how-to-setup-dev-tunnels.md
   - name: Security
     items:
       - name: Provide access to project admins
