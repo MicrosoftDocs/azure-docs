@@ -109,6 +109,21 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
+Migration of Azure VM backups from Standard to Enhanced policy is now generally available
+
+Azure Backup now supports migrating VM backups (protected with Standard policy) to the Enhanced policy, offering greater flexibility and resilience.
+
+This feature includes:
+
+- Scheduling multiple backups per day (up to every 4 hours).
+- Retaining snapshots for extended durations.
+- Ensuring multi-disk crash consistency for VM backups.
+- Providing zonally resilient snapshot-tier recovery points.
+- Enabling seamless migration of VMs to Trusted Launch, and using Premium SSD v2 and Ultra disks for the VMs without disrupting existing backups.
+- Migrating protected VMs from Standard policy to Enhanced policy in bulk.
+
+For more information, see [Migrate Azure VM backups from Standard to Enhanced policy](backup-azure-vm-migrate-enhanced-policy.md).
+
 ## Back up SAP ASE (Sybase) database is now generally available
 
 Azure Backup now supports SAP ASE (Sybase) database backups on Azure VMs. Backups stream directly to managed Recovery Services vault of Azure Backup, ensuring security with [Immutability](backup-azure-immutable-vault-concept.md?tabs=recovery-services-vault), [Soft Delete](backup-azure-security-feature-cloud.md?tabs=azure-portal), [Multiuser Authorization](multi-user-authorization-concept.md?tabs=recovery-services-vault), and [Customer Managed Key (CMK)](encryption-at-rest-with-cmk.md?tabs=portal). Data is stored in a Microsoft-managed subscription, isolating it from user environments for enhanced protection.
