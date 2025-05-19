@@ -56,7 +56,7 @@ The following table explains each property in the **New input** page in the Azur
 | **Event serialization format** | The serialization format (JSON, CSV, Avro) of the incoming data stream. Ensure the JSON format aligns with the specification and doesn’t include leading 0 for decimal numbers. |
 | **Encoding** | UTF-8 is currently the only supported encoding format. |
 | **Event compression type** | The compression type used to read the incoming data stream, such as None (default), Gzip, or Deflate. |
-| **Schema registry (preview)** | You can select the schema registry with schemas for event data that's received from the event hub. | 
+| **Schema registry**  | You can select the schema registry with schemas for event data that's received from the event hub. | 
 
 When your data comes from an Event Hubs stream input, you have access to the following metadata fields in your Stream Analytics query:
 

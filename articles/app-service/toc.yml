@@ -219,6 +219,12 @@ items:
           href: /azure/templates/microsoft.web/allversions
 - name: Logs and monitoring
   items:
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: sre-agent-overview.md
+        - name: Use an SRE agent
+          href: sre-agent-usage.md
     - name: Monitor App Service
       href: monitor-app-service.md
     - name: Monitoring data reference
