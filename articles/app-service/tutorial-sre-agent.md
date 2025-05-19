@@ -44,7 +44,9 @@ To complete this tutorial, you need:
 Start by creating a web app that the SRE Agent can monitor.
 
 1. Sign in to the https://portal.azure.com.
+
 1. In the top search bar, search for **App Services**, then select it from the results.
+
 1. Select **+ Create** and choose **Web App**.
 
 ### Configure the Basics tab
@@ -70,8 +72,11 @@ In the *Basics* tab, provide the following details:
 
 
 1. Select the **Deployment** tab.
+
 1. Under *Authentication settings*, enable **Basic authentication**. Basic authentication is used later for a one-time deployment from GitHub. [Disable Basic Auth](configure-basic-auth-disable.md?tabs=portal) in production.
+
 1. Select **Review and create**, then **Create** when validation passes.
+
 1. Once deployment completes, you see *Your deployment is complete*.
 
 ## 2. Deploy the sample app
@@ -97,7 +102,9 @@ Now that your App Service app is created, deploy the sample application from Git
 After deployment, confirm that the sample app is running as expected.
 
 1. In the left menu of your App Service, select **Overview**.
+
 1. Select **Browse** to open the app in a new browser tab. (It might take a minute to load.)
+
 1. The app displays a large counter and two buttons:
  
     :::image type="content" source="media/tutorial-sre-agent/verify-sample-primary-slot.png" alt-text="Screenshot of the .NET sample in the primary slot." border="false":::
@@ -109,7 +116,9 @@ After deployment, confirm that the sample app is running as expected.
 To simulate an app failure scenario, add a secondary deployment slot.
 
 1. In the left menu of your App Service, under the *Deployment* section, select **Deployment slots**.
+
 1. Select **Add slot**.
+
 1. Enter the following values:
 
     | Property            | Value        | Remarks                                                                                  |
@@ -122,7 +131,9 @@ To simulate an app failure scenario, add a secondary deployment slot.
 ### Deploy the sample app to the slot
 
 1. Once the slot is created, select the **broken** slot from the list.
+
 1. In the left menu, under the *Deployment* section, select **Deployment Center**.
+
 1. In the *Settings* tab, configure:
 
     | Property   | Value                                                         |
@@ -138,8 +149,11 @@ To simulate an app failure scenario, add a secondary deployment slot.
 To control error simulation, configure an app setting your app checks at runtime.
 
 1. In the left menu of your App Service, select **Environment variables** under the *Settings* section.
+
 1. At the top, make sure you have the correct slot selected (for example, **broken**).
+
 1. Under the **App settings** tab, select **+ Add**.
+
 1. Enter the following values:
 
     | Property   | Value         | Remarks                                                      |
@@ -148,8 +162,11 @@ To control error simulation, configure an app setting your app checks at runtime
     | Value      | `1`           | Enables error simulation in the app.                         |
 
 1. Make sure the **Deployment slot setting** box is **not** checked.  
+
 1. Select **Apply** to add the setting.
+
 1. At the bottom of the *Environment variables* page, select **Apply** to apply the changes.
+
 1. When prompted, select **Confirm** to confirm and restart the app in the selected slot.
 
 ## 5. Create an Azure SRE Agent
