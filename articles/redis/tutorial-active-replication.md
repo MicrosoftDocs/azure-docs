@@ -8,6 +8,7 @@ ms.custom:
   - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.
 ---
 
