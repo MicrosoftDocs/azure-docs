@@ -26,9 +26,6 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 - An Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance](../../api-management/get-started-create-service-instance.md). For v1 tiers, the instance should be deployed in public mode and not in virtual network mode.
 
-> [!NOTE]
-> Private endpoint support in the API Management Standard v2 tier is currently in preview. 
-
 ## Create an origin group and add the API Management instance as an origin
 
 1. Under **Settings** of your Azure Front Door Premium profile, select **Origin groups**.
@@ -89,9 +86,6 @@ This article guides you through the steps to configure an Azure Front Door Premi
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the cmdlets in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
     You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
-
-> [!NOTE]
-> Private endpoint support in the API Management Standard v2 tier is currently in preview. 
 
 ## Create an origin group and add the API Management instance as an origin
 
@@ -194,9 +188,6 @@ Your Azure Front Door profile is now fully functional after completing the final
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
     You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
-
-> [!NOTE]
-> Private endpoint support in the API Management Standard v2 tier is currently in preview. 
 
 ## Create an origin group and add the API Management instance as an origin
 
