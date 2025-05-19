@@ -129,7 +129,9 @@ In MQTT v5, flow control refers to the mechanism for managing the rate and size 
 For MQTT v5, MQTT broker is able to send negative acknowledgments (NACKs) and server-initiated disconnect packets that provide the client with more information about failures for  message delivery or connection. These features help the client diagnose the reason behind a failure and take appropriate mitigating actions. MQTT broker uses the reason codes that are defined in the [MQTT v5 Specification.](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
 ### Message Ordering  
-MQTT v5 ensures that messages sent within a single session are delivered in the same order they were published. MQTT broker fully supports it by maintaining message ordering per connection, so subscribers receive data in the exact sequence it was sent—ideal for scenarios like telemetry, command execution, and time-series data. 
+MQTT v5 ensures in-order message delivery within per topic and per client when using Quality of Service (QoS) levels 1, which is crucial for workflows requiring sequence integrity. It's ideal for scenarios like telemetry, command execution, and time-series data.
+
+However, it doesn't guarantee ordering across different topics or when messages are sent with varying QoS levels. To learn more, contact us [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com).
 
 ### Assigned Client Identifiers (Preview) 
 MQTT v5 introduces support for assigned client identifiers, allowing the broker to generate and return a unique client ID when one isn't provided by the client. MQTT broker supports this feature, ensuring seamless client onboarding and reducing the need for clients to manage their own identifiers. It's especially useful in scenarios where client provisioning is dynamic or when devices have no preconfigured identity. Assigned client IDs can be retrieved from the CONNACK response and reused for future sessions to maintain consistent identification. 
