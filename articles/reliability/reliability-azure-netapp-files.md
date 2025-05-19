@@ -14,8 +14,9 @@ This article describes reliability support in Azure NetApp Files, covering intra
 
 [!INCLUDE [Shared responsibility description](includes/reliability-shared-responsibility-include.md)]
 
+Azure NetApp Files is a native, enterprise-grade file storage solution that's integrated seamlessly within Azure, enabling file sharing across clients via SMB and NFS protocols. Designed for high performance, Azure NetApp Files offers scalable and secure file storage that's managed as a service.
 
-Azure NetApp Files is a native, enterprise-grade file storage solution integrated seamlessly within Azure. Designed for high performance, it offers scalable and secure file storage managed as a service. Users can create *volumes* within a NetApp account and capacity pools, enabling file sharing across clients via SMB and NFS protocols. This service provides flexibility in selecting performance levels, configuring capacity and throughput independently, and managing data protection options tailored to various needs.
+To use Azure NetApp Files, you create *volumes* within a NetApp account, as well as *capacity pools*. You can configure capacity and throughput independently, and manage data protection options tailored to various needs. You can enable replication between volumes, even if they're in different locations.
 
 ## Production deployment recommendations
 
