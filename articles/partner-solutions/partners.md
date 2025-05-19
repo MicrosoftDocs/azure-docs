@@ -19,7 +19,8 @@ Subscribe to any Azure Native Integration through [Microsoft Azure Marketplace](
 |Partner                                           |Description |
 |--------------------------------------------------|------------|
 |[Arize AI](arize-ai/overview.md)|A unified AI observability and evaluation platform for tracing, monitoring, and troubleshooting AI applications and agents|
-|[LambdaTest - HyperExecute (preview)](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
+|[LambdaTest - HyperExecute](lambda-test/overview.md)|An ultra-fast, secure, and scalable test execution platform designed for parallel testing across multiple environments with out-of-the-box AI capabilities to accelerate release cycles with enterprise-grade security.|
+
 
 ## Observability
 
