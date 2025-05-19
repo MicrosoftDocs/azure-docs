@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/internal-loadbalancer-create/).
 
-:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep":::
 
 Multiple Azure resources have been defined in the template:
 

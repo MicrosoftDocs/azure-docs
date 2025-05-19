@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 11/05/2024
+ms.date: 05/02/2024
 ms.author: cshoe
 ms.custom:
   - references_regions
@@ -25,7 +25,7 @@ Profiles are configured to fit the different needs of your applications.
 | Consumption GPU | Scale-to-zero serverless GPUs are available in West US 3, Australia East, and Sweden Central regions. | Apps that require GPU |
 | Dedicated (General purpose) | Balance of memory and compute resources | Apps that require larger amounts of CPU and/or memory |
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
-| Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions. | Apps that require GPU |
+| Dedicated (GPU enabled) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions. | Apps that require GPU |
 
 > [!NOTE]
 > When using GPU-enabled workload profiles, make sure your application is running the latest version of [CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda).
@@ -65,9 +65,9 @@ There are different types and sizes of workload profiles available by region. By
 | Dedicated-E8 | E8 | 8 | 64 | - | Memory optimized | per node | Managed Environment Memory Optimized Cores |
 | Dedicated-E16 | E16 | 16 | 128 | - | Memory optimized | per node | Managed Environment Memory Optimized Cores |
 | Dedicated-E32 | E32 | 32 | 256 | - | Memory optimized | per node | Managed Environment Memory Optimized Cores |
-| Dedicated-NC24-A100 (preview) | NC24-A100 | 24 | 220 | 1 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
-| Dedicated-NC48-A100 (preview) | NC48-A100 | 48 | 440 | 2 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
-| Dedicated-NC96-A100 (preview) | NC96-A100 | 96 | 880 | 4 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
+| Dedicated-NC24-A100 | NC24-A100 | 24 | 220 | 1 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
+| Dedicated-NC48-A100 | NC48-A100 | 48 | 440 | 2 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
+| Dedicated-NC96-A100 | NC96-A100 | 96 | 880 | 4 | GPU enabled | per node<sup>\*</sup> | Subscription NCA 100 Gpus |
 
 <sup>\*</sup> Capacity is allocated on a per-case basis. Submit a [support ticket](https://azure.microsoft.com/support/create-ticket/) to request the capacity amount required for your application.
 

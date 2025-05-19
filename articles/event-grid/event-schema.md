@@ -105,6 +105,12 @@ CloudEvents is the recommended event format to use. Azure Event Grid continues i
 | Event Grid format  | CloudEvents format
 | Event Grid format  | Event Grid format
 
+## Supported Schema Versions
+
+Event Grid currently supports the following schema versions:
+- **Event Grid Schema**: Version `1.0` 
+- **CloudEvents Schema**: Version `1.0`, following the CloudEvents [v1.0 specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md)
+
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)

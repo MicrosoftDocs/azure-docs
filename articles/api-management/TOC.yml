@@ -212,6 +212,8 @@
         href: azure-openai-api-from-specification.md
       - name: Authenticate and authorize to Azure OpenAI
         href: api-management-authenticate-authorize-azure-openai.md
+      - name: Expose REST API as MCP server
+        href: export-rest-mcp-server.md
       - name: Semantic caching for Azure OpenAI API requests
         href: azure-openai-enable-semantic-caching.md
       - name: Protect Azure OpenAI keys

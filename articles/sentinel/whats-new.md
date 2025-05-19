@@ -19,6 +19,18 @@ The listed features were released in the last three months. For information abou
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 ## May 2025
+
+- [Unified *IdentityInfo* table](#unified-identityinfo-table)
+- [Additions to SOC optimization support (Preview)](#additions-to-soc-optimization-support-preview)
+
+### Unified *IdentityInfo* table
+
+Customers of Microsoft Sentinel in the Defender portal who have enabled UEBA can now take advantage of a new version of the IdentityInfo table, located in the Defender portal's *Advanced hunting* section, that includes the largest possible set of fields common to both the Defender and Azure portals. This unified table helps enrich your security investigations across the entire unified SecOps experience.
+
+For more information, see [IdentityInfo table](ueba-reference.md#identityinfo-table).
+
+### Additions to SOC optimization support (Preview)
+
 SOC optimization support for: 
  - **AI MITRE ATT&CK tagging recommendations (Preview)**: Uses artificial intelligence to suggest tagging security detections with MITRE ATT&CK tactics and techniques.
  - **Risk-based recommendations (Preview)**: Recommends implementing controls to address coverage gaps linked to use cases that may result in business risks or financial losses, including operational, financial, reputational, compliance, and legal risks. 
@@ -97,7 +109,7 @@ For more information, see:
 - [Unlock advanced hunting with new STIX objects by opting in to new threat intelligence tables](#unlock-advanced-hunting-with-new-stix-objects-by-opting-in-to-new-threat-intelligence-tables)
 - [Threat intelligence upload API now supports more STIX objects](#threat-intelligence-upload-api-now-supports-more-stix-objects)
 - [Microsoft Defender Threat Intelligence data connectors now generally available (GA)](#microsoft-defender-threat-intelligence-data-connectors-now-generally-available-ga)
-- [Bicep template support for repositories (Preview)](#bicep-template-support-for-repositories-preview)
+- [Bicep file support for repositories (Preview)](#bicep-file-support-for-repositories-preview)
 - [SOC optimization updates for unified coverage management](#soc-optimization-updates-for-unified-coverage-management)
 - [View granular solution content in the Microsoft Sentinel content hub](#view-granular-solution-content-in-the-microsoft-sentinel-content-hub)
 
@@ -158,8 +170,8 @@ Both premium and standard Microsoft Defender Threat Intelligence data connectors
 - [Explore Defender Threat Intelligence licenses](https://www.microsoft.com/security/business/siem-and-xdr/microsoft-defender-threat-intelligence#areaheading-oc8e7d)
 - [Enable the Microsoft Defender Threat Intelligence data connector](connect-mdti-data-connector.md)
 
-### Bicep template support for repositories (Preview)
-Use Bicep templates alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
+### Bicep file support for repositories (Preview)
+Use Bicep files alongside or as a replacement of ARM JSON templates in Microsoft Sentinel repositories. Bicep provides an intuitive way to create templates of Azure resources and Microsoft Sentinel content items. Not only is it easier to develop new content items, Bicep makes reviewing and updating content easier for anyone that's a part of the continuous integration and delivery of your Microsoft Sentinel content.
 
 For more information, see [Plan your repository content](ci-cd-custom-content.md#plan-your-repository-content).
 

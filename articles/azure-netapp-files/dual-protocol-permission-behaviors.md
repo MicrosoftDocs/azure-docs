@@ -1,11 +1,11 @@
 ---
-title: Understand dual-protocol security style and permission behaviors in Azure NetApp Files | Microsoft Docs
+title: Understand dual-protocol security style and permission behaviors in Azure NetApp Files 
 description: This article helps you understand dual-protocol security style and permission when you use Azure NetApp Files.
 services: azure-netapp-files
 author: whyistheinternetbroken
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/02/2023
+ms.date: 02/02/2025
 ms.author: anfdocs
 ---
 

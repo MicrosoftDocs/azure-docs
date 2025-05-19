@@ -45,7 +45,7 @@ This article provides an overview of the current limitations when you're using [
 
 ## Limitations for security admin rules
 
-* The maximum number of IP prefixes in all [security admin rules](concept-security-admins.md) combined is 1,000.
+* The maximum number of IP prefixes in all [security admin rules](concept-security-admins.md) combined is 20,000.
 * The maximum number of admin rules in one level of Azure Virtual Network Manager is 100.
 * The service tags AzurePlatformDNS, AzurePlatformIMDS, and AzurePlatformLKM are not currently supported in security admin rules.
 

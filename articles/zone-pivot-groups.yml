@@ -1570,7 +1570,7 @@ groups:
   - id: method-azure-cli
     title: Azure CLI
   - id: method-bicep
-    title: Bicep template
+    title: Bicep file
 - id: azure-web-pubsub-samples-authenticate-and-connect
   title: Authenticate and connect to your Web PubSub resource(s) using one of the methods
   prompt: Choose an option
@@ -1869,7 +1869,7 @@ groups:
   - id: free-shared-basic
     title: Free, Shared, Basic
   - id: premium
-    title: Premium v2 and Premium v3
+    title: Premium v2-v4
   - id: isolated
     title: Isolated v2 (App Service Environment)
 #Owner: yassirbisteni

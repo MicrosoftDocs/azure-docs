@@ -3,7 +3,7 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure CLI.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 05/31/2024
+ms.date: 04/01/2025
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
 ms.author: jsuri

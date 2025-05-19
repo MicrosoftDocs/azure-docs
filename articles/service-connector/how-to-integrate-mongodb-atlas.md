@@ -116,4 +116,4 @@ Refer to the steps and code below to connect to MongoDB Atlas cluster using a co
 Follow the tutorials listed below to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+> [Connect apps to MongoDB Atlas (Preview)](./howto-mongodb-atlas-service-connection.md)

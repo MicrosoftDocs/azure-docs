@@ -14,7 +14,7 @@ To create an image configured for ADE, follow these steps:
 1. Create a custom image based on a standard image.
 1. Install desired packages.
 1. Configure operation shell scripts.
-1. Create operation shell scripts to deploy ARM or Bicep templates.
+1. Create operation shell scripts to deploy ARM or Bicep files.
 
 
 **1. Create a custom image based on a standard image**
@@ -55,7 +55,7 @@ RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
-**4. Create operation shell scripts to deploy ARM or Bicep templates**
+**4. Create operation shell scripts to deploy ARM or Bicep files**
 
 To ensure you can successfully deploy ARM or Bicep infrastructure through ADE, you must:
 1. Convert ADE parameters to ARM-acceptable parameters
@@ -101,7 +101,7 @@ while true; do
 done
 ```
 
-To begin deployment of the ARM or Bicep templates, run the `az deployment group create` command. When running this command inside the container, choose a deployment name that doesn't override any past deployments, and use the `--no-prompt true` and `--only-show-errors` flags to ensure the deployment doesn't fail on any warnings or stall on waiting for user input, as shown in the following example:
+To begin deployment of the ARM or Bicep files, run the `az deployment group create` command. When running this command inside the container, choose a deployment name that doesn't override any past deployments, and use the `--no-prompt true` and `--only-show-errors` flags to ensure the deployment doesn't fail on any warnings or stall on waiting for user input, as shown in the following example:
 
 ```bash
 deploymentName=$(date +"%Y-%m-%d-%H%M%S")

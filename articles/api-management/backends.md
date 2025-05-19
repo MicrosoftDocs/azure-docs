@@ -148,7 +148,7 @@ The circuit breaker in this example resets after 1 hour. If a `Retry-After` head
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template for a backend resource with a circuit breaker:
+Include a snippet similar to the following in your Bicep file for a backend resource with a circuit breaker:
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
@@ -266,7 +266,7 @@ Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar to the following in your Bicep template for a load-balanced pool. Set the `type` property of the backend entity to `Pool` and specify the backends in the pool:
+Include a snippet similar to the following in your Bicep file for a load-balanced pool. Set the `type` property of the backend entity to `Pool` and specify the backends in the pool:
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {

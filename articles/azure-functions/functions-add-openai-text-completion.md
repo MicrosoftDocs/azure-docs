@@ -164,7 +164,7 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
     ```csharp
     [Function(nameof(WhoIs))]
     public IActionResult WhoIs([HttpTrigger(AuthorizationLevel.Function, Route = "whois/{name}")] HttpRequest req,
-    [TextCompletionInput("Who is {name}?", Model = "%CHAT_MODEL_DEPLOYMENT_NAME%")] TextCompletionResponse response)
+    [TextCompletionInput("Who is {name}?", ChatModel = "%CHAT_MODEL_DEPLOYMENT_NAME%")] TextCompletionResponse response)
     {
         if(!String.IsNullOrEmpty(response.Content))
         {

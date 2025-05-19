@@ -1324,7 +1324,7 @@ To use Azure Functions with a preview version of .NET, you need to update your p
 1. Installing the relevant .NET SDK version in your development
 1. Changing the `TargetFramework` setting in your `.csproj` file
 
-When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure portal, for example, you can use the REST API, Bicep templates, or the Azure CLI to configure the version manually.
+When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you don't see the preview version included in the Azure portal, for example, you can use the REST API, Bicep files, or the Azure CLI to configure the version manually.
 
 ### [Windows](#tab/windows)
 

@@ -14,23 +14,18 @@ ms.author: duau
 # About migrating to an availability zone-enabled ExpressRoute virtual network gateway 
 When you create an ExpressRoute virtual network gateway, selecting the appropriate [gateway SKU](expressroute-about-virtual-network-gateways.md#gateway-types) is crucial. Higher-level SKUs allocate more CPUs and network bandwidth to the gateway, enabling higher network throughput and more reliable connections to the virtual network.
 
-### Available SKUs for ExpressRoute Virtual Network Gateways
-
-The following SKUs are available:
-
-- **Standard**
-- **HighPerformance**
-- **UltraPerformance**
-- **ErGw1Az**
-- **ErGw2Az**
-- **ErGw3Az**
-- **ErGwScale** (Preview)
-
 ### Availability Zone-Enabled SKUs
 
 The SKUs **ErGw1Az**, **ErGw2Az**, **ErGw3Az**, and **ErGwScale** (Preview) are referred to as Availability Zone (Az)-Enabled SKUs. These SKUs support deployment across multiple availability zones, providing enhanced resiliency and high availability by distributing the gateway infrastructure across zones.
 
 In contrast, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs, also known as non-Az-enabled SKUs, are typically associated with Basic IPs and don't support distribution across availability zones.
+
+>[!Important]
+>On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. 
+
+This article will help guide you through the migration process of a Non-Az Gateway with Basic SKU Public IP Address to Az-enabled Gateway with Standard SKU Public IP Address.
+
+For other Networking services with Basic SKU Public IP Address, see [Upgrading Basic to Standard SKU](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md#steps-to-complete-the-upgrade)
 
 ### Recommendation for enhanced reliability
 

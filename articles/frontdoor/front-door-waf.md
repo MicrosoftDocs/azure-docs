@@ -27,9 +27,9 @@ In this tutorial, you learn to:
 > - Associate a WAF policy with Front Door.
 > - Configure a custom domain.
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - This tutorial uses the Azure CLI. [Get started with the Azure CLI](/cli/azure/get-started-with-azure-cli).
 

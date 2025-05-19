@@ -142,7 +142,7 @@ In this section, you create a web application that allows users to sign in and u
 
 1. Enable configuration and feature flag refresh from Azure App Configuration with the App Configuration middleware.
 
-    Update Program.cs withe the following code.
+    Update Program.cs with the following code.
 
     ``` C#
     // Existing code in Program.cs

@@ -208,10 +208,14 @@ Supported regions:
 - South India
 - West India 
 - Italy North
+- Japan East
+- Japan West
 - Jio India West
+- Korea Central
 - Korea South
 - Mexico Central
 - Norway East
+- New Zealand North
 - Poland Central
 - Qatar Central
 - South Africa North

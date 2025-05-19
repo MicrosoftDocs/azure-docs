@@ -420,7 +420,7 @@ If you're concerned about enabling public access to the SCM site, or you're rest
 
 #### How can I deploy this architecture with ARM/Bicep?
 
-The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [App connected to a backend web app Bicep template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) allows you to create a secure N-tier app solution.
+The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [App connected to a backend web app Bicep file](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection) allows you to create a secure N-tier app solution.
 
 To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bicep and Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 

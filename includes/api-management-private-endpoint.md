@@ -22,6 +22,5 @@ With a private endpoint and Private Link, you can:
 
 
 > [!IMPORTANT]
-> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance.
-> 
- 
+> * You can only configure a private endpoint connection for **inbound** traffic to the API Management instance. 
+> * You can only disable public network access to the API Management instance **after** configuring a private endpoint.

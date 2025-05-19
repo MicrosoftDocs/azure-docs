@@ -1,25 +1,24 @@
 ---
-title: Azure Managed Redis (preview) with Azure Private Link
+title: Azure Managed Redis with Azure Private Link
 description: Learn how to create an Azure Cache, an Azure Virtual Network, and a Private Endpoint using the Azure portal with a managed Redis cache.
-
-
-
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
-appliesto:
-  - ✅ Azure Managed Redis
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - ignite-2024
+  - build-2025
 ---
 
-# What is Azure Managed Redis (preview) with Azure Private Link?
+# What is Azure Managed Redis with Azure Private Link?
 
-In this article, you learn how to create a virtual network and an Azure Managed Redis (preview) instance with a private endpoint using the Azure portal. You also learn how to add a private endpoint to an existing Azure Managed Redis instance.
+In this article, you learn how to create a virtual network and an Azure Managed Redis instance with a private endpoint using the Azure portal. You also learn how to add a private endpoint to an existing Azure Managed Redis instance.
 
 Azure Private Endpoint is a network interface that connects you privately and securely to Azure Managed Redis powered by Azure Private Link.
 
 >[!Important]
-> Using private endpoint to connect to a Virtual Network is the recommended solution for securing your Azure Managed Redis (Preview) resource at the networking layer.
+> Using private endpoint to connect to a Virtual Network is the recommended solution for securing your Azure Managed Redis resource at the networking layer.
 
 ## Prerequisites
 
@@ -326,7 +325,7 @@ For more information, see [Azure services DNS zone configuration](/azure/private
 
 ### What features aren't supported with private endpoints?
 
-- There's no restriction for using private endpoint with Azure Managed Redis (Preview).
+- There's no restriction for using private endpoint with Azure Managed Redis.
 
 ### How do I verify if my private endpoint is configured correctly?
 
@@ -352,7 +351,7 @@ To have multiple private endpoints in different virtual networks, the private DN
 
 ### What happens if I delete all the private endpoints on my cache?
 
-If you delete all private endpoints on your Azure Managed Redis (preview) cache, networking defaults to have public network access.
+If you delete all private endpoints on your Azure Managed Redis cache, networking defaults to have public network access.
 
 ### Are network security groups (NSG) enabled for private endpoints?
 

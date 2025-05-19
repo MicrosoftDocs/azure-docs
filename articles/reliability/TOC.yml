@@ -281,7 +281,7 @@
     - name: Azure Device Registry
       href: reliability-device-registry.md
     - name: Azure IoT Hub
-      href: ../iot-hub/iot-hub-ha-dr.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#disable-disaster-recovery
+      href: reliability-iot-hub.md
     - name: Azure Notification Hubs
       href: reliability-notification-hubs.md
   - name: Media

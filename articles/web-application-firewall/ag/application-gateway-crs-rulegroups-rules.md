@@ -264,7 +264,7 @@ The following rule groups and rules are available when using Web Application Fir
 |931100|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Parameter using IP Address|
 |931110|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Common RFI Vulnerable Parameter Name used w/URL Payload|
 |931120|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: URL Payload Used w/Trailing Question Mark Character (?)|
-|931130|Critical - 5|PL1|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
+|931130|Critical - 5|PL2|Possible Remote File Inclusion (RFI) Attack: Off-Domain Reference/Link|
 
 ### <a name="drs932-21"></a> RCE - Remote Command Execution
 |Rule ID|Anomaly score severity|Paranoia Level|Description|

@@ -16,7 +16,6 @@ The extension-based onboarding is only for **User** Hybrid Runbook Workers. This
 
 For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
-
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), [Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview), and [Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/overview). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
@@ -304,7 +303,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 ## Automatic upgrade of extension
 
-Hybrid Worker extension supports [Automatic upgrade](/azure/virtual-machines/automatic-extension-upgrade) of minor versions by default. We recommend that you enable Automatic upgrades to take advantage of any security or feature updates without manual overhead. However, to prevent the extension from automatically upgrading (for example, if there is a strict change windows and can only be updated at specific time), you can opt out of this feature by setting the `enableAutomaticUpgrade`property in ARM, Bicep template, PowerShell cmdlets to *false*. Set the same property to *true* whenever you want to re-enable the Automatic upgrade.
+Hybrid Worker extension supports [Automatic upgrade](/azure/virtual-machines/automatic-extension-upgrade) of minor versions by default. We recommend that you enable Automatic upgrades to take advantage of any security or feature updates without manual overhead. However, to prevent the extension from automatically upgrading (for example, if there is a strict change windows and can only be updated at specific time), you can opt out of this feature by setting the `enableAutomaticUpgrade`property in ARM, Bicep file, PowerShell cmdlets to *false*. Set the same property to *true* whenever you want to re-enable the Automatic upgrade.
 
 ```powershell
 $extensionType = "HybridWorkerForLinux/HybridWorkerForWindows"
@@ -327,7 +326,6 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 ```powershell
 New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
 ```
-
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
 
@@ -422,9 +420,9 @@ Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation
 New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -MachineName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 1.1 -Setting $settings -NoWait -EnableAutomaticUpgrade
 ```
 
-#### [Bicep template](#tab/bicep-template)
+#### [Bicep file](#tab/bicep-file)
 
-You can use the Bicep template to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview.md).
+You can use the Bicep file to create a new Hybrid Worker group, create a new Azure Windows VM and add it to an existing Hybrid Worker Group. Learn more about [Bicep](../azure-resource-manager/bicep/overview.md).
 
 Follow the steps mentioned below as an example:
 

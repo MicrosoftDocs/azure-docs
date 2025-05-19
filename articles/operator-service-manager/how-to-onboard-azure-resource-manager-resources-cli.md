@@ -41,7 +41,7 @@ This how-to guide uses Azure Key Vault (AKV) as an example of an Azure Resource,
 - Any parameters you want to expose to the operator who will deploy your NSDV must be defined as parameters in the ARM template.
 
 > [!NOTE]
-> The Az CLI AOSM Extension does not support onboarding Azure resources defined in a BICEP template. However, you can use the `bicep build` command to convert your BICEP files to ARM templates. See [the bicep CLI documentation](/azure/azure-resource-manager/bicep/bicep-cli) for detailed information and instructions.
+> The Az CLI AOSM Extension does not support onboarding Azure resources defined in a Bicep file. However, you can use the `bicep build` command to convert your BICEP files to ARM templates. See [the bicep CLI documentation](/azure/azure-resource-manager/bicep/bicep-cli) for detailed information and instructions.
 
 ### Helm and Docker engine
 
@@ -142,7 +142,7 @@ az extension add --name aosm
     > [!NOTE]
     > The resource element template section defines which NFD is included in the NSD. The properties must match those used in the input file passed to the `az aosm nfd build` command. This is because the Azure CLI AOSM Extension validates that the NFD has been correctly onboarded when building the NSD.
 
-1. Execute the following command to build the Network Service Design Group and Version BICEP templates.
+1. Execute the following command to build the Network Service Design Group and Version Bicep files.
 
 ```azurecli
 az aosm nsd build --config-file <nsd-output-filename.jsonc>

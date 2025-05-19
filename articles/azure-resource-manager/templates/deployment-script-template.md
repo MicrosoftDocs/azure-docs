@@ -24,7 +24,7 @@ These scripts can be used for performing custom steps such as:
 
 The benefits of deployment script:
 
-- Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
+- You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
 - You can specify the script language and platform. Currently, Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.

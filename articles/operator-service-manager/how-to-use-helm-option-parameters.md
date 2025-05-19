@@ -30,7 +30,7 @@ Site Network Service (SNS) deployments might fail because an underlying Network 
 
 This section explains how to override `--atomic` for an NF that consists of a single helm chart.
 
-### Locate and edit the NF BICEP template
+### Locate and edit the NF Bicep file
 
 1. Navigate to the `nsd-cli-output` directory, open the `artifacts` directory, and open the `<nf-arm-template>.bicep` file. `<nf-arm-template>` is configured in the Az AOSM CLI extension NSD input file. You can confirm you have the right file by comparing against the following example template for a fictional Contoso containerized network function (CNF).
 
@@ -184,7 +184,7 @@ resource nfdv 'Microsoft.Hybridnetwork/publishers/networkfunctiondefinitiongroup
   }
 ```
 
-The `--atomic` parameter can be overridden for each of these network function applications independently. Here's an example NF BICEP template that overrides `--atomic` to `false` for `Contoso-one` and `Contoso-two`, but sets `atomic` to true for `Contoso-three`.
+The `--atomic` parameter can be overridden for each of these network function applications independently. Here's an example NF Bicep file that overrides `--atomic` to `false` for `Contoso-one` and `Contoso-two`, but sets `atomic` to true for `Contoso-three`.
 
 ```bicep
 resource nfResource 'Microsoft.HybridNetwork/networkFunctions@2023-09-01' = [for (values, i) in configObject.deployParameters: {

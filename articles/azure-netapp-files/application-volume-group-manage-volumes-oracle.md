@@ -13,6 +13,8 @@ ms.author: anfdocs
 
 You can manage a volume from its volume group. You can resize, delete, or change throughput for the volume. 
 
+[!INCLUDE [CLI & PowerShell call-out](includes/application-volume-group-powershell-oracle.md)]
+
 ## Steps
 
 1. From your NetApp account, select **Application volume groups**.   

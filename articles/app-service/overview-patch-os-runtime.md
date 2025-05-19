@@ -22,7 +22,7 @@ For security reasons, certain specifics of security information are not publishe
 
 ## How and when are OS updates applied?
 
-Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
+Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](/security-updates/) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. Azure App Service OS patching follows Safe Deployment Practices and Availability-First approach. As such, while we strive to ensure the latest patches are applied as soon as possible, OS patching may be slowed or paused at times to avoid app impacts and outages
 
 For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 

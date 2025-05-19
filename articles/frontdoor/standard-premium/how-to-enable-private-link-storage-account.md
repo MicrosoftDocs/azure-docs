@@ -74,6 +74,13 @@ In this section, you map the Private Link service to a private endpoint created 
 > [!NOTE]
 > If the blob or container within the storage account doesn't permit anonymous access, requests made against the blob/container should be authorized. One option for authorizing a request is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
 
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+* Not using SAS tokens while connecting to storage account that does not allow anonymous access.
+
 ## Next steps
 
 Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).

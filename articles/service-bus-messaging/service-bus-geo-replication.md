@@ -124,7 +124,7 @@ The following section is an overview to set up the Geo-Replication feature on a 
 1. Either check the **Synchronous replication** checkbox, or specify a value for the **Async Replication - Max Replication lag** value in seconds.
 :::image type="content" source="./media/service-bus-geo-replication/create-namespace-with-geo-replication.png" alt-text="Screenshot showing the Create Namespace experience with Geo-Replication enabled.":::
 
-### Using Bicep template
+### Using Bicep file
 
 To create a namespace with the Geo-Replication feature enabled, add the *geoDataReplication* properties section.
 

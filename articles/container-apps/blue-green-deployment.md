@@ -194,7 +194,7 @@ output fqdn string = blueGreenDeploymentApp.properties.configuration.ingress.fqd
 output latestRevisionName string = blueGreenDeploymentApp.properties.latestRevisionName
 ```
 
-Deploy the app with the Bicep template using this command:
+Deploy the app with the Bicep file using this command:
 
 ```azurecli
 export APP_NAME=<APP_NAME>

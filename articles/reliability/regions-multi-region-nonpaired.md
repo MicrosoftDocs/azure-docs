@@ -62,7 +62,7 @@ For geo-replication of Event Grid topics in nonpaired regions, you can implement
 
 ## Azure IoT Hub 
 
-For geo-replication in nonpaired regions, use the [concierge pattern](/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha) for routing to a secondary IoT Hub. 
+To learn about how to create multi-region solutions using Azure IoT Hub, see [Reliability in Azure IoT Hub](./reliability-iot-hub.md).
 
 ## Azure Kubernetes Service (AKS)
 

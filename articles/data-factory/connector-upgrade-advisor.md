@@ -83,3 +83,11 @@ Before using the Connector upgrade advisor, it is recommended to **save** or **d
     :::image type="content" source="media/connector-upgrade-advisor/save-publish.png" alt-text="Screenshot of the save or publish page." lightbox="media/connector-upgrade-advisor/save-publish.png":::
 
 This process ensures a smooth transition from outdated connectors to the latest supported versions.  
+
+## Related content
+
+- [Connector overview](connector-overview.md)  
+- [Connector lifecycle overview ](connector-lifecycle-overview.md)
+- [Connector upgrade guidance](connector-upgrade-guidance.md) 
+- [Connector release stages and timelines](connector-release-stages-and-timelines.md)    
+- [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)  

@@ -4,7 +4,7 @@ description: Learn how to update session hosts in a host pool with a session hos
 ms.topic: how-to
 author: dougeby
 ms.author: avdcontent
-ms.date: 01/24/2025
+ms.date: 05/19/2025
 ---
 
 # Update session hosts using session host update in Azure Virtual Desktop (preview)
@@ -291,7 +291,6 @@ You can update the session host management policy before you schedule an update,
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL *
@@ -336,7 +335,6 @@ From your existing PowerShell session, use the `Get-AzWvdSessionHostManagementsU
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    $updateProgress = Get-AzWvdSessionHostManagementsUpdateStatus @parameters |
@@ -357,7 +355,6 @@ From your existing PowerShell session, use the `Get-AzWvdSessionHostManagementsU
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
    $updateProgress = Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL *
 
@@ -402,7 +399,6 @@ From your existing PowerShell session, use the `Invoke-AzWvdControlSessionHostUp
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL Status
@@ -465,7 +461,6 @@ From your existing PowerShell session, use the `Invoke-AzWvdControlSessionHostUp
    $parameters = @{
        HostPoolName = '<HostPoolName>'
        ResourceGroupName = '<ResourceGroupName>'
-       IsLatest = $true
    }
 
    Get-AzWvdSessionHostManagementsUpdateStatus @parameters | FL Action, Status

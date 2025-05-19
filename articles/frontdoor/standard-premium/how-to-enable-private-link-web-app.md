@@ -69,6 +69,13 @@ In this section, you map the Private Link service to a private endpoint within A
 
 1. After approval, the connection status will update. It can take a few minutes for the connection to fully establish. Once established, you can access your web app through Azure Front Door Premium. Direct access to the web app from the public internet is disabled once private endpoint is enabled.
 
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group. 
+
+
 ## Next steps
 
 Learn about [Private Link service with App service](../../app-service/networking/private-endpoint.md).

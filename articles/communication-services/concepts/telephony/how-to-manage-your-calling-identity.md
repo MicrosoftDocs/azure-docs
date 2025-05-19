@@ -34,7 +34,7 @@ To request a CNAM registration for an Azure Communication Services number, custo
 - Customer and Azure account details including:
    - Company name
    - Company website
-   - Azure subcrition ID
+   - Azure subscription ID
    - Azure Communication Services Resource name
    - Azure Tenant ID
 - List a number and the corresponding caller name to register for each number. The customer must own these numbers under the Azure Resource provided. Customer can register only **US local numbers**.

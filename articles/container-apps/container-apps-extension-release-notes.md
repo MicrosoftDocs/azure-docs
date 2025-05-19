@@ -97,6 +97,7 @@ ms.author: cshoe
 - Allow customers to enabled Azure SDK debug logging in Dapr
 - Scale Envoy in response to memory usage
 - Change of Envoy log format to JSON
+- Export additional Envoy metrics
 - Export more Envoy metrics
 - Truncate Envoy log to first 1,024 characters when log content failed to parse
 - Handle SIGTERM gracefully in local proxy

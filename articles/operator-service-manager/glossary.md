@@ -56,7 +56,7 @@ Azure portal is a web-based interface provided by Azure for managing and monitor
 ## B
 
 ### Bicep
-Bicep is a domain-specific language (DSL) provided by Azure for deploying Azure resources using declarative syntax. Bicep templates are easier to write than Azure Resource Manager (ARM) templates. It's possible to convert Bicep templates to Azure Resource Manager (ARM) and vice-versa.
+Bicep is a domain-specific language (DSL) provided by Azure for deploying Azure resources using declarative syntax. Bicep files are easier to write than Azure Resource Manager (ARM) templates. It's possible to convert Bicep files to Azure Resource Manager (ARM) and vice-versa.
 
 ## C
 

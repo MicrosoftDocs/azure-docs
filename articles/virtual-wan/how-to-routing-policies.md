@@ -447,9 +447,9 @@ The following steps describe how to configure routing intent and routing policie
 
 1. At this point, you're ready to send test traffic. Ensure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations.
 
-## Configure routing intent using a BICEP template
+## Configure routing intent using a Bicep file
 
-See the [BICEP template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent) for information about the template and steps.
+See the [Bicep file](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent) for information about the template and steps.
 
 ## Troubleshooting
 

@@ -2,17 +2,11 @@
 title: Understand Azure NetApp Files application volume group for Oracle 
 description: Describes the use cases and key features of Azure NetApp Files application volume group for Oracle.  
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
 ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: concept-article
-ms.date: 03/13/2025
+ms.date: 04/23/2025
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for Oracle 
@@ -50,6 +44,7 @@ Application volume group for Oracle helps you simplify the deployment process an
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.   
     This deployment method provides better performance and throughput for the Oracle database.
 * Customer-managed keys support increased security and compliance. 
+* [Cross-zone](cross-zone-replication-introduction.md) and [cross-region](cross-region-replication-introduction.md) replication provide efficient storage-based data replication without load on compute infrastructure and a layer of protection for disaster recovery. This feature currently is in preview and only supported with the [REST API](configure-application-volume-oracle-api.md#replication). 
 
 ## Application volume group layout
 

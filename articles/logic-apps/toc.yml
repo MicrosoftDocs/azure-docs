@@ -68,10 +68,12 @@ items:
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
     href: logic-apps-serverless-overview.md
-  - name: Business rules engine integration
-    href: rules-engine/rules-engine-overview.md
   - name: AI playbook and solution development
     href: ai-resources.md
+  - name: AI agent workflows
+    href: agent-workflows-concepts.md
+  - name: Business rules engine integration
+    href: rules-engine/rules-engine-overview.md
   - name: B2B integration & EDI processing
     href: logic-apps-enterprise-integration-overview.md
   - name: Mainframe modernization
@@ -123,6 +125,8 @@ items:
       href: parse-document-chunk-text.md
     - name: Create chat completions with prompt templates
       href: connectors/create-chat-completions-prompt-template.md
+    - name: Create AI agent workflows
+      href: create-agent-workflows.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
@@ -195,8 +199,8 @@ items:
         href: biztalk-server-migration-approaches.md
   - name: Develop
     items:
-    - name: Build your workflow with a trigger or action
-      href: create-workflow-with-trigger-or-action.md
+    - name: Add a trigger or action to a workflow
+      href: add-trigger-action-workflow.md
     - name: Control workflow execution
       items:
       - name: Conditional statements
@@ -219,6 +223,8 @@ items:
       href: create-parameters-workflows.md
     - name: Call Azure Functions
       href: call-azure-functions-from-workflows.md
+    - name: Run workflows from actions in AI agents
+      href: add-agent-action-create-run-workflow.md
     - name: Call workflows from Power Apps
       href: call-from-power-apps.md
     - name: Call, trigger, or nest logic apps

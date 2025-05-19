@@ -265,7 +265,7 @@ This command might take a few minutes to run.
 
 ## Deploy from ARM/Bicep
 
-The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [Highly available multi-region web app Bicep template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) allows you to create a secure, highly available, multi-region end to end solution with two web apps in different regions behind Azure Front Door.
+The resources you created in this tutorial can be deployed using an ARM/Bicep template. The [Highly available multi-region web app Bicep file](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) allows you to create a secure, highly available, multi-region end to end solution with two web apps in different regions behind Azure Front Door.
 
 To learn how to deploy ARM/Bicep templates, see [How to deploy resources with Bicep and Azure CLI](../azure-resource-manager/bicep/deploy-cli.md).
 

@@ -4,7 +4,7 @@ description: Follow this quickstart to learn how to create your first app in Azu
 author: seligj95
 ms.author: msangapu
 ms.topic: quickstart
-ms.date: 10/20/2022
+ms.date: 04/29/2025
 ms.tool: terraform
 ms.custom: subject-terraform, devx-track-terraform
 ---
@@ -17,16 +17,16 @@ Terraform allows you to define and create complete infrastructure deployments in
 
 ## Prerequisites
 
-* You need an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-* Configure Terraform. Use one of the following options:
+* A Terraform configuration. Use one of the following options:
 
-  * [Configure Terraform in Azure Cloud Shell by using Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)
-  * [Configure Terraform in Azure Cloud Shell by using PowerShell](/azure/developer/terraform/get-started-cloud-shell-powershell?tabs=bash)
-  * [Configure Terraform in Windows by using Bash](/azure/developer/terraform/get-started-windows-bash?tabs=bash)
-  * [Configure Terraform in Windows by using PowerShell](/azure/developer/terraform/get-started-windows-powershell?tabs=bash)
+  * [Configure Terraform in Azure Cloud Shell with Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)
+  * [Configure Terraform in Azure Cloud Shell with PowerShell](/azure/developer/terraform/get-started-cloud-shell-powershell?tabs=bash)
+  * [Configure Terraform in Windows with Bash](/azure/developer/terraform/get-started-windows-bash?tabs=bash)
+  * [Configure Terraform in Windows with PowerShell](/azure/developer/terraform/get-started-windows-powershell?tabs=bash)
 
-By using the Azure Terraform Visual Studio Code extension, you can work with Terraform from the editor. By using this extension, you can author, test, and run Terraform configurations. The extension also supports resource graph visualization. See [this guide](/azure/developer/terraform/configure-vs-code-extension-for-terraform) to learn how to configure the Azure Terraform Visual Studio Code extension.
+* Azure Terraform Visual Studio Code extension. With this extension, you can work with Terraform from the editor to author, test, and run Terraform configurations. The extension also supports resource graph visualization. To learn how to install the extension, see [Install the Azure Terraform Visual Studio Code extension](/azure/developer/terraform/configure-vs-code-extension-for-terraform).
 
 ## Review the template
 
@@ -105,11 +105,11 @@ The template defines the following four Azure resources. For further details and
 * [Microsoft.Web/sites/sourcecontrols](/azure/templates/microsoft.web/sites/sourcecontrols): Create an external Git deployment configuration.
   * [`azurerm_app_service_source_control`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/app_service_source_control)
 
-For more information on how to construct Terraform templates, see [Terraform Learn documentation](https://learn.hashicorp.com/collections/terraform/azure-get-started?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS).
+For more information on how to construct Terraform templates, see [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/azure-get-started).
 
 ## Implement the Terraform code
 
-Terraform provides many features that you can use to manage, build, deploy, and update infrastructure. The following steps show you how to deploy and destroy your resources. The [Terraform Learn documentation](https://learn.hashicorp.com/collections/terraform/azure-get-started?utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS) and [Terraform on Azure documentation](/azure/developer/terraform/) provide more detail. We recommend that you review the preceding documentation if Terraform is part of your Azure infrastructure strategy.
+Terraform provides many features that you can use to manage, build, deploy, and update infrastructure. The following steps show you how to deploy and destroy your resources. The [Terraform documentation](https://developer.hashicorp.com/terraform/tutorials/azure-get-started) and [Terraform on Azure documentation](/azure/developer/terraform/) provide more detail. We recommend that you review the preceding documentation if Terraform is part of your Azure infrastructure strategy.
 
 1. Create a directory in which to test and run the sample Terraform code. Make it the current directory.
 
@@ -146,18 +146,18 @@ Terraform provides many features that you can use to manage, build, deploy, and 
 
 1. On the main menu of the Azure portal, select **Resource groups** and go to the resource group that you created by using the preceding template. The name is `myResourceGroup-` followed by a string of random integers.
 
-1. You can see the App Service and an App Service Plan that Terraform created.
+1. You can see the App Service and an App Service plan that Terraform created.
 
-1. Select **App Service** and go to the URL to verify that your site was created properly. You can also browse to `http://<app_name>.azurewebsites.net/`, where app name is `webapp-` followed by that same string of random integers from the resource group.
+1. Select **App Service** and go to the URL to verify that your site was created properly. You can also browse to `http://<app_name>.azurewebsites.net`, where the app name is `webapp-` followed by that same string of random integers from the resource group.
 
 ## Clean up resources
 
-When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or go back to your terminal/command line and execute `terraform destroy` to delete all resources associated with this quickstart.
+When no longer needed, either [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group) or go back to your terminal and execute `terraform destroy` to delete all resources associated with this quickstart.
 
 > [!NOTE]
-> You can find more Azure App Service Terraform samples in [this article](./samples-terraform.md). You can find even more Terraform samples across all of the Azure services on [GitHub](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
+> To find more Azure App Service Terraform samples, see [Terraform samples for Azure App Service](./samples-terraform.md). You can find even more Terraform samples across all of the Azure services on [GitHub](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples).
 
 ## Related content
 
-* [Learn more about using Terraform in Azure](/azure/terraform)
-* [Get Terraform samples for Azure App Service](./samples-terraform.md)
+* [Terraform on Azure documentation](/azure/terraform)
+* [Terraform samples for Azure App Service](./samples-terraform.md)

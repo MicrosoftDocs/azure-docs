@@ -13,7 +13,7 @@ ms.author: jsuri
 
 #  Quickstart: Configure vaulted backup for Azure Files using Azure Bicep
 
-This quickstart describes how to configure vaulted backup for Azure Files using Azure Bicep template.
+This quickstart describes how to configure vaulted backup for Azure Files using Azure Bicep file.
 
 [Azure Backup](backup-overview.md) supports configuring [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups for Azure Files in your storage accounts. Vaulted backup offers an offsite solution, storing data in a general v2 storage account to protect against ransomware and malicious admin actions.
 

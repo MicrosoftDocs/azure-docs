@@ -192,26 +192,27 @@ Azure provides seamless Java App Service development experience in popular Java 
 - **IntelliJ IDEA**: [Create a Hello World web app for Azure App Service by using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app).
 - **Eclipse IDE**: [Create a Hello World web app for Azure App Service by using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app).
 
-### Kudu API
+### Kudu and OneDeploy APIs
+Deployment clients such as the [Maven plugin](#maven), GitHub Actions using `azure/webapps-deploy@v3` and newer, or the [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command use OneDeploy, which is invoked by calling the `/api/publish` endpoint of the Kudu site under the hood. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages)
 
 ::: zone pivot="java-javase"
 
-To deploy Java Archive (JAR) files to Java SE, use the `/api/publish` endpoint of the Kudu site. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+When these deployment methods are used, they will automatically rename the provided JAR file to `app.jar` during the deployment process. This will be placed under `/home/site/wwwwroot`. To deploy JAR files to Java SE see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
 
 > [!NOTE]
-> Your JAR application must be named `app.jar` for App Service to identify and run your application. The [Maven plugin](#maven) automatically names the application for you during deployment. If you don't wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your JAR app. Paste the absolute path to this script in the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal. The startup script doesn't run from the directory it's in. Therefore, always use absolute paths to reference files in your startup script (for example: `java -jar /home/myapp/myapp.jar`).
+> If you use alternative methods like FTP or older ZipDeploy APIs, this method of renaming the provided JAR file will not be invoked. Take note of this if using the [Startup File](./faq-app-service-linux.yml) text box in the **Configuration** section of the portal to explicitly call your JAR file.
 
 ::: zone-end
 
 ::: zone pivot="java-tomcat"
 
-To deploy WAR files to Tomcat, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+You can deploy WAR files to your Tomcat application by following [this documentation](./deploy-zip.md#deploy-warjarear-packages). When these deployment methods above are used, they will automatically rename the provided War file to `app.war` during the deployment process. This will be placed under `/home/site/wwwwroot` and by default only supports deploying one WAR file under `wwwroot`. This will **not** be placed under the `/home/site/wwwroot/webapps` directory like seen when using deployment APIs such as WarDeploy. To avoid any issues with file structure clashes, it is advised to only use one or the other deployment type.
 
 ::: zone-end
 
 ::: zone pivot="java-jboss"
 
-To deploy WAR files to JBoss EAP, use the `/api/wardeploy/` endpoint to `POST` your archive file. For more information on this API, see [this documentation](./deploy-zip.md#deploy-warjarear-packages).
+To deploy WAR files to JBoss EAP, see [this documentation](./deploy-zip.md#deploy-warjarear-packages). When OneDeploy is used, this will automatically rename the WAR file to `app.war` and be placed under `/home/site/wwwroot`. 
 
 To deploy EAR files, [use FTP](deploy-ftp.md). Your EAR application is deployed to the context root defined in your application's configuration. For example, if the context root of your app is `<context-root>myapp</context-root>`, then you can browse the site at the `/myapp` path: `http://my-app-name.azurewebsites.net/myapp`. If you want your web app to be served in the root path, ensure that your app sets the context root to the root path: `<context-root>/</context-root>`. For more information, see [Setting the context root of a web application](https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html).
 
@@ -498,7 +499,7 @@ When clustering is enabled, the JBoss EAP instances use the `FILE_PING` JGroups 
 > [!Note]
 > You can avoid JBoss EAP clustering timeouts by [cleaning up obsolete discovery files during your app startup](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/JBOSS/avoid_timeouts_obsolete_nodes.md).
 
-The Premium V3 and Isolated V2 App Service Plan types can optionally be distributed across availability zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
+The Premium V3, Premium V4, and Isolated V2 App Service Plan types can optionally be distributed across Availability Zones to improve resiliency and reliability for your business-critical workloads. This architecture is also known as [zone redundancy](../reliability/migrate-app-service.md). The JBoss EAP clustering feature is compatible with the zone redundancy feature.
 
 ### Autoscale rules
 
@@ -514,7 +515,8 @@ You don't need to incrementally add instances (scaling out). You can add multipl
 
 <a id="jboss-eap-hardware-options"></a>
 
-JBoss EAP is available in the following pricing tiers: F1, P0v3, P1mv3, P2mv3, P3mv3, P4mv3, and P5mv3.
+JBoss EAP is available in the following pricing tiers: **F1**,
+**P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, **P5mv3**, **P0v4**, **P1mv4**, **P2mv4**, **P3mv4**, **P4mv4**, and **P5mv4**.
 
 ## JBoss EAP server lifecycle
 

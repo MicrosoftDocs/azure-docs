@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/17/2025
+ms.date: 05/09/2025
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -26,9 +26,6 @@ The following v2 tiers are generally available:
 The following v2 tier is in preview:
 
 * **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation and scaling for high volume workloads.
-
-    > [!NOTE]
-    > The Premium v2 tier is currently in limited preview. To sign up, fill [this form](https://aka.ms/premiumv2).
 
 ## Key capabilities
 
@@ -109,7 +106,7 @@ The following limits apply to the developer portal in the v2 tiers.
 
 ## Deployment
 
-Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep template, or Terraform.
+Deploy a v2 tier instance using the Azure portal or using tools such as the Azure REST API, Azure Resource Manager, Bicep file, or Terraform.
 
 ## Frequently asked questions
 
