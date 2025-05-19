@@ -83,24 +83,27 @@ To verify that the MCP server is working, you can use Visual Studio Code to send
 
 In Visual Studio Code, use GitHub Copilot chat in agent mode (preview) to add the MCP server and use the tools. For background about MCP servers in Visual Studio Code, see [Use MCP Servers in VS Code (Preview)](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
+### Add the MCP server in Visual Studio Code
+
 To add the MCP server in Visual Studio Code:
 
-1. Use the **MCP: Add Server** command from the Command Palette. When prompted, provide the following information:
+1. Use the **MCP: Add Server** command from the Command Palette. 
 
-    1. Select the server type: **HTTP (HTTP or Server Sent Events)**.
-    1. Enter the **URL of the MCP server** in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/sse` (for SSE endpoint) or `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)
-    1. Enter a **server ID** of your choice.
-    1. Select whether to save the configuration to your **workspace settings** or **user settings**. 
-        * **Workspace settings** - The server configuration is saved to a `.vscode/mcp.json` file only available in the current workspace.
+1. When prompted, select the server type: **HTTP (HTTP or Server Sent Events)**.
+1. Enter the **URL of the MCP server** in API Management. Example: `https://<apim-service-name>.azure-api.net/<api-name>-mcp/sse` (for SSE endpoint) or `https://<apim-service-name>.azure-api.net/<api-name>-mcp/mcp` (for MCP endpoint)
+1. Enter a **server ID** of your choice.
+1. Select whether to save the configuration to your **workspace settings** or **user settings**. 
+    * **Workspace settings** - The server configuration is saved to a `.vscode/mcp.json` file only available in the current workspace.
 
-        * **User settings** - The server configuration is added to your global `settings.json` file and is available in all workspaces. The configuration looks similar to the following:
+    * **User settings** - The server configuration is added to your global `settings.json` file and is available in all workspaces. The configuration looks similar to the following:
 
-        :::image type="content" source="media/export-rest-mcp-server/mcp-servers-visual-studio-code.png" alt-text="Screenshot of MCP servers configured in Visual Studio Code.":::
+    :::image type="content" source="media/export-rest-mcp-server/mcp-servers-visual-studio-code.png" alt-text="Screenshot of MCP servers configured in Visual Studio Code.":::
         
 Add fields to the JSON configuration for settings such as authentication header. The following example shows the configuration for an API Management subscription key passed in a header as in input value. Learn more about the [configuration format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)   
 
 :::image type="content" source="media/export-rest-mcp-server/mcp-server-with-header-visual-studio-code.png" alt-text="Screenshot of authentication header configuration for an MCP server":::
 
+### Use tools in agent mode
 
 After adding an MCP server, you can use tools in agent mode.
 
