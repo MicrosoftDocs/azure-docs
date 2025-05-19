@@ -89,13 +89,11 @@ If you prefer to test the application locally before or after deployment, you ca
 
 1. Stop the development server with Ctrl+C.
 
-2. Redeploy the application to apply the configuration:
+2. Apply the new `SEARCH_INDEX_NAME` configuration in Azure and deploy the sample application code:
 
    ```bash
    azd up
    ```
-
-3. This deployment should be faster since it only needs to update the application configuration.
 
 ## 5. Test the deployed RAG application
 

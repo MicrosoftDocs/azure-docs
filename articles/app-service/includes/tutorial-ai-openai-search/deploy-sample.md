@@ -9,15 +9,15 @@ ms.author: cephalin
 1. In the terminal, log into Azure using Azure Developer CLI:
 
    ```bash
-   az auth login
+   azd auth login
    ```
 
    Follow the instructions to complete the authentication process.
 
-4. Deploy the AZD template:
+4. Provision the Azure resources with the AZD template:
 
    ```bash
-   azd up
+   azd provision
    ```
 
 1. When prompted, give the following answers:

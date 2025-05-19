@@ -24,6 +24,7 @@ Now that the infrastructure is deployed, you need to upload documents and create
 
 6. In the **Connect to your data** step:
    - Select **Azure Blob Storage** as the Data Source.
+   - Select **RAG**.
    - Choose your storage account and the **documents** container.
    - Make sure **Authenticate using managed identity** is selected.
    - Select **Next**.
