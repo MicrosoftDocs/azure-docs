@@ -77,8 +77,6 @@
       href: ../common/storage-use-azcopy-files.md?toc=/azure/storage/files/toc.json
     - name: Configure, optimize, and troubleshoot AzCopy
       href: ../common/storage-use-azcopy-configure.md?toc=/azure/storage/files/toc.json
-  - name: Migrate GlusterFS to Azure Files
-    href: glusterfs-migration-guide.md      
 - name: Authentication and authorization
   items:
   - name: Overview of identity-based authentication
@@ -157,6 +155,8 @@
       href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
     - name: Encryption at rest with customer-managed keys
       href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/files/toc.json
+    - name: Encryption in transit for NFS shares
+      href: encryption-in-transit-for-nfs-shares.md
     - name: Manage encryption keys for the storage account
       items:
       - name: Check the encryption key model for the account

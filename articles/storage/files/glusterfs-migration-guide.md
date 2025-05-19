@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 05/19/2025
 ms.author: kendownie
 ---
 
