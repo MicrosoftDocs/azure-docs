@@ -177,7 +177,7 @@ This section shows the configurable runtime settings for each supported language
 | `TOMCAT_USE_STARTUP_BAT` | Native Windows apps only. By default, the Tomcat server is started with its `startup.bat` file. To set the Tomcat server to start by using its `catalina.bat` file instead, set the value to `0` or `False`.<br/><br/>Example: `%LOCAL_EXPANDED%\tomcat` |
 | `CATALINA_OPTS` | For Tomcat apps, environment variables to pass into the `java` command. Can contain system variables. |
 | `CATALINA_BASE` | To use a custom Tomcat installation, set to the installation's location. |
-| `WEBSITE_JAVA_MAX_HEAP_MB` | Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
+| `WEBSITE_JAVA_MAX_HEAP_MB` | Maximum size of the Java heap, in megabytes. Note: if `JAVA_OPTS` is defined and already contains one of the `-Xms` or `-Xmx` options, then `WEBSITE_JAVA_MAX_HEAP_MB` is not used. |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. |
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interfaces](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort`, `getRequestURL`. To disable it, set the value to `1`. |
 | `WEBSITE_AUTH_EXPIRED_SESSION_LOGOFF` | If a webapp uses EasyAuth, set this to `true` or `1` to force a redirect to the EasyAuth logout page if the session associated to a request has expired (e.g. for webapps running on Tomcat, this is defined by the element `session-timeout` in the file `web.xml`). |
@@ -202,6 +202,10 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
 | `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
+| `WEBSITE_AUTH_ROLE_CLAIM_TYPE` | For Java web apps using built-in [authentication](overview-authentication-authorization.md), claims defined in Entra are available in the `HttpServletRequest.isUserInRole` API in the following format: `<claimType>\|<claimValue>` (e.g. `team\|contoso`). To add the values of claims with the type `roles` directly as role names in the `HttpServletRequest` implementation, set `WEBSITE_AUTH_ROLE_CLAIM_TYPE` to the value `roles`. |
+| `WEBSITE_JAVA_GC_LOGGING` | For webapps using Java 11 or later in Linux, set this to `true` or `1` to capture Java Garbage Collector logs in `/home/LogFiles/Application` which can be used to troubleshoot performance issues. |
+| `WEBSITE_SKIP_DUMP_ON_OUT_OF_MEMORY` | Set to `true` or `1` to disable the following error-handling options that are passed as parameters to the JVM: `-XX:ErrorFile=/home/LogFiles/java_error_XXX.log`, `-XX:+CrashOnOutOfMemoryError`, `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath=/home/LogFiles/java_memdump_XXX.log` |
+| `WEBSITE_WORKING_DIR` | On Linux, set this to a path where the bootstrapping process should change before launching Java/Tomcat/JBoss. This is useful for webapps using Java 8, where Java error logs are saved to the same directory where Java was launched. |
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
