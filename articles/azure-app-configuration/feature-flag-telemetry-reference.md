@@ -30,7 +30,6 @@ The use of an Azure App Configuration provider library that supports telemetry i
 - **AllocationID**: A unique identifier for the feature flag in its current state. (preview)
 - **ETag**: The current ETag for the feature flag.
 - **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`, it also includes the label if one is present, `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
-- **FeatureFlagId**: A unique identifier for the feature flag.
 
 The full schema can be found [here](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent/FeatureEvaluationEventWithAzureAppConfiguration.v1.0.0.schema.json).
 
