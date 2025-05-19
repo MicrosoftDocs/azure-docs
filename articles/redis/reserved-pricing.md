@@ -7,6 +7,8 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Prepay for Azure Managed Redis compute resources with reservations

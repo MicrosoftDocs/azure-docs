@@ -6,6 +6,9 @@ ms.topic: conceptual
 ms.custom:
   - horz-monitor
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Monitor Azure Cache for Redis
