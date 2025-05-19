@@ -136,6 +136,8 @@ In this guide, you build an AI chat application and iterate on the prompt using 
 
     ```csharp
     ...
+    var modelConfig = configuration.GetSection("ChatLLM:Model").Get<ModelConfiguration>();
+    
     ChatClient chatClient = client.GetChatClient(modelConfig.Model);
 
     // Configure chat completion options
