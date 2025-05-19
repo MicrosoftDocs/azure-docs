@@ -77,7 +77,7 @@ Maintenance operations upgrade machines iteratively while App Service monitors t
 
 ### Are business hours reflected?
 
-Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). App Service maintenance makes a best effort to reduce maintenance operations during these business hours. If resources are still upgrading by 9 AM in a given region, the upgrade continues until reaching a safe stopping point, pausing before the next critical step and until the end of business hours.
+Yes, business hours are reflected for the time zone of the region. Maintenance operations are optimized to start outside the standard business hours of 9 AM to 5 PM. Statistically, that's the best time for any interruptions and restarts of workloads because there's less stress on the system (in customer applications and transitively on the platform itself). App Service maintenance is designed to minimize disruption during business hours. If any upgrades are still in progress by 9 AM in a given region, they will attempt to pause before reaching critical phases. Some underlying instance movements may continue, but they are orchestrated to overlap safely and maintain site availability.
 
 ### What are my options to control routine maintenance?
 
