@@ -304,8 +304,8 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    if(ruleSet == null)
    {
    // Log an error in finding the rule set
-   this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
-   throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
+     this.logger.LogCritical($"RuleSet instance for '{ruleSetName}' was not found(null)");
+     throw new Exception($"RuleSet instance for '{ruleSetName}' was not found.");
    }             
    ```
 
@@ -326,18 +326,14 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
    ```csharp
    // Create rule engine instance
    var ruleEngine = new RuleEngine(ruleSet: ruleSet);
-
    // Create a typedXml Fact(s) from input xml(s)
    XmlDocument doc = new XmlDocument();
    doc.LoadXml(inputXml);
    var typedXmlDocument = new TypedXmlDocument(documentType, doc);
-
    // Initialize .NET facts
    var currentPurchase = new ContosoNamespace.ContosoPurchase(purchaseAmount, zipCode);
-
    // Provide facts to rule engine and run it
    ruleEngine.Execute(new object[] { typedXmlDocument, currentPurchase });
-
    // Send the relevant results(facts) back
       var updatedDoc = typedXmlDocument.Document as XmlDocument;
    ```
