@@ -2,15 +2,12 @@
 metadata:
   title: Azure Managed Redis and Azure Cache for Redis FAQ
   description: Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis
-  
-  appliesto:
-  - ✅ Azure Managed Redis
-  
+  ms.date: 05/18/2025
   ms.topic: faq
   ms.custom:
     - ignite-2024
-  ms.date: 10/17/2023
-title: Azure Managed Redis (preview) and Azure Cache for Redis FAQ
+    - build-2025
+title: Azure Managed Redis and Azure Cache for Redis FAQ
 summary: |
   Learn the answers to common questions, patterns, and best practices for Azure Managed Redis and Azure Cache for Redis.
   
@@ -26,15 +23,15 @@ sections:
         answer: |
           The Redis open-source project changed to a dual-license model with support for the Redis Source Available License version 2 (RSALv2) or Server-Side Public License version 1 (SSPLv1). For more information, see the [Redis press release](https://aka.ms/redis/licensingchangepressrelease). Also see the [Microsoft blog post on the Redis licensing change](https://aka.ms/redis/licensechangeblog).  
 
-      - question: Is Azure Cache for Redis or Azure Managed Redis (preview) also covered by the RSALv2 and SSPLv1 licenses?  
+      - question: Is Azure Cache for Redis or Azure Managed Redis also covered by the RSALv2 and SSPLv1 licenses?  
         answer: |
-          No, Azure Cache for Redis and Azure Managed Redis (preview) are offered to customers under the Microsoft terms of service. The RSALv2 and SSPLv1 licenses don't apply to your use of Azure Cache for Redis. 
+          No, Azure Cache for Redis and Azure Managed Redis are offered to customers under the Microsoft terms of service. The RSALv2 and SSPLv1 licenses don't apply to your use of Azure Cache for Redis. 
 
       - question: Will my Azure Redis instance continue to receive patches and bug fixes? 
         answer: |
-          Yes, all Azure Cache for Redis and Azure Managed Redis (preview) tiers will continue to receive patches and bug fixes even after the licensing announcement.
+          Yes, all Azure Cache for Redis and Azure Managed Redis tiers will continue to receive patches and bug fixes even after the licensing announcement.
 
-      - question: What do I need to do as an Azure Cache for Redis or Azure Managed Redis (preview) customer in response to this licensing announcement?
+      - question: What do I need to do as an Azure Cache for Redis or Azure Managed Redis customer in response to this licensing announcement?
         answer: |
           No action is required for our Azure customers regarding the licensing announcement.
       
@@ -43,9 +40,9 @@ sections:
     questions:
       - question: Which Azure Cache for Redis services were deprecated?
         answer: |
-          - Managed Cache service -[Managed Cache service](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+          - Managed Cache service - Managed Cache service was retired November 30, 2016.
             
-          - In-Role Cache - [In-Role Cache](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/) was retired November 30, 2016.
+          - In-Role Cache - In-Role Cache was retired November 30, 2016.
                           
   - name: General questions
     questions:

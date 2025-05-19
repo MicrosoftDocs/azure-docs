@@ -11,6 +11,8 @@ ms.date: 02/18/2025
 
 # How to configure an origin for Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 This article shows you how to create an Azure Front Door origin in a new origin group. The origin group can be then associated with a route to determine how traffic reaches your origins.
 
 > [!NOTE]

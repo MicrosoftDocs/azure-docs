@@ -91,6 +91,10 @@
     items:
     - name: Overview
       href: effective-security-rules-overview.md
+  - name: VM Network Troubleshooter
+    items:
+    - name: Overview
+      href: vm-network-troubleshooter.md
   - name: VPN troubleshoot
     items:
     - name: Overview

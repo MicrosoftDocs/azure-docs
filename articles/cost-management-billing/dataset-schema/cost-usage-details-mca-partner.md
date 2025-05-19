@@ -1,13 +1,13 @@
 ---
 title: Microsoft Partner Agreement (MPA) cost and usage details file schema
 description: Learn about the data fields available in the MPA cost and usage details file.
-author: bandersmsft
-ms.reviewer: jojo
+author: jojopm
+ms.reviewer: jojoh
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
 ms.date: 01/24/2025
-ms.author: banders
+ms.author: jojoh
 ---
 
 # Microsoft Partner Agreement cost and usage details file schema

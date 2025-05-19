@@ -75,6 +75,14 @@
       href: enable-dynamic-configuration-javascript.md
     - name: Feature management
       href: quickstart-feature-flag-javascript.md
+  - name: Go
+    items:
+    - name: Configuration
+      items:
+      - name: Console app
+        href: quickstart-go-console-app.md
+      - name: Gin web app
+        href: quickstart-go-web-app.md
   - name: Azure Functions
     items:
     - name: Configuration
@@ -222,6 +230,8 @@
   items:
   - name: Move a resource between Azure regions
     href: howto-move-resource-between-regions.md
+  - name: Preview API life cycle
+    href: concept-preview-api-life-cycle.md
 - name: Security
   items:
   - name: Authentication
@@ -412,6 +422,8 @@
     href: https://azure.microsoft.com/pricing/details/app-configuration/
   - name: Roadmap
     href: https://github.com/Azure/AppConfiguration/projects/1
+  - name: Support policy
+    href: ./client-library-support-policy.md
   - name: Videos
     items:
     - name: Getting started with App Configuration
