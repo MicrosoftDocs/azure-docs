@@ -198,6 +198,8 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: SRE Agent overview
+      href: ../app-service/sre-agent-overview.md?toc=/azure/container-apps/toc.json
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -356,7 +358,9 @@
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
           href: ingress-how-to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
