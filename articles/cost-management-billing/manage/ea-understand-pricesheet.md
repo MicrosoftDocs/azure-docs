@@ -1,13 +1,13 @@
 ---
 title: Terms in your Enterprise Agreement price sheet - Azure
 description: Learn how to read and understand your usage and bill for an Enterprise Agreement.
-author: bandersmsft
+author: jkinma39
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.date: 01/22/2025
-ms.author: banders
-ms.reviewer: paagraw
+ms.author: jkinma
+ms.reviewer: jkinma
 ---
 
 # Terms in your Enterprise Agreement price sheet

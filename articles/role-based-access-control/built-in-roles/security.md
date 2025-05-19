@@ -1375,7 +1375,7 @@ Microsoft Sentinel Responder
 
 ## Security Admin
 
-View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role and can also update the security policy and dismiss alerts and recommendations.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](/azure/defender-for-iot/organizations/roles-azure).
+View and update permissions for Microsoft Defender for Cloud. Same permissions as the Security Reader role, but can create, update, and delete security connectors, update the security policy, and dismiss alerts and recommendations.<br><br>For Microsoft Defender for IoT, see [Azure user roles for OT and Enterprise IoT monitoring](/azure/defender-for-iot/organizations/roles-azure).
 
 [Learn more](/azure/defender-for-cloud/permissions)
 

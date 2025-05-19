@@ -199,6 +199,27 @@ Earlier versions of extensions in the isolated worker process only support bindi
 
 :::zone-end
 
+::: zone pivot="programming-language-python"
+
+## SDK Binding Types
+
+SDK Type support for Azure Cosmos is in Preview. Follow the [Python SDK Bindings for CosmosDB Sample](https://github.com/Azure-Samples/azure-functions-cosmosdb-sdk-bindings-python) to get started with SDK Types for Cosmos in Python. 
+> [!IMPORTANT]  
+> Using SDK type bindings requires the [Python v2 programming model](functions-reference-python.md?pivots=python-mode-decorators#sdk-type-bindings).
+
+---
+| Binding        | Parameter types                                                | Samples                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+|----------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| CosmosDB input | [ContainerProxy],<br/>[CosmosClient],<br/>[DatabaseProxy]<br/> | [`ContainerProxy`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_containerproxy/function_app.py),<br/>[`CosmosClient`](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_cosmosclient/function_app.py),<br/>[`DatabaseProxy`](https://github.com/Azure/azure-functions-python-extensions/tree/dev/azurefunctions-extensions-bindings-cosmosdb/samples/cosmosdb_samples_databaseproxy/function_app.py)<br/> |
+
+---
+
+[CosmosClient]: /python/api/azure-cosmos/azure.cosmos.cosmosclient
+[DatabaseProxy]: /python/api/azure-cosmos/azure.cosmos.databaseproxy
+[ContainerProxy]: /python/api/azure-cosmos/azure.cosmos.containerproxy
+
+:::zone-end
+
 ## Exceptions and return codes
 
 | Binding | Reference |

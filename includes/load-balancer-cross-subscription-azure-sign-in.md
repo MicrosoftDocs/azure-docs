@@ -27,8 +27,8 @@ Set-AzContext -Subscription '<Azure Subscription A>'
 
 # Get the Virtual Network information with Get-AzVirtualNetwork
 $net = @{
-    Name = '<vnet name>'
-    ResourceGroupName = '<Resource Group Subscription A>'
+    Name = 'virtual-network-subA'
+    ResourceGroupName = 'resource-group-v2'
 }
 $vnet = Get-AzVirtualNetwork @net
 ```

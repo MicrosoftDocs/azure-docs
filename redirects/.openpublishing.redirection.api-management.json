@@ -1,6 +1,21 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/api-management/diagnostic-logs-reference.md",
+      "redirect_url": "/rest/api/apimanagement/diagnostic/create-or-update",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/gateway-log-schema-reference.md",
+      "redirect_url": "/azure/api-management/monitor-api-management-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/developer-portal-audit-log-schema-reference.md",
+      "redirect_url": "/azure/api-management/monitor-api-management-reference",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/validate-service-updates.md",
       "redirect_url": "/azure/api-management/configure-service-update-settings",
       "redirect_document_id": false
