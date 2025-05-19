@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2023
   - build-2024
-ms.date: 11/15/2023
+ms.date: 04/30/2025
 author: george-guirguis
 ms.author: geguirgu
 ms.subservice: mqtt
@@ -86,7 +86,7 @@ Azure Event Grid’s MQTT broker feature supports the following MQTT features:
 MQTT broker supports QoS 0 and 1, which define the guarantee of message delivery on PUBLISH and SUBSCRIBE packets between clients and MQTT broker. QoS 0 guarantees at-most-once delivery; messages with QoS 0 aren’t acknowledged by the subscriber nor get retransmitted by the publisher. QoS 1 guarantees at-least-once delivery; messages are acknowledged by the subscriber and get retransmitted by the publisher if they didn’t get acknowledged. QoS enables your clients to control the efficiency and reliability of the communication.
 
 ### Persistent sessions
-MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client’s session in case of disconnections to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
+MQTT broker supports persistent sessions for MQTT v3.1.1 such that MQTT broker preserves information about a client’s session when it gets disconnected to ensure reliability of the communication. This information includes the client’s subscriptions and missed/ unacknowledged QoS 1 messages. Clients can configure a persistent session through setting the cleanSession flag in the CONNECT packet to false.
 
 #### Clean start and session expiry
 MQTT v5 introduced the clean start and session expiry features as an improvement over MQTT v3.1.1 in handling session persistence. Clean Start is a feature that allows a client to start a new session with MQTT broker, discarding any previous session data. Session Expiry allows a client to inform MQTT broker when an inactive session is considered expired and automatically removed. In the CONNECT packet, a client can set Clean Start flag to true and/or short session expiry interval for security reasons or to avoid any potential data conflicts that might have occurred during the previous session. A client can also set a clean start to false and/or long session expiry interval to ensure the reliability and efficiency of persistent sessions.
@@ -104,7 +104,7 @@ MQTT broker maintains a queue of messages for each active MQTT session that isn'
 
 ### Last Will and Testament (LWT) messages
 Last Will and Testament (LWT) notifies your MQTT clients with the abrupt disconnections of other MQTT clients. You can use LWT to ensure predictable and reliable flow of communication among MQTT clients during unexpected disconnections, which is valuable for scenarios where real-time communication, system reliability, and coordinated actions are critical. Clients that collaborate to perform complex tasks can react to LWT messages from each other by adjusting their behavior, redistributing tasks, or taking over certain responsibilities to maintain the system’s performance and stability.
-To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the will delay interval to a value greater than zero. In that case, if the client disconnects abruptly but restores the connection before the will delay interval expires, the will message isn't published.
+To use LWT, a client can specify the will message, will topic, and the rest of the will properties in the CONNECT packet during connection. When the client disconnects abruptly, the MQTT broker publishes the will message to all the clients that subscribed to the will topic. To reduce the noise from fluctuating disconnections, the client can set the delay interval to a value greater than zero. In that case, if the client disconnects abruptly but restores the connection before the delay interval expires, the will message isn't published.
 
 ### User properties 
 MQTT broker supports user properties on MQTT v5 PUBLISH packets that allow you to add custom key-value pairs in the message header to provide more context about the message. The use cases for user properties are versatile. You can use this feature to include the purpose or origin of the message so the receiver can handle the message without parsing the payload, saving computing resources. For example, a message with a user property indicating its purpose as a "warning" could trigger different handling logic than one with the purpose of "information."
@@ -128,6 +128,12 @@ In MQTT v5, flow control refers to the mechanism for managing the rate and size 
 ### Negative acknowledgments and server-initiated disconnect packet
 For MQTT v5, MQTT broker is able to send negative acknowledgments (NACKs) and server-initiated disconnect packets that provide the client with more information about failures for  message delivery or connection. These features help the client diagnose the reason behind a failure and take appropriate mitigating actions. MQTT broker uses the reason codes that are defined in the [MQTT v5 Specification.](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html)
 
+### Message Ordering  
+MQTT v5 ensures that messages sent within a single session are delivered in the same order they were published. MQTT broker fully supports it by maintaining message ordering per connection, so subscribers receive data in the exact sequence it was sent—ideal for scenarios like telemetry, command execution, and time-series data. 
+
+### Assigned Client Identifiers (Preview) 
+MQTT v5 introduces support for assigned client identifiers, allowing the broker to generate and return a unique client ID when one isn't provided by the client. MQTT broker supports this feature, ensuring seamless client onboarding and reducing the need for clients to manage their own identifiers. It's especially useful in scenarios where client provisioning is dynamic or when devices have no preconfigured identity. Assigned client IDs can be retrieved from the CONNACK response and reused for future sessions to maintain consistent identification. 
+
 ## Current limitations
 
 MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to align more with the MQTT specifications. The following list details the current differences between features supported by the MQTT broker and the MQTT specifications:
@@ -137,12 +143,10 @@ MQTT broker is adding more MQTT v5 and MQTT v3.1.1 features in the future to ali
 MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/mqtt-v5.0.html) in the following ways:
 - Shared Subscriptions aren't supported yet.
 - Retain flag isn't supported yet.
-- Maximum will delay interval is 300.
+- Maximum Will delay interval is 300.
 - Maximum QoS is 1.
 - Maximum Packet Size is 512 KiB
-- Message ordering isn't guaranteed.
 - Subscription Identifiers aren't supported.
-- Assigned Client Identifiers aren't supported yet.
 - Topic Alias Maximum is 10. The server doesn't assign any topic aliases for outgoing messages at this time. Clients can assign and use topic aliases within set limit.
 - CONNACK doesn't return Response Information property even if the CONNECT request contains Request Response Information property.
 - User Properties on CONNECT, SUBSCRIBE, DISCONNECT, PUBACK, AUTH packets aren't used by the service so they're not supported. If any of these requests include user properties, the request fails.
@@ -153,7 +157,6 @@ MQTT v5 currently differs from the [MQTT v5 Specification](https://docs.oasis-op
 
 MQTT v5 currently differs from the [MQTT v3.1.1 Specification](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) in the following ways:
 - QoS2 and Retain Flag aren't supported yet. A publish request with a retain flag or with a QoS2 fails and closes the connection.
-- Message ordering isn't guaranteed.
 - Keep Alive Maximum is 1,160 seconds.
 
 ## Code samples:
