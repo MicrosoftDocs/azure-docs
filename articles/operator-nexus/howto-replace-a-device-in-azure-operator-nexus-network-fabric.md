@@ -1,6 +1,6 @@
 ---
 title: How to replace a device in Azure Operator Nexus Network Fabric
-description: Learn how to replace a network device in Azure Operator Nexus Network Fabric
+description: Learn how to replace a network device in Azure Operator Nexus Network Fabric.
 author: sushantjrao
 ms.author: sushrao
 ms.service: azure-operator-nexus
@@ -35,7 +35,7 @@ Device replacement may be required in the following situations:
 
 ## Steps to replace a device
 
-1. Shutdown and remove the device from service (If reachable)
+1. Shutdown and remove the device from service (If reachable).
 
 If the original device is still reachable and connected to the Network Fabric:
 
@@ -44,7 +44,7 @@ Manually power it down and remove it from service.
 > [!Important]
 > This step is manual and applicable only if the device is responsive.
 
-2. Disable administrative state
+2. Disable administrative state.
 
 Use the following command to disable the administrative state of the device:
 
@@ -67,7 +67,7 @@ This action:
     
     - Fabric upgrades
 
-3. Update the serial number
+3. Update the serial number.
 
 Once the replacement device is physically installed, update its serial number in the fabric resource:
 
@@ -78,14 +78,14 @@ az networkfabric device update \
   --resource-group "resource-group-name"
 ```
 
-4. Ensure device is in ZTP Mode
+4. Ensure device is in ZTP Mode.
 
 Verify that the replacement device is in ZTP mode. If not, configure the device for ZTP before continuing.
 
 > [!Note]
 > ZTP enables automatic configuration retrieval during the RMA process.
 
-5. Set RMA State
+5. Set RMA State.
 
 Initiate the RMA process using the following command:
 
@@ -102,7 +102,7 @@ This will:
 
 - Retry the operation if there is transient failures until success is confirmed.
 
-6. Enable administrative state
+6. Enable administrative state.
 
 Once configuration is applied successfully, bring the device back into active service:
 
@@ -116,8 +116,8 @@ az networkfabric device update-admin-state \
 This will: 
 
 - Performs a partial reconcile of the device state.
-
 - Sets device state to Enabled once it's fully healthy and synchronized with the fabric.
 
 ## Summary
+
 The RMA workflow in Network Fabric ensures seamless device replacement with controlled state transitions and full configuration synchronization. This helps maintain service continuity and operational consistency across the network.

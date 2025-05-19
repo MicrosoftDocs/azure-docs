@@ -509,7 +509,7 @@ The RW command feature is open and there are no restrictions on it. However, pro
 - It's crucial to thoroughly review the Route Policy configuration before implementation, as any oversight could potentially compromise the existing Route Policy setup.
 - Changing the router BGP configuration and shutting it down brings down the stability of the device.
 
-## Retreive runRW configuration
+## Retrieve runRW configuration
 
 To obtain the last successfully applied runRW configuration, refer to the `rwDeviceConfig` property. This property stores the last successfully applied RW configuration for the device. To access it, perform a GET request on the device resource.
 
