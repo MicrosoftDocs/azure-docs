@@ -9,7 +9,7 @@ ms.author: rosemalcolm
 ms.reviewer: rosemalcolm
 ---
 
-# Set up dev tunnels in VS Code 
+# Set up Dev tunnels in VS Code 
 
 Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-based development environments. This article explains how to set up dev tunnels and connect to your Dev Box from VS Code. You'll learn how to install the required extension, enable secure tunnels, and connect remotely for a streamlined development experience. Follow these steps to get started quickly and work efficiently from anywhere.
 
