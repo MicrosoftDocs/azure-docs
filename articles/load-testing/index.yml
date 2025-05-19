@@ -108,6 +108,8 @@ landingContent:
             url: how-to-monitor-server-side-metrics.md
           - text: Export test results for custom reporting
             url: how-to-export-test-results.md
+          - text: Analyze test results with AI powered Actionable Insights
+            url: how-to-analyze-test-results-with-actionable-insights.md
 
   # Card
   - title: Security
