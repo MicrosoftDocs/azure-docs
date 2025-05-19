@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - ignite-2024
 ms.topic: how-to
-ms.date: 04/24/2025
+ms.date: 05/19/2025
 ms.author: cshoe
 ---
 
@@ -119,19 +119,27 @@ Language models of the type `MLFLOW` are supported. To see a list of `MLFLOW` mo
 
 1. For the filter rule, enter **Type = MLFLOW**.
 
-The following CLI command shows how to deploy a Foundry model to serverless GPUs:
+For models listed here in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps/tree/main/templates/azml-app), you can deploy them directly to serverless GPUs without needing to build your own image by using the following CLI command:
 
 ```azurecli
 az containerapp up \
   --name <CONTAINER_APP_NAME> \
-  --environment <ENVIORNMENT_NAME> \
+  --location <LOCATION> \
   --resource-group <RESOURCE_GROUP_NAME> \
   --model-registry <MODEL_REGISTRY_NAME> \
   --model-name <MODEL_NAME> \
   --model-version <MODEL_VERSION>
 ```
 
-When you deploy a Foundry model to Azure Container Apps serverless GPUs as an online endpoint, a scoring script is required. The scoring script (named *score.py*) defines how you interact with the model. By default, the example CLI command provides a scoring script. However, you can also provide your own *score.py* file. The following example shows [how to use a custom score.py file](/azure/machine-learning/how-to-deploy-online-endpoints?view=azureml-api-2&tabs=cli).
+For any model not in this list, you need to:
+
+1. Download the github template for the model image from the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps/tree/main/templates/azml-app).
+
+1. Modify the score.py file to match your model type. The scoring script (named *score.py*) defines how you interact with the model. The following example shows [how to use a custom score.py file](/azure/machine-learning/how-to-deploy-online-endpoints?view=azureml-api-2&tabs=cli).
+
+1. Build the image and deploy it to a container registry.
+
+1. Use the previous CLI command to deploy the model to serverless GPUs, but specify the `--image`. By using the `--model-registry`, `--model-name`, and `--model-version` parameters, the key environment variables are set for you to optimize cold start for your app.
 
 ## Submit feedback
 
