@@ -187,7 +187,7 @@ To reuse existing rules from Microsoft BizTalk Server, you can export them. Howe
                 int purchaseAmount, 
                 string zipCode)
             {
-                /***** Summary of steps below *****
+            /***** Summary of steps below *****
                  * 1. Get the rule set to Execute 
                  * 2. Check if the rule set was retrieved successfully
                  * 3. create the rule engine object
