@@ -11,7 +11,7 @@ ms.date: 01/15/2025
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
-# Azure Migrate application and code assessment for Java version 7 (Preview)
+# Azure Migrate application and code assessment for Java version 7 (preview)
 
 > [!NOTE]
 > This article is for the next generation of *Azure Migrate application and code assessment for Java*, version 7.x. This version is in preview. For the previous stable version, version 6.x, see [Azure Migrate application and code assessment for Java](./java.md).
@@ -60,9 +60,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 
 ## Download and Install
 
-To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment.
-The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware.
-For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
+To use the `appcat` CLI, you must download the package specific to your environment, and have the required dependencies in your environment. The `appcat` CLI runs on any environment such as Windows, Linux, or Mac, using Intel, Arm, or Apple Silicon hardware. For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/java/openjdk).
 
 | OS      | Architecture    | Download Link  | Other files              |
 |---------|-----------------|----------------|--------------------------|
@@ -75,28 +73,28 @@ For the JDK requirement, we recommend you use the [Microsoft Build of OpenJDK](/
 | macOS   | Apple Silicon   | [Download][10] | [sha256][11] / [sig][12] |
 | Linux   | AArch64 / ARM64 | [Download][4]  | [sha256][5] / [sig][6]   |
 
-[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz
-[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64-7.6.0.4-preview.tar.gz.sig
-[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz
-[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64-7.6.0.4-preview.tar.gz.sig
-[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz
-[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64-7.6.0.4-preview.tar.gz.sig
-[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz
-[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz.sha256sum.txt
-[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64-7.6.0.4-preview.tar.gz.sig
-[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip
-[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip.sha256sum.txt
-[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64-7.6.0.4-preview.zip.sig
-[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip
-[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip.sha256sum.txt
-[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64-7.6.0.4-preview.zip.sig
+[1]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64.tar.gz
+[2]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64.tar.gz.sha256sum.txt
+[3]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-amd64.tar.gz.sig
+[4]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64.tar.gz
+[5]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64.tar.gz.sha256sum.txt
+[6]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-linux-arm64.tar.gz.sig
+[7]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64.tar.gz
+[8]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64.tar.gz.sha256sum.txt
+[9]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-amd64.tar.gz.sig
+[10]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64.tar.gz
+[11]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64.tar.gz.sha256sum.txt
+[12]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-macos-arm64.tar.gz.sig
+[13]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64.zip
+[14]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64.zip.sha256sum.txt
+[15]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-amd64.zip.sig
+[16]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip
+[17]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip.sha256sum.txt
+[18]: https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-windows-arm64.zip.sig
 
 ### Prerequisites
 
-- [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the **JAVA_HOME** environment variable is set.
+- [Download](/java/openjdk/download#openjdk-17) and [install Microsoft Build of OpenJDK 17](/java/openjdk/install). Ensure that the `JAVA_HOME` environment variable is set.
 - [Download Apache Maven](https://maven.apache.org/download.cgi) and [install locally](https://maven.apache.org/install.html). Ensure that the Maven binary (`mvn`) is reachable through `PATH` environment variable.
 
 ### Installation
@@ -120,42 +118,12 @@ Extract the binary from the downloaded file. You should see the following folder
 └── readme.html
 ```
 
-### Running the tool
+### Run the tool
 
-#### Option 1: Add the appcat binary path to your $PATH
-
-Move the contents of the folder to the **.appcat** folder in the user's home directory - **$HOME/.appcat** on Linux/Mac and **%USERPROFILE%/.appcat** on Windows.
-
-Add the **.appcat** folder to your `PATH` environment variable so you can run the tool from any folder in the terminal.
-
-# [Linux / macOS](#tab/linux)
-
-```bash
-mv <path-to-extracted>/azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/ $HOME/.appcat
-```
-
-# [Windows](#tab/windows)
-
-```cmd
-move <path-to-extracted>\azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview\ %USERPROFILE%\.appcat
-```
-
----
+To run `appcat` from any location in your terminal, extract the archive to your desired location - for example, **~/.appcat** on Linux/Mac or **%USERPROFILE%\.appcat** on Windows. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
 > [!NOTE]
-> When the `appcat` binary is called from a different folder than where it's installed, it looks for its dependencies in the **.appcat** folder in the user's home directory.
-
-#### Option 2: Run appcat from the downloaded folder
-
-Change the directory to the extracted folder:
-
-```bash
-cd /azure-migrate-appcat-for-java-cli-<OS>-<architecture>-<release-version>-preview/
-./appcat --help
-```
-
-> [!NOTE]
-> The `appcat` binary first looks for its dependencies in the current directory. If the dependencies aren't found, it falls back to the configuration described in the [Option 1](#option-1-add-the-appcat-binary-path-to-your-path) section.
+> When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - **~/.appcat** on Linux/Mac or **%USERPROFILE%\.appcat** on Windows.
 
 ## Usage
 
@@ -167,7 +135,7 @@ AppCAT provides two subcommands for usage:
 - `transform`: Convert XML rules from previous versions (6 and older) to YAML format used by this version.
 
 > [!NOTE]
-> For macOS users: If you encounter an error stating "Apple could not verify" when trying to run the app, you can resolve this error by using the following command:
+> For macOS users: If you encounter an error stating `Apple could not verify` when trying to run the app, you can resolve this error by using the following command:
 >
 > ```bash
 > xattr -d -r com.apple.quarantine /path/to/appcat_binary
@@ -181,9 +149,9 @@ AppCAT provides two subcommands for usage:
 
 #### Analyze subcommand
 
-The `analyze` subcommand allows you to run source code and binary analysis.
+The `analyze` subcommand enables you to run source code and binary analysis.
 
-To analyze application source code, run the following command:
+To analyze application source code, use the following command:
 
 # [Linux / macOS](#tab/linux)
 
@@ -201,7 +169,7 @@ To analyze application source code, run the following command:
 
 The `--input` flag must point to a source code directory or a binary file, and `--output` must point to a directory to store the analysis results.
 
-For more information on the analyze flags, run the following command:
+For more information on the analyze flags, use the following command:
 
 # [Linux / macOS](#tab/linux)
 
@@ -217,7 +185,7 @@ For more information on the analyze flags, run the following command:
 
 ---
 
-To check the available targets for AppCAT, run the following command:
+To check the available targets for AppCAT, use the following command:
 
 # [Linux / macOS](#tab/linux)
 
@@ -247,35 +215,56 @@ openjdk17
 openjdk21
 ```
 
-#### Analyzing Multiple Applications
+#### Analyzing multiple applications
 
-AppCAT is designed to analyze a single application per command execution, but if you use the `--bulk` option, you can analyze multiple applications in a single execution. This option generates a single static report in the output directory that includes the results for all applications.
+AppCAT supports multiple application analysis in per command execution. You can provide a comma-separated list of input paths for the `--input` flag to analyze multiple applications in a single command. The output directory and static report include the combined analysis results for all applications.
 
-To analyze multiple applications, run the following command:
+To analyze multiple applications, use the following command:
 
 # [Linux / macOS](#tab/linux)
 
 ```bash
-./appcat analyze --bulk --input=<path-to-source-A> --output=<path-to-output-ABC> --target=<targetname>
-./appcat analyze --bulk --input=<path-to-source-B> --output=<path-to-output-ABC> --target=<targetname>
-./appcat analyze --bulk --input=<path-to-source-C> --output=<path-to-output-ABC> --target=<targetname>
+./appcat analyze --input=<path-to-source-A>,<path-to-source-B>,<path-to-source-C> --output=<path-to-output-ABC> --target=<target-name>
 ```
 
 # [Windows](#tab/windows)
 
 ```cmd
-.\appcat.exe analyze --bulk --input=<path-to-source-A> --output=<path-to-output-ABC> --target=<targetname>
-.\appcat.exe analyze --bulk --input=<path-to-source-B> --output=<path-to-output-ABC> --target=<targetname>
-.\appcat.exe analyze --bulk --input=<path-to-source-C> --output=<path-to-output-ABC> --target=<targetname>
+.\appcat.exe analyze --input=<path-to-source-A>,<path-to-source-B>,<path-to-source-C> --output=<path-to-output-ABC> --target=<target-name>
 ```
 
 ---
 
-#### Transform Subcommand
+AppCAT also enables you to use `--bulk` option to incrementally add more application analysis to an existing output directory and static report. When you use the `--bulk` option, you must use it consistently across all command executions that write to the same output.
 
-The `transform` subcommand allows you to convert the previous `appcat` XML rules used in the 6.x version into the new YAML format used by this version 7.x.
+> [!NOTE]
+> When you provide multiple input paths, `--bulk` is enabled by default.
 
-To transform rules, run the following command:
+To incrementally add more application analysis to an existing static report, use the following command:
+
+# [Linux / macOS](#tab/linux)
+
+```bash
+./appcat analyze --input=<path-to-source-A>,<path-to-source-B>,<path-to-source-C> --output=<path-to-output-ABC> --target=<target-name>
+./appcat analyze --bulk --input=<path-to-source-D> --output=<path-to-output-ABC> --target=<target-name>
+./appcat analyze --bulk --input=<path-to-source-E> --output=<path-to-output-ABC> --target=<target-name>
+```
+
+# [Windows](#tab/windows)
+
+```cmd
+.\appcat.exe analyze --input=<path-to-source-A>,<path-to-source-B>,<path-to-source-C> --output=<path-to-output-ABC> --target=<target-name>
+.\appcat.exe analyze --bulk --input=<path-to-source-D> --output=<path-to-output-ABC>
+.\appcat.exe analyze --bulk --input=<path-to-source-E> --output=<path-to-output-ABC>
+```
+
+---
+
+#### Transform subcommand
+
+The `transform` subcommand enables you to convert the previous `appcat` XML rules used in the 6.x version into the new YAML format used by this version 7.x.
+
+To transform rules, use the following command:
 
 # [Linux / macOS](#tab/linux)
 
@@ -358,12 +347,24 @@ Then, for each file or class affected by the incident, you can jump into the sou
 
 ## Release notes
 
+### 7.6.0.5
+
+This release contains the following fixes and enhancements.
+
+- The `--input` flag now accepts multiple values, enabling you to analyze multiple applications in a single command execution.
+- The static report categorizes its issue list for better readability.
+- Users can now install AppCAT in directories other than the user's home directory.
+- Fixed an issue where running `analyze` with both `--bulk` and `--skip-static-report` failed to generate multiple output files.
+- Resolved a failure when analyzing with `--bulk` and `--rules` if no Java provider was launched.
+- Fixed an issue where analysis would fail if a specified package wasn't found when using the `--packages` flag.
+- The `--exclude-paths` flag is deprecated. To exclude files or directories, use a **.appcat-ignore** file - supporting glob patterns - placed in the input directory or installation directory.
+
 ### 7.6.0.4
 
 This release contains the following fixes and enhancements.
 
 - Supports telemetry collection. Use the `--disable-telemetry` flag to disable telemetry.
-- Refactors the CLI command format to make it more clear.
+- Refactors the CLI command format to make it clearer.
   - Updates the `--source` flag, changing from `--source <source1> --source <source2> ...` to `--source <source1>,<source2>,...`
   - Updates the `--target` flag, changing from `--target <target1> --target <target2> ...` to ` --target <target1>,<target2>,...`
   - Updates the `--rules` flag, changing from `--rules <rule1> --rules <rule2> ...` to `--rules <rule1>,<rule2>,...`
@@ -396,8 +397,8 @@ This release contains the following fixes and enhancements.
 - `--analyze-known-libraries` flag: Now works on Windows.
 - Directory cleanup: Extra directories created during analysis on Windows are now automatically cleaned up.
 - `--json-output` flag: Now operational.
-- Rules parsing error: The error `unable to parse all the rules for ruleset` has been resolved.
-- Insights tab descriptions: Missing rule descriptions have been added.
+- Rules parsing error: The error `unable to parse all the rules for ruleset` is resolved.
+- Insights tab descriptions: Missing rule descriptions are now present.
 - Internet connection dependency: Analysis no longer fails without an internet connection.
 - `--context-lines` flag: Now behaves as expected when set to 0.
 - Removed Python requirement to run the tool.
@@ -452,7 +453,14 @@ Previously, a set of targets were enabled by default, making it difficult for ce
 
 GA (Generally Available) release of Azure Migrate application and code assessment.
 
-## Known Issues
+## Known issues
+
+### 7.6.0.5
+
+- Rules issues:
+  - The `azure-system-config-01000` rules aren't being triggered.
+  - The `azure-password-01000` rule detects only one violation, even when multiple violations exist in the same file.
+- An error in the Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.6.0.4
 
@@ -470,7 +478,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
-- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+- In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
 
 ### 7.6.0.2
 
@@ -481,7 +489,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
-- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+- In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
 
 ### 7.6.0.1
 
@@ -492,7 +500,7 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Analyzing WAR files on Windows produces the following error: `Failed to Move Decompiled File`. An error occurs when analyzing WAR files on Windows, which is responsible for a few redundant incidents created on Windows OS.
 - Error in Watcher Error channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
-- In binary analysis reports, the code snippet title shows an incorrect or non-existent file path.
+- In binary analysis reports, the code snippet title shows an incorrect or nonexistent file path.
 
 ### 7.6.0.0
 
@@ -514,8 +522,14 @@ GA (Generally Available) release of Azure Migrate application and code assessmen
 - Error in **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 - This release requires an active internet connection for dependency analysis.
 - <kbd>Ctrl</kbd>+<kbd>C</kbd> fails to stop ongoing analysis. To work around, manually terminate the process by explicitly killing the process.
-- When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag allows the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
+- When the flag `--context-lines` is set to a number 0, it doesn't work as expected. This flag enables the user to limit how much of the source code should appear on the report. Setting to a value 0 might not work as expected.
 
 ## License
 
 Azure Migrate application and code assessment for Java is a free, open source-based tool.
+
+## Data collection
+
+AppCAT collects telemetry data by default. Microsoft aggregates collected data to identify patterns of usage to identify common issues and to improve the experience of the AppCAT CLI. The Microsoft AppCAT CLI doesn't collect any private or personal data. For example, the usage data helps identify issues such as commands with low success rate. This information helps us prioritize our work.
+
+While we appreciate the insights this data provides, we also understand that not everyone wants to send usage data. You can disable data collection by using the `appcat analyze --disable-telemetry` command. For more information, see our [privacy statement](https://www.microsoft.com/privacy/privacystatement).
