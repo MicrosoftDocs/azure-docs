@@ -13,7 +13,7 @@ This article describes how to manage the settings for MongoDB Atlas resources.
 
 [!INCLUDE [manage](../includes/manage.md)]
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot of a MongoDB Atlas resource in the Azure portal with the overview displayed on the working pane." lightbox="media/manage/resource-overview.png":::
+:::image type="content" source="media/manage/resource-overview.png" alt-text="Screenshot of a MongoDB Atlas resource overview in the Azure portal." lightbox="media/manage/resource-overview.png":::
 
 The details under **Essentials** include:
 
@@ -33,7 +33,7 @@ To manage your resource, select the links next to corresponding details.
 
 To access your MongoDB Atlas organization, select **Go to MongoDB Atlas** on the working pane.
 
-:::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a MongoDB Atlas resource in the Azure portal with an overview displayed in the working pane. The Go to MongoDB Atlas link is emphasized.":::
+:::image type="content" source="media/manage/set-password.png" alt-text="Screenshot of a MongoDB Atlas resource overview in the Azure portal. The Go to MongoDB Atlas link is emphasized.":::
 
 ## Delete a MongoDB Atlas resource
 

@@ -13,4 +13,4 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. Select the **+ Create** option.
 
-The **Create** resource pane appears in the working pane with the **Basics** tab open by default.
+The pane for creating a resource pane appears with the **Basics** tab open by default.

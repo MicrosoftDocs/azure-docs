@@ -19,6 +19,6 @@ To resolve errors:
 
 1. Select **Create**.
 
-On the working pane, the message "Deployment is in progress" appears. When the deployment is complete, the message "Your deployment is complete" appears.
+The message "Deployment is in progress" appears. When the deployment is complete, the message "Your deployment is complete" appears.
 
 After the resource is created, select **Go to Resource** to view your resource.

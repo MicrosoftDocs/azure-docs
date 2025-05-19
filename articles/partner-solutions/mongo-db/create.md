@@ -46,7 +46,7 @@ The **Basics** tab has three sections. In each section, enter the following valu
 
 1. Select **Next**.
 
-:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization on the Azure portal's working pane.":::
+:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization in the Azure portal.":::
 
 ### Tags tab (optional)
 

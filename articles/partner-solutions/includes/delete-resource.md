@@ -7,7 +7,7 @@ ms.author: kkendrick
 
 If you finished using your resource and you want to delete it, follow these steps:
 
-1. On the working pane's command bar, select **Delete**.
+1. On the command bar, select **Delete**.
 
     The **Delete Resource** pane appears in the sidebar.
 

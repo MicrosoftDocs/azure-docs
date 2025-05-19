@@ -20,4 +20,4 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, go to the resource.
 1. On the service menu, select **Help** > **New Support Request**.
-1. On the working pane, select the partner's link to log a support request.
+1. Select the partner's link to log a support request.
