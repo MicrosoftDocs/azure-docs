@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Bicep template VM Backup
-description: Learn how to back up your virtual machines with a Bicep template
+title: Quickstart - Bicep file VM Backup
+description: Learn how to back up your virtual machines with a Bicep file
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/30/2025
@@ -11,9 +11,9 @@ author: jyothisuri
 ms.author: jsuri
 ---
 
-#  Back up a virtual machine in Azure with a Bicep template
+#  Back up a virtual machine in Azure with a Bicep file
 
-[Azure Backup](backup-overview.md) allows you to back up your Azure VM using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article describes how to back up an Azure VM with an Azure Bicep template and Azure PowerShell. This quickstart focuses on the process of deploying a Bicep template to create a Recovery Services vault. For more information on developing Bicep templates, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
+[Azure Backup](backup-overview.md) allows you to back up your Azure VM using multiple options - such as Azure portal, PowerShell, CLI, Azure Resource Manager, Bicep, and so on. This article describes how to back up an Azure VM with an Azure Bicep file and Azure PowerShell. This quickstart focuses on the process of deploying a Bicep file to create a Recovery Services vault. For more information on developing Bicep files, see the [Bicep documentation](../azure-resource-manager/bicep/deploy-cli.md) and the [template reference](/azure/templates/microsoft.recoveryservices/allversions).
 
 Bicep is a language for declaratively deploying Azure resources. You can use Bicep instead of JSON to develop your Azure Resource Manager templates (ARM templates). Bicep syntax reduces the complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON that provides all JSON template capabilities. During deployment, the Bicep CLI converts a Bicep file into an ARM template JSON. A Bicep file states the Azure resources and resource properties, without writing a sequence of programming commands to create resources.
 
@@ -305,6 +305,6 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 
 - [Learn how](tutorial-backup-vm-at-scale.md) to back up VMs in the Azure portal.
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
-- [Learn how](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI) to create Bicep templates.
+- [Learn how](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI) to create Bicep files.
 - [Learn how](../azure-resource-manager/bicep/decompile.md?tabs=azure-cli) to decompile Azure Resource Manager templates (ARM templates) to Bicep files.
 - Learn how to [restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md).
