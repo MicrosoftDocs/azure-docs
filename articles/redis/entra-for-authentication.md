@@ -8,6 +8,8 @@ ms.custom:
   - references_regions
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Use Microsoft Entra for cache authentication with Azure Managed Redis
