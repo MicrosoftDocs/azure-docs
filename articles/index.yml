@@ -546,13 +546,6 @@ productDirectory:
         - databases
       url: azure-cache-for-redis/index.yml
     # Card
-    - title: Azure Managed Redis
-      summary: Power applications with a high-performance, managed cache
-      imageSrc: ./media/index/azuremanagedredis.svg
-      azureCategories:
-        - databases
-      url: redis/index.yml
-    # Card
     - title: Azure Database for MariaDB
       summary: Managed MariaDB database service for app developers
       imageSrc: ./media/index/database-mariadb-server.svg
@@ -1509,9 +1502,6 @@ tools:
     - title: Terraform
       imageSrc: /media/logos/logo_terraform.svg
       url: /azure/developer/terraform/
-    # Card
-
-
 
 additionalContent:
   sections:
