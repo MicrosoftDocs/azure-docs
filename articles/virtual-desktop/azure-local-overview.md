@@ -4,13 +4,14 @@ description: Learn about using Azure Virtual Desktop on Azure Local, enabling yo
 ms.topic: conceptual
 author: dougeby
 ms.author: avdcontent
-ms.date: 09/17/2024
+ms.date: 05/20/2025
 ---
 
 # Azure Virtual Desktop on Azure Local
 
 > [!IMPORTANT]
 >- Azure Virtual Desktop on Azure Local for Azure Government is currently in preview with HCI version 23H2 (and newer). Portal provisioning isn't available.
+>
 >- See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
 Using Azure Virtual Desktop on Azure Local, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop on Azure Local can improve your experience. If you're already using Azure Virtual Desktop with your session hosts in Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
