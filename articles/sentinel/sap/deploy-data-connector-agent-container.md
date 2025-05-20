@@ -84,7 +84,7 @@ If you can't use a registered application or a service principal, use a configur
 For more information, see:
 
 - [Authentication in Azure Key Vault](/azure/key-vault/general/authentication)
-- [What are manged identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
+- [What are managed  identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 - [Application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals?tabs=browser)
 
 Your virtual machine is typically created by your **infrastructure** team. Configuring access to credentials and managing key vaults is typically done by your **security** team.
