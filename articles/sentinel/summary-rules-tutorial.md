@@ -66,7 +66,7 @@ To complete this tutorial, you need:
         ```kusto
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
-          Custom_CommonSecurityLog 
+          CommonSecurityLog_CL 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
           | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofBytesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 
@@ -80,7 +80,7 @@ To complete this tutorial, you need:
         let endtime = 1d; 
         let timeframe = 1h; 
         let TimeSeriesData =  
-        Custom_CommonSecurityLog 
+        CommonSecurityLog_CL 
           | where TimeGenerated between (startofday(ago(starttime))..startofday(ago(endtime))) 
           | where isnotempty(DestinationIP) and isnotempty(SourceIP) 
           | where ipv4_is_private(DestinationIP) == false 
