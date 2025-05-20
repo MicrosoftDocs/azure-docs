@@ -4,7 +4,7 @@ description: Find out about reliability in Azure App Service, including availabi
 author: anaharris-ms 
 ms.author: anaharris
 ms.topic: reliability-article
-ms.custom: subject-reliability, references_regions
+ms.custom: subject-reliability
 ms.service: learn
 ms.date: 05/07/2025
 zone_pivot_groups: app-service-sku
