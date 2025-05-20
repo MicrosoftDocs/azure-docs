@@ -141,7 +141,6 @@ To create an Azure Cache for Redis Basic, Standard, or Premium cache by using Az
 You can use the Azure CLI script in this section to create an Azure Cache for Redis Basic cache with default settings. You can also use the following other methods to create a cache:
 
 - [Azure portal (Basic, Standard, or Premium)](../../azure-cache-for-redis/quickstart-create-redis.md)
-- [Azure portal (Enterprise)](../../azure-cache-for-redis/quickstart-create-redis-enterprise.md)
 - [Azure PowerShell](../how-to-manage-redis-cache-powershell.md?pivots=azure-cache-redis)
 - [ARM template](../redis-cache-arm-provision.md#azure-cache-for-redis)
 - [Bicep template](../redis-cache-bicep-provision.md#azure-cache-for-redis)
