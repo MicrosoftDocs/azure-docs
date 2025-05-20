@@ -13,9 +13,9 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## May 2025
 
-## HCX Upgrade and Hybridity Depot Decommissioning
+**HCX Upgrade and Hybridity Depot Decommissioning**
 
-The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be avialable directly to them from their vSAN datastore. 
+The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
 ## April 2025
 
 **AV48 SKU**

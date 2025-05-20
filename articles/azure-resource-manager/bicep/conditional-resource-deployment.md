@@ -15,7 +15,7 @@ To optionally deploy a resource or module in Bicep, use the `if` expression. An 
 
 ### Training resources
 
-If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
+If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
 ## Define condition for deployment
 

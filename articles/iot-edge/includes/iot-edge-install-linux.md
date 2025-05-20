@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 12/04/2024
+ms.date: 04/29/2025
 author: PatAltimore
 ms.author: patricka
 ms.service: azure-iot-edge
@@ -15,16 +15,14 @@ In this section, you prepare your Linux virtual machine or physical device for I
 Run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
 
 > [!IMPORTANT]
-> On June 30, 2022 Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+> On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bullseye.
 >
-> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation (optional)](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 
 # [Ubuntu](#tab/ubuntu)
 
-Installing can be done with a few commands.  Open a terminal and run the following commands:
-
-
+Installing can be done with a few commands. Open a terminal and run the following commands:
 
 * **24.04**:
 
@@ -33,8 +31,6 @@ Installing can be done with a few commands.  Open a terminal and run the followi
    sudo dpkg -i packages-microsoft-prod.deb
    rm packages-microsoft-prod.deb
    ```
-
-
 
 * **22.04**:
 
@@ -54,9 +50,7 @@ Installing can be done with a few commands.  Open a terminal and run the followi
 
 # [Debian](#tab/debian)
 
-Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
-
-
+Installing with APT can be done with a few commands. Open a terminal and run the following commands:
 
 * **12 - Bookworm (arm32v7)**:
 
@@ -64,8 +58,6 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
     curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
     sudo apt install ./packages-microsoft-prod.deb
     ```
-
-
 
 * **11 - Bullseye (arm32v7)**:
 
@@ -75,7 +67,7 @@ Installing with APT can be done with a few commands.  Open a terminal and run th
     ```
 
 > [!TIP]
-> If you gave the "root" account a password during the OS install, you will not need 'sudo' and can run the above command by starting with 'apt'.
+> If you gave the "root" account a password during the OS install, you don't need 'sudo' and can run the previous command by starting with 'apt'.
 
 # [Red Hat Enterprise Linux](#tab/rhel)
 
@@ -106,11 +98,11 @@ You install IoT Edge runtime from the snap store in a later step. Continue to th
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
 
 > [!NOTE]
-> Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package.
+> Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms before using a package. Your installation and use of a package constitutes your acceptance of these terms. If you don't agree with the license terms, don't use that package.
 
 ### Install a container engine
 
-Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
+Azure IoT Edge relies on an [OCI](https://opencontainers.org/)-compatible container runtime. For production scenarios, we recommend that you use the Moby engine. The Moby engine is the container engine officially supported with IoT Edge. Docker CE/EE container images are compatible with the Moby runtime. If you're using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -147,7 +139,7 @@ Install the Moby engine and CLI.
 >   ./check-config.sh
 >   ```
 >
-> In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you've deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+> In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you're missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you're using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. After you deploy your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
 
 # [Ubuntu Core snaps](#tab/snaps)
 
@@ -162,7 +154,7 @@ The Docker snap is serviced by Canonical and supported for production scenarios.
 
 ---
 
-By default, the container engine doesn't set container log size limits. Over time, this can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Production Deployment Checklist](../production-checklist.md#set-up-default-logging-driver).
+By default, the container engine doesn't set container log size limits. Over time, this situation can lead to the device filling up with logs and running out of disk space. However, you can configure your log to show locally, though it's optional. To learn more about logging configuration, see [Prepare to deploy your IoT Edge solution in production](../production-checklist.md#set-up-default-logging-driver).
 
 The following steps show you how to configure your container to use [`local` logging driver](https://docs.docker.com/config/containers/logging/local/) as the logging mechanism. 
 
@@ -190,7 +182,7 @@ The following steps show you how to configure your container to use [`local` log
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-Currently, the local logging driver setting is not supported for the Docker snap.
+Currently, the `local` logging driver setting isn't supported for the Docker snap.
 
 ---
 
@@ -199,12 +191,12 @@ Currently, the local logging driver setting is not supported for the Docker snap
 The IoT Edge service provides and maintains security standards on the IoT Edge device. The service starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
 > [!NOTE]
-> Beginning with version 1.2, the [IoT identity service](https://azure.github.io/iot-identity-service/) handles identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
+> Beginning with version 1.2, the [Azure IoT identity service](https://azure.github.io/iot-identity-service/) handles identity provisioning and management for IoT Edge and for other device components that need to communicate with IoT Hub.
 
-The steps in this section represent the typical process to install the latest IoT Edge version on a device that has internet connection. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
+The steps in this section represent the typical process to install the latest IoT Edge version on a device that has internet connection. If you need to install a specific version, like a prerelease version, or need to install while offline, follow the **Offline or specific version installation** steps later in this article.
 
 > [!TIP]
-> If you already have an IoT Edge device running an older version and want to upgrade to the latest release, use the steps in [Update the IoT Edge security daemon and runtime](../how-to-update-iot-edge.md). Later versions are sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
+> If you already have an IoT Edge device running an older version and want to upgrade to the latest release, use the steps in [Update IoT Edge](../how-to-update-iot-edge.md). Later versions are sufficiently different from previous versions of IoT Edge that specific steps are necessary to upgrade.
 
 # [Ubuntu](#tab/ubuntu)
 

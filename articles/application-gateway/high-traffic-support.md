@@ -42,6 +42,9 @@ Make sure to check your subnet size and available IP address count in your subne
 
 :::image type="content" source="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-inline.png" alt-text="V2 autoscaling configuration" lightbox="./media/application-gateway-covid-guidelines/v2-autoscaling-max-instances-exp.png":::
 
+> [!NOTE]
+> If your traffic requirement needs more than 125 instances, you can use Azure Traffic Manager or Azure Front Door in front of your Application Gateway. For more information, please see [Connect Azure Front Door Premium to an Azure Application Gateway with Private Link](../frontdoor/how-to-enable-private-link-application-gateway.md) and [Use Azure App Gateway with Azure Traffic Manager](../traffic-manager/traffic-manager-use-with-application-gateway.md)
+
 ### Set your minimum instance count based on your average Compute Unit usage
 
 For Application Gateway v2 SKU, autoscaling takes three to five minutes to scale out and provision additional set of instances ready to take traffic. Until then, if there are short spikes in traffic, your existing gateway instances might get under stress and this may cause unexpected latency or loss of traffic. 

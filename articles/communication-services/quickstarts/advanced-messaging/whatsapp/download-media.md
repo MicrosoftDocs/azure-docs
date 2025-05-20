@@ -1,12 +1,12 @@
 ---
 title: Download WhatsApp message media
-titleSuffix: An Azure Communication Services Messages quickstart
+titleSuffix: An Azure Communication Services Messages article
 description: In this quickstart, you learn how to download the media received in a WhatsApp message with Azure Communication Services Messages.
 author: Shamkh
 manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
-ms.date: 07/24/2024
+ms.date: 05/01/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
@@ -64,9 +64,7 @@ An example of an `AdvancedMessageReceived` event with media content:
 
 ## Next steps
 
-This article described how to download the media received in a WhatsApp message using Advanced Messaging for WhatsApp SDK. Next you might want to continue with the following articles:
-
-- [More Sample](/samples/azure/azure-sdk-for-js/communication-messages-javascript)
+- [More samples](/samples/azure/azure-sdk-for-js/communication-messages-javascript)
 - [Send WhatsApp Messages using Advanced Messages](../../../quickstarts/advanced-messaging/whatsapp/get-started.md)
 - [Handle Advanced Messaging Events](./handle-advanced-messaging-events.md)
-- [Send WhatsApp Template Messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)
+- [Send WhatsApp template messages](../../../quickstarts/advanced-messaging/whatsapp/send-template-messages.md)

@@ -58,7 +58,7 @@ Custom Key Vault Secret Resolution | [GA](./reference-dotnet-provider.md#key-vau
 Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
 Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag)
 Feature Flag Telemetry | GA | GA | WIP | GA | GA
-Key Prefix Trim | GA | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys)
+Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | GA | GA | GA | [GA](./reference-javascript-provider.md#trim-prefix-from-keys)
 Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | WIP
 Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
 Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | WIP | [GA](./reference-javascript-provider.md#geo-replication)
@@ -66,3 +66,7 @@ Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | 
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | GA | GA | WIP | WIP
 Distributed tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP
 Health Check | WIP | WIP | WIP | WIP | WIP
+
+## Support policy
+
+Details on the support policy for configuration provider libraries can be found [here](./client-library-support-policy.md).
