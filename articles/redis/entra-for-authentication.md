@@ -1,21 +1,24 @@
 ---
-title: Use Microsoft Entra for cache authentication with Azure Managed Redis (preview)
+title: Use Microsoft Entra for cache authentication with Azure Managed Redis
 description: Learn how to use Microsoft Entra with Azure Managed Redis.
+ms.date: 05/18/2025
 ms.service: azure-managed-redis
-ms.custom: references_regions, ignite-2024
 ms.topic: conceptual
-ms.date: 11/15/2024
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Use Microsoft Entra for cache authentication with Azure Managed Redis (preview)
+# Use Microsoft Entra for cache authentication with Azure Managed Redis
 
-Azure Managed Redis (preview)offers two methods to [authenticate](configure.md#authentication) to your cache instance: access keys and Microsoft Entra.
+Azure Managed Redis offers two methods to [authenticate](configure.md#authentication) to your cache instance: access keys and Microsoft Entra. Azure Managed Redis cache use managed identity by default. When you create a new cache, managed identity is enabled.
 
 Although access key authentication is simple, it comes with a set of challenges around security and password management. For contrast, in this article, you learn how to use a Microsoft Entra token for cache authentication.
 
-Azure Managed Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). The Entra ID configured to connect with Azure Managed Redis is assigned the same permissions as with using Access Keys. 
+Azure Managed Redis offers a password-free authentication mechanism by integrating with [Microsoft Entra](/azure/active-directory/fundamentals/active-directory-whatis). The Entra ID configured to connect with Azure Managed Redis is assigned the same permissions as with using Access Keys.
 
 In this article, you learn how to use your service principal or managed identity to connect to your Redis instance.
 
@@ -26,20 +29,6 @@ In this article, you learn how to use your service principal or managed identity
 
 > [!IMPORTANT]
 > After a connection is established by using a Microsoft Entra token, client applications must periodically refresh the Microsoft Entra token before expiry. Then the apps must send an `AUTH` command to the Redis server to avoid disrupting connections. For more information, see [Configure your Redis client to use Microsoft Entra](#configure-your-redis-client-to-use-microsoft-entra).
-
-## Enable Microsoft Entra authentication on your cache
-
-1. In the Azure portal, select the Azure Managed Redis instance where you want to configure Microsoft Entra token-based authentication.
-
-1. On the **Resource** menu, select **Authentication**.
-
-1. On the working pane, select the **Microsoft Entra Authentication** tab.
-
-1. Select **Enable Microsoft Entra Authentication** and choose "User or service principal" or "Managed Identity" buttons. The user you enter is automatically assigned same permissions as when using Access Keys when you **Select**. You can also enter a managed identity or service principal to connect to your AMR instance.
-
-    :::image type="content" source="media/entra-for-authentication/managed-redis-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the Enable Microsoft Entra authentication checkbox.":::
-
-For information on how to use Microsoft Entra with the Azure CLI, see the [reference pages for identity](/cli/azure/redis/identity).
 
 ## Disable access key authentication on your cache
 
@@ -66,7 +55,7 @@ If you have a cache where you use access keys, and you want to disable access ke
 
 1. Configure **Access Keys Authentication** to be disabled.
 
-   :::image type="content" source="media/entra-for-authentication/managed-redis-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with the Disable Access Keys Authentication checkbox. ":::
+   <!-- :::image type="content" source="media/entra-for-authentication/managed-redis-disable-access-keys.png" alt-text="Screenshot showing access keys in the working pane with the Disable Access Keys Authentication checkbox. "::: -->
 
 1. Confirm that you want to update your configuration by selecting **Yes**.
 

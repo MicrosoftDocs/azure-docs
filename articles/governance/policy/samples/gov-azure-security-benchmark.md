@@ -1,7 +1,7 @@
 ---
 title: Regulatory Compliance details for Microsoft cloud security benchmark (Azure Government)
 description: Details of the Microsoft cloud security benchmark (Azure Government) Regulatory Compliance built-in initiative. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 04/30/2025
+ms.date: 05/14/2025
 ms.topic: generated-reference
 ms.custom: generated
 ---
@@ -475,6 +475,15 @@ initiative definition.
 |[Linux machines should meet requirements for the Azure compute security baseline](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc9b3da7-8347-4380-8e70-0a0361d8dedd) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). Machines are non-compliant if the machine is not configured correctly for one of the recommendations in the Azure compute security baseline. |AuditIfNotExists, Disabled |[1.5.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/AzureLinuxBaseline_AINE.json) |
 |[Virtual machines' Guest Configuration extension should be deployed with system-assigned managed identity](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd26f7642-7545-4e18-9b75-8c9bbdee3a9a) |The Guest Configuration extension requires a system assigned managed identity. Azure virtual machines in the scope of this policy will be non-compliant when they have the Guest Configuration extension installed but do not have a system assigned managed identity. Learn more at [https://aka.ms/gcpol](https://aka.ms/gcpol) |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_GCExtOnVmWithNoSAMI.json) |
 |[Windows machines should meet requirements of the Azure compute security baseline](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F72650e9f-97bc-4b2a-ab5f-9781a9fcecbc) |Requires that prerequisites are deployed to the policy assignment scope. For details, visit [https://aka.ms/gcpol](https://aka.ms/gcpol). Machines are non-compliant if the machine is not configured correctly for one of the recommendations in the Azure compute security baseline. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Guest%20Configuration/AzureWindowsBaseline_AINE.json) |
+
+### Perform vulnerability assessments
+
+**ID**: Microsoft cloud security benchmark PV-5
+**Ownership**: Shared
+
+|Name<br /><sub>(Azure portal)</sub> |Description |Effect(s) |Version<br /><sub>(GitHub)</sub> |
+|---|---|---|---|
+|[A vulnerability assessment solution should be enabled on your virtual machines](https://portal.azure.us/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F501541f7-f7e7-4cd6-868c-4190fdad3ac9) |Audits virtual machines to detect whether they are running a supported vulnerability assessment solution. A core component of every cyber risk and security program is the identification and analysis of vulnerabilities. Azure Security Center's standard pricing tier includes vulnerability scanning for your virtual machines at no extra cost. Additionally, Security Center can automatically deploy this tool for you. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Azure%20Government/Security%20Center/ASC_ServerVulnerabilityAssessment_Audit.json) |
 
 ### Rapidly and automatically remediate vulnerabilities
 
