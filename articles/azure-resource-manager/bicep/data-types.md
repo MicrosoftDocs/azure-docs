@@ -77,7 +77,7 @@ var index = 1
 output secondElement int = exampleArray[index] // 2
 ```
 
-The `array[^index]` syntax allows you to access elements from the end of the array, where `^1` is the last element, `^2` is the second-to-last, and so on.
+Starting with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), you can use the `array[^index]` syntax to access elements from the end of an array — `^1` refers to the last element, `^2` to the second-to-last, and so on.
 
 ```bicep
 var exampleArray = [1, 2, 3]
