@@ -38,7 +38,7 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
       * Select the *Subscription* and the *Storage Account*. and set **Retention (days)**.
     * **Stream to an event hub**
       * Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
-      * Select the *Subscription, Event hub namespace, Event hub name (optional)*, and *Event hub policy name*. 
+      * Select the *Subscription*, *Event hub namespace*, *Event hub name (optional)*, and *Event hub policy name*. 
 
     > [!TIP]
     > Microsoft recommends using Log Analytics for real-time monitoring and analysis of Azure Front Door performance.
@@ -53,7 +53,7 @@ To view activity logs:
 
 1. Select your Azure Front Door profile.
 
-1. Select **Activity log.**
+1. Select **Activity log**.
 
 1. Choose a filtering scope.
 
