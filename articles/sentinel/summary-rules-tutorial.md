@@ -28,9 +28,10 @@ This article provides an example of how to use summary rules to aggregate insigh
 
 To complete this tutorial, you need:
 
-- A Microsoft Sentinel-enabled workspace into which you actively consume CEF logs.
+- A Microsoft Sentinel-enabled workspace.
 - Access to Microsoft Sentinel with [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) permissions. For more information, see [Roles and permissions in Microsoft Sentinel](roles.md).
 - [Monitoring Contributor](/azure/role-based-access-control/built-in-roles#monitoring-contributor) permissions to create a data collection rule (DCR) and a data collection endpoint (DCE). For more information, see [Data collection rules](https://learn.microsoft.com/azure/azure-monitor/logs/data-collection-rules).
+- A virtual machine (VM) with Logstash installed. For more information, see [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html).
 - To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
 ## Use summary rules with auxiliary logs (sample process)
@@ -55,7 +56,7 @@ To complete this tutorial, you need:
 1. Check to see that your CEF data is flowing from Logstash as expected. For example, in Microsoft Sentinel, go to the **Logs** page and run the following query:
 
     ```kusto
-    CefAux_CL
+    CommonSecurityLog_CL
     | take 10
     ```
 
