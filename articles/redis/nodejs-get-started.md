@@ -12,6 +12,9 @@ ms.custom:
   - build-2025
 ms.devlang: javascript
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # Customer intent: As a Node.js developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Redis in Node.js

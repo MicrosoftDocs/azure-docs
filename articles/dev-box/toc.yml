@@ -48,6 +48,8 @@ items:
         href: how-to-configure-network-connections.md
       - name: Manage a dev box project
         href: how-to-manage-dev-box-projects.md
+      - name: Configure project policies
+        href: how-to-configure-project-policy.md
       - name: Manage a dev box definition
         href: how-to-manage-dev-box-definitions.md
       - name: Manage a dev box pool

@@ -9,6 +9,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.devlang: csharp
+appliesto:
+  - ✅ Azure Cache for Redis
 # customer intent: As a cloud developer, I want to understand core output caching via Azure Cache for Redis so that I can implement it for storing page output.
 ---
 
