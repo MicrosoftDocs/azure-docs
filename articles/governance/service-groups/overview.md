@@ -25,7 +25,7 @@ Azure Service Groups offer a flexible way to organize and manage resources acros
 
 
 ### Multiple Hierarchies 
-The same resources can be connected to many different service groups allowing different customer personas and scenarios to be created and used. Customers can create many different views that support how they organize their resources.   
+The same resources can be connected to many different service groups, allowing different customer personas and scenarios to be created and used. Customers can create many different views that support how they organize their resources.   
 
 #### Example Scenarios
 * Varying Personas 
@@ -34,18 +34,18 @@ The same resources can be connected to many different service groups allowing di
 :::image type="content" source="./media/multiple-service-group.png" alt-text="Diagram that shows multiple service group branches." Lightbox="./media/multiple-service-group.png":::
 
 ### Flexible Membership
-Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
+Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group, or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Group Trees, enabling new ways to view your data.  
 
 #### Example Scenarios 
 * Aggregating Health Metrics
    * Organizations with multiple applications and environments can use Service Groups to aggregate health metrics across different environments. Member resources or resource containers could be from various environments within different management groups or subscriptions, can be linked to a single Service Group providing a unified view of health metrics.
-* Creating Inventory of a specific resource type
+* Creating an Inventory of a specific resource type
     * Customers can connect all Virtual Machines or CosmosDBs to the same Service Groups to get a consolidated view of all the resources of that type in the entire environment. This capability allows a customer like a Virtual Machine Administrator to view aggregated data on all their resources no matter what subscription they live in.
 
 :::image type="content" source="./media/side-by-side.png" alt-text="Diagram showing the Management Group and Service Group Hierarchies within the Microsoft Entra Tenant" Lightbox="./media/side-by-side.png":::
 
 * Aggregating monitoring metrics 
-   * Since Service Groups don't inherit permissions to the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources. 
+   * Since Service Groups don't inherit permissions from the members, customers can apply least privileges to assign permissions on the Service Groups that allow viewing of metrics. This capability provides a solution where two users can be assigned access to the same Service Group, but only one is allowed to see certain resources. 
 
 
 ## How it works
@@ -64,7 +64,7 @@ Information about Service Groups
 
 ## Azure Resource Manager Groupings 
 
-Azure offers a wide variety of resources containers that enable our customers to manage resources at many different scales. Service Groups is only the newest in a family of Azure Resource Manager (ARM) containers used to organize your environment.
+Azure offers a wide variety of containers to host resources, which enable our customers to manage resources at many different scales. Service Groups is only the newest in a family of Azure Resource Manager (ARM) containers used to organize your environment.
 
 This table shows a summary of the differences between the groups. 
 
@@ -148,7 +148,7 @@ This role manages all aspects of Service Groups and Relationships and is the def
 }
 ```
 #### Service Group Contributor 
-The Service Group Contributor role given to users when they need to create or manage the lifecycle of a Service Group. This role allows fro all actions except for Role Assignment capabilities.  
+The Service Group Contributor role is given to users when they need to create or manage a Service Group's lifecycle. This role allows for all actions except for Role Assignment capabilities.  
 ```json
 {
   "assignableScopes": [
