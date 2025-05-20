@@ -104,7 +104,7 @@ If different dev boxes in the pool use different regions, you can move them to a
   
 1. The dev box moves to the region that the pool is configured with.
 
-## Track the progess of the move in the developer portal
+## Track the progress of the move in the developer portal
 
 When you move a Dev Box, you see the following message:
   
