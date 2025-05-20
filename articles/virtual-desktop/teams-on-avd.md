@@ -31,7 +31,7 @@ Before you can use Microsoft Teams on Azure Virtual Desktop, you need:
 
 - Connect to a session host running Windows 10 or 11 multi-session or Windows 10 or 11 Enterprise. Session hosts running an N or KN SKU of Windows aren't supported.
 
-- For Windows, you also need to install the latest version of the [Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on your client device and session hosts. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
+- For Windows, you also need to install the latest version of the [Microsoft Visual C++ Redistributable](/cpp/windows/latest-supported-vc-redist) on your client device and session hosts. The C++ Redistributable is required to use media optimization for Teams on Azure Virtual Desktop.
 
 - Install the latest version of [Windows App](/windows-app/get-started-connect-devices-desktops-apps) or the [Remote Desktop client](./users/connect-windows.md) on Windows or macOS that meets the [hardware requirements for Microsoft Teams](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 

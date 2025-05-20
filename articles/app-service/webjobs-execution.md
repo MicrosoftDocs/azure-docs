@@ -6,13 +6,25 @@ ms.service: azure-app-service
 author: msangapu-msft
 ms.author: msangapu
 ms.date: 05/01/2025
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # How WebJobs run in Azure App Service
 
-Azure WebJobs allow you to run background tasks within your App Service app, without needing separate infrastructure. These tasks are discovered and managed by the **Kudu engine**, which handles execution, monitoring, and log collection.
+Azure WebJobs allow you to run background tasks within your App Service app, without needing separate infrastructure. These tasks are discovered and managed by the Kudu engine, the built-in App Service deployment and runtime management service. Kudu handles WebJob execution, file system access, diagnostics, and log collection behind the scenes.
 
 This article explains how WebJobs are discovered, how the runtime decides what to execute, and how you can configure behavior using the optional `settings.job` file.
+
+## Platform-specific notes
+
+WebJobs support a variety of script and executable formats, depending on the App Service hosting environment. The types of files you can run—and the runtimes available—vary slightly based on whether you're using Windows code, Linux code, or custom containers. In general, built-in runtimes are available for common scripting languages, and additional file types are supported when they match the language runtime of your app or container.
+
+[!INCLUDE [webjob-types](./includes/webjobs-create/webjob-types.md)]
+
+>[!IMPORTANT]
+> WebJobs that are continuous, scheduled, or event-driven may stop running if the web app hosting them becomes idle. Web apps can time out after 20 minutes of inactivity, and only direct requests to the app reset this idle timer. Actions like viewing the portal or accessing the Kudu tools do not keep the app active.
+> To ensure WebJobs run reliably, enable the Always on setting in the Configuration pane of your App Service.
+> This setting is available only in the Basic, Standard, and Premium pricing tiers.
 
 ## Job discovery and folder structure
 
@@ -34,10 +46,7 @@ Inside the job folder, the Kudu engine looks for a file to execute. This file ca
 
 The WebJobs runtime uses a file named `run.*` (such as `run.py`, `run.sh`, or `run.js`) as the explicit entry point for a job. This file tells the platform which script or binary to execute first, ensuring consistent and predictable behavior across environments.
 
-> [!NOTE]  
-> The filename must be exactly `run.*` to be autodetected. Files like `start.sh` or `job.py` will be ignored unless manually triggered.
-
-If no `run.*` file is found, the platform attempts to detect a fallback entry point by selecting the first supported file based on the language platform of the WebJob. For example:
+The filename must be exactly `run.*` to be autodetected. Files like `start.sh` or `job.py` will be ignored unless manually triggered. If no `run.*` file is found, the platform attempts to detect a fallback entry point by selecting the first supported file based on the language platform of the WebJob. For example:
 - A Python WebJob with multiple `.py` files (for example, `file1.py`, `file2.py`) will execute the first `.py` file it finds in the archive.
 - A Node.js WebJob looks for the first `.js` file.
 - A Bash-based WebJob looks for the first `.sh` script.
@@ -81,10 +90,6 @@ https://<your-app>.scm.azurewebsites.net/api/triggeredwebjobs/<job>/history
 For more advanced monitoring and querying capabilities, consider integrating with [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
 Triggered WebJobs include a full history of executions. Continuous WebJobs stream logs in real time.
-
-## Platform-specific notes
-
-[!INCLUDE [webjobs-always-on-note](../../includes/webjobs-always-on-note.md)]
 
 ## Troubleshooting tips
 

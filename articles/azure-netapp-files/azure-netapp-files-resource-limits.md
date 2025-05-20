@@ -1,5 +1,5 @@
 ---
-title: Resource limits for Azure NetApp Files | Microsoft Docs
+title: Resource limits for Azure NetApp Files
 description: Describes limits for Azure NetApp Files resources and how to request resource limit increase.
 services: azure-netapp-files
 author: b-hchen
@@ -28,7 +28,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single capacity pool   |  1 TiB*     |    No  |
 |  Maximum size of a single capacity pool    |  2,048 TiB   |   No   |
 | Minimum throughput of a Flexible service level capacity pool | 128 MiB/second | No |
-| Maximum throughput of a Flexible service level capacity pool | [5 x 128 x Size of capacity pool in TiB](azure-netapp-files-set-up-capacity-pool.md#considerations) | No |
+| Maximum throughput of a Flexible service level capacity pool | [5 x 128 MiB/second/TiB x Size of capacity pool in TiB](azure-netapp-files-set-up-capacity-pool.md#considerations) | No |
 |  Minimum size of a single regular volume    |    50 GiB    |    No    |
 |  Maximum size of a single regular volume     |    100 TiB    |    No    |
 |  Minimum size of a single [large volume](large-volumes-requirements-considerations.md) | 50 TiB |     No |

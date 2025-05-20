@@ -12,9 +12,6 @@ ms.date: 06/10/2022
 
 This article summarizes all the features currently in preview for Azure Stream Analytics. Using preview features in a production environment isn't recommended.
 
-## C# custom de-serializers
-Developers can leverage the power of Azure Stream Analytics to process data in Protobuf, XML, or any custom format. You can implement [custom de-serializers](custom-deserializer-examples.md) in C#, which can then be used to de-serialize events received by Azure Stream Analytics.
-
 ## Extensibility with C# custom code
 
 Developers creating Stream Analytics modules in the cloud or on IoT Edge can write or reuse custom C# functions and invoke them directly in the query through [user-defined functions](stream-analytics-edge-csharp-udf-methods.md).
