@@ -11,7 +11,7 @@ ms.date: 05/20/2025
 If you need more information about a particular diagnostic code, select the **Feedback** button in the upper-right corner of the page and specify the code.
 
 | Code       | Level | Description |
-|------------|-------|-_-----------|
+|------------|-------|-------------|
 | <a id='BCP001' />BCP001 | Error | The following token isn't recognized: "{token}". |
 | <a id='BCP002' />BCP002 | Error | The multi-line comment at this location isn't terminated. Terminate it with the */ character sequence. |
 | <a id='BCP003' />BCP003 | Error | The string at this location isn't terminated. Terminate the string with a single quote character. |
@@ -384,17 +384,18 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP405' />BCP405 | Error | More than one "{LanguageConstants.ExtendsKeyword}" declaration are present. |
 | <a id='BCP406' />BCP406 | Error | The "{LanguageConstants.ExtendsKeyword}" keyword isn't supported. |
 | <a id='BCP407' />BCP407 | Error | Built-in extension "microsoftGraph" is retired. Use dynamic types instead. See https://aka.ms/graphBicepDynamicTypes |
-| <a id='BCP408' />BCP408 | Error | The `nameof` function can only be used with an expression which has a name.   |
+| <a id='BCP408' />BCP408 | Error | The "{LanguageConstants.NameofFunctionName}" function can only be used with an expression which has a name.   |
 | <a id='BCP409' />BCP409 | Error | The `resource<>` parameterized type has been deprecated. Please specify whether you want this type to correspond to the resource input or output.     |
 | <a id='BCP410' />BCP410 | Error | Division by zero is not supported.     |
 | <a id='BCP411' />BCP411 | Error | The type `{type}` cannot be used in a type assignment because it does not fit within one of ARM's primitive type categories (string, int, bool, array, object). |
-| <a id='BCP412' />BCP412 | Error | The variable type is not valid. Please specify one of the following types: `{validTypes}`. |
+| <a id='BCP412' />BCP412 | Error | The variable type is not valid. Please specify one of the following types: {ToQuotedString(validTypes)}. |
 | <a id='BCP414' />BCP414 | Error | The `^` indexing operator cannot be used on base expressions of type `{baseType}`.  |
 | <a id='BCP415' />BCP415 | Error | The `^` indexing operator cannot be used with index expressions of type `{indexType}`.     |
 | <a id='BCP416' />BCP416 | Error | The supplied string does not match the expected pattern of `/{expectedPattern}/`.   |
 | <a id='BCP417' />BCP417 | Error | The spread operator `{ellipsis}` cannot be used inside objects with property for-expressions.    |
 | <a id='BCP418' />BCP418 | Error | Extensions cannot be referenced here. Extensions can only be referenced by module extension configurations.   |
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
+
 
 ## Next steps
 
