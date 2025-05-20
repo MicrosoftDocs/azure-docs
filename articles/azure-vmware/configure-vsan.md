@@ -27,10 +27,10 @@ Azure VMware Solution defaults with the following configurations per cluster:
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Enable or disable vSAN TRIM/UNMAP.
-> * Enable vSAN compression only.
-> * Disable vSAN deduplication and compression.
-> * Enable or disable vSAN data-in-transit encryption.
+> * Enable or disable vSAN TRIM/UNMAP
+> * Enable vSAN compression only
+> * Disable vSAN deduplication and compression
+> * Enable or disable vSAN data-in-transit encryption
 
 ## Set VMware vSAN TRIM/UNMAP
 
@@ -43,28 +43,27 @@ To enable or disable the TRIM/UNMAP command, run the `Set-AVSVSANClusterUNMAPTRI
 
 1. Select **Run command** > **Packages** > **Set-AVSVSANClusterUNMAPTRIM**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
    | **Name**  | The cluster name as defined in vCenter Server. Comma delimit to target only certain clusters. (Blank targets all clusters.) |
-   | **Enable**  | True or false. |
+   | **Enable**  | `true` or `false`. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
    | **Specify name for execution**  | Alphanumeric name. For example, *Disable vSAN TRIMUNMAP*.  |
    | **Timeout**  |  The period after which a cmdlet exits if it's taking too long to finish.  |
 
 1. Check **Notifications** to see the progress.
 
-After vSAN TRIM/UNMAP is Enabled, the following lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
+After vSAN TRIM/UNMAP is enabled, you must meet certain prerequisites in order for the command to function as intended and successfully reclaim unused capacity. The VM-level prerequisites are:
 
-- Prerequisites - VM Level
 - Virtual machine hardware version 11 or later for Windows.
 - Virtual machine hardware version 13 or later for Linux.
-- `disk.scsiUnmapAllowed` flag isn't set to `false`. The default is implied `true`. This setting can be used as a *stop switch* at the virtual machine level. You can use this setting if you want to disable this behavior on a per-VM basis and don't want to use in-guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
+- The `disk.scsiUnmapAllowed` flag isn't set to `false`. The default is implied `true`. This setting can be used as a *stop switch* at the virtual machine level. You can use this setting if you want to disable this behavior on a per-VM basis and don't want to use in-guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
 - The guest operating system must be able to identify the virtual disk as *thin*.
 - After you enable a VM at a cluster level, it must be powered off, and then powered back on (a reboot is insufficient).
 
-For more information about reclaiming space for Windows and Linux systems for TRIM/UNMAP to execute, see the following VMware articles:
+For more information about how to reclaim space for Windows and Linux systems for TRIM/UNMAP to execute, see the following VMware articles:
 - [How to reclaim disk space](https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html)
 - [Learn the procedure to enable TRIM/UNMAP](https://knowledge.broadcom.com/external/article/326595/procedure-to-enable-trimunmap.html)
 
@@ -72,20 +71,20 @@ For more information about reclaiming space for Windows and Linux systems for TR
 
 To set your preferred space efficiency model, run the `Set-vSANCompressDedupe` cmdlet.
 
-   > [!NOTE]
-   > Changing this setting causes a vSAN resync and performance degradation while disks are reformatting.
-   > Assure that you have enough available space when you change to the new configuration. We recommend that you have at least 25% available space.
+> [!NOTE]
+> Changing this setting causes a vSAN resync and performance degradation while disks are reformatting.
+> Assure that you have enough available space when you change to the new configuration. We recommend that you have at least 25% available space.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Run command** > **Packages** > **Set-vSANCompressDedupe**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Compression**  | True or false. |
-   | **Deduplication**  | True or false. (When you enable deduplication, you enable both deduplication and compression.) |
+   | **Compression**  | `true` or `false`. |
+   | **Deduplication**  | `true` or `false`. (When you enable deduplication, you enable both deduplication and compression.) |
    | **ClustersToChange**  | The cluster name as defined in vCenter Server. Comma delimit to target multiple clusters. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
    | **Specify name for execution**  | Alphanumeric name. For example, *set cluster-1 to compress only*.  |
@@ -93,8 +92,8 @@ To set your preferred space efficiency model, run the `Set-vSANCompressDedupe` c
 
 Learn more about the `Set-vSANCompressDedupe` cmdlet:
 
-- When you set `Compression` to `False` and `Deduplication` to `True`, vSAN is set to `Deduplication` and `Compression`.
-- When you set `Compression` to `False` and `Deduplication` to `False`, all space efficiency is disabled.
+- When you set `Compression` to `false` and `Deduplication` to `true`, vSAN is set to `Deduplication` and `Compression`.
+- When you set `Compression` to `false` and `Deduplication` to `false`, all space efficiency is disabled.
 - The default settings for Azure VMware Solution are `Deduplication` and `Compression`.
 - The `Compression` setting provides only slightly better performance.
 - When you disable both the `Compression` and `Deduplication` settings, you can achieve the greatest performance gains, but at the cost of space efficiency.
@@ -111,20 +110,18 @@ Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-tr
 
 1. Select **Run command** > **Packages** > **Set-vSANDataInTransitEncryption**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
    | **ClusterName**  | Name of the cluster. Leave blank if you're required to enable for the whole SDDC. Otherwise, enter a comma-separated list of names. |
-   | **Enable**  |  Specify `True` or `False` to enable or disable the feature.
+   | **Enable**  |  Specify `true` or `false` to enable or disable the feature.
 
 1. Check **Notifications** to see the progress.
 
 You can also use the `Get-vSANDataInTransitEncryptionStatus` command to check the current status or check the status after you perform the `Set-vSANDataInTransitEncryptionStatus` operation. This action verifies the cluster's current encryption state.
 
 ## Related content
-
-Now that you know how to configure VMware vSAN, learn more about:
 
 - [Configure storage policies for your Azure VMware Solution virtual machines](configure-storage-policy.md)
 - [Set Windows Server Active Directory as an external identity source for VMware vCenter Server](configure-identity-source-vcenter.md)
