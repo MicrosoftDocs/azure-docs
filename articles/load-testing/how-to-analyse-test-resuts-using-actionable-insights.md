@@ -46,7 +46,7 @@ To view actionable insights for a completed test:
 
 
 > [!CAUTION]
-> AI-generated insights may not always be accurate. We recommend reviewing the evidence and validating with your application’s telemetry 
+> AI-generated insights might not always be accurate. We recommend reviewing the evidence and validating with your application’s telemetry 
 
 ## Related content
 
