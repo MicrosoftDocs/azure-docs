@@ -7,6 +7,8 @@ metadata:
   ms.custom:
     - ignite-2024
     - build-2025
+  appliesto:
+    - ✅ Azure Managed Redis    
 title: Azure Managed Redis monitoring and troubleshooting FAQs
 summary: This article provides answers to common questions about how to monitor and troubleshoot Azure Managed Redis.
 
