@@ -1,5 +1,5 @@
 ---
-title: MongoDB Atlas (preview) Developer Resources and Tools
+title: MongoDB Atlas (Preview) Developer Resources and Tools
 description: Learn about resources and developer tools available with MongoDB Atlas (preview).
 author: ProfessorKendrick
 ms.topic: overview
