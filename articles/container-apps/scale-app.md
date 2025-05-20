@@ -384,7 +384,7 @@ First, you define the type and metadata of the scale rule.
 
 1. In the Bicep template, enter the scaler `type` value into the `custom.type` property of the scale rule.
 
-    :::code language="bicep" source="./code/container-apps-azure-service-bus-rule-0.bicep" highlight="6":::
+    :::code language="bicep" source="./code/container-apps-azure-service-bus-rule-0-bicep.json" highlight="6":::
 
 1. From the KEDA scaler specification, find the `metadata` values.
 
@@ -392,7 +392,7 @@ First, you define the type and metadata of the scale rule.
 
 1. In the Bicep template, add all metadata values to the `custom.metadata` section of the scale rule.
 
-    :::code language="bicep" source="./code/container-apps-azure-service-bus-rule-0.bicep" highlight="8,9,10":::
+    :::code language="bicep" source="./code/container-apps-azure-service-bus-rule-0-bicep.json" highlight="8,9,10":::
 
 ### Authentication
 
