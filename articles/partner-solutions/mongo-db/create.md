@@ -24,21 +24,21 @@ The **Basics** tab has sections for details about the project, the Azure resourc
 
 :::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization in the Azure portal.":::
 
-1. In **Project details**, enter these values:
+1. Under **Project details**, enter these values:
 
     | Setting               | Action                                                    |
     |---------------------|-----------------------------------------------------------|
     | **Subscription**        | Select a subscription from your existing subscriptions.   |
     | **Resource group**      | Use an existing resource group or create a new one.       |
 
-1. In **Azure Resource Details**, enter these values:
+1. Under **Azure Resource Details**, enter these values:
 
     | Setting              | Action                                    |
     |--------------------|-------------------------------------------|
     | **Resource name**      | Specify a unique name for the resource.   |
     | **Region**             | Select a region to deploy your resource.  |
 
-1. In **MongoDB Atlas Organization details**, enter this value:
+1. Under **MongoDB Atlas Organization details**, enter this value:
 
     | Setting                  | Action                                                                                           |
     |------------------------|--------------------------------------------------------------------------------------------------|
