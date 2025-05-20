@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 
 # Connect Azure Front Door Premium to a Storage Account origin with Private Link with Azure CLI
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article provides a step-by-step guide on how to configure Azure Front Door Premium to connect to your Storage Account privately using Azure Private Link with Azure CLI.
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
@@ -65,6 +67,13 @@ az afd origin create --enabled-state Enabled \
 
 > [!NOTE]
 > If the blob or container within the storage account does not allow anonymous access, requests must be authorized. One way to authorize requests is by using [shared access signatures](../../storage/common/storage-sas-overview.md).
+
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+* Not using SAS tokens while connecting to storage account that does not allow anonymous access.
 
 ## Next steps
 

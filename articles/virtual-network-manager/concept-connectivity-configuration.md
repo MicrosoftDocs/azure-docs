@@ -36,25 +36,25 @@ By default, the mesh is a regional mesh, therefore only virtual networks in the 
 When you create a mesh topology or direct connectivity in the hub and spoke topology, a new connectivity construct is created called *Connected group*. Virtual networks in a connected group can communicate with each other just like manually connected virtual networks. When you look at the effective routes for a network interface, you'll see a next hop type of *ConnectedGroup*. Virtual networks connected together in a connected group don't have a peering configuration listed under *Peerings* for the virtual network.
 
 > [!NOTE]
-> - If you have conflicting subnets in two or more virtual networks, resources in those subnets *can't* communicate with each other even if they're part of the same mesh network.
-> - A virtual network can be part of up to **two** mesh configurations.
+> If you have conflicting subnets in two or more virtual networks, resources in those subnets *can't* communicate with each other even if they're part of the same mesh network.
+> A virtual network can be part of up to **two** mesh configurations.
 
 ### Enable high scale private endpoints connected groups in Azure Virtual Network Manager
+
+[!INCLUDE [virtual-network-manager-high-scale-preview](../../includes/virtual-network-manager-high-scale-preview.md)]
 
 Azure Virtual Network Manager's high scale connected group feature allows you to extend your network capacity. Use the following steps to enable this feature to support up to 20,000 private endpoints across the connected group:
 
 #### Prepare each virtual network in the connected group
 
-In this step, you prepare each virtual network in your connected group for high scale private endpoints before configuring connectivity settings. This step involves configuring the virtual networks to support the high scale feature and ensuring that the necessary settings are in place.
-
 1. Review [Increase Private Endpoint virtual network limits](../private-link/increase-private-endpoint-vnet-limits.md) for detailed guidance on increasing Private Endpoint virtual network limits. Enabling or disabling this feature initiates a one-time connection reset. It's recommended to perform these changes during a maintenance window.
 
-1. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance or a virtual network in your connected group.
+2. Register the feature flag of `Microsoft.Network/EnableMaxPrivateEndpointsVia64kPath` for each subscription containing an Azure Virtual Network Manager instance or a virtual network in your connected group.
 
-   > [!NOTE]
+   > [!IMPORTANT]
    > This registration is essential for unlocking the extended private endpoint capacity. For more information, see [How to enable Azure preview features documentation](../azure-resource-manager/management/preview-features.md).
 
-1. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high scale private endpoints functionality. For detailed guidance, see [Manage network policies for private endpoints documentation](../private-link/disable-private-endpoint-network-policy.md).
+3. In each virtual network within your connected group, configure the **Private Endpoint Network Policies** to either `Enabled` or `RouteTableEnabled`. This setting ensures your virtual networks are ready to support the high scale private endpoints functionality. For detailed guidance, see [Increase Private Endpoint virtual network limits](..//private-link/increase-private-endpoint-vnet-limits.md).
 
 #### Configure mesh connectivity for high scale private endpoints
 
