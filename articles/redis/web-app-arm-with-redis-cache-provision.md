@@ -8,7 +8,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 appliesto:
-  - ✅ Azure Cache for Redis---
+  - ✅ Azure Cache for Redis
+---
 
 # Create a Web App plus Azure Cache for Redis using a template
 
