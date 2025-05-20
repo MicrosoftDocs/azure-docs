@@ -20,7 +20,7 @@ Based on the [OPC UA specification](https://reference.opcfoundation.org/), the c
 
 The connector for OPC UA must trust the OPC UA servers it connects to. The connector maintains a list of trusted certificates. To learn more, see:
 
-- [Certificate management for Azure IoT Operations](../secure-iot-ops/concept-default-root-ca.md) - this article describes how Azure IoT Operations uses Azure Key Vault to manage certificates.
+- [Certificate management for Azure IoT Operations](../secure-iot-ops/howto-manage-certificates.md) - this article describes how Azure IoT Operations uses Azure Key Vault to manage certificates.
 - [OPC UA certificates infrastructure for the connector for OPC UA](overview-opcua-broker-certificates-management.md) - this article describes the roles of the trusted certificates list and issuer certificates list.
 
 ## Prerequisites

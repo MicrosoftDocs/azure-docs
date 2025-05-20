@@ -40,7 +40,7 @@ Create an Arc-enabled K3s cluster that meets the system requirements.
 Consider the following measures to ensure your cluster setup is secure before deployment.
 
 * [Validate images](../secure-iot-ops/howto-validate-images.md) to ensure they're signed by Microsoft.
-* When doing TLS encryption, [bring your own issuer](../secure-iot-ops/concept-default-root-ca.md#bring-your-own-issuer) and integrate with an enterprise PKI.
+* When doing TLS encryption, [bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer) and integrate with an enterprise PKI.
 * [Use secrets](../secure-iot-ops/howto-manage-secrets.md) for on-premises authentication.
 * Use [user-assigned managed identities](./howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) for cloud connections.
 * Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes.
