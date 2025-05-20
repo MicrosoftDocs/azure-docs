@@ -167,12 +167,6 @@
       items:
       - name: Use Power BI
         href: network-watcher-visualize-nsg-flow-logs-power-bi.md
-      - name: Use Elastic Stack
-        href: network-watcher-visualize-nsg-flow-logs-open-source-tools.md
-      - name: Use Grafana
-        href: network-watcher-nsg-grafana.md
-      - name: Use Graylog
-        href: network-watcher-analyze-nsg-flow-logs-graylog.md
   - name: Read flow logs
     href: flow-logs-read.md
   - name: Traffic analytics
@@ -185,8 +179,6 @@
       href: traffic-analytics-policy-portal.md
     - name: Schema and data aggregation
       href: traffic-analytics-schema.md
-    - name: Schema update (March 2020)
-      href: traffic-analytics-schema-update.md
     - name: FAQ
       href: traffic-analytics-faq.yml
 - name: Security
