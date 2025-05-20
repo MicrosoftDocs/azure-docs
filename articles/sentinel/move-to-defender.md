@@ -224,7 +224,7 @@ Most functionalities of User and Entity Behavior Analytics (UEBA) remain the sam
 
 ### Update investigation processes to use Microsoft Defender threat intelligence
 
-For Microsoft Sentinel customers moving from the Azure portal to the Defender portal, the familiar threat intelligence features are retained and enhanced with other threat intelligence features available in the Defender portal. Supported features depend on the licenses you have, such as:
+For Microsoft Sentinel customers moving from the Azure portal to the Defender portal, the familiar threat intelligence features are retained in the Defender portal under **Intel management**, and enhanced with other threat intelligence features available in the Defender portal. Supported features depend on the licenses you have, such as:
 
 | Feature          | Description         |
 |-------------------|------------|
