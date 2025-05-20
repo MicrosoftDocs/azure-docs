@@ -38,8 +38,6 @@ This article provides a guide for importing and exporting data with Azure Manage
 ## Requirements
 
 - Before beginning the import operation, ensure that your Redis Database (RDB) file or files are uploaded into page or block blobs in Azure storage, in the same region and subscription as your Azure Managed Redis instance. If you are using managed identity for authentication, the storage account can be in a different subscription. For more information, see [Get started with Azure Blob storage](/azure/storage/blobs/storage-quickstart-blobs-dotnet). If you exported your RDB file using the [export](#export) feature, your RDB file is already stored in a block blob and is ready for importing.
-- 
-
 
 ## Import
 
