@@ -30,7 +30,7 @@ Before you start, note:
 
 ### Review planning guidance, complete prerequisites, and onboard
  
-Review all planning guidance and finish all prerequisites before you start onboarding your workspace to the Defender portal. For more information, see the following articles:
+Review all planning guidance and finish all prerequisites before you onboard your workspace to the Defender portal. For more information, see the following articles:
 
 - [**Plan for unified security operations in the Defender portal**](/unified-secops-platform/overview-plan)
 
@@ -40,7 +40,7 @@ Review all planning guidance and finish all prerequisites before you start onboa
 
 ### Review differences for data storage and privacy
 
-When working in the Azure portal, the [Microsoft Sentinel policies](geographical-availability-data-residency.md) for data storage, process, retention, and sharing apply. When working in the Defender portal, the [Microsoft Defender XDR policies](/defender-xdr/data-privacy) apply instead, even when you're working with Microsoft Sentinel data.
+When you use the Azure portal, the [Microsoft Sentinel policies](geographical-availability-data-residency.md) for data storage, process, retention, and sharing apply. When you use the Defender portal, the [Microsoft Defender XDR policies](/defender-xdr/data-privacy) apply instead, even when you work with Microsoft Sentinel data.
 
 The following table provides additional details and links so that you can compare experiences across the Azure and Defender portals.
 
@@ -169,7 +169,7 @@ Analysts can also view detection sources and product names in the Defender porta
 
 The unified triage process can help reduce analyst workloads and even potentially combine the roles of tier 1 and tier 2 analysts. However, the unified triage process can also require broader and deeper analyst knowledge. We recommend training on the new portal interface to ensure a smooth transition.
 
-For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview?branch=main&branchFallbackFrom=pr-en-us-294911&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
 
 ### Understand how alerts are correlated and incidents are merged in the Defender portal
 
@@ -219,7 +219,7 @@ Most functionalities of User and Entity Behavior Analytics (UEBA) remain the sam
 
 - Adding entities to threat intelligence from incidents is supported only in the Azure portal. For more information, see [Add entity to threat indicators](add-entity-to-threat-intelligence.md).
 
-- After onboarding Microsoft Sentinel to the Defender portal, the `IdentityInfo` table used in the Defender portal includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that existed when used in the Azure portal are either renamed in the Defender portal, or aren't supported at all. We recommend that you check your queries for any references to these fields and update them as needed. For more information, see [IdentityInfo table](/azure/sentinel/ueba-reference?branch=pr-en-us-294911&tabs=unified-table#identityinfo-table).
+- After onboarding Microsoft Sentinel to the Defender portal, the `IdentityInfo` table used in the Defender portal includes unified fields from both Defender XDR and Microsoft Sentinel. Some fields that existed when used in the Azure portal are either renamed in the Defender portal, or aren't supported at all. We recommend that you check your queries for any references to these fields and update them as needed. For more information, see [IdentityInfo table](ueba-reference.md?tabs=unified-table#identityinfo-table).
 
 ### Update investigation processes to use Microsoft Defender threat intelligence
 
