@@ -6,11 +6,12 @@ ms.topic: article
 ms.date: 04/28/2025
 ms.author: mbender
 author: mbender-ms
+ms.custom: portfolio-consolidation-2025
 ---
 
 # What is load balancing and content delivery?
 
-Load balancing and content delivery are critical components in optimizing the performance and reliability of web applications.  Load balancing ensures that incoming network traffic is distributed evenly across multiple servers or services, preventing any single server from becoming overwhelmed with requests. And content delivery optimizes the delivery of content to users by caching and distributing it across multiple locations, reducing latency and improving performance. Together, these two concepts help ensure that applications are highly available, responsive, and capable of handling varying levels of traffic.
+Load balancing and content delivery are critical components in optimizing the performance and reliability of web applications. Load balancing ensures that incoming network traffic is distributed evenly across multiple servers or services, preventing any single server from becoming overwhelmed with requests. And content delivery optimizes the delivery of content to users by caching and distributing it across multiple locations, reducing latency and improving performance. Together, these two concepts help ensure that applications are highly available, responsive, and capable of handling varying levels of traffic.
 
 This article provides an overview of load balancing and content delivery in the context of Azure's services - Azure Application Gateway, Azure Load Balancer, and Azure Front Door. You learn about the key services and categories to help you choose the right solution for your needs.
 
@@ -46,7 +47,7 @@ Azure offers several load-balancing  and content delivery services, each caterin
 
 ## Azure Load Balancer
 
-[Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. It's built to handle millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [global topology](/azure/load-balancer/cross-region-overview).
+[Azure Load Balancer](/azure/load-balancer/load-balancer-overview) is a high-performance, ultra-low-latency Layer 4 load-balancing service (inbound and outbound) for all UDP and TCP protocols. Load balancer handles millions of requests per second while ensuring your solution is highly available. Load Balancer is zone redundant, ensuring high availability across availability zones. It supports both a regional deployment topology and a [global topology](/azure/load-balancer/cross-region-overview).
 
 :::image type="content" source="media/load-balancing-load-balancer-base-scenario.png" alt-text="Diagram of Azure Load Balancer routing scenario.":::
 
@@ -68,10 +69,10 @@ Azure offers several load-balancing  and content delivery services, each caterin
 
 ### Use cases
 
-- **Global content delivery**: Delivers content and applications globally with low latency by leveraging Microsoft's global edge network.
+- **Global content delivery**: Delivers content and applications globally with low latency by using Microsoft's global edge network.
 - **Application acceleration**: Improves application performance by using features like split TCP connections and anycast network.
 - **Security**: Provides platform-level protection against DDoS attacks and integrates with web application firewalls for enhanced security.
-- **Modern Internet-first architectures**: Supports modern architectures with dynamic, high-quality digital experiences and automated, secure platforms.
+- **Modern Internet-first architectures**: Supports modern architectures with dynamic, high-quality digital experiences, and automated, secure platforms.
 
 ## Combining services
 
@@ -88,7 +89,7 @@ The Azure portal provides a centralized experience for [choosing load-balancing 
 
 :::image type="content" source="media/load-balance-content-delivery-portal-experience-inline.png" alt-text="Screenshot of load balancing and content delivery selection experience in Azure portal." lightbox="media/load-balance-content-delivery-portal-experience-expanded.png":::
 
-Along with the deployment of the services, each service can be managed from the portal. You can view all of the application gateways, load balancers, and Azure Front Door resources deployed in your subscription in a single view. Then you can choose the resource you want to manage.
+Along with the deployment of the services, each service can be managed from the portal. You can view all of the application gateways, load balancers, and front door resources deployed in your subscription in a single view. Then you can choose the resources to manage. 
 
 :::image type="content" source="media/manage-load-balancers-portal-experience-inline.png" alt-text="Screenshot of load balancer management in Azure portal." lightbox="media/manage-load-balancers-portal-experience-expanded.png":::
 

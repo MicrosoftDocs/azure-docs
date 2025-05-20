@@ -1,17 +1,17 @@
 ### YamlMime:Hub
 title: Azure load balancing and content delivery documentation
-summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+summary: Discover how to secure and optimize your application with Azure load balancing and content delivery services. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance.
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
   title: Azure load balancing and content delivery
-  summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+  summary: Discover how to secure and optimize your application with Azure load balancing and content delivery services. Learn how Azure Load Balancer, Application Gateway, and Front Door improve performance.
   ms.service: azure-load-balancer
   ms.topic: hub-page
   author: mbender-ms
   ms.author: mbender
   manager: kumudD
-  ms.date: 04/24/2025
+  ms.date: 05/13/2025
   ms.custom: portfolio-consolidation-2025
 
 highlightedContent:
@@ -39,7 +39,7 @@ productDirectory:
       url: /azure/application-gateway
     - title: Azure Load Balancer
       imageSrc: ./media/load-balancer.svg
-      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
+      summary: "Manage distribution of load-balanced public and internal traffic with Azure Load Balancer."
       url: /azure/load-balancer
     - title: Azure Front Door
       imageSrc: ./media/front-door-cdn.svg
@@ -98,7 +98,7 @@ conceptualContent:
               url: /azure/frontdoor/web-application-firewall
 
     - title: Learn more about Azure load balancing and content delivery
-      summary: Explore additional resources to help you design and deploy a load balancing solution
+      summary: Explore other resources to help you design and deploy a load balancing solution
       items:
         # Card
         - title: "Training modules"
