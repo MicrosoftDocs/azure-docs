@@ -5,7 +5,7 @@ description: Migrate from preview API versions of the control plane to the stabl
 author: baanders
 ms.author: baanders
 ms.date: 05/02/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 services: digital-twins
 ---

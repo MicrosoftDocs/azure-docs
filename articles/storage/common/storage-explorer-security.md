@@ -2,12 +2,13 @@
 title: Azure Storage Explorer security guide
 description: Security guidance for Azure Storage Explorer
 services: storage
-author: cralvord
+author: jinglouMSFT
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: best-practice
 ms.date: 07/30/2020
-ms.author: cralvord
+ms.author: jinglou
+ms.reviewer: cralvord,richardgao
 ---
 
 # Azure Storage Explorer security guide
@@ -16,11 +17,11 @@ Microsoft Azure Storage Explorer enables you to easily work with Azure Storage d
 
 ## General
 
-- **Always use the latest version of Storage Explorer.** Storage Explorer releases may contain security updates. Staying up to date helps ensure general security.
-- **Only connect to resources you trust.** Data that you download from untrusted sources could be malicious, and uploading data to an untrusted source may result in lost or stolen data.
+- **Always use the latest version of Storage Explorer.** Storage Explorer releases might contain security updates. Staying up to date helps ensure general security.
+- **Only connect to resources you trust.** Data that you download from untrusted sources could be malicious, and uploading data to an untrusted source might result in lost or stolen data.
 - **Use HTTPS whenever possible.** Storage Explorer uses HTTPS by default. Some scenarios allow you to use HTTP, but HTTP should be used only as a last resort.
 - **Ensure only the needed permissions are given to the people who need them.** Avoid being overly permissive when granting anyone access to your resources.
-- **Use caution when executing critical operations.** Certain operations, such as delete and overwrite, are irreversible and may cause data loss. Make sure you're working with the correct resources before executing these operations.
+- **Use caution when executing critical operations.** Certain operations, such as delete and overwrite, are irreversible and might cause data loss. Make sure you're working with the correct resources before executing these operations.
 
 ## Choosing the right authentication method
 
@@ -34,19 +35,23 @@ The easiest and most secure way to access your Azure Storage resources is to sig
 
 - Give access to specific users and groups.
 - Revoke access to specific users and groups at any time.
-- Enforce access conditions, such as requiring multi-factor authentication.
+- Enforce access conditions, such as requiring multifactor authentication.
 
 We recommend using Microsoft Entra authentication whenever possible.
 
-This section describes the two Microsoft Entra ID-based technologies that can be used to secure your storage resources.
+This section describes the two Microsoft Entra ID-based technologies that can be used to secure your storage resources:
+- Azure role-based access control (Azure RBAC)
+- Access control lists (ACLs)
 
-#### Azure role-based access control (Azure RBAC)
+#### Azure role-based access control
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) give you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
+Azure RBAC gives you fine-grained access control over your Azure resources. Azure roles and permissions can be managed from the Azure portal.
 
-Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, Queues, and Tables. If you need access to File Shares, you'll need to assign Azure roles that grant permission to list storage account keys.
+You can learn more about Azure RBAC; see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
-#### Access control lists (ACLs)
+Storage Explorer supports Azure RBAC access to Storage Accounts, Blobs, Queues, and Tables. If you need access to File Shares, you need to assign Azure roles that grant permission to list storage account keys.
+
+#### Access control lists
 
 [Access control lists (ACLs)](../blobs/data-lake-storage-access-control.md) let you control file and folder level access in ADLS blob containers. You can manage your ACLs using Storage Explorer.
 
@@ -59,7 +64,7 @@ If you can't use Microsoft Entra authentication, we recommend using shared acces
 
 However, with shared access signatures, you can't:
 
-- Restrict who can use a SAS. A valid SAS can be used by anyone who has it.
+- Restrict who can use a SAS. Anyone who has a valid SAS can use it.
 - Revoke a SAS if not generated from a shared access policy (SAP).
 
 When using SAS in Storage Explorer, we recommend the following guidelines:
@@ -79,7 +84,7 @@ Storage account keys grant unrestricted access to the services and resources wit
 
 Some Azure roles grant permission to retrieve storage account keys. Individuals with these roles can effectively circumvent permissions granted or denied by Azure RBAC. We recommend not granting this permission unless it's necessary.
 
-Storage Explorer will attempt to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC, such as working with Classic storage accounts. Such features still require keys and are not affected by this setting.
+Storage Explorer attempts to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC, such as working with Classic storage accounts. This setting doesn't affect features that still require keys.
 
 If you must use keys to access your storage resources, we recommend the following guidelines:
 
@@ -87,11 +92,11 @@ If you must use keys to access your storage resources, we recommend the followin
 - **Treat your storage account keys like passwords.** If you must make your keys accessible, use secure storage solutions such as [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 > [!NOTE]
-> If you believe a storage account key has been shared or distributed by mistake, you can generate new keys for your storage account from the Azure portal.
+> If you believe a storage account key was shared or distributed unintentionally, you can generate new keys for your storage account from the Azure portal.
 
-### anonymous access to blob containers
+### Anonymous access to blob containers
 
-Storage Explorer allows you to modify the access level of your Azure Blob Storage containers. Non-private blob containers allow anyone anonymous read access to data in those containers.
+Storage Explorer allows you to modify the access level of your Azure Blob Storage containers. Nonprivate blob containers allow anyone anonymous read access to data in those containers.
 
 When enabling anonymous access for a blob container, we recommend the following guidelines:
 

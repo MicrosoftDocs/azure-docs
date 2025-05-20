@@ -34,7 +34,7 @@ The same resources can be connected to many different service groups allowing di
 :::image type="content" source="./media/multiple-service-group.png" alt-text="Diagram that shows multiple service group branches." Lightbox="./media/multiple-service-group.png":::
 
 ### Flexible Membership
-Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "MemberOf" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
+Within the hierarchy of resources, there's a limitation of one parent resource container to many children. For example, a resource can only be a member of one resource group or a resource group can only be a member of one subscription. Service Groups introduce a new model that allows a resources or resource containers to have memberships with multiple different Service Groups. A member is any resource, resource group, or subscription that is connected to a Service Group through a new resource called "ServiceGroupMember" Relationship. The Service Group allows new scenarios where the same resources can be connected to many Service Groups Trees enabling new ways to view your data.  
 
 #### Example Scenarios 
 * Aggregating Health Metrics
@@ -148,7 +148,7 @@ This role manages all aspects of Service Groups and Relationships and is the def
 }
 ```
 #### Service Group Contributor 
-The Service Group Contributor role given to users when they need to create or manage the lifecycle of a Service Group. This role allows fro all actions except for Role Assignment capabilities.  
+The Service Group Contributor role given to users when they need to create or manage the lifecycle of a Service Group. This role allows for all actions except for Role Assignment capabilities.  
 ```json
 {
   "assignableScopes": [

@@ -5,7 +5,7 @@ description: Learn about high availability and disaster recovery features for Az
 author: baanders
 ms.author: baanders
 ms.date: 4/17/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ---
 
