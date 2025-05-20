@@ -84,28 +84,28 @@ The general layer section of the **Format** pane are common settings that apply 
 
 | Setting        | Description                            |
 |----------------|----------------------------------------|
-| Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected.  |
-| Min data value | The minimum value of the input data to scale against. Good for clipping outliers.  |
-| Max data value | The maximum value of the input data to scale against. Good for clipping outliers.  |
+| Unselected transparency | The transparency of shapes that aren't selected, when one or more shapes are selected. |
+| Min data value | The minimum value of the input data to scale against. Good for clipping outliers. |
+| Max data value | The maximum value of the input data to scale against. Good for clipping outliers. |
 
 ## Layer positions
 
-In the Azure Maps visual, certain layers are fixed, meaning they are set at a predefined level and cannot be repositioned. Other layers are adjustable, giving users the flexibility to choose from three positioning options: "Above Labels," "Below Labels," or "Below Roads."
+In the Azure Maps visual, certain layers are fixed, meaning they're set at a predefined level and can't be repositioned. Other layers are adjustable, giving users the flexibility to choose from three positioning options: "Above Labels," "Below Labels," or "Below Roads."
 
-:::image type="content" source="media/power-bi-visual/layer-position.png" alt-text="a screenshot showing the layer position drop down list.":::
+:::image type="content" source="media/power-bi-visual/layer-position.png" alt-text="a screenshot showing the layer position drop-down list.":::
 
-Within each Layer position, the order of layers remains consistent. For instance, the 3D barchart layer always appears above the bubble layer due to its higher layer order, regardless of whether they are placed in "Below Labels" or "Above Labels."
+Within each Layer position, the order of layers remains consistent. For instance, the 3D bar chart layer always appears above the bubble layer due to its higher layer order, regardless of whether they're placed in "Below Labels" or "Above Labels."
 
 ## Layer order
 
-The following table outlines the layer order from top to bottom along with their respective layer position types.  Layers marked as "Adjustable" can have their position changed using the Layer position dropdown, as shown in the previous screenshot. Layers marked as "Fixed" do not offer this option.
+The following table outlines the layer order from top to bottom along with their respective layer position types. Layers marked as "Adjustable" can have their position changed using the Layer position dropdown, as shown in the previous screenshot. Layers marked as "Fixed" don't offer this option.
 
 | Layer Name           | Layer Order | Layer position | Description                                           |
 |----------------------|-------------|----------------|-------------------------------------------------------|
 | Category Labels      | 1           | Fixed          |                                                       |
 | Selection Tools      | 2           | Fixed          |                                                       |
-| 3D Barchart Layer    | 3           | Adjustable     |                                                       |
-| Piechart Layer<br>Bubble Layer<br>Cluster Bubble Layer<br>Path Layer | 4 | Adjustable | These layers share the same “Layer position” as the bubble layer, and their relative order within this group remains fixed. |
+| 3D Bar chart Layer    | 3           | Adjustable     |                                                       |
+| Pie chart Layer<br>Bubble Layer<br>Cluster Bubble Layer<br>Path Layer | 4 | Adjustable | These layers share the same "Layer position" as the bubble layer, and their relative order within this group remains fixed. |
 | Heat Map Layer       | 5           | Adjustable     |                                                       |
 | Reference Layer      | 6           | Fixed          |                                                       |
 | Filled Map Layer     | 7           | Adjustable     |                                                       |
