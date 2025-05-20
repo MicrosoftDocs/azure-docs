@@ -19,23 +19,24 @@ ms.author: tchladek
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md).
 
 ## Final code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart).
+
+Find the finalized code at [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart).
 
 ## Set up your environment
 
 ### Create a new Node.js application
 
-In a terminal or Command Prompt window, create a new directory for your app, and then open it.
+1. In a terminal or command prompt window, create a new directory for your app, and then open it.
 
-```console
-mkdir access-tokens-quickstart && cd access-tokens-quickstart
-```
+   ```console
+   mkdir access-tokens-quickstart && cd access-tokens-quickstart
+   ```
 
-Run `npm init -y` to create a *package.json* file with default settings.
+2. Run `npm init -y` to create a `package.json` file with default settings.
 
-```console
-npm init -y
-```
+   ```console
+   npm init -y
+   ```
 
 ### Install the package
 
@@ -45,7 +46,7 @@ Use the `npm install` command to install the Azure Communication Services Identi
 npm install @azure/communication-identity@latest --save
 ```
 
-The `--save` option lists the library as a dependency in your *package.json* file.
+The `--save` option lists the library as a dependency in your `package.json` file.
 
 ## Set up the app framework
 
@@ -66,12 +67,11 @@ The `--save` option lists the library as a dependency in your *package.json* fil
     })
     ```
 
-
 ## Authenticate the client
 
 Instantiate `CommunicationIdentityClient` with your connection string. The following code, which you add to the `Main` method, retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. 
 
-For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string).
+For more information, see [Create and manage Communication Services resources > Store your connection string](../../../create-communication-resource.md#store-your-connection-string).
 
 ```javascript
 // This code demonstrates how to fetch your connection string
@@ -97,7 +97,7 @@ const tokenCredential = new AzureKeyCredential(accessKey);
 const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential)
 ```
 
-If you've already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
+If you already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```javascript
 const endpoint = process.env["COMMUNICATION_SERVICES_ENDPOINT"];
@@ -107,12 +107,13 @@ const identityClient = new CommunicationIdentityClient(endpoint, tokenCredential
 
 ## Create an identity
 
-To create access tokens, you need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `createUser` method to create a new entry in the directory with a unique `Id`. The identity is required later for issuing access tokens.
+To create access tokens, you need an identity. Azure Communication Services maintains a lightweight identity directory for this purpose. Use the `createUser` method to create a new entry in the directory with a unique `Id`. You need the identity later to issue access tokens.
 
 ```javascript
 let identityResponse = await identityClient.createUser();
 console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 ```
+
 Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
 
 ## Issue an access token
@@ -129,11 +130,11 @@ console.log(`\nIssued an access token with 'voip' scope that expires at ${expire
 console.log(token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expiresOn` property indicates the lifetime of the access token.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application user experience. The `expiresOn` property indicates the lifetime of the access token.
 
 ## Set a custom token expiration time
 
-The default token expiration time is 24 hours (1440 minutes), but you can configure it by providing a value between 60 minutes and 1440 minutes to the optional parameter `tokenExpiresInMinutes`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours (1440 minutes), but you can configure it by providing a value between 60 minutes and 1440 minutes to the optional parameter `tokenExpiresInMinutes`. When requesting a new token, specify the expected typical length of a communication session for the token expiration time.
 
 ```javascript
 // Issue an access token with a validity of an hour and the "voip" scope for an identity
@@ -144,7 +145,7 @@ let tokenResponse = await identityClient.getToken
 
 ## Create an identity and issue a token in one method call
 
-You can use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. Again, you create it with the `voip` scope.
+You can use the `createUserAndToken` method to create a Communication Services identity and issue an access token for it at the same time. The `scopes` parameter defines a set of access token permissions and roles. Create it with the `voip` scope.
 
 ```javascript
 // Issue an identity and an access token with a validity of 24 hours and the "voip" scope for the new identity
@@ -159,7 +160,7 @@ console.log(token);
 
 ## Refresh an access token
 
-As tokens expire, you'll periodically need to refresh them. Refreshing is easy just call `getToken` again with the same identity that was used to issue the tokens. You'll also need to provide the `scopes` of the refreshed tokens.
+As tokens expire, you need to refresh them. To refresh tokens, call `getToken` again with the same identity used to issue the tokens. You also need to provide the `scopes` of the refreshed tokens.
 
 ```javascript
 // Value of identityResponse represents the Azure Communication Services identity stored during identity creation and then used to issue the tokens being refreshed
@@ -168,7 +169,7 @@ let refreshedTokenResponse = await identityClient.getToken(identityResponse, ["v
 
 ## Revoke access tokens
 
-You might occasionally need to revoke an access token. For example, you would do so when application users change the password they use to authenticate to your service. The `revokeTokens` method invalidates all active access tokens that were issued to the identity.
+You might need to revoke an access token. For example, you do so when application users change the password they use to authenticate to your service. The `revokeTokens` method invalidates all active access tokens that were issued to the identity.
 
 ```javascript
 await identityClient.revokeTokens(identityResponse);
@@ -178,7 +179,7 @@ console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${id
 
 ## Delete an identity
 
-When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content that's associated with the identity.
+When you delete an identity, you revoke all active access tokens and prevent the further issue of access tokens for the identity. Doing so also removes all persisted content associated with the identity.
 
 ```javascript
 await identityClient.deleteUser(identityResponse);
@@ -194,7 +195,7 @@ From a console prompt, go to the directory that contains the *issue-access-token
 node ./issue-access-token.js
 ```
 
-The app's output describes each completed action:
+The app output describes each completed action:
 
 <!---cSpell:disable --->
 ```console

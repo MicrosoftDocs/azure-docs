@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample single-page application by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample JavaScript single-page application (SPA) to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your SPAs.
 
@@ -60,7 +61,7 @@ The app architecture and registrations are illustrated in the following diagram:
 A computer that's running:
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor.
-* [Node.js runtime](https://nodejs.org/en/download/)
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/)
 
 ## Step 1: Configure your user flow
 

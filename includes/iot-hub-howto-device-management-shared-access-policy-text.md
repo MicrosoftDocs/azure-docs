@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: kgremban
+author: SoniaLopezBravo
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 07/17/2019
-ms.author: kgremban
+ms.author: sonialopez
 ms.custom: include file
 ---
 <!-- This contains intro text for the "Get an IoT hub connection string" section in the iot-hub-lang-lang-device-management-get-started.md files-->

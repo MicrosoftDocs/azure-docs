@@ -1,8 +1,9 @@
 ---
-title: Azure Migrate application and code assessment for Java
+title: Azure Migrate Application and Code Assessment for Java
 description: Learn how to use the Azure Migrate application and code assessment tool to determine readiness to migrate any type of Java application to Azure.
 author: KarlErickson
-ms.author: antoniomanug
+ms.author: karler
+ms.reviewer: antoniomanug
 ms.service: azure
 ms.custom: devx-track-java, devx-track-extended-java
 ms.topic: overview
@@ -11,6 +12,9 @@ ms.date: 07/12/2024
 ---
 
 # Azure Migrate application and code assessment for Java
+
+> [!NOTE]
+> We've released a new version of *Azure Migrate application and code assessment for Java*, version 7.x under preview, based on a new analyzer engine. To download and experiment with the new engine, available for Windows, Linux, and macOS, see [Azure Migrate application and code assessment for Java version 7](./java-preview.md) 
 
 This guide describes how to use the Azure Migrate application and code assessment tool for Java to assess and replatform any type of Java application. The tool enables you to evaluate application readiness for replatforming and migration to Azure. This tool is offered as a CLI (command-line interface) and assesses Java application binaries and source code to identify replatforming and migration opportunities for Azure. It helps you modernize and replatform large-scale Java applications by identifying common use cases and code patterns and proposing recommended changes.
 
@@ -60,7 +64,7 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
 
 > [!div class="nextstepaction"]
-> [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
+> [Download Azure Migrate application and code assessment for Java 6.3.9.0](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.9.0-preview.zip). Updated on 2024-12-09.
 
 For more information, see the [Release notes](#release-notes) section.
 
@@ -74,6 +78,7 @@ Running `appcat` in a non-unicode environment with complex double-byte character
 
 The following previous releases are also available for download:
 
+ - [Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Released on August, 2024.
  - [Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.8-preview.zip). Released on March, 2024.
  - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip). Released on November, 2023.
 
@@ -320,6 +325,28 @@ After executing this rule through `appcat`, rerun the analysis to review the gen
 The complete guide for Rules Development is available at [azure.github.io/appcat-docs/rules-development-guide](https://azure.github.io/appcat-docs/rules-development-guide/).
 
 ## Release notes
+
+### 6.3.9.0
+
+This release contains the following fixes and includes a set of new rules. For more information, see below.
+
+**General Updates**
+ - Integrated changes from the Windup upstream repository (6.3.9.Final Release).
+ - Resolved broken links in rule descriptions and help text.
+
+**Rules**
+ - Azure Message Queue: updated and added new rules for azure-message-queue-rabbitmq and azure-message-queue-amqp.
+ - Azure Service Bus: introduced a detection rule for Azure Service Bus.
+ - MySQL & PostgreSQL: refined dependency detection rules.
+ - Azure-AWS Rules: enhanced and improved existing rules.
+ - S3 Spring Starter: added a detection rule for S3 Spring Starter.
+ - RabbitMQ Spring JMS: added a detection rule for RabbitMQ Spring JMS.
+ - Logging Rules: updated and refined logging-related rules.
+ - Local-Storage Rule: updated and refined the local storage rule.
+ - Azure File System Rule: updated and refined the Azure File System rule.
+
+**Libraries**
+ - Updated libraries to address security vulnerabilities.
 
 ### 6.3.0.9
 

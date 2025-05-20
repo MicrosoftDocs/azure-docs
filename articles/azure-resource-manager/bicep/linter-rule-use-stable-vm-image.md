@@ -3,7 +3,7 @@ title: Linter rule - use stable VM image
 description: Linter rule - use stable VM image
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 02/12/2025
 ---
 
 # Linter rule - use stable VM image

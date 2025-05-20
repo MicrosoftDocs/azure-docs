@@ -48,12 +48,10 @@ Use the following registry keys to configure .NET Framework that supports strong
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
     "SystemDefaultTlsVersions"=dword:00000001
-    "SchUseStrongCrypto" = dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-    "SystemDefaultTlsVersions"=dword:00000001
-    "SchUseStrongCrypto" = dword:00000001
 ```
+
+> [!NOTE]
+> If the registry keys are absent, you don't need to create them for Windows Server 2012 R2 or later versions if TLS 1.2 is enabled in SChannel protocols.
 
 ## Frequently asked questions
 

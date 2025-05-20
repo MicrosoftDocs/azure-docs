@@ -210,15 +210,28 @@ Site Recovery generates crash-consistent recovery points every 5 minutes.
 
 ### Can I change an already replicating machine from one to another Recovery Services vault?
 
-Switching Recovery Services vaults, when the replication is already ongoing, isn't supported. To do so, replication needs to be disabled and enabled again. Additionally, the mobility service agent, installed on the source machine, will need to be unconfigured so that it can be configured to a new vault. Use the below commands to perform the unregistration - 
+Switching Recovery Services vaults, when the replication is already ongoing, isn't supported. To do so, replication needs to be disabled and enabled again. Additionally, the mobility service agent, installed on the source machine, must be un-configured so that it can be configured to a new vault. Use the following commands to perform the unregistration:
 
-For Windows machines - 
+*For Windows machines:*
 
 `C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe /Unconfigure true`
 
-For Linux machines - 
+*For Linux machines:*
 
 `/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -q -U true -c CSPrime`
+
+### Can I change an already replicating machine from one region to another region? 
+
+Switching region, when the replication is already ongoing isn't supported. To do so, replication needs to be disabled and enabled again. Additionally, to avoid reboot there is no need to uninstall the mobility agent, mobility agent installed on the source machine, must be un-configured using the commands mentioned. Use the following commands to perform the unregistration:
+
+*For Windows machines:*
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\UnifiedAgentConfigurator.exe /Unconfigure true`
+
+*For Linux machines:*
+
+`/usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -q -U true -c CSPrime`
+
 
 ## Component upgrade
 

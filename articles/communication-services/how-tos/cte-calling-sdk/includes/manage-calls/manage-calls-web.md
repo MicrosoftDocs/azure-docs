@@ -12,7 +12,7 @@ ms.author: xixian
 Start a synchronous one-to-one or group call with `startCall` API on `teamsCallAgent`. You can provide `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as a parameter to define the target of the call. The method returns the `TeamsCall` instance that allows you to subscribe to call events.
 
 > [!NOTE]
-> Start a group call with `teamsCallAgent` requires chat's `threadId` when calling `startCall` method. Created `TeamsCall` instance has property `threadId` capturing this thread. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread).
+> Start a group call with `teamsCallAgent` requires chat's `threadId` when calling `startCall` method. Created `TeamsCall` instance has property `threadId` capturing this thread. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsoft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread).
 
 Start a one-to-one Voice-over IP (VoIP) call to Teams user:
 ```js
@@ -143,7 +143,7 @@ await call.remoteParticipants[0].mute();
 Other call participants are available in the `TeamsCall` instance under the property `remoteParticipants`. It's a collection of `RemoteParticipant` objects. You can list, add, and remove other participants from the call.
 
 > [!NOTE]
-> Adding a participant method requires chat's `threadId`. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread).
+> Adding a participant method requires chat's `threadId`. Communication Services Calling SDK does not keep participants in chat and call roster in sync. Microsoft encourages developers to keep the roster in sync for the best user experience. Learn how to [manage chat thread](#manage-chat-thread).
 
 You can add new Teams user or phone number to the Teams call or Teams meeting by calling the method `addParticipant` on the object `TeamsCall`. The method accepts identifiers `MicrosoftTeamsUserIdentifier` or `PhoneNumberIdentifier` as input and returns synchronously the instance of `RemoteParticipant` and triggers the event `remoteParticipantsUpdated` on the `TeamsCall` instance.
 
@@ -346,12 +346,12 @@ If Teams user stops call recording, the recording is placed into the chat associ
 
 Recommendations for the management of chat ID:
 - Escalation of the 1:1 phone call by adding another phone participant:
-  * Method `addParticipant` allows you to provide optional parameter thread ID. If the parameter isn't provided, then a new group chat is created, and all participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
+  * Method `addParticipant` allows you to provide optional parameter chat ID. If the parameter isn't provided, then a new group chat is created, and all participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
     addParticipant(participant: MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)
     ```
 - Start group call with single Microsoft 365 user and multiple phone participants:
-  * Method `startCall` API allows you to start a group call with multiple participants and optionally provide thread ID. If the parameter isn't provided, then a new group chat is created, and all Microsoft 365 participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
+  * Method `startCall` API allows you to start a group call with multiple participants and optionally provide chat ID. If the parameter isn't provided, then a new group chat is created, and all Microsoft 365 participants are added to the call and chat participants list. If the parameter is provided, then Teams users can see ongoing call associated to this group chat in Teams app. You can create new group chat via Graph API.
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
@@ -361,4 +361,4 @@ Recommendations for the management of chat ID:
     ```js
     startCall(MicrosoftTeamsUserIdentifier | PhoneNumberIdentifier | MicrosoftTeamsAppIdentifier | UnknownIdentifier)[])
     ```
-  * If desired, the developer can provide a unique thread ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given thread ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call. Chat thread management can be done via [Graph API](/graph/api/group-post-threads)
+  * If desired, the developer can provide a unique chat ID to start the group call or add participants. In this case, the ACS Calling SDK will use the given chat ID to create the group call. A chat thread is created for the Teams users and this thread is associated to the group call for users in Teams app. This allows them to chat during the call. Chat thread management can be done via [Graph API](/graph/api/group-post-threads)

@@ -1,7 +1,7 @@
 ---
 title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that can automatically be renewed.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
 ms.date: 04/16/2024
 ---
@@ -104,7 +104,7 @@ Request Body for Linux node
   "identity": {
     "type": "UserAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
     }
   }
 }
@@ -168,7 +168,7 @@ Request Body for Windows node
     "identity": {
         "type": "UserAssigned",
         "userAssignedIdentities": {
-            "/subscriptions/042998e4-36dc-4b7d-8ce3-a7a2c4877d33/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
+            "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ACR/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testumaforpools": {}
         }
     }
 }

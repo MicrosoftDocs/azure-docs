@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 9/17/2024
+ms.date: 2/28/2025
 ms.author: greglin
 ---
 
@@ -16,7 +16,7 @@ When you deploy the Application Gateway Ingress Controller (AGIC) as an Azure Ku
 The life cycle of the Azure Application Gateway deployment differs when you disable the AGIC add-on, depending on whether you created the Application Gateway deployment by using the AGIC add-on or you deployed it separately from the add-on. You can run the same command to re-enable the AGIC add-on if you ever disable it, or to enable the AGIC add-on by using an existing AKS cluster and Application Gateway deployment.
 
 > [!TIP]
-> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution.
+> Consider [Application Gateway for Containers](for-containers/overview.md) for your Kubernetes ingress solution. For more information, see [Quickstart: Deploy Application Gateway for Containers ALB Controller](for-containers/quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 
 ## Disable the AGIC add-on with an associated Application Gateway deployment
 

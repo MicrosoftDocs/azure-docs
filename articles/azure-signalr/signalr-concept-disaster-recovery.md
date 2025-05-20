@@ -54,7 +54,7 @@ Once you have SignalR service and app servers/Azure Functions created in each re
 
 ### Through config
 
-You should already know how to set SignalR service connection string through environment variables/app settings/web.cofig, in a config entry named `Azure:SignalR:ConnectionString`.
+You should already know how to set SignalR service connection string through environment variables/app settings/web.config, in a config entry named `Azure:SignalR:ConnectionString`.
 If you have multiple endpoints, you can set them in multiple config entries, each in the following format:
 
 ```

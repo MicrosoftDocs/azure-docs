@@ -121,7 +121,7 @@ There are two ways to provide access:
 
   Refer to the security rule tips in [NTP access](#ntp-access) for more information.
 
-  This command lists the CRL and OSCP servers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
+  This command lists the CRL and OCSP servers that need to be permitted access. These servers must be resolvable by DNS and reachable on port 80 from the cache subnet.
 
   ```bash
 

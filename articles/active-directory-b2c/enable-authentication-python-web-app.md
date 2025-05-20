@@ -1,5 +1,5 @@
 ---
-title: Enable authentication in your own Python web application using Azure Active Directory B2C
+title: Enable authentication in your own Python web application using Azure AD B2C
 description: This article explains how to enable authentication in your own Python web application using Azure AD B2C
 titleSuffix: Azure AD B2C
 
@@ -8,23 +8,24 @@ manager: CelesteDG
 ms.service: azure-active-directory
 ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 02/21/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 #Customer intent: As a Python web application developer, I want to enable Azure Active Directory B2C authentication in my application, so that users can sign in, sign out, update their profile, and reset their password using Azure AD B2C user flows.
 ---
 
 # Enable authentication in your own Python web application using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
-In this article, you'll learn how to add Azure Active Directory B2C (Azure AD B2C) authentication in your own Python web application. You'll enable users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. This article uses [Microsoft Authentication Library (MSAL) for Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/main) to simplify adding authentication to your Python web application.
+In this article, you learn how to add Azure Active Directory B2C (Azure AD B2C) authentication in your own Python web application. You enable users to sign in, sign out, update profile and reset password using Azure AD B2C user flows. This article uses [Microsoft Authentication Library (MSAL) for Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/main) to simplify adding authentication to your Python web application.
 
 The aim of this article is to substitute the sample application you used in [Configure authentication in a sample Python web application by using Azure AD B2C](configure-authentication-sample-python-web-app.md) with your own Python application.
 
-This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https://flask.palletsprojects.com/en/2.1.x/) to create a basic web app. The application's views uses [Jinja2 templates](https://flask.palletsprojects.com/en/2.1.x/templating/).
+This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https://flask.palletsprojects.com/en/stable/installation/) to create a basic web app. The application's views use [Jinja2 templates](https://flask.palletsprojects.com/en/2.1.x/templating/).
 
 ## Prerequisites
 
-- Complete the steps in [Configure authentication in a sample Python web application by using Azure AD B2C](configure-authentication-sample-python-web-app.md). You'll create Azure AD B2C user flows and register a web application in Azure portal.
+- Complete the steps in [Configure authentication in a sample Python web application by using Azure AD B2C](configure-authentication-sample-python-web-app.md). You create Azure AD B2C user flows and register a web application in Azure portal.
 - Install [Python](https://www.python.org/downloads/) 3.9 or above
 - [Visual Studio Code](https://code.visualstudio.com/) or another code editor
 - Install the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code
@@ -126,7 +127,7 @@ py -m pip install -r requirements.txt
 
 ## Step 3: Build app UI components
 
-Flask is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering. It leverages Jinja2 as its template engine to render the content of your app. For more information, check out the [template designer documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/). In this section, you add the required templates that provide the basic functionality of your web app.
+Flask is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering. It uses Jinja2 as its template engine to render the content of your app. For more information, check out the [template designer documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/). In this section, you add the required templates that provide the basic functionality of your web app.
 
 ### Step 3.1 Create a base template
 
@@ -475,6 +476,6 @@ To change the host name and/or port number, use the `args` array of the `launch.
 
 
 
-## Next steps
+## Related content
 
 - Learn how to [customize and enhance the Azure AD B2C authentication experience for your web app](enable-authentication-python-web-app-options.md)

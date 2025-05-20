@@ -3,13 +3,15 @@ title: Install Azure Backup Server on Azure Stack Hub
 description: In this article, learn how to use Azure Backup Server to protect or back up workloads in Azure Stack Hub.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 04/22/2024
-author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.date: 04/30/2025
+author: jyothisuri
+ms.author: jsuri
 ---
 # Install Azure Backup Server on Azure Stack Hub
 
-This article explains how to install Azure Backup Server on Azure Stack Hub. With Azure Backup Server, you can protect Infrastructure as a Service (IaaS) workloads such as virtual machines running in Azure Stack Hub. A benefit of using Azure Backup Server to protect your workloads is you can manage all workload protection from a single console.
+This article describes how to install Azure Backup Server on Azure Stack Hub. 
+
+Microsoft Azure Backup Server (MABS) protects Infrastructure as a Service (IaaS) workloads, including virtual machines running in Azure Stack Hub. It enables you to manage all workload protection from a single console, streamlining your operations.
 
 > [!NOTE]
 > To learn about security capabilities, refer to [Azure Backup security features documentation](backup-azure-security-feature.md).
@@ -18,9 +20,12 @@ This article explains how to install Azure Backup Server on Azure Stack Hub. Wit
 
 ## Prerequisites for the Azure Backup Server environment
 
-Consider the recommendations in this section when installing Azure Backup Server in your Azure Stack Hub environment. The Azure Backup Server installer checks that your environment has the necessary prerequisites, but you'll save time by preparing before you install.
+Before you install MicrosoftAzure Backup Server in your Azure Stack Hub environment, ensure that the prerequisites in the following sections are met.
 
-### Determining size of virtual machine
+>[!Note]
+>Though the Azure Backup Server installer verifies that all prerequisites are met, you can save time by preparing your environment in advance.
+
+### Determine size of virtual machine
 
 To run Azure Backup Server on an Azure Stack Hub virtual machine, use size A2 or larger. For assistance in choosing a virtual machine size, download the [Azure Stack Hub VM size calculator](https://www.microsoft.com/download/details.aspx?id=56832).
 
@@ -35,11 +40,11 @@ If shared with other virtual machines, the storage account size and IOPS limits 
 - its own use (a cache location),
 - data restored from the cloud (local staging area)
 
-### Configuring Azure Backup temporary disk storage
+### Configure Azure Backup temporary disk storage
 
 Each Azure Stack Hub virtual machine comes with temporary disk storage, which is available to the user as volume `D:\`. The local staging area needed by Azure Backup can be configured to reside in `D:\`, and the cache location can be placed on `C:\`. In this way, no storage needs to be carved away from the data disks attached to the Azure Backup Server virtual machine.
 
-### Storing backup data on local disk and in Azure
+### Store backup data on local disk and in Azure
 
 Azure Backup Server stores backup data on Azure disks attached to the virtual machine, for operational recovery. Once the disks and storage space are attached to the virtual machine, Azure Backup Server manages storage for you. The amount of backup data storage depends on the number and size of disks attached to each [Azure Stack Hub virtual machine](/azure-stack/user/azure-stack-storage-overview). Each size of Azure Stack Hub VM has a maximum number of disks that can be attached to the virtual machine. For example, A2 is four disks. A3 is eight disks. A4 is 16 disks. Again, the size and number of disks determines the total backup storage pool.
 
@@ -51,7 +56,7 @@ Storing backup data in Azure reduces backup infrastructure on Azure Stack Hub. I
 
 To store backup data in Azure, create or use a Recovery Services vault. When preparing to back up the Azure Backup Server workload, you [configure the Recovery Services vault](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault). Once configured, each time a backup job runs, a recovery point is created in the vault. Each Recovery Services vault holds up to 9999 recovery points. Depending on the number of recovery points created, and how long they're retained, you can retain backup data for many years. For example, you could create monthly recovery points, and retain them for five years.
 
-### Scaling deployment
+### Scale the deployment
 
 If you want to scale your deployment, you have the following options:
 
@@ -59,17 +64,17 @@ If you want to scale your deployment, you have the following options:
 - Offload data - send older data to Azure and retain only the newest data on the storage attached to the Azure Backup Server.
 - Scale out - Add more Azure Backup Servers to protect the workloads.
 
-### .NET Framework
+### Check the .NET Framework version
 
 .NET Framework 4.5 or higher must be installed on the virtual machine.
 
-### Joining a domain
+### Join a domain
 
 The Azure Backup Server virtual machine must be joined to a domain. A domain user with administrator privileges must install Azure Backup Server on the virtual machine.
 
-## Using an IaaS VM in Azure Stack Hub
+## Use an IaaS VM in Azure Stack Hub
 
-When choosing a server for Azure Backup Server, start with a Windows Server 2022 Datacenter or Windows Server 2019 Datacenter gallery image. The article, [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5-GB RAM. Use DPM\MABS [capacity planner](https://www.microsoft.com/download/details.aspx?id=54301) to get the appropriate RAM size and accordingly choose the IaaS VM size.
+When you choose a server for Azure Backup Server, start with a Windows Server 2022 Datacenter or Windows Server 2019 Datacenter gallery image. The article, [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal?toc=/azure/virtual-machines/windows/toc.json), provides a tutorial for getting started with the recommended virtual machine. The recommended minimum requirements for the server virtual machine (VM) should be: A2 Standard with two cores and 3.5-GB RAM. Use DPM\MABS [capacity planner](https://www.microsoft.com/download/details.aspx?id=54301) to get the appropriate RAM size and accordingly choose the IaaS VM size.
 
 Protecting workloads with Azure Backup Server has many nuances. The [protection matrix for MABS](./backup-mabs-protection-matrix.md) helps explain these nuances. Before deploying the machine, read this article completely.
 
@@ -89,7 +94,7 @@ Always join Azure Backup Server to a domain. If you need to move Azure Backup Se
 
 The Recovery Services vault storage replication option allows you to choose between geo-redundant storage and locally redundant storage. By default, Recovery Services vaults use geo-redundant storage. If this vault is your primary vault, leave the storage option set to geo-redundant storage. Choose locally redundant storage if you want a cheaper option that's less durable. Read more about [geo-redundant](../storage/common/storage-redundancy.md#geo-redundant-storage), [locally redundant](../storage/common/storage-redundancy.md#locally-redundant-storage), and [zone-redundant](../storage/common/storage-redundancy.md#zone-redundant-storage) storage options in the [Azure Storage replication overview](../storage/common/storage-redundancy.md).
 
-To edit the storage replication setting:
+To edit the storage replication setting, follow these steps:
 
 1. Select your vault to open the vault dashboard and the Settings menu. If the **Settings** menu doesn't open, select **All settings** in the vault dashboard.
 2. On the **Settings** menu, select **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** menu. On the **Backup Configuration** menu, choose the storage replication option for your vault.
@@ -98,7 +103,9 @@ To edit the storage replication setting:
 
 ## Download Azure Backup Server installer
 
-There are two ways to download the Azure Backup Server installer. You can download the Azure Backup Server installer from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55269). You can also download Azure Backup Server installer while you're configuring a Recovery Services vault. The following steps walk you through downloading the installer from the Azure portal while configuring a Recovery Services vault.
+There are two ways to download the Azure Backup Server installer. You can download the Azure Backup Server installer from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=55269). You can also download Azure Backup Server installer while you're configuring a Recovery Services vault. 
+
+To download the installer from the Azure portal when you configure a Recovery Services vault, follow these steps:
 
 1. From your Azure Stack Hub virtual machine, [sign in to your Azure subscription in the Azure portal](https://portal.azure.com/).
 2. In the left-hand menu, select **All Services**.
@@ -335,7 +342,7 @@ It's possible to change an Azure subscription from *Expired* or *Deprovisioned* 
 - While a subscription is *Deprovisioned*, it loses functionality. If you restore the subscription to *Active*, it revives the backup/restore functionality. If the backup data on the local disk was retained with a sufficiently large retention period, that backup data can be retrieved. However, backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
 - While a subscription is *Expired*, it loses functionality. Scheduled backups don't run while a subscription is *Expired*.
 
-## Troubleshooting
+## Troubleshoot the MABS installation errors
 
 If Microsoft Azure Backup server fails with errors during the setup phase (backup or restore), see the [error codes document](https://support.microsoft.com/kb/3041338).
 You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.yml)

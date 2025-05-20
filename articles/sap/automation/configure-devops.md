@@ -5,7 +5,7 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/1/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-arm-template, devx-track-azurecli
@@ -488,7 +488,7 @@ s-password="<SAP Support user password>"
 
 az devops login
 
-az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_varsion=1.3.0 --output yaml
+az pipelines variable-group create --name SDAF-General --variables ANSIBLE_HOST_KEY_CHECKING=false Deployment_Configuration_Path=WORKSPACES Branch=main S-Username=$s-user S-Password=$s-password tf_version=1.3.0 --output yaml
 
 ```
 

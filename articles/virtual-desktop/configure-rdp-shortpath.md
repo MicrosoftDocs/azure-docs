@@ -2,15 +2,16 @@
 title: Configure RDP Shortpath for Azure Virtual Desktop
 description: Learn how to configure RDP Shortpath for Azure Virtual Desktop, which establishes a UDP-based transport for a remote session.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/03/2024
 ---
 
 # Configure RDP Shortpath for Azure Virtual Desktop
 
 > [!IMPORTANT]
-> RDP Shortpath for public networks via TURN for Azure Virtual Desktop is only available in the Azure public cloud.
+> - RDP Shortpath for public networks via STUN for Azure Virtual Desktop is available in the Azure public cloud and Azure Government cloud.
+> - RDP Shortpath for public networks via TURN for Azure Virtual Desktop is only available in the Azure public cloud.
 
 Users can connect to a remote session from Azure Virtual Desktop using the Remote Desktop Protocol (RDP) with a UDP or TCP-based transport. RDP Shortpath establishes a UDP-based transport between a local device Windows App or the Remote Desktop app on supported platforms and session host. 
 
@@ -118,7 +119,7 @@ To enable the RDP Shortpath listener on your session hosts using Group Policy in
 
 1. Make the administrative template for Azure Virtual Desktop available in your domain by following the steps in [Use the administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -194,7 +195,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
 1. Select **Host pools**, then select the host pool you want to configure.
 
-1. Select **Networking**, then select **RDP Shortpath**.
+1. Under **Settings**, select **Networking**, then select **RDP Shortpath**.
 
    :::image type="content" source="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png" alt-text="A screenshot showing the RDP Shortpath tab of a host pool's networking properties." lightbox="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png":::
 
@@ -407,7 +408,7 @@ To limit the port range used with STUN and TURN using Group Policy in an Active 
 
 1. Make the administrative template for Azure Virtual Desktop available in your domain by following the steps in [Use the administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain).
 
-1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+1. Open the **Group Policy Management** console on a device you use to manage the Active Directory domain.
 
 1. Create or edit a policy that targets the computers providing a remote session you want to configure.
 
@@ -505,4 +506,4 @@ WVDCheckpoints
 
 ## Related content
 
-If you're having trouble establishing a connection using the RDP Shortpath transport for public networks, see [Troubleshoot RDP Shortpath](troubleshoot-rdp-shortpath.md).
+If you're having trouble establishing a connection using the RDP Shortpath transport for public networks, see [Troubleshoot RDP Shortpath](/troubleshoot/azure/virtual-desktop/troubleshoot-rdp-shortpath).

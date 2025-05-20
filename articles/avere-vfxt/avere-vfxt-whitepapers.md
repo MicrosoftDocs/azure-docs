@@ -4,7 +4,7 @@ description: Links to downloadable whitepapers, case studies, and other articles
 ms.service: azure-avere-vfxt
 author: ekpgh
 ms.author: rohogue
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/06/2020
 ---
 

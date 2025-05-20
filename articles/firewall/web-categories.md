@@ -1,12 +1,12 @@
 ---
 title: Azure Firewall web categories
 description: Learn about Azure Firewall web categories and their descriptions.
-author: vhorne
+author: duongau
 ms.service: azure-firewall
 services: firewall
 ms.topic: overview
 ms.date: 10/20/2023
-ms.author: victorh
+ms.author: duau
 
 ---
 

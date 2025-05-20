@@ -3,7 +3,7 @@ title: Onboarding requirements for Azure Large Instances
 titleSuffix: Azure Large Instances
 description: Provides an overview of onboarding requirements for Azure Large Instances.
 ms.title: Onboarding requirements
-ms.topic: conceptual
+ms.topic: concept-article
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.service: azure-large-instances
@@ -154,7 +154,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -Resou
 #### Declare a variable for the Express route circuit ID
 
 ```azurecli
-$id = "/subscriptions/”express route subscrioption ID”/resourceGroups/”ER resource group”/providers/Microsoft.Network/expressRouteCircuits/”circuit”  
+$id = "/subscriptions/”express route subscription ID”/resourceGroups/”ER resource group”/providers/Microsoft.Network/expressRouteCircuits/”circuit”  
 ```
 
 #### Enable MSEEv2 using the **ExpressRouteGatewayBypass** flag

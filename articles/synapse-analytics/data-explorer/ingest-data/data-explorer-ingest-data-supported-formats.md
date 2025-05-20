@@ -2,7 +2,7 @@
 title: Data formats supported by Azure Synapse Data Explorer for ingestion.
 description: Learn about the various data and compression formats supported by Azure Synapse Data Explorer for ingestion.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -11,6 +11,8 @@ ms.subservice: data-explorer
 ---
 
 # Data formats supported by Azure Synapse Data Explorer for ingestion (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 Data ingestion is the process by which data is added to a table and is made available for query in Data Explorer. For all ingestion methods, other than ingest-from-query, the data must be in one of the supported formats. The following table lists and describes the formats that Data Explorer supports for data ingestion.
 

@@ -32,7 +32,7 @@ appName=<app-name>
 
 az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region
 az webapp create --resource-group $groupName --plan $appName --name $appName
-az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
+az webapp deploy --resource-group $groupName --name $appName --src-path ./default.zip
 ```
 
 ## Configure secrets as app settings

@@ -1,8 +1,8 @@
 ---
 title: Batch service workflow and resources
 description: Learn about the features of the Batch service and its high-level workflow from a development standpoint.
-ms.topic: conceptual
-ms.date: 06/13/2024
+ms.topic: concept-article
+ms.date: 04/02/2025
 ---
 # Batch service workflow and resources
 

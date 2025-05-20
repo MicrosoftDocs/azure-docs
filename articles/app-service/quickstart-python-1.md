@@ -13,7 +13,7 @@ ROBOTS: noindex
 
 # Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md#app-service-on-linux), Azure's highly scalable, self-patching web hosting service. You use the [Azure CLI](/cli/azure/install-azure-cli) locally from a Windows, Linux, or macOS environment to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+In this quickstart, you deploy a Python web app to [App Service on Linux](overview.md), Azure's highly scalable, self-patching web hosting service. You use the [Azure CLI](/cli/azure/install-azure-cli) locally from a Windows, Linux, or macOS environment to deploy a sample with either the Flask or Django frameworks. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
 > [!TIP]
 > If you prefer to deploy apps through an IDE, see **[Deploy Python apps to App Service from Visual Studio Code](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**.
@@ -294,7 +294,7 @@ The `--no-wait` argument allows the command to return before the operation is co
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python (Django) web app with PostgreSQL](tutorial-python-postgresql-app-django.md)
 
 > [!div class="nextstepaction"]
 > [Configure Python app](configure-language-python.md)

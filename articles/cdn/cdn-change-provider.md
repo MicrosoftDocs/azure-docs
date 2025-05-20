@@ -3,12 +3,13 @@ title: Migrate between content delivery network providers
 titleSuffix: Azure Content Delivery Network
 description: Best practices of migrating between content delivery network providers
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Migrate between content delivery network providers
@@ -24,8 +25,6 @@ The purpose of this article is to share best practices when migrating from one c
 ## Overview of Azure Content Delivery Network profiles
 
 **Azure Front Door:** release two new tiers (Standard and Premium) on March 29, 2022, which is the next generation Azure Front Door. It combines the capabilities of Azure Front Door (classic), Microsoft content delivery network (classic), and Web Application Firewall. With features such as private link integration, enhancements to rules engine, diagnostics, and a one-stop secure application acceleration for Azure customers. For more information about Azure Front Door, see [Azure Front Door overview](../frontdoor/front-door-overview.md).
-
-**Azure CDN Standard/Premium from Edgio:** is an alternative to Azure Front Door for your general content delivery network and media solutions. Azure Content Delivery Network from Edgio is optimized for large media streaming workloads. It has unique content delivery network features such as cache warmup, log delivery services, and reporting features.
 
 ## Pricing comparison
 
@@ -57,7 +56,7 @@ Create a small-scale proof of concept testing environment with your potential re
 - Define success criteria:
     - Cost - does the new content delivery network profile meet your cost requirements?
     - Performance - does the new content delivery network profile meet the performance requirements of your workload?
-- Create a new profile - for example, Azure Content Delivery Network with Edgio.
+- Create a new profile.
 - Configure your new profile with similar configuration settings as your existing profile.
 - Fine tune caching and compression configuration settings to meet your requirements.
 
@@ -94,4 +93,3 @@ For more information, see [Failover content delivery network endpoints with Traf
 ## Next Steps
 
 - Create an [Azure Front Door](../frontdoor/create-front-door-portal.md) profile.
-- Create an [Azure Content Delivery Network from Edgio](cdn-create-endpoint-how-to.md) profile.

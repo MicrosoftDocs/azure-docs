@@ -1,106 +1,312 @@
 ---
-title: "Known issues: Azure IoT Operations Preview"
-description: Known issues for the MQTT broker, Layered Network Management, connector for OPC UA, OPC PLC simulator, dataflows, and operations experience web UI.
+title: "Known issues: Azure IoT Operations"
+description: Known issues for the MQTT broker, Layered Network Management (preview), connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.custom:
-  - ignite-2023
-ms.date: 09/19/2024
+ms.date: 05/07/2025
 ---
 
-# Known issues: Azure IoT Operations Preview
+# Known issues: Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
-This article lists the known issues for Azure IoT Operations Preview.
+For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
 
-## Deploy and uninstall issues
+## Deploy, update, and uninstall issues
 
-- If you prefer to have no updates made to your cluster without giving explicit consent, you should disable Arc updates when you enable the cluster. This is due to the fact that some system extensions are automatically updated by the Arc agent.
+This section lists current known issues that might occur when you deploy, update, or uninstall Azure IoT Operations.
 
-- Using your own cert-manager issuer is only supported for cert-manager versions less than 1.13.
+### Error creating custom resources
 
-- The Azure storage account that you use for the schema registry must have public network access enabled.
+---
 
-- If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
+Issue ID: 9091
 
-  To resolve this issue, either request the required permissions or make the following adjustments to your deployment steps:
+---
 
-  - If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
-  - If deploying with the Azure CLI, include the `--disable-rsync-rules` flag with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
+Log signature: `"code": "ExtensionOperationFailed", "message": "The extension operation failed with the following error:  Error occurred while creating custom resources needed by system extensions"`
 
-- Directly editing **SecretProviderClass** and **SecretSync** custom resources in your Kubernetes cluster can the break secrets flow in Azure IoT Operations. For any operations related to secrets, use the operations experience UI.
+---
 
-- By default, the `az iot ops check` command displays warning about missing dataflows until you create a dataflow.
+The message `Error occurred while creating custom resources needed by system extensions` indicates that your deployment failed due to a known sporadic issue.
 
-## MQTT broker
+To work around this issue, use the `az iot ops delete` command with the `--include-deps` flag to delete Azure IoT Operations from your cluster. When Azure IoT Operations and its dependencies are deleted from your cluster, retry the deployment.
 
-- You can't update the Broker custom resource after the initial deployment. You can't make configuration changes to cardinality, memory profile, or disk buffer.
+### Codespaces restart error
 
-  As a workaround, when deploying Azure IoT Operations with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command, you can include the `--broker-config-file` parameter with a JSON configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md).
+---
 
-- Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mqtt-broker-diagnostic-settings) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
+Issue ID: 9941
 
-- Deployment might fail if the **cardinality** and **memory profile** values are set to be too large for the cluster. To resolve this issue, set the replicas count to `1` and use a smaller memory profile, like `low`.
+---
 
-## Azure IoT Layered Network Management Preview
+Log signature: `"This codespace is currently running in recovery mode due to a configuration error."`
 
-- If the Layered Network Management service doesn't get an IP address while running K3S on Ubuntu host, reinstall K3S without _trafeik ingress controller_ by using the `--disable=traefik` option.
+---
 
-    ```bash
-    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
-    ```
+If you deploy Azure IoT Operations in GitHub Codespaces, shutting down and restarting the Codespace causes a `This codespace is currently running in recovery mode due to a configuration error` issue.
 
-    For more information, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
+There's no workaround for this issue. If you need a cluster that supports shutting down and restarting, select one of the options in [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-- If DNS queries don't resolve to the expected IP address while using [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on child network level, upgrade to Ubuntu 22.04 and reinstall K3S.
+## MQTT broker issues
 
-## Connector for OPC UA
+This section lists current known issues for the MQTT broker.
 
-- Azure Device Registry asset definitions let you use numbers in the attribute section while OPC supervisor expects only strings.
+### MQTT broker resources aren't visible in the Azure portal
 
-- When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
+---
 
-## OPC PLC simulator
+Issue ID: 4257
 
-If you create an asset endpoint for the OPC PLC simulator, but the OPC PLC simulator isn't sending data to the MQTT broker, run the following command to set `autoAcceptUntrustedServerCertificates=true` for the asset endpoint:
+---
+
+Log signature: N/A
+
+---
+
+MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+
+There's currently no workaround for this issue.
+
+## Azure IoT Layered Network Management (preview) issues
+
+This section lists current known issues for  Azure IoT Layered Network Management.
+
+### Layered Network Management service doesn't get an IP address
+
+---
+
+Issue ID: 7864
+
+---
+
+Log signature: N/A
+
+---
+
+The Layered Network Management service doesn't get an IP address when it runs on K3S on an Ubuntu host.
+
+To work around this issue, you reinstall K3S without the _traefik ingress controller_:
 
 ```bash
-ENDPOINT_NAME=<name-of-you-endpoint-here>
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
--n azure-iot-operations \
---type=merge \
--p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
 ```
 
-> [!CAUTION]
-> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+To learn more, see [Networking | K3s](https://docs.k3s.io/networking#traefik-ingress-controller).
 
-You can patch all your asset endpoints with the following command:
+### CoreDNS service doesn't resolve DNS queries correctly
 
-```bash
-ENDPOINTS=$(kubectl get AssetEndpointProfile -n azure-iot-operations --no-headers -o custom-columns=":metadata.name")
-for ENDPOINT_NAME in `echo "$ENDPOINTS"`; do \
-kubectl patch AssetEndpointProfile $ENDPOINT_NAME \
-   -n azure-iot-operations \
-   --type=merge \
-   -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"'"$ENDPOINT_NAME"'\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'; \
-done
-```
+---
 
-If the OPC PLC simulator isn't sending data to the MQTT broker after you create a new asset, restart the OPC PLC simulator pod. The pod name looks like `aio-opc-opc.tcp-1-f95d76c54-w9v9c`. To restart the pod, use the `k9s` tool to kill the pod, or run the following command:
+Issue ID: 7955
 
-```bash
-kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
-```
+---
 
-## Dataflows
+Log signature: N/A
 
-- You can't use anonymous authentication for MQTT and Kafka endpoints when you deploy dataflow endpoints from the operations experience UI. The current workaround is to use a YAML configuration file and apply it by using `kubectl`.
+---
 
-- Changing the instance count in a dataflow profile on an active dataflow might result in new messages being discarded or in messages being duplicated on the destination.
+DNS queries don't resolve to the expected IP address while using the [CoreDNS](../manage-layered-network/howto-configure-layered-network.md#configure-coredns) service running on the child network level.
 
-- When you create a dataflow, if you set the `dataSources` field as an empty list, the dataflow crashes. The current workaround is to always enter at least one value in the data sources.
+To work around this issue, upgrade to Ubuntu 22.04 and reinstall K3S.
 
-- Dataflow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because synchronizing dataflow resources from the edge to the cloud isn't currently supported.
+## Connector for OPC UA issues
+
+This section lists current known issues for the connector for OPC UA.
+
+### Connector pod doesn't restart after configuration change
+
+---
+
+Issue ID: 7518
+
+---
+
+Log signature: N/A
+
+---
+
+When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod doesn't restart and therefore the old flow for the correctly configured assets stops as well.
+
+### Data spike every 2.5 hours with some OPC UA simulators
+
+---
+
+Issue ID: 6513
+
+---
+
+Log signature: Increased message volume every 2.5 hours
+
+---
+
+Data values spike every 2.5 hours when using particular OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts. No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
+
+### No message schema generated if selected nodes in a dataset reference the same complex data type definition
+
+---
+
+Issue ID: 7369
+
+---
+
+Log signature: `An item with the same key has already been added. Key: <element name of the data type>`
+
+---
+
+No message schema is generated if selected nodes in a dataset reference the same complex data type definition (a UDT of type struct or enum).
+
+If you select data points (node IDs) for a dataset that share non-OPC UA namespace complex type definitions (struct or enum), then the JSON schema isn't generated. The default open schema is shown when you create a data flow instead. For example, if the data set contains three values of a data type, then whether it works or not is shown in the following table. You can substitute `int` for any OPC UA built in type or primitive type such as `string`, `double`, `float`, or `long`:
+
+| Type of Value 1 | Type of Value 2 | Type of Value 3 | Successfully generates schema |
+|-----------------|-----------------|-----------------|-----------------|
+| `int` | `int` | `int` | Yes |
+| `int` | `int` | `int` | Yes |
+| `int` | `int` | `struct A` | Yes |
+| `int` | `enum A` | `struct A` | Yes |
+| `enum A` | `enum B` | `enum C` | Yes |
+| `struct A` | `struct B` | `struct C` | Yes |
+| `int` | `struct A` | `struct A` | No |
+| `int` | `enum A` | `enum A` | No |
+
+To work around this issue, you can either:
+
+- Split the dataset across two or more assets.
+- Manually upload a schema.
+- Use the default nonschema experience in the data flow designer.
+
+## Connector for media and connector for ONVIF issues
+
+This section lists current known issues for the connector for media and the connector for ONVIF.
+
+### AssetType CRD removal process doesn't complete
+
+---
+
+Issue ID: 6065
+
+---
+
+Log signature: `"Error HelmUninstallUnknown: Helm encountered an error while attempting to uninstall the release aio-118117837-connectors in the namespace azure-iot-operations. (caused by: Unknown: 1 error occurred: * timed out waiting for the condition"`
+
+---
+
+Sometimes, when you attempt to uninstall Azure IoT Operations from the cluster, the system can get to a state where CRD removal job is stuck in pending state and that blocks the cleanup of Azure IoT Operations.
+
+To work around this issue, complete the following steps to manually delete the CRD and finish the uninstall:
+
+1. Delete the AssetType CRD manually: `kubectl delete crd assettypes.opcuabroker.iotoperations.azure.com --ignore-not-found=true`
+
+1. Delete the job definition: `kubectl delete job aio-opc-delete-crds-job-<version> -n azure-iot-operations`
+
+1. Find the Helm release for the connectors, it's the one with `-connectors` suffix: `helm ls -a -n azure-iot-operations`
+
+1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
+
+## Data flows issues
+
+This section lists current known issues for data flows.
+
+### Data flow resources aren't visible in the operations experience web UI
+
+---
+
+Issue ID: 8724
+
+---
+
+Log signature: N/A
+
+---
+
+Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#preview-manage-components-using-kubernetes-deployment-manifests), and synchronizing resources from the edge to the cloud isn't currently supported.
+
+There's currently no workaround for this issue.
+
+### Unable to configure X.509 authentication for custom Kafka endpoints
+
+---
+
+Issue ID: 8750
+
+---
+
+Log signature: N/A
+
+---
+
+X.509 authentication for custom Kafka endpoints isn't currently supported.
+
+### Connection failures with Azure Event Grid
+
+---
+
+Issue ID: 8891
+
+---
+
+Log signature: N/A
+
+---
+
+When you connect multiple IoT Operations instances to the same Event Grid MQTT namespace, connection failures might occur due to client ID conflicts. Client IDs are currently derived from data flow resource names, and when using infrastructure as code patterns for deployment, the generated client IDs might be identical.
+
+To work around this issue, add randomness to the data flow names in your deployment templates.
+
+### Data flow deployment doesn't complete
+
+---
+
+Issue ID: 9411
+
+---
+
+Log signature:
+
+`"Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'"`
+
+`"Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]"`
+
+---
+
+When you create a new data flow, it might not finish deployment. The cause is that the `cert-manager` wasn't ready or running.
+
+To work around this issue, use the following steps to manually delete the data flow operator pod to clear the crash status:
+
+1. Run `kubectl get pods -n azure-iot-operations`.
+   In the output, Verify _aio-dataflow-operator-0_ is only data flow operator pod running.
+
+1. Run `kubectl logs --namespace azure-iot-operations aio-dataflow-operator-0` to check the logs for the data flow operator pod.
+
+   In the output, check for the final log entry:
+
+   `Dataflow pod had error: Bad pod condition: Pod 'aio-dataflow-operator-0' container 'aio-dataflow-operator' stuck in a bad state due to 'CrashLoopBackOff'`
+
+1. Run the _kubectl logs_ command again with the `--previous` option.
+
+   `kubectl logs --namespace azure-iot-operations --previous aio-dataflow-operator-0`
+
+   In the output, check for the final log entry:
+
+   `Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]`.
+
+   If you see both log entries from the two _kubectl log_ commands, the cert-manager wasn't ready or running.
+
+1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.
+
+1. Wait for the operator pod to restart and deploy the data flow.
+
+### Data flows error metrics
+
+---
+
+Issue ID: 2382
+
+---
+
+Log signature: N/A
+
+---
+
+Data flows marks message retries and reconnects as errors, and as a result data flows might look unhealthy. This behavior is only seen in previous versions of data flows. Review the logs to determine if the data flow is healthy.

@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/02/2024
+ms.date: 11/05/2024
 ms.author: jianleishen
 ---
 
@@ -46,7 +46,17 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 
 ### Supported file formats
 
-[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+Azure Data Factory supports the following file formats. Refer to each article for format-based settings.
+
+- [Avro format](format-avro.md)
+- [Binary format](format-binary.md)
+- [Delimited text format](format-delimited-text.md)
+- [Excel format](format-excel.md)
+- [Iceberg format](format-iceberg.md) (only for Azure Data Lake Storage Gen2)
+- [JSON format](format-json.md)
+- [ORC format](format-orc.md)
+- [Parquet format](format-parquet.md)
+- [XML format](format-xml.md)
 
 You can use the Copy activity to copy files as-is between two file-based data stores, in which case the data is copied efficiently without any serialization or deserialization. In addition, you can also parse or generate files of a given format, for example, you can perform the following:
 
@@ -188,7 +198,7 @@ See [Schema and data type mapping](copy-activity-schema-and-type-mapping.md) for
 
 In addition to copying data from source data store to sink, you can also configure to add additional data columns to copy along to sink. For example:
 
-- When you copy from a file-based source, store the relative file path as an additional column to trace from which file the data comes from.
+- When you copy from a [file-based source](#supported-file-formats), store the relative file path as an additional column of type String to trace from which file the data comes from.
 - Duplicate the specified source column as another column.
 - Add a column with ADF expression, to attach ADF system variables like pipeline name/pipeline ID, or store other dynamic value from upstream activity's output.
 - Add a column with static value to meet your downstream consumption need.

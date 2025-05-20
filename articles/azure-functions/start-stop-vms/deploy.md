@@ -5,7 +5,7 @@ services: azure-functions
 ms.subservice: start-stop-vms
 ms.date: 06/08/2022
 ms.topic: how-to
-ms.custon: subject-rbac-steps
+ms.custom: subject-rbac-steps
 ---
 
 # Deploy Start/Stop VMs v2 to an Azure subscription
@@ -151,7 +151,7 @@ For each scenario, you can target the action against one or more subscriptions, 
       "RequestScopes": {
         "ExcludedVMLists": [],
         "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/"
         ]
      }
     }
@@ -161,8 +161,8 @@ For each scenario, you can target the action against one or more subscriptions, 
 
     ```json
     "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
         ]
     ```
 
@@ -176,15 +176,15 @@ For each scenario, you can target the action against one or more subscriptions, 
       "EnableClassic": false,
       "RequestScopes": {
         "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
          ],
         "ResourceGroups": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       }
     }
@@ -199,8 +199,8 @@ For each scenario, you can target the action against one or more subscriptions, 
       "RequestScopes": {
         "ExcludedVMLists": [“Az*”,“Bz*”],
        "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
     
         ]
       }
@@ -216,9 +216,9 @@ For each scenario, you can target the action against one or more subscriptions, 
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm2",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg3/providers/Microsoft.Compute/virtualMachines/vm2",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
           
         ]
       }
@@ -251,7 +251,7 @@ In an environment that includes two or more components on multiple Azure Resourc
       "RequestScopes": {
         "ExcludedVMLists": [],
         "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/"
         ]
      },
        "Sequenced": true
@@ -262,8 +262,8 @@ In an environment that includes two or more components on multiple Azure Resourc
 
     ```json
     "Subscriptions": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
         ]
     ```
 
@@ -277,15 +277,15 @@ In an environment that includes two or more components on multiple Azure Resourc
       "EnableClassic": false,
       "RequestScopes": {
         "Subscriptions":[
-          "/subscriptions/12345678-1234-5678-1234-123456781234/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/"
         ],
         "ResourceGroups": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/"
         ],
         "ExcludedVMLists": [
-         "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
+         "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/vmrg1/providers/Microsoft.Compute/virtualMachines/vm1"
         ]
       },
        "Sequenced": true
@@ -301,9 +301,9 @@ In an environment that includes two or more components on multiple Azure Resourc
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
-          "/subscriptions/12345678-1234-5678-1234-123456781234/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
-          "/subscriptions/11111111-0000-1111-2222-444444444444/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+          "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm2",
+          "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/rg2/providers/Microsoft.ClassicCompute/virtualMachines/vm30"
         ]
       },
        "Sequenced": true

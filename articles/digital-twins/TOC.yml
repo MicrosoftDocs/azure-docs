@@ -33,10 +33,10 @@
       href: concepts-ontologies.md
     - name: Adopting DTDL-based industry ontologies
       href: concepts-ontologies-adopt.md
-    - name: Converting ontologies
-      href: concepts-ontologies-convert.md
     - name: Extending ontologies
       href: concepts-ontologies-extend.md
+    - name: Converting ontologies
+      href: concepts-ontologies-convert.md
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language

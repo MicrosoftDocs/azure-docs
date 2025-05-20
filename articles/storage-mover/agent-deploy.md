@@ -41,6 +41,13 @@ This article guides you through the steps necessary to successfully deploy a Sto
 -	`<region>.agentgateway.prd.azsm.azure.com`
 -	`evhns-sm-ur-prd-<region>.servicebus.windows.net`
 
+Azure Arc related network endpoints: 
+- *.his.arc.azure.com 
+- *.guestconfiguration.azure.com 
+- login.microsoftonline.com 
+- pas.windows.net 
+- management.azure.com 
+
 2. A capable Windows Hyper-V or VMware host on which to run the agent VM.<br/> See the [Recommended compute and memory resources](#recommended-compute-and-memory-resources) section in this article for details about resource requirements for the agent VM.
 
 > [!NOTE]

@@ -4,14 +4,15 @@ description: Learn how to use text analytics in Azure Synapse Analytics.
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 11/19/2024
 author: ruixinxu
 ms.author: ruxu
+# customer intent: As a Synapse Analytics user, I want to be able to analyze my text using Azure AI services.
 ---
 
 # Tutorial: Text Analytics with Azure AI services
 
-[Text Analytics](/azure/ai-services/language-service/) is an [Azure AI services](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features. In this tutorial, you'll learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics.
+In this tutorial, you learn how to use [Text Analytics](/azure/ai-services/language-service/) to analyze unstructured text on Azure Synapse Analytics. [Text Analytics](/azure/ai-services/language-service/) is an [Azure AI services](/azure/ai-services/) that enables you to perform  text mining and text analysis with Natural Language Processing (NLP) features.
 
 This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
@@ -29,34 +30,35 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
-
+- Preconfiguration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Get started
-Open Synapse Studio and create a new notebook. To get started, import [SynapseML](https://github.com/microsoft/SynapseML). 
+
+Open Synapse Studio and create a new notebook. To get started, import [SynapseML](https://github.com/microsoft/SynapseML).
 
 ```python
 import synapse.ml
-from synapse.ml.cognitive import *
+from synapse.ml.services import *
 from pyspark.sql.functions import col
 ```
 
 ## Configure text analytics
 
-Use the linked text analytics you configured in the [pre-configuration steps](tutorial-configure-cognitive-services-synapse.md) . 
+Use the linked text analytics you configured in the [preconfiguration steps](tutorial-configure-cognitive-services-synapse.md).
 
 ```python
-ai_service_name = "<Your linked service for text analytics>"
+linked_service_name = "<Your linked service for text analytics>"
 ```
 
 ## Text Sentiment
-The Text Sentiment Analysis provides a way for detecting the sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=sentiment-analysis) for the list of enabled languages.
+
+The Text Sentiment Analysis provides a way for detecting the sentiment labels (such as "negative", "neutral", and "positive") and confidence scores at the sentence and document-level. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=sentiment-analysis) for the list of enabled languages.
 
 ```python
 
 # Create a dataframe that's tied to it's column names
 df = spark.createDataFrame([
-  ("I am so happy today, its sunny!", "en-US"),
+  ("I am so happy today, it's sunny!", "en-US"),
   ("I am frustrated by this rush hour traffic", "en-US"),
   ("The Azure AI services on spark aint bad", "en-US"),
 ], ["text", "language"])
@@ -77,13 +79,14 @@ display(results
     .select("text", "sentiment"))
 
 ```
+
 ### Expected results
 
 |text|sentiment|
 |---|---|
-|I am so happy today, its sunny!|positive|
-|I am frustrated by this rush hour traffic|negative|
-|The Azure AI services on spark aint bad|positive|
+|I'm so happy today, it's sunny!|positive|
+|I'm frustrated by this rush hour traffic|negative|
+|The Azure AI services on spark aint bad|neutral|
 
 ---
 
@@ -186,12 +189,15 @@ ner = (NER()
 
 display(ner.transform(df).select("text", col("replies").getItem("document").getItem("entities").alias("entities")))
 ```
+
 ### Expected results
+
 ![Expected results for named entity recognition v3.1](./media/tutorial-text-analytics-use-mmlspark/expected-output-ner-v-31.png)
 
 ---
 
 ## Personally Identifiable Information (PII) V3.1
+
 The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number. See the [Supported languages in Text Analytics API](/azure/ai-services/language-service/language-detection/overview?tabs=pii) for the list of enabled languages.
 
 ```python
@@ -209,17 +215,20 @@ pii = (PII()
 
 display(pii.transform(df).select("text", col("replies").getItem("document").getItem("entities").alias("entities")))
 ```
+
 ### Expected results
+
 ![Expected results for personal identifiable information v3.1](./media/tutorial-text-analytics-use-mmlspark/expected-output-pii-v-31.png)
 
 ---
 
 ## Clean up resources
+
 To ensure the Spark instance is shut down, end any connected sessions(notebooks). The pool shuts down when the **idle time** specified in the Apache Spark pool is reached. You can also select **stop session** from the status bar at the upper right of the notebook.
 
 ![Screenshot showing the Stop session button on the status bar.](./media/tutorial-build-applications-use-mmlspark/stop-session.png)
 
-## Next steps
+## Related content
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
 * [SynapseML GitHub Repo](https://github.com/microsoft/SynapseML)

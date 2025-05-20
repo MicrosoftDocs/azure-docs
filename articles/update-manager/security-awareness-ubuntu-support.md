@@ -4,7 +4,7 @@ description: Guidance on security awareness and Ubuntu Pro support in Azure Upda
 author: snehasudhirG
 ms.service: azure-update-manager
 ms.topic: overview
-ms.date: 09/06/2024
+ms.date: 02/26/2025
 ms.author: sudhirsneha
 ---
 
@@ -15,7 +15,7 @@ ms.author: sudhirsneha
 
 This article provides the details on security vulnerabilities and Ubuntu Pro support in Azure Update Manager.
 
-If you are using Ubuntu 18.04 LTS, you must take the necessary steps against security vulnerabilities as the Ubuntu 18.04 image has reached the end of its [standard security maintenance](https://ubuntu.com/blog/18-04-end-of-standard-support) in May 2023. As Canonical has stopped publishing new security or critical updates after May 2023, the risk of systems and data to potential security threats is high. Without software updates, you may experience performance issues or compatibility issues whenever a new hardware or software is released.
+If you are using an Ubuntu 18.04 LTS image, you should take necessary steps against security vulnerabilities as the operating system reached the [end of its standard support](https://ubuntu.com/18-04/azure) in May 2023. As Canonical has stopped publishing new security or critical updates after May 2023, the risk of systems and data to potential security threats is high. Without software updates, you may experience performance issues or compatibility issues whenever a new hardware or software is released.
 
 You can either upgrade to [Ubuntu Pro](https://ubuntu.com/azure/pro) or migrate to a newer version of LTS to avoid any future disruption to the patching mechanisms. When you [upgrade to Ubuntu Pro](https://ubuntu.com/blog/enhancing-the-ubuntu-experience-on-azure-introducing-ubuntu-pro-updates-awareness), you can avoid any security or performance issues. 
 
@@ -34,7 +34,10 @@ You can continue to use the Azure Update Manager [capabilities](updates-maintena
 
  
 ## Next steps
-- [An overview on Azure Update Manager](overview.md)
-- [View updates for single machine](view-updates.md) 
-- [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
-- [Schedule recurring updates](scheduled-patching.md)
+-- Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
+- Learn on the [Update sources, types](support-matrix.md) managed by Azure Update Manger.
+- Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
+- Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).
+- Learn more on [unsupported OS and Custom VM images](unsupported-workloads.md).
+- Learn more on how to [configure Windows Update settings](configure-wu-agent.md) to work with Azure Update Manager. 
+- Learn about [Extended Security Updates (ESU) using Azure Update Manager](extended-security-updates.md).

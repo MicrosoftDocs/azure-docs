@@ -2,8 +2,8 @@
 title: "Cyber Blind Spot Integration (using Azure Functions) connector for Microsoft Sentinel"
 description: "Learn how to install the connector Cyber Blind Spot Integration (using Azure Functions) to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
-ms.topic: how-to
-ms.date: 04/26/2024
+ms.topic: generated-reference
+ms.date: 10/15/2024
 ms.service: microsoft-sentinel
 ms.author: cwatson
 ms.collection: sentinel-data-connector
@@ -85,7 +85,8 @@ Use the following step-by-step instructions to deploy the CTM360 CBS data connec
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> [!NOTE]
+> You will need to [prepare VS Code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://raw.githubusercontent.com/CTM360-Integrations/Azure-Sentinel/ctm360-HV-CBS-azurefunctionapp/Solutions/CTM360/Data%20Connectors/CBS/AzureFunctionCTM360_CBS.zip) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.
@@ -103,7 +104,7 @@ If you're already signed in, go to the next step.
 
 	d. **Enter a globally unique name for the function app:** Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions. (e.g. CTIXYZ).
 
-	e. **Select a runtime:** Choose Python 3.8.
+	e. **Select a runtime:** Choose Python 3.11.
 
 	f. Select a location for new resources. For better performance and lower costs choose the same [region](https://azure.microsoft.com/regions/) where Microsoft Sentinel is located.
 

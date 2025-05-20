@@ -120,7 +120,7 @@
 			<text x="16.82" y="302.09" class="st3" v:langID="2057"><v:paragraph v:horizAlign="1"/><v:tabList/>Microsoft Phone System</text>		</g>
 		<g id="shape1003-6" v:mID="1003" v:groupContext="shape" transform="translate(8.50394,-132.52)">
 			<title>Sheet.1003</title>
-			<path d="M0 252.99 L576.85 252.99 L576.85 311.81 L0 311.81 L0 252.99" class="st4"/>
+			<path d="M0 252.99 L422.64 252.99 L422.64 311.81 L0 311.81 L0 252.99" class="st4"/>
 		</g>
 		<g id="shape1005-9" v:mID="1005" v:groupContext="shape" transform="translate(144.076,-43.5949)">
 			<title>Sheet.1005</title>
@@ -1261,52 +1261,6 @@
 		<g id="shape1101-155" v:mID="1101" v:groupContext="shape" v:layerMember="1" transform="translate(348.661,-219.293)">
 			<title>Dynamic connector.1101</title>
 			<path d="M7.09 311.81 L7.09 345.06" class="st25"/>
-		</g>
-		<g id="shape1105-158" v:mID="1105" v:groupContext="shape" v:layerMember="1" transform="translate(420.094,-155.384)">
-			<title>Dynamic connector.1105</title>
-			<path d="M0 304.72 L16.44 304.72" class="st37"/>
-		</g>
-		<g id="group1106-161" transform="translate(436.535,-138.898)" v:mID="1106" v:groupContext="group">
-			<title>Sheet.1106</title>
-			<g id="shape1094-162" v:mID="1094" v:groupContext="shape">
-				<title>Sheet.1094</title>
-				<desc>Operator Call Protection</desc>
-				<v:textBlock v:margins="rect(4,4,4,4)" v:tabSpace="42.5197"/>
-				<v:textRect cx="119.055" cy="288.238" width="141.74" height="47.1457"/>
-				<path d="M0 264.67 L0 311.81 L141.73 311.81 L141.73 264.67 L0 264.67 L0 264.67 Z" class="st6"/>
-				<text x="52.19" y="283.74" class="st7" v:langID="2057"><v:paragraph v:spLine="-1.5"/><v:tabList/>Operator Call <tspan
-							x="52.19" dy="1.5em" class="st8">Protection </tspan> </text>			</g>
-			<g id="shape1095-166" v:mID="1095" v:groupContext="shape" transform="translate(5.76622,-5.25516)">
-				<title>Sheet.1095</title>
-				<path d="M0 292.97 C-0 282.57 8.42 274.13 18.79 274.13 C29.17 274.13 37.58 282.57 37.58 292.97 C37.58 303.38 29.17
-							 311.81 18.79 311.81 C8.42 311.81 -0 303.38 0 292.97 Z" class="st33"/>
-			</g>
-			<g id="group1089-168" transform="translate(11.7709,-9.74468)" v:mID="1089" v:groupContext="group">
-				<title>Sheet.1089</title>
-				<g id="shape1090-169" v:mID="1090" v:groupContext="shape">
-					<title>Sheet.1090</title>
-					<path d="M0 288.55 C0 287.95 0.48 287.47 1.07 287.47 C4.88 287.47 8.59 286.12 12.23 283.4 C12.61 283.11 13.13
-								 283.11 13.51 283.4 C17.15 286.12 20.86 287.47 24.67 287.47 C25.26 287.47 25.74 287.95 25.74 288.55
-								 L25.74 296.05 C25.74 303.21 21.51 308.46 13.26 311.71 C13.01 311.81 12.73 311.81 12.48 311.71 C4.23
-								 308.46 0 303.21 0 296.05 L0 288.55 Z" class="st38"/>
-				</g>
-				<g id="shape1091-173" v:mID="1091" v:groupContext="shape" transform="translate(7.0133,-6.50704)">
-					<title>Sheet.1091</title>
-					<path d="M2.19 296.2 L3.04 295.93 C3.84 295.67 4.69 296.08 5.03 296.89 L5.71 298.49 C6.01 299.19 5.84 300.01
-								 5.31 300.52 L3.81 301.94 C3.9 302.79 4.19 303.63 4.67 304.45 C5.15 305.27 5.74 305.96 6.46 306.5
-								 L8.26 305.9 C8.94 305.67 9.68 305.93 10.1 306.55 L11.07 307.98 C11.56 308.69 11.47 309.68 10.87
-								 310.28 L10.22 310.93 C9.58 311.58 8.66 311.81 7.81 311.55 C5.81 310.92 3.96 309.06 2.28 305.97 C0.59
-								 302.88 0 300.25 0.49 298.1 C0.7 297.19 1.35 296.47 2.19 296.2 L2.19 296.2 Z" class="st39"/>
-				</g>
-				<g id="shape1092-177" v:mID="1092" v:groupContext="shape" transform="translate(7.0133,-6.02938)">
-					<title>Sheet.1092</title>
-					<path d="M2.19 296.2 L3.04 295.93 C3.84 295.67 4.69 296.08 5.03 296.89 L5.71 298.49 C6.01 299.19 5.84 300.01
-								 5.31 300.52 L3.81 301.94 C3.9 302.79 4.19 303.63 4.67 304.45 C5.15 305.27 5.74 305.96 6.46 306.5
-								 L8.26 305.9 C8.94 305.67 9.68 305.93 10.1 306.55 L11.07 307.98 C11.56 308.69 11.47 309.68 10.87
-								 310.28 L10.22 310.93 C9.58 311.58 8.66 311.81 7.81 311.55 C5.81 310.92 3.96 309.06 2.28 305.97 C0.59
-								 302.88 0 300.25 0.49 298.1 C0.7 297.19 1.35 296.47 2.19 296.2 L2.19 296.2 Z" class="st40"/>
-				</g>
-			</g>
 		</g>
 		<g id="shape1107-181" v:mID="1107" v:groupContext="shape" transform="translate(370.605,-150.236)">
 			<title>Sheet.1107</title>

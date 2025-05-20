@@ -133,7 +133,7 @@ Now that we've accessed the app, let's view the data associated with HTTP reques
 
 1. Click `Logs` from the left-hand navigation.
 
-![Log Anlytics Worksace Logs](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
+![Log Analytics Workspace Logs](./media/tutorial-azure-monitor/log-analytics-workspace-logs.png)
 
 2. Search for `appservice` and double-click `AppServiceHTTPLogs`.
 

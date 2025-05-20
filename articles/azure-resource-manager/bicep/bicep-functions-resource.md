@@ -3,7 +3,7 @@ title: Bicep functions - resources
 description: Describes the functions to use in a Bicep file to retrieve values about resources.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 05/14/2025
 ---
 
 # Resource functions for Bicep
@@ -488,7 +488,7 @@ resource location_lock 'Microsoft.Authorization/policyAssignments@2024-04-01' = 
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -508,7 +508,7 @@ An array with the supported zones. When using the default values for offset and 
 
 ```json
 [
-    "1"
+  "1"
 ]
 ```
 
@@ -516,9 +516,9 @@ When the `numberOfZones` parameter is set to 3, it returns:
 
 ```json
 [
-    "1",
-    "2",
-    "3"
+  "1",
+  "2",
+  "3"
 ]
 ```
 
@@ -531,7 +531,7 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
 
 To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
 
@@ -749,6 +749,156 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2024-04-01'
   }
 }
 ```
+
+## toLogicalZone
+
+`toLogicalZone(subscriptionId, location, physicalZone)`
+
+Returns the logical availability zone (e.g., `1`, `2`, or `3`) corresponding to a physical availability zone for a specified subscription in a given Azure region.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions)
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId | Yes | string | The ID of the Azure subscription (for example, `12345678-1234-1234-1234-1234567890ab`). |
+| location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
+| physicalZone | Yes | string | The physical availability zone identifier (for example, a data center-specific identifier like `westus2-az1`). |
+
+### Return value
+
+A string representing the logical availability zone (e.g., `1`, `2`, or `3`) that corresponds to the specified physical zone in the given region and subscription. If the physical zone is invalid or not supported, an empty string (`''`) is returned.
+
+### Remarks
+
+* The `toLogicalZone` function retrieves the logical zone mapping based on the subscription’s zone configuration in the specified region.
+* Logical zones are standardized identifiers (e.g., `1`, `2`, `3`) used in resource configurations to ensure consistent zone assignments across Azure services.
+* Physical zone identifiers are region-specific and may vary between subscriptions. Use the [`toPhysicalZone`](#tophysicalzone) function to reverse this mapping.
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* If the physical zone does not exist or is not mapped for the subscription, the function returns an empty string.
+* This function is useful for aligning physical zone deployments with logical zone configurations in templates, especially for cross-subscription or multi-region scenarios.
+
+### Examples
+
+The following example retrieves the logical zone for a physical zone in West US 2 for a specific subscription:
+
+```bicep
+param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param physicalZone string = 'westus2-az1'
+
+output logicalZone string = toLogicalZone(subscriptionId, 'westus2', physicalZone)
+```
+
+Expected output:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| logicalZone | String | `1` |
+
+The following example uses `toLogicalZone` to configure a virtual machine with the correct logical zone:
+
+```bicep
+param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param physicalZone string = 'westus2-az1'
+param location string = 'westus2'
+
+var logicalZone = toLogicalZone(subscriptionId, location, physicalZone)
+
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+  name: 'myVM'
+  location: location
+  zones: logicalZone != '' ? [logicalZone] : []
+  properties: {
+    // VM properties
+  }
+}
+
+output logicalZone string = logicalZone
+```
+
+Expected output:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| logicalZone | String | `1` |
+
+---
+
+## toPhysicalZone
+
+`toPhysicalZone(subscriptionId, location, logicalZone)`
+
+Returns the physical availability zone identifier (e.g., a data center-specific identifier like `westus2-az1`) corresponding to a logical availability zone for a specified subscription in a given Azure region.
+
+Namespace: [az](bicep-functions.md#namespaces-for-functions)
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId | Yes | string | The ID of the Azure subscription (for example, `12345678-1234-1234-1234-1234567890ab`). |
+| location | Yes | string | The Azure region that supports availability zones (for example, `westus2`). |
+| logicalZone | Yes | string | The logical availability zone (e.g., `1`, `2`, or `3`). |
+
+### Return value
+
+A string representing the physical availability zone identifier (e.g., `westus2-az1`) that corresponds to the specified logical zone in the given region and subscription. If the logical zone is invalid or not supported, an empty string (`''`) is returned.
+
+### Remarks
+
+* The `toPhysicalZone` function retrieves the physical zone mapping based on the subscription’s zone configuration in the specified region.
+* Physical zones are data center-specific identifiers that may vary between subscriptions, while logical zones (e.g., `1`, `2`, `3`) are standardized for resource configurations.
+* Use the `toLogicalZone` function to reverse this mapping, converting a physical zone to its logical equivalent.
+* The function requires that the region supports availability zones. For a list of supported regions, see [Azure services that support availability zones](../../reliability/availability-zones-service-support.md).
+* If the logical zone does not exist or is not mapped for the subscription, the function returns an empty string.
+* This function is useful for scenarios requiring physical zone identifiers, such as logging, auditing, or cross-subscription zone alignment in multi-region deployments.
+
+### Examples
+
+The following example retrieves the physical zone for a logical zone in West US 2 for a specific subscription:
+
+```bicep
+param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param logicalZone string = '1'
+
+output physicalZone string = toPhysicalZone(subscriptionId, 'westus2', logicalZone)
+```
+
+Expected output (assuming logical zone `1` maps to `westus2-az1`):
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| physicalZone | String | `westus2-az1` |
+
+The following example uses `toPhysicalZone` to log the physical zone for a virtual machine deployment:
+
+```bicep
+param subscriptionId string = '12345678-1234-1234-1234-1234567890ab'
+param logicalZone string = '1'
+param location string = 'westus2'
+
+var physicalZone = toPhysicalZone(subscriptionId, location, logicalZone)
+
+resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+  name: 'myVM'
+  location: location
+  zones: [logicalZone]
+  properties: {
+    // VM properties
+  }
+}
+
+output physicalZone string = physicalZone
+```
+
+Expected output:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| physicalZone | String | `westus2-az1` |
+
+---
 
 ## Next steps
 

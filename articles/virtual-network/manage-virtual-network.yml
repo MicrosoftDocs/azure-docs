@@ -7,7 +7,7 @@ metadata:
   description: Create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network.
   author: asudbring
   ms.author: allensu
-  ms.date: 08/23/2023
+  ms.date: 04/21/2025
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
@@ -20,7 +20,7 @@ metadata:
 title: |
   Create, change, or delete a virtual network
 introduction: |
-  Learn how to create and delete a virtual network and change settings, like DNS servers and IP address spaces, for an existing virtual network. If you're new to virtual networks, you can learn more about them in the [Virtual network overview](virtual-networks-overview.md) or by completing a [tutorial](quick-create-portal.md). A virtual network contains subnets. To learn how to create, change, and delete subnets, see [Manage subnets](virtual-network-manage-subnet.md).
+  Learn how to create and delete a virtual network. Learn to change settings, like DNS servers and IP address spaces, for an existing virtual network. If you're new to virtual networks, you can learn more about them in the [Virtual network overview](virtual-networks-overview.md) or by completing a [tutorial](quick-create-portal.md). A virtual network contains subnets. To learn how to create, change, and delete subnets, see [Manage subnets](virtual-network-manage-subnet.md).
 
 prerequisites:
   summary: |
@@ -30,7 +30,7 @@ prerequisites:
     
       - **PowerShell users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/powershell), or run PowerShell locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **PowerShell** if it isn't already selected.    
     
-        If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az.Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Run `Connect-AzAccount` to sign in to Azure.
+        If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run `Get-Module -ListAvailable Az. Network` to find the installed version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). Run `Connect-AzAccount` to sign in to Azure.
     
       - **Azure CLI users**: Either run the commands in the [Azure Cloud Shell](https://shell.azure.com/bash), or run Azure CLI locally from your computer. The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. In the Azure Cloud Shell browser tab, find the **Select environment** dropdown list, then pick **Bash** if it isn't already selected.    
 
@@ -170,11 +170,11 @@ procedureSection:
   - title: |
       Add or remove an address range
     summary: |
-      You can add and remove address ranges for a virtual network. An address range must be specified in CIDR notation, and can't overlap with other address ranges within the same virtual network. The address ranges you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that you've connected to the virtual network. 
+      You can add and remove address ranges for a virtual network. An address range must be specified in CIDR notation, and can't overlap with other address ranges within the same virtual network. The address ranges you define can be public or private (RFC 1918). Whether you define the address range as public or private, the address range is reachable only from within the virtual network, from interconnected virtual networks, and from any on-premises networks that are connected to the virtual network. 
 
       You can decrease the address range for a virtual network as long as it still includes the ranges of any associated subnets. Additionally, you can extend the address range, for example, changing a /16 to /8. 
 
-      <!-- the above statement has been edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
+      <!-- the previous statement was edited to reflect the most recent comments on the reopened issue: https://github.com/MicrosoftDocs/azure-docs/issues/20572 -->
 
       You can't add the following address ranges:
 

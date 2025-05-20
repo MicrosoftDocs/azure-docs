@@ -3,10 +3,10 @@ title: Visually monitor Azure Data Factory
 description: Learn how to visually monitor Azure data factories
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: whhender
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 02/13/2025
 ---
 
 # Visually monitor Azure Data Factory
@@ -101,7 +101,7 @@ After you create the user properties, you can monitor them in the monitoring lis
 - `Filter` - Activity will behave as before.
 - `Until` Activity will evaluate the expression and will loop until the condition is satisfied. Inner activities may still be skipped based on the rerun rules.
 - `Foreach` Activity will always loop on the items it receives. Inner activities may still be skipped based on the rerun rules.
-- `If and switch` - Conditions will always be evaluated. All inner activities will be evaluated. Inner activities may still be skipped based on the rerun rules, but acities such as Execute Pipeline will rerun.
+- `If and switch` - Conditions will always be evaluated. All inner activities will be evaluated. Inner activities may still be skipped based on the rerun rules, but activities such as Execute Pipeline will rerun.
 - `Execute pipeline activity` - The child pipeline will be triggered, but all activities in the child pipeline may still be skipped based on the rerun rules.
 
 

@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 01/31/2024
+ms.date: 12/19/2024
 ms.custom: how-to, devx-track-azurecli
 ---
 
@@ -18,7 +18,7 @@ In this guide, you'll learn how to disable public access to your Azure Managed G
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An existing Azure Managed Grafana instance in the Standard tier. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
+- An existing Azure Managed Grafana workspace in the Standard tier. [Create one if you haven't already](quickstart-managed-grafana-portal.md).
 
 ## Disable public access to a workspace
 
@@ -161,7 +161,7 @@ Go to **Networking** > **Private Access** in your Azure Managed Grafana workspac
 
 1. To manually approve, reject or remove a connection, select the checkbox next to the endpoint you want to edit and select an action item from the top menu.
 
-1. Select the name of the private endpoint to open the private endpoint resource and access more information or to edit the private endpoint.
+1. Optionally select the name of the private endpoint to open the private endpoint resource and access more information or to edit the private endpoint.
 
     :::image type="content" source="media/private-endpoints/create-endpoint-approval.png" alt-text="Screenshot of the Azure portal, manage private endpoint.":::
 
@@ -207,6 +207,9 @@ For more CLI commands, go to [az network private-endpoint-connection](/cli/azure
 
 If you have issues with a private endpoint, check the following guide: [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-## Next steps
+## Next step
 
-In this how-to guide, you learned how to set up private access from your users to an Azure Managed Grafana workspace. To learn how to configure private access between a Managed Grafana workspace and a data source, see [Connect to a data source privately](how-to-connect-to-data-source-privately.md).
+In this how-to guide, you learned how to set up private access from your users to an Azure Managed Grafana workspace. To learn how to configure private access between an Azure Managed Grafana workspace and a data source, see:
+
+> [!div class="nextstepaction"]
+> [Connect to a data source privately](how-to-connect-to-data-source-privately.md)

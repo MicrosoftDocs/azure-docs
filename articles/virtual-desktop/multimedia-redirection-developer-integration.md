@@ -2,8 +2,8 @@
 title: Developer integration with multimedia redirection for WebRTC-based calling apps in a remote session
 description: Learn how to integrate a website with multimedia redirection for WebRTC-based calling apps in a remote session from Azure Virtual Desktop, a Windows 365 Cloud PC, or Microsoft Dev Box.
 ms.topic: how-to
-author: dknappettmsft
-ms.author: daknappe
+author: dougeby
+ms.author: avdcontent
 ms.date: 10/04/2024
 ---
 
@@ -54,15 +54,15 @@ Call redirection has the following API limitations:
 
 - As some APIs return synchronously under normal conditions but have to be proxies when used with call redirection, it's possible that the state of an object isn't available immediately.
 
-## Detecting call redirection
+## Detect call redirection
 
-To detect whether call redirection is active, you can check the `isRemote` property of the `MediaDevices` object. If this property is `true`, call redirection is active. If this property is `undefined` or `false`, call redirection isn't active.
+To detect whether call redirection is active, you can check the `isCallRedirectionEnabled` property of the `MediaDevices` object. If this property is `true`, call redirection is active. If this property is `undefined` or `false`, call redirection isn't active.
 
 ```javascript
-window.navigator.mediaDevices['isRemote'] = true;
+window.navigator.mediaDevices['isCallRedirectionEnabled'] = true;
 ```
 
-## Detecting disconnection from a remote session
+## Detect disconnection from a remote session
 
 When a user disconnects and reconnects to a remote session when using call redirection on a web page, the local WebRTC instance that supported the objects is no longer available. Typically, if a user refreshes the page, they're able to make calls again.
 
@@ -130,6 +130,10 @@ document.addEventListener('mmrExtensionLog', () =>
     console.log("MMR event, level:" + event.detail.level + " : " + event.detail.message);
 );
 ```
+
+## Submit your website for review or request assistance
+
+If you represent an ISV and you want your website to be added to the list of [Websites for call redirection](multimedia-redirection-video-playback-calls.md#websites-for-call-redirection), or if you need assistance with integrating your website with call redirection, [complete and submit this form](https://forms.microsoft.com/r/BtDs4pdYzB).
 
 ## Related content
 

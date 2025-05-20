@@ -3,11 +3,11 @@ title: Configure Azure Static Web Apps
 description: Learn how to configure routes and enforce security rules and global settings for Azure Static Web Apps.
 services: static-web-apps
 ms.custom: engagement-fy23
-author: craigshoemaker
+author: v1212
 ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 05/24/2024
-ms.author: cshoe
+ms.author: wujia
 ---
 
 # Configure Azure Static Web Apps

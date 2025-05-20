@@ -165,7 +165,7 @@ Example layer in the style.json file:
 
 The map configuration is an array of configurations. Each configuration consists of a [basemap] and one or more layers, each layer consisting of a [style] + [tileset] tuple.
 
-The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfingurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
+The map configuration is used when you [Instantiate the Indoor Manager] of a Map object when developing applications in Azure Maps. It's referenced using the `mapConfigurationId` or `alias`. Map configurations are immutable. When making changes to an existing map configuration, a new map configuration is created, resulting in a different `mapConfigurationId`. Anytime you create a map configuration using an alias already used by an existing map configuration, it points to the new map configuration.
 
 The following JSON is an example of a default map configuration. See the following table for a description of each element of the file:
 
@@ -217,8 +217,8 @@ The following JSON is an example of a default map configuration. See the followi
 #### Additional information
 
 - For more information how to modify styles using the style editor, see [Create custom styles for indoor maps].
-- For more information on style Rest API, see [style] in the Maps Creator Rest API reference.
-- For more information on the map configuration Rest API, see [Creator - map configuration Rest API].
+- For more information on style REST API, see [style] in the Maps Creator REST API reference.
+- For more information on the map configuration REST API, see [Creator - map configuration REST API].
 
 ### Wayfinding (preview)
 
@@ -299,7 +299,7 @@ The following example shows how to update a dataset, create a new tileset, and d
 [Upload a drawing package]: #upload-a-drawing-package
 
 <!-----	REST API Links	------->
-[Creator - map configuration Rest API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
+[Creator - map configuration REST API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [routeset]: /rest/api/maps-creator/routeset?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [Style - Create]: /rest/api/maps-creator/style/create?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [style]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true

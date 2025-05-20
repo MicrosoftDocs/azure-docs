@@ -3,7 +3,7 @@ title: Design virtual networks with Azure NAT Gateway
 description: Learn about how to design virtual networks with Azure NAT Gateway.
 author: asudbring
 ms.author: allensu
-ms.service: nat-gateway
+ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.date: 04/29/2024
 ---
@@ -93,6 +93,14 @@ NAT Gateway supersedes any outbound configuration from a load-balancing rule or 
 | VMs (Subnet 2) | Inbound </br> Outbound | NA </br> NAT gateway |
 
 The NAT gateway supersedes any outbound configuration from a load-balancing rule or outbound rules on a load balancer and instance level public IPs on a virtual machine. All virtual machines in subnets 1 and 2 use the NAT gateway exclusively for outbound and return traffic. Instance-level public IPs take precedence over load balancer. The VM in subnet 1 uses the instance level public IP for inbound originating traffic. VMSS do not have instance-level public IPs.
+
+## How to use service tagged public IPs with NAT Gateway
+[Service tags](/azure/virtual-network/service-tags-overview) represent a group of IP addresses from a given Azure service. Microsoft manages the address prefix encompassed by the service tag and automatically updates the service tag as addresses change, which reduces the complexity of managing network security rules. 
+
+Service tagged public IP addresses can be used with NAT gateway for providing outbound connectivity to the internet. To add a service tagged public IP to a NAT gateway, you can attach it using any of the available clients in Azure, such as the portal, CLI, or powershell. See [how to add and remove public IPs for NAT gateway](/azure/nat-gateway/manage-nat-gateway?tabs=manage-nat-portal#add-or-remove-a-public-ip-address) for detailed guidance.
+
+> [!NOTE]
+> Public IP addresses with [routing preference "Internet"](/azure/virtual-network/ip-services/routing-preference-overview#routing-over-public-internet-isp-network) are not supported by NAT Gateway. Only public IPs that route over the Microsoft global network are supported by NAT gateway.
 
 ## Monitor outbound network traffic with VNet flow logs
 

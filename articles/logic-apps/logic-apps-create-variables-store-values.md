@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 01/10/2024
+# As an integration solution developer, I want to know how to create and work with variables in my workflows using Azure Logic Apps.
 ---
 
 # Create variables to store and manage values in Azure Logic Apps
@@ -31,16 +32,15 @@ Variables exist and are global only within the workflow instance that creates th
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * A logic app workflow where you want to create the variable and a trigger that starts the workflow.
 
   Before you can add actions for creating and working with variables, your workflow must start with a trigger as the first step in your workflow. For more information, see [Build a workflow with a trigger or action](create-workflow-with-trigger-or-action.md).
 
-The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to build logic app workflows:
 
-* Consumption workflows: [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
-
+* Consumption workflows: [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * Standard workflows: [Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md)
 
 Based on whether you have a Consumption or Standard workflow, follow the corresponding steps:
@@ -61,7 +61,7 @@ You can create a variable and declare its data type and initial value by using a
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
+   | **Name** | Yes | <*variable-name*> | The name for the variable to initialize |
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
    | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so you always know your variable's start value. |
 
@@ -81,7 +81,7 @@ You can create a variable and declare its data type and initial value by using a
 
    | Property | Required | Value |  Description |
    |----------|----------|-------|--------------|
-   | **Name** | Yes | <*variable-name*> | The name for the variable to increment |
+   | **Name** | Yes | <*variable-name*> | The name for the variable to initialize |
    | **Type** | Yes | <*variable-type*> | The data type for the variable |
    | **Value** | No | <*start-value*> | The initial value for your variable <br><br>**Tip**: Although optional, set the value as a best practice so that you always know your variable's start value. |
 
@@ -110,7 +110,7 @@ If you switch from the designer to code view, the following example shows how th
       },
       "runAfter": {}
    }
-},
+}
 ```
 
 > [!NOTE]
@@ -461,7 +461,7 @@ The following table describes the information for the **Decrement variable** act
 | Property | Required | Value |  Description |
 |----------|----------|-------|--------------|
 | **Name** | Yes | <*variable-name*> | The name for the variable to decrement | 
-| **Value** | No | <*increment-value*> | The value for decrementing the variable. The default value is one. <br><br>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
+| **Value** | No | <*decrement-value*> | The value for decrementing the variable. The default value is one. <br><br>**Tip**: Although optional, set this value as a best practice so you always know the specific value for decrementing your variable. |
 
 If you switch from the designer to code view, the following example shows how the **Decrement variable** action appears in your workflow definition, which is in JSON format:
 

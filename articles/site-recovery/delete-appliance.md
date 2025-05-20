@@ -4,7 +4,7 @@ description: Learn how to remove an Azure Site Recovery replication appliance us
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/04/2024
+ms.date: 11/18/2024
 ms.author: ankitadutta
 ---
 
@@ -55,6 +55,8 @@ You can only delete the Azure Site Recovery replication appliance from the Azure
 > [!IMPORTANT]
 > The appliance must be unhealthy (in a critical state) for at least 30 minutes before it is eligible for deletion. If the appliance is healthy, you can only reset it. Ensure that you have disabled replication for all servers before deleting the appliance.
 
+> [!NOTE]
+> Trigger the delete appliance from the portal after shutting down the VM. You shouldn't unregister any component from appliance to delete the appliance.
 
 To delete an appliance, follow these steps:
 
