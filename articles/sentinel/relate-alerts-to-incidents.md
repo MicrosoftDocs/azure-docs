@@ -143,7 +143,7 @@ When adding an alert to an incident, depending on the circumstances, you might b
 
 Adding and removing alerts to incidents are also available as Logic Apps actions in the Microsoft Sentinel connector, and therefore in Microsoft Sentinel playbooks. You need to supply the **incident ARM ID** and the **system alert ID** as parameters, and you can find them both in the playbook schema for both the alert and incident triggers.
 
-Microsoft Sentinel supplies a sample playbook template in the templates gallery, that shows you how to work with this capability:
+Microsoft Sentinel supplies a sample playbook template in the templates gallery that shows you how to work with this capability:
 
 :::image type="content" source="media/relate-alerts-to-incidents/playbook.png" alt-text="Screenshot of playbook template for relating alerts to incidents.":::
 
