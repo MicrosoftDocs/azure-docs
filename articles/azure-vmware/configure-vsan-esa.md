@@ -27,13 +27,13 @@ VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/relea
 In this article, you learn more about:
 
 > [!div class="checklist"]
-> - Supported host types
+> - Supported host type
 > - Supported vSAN services
 > - How to enable or disable vSAN TRIM/UNMAP
 > - How to enable vSAN Compression
 > - How to enable or disable vSAN Data-In-Transit Encryption
 
-## Supported host types
+## Supported host type
 vSAN ESA (Express Storage Architecture) is supported on the following Azure VMware Solution host types:
 
 - AV48
