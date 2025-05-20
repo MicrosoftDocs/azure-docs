@@ -16,7 +16,7 @@ appliesto:
 
 The Defender portal allows you to connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. In the context of this article, a workspace is a Log Analytics workspace with Microsoft Sentinel enabled.
 
-This article primarily applies to the scenario where you onboard Microsoft Sentinel to the Defender portal together with with Microsoft Defender XDR for [unified security operations](/unified-secops-platform/overview-unified-security). If you plan to use Microsoft Sentinel in the Defender portal without Microsoft Defender XDR, you can still manage multiple workspaces. However, since you don't have Defender XDR, your primary workspace won't have Defender XDR data, and you won't have access to Defender XDR features.
+This article primarily applies to the scenario where you onboard Microsoft Sentinel to the Defender portal together with Microsoft Defender XDR for [unified security operations](/unified-secops-platform/overview-unified-security). If you plan to use Microsoft Sentinel in the Defender portal without Microsoft Defender XDR, you can still manage multiple workspaces. However, since you don't have Defender XDR, your primary workspace won't have Defender XDR data, and you won't have access to Defender XDR features.
 
 ## Primary and secondary workspaces
 
