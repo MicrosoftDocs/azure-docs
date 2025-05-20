@@ -77,7 +77,7 @@ your de-identification service for the `<deid_service_name>` placeholder:
 $DeidServicePrincipalId=$(az resource show -n <deid_service_name> -g $ResourceGroup --resource-type microsoft.healthdataaiservices/deidservices --query identity.principalId --output tsv)
 az role assignment create --assignee $DeidServicePrincipalId --role "Storage Blob Data Contributor" --scope $StorageAccountId
 ```
-To verify that the de-identification service has access to the storage account, you can check on the Azure portal under <b>storage accounts</b>. Under the <b>Storage center/b> and <b>Resources<b/> tab, click your storage account name. Select <b>Access control (IAM)</b> and in the search bar, search for the name of your de-identification service ($ResourceGroup). 
+To verify that the de-identification service has access to the storage account, you can check on the Azure portal under <b>storage accounts</b>. Under the <b>Storage center</b> and <b>Resources<b/> tab, click your storage account name. Select <b>Access control (IAM)</b> and in the search bar, search for the name of your de-identification service ($ResourceGroup). 
 
 ## Configure network isolation on the storage account
 Next, you update the storage account to disable public network access and only allow access from trusted Azure services such as the de-identification service.
