@@ -14,7 +14,7 @@ ms.date: 05/20/2025
 Azure IoT Operations uses TLS to encrypt communication between all components. This article describes how to manage certificates for internal and external communications, and how to bring your own certificate authority (CA) issuer for a production deployment.
 
 > [!TIP]
-> If you're looking for information about how to manage certificates for the connector for OPC UA, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opcua-broker-certificates-management.md).
+> If you're looking for information about how the connector for OPC UA uses certificates to establish mutual trust with an OPC UA server, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opcua-broker-certificates-management.md).
 
 ## Prerequisites
 
@@ -93,7 +93,7 @@ To help you get started, Azure IoT Operations is deployed with a default self-si
         status: "True" 
         type: Ready 
     ```
-### Bring your own issuer
+## Bring your own issuer
 
 For production deployments, we recommend that you set up Azure IoT Operations with an enterprise PKI to manage certificates and that you bring your own issuer which works with your enterprise PKI instead of using the default self-signed issuer to issue TLS certificates for internal communication.
 
@@ -151,11 +151,11 @@ To set up Azure IoT Operations with your own issuer, use the following steps **b
 
 The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
 
-The OPC UA client application authentication, leverages the current certificate management experience for external communications. When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the edge to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
+For example, the connector for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the edge to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
 
 **************TODO: Screenshot of upload/add from AKV page****************
 
-- **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the edge using Secret Store Extension. 
+- **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the edge using Secret Store extension. 
 
     > [!TIP]
     > View the certificate once uploaded to ensure you have uploaded the correct certificate before adding to Azure Key Vault and synchronizing to edge.
