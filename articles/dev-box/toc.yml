@@ -65,6 +65,8 @@ items:
         displayName: diagnostic, logs
       - name: Configure conditional access policies for dev tunnels
         href: how-to-conditional-access-dev-tunnels-service.md
+      - name: Move dev box pools between regions
+        href: how-to-move-dev-box-pool-region.md
   - name: Prepare images
     items:
       - name: Configure an Azure compute gallery
