@@ -296,6 +296,7 @@ In this section, you create a function app and related resources in your Azure s
 1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
 1. Following the prompts, provide this information:
+
    | Prompt |  Selection |
    | ------ |  --------- |
    | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
