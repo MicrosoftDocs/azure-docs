@@ -31,7 +31,7 @@ In this article learn how to:
 
 ## Prerequisites for vSAN OSA-based clusters
 
-Make sure that the minimum level of hosts are met, according to the following table:
+Make sure that the minimum level of hosts is met, according to the following table:
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
@@ -43,7 +43,7 @@ Make sure that the minimum level of hosts are met, according to the following ta
 
 ## Prerequisites for vSAN ESA-based clusters
 
-Make sure that the minimum level of hosts are met, according to the following table:
+Make sure that the minimum level of hosts is met, according to the following table:
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
@@ -146,7 +146,7 @@ Keep the following information in mind:
 
 * You can't modify existing Azure VMware Solution default storage policies.
 * Certain options enabled in storage policies produce a warning that a policy is out of compliance.
-* Out of compliance: When you modify existing storage policies, existing associated vSAN objects like VMs, VMDK files, and ISO files appear to be "out of compliance." This means that existing objects are running against premodified policy settings. To update to match the modified policy settings, reapply the storage policy to objects.
+* When you modify existing storage policies, existing associated vSAN objects like VMs, VMDK files, and ISO files appear to be "out of compliance." This means that existing objects are running against premodified policy settings. To update to match the modified policy settings, reapply the storage policy to objects.
 
 1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
 
@@ -154,7 +154,7 @@ Keep the following information in mind:
 
    | **Field** | **Value** |
    | --- | --- |
-   | **Overwrite** | Overwrite existing storage policy. <br>- The default value is  `$false`. <br>- When you pass overwrite `true` provided overwrites an existing policy exactly as defined. <br>- Those values not passed are removed or set to default values. |
+   | **Overwrite** | Overwrite existing storage policy. <br>- The default value is  `$false`. <br>- Passing overwrite `true` provided overwrites an existing policy exactly as defined. <br>- Those values not passed are removed or set to default values. |
    | **NotTags** | Match to datastores that do *not* have these tags. <br>- Tags are case sensitive. <br>- Comma separate multiple tags. <br>- Example: `Tag1,Tag 2,Tag_3`. |
    | **Tags** | Match to datastores that do have these tags.  <br>- Tags are case sensitive. <br>- Comma separate multiple tags. <br>- Example: `Tag1,Tag 2,Tag_3`. |
    | **vSANForceProvisioning** | Force provisioning for the policy. <br>- The default value is `$false`.<br>- Valid values are `$true` or `$false`. <br>- Warning: vSAN force-provisioned objects aren't covered under Microsoft's Service Level Agreement (SLA). Data loss and vSAN instability can occur. <br>- Recommended value is `$false`. |
