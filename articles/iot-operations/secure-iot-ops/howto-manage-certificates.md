@@ -93,6 +93,45 @@ To help you get started, Azure IoT Operations is deployed with a default self-si
         status: "True" 
         type: Ready 
     ```
+
+## Manage certificates for external communications
+
+The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
+
+For example, the connector for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the edge to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
+
+<!-- **************TODO: Screenshot of upload/add from AKV page - I want it to be coming from AKV instead**************** -->
+:::image type="content" source="media/howto-manage-certificates/add-new-certificate.png" alt-text="Screenshot that shows the Upload certificate and Add from Azure Key Vault options when adding a new certificate to the asset endpoints page.":::
+
+- **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the edge using Secret Store extension. 
+
+    > [!TIP]
+    > View the certificate once uploaded to ensure you have uploaded the correct certificate before adding to Azure Key Vault and synchronizing to edge.
+
+    > [!TIP]
+    > Use an intuitive name so that you can recognize which secret represents your secret in the future.
+    
+    > [!NOTE]
+    > Simply uploading the certificate will not add the secret to Azure Kery Vault and synchronize to edge, you must click **Apply** to the changes to be applied.  
+     
+
+- **Add from Azure Key Vault**: Add an existing secret from the Azure Key vault to be synchronized to the edge.
+
+    > [!NOTE]
+    > Make sure to select the secret which holds the certificate you would like to synchronize to the edge. Selecting a secret which is not the correct certificate will cause the connection to fail. 
+
+<!-- TODO: Can we add more clarity here? -->
+Unlike in [Manage secrets for your Azure IoT Operations deployment](howto-manage-secrets.md) where you directly manage the synchronized secret used for authentication, Azure IoT Operations manages the synchronized secrets which represents the certificates on behalf of you. 
+
+Using the list view you can manage the synchronized certificates. You can view all the synchronized certificates, and which certificate store it is synchronized to:
+
+<!-- ***********TODO: Screenshot of  list view with some certificates there************* -->
+:::image type="content" source="media/howto-manage-certificates/list-certificates.png" alt-text="Screenshot that shows the list of certificates in the asset endpoints page and how to filter by Trust List and Issuer List.":::
+
+- To learn more about the *Trust list* and *Issuer list* stores, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
+
+You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the edge, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault. 
+
 ## Bring your own issuer
 
 For production deployments, we recommend that you set up Azure IoT Operations with an enterprise PKI to manage certificates and that you bring your own issuer which works with your enterprise PKI instead of using the default self-signed issuer to issue TLS certificates for internal communication.
@@ -146,38 +185,3 @@ To set up Azure IoT Operations with your own issuer, use the following steps **b
       ```bash
       az iot ops create --subscription <SUBSCRIPTION_ID> -g <RESOURCE_GROUP> --cluster <CLUSTER_NAME> --custom-location <CUSTOM_LOCATION> -n <INSTANCE_NAME> --sr-resource-id <SCHEMAREGISTRY_RESOURCE_ID> --trust-settings configMapName=<CONFIGMAP_NAME> configMapKey=<CONFIGMAP_KEY_WITH_PUBLICKEY_VALUE> issuerKind=<CLUSTERISSUER_OR_ISSUER> issuerName=<ISSUER_NAME>
       ```
-
-## Manage certificates for external communications
-
-The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
-
-For example, the connector for OPC UA uses the certificate management experience to configure OPC UA client application authentication to an external OPC UA server. When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the edge to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
-
-**************TODO: Screenshot of upload/add from AKV page****************
-
-- **Upload Certificate**: Uploads a certificate which is then added as a secret to Azure Key Vault and automatically synchronized to the edge using Secret Store extension. 
-
-    > [!TIP]
-    > View the certificate once uploaded to ensure you have uploaded the correct certificate before adding to Azure Key Vault and synchronizing to edge.
-
-    > [!TIP]
-    > Use an intuitive name so that you can recognize which secret represents your secret in the future.
-    
-    > [!NOTE]
-    > Simply uploading the certificate will not add the secret to Azure Kery Vault and synchronize to edge, you must click **Apply** to the changes to be applied.  
-     
-
-- **Add from Azure Key Vault**: Add an existing secret from the Azure Key vault to be synchronized to the edge.
-
-    > [!NOTE]
-    > Make sure to select the secret which holds the certificate you would like to synchronize to the edge. Selecting a secret which is not the correct certificate will cause the connection to fail. 
-
-Unlike in [Manage secrets for your Azure IoT Operations deployment](howto-manage-secrets.md) where you directly manage the synchronized secret used for authentication, Azure IoT Operations manages the synchronized secrets which represents the certificates on behalf of you. 
-
-Using the list view you can manage the synchronized certificates. You can view all the synchronized certificates, and which certificate store it is synchronized to:
-
-***********TODO: Screenshot of  list view*************
-
-- To learn more about the *Trust list* and *Issuer list* stores, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md).
-
-You can delete synced certificates as well. When you delete a synced certificate, it only deletes the synced certificate from the edge, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault. 
