@@ -1,16 +1,13 @@
 ---
-title: 'Tutorial: Use Azure Cache for Redis as a semantic cache'
+title: "Tutorial: Use Azure Cache for Redis as a semantic cache"
 description: In this tutorial, you learn how to use Azure Cache for Redis as a semantic cache.
-
-
-ms.collection: ce-skilling-ai-copilot
-ms.topic: tutorial
 ms.date: 01/08/2024
-appliesto:
-  - ✅ Azure Cache for Redis
-
-
-#CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
+ms.topic: tutorial
+ms.collection:
+  - ce-skilling-ai-copilot
+ms.custom:
+  - build-2025
+# CustomerIntent: As a developer, I want to develop some code using a sample so that I see an example of a semantic cache with an AI-based large language model.
 ---
 
 # Tutorial: Use Azure Cache for Redis as a semantic cache
@@ -47,9 +44,9 @@ In this tutorial, you learn how to:
 
 - An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the models.
 
-## Create an Azure Cache for Redis instance
+## Create an Azure Managed Redis instance
 
-Follow the [Quickstart: Create a Redis Enterprise cache](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
+Follow the [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 

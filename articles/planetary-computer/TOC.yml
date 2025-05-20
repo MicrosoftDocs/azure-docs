@@ -1,0 +1,93 @@
+- name: Microsoft Planetary Computer Pro
+  href: index.yml
+- name: About Microsoft Planetary Computer Pro
+  items:
+  - name: What is Microsoft Planetary Computer Pro?
+    href: microsoft-planetary-computer-pro-overview.md
+  - name: What's new in Microsoft Planetary Computer Pro
+    href: whats-new.md
+  - name: STAC overview
+    href: stac-overview.md
+  - name: Supported data types
+    href: supported-data-types.md
+  expanded: true
+- name: Deploy & setup
+  items:
+  - name: Get started with Microsoft Planetary Computer Pro
+    href: get-started-planetary-computer.md
+  - name: Deploy a GeoCatalog resource
+    href: deploy-geocatalog-resource.md
+  - name: Manage access
+    href: manage-access.md
+  - name: Assign a user-assigned managed identity to a GeoCatalog resource
+    href: assign-managed-identity-geocatalog-resource.md
+  - name: Using the Microsoft Planetary Computer Pro APIs
+    href: api-tutorial.md
+  - name: Delete a Geocatalog resource
+    href: delete-geocatalog-resource.md
+- name: Create a STAC collection
+  items:
+  - name: Create a STAC collection (Web Interface)
+    href: create-collection-web-interface.md
+  - name: Create a STAC collection (API)
+    href: create-stac-collection.md
+- name: Ingest data
+  items:
+  - name: Ingestion overview
+    href: ingestion-overview.md
+  - name: Ingestion sources
+    href: ingestion-source.md
+  - name: Setup an ingestion source using managed identity through the UI
+    href: set-up-ingestion-credentials-managed-identity.md
+  - name: Set up ingestion source using SAS tokens
+    href: set-up-ingestion-credentials-sas-tokens.md
+  - name: Ingest data using the web interface
+    href: ingest-via-web-interface.md
+  - name: Create a STAC item
+    href: create-stac-item.md
+  - name: Add a STAC item to a collection
+    href: add-stac-item-to-collection.md
+  - name: Bulk ingest data
+    href: bulk-ingestion-api.md
+- name: Configure collections for visualization
+  items:
+  - name: Collection configuration overview
+    href: collection-configuration-concept.md
+  - name: Configure collections for visualization
+    href: configure-collection-web-interface.md
+  - name: Mosaic configuration
+    href: mosaic-configurations-for-collections.md
+  - name: Render configuration
+    href: render-configuration.md
+  - name: Tile settings
+    href: tile-settings.md
+  - name: Queryables
+    href: queryables-for-explorer-custom-search-filter.md
+  - name: Supported color maps
+    href: supported-colormaps.md
+  - name: Visualize assets
+    href: visualize-assets.md
+- name: Build and use applications
+  items:
+  - name: Build applications
+    href: build-applications-with-planetary-computer-pro.md
+  - name: Use the explorer
+    href: use-explorer.md
+  - name: Application authentication
+    href: application-authentication.md
+  - name: Connect to ArcGIS Pro
+    href: create-connection-arc-gis-pro.md
+  - name: Azure Batch and Microsoft Planetary Computer Pro
+    href: azure-batch.md
+  - name: API Reference
+    href: /rest/api/planetarycomputer
+- name: Working with data cubes
+  items:
+  - name: Data cube overview
+    href: data-cube-overview.md
+  - name: Get Started with data cubes
+    href: data-cube-quickstart.md
+  - name: Visualize data cubes
+    href: visualize-assets.md
+  - name: Get a collection SAS token
+    href: get-collection-sas-token.md

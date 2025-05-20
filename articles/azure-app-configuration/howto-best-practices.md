@@ -53,11 +53,11 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 Azure App Configuration supports dynamic configuration refresh without requiring an application restart. The [App Configuration providers](./configuration-provider-overview.md) can monitor configuration changes using two approaches:
 
-#### Monitoring all selected keys
+### Monitoring all selected keys
 
 In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without requiring additional key modifications.
 
-Here's an example using .NET:
+#### [.NET](#tab/dotnet)
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
@@ -73,11 +73,24 @@ configBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
-#### Monitoring a sentinel key
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        enabled: true
+    }
+});
+```
+
+---
+
+### Monitoring a sentinel key
 
 Alternatively, you can monitor an individual key, often referred to as the *sentinel key*. This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
 
-Here's an example using .NET:
+#### [.NET](#tab/dotnet)
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
@@ -92,6 +105,20 @@ configBuilder.AddAzureAppConfiguration(options =>
            });
 });
 ```
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        enabled: true,
+        watchedSettings: [{ key: "SentinelKey" }]
+    }
+});
+```
+
+---
 
 Both approaches are available through App Configuration providers across supported languages and platforms.
 
