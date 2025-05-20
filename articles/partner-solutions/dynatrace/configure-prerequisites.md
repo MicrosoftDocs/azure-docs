@@ -21,7 +21,7 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 
 1. Go to Azure portal. Select **Microsoft Entra ID,** then **Enterprise App** and then **New Application**.
 
-1. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then select **Create**.
+1. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then select **Create** without changing the name. Use default name of **Dynatrace**.
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery.":::
 
