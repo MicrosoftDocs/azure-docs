@@ -9,14 +9,14 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with safe upgrade practices
-This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables upgrades to complex container network function (CNF) hosted on Azure Operator Nexus. These upgrades generally support partner In Service Software Upgrade (ISSU) methods and requirements. While this article introduces basic concepts, look for additional articles which expand on advanced SUP features and capabilities.
+This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables upgrades to complex container network function (CNF) hosted on Azure Operator Nexus. These upgrades generally support partner In Service Software Upgrade (ISSU) methods and requirements. While this article introduces basic concepts, look for other articles which expand on advanced SUP features and capabilities.
 
 ## Introduction to safe upgrades
-A given network service supported by AOSM, composed of one to many CNFs, includes compoments which, over time, require software and/or configuration changes. To make these component level changes it's necessary to run one to many helm operations, upgrading each network function application (nfApp) in a particular order and in a manner which least impacts the network service. AOSM safe upgrade practices leverage the following high level capabilities to handle upgrade process and workflow requirements:
+A given network service supported by AOSM, composed of one to many CNFs, includes components which, over time, require software and/or configuration changes. To make these component level changes it's necessary to run one to many helm operations, upgrading each network function application (nfApp) in a particular order and in a manner which least impacts the network service. AOSM safe upgrade practices apply the following high level capabilities to handle upgrade process and workflow requirements:
   
 * SNS Reput Support - Execute helm upgrade operation across all nfApps in network function design version (NFDV).
 * Nexus Platform - Support SNS reput operations on Nexus platform targets. 
-* Operation Time-outs - Ability to set operational time-outs for each nfApp operation.
+* Operation Timeouts - Ability to set operational timeouts for each nfApp operation.
 * Synchronous Operations - Ability to run one serial nfApp operation at a time.
 * Control Upgrade Order - Define different nfApp sequence for install and upgrade.
 * Pause On Failure - Default behavior pauses after an nfApp operation failure.
@@ -39,7 +39,7 @@ For each nfApp, the reput request supports various changes including increasing 
   
 To ensure outcomes, nfApp testing is supported using helm methods, either tests triggered by helm pre or post hooks, or using the standalone helm test hook. For pre or post hook failure, the `atomic` parameter is honored. With atomic/true, the failed chart is rolled back. With atomic/false, no rollback is executed. For standalone helm test hook failure, the `rollbackOnTestFailure` is honored, following similar logic as atomic. For more information on standalone helm testing, see the following article: [Run tests after install or upgrade](safe-upgrades-helm-test.md)
 
-When an nfApp operation failure occurs, and after the failed nfApp is handled via `atomic` or `rollbackOnTestFailure` parameters, the operator can control behavior on how to handle any nfApps changed prior to the failed nfApp. With pause-on-failure the operator can force AOSM to break after addressing the failed nfApp, perserving the mixed version environment. With rollback-on-failure the operator can force AOSM to rollback any prior nfApp, restoring the original environment snapshot. For more information on controlling upgrade failure behavior, see the following article: [Control upgrade failure behavior](safe-upgrades-nf-level-rollback.md)
+When an nfApp operation failure occurs, and after the failed nfApp is handled via `atomic` or `rollbackOnTestFailure` parameters, the operator can control behavior on how to handle any nfApps changed before the failed nfApp. With pause-on-failure the operator can force AOSM to break after addressing the failed nfApp, preserving the mixed version environment. With rollback-on-failure the operator can force AOSM to rollback any prior nfApp, restoring the original environment snapshot. For more information on controlling upgrade failure behavior, see the following article: [Control upgrade failure behavior](safe-upgrades-nf-level-rollback.md)
 
 ## Considerations for in-service upgrades
 Azure Operator Service Manager generally supports in service upgrades, an upgrade method which advances a deployment version without interrupting the running service. Some network function owner considerations are necessary to ensure the proper behavior of AOSM during ISSU operations. 
@@ -101,7 +101,7 @@ In cases where a reput update fails, the following process can be followed to re
   * By default, the reput retries nfApps in the declared update order, unless they're skipped using `applicationEnablement` flag.
 
 ## Control timeouts with installOptions and UpgradeOptions
-When an SNS operation starts either a `helm install` or a `helm upgrade` a 27-minute default timeout value is used. While this value can be customized at the global NF level, we recommend to customize this value at the component NF level using `roleOverrideValues` in the NF payload template. Further exposing the `roleOverrideValues` in CGS/CGV allows control by the operator at run-time. The following example demonstrates minimally supported installOptions and upgradeOptions parameters applied across two nfApp components;
+When an SNS operation starts either a `helm install` or a `helm upgrade`, a 27-minute default timeout value is used. While this value can be customized at the global network function (NF) level, we recommend customizing this value at the component NF level using `roleOverrideValues` in the NF payload template. Further exposing the `roleOverrideValues` in CGS/CGV allows control by the operator at run-time. The following example demonstrates supported installOptions and upgradeOptions parameters applied across two nfApp components;
 
 ```json
 {
@@ -179,7 +179,7 @@ The CGS template must be updated to include one variable declaration for each li
 ```
 
 ### NF payload template changes
-The NF template must be update three ways. First, the implicit config parameter must be defined as type object. Second, `roleOverrideValues0`, `roleOverrideValues1`, and `roleOverrideValues2` must be declared as variables mapped to config parameter. Third, `roleOverrideValues0`, `roleOverrideValues1` and `roleOverrideValues2` must be referenced for substitution under `roleOverrideValues` in proper order and following proper syntax.
+The NF template must be update three ways. First, the implicit config parameter must be defined as type object. Second, `roleOverrideValues0`, `roleOverrideValues1`, and `roleOverrideValues2` must be declared as variables mapped to config parameter. Third, `roleOverrideValues0`, `roleOverrideValues1`, and `roleOverrideValues2` must be referenced for substitution under `roleOverrideValues` in proper order and following proper syntax.
 
 ```json
   "parameters": {
