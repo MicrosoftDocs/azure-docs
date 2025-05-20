@@ -49,7 +49,7 @@ Since different regions have a different number of Resource Manager instances, t
 
 You can send more requests. Write requests increase by 30 times. Delete requests increase by 2.4 times. Read requests increase by 7.5 times.
 
-# Throttling for non-public clouds
+## Throttling for non-public clouds
 
 Throttling happens at two levels. Azure Resource Manager throttles requests for the subscription and tenant. If the request is under the throttling limits for the subscription and tenant, Resource Manager routes the request to the resource provider. The resource provider applies throttling limits that are tailored to its operations.
 
