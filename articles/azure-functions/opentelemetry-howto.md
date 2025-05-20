@@ -284,7 +284,7 @@ When you export your data using OpenTelemetry, keep these current considerations
 
 + When the host is configured to use OpenTelemetry, the Azure portal does not support log streaming or recent function invocation traces.
 
-+ Azure Functions App Diagnostics - App Diagnostics is a useful resource in the Azure portal for monitoring and diagnosing potential issues. Go to your Function App resource. In the left menu, select **Diagnose and solve problems** and search for “Application Insights Missing Logs”. 
++ Azure Functions App Diagnostics - App Diagnostics is a useful resource in the Azure portal for monitoring and diagnosing potential issues. Go to your Function App resource. In the left menu, select **Diagnose and solve problems** and search for “Function App missing telemetry Application Insights/OpenTelemetry”. 
 
 ## Related content
 
