@@ -6,13 +6,13 @@ ms.service: azure-vmware
 ms.date: 01/08/2025
 ms.custom: engagement-fy23
 
-#customer intent: As an Azure service administrator, I want set the VMware vSAN storage policies to determine how storage is allocated to the VM.
+#customer intent: As an Azure service administrator, I want to set VMware vSAN storage policies to determine how storage is allocated to the VM.
 
 ---
 
 # Configure a VMware vSAN storage policy
 
-VMware vSAN storage policies define storage requirements for your virtual machines (VMs). These policies guarantee that your VMs have the required level of service because they determine how storage is allocated to the VM. Each VM that you deploy to a vSAN datastore is assigned at least one VM storage policy.
+VMware vSAN storage policies define storage requirements for your virtual machines (VMs). These policies guarantee that your VMs have the required level of service because they determine how storage is allocated to each VM. Every VM that you deploy to a vSAN datastore is assigned at least one VM storage policy.
 
 You can assign a VM storage policy during a VM's initial deployment or during other VM operations, such as cloning or migrating. Post-deployment users with the **cloudadmin** or equivalent roles can't change the default storage policy for a VM. However, VM storage policy per disk changes is permitted.
 
@@ -31,11 +31,11 @@ In this article learn how to:
 
 ## Prerequisites for vSAN OSA-based clusters
 
-Make sure that the minimum level of hosts are met.
+Make sure that the minimum level of hosts are met, according to the following table:
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
-| `RAID-1` (mirroring) <br />Default setting.  | 1  | 3  |
+| `RAID-1` (mirroring) <br />Default setting  | 1  | 3  |
 | `RAID-5` (erasure coding)  | 1  | 4  |
 | `RAID-1` (mirroring)  | 2  | 5  |
 | `RAID-6` (erasure coding)  | 2  | 6  |
@@ -43,11 +43,11 @@ Make sure that the minimum level of hosts are met.
 
 ## Prerequisites for vSAN ESA-based clusters
 
-Make sure that the minimum level of hosts are met.
+Make sure that the minimum level of hosts are met, according to the following table:
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
-| `RAID-1` (mirroring) <br />Default setting.  | 1  | 3  |
+| `RAID-1` (mirroring) <br />Default setting  | 1  | 3  |
 | `RAID-5` (ESA optimized)  | 1  | 3  |
 | `RAID-1` (mirroring)  | 2  | 5  |
 | `RAID-6` (ESA optimized)  | 2  | 5  |
@@ -57,15 +57,13 @@ Make sure that the minimum level of hosts are met.
 
 Run the `Get-StoragePolicy` cmdlet to list the vSAN-based storage policies that are available to set on a VM.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure US Government portal](https://portal.azure.us/).
+1. Sign in to the [Azure portal](https://portal.azure.com) or, if applicable, sign in to the [Azure US Government portal](https://portal.azure.us/).
 
 1. Select **Run command** > **Packages** > **Get-StoragePolicies**.
 
    :::image type="content" source="media/run-command/run-command-overview-storage-policy.png" alt-text="Screenshot that shows how to access the available storage policy run commands." lightbox="media/run-command/run-command-overview-storage-policy.png":::
 
-1. Provide the required values or change the default values, and then select **Run**.
-
-   :::image type="content" source="media/run-command/run-command-get-storage-policy.png" alt-text="Screenshot that shows how to list available storage policies. ":::
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -73,6 +71,8 @@ Run the `Get-StoragePolicy` cmdlet to list the vSAN-based storage policies that 
    | **Specify name for execution**  | Alphanumeric name. For example, *Get-StoragePolicies-Exec1*. |
    | **Timeout**  |  The period after which a cmdlet exits if it's taking too long to finish.  |
 
+   :::image type="content" source="media/run-command/run-command-get-storage-policy.png" alt-text="Screenshot that shows how to list available storage policies. ":::
+   
 1. Check **Notifications** to see the progress.
 
 ## Set storage policy on VM
@@ -84,7 +84,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 1. Select **Run command** > **Packages** > **Set-VMStoragePolicy**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -98,14 +98,14 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 ## Set storage policy on all VMs in a location
 
-Run the `Set-LocationStoragePolicy` cmdlet to modify vSAN-based storage policies on all VMs in a location in which a location is the name of a cluster, resource pool, or folder. For example, if you have 3 VMs in *Cluster-3*, supplying *Cluster-3* would change the storage policy on all three VMs.
+Run the `Set-LocationStoragePolicy` cmdlet to modify vSAN-based storage policies on all VMs in a location in which a location is the name of a cluster, resource pool, or folder. For example, if you have three VMs in *Cluster-3*, supplying *Cluster-3* would change the storage policy on all three VMs.
 
 > [!NOTE]
 > You can't use the vSphere client to change the default storage policy or any existing storage policies for a VM.
 
 1. Select **Run command** > **Packages** > **Set-LocationStoragePolicy**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -123,7 +123,7 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify a default storage po
 
 1. Select **Run command** > **Packages** > **Set-ClusterDefaultStoragePolicy**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -150,7 +150,7 @@ Keep the following information in mind:
 
 1. Select **Run command** > **Packages** > **New-AVSStoragePolicy**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -180,7 +180,7 @@ Run the `Remove-AVSStoragePolicy` cmdlet to specify the default storage policy f
 
 1. Select **Run command** > **Packages** > **Remove-AVSStoragePolicy**.
 
-1. Provide the required values or change the default values, and then select **Run**.
+1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
    | **Field** | **Value** |
    | --- | --- |
@@ -193,7 +193,7 @@ Run the `Remove-AVSStoragePolicy` cmdlet to specify the default storage policy f
 
 ## Related content
 
-Now that you know how to configure VMware vSAN storage policies, learn more about:
+Now that you know how to configure VMware vSAN storage policies, read additional articles:
 
 * [Learn about external storage options](ecosystem-external-storage-solutions.md)
 * [Configure external identity for vCenter Server](configure-identity-source-vcenter.md)
