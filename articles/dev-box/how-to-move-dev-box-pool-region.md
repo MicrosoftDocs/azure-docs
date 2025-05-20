@@ -26,7 +26,8 @@ You can move Dev Box pools and individual dev boxes to a different region. This 
 
 You can use this option to move all existing or new dev boxes for a pool to a different region.
 
-1. In Azure portal, go to the project that contains the pool you want to move.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to the project that contains the pool you want to move.
 1. Go to the **Pools** tab.
 
 You can move the pool in the following ways:
@@ -79,7 +80,7 @@ To move multiple pools at once, you can choose the pools you want to move, and t
 ## Monitor the move process
 As a Project Admin, you can track move progress in the Azure portal notifications.
 
-1. Select the **Notifications** icon in the top right corner of the Azure portal.
+Select the **Notifications** icon in the top right corner of the Azure portal.
   
    :::image type="content" source="media/how-to-move-dev-box-pool-region/region-moves-notification.png" alt-text="Screenshot of tracking move progress in the notifications section.":::
 
@@ -103,7 +104,7 @@ If different dev boxes in the pool use different regions, you can move them to a
   
 1. The dev box moves to the region that the pool is configured with.
 
-## Developer experience
+## Track the progess of the move in the developer portal
 
 When you move a Dev Box, you see the following message:
   
