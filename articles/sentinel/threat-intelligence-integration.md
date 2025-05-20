@@ -68,7 +68,7 @@ One component of Cyware's TIP, CTIX, is to make intel actionable with a TAXII fe
 
 ### IntSights
 
-- Learn more about the [IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
+- Learn more about the [IntSights integration with Microsoft Sentinel](https://azuremarketplace.microsoft.com/marketplace/apps/intsights.41547b1e-f1e4-44b5-85de-55becff4cd64?tab=overview).
 - Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data that you want to send to Microsoft Sentinel.
 
 ### Kaspersky
