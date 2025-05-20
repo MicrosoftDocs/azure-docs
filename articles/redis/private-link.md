@@ -13,9 +13,15 @@ ms.custom:
 
 # What is Azure Managed Redis with Azure Private Link?
 
-In this article, you learn how to create a virtual network and an Azure Managed Redis instance with a private endpoint using the Azure portal. You also learn how to add a private endpoint to an existing Azure Managed Redis instance.
+In this article, you learn how to create a virtual network and use it with an Azure Managed Redis instance with a private endpoint. Azure Private Endpoint is a network interface that connects you privately and securely to Azure Managed Redis powered by Azure Private Link.
 
-Azure Private Endpoint is a network interface that connects you privately and securely to Azure Managed Redis powered by Azure Private Link.
+The process is accomplished in two steps:
+
+1. First, create a virtual network to use with a cache.
+
+1. Then, depending on whether you already have a cache:
+   1. Add the virtual network when you create a [new cache](#create-an-azure-managed-redis-instance-with-a-private-endpoint-connected-to-a-virtual-network-subnet).
+   1. Add the virtual network to your [existing cache](#create-an-azure-managed-redis-cache-connected-to-a-private-endpoint-using-azure-powershell).
 
 >[!Important]
 > Using private endpoint to connect to a Virtual Network is the recommended solution for securing your Azure Managed Redis resource at the networking layer.
@@ -24,20 +30,11 @@ Azure Private Endpoint is a network interface that connects you privately and se
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
-## Create a new Azure Managed Redis cache with a private endpoint connection
+## Create a virtual network with a subnet
 
-In this section, you create a new Azure Managed Redis cache with a private endpoint.
-
-1. The first step is to create a virtual network for your new cache.
-1. Then, you create a new cache. During the create experience, add the subnet that you created to in the first step.
-
-### Create a virtual network with a subnet
-
-To create a cache using the portal:
+The first step in the process is to create a virtual network using the portal. You then use this virtual network when you create a [new cache](#create-an-azure-managed-redis-instance-with-a-private-endpoint-connected-to-a-virtual-network-subnet) or with[existing cache](#create-an-azure-managed-redis-cache-connected-to-a-private-endpoint-using-azure-powershell).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**.
-
-    :::image type="content" source="media/private-link/1-create-resource.png" alt-text="Select Create a resource.":::
 
 1. On the **New** pane, select **Networking** and then select **Virtual network**.
 
@@ -62,27 +59,25 @@ To create a cache using the portal:
 
 1. Select the **Review + create** pane or select the **Review + create** button.
 
-1. Verify that all the information is correct and select **Create** to create the virtual network.
+1. Verify that all the information is correct, and select **Create** to create the virtual network.
 
-### Create an Azure Managed Redis instance with a private endpoint connected to a Virtual Network Subnet
+## Create an Azure Managed Redis instance with a private endpoint connected to a Virtual Network Subnet
 
-To create a cache instance, follow these steps:
+To create an Azure Managed Redis cache instance and add a private endpoint, follow these steps. You first must [create a virtual network](#create-a-virtual-network-with-a-subnet) to use with your cache.
 
-1. Go back to the Azure portal home page or open the sidebar menu, then select **Create a resource**.
+1. Go to the Azure portal home page, or open the sidebar menu, and select **Create a resource**.
 
 1. In the search box, type _Azure Managed Redis_. Refine your search to Azure services only, and select **Azure Managed Redis**.
 
 1. On the **New Azure Managed Redis** pane, configure the basic settings for your new cache.
 
-1. Select the **Networking** pane or select the **Networking** at the bottom of the pane.
+1. Select the **Networking** tab, or select the **Next: Networking** at the bottom of the working pane.
 
 1. In the **Networking** pane, select **Private Endpoint** for the connectivity method.
 
-1. Select the **Add** button to create your private endpoint.
+1. Select the **Add private endpoint** to add your private endpoint.
 
-   :::image type="content" source="media/private-link/3-add-private-endpoint.png" alt-text="In networking, add a private endpoint.":::
-
-1. On the **Create a private endpoint** pane, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **OK**.
+1. On the **Create private endpoint** pane, configure the settings for your private endpoint with the virtual network and subnet you created in the last section and select **Add**.
 
 1. Proceed with other tabs to fill out the configuration settings as needed.
 
@@ -92,30 +87,25 @@ To create a cache instance, follow these steps:
 
 It takes a while for the cache to create. You can monitor progress on the Azure Managed Redis **Overview** pane. When **Status** shows as **Running**, the cache is ready to use.
 
-## Create a private endpoint for use with an existing Azure Managed Redis instance
+## Add a private endpoint to an existing Azure Managed Redis instance
 
 In this section, you add a private endpoint to an existing Azure Managed Redis instance.
 
 1. The first step is to [create a virtual network](#create-a-virtual-network-with-a-subnet) for use with your existing cache.
-1. Then, you open your cache in the portal and add the subnet that you created to in the first step.
 
-### Create a virtual network with a subnet for your existing cache
+1. Then, you open your cache in the portal and add the [subnet you created](#create-a-virtual-network-with-a-subnet) to in the first step.
 
-To create a virtual network, follow these [steps](#create-a-virtual-network-with-a-subnet).
-
-### Add a private endpoint to an existing Azure Managed Redis cache
-
-To create a private endpoint, follow these steps:
+   After you create a private endpoint, follow these steps:
 
 1. In the Azure portal, select the cache instance you want to add a private endpoint to.
 
-1. Select **Private Endpoint** from the resource menu to create your private endpoint for your cache.
+1. Select **Private Endpoint** from the resource menu under **Administration** to create your private endpoint for your cache.
 
-1. On the **Create a private endpoint** pane, configure the settings for your private endpoint.
+1. On the **Private endpoint** pane, select **+ Private Endpoint** to add the settings for your private endpoint.
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **Subscription** | Drop down and select your subscription. | The subscription where you create this private endpoint. |
+   | **Subscription** | Drop down and select your subscription. | The subscription where you created your virtual network. |
    | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your private endpoint and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Name** | Enter a private endpoint name. | The name must: begin with a letter or number; end with a letter, number, or underscore; and can contain only letters, numbers, underscores, periods, or hyphens. |
    | **Network Interface Name** | Autogenerated based on the **Name**. | The name must: begin with a letter or number; end with a letter, number, or underscore; and can contain only letters, numbers, underscores, periods, or hyphens. |
@@ -129,7 +119,7 @@ To create a private endpoint, follow these steps:
 
 1. Select the **Next: Virtual Network** button at the bottom of the pane.
 
-1. In the **Virtual Network** pane, select the **Virtual Nnetwork** and **Subnet** you created in the previous section.
+1. In the **Virtual Network** pane, select the **Virtual Network** and **Subnet** you created in the [previous section](#create-a-virtual-network-with-a-subnet).
 
 <!-- We don't talk about DNS zones -->
 
@@ -143,11 +133,11 @@ To create a private endpoint, follow these steps:
 
 > [!IMPORTANT]
 >
-> There is currently no `publicNetworkAccess` property for Azure Managed Redis resource.
-> If there is a Private Endpoint connected to the Azure Managed Redis resource, it would only accept private traffic from the Virtual Network it's connected to.
+> There's currently no `publicNetworkAccess` property for Azure Managed Redis resource.
+> If sPrivate Endpoint is connected to the Azure Managed Redis cache, it only accepts private traffic from the connect Virtual Network.
 > If you delete the Private Endpoint, the resource is automatically opened to public network access.
 
-## Create an AMR connected to a private endpoint using Azure PowerShell
+## Create an Azure Managed Redis cache connected to a private endpoint using Azure PowerShell
 
 To create a private endpoint named _MyPrivateEndpoint_ for an existing Azure Managed Redis instance, run the following PowerShell script. Replace the variable values with the details for your environment:
 
@@ -195,7 +185,7 @@ To remove a private endpoint, use the following PowerShell command:
 Remove-AzPrivateEndpoint -Name $PrivateEndpointName -ResourceGroupName $ResourceGroupName
 ```
 
-## Create an AMR connected to a private endpoint using Azure CLI
+## Create an Azure Managed Redis cache connected to a private endpoint using Azure CLI
 
 To create a private endpoint named _myPrivateEndpoint_ for an existing Azure Managed Redis instance, run the following Azure CLI script. Replace the variable values with the details for your environment:
 
@@ -257,11 +247,11 @@ To remove a private endpoint, use the following CLI command:
 ```azurecli-interactive
 az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyResourceGroup
 ```
+
 ## Azure Managed Redis Private Endpoint Private DNS zone value
 Your application should connect to `<cachename>.<region>.redis.azure.net` on port `10000`. A private DNS zone, named `*.privatelink.redis.azure.net`, is automatically created in your subscription. The private DNS zone is vital for espanelishing the TLS connection with the private endpoint. We recommend avoiding the use of `<cachename>.privatelink.redis.azure.net` in configuration for client connection.
 
 For more information, see [Azure services DNS zone configuration](/azure/private-link/private-endpoint-dns).
-
 
 ## FAQ
 
@@ -291,8 +281,6 @@ For more information, see [Azure services DNS zone configuration](/azure/private
 ### How do I verify if my private endpoint is configured correctly?
 
 Go to **Overview** in the Resource menu on the portal. You see the **Host name** for your cache in the working pane. To verify that the command resolves to the private IP address for the cache, run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint.
-
-   :::image type="content" source="media/private-link/managed-redis-private-ip-address.png" alt-text="In the Azure portal, private endpoint D N S settings.":::
 
 ### How can I change my private endpoint to be disabled or enabled from public network access?
 
