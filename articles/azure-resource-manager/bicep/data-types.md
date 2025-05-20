@@ -16,7 +16,7 @@ A **array** in Bicep is an ordered collection of values—such as strings, integ
 
 Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
 
-You can declare arrays in Bicep using either single-line or multi-line syntax:
+You can declare arrays in Bicep using either single-line or multi-line syntax. Multi-line array declarations require [Bicep CLI version 0.7.X or later](https://github.com/Azure/bicep/releases/tag/v0.7.4).
 
 ```bicep
 var multiLineArray = [
@@ -31,15 +31,9 @@ var mixedArray = ['abc', 'def'
     'ghi']
 ```
 
-- **Single-line arrays** use commas (`,`) to separate values.
-- **Multi-line arrays** don't use commas between values.
-- You can mix single-line and multi-line declarations as needed.
-- Multi-line array declarations require [Bicep CLI version 0.7.X or later](](https://github.com/Azure/bicep/releases/tag/v0.7.4)).
+**Single-line arrays** use commas (`,`) to separate values. **Multi-line arrays** don't use commas between values. You can mix single-line and multi-line declarations as needed.
 
-Each array element can be of any type. Arrays can be:
-
-- **Homogeneous** (all elements of the same type)
-- **Heterogeneous** (elements of different types)
+Each array element can be of any type. You can have an array where each item is the same data type, or an array that holds different data types.
 
 ```bicep
 var integerArray = [
@@ -117,12 +111,12 @@ When you specify Boolean values, use `true` or `false`. Don't surround the value
 param exampleBool bool = true
 ```
 
-## Boolean-related operators
+### Boolean-related operators
 
 - Use [Comparison operators](./operators-comparison.md) to compare boolean values.
 - See [Logical operators](./operators-logical.md).
 
-## Boolean-related functions
+### Boolean-related functions
 
 See [Logical function](./bicep-functions-logical.md)
 
