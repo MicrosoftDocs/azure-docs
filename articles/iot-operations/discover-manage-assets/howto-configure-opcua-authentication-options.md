@@ -53,3 +53,5 @@ To configure the secrets for the *username* and *password* values in the [operat
     > You have the option to create new secrets in Azure Key Vault if you haven't already added them.
 
 1. Select **Apply**.
+
+To learn more about how Azure IoT Operations uses Azure Key Vault to store secrets such as usernames and passwords, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md).

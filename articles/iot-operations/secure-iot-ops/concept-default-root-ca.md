@@ -13,7 +13,10 @@ ms.service: azure-iot-operations
 
 # Certificate management for Azure IoT Operations internal communication
 
-All communication within Azure IoT Operations is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution. 
+All communication within Azure IoT Operations is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
+
+> [!TIP]
+> If you're looking for information about how to manage certificates for the connector for OPC UA, see [OPC UA certificates infrastructure for the connector for OPC UA](../discover-manage-assets/overview-opcua-broker-certificates-management.md).
 
 ## Default self-signed issuer and root CA certificate for TLS server certificates
 
