@@ -23,13 +23,13 @@ Run commands are executed one at a time in the order submitted.
 In this article learn how to:
 
 > [!div class="checklist"]
-> * List all storage policies.
-> * Set the storage policy for a VM.
-> * Specify the default storage policy for a cluster.
-> * Create a storage policy.
-> * Remove a storage policy.
+> * List all storage policies
+> * Set the storage policy for a VM
+> * Specify the default storage policy for a cluster
+> * Create a storage policy
+> * Remove a storage policy
 
-## Prerequisites (For vSAN OSA based clusters)
+## Prerequisites for vSAN OSA-based clusters
 
 Make sure that the minimum level of hosts are met.
 
@@ -41,17 +41,17 @@ Make sure that the minimum level of hosts are met.
 | `RAID-6` (erasure coding)  | 2  | 6  |
 | `RAID-1` (mirroring)  | 3  | 7  |
 
-## Prerequisites (For vSAN ESA-based clusters)
+## Prerequisites for vSAN ESA-based clusters
 
 Make sure that the minimum level of hosts are met.
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
-| `RAID-1` (Mirroring) <br />Default setting.  | 1  | 3  |
-| `RAID-5` (ESA Optimized)  | 1  | 3  |
-| `RAID-1` (Mirroring)  | 2  | 5  |
-| `RAID-6` (ESA Optimized)  | 2  | 5  |
-| `RAID-1` (Mirroring)  | 3  | 7  |
+| `RAID-1` (mirroring) <br />Default setting.  | 1  | 3  |
+| `RAID-5` (ESA optimized)  | 1  | 3  |
+| `RAID-1` (mirroring)  | 2  | 5  |
+| `RAID-6` (ESA optimized)  | 2  | 5  |
+| `RAID-1` (mirroring)  | 3  | 7  |
 
 ## List storage policies
 
