@@ -319,4 +319,5 @@ items:
         displayName: term, terminology, definition, usage
       - name: Digital twin builder (preview) in Fabric
         href: /fabric/real-time-intelligence/digital-twin-builder/overview
+        displayName: modeling, ontology, real-time, analytics
         
