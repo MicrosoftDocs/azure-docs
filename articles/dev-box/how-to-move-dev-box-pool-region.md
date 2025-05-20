@@ -30,7 +30,7 @@ You can use this option to move all existing or new dev boxes for a pool to a di
 1. Go to the project that contains the pool you want to move.
 1. Go to the **Pools** tab.
 
-You can move the pool in the following ways:
+From the Pools page, you can move the pool in the following ways:
 - **Edit the pool settings**
 - **Use the Move to region menu option**
 - **Move multiple pools at once**
@@ -71,11 +71,11 @@ To move multiple pools at once, you can choose the pools you want to move, and t
 
    :::image type="content" source="media/how-to-move-dev-box-pool-region/region-moves-multiple-pools.png" alt-text="Screenshot of selecting one or more pools and selecting 'Move to region' in the top bar.":::
 
-  - Update the network connection and choose between existing or new dev boxes.
+1. Update the network connection and choose between existing or new dev boxes.
 
     :::image type="content" source="media/how-to-move-dev-box-pool-region/region-moves-menu-set-region.png" alt-text="Screenshot of updating the network connection and choosing between existing or new dev boxes.":::
 
-  - Select **Move**
+1. Select **Move**
 
 ## Monitor the move process
 As a Project Admin, you can track move progress in the Azure portal notifications.
