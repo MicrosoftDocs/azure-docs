@@ -28,11 +28,6 @@ Before you start, note:
 
 **Audience**: Security architects
 
-**Video demos**:
-
-- [Onboard a workspace enabled for Microsoft Sentinel to the Defender portal](https://aka.ms/onboardSentinel_in_Defender)
-- [Managing unified RBAC in Microsoft Defender](https://aka.ms/defender_RBAC)
-
 ### Review planning guidance, complete prerequisites, and onboard
  
 Review all planning guidance and finish all prerequisites before you start onboarding your workspace to the Defender portal. For more information, see the following articles:
@@ -78,12 +73,6 @@ For more information, see:
 ## Configure and review your settings and content
 
 **Audience**: Security engineers
-
-**Video demos**:
-
-- [Discover and manage Microsoft Sentinel content and threat intelligence in Microsoft Defender](https://aka.ms/discover_defender)
-- [Alert correlation in Microsoft Defender](https://aka.ms/defender_alertcorrelation)
-- [Create Microsoft Sentinel automations and workbooks in Microsoft Defender](https://aka.ms/defender_automations)
 
 ### Confirm and configure data collection
 
@@ -168,12 +157,6 @@ The following table lists fields that are important in the response snippets, an
 
 **Audience**: Security analysts
 
-**Video demos**: 
-
-- [SOC optimizations in Microsoft Defender](https://aka.ms/defender_soc_optimization)
-- [Advanced hunting in Microsoft Defender](https://aka.ms/defender_hunting)
-- [Alert correlation in Microsoft Defender](https://aka.ms/defender_alertcorrelation)
-
 ### Update incident triage processes for the Defender portal
 
 If you've used Microsoft Sentinel in the Azure portal, you'll notice significant user experience enhancements in the Defender portal. While you may need to update SOC processes and retrain your analysts, the design consolidates all relevant information in a single place to provide more streamlined and efficient workflows.
@@ -210,7 +193,6 @@ After onboarding Microsoft Sentinel to the Defender portal, the following change
 
 For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview) and [Alert correlation and incident merging in the Microsoft Defender portal](/defender-xdr/alerts-incidents-correlation).
 
-
 ### Note changes for investigations with Advanced hunting
 
 After onboarding Microsoft Sentinel to the Defender portal, access and use all your existing Kusto Query Language (KQL) queries and functions in the **Advanced hunting** page.
@@ -222,7 +204,6 @@ Some differences exist, such as:
 
 For more information, see [Advanced hunting with Microsoft Sentinel data in Microsoft Defender](/defender-xdr/advanced-hunting-microsoft-defender), especially the list of [known issues](/defender-xdr/advanced-hunting-microsoft-defender), and [Keep track of data during hunting with Microsoft Sentinel](/azure/sentinel/bookmarks).
 
-
 ### Investigate with entities in the Defender portal
 
 In the Microsoft Defender portal, entities are generally either *assets*, such as accounts, hosts, or mailboxes, or *evidence*, such as IP addresses, files, or URLs. 
@@ -232,8 +213,6 @@ After onboarding Microsoft Sentinel to the Defender portal, entity pages for [us
 The Defender portal also provides a global search bar that centralizes results from all entities so that you can search across SIEM and XDR.
 
 For more information, see [Entity pages in Microsoft Sentinel](/azure/sentinel/entity-pages?tabs=defender-portal).
-
- 
 
 ### Investigate with UEBA in the Defender portal
 
@@ -275,7 +254,6 @@ For more information, see [Visualize and monitor your data by using workbooks in
 
 ## Related content
 
-- Find related demo videos at [https://aka.ms/Sentinel_in_Defender_demos](https://aka.ms/Sentinel_in_Defender_demos)
 - Watch the webinar: [Transition to the Unified SOC Platform: Deep Dive and Interactive Q&A for SOC Professionals](https://www.youtube.com/watch?v=WIM6fbJDkK4).
 - See frequently asked questions in the [TechCommunity blog](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/unified-security-operations-platform---technical-faq/4189136) or the [Microsoft Community Hub](https://techcommunity.microsoft.com/blog/microsoftsentinelblog/frequently-asked-questions-about-the-unified-security-operations-platform/4212048).
 
