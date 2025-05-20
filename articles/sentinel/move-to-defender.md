@@ -169,7 +169,7 @@ Analysts can also view detection sources and product names in the Defender porta
 
 The unified triage process can help reduce analyst workloads and even potentially combine the roles of tier 1 and tier 2 analysts. However, the unified triage process can also require broader and deeper analyst knowledge. We recommend training on the new portal interface to ensure a smooth transition.
 
-For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview&toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
+For more information, see [Incidents and alerts in the Microsoft Defender portal](/defender-xdr/incidents-overview?toc=%2Fazure%2Fsentinel%2FTOC.json&bc=%2Fazure%2Fsentinel%2Fbreadcrumb%2Ftoc.json).
 
 ### Understand how alerts are correlated and incidents are merged in the Defender portal
 
