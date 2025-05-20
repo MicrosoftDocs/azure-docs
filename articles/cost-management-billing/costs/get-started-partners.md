@@ -144,7 +144,7 @@ The current cost visibility policy is shown for **Azure Usage** charges associat
 
 When the policy is set to **No**, Cost Management isn't available for subscription users associated to the customer. Unless enabled by a partner, the cost visibility policy is disabled by default for all subscription users.
 
-When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see usage charges at pay-as-you go rates and purchases of reservations and savings plans completed at their scope.
+When the cost policy is set to **Yes**, subscription users associated to the customer tenant can see all usage charges and any associated purchases at pay-as-you go rates.
 
 When the cost visibility policy is enabled, all services that have subscription usage and purchases, show costs at pay-as-you-go rates. Reservation usage appears with zero charges for actual and amortized costs. Purchases and entitlements associated to a specific subscription are available as well. The admin agent of a direct partner or an indirect provider can also use the [Update Customer API](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) to set each customer's cost visibility policy at scale.
 
