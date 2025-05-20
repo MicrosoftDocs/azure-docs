@@ -16,13 +16,11 @@ items:
         href: quickstart-create-managed-redis.md 
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: ../azure-cache-for-redis/quickstart-create-redis.md
-      - name: Create an Azure Cache for Redis instance in the Enterprise tiers
-        href: ../azure-cache-for-redis/quickstart-create-redis-enterprise.md    
       - name: Create and manage with Azure PowerShell
         href: how-to-manage-redis-cache-powershell.md
       - name: Create and manage with Azure CLI
         href: scripts/create-manage-cache.md
-      - name: Create and manage premium cache with Azure CLI
+      - name: Create and manage a premium cache with Azure CLI
         href: ../azure-cache-for-redis/scripts/create-manage-premium-cache-cluster.md
       - name: Create Redis cache - Bicep
         displayName: ARM, Resource Manager, Template
@@ -67,8 +65,6 @@ items:
       href: how-to-upgrade.md
     - name: Save with reservations 
       href: reserved-pricing.md
-    - name: Migrate to Azure Redis from other caches
-      href: /migrate/migration-guide.md
     - name: Planning FAQs
       href: planning-faq.yml
     - name: Redis modules 
@@ -98,16 +94,14 @@ items:
       href: best-practices-memory-management.md
     - name: Performance testing best practice
       href: best-practices-performance.md
-    - name: Azure Managed Redis tiers best practices
-      href: best-practices-managed-cache.md
     - name: Vector Search
       href: overview-vector-similarity.md
     - name: Connection resilience best practices
       href: best-practices-connection.md
-    - name: Use Azure Functions triggers and bindings
-      items:
-      - name: Create a simple Function app for Redis triggers 
-        href: tutorial-functions-getting-started.md 
+    # - name: Use Azure Functions triggers and bindings
+    #   items:
+    #   - name: Create a simple Function app for Redis triggers 
+    #     href: tutorial-functions-getting-started.md 
 
   - name: Logs and monitoring
     items:
@@ -169,14 +163,11 @@ items:
     items:
     - name: Persist your cache with Redis data persistence 
       href: how-to-persistence.md
-    - name: Set up Enterprise active geo-replication
+    - name: Set up active geo-replication
       href: how-to-active-geo-replication.md
-    - name: Configure your cache for high availability
-      href: high-availability.md
     - name: Failover and patching
       href: failover.md
-    - name: Migrate to availability zone support
-      href: ../reliability/migrate-cache-redis.md
+
 
   - name: Diagnose and troubleshoot
     items:
@@ -196,7 +187,7 @@ items:
 - name: Migration 
   expanded: true
   items:
-  - name: Migrate to Azure Managed Redis from Azure Cache for Redis
+  - name: Move from Azure Cache for Redis to Azure Managed Redis 
     href: migrate/migrate-overview.md
   - name: Migrate to Azure Redis from other caches
     href: /azure/azure-cache-for-redis/cache-migration-guide
@@ -214,8 +205,8 @@ items:
   items:
   - name: Use Azure Functions triggers and bindings
     items:
-    - name: Create a simple Function app for Redis triggers
-      href: tutorial-functions-getting-started.md
+    # - name: Create a simple Function app for Redis triggers
+    #   href: tutorial-functions-getting-started.md
     - name: Using Azure Functions to create a write-behind cache
       href: tutorial-write-behind.md
   - name: Use Azure Kubernetes Service with a cache

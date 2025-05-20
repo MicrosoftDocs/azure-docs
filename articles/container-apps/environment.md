@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  conceptual
-ms.date: 04/10/2025
+ms.date: 04/28/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -49,7 +49,7 @@ Use more than one environment when you want two or more applications to:
 
 | Type | Description | Plan | Billing considerations |
 |--|--|--|--|
-| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans using separate workload profiles. The Dedicated plan has a fixed cost for the entire environment regardless of how many workload profiles you're using. |
+| Workload profile | Run serverless apps with support for scale-to-zero and pay only for resources your apps use with the consumption profile. You can also run apps with customized hardware and increased cost predictability using dedicated workload profiles. | Consumption and Dedicated | You can choose to run apps under either or both plans using separate workload profiles. The Dedicated plan has a fixed plan management cost for the entire environment regardless of how many workload profiles you're using. The Dedicated plan also has a variable cost based on the number of workload profile instances and the resources allocated to each instance. For more information see [Billing](billing.md#dedicated-plan). |
 | Consumption only | Run serverless apps with support for scale-to-zero and pay only for resources your apps use. | Consumption only | Billed only for individual container apps and their resource usage. There's no cost associated with the Container Apps environment. |
 
 ## Logs

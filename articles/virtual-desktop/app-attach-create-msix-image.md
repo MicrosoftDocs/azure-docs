@@ -2,7 +2,7 @@
 title: Create an MSIX image to use with app attach in Azure Virtual Desktop - Azure
 description: To use app attach in Azure Virtual Desktop, you need to expand an MSIX-packaged application into an MSIX image. This article shows you how to create an MSIX image.
 ms.topic: how-to
-author: dknappettmsft
+author: dougeby
 ms.author: avdcontent
 ms.date: 03/04/2024
 ---

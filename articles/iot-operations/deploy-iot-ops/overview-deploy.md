@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: conceptual
 ms.custom:
-ms.date: 11/06/2024
+ms.date: 04/28/2025
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -106,7 +106,7 @@ If you use enterprise firewalls or proxies to manage outbound traffic, configure
 
   |Endpoints (DNS) | Description |
   |-|-|
-  | `<customer-specific>.blob.storage.azure.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
+  | `<customer-specific>.blob.core.windows.net` | Storage for schema registry. Refer to [storage account endpoints](/azure/storage/common/storage-account-overview#storage-account-endpoints) for identifying the customer specific subdomain of your endpoint. |
 
 * To push data to the cloud, enable the following endpoints based on your choice of data platform.
 
