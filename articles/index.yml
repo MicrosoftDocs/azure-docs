@@ -548,7 +548,7 @@ productDirectory:
     # Card
     - title: Azure Managed Redis
       summary: Power applications with a high-performance, managed cache
-      imageSrc: ./media/index/azuremanagedredis.svg
+      imageSrc: ./media/index/managed-redis.svg
       azureCategories:
         - databases
       url: redis/index.yml
