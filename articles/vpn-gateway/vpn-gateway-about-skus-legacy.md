@@ -44,9 +44,21 @@ The UltraPerformance gateway SKU isn't represented in this table. For informatio
 
 [!INCLUDE [Table requirements for old SKUs](../../includes/vpn-gateway-table-requirements-legacy-sku-include.md)]
 
-## Resize, migrate, and change SKUs
+## Move to another gateway SKU
 
-### <a name="resize"></a>Resize a gateway SKU
+### Considerations
+
+* You can't upgrade a legacy SKU to one of the newer Azure SKUs (VpnGw1AZ, VpnGw2AZ, etc.) Legacy SKUs for the Resource Manager deployment model are: Standard, and High Performance. If you want to use a new Azure SKU, you must delete the gateway, and then create a new one.
+* When you go from a legacy SKU to a newer gateway SKU, you incur connectivity downtime.
+* When you go from a legacy SKU to a newer gateway SKU, the public IP address for your VPN gateway changes. The IP address change happens even if you specified the same public IP address object that you used previously.
+* If you have a classic VPN gateway, you must continue using the older legacy SKUs for that gateway. However, you can upgrade between the legacy SKUs available for classic gateways. You can't change to the new SKUs.
+* Standard and High Performance legacy SKUs are being deprecated. See [Legacy SKU deprecation](vpn-gateway-about-skus-legacy.md#sku-deprecation) for SKU migration and upgrade timelines.
+
+### <a name="migrate"></a>Migrate a gateway SKU
+
+A gateway SKU migration process is similar to a resize. It requires fewer steps and configuration changes than changing to a new gateway SKU. Your gateway will be migrated seamlessly from backend without any connectivity impact before September 30, 2025. This is different from the initial approach of providing a migration path.
+
+### <a name="resize"></a>Resize to a gateway SKU in the same SKU family
 
 Resizing a gateway SKU incurs less downtime and fewer configuration changes than the process to change to a new SKU. However, there are limitations. You can only resize your gateway to a gateway SKU within the same SKU family (except for the Basic SKU).
 
@@ -68,10 +80,6 @@ To resize a gateway for the [classic deployment model](../azure-resource-manager
 ```powershell
 Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
 ```
-
-### <a name="migrate"></a>Migrate a gateway SKU
-
-A gateway SKU migration process is similar to a resize. It requires fewer steps and configuration changes than changing to a new gateway SKU. Your gateway will be migrated seamlessly from backend without any connectivity impact before September 30, 2025. This is different from the initial approach of providing a migration path.
 
 ### <a name="change"></a>Change to the new gateway SKUs
 

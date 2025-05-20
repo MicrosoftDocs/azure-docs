@@ -58,8 +58,8 @@
       items:
       - name: About SKU consolidation & migration
         href: gateway-sku-consolidation.md
-    - name: Resize a gateway SKU
-      href: gateway-sku-resize.md
+    - name: Upgrade a gateway SKU
+      href: gateway-sku-upgrade.md
     - name: Change a gateway SKU
       href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
