@@ -6,6 +6,9 @@ ms.topic: tutorial
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 ---
 
@@ -22,7 +25,7 @@ In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-c
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
 
-## Set up an Azure Cache for Redis instance
+## Set up an Azure Cache Redis instance
 
 1. Create a new Azure Cache for Redis instance by using the Azure portal or your preferred CLI tool. Use the [quickstart guide](../azure-cache-for-redis/quickstart-create-redis.md) to get started. Alternately, you can create an Azure Managed Redis instance too.
 

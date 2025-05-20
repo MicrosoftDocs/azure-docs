@@ -7,6 +7,9 @@ ms.custom:
   - horz-monitor
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+
 ---
 
 # Azure Cache for Redis monitoring data reference
