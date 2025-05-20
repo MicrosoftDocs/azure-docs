@@ -53,9 +53,9 @@ In this section, we use asset endpoints as an example, the same can be applied t
 
 1. Go to the **Asset endpoints** page in the [operations experience](https://iotoperations.azure.com) web UI.
 
-1. To view the secrets list, select **Manage certificates and secrets** and then **Secrets**.
+1. To view the secrets list, select **Manage certificates and secrets** and then **Secrets**:
 
-:::image type="content" source="media/howto-manage-secrets/synced-secret-list.png" alt-text="Screenshot that shows the synced secrets list in the operations experience secrets page.":::
+    :::image type="content" source="media/howto-manage-secrets/synced-secret-list.png" alt-text="Screenshot that shows the synced secrets list in the operations experience secrets page.":::
 
 You can use the **Secrets** page to view synchronized secrets in your asset endpoints and data flow endpoints. Secrets page shows the list of all current synchronized secrets at the edge for the resource you are viewing. A synced secret represents one or multiple secret references, depending on the resource using it. Any operation applied to a synced secret will be applied to all secret references contained within the synced secret. 
 
