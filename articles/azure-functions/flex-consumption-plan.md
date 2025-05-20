@@ -106,8 +106,8 @@ This table shows the language stack versions that are currently supported for Fl
 | Language stack  | Required version |
 | --- | :-----: |
 | C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup> |
-| Java | Java 11, Java 17 |
-| Node.js | Node 20   |
+| Java | Java 11, Java 17, Java 21 |
+| Node.js | Node.js 20, Node.js 22   |
 | PowerShell | PowerShell 7.4   |
 | Python | Python 3.10, Python 3.11, Python 3.12  | 
 
