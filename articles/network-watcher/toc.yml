@@ -172,7 +172,7 @@
       - name: Use Grafana
         href: /previous-versions/azure/network-watcher/network-watcher-nsg-grafana/toc.json
       - name: Use Graylog
-        href: /previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog./toc.json
+        href: /previous-versions/azure/network-watcher/network-watcher-analyze-nsg-flow-logs-graylog/toc.json
   - name: Read flow logs
     href: flow-logs-read.md
   - name: Traffic analytics
