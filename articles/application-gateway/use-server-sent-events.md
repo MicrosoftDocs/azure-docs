@@ -1,6 +1,6 @@
 ---
-title: Using Server-Sent Events with Application Gateway (Preview)
-description: This article provides guidance for using Server-Sent Events with your Azure Application Gateway.
+title: Using Server-sent events with Application Gateway (Preview)
+description: This article provides guidance for using Server-sent events with your Azure Application Gateway.
 services: application-gateway
 author: jaesoni
 ms.service: azure-application-gateway
@@ -9,9 +9,9 @@ ms.date: 05/15/2025
 ms.author: jaysoni
 ---
 
-# Using Server-Sent Events with Application Gateway (Preview)
+# Using Server-sent events with Application Gateway (Preview)
 
-Azure Application Gateway offers support for Server-Sent Events (SSE). This document provides guidelines to ensure the seamless operation of this feature when used with Azure Application Gateway.
+Azure Application Gateway offers support for Server-sent events (SSE). This document provides guidelines to ensure the seamless operation of this feature when used with Azure Application Gateway.
 
 > [!Note]
 > - The SSE support with Azure Application Gateway is currently in Preview phase.
@@ -33,7 +33,7 @@ Ensure that the [Request time-out (seconds) in Backend Settings](configuration-h
 The backend server should send the following Response headers to ensure proper stream handling by the clients and any intermediaries. Note, these headers aren't a requirement for Application Gateway as a proxy.
 
 ### Content-Type: text/event-stream
-This header notifies the client that the response will be a stream of events, enabling them to correctly handle the Server-Sent Events (SSE) protocol.
+This header notifies the client that the response will be a stream of events, enabling them to correctly handle the Server-sent events (SSE) protocol.
 
 ### Connection: keep-alive
 This header maintains the TCP connection, allowing the backend server to send events to the client continuously.
