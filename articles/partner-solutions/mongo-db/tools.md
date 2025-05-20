@@ -5,7 +5,7 @@ author: ProfessorKendrick
 ms.topic: overview
 ms.date: 04/14/2025
 
-# customer intent: As a developer who's implementing MongoDB Atlas, I want to know about other resources and tools available so that I can maximize the success of my deployment.
+#customer intent: As a developer who's implementing MongoDB Atlas, I want to know about other resources and tools available so that I can maximize the success of my deployment.
 
 ---
 
