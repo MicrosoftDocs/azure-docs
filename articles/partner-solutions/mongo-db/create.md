@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Get Started with MongoDB Atlas Preview)"
+title: "Quickstart: Get Started with MongoDB Atlas (Preview)"
 description: Learn how to create a MongoDB Atlas resource in the Azure portal.
 ms.topic: quickstart
 ms.date: 04/28/2025
