@@ -153,7 +153,7 @@ If you enable hibernation on a Dev Box definition and the definition reports tha
 - If you're using a custom Azure Compute Gallery image, enable hibernation on your Azure Compute Gallery image before enabling hibernation on your Dev Box definition.
 - If hibernation can't be enabled on the definition even after you enable it on your gallery image, your custom image likely has a Windows configuration that prevents hibernation.
 - If you experience issues while provisioning dev boxes, make sure that the image supports hibernation.
-- If the image support hibernation but there are still failures during provisioning, see - [Troubleshooting hibernation on Windows VMs](/azure/virtual-machines/windows/hibernate-resume-troubleshooting-windows).
+- If the image support hibernation but there are still failures during provisioning, see [Troubleshooting hibernation on Windows VMs](/azure/virtual-machines/windows/hibernate-resume-troubleshooting-windows).
 
 For more information, see [Settings not compatible with hibernation](#settings-not-compatible-with-hibernation).
 
