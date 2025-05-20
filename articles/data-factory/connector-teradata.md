@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/02/2025
+ms.date: 05/14/2025
 ms.author: jianleishen
 ---
 
@@ -451,6 +451,8 @@ The Teradata connector version 2.0 (Preview) offers new functionalities and is c
 
 | Version 2.0 (Preview)  | Version 1.0 | 
 | :----------- | :------- |
+| The default value of `sslMode` is `Verify-Full`. | The default value of `sslMode` is `Prefer`. |
+| The default value of `UseDataEncryption` is `1`. | The default value of `UseDataEncryption` is `0`. |
 | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> Date<br>Time With Time Zone -> String <br>Timestamp With Time Zone -> DateTimeOffset <br>Graphic -> String<br>Interval Day  -> TimeSpan<br>Interval Day To Hour -> TimeSpan<br>Interval Day To Minute -> TimeSpan<br>Interval Day To Second -> TimeSpan<br>Interval Hour -> TimeSpan<br>Interval Hour To Minute -> TimeSpan<br>Interval Hour To Second -> TimeSpan<br>Interval Minute -> TimeSpan<br>Interval Minute To Second -> TimeSpan<br>Interval Month -> String<br>Interval Second -> TimeSpan<br>Interval Year -> String<br>Interval Year To Month -> String<br>Number -> Double<br>Period (Date) -> String<br>Period (Time) -> String<br>Period (Time With Time Zone) -> String<br>Period (Timestamp) -> String<br>Period (Timestamp With Time Zone) -> String<br>VarGraphic -> String<br>Xml -> String | The following mappings are used from Teradata data types to interim service data type.<br><br>Date -> DateTime<br>Time With Time Zone ->  TimeSpan    <br>Timestamp With Time Zone -> DateTime <br>Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. Please apply an explicit cast in the source query.   |  
 
 

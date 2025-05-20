@@ -8,6 +8,8 @@ ms.custom:
   - devx-track-go
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.devlang: golang
 ---
 

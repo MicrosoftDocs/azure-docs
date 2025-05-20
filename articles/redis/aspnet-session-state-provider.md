@@ -8,6 +8,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.devlang: csharp
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
 

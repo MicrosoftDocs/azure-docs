@@ -8,6 +8,11 @@ ms.custom:
   - ignite-2024
   - references_regions
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
+
+
 # CustomerIntent: As a developer, I want to see how to move from Azure Cache for Redis to Azure Managed Redis.
 ---
 # Move from Azure Cache for Redis to Azure Managed Redis
@@ -21,60 +26,105 @@ In this article, you learn to migrate from Azure Cache for Redis instance to an 
 
 ## Feature comparison between Azure Cache for Redis and Azure Managed Redis
 
-| Feature Description | Basic | Standard | Premium | Balanced  | Memory Optimized | Compute Optimized |
-| ------------------- | :-----: | :------: | :---: | :---: | :---: |:---: |
-| Availability |N/A|99.9%|99.9%|N/A|N/A|N/A |
-| Data encryption in transit |Yes|Yes|Yes|Yes|Yes|Yes|
-| Network isolation |Yes|Yes|Yes|Yes|Yes|Yes|
-| Scaling up/out |Yes|Yes|Yes|Yes|Yes|Yes|
-| Scaling down/in |Yes|Yes|Yes|No|No|No|
-| OSS clustering |No|No|Yes|Yes|Yes|Yes|
-| Data persistence |No|No|Yes|Yes|Yes|Yes|
-| Zone redundancy |No|Yes (preview)|Yes|Yes|Yes|Yes |
-| Geo-replication |No|No|Yes (Passive) |Yes (Active) |Yes (Active) | Yes (Active)|
-| Connection audit logs |No|No|Yes|Yes(Event-based)|Yes(Event-based)|Yes(Event-based) |
-| Redis Modules |No|No|No|Yes|Yes|Yes|
-| Import/Export |No|No|Yes|Yes|Yes|Yes|
-| Reboot |Yes|Yes|Yes|No|No|No|
-| Scheduled updates |Yes|Yes|Yes|No|No|No|
-| Microsoft Entra ID authentication |Yes|Yes|Yes|Yes|Yes|Yes|
-| Microsoft Entra ID RBAC |Yes|Yes|Yes|No|No|No|
-| Keyspace notification |Yes|Yes|Yes|No|No|No|
-| Non High-availability |N/A|No|No|Yes|Yes|Yes|
+| Feature Description               | Basic | Standard      | Premium       | Balanced         | Memory Optimized | Compute Optimized |
+|-----------------------------------|:-----:|:-------------:|:-------------:|:----------------:|:----------------:|:-----------------:|
+| Availability                      | N/A   | 99.9%         | 99.9%         | N/A              | N/A              | N/A               |
+| Data encryption in transit        | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |
+| Network isolation                 | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |
+| Scaling up/out                    | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |
+| Scaling down/in                   | Yes   | Yes           | Yes           | No               | No               | No                |
+| OSS clustering                    | No    | No            | Yes           | Yes              | Yes              | Yes               |
+| Data persistence                  | No    | No            | Yes           | Yes              | Yes              | Yes               |
+| Zone redundancy                   | No    | Yes (preview) | Yes           | Yes              | Yes              | Yes               |
+| Geo-replication                   | No    | No            | Yes (Passive) | Yes (Active)     | Yes (Active)     | Yes (Active)      |
+| Connection audit logs             | No    | No            | Yes           | Yes(Event-based) | Yes(Event-based) | Yes(Event-based)  |
+| Redis Modules                     | No    | No            | No            | Yes              | Yes              | Yes               |
+| Import/Export                     | No    | No            | Yes           | Yes              | Yes              | Yes               |
+| Reboot                            | Yes   | Yes           | Yes           | No               | No               | No                |
+| Scheduled updates                 | Yes   | Yes           | Yes           | No               | No               | No                |
+| Microsoft Entra ID authentication | Yes   | Yes           | Yes           | Yes              | Yes              | Yes               |
+| Microsoft Entra ID RBAC           | Yes   | Yes           | Yes           | No               | No               | No                |
+| Keyspace notification             | Yes   | Yes           | Yes           | No               | No               | No                |
+| Non High-availability             | N/A   | No            | No            | Yes              | Yes              | Yes               |
 
 Here are some other differences that aren't covered by the previous mapping. Consider these client application changes:
 
-| Feature Description | Azure Cache for Redis | Azure Managed Redis |
-|:-------------------- |:--------------------|:---------------------------|
-| DNS suffix (only for PROD cloud)| `.redis.cache.windows.net`|`<region>.redis.azure.net`|
-| TLS port | 6380 | 10000 |
-| Non-TLS port | 6379 | Not supported |
-| Individual node TLS ports | 130XX | 85xx |
-| Individual node non-TLS port | 150XX | Not supported |
-| Clustering support | OSS clustering mode | OSS and Enterprise cluster modes |
-| Unsupported commands | Unsupported commands | Multi-key commands|
-| Regional availability | All Azure regions | * See the list of regions after this section.|
-| Redis version | 6 | 7.4 |
-| Supported TLS versions | 1.2 and 1.3 | 1.2 and 1.3 |
+| Feature Description              | Azure Cache for Redis      | Azure Managed Redis                           |
+|:---------------------------------|:---------------------------|:----------------------------------------------|
+| DNS suffix (only for PROD cloud) | `.redis.cache.windows.net` | `<region>.redis.azure.net`                    |
+| TLS port                         | 6380                       | 10000                                         |
+| Non-TLS port                     | 6379                       | Not supported                                 |
+| Individual node TLS ports        | 130XX                      | 85xx                                          |
+| Individual node non-TLS port     | 150XX                      | Not supported                                 |
+| Clustering support               | OSS clustering mode        | OSS and Enterprise cluster modes              |
+| Unsupported commands             | Unsupported commands       | Multi-key commands                            |
+| Regional availability            | All Azure regions          | * See the list of regions after this section. |
+| Redis version                    | 6                          | 7.4                                           |
+| Supported TLS versions           | 1.2 and 1.3                | 1.2 and 1.3                                   |
 
 ## Regional availability for Azure Managed Redis
 
 Azure Managed Redis is current supported in the following regions. This list is updated regularly. Eventually, Azure Managed Redis will be supported all regions in Azure. Work with your sales contact to raise requests on regions where you need support.
 
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-|Brazil South |Germany West Central | | |East Asia |
-|West Central US | UK South  |   |   | Australia East |
-|North Central US | West Europe |   |   | Japan East |
-|West US 3 |Sweden Central | | |South East Asia |
-|East US 2 | | | |Central India |
-|South Central US | | | | |
-|West US 2 | | | | |
-|East US | | | | |
-|West US | | | | |
-|Central US | | | | |
-|Canada Central | | | | |
-
+- Americas
+  - Brazil South
+  - Brazil Southeast
+  - Canada Central
+  - Canada East
+  - Central US
+  - East US
+  - East US 2
+  - Mexico Central
+  - North Central US
+  - South Central US
+  - West Central US
+  - West US
+  - West US 2
+  - West US 3
+  
+- Europe
+  - France South
+  - Germany North
+  - Germany West Central
+  - Italy North
+  - Norway East
+  - Norway West
+  - Spain Central
+  - Sweden Central
+  - Sweden South
+  - Switzerland North
+  - Switzerland West
+  - UK South
+  - UK West
+  - West Europe
+  
+- Middle East
+  - Israel Central
+  - UAE Central
+  - UAE North
+  
+- Africa
+  - South Africa North
+  - South Africa West
+  
+- Asia Pacific
+  - Australia Central
+  - Australia Central 2
+  - Australia East
+  - Australia Southeast
+  - Central India
+  - East Asia
+  - Indonesia Central
+  - Japan East
+  - Japan West
+  - Jio India Central
+  - Jio India West
+  - Korea Central
+  - Korea South
+  - South East Asia
+  - South India
+  - Taiwan North
+  - Taiwan Northwest
 ## Migrate your Azure Cache for Redis instance to Azure Managed Redis
 
 > [!NOTE]
@@ -87,24 +137,24 @@ Azure Managed Redis is current supported in the following regions. This list is 
 > [!NOTE]
 > Use non High Availability option of Azure Managed Redis for Migrating Basic SKUs
 
-| Azure Cache for Redis | Azure Managed Redis | Additional memory (%) |
-|-----------------------| :-----------------: | :-------------------: |
-| Basic/Standard - C0 | Balanced - B0 | 50 |
-| Basic/Standard - C1 | Balanced - B1 | 0 |
-| Basic/Standard - C2 | Balanced - B3 | 17 |
-| Basic/Standard - C3 | Balanced - B5 | 0 |
-| Basic/Standard - C4 | Memory Optimized – M10* | -8 |
-| Basic/Standard – C4 | Memory Optimized – M20** | 46 |
-| Basic/Standard - C5 | Memory Optimized – M20* | -8 |
-| Basic/Standard – C5 | Memory Optimized – M50** | 57 |
-| Basic/Standard - C6 | Memory Optimized - M50 | 12 |
-| Premium - P1 | Balanced - B5 | 0 |
-| Premium - P2 | Balanced - B10* | -8 |
-| Premium - P2 | Balanced - B20** | 46 |
-| Premium - P3 | Balanced - B20* | -8 |
-| Premium - P3 | Balanced - B50** | 57 |
-| Premium - P4 | Balanced - B50 | 12 |
-| Premium - P5 | Balanced - B100 | 0 |
+| Azure Cache for Redis | Azure Managed Redis      | Additional memory (%) |
+|-----------------------|:------------------------:|:---------------------:|
+| Basic/Standard - C0   | Balanced - B0            | 50                    |
+| Basic/Standard - C1   | Balanced - B1            | 0                     |
+| Basic/Standard - C2   | Balanced - B3            | 17                    |
+| Basic/Standard - C3   | Balanced - B5            | 0                     |
+| Basic/Standard - C4   | Memory Optimized – M10*  | -8                    |
+| Basic/Standard – C4   | Memory Optimized – M20** | 46                    |
+| Basic/Standard - C5   | Memory Optimized – M20*  | -8                    |
+| Basic/Standard – C5   | Memory Optimized – M50** | 57                    |
+| Basic/Standard - C6   | Memory Optimized - M50   | 12                    |
+| Premium - P1          | Balanced - B5            | 0                     |
+| Premium - P2          | Balanced - B10*          | -8                    |
+| Premium - P2          | Balanced - B20**         | 46                    |
+| Premium - P3          | Balanced - B20*          | -8                    |
+| Premium - P3          | Balanced - B50**         | 57                    |
+| Premium - P4          | Balanced - B50           | 12                    |
+| Premium - P5          | Balanced - B100          | 0                     |
 
 - *This option is for cost efficiency. Ensure the peak of total used memory in the past month is less than the suggested Azure Managed Redis memory to choose this option.
 - ** This option is for abundant memory consumption.
@@ -124,12 +174,12 @@ Learn more at:
 
 #### Options for Migrating Azure Cache for Redis to Azure Managed Redis
 
-   | Option       | Advantages | Disadvantages |
-   | ------------ | ---------- | ------------- |
-   | Create a new cache | Simplest to implement. | Need to repopulate data to the new cache, which might not work with many applications. |
-   | Export and import data via RDB file | Compatible with any Redis cache generally. | Some data could be lost, if they're written to the existing cache after the RDB file is generated. |
-   | Dual-write data to two caches | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time. |
-   | Migrate data programmatically | Full control over how data are moved. | Requires custom code. |
+| Option                              | Advantages                                                                                                 | Disadvantages                                                                                      |
+|-------------------------------------|------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| Create a new cache                  | Simplest to implement.                                                                                     | Need to repopulate data to the new cache, which might not work with many applications.             |
+| Export and import data via RDB file | Compatible with any Redis cache generally.                                                                 | Some data could be lost, if they're written to the existing cache after the RDB file is generated. |
+| Dual-write data to two caches       | No data loss or downtime. Uninterrupted operations of the existing cache. Easier testing of the new cache. | Needs two caches for an extended period of time.                                                   |
+| Migrate data programmatically       | Full control over how data are moved.                                                                      | Requires custom code.                                                                              |
 
 #### Create a new Azure Cache for Redis
 
@@ -192,10 +242,10 @@ Create a custom migration process by programmatically reading data from an exist
 General steps to implement this option are:
 
 1. Create a VM in the region where the existing cache is located. If your dataset is large, choose a relatively powerful VM to reduce copying time.
-2. Create a new Azure Managed Redis instance.
-3. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
+1. Create a new Azure Managed Redis instance.
+1. Flush data from the new cache to ensure that it's empty. This step is required because the copy tool itself doesn't overwrite any existing key in the target cache.
  Important: Make sure to NOT flush from the source cache.
-4. Use an application such as the open-source tool mentioned previously to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
+1. Use an application such as the open-source tool mentioned previously to automate the copying of data from the source cache to the target. Remember that the copy process could take a while to complete depending on the size of your dataset.
 
 ## Related content
 

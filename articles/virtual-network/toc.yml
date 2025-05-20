@@ -86,6 +86,8 @@
           href: create-virtual-machine-accelerated-networking.md
         - name: Manage accelerated networking
           href: manage-accelerated-networking.md
+        - name: Network optimized VM network connection acceleration
+          href: network-optimized-vm-network-connection-acceleration.md
         - name: Linux and FreeBSD VMs
           href: accelerated-networking-how-it-works.md
         - name: DPDK

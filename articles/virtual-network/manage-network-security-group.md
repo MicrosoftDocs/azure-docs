@@ -386,6 +386,7 @@ az network nsg rule create \
     --protocol Tcp \
     --description "Allow RDP"
 ```
+---
 
 #### Duplicate security rules
 

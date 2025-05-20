@@ -6,6 +6,8 @@ ms.topic: conceptual
 ms.custom:
   - references_regions
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # What's New in Azure Managed Redis
@@ -16,7 +18,7 @@ Find out what's new in Azure Managed Redis.
 
 ### Azure Managed Redis General Availability (GA)
 
-Azure Managed Redis is now generally gvailable (GA) for you to create and to use managed caches. Azure Managed Redis offers significant advantages over the Basic, Standard, and Premium tiers of Azure Cache for Redis. 
+Azure Managed Redis is now generally available (GA) for you to create and to use managed caches. Azure Managed Redis offers significant advantages over the Basic, Standard, and Premium tiers of Azure Cache for Redis. 
 
 Certain features remain in Public Preview.
 

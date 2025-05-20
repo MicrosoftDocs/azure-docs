@@ -8,6 +8,8 @@ ms.custom:
   - linux-related-content
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Kubernetes-hosted client application with Azure Managed Redis

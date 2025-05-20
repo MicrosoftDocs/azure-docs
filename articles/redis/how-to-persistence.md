@@ -8,6 +8,8 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Configure data persistence (preview) for an Azure Managed Redis instance
 

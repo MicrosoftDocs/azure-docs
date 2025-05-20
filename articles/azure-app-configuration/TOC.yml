@@ -340,6 +340,8 @@
       href: ./configuration-provider-overview.md
     - name: .NET
       items:
+      - name: Feature reference
+        href: ./reference-dotnet-provider.md
       - name: API reference
         href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
       - name: Azure SDK for .NET

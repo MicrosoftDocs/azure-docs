@@ -6,6 +6,8 @@ ms.topic: conceptual
 ms.custom:
   - devx-track-azurecli
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Deploy a machine learning model to Azure Functions with Azure Cache for Redis

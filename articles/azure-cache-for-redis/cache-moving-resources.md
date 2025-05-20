@@ -161,7 +161,7 @@ Open-source Redis defines a standard mechanism for taking a snapshot of a cache'
 
 ### Prepare
 
-To move your cache instance to another region, you'll need to create [a second premium cache instance](quickstart-create-redis.md) or [a second enterprise cache instance](quickstart-create-redis-enterprise.md) in the desired region.
+To move your cache instance to another region, you'll need to create [a second premium cache instance](quickstart-create-redis.md) in the desired region.
 
 ### Move
 

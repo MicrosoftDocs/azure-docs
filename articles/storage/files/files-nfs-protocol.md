@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 02/19/2025
+ms.date: 05/20/2025
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -45,7 +45,7 @@ NFS file shares are often used in the following scenarios:
 - Fully POSIX-compliant file system.
 - Hard link support.
 - Symbolic link support.
-- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, ACLs, and encryption-in-transit aren't supported.
+- NFS file shares currently only support most features from the [4.1 protocol specification](https://tools.ietf.org/html/rfc5661). Some features such as delegations and callback of all kinds, Kerberos authentication, and ACLs aren't supported.
 
 > [!NOTE]
 > Creating a hard link from an existing symbolic link isn't currently supported.
@@ -84,7 +84,7 @@ The status of items that appear in this table might change over time as support 
 | [File management plane REST API](/rest/api/storagerp/file-shares)	| ✔️ |
 | [File data plane REST API](/rest/api/storageservices/file-service-rest-api)| ✔️ |
 | Encryption at rest|	✔️ |
-| Encryption in transit| ⛔ |
+| Encryption in transit| ✔️ ([preview](encryption-in-transit-for-nfs-shares.md))|
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
 | [LRS to ZRS conversion](files-redundancy.md) (private endpoints only) | ✔️ |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | ✔️  |

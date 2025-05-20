@@ -7,6 +7,9 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 ---
 # Migrate to Azure Managed Redis from other caches
 

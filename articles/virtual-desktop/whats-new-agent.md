@@ -1,12 +1,13 @@
 ---
-title: What's new in the Azure Virtual Desktop Agent? - Azure
-description: New features and product updates for the Azure Virtual Desktop Agent.
+title: What's new in the Azure Virtual Desktop Agent?
+description: Learn about new features and product updates for the Azure Virtual Desktop Agent.
 author: dougeby
 ms.topic: release-notes
-ms.date: 05/01/2025
+ms.date: 05/16/2025
 ms.author: avdcontent
 ms.custom: references_regions
 ---
+
 # What's new in the Azure Virtual Desktop Agent?
 
 The Azure Virtual Desktop agent links your session hosts with the Azure Virtual Desktop service. It acts as the intermediate communicator between the service and the virtual machines, enabling connectivity. 
@@ -30,13 +31,33 @@ Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.11106.400 |
-| Validation | 1.0.11212.600 |
+| Production | 1.0.11212.1600 |
+| Validation | 1.0.11262.1600 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.11212.600 (validation)
+## Version 1.0.11262.1600 (validation)
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Resolved an issue that impacted Microsoft Entra ID joins. 
+- Improved telemetry flows.  
+- Enhanced resiliency checks for Microsoft Intune enrollment. 
+
+## Version 1.0.11212.1600
+
+*Published: May 2025*
+
+In this update, we made the following changes:
+
+- Added messaging updates for the Remote Desktop client from the Microsoft Store.
+- Improved response handling during token refresh.
+- Resolved an issue causing App-V registration timeouts.
+
+## Version 1.0.11212.600
 
 *Published: May 2025*
 

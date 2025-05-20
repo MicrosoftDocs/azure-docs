@@ -8,6 +8,9 @@ metadata:
     - devx-track-csharp
     - ignite-2024
     - build-2025
+  appliesto:
+    - ✅ Azure Managed Redis
+
 title: Azure Managed Redis management FAQs
 summary: This article provides answers to common questions about how to manage Azure Managed Redis.
 

@@ -10,6 +10,11 @@
             "source_path_from_root": "/articles/redis/high-availability.md",
             "redirect_url": "/azure/azure-cache-for-redis/cache-high-availability",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/redis/best-practices-managed-cache.md",
+            "redirect_url": "/azure/redis/overview",
+            "redirect_document_id": false
         }
       ]
 }  

@@ -6,6 +6,8 @@ ms.topic: sample
 ms.custom:
   - subject-policy-compliancecontrols
   - build-2025
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 # Azure Policy Regulatory Compliance controls for Azure Cache for Redis
 

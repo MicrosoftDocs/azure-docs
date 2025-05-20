@@ -13,8 +13,6 @@
       items: 
       - name: Create an Azure Cache for Redis instance in the Basic, Standard and Premium tiers
         href: quickstart-create-redis.md
-      - name: Create an Azure Cache for Redis instance in the Enterprise tiers
-        href: quickstart-create-redis-enterprise.md
       - name: Create and manage with Azure PowerShell
         href: /azure/redis/how-to-manage-redis-cache-powershell
       - name: Create and manage with Azure CLI
@@ -115,10 +113,10 @@
       href: /azure/redis/overview-vector-similarity
     - name: Connection resilience best practices
       href: cache-best-practices-connection.md
-    - name: Use Azure Functions triggers and bindings
-      items:
-      - name: Create a simple Function app for Redis triggers 
-        href: /azure/redis/tutorial-functions-getting-started
+    # - name: Use Azure Functions triggers and bindings
+    #   items:
+    #   - name: Create a simple Function app for Redis triggers 
+    #     href: /azure/redis/tutorial-functions-getting-started
 
   - name: Logs and monitoring
     items:

@@ -8,6 +8,8 @@ ms.custom:
   - engagement-fy23
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Failover and patching for Azure Managed Redis

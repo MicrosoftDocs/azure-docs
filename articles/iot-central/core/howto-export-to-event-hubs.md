@@ -32,7 +32,7 @@ Event Hubs destinations let you configure the connection with a *connection stri
 
 # [Managed identity](#tab/managed-identity)
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Event Hubs namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Event Hubs namespace, and event hub. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your event hub:
 

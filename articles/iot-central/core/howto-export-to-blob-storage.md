@@ -40,7 +40,7 @@ Blob Storage destinations let you configure the connection with a *connection st
 
 # [Managed identity](#tab/managed-identity)
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your storage account:
 
