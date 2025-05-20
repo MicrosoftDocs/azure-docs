@@ -84,6 +84,23 @@ const appConfig = await load(endpoint, credential, {
 });
 ```
 
+#### [Kubernetes](#tab/kubernetes)
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      enabled: true
+```
+
 ---
 
 ### Monitoring a sentinel key
@@ -116,6 +133,26 @@ const appConfig = await load(endpoint, credential, {
         watchedSettings: [{ key: "SentinelKey" }]
     }
 });
+```
+
+#### [Kubernetes](#tab/kubernetes)
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      enabled: true
+      monitoring:
+        keyValues:
+          - key: SentinelKey
 ```
 
 ---

@@ -23,10 +23,6 @@ If you use Azure Kubernetes Service (AKS), this tutorial shows you how to enable
 
 Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service](./quickstart-azure-kubernetes-service.md).
 
-> [!TIP]
-> The Azure Cloud Shell is a free, interactive shell that you can use to run the command line instructions in this article. It has common Azure tools preinstalled, including the .NET Core SDK. If you're logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com. You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md).
-
-
 ## Reload data from App Configuration
 
 1. Open the *appConfigurationProvider.yaml* file located in the *Deployment* directory. Then, add the `refresh` section under the `configuration` property. It enables the Kubernetes provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *Settings:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
