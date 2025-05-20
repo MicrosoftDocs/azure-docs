@@ -320,7 +320,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP334' />BCP334 | Warning | The provided value can have a length as small as {sourceMinLength} and may be too short to assign to a target with a configured minimum length of {targetMinLength}. |
 | <a id='BCP335' />BCP335 | Warning | The provided value can have a length as large as {sourceMaxLength} and may be too long to assign to a target with a configured maximum length of {targetMaxLength}. |
 | <a id='BCP337' />BCP337 | Error | This declaration type isn't valid for a Bicep Parameters file. Specify a "{LanguageConstants.UsingKeyword}", "{LanguageConstants.ParameterKeyword}" or "{LanguageConstants.VariableKeyword}" declaration. |
-| <a id='BCP338' />[BCP338](./diagnostics/bcp338.md) | Error | Failed to evaluate parameter \<parameter-name>: \<error-message>` |
+| <a id='BCP338' />[BCP338](./diagnostics/bcp338.md) | Error | Failed to evaluate parameter \<parameter-name>: \<error-message> |
 | <a id='BCP339' />BCP339 | Error | The provided array index value of "{indexSought}" isn't valid. Array index should be greater than or equal to 0. |
 | <a id='BCP340' />BCP340 | Error | Unable to parse literal YAML value. Ensure that it's well-formed. |
 | <a id='BCP341' />BCP341 | Error | This expression is being used inside a function declaration, which requires a value that can be calculated at the start of the deployment. {variableDependencyChainClause}{accessiblePropertiesClause} |
@@ -395,7 +395,6 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP417' />BCP417 | Error | The spread operator `{ellipsis}` cannot be used inside objects with property for-expressions.    |
 | <a id='BCP418' />BCP418 | Error | Extensions cannot be referenced here. Extensions can only be referenced by module extension configurations.   |
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
-
 
 ## Next steps
 
