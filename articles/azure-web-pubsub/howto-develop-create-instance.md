@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Web PubSub resource
 titleSuffix: Azure Web PubSub
-description: Quickstart showing how to create a Web PubSub resource from Azure portal, using Azure CLI and a Bicep template
+description: Quickstart showing how to create a Web PubSub resource from Azure portal, using Azure CLI and a Bicep file
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
@@ -68,7 +68,7 @@ The [Azure CLI](/cli/azure) is a set of commands used to create and manage Azure
 
 ::: zone pivot="method-bicep"
 
-## Create a resource using Bicep template
+## Create a resource using Bicep file
 
 [!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
