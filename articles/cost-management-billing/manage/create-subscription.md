@@ -76,7 +76,7 @@ To clear the filter and view all subscriptions:
 1. In the Azure portal, navigate to **Subscriptions**.
 2. At the top of the list, select the Subscriptions filter item.  
 1. At the top of the subscriptions filter box, select **All**. At the bottom of the subscriptions filter box, clear **Show only subscriptions selected in the portal setting filter**.  
-![subscription-portal-setting](media/create-subscription/subscription-portal-setting.png)
+![Subscription page filter by portal setting.](media/create-subscription/subscription-portal-setting.png)
 4. Select **Apply** to close the box and refresh the list of subscriptions.
 
 ## Create subscription in other tenant and view transfer requests
