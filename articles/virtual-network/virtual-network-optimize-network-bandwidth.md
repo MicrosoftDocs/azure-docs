@@ -91,7 +91,7 @@ Most modern distributions should have significant improvements with kernels newe
 
 ## Optimizing cross-region transfer speeds in Azure Linux VMs
 
-Azure Linux VMs often experience network performance issues, particularly when transferring large files (1GB to 50GB) between regions, such as West Europe and West US. hese issues are caused by generic kernel configurations, network buffer settings, and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
+Azure Linux VMs often experience network performance issues, particularly when transferring large files (1GB to 50GB) between regions, such as West Europe and West US. These issues are caused by generic kernel configurations, network buffer settings, and default congestion control algorithms, which result in delayed packets, limited throughput, and inefficient resource usage. 
 
 To enhance network performance, consider implementing the following optimizations that have been proven effective in a number of situations on Azure:
 
