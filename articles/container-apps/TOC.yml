@@ -169,7 +169,7 @@
       items:
         - name: With a job
           href: tutorial-event-driven-jobs.md
-    - name: Workflows
+    - name: Workflow
       href: workflows-overview.md
     - name: Troubleshooting
       items:
@@ -198,6 +198,14 @@
     - name: Overview
       href: observability.md
       displayName: Observability overview
+    - name: Troubleshoot and resolve issues with an agent
+      items:
+        - name: Overview
+          href: ../app-service/sre-agent-overview.md
+        - name: Use an SRE agent
+          href: ../app-service/sre-agent-usage.md
+        - name: Fix app issues with an SRE agent
+          href: sre-agent-troubleshoot.md
     - name: Application logging
       href: logging.md
     - name: Real time data
@@ -356,7 +364,9 @@
         - name: Overview
           href: ingress-overview.md
           displayName: Ingress overview
-        - name: Configure ingress
+        - name: Environment-level configuration
+          href: ingress-environment-configuration.md
+        - name: Application-level configuration
           href: ingress-how-to.md
         - name: Configure IP restrictions
           href: ip-restrictions.md
