@@ -750,7 +750,7 @@ Remember to specify authentication methods if needed.
 
 ### Default root CA and issuer
 
-To help you get started, IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../secure-iot-ops/howto-manage-certificates.md).
+To help you get started, IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../secure-iot-ops/howto-manage-certificates.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates).
 
 For production, you must configure a CA issuer with a certificate from a trusted CA, as described in the previous sections.
 
