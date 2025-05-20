@@ -10,6 +10,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.devlang: azurecli
+appliesto:
+  - ✅ Azure Cache for Redis
 ---
 
 # Monitor Azure Managed Redis data using diagnostic settings

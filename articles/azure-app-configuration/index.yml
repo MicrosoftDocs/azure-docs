@@ -184,7 +184,7 @@ landingContent:
         - text: Overview
           url: configuration-provider-overview.md
         - text: .NET provider
-          url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
+          url: reference-dotnet-provider.md
         - text: Java Spring provider
           url: https://go.microsoft.com/fwlink/?linkid=2180917
         - text: Python provider
