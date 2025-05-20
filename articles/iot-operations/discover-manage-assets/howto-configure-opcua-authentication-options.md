@@ -22,7 +22,7 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations with [Manage Synced Secrets](../deploy-iot-ops/howto-manage-secrets.md#manage-synced-secrets) enabled.
+- An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 ## Features supported
 
