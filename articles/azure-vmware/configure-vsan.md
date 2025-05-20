@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 
 ---
 
-# Configure VMware vSAN
+# Configure VMware vSAN (OSA)
 
 VMware vSAN has many capabilities that are included with every Azure VMware Solution deployment. Each cluster has its own VMware vSAN datastore.
 
@@ -27,7 +27,7 @@ Azure VMware Solution defaults with the following configurations per cluster:
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Enable or disable TRIM/UNMAP.
+> * Enable or disable vSAN TRIM/UNMAP.
 > * Enable vSAN compression only.
 > * Disable vSAN deduplication and compression.
 > * Enable or disable vSAN data-in-transit encryption.
@@ -55,8 +55,9 @@ To enable or disable the TRIM/UNMAP command, run the `Set-AVSVSANClusterUNMAPTRI
 
 1. Check **Notifications** to see the progress.
 
-After vSAN TRIM/UNMAP is enabled, there are several prerequisites that you must fulfill so that TRIM/UNMAP can successfully reclaim unused capacity at the virtual machine (VM) level.
+After vSAN TRIM/UNMAP is Enabled, the following lists additional requirements for it to function as intended. Once enabled, there are several prerequisites that must be met for TRIM/UNMAP to successfully reclaim no longer used capacity.
 
+- Prerequisites - VM Level
 - Virtual machine hardware version 11 or later for Windows.
 - Virtual machine hardware version 13 or later for Linux.
 - `disk.scsiUnmapAllowed` flag isn't set to `false`. The default is implied `true`. This setting can be used as a *stop switch* at the virtual machine level. You can use this setting if you want to disable this behavior on a per-VM basis and don't want to use in-guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
@@ -90,8 +91,6 @@ To set your preferred space efficiency model, run the `Set-vSANCompressDedupe` c
    | **Specify name for execution**  | Alphanumeric name. For example, *set cluster-1 to compress only*.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
 
-1. Check **Notifications** to see the progress.
-
 Learn more about the `Set-vSANCompressDedupe` cmdlet:
 
 - When you set `Compression` to `False` and `Deduplication` to `True`, vSAN is set to `Deduplication` and `Compression`.
@@ -101,6 +100,7 @@ Learn more about the `Set-vSANCompressDedupe` cmdlet:
 - When you disable both the `Compression` and `Deduplication` settings, you can achieve the greatest performance gains, but at the cost of space efficiency.
 
 ## Set VMware vSAN data-in-transit encryption
+
 
 Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a software-defined data center (SDDC).
 
@@ -116,7 +116,7 @@ Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-tr
    | **Field** | **Value** |
    | --- | --- |
    | **ClusterName**  | Name of the cluster. Leave blank if you're required to enable for the whole SDDC. Otherwise, enter a comma-separated list of names. |
-   | **Enable**  |  Select `True` or `False` to enable or disable the feature.
+   | **Enable**  |  Specify `True` or `False` to enable or disable the feature.
 
 1. Check **Notifications** to see the progress.
 
