@@ -4,7 +4,7 @@ description: Red Hat Gluster Storage (based on GlusterFS) has reached the end of
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/19/2025
+ms.date: 05/20/2025
 ms.author: kendownie
 ---
 
@@ -174,6 +174,8 @@ To mount the file share, run the following command. Be sure to replace `<storage
 net use Z: \\<storage-account-name>.file.core.windows.net\<share-name> /u:AZURE\<storage-account-name> <storage-account-key>
 ```
 
+For more information, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+
 # [Linux](#tab/linux)
 
 #### For Linux clients (NFS):
@@ -183,6 +185,9 @@ To mount the file share, run the following command. Be sure to replace `<storage
 ```bash
 sudo mount -t nfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> <mount-point> -o vers=4.1,sec=sys
 ```
+
+For more information, see [Mount NFS Azure file shares on Linux](storage-files-how-to-mount-nfs-shares.md).
+
 ---
 
 ### Step 4: Perform data migration
