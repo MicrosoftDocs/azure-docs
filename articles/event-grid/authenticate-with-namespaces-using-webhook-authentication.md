@@ -54,7 +54,7 @@ Grant the managed identity of your Event Grid namespace the appropriate access t
 To set up custom authentication for an Azure function, follow these steps:
 
 ### Create a Microsoft Entra app
-1. [Create an Microsoft Entra App in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
+1. [Create a Microsoft Entra App in Microsoft Entra ID](/entra/identity-platform/quickstart-register-app).
 1. On the overview page of the app, note the **Application (client) ID**.
 
     :::image type="content" source="./media/authenticate-with-namespaces-using-webhook-authentication/application-client-id.png" alt-text="Screenshot showing the Overview page of a Microsoft Entra ID app with the application or client ID highlighted.":::
@@ -131,7 +131,7 @@ Replace <NAMESPACE_NAME> and <RESOURCE_GROUP_NAME> with your actual values, and 
 ### Request Headers 
 
 - Authorization: Bearer token 
-    - token is an Microsoft Entra token for the managed identity configured to call the webhook. 
+    - token is a Microsoft Entra token for the managed identity configured to call the webhook. 
     
 ### Request payload 
 
