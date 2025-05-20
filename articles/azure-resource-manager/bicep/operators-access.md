@@ -73,17 +73,13 @@ Output from the example:
 
 Beginning with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), the reverse index accessor operator (`^`) allows you to retrieve an element from an array or a character from a string by counting from the end. This one-based index means `^1` returns the last item, `^2` the second-to-last, and so on. The index must be a positive integer greater than zero and can be specified as a literal or an expression that evaluates to an integer.
 
-```bicep
-array[^index]
-string[^index]
-```
+`array[^index]`
 
-### Remarks
+`string[^index]`
 
-- The reverse index operator provides a convenient way to access elements or characters from the end of a sequence without calculating its length.
-- The index must be at least 1. Using `^0` results in a compilation error.
-- If the index exceeds the length of the array or string, a compilation error occurs for static indices, or a runtime error occurs for dynamic indices.
-- For constant arrays or strings, the operator is evaluated at compile time. For dynamic inputs, such as [parameters](./parameters.md), evaluation occurs at deployment time.
+If the index exceeds the length of the array or string, a compilation error occurs for static indices, or a runtime error occurs for dynamic indices.
+
+For constant arrays or strings, the operator is evaluated at compile time. For dynamic inputs, such as [parameters](./parameters.md), evaluation occurs at deployment time.
 
 ### Example
 

@@ -18,16 +18,6 @@ Arrays in Bicep are immutable. Once declared, their contents can't be changed. T
 
 You can declare arrays in Bicep using either single-line or multi-line syntax:
 
-| Syntax         | Example                                      |
-| -------------- | -------------------------------------------- |
-| Single-line    | `var arr = ['a', 'b', 'c']`                  |
-| Multi-line     | <pre>var arr = [<br>  'a'<br>  'b'<br>  'c'<br>]</pre> |
-
-- **Single-line arrays** use commas (`,`) to separate values.
-- **Multi-line arrays** don't use commas between values.
-- You can mix single-line and multi-line declarations as needed.
-- Multi-line array declarations require [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
-
 ```bicep
 var multiLineArray = [
   'abc'
@@ -40,6 +30,11 @@ var singleLineArray = ['abc', 'def', 'ghi']
 var mixedArray = ['abc', 'def'
     'ghi']
 ```
+
+- **Single-line arrays** use commas (`,`) to separate values.
+- **Multi-line arrays** don't use commas between values.
+- You can mix single-line and multi-line declarations as needed.
+- Multi-line array declarations require [Bicep CLI version 0.7.X or later](](https://github.com/Azure/bicep/releases/tag/v0.7.4)).
 
 Each array element can be of any type. Arrays can be:
 
