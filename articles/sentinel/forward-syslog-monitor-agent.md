@@ -48,7 +48,7 @@ To complete the steps in this tutorial, you must have the following resources an
    - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [add an on-premises Linux server to Azure Arc](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm).
 - A Linux-based device that generates event log data like a firewall network device.
 
-[!INCLUDE [configure-syslog-ama](~/reusable-content/ce-skilling/azure/includes/configure-syslog-ama.md)]
+[!INCLUDE [configure-syslog-ama](~/reusable-content/ce-skilling/azure/includes/azure-monitor/agents/configure-syslog-ama.md)]
 
 ## Verify that Azure Monitor Agent is running
 
