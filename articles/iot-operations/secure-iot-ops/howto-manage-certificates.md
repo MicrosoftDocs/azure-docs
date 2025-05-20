@@ -149,7 +149,7 @@ To set up Azure IoT Operations with your own issuer, use the following steps **b
 
 ## Manage certificates for external communications
 
-The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to Azure Key Vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
+The certificate management experience for external communications uses Azure Key vault as the managed vault solution on the cloud. Certificates are added to the key vault as secrets and synchronized to the edge as Kubernetes secrets via [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension).
 
 The OPC UA client application authentication, leverages the current certificate management experience for external communications. When you [deploy Azure IoT Operations with secure settings](../deploy-iot-ops/overview-deploy.md#secure-settings-deployment), you can start adding certificates to Azure Key Vault, and sync them to the edge to be used in the *Trust list* and *Issuer list* stores for OPC UA connections:
 
