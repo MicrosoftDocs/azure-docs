@@ -137,7 +137,7 @@ const appConfig = await load(endpoint, credential, {
 ```
 
 #### [Kubernetes](#tab/kubernetes)
-
+ 
 ```yaml
 apiVersion: azconfig.io/v1
 kind: AzureAppConfigurationProvider
