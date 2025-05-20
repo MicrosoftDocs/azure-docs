@@ -126,8 +126,8 @@ import uuid
 
 async def deidentify_documents_async():
     endpoint = "<YOUR SERVICE URL HERE>" ### Replace 
-    storage_location = "https://<CONTAINER NAME>.blob.core.windows.net/deidtest/"
-    inputPrefix = "deidsample"
+    storage_location = "https://<CONTAINER NAME>.blob.core.windows.net/deidtest/" ### Replace <CONTAINER NAME>
+    inputPrefix = "deidsample" 
     outputPrefix = "_output"
 
     credential = DefaultAzureCredential()
