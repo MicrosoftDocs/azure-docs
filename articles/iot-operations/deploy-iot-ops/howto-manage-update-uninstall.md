@@ -158,7 +158,7 @@ az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-c
 
 #### [Azure CLI](#tab/cli2)
 
-Use the [az iot ops update](https://learn.microsoft.com/en-us/cli/azure/iot/ops?view=azure-cli-latest#az-iot-ops-update) command to edit the features of your Azure IoT Operations instance.
+Use the [az iot ops update](/cli/azure/iot/ops#az-iot-ops-update) command to edit the features of your Azure IoT Operations instance.
 
 To update tags and description parameters of an instance, run:
 
