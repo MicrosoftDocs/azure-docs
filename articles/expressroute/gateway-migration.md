@@ -11,8 +11,54 @@ ms.date: 03/31/2025
 ms.author: duau
 ---
 
-# About ExpressRoute Gateway SKU migration
-This article provides an overview of the gateway migration experience for Azure ExpressRoute virtual network gateways. It covers the supported migration scenarios, the migration process, and common validation errors.
+# About migrating to an availability zone-enabled ExpressRoute virtual network gateway 
+When you create an ExpressRoute virtual network gateway, selecting the appropriate [gateway SKU](expressroute-about-virtual-network-gateways.md#gateway-types) is crucial. Higher-level SKUs allocate more CPUs and network bandwidth to the gateway, enabling higher network throughput and more reliable connections to the virtual network.
+
+### Available SKUs for ExpressRoute Virtual Network Gateways
+
+The following SKUs are available:
+
+- **Standard**
+- **HighPerformance**
+- **UltraPerformance**
+- **ErGw1Az**
+- **ErGw2Az**
+- **ErGw3Az**
+- **ErGwScale** (Preview)
+
+### Availability Zone-Enabled SKUs
+
+The SKUs **ErGw1Az**, **ErGw2Az**, **ErGw3Az**, and **ErGwScale** (Preview) are referred to as Availability Zone (Az)-Enabled SKUs. These SKUs support deployment across multiple availability zones, providing enhanced resiliency and high availability by distributing the gateway infrastructure across zones.
+
+In contrast, the **Standard**, **HighPerformance**, and **UltraPerformance** SKUs, also known as non-Az-enabled SKUs, are typically associated with Basic IPs and don't support distribution across availability zones.
+
+### Recommendation for enhanced reliability
+
+For improved reliability, we recommend using an Az-enabled virtual network gateway SKU. These SKUs support zone-redundant configurations and are associated with Standard IPs by default. A zone-redundant setup ensures that the gateway infrastructure remains operational even if one availability zone encounters an issue. To learn more about zone-redundant gateways, see [Availability Zone deployments](../reliability/availability-zones-overview.md).
+
+## Gateway migration experience
+
+Previously, migrating between SKUs required using the `Resize-AzVirtualNetworkGateway` PowerShell command or manually deleting and recreating the virtual network gateway.
+
+The guided gateway migration experience simplifies this process by allowing you to deploy a second virtual network gateway within the same GatewaySubnet. Azure automatically transfers the control plane and data path configurations from the old gateway to the new one. During the migration, both gateways operate simultaneously within the same GatewaySubnet. While this feature minimizes disruption, brief connectivity interruptions might still occur.
+
+Once the migration is complete and the old gateway along with its connections are deleted, the newly created gateway is tagged with `"CreatedBy : GatewaySKUMigration"`. This tag helps distinguish migrated gateways from others that haven't undergone migration and shouldn't be deleted.
+
+### Steps to migrate to a new gateway
+
+1. **Validate**: Ensure all resources are in a succeeded state to confirm the gateway is ready for migration. If prerequisites aren't met, validation fails, and you can't proceed.
+2. **Prepare**: Create a new Virtual Network gateway, Public IP, and connections. This operation can take up to 45 minutes. You can choose a preferred name for the new gateway and connections. If you don't change the name, the tag **_migrate** will be appended by default. During this process, the existing Virtual Network gateway will be locked, preventing any creation or modification of connections.
+3. **Migrate**: Select the new gateway to transfer traffic from the old gateway to the new one. This operation can take up to 15 minutes and may cause brief interruptions.
+4. **Commit**: Finalize the migration by deleting the old gateway and connections.
+
+> [!IMPORTANT]
+> After migration, validate your connectivity to ensure everything is functioning as expected. You can revert to the old gateway by selecting **Abort** after the prepare step, which will delete the new gateway and connections.
+
+| Migration source (Non-Az-enabled gateway SKU) | Migration target (Az-enabled gateway SKU) |
+|--|--|
+| Standard, HighPerformance, UltraPerformance | ErGw1Az, ErGw2Az, ErGw3Az, ErGwScale (Preview) |
+| Basic IP | Standard IP |
+
 ## Supported Migration Scenarios
 
 ### Using Azure portal and Azure PowerShell
@@ -63,7 +109,7 @@ After migration, the old gateway and its connections are deleted, and the new ga
 
 ## Common Validation Errors
 
-During the gateway migration process, it's essential to validate whether your resources are ready for migration. Here are some common validation errors you can encounter:
+During the gateway migration process, it's essential to validate whether your resources are ready for migration. Below are some common validation errors you can encounter:
 
 ### Virtual Network
 
