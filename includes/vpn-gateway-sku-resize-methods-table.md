@@ -6,7 +6,7 @@ ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 
-| Starting SKU | Target SKU | Resize| Change|
+| Starting SKU | Target SKU | Eligable for SKU upgrade| Delete/Recreate only |
 | --- | --- |--- | --- |
 | Basic SKU | Any other SKU | No | [Yes](../articles/vpn-gateway/gateway-sku-change.md) |
 | Standard SKU | New Azure SKUs | No | [Yes](../articles/vpn-gateway/gateway-sku-change.md) |
