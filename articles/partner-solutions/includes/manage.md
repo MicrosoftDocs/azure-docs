@@ -11,4 +11,4 @@ Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. On the **Resource** menu, choose the resource.
 
-The resource appears with **MongoDB Resource Overview** open by default.
+The resource appears with the overview open by default.
