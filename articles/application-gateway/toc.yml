@@ -290,7 +290,7 @@
   - name: Proxy buffer configuration
     href: proxy-buffers.md
   - name: Using Server-sent events
-    href: using-sse.md    
+    href: use-server-sent-events.md    
   - name: Custom error pages
     href: custom-error.md
   - name: Migrate to v2 SKU
