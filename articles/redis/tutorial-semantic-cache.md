@@ -44,9 +44,9 @@ In this tutorial, you learn how to:
 
 - An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the models.
 
-## Create an Azure Cache for Redis instance
+## Create an Azure Managed Redis instance
 
-Follow the [Quickstart: Create a Redis Enterprise cache](../azure-cache-for-redis/quickstart-create-redis-enterprise.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
+Follow the [Quickstart: Create an Azure Managed Redis Instance](quickstart-create-managed-redis.md) guide. On the **Advanced** page, make sure that you added the **RediSearch** module and  chose the **Enterprise** Cluster Policy. All other settings can match the default described in the quickstart.
 
    It takes a few minutes for the cache to create. You can move on to the next step in the meantime.
 
