@@ -19,7 +19,7 @@ Red Hat Gluster Storage (based on GlusterFS) has reached the end of its support 
 - End of full support: November 2020
 - End of maintenance support: November 2021
 - End of extended life phase: June 2024
-- Formal end of life : December 2024
+- Formal end of life: December 2024
 
 Organizations using GlusterFS should migrate to supported alternatives, such as Azure Files, to ensure continued support and security updates.
 
