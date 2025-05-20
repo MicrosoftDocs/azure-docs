@@ -20,7 +20,7 @@ This article outlines the support scope, contact details, and procedures for bot
 
 2. Microsoft will fulfill the Service Level Agreements (SLAs) related to the end customer support subscription as specified [Azure Support Plans Comparison | Microsoft Azure](https://azure.microsoft.com/support/plans/?msockid=110758d171736489214157b970c0653d).  
 
-3. Customers are always advised to go to Oracle first for any support issues. The customer may be required to open support tickets with either company to initiate collaboration. Azure Support tickets can be filed via the [Azure Portal](https://portal.Azure.com). If you need additional guidance on filing Azure Support tickets, please review [How to create an Azure support request - Azure supportability | Microsoft Learn](https://learn.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+3. Customers are always advised to go to Oracle first for any support issues. The customer may be required to open support tickets with either company to initiate collaboration. Azure Support tickets can be filed via the [Azure Portal](https://portal.Azure.com). If you need additional guidance on filing Azure Support tickets, please review [How to create an Azure support request - Azure supportability | Microsoft Learn](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 4. Customer consent is required to exchange case data complying with Microsoft & Oracle privacy policies. 
 
