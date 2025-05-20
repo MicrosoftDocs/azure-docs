@@ -239,16 +239,25 @@ Use a backend pool for scenarios such as the following:
 
 API Management supports the following load balancing options for backend pools:
 
-* **Round-robin**: By default, requests are distributed evenly across the backends in the pool.
-* **Weighted**: Weights are assigned to the backends in the pool, and requests are distributed across the backends based on the relative weight assigned to each backend. Use this option for scenarios such as conducting a blue-green deployment.
-* **Priority-based**: Backends are organized in priority groups, and requests are sent to the backends in order of the priority groups. Within a priority group, requests are distributed either evenly across the backends, or (if assigned) according to the relative weight assigned to each backend.    
-    > [!NOTE]
-    > Backends in lower priority groups will only be used when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
+| Load balancing option      | Description |
+|------------------|-------------|
+| **Round-robin**  | Requests are distributed evenly across the backends in the pool by default. |
+| **Weighted**     | Weights are assigned to the backends in the pool, and requests are distributed based on the relative weight of each backend. Useful for scenarios such as blue-green deployments. |
+| **Priority-based** | Backends are organized into priority groups. Requests are sent to higher priority groups first; within a group, requests are distributed evenly or according to assigned weights. |    
+
+> [!NOTE]
+> Backends in lower priority groups will only be used when all backends in higher priority groups are unavailable because circuit breaker rules are tripped.
+
+### Session awareness
 
 With any of the preceding load balancing options, optionally enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session are directed to the same backend in the pool. API Management sets a cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
 
-  > [!NOTE]
-  > Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+> [!NOTE]
+> Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
+
+### Example
+
+Use the portal, API Management [REST API](/rest/api/apimanagement/backend), or a Bicep or ARM template to configure a backend pool. In the following example, the backend *myBackendPool* in the API Management instance *myAPIM* is configured with a backend pool. Example backends in the pool are named *backend-1* and *backend-2*. Both backends are in the highest priority group; within the group, *backend-1* has a greater weight than *backend-2*.
 
 
 #### [Portal](#tab/portal)
@@ -268,7 +277,7 @@ With any of the preceding load balancing options, optionally enable **session aw
 
 Include a snippet similar to the following in your Bicep file for a load-balanced pool. Set the `type` property of the backend entity to `Pool` and specify the backends in the pool.
 
-This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are directed to a specific backend in the pool. 
+This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are routed to a specific backend in the pool. 
 
 ```bicep
 resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-preview' = {
@@ -303,7 +312,7 @@ resource symbolicname 'Microsoft.ApiManagement/service/backends@2023-09-01-previ
 
 Include a JSON snippet similar to the following in your ARM template for a load-balanced pool. Set the `type` property of the backend resource to `Pool` and specify the backends in the pool.
 
-This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are directed to a specific backend in the pool. 
+This example includes an optional `sessionAffinity` pool configuration for session awareness. It sets a cookie so that requests from a user session are routed to a specific backend in the pool. 
 
 
 ```json
