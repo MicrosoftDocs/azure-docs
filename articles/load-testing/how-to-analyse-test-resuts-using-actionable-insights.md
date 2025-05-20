@@ -1,5 +1,5 @@
 ---
-title: Analyze test results using Actionable Insights
+title: Analyze test results using actionable insights
 titleSuffix: Azure Load Testing
 description: Learn how to analyze test results using AI powered actionable insights 
 services: load-testing
@@ -10,9 +10,9 @@ ms.date: 05/19/2025
 ms.topic: how-to
 
 ---
-# Use Actionable Insights to troubleshoot load test results (Preview)
+# Use actionable insights to troubleshoot load test results (Preview)
 
-In this article, you learn how to use **AI-powered Actionable Insights** in Azure Load Testing to identify and troubleshoot performance issues in your application. This feature analyzes your test run data using AI to highlight key issues—such as latency spikes, throughput drops, or backend resource bottlenecks—and provides recommended next steps.
+In this article, you learn how to use **AI-powered actionable insights** in Azure Load Testing to identify and troubleshoot performance issues in your application. This feature analyzes your test run data using AI to highlight key issues—such as latency spikes, throughput drops, or backend resource bottlenecks—and provides recommended next steps.
 
 
 You can view actionable insights directly in the test run dashboard after your test completes.
