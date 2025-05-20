@@ -11,7 +11,7 @@ ms.reviewer: rosemalcolm
 
 # Set up Dev tunnels in VS Code 
 
-Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-based development environments. This article explains how to set up dev tunnels and connect to your Dev Box from VS Code. You'll learn how to install the required extension, enable secure tunnels, and connect remotely for a streamlined development experience. Follow these steps to get started quickly and work efficiently from anywhere.
+Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-based development environments. This article explains how to set up dev tunnels and connect to your Dev Box from VS Code. You learn how to install the required extension, enable secure tunnels, and connect remotely for a streamlined development experience. Follow these steps to get started quickly and work efficiently from anywhere.
 
 ## Prerequisites
 - A dev box.
@@ -23,7 +23,7 @@ Follow these steps to set up a dev tunnel and connect to your dev box using VS C
 
 1. Install VS Code extension
 
-   Search for **Dev Box** in the VS Code Extension Marketplace and install the latest version (2.0.0 as of May 15, 2025) in your **local** VS Code—not in the Dev Box you want to connect to.
+    In your **local** VS Code, install the [**Dev Box**](https://marketplace.visualstudio.com/items?itemName=DevCenter.ms-devbox) extension from the VS Code Extension Marketplace. Dev tunnels requires version 2.0.0 or later. Make sure you install the extension locally, not on the Dev Box you want to connect to.
 
    :::image type="content" source="media/how-to-set-up-dev-tunnels/dev-tunnels-dev-box-extension.png" alt-text="Screenshot of the Dev Box extension in VS Code.":::
 
@@ -73,7 +73,7 @@ Follow these steps to set up a dev tunnel and connect to your dev box using VS C
 
 - Why do I need to sign-in to the Dev Box before enabling the tunnel?
 
-   This step is required to establish a user session for setting up the tunnel. After the initial login, you can just disconnect from the Dev Box. Then you can enable or connect 
+   This step is required to establish a user session for setting up the tunnel. After the initial sign-in, you can just disconnect from the Dev Box. Then you can enable or connect 
 
 - Why can't I connect to the Dev Box even if the tunnel is enabled?
 
