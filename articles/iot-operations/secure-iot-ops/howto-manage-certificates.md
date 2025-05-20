@@ -22,7 +22,7 @@ Azure IoT Operations uses TLS to encrypt communication between all components. T
 
 ## Manage certificates for internal communications
 
-All communication within Azure IoT Operations is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
+All communication within Azure IoT Operations is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend [using your own CA issuer](#bring-your-own-issuer) and an enterprise PKI solution.
 
 ### Default self-signed issuer and root CA certificate for TLS server certificates
 
@@ -134,9 +134,9 @@ You can delete synced certificates as well. When you delete a synced certificate
 
 ## Bring your own issuer
 
-For production deployments, we recommend that you set up Azure IoT Operations with an enterprise PKI to manage certificates and that you bring your own issuer which works with your enterprise PKI instead of using the default self-signed issuer to issue TLS certificates for internal communication.
+For production deployments, we recommend that you set up Azure IoT Operations with an enterprise PKI to manage certificates and that you bring your own CA issuer which works with your enterprise PKI instead of using the default self-signed issuer to issue TLS certificates. You can use your own issuer for both internal communications, as explained in the below section, and external communications like explained in the [OPC UA server application instance certificates signed by a certificate authority](../discover-manage-assets/overview-opcua-broker-certificates-management.md#use-opc-ua-server-application-instance-certificates-signed-by-a-certificate-authority) scenario.
 
-To set up Azure IoT Operations with your own issuer, use the following steps **before deploying an instance to your cluster**:
+To set up Azure IoT Operations with your own issuer for internal communication, use the following steps **before deploying an instance to your cluster**:
 
 1. Follow the steps in [Prepare your cluster](../deploy-iot-ops/howto-prepare-cluster.md) to set up your cluster.
   
