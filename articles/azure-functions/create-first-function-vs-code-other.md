@@ -300,7 +300,7 @@ In this section, you create a function app and related resources in your Azure s
    | ------ |  --------- |
    | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
    | Select a hosting plan. | Choose the **Premium** [hosting plan](functions-scale.md), which provides serverless hosting on Linux that scales dynamically as needed. |
-   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Only regions that support your chosen hosting plan are displayed. If you chose an existing resource group, that location is used and you don't see this prompt. |
+   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Only regions that support your chosen hosting plan are displayed. |
    | Select a runtime stack. | Select **Custom handler**. |
    | Select an OS. | Select **Linux** since the app was compiled to run on Linux. |
    | Select a Linux App Service plan | For Elastic Premium plans, you must explicitly **Create a new app service plan**, enter the plan name, and select the **EP1** pricing tier. |
