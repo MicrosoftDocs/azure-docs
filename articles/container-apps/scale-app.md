@@ -420,7 +420,7 @@ KEDA scalers can use secrets in a [TriggerAuthentication](https://keda.sh/docs/l
 
         1. Set the value of the `secretRef` property to the name of the `secretTargetRef`'s `key` property.
 
-    :::code language="bicep" source="./code/container-apps-azure-service-bus-rule-1.bicep" highlight="8-11,30-33":::
+    :::code language="bicep" source="./code/container-apps-azure-service-bus-rule-1-bicep.json" highlight="8-11,30-33":::
 
     Some scalers support metadata with the `FromEnv` suffix to reference a value in an environment variable. Container Apps looks at the first container listed in the ARM template for the environment variable.
 
