@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 05/09/2025
+ms.date: 05/20/2025
 ms.custom: devx-track-bicep
 ---
 
@@ -12,7 +12,21 @@ This article describes the data types that are supported in [Bicep](./overview.m
 
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, you can declare an array in a single line or in multiple lines. Commas (`,`) are used between values in single-line declarations, but they aren't used in multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
+A **array** in Bicep is an ordered collection of values—such as strings, integers, objects, or even other arrays—commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
+
+Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+You can declare arrays in Bicep using either single-line or multi-line syntax:
+
+| Syntax         | Example                                      |
+| -------------- | -------------------------------------------- |
+| Single-line    | `var arr = ['a', 'b', 'c']`                  |
+| Multi-line     | <pre>var arr = [<br>  'a'<br>  'b'<br>  'c'<br>]</pre> |
+
+- **Single-line arrays** use commas (`,`) to separate values.
+- **Multi-line arrays** don't use commas between values.
+- You can mix single-line and multi-line declarations as needed.
+- Multi-line array declarations require [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
 
 ```bicep
 var multiLineArray = [
@@ -27,9 +41,10 @@ var mixedArray = ['abc', 'def'
     'ghi']
 ```
 
-Each array element can be of any type. You can have an array where each item is the same data type, or an array that holds different data types.
+Each array element can be of any type. Arrays can be:
 
-The following example shows an array of integers and an array of different types.
+- **Homogeneous** (all elements of the same type)
+- **Heterogeneous** (elements of different types)
 
 ```bicep
 var integerArray = [
@@ -44,27 +59,40 @@ var mixedArray = [
   true
   'example string'
 ]
-```
 
-Arrays in Bicep are based on zero. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer might be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on the expression of array types.
-
-```bicep
-var index = 1
-
-var exampleArray = [
-  1
-  2
-  3
+var arrayOfObjects = [
+  { name: 'dev', size: 1 }
+  { name: 'prod', size: 2 }
 ]
 ```
 
-You get the following error when the index is out of bounds:
+Arrays in Bicep are zero-based. You can access elements by index:
+
+```bicep
+var exampleArray = [1, 2, 3]
+output firstElement int = exampleArray[0] // 1
+output thirdElement int = exampleArray[2] // 3
+
+var index = 1
+output secondElement int = exampleArray[index] // 2
+```
+
+The `array[^index]` syntax allows you to access elements from the end of the array, where `^1` is the last element, `^2` is the second-to-last, and so on.
+
+```bicep
+var exampleArray = [1, 2, 3]
+
+output lastElement int = exampleArray[^1] // 3
+output secondToLastElement int = exampleArray[^2] // 2
+```
+
+If you access an index that is out of bounds, you get an error:
 
 ```error
 The language expression property array index 'x' is out of bounds
 ```
 
-To avoid this exception, use the [Or logical operator](./operators-logical.md#or-), as shown in the following example:
+To avoid out-of-bounds exception, use the [Or logical operator](./operators-logical.md#or-), as shown in the following example:
 
 ```bicep
 param emptyArray array = []
@@ -76,15 +104,15 @@ output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 
 ### Array-related operators
 
-* Use [Comparison operators](./operators-comparison.md) to compare two arrays.
-* Use [Index accessor](./operators-access.md#index-accessor) to get an element from an array.
-* Use [Safe-dereference operator](./operator-safe-dereference.md) to access elements of an array.
-* Use [Spread](./operator-spread.md) to merge arrays.
+- Use [Comparison operators](./operators-comparison.md) to compare two arrays.
+- Use [Index accessor](./operators-access.md#index-accessor) to get an element from an array.
+- Use [Safe-dereference operator](./operator-safe-dereference.md) to access elements of an array.
+- Use [Spread](./operator-spread.md) to merge arrays.
 
 ### Array-related functions
 
-* See [Array functions](./bicep-functions-array.md).
-* See [Lambda functions](./bicep-functions-lambda.md).
+- See [Array functions](./bicep-functions-array.md).
+- See [Lambda functions](./bicep-functions-lambda.md).
 
 ## Booleans
 
@@ -96,8 +124,8 @@ param exampleBool bool = true
 
 ## Boolean-related operators
 
-* Use [Comparison operators](./operators-comparison.md) to compare boolean values.
-* See [Logical operators](./operators-logical.md).
+- Use [Comparison operators](./operators-comparison.md) to compare boolean values.
+- See [Logical operators](./operators-logical.md).
 
 ## Boolean-related functions
 
@@ -140,8 +168,8 @@ Floating point, decimal, or binary formats aren't currently supported.
 
 ### Integer-related operators
 
-* See [Comparison operators](./operators-comparison.md).
-* See [Numeric operators](./operators-numeric.md).
+- See [Comparison operators](./operators-comparison.md).
+- See [Numeric operators](./operators-numeric.md).
 
 ### Integer-related functions
 
@@ -237,10 +265,10 @@ output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
 
 ### Object-related operators
 
-* Use [Comparison operators](./operators-comparison.md) to compare objects.
-* Use [Index accessor](./operators-access.md#index-accessor) to get a property from an object.
-* Use [Safe-dereference operator](./operator-safe-dereference.md) to access object members.
-* Use [Spread](./operator-spread.md) to merge objects.
+- Use [Comparison operators](./operators-comparison.md) to compare objects.
+- Use [Index accessor](./operators-access.md#index-accessor) to get a property from an object.
+- Use [Safe-dereference operator](./operator-safe-dereference.md) to access object members.
+- Use [Spread](./operator-spread.md) to merge objects.
 
 ### Object-related functions
 
@@ -348,10 +376,11 @@ is ${blocked}'''
 
 ### String-related operators
 
-* See [Comparison operators](./operators-comparison.md).
+- See [Comparison operators](./operators-comparison.md).
 
 ### String-related functions
 
+- See [String functions](./bicep-functions-string.md).
 
 ## Union types
 
@@ -408,14 +437,14 @@ The parameter value is validated based on the discriminated property value. For 
 
 The union type has some limitations:
 
-  - Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
-    
-    ```bicep
-    type foo = 'a' | 1
-    ```
+- Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
+  
+  ```bicep
+  type foo = 'a' | 1
+  ```
 
-  - Only literals are permitted as members.
-  - All literals must be of the same primitive data type (for example, all strings or all integers).
+- Only literals are permitted as members.
+- All literals must be of the same primitive data type (for example, all strings or all integers).
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
 
