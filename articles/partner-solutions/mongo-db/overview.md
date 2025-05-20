@@ -25,7 +25,7 @@ MongoDB Atlas provides the following capabilities:
 
 ## Subscribe to MongoDB Atlas (preview)
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] MongoDB Atlas.
+[!INCLUDE [subscribe](../includes/subscribe.md)] **MongoDB Atlas**.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 

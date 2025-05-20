@@ -20,7 +20,9 @@ In this quickstart, you create a MongoDB Atlas resource in the Azure portal.
 
 ### Basics tab
 
-The **Basics** tab has three sections. In each section, enter the following values. Red asterisks identify required settings.
+The **Basics** tab has sections for details about the project, the Azure resource, and the MongoDB Atlas organization. Red asterisks identify required settings.
+
+:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization in the Azure portal.":::
 
 1. In **Project details**, enter these values:
 
@@ -45,8 +47,6 @@ The **Basics** tab has three sections. In each section, enter the following valu
     The remaining settings update themselves to reflect the details of the plan that you selected for this new organization.
 
 1. Select **Next**.
-
-:::image type="content" source="media/create/basics-tab.png" alt-text="Screenshot of basic settings for creating a MongoDB Atlas organization in the Azure portal.":::
 
 ### Tags tab (optional)
 

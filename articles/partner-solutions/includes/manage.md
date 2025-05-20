@@ -7,7 +7,7 @@ ms.author: kkendrick
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
-1. On the working pane, under **Navigate**, select **All resources**.
+1. On the Azure portal's working pane, under **Navigate**, select **All resources**.
 
 1. On the **Resource** menu, choose the resource.
 

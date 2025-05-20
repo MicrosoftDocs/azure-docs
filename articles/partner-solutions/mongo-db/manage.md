@@ -9,7 +9,7 @@ ms.date: 04/28/2025
 
 This article describes how to manage the settings for MongoDB Atlas resources.
 
-## Resource overview
+## Open a resource overview
 
 [!INCLUDE [manage](../includes/manage.md)]
 
