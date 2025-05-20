@@ -193,7 +193,5 @@ Run the `Remove-AVSStoragePolicy` cmdlet to specify the default storage policy f
 
 ## Related content
 
-Now that you know how to configure VMware vSAN storage policies, read additional articles:
-
 * [Learn about external storage options](ecosystem-external-storage-solutions.md)
 * [Configure external identity for vCenter Server](configure-identity-source-vcenter.md)
