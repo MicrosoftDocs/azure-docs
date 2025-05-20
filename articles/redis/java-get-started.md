@@ -1,17 +1,21 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Java'
+title: "Quickstart: Use Azure Cache for Redis in Java"
 description: In this quickstart, you create a new Java app that uses Azure Cache for Redis
 author: KarlErickson
 ms.author: karler
 ms.reviewer: zhihaoguo
-ms.date: 01/04/2022
+ms.date: 05/18/2025
 ms.topic: quickstart
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - mode-api
+  - mvc
+  - devx-track-extended-java
+  - ignite-2024
+  - build-2025
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java, ignite-2024
 zone_pivot_groups: redis-type
-appliesto:
-  - ✅ Azure Managed Redis
-  - ✅ Azure Cache for Redis
 ---
 
 # Quickstart: Use Azure Cache for Redis in Java with Jedis Redis client
@@ -29,7 +33,7 @@ Clone the repo [Java quickstart](https://github.com/Azure-Samples/azure-cache-re
 
 ::: zone pivot="azure-managed-redis"
 
-## Create an Azure Managed Redis (preview) instance
+## Create an Azure Managed Redis instance
 
 [!INCLUDE [managed-redis-create](includes/managed-redis-create.md)]
 

@@ -25,6 +25,5 @@ You need an Azure subscription before you begin. If you don't have one, create a
 
 ## Related content
 
-- [Create a Redis Enterprise cache](quickstart-create-redis-enterprise.md)
 - [Create an Azure Managed Redis instance (preview)](../redis/quickstart-create-managed-redis.md)
 - [Create an ASP.NET web app that uses Azure Cache for Redis.](../redis/web-app-cache-howto.md)
