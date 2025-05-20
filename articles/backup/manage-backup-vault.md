@@ -36,7 +36,7 @@ In the **Jobs** tile, you get a summarized view of all backup and restore relate
 
 ## Optimize backup and recovery with Azure Business Continuity Center Copilot
 
-Azure Business Continuity Center Copilot  introduces capabilities on the Backup vaults pane, which allows you to configure and manage a resilient and secure backup and recovery environment:
+Azure Business Continuity Center Copilot introduces new capabilities in the Backup vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
 
 - [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
 - [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.

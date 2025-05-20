@@ -206,7 +206,7 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 
 ## Optimize backup and recovery with Azure Business Continuity Center Copilot
 
-Azure Business Continuity Center Copilot  introduces capabilities on the Recovery Services vaults pane, which allows you to configure and manage a resilient and secure backup and recovery environment:
+Azure Business Continuity Center Copilot introduces new capabilities in the Recovery Services vaults pane, enabling you to configure/manage a secure, resilient backup and recovery environment:
 
 - [Increase security level](../business-continuity-center/tutorial-manage-data-using-copilot.md#increase-security-level-of-recovery-service-vault-and-backup-vault) to strengthen protection for backup data and disaster recovery operations.
 - [Analyze job failures](../business-continuity-center/tutorial-manage-data-using-copilot.md#analyze-job-failures-for-recovery-service-vault-and-backup-vault) to gain insights into failures for precise analysis and faster resolution.
