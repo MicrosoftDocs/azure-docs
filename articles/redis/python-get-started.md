@@ -12,6 +12,9 @@ ms.custom:
   - build-2025
 ms.devlang: python
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Redis.
 ---
 

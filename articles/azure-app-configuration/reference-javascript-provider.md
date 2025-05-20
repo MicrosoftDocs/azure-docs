@@ -13,11 +13,11 @@ ms.date: 02/02/2025
 #Customer intent: I want to learn how to use Azure App Configuration JavaScript client library.
 ---
 
-# JavaScript Configuration Provider
+# JavaScript configuration provider
 
 [![configuration-provider-npm-package](https://img.shields.io/npm/v/@azure/app-configuration-provider?label=@azure/app-configuration-provider)](https://www.npmjs.com/package/@azure/app-configuration-provider)
 
-Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional functionality above the Azure SDK for JavaScript.
+Azure App Configuration is a managed service that helps developers centralize their application configurations simply and securely. The JavaScript configuration provider library enables loading configuration from an Azure App Configuration store in a managed way. This client library adds additional [functionality](./configuration-provider-overview.md#feature-development-status) above the Azure SDK for JavaScript.
 
 ## Load configuration
 
@@ -118,7 +118,7 @@ The `AzureAppConfiguration` type extends the following interfaces:
     const fontSize2 = settingsObj.app.font.size; // object-style configuration representation
     ```
 
-### JSON Content Type Handling
+### JSON content type handling
 
 You can [create JSON key-values](./howto-leverage-json-content-type.md#create-json-key-values-in-app-configuration) in App Configuration. When loading key-values from Azure App Configuration, the configuration provider will automatically convert the key-values of valid JSON content type (e.g. application/json) into object.
 
@@ -228,7 +228,7 @@ appConfig.refresh();
 disposer.dispose();
 ```
 
-### Refresh on sentinel key (Legacy)
+### Refresh on sentinel key
 
 A sentinel key is a key that you update after you complete the change of all other keys. The configuration provider will monitor the sentinel key instead of all selected key-values. When a change is detected, your app refreshes all configuration values.
 
@@ -256,7 +256,7 @@ const appConfig = await load(endpoint, credential, {
         selectors: [ { keyFilter: "*", labelFilter: "Prod" } ],
         refresh: {
             enabled: true, // enable refreshing feature flags
-            refreshIntervalInMs: 10_000
+            refreshIntervalInMs: 60_000
         }
     }
 });
