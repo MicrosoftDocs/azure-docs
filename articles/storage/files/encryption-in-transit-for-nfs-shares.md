@@ -150,14 +150,14 @@ sudo yum install -y aznfs
 ### Step 2: Mount the NFS file share
 
 To mount the NFS file share **with TLS encryption**:
- 
+
 1. Create a directory on your client.
 
 ```bash
 sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```
 
-1. Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with the name of your storage account and replace `<share-name>` with the name of your file share.
+2. Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with the name of your storage account and replace `<share-name>` with the name of your file share.
 
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
@@ -189,10 +189,10 @@ It indicates that the client is connected through the local port 127.0.0.1, not 
  
 To check if traffic to the NFS server is encrypted, use the `tcpdump` command to capture packets on port 2049.
 
-
 ```bash
 sudo tcpdump -i any port 2049 -w nfs_traffic.pcap
 ```
+
 When you open the capture in Wireshark, the payload will appear as "Application Data" instead of readable text.
  
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/wireshark-capture.png" alt-text="Diagram showing the Wireshark screen to test if EiT is applied." lightbox="./media/encryption-in-transit-nfs-shares/wireshark-capture.png":::
@@ -205,14 +205,16 @@ When you open the capture in Wireshark, the payload will appear as "Application 
 A **non-TLS (notls) mount** operation might fail if a previous **TLS-encrypted** mount to the same server was terminated before completing successfully. Although the *aznfswatchdog* service automatically cleans up stale entries after a timeout, attempting a new non-TLS mount before cleanup completes can fail.
 
 To resolve this issue, remount the share using the clean option, which immediately clears any stale entries:
+
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4,notls,clean
 ```
+
 If mounting issues continue, check the log files for more troubleshooting details:
- 
+
 - **Mount Helper and Watchdog Logs**: `/opt/microsoft/aznfs/data/aznfs.log`
 - **Stunnel Logs**: `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`
- 
+
 ## See also
  
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
