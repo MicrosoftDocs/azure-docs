@@ -12,7 +12,7 @@ In this quickstart, you create a MongoDB Atlas resource in the Azure portal.
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
-- You must [subscribe to MongoDB Atlas](overview.md#subscribe-to-mongodb-atlas-).
+- You must [subscribe to MongoDB Atlas](overview.md#subscribe-to-mongodb-atlas-preview).
 
 ## Create a resource
 
