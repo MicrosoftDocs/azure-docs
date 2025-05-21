@@ -279,6 +279,8 @@ items:
 
 - name:  Resources
   items:
+  - name: Azure Redis FAQ
+    href: /azure/redis/faq
   - name: Videos
     href: https://www.youtube.com/results?search_query=azure+managed+redis
   - name: Microsoft Q&A question page

@@ -291,20 +291,6 @@
 
 - name: Reference
   items:
-    - name: Azure Managed Redis
-      items:
-        - name: .NET
-          href: /dotnet/api/overview/azure/resourcemanager.redisenterprise-readme
-        - name: Java
-          href: /java/api/overview/azure/resourcemanager-redisenterprise-readme
-        - name: Azure PowerShell
-          href: /powershell/module/az.redisenterprisecache
-        - name: Azure CLI
-          href: /cli/azure/redisenterprise
-        - name: REST
-          href: /rest/api/redis/redisenterprisecache/operation-groups
-        - name: Resource Manager template
-          href: /azure/templates/microsoft.cache/redisenterprise
     - name: Azure Cache for Redis
       items: 
         - name: .NET
@@ -329,7 +315,7 @@
 
 - name:  Resources
   items:
-  - name: Azure Cache for Redis FAQs
+  - name: Azure Redis FAQ
     href: /azure/redis/faq
   - name: Retirements from Azure Cache for Redis
     href: cache-retired-features.md
@@ -339,7 +325,4 @@
     href: /answers/topics/azure-cache-redis.html
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cache/
-  - name: Build your skills with Microsoft Learn training
-    href: /training/browse/?products=azure-redis-cache
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=databases
+
