@@ -5,7 +5,7 @@ description: Learn how Azure Digital Twins uses custom models to describe entiti
 author: baanders
 ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ms.custom: fasttrack-edit
 ---
