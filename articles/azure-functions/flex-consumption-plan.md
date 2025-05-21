@@ -105,14 +105,15 @@ This table shows the language stack versions that are currently supported for Fl
 
 | Language stack  | Required version |
 | --- | :-----: |
-| C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup> |
+| C# (isolated process mode)<sup>1</sup> | .NET 8<sup>2</sup>, .NET 9<sup>3</sup> |
 | Java | Java 11, Java 17, Java 21 |
 | Node.js | Node.js 20, Node.js 22   |
 | PowerShell | PowerShell 7.4   |
 | Python | Python 3.10, Python 3.11, Python 3.12  | 
 
-<sup>1</sup>[C# in-process mode](./functions-dotnet-class-library.md) isn't supported. You instead need to [migrate your .NET code project to run in the isolated worker model](migrate-dotnet-to-isolated-model.md).  
-<sup>2</sup>Requires version `1.20.0` or later of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and version `1.16.2` or later of [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
+1. [C# in-process mode](./functions-dotnet-class-library.md) isn't supported. You instead need to [migrate your .NET code project to run in the isolated worker model](migrate-dotnet-to-isolated-model.md).  
+2. Requires version `1.20.0` or later of [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and version `1.16.2` or later of [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
+3. Requires version `2.0.0` or later of both [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker) and [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk).
 
 ## Regional subscription memory quotas
 
