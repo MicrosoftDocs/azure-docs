@@ -26,7 +26,9 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 - **Support for <1GB pre-extraction and <70GB fully extracted**: You can analyze images up to 1GB before it's extracted, and up to 70GB fully extracted. The analysis will not complete if the expanded image is greater than 70GB.
 
-- **Azure Monitor**: You can now use Azure Monitor to track certain statistics, such as firmware images' analysis behavior in a workspace over time and the rate of upload for a given workspace.
+- **Azure Monitor tab in firmware analysis**: For each of your workspaces, you can now use Azure Monitor to track the latency of firmware analysis (how long the analysis took) and any failures or errors that occurred during analysis. To access Azure Monitor for firmware analysis, search for "firmware analysis workspaces" in the Azure portal search bar, then navigate to your workspace, and expand the "Monitoring" tab to access "Metrics". With Azure Monitor, you can visualize your data with graphs, scatter plots, histograms, and more.
+
+    :::image type="content" source="media/whats-new-firmware-analysis/azure-monitor.png" alt-text="Screenshot that shows the new Azure Monitor capability." lightbox="media/whats-new-firmware-analysis/azure-monitor.png":::
 
 ## October 2024
 
