@@ -40,3 +40,5 @@ Based on these settings, the following conditions apply:
 -	If Container1 creates **/container1Vol/myfile.txt**, Container2 can read the file via **/container2Vol/myfile.txt**.
 -	If Container1 creates **/container1Vol/directory3/myfile.txt**, Container2 can read the file via **/container2Vol/directory3/myfile.txt**, and Container3 can read and write to the file via **/container3Vol/myfile.txt**.
 -	Container4 does not share a volume mount in common with any of the other containers.
+
+> Note: For code-based Linux apps, the built-in Linux container cannot use volume mounts.
