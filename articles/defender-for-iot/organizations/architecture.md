@@ -25,6 +25,18 @@ Defender for IoT includes the following OT security monitoring components:
 
 - **Operational technology (OT) network sensors**, to detect devices across your network. Defender for IoT network sensors are deployed on either a virtual machine or a physical appliance. OT sensors can be configured as cloud-connected sensors, or fully on-premises, locally managed sensors.
 
+## Discovery and protection for Enterprise IoT environments with Microsoft Defender for Endpoint
+
+Microsoft Defender for Endpoint provides advanced threat protection for enterprise IoT environments by extending its capabilities to include IoT devices. This integration allows for:
+
+- **Unified visibility**: Gain insights into the security posture of both IT and OT devices from a single pane of glass.
+- **Automated response**: Leverage automated playbooks to respond to threats across your entire environment.
+- **Enhanced detection**: Utilize advanced machine learning and behavioral analytics to detect anomalies and potential threats in real-time.
+
+For more information:
+- If you're using Defender for IoT with the Azure portal, see [Microsoft Defender for Endpoint integration](iot-solution.md#defender-for-iot-and-microsoft-defender-for-endpoint-integration).
+- If you're using Defender for IoT with the Defender portal, see [Enterprise IoT in the Defender portal](/defender-for-iot/enterprise-iot).
+
 ## OT network sensors
 
 Defender for IoT network sensors discover and continuously monitor network traffic across your network devices.
