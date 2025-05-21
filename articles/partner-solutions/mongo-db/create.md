@@ -58,5 +58,5 @@ The **Basics** tab has sections for details about the project, the Azure resourc
 
 ## Next step
 
-> [!div class"nextstepaction"]
+> [!div class="nextstepaction"]
 > [Manage a resource](manage.md)
