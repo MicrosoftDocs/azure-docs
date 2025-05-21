@@ -10,7 +10,7 @@ ms.custom: engagement-fy23
 
 ---
 
-# Configure VMware vSAN (OSA)
+# Configure VMware vSAN OSA
 
 VMware vSAN has more capabilities that are set with every Azure VMware Solution deployment.  Each cluster has their own VMware vSAN Datastore.
 Azure VMware Solution defaults with the following configurations per cluster:
