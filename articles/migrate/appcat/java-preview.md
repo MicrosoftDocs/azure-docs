@@ -120,7 +120,7 @@ Extract the binary from the downloaded file. You should see the following folder
 
 ### Run the tool
 
-To run `appcat` from any location in your terminal, extract the archive to your desired location - for example, **~/.appcat** on Linux/Mac or **%USERPROFILE%\\.appcat** on Windows. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
+To run `appcat` from any location in your terminal, extract the archive to your desired location. Then, update the `PATH` environment variable to include the directory where you extracted the archive.
 
 > [!NOTE]
 > When the `appcat` binary is called, it first looks for its dependencies in the executable folder specified in the `PATH` environment variable. If the dependencies aren't found, it falls back to the user's home directory - **~/.appcat** on Linux/Mac or **%USERPROFILE%\\.appcat** on Windows.
