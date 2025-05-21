@@ -90,6 +90,10 @@ When the public IP address migration is complete, you can view your resources on
 
 * To view the public IP address SKU, go to the **Properties** page for your VPN gateway. Click the IP address value to open the Public IP address resource and view the resource SKU.
 
+## Known Issues
+
+* For VpnGw1 CSES to VMSS migration, we are seeing higher CPU utilization due to .NET core optimization. This is a known issue and we recommend to either wait for 10 minutes after prepare stage or upgrade to a higher gateway SKU during the migration process.
+
 ## Next steps
 
 * To see the announcement for this migration, see [Basic SKU public IP address retirement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).

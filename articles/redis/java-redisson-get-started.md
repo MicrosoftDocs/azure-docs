@@ -18,6 +18,9 @@ ms.custom:
   - build-2025
 ms.devlang: java
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Cache for Redis
+  - ✅ Azure Managed Redis
 # Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
 ---
 
