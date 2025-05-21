@@ -40,8 +40,7 @@ This diagram shows the process of using summary rules with auxiliary logs in Mic
 
 :::image type="content" source="media/summary-rules/summary-rule-auxiliary-logs-overview.svg" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates." lightbox="media/summary-rules/summary-rule-auxiliary-logs-overview.svg":::
 
-summary-rule-auxiliary-logs-overview
-## Use summary rules with auxiliary logs (sample process)
+## Use summary rules with auxiliary logs
 
 1. Set up your custom CEF connector from Logstash:
 
