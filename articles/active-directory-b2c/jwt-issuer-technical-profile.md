@@ -20,6 +20,8 @@ ms.subservice: b2c
 
 # Define a technical profile for a JWT issuer in an Azure Active Directory B2C custom policy
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Azure Active Directory B2C (Azure AD B2C) emits several types of security tokens as it processes each authentication flow. A technical profile for a JWT issuer emits a JWT that is returned back to the relying party application. Usually this technical profile is the last orchestration step in the user journey.

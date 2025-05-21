@@ -5,7 +5,7 @@ author: SoniaLopezBravo
 ms.author: sonialopez
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 10/24/2024
+ms.date: 04/08/2025
 
 #CustomerIntent: As an OT professional, I want to manage Azure IoT Operations instances.
 ---
@@ -65,9 +65,13 @@ You can view your Azure IoT Operations instance in the Azure portal.
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
+1. On the **Overview** page of your instance, you can see the properties of your instance. For example, you can see the status of the **preview connectors**, which can be enabled or disabled. To change the status of the preview connectors, click on **Edit**. 
 
-   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
+    :::image type="content" source="media/howto-deploy-iot-operations/view-enable-connectors.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster and how to enable connectors."lightbox="media/howto-deploy-iot-operations/view-enable-connectors.png":::
+
+    This action opens a configuration panel where you can enable or disable the [ONVIF preview connector](../discover-manage-assets/overview-onvif-connector.md).
+
+1. The **Resource Summary** tab displays the resources that were deployed to your cluster.
 
 #### [Azure CLI](#tab/cli)
 
@@ -103,9 +107,9 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 ---
 
-### Update instance tags and description
+### Update instances and configuration
 
-#### [Azure portal](#tab/portal)
+#### [Azure portal](#tab/portal2)
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
@@ -113,9 +117,11 @@ You can run `az iot ops check` on your cluster to assess health and configuratio
 
 1. On the **Overview** page of your instance, select **Add tags** or **edit** to modify tags on your instance.
 
-#### [Azure CLI](#tab/cli)
+#### [Azure CLI](#tab/cli2)
 
-Use the `az iot ops update` command to edit the tags and description parameters of your Azure IoT Operations instance. The values provided in the `update` command replace any existing tags or description
+Use the `az iot ops update` command to edit the features of your Azure IoT Operations instance.
+
+To update tags and description parameters of an instance, run:
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --desc "<INSTANCE_DESCRIPTION>" --tags <TAG_NAME>=<TAG-VALUE> <TAG_NAME>=<TAG-VALUE>
@@ -125,6 +131,18 @@ To delete all tags on an instance, set the tags parameter to a null value. For e
 
 ```azurecli
 az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
+```
+
+To enable the preview connector configuration, run: 
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Enabled 
+```
+
+To disable the preview connector configuration, run: 
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --feature connectors.settings.preview=Disabled  
 ```
 
 ---

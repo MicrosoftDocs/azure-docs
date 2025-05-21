@@ -1,7 +1,7 @@
 ---
 title: Files and directories in Azure Batch
 description: Learn about files and directories and how they are used in an Azure Batch workflow from a development standpoint.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/13/2024
 ---
 # Files and directories in Azure Batch
@@ -38,6 +38,19 @@ The root directory contains the following directory structure:
 
 > [!IMPORTANT]
 > When a node is removed from the pool, all of the files that are stored on the node are removed.
+
+## Batch root directory location
+
+The value of the `AZ_BATCH_NODE_ROOT_DIR` compute node environment variable will be determined by the VM size and the presence of a local temporary disk.
+
+|Local Temporary Disk Present|Operating System Type|`AZ_BATCH_NODE_ROOT_DIR` Value|
+|:---|:---|:---|
+|No|Linux|`/opt/batch/data`|
+|Yes|Linux|`/mnt/batch` or `/mnt/resource/batch`|
+|No|Windows|`C:\batch\data`|
+|Yes|Windows|`D:\batch`|
+
+These environment variable values are implementation details and should not be considered immutable. As these values may change at any time, the use of environment variables instead of hardcoding the value is recommended.
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Describes the use cases and key features of Azure NetApp Files appl
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/22/2025
 ms.author: anfdocs
 ---

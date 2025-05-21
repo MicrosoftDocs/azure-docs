@@ -3,7 +3,7 @@ title: Improve SMB Azure file share performance
 description: Learn about ways to improve performance and throughput for SSD (premium) SMB Azure file shares, including SMB Multichannel and metadata caching.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/22/2025
 ms.author: kendownie
 ms.custom: references_regions
@@ -208,10 +208,14 @@ Supported regions:
 - South India
 - West India 
 - Italy North
+- Japan East
+- Japan West
 - Jio India West
+- Korea Central
 - Korea South
 - Mexico Central
 - Norway East
+- New Zealand North
 - Poland Central
 - Qatar Central
 - South Africa North

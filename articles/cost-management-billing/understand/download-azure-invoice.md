@@ -7,7 +7,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/04/2024
+ms.date: 04/07/2025
 ms.author: jkinma
 ---
 
@@ -215,8 +215,7 @@ You might need to send your monthly invoice to your accounting team or to anothe
 1.  Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
     :::image type="content" border="true" source="./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png" lightbox="./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png" alt-text="Screenshot that shows the Email invoice option for invoices.":::
 1.  If you have multiple billing profiles, select a billing profile.
-1.  In the :::no-loc text="additional"::: recipients section, add the email addresses to receive invoices.
-    :::image type="content" border="true" source="./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients.png" lightbox="./media/download-azure-invoice/mca-billing-profile-add-invoice-recipients-zoomed.png" alt-text="Screenshot that shows additional recipients for the invoice email.":::
+1. In the :::no-loc text="additional"::: recipients section, add the email addresses to receive invoices.
 1.  Select **Save**.
 
 ## Azure Government support for invoices

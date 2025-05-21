@@ -1,7 +1,7 @@
 ---
 title: Architecture - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-vmware
 ms.date: 3/22/2024
 ms.custom: "references_regions, engagement-fy23"

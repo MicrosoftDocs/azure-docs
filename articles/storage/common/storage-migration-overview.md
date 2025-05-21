@@ -3,7 +3,7 @@ title: Azure Storage migration guide
 description: Storage migration overview guide describes basic guidance for storage migration 
 author: dukicn
 ms.author: nikoduki
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 03/31/2021
 ms.service: azure-storage
 ms.subservice: storage-common-concepts

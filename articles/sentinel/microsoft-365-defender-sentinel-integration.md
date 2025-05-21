@@ -6,8 +6,8 @@ ms.author: yelevin
 ms.topic: conceptual
 ms.date: 03/17/2025
 appliesto:
-- Microsoft Sentinel in the Azure portal
-- Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
+    - Microsoft Sentinel with Defender XDR in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
 
@@ -34,19 +34,6 @@ Use one of the following methods to integrate Microsoft Sentinel with Microsoft 
 
 Select the appropriate tab to see what the Microsoft Sentinel integration with Defender XDR looks like depending on which integration method you use.
 
-## [Azure portal](#tab/azure-portal)
-
-The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
-
-:::image type="content" source="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr.svg" alt-text="Diagram of the integration of Microsoft Sentinel and Microsoft XDR." lightbox="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr.svg" border="false":::
-
-In this diagram:
-
-- Insights from signals across your entire organization feed into Microsoft Defender XDR and Microsoft Defender for Cloud.
-- Microsoft Defender XDR and Microsoft Defender for Cloud send SIEM log data through Microsoft Sentinel connectors.
-- SecOps teams can then analyze and respond to threats identified in Microsoft Sentinel and Microsoft Defender XDR.
-- Microsoft Sentinel provides support for multicloud environments and integrates with third-party apps and partners.
-
 ## [Defender portal](#tab/defender-portal)
 
 The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel in the Microsoft Defender portal.
@@ -59,6 +46,19 @@ In this diagram:
 - Microsoft Sentinel provides support for multicloud environments and integrates with third-party apps and partners.
 - Microsoft Sentinel data is ingested together with your organization's data into the Microsoft Defender portal.
 - SecOps teams can then analyze and respond to threats identified by Microsoft Sentinel and Microsoft Defender XDR in the Microsoft Defender portal.
+
+## [Azure portal](#tab/azure-portal)
+
+The following illustration shows how Microsoft's XDR solution seamlessly integrates with Microsoft Sentinel.
+
+:::image type="content" source="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr.svg" alt-text="Diagram of the integration of Microsoft Sentinel and Microsoft XDR." lightbox="./media/microsoft-365-defender-sentinel-integration/sentinel-xdr.svg" border="false":::
+
+In this diagram:
+
+- Insights from signals across your entire organization feed into Microsoft Defender XDR and Microsoft Defender for Cloud.
+- Microsoft Defender XDR and Microsoft Defender for Cloud send SIEM log data through Microsoft Sentinel connectors.
+- SecOps teams can then analyze and respond to threats identified in Microsoft Sentinel and Microsoft Defender XDR.
+- Microsoft Sentinel provides support for multicloud environments and integrates with third-party apps and partners.
 
 ---
 
@@ -155,7 +155,31 @@ Defender XDR incidents appear in the Microsoft Sentinel incidents queue with the
 
 As the incident evolves in Defender XDR, and more alerts or entities are added to it, the Microsoft Sentinel incident gets updated accordingly.
 
-Changes made to the status, closing reason, or assignment of a Defender XDR incident, in either Defender XDR or Microsoft Sentinel, likewise update accordingly in the other's incidents queue. The synchronization takes place in both portals immediately after the change to the incident is applied, with no delay. A refresh might be required to see the latest changes.
+Changes made to certain fields or attributes of a Defender XDR incident, in either Defender XDR or Microsoft Sentinel, likewise update accordingly in the other's incidents queue. The synchronization takes place in both portals immediately after the change to the incident is applied, with no delay. A refresh might be required to see the latest changes.
+
+The following fields are synchronized "as is" between incidents in the Defender portal and in Microsoft Sentinel in the Azure portal:
+
+- Title
+- Description
+- ProductName
+- Severity
+- Custom tags
+- AdditionalData
+- Comments (new only)
+- LastModifiedBy
+
+The following fields are transformed during synchronization so that their values comply with the schema of each platform:
+
+| Field      | Value in the Defender portal | Value in Microsoft Sentinel |
+| ---------- | ---------------------------- | --------------------------- |
+| **Status** |                              |                             |
+|            | Active                       | New                         |
+| **Classification/<br>*Classification reason*** |  |                     |
+|            | True Positive/<br>*any* | True Positive/<br>*Suspicious activity* |
+|            | False Positive/<br>*any*   | False Positive/<br>*Inaccurate data* |
+|            | N/A          | False Positive/<br>*Inaccurate alert logic* |
+| | Benign Positive/<br>*Informational expected activity* | Benign Positive/<br>*Suspicious but expected* |
+|            | Not set                      | Undetermined                |
 
 In Defender XDR, all alerts from one incident can be transferred to another, resulting in the incidents being merged. When this merge happens, the Microsoft Sentinel incidents reflect the changes. One incident contains all the alerts from both original incidents, and the other incident is automatically closed, with a tag of "redirected" added.
 

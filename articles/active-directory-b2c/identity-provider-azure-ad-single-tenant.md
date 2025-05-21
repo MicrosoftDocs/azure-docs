@@ -21,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 This article shows you how to enable sign-in for users from a specific Microsoft Entra organization using a user flow in Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]

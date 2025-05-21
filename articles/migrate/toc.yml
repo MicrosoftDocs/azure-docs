@@ -22,7 +22,9 @@ items:
   - name: Supported Geographies
     href: supported-geographies.md
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-migrate-security-baseline
+    href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+  - name: Security best practices
+    href: best-practices-security.md
   - name: Requirements for Private endpoints # Explain about private end points and support requirements 
     href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Support Matrix
@@ -69,6 +71,8 @@ items:
       href: resource-tagging.md
 - name: Create Business case
   items:
+  - name: Business case overview
+    href: concepts-business-case-calculation.md
   - name: Build a business case
     href: how-to-build-a-business-case.md
   - name: Review business case
@@ -154,13 +158,13 @@ items:
     - name: Agent-based migrations
       items:
       - name: Agent-based migration using portal
-        href: vmware/tutorial-migrate-vmware-agent.md
+        href: tutorial-migrate-vmware-agent.md
     - name: Agentless migrations
       items:
       - name: Agentless migrations using portal
-        href: vmware/tutorial-migrate-vmware.md
+        href: tutorial-migrate-vmware.md
       - name: Agentless migrations using scripts
-        href: vmware/tutorial-migrate-vmware-powershell.md
+        href: tutorial-migrate-vmware-powershell.md
 #   - name: Limitations
 - name: Modernize applications
   items:
@@ -246,8 +250,6 @@ items:
         href: tutorial-app-containerization-java-app-service.md
       - name: Modernize ASP.NET web apps to App Service code
         href: tutorial-modernize-asp-net-appservice-code.md
-      - name: Modernize ASP.NET web apps to AKS
-        href: tutorial-modernize-asp-net-aks.md
       - name: CI/CD for Day 2 operations
         href: tutorial-app-containerization-azure-pipeline.md  
 - name: How-to
@@ -260,6 +262,8 @@ items:
     href: migrate-servers-to-azure-using-private-link.md
   - name: Troubleshoot network connectivity for private endpoint
     href: troubleshoot-network-connectivity.md
+  - name: Simplified experience for Azure migrate
+    href: simplified-experience-for-azure-migrate.md
   - name: Discovery
     items:
     - name: Deploy appliance
@@ -270,8 +274,6 @@ items:
         href: how-to-set-up-appliance-physical.md
     - name: Deploy appliance in Azure Government
       href: deploy-appliance-script-government.md
-    - name: Limit discovery scope for servers in VMware environment
-      href: set-discovery-scope.md
     - name: Create least privilege credentials for SQL Server discovery
       href: least-privilege-credentials.md  
     - name: Enable Arc on discovered items
@@ -336,13 +338,15 @@ items:
     - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
-      href: /lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: Azure Migrate Project
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md
+    - name: Azure Migrate in unsupported regions
+      href: azure-migrate-unsupported-regions.md
   - name: Appliance configuration
     items:
     - name: Troubleshoot Azure Migrate appliance

@@ -4,7 +4,7 @@ description: Describes performance benchmarks that Azure NetApp Files datastores
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/03/2024
 ms.author: anfdocs
 ---
