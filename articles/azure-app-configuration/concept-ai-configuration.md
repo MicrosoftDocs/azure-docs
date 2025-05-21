@@ -13,20 +13,16 @@ ms.collection: ce-skilling-ai-copilot
 
 AI application development often requires rapid iteration of prompts and frequent tuning of model parameters to meet evolving goals such as quality, responsiveness, customer satisfaction, and cost efficiency. AI configuration in Azure App Configuration helps streamline this process by decoupling model settings from application code, enabling faster, safer, and more flexible iteration. Here are some key benefits:
 
-* **Rapid configuration iteration**
-
+* **Rapid configuration iteration**  
     Externalize AI model settings, such as prompts, temperature, or model versions, into Azure App Configuration. Your applications can dynamically load updated configurations at runtime without requiring restarts, rebuilds, or redeployments.
 
-* **Guided configuration authoring**
+* **Guided configuration authoring**  
+    Use built-in configuration templates that conform to the specifications of models from various providers. The guided configuration authoring simplifies the adoption of new models, reduces configuration errors, and accelerates development by ensuring your settings are valid and aligned with model requirements.
 
-	Use built-in configuration templates that conform to the specifications of models from various providers. The guided configuration authoring simplifies the adoption of new models, reduces configuration errors, and accelerates development by ensuring your settings are valid and aligned with model requirements.
+* **Safe and controlled rollouts**  
+    Use feature flags to gradually release new model settings or models to targeted user segments. Monitor rollout progress with telemetry and control rollbacks or roll-forwards with ease.
 
-* **Safe and controlled rollouts**
-
-	Use feature flags to gradually release new model settings or models to targeted user segments. Monitor rollout progress with telemetry and control rollbacks or roll-forwards with ease.
-
-* **Data-driven experimentation**
-
+* **Data-driven experimentation**  
 	Define custom metrics to evaluate the effectiveness of new AI configurations. Measure impact on performance, cost, or user satisfaction to make informed decisions about future iterations.
 
 ## Chat completion configuration
