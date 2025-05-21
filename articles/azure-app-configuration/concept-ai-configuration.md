@@ -47,5 +47,5 @@ Chat completion is an AI capability that produces human-like dialogue responses 
 | DeepSeek       | DeepSeek-R1           |
 
 
-Azure OpenAI Service supports a diverse set of models from OpenAI. For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models). To learn more about models from Anthropic, refer to the [Claude models documentation](https://docs.anthropic.com/docs/about-claude/models/all-models).  
+Azure OpenAI Service supports a diverse set of models from OpenAI. For more information, see [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models). To learn more about models from Anthropic, refer to the [Claude models documentation](https://docs.anthropic.com/docs/about-claude/models/overview).  
 For more details about models provided by Google, see the [Gemini models documentation](https://ai.google.dev/gemini-api/docs/models).
