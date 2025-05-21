@@ -1,6 +1,6 @@
 ---
 title: Enable or Disable BMP Log Streaming for Azure Operator Nexus
-description: Learn how to enable or disable BMP log streaming various Network Fabric resources.
+description: Learn how to enable or disable BMP log streaming for various Azure Operator Nexus Network Fabric resources.
 ms.service: azure-operator-nexus
 ms.custom: template-how-to, devx-track-azurecli
 ms.topic: how-to
@@ -11,39 +11,39 @@ ms.author: sushrao
 
 # BMP log streaming
 
-This article shows you how to enable or disable BMP log streaming for various Azure Operator Nexus Network Fabric resources.
+This article shows you how to enable or disable Border Gateway Protocol (BGP) Monitoring Protocol (BMP) log streaming for various Azure Operator Nexus Network Fabric resources.
 
 ## Enable BMP log streaming for the new deployment
 
-- **Create Network Fabric resource:** Begin by creating an Azure Operator Nexus Network Fabric resource. This serves as the foundation for your deployment.
-- **Create Network Monitor resource:** Next, create a Network Monitor resource and associate the Scope ID with the Network Fabric Resource ID. This step ensures that the monitoring is correctly linked to the network fabric.
-- **Create NNI with BMP configuration:** Create a network-to-network interface (NNI) by associating it with the Network Fabric Resource ID.
+- **Create an Azure Operator Nexus Network Fabric resource:** To begin, create an Azure Operator Nexus Network Fabric resource. This resource serves as the foundation for your deployment.
+- **Create a Network Monitor resource:** Next, create a Network Monitor resource and associate the scope ID with the Azure Operator Nexus Network Fabric resource ID. This step ensures that the monitoring is correctly linked to the network fabric.
+- **Create a network-to-network interface (NNI) with BMP configuration:** Create an NNI by associating it with the Azure Operator Nexus Network Fabric resource ID.
 
 > [!NOTE]
-> Refer to the following Azure Resource Manager (ARM) API payload guide for more information.
+> For more information, see the following Azure Resource Manager API payload guide.
 
-- **Provision Network Fabric:** Provision the Network Fabric to apply the configurations and make the network operational.
-- **Generate BMP stations configuration:** The Nexus Network Fabric generates the BMP stations configuration on the CE devices only.
+- **Provision Azure Operator Nexus Network Fabric:** Azure Operator Nexus Network Fabric applies the configurations and makes the network operational.
+- **Generate BMP stations configuration:** Azure Operator Nexus Network Fabric configures BMP stations on the CE devices only.
 
 ## Enable BMP log streaming for the existing deployment
 
-This case involves enabling BMP log streaming on Network Fabric, which is already deployed by using the supported Network Fabric version. This approach is based on an Azure Resource Manager (ARM) API user-driven input. The supported Network Fabric version also supports BMP log streaming through the Network Fabric Patch Update workflow.
+This case involves enabling BMP log streaming on Azure Operator Nexus Network Fabric, which is already deployed by using the supported Azure Operator Nexus Network Fabric version. This approach is based on an Azure Resource Manager API user-driven input. The supported Azure Operator Nexus Network Fabric version also supports BMP log streaming through the Azure Operator Nexus Network Fabric Patch Update workflow.
 
-- **Create a Network Fabric resource:** Start by creating the Network Fabric resource by using the latest supported version. If the Network Fabric is outdated, upgrade it to the supported version.
-- **Create a Network Monitor resource:** To ensure proper monitoring, create a Network Monitor resource and link the Scope ID to the Network Fabric Resource ID.
-- **Perform a patch on NNI:** Update the NNI by applying a patch. Select `bmpConfiguration` under `OptionBLayerConfiguration` and set `configurationState` to `Enabled` for BMP logging of the NNI peer-group neighbor address.
+- **Create an Azure Operator Nexus Network Fabric resource:** Create the Azure Operator Nexus Network Fabric resource by using the latest supported version. If your version is outdated, upgrade it to the supported version.
+- **Create a Network Monitor resource:** To ensure proper monitoring, create an Azure Operator Nexus Network Fabric resource. Link the scope ID to the Azure Operator Nexus Network Fabric resource ID.
+- **Perform a patch on NNI:** Apply a patch to update the NNI. Under `OptionBLayerConfiguration`, select `bmpConfiguration` and set `configurationState` to `Enabled` for BMP logging of the NNI peer-group neighbor address.
 
 > [!NOTE]
-> Refer to the following detailed ARM API payload guide for more information
+> For more information, see the following Azure Resource Manager API payload guide.
 
-- **Perform a `Fabric Commit` operation:** To apply configurations and activate the network, execute the `Fabric Commit` operation.
-- **Generate BMP stations configuration:** The Nexus Network Fabric configures BMP stations on the CE devices only.
+- **Perform a Fabric Commit operation:** To apply configurations and activate the network, run the `Fabric Commit` operation.
+- **Generate BMP stations configuration:** Azure Operator Nexus Network Fabric configures BMP stations on the CE devices only.
 
 ## Network Monitor CRUD operations for BMP log streaming
 
-This section shows you how to perform create, read, update, delete (CRUD) operations on the Network Monitor resource for BMP log streaming.
+This section shows you how to perform any create, read, update, delete (CRUD) operations on the Network Monitor resource for BMP log streaming.
 
-The following property is defined under ARM API version `2024-06-15-preview`:
+The following property is defined under Azure Resource Manager API version `2024-06-15-preview`:
 
 ```Azure CLI
 az networkfabric networkmonitor create \
@@ -76,7 +76,7 @@ az networkfabric networkmonitor create \
 > [!NOTE]
 > During the new deployment, the Network Monitor resource doesn't include `stationNetwork`. The default virtual routing and forwarding (VRF) is designated as `INFRA-MGMT`, with the source interface set to `vlan39`.
 
-Nexus generates the following configuration for the BMP station:
+Azure Operator Nexus generates the following configuration for the BMP station:
 
 ```output
 router bgp 65501
@@ -101,7 +101,7 @@ export-policy received routes pre-policy
 
 ### Enable BMP log streaming for NNI
 
-To enable BMP log streaming under NNI, run the following Azure CLI command. This example enables BMP log streaming for `infra-vpn` (VRF, `INFRA-MGMT`), `workload-vpn` (VRF, `WORKLOAD-MGMT`) with **OptionB** and **L3ISD External Network OptionB**.
+To enable BMP log streaming under NNI, run the following Azure CLI command. This example enables BMP log streaming for `infra-vpn` (VRF, `INFRA-MGMT`), `workload-vpn` (VRF, `WORKLOAD-MGMT`) with `OptionB` and layer 3 isolation domain (L3ISD) external network `OptionB`.
 
 ```Azure CLI
 az networkfabric nni create --resource-group "example-rg" --fabric "example-fabric" --resource-name "example-nniwithACL" --nni-type "CE" --is-management-type "True" --use-option-b "True" --layer2-configuration "{interfaces:['/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/networkDevices/example-networkDevice/networkInterfaces/example-interface'],mtu:1500}" --option-b-layer3-configuration "{peerASN:28,vlanId:501,primaryIpv4Prefix:'10.18.0.xxx/30',secondaryIpv4Prefix:'10.18.0.xxx/30',primaryIpv6Prefix:'10:2:0:xxx::400/127',secondaryIpv6Prefix:'10:2:0:xxx::402/127', bmpConfiguration:`{configurationState:`Enabled`}`}" --ingress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4ingressACL" --egress-acl-id "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxx/resourceGroups/example-rg/providers/Microsoft.ManagedNetworkFabric/accesscontrollists/example-Ipv4egressACL"
@@ -140,11 +140,11 @@ Router bgp <fabric-asn-value>
 
 ---
 
-## Enable or disable BMP log streaming for L3ISD External Network OptionA
+## Enable or disable BMP log streaming for L3ISD external network option A
 
-### Enable BMP log streaming for L3ISD External Network OptionA
+### Enable BMP log streaming for L3ISD external network option A
 
-To enable BMP log streaming for L3ISD External Network OptionA, run the following Azure CLI command. This example enables BMP log streaming for the specified external network.
+To enable BMP log streaming for L3ISD external network option A, run the following Azure CLI command. This example enables BMP log streaming for the specified external network.
 
 ```Azure CLI
 az networkfabric externalnetwork create \
@@ -176,9 +176,9 @@ az networkfabric externalnetwork create \
   }"
 ```
 
-### Disable BMP log streaming for L3ISD External Network OptionA
+### Disable BMP log streaming for L3ISD external network option A
 
-To disable BMP log streaming for L3ISD External Network OptionA, modify the `bmpConfiguration` parameter to `Disabled`. For example:
+To disable BMP log streaming for L3ISD external network option A, modify the `bmpConfiguration` parameter to `Disabled`. For example:
 
 ```bash
 az networkfabric externalnetwork update --resource-group "example-rg" --l3domain "example-l3domain" --resource-name "example-externalNetwork" --option-a-properties "{bmpConfiguration:`{configurationState:`Disabled`}`}"
@@ -202,19 +202,19 @@ Router bgp <fabric-asn-value>
 
 ---
 
-## Enable or disable BMP log streaming for L3ISD Internal Network
+## Enable or disable BMP log streaming for L3ISD internal network
 
-### Enable BMP log streaming for L3ISD Internal Network
+### Enable BMP log streaming for L3ISD internal network
 
-To enable BMP log streaming for L3ISD Internal Network, run the following Azure CLI command:
+To enable BMP log streaming for L3ISD internal network, run the following Azure CLI command:
 
 ```bash
 az networkfabric internalnetwork create --resource-group "example-rg" --l3-isolation-domain-name "example-l3domainIpv4VProbe" --resource-name "example-internalNetwork" --vlan-id 2600 --mtu 1500 --extension "NPB" --is-monitoring-enabled "True" --connected-ipv4-subnets "[{prefix:'10.18.32.xxx/24'}]" --static-route-configuration "{extension:NPB,bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},ipv4Routes:[{prefix:'10.18.128.xxx/24',nextHop:['10.18.34.xxx','10.18.32.xxx']},{prefix:'10.18.129.xxx/24',nextHop:['10.1.17.xxx']}]}" --bgp-configuration  "{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},defaultRouteOriginate:True,allowAS:2,allowASOverride:Enable,peerASN:65047,ipv4ListenRangePrefixes:['10.18.32.xxx/28','10.18.32.xxx/28'],ipv4NeighborAddress:[{address:'10.18.34.xxx'},{address:'10.18.34.xxx'}],bmpConfiguration:`{configurationState:`Enabled`}`}"
 ```
 
-### Disable BMP log streaming for L3ISD Internal Network
+### Disable BMP log streaming for L3ISD internal network
 
-To disable BMP log streaming for L3ISD Internal Network, modify the `bmpConfiguration` parameter to `Disabled`. For example:
+To disable BMP log streaming for L3ISD internal network, modify the `bmpConfiguration` parameter to `Disabled`. For example:
 
 ```bash
 az networkfabric internalnetwork update --resource-group "example-rg" --l3-isolation-domain-name "example-l3domainIpv4VProbe" --resource-name "example-internalNetwork" --bgp-configuration  "{bmpConfiguration:`{configurationState:`Disabled`}`}"
@@ -238,11 +238,11 @@ Router bgp <fabric-asn-value>
 
 ---
 
-## Enable or disable BMP log streaming for L3ISD Internal Network with restricted neighbors
+## Enable or disable BMP log streaming for L3ISD internal network with restricted neighbors
 
 ### Enable BMP log streaming with restricted neighbors
 
-To enable BMP log streaming with restricted neighbors for L3ISD Internal Network, run the following Azure CLI command:
+To enable BMP log streaming with restricted neighbors for L3ISD internal network, run the following Azure CLI command:
 
 ```bash
 az networkfabric internalnetwork create --resource-group "example-rg" --l3-isolation-domain-name "example-l3domainIpv4VProbe" --resource-name "example-internalNetwork" --vlan-id 2600 --mtu 1500 --extension "NPB" --is-monitoring-enabled "True" --connected-ipv4-subnets "[{prefix:'10.18.32.xxx/24'}]" --static-route-configuration "{extension:NPB,bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},ipv4Routes:[{prefix:'10.18.128.xxx/24',nextHop:['10.18.34.xxx','10.18.32.xxx']},{prefix:'10.18.129.xxx/24',nextHop:['10.1.17.xxx']}]}" --bgp-configuration  "{bfdConfiguration:{multiplier:5,intervalInMilliSeconds:300},defaultRouteOriginate:True,allowAS:2,allowASOverride:Enable,peerASN:65047,ipv4ListenRangePrefixes:['10.18.32.xxx/28','10.18.32.xxx/28'],ipv4NeighborAddress:[{address:'10.18.34.xxx'},{address:'10.18.34.xxx'},{address:'10.18.34.xxx'}],bmpConfiguration:`{configurationState:`Enabled`, neighborIpExclusions:[`10.18.32.xxx`,`10.18.34.xxx`]}`}"
@@ -250,7 +250,7 @@ az networkfabric internalnetwork create --resource-group "example-rg" --l3-isola
 
 ### Disable BMP log streaming with restricted neighbors
 
-To disable BMP log streaming for L3ISD Internal Network with restricted neighbors, modify the `bmpConfiguration` parameter to `Disabled`. For example:
+To disable BMP log streaming for L3ISD internal network with restricted neighbors, modify the `bmpConfiguration` parameter to `Disabled`. For example:
 
 ```bash
 az networkfabric internalnetwork update --resource-group "example-rg" --l3-isolation-domain-name "example-l3domainIpv4VProbe" --resource-name "example-internalNetwork" --bgp-configuration  "{bmpConfiguration:`{configurationState:`Disabled`}`}"

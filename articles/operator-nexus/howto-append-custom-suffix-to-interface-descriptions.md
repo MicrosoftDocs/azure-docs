@@ -136,7 +136,7 @@ AR-CE2(Fab3-AR-CE2):Et1/1 to CR1-TOR1(Fab3-CP1-TOR1)-Port23
 
 ## Network interface updates
 
-Updates were made to the network interface of the network device to standardize the interface description. Also, these updates now link the interface to the Azure Resource Manager (ARM) resource ID of the connected interface for better management and tracking.
+Updates were made to the network interface of the network device to standardize the interface description. Also, these updates now link the interface to the Azure Resource Manager resource ID of the connected interface for better management and tracking.
 
 ### Standardized interface descriptions
 
@@ -148,7 +148,7 @@ Interface descriptions follow a consistent format of the source device to the de
 
 ### connectedTo property
 
-The `connectedTo` property returns the ARM resource ID of the connected interface, where available.
+The `connectedTo` property returns the Azure Resource Manager resource ID of the connected interface, where available.
 
 ### Comparison of old and new values
 
@@ -161,11 +161,11 @@ The `connectedTo` property returns the ARM resource ID of the connected interfac
 
 All the preceding features are available for the following interface types:
 
-- Agg Rack CE
-- Agg Rack Management
-- Comp Rack TOR
-- Comp Rack Management
-- Network Packet Broker device
+- Agg Rack customer edge
+- Agg Rack management
+- Comp Rack top of rack
+- Comp Rack management
+- Network packet broker device
 
 > [!NOTE]
-> For devices that Azure Operator Nexus Network Fabric doesn't manage, such as personal electronics or storage devices, the `connectedTo` property continues to reflect the value as a `string` with no active link.
+> For devices that Azure Operator Nexus Network Fabric doesn't manage, such as provider edge or storage devices, the `connectedTo` property continues to reflect the value as `string` with no active link.
