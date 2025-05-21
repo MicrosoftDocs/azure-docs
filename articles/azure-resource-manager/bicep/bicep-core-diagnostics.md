@@ -81,7 +81,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP073' />[BCP073](./diagnostics/bcp073.md) | Error/Warning | The property `<property-name>` is read-only. Expressions can't be assigned to read-only properties. |
 | <a id='BCP074' />BCP074 | Error | Indexing over arrays requires an index of type `{LanguageConstants.Int}`, but the provided index was of type `{wrongType}`. |
 | <a id='BCP075' />BCP075 | Error | Indexing over objects requires an index of type `{LanguageConstants.String}`, but the provided index was of type `{wrongType}`. |
-| <a id='BCP076' />BCP076 | Error | Can't index over expression of type `{wrongType}`. Arrays or objects are required. |
+| <a id='BCP076' />[BCP076](./diagnostics/bcp076.md) | Error | Can't index over expression of type `<data-type>`. Arrays or objects are required. |
 | <a id='BCP077' />[BCP077](./diagnostics/bcp077.md) | Error/Warning | The property `<property-name>` on type `<type-name>` is write-only. Write-only properties can't be accessed. |
 | <a id='BCP078' />[BCP078](./diagnostics/bcp078.md) | Error/Warning | The property `<property-name>` requires a value of type `<type-name>`, but none was supplied. |
 | <a id='BCP079' />BCP079 | Error | This expression is referencing its own declaration, which isn't allowed. |
