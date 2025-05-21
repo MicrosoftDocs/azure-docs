@@ -51,7 +51,9 @@ There are several general practices to follow when using a reverse proxy in fron
   Make sure that your reverse proxy supports both transport types for `/client/` subpath. For example, when your transport type is WebSocket, make sure your reverse proxy supports both HTTP and WebSocket for `/client/` subpath.
 
   If you have configured multiple SignalR services behind your reverse proxy, make sure `negotiate` request and `connect` request with the same `asrs_request_id` query parameter(meaning they are for the same connection) are routed to the same SignalR service instance.
-* For `ServerSentEvent`(SSE), make sure your reverse proxy doesn't buffer or cache response. For example, API Management has a [detailed documentation](/azure/api-management/how-to-server-sent-events.md) on how to configure API for server-sent events.
+  
+* For `ServerSentEvent`(SSE), make sure your reverse proxy doesn't buffer or cache response. For example, API Management lists the checkitems [here](/azure/api-management/how-to-server-sent-events.md) when configuring API for server-sent events.
+* 
 * When reverse proxy is used, you can further secure your SignalR service by [disabling public network access](./howto-network-access-control.md) and using [private endpoints](howto-private-endpoints.md) to allow only private access from your reverse proxy to your SignalR service through VNet.
 
 ## Next steps
