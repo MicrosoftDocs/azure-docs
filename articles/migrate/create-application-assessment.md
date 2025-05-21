@@ -4,7 +4,7 @@ description: Learn how to create an application assessment using Azure Migrate.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/05/2024
 ---
 

@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 05/05/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.reviewer: yzheng
 ms.custom: "devx-track-azurepowershell, devx-track-azurecli" 
 ms.devlang: azurecli

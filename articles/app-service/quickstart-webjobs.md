@@ -2,7 +2,7 @@
 title: 'Create a scheduled WebJob using a prebuilt script'
 description: Quickly schedule a time-based WebJob in Azure App Service using a prebuilt script for Windows or Linux.
 ms.topic: quickstart
-ms.date: 4/24/2025
+ms.date: 5/2/2025
 author: msangapu-msft
 ms.author: msangapu
 ms.reviewer: glenga
@@ -22,7 +22,7 @@ WebJobs in Azure App Service let you run scripts or programs as background tasks
 - Enable **Always On** in the App Service settings: [Configure Always On](configure-common.md?tabs=portal#configure-general-settings)
 - For Windows containers and all Linux apps, set the app setting `WEBSITE_SKIP_RUNNING_KUDUAGENT = false`
 
-## Step 1: Download a sample WebJob
+## Download a sample WebJob
 
 Choose the version that matches your App Service OS:
 
@@ -33,7 +33,7 @@ Choose the version that matches your App Service OS:
 
 Each zip contains a single script that prints the current system date and time.
 
-## Step 2: Add the WebJob in the Azure portal
+## Add the WebJob in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), go to your **App Service** app.
 2. In the left menu, select **WebJobs** > **+ Add**.
@@ -49,13 +49,13 @@ Each zip contains a single script that prints the current system date and time.
 
 4. Select **OK** to create the WebJob.
 
-## Step 3: Monitor WebJob logs
+## Verify the WebJob
 
 1. Go to the **WebJobs** tab.
 2. Select your WebJob and open **Logs**.
 3. Confirm that it runs every minute and prints the system time.
 
-## Step 4: Clean up
+## Clean up
 
 To remove the WebJob, select the WebJob in the portal and select `Delete`.
 

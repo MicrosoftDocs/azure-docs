@@ -1,11 +1,11 @@
 ---
-title: Application resilience FAQs for Azure NetApp Files | Microsoft Docs
+title: Application resilience FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files application resilience.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 12/6/2022
+ms.date: 03/01/2025
 ---
 # Application resilience FAQs for Azure NetApp Files
 

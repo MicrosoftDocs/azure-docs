@@ -11,7 +11,8 @@ ms.date: 02/04/2025
 # Customer intent: As an architect or a developer, I want to know what Azure Event Grid is and how it can help me with creating event-driven applications. 
 ---
 
-# Use cases
+# Azure Event Grid use cases
+
 This article provides you with a few sample use cases for using Azure Event Grid. 
 
 > [!NOTE]

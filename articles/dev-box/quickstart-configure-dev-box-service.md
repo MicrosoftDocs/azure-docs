@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 10/14/2024
+ms.date: 05/02/2025
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
@@ -93,9 +93,9 @@ To create and configure a project in a dev box:
 
 1. Verify that the project appears on the **Projects** page.
  
-As you create a project, you might see this informational message about catalogs: 
+As you create a project, you might see this informational message about catalogs: *The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned.*
 
-:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="The dev center that contains this project does not have a catalog assigned. Environments cannot be deployed in this project until a catalog containing at least one template has been assigned." lightbox="media/quickstart-configure-dev-box-service/project-catalog-message.png":::
+:::image type="content" source="media/quickstart-configure-dev-box-service/project-catalog-message.png" alt-text="Screenshot showing an information message." lightbox="media/quickstart-configure-dev-box-service/project-catalog-message.png":::
 
 Because you're not configuring Deployment Environments, you can safely ignore this message.
 
