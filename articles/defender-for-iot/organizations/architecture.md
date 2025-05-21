@@ -34,7 +34,7 @@ Microsoft Defender for Endpoint provides advanced threat protection for enterpri
 - **Enhanced detection**: Utilize advanced machine learning and behavioral analytics to detect anomalies and potential threats in real-time.
 
 For more information:
-- If you're using Defender for IoT with the Azure portal, see [Microsoft Defender for Endpoint integration](iot-solution.md#defender-for-iot-and-microsoft-defender-for-endpoint-integration).
+- If you're using Defender for IoT with the Azure portal, see [Securing IoT devices in the enterprise](concept-enterprise.md)
 - If you're using Defender for IoT with the Defender portal, see [Enterprise IoT in the Defender portal](/defender-for-iot/enterprise-iot).
 
 ## OT network sensors
