@@ -34,6 +34,13 @@ To complete this tutorial, you need:
 - A virtual machine (VM) with Logstash installed. For more information, see [Install Logstash](https://www.elastic.co/guide/en/logstash/current/installing-logstash.html).
 - To create summary rules in the Microsoft Defender portal, you must first onboard your workspace to the Defender portal. For more information, see [Connect Microsoft Sentinel to the Microsoft Defender portal](/microsoft-365/security/defender/microsoft-sentinel-onboard).
 
+## Process overview
+
+This diagram shows the process of using summary rules with auxiliary logs in Microsoft Sentinel:
+
+:::image type="content" source="media/summary-rules/summary-rule-auxiliary-logs-overview.svg" alt-text="Screenshot of the Content Hub page in Microsoft Sentinel showing summary rule templates." lightbox="media/summary-rules/summary-rule-auxiliary-logs-overview.svg":::
+
+summary-rule-auxiliary-logs-overview
 ## Use summary rules with auxiliary logs (sample process)
 
 1. Set up your custom CEF connector from Logstash:
