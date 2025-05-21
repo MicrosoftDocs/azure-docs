@@ -26,7 +26,7 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
 
 1. In **Diagnostic setting**, enter a name for **Diagnostic setting name**.
 
-1. Under **Logs**, select **audit**, **allLogs** or the  individual log you want. Available logs are: **FrontDoor Access Log**, **FrontDoor Health Probe Log**, and **FrontDoor WebApplicationFirewall Log**.
+1. Under **Logs**, select **audit**, **allLogs**, or the individual log you want. Available logs are: **FrontDoor Access Log**, **FrontDoor Health Probe Log**, and **FrontDoor WebApplicationFirewall Log**.
 
 1. Select the **Destination details**. The destination options are: 
 
