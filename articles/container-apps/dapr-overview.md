@@ -6,12 +6,14 @@ author: hhunter-ms
 ms.service: azure-container-apps
 ms.custom: build-2023
 ms.topic: conceptual
-ms.date: 04/09/2025
+ms.date: 05/21/2025
 ---
 
 # Microservice APIs powered by Dapr
 
 Azure Container Apps provides APIs powered by [Distributed Application Runtime (Dapr)][dapr-concepts] that help you write and implement simple, portable, resilient, and secured microservices. Dapr works together with Azure Container Apps as an abstraction layer to provide a low-maintenance and scalable platform. Azure Container Apps offers a selection of fully managed Dapr APIs, components, and features, catered specifically to microservice scenarios. Simply [enable and configure Dapr][dapr-enable] as usual in your container app environment.
+
+Release announcements for Dapr in Azure Container Apps can be found [in GitHub](https://github.com/microsoft/azure-container-apps/issues?q=state%3Aopen%20label%3A%22Dapr%22%20Release%20notes). 
 
 ## How the microservices APIs work with your container app
 
@@ -24,10 +26,6 @@ Configure microservices APIs for your container apps environment with a [Dapr-en
 | 1     | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring a set of Dapr arguments. These values apply to all revisions of a given container app when running in multiple revisions mode.                                                                                           |
 | 2     | Dapr                             | The fully managed Dapr APIs are exposed to each container app through a Dapr sidecar. The Dapr APIs can be invoked from your container app via HTTP or gRPC. The Dapr sidecar runs on HTTP port 3500 and gRPC port 50001.                                                         |
 | 3     | Dapr component configuration     | Dapr uses a modular design where functionality is delivered as a component. Dapr components can be shared across multiple container apps. The Dapr app identifiers provided in the scopes array dictate which dapr-enabled container apps load a given component at runtime. |
-
-## Dapr in Azure Container Apps vs. Dapr open source
-
-
 
 ## Versioning
 
