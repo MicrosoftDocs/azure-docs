@@ -36,10 +36,8 @@
     items:
     - name: Cross-tenant connection support
       href: concept-cross-tenant.md
-    - name: Configure cross-tenant connection - Portal
-      href: how-to-configure-cross-tenant-portal.md
-    - name: Configure cross-tenant connection - CLI
-      href: how-to-configure-cross-tenant-cli.md
+    - name: Configure cross-tenant connections
+      href: how-to-configure-cross-tenant-connections.md
   - name: Create a network topology
     items:
     - name: Hub-and-spoke
