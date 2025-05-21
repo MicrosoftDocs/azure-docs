@@ -16,7 +16,8 @@ In this article, you use Visual Studio Code to create a [custom handler](functio
 
 Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+>[!TIP]
+>Completing this quickstart creates an app that runs in an [Elastic Premium plan](functions-premium-plan.md), which can incur costs in your Azure account even when you're not using it. You should [Clean up resources](#clean-up-resources) to remove the function app, App Service plan, and related resources after you've completed the article.   
 
 ## Configure your environment
 
@@ -317,6 +318,8 @@ In this section, you create a function app and related resources in your Azure s
 1. When the creation is complete, the following Azure resources are created in your subscription. The resources are named based on your function app name:
 
     [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
+
+    + A user-assigned managed identity that's added to the [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) role in the new default host storage account.
 
     A notification is displayed after your function app is created and the deployment package is applied.
 
