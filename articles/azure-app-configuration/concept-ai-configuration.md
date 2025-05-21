@@ -1,7 +1,7 @@
 ---
 title: Azure App Configuration support for AI Configuration
 description: Introduction to AI Configuration support using App Configuration
-author: mgichohi
+author: MaryanneNjeri
 ms.author: mgichohi
 ms.service: azure-app-configuration
 ms.topic: concept-article
