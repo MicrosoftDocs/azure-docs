@@ -113,6 +113,4 @@ There isn't a defined SLA for Azure Virtual Network due to the nature of the ser
 
 ## Related content
 
-[Reliability in Azure](/azure/availability-zones/overview.md)
-
-[Availability zones in Azure](/azure/availability-zones/az-overview.md)
+[What are availability zones?](/azure/reliability/availability-zones-overview)
