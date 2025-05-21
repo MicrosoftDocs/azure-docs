@@ -162,7 +162,8 @@ To troubleshoot this issue:
 - check that the NIC is correctly installed and seated
 - sign into the Baseboard Management Controller (BMC) to check the hardware status of the NIC
 - review detailed hardware logs by generating a Dell TSR (Technical Support Report) as described in the Dell Knowledge Base article [Export a SupportAssist Collection Using an iDRAC](https://www.dell.com/support/kbdoc/en-us/000126308/export-a-supportassist-collection-via-idrac9)
-- review the most recent time of failure reported by the Bare Metal Machine `conditions`, as described in the [Troubleshooting](#troubleshooting) section.
+- review the most recent time of failure reported by the Bare Metal Machine `conditions`, as described in the [Troubleshooting](#troubleshooting) section
+- power cycle the host by executing a "Restart" action on the Bare Metal Machine resource, and see if the condition clears.
 
 **Example `conditions` output for NIC failed**
 
