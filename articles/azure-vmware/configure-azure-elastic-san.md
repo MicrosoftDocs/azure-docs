@@ -4,7 +4,7 @@ description: Learn how to use Elastic SAN  with Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
 ms.author: v-suzuber
-ms.date: 05/05/2025
+ms.date: 05/21/2025
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -21,10 +21,11 @@ To accompany the steps below, you can use this [interactive demo](https://regale
 The following prerequisites are required to continue.
 
 - Have a fully configured Azure VMware solution private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
+    - Ensure that your ExpressRoute gateways are sized to handle your elastic SAN's bandwidth capabilities. For example, a single ultra performance ExpressRoute gateway supports a bandwidth of 1,280 mbps. If you're using an individual elastic SAN datastore to its full potential, it'll consume the entirety of that bandwidth. Multiple gateways may be required depending on your needs.
 - Know the availability zone your private cloud is in. 
   - In the UI, select an Azure VMware Solution host.
     > [!NOTE]
-    > The host exposes its Availability Zone. You should use that AZ when deploying other Azure resources for the same subscription.
+    > The host exposes its availability zone. Use that availability zone when deploying other Azure resources for the same subscription.
 
 - Have permission to set up new resources in the subscription your private cloud is in.
 - Reserve a dedicated address block for your external storage.
@@ -44,7 +45,7 @@ You can use the following host types when Azure Elastic SAN is the backing stora
 
 ## Configuration recommendations
 
-Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your software defined data center (SDDC). Having multiple sessions provides better performance due to parallelization, and better reliability to handle single session disconnects from unexpected factors. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
+Use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume you intend to connect to your software defined data center (SDDC). Having multiple sessions provides better performance due to parallelization, and better reliability to handle single session disconnects. When you establish multiple sessions, it also mitigates the impact of session disconnects, as long as the connection is re-established within a few seconds, your other sessions help load-balance traffic.
 
    > [!NOTE]
    > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it shows the identifier of a device or filesystem, and states it entered the All Paths Down state.
