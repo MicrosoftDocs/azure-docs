@@ -107,7 +107,7 @@ landingContent:
           - text: Configure server-side monitoring
             url: how-to-monitor-server-side-metrics.md
           - text: Analyze test results with AI powered actionable insights
-            url: how-to-analyse-test-resuts-using-actionable-insights.md
+            url: how-to-analyse-test-results-using-actionable-insights.md
           - text: Export test results for custom reporting
             url: how-to-export-test-results.md
           
