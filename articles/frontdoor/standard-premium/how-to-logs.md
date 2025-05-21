@@ -40,7 +40,7 @@ Access logs, health probe logs, and Web Application Firewall (WAF) logs aren't e
       - Event hubs are a great option for integrating with other security information and event management (SIEM) tools or external data stores, such as Splunk, Datadog, or Sumo. 
       - Select the *Subscription*, *Event hub namespace*, *Event hub name (optional)*, and *Event hub policy name*. 
     - **Send to partner solution**
-      - Partner solutions are fully integrated solutions with Azure. For more information, see [Destinations in Azure Monitor diagnostic settings](/azure-monitor/platform/diagnostic-settings#destinations) and [Azure Monitor partner solutions](/azure/partner-solutions/partners#observability).
+      - Partner solutions are fully integrated solutions with Azure. For more information, see [Destinations in Azure Monitor diagnostic settings](/azure/azure-monitor/platform/diagnostic-settings#destinations) and [Azure Monitor partner solutions](/azure/partner-solutions/partners#observability).
       - Select the *Subscription* and *Destination*.
 
     > [!TIP]
