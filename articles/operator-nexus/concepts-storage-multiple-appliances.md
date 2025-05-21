@@ -49,7 +49,7 @@ The default storage appliance is the appliance in rack slot 1. You can set the d
 
 ### Nexus-volume storage class
 
-Azure Operator Nexus supports creating Persistent Volume Claims (PVCs) using the *nexus-volume* storage class. Nexus-volume PVCs are backed by a volume on the storage appliance which is created and managed by Azure Operator Nexus. You can select the storage appliance to provide the backing storage by using the `storageApplianceName` annotation.
+Azure Operator Nexus supports creating Persistent Volume Claims (PVCs) using the *nexus-volume* storage class. Nexus-volume PVCs are backed by a volume on the storage appliance which is created and managed by Azure Operator Nexus. You can select the storage appliance to provide the backing storage by using the `nexusSharedStorageApplianceName` annotation.
 
 ```yml
 apiVersion: v1
@@ -58,7 +58,7 @@ metadata:
   name: testPvc
   namespace: default
   annotations:
-    storageApplianceName: exampleStorageAppliance
+    nexusSharedStorageApplianceName: exampleStorageAppliance
 spec:
   accessModes:
   - ReadWriteOnce
@@ -76,11 +76,11 @@ status:
   phase: Bound
 ```
 
-`storageApplianceName` must match the Azure resource name of the storage appliance resource managed by your Azure Operator Nexus cluster on which you want to create the volume backing your PVC. If there's no `storageApplianceName` annotation, Azure Operator Nexus places the volume on the default storage appliance. If there is a `storageApplianceName` annotation, but it does not match the Azure resource name of a storage appliance managed by your Azure Operator Nexus cluster, the PVC creation will fail.
+`nexusSharedStorageApplianceName` must match the Azure resource name of the storage appliance resource managed by your Azure Operator Nexus cluster on which you want to create the volume backing your PVC. If there's no `nexusSharedStorageApplianceName` annotation, Azure Operator Nexus places the volume on the default storage appliance. If there is a `nexusSharedStorageApplianceName` annotation, but it does not match the Azure resource name of a storage appliance managed by your Azure Operator Nexus cluster, the PVC creation will fail.
 
 #### Nexus-volume limitations
 
-- Azure Operator Nexus doesn't support moving a PVC from one storage appliance to another. Attempts to change the `storageApplianceName` annotation have no effect.
+- Azure Operator Nexus doesn't support moving a PVC from one storage appliance to another. Attempts to change the `nexusSharedStorageApplianceName` annotation have no effect.
 - There's no support for placing volumes on a specific storage appliance when creating volumes through the Azure Resource Manager APIs. All volumes created directly through Azure Resource Manager will be placed on the storage appliance in rack slot 1.
 
 ### Nexus-shared storage class

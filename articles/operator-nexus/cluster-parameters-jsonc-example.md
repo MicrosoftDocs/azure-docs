@@ -61,7 +61,7 @@ ms.custom: template-how-to, devx-track-arm-template
               "username": "<COMPX_SVRY_BMC_USER>",
               "password": "<COMPX_SVRY_BMC_PASS>"
             },
-            "storageApplianceName": "<SA_NAME>",
+            "nexusSharedStorageApplianceName": "<SA_NAME>",
             "serialNumber": "<SA_SN>"
           }
         ],

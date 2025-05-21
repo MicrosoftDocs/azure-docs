@@ -35,19 +35,19 @@ If any of the configurations was incorrect:
 
 ## Nexus-volume Persistent Volume Claim (PVC) on the wrong storage appliance
 
-PVCs using the nexus-volume storage class can select the storage appliance to use for backing storage using the `storageApplianceName` annotation. If this annotation isn't present, the PVC uses the first storage appliance. You can check this by using `kubectl get pvc <pvcName> -o yaml` and checking the `storageApplianceName` annotation. The value tells you which storage appliance the PVC is using.
+PVCs using the nexus-volume storage class can select the storage appliance to use for backing storage using the `nexusSharedStorageApplianceName` annotation. If this annotation isn't present, the PVC uses the first storage appliance. You can check this by using `kubectl get pvc <pvcName> -o yaml` and checking the `nexusSharedStorageApplianceName` annotation. The value tells you which storage appliance the PVC is using.
 
 If you wanted to create the PVC on the other storage appliance then you must delete and recreate the PVC, and then provide the correct annotation. There's no support for moving the volumes consumed by a PVC between storage appliances.
 
 ## Failure to create nexus-volume PVC
 
-A PVC fails to create if the `storageApplianceName` annotation is present but doesn't match the Azure Resource name of a storage appliance managed by the Nexus Cluster. You can check that the `storageApplianceName` annotation is correct by:
+A PVC fails to create if the `nexusSharedStorageApplianceName` annotation is present but doesn't match the Azure Resource name of a storage appliance managed by the Nexus Cluster. You can check that the `nexusSharedStorageApplianceName` annotation is correct by:
 
 1. Opening the Cluster (Operator Nexus) resource in the Azure portal
 1. Clicking on Rack definitions in the resource menu.
 1. Navigating to the aggregator rack and selecting Storage Appliance definitions.
 
-The `storageApplianceName` annotation must match one of the storage appliances in the Storage Appliance definitions list. You must delete the PVC and recreate it with the correct annotation to resolve this issue.
+The `nexusSharedStorageApplianceName` annotation must match one of the storage appliances in the Storage Appliance definitions list. You must delete the PVC and recreate it with the correct annotation to resolve this issue.
 
 ## Cloud Service Network (CSN) fails to create
 
