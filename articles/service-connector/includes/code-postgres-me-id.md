@@ -301,7 +301,7 @@ For PHP, there's not a plugin or library for passwordless connections. You can g
 
     For service principal, refer to [the Azure AD service-to-service access token request](/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow#get-a-token) to see the details of how to acquire access token. Make the POST request the scope of `https://ossrdbms-aad.database.windows.net/.default` and with the tenant ID, client ID and client secret of the service principal from the environment variables added by Service Connector.
 
-1. Combine the access token and the PostgreSQL connection sting from environment variables added by Service Connector service to establish the connection.
+1. Combine the access token and the PostgreSQL connection string from environment variables added by Service Connector service to establish the connection.
     ```php
     <?php
     $conn_string = sprintf("%s password=", getenv('AZURE_POSTGRESQL_CONNECTIONSTRING'), $access_token);
