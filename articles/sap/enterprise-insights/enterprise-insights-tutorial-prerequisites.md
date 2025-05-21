@@ -10,11 +10,14 @@ ms.date: 05/21/2025
 
 # Prerequisites
 
+In this article, learn about the prerequisites and implementation requirements for Enterprise Insights solutions for SAP data and analytics. 
+
 ## Supported Systems
 
 Enterprise Insights is compatible with SAP S/4HANA 1909 and newer releases. The minimum recommended version is S/4HANA 1909 FPS02, while the pre-delivered business content is based on SAP S/4HANA 2022.
 
-**Please remember:** As with all analytics content, some of the resources available in Enterprise Insights may require customization and tailoring to meet your specific SAP system version and release. This is especially important for functional insights, where some objects may be present in a different version and may require further changes to ensure you can extract and process them successfully.
+> [!NOTE]
+> **Please remember:** As with all analytics content, some of the resources available in Enterprise Insights may require customization and tailoring to meet your specific SAP system version and release. This is especially important for functional insights, where some objects may be present in a different version and may require further changes to ensure you can extract and process them successfully.
 
 ## Implementation Requirements
 
