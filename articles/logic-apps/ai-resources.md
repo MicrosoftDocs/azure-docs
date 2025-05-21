@@ -46,10 +46,10 @@ For more information, see the following resources:
 | **Video overview** | [Getting Ready for Agents in Azure Logic Apps](https://youtu.be/EMXLB4thdhg) |
 | **Video demo** | [Azure Logic Apps: Loan Approval - Autonomous Agent Loop](https://youtu.be/rR1QjQTfCCg) |
 | **Video demo** | [Azure Logic Apps: Product Return - Autonomous Agent Loop](https://youtu.be/ilSGRUpjMdU) |
-| **Video demo** | [Azure Logic Apps: Grocery Return with IBM Mainframe and Midrange System Integration - Autonomous Agent Loop](https://youtu.be/rR1QjQTfCCg) |
-| **Video demo** | [Azure Logic Apps: Loan Approval Agent Loop](https://youtu.be/rR1QjQTfCCg) |
-| **Video demo** | [Azure Logic Apps: Loan Approval Agent Loop](https://youtu.be/rR1QjQTfCCg) |
-| **Video demo** | [Azure Logic Apps: Codeful and Declarative Multiple Agents](https://youtu.be/rR1QjQTfCCg) |
+| **Video demo** | [Azure Logic Apps: Grocery Return with IBM Mainframe and Midrange System Integration - Autonomous Agent Loop](https://youtu.be/vPxFjJUP494) |
+| **Video demo** | [Azure Logic Apps: Operations Conversational Agent - Repair and Resubmit with ServiceNow](https://youtu.be/-V4n9VMcN0k) |
+| **Video demo** | [Azure Logic Apps: Operations Autonomous Agent - Repair and Resubmit with ServiceNow](https://youtu.be/uciB7jtDpyk) |
+| **Video demo** | [Azure Logic Apps: Codeful and Declarative Multiple Agents](https://youtu.be/sQaAzhkzT6E) |
 
 ## Building blocks for AI solutions
 
