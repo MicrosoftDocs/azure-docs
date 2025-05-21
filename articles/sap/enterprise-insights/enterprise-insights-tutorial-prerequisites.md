@@ -1,6 +1,6 @@
 ---
 title: Prerequisites
-description: "Overview of Enterprise Insights for SAP data integration and analytics in Microsoft Fabric."
+description: "Prerequisites and implementation requirements of Enterprise Insights for SAP data integration and analytics."
 author: ritikesh-vali
 ms.author: ritikeshvali
 ms.service: sap-on-azure
