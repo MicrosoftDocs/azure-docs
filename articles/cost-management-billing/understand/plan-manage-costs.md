@@ -62,7 +62,7 @@ You can view and monitor costs with the following capabilities:
 Create [budgets](../costs/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../costs/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you and your stakeholders of spending anomalies and overspending. You can create a budget as early as when you create a subscription, to ensure you stay on top of your cost from the very start.
 
 ### Group and allocate costs using tag inheritance
-Azure [tags] (../../azure-resource-manager/management/tag-resources.md) are a great way to supplement the Azure hierarchy to identify the ownership of your resources, which helps in monitoring and optimizing your costs.  To ensure that all your cost records are tagged, you can also enable [tag inheritance](../costs/enable-tag-inheritance.md) in Cost management.  
+Azure [tags](../../azure-resource-manager/management/tag-resources.md) are a great way to supplement the Azure hierarchy to identify the ownership of your resources, which helps in monitoring and optimizing your costs.  To ensure that all your cost records are tagged, you can also enable [tag inheritance](../costs/enable-tag-inheritance.md) in Cost management.  
 
 ### <a name="costs"></a> Explore and analyze costs with cost analysis
 
