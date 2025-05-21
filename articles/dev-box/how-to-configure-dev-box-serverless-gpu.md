@@ -11,7 +11,7 @@ ai-usage: ai-generated
 #customer intent: As a business decision-maker, I want to evaluate serverless GPU compute in Dev Box so that I can determine its value for my team's workflows.
 ---
 
-# Use Serverless GPU compute in Microsoft Dev Box
+# Use serverless GPU compute in Microsoft Dev Box
 
 This article explains what serverless GPU compute is, how it works, and key scenarios for its use. Serverless GPU compute in Microsoft Dev Box (preview) lets you spin up dev boxes with GPU acceleration—no extra setup needed. Dev Box serverless GPU compute lets developers use GPU resources on demand without permanent infrastructure or complex setup.
 
@@ -35,7 +35,7 @@ Serverless GPU compute in Dev Box uses Azure Container Apps (ACA). When a develo
 - An Azure subscription
 - A Microsoft Dev Box project 
 
-## Configure Serverless GPU
+## Configure serverless GPU
 
 Administrators control serverless GPU access at the project level through Dev Center. Key management capabilities include:
 
@@ -44,7 +44,7 @@ Administrators control serverless GPU access at the project level through Dev Ce
 
 Access to serverless GPU resources is managed through project-level properties. When the serverless GPU feature is enabled for a project, all Dev Boxes in that project can use GPU compute. This simple access model removes the need for custom roles or pool-based configurations.
 
-### Register Serverless GPU for the subscription
+### Register serverless GPU for the subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your subscription. 
