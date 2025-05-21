@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 3/15/2023
+ms.date: 04/09/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -15,6 +15,11 @@ ms.subservice: web-sdk
 This document contains information about new features and other changes to the Map Control.
 
 ## v3 (latest)
+
+### [3.6.1] (CDN: April 7, 2025, npm: April 9, 2025)
+
+#### Bug fixes
+* Fix the issue where `maxBounds` wasn't included in `map.getCamera()`, causing it to be unset when `setCamera()` is called.
 
 ### [3.6.0] (CDN: February 18, 2025, npm: February 20, 2025)
 
@@ -132,7 +137,7 @@ This document contains information about new features and other changes to the M
 
 #### Other changes
 
-- The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
+- The accessibility feature for screen reader has been upgraded to utilize the Search v2 API (reverse geocoding).
 
 - Enhanced accessibility in the Compass and Pitch controls.
 
@@ -508,7 +513,7 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 #### Other changes
 
-- The accessibility feature for screen reader has been upgraded to utilize the Search V2 API (reverse geocoding).
+- The accessibility feature for screen reader has been upgraded to utilize the Search v2 API (reverse geocoding).
 
 ### [2.3.4] (November 1, 2023)
 
@@ -653,6 +658,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.6.1]: https://www.npmjs.com/package/azure-maps-control/v/3.6.1
 [3.6.0]: https://www.npmjs.com/package/azure-maps-control/v/3.6.0
 [3.5.0]: https://www.npmjs.com/package/azure-maps-control/v/3.5.0
 [3.4.0]: https://www.npmjs.com/package/azure-maps-control/v/3.4.0

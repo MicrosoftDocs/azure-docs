@@ -116,9 +116,9 @@ You can embed a map in a web page by using the Map Control client-side JavaScrip
                 language: 'en-US',
                 authOptions: {
                     authType: 'aad',
-                    clientId: '<Your Microsoft Entra Client Id>',
-                    aadAppId: '<Your Microsoft Entra App Id>',
-                    aadTenant: '<Your Microsoft Entra tenant Id>'
+                    clientId: '<Your Microsoft Entra Client ID>',
+                    aadAppId: '<Your Microsoft Entra App ID>',
+                    aadTenant: '<Your Microsoft Entra tenant ID>'
                 }
             });
         }
@@ -216,9 +216,9 @@ map = new atlas.Map('myMap', {
 
     authOptions: {
         authType: 'aad',
-        clientId: '<Your AAD Client Id>',
-        aadAppId: '<Your AAD App Id>',
-        aadTenant: '<Your AAD Tenant Id>'
+        clientId: '<Your AAD Client ID>',
+        aadAppId: '<Your AAD App ID>',
+        aadTenant: '<Your AAD Tenant ID>'
     }
 });
 ```
@@ -410,7 +410,7 @@ Be sure to use Azure Maps authentication details from the Azure Government cloud
 
 If developing using a JavaScript framework, one of the following open-source projects may be useful:
 
-* [ng-azure-maps] - Angular 10 wrapper around Azure maps.
+* [ng-azure-maps] - Angular 10 wrapper around Azure Maps.
 * [AzureMapsControl.Components] - An Azure Maps Blazor component.
 * [Azure Maps React Component] - A react wrapper for the Azure Maps control.
 * [Vue Azure Maps] - An Azure Maps component for Vue application.

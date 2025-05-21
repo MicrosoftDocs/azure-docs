@@ -1,5 +1,5 @@
 ---
-title: Configure subnet peering - Preview
+title: Configure subnet peering
 titleSuffix: Azure Virtual Network
 description: Learn how to configure subnet peering for an Azure virtual network.
 author: amit916new
@@ -12,20 +12,15 @@ ms.date: 12/03/2024
 
 ---
 
-# How to configure subnet peering - Preview
+# How to configure subnet peering
 
 Subnet peering refers to a method of connecting two virtual networks by linking the subnet address spaces rather than the entire virtual network address spaces. It lets users specify which subnets are supposed to participate in the peering across the local and remote virtual networks.
 
 Subnet peering is an added flexibility built on top of virtual network peering. Users get an option to choose specific subnets that need to be peered across virtual networks. Users can specify or enter the list of subnets across the virtual networks that they want to peer. In contrast, in regular virtual network peering, entire address space/subnets across the virtual networks get peered.
 
-> [!IMPORTANT]
-> Subnet peering is currently in public preview.
-> This preview version is provided without a service level agreement, and it isn't recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+The following limitations apply in regards to using subnet peering:
 
-The following limitations apply during the public preview:
-
-- Subscription allowlisting: To use this feature, you must have the subscription on which you want to configure subnet peering be registered. Fill this [form](https://forms.office.com/r/99J2fSfd9L) to get your subscription registered. For more information about registering preview features in your subscription, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features).
+- Subscription allowlisting: To use this feature, you must have the subscription on which you want to configure subnet peering be registered. Fill this [form](https://forms.office.com/r/99J2fSfd9L) to get your subscription registered.
 
 - Availability: The feature is available in all regions, however, it can be configured via Terraform, PowerShell, API, CLI, and ARM template only.
 
@@ -204,7 +199,7 @@ The following diagram displays the checks performed while configuring subnet pee
 1. **Number of subnets that can be part of a peering link should be less than or equal to 400 (200 limit from each local and remote side).**
     - For example, in the virtual network A and virtual network B peering link (illustrated by blue arrow headed line), total number of subnets participating in the peering here's 4 (two from virtual network A and two from virtual network B side). This number should be <=400.
 
-1. In the present release (Public preview, feature remains behind subscription flag), **forward route from non-peered subnet to peered subnet exists** - In the current scenario virtual network A and virtual network B peering, even though Subnet 2 from virtual network A side isn't peered, but it will still have route for Subnet 1 and Subnet 2 in virtual network B.
+1. In the present release (feature remains behind subscription flag), **forward route from non-peered subnet to peered subnet exists** - In the current scenario virtual network A and virtual network B peering, even though Subnet 2 from virtual network A side isn't peered, but it will still have route for Subnet 1 and Subnet 2 in virtual network B.
     - In the subnet peering for virtual network A and virtual network B, customer would expect only Subnet 1 and Subnet 3 from virtual network A to have route for Subnet 1 and Subnet 2 in remote virtual network B, however, Subnet 2 and Subnet 4 (from local side virtual network A which isn't peered) also have route for Subnet 1 and Subnet 2 in remote side (virtual network B), meaning the nonpeered subnets can send packet to destination node in the peered subnet, although the packet is dropped and doesn't reach the virtual machine.
 
     - It's recommended that users apply NSGs on the participating subnets to allow traffic from only peered subnets/address spaces. This limitation will be removed in the post GA release.

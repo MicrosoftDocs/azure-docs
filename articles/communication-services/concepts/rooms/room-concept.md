@@ -137,6 +137,7 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 
 |Virtual Rooms SDK | Version | State|
 |-------------------| :-----------------------: | :-----------------------------: |
+| Virtual Rooms SDKs | 2025-03-13 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2024-04-15 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-06-14 | Generally Available - Fully supported |
 | Virtual Rooms SDKs | 2023-10-30 | Public Preview - Fully supported |
@@ -147,57 +148,59 @@ Rooms are created and managed via rooms APIs or SDKs. Use the rooms API/SDKs in 
 ## Predefined participant roles and permissions in Virtual Rooms calls
 <a name="predefined-participant-roles-and-permissions"></a>
 
-Room participants can be assigned one of the following roles: **Presenter**, **Attendee**, and **Consumer**.
+Room participants can be assigned one of the following roles: **Presenter**, **Collaborator**, **Attendee**, and **Consumer**. 
 
-The following table provides detailed capabilities mapped to the roles. At a high level, **Presenter** role has full control, **Attendee** capabilities are limited to audio and video, while **Consumer** can only receive audio, video, and screen sharing.
+The following table provides detailed capabilities mapped to the roles. At a high level, **Presenter** role has full control, **Collaborator** has audio, video, and screenshare capabilities, **Attendee** has audio and video capabilities, while **Consumer** can only receive audio, video, and screen sharing. 
 
 <b>Note:</b> A PSTN call participant is not a part of Room roster, so a user role is not assigned to them. They capabilities are limited to mute/unmute themselves on the local device.
 
-| Capability | Role: Presenter | Role: Attendee | Role: Consumer
-|---------------------------------------------| :--------: | :--------: | :--------: |
-| **Mid call controls** | | |
-| - Turn video on/off | ✔️ | ✔️ | ❌ |
-| - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user | ✔️ | ❌ | ❌ |
-| - Switch between cameras | ✔️ | ✔️ | ❌ |
-| - Active speaker | ✔️ | ✔️ | ✔️ |
-| - Choose speaker for calls | ✔️ | ✔️ | ✔️ |
-| - Choose mic for calls | ✔️ | ✔️ | ❌ |
-| - Show participants state (idle, connecting, connected, On-hold, Disconnecting, Disconnected etc.) | ✔️ | ✔️ | ✔️ |
-| - Show call state (Early media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected | ✔️ | ✔️ | ✔️ |
-| - Show if a participant is muted | ✔️ | ✔️ | ✔️ |
-| - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ |
-| - Start call captions | ✔️ | ✔️ | ✔️ |
-| - Change captions language | ✔️ | ✔️ | ✔️ |
-| - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ |
-| **Screen sharing** | | |
-| - Share screen | ✔️ *  | ❌ | ❌ |
-| - Share an application | ✔️ * | ❌ | ❌ |
-| - Share a browser tab | ✔️ * | ❌ | ❌ |
-| - Participants can view shared screen | ✔️ | ✔️ | ✔️ |
-| **Roster management** | | |
-| - Remove a participant | ✔️ | ❌ | ❌ |
-| **Device management** | | |
-| - Ask for permission to use audio and/or video | ✔️ | ✔️ | ❌ |
-| - Get camera list | ✔️ | ✔️ | ❌ |
-| - Set camera | ✔️ | ✔️ | ❌ |
-| - Get selected camera | ✔️ | ✔️ | ❌ |
-| - Get mic list | ✔️ * | ✔️ * | ❌ |
-| - Set mic | ✔️ * | ✔️ * | ❌ |
-| - Get selected mic | ✔️ * | ✔️ * | ❌ |
-| - Get speakers list | ✔️ * | ✔️ * | ✔️ * |
-| - Set speaker | ✔️ * | ✔️ * | ✔️ * |
-| - Get selected speaker | ✔️ | ✔️ | ✔️ |
-| **Video rendering** | | | |
-| - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
-| - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
-| - Render remote video stream | ✔️ | ✔️ | ✔️ |
-| **Dial-out to PSTN participants from the client-side** | | |
-| - Dial-out to PSTN participants from Virtual Rooms calls | ✔️ | ❌ | ❌ |
+| Capability | Role: Presenter | Role: Collaborator | Role: Attendee | Role: Consumer | 
+|---------------------------------------------| :--------: | :--------: | :--------: | :--------: |
+| **Mid call controls** | | | |
+| - Turn video on/off | ✔️ | ✔️ | ✔️ | ❌ |
+| - Mute/Unmute mic | ✔️ | ✔️ | ✔️ | ❌ |
+| - Mute remote user | ✔️ | ❌ | ❌ | ❌ |
+| - Switch between cameras | ✔️ | ✔️ | ✔️ | ❌ |
+| - Active speaker | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Choose speaker for calls | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Choose mic for calls | ✔️ | ✔️ | ✔️ | ❌ |
+| - Show participants state (idle, connecting, connected, On-hold, Disconnecting, Disconnected etc.) | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Show call state (Early media, Incoming, Connecting, Ringing, Connected, Hold, Disconnecting, Disconnected | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Show if a participant is muted | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Show the reason why a participant left a call | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Start call captions | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Change captions language | ✔️ | ✔️ | ✔️ | ✔️ |
+| - Invite to join a Virtual Room participant to a call | ✔️ | ❌ | ❌ | ❌ |
+| **Screen sharing** | | | |
+| - Share screen | ✔️ *  | ✔️ * | ❌ | ❌ |
+| - Share an application | ✔️ * | ✔️ * | ❌ | ❌ |
+| - Share a browser tab | ✔️ * | ✔️ * | ❌ | ❌ |
+| - Participants can view shared screen | ✔️ | ✔️ | ✔️ | ✔️ |
+| **Roster management** | | | |
+| - Remove a participant | ✔️ | ❌ | ❌ | ❌ |
+| **Device management** | | | |
+| - Ask for permission to use audio and/or video | ✔️ | ✔️ | ✔️ | ❌ |
+| - Get camera list | ✔️ | ✔️ | ✔️ | ❌ |
+| - Set camera | ✔️ | ✔️ | ✔️ | ❌ |
+| - Get selected camera | ✔️ | ✔️ | ✔️ | ❌ |
+| - Get mic list | ✔️ * | ✔️ * | ✔️ * | ❌ |
+| - Set mic | ✔️ * | ✔️ * | ✔️ * | ❌ |
+| - Get selected mic | ✔️ * | ✔️ * | ✔️ * | ❌ |
+| - Get speakers list | ✔️ * | ✔️ * | ✔️ * | ✔️ * |
+| - Set speaker | ✔️ * | ✔️ * | ✔️ * | ✔️ * |
+| - Get selected speaker | ✔️ | ✔️ | ✔️ | ✔️ |
+| **Video rendering** | | | | |
+| - Render a video in multiple places (local camera or remote stream) | ✔️ | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
+| - Set/Update video scaling mode | ✔️ | ✔️ | ✔️ | ✔️ <br>(Only Remote)</br> |
+| - Render remote video stream | ✔️ | ✔️ | ✔️ | ✔️ |
+| **Dial-out to PSTN participants from the client-side** | | | |
+| - Dial-out to PSTN participants from Virtual Rooms calls | ✔️ | ❌ | ❌ | ❌ |
 
-\* Only available on the web calling SDK. Not available on iOS and Android calling SDKs
+\* Only available on the web calling SDK. 
 
+<!-- Commented out as we have no need to label anything in public preview at the moment
 \*\* Currently in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+-->
 
 ## Event handling
 

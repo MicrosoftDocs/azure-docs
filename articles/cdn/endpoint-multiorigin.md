@@ -7,7 +7,8 @@ ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Azure CDN endpoint multi-origin

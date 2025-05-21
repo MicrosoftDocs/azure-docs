@@ -1,533 +1,234 @@
-### YamlMime:Marketing
-title: Microsoft Azure Migration Hub 
+### YamlMime:Hub
 
+title: Microsoft Azure Migration Hub 
+summary: "Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure."
+brand: azure
 metadata:
   title: Microsoft Azure Migration Hub 
   description: Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
   ms.service: azure
-  ms.topic: marketing-hub
-  ms.author: prwilk
-  author: PageWriter-MSFT
+  ms.topic: hub-page
   ms.date: 03/11/2025
   adobe-target: true
-  ms.custom: migration
 
-sections:
-
-# masthead
-
-  - componentType: hero
-    size: small
-    title: Microsoft Azure Migration Hub
-    supertitle: Microsoft Learn
-    summary: Find the guidance and tools you need to confidently transition to Azure, whether you're migrating fully, running a hybrid cloud, or replicating workloads. Explore key considerations, address migration challenges, and streamline your move while optimizing workloads for Azure.
-    background:
-     componentType: image
-     src: images/banner-image.png
-
-# Top picks
-
-  - componentType: grid
-    backgroundColor: alternating-grey
-    title: Discover top picks
-    summary: Explore a curated selection of the latest noteworthy content to inspire your migration learning journey.
-    blocks:
-    - componentType: icon-card
-      title: Migrate AWS PostgreSQL to Azure Database for PostgreSQL
-      summary: Learn about the migration service in Azure Database for PostgreSQL and how it simplifies the process of moving your PostgreSQL databases to Azure.
-      url: /azure/postgresql/migrate/migration-service/overview-migration-service-postgresql
-      icon:
-        componentType: image
-        src: images/postgresql-icon.svg
-    - componentType: icon-card
-      title: AKS for EKS Professionals
-      summary: Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies.
+productDirectory:
+  title: Discover top picks
+  summary: Explore a curated selection of the latest noteworthy content to inspire your migration learning journey.
+  items:
+    - title: Migrate AWS Lambda to Azure Functions
+      imageSrc: images/functions.svg
+      summary: "Learn how to migrate serverless applications from AWS Lambda to Azure Functions."
+      url: /azure/azure-functions/migration/lambda-functions-migration-overview
+    - title: AKS for EKS Professionals
+      imageSrc: images/azure-kubernetes-service.svg
+      summary: "Assists Amazon EKS professionals in understanding Azure Kubernetes Service (AKS) through comparisons and migration strategies."
       url: /azure/architecture/aws-professional/eks-to-aks/
-      icon:
-        componentType: image
-        src: images/azure-kubernetes-service.svg
-    - componentType: icon-card
-      title: Azure for AWS Professionals
-      summary: Discover articles for AWS professionals that explain Microsoft Azure's platform, services, and key differences, offering comparisons relevant to multicloud solutions and migration.
+    - title: Azure for AWS Professionals
+      imageSrc: images/azure.svg
+      summary: "Discover articles for AWS professionals that explain Microsoft Azure's platform, services, and key differences, offering comparisons relevant to multicloud solutions and migration."
       url: /azure/architecture/aws-professional/
-      icon:
-        componentType: image
-        src: images/azure.svg
-    - componentType: icon-card
-      title: Azure for GCP Professionals
-      summary: Understand Azure's account organization and resource management practices for Google Cloud experts.
+    - title: Azure for Google Cloud Professionals
+      imageSrc: images/azure.svg
+      summary: "Understand Azure's account organization and resource management practices for Google Cloud experts."
       url: /azure/architecture/gcp-professional/
-      icon:
-        componentType: image
-        src: images/azure.svg
 
-# Learning journey
-#  - componentType: grid
-#    backgroundColor: alternating-grey
-#    title: It's your AI learning journey
-#    summary: | 
-#      AI technologies can be a game-changer, and learning how to make the most of them is a personal journey. Your skill-building needs vary depending on what you know about AI and how you want to use it. What's your learning goal?
-#    blocks:
-#    - componentType: icon-card
-#      title: Start with strong foundations
-#      summary: ''
-#      url: "#start-with-strong-foundations"
-#      icon:
-#        componentType: image
-#        src: images/journey-1-icon.png
-#    - componentType: icon-card
-#      title: Expand your AI skills based on your role
-#      summary: ''
-#      url: "#expand-your-ai-skills-based-on-your-role"
-#      icon:
-#        componentType: image
-#        src: images/journey-2-icon.png
-#    - componentType: icon-card
-#      title: Prove your AI skills with Microsoft Certifications
-#      summary: ''
-#      url: "#prove-your-ai-skills-with-microsoft-certifications"
-#      icon:
-#        componentType: image
-#        src: images/journey-3-icon.png
-#    - componentType: icon-card
-#      title: Explore documentation and other resources
-#      summary: ''
-#      url: "#explore-documentation-and-other-resources"
-#      icon:
-#        componentType: image
-#        src: images/journey-4-icon.png
+conceptualContent:
+  sections:
+    - title: Plan your migration to Azure
+      summary: "Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a scenario to access comprehensive insights and practical guidance customized to your migration needs."
+      items:
+      - title: Adopt Azure
+        links:
+          - url: /azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone
+            text: Prepare your Azure environment for migration
+            itemType: tutorial
+          - url: /azure/cloud-adoption-framework/migrate/assess/classify
+            text: Assess workload readiness and classification
+            itemType: tutorial
+          - url: /azure/cloud-adoption-framework/migrate/deploy/
+            text: Deploy Azure services for migration
+            itemType: tutorial
+          - url: /azure/cloud-adoption-framework/migrate/release/
+            text: Release deployed workloads to production
+            itemType: tutorial
+      - title: Design and govern for Azure
+        links:
+          - url: /azure/well-architected/pillars
+            text: Design Well-Architected Solutions
+            itemType: reference
+          - url: /azure/cloud-adoption-framework/migrate/assess/
+            text: Workload assessment for Azure migration
+            itemType: tutorial
+          - url: /azure/governance/management-groups/azure-management
+            text: Governance and compliance frameworks for Azure
+            itemType: tutorial
+      - title: Manage and optimize for Azure
+        links:
+          - url: /azure/well-architected/reliability/design-patterns
+            text: Cloud Design Patterns for reliable workloads
+            itemType: concept
+          - url: /security/benchmark/azure/
+            text: Microsoft Cloud Security Benchmark
+            itemType: how-to-guide
+      - title: Training
+        links:
+          - url: /training/modules/introduction-to-migrating-aws-to-azure/
+            text: Introduction to migrating from AWS to Azure
+            itemType: training
+          - url: /training/modules/introduction-to-migrating-gcp-to-azure/
+            text: Introduction to migrating from Google Cloud to Azure
+            itemType: training
+          - url: /training/courses/az-104t00
+            text: Azure Administrator certification training
+            itemType: training
+          - url: /training/paths/microsoft-azure-architect-design-prerequisites/
+            text: Azure Solutions Architect training
+            itemType: training
+
+    - title: Migrate workloads from Amazon Web Services
+      items:
+      - title: Compute
+        links:
+          - url: ./migrate-compute-from-aws.md
+            text: Migrate compute
+            itemType: get-started
+          - url: /azure/architecture/aws-professional/compute
+            text: Azure compute services map
+            itemType: reference
+          - url: /azure/azure-functions/migration/lambda-functions-migration-overview
+            text: Migrate AWS Lambda to Azure Functions
+            itemType: tutorial
+          - url: /azure/architecture/aws-professional/eks-to-aks/
+            text: AKS for Amazon EKS professionals
+            itemType: concept
+          - url: /azure/aks/aks-migration
+            text: Migrate to Azure Kubernetes Service (AKS)
+            itemType: overview
+          - url: /azure/aks/eks-web-overview
+            text: Migrate a web app from EKS to AKS
+            itemType: tutorial
+          - url: /azure/aks/eks-edw-overview
+            text: Migrate an event-driven EKS workload to AKS
+            itemType: tutorial
+        footerLink:
+          text: See more
+          url: ./migrate-compute-from-aws.md
+      - title: Databases and data
+        links:
+          - url: ./migrate-databases-from-aws.md
+            text: Migrate databases
+            itemType: get-started
+          - url: /azure/architecture/aws-professional/databases
+            text: Azure database services map
+            itemType: reference
+          - url: /azure/architecture/aws-professional/data-ai
+            text: Azure data and AI services map
+            itemType: reference
+          - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline
+            text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
+          - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-online
+            text: Amazon RDS for PostgreSQL to Azure Database for PostgreSQL (online)
+            itemType: tutorial
+          - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline
+            text: Amazon Aurora PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
+        footerLink:
+          text: See more
+          url: ./migrate-databases-from-aws.md
+      - title: Storage
+        links:
+          - url: ./migrate-storage-from-aws.md
+            text: Migrate storage components
+            itemType: get-started
+          - url: /azure/architecture/aws-professional/storage
+            text: Azure storage services map
+            itemType: tutorial
+          - url: /azure/storage/common/storage-use-azcopy-s3
+            text: Copy data from Amazon S3 to Azure Storage (AzCopy)
+            itemType: how-to-guide
+          - url: /azure/data-factory/data-migration-guidance-s3-azure-storage
+            text: Copy data from Amazon S3 to Azure Storage (Azure Data Factory)
+            itemType: how-to-guide
+          - url: /azure/data-factory/solution-template-migration-s3-azure
+            text: Migrate to Azure Data Lake Storage
+            itemType: how-to-guide
+        footerLink:
+          text: See more
+          url: ./migrate-storage-from-aws.md
+      - title: Networking
+        links:
+         - text: Azure networking services mapping
+           url: /azure/architecture/aws-professional/networking
+           itemType: reference
+         - text: Connect AWS and Azure using a BGP-enabled VPN gateway
+           url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+           itemType: how-to-guide
+      - title: Messaging and integration
+        links:
+        - text: Azure messaging services map
+          url: /azure/architecture/aws-professional/messaging
+          itemType: reference
+        - text: Synchronize API Gateway APIs into Azure API Center
+          url: /azure/api-center/synchronize-aws-gateway-apis
+          itemType: how-to-guide
+      - title: Security
+        links:
+          - url: /azure/architecture/aws-professional/security-identity
+            text: Azure security services map
+            itemType: reference
+          - url: /azure/sentinel/migration
+            text: Migrate your SIEM in AWS to Microsoft Sentinel
+            itemType: how-to-guide
+
+    - title: Migrate workloads from Google Cloud
+
+      items:
+      - title: Database and data
+        links:
+          - url: ./migrate-databases-from-google-cloud.md
+            text: Migrate databases
+            itemType: get-started        
+          - url: /azure/architecture/gcp-professional/services#data-platform
+            text: Azure databases services map
+            itemType: reference
+          - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-offline
+            text: Migrate Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (offline)
+            itemType: tutorial
+          - url: /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
+            text: Migrate Google Cloud SQL for PostgreSQL to Azure Database for PostgreSQL (online)
+            itemType: tutorial
+          - url: /azure/dms/tutorial-mysql-azure-mysql-offline-portal
+            text: Migrate Google Cloud SQL for MySQL to Azure Database for MySQL (offline)
+            itemType: tutorial
+        footerLink:
+          text: See more
+          url: ./migrate-databases-from-google-cloud.md            
+          
+      - title: Security
+        links:
+          - url: /azure/architecture/gcp-professional/services#security-and-identity
+            text: Azure security services map
+            itemType: reference
+          - url: /azure/sentinel/migration
+            text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
+            itemType: how-to-guide
+
+additionalContent:
+  sections:
+    - title: Read migration blogs and articles from community members
+      summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
+      items:
+        - summary: We recently walked through a real-world migration of a typical web app from AWS EKS to Azure AKS, and while the containers came over cleanly, the supporting architecture required some careful rework.
+          title: "Migrating from EKS to AKS: What Actually Matters"
+          url: https://techcommunity.microsoft.com/blog/azuremigrationblog/migrating-from-eks-to-aks-what-actually-matters/4403067
+        - summary: Boost your growth and access more customers by replicating your AWS app to Azure and selling through Azure Marketplace.
+          title: "Embracing the multicloud advantage: a guide to replicating your app from AWS to Azure"
+          url: https://techcommunity.microsoft.com/blog/marketplace-blog/embracing-the-multicloud-advantage-a-guide-to-replicating-your-app-from-aws-to-a/4385153
+        - summary: Outlining key architectural differences between AWS and Azure, focusing on network architecture, availability zones, security models, managed services, and storage resiliency to help you optimize your cloud strategies.
+          title: Key architectural differences between AWS and Azure explained
+          url: https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/key-architectural-differences-between-aws-and-azure-explained/4244702
+        - summary: "A three-step process for secure migration to Azure: Establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
+          title: "Mastering secure migration: Essentials for modernizing and innovating on Azure"
+          url: https://techcommunity.microsoft.com/blog/azuremigrationblog/mastering-secure-migration-essentials-for-modernizing-and-innovating-on-azure/4284215
 
-# Challenge banner
-#  - componentType: hero
-#    title: 10 best practices to accelerate your employees' AI skills
-#    layout: indented
-#    size: small
-#    background:
-#      componentType: image
-#      src: ./media/ai-skilling-banner.png
-#    summary: Equipping employees with AI skills and expertise is a major challenge. Check out our new e-book for real-world examples and guidance from Microsoft to help you build successful AI learning initiatives.
-#    links:
-#        - componentType: link
-#          url: //aka.ms/AISkillsAtMicrosoft_AIhub
-#          text: Get the e-book
-
-# By role
-
-  - componentType: markdown
-    content: |
-      ## Planning your migration
-
-      Explore the aspects of migrating to Microsoft Azure. Discover essential steps, best practices, and technical resources to support a successful migration. Select a topic to access comprehensive insights and practical guidance customized to your migration needs.
-
-      #### [Adopt](#tab/adopt)
-
-      ### Adopt Azure
-
-      :::row:::
-         :::column:::
-         **[Prepare](/azure/cloud-adoption-framework/migrate/prepare/ready-azure-landing-zone)**
-
-         Set up your Azure environment for migration effectively.
-         :::column-end:::
-         :::column:::
-         **[Assess](/azure/cloud-adoption-framework/migrate/assess/classify)**
-
-         Evaluate workload readiness and classification for Azure migration.
-         :::column-end:::
-         :::column:::
-         **[Deploy](/azure/cloud-adoption-framework/migrate/deploy/)**
-
-         Guidance on deploying necessary Azure services for migration.
-         :::column-end:::
-         :::column:::
-         **[Release](/azure/cloud-adoption-framework/migrate/release/)**
-
-         Guide for releasing deployed workloads to production, including final migration steps and communication with stakeholders.
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-      :::row-end:::
-
-      #### [Design and Govern](#tab/design-and-govern)
-
-      ### Design and Govern
-
-      :::row:::
-         :::column:::
-         **[Design Well-Architected Solutions](/azure/well-architected/pillars)**
-
-         Guidelines to design and maintain well-architected Azure solutions.
-         :::column-end:::
-         :::column:::
-         **[Workload Assessment](/azure/cloud-adoption-framework/migrate/assess/)**
-
-         Evaluate workload readiness and classification for Azure migration.
-         :::column-end:::
-         :::column:::
-         **[Governance Frameworks](/azure/governance/management-groups/azure-management)**
-
-         Implement governance and compliance frameworks for Azure.
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-      :::row-end:::
-
-      #### [Manage and Optimize](#tab/manage-and-optimize)
-
-      ### Manage and Optimize
-
-      :::row:::
-         :::column:::
-         **[Reliability Cloud Design Patterns](/azure/well-architected/reliability/design-patterns)**
-
-         Cloud design patterns for consideration when developing reliable workloads.
-         :::column-end:::
-         :::column:::
-         **[Microsoft Cloud Security Benchmark](/security/benchmark/azure/)**
-
-         Best practice guidance on securing your cloud solutions.
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-      :::row-end:::
-
-      #### [Training](#tab/training)
-
-      ### Training
-
-      :::row:::
-         :::column:::
-         **[Introduction to migrating from AWS to Azure](/training/modules/introduction-to-migrating-aws-to-azure/)**
-
-         Comparing AWS and Azure services, covering terminology, IAM, governance, IaaS, databases, messaging, and Kubernetes, with resources for further information.
-         :::column-end:::
-         :::column:::
-         **[Introduction to migrating from GCP to Azure](/training/modules/introduction-to-migrating-gcp-to-azure/)**
-
-         Mapping Google Cloud services to their equivalents in Azure, covering terminology, IAM, governance, IaaS options, databases, messaging, and Kubernetes, along with resources for further information.
-         :::column-end:::
-         :::column:::
-         **[Azure Administrator training](/training/courses/az-104t00)**
-
-         This certification overview highlights the skills needed for Azure administrators in managing environments, focusing on networking, storage, compute, identity, security, and governance.
-         :::column-end:::
-         :::column:::
-         **[Azure Solutions Architect training](/training/paths/microsoft-azure-architect-design-prerequisites/)**
-
-         Design advanced cloud and hybrid solutions. Translate complex business needs into Azure designs and extensive expertise in IT operations, governance, and DevOps.
-         :::column-end:::
-      :::row-end:::
-
-      ---
-
-      <br />
-      <br />
-
-# Microsoft Certifications
-
-  - componentType: hero
-    title: Transitioning Your Cloud Skills from AWS to Azure
-    layout: indented
-    size: small
-    summary: When moving from AWS to Azure, it's crucial to understand how services align and where key differences exist. This module will help you map AWS services to their Azure equivalents, navigate Azure's approach to identity, governance, infrastructure, databases, and containers, and find key resources for further learning.
-    textColor: light
-    background:
-      componentType: image
-      src: images/training-banner.png
-    links:
-      - componentType: link
-        url: /training/modules/introduction-to-migrating-aws-to-azure/  
-        text: Start Learning
-
-# By role
-
-  - componentType: markdown
-    content: |
-      ## Migration from the service level
-
-      Use documentation for migration efforts and access the knowledge and tools needed for a successful transition from a service level view. Utilize these resources to effectively navigate the complexities of any migration. Focus on creating a smooth and efficient process, while minimizing disruptions and ensuring effective outcomes.
-
-      #### [Compute](#tab/compute)
-
-      ### Migrate compute
-
-      :::row:::
-        :::column:::
-        **[Migrate Virtual Machines to Azure from AWS](/azure/migrate/tutorial-migrate-aws-virtual-machines)**
-
-        Detailed guide on migrating your AWS virtual machines to Azure.
-        :::column-end:::
-        :::column:::
-        **[Migrate Virtual Machines to Azure from GCP](/azure/migrate/tutorial-migrate-gcp-virtual-machines)**
-
-        Detailed guide on migrating your GCP virtual machines to Azure.
-        :::column-end:::
-        :::column:::
-        **[Migrate EKS web application workloads](/azure/aks/eks-web-overview)**
-    
-        Replicate an Amazon Elastic Kubernetes Service (EKS) web application with AWS Web Application Firewall (WAF) using Azure Web Application Firewall (WAF) and Azure Application Gateway in Azure Kubernetes Service (AKS).
-        :::column-end:::
-        :::column:::
-        **[Migrate physical Machines](/azure/migrate/tutorial-migrate-physical-virtual-machines)**
-        
-        Migrate machines as physical servers to Azure by using the Migration and modernization tool.
-        :::column-end:::
-        :::column:::
-        **[Migrate servers in a Hyper-V environment](/azure/migrate/tutorial-assess-hyper-v)**
-        
-        Use Azure Migrate to assess your Hyper-V environment for migration readiness.
-        :::column-end:::
-        :::column:::
-        **[Azure VMware Solution](/azure/migrate/vmware/server-migrate-overview?context=%2Fazure%2Fmigrate%2Fcontext%2Fmigrate-context)**
-        
-        Options for migrating VMware VMs to Azure.
-        :::column-end:::
-      :::row-end:::
-
-      #### [Databases](#tab/databases)
-
-      :::row:::
-        :::column:::
-        **[Migrate Amazon RDS PostgreSQL to Azure](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aws-offline)**
-        
-        How to migrate Amazon RDS PostgreSQL database to Azure Database for PostgreSQL.
-        :::column-end:::
-        :::column:::
-        **[Migrate Amazon Aurora PostgreSQL to Azure](/azure/postgresql/migrate/migration-service/tutorial-migration-service-aurora-offline)**
-        
-        How to migrate AWS Aurora PostgreSQL database to Azure Database for PostgreSQL.
-        :::column-end:::
-        :::column:::
-        **[Migrate Amazon RDS MySQL to Azure](/azure/mysql/flexible-server/how-to-migrate-rds-mysql-data-in-replication)**
-        
-        How to migrate Amazon RDS MySQL database to Azure Database for MySQL.
-        :::column-end:::
-        :::column:::
-        **[Migrate Amazon RDS SQL Server to Azure](/data-migration/sql-server/database/guide)**
-        
-        Learn how to migrate your Amazon RDS SQL Server instance to Azure SQL Database.
-        :::column-end:::
-        :::column:::
-        **[Migrate from DynamoDB to Azure Cosmos DB for NoSQL](/azure/cosmos-db/nosql/dynamodb-data-migration-cosmos-db)**
-        
-        Options for data migration from DynamoDB to Cosmos DB for NoSQL.
-        :::column-end:::
-      :::row-end:::
-
-      #### [Data](#tab/data)
-
-      ### Migrate data
-
-      :::row:::
-        :::column:::
-        **[Migrate with Azure Data Factory](/azure/data-factory/data-migration-guidance-overview)**
-        
-        Use Azure Data Factory to migrate your data lakes and warehouses to Azure with high performance, scalability, and a cost-effective pay-as-you-go model.
-        :::column-end:::
-        :::column:::
-        **[Azure Data Box](/azure/databox/data-box-overview)**
-        
-        Use Azure Data Box for offline data transfer to Azure.
-        :::column-end:::
-      :::row-end:::
-
-      #### [Storage](#tab/storage)
-
-      ### Migrate storage
-
-      :::row:::
-        :::column:::
-        **[Migrate Blob Storage to Azure](/azure/storage/common/storage-migration-overview)**
-
-        Migrating your blob storage to Azure.
-        :::column-end:::
-        :::column:::
-        **[File Sync Migration](/azure/storage/files/storage-files-migration-overview?toc=%2Fazure%2Fstorage%2Ffile-sync%2Ftoc.json)**
-
-        Guide to set up and migrate files using Azure File Sync.
-        :::column-end:::
-        :::column:::
-        **[Data Transfer Solutions](/azure/storage/common/storage-choose-data-transfer-solution)**
-
-        Explore various options for data transfer to Azure Storage.
-        :::column-end:::
-        :::column:::
-        **[Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](/azure/data-factory/solution-template-migration-s3-azure)**
-      
-        Use Azure Data Factory templates to efficiently migrate data from Amazon S3 to Azure Data Lake Storage Gen2, handling both historical transfers and updates.
-        :::column-end:::
-      :::row-end:::
-
-      #### [Network](#tab/network)
-
-      ### Migrate network
-
-      :::row:::
-         :::column:::
-         **[Azure Virtual Network Overview](/azure/virtual-network/virtual-networks-overview)**
-
-         Learn how to set up a virtual network in Azure for your workloads.
-         :::column-end:::
-         :::column:::
-         **[ExpressRoute for Network Migration](/azure/expressroute/expressroute-introduction)**
-
-         Use Azure ExpressRoute to create private connections between Azure and your cross-premises infrastructure.
-         :::column-end:::
-         :::column:::
-         **[Azure VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)**
-
-         Set up a VPN gateway to securely connect your on-premises networks to Azure.
-         :::column-end:::
-         :::column:::
-         **[Network Security Groups (NSGs)](/azure/virtual-network/network-security-groups-overview)**
-
-         Implement NSGs to control inbound and outbound traffic to Azure resources.
-         :::column-end:::
-      :::row-end:::
-
-      #### [Identity](#tab/identity)
-
-      ### Migrate identity
-
-      :::row:::
-         :::column:::
-         **[Migrate to Microsoft Entra Cloud Sync for an existing synced AD forest](/entra/identity/hybrid/cloud-sync/tutorial-pilot-aadc-aadccp)**
-
-         Migrate to cloud sync for a test Active Directory forest that is already synced using Microsoft Entra Connect Sync.
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-         :::column:::
-
-         :::column-end:::
-      :::row-end:::
-
-      #### [Application](#tab/application)
-
-      ### Migrate applications
-
-      :::row:::
-         :::column:::
-         **[Migrate .NET to Azure App Service](/azure/app-service/app-service-asp-net-migration)**
-
-         Use Azure App Server to assess, discover, and migrate .NET apps to Azure.
-         :::column-end:::
-         :::column:::
-         **[Migrate containerized .NET](/azure/migrate/tutorial-app-containerization-aspnet-app-service?bc=%2Fazure%2Fbread%2Ftoc.json&toc=%2Fazure%2Fapp-service%2Ftoc.json)**
-
-         Containerize ASP.NET applications and migrate them to Azure App Service using the Azure Migrate App Containerization tool.
-         :::column-end:::
-         :::column:::
-         **[Migrate Java](/azure/app-service/app-service-java-migration)**
-
-         Discover, assess, and migrate Java web apps to Azure App Service.
-         :::column-end:::
-         :::column:::
-         **[Migrate Tomcat](/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
-
-         Migrate an existing Tomcat application to run on Azure App Service using Tomcat 9.0.
-         :::column-end:::
-         :::column:::
-         **[Migrate JBoss EAP](/azure/developer/java/migration/migrate-jboss-eap-to-jboss-eap-on-azure-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
-
-         Migrate a JBoss EAP application to Azure App Service.
-         :::column-end:::
-         :::column:::
-         **[Migrate WebLogic](/azure/developer/java/migration/migrate-weblogic-to-jboss-eap-on-azure-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
-
-         Migrate a WebLogic Server application to run on Azure App Service using JBoss EAP.
-         :::column-end:::
-         :::column:::
-         **[Migrate WebSphere](/azure/developer/java/migration/migrate-websphere-to-jboss-eap-on-azure-app-service?toc=%2Fazure%2Fapp-service%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)**
-
-         Migrate a WebSphere application to run on Azure App Service using JBoss EAP.
-         :::column-end:::
-      :::row-end:::
-      ---
-
-      <br />
-      <br />
-
-# DevRel Studios - community section
-
-  - componentType: grid
-    backgroundColor: alternating-grey
-    title: Read migration blogs and articles from community members
-    summary: Check out some of the latest migration blogs and articles from advocates and experts within the Azure community.
-    blocks:
-    - componentType: icon-card
-      title: "Embracing the multicloud advantage: a guide to replicating your app from AWS to Azure"
-      summary: Boost your growth and access more customers by replicating your AWS app to Azure and selling through Azure Marketplace.
-      url: https://techcommunity.microsoft.com/blog/marketplace-blog/embracing-the-multicloud-advantage-a-guide-to-replicating-your-app-from-aws-to-a/4385153
-      icon:
-        componentType: image
-        src: images/azure-hybrid.svg
-    - componentType: icon-card
-      title: Key architectural differences between AWS and Azure explained  
-      summary: Outlining key architectural differences between AWS and Azure, focusing on network architecture, availability zones, security models, managed services, and storage resiliency to help you optimize your cloud strategies.
-      url: https://techcommunity.microsoft.com/blog/startupsatmicrosoftblog/key-architectural-differences-between-aws-and-azure-explained/4244702
-      icon:
-        componentType: image
-        src: images/azure-migrate.svg
-    - componentType: icon-card
-      title: "Mastering secure migration: Essentials for modernizing and innovating on Azure"
-      summary: "A three-step process for secure migration to Azure: Establishing readiness, designing with governance, and managing deployments, emphasizing planning and security to optimize performance and resilience."
-      url: https://techcommunity.microsoft.com/blog/azuremigrationblog/mastering-secure-migration-essentials-for-modernizing-and-innovating-on-azure/4284215
-      icon:
-        componentType: image
-        src: images/azure-solutions.svg
-    - componentType: icon-card
-      title: Azure Migration and Modernization Blog
-      summary: The Azure Migration Blog on Microsoft's Tech Community provides insights, best practices, and resources for organizations looking to migrate their workloads to Azure effectively and securely.
-      url: https://techcommunity.microsoft.com/category/azure/blog/azuremigrationblog
-      icon:
-        componentType: image
-        src: images/blog-icon.png
-
-# Explore documentation and other resources
-
-# - componentType: markdown
-
-# content: |
-
-# Explore documentation and other resources
-
-# Continue your AI learning journey and meet goals, needs, and preferences with documentation, training events, tailored experiences with Training Services Partners, thought leadership articles, and blog posts.
-
-# - componentType: icon-card
-
-# title: Skill up with Microsoft 365 Copilot training for business users
-
-# summary: ''
-
-# url: //aka.ms/AITrainingSessions
-
-# icon
-
-# componentType: image
-
-# src: images/training-sessions-icon.png
-
-# - componentType: icon-card
-
-# title: 'Read our position paper: "Accelerate AI transformation with skill building"'
-
-# summary: ''
-
-# url: //aka.ms/AISkillsPaper_hub
-
-# icon
-
-# componentType: image
-
-# src: images/position-paper-icon.png

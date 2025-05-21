@@ -39,6 +39,18 @@ Azure Backup provides you two options (**Microsoft managed keys** and **Customer
 
 You can fetch your own keys to encrypt the backup data by using the **Customer Managed Keys** option under **Encryption settings** on the *Backup vault*.
 
+### Role-Based Access Control (RBAC) in Backup vault
+
+Backup vaults provide a robust Role-Based Access Control (RBAC) mechanism that not only governs who can access a Backup vault and what operations they can perform, but also enables fine-grained control over which individual workloads the vault can access and to what extent. This includes access to Azure resources such as Azure Disks or PostgreSQL servers to be backed up and Key Vaults used for encryption key management.
+
+RBAC is enforced through Managed Identities associated with the Backup vault. Specific roles can be assigned to these identities to grant the required access. Backup vaults support two types of managed identities:
+
+- **System Assigned Managed Identity:** This identity is automatically created when the Backup vault is provisioned and is tied to the lifecycle of the vault. You have the option to disable this identity if needed.
+
+- **User Assigned Managed Identity:** This is an independent Azure resource that can be assigned to one or more Backup vaults. Once assigned, any roles granted to this identity apply to the vault as well. The lifecycle of a user-assigned managed identity is decoupled from the vault, providing greater flexibility. Multiple user-assigned identities can be associated with a single Backup vault.
+
+These identities ensure secure and manageable access control, enabling Backup vaults to operate with the least privilege necessary while aligning with organizational security policies.
+
 ## Cross Region Restore support for PostgreSQL using Azure Backup
 
 Azure Backup allows you to replicate your backups to an additional Azure paired region by using Geo-redundant Storage (GRS)  to protect your backups from regional outages. When you enable the backups with GRS, the backups in the secondary region become accessible only when Microsoft declares an outage in the primary region. However, Cross Region Restore enables you to access and perform restores from the secondary region recovery points even when no outage occurs in the primary region; thus, enables you to perform drills to assess regional resiliency.

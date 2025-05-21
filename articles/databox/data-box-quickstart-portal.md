@@ -14,6 +14,10 @@ zone_pivot_groups: data-box-sku
 
 # Get started with Azure Data Box to import data into Azure
 
+:::zone pivot="dbx"
+[!INCLUDE [data-box-retirement](includes/data-box-retirement.md)]
+:::zone-end
+
 ::: zone target="docs"
 
 This quickstart describes how to deploy the Azure Data Box using the Azure portal for an import order. The steps include how to cable, configure, and copy data to Data Box so that it uploads to Azure. The quickstart steps are performed in the Azure portal and on the local web UI of the device.

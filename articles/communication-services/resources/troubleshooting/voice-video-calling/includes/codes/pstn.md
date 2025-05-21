@@ -16,6 +16,13 @@ ms.author: slpavkov
 
 This section provides troubleshooting information for various combinations of `ParticipantEndReason` and `ParticipantEndSubCode` response codes. For the tables in this section, `ParticipantEndReason` = **Code** and `ParticipantEndSubCode` = **SubCode**.
 
+As a general guideline, if the `ParticipantEndSubCode` value starts with 560 or 540, it indicates that the user's/operator's SBC generated the response code. This is useful for troubleshooting Direct Routing calls, as the subcode can help determine whether the error is from your SBC or the Microsoft service. A subcode starting with 560 represents an outbound call, while a subcode starting with 540 represents an inbound call. In either case, check the SBC logs.
+
+For example, if the `ParticipantEndSubCode` value is `560403`, it means that it was an outbound call, the SBC generated the final response code, and the SIP response code from the SBC was 403. Start troubleshooting the calls by checking your SBC logs.
+
+For `ParticipantEndSubCode` responses that don't start with 560 or 540, the Microsoft service generated the final response code.
+
+
 ### ParticipantEndReason 0
 
 Response `ParticipantEndReason` with value 0 usually means normal call clearing and marks calls that completed without errors.
@@ -43,7 +50,8 @@ Response `ParticipantEndReason` with value 4xx means that the call didn't connec
 | 531004 | 410 | Interactive Connectivity Establishment (ICE) checks failed. |  | - The media path couldn't be established. Can be caused by incorrect network configuration. Verify your network configuration to make sure that the required IP addresses and ports aren't blocked. Read the guidelines in <https://www.rfc-editor.org/rfc/rfc5245#section-7>.<br/> - For direct routing calls, check your SBC logs and settings for ICE configuration and profile. Contact your SBC vendor for configuration help. For more information, see [List of Session Border Controllers certified for Azure Communication Services direct routing](../../../../../concepts/telephony/certified-session-border-controllers.md). |
 | 560480 | 480 | - No answer from the called user.<br/> - Called user temporary unavailable.  |  | - Double check why the called party didn't respond.<br/> - Retry the call later in case that the called party was temporary unavailable.<br/> - For direct routing calls, check your SBC logs and settings and timeouts configuration. |
 | 560484 | 484 | - Incomplete or invalid callee address.<br/> - Incomplete or invalid callee number format. |  | - In some cases, you can ignore these failures because the user is dialing an invalid number.<br/> - Make sure the phone numbers are formatted correctly. For more information, see <https://en.wikipedia.org/wiki/E.164>.<br/> - For direct routing, the SBC could cause these failures because of a missing configuration in a call transfer scenario. |
-| 60486 | 486 | The called number was busy |  | - The called number may be connected to an existing call, or having a technical problem.<br/> - For direct routing calls, check your SBC logs and settings and timeouts configuration. |
+| 540486 | 486 | The called number was busy |  | - The called number may be connected to an existing call, or having a technical problem.<br/> - For direct routing calls, check your SBC logs and settings and timeouts configuration. |
+| 560486 | 486 | The called number was busy |  | - The called number may be connected to an existing call, or having a technical problem.<br/> - For direct routing calls, check your SBC logs and settings and timeouts configuration. |
 | 540487 | 487 | The caller terminated the call request. |  | Retry the call. |
 | 560487 | 497 | - The caller terminated the call request.<br/> - Request terminated with normal call clearing. |  | Retry the call. |
 

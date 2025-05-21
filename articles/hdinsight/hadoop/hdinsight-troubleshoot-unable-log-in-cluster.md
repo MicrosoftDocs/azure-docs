@@ -3,6 +3,9 @@ title: Unable to log into Azure HDInsight cluster
 description: Troubleshoot why unable to log into Apache Hadoop cluster in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
 ---
 

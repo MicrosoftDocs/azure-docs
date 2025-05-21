@@ -11,6 +11,8 @@
   items:
   - name: Create App Service Environment in portal
     href: creation.md
+  - name: Create an App Service Environment using Terraform
+    href: creation-terraform.md
 - name: Tutorials
   items:
   - name: Integrate with Application Gateway

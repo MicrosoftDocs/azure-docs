@@ -4,8 +4,8 @@ description: Learn about Azure Private Endpoint DNS configuration scenarios.
 services: private-link
 author: abell
 ms.service: azure-private-link
-ms.topic: conceptual
-ms.date: 12/03/2024
+ms.topic: concept-article
+ms.date: 03/25/2025
 ms.author: abell
 ms.custom: fasttrack-edit
 ---
@@ -164,8 +164,8 @@ In a hub-and-spoke topology, a common scenario allows the creation of private DN
 
 
 > [!NOTE]
-> - Each DNS zone group can support up to 5 DNS zones.
-> - Adding multiple DNS zone groups to a single Private Endpoint is not supported.
+> - Each DNS zone group can support up to five DNS zones.
+> - Adding multiple DNS zone groups to a single Private Endpoint isn't supported.
 > - Delete and update operations for DNS records can be seen performed by **Azure Traffic Manager and DNS.** This is a normal platform operation necessary for managing your DNS Records.
 
 ## Next steps

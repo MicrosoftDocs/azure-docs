@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Querying with the Azure Data Explorer plugin
 titleSuffix: Azure Digital Twins
 description: Learn about the Azure Digital Twins query plugin for Azure Data Explorer
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins query plugin for Azure Data Explorer

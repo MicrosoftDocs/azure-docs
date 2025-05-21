@@ -1,7 +1,7 @@
 ---
 title: Validate user inputs by using Azure AD B2C custom policy 
 titleSuffix: Azure AD B2C
-description: Learn how to validate user inputs by using Azure Active Directory B2C custom policy. Learn how to validate user input by limiting user input options. Learn how to validate user input by using Predicates. Learn how to validate user input by using Regular Expressions. Learn how to validate user input by using validation technical profiles    
+description: Learn how to validate user inputs using Azure AD B2C custom policies. Ensure data accuracy with options, predicates, regex, and validation technical profiles.
 
 author: kengaderdus
 manager: CelesteDG
@@ -10,7 +10,7 @@ ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 10/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: b2c
@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 #  Validate user inputs by using Azure Active Directory B2C custom policy 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) custom policy not only allows you to make user inputs mandatory but also to validate them. You can mark user inputs as *required*, such as `<DisplayClaim ClaimTypeReferenceId="givenName" Required="true"/>`, but it doesn't mean your users will enter valid data. Azure AD B2C provides various ways to validate a user input. In this article, you learn how to write a custom policy that collects the user inputs and validates them by using the following approaches: 
 
@@ -486,9 +487,8 @@ Use the following steps to learn how to validate user input by using validation 
 
     :::image type="content" source="media/custom-policies-series-validate-user-input/screenshot-of-error-due-to-invalid-email-address.png" alt-text="screenshot of error due to invalid email address.":::
 
-## Next steps
+## Related content
 
 - Learn about [validation technical profile](validation-technical-profile.md).
 
--  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md)
-
+-  Learn how to [Conditionally enable or disable Technical Profiles in Azure AD B2C custom policies](custom-policies-series-branch-user-journey.md).

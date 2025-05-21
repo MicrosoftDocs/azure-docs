@@ -21,7 +21,7 @@ In this quickstart, you link to an existing organization of Datadog.
 - You must [configure your environment](prerequisites.md).
 - You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
 
-## Create a New Relic resource
+## Create a Datadog resource
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 

@@ -1,7 +1,7 @@
 ---
 title: Create backup policies for Azure database for PostgreSQL - Flexible server using data protection REST API in Azure Backup
 description: Learn how to create the backup policy to protect Azure PostgreSQL flexible servers using REST API.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2024
 ms.date: 02/28/2025
@@ -322,7 +322,7 @@ After including all changes, the policy JSON will appear as follows:
 
 ```
 
-For more details about policy creation, see the [PostGreSQL database Backup policy document](backup-azure-database-postgresql.md#create-backup-policy).
+For more details about policy creation, see the [PostgreSQL database Backup policy document](backup-azure-database-postgresql.md#create-backup-policy).
 
 ### Responses
 

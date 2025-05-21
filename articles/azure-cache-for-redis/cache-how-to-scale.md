@@ -6,6 +6,8 @@ description: Learn how to scale your Azure Cache for Redis instances using the A
 
 ms.topic: conceptual
 ms.date: 07/01/2024
+appliesto:
+  - ✅ Azure Cache for Redis
 ms.devlang: csharp
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, ignite-2024
 ---
@@ -33,7 +35,7 @@ There are fundamentally two ways to scale an Azure Cache for Redis Instance:
 
 ## When to scale
 
-You can use the [monitoring](monitor-cache.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
+You can use the [monitoring](../redis/monitor-cache.md) features of Azure Cache for Redis to monitor the health and performance of your cache. Use that information to determine when to scale the cache.
 
 You can monitor the following metrics to determine if you need to scale.
 
@@ -116,7 +118,7 @@ You can scale your Azure Cache for Redis instances with PowerShell by using the 
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -Size 6GB
 ```
 
-For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](../redis/how-to-manage-redis-cache-powershell.md#scale).
 
 #### Scale up and down using Azure CLI
 
@@ -156,7 +158,7 @@ Clustering is enabled during cache creation from the working pane, when you crea
 
     :::image type="content" source="media/cache-how-to-scale/redis-cache-clustering-selected.png" alt-text="Screenshot showing the clustering toggle selected.":::
 
-    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-monitor-diagnostic-settings.md), metrics are captured separately for each shard, and can be [viewed](monitor-cache.md#view-cache-metrics) in Azure Cache for Redis using the Resource menu.
+    Once the cache is created, you connect to it and use it just like a nonclustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-monitor-diagnostic-settings.md), metrics are captured separately for each shard, and can be [viewed](../redis/monitor-cache.md#view-cache-metrics) in Azure Cache for Redis using the Resource menu.
 
 1. Finish creating the cache using the [quickstart guide](quickstart-create-redis.md).
 
@@ -187,7 +189,7 @@ You can scale out your Azure Cache for Redis instances with PowerShell by using 
    Set-AzRedisCache -ResourceGroupName myGroup -Name myCache -ShardCount 3
 ```
 
-For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](cache-how-to-manage-redis-cache-powershell.md#scale).
+For more information on scaling with PowerShell, see [To scale an Azure Cache for Redis using PowerShell](../redis/how-to-manage-redis-cache-powershell.md#scale).
 
 #### Scale out and in using Azure CLI
 
@@ -346,7 +348,7 @@ While Standard, Premium, Enterprise, and Enterprise Flash caches have a SLA for 
 
 With [passive geo-replication](cache-how-to-geo-replication.md) configured, you might notice that you can’t scale a cache or change the shards in a cluster. A geo-replication link between two caches prevents you from scaling operation or changing the number of shards in a cluster. You must unlink the cache to issue these commands. For more information, see [Configure Geo-replication](cache-how-to-geo-replication.md).
 
-With [active geo-replication](cache-how-to-active-geo-replication.md) configured, you can't scale a cache. All caches in a geo replication group must be the same size and capacity.
+With [active geo-replication](cache-how-to-active-geo-replication.md) configured, you can scale a cache with some limitations. All caches in a geo-replication group must be the same size and capacity. For more information, see [Configure active geo-replication for Enterprise Azure Cache for Redis instances](cache-how-to-active-geo-replication.md).
 
 ### Operations that aren't supported
 
@@ -388,7 +390,7 @@ In the Azure portal, you can see the scaling operation in progress. When scaling
 - If you're using Redis ASP.NET Session State provider, you must use 2.0.1 or higher. See [Can I use clustering with the Redis ASP.NET Session State and Output Caching providers?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 > [!IMPORTANT]
-> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering](managed-redis/managed-redis-architecture.md#clustering).
+> When using the Enterprise or Enterprise FLash tiers, you are given the choice of _OSS Cluster Mode_ or _Enterprise Cluster Mode_. OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering which doesn't require any client changes to use. For more information, see [Clustering](../redis/architecture.md#clustering).
 >
 
 ### How are keys distributed in a cluster?
@@ -455,11 +457,11 @@ If you're using StackExchange.Redis and receive `MOVE` exceptions when using clu
 
 ### What is the difference between OSS Clustering and Enterprise Clustering on Enterprise tier caches?
 
-OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering](managed-redis/managed-redis-architecture.md#clustering).
+OSS Cluster Mode is the same as clustering on the Premium tier and follows the open source clustering specification. Enterprise Cluster Mode can be less performant, but uses Redis Enterprise clustering, which doesn't require any client changes to use. For more information, see [Clustering](../redis/architecture.md#clustering).
 
 ### How many shards do Enterprise tier caches use?
 
-Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding configuration](managed-redis/managed-redis-architecture.md#sharding-configuration).
+Unlike Basic, Standard, and Premium tier caches, Enterprise, and Enterprise Flash caches can take advantage of multiple shards on a single node. For more information, see [Sharding configuration](../redis/architecture.md#sharding-configuration).
 
 ## Next steps
 

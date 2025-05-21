@@ -8,7 +8,8 @@ manager: kumud
 ms.assetid: 86740a96-4269-4060-aba3-a69f00e6f14e
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 03/31/2025
+ROBOTS: NOINDEX
 ---
 
 # Using Azure CDN with CORS

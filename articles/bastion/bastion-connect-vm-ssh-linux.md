@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-bastion
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 ---
 

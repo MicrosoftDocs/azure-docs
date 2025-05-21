@@ -156,10 +156,10 @@ Follow these steps to use Application Configuration Service for Tanzu as a centr
 
 1. Select **Settings** and complete the form in **Repositories** to add a new entry with the following information:
 
-   - Name: `default`
-   - Patterns: `api-gateway,customers-service`
-   - URI: `https://github.com/Azure-Samples/spring-petclinic-microservices-config`
-   - Label: `master`
+   - Name: **default**
+   - Patterns: **api-gateway,customers-service**
+   - URI: **https://github.com/Azure-Samples/spring-petclinic-microservices-config**
+   - Label: **master**
 
    :::image type="content" source="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png" alt-text="Screenshot of the Azure portal showing the Settings tab of the Application Configuration Service page." lightbox="./media/how-to-migrate-standard-tier-to-enterprise-tier/config-service-settings.png":::
 

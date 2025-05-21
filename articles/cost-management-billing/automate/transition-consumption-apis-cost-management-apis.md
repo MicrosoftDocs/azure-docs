@@ -1,8 +1,8 @@
 ---
 title: Transition from Consumption APIs to Cost Management APIs
 description: Learn about transitioning from Consumption APIs to Cost Management APIs for enhanced capabilities and up-to-date functionality in managing Azure costs.
-author: bandersmsft
-ms.author: banders
+author: flanakin
+ms.author: micflan
 ms.date: 01/09/2025
 ms.topic: concept-article
 ms.service: cost-management-billing
@@ -37,8 +37,8 @@ The following Consumption APIs are planned for deprecation. We recommend that yo
 
 | **API** | **Recommended** | **Deprecation Status** |
 | --- | --- | --- |
-| [Usage Details API](/rest/api/consumption/usage-details/list) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. |
-| [Marketplaces API](migrate-consumption-marketplaces-api.md) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-export-acm-data.md) | Maintenance mode. Will be deprecated in the future. | 
+| [Usage Details API](/rest/api/consumption/usage-details/list) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-improved-exports.md) | Maintenance mode. Will be deprecated in the future. |
+| [Marketplaces API](migrate-consumption-marketplaces-api.md) | [Cost Details API](/rest/api/cost-management/generate-cost-details-report) or [Exports](../costs/tutorial-improved-exports.md) | Maintenance mode. Will be deprecated in the future. | 
 
 ## Related content
 

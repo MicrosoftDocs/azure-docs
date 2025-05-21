@@ -1,14 +1,14 @@
 ---
 title: Permissions to view and manage Azure reservations
 description: Learn how to view and manage Azure reservations in the Azure portal.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: banders
+ms.date: 03/26/2025
+ms.author: primittal
 ---
 
 # Permissions to view and manage Azure reservations
@@ -36,7 +36,7 @@ If you're a billing administrator, use following steps to view and manage all re
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
-1. In the left menu, select **Products + services** > **Reservations**.
+1. In the left menu, select **Products + services** > **Reservations + Hybrid Benefit**.
 1. The complete list of reservations for your EA enrollment or billing profile is shown.
 1. Billing administrators can take ownership of a reservation by selecting one or multiple reservations, selecting **Grant access** and selecting **Grant access** in the window that appears. For a Microsoft Customer Agreement, user should be in the same Microsoft Entra tenant (directory) as the reservation.
 

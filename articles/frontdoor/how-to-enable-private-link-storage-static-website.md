@@ -12,6 +12,8 @@ zone_pivot_groups: front-door-dev-exp-portal-cli
 
 # Connect Azure Front Door Premium to a storage static website with Private Link
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 ::: zone pivot="front-door-portal"
 
 This article guides you through how to configure Azure Front Door Premium tier to connect to your storage static website privately using the Azure Private Link service.
@@ -134,6 +136,13 @@ When creating a private endpoint connection to the storage static website's seco
 Once the origin is added and the private endpoint connection is approved, you can test your private link connection to your storage static website.
 
 ::: zone-end
+
+## Common mistakes to avoid
+
+The following are common mistakes when configuring an origin with Azure Private Link enabled:
+
+* Adding the origin with Azure Private Link enabled to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
+
 
 ## Next steps
 

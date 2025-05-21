@@ -4,6 +4,9 @@ description: Step-by-step guidance on how to use HDInsight Tools in Azure Toolki
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 06/13/2024
 ---
 

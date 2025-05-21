@@ -32,7 +32,8 @@ The keyset and each individual user also have detailed status messages communica
 
 When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine reimage` or `az networkcloud baremetalmachine replace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
-There's no limit to the number of users in a group.
+> [!WARNING]
+> Using an Entra Group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in timeouts, blocking access and causing login issues.
 
 > [!CAUTION]
 > Notes for jump host IP addresses

@@ -2,7 +2,7 @@
 title: Azure Synapse Data Explorer data ingestion overview (Preview)
 description: Learn about the different ways you can ingest (load) data in Azure Synapse Data Explorer.
 ms.topic: overview
-ms.date: 11/02/2021
+ms.date: 03/24/2025
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
@@ -11,6 +11,8 @@ ms.subservice: data-explorer
 ---
 
 # Azure Synapse Data Explorer data ingestion overview (Preview)
+
+[!INCLUDE [data-explorer-deprecation-notice](../includes/data-explorer-deprecation-notice.md)]
 
 Data ingestion is the process used to load data records from one or more sources to import data into a table in Azure Synapse Data Explorer pool. Once ingested, the data becomes available for query.
 
