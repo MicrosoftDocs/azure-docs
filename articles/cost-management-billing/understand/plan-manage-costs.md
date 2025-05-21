@@ -12,14 +12,14 @@ ms.author: maminn
 
 # Plan to manage Azure costs
 
-This article guides you on planning on how to better manage your Azure costs. When you sign up for Azure, there are several steps you can take to better understand your spending:
+This article guides you in planning how to better manage your Azure costs. When you sign up for Azure, there are several steps you can take to better understand your spending:
 
-- Review your estimated costs before adding services using [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
+- Review your estimated costs before adding services using the [pricing calculator](https://azure.microsoft.com/pricing/calculator/), Azure price sheet or while adding services in the Azure portal.
 - Monitor costs with [budgets](../costs/tutorial-acm-create-budgets.md), [alerts](../costs/cost-mgt-alerts-monitor-usage-spending.md), and [cost analysis](../costs/quick-acm-cost-analysis.md).
 - Review the charges on your invoice by comparing them with the [detailed usage files](../manage/download-azure-invoice-daily-usage-date.md).
 - Integrate billing and cost data with your own reporting system using [billing](/rest/api/billing/) and [consumption](/rest/api/consumption/) APIs.
-- Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), and Azure Sponsorship customers.
-- Make use of [some of the most popular Azure services offered for free for 12 months](../manage/create-free-services.md) and available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, also see [Avoid getting charged for free account](../manage/avoid-charges-free-account.md).
+- Use additional resources and tools for Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customers.
+- Take advatanage of [some of the most popular Azure services offered for free for 12 months](../manage/create-free-services.md) and available with the [Azure free account](https://azure.microsoft.com/free/). Along with the recommendations listed below, also see [Avoid getting charged for free account](../manage/avoid-charges-free-account.md).
 
 If you need to cancel your Azure subscription, see [Cancel your Azure subscription](../manage/cancel-azure-subscription.md).
 
@@ -30,7 +30,7 @@ Use one of the following tools to estimate the cost of using an Azure service:
 - Azure price sheet
 - Azure portal
 
-The examples in the following sections use pricing in US Dollars and all the mentioned prices are for example purposes only. They are not intended to imply actual costs.
+The examples in the following sections use pricing in US Dollars and all mentioned prices are for example purposes only. They are not intended to imply actual costs.
 
 ### Estimate cost online using the pricing calculator
 
@@ -62,7 +62,7 @@ You can view and monitor costs with the following capabilities:
 Create [budgets](../costs/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../costs/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you and your stakeholders of spending anomalies and overspending. You can create a budget as early as when you create a subscription, to ensure you stay on top of your cost from the very start.
 
 ### Group and allocate costs using tag inheritance
-Azure [tags] (https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources) are a great way to supplement the Azure hierarchy to identify the ownership of your resources, which helps in monitoring and optimizing your costs.  To ensure that all your cost records are tagged, you can also enable [‘tag inheritance’](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance) in Cost management.  
+Azure [tags] (https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources) are a great way to supplement the Azure hierarchy to identify the ownership of your resources, which helps in monitoring and optimizing your costs.  To ensure that all your cost records are tagged, you can also enable [tag inheritance](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance) in Cost management.  
 
 ### <a name="costs"></a> Explore and analyze costs with cost analysis
 
@@ -76,7 +76,7 @@ Select **Cost analysis** from the menu on the left side of the screen to access 
 
 You can group your costs by various dimensions, such as service family, tags, subscription and resource group. Select Group by to view your charges by any of the available properties.
 
-You can filter the charges by various properties such as tags, resource type, and time span. Select **Add filter** to add the filter for a property and select the values to filter. Select **Download** to export the view to a comma-separated values (.csv) file.
+You can filter the charges by various properties, such as tags, resource type, and time span. Select **Add filter** to add the filter for a property and select the values to filter. Select **Download** to export the view to a comma-separated values (.csv) file.
 
 For example, in the screenshot below, charges are filtered to virtual machines only.
 
@@ -90,13 +90,13 @@ In the Azure portal, you can also optimize and reduce Azure costs with auto shut
 
 ### Consider cost-cutting features like auto shutdown for VMs
 
-Depending on your scenario, you can configure auto shutdown for your VMs in the Azure portal. For more information, see [Auto shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
+Depending on your scenario, you can configure auto-shutdown for your VMs in the Azure portal. For more information, see [Auto shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
 :::image type="content" border="true" source="./media/plan-manage-costs/auto-shutdown.png" alt-text="Screenshot of the auto shutdown option in the Azure portal.":::
 
-Auto shutdown isn't the same as when you shut down within the VM with power options. Auto shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
+Auto-shutdown isn't the same as shutting down within the VM using power options. Auto-shutdown stops and deallocates your VMs to prevent additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
-For more cost-cutting features for your development and test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
+For more cost-cutting features for your development and test environments, see [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
 ### Turn on and review Azure Advisor recommendations
 
@@ -118,19 +118,19 @@ To prevent unwanted charges on a subscription, you can go to the **Resources** m
 
 :::image type="content" source="./media/plan-manage-costs/delete-resources.png" alt-text="Screenshot showing delete resources." lightbox="./media/plan-manage-costs/delete-resources.png" :::
 
-If you have a support plan, you might continue to get charged for it. To delete a support plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
+If you have a support plan, you might continue to be charged for it. To delete a support plan, navigate to **Cost Management + Billing** and select **Recurring charges**. Select the support plan and turn off autorenewal.
 
 :::image type="content" source="./media/plan-manage-costs/change-renewal-settings.png" alt-text="Screenshot showing Change renewal settings." lightbox="./media/plan-manage-costs/change-renewal-settings.png" :::
 
 
 ## Integrate with billing and Cost Management APIs
 
-Use the Azure [billing](/rest/api/billing/) and [Cost Management automation APIs](../automate/automation-overview.md) to programmatically get billing and cost data. Use the RateCard API and the Usage API together to get your billed usage.
+Use the Azure [billing](/rest/api/billing/) and [Cost Management automation APIs](../automate/automation-overview.md) to programmatically retrieve billing and cost data. Use the RateCard API and the Usage API together to get your billed usage.
 
 ## <a name="other-offers"></a> Additional resources and special cases
 
 ### CSP and Sponsorship customers
-Talk to your account manager or Azure partner to get started.
+Contact your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
