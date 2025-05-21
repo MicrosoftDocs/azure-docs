@@ -104,7 +104,7 @@ items:
         href: how-to-create-dev-boxes-developer-portal.md#configure-multiple-monitors
       - name: Connect to a dev box with a dev tunnel
         href: how-to-set-up-dev-tunnels.md
-  - name: AI on Dev box
+  - name: AI on Dev Box
     items: 
       - name: Configure Serverless GPU
         href: how-to-configure-dev-box-serverless-gpu.md

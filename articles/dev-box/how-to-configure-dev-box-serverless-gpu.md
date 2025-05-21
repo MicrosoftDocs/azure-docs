@@ -44,8 +44,6 @@ Administrators control serverless GPU access at the project level through Dev Ce
 
 Access to serverless GPU resources is managed through project-level properties. When the serverless GPU feature is enabled for a project, all Dev Boxes in that project can use GPU compute. This simple access model removes the need for custom roles or pool-based configurations.
 
-- **NVIDIA T4 GPUs** are supported.
-
 ### Register Serverless GPU for the subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
