@@ -16,7 +16,7 @@ VMware vSAN has many capabilities that are included with every Azure VMware Solu
 
 Azure VMware Solution defaults with the following configurations per cluster:
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **TRIM/UNMAP** | Disabled |
    | **Space efficiency** | Deduplication and compression |
@@ -27,10 +27,10 @@ Azure VMware Solution defaults with the following configurations per cluster:
 In this article, learn how to:
 
 > [!div class="checklist"]
-> * Enable or disable vSAN TRIM/UNMAP
-> * Enable vSAN compression only
-> * Disable vSAN deduplication and compression
-> * Enable or disable vSAN data-in-transit encryption
+> * Enable or disable vSAN TRIM/UNMAP.
+> * Enable vSAN compression only.
+> * Disable vSAN deduplication and compression.
+> * Enable or disable vSAN data-in-transit encryption.
 
 ## Set VMware vSAN TRIM/UNMAP
 
@@ -45,7 +45,7 @@ To enable or disable the TRIM/UNMAP command, run the `Set-AVSVSANClusterUNMAPTRI
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **Name**  | The cluster name as defined in vCenter Server. Comma delimit to target only certain clusters. (Blank targets all clusters.) |
    | **Enable**  | `true` or `false`. |
@@ -59,9 +59,9 @@ After vSAN TRIM/UNMAP is enabled, you must meet certain prerequisites in order f
 
 - Virtual machine hardware version 11 or later for Windows.
 - Virtual machine hardware version 13 or later for Linux.
-- The `disk.scsiUnmapAllowed` flag isn't set to `false`. The default is implied `true`. This setting can be used as a *stop switch* at the virtual machine level. You can use this setting if you want to disable this behavior on a per-VM basis and don't want to use in-guest configuration to disable this behavior. VMX file changes require a reboot to take effect.
+- The `disk.scsiUnmapAllowed` flag isn't set to `false`. The default is implied `true`. This setting can be used as a *stop switch* at the virtual machine level. You can use this setting if you want to disable this behavior on a per-VM basis and don't want to use in-guest configuration to disable this behavior. VMX file changes require a restart to take effect.
 - The guest operating system must be able to identify the virtual disk as *thin*.
-- After you enable a VM at a cluster level, it must be powered off, and then powered back on (a reboot is insufficient).
+- After you enable a VM at a cluster level, it must be turned off, and then turned back on. (A restart is insufficient.)
 
 For more information about how to reclaim space for Windows and Linux systems for TRIM/UNMAP to execute, see the following VMware articles:
 - [How to reclaim disk space](https://knowledge.broadcom.com/external/article/340005/reclaiming-disk-space-from-thin-provisio.html)
@@ -81,7 +81,7 @@ To set your preferred space efficiency model, run the `Set-vSANCompressDedupe` c
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **Compression**  | `true` or `false`. |
    | **Deduplication**  | `true` or `false`. (When you enable deduplication, you enable both deduplication and compression.) |
@@ -100,7 +100,6 @@ Learn more about the `Set-vSANCompressDedupe` cmdlet:
 
 ## Set VMware vSAN data-in-transit encryption
 
-
 Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a software-defined data center (SDDC).
 
    > [!NOTE]
@@ -112,7 +111,7 @@ Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-tr
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **ClusterName**  | Name of the cluster. Leave blank if you're required to enable for the whole SDDC. Otherwise, enter a comma-separated list of names. |
    | **Enable**  |  Specify `true` or `false` to enable or disable the feature.
