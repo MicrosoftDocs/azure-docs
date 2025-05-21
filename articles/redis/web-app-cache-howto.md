@@ -10,6 +10,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 zone_pivot_groups: redis-type
+appliesto:
+  - ✅ Azure Cache for Redis
 # Customer intent: As an ASP.NET developer, new to Azure Redis, I want to create a new Node.js app that uses Azure Managed Redis or Azure Cache for Redis.
 ---
 
