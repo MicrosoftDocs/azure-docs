@@ -26,7 +26,7 @@ When you onboard your subscription to firmware analysis, you'll be asked to crea
 
 Navigate to your resource group. Notice that all **workspace** resources have the **Firmware analysis workspace** type.
 
-:::image type="content" source="media/firmware-analysis-rbac/workspaces-in-rg.png" alt-text="Screenshot of the workspaces inside a resource group." lightbox="media/firmware-analysis-rbac/workspaces-in-rg.png":::
+:::image type="content" source="media/firmware-analysis-rbac/workspaces-in-rg.png" alt-text="Screenshot of the workspaces inside a resource group." lightbox="media/firmware-analysis-rbac/workspaces-in-resource-group.png":::
   
 As mentioned earlier, the **workspace** resource directly holds your firmware images, so you may regularly interact with your **workspaces** depending on how you organize your images. Each firmware image that you upload will be represented as a resource and stored here.
 
