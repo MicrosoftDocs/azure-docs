@@ -113,7 +113,8 @@ In this section, you add a private endpoint to an existing Azure Managed Redis i
 
 1. Select the **Next: Resource** at the bottom of the pane.
 
-1. In the **Resource** pane, select your **Subscription**. 
+1. In the **Resource** pane, select your **Subscription**.
+
     1. Then, choose the **Resource type** as `Microsoft.Cache/redisEnterprise`.
     1. Then select the cache you want to connect the private endpoint to for the **Resource** property.
 
@@ -121,7 +122,7 @@ In this section, you add a private endpoint to an existing Azure Managed Redis i
 
 1. In the **Virtual Network** pane, select the **Virtual Network** and **Subnet** you created in the [previous section](#create-a-virtual-network-with-a-subnet).
 
-<!-- We don't talk about DNS zones -->
+    <!-- We don't talk about DNS zones -->
 
 1. Select the **Next: Tags** button at the bottom of the pane.
 
