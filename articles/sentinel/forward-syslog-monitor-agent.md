@@ -50,6 +50,8 @@ To complete the steps in this tutorial, you must have the following resources an
 
 [!INCLUDE [configure-syslog-ama](~/reusable-content/ce-skilling/azure/includes/azure-monitor/agents/configure-syslog-ama.md)]
 
+For the full procedure of configuring Syslog data collection, see [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
+
 ## Verify that Azure Monitor Agent is running
 
 In Microsoft Sentinel or Azure Monitor, verify that Azure Monitor Agent is running on your VM.
