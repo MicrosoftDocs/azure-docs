@@ -28,7 +28,6 @@ The ServiceNow Configuration Management Database (CMDB) is enriched, and supplem
 > [!NOTE]
 > Microsoft Defender for IoT was formally known as [CyberX](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments/). References to CyberX refer to Defender for IoT.
 >
->Defender for IoT plans to retire the ServiceNow integration on December 1, 2025
 
 In this article, you learn how to:
 

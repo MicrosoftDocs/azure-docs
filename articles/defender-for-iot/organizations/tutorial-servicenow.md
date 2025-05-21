@@ -11,10 +11,6 @@ The Defender for IoT integration with ServiceNow provides an extra level of cent
 
 The [Operational Technology Manager](https://store.servicenow.com/sn_appstore_store.do#!/store/application/31eed0f72337201039e2cb0a56bf65ef/1.1.2?referer=%2Fstore%2Fsearch%3Flistingtype%3Dallintegrations%25253Bancillary_app%25253Bcertified_apps%25253Bcontent%25253Bindustry_solution%25253Boem%25253Butility%25253Btemplate%26q%3Doperational%2520technology%2520manager&sl=sh) integration is available from the ServiceNow store, which streamlines Microsoft Defender for IoT sensor appliances, OT assets, network connections, and vulnerabilities to ServiceNow’s Operational Technology (OT) data model.
 
->[!Note]
->
->Defender for IoT plans to retire the ServiceNow integration on December 1, 2025
-
 ## ServiceNow integrations with Microsoft Defender for IoT
 
 Once you have the Operational Technology Manager application, two integrations are available:
