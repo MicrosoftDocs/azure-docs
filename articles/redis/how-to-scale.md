@@ -10,6 +10,8 @@ ms.custom:
   - ignite-2024
   - build-2025
 ms.devlang: csharp
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Scale (preview) an Azure Managed Redis instance

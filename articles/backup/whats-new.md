@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/16/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -139,7 +139,7 @@ Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across a
  
 You can  also use Azure [Business Continuity Center](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview) to manage the vaulted backup operations.
 
-For more information, see [Azure Backup for PostgreSQL Flexible Server overview](https://learn.microsoft.com/azure/backup/backup-azure-database-postgresql-flex-overview). 
+For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md). 
 
 ## Back up SAP ASE (Sybase) database is now generally available
 
