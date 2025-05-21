@@ -48,8 +48,8 @@ Managing IP addresses across multiple Azure tenants can be complex, especially i
 
 1. Select **Apply** and then select **Authenticate**.
 
-> [!NOTE]
-> The authentication process requires you to sign in with a user or service principal that has the *Network Contributor* role in Tenant B at the subscription or resource level.
+    > [!NOTE]
+    > The authentication process requires you to sign in with a user or service principal that has the *Network Contributor* role in Tenant B at the subscription or resource level.
 
 1. After authentication, select the virtual network, you want to associate with the IP address pool and select **Associate**.
 
