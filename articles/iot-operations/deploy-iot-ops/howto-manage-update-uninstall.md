@@ -118,7 +118,7 @@ Currently, the Azure portal doesn't support cloning an Azure IoT Operations inst
 
 #### [Azure CLI](#tab/cli)
 
-Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one. You can apply the output of clone to another connected cluster (referred to as replication), and/or saved locally to use it later.
+Use the [`az iot ops clone`](/cli/azure/iot/ops#az-iot-ops-clone) command to create a new Azure IoT Operations instance based on an existing one. You can apply the output of clone to another connected cluster, which is referred to as replication. You can also save the clone to a local directory for later use and perform some configuration changes before applying it to a cluster. 
 
 To clone an instance to another cluster, run:
 
