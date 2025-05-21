@@ -31,5 +31,5 @@ MongoDB Atlas provides the following capabilities:
 
 ## Next step
 
-> [!div class"nextstepaction"]
+> [!div class="nextstepaction"]
 > [Create a resource](create.md)
