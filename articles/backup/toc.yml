@@ -1042,7 +1042,7 @@
   items:
   - name: Compliance
     href: compliance-offerings.md
-  - name: Azure Roadmap
+  - name: Azure updates
     href: https://azure.microsoft.com/updates/?searchterms=Azure+Backup
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-backup.html
