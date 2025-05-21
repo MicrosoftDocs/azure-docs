@@ -2,7 +2,7 @@
 title: Create a function in Go or Rust using Visual Studio Code - Azure Functions
 description: Learn how to create a Go function as an Azure Functions custom handler, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 06/03/2024
+ms.date: 05/20/2025
 ms.devlang: golang
 # ms.devlang: golang, rust
 ms.custom: mode-api, vscode-azure-extension-update-complete
@@ -291,18 +291,24 @@ In this section, you publish your project to Azure in a function app running Lin
 
 In this section, you create a function app and related resources in your Azure subscription. 
 
-1. Choose the Azure icon in the Activity bar. Then in the **Resources** area, select the **+** icon and choose the **Create Function App in Azure** option.
+1. In the command palette, enter **Azure Functions: Create function app in Azure...(Advanced)**.
 
-    ![Create a resource in your Azure subscription](../../includes/media/functions-publish-project-vscode/function-app-create-resource.png)
+1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
-1. Provide the following information at the prompts:
+1. Following the prompts, provide this information:
 
-    |Prompt|Selection|
-    |--|--|
-    |**Select subscription**| Choose the subscription to use. You won't see this when you have only one subscription visible under **Resources**. |
-    |**Enter a globally unique name for the function app**| Type a name that is valid in a URL path. The name you type is validated to make sure that it's unique in Azure Functions.|
-    |**Select a runtime stack**| Choose **Custom Handler**. |
-    |**Select a location for new resources**| For better performance, choose a [region](https://azure.microsoft.com/regions/) near you.|
+   | Prompt |  Selection |
+   | ------ |  --------- |
+   | Enter a globally unique name for the new function app. | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+   | Select a hosting plan. | Choose the **Premium** [hosting plan](functions-scale.md), which provides serverless hosting on Linux that scales dynamically as needed. |
+   | Select a location for new resources. | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Only regions that support your chosen hosting plan are displayed. |
+   | Select a runtime stack. | Select **Custom handler**. |
+   | Select an OS. | Select **Linux** since the app was compiled to run on Linux. |
+   | Select a Linux App Service plan | For Elastic Premium plans, you must explicitly **Create a new app service plan**, enter the plan name, and select the **EP1** pricing tier. |
+   | Select resource authentication type | Select **Managed identity**, which is the most secure option for connecting to the [default host storage account](storage-considerations.md#storage-account-guidance). When using managed identities with an Elastic Premium plan, secret key access to the default host storage remains enabled for Azure Files access. For more information, see [run without Azure Files](storage-considerations.md#create-an-app-without-azure-files). |
+   | Select a storage account. | Choose **Create new storage account**, and at the prompt, enter a globally unique name for the new storage account used by your function app. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. |
+   | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource**, and at the prompt, enter a name for the instance used to store runtime data from your functions. |
+   | Select a user assigned identity | Choose **Create a new user assigned identity**. This identity is used when accessing the default host storage account using Microsoft Entra ID authentication. | 
 
     The extension shows the status of individual resources as they are being created in Azure in the **Azure: Activity Log** panel.
 
