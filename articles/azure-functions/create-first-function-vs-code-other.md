@@ -17,7 +17,7 @@ In this article, you use Visual Studio Code to create a [custom handler](functio
 Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports both [Go](create-first-function-vs-code-other.md?tabs=go) and [Rust](create-first-function-vs-code-other.md?tabs=rust).
 
 >[!TIP]
->Completing this quickstart creates an app that runs in an [Elastic Premium plan](functions-premium-plan.md), which can incur costs in your Azure account even when you're not using it. You should [Clean up resources](##clean-up-resources) to remove the function app, App Service plan, and related resources after you've completed the article.   
+>Completing this quickstart creates an app that runs in an [Elastic Premium plan](functions-premium-plan.md), which can incur costs in your Azure account even when you're not using it. You should [Clean up resources](#clean-up-resources) to remove the function app, App Service plan, and related resources after you've completed the article.   
 
 ## Configure your environment
 
