@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Neon Serverless Postgres
-description: This article provides information about getting support and troubleshooting Neon Serverless Postgres (preview).
+description: This article provides information about getting support and troubleshooting Neon Serverless Postgres Preview.
 author: ProfessorKendrick
 ms.topic: overview
 ms.date: 04/23/2025
