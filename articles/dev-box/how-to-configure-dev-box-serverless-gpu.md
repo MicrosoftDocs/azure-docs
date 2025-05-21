@@ -8,7 +8,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ai-usage: ai-generated
 
-#customer intent: As a business decision-maker, I want to evaluate serverless GPU compute in Dev Box so that I can determine its value for my team’s workflows.
+#customer intent: As a business decision-maker, I want to evaluate serverless GPU compute in Dev Box so that I can determine its value for my team's workflows.
 ---
 
 # Use Serverless GPU compute in Microsoft Dev Box
@@ -26,15 +26,6 @@ Serverless GPU compute in Microsoft Dev Box provides on-demand access to GPU res
 
 This capability integrates Microsoft Dev Box with Azure Container Apps to deliver GPU power without requiring developers to manage infrastructure.
 
-## When to use serverless GPU compute
-
-Consider using serverless GPU compute in Dev Box for scenarios like:
-
-- **AI model development**: Train, fine-tune, and run inference with machine learning models
-- **Data processing**: Accelerate processing and transformation of large datasets
-- **High-performance computing (HPC)**: Run simulations, scientific computations, and other resource-intensive tasks
-- **Cloud-native development**: Scale GPU resources for containerized workflows in AI and beyond
-- **CLI-based workflows**: Leverage GPUs for any command-line task that benefits from intensive compute
 
 ## Key benefits
 
@@ -79,7 +70,7 @@ GPU resources are available in these Azure regions:
 
 Additional regions may be supported in the future based on demand.
 
-## Administration and management
+## Configure Serverless GPU
 
 Admins control serverless GPU access at the project level through Dev Center. Key management capabilities include:
 
@@ -88,24 +79,45 @@ Admins control serverless GPU access at the project level through Dev Center. Ke
 
 Access to serverless GPU resources is managed through project-level properties. When the serverless GPU feature is enabled for a project, all Dev Boxes within that project automatically gain access to GPU compute. This simplifies the access model by removing the need for custom roles or pool-based configurations.
 
-## Configure Serverless GPU
-
-To configure 
-
 ### Register for the subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your subscription. 
 1. Select **Settings** > **Preview features**.
 1. Select **Dev Box Serverless GPU Preview**, and then select **Register**.
+   :::image type="content" source="media/how-to-configure-dev-box-serverless-gpu/serverless-gpu-register-subscription.png" alt-text="Screenshot of the Azure subscription page, showing the Dev Box Serverless GPU Preview feature. ":::
 
-### Enable GPU for a project
+### Enable serverless GPU for a project
 
 1. Go to your project.
 1. Select **Settings** > **Dev box settings**.
 1. Under **AI workloads**, select **Enable**, and then select **Apply**.
+   :::image type="content" source="media/how-to-configure-dev-box-serverless-gpu/serverless-gpu-project-settings.png" alt-text="Screenshot of the dev box settings page, showing the Serverless GPU option Enabled.":::
 
+## Connect to a GPU
+Once enabled, Dev Box users in that project will automatically see GPU options in their terminal and VS Code environments.
 
+You can connect using two methods:
+
+### Method 1: Launch a Dev Box GPU shell
+1. Open the Windows Terminal on your dev box
+1. Run the following command: 
+   ```
+   devbox gpu shell
+   ```
+1. This command connects you to a pre-configured GPU container.
+
+### Method 2: Use VS Code with remote tunnels
+1. Open the Windows Terminal on your dev box
+1. Run the following command: 
+   ```
+   devbox gpu shell
+   ```
+1. Launch Visual Studio Code
+1. Install the Remote Tunnels extension
+1. Connect to the **gpu-session** tunnel.
+1. 
+For more information on using VS Code with remote tunnels, see [Set up Dev tunnels in VS Code](how-to-set-up-dev-tunnels.md).
 
 ## Related content
 
