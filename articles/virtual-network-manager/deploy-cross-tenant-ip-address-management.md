@@ -63,6 +63,8 @@ Managing IP addresses across multiple Azure tenants can be complex, especially i
 
 1. Select **Subnets** under **Settings** and verify the name listed under **IPAM pool** matches the name of the IPAM pool in the management tenant (Tenant A).
 
+    :::image type="content" source="media/deploy-cross-tenant-ip-address-management/managed-tenant-virtual-network-subnets-settings-thumb.png" alt-text="Screenshot of virtual network subnet settings to verify IPAM pool matches management tenant pool." lightbox="media/deploy-cross-tenant-ip-address-management/managed-tenant-virtual-network-subnets-settings.png":::
+
 ## Remove IPAM allocation
 
 To remove an IP allocation from a cross-tenant resource:
@@ -84,6 +86,7 @@ To remove an IP allocation from a cross-tenant resource:
 1. Once authenticated, select **Yes** to remove the IPAM allocation.
 
 1. Refresh the page to verify that the IPAM allocation is removed.
+
 
 ## Next steps
 

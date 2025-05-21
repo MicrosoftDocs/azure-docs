@@ -115,7 +115,7 @@
     - Name: Create IP address pools with IPAM
       href: how-to-manage-ip-addresses-network-manager.md
     - name: Deploy cross-tenant IP address pools
-      href: deploy-cross-tenant-ip-address-managment.md
+      href: deploy-cross-tenant-ip-address-management.md
 - name: Troubleshoot
   items:
     - name: Event Log Options for Azure Virtual Network Manager
