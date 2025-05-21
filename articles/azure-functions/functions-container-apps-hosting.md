@@ -19,7 +19,7 @@ For a general overview of container hosting options for Azure Functions, see [Li
 
 ## Hosting and workload profiles
 
-There are two primary hosting plans for Container Apps, a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated), which uses workload profiles to better control your deployment resources. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. 
+There are two primary plans for Container Apps: a serverless [Consumption plan](../container-apps/plans.md#consumption) and a [Dedicated plan](../container-apps/plans.md#dedicated). Both can be used in Workload profiles environment types, with workload profiles determining the compute and memory resources available to your apps. A workload profile determines the amount of compute and memory resources available to container apps deployed in an environment. These profiles are configured to fit the different needs of your applications. 
 
 The Consumption workload profile is the default profile added to every Workload profiles environment type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. To learn more about workload profiles, see [Workload profiles in Azure Container Apps](../container-apps/workload-profiles-overview.md).
 

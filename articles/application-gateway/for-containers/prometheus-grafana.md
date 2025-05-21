@@ -4,7 +4,7 @@ description: Configure Application Gateway for Containers metrics to be sent to 
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/21/2024
 ms.author: greglin
 ---

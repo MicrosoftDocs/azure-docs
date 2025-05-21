@@ -40,7 +40,7 @@ When you configure Flex Consumption plan apps as zone redundant, the platform au
 
 When zone redundancy is enabled in a Flex Consumption plan, instance spreading is determined inside the following rules:
 
-- [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances are distributed across zones in a round-robin fashion.
+- [Always-ready](../azure-functions/flex-consumption-plan.md#always-ready-instances) instances are distributed across at least two zones in a round-robin fashion.
 - On-demand instances, which are created as a result of event source volumes as the app scales beyond always-ready, are distributed across availability zones on a _best effort_ basis. This means that for on-demand instances, faster scale-out is given preference over even distribution across availability zones. The platform attempts to even-out distribution over time.
 - To ensure zone resiliency with availability zones, the platform automatically maintains at least two always-ready instances for each [per-function scaling function or group](../azure-functions/flex-consumption-plan.md#per-function-scaling), regardless of the always-ready configuration for the app. Any instances created by the platform are platform-managed, billed as always-ready instances, and don't change the always-ready configuration settings.
 ::: zone-end 

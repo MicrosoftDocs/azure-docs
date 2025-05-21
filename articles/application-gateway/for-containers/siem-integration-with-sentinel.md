@@ -4,7 +4,7 @@ description: Configure Application Gateway for Containers for SIEM integration w
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-appgw-for-containers
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/11/2024
 ms.author: greglin
 ---

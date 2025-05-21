@@ -4,7 +4,7 @@ description: This article is an overview of the resource health feature for Azur
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: overview
 ms.date: 7/9/2019
 ms.author: greglin
 ---
