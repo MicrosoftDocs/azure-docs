@@ -5,7 +5,7 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: reference
-ms.date: 03/10/2025
+ms.date: 05/20/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 ms.custom: fasttrack-edit
@@ -35,18 +35,6 @@ Also, if you choose to provide higher levels of assurance by using multifactor a
 
 > [!IMPORTANT]
 > This article does not contain pricing details. For the latest information about usage billing and pricing, see [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/). See also [Azure AD B2C region availability and data residency](data-residency.md) for details about where the Azure AD B2C service is available and where user data is stored.
-
-## What do I need to do?
-
-To take advantage of MAU billing, your Azure AD B2C tenant must be linked to an Azure subscription. You might also need to switch your Azure AD B2C tenant to another pricing tier if you want to use Azure AD B2C Premium P2 features, like risk-based Conditional Access policies.
-
-|If your tenant is:  |You need to:  |
-|---------|---------|
-| An Azure AD B2C tenant already billed on a per-MAU basis     | Do nothing. When users authenticate to your Azure AD B2C tenant, you'll be automatically billed using the MAU-based billing model.        |
-| An Azure AD B2C tenant not yet linked to a subscription     |  [Link your Azure AD B2C tenant to a subscription](#link-an-azure-ad-b2c-tenant-to-a-subscription) to activate MAU billing.     |
-| An Azure AD B2C tenant that was linked to a subscription before November 1, 2019    | [Switch to MAU billing (recommended)](#switch-to-mau-billing-pre-november-2019-azure-ad-b2c-tenants), or stay on the per-authentication billing model.     |
-| An Azure AD B2C tenant and you want to use premium features  (like risk-based Conditional Access policies)    | [Change to a Microsoft Entra pricing tier](#change-your-azure-ad-pricing-tier) that supports the features you want to use.        |
-|  |  |
 
 ## About the monthly active users (MAU) billing model
 

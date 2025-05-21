@@ -1,16 +1,16 @@
 ---
 title: Use Azure Cache for Redis with Go
 description: In this quickstart, you learn how to create a Go app that uses Azure Cache for Redis.
-
-
-
-ms.devlang: golang
+ms.date: 05/18/2025
 ms.topic: quickstart
-ms.date: 09/09/2021
-ms.custom: mode-api, devx-track-go, ignite-2024
+ms.custom:
+  - mode-api
+  - devx-track-go
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
-
+ms.devlang: golang
 ---
 
 # Quickstart: Use Azure Cache for Redis with Go

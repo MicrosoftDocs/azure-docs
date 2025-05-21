@@ -32,7 +32,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Central India  | ✅ | ✅ | |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
-| East US 2 | ✅ | ✅ | ✅ | ✅ |
+| East US 2 | ✅ | ✅ |  | ✅ |
 | France Central  | ✅ | ✅ | | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Japan East | ✅ | ✅ | | ✅ |
