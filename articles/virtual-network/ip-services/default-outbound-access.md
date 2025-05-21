@@ -172,7 +172,7 @@ az network vnet subnet update --resource-group rgname --name subnetname --vnet-n
 * Associate a Standard public IP to any of the virtual machine's network interfaces (if there are multiple network interfaces, having a single NIC with a standard public IP prevents default outbound access for the virtual machine).
 
 >[!NOTE]
-> There is a NIC-level parameter (defaultOutboundEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a reboot is required for changes to be reflected and the action to clear. 
+> There is a NIC-level parameter (defaultOutboundEnabled) which tracks if default outbound access is being utilized.  When an explicit outbound connectivity method is added to a virtual machine, in order for the parameter to be updated, the virtual machine must be rebooted. The Advisor "Add explicit outbound method to disable default outbound" operates by checking for this parameter- so a stop/deallocate of the virtual machine is required for changes to be reflected and the action to clear. 
  
 ### Use Flexible orchestration mode for Virtual Machine Scale Sets
  
