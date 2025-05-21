@@ -19,7 +19,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 ## Updates summary
 
 - May 2025
-  - [Vaulted Backups by Azure Backup for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-by-azure-backup-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
+  - [Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
   - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
 
 - April 2025
@@ -111,7 +111,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 - February 2021
   - [Backup for Azure Blobs (in preview)](#backup-for-azure-blobs-in-preview)
 
-## Vaulted Backups by Azure Backup for Azure Database for PostgreSQL – flexible server is now generally available
+## Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available
 
 Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across all Azure regions, offering a robust and scalable backup solution designed to meet the resiliency and compliance needs of enterprises.
 
@@ -123,7 +123,7 @@ Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across a
  
 You can  also use Azure [Business Continuity Center](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview) to manage the vaulted backup operations.
 
-For more information, see [Azure Backup for PostgreSQL Flexible Server overview](https://learn.microsoft.com/azure/backup/backup-azure-database-postgresql-flex-overview). 
+For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md). 
 
 ## Back up SAP ASE (Sybase) database is now generally available
 

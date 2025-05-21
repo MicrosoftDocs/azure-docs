@@ -124,7 +124,7 @@ landingContent:
             url: howto-network-access-control.md
           - text: Custom domain
             url: howto-custom-domain.md
-          - text: Managed identites
+          - text: Managed identities
             url: howto-use-managed-identity.md
           - text: Availability Zones
             url: availability-zones.md

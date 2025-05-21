@@ -700,7 +700,7 @@
         "articles/site-recovery/**/*": "https://learn.microsoft.com/answers/tags/227/azure-site-recovery/",
         "articles/site-reliability-engineering/NO-QA-TAG-USE-GLOBAL/": "",
         "articles/spring-apps/**/*": "https://learn.microsoft.com/answers/tags/424/azure-spring-apps/",
-        "articles/sql-server-stretch-database/**/*": "hhttps://learn.microsoft.com/answers/tags/191/sql-server",
+        "articles/sql-server-stretch-database/**/*": "https://learn.microsoft.com/answers/tags/191/sql-server",
         "articles/static-web-apps/**/*": "https://learn.microsoft.com/answers/tags/448/static-web-apps/",
         "articles/storage-actions/**/*": "https://learn.microsoft.com/answers/tags/125/azure-blob-storage",
         "articles/storage-mover/**/*": "https://learn.microsoft.com/answers/tags/98/azure-storage-accounts",

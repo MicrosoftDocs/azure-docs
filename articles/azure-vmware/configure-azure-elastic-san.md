@@ -42,6 +42,8 @@ To use Elastic SAN with Azure VMware Solution, you can use any of these host typ
 
 - AV64
 
+- AV48
+
 ## Set up Elastic SAN
 
 In this section, you create a virtual network for your Elastic SAN. Then you create the Elastic SAN that includes creating at least one volume group and one volume that becomes your VMFS datastore. Next, you set up private endpoints for your Elastic SAN that allows your private cloud to connect to the Elastic SAN volume. Then you're ready to add an Elastic SAN volume as a datastore in your private cloud.

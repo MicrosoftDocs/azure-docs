@@ -35,19 +35,19 @@ When you deploy VPN Gateway with IPv6 in dual stack mode, you can use the same s
 
    :::image type="content" source="./media/ipv6-configuration/gateway-subnet-ipv6.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/gateway-subnet-ipv6.png":::
 
-1. Create the virtual network gateway and local network gateway using IPv6 configurations.
+1. Create the virtual network gateway and local network gateway using IPv4 and IPv6 configuration settings.
 
    **Virtual network gateway**
 
-   :::image type="content" source="./media/ipv6-configuration/vng-vpn-config.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/vng-vpn-config.png":::
+   :::image type="content" source="./media/ipv6-configuration/vng-vpn-config.png" alt-text="Diagram shows IPv6 configuration for Virtual network gateway." lightbox="./media/ipv6-configuration/vng-vpn-config.png":::
 
    **Local network gateway**
 
-   :::image type="content" source="./media/ipv6-configuration/lng-vpn-ipv6-config.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/lng-vpn-ipv6-config.png":::
+   :::image type="content" source="./media/ipv6-configuration/lng-vpn-ipv6-config.png" alt-text="Diagram shows IPv6 configuration for Local network gateway." lightbox="./media/ipv6-configuration/lng-vpn-ipv6-config.png":::
 
     **Address pool**
 
-   :::image type="content" source="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png" alt-text="Diagram shows IPv6 configuration for Virtual Network." lightbox="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png":::
+   :::image type="content" source="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png" alt-text="Diagram shows Point-to-site IPv6 configuration for Virtual Network Gateway." lightbox="./media/ipv6-configuration/vng-vpn-p2s-ipv6-config.png":::
 
 ## Limitations
 
@@ -56,7 +56,8 @@ The following limitations apply to IPv6 in dual stack configuration for VPN Gate
 * IPv6 support is available for new gateway deployments using VpnGw1-5 and VpnGw1AZ-5AZ SKUs.
 * A VPN gateway deployed in IPv6 dual stack mode can't be moved to an IPv4 only configuration.
 * IPv6 can be used with IPv4 in dual stack mode to set up VPN Gateway connectivity.
-* Point-to-Site VPN gateways using IKEv2 and OpenVPN protocols support IPv6. Point-to-Site VPN gateways don't support IPv6 when using IKEv1 and SSTP protocols.
+* Point-to-Site VPN gateways using IKEv2 and OpenVPN protocols support IPv6. Point-to-Site VPN gateways don't support IPv6 when using SSTP protocol.
+* Site-to-Site VPN gateways don't support IPv6 when using IKEv1 protocol.
 * Currently IPv6 for VPN in Virtual WAN isn't supported.
 * Currently User Defined Routes (UDR) with IPv6 using a virtual network gateway VPN as the next hop aren't supported.
 * IPv6 support is available for inner traffic only. Currently, support for IPv6 in the outer VPN tunnel isn't available.

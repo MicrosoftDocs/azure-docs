@@ -54,22 +54,6 @@ For each device where you need to edit device properties:
 
 1. Select **Save** to save your changes.
 
-## Merge duplicate devices
-
-As you review the devices detected on your device inventory, note whether multiple entries were detected for the same device on your network.
-
-For example, this might occur when you have a PLC with four network cards, a laptop with both WiFi and a physical network card, or a single workstation with multiple network cards.
-
-Devices with the same IP and MAC addresses are automatically merged, and identified as the same device. We recommend merging any duplicate devices so that each entry in the device inventory represents only one unique device in your network.
-
-> [!IMPORTANT]
-> Device merges are irreversible. If you merge devices incorrectly, you'll have to delete the merged device and wait for the sensor to rediscover both devices.
->
-
-To merge multiple devices, select two or more authorized devices in the device inventory and then select **Merge**.
-
-The devices and all their properties are merged in the device inventory. For example, if you merge two devices with different IP addresses, each IP address appears as separate interfaces in the new device.
-
 ## Enhance device data (optional)
 
 You might want to increase device visibility and enhance device data with more details than the default data detected.

@@ -163,7 +163,7 @@ After providing your application's Health check path, you can monitor the health
 
 ## Limitations
 
-- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites can't scale out, unhealthy instances won't be replaced. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
+- Health check can be enabled for **Free** and **Shared** App Service plans, so you can have metrics on the site's health and set up alerts. However, because **Free** and **Shared** sites don't support scale out, unhealthy instances won't be replaced automatically. You should scale up to the **Basic** tier or higher so you can scale out to two or more instances and get the full benefit of Health check. This is recommended for production-facing applications as it increases your app's availability and performance.
 - An App Service plan can have a maximum of one unhealthy instance replaced per hour and, at most, three instances per day.
 - There's a nonconfigurable limit on the total number of instances replaced by Health check per scale unit. If this limit is reached, no unhealthy instances are replaced. This value gets reset every 12 hours.
 

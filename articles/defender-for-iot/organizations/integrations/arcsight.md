@@ -9,6 +9,10 @@ ms.date: 08/02/2022
 
 This article describes how to send Microsoft Defender for IoT alerts to ArcSight. Integrating Defender for IoT with ArcSight provides visibility into the security and resiliency of OT networks and a unified approach to IT and OT security.
 
+>[!Note]
+>
+>Defender for IoT plans to retire the ArcSight integration on December 1, 2025
+
 ## Prerequisites
 
 Before you begin, make sure that you have the following prerequisites:

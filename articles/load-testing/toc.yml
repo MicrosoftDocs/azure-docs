@@ -83,6 +83,8 @@ items:
           href: how-to-compare-multiple-test-runs.md
         - name: Configure server-side monitoring
           href: how-to-monitor-server-side-metrics.md
+        - name: Analyze test results using AI 
+          href: how-to-analyze-test-results-using-actionable-insights.md
         - name: Diagnose failing load tests
           href: how-to-diagnose-failing-load-test.md
         - name: Export test results

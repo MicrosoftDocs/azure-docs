@@ -13,7 +13,7 @@ ms.service: azure-digital-twins
 
 *Azure Digital Twins* is a platform as a service (PaaS) offering that enables the creation of twin graphs based on digital models of entire environments, which could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.
 
-Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud solution, and which connects to [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) device twins to send and receive live data.
+Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud-based solution, and which connects to [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) device twins to send and receive live data.
 
 > [!NOTE]
 > Azure Digital Twins is different from [digital twin builder (preview) in Fabric](/fabric/real-time-intelligence/digital-twin-builder/overview) and the [device twins used by IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
