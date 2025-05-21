@@ -34,7 +34,7 @@ The examples in the following sections use pricing in US Dollars and all mention
 
 ### Estimate cost online using the pricing calculator
 
-The Azure pricing calculator helps you turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage. Whether you're a small business owner or an enterprise-level organization, the web-based tool helps you make informed decisions about your cloud spending. When you log in, the calculator also provides a cost estimate for your Azure consumption with your negotiated or discounted prices. To learn more, [visit our article explaining how to use the Azure pricing calculator](https://learn.microsoft.com/azure/cost-management-billing/costs/pricing-calculator).
+The Azure pricing calculator helps you turn anticipated usage into an estimated cost, which makes it easier to plan and budget for your Azure usage. Whether you're a small business owner or an enterprise-level organization, the web-based tool helps you make informed decisions about your cloud spending. When you log in, the calculator also provides a cost estimate for your Azure consumption with your negotiated or discounted prices. To learn more, [visit our article explaining how to use the Azure pricing calculator](../costs/pricing-calculator.md).
 
 ### Review prices
 
@@ -62,7 +62,7 @@ You can view and monitor costs with the following capabilities:
 Create [budgets](../costs/tutorial-acm-create-budgets.md) to manage costs and create [alerts](../costs/cost-mgt-alerts-monitor-usage-spending.md) that automatically notify you and your stakeholders of spending anomalies and overspending. You can create a budget as early as when you create a subscription, to ensure you stay on top of your cost from the very start.
 
 ### Group and allocate costs using tag inheritance
-Azure [tags] (https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources) are a great way to supplement the Azure hierarchy to identify the ownership of your resources, which helps in monitoring and optimizing your costs.  To ensure that all your cost records are tagged, you can also enable [tag inheritance](https://learn.microsoft.com/en-us/azure/cost-management-billing/costs/enable-tag-inheritance) in Cost management.  
+Azure [tags] (../../azure-resource-manager/management/tag-resources.md) are a great way to supplement the Azure hierarchy to identify the ownership of your resources, which helps in monitoring and optimizing your costs.  To ensure that all your cost records are tagged, you can also enable [tag inheritance](../costs/enable-tag-inheritance.md) in Cost management.  
 
 ### <a name="costs"></a> Explore and analyze costs with cost analysis
 
