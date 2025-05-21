@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 05/15/2024
 ms.author: danlep
 ---
 
@@ -96,7 +96,7 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
 
-| Endpoint | Description | Notes |
+| Endpoint | Required? | Notes |
 |:------------|:---------------------|:------|
 | Hostname of the configuration endpoint | `<apim-service-name>.configuration.azure-api.net`<sup>1</sup> | Custom hostnames are also supported and can be used instead of the default hostname. |
 | Public IP address of the API Management instance | ✔️ | IP address of primary location is sufficient. |
