@@ -1,5 +1,5 @@
 ---
-title: Analyse test results using actionable insights
+title: Analyze test results using actionable insights
 titleSuffix: Azure Load Testing
 description: Learn how to analyze test results using AI powered actionable insights 
 services: load-testing
@@ -31,18 +31,18 @@ To view actionable insights for a completed test:
 
 2. Select **Tests**, and choose the relevant test run.
 
-2. Azure Load Testing generates actionable insights on demand. If you're visiting the test run dashboard for the first time, expand the **AI summary and insights** section, and select **Generate insights**.
+3. Azure Load Testing generates actionable insights on demand. If you're visiting the test run dashboard for the first time, expand the **AI summary and insights** section, and select **Generate insights**.
 
     :::image type="content" source="media/how-to-analyze-test-results-using-actionable-insights/generate-insight.png" alt-text="Screenshot that shows the 'Generate insights' action for a test run." lightbox="media/how-to-analyze-test-results-using-actionable-insights/generate-insight.png":::
 
 > [!TIP]
 > For the best insights, configure server-side metrics. The AI engine correlates client-side and server-side data to generate more accurate diagnostics and recommendations.
 
-3. The service generates insights and displays a summary and key insights in the same section. To explore further, select **View detailed insights**.
+4. The service generates insights and displays a summary and key insights in the same section. To explore further, select **View detailed insights**.
 
     :::image type="content" source="media/how-to-analyze-test-results-using-actionable-insights/view-detailed-insights.png" alt-text="Screenshot that shows 'View detailed insights' section." lightbox="media/how-to-analyze-test-results-using-actionable-insights/view-detailed-insights.png":::
 
-4. In the detailed insights view, you can explore what went wrong during the test, supporting evidence, and recommended next steps.
+5. In the detailed insights view, you can explore what went wrong during the test, supporting evidence, and recommended next steps.
 
 
 > [!CAUTION]
