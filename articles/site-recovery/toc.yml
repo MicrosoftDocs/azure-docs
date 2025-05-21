@@ -643,7 +643,7 @@
 - name: Resources
   items:
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/?searchterms=Azure+Site+Recovery
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Microsoft Q&A question page
