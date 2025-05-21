@@ -148,12 +148,12 @@ With GRS or GZRS, the file shares won't be accessible in the secondary region un
 The following items might impact your ability to fail over to the secondary region:
 
 - Storage account failover is blocked if a system snapshot doesn't exist in the secondary region.
-- Storage account failover is blocked if the storage account contains more than 100,000 file shares. To failover the storage account, open a support request.
+- Storage account failover is blocked if the storage account contains more than 100,000 file shares. To fail over the storage account, open a support request.
 - File handles and leases aren't retained on failover, and clients must unmount and remount the file shares.
 - File share quota might change after failover. The file share quota in the secondary region will be based on the quota that was configured when the system snapshot was taken in the primary region.
 - Copy operations in progress are aborted when a failover occurs. When the failover to the secondary region completes, retry the copy operation.
 
-To failover a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
+To fail over a storage account, see [initiate an account failover](../common/storage-initiate-account-failover.md).
 
 ### Geo-redundancy for SSD file shares
 
