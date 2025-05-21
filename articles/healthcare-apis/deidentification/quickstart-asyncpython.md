@@ -23,11 +23,11 @@ When you choose to store documents in Azure Blob Storage, you're charged based o
 
 In this tutorial, you:
 
-> [!div class="checklist"]
-> * Create a storage account and container
-> * Upload a sample document
-> * Grant the de-identification service access
-> * Configure network isolation
+
+ * Create a storage account and container
+ * Upload a sample document
+ * Grant the de-identification service access
+ * Configure network isolation
 
 ## Prerequisites
 
@@ -144,7 +144,6 @@ async def deidentify_documents_async():
     )
 
     async with client:
-        print("hi chao")
         lro: AsyncLROPoller = await client.begin_deidentify_documents(jobname, job)
         finished_job: DeidentificationJob = await lro.result()
 
