@@ -3,7 +3,7 @@ title: What is Enterprise Insights?
 description: "Overview of Enterprise Insights for SAP data integration and analytics in Microsoft Fabric."
 author: ritikesh-vali
 ms.author: ritikeshvali
-ms.service: enterprise-insights
+ms.service: sap-on-azure
 ms.topic: overview
 ms.date: 05/16/2025
 
@@ -24,11 +24,11 @@ SAP ERP and SAP S/4HANA are pivotal in controlling core processes across enterpr
 
 With Enterprise Insights, businesses can streamline analytics workflows, accelerate time-to-insight, and maintain a strategic edge by making decisions grounded in comprehensive, context-rich insights. The solution empowers organizations to break down data silos, regain unified visibility, and drive innovation through advanced analytics on SAP data.
 
-![Enterprise Insights Introduction Diagram](ei-introduction.png)
+![Diagram of Enterprise Insights Introduction](../enterprise-insights/media/enterprise-insights-introduction.png)
 
 ## Solution Overview
 
-![Solution Overview Diagram](ei-solution-overview.png)
+![Diagram of the solution overview](../enterprise-insights/media/enterprise-insights-solution-overview.png)
 
 Enterprise Insights provides a robust foundation for SAP data analysis through Microsoft Fabric. The solution encompasses all the tools and processes needed for extracting and transforming data, preparing it for in-depth analysis and reporting. It also includes a thorough examination of essential SAP data sources to ensure comprehensive coverage and insight.
 
