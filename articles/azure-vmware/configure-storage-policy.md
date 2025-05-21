@@ -33,9 +33,9 @@ In this article learn how to:
 > * Remove storage policy
 
 
-## Prerequisites
+## Prerequisites (For vSAN OSA based clusters)
 
-Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.com/us/en/vmware-cis/cloud/vmware-cloud-on-aws/SaaS/operations-guide/managing-sddc-hosts-and-clusters/vsan-storage-in-vmware-cloud-on-aws/virtual-san-policies-aws.html).
+Make sure that the minimum level of hosts are met.
 
 |  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
 | --- | :---: | :---: |
@@ -46,6 +46,17 @@ Make sure that the [minimum level of hosts are met](https://techdocs.broadcom.co
 | RAID-1 (Mirroring)  | 3  | 7  |
 
 
+## Prerequisites (For vSAN ESA based clusters)
+
+Make sure that the minimum level of hosts are met.
+
+|  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
+| --- | :---: | :---: |
+| RAID-1 (Mirroring) <br />Default setting.  | 1  | 3  |
+| RAID-5 (ESA Optimized)  | 1  | 3  |
+| RAID-1 (Mirroring)  | 2  | 5  |
+| RAID-6 (ESA Optimized)  | 2  | 5  |
+| RAID-1 (Mirroring)  | 3  | 7  |
 
 
 ## List storage policies
@@ -92,7 +103,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
    | **Field** | **Value** |
    | --- | --- |
    | **VMName** | Name of the target VM. |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **changeVMStoragePolicy**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -113,7 +124,7 @@ Run the `Set-LocationStoragePolicy` cmdlet to Modify vSAN based storage policies
    | **Field** | **Value** |
    | --- | --- |
    | **Location** | Name of the target VM. |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **changeVMStoragePolicy**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -134,7 +145,7 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify default storage poli
    | **Field** | **Value** |
    | --- | --- |
    | **ClusterName** | Name of the cluster. |
-   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **StoragePolicyName** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **Set-ClusterDefaultStoragePolicy-Exec1**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |
@@ -172,7 +183,7 @@ This function creates a new or overwrites an existing vSphere Storage Policy. No
    | **vSANFailuresToTolerate** | Number of vSAN Hosts failures to Tolerate. <br>- Default is "R1FTT1". <br>- Valid values are "None", "R1FTT1", "R1FTT2", "R1FTT3", "R5FTT1", "R6FTT2", "R1FTT3" <br>- None = No Data Redundancy<br>- R1FTT1 = 1 failure - RAID-1 (Mirroring)<br>- R1FTT2 = 2 failures - RAID-1 (Mirroring)<br>- R1FTT3 = 3 failures - RAID-1 (Mirroring)<br>- R5FTT1 = 1 failure - RAID-5 (Erasure Coding),<br>- R6FTT2 = 2 failures - RAID-6 (Erasure Coding) <br>- No Data Redundancy options aren't covered under Microsoft SLA.|
    | **vSANSiteDisasterTolerance** | Only valid for stretch clusters. <br>-  Default is "None". <br>- Valid Values are "None", "Dual", "Preferred", "Secondary", "NoneStretch"  <br>- None = No Site Redundancy (Recommended Option for Non-Stretch Clusters, NOT recommended for Stretch Clusters)  <br>- Dual = Dual Site Redundancy (Recommended Option for Stretch Clusters)  <br>- Preferred = No site redundancy - keep data on Preferred (stretched cluster)  <br>- Secondary = No site redundancy -  Keep data on Secondary Site (stretched cluster)  <br>- NoneStretch = No site redundancy - Not Recommended (https://kb.vmware.com/s/article/88358)|
    | **Description** | Description of Storage Policy you're creating, free form text. |
-   | **Name** | Name of the storage policy to set. For example, **RAID-FTT-1**. |
+   | **Name** | Name of the storage policy to set. For example, **RAID1 FTT-1**. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is 60.  |
    | **Specify name for execution**  | Alphanumeric name, for example, **New-AVSStoragePolicy-Exec1**.  |
    | **Timeout**  |  The period after which a cmdlet exits if taking too long to finish.  |

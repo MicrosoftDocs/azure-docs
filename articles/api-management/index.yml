@@ -116,7 +116,7 @@ landingContent:
             url: v2-service-tiers-overview.md
           - text: Workspaces
             url: workspaces-overview.md
-          - text: GenAI gateway capabilities
+          - text: AI gateway capabilities
             url: genai-gateway-capabilities.md       
 # Card
   - title: Related services

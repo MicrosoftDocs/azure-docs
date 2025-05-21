@@ -3,7 +3,7 @@ title: Migrate from EA Marketplace Store Charge API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Marketplace Store Charge API.
 author: maddieminn
-ms.author: banders
+ms.author: maminn
 ms.date: 01/07/2025
 ms.topic: conceptual
 ms.service: cost-management-billing
@@ -34,7 +34,7 @@ The following table provides a summary of the migration destinations that are av
 
 | Solution | Purpose | Considerations | Onboarding details |
 | --- | --- | --- | --- |
-| **Exports** | Recurring data dumps to storage on a schedule | • The most scalable solution for your workloads.  <br>• Can be configured to use file partitioning for bigger datasets.  <br>• Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.  <br>• Requires access to a storage account that can hold the data. | • [Configure in Azure portal](../costs/tutorial-export-acm-data.md)  <br>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)  <br>• [Export API Reference](/rest/api/cost-management/exports/create-or-update) |
+| **Exports** | Recurring data dumps to storage on a schedule | • The most scalable solution for your workloads.  <br>• Can be configured to use file partitioning for bigger datasets.  <br>• Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.  <br>• Requires access to a storage account that can hold the data. | • [Configure in Azure portal](../costs/tutorial-improved-exports.md)  <br>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)  <br>• [Export API Reference](/rest/api/cost-management/exports/create-or-update) |
 | **Cost Details API** | On demand download | • Useful for small cost datasets.  <br>• Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns. | • [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md)  <br>• [Cost Details](/rest/api/cost-management/generate-cost-details-report) API |
 
 We recommend using Exports if you have ongoing data ingestion needs or a large monthly cost details dataset. For more information, see [Ingest cost details data](automation-ingest-usage-details-overview.md). If you need additional information to help you make a decision for your workload, see [Choose a cost details solution](usage-details-best-practices.md).

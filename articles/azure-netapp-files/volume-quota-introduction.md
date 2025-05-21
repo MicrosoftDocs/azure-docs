@@ -4,7 +4,7 @@ description: Provides an overview about volume quota. Also provides references a
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/30/2025
 ms.author: anfdocs
 ---

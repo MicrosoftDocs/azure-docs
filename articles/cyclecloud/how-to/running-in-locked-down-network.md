@@ -22,7 +22,7 @@ The CycleCloud VM must be able to connect to a number of Azure APIs to orchestra
 * _dc.services.visualstudio.com_ (Azure Application Insights)
 * _ratecard.azure-api.net_ (Azure Price Data)
   
-The management API is hosted regionally, and the public IP address ranges can be found [here](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+The management API is hosted regionally, and the public IP address ranges can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 
 The Azure AD login is part of the Microsoft 365 common APIs and IP address ranges for the service can be found [here](/office365/enterprise/urls-and-ip-address-ranges).
 

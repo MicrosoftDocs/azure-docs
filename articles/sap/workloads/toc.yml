@@ -47,10 +47,12 @@ items:
         items:
         - name: Prerequisites Azure VM Extension for SAP
           href: vm-extension-for-sap.md
-        - name: Standard version of Azure VM Extension for SAP
-          href: vm-extension-for-sap-standard.md
         - name: New version of Azure VM Extension for SAP
           href: vm-extension-for-sap-new.md
+        - name: Troubleshoot the Azure VM Extension for SAP
+          href: vm-extension-for-sap-troubleshooting.md
+        - name: Standard version of Azure VM Extension for SAP
+          href: vm-extension-for-sap-standard.md
       - name: SAP BOBI platform on Azure
         items:
         - name: SAP BOBI planning and implementation guide on Azure
@@ -235,6 +237,8 @@ items:
         href: exchange-online-integration-sap-email-outbound.md
       - name: Recommended setup for SAP Cloud Identity Services and SAP Business Technology Platform with Microsoft Entra ID
         href: /azure/active-directory/fundamentals/scenario-azure-first-sap-identity-integration
+      - name: How to onboard SAP Edge Integration Cell with Azure
+        href: sap-edge-integration-cell-with-azure.md
       - name: Expose SAP Process Orchestration on Azure securely
         href: expose-sap-process-orchestration-on-azure.md
       - name: Enable SAP Principal Propagation for live OData feeds with Power Query

@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: jyothisuri
   ms.author: jsuri
-  ms.date: 03/20/2025
+  ms.date: 05/14/2025
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -64,6 +64,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
+          - text: SAP ASE (Sybase) database backup support
+            url: sap-ase-database-about.md        
+          - text: Azure Data Lake Storage backup support (preview)
+            url: azure-data-lake-storage-backup-overview.md
           - text: Azure Files vaulted backup support
             url: azure-file-share-backup-overview.md?tabs=vault-standard
           - text: Azure Database for PostgreSQL - Flexible server backup support
@@ -72,8 +76,6 @@ landingContent:
             url: secure-by-default.md
           - text: WORM enabled Immutable Storage for Recovery Services vaults
             url: backup-azure-immutable-vault-concept.md  
-          - text: SAP ASE (Sybase) database backup support (preview)
-            url: sap-ase-database-about.md
           - text: Vaulted backup and Cross Region Restore support for AKS
             url: azure-kubernetes-service-backup-overview.md          
 

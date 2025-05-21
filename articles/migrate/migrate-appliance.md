@@ -4,10 +4,10 @@ description: Provides a summary of support for the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 03/20/2024
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy24
 ---
 
  
@@ -34,7 +34,7 @@ The appliance can be deployed using a couple of methods:
 - The appliance can be deployed using a template for servers running in VMware or Hyper-V environment ([OVA template for VMware](how-to-set-up-appliance-vmware.md) or [VHD for Hyper-V](how-to-set-up-appliance-hyper-v.md)).
 - If you don't want to use a template, you can deploy the appliance for VMware or Hyper-V environment using a [PowerShell installer script](deploy-appliance-script.md).
 - In Azure Government, you should deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](deploy-appliance-script-government.md).
-- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script.Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
+- For physical or virtualized servers on-premises or any other cloud, you always deploy the appliance using a PowerShell installer script. Refer to the steps of deployment [here](how-to-set-up-appliance-physical.md).
 - Download links are available in the tables below.
 
     > [!Note]
@@ -118,7 +118,7 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure portal.
-*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com  <br> *.microsoftazuread-sso.com | Used for access control and identity management by Microsoft Entra ID
+*.windows.net <br> *.msftauth.net <br> *.msauth.net <br> *.microsoft.com <br> *.live.com <br> *.office.com <br> *.microsoftonline.com <br> *.microsoftonline-p.com  <br> *.microsoftazuread-sso.com <br> *.cloud.microsoft | Used for access control and identity management by Microsoft Entra ID
 management.azure.com | Used for resource deployments and management operations
 *.services.visualstudio.com | Upload appliance logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.<br> Note: Ensure servers to replicate have access to this.
@@ -258,7 +258,7 @@ To delete the registry key:
 To turn on from Appliance Configuration Manager, after discovery is complete:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, select **View appliance services** and select the link to turn on auto-update.
+2. In the latest updates check, select **View appliance services** and then select the link to turn on auto-update.
 
     ![Image of turn on auto updates screen.](./media/migrate-appliance/autoupdate-off.png)
 
@@ -272,13 +272,13 @@ You can check the appliance services version using either of these methods:
 To check in the Appliance configuration manager:
 
 1. On the appliance configuration manager, go to **Set up prerequisites** panel
-2. In the latest updates check, select **View appliance services**.
+2. In the latest updates check, and select **View appliance services**.
 
     ![Screenshot of screen to check the version.](./media/migrate-appliance/versions.png)
 
 To check in the Control Panel:
 
-1. On the appliance, select **Start** > **Control Panel** > **Programs and Features**.
+1. On the appliance, select **Start** > **Control Panel** > **Programs and Features**
 2. Check the appliance services versions in the list.
 
     ![Screenshot of process to check version in Control Panel.](./media/migrate-appliance/programs-features.png)

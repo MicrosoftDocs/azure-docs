@@ -4,7 +4,7 @@ description: Choose the correct volume type depending on your Azure NetApp Files
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/31/2024
 ms.author: anfdocs
 ---

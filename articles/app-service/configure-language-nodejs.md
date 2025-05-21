@@ -86,6 +86,8 @@ This setting specifies the Node.js version to use, both at runtime and during au
 
 ::: zone-end
 
+[!INCLUDE [outdated-runtimes](includes/outdated-runtimes.md)]
+
 ## Get port number
 
 Your Node.js app needs to listen to the right port to receive incoming requests.

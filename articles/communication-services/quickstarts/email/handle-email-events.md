@@ -1,7 +1,7 @@
 ---
-title: Quickstart - Handle EMAIL and delivery report events
+title: Handle Email events
 titleSuffix: Azure Communication Services
-description: "In this quickstart, you'll learn how to handle Azure Communication Services events. See how to create, receive, and subscribe to Email delivery report and Email engagement tracking events."
+description: This article describes how to handle Azure Communication Services events. See how to create, receive, and subscribe to Email delivery report and Email engagement tracking events.
 author: anmolbohra
 manager: komivi.agbakpem
 services: azure-communication-services
@@ -11,7 +11,8 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: email
 ---
-# Quickstart: Handle Email events
+
+# Handle Email events
 
 Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services Email events. After subscribing to Email events such as delivery reports and engagement reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
@@ -23,15 +24,15 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 
 ## About Event Grid
 
-[Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
+[Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. This article describes how to subscribe to [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we send the events to a web app that collects and displays the messages.
 
 ## Set up the environment
 
-To set up the environment that we'll use to generate and receive events, take the steps in the following sections.
+To set up the environment that we use to generate and receive events, complete the steps in the following sections.
 
 ### Register an Event Grid resource provider
 
-If you haven't previously used Event Grid in your Azure subscription, you might need to register your Event Grid resource provider. To register the provider, follow these steps:
+If you have yet to use Event Grid in your Azure subscription, you might need to register your Event Grid resource provider. To register the provider, follow these steps:
 
 1. Go to the Azure portal.
 1. On the left menu, select **Subscriptions**.
@@ -44,7 +45,7 @@ It might take a moment for the registration to finish. Select **Refresh** to upd
 
 ### Deploy the Event Grid viewer
 
-For this quickstart, we'll use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
+For this quickstart, we use an Event Grid viewer to view events in near-real time. The viewer provides the user with the experience of a real-time feed. Also, the payload of each event should be available for inspection.
 
 To set up the viewer, follow the steps in [Azure Event Grid Viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/).
 
@@ -62,9 +63,9 @@ You can subscribe to specific events to provide Event Grid with information abou
 
 1. On the **Create Event Subscription** page, enter a **name** for the event subscription.
 
-1.  Under **Event Types**, select the events that you'd like to subscribe to. For Email, you can choose `Email Delivery Report Received` and `Email Engagement Tracking Report Received`.
+1. Under **Event Types**, select the events that you'd like to subscribe to. For Email, you can choose `Email Delivery Report Received` and `Email Engagement Tracking Report Received`.
 
-1. If you're prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
+1. If prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
 
    :::image type="content" source="./media/handle-email-events/select-events-create-eventsub.png" alt-text="Screenshot that shows the Create Event Subscription dialog. Under Event Types, Email Delivery Report Received and Email Engagement Tracking Report Received are selected.":::
 
@@ -74,7 +75,7 @@ You can subscribe to specific events to provide Event Grid with information abou
 
 1. For **Endpoint**, select **Select an endpoint**, and then enter the URL of your web app.
 
-   In this case, we'll use the URL from the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up earlier in the quickstart. The URL for the sample has this format: `https://{{site-name}}.azurewebsites.net/api/updates`
+   In this case, we use the URL from the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up earlier in the quickstart. The URL for the sample has this format: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 1. Select **Confirm Selection**.
 
@@ -96,17 +97,17 @@ Check out the full list of [events that Communication Services supports](../../.
 
 ### Receive Email events
 
-After you generate an event, you'll notice that `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
+After you generate an event, notice that `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
 
 :::image type="content" source="./media/handle-email-events/email-delivery-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL delivery report received event.":::
 
 :::image type="content" source="./media/handle-email-events/email-engagementtracking-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL engagement tracking report event.":::
 
 - `EngagementContext` refers to the link clicked when the engagementType is `Click`.
-- `UserAgent` refers to the User-Agent from which this email engagement event originated. Eg. If the user interacted on Edge using a Win10 machine: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246
-- `EngagementType` refers to the type of engagement, possible values are 'View' or 'Click'.
+- `UserAgent` refers to the User-Agent from which this email engagement event originated. For example, if the user interacted on Microsoft Edge using a Win10 machine: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246
+- `EngagementType` refers to the type of engagement. Possible values are `View` or `Click`.
 
-Learn more about the [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
+For more information, see [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
 
 ## Clean up resources
 
@@ -121,7 +122,7 @@ In this quickstart, you learned how to consume Email events. You can receive Ema
 
 For schema information and example events, see [Azure Communication Services - Email events](../../../event-grid/communication-services-email-events.md).
 
-You might also want to see the following articles: 
+## Related articles
 
 - [Learn about event handling concepts](../../../event-grid/event-schema-communication-services.md)
 - [Learn about Event Grid](../../../event-grid/overview.md)

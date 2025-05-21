@@ -69,7 +69,7 @@ az container create \
 
 ## Supported Versions
 
-Supported versions of the CycleCloud Container Image can be found in the product [dockerhub page](https://hub.docker.com/r/microsoft/azure-cyclecloud/). The image can be launched as an Azure Container instance (using existing resource group, location, and preferred container and dns names). CycleCloud has SSL certificate generation included, so if you specify the arguments twice (once for az cli and again to set environment variables), then the container is able to establish valid SSL certificates automatically.
+Supported versions of the CycleCloud Container Image can be found in the product [dockerhub page](https://hub.docker.com/r/microsoft/hpc-azure-cyclecloud). The image can be launched as an Azure Container instance (using existing resource group, location, and preferred container and dns names). CycleCloud has SSL certificate generation included, so if you specify the arguments twice (once for az cli and again to set environment variables), then the container is able to establish valid SSL certificates automatically.
 
 ``` sample
 #!/bin/bash

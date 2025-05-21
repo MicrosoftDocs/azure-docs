@@ -5,7 +5,7 @@ description: Learn about highly available configuration options for VPN Gateway.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/24/2024
+ms.date: 03/31/2025
 ms.author: cherylmc
 
 ---

@@ -12,6 +12,9 @@ ms.reviewer: mimckitt
 
 # Azure Cloud Services (extended support) config schema (cscfg File)
 
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file and the virtual networking configuration file. The default extension for the service configuration file is cscfg.
 
 The [Cloud Service (extended support) definition schema](schema-csdef-file.md) describes the service model.

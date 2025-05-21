@@ -6,7 +6,7 @@ ms.author: msangapu
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 03/24/2025
+ms.date: 04/17/2025
 ms.custom: mvc, cli-validate, devdivchpfy22, AppServiceConnectivity
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -659,7 +659,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 ## 4. Configure Laravel settings in web app
 
-1. From the explorer, open *infra/resources.bicep*. This is the Bicep template file that defines the created Azure resources.
+1. From the explorer, open *infra/resources.bicep*. This is the Bicep file that defines the created Azure resources.
 
 1. Find the part that defines the app settings (lines 510-514) and uncomment them. These app settings are:
     

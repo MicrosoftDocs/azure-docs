@@ -4,8 +4,8 @@ description: Learn about the platform and provisioning options for creating an I
 author: PatAltimore
 ms.service: azure-iot-edge
 services: iot-edge
-ms.topic: conceptual
-ms.date: 06/03/2024
+ms.topic: concept-article
+ms.date: 05/05/2025
 ms.author: patricka
 ---
 
@@ -21,7 +21,7 @@ This article provides a look at all of the options for your IoT Edge solution an
 * [Choose how to provision your devices](#choose-how-to-provision-your-devices)
 * [Choose an authentication method](#choose-an-authentication-method)
 
-By the end of this article, you'll have a clear picture of what platform, provisioning, and authentication options you want to use for your IoT Edge solution.
+By the end of this article, you have a clear picture of what platform, provisioning, and authentication options you want to use for your IoT Edge solution.
 
 ## Get started
 
@@ -41,7 +41,7 @@ If you're not already familiar with IoT Edge terminology, review some key concep
 
 **IoT Edge runtime**: The [IoT Edge runtime](iot-edge-runtime.md) is a collection of programs that turn a device into an IoT Edge device. Collectively, the IoT Edge runtime components enable IoT Edge devices to run your IoT Edge modules.
 
-**Provisioning**: Each IoT Edge device must be provisioned. Provisioning is a two-step process. The first step is registering the device in an IoT hub, which creates a cloud identity that the device uses to establish the connection to its hub. The second step is configuring the device with its cloud identity. Provisioning can be done manually on a per-device basis, or it can be done at-scale using the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
+**Provisioning**: Each IoT Edge device must be provisioned. Provisioning is a two-step process. The first step is registering the device in an IoT hub, which creates a cloud identity that the device uses to establish the connection to its hub. The second step is configuring the device with its cloud identity. Provisioning can be done manually on a per-device basis, or it can be done at scale using the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 **Authentication**: Your IoT Edge devices need to verify its identity when it connects to IoT Hub. You can choose which authentication method to use, like symmetric key passwords, certificate thumbprints, or trusted platform modules (TPMs).
 
@@ -51,19 +51,19 @@ Platform options are referred to by the container operating system and the host 
 
 There are three platform options for your IoT Edge devices.
 
-* **Linux containers on Linux hosts**: Run Linux-based IoT Edge containers directly on a Linux host. Throughout the IoT Edge docs, you'll also see this option referred to as **Linux** and **Linux containers** for simplicity.
+* **Linux containers on Linux hosts**: Run Linux-based IoT Edge containers directly on a Linux host. Throughout the IoT Edge docs, you also see this option referred to as **Linux** and **Linux containers** for simplicity.
 
-* **Linux containers on Windows hosts**: Run Linux-based IoT Edge containers in a Linux virtual machine on a Windows host. Throughout the IoT Edge docs, you'll also see this option referred to as **Linux on Windows**, **IoT Edge for Linux on Windows**, and **EFLOW**.
+* **Linux containers on Windows hosts**: Run Linux-based IoT Edge containers in a Linux virtual machine on a Windows host. Throughout the IoT Edge docs, you also see this option referred to as **Linux on Windows**, **IoT Edge for Linux on Windows**, and **EFLOW**.
 
-* **Windows containers on Windows hosts**: Run Windows-based IoT Edge containers directly on a Windows host. Throughout the IoT Edge docs, you'll also see this option referred to as **Windows** and **Windows containers** for simplicity.
+* **Windows containers on Windows hosts**: Run Windows-based IoT Edge containers directly on a Windows host. Throughout the IoT Edge docs, you also see this option referred to as **Windows** and **Windows containers** for simplicity.
 
-For the latest information about which operating systems are currently supported for production scenarios, see [Azure IoT Edge supported systems](support.md#operating-systems).
+For the latest information about which operating systems are currently supported for production scenarios, see the [Operating systems](support.md#operating-systems) section of [Azure IoT Edge supported platforms](support.md).
 
 ### Linux containers on Linux
 
 For Linux devices, the IoT Edge runtime is installed directly on the host device.
 
-IoT Edge supports X64, ARM32, and ARM64 Linux devices. Microsoft provides official installation packages for a variety of operating systems.
+IoT Edge supports X64, ARM32, and ARM64 Linux devices. Microsoft provides official installation packages for various operating systems.
 
 ### Linux containers on Windows
 
@@ -73,31 +73,31 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-IoT Edge version 1.2 or later doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
+IoT Edge version 1.2 or later doesn't support Windows containers. Windows containers aren't supported beyond version 1.1.
 
 ## Choose how to provision your devices
 
-You can provision a single device or multiple devices at-scale, depending on the needs of your IoT Edge solution.
+You can provision a single device or multiple devices at scale, depending on the needs of your IoT Edge solution.
 
-The options available for authenticating communications between your IoT Edge devices and your IoT hubs depend on what provisioning method you choose. You can read more about those options in the [Choose an authentication method section](#choose-an-authentication-method).
+The options available for authenticating communications between your IoT Edge devices and your IoT hubs depend on what provisioning method you choose. You can read more about those options in the [Choose an authentication method](#choose-an-authentication-method) section.
 
 ### Single device
 
-Single device provisioning refers to provisioning an IoT Edge device without the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) (DPS). You'll see single device provisioning also referred to as **manual provisioning**.
+Single device provisioning refers to provisioning an IoT Edge device without the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md) (DPS). You see single device provisioning also referred to as **manual provisioning**.
 
-Using single device provisioning, you'll need to manually enter provisioning information, like a connection string, on your devices. Manual provisioning is quick and easy to set up for only a few devices, but your workload will increase with the number of devices. Provisioning helps when you're considering the scalability of your solution.
+Using single device provisioning, you need to manually enter provisioning information, like a connection string, on your devices. Manual provisioning is quick and easy to set up for only a few devices, but your workload increases with the number of devices. Provisioning helps when you're considering the scalability of your solution.
 
-**Symmetric key** and **X.509 self-signed** authentication methods are available for manual provisioning. You can read more about those options in the [Choose an authentication method section](#choose-an-authentication-method).
+**Symmetric key** and **X.509 self-signed** authentication methods are available for manual provisioning. You can read more about those options in the [Choose an authentication method](#choose-an-authentication-method) section.
 
 ### Devices at scale
 
-Provisioning devices at-scale refers to provisioning one or more IoT Edge devices with the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). You'll see provisioning at-scale also referred to as **autoprovisioning**.
+Provisioning devices at scale refers to provisioning one or more IoT Edge devices with the assistance of the [IoT Hub Device Provisioning Service](../iot-dps/about-iot-dps.md). You see provisioning at scale also referred to as **autoprovisioning**.
 
 If your IoT Edge solution requires more than one device, autoprovisioning using DPS saves you the effort of manually entering provisioning information into the configuration files of each device. This automated model can be scaled to millions of IoT Edge devices.
 
-You can secure your IoT Edge solution with the authentication method of your choice. **Symmetric key**, **X.509 certificates**, and **trusted platform module (TPM) attestation** authentication methods are available for provisioning devices at-scale. You can read more about those options in the [Choose an authentication method section](#choose-an-authentication-method).
+You can secure your IoT Edge solution with the authentication method of your choice. **Symmetric key**, **X.509 certificates**, and **trusted platform module (TPM) attestation** authentication methods are available for provisioning devices at scale. You can read more about those options in the [Choose an authentication method](#choose-an-authentication-method) section.
 
-To see more of the features of DPS, see the [Features section of the overview page](../iot-dps/about-iot-dps.md#features-of-the-device-provisioning-service).
+To learn more about the features of DPS, see the [Features of the Device Provisioning Service](../iot-dps/about-iot-dps.md#features-of-the-device-provisioning-service) section of [What is Azure IoT Hub Device Provisioning Service?](../iot-dps/about-iot-dps.md).
 
 ## Choose an authentication method
 
@@ -113,7 +113,7 @@ This authentication method is more secure than symmetric keys and supports group
 
 Using TPM attestation is a method for device provisioning that uses authentication features in both software and hardware. Each TPM chip uses a unique endorsement key to verify its authenticity.
 
-TPM attestation is only available for provisioning at-scale with DPS, and only supports individual enrollments not group enrollments. Group enrollments aren't available because of the device-specific nature of TPM.
+TPM attestation is only available for provisioning at scale with DPS, and only supports individual enrollments not group enrollments. Group enrollments aren't available because of the device-specific nature of TPM.
 
 TPM 2.0 is required when you use TPM attestation with the device provisioning service.
 
@@ -137,25 +137,25 @@ You can also use the following links to go to the relevant article.
 
 **Manually provision a single device**:
 
-* [Provision a single Linux device using X.509 certificates](how-to-provision-single-device-linux-x509.md)
-* [Provision a single Linux device using symmetric keys](how-to-provision-single-device-linux-symmetric.md)
+* [Create and provision an IoT Edge device on Linux using X.509 certificates](how-to-provision-single-device-linux-x509.md)
+* [Create and provision an IoT Edge device on Linux using symmetric keys](how-to-provision-single-device-linux-symmetric.md)
 
-**Provision multiple devices at-scale**:
+**Provision multiple devices at scale**:
 
-* [Provision Linux devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
-* [Provision Linux devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-tpm.md)
-* [Provision Linux devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
+* [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
+* [Create and provision IoT Edge devices at scale with a TPM on Linux](how-to-provision-devices-at-scale-linux-tpm.md)
+* [Create and provision IoT Edge devices at scale on Linux using symmetric key](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ### Linux containers on Windows hosts
 
 **Manually provision a single device**:
 
-* [Provision a single Linux on Windows device using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)
-* [Provision a single Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md)
+* [Create and provision an IoT Edge for Linux on Windows device using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)
+* [Create and provision an IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md)
 
-**Provision multiple devices at-scale**:
+**Provision multiple devices at scale**:
 
-* [Provision Linux on Windows devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
-* [Provision Linux on Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
-* [Provision Linux on Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
+* [Create and provision IoT Edge for Linux on Windows devices at scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
+* [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
+* [Create and provision IoT Edge for Linux on Windows devices at scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 

@@ -354,6 +354,8 @@ Function apps are an essential part of solutions that can cause high volumes of 
 
 The generated telemetry can be consumed in real-time dashboards, alerting, detailed diagnostics, and so on. Depending on how the generated telemetry is consumed, you need to define a strategy to reduce the volume of data generated. This strategy allows you to properly monitor, operate, and diagnose your function apps in production. Consider the following options:
 
++ **Use the correct table plan**:  [Table plans](/azure/azure-monitor/logs/data-platform-logs#table-plans) help you manage data costs by controlling how often you use the data in a table and the kind of analysis you need to perform. To reduce costs, you can choose the `Basic` plan, which does lack some features available in the `Analytics` plan.
+  
 + **Use sampling**: As mentioned [previously](#configure-sampling), sampling helps to dramatically reduce the volume of telemetry events ingested while maintaining a statistically correct analysis. It could happen that even using sampling you still get a high volume of telemetry. Inspect the options that [adaptive sampling](/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-applications) provides to you. For example, set the `maxTelemetryItemsPerSecond` to a value that balances the volume generated with your monitoring needs. Keep in mind that the telemetry sampling is applied per host executing your function app.
 
 + **Default log level**: Use `Warning` or `Error` as the default value for all telemetry categories. Later, you can decide which [categories](#configure-categories) you want to set at the `Information` level, so that you can monitor and diagnose your functions properly.

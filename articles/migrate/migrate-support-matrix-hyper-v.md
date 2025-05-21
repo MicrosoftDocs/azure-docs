@@ -4,9 +4,9 @@ description: 'Learn about support for Hyper-V assessment with Azure Migrate: Dis
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 02/04/2025
+ms.date: 04/04/2025
 ms.custom: engagement-fy25
 ---
 
@@ -294,7 +294,7 @@ Stack | VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical s
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
 Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
-Required privileges | Local admin. | Root or sudo user.
+Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.

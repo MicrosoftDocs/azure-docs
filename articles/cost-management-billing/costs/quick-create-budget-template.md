@@ -47,11 +47,7 @@ Budgets are supported for the following types of Azure account types and scopes:
     - Billing profile
     - Invoice section
     - Customer
-- AWS scopes
-    - External account
-    - External subscription
-        > [!NOTE]
-        > The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
+
 To view budgets, you need at least read access for your Azure account.
 
 For Azure EA subscriptions, you must have read access to view budgets. To create and manage budgets, you must have contributor permission.
