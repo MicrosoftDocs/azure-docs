@@ -36,7 +36,7 @@ Access logs categories for a network security perimeter are based on the results
 | **NspPrivateInboundAllowed** | Private endpoint traffic is allowed. | Transition/Enforced |
 
 > [!NOTE]
-> The available access modes for a network security perimeter are **Transition** and **Enforced**. The **Transition** mode was previously named **Learning** mode.You may continue to see references to **Learning** mode in some instances. 
+> The available access modes for a network security perimeter are **Transition** and **Enforced**. The **Transition** mode was previously named **Learning** mode. You may continue to see references to **Learning** mode in some instances. 
 
 ## Logging destination options for access logs  
 
