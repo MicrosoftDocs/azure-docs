@@ -38,7 +38,7 @@ For defense in depth, we then use EasyAuth to validate the token again inside th
 > * Import of an Azure Functions API into Azure API Management
 > * Securing the API in Azure API Management
 > * Calling the Azure Active Directory B2C Authorization Endpoints via the Microsoft identity platform Libraries (MSAL.js)
-> * Storing a HTML / Vanilla JS Single Page Application and serving it from an Azure Blob Storage Endpoint
+> * Storing an HTML / Vanilla JS Single Page Application and serving it from an Azure Blob Storage Endpoint
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ Here's a quick overview of the steps:
 1. Test the Client Application
 
    > [!TIP]
-   > We're going to capture quite a few pieces of information and keys etc as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.
+   > We're going to capture quite a few pieces of information and keys etc. as we walk this document, you might find it handy to have a text editor open to store the following items of configuration temporarily.
    >
    > B2C BACKEND CLIENT ID:
    > B2C BACKEND CLIENT SECRET KEY:
@@ -176,7 +176,7 @@ Open the Azure AD B2C blade in the portal and do the following steps.
 1. Switch back to the Code + Test tab, click 'Get Function URL', then copy the URL that appears and save it for later.
 
    > [!NOTE]
-   > The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URL you just copied (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`). Now we have a scalable serverless https API, that is capable of returning a very simple payload.
+   > The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URL you just copied (`https://yourfunctionappname.azurewebsites.net/api/hello?code=secretkey`). Now we have a scalable serverless https API that is capable of returning a very simple payload.
    >
    > You can now test calling this API from a web browser using your version of the URL above that you just copied and saved. You can also remove the query string parameters "?code=secretkey" portion of the URL , and test again, to prove that Azure Functions will return a 401 error.
 
