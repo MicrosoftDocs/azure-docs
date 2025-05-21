@@ -32,6 +32,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | **Delivery and acceleration** | | | | |
 | Static file delivery | &check; | &check; | &check; | &check; |
 | Dynamic site delivery | &check; | &check; | &check; |  |
+| WebSockets | Preview | Preview |  |  |
 | **Domains and certs** | | | | |
 | Custom domains | &check; (DNS TXT record based domain validation) | &check; (DNS TXT record based domain validation) | &check; (CNAME based validation) | &check; (CNAME based validation) |
 | Prevalidated domain integration with Azure PaaS service | &check; | &check; |  |  |
@@ -64,6 +65,7 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Geo-filtering | &check; | &check; | &check; | &check; |
 | DDoS protection | &check; | &check; | &check; | &check; |
 | Domain fronting block | &check; | &check; | &check; | &check; |
+| Managed Identities for origin authentication | Preview | Preview |  |  |
 | **Analytics and reporting** | | | | |
 | Monitoring metrics | &check; (more metrics than Classic) | &check; (more metrics than Classic) | &check; | &check; |
 | Advanced analytics/built-in reports | &check; | &check; (includes WAF report) |  |  |
