@@ -43,7 +43,7 @@ Secrets are used in asset endpoints and data flow endpoints for authentication. 
     
     - **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand. *Only the latest version of the secret is synced to the edge*.
 
-1. When you add the username and password references to the asset endpoints or data flow endpoints, you then need to give the synchronized secret a name. The secret references will be saved in the edge with this given name as one resource. In the example from the screenshot below, the username and password references are saved to the edge as *edp1secrets*.
+1. When you add the username and password references to the asset endpoints or data flow endpoints, you then need to give the synchronized secret a name. The secret references are saved in the edge with this given name as one secret sync resource. In the example from the screenshot below, the username and password references are saved to the edge as *edp1secrets*.
 
     :::image type="content" source="media/howto-manage-secrets/synced-secret-name.png" alt-text="Screenshot that shows the synced secret name field when username password is selected for authentication mode in operations experience.":::
     
@@ -57,7 +57,7 @@ In this section, we use asset endpoints as an example, the same can be applied t
 
     :::image type="content" source="media/howto-manage-secrets/synced-secret-list.png" alt-text="Screenshot that shows the synced secrets list in the operations experience secrets page.":::
 
-You can use the **Secrets** page to view synchronized secrets in your asset endpoints and data flow endpoints. Secrets page shows the list of all current synchronized secrets at the edge for the resource you are viewing. A synced secret represents one or multiple secret references, depending on the resource using it. Any operation applied to a synced secret will be applied to all secret references contained within the synced secret. 
+You can use the **Secrets** page to view synchronized secrets in your asset endpoints and data flow endpoints. Secrets page shows the list of all current synchronized secrets at the edge for the resource you're viewing. A synced secret represents one or multiple secret references, depending on the resource using it. Any operation applied to a synced secret will be applied to all secret references contained within the synced secret. 
 
 You can delete synced secrets as well in the **Secrets** page. When you delete a synced secret, it only deletes the synced secret from the edge, and doesn't delete the contained secret reference from Azure Key Vault. You must delete the certificate secret manually from the key vault.
 
