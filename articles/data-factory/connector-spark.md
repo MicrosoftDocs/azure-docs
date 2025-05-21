@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 03/26/2025
+ms.date: 05/21/2025
 ---
 
 # Copy data from Spark using Azure Data Factory or Synapse Analytics
@@ -89,6 +89,7 @@ The following properties are supported for Spark linked service version 2.0 (Pre
 | password | The password corresponding to the user. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | httpPath | The partial URL corresponding to the Spark server.  | No |
 | enableSsl | Specifies whether the connections to the server are encrypted using TLS. The default value is true.  | No |
+| enableServerCertificateValidation | Specify whether to enable server SSL certificate validation when you connect. <br>Always use System Trust Store. The default value is true. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
@@ -275,7 +276,7 @@ The Spark connector version 2.0 (Preview) offers new functionalities and is comp
 | SharkServer and SharkServer2 are not supported for `serverType`. | Support SharkServer and SharkServer2 for `serverType`. | 
 | Binary and SASL are not supported for `thriftTransportProtocl`. | Support Binary and SASL for `thriftTransportProtocl`. | 
 | Username authentication type is not supported. | Support Username authentication type. |
-| The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported.| The default value of `enableSSL` is false. Additionally, support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`.	 |  
+| The default value of `enableSSL` is true. `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert` are not supported. <br><br> `enableServerCertificateValidation` is supported. | The default value of `enableSSL` is false. Additionally, support `trustedCertPath`, `useSystemTrustStore`, `allowHostNameCNMismatch` and `allowSelfSignedServerCert`. <br><br>`enableServerCertificateValidation` is not supported.	 |  
 | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTimeOffset <br>YearMonthIntervalType -> String<br>DayTimeIntervalType -> String | The following mappings are used from Spark data types to interim service data types used by the service internally.<br><br>TimestampType -> DateTime<br>Other mappings supported by version 2.0 (Preview) listed left are not supported by version 1.0. | 
 
 ## Related content
