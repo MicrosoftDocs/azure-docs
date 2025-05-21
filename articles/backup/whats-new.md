@@ -2,7 +2,7 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 05/21/2025
+ms.date: 05/28/2025
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -20,7 +20,9 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 - May 2025
   - [Operational backup support for Azure Elastic SAN (preview)](#operational-backup-support-for-azure-elastic-san-preview)
+  - [Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available](#vaulted-backups-for-azure-database-for-postgresql--flexible-server-is-now-generally-available)
   - [Back up SAP ASE (Sybase) database is now generally available](#back-up-sap-ase-sybase-database-is-now-generally-available)
+
 - April 2025
   - [Vaulted backup support for  Azure Data Lake Storage (preview)](#vaulted-backup-support-for-azure-data-lake-storage-preview)
 - March 2025
@@ -124,6 +126,20 @@ Key features include:
 >This feature is in preview and [available in specific Azure regions](azure-elastic-storage-area-network-backup-support-matrix.md#supported-regions).
 
 For more information, see [About Azure Elastic SAN backup (preview)](azure-elastic-storage-area-network-backup-overview.md).
+
+## Vaulted Backups for Azure Database for PostgreSQL – flexible server is now generally available
+
+Azure Backup now supports vaulted backup for PostgreSQL Flexible Server across all Azure regions, offering a robust and scalable backup solution designed to meet the resiliency and compliance needs of enterprises.
+
+**Key Features include**:
+
+- **Policy-based scheduled backups**: Eliminates manual intervention and increases efficiency.
+- **Long-term retention**: Ensures long-term retention of backups upto 10 years for regulatory and compliance requirements.
+- **Cyber resiliency**: Protects from ransomware threats with immutability and role-based access control.
+ 
+You can  also use Azure [Business Continuity Center](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview) to manage the vaulted backup operations.
+
+For more information, see [Azure Backup for PostgreSQL Flexible Server overview](backup-azure-database-postgresql-flex-overview.md). 
 
 ## Back up SAP ASE (Sybase) database is now generally available
 

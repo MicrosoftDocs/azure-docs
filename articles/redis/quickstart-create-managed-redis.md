@@ -9,6 +9,8 @@ ms.custom:
   - mode-other
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Quickstart: Create an Azure Managed Redis Instance
 
