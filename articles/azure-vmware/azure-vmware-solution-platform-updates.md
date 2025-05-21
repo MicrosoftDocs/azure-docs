@@ -15,7 +15,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **vSAN ESA (Express Storage Architecture) for Azure VMware Solution**
 
-vSAN ESA is now available on Azure VMware Solution. [Learn more](articles/azure-vmware/configure-vsan-esa.md)
+vSAN ESA is now available on Azure VMware Solution. [Learn more](https://learn.microsoft.com/en-us/azure/azure-vmware/configure-vsan-esa)
 
 **HCX Upgrade and Hybridity Depot Decommissioning**
 
