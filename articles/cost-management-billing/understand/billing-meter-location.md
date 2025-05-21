@@ -2,14 +2,13 @@
 title: Shared billing meter regions
 titleSuffix: Microsoft Cost Management
 description: Learn about shared billing meter regions in Azure, how they affect cost calculations, and the difference between billing meter regions and resource locations.
-author: bandersmsft
+author: v-minasyanv
 ms.reviewer: v-minasyanv
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: concept-article
 ms.date: 02/21/2025
-ms.author: banders
-#customer intent: As a billing administrator, I want to understand the difference between a billing meter region and a resource location.
+ms.author: v-minasyanv
 ---
 
 # Shared billing meter regions
