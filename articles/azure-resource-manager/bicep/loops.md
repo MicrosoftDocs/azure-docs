@@ -14,7 +14,7 @@ To use loops to create multiple resources or modules, each instance must have a 
 
 ### Training resources
 
-For step-by-step guidance about loops, see the [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/) module in Microsoft Learn.
+For step-by-step guidance about loops, see the [Build flexible Bicep files by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/) module in Microsoft Learn.
 
 ## Loop syntax
 
