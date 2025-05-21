@@ -242,15 +242,15 @@ Use [New-AzFirewall](/powershell/module/az.network/new-azfirewall) to create Azu
 
 ```azurepowershell
 # Create Azure Firewall
-$firewallParams = @{
-    ResourceGroupName = 'test-rg'
-    Location = 'South Central US'
-    Name = 'firewall'
-    VirtualNetworkName = 'vnet-hub'
-    PublicIpName = 'public-ip-firewall'
-    FirewallPolicyId = $firewallPolicy.Id
-}
-$firewall = New-AzFirewall @firewallParams
+    $firewallParams = @{
+        ResourceGroupName = 'test-rg'
+        Location = 'South Central US'
+        Name = 'firewall'
+        VirtualNetworkName = 'vnet-hub'
+        PublicIpName = 'public-ip-firewall'
+        FirewallPolicyId = $firewallPolicy.Id
+    }
+    $firewall = New-AzFirewall @firewallParams
 ```
 
 ### [CLI](#tab/cli)
@@ -409,6 +409,10 @@ $natGateway = New-AzNatGateway @natGatewayParams
 Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to associate NAT gateway with AzureFirewallSubnet.
 
 ```azurepowershell
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $hubVnet -Name AzureFirewallSubnet 
+
+$subnet.NatGateway = $natGateway
+
 # Associate NAT gateway with AzureFirewallSubnet
 $subnetParams = @{
     VirtualNetwork = $hubVnet
@@ -883,34 +887,21 @@ Traffic from the spoke through the hub must be allowed through and firewall poli
 
 ### [PowerShell](#tab/powershell)
 
-Use [New-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/new-azfirewallpolicyrulecollectiongroup) to create a rule collection group.
+Use [Get-AzFirewallPolicy](/powershell/module/az.network/get-azfirewallpolicy) to get the existing firewall policy.
 
-```azurepowershell
+```powershell
+# Get the existing firewall policy
 $firewallPolicyParams = @{
     Name = 'firewall-policy'
     ResourceGroupName = 'test-rg'
 }
-$firewallpolicy = Get-AzFirewallPolicy @firewallPolicyParams
-
-$newNetworkRuleCollectionGroupParams = @{
-    Name = 'DefaultNetworkRuleCollectionGroup'
-    Priority = 200
-    ResourceGroupName = 'test-rg'
-    FirewallPolicyName = 'firewall-policy'
-}
-$newnetworkrulecollectiongroup = New-AzFirewallPolicyRuleCollectionGroup @newNetworkRuleCollectionGroupParams
-
-$networkRuleCollectionGroupParams = @{
-    Name = 'DefaultNetworkRuleCollectionGroup'
-    ResourceGroupName = 'test-rg'
-    AzureFirewallPolicyName = 'firewall-policy'
-}
-$networkrulecollectiongroup = Get-AzFirewallPolicyRuleCollectionGroup @networkRuleCollectionGroupParams
+$firewallPolicy = Get-AzFirewallPolicy @firewallPolicyParams
 ```
 
 Use [New-AzFirewallPolicyNetworkRule](/powershell/module/az.network/new-azfirewallpolicynetworkrule) to create a network rule.
 
-```azurepowershell
+```powershell
+# Create a network rule for web traffic
 $networkRuleParams = @{
     Name = 'allow-web'
     SourceAddress = '10.1.0.0/24'
@@ -918,32 +909,50 @@ $networkRuleParams = @{
     DestinationAddress = '*'
     DestinationPort = '80,443'
 }
-$networkrule = New-AzFirewallPolicyNetworkRule @networkRuleParams
+$networkRule = New-AzFirewallPolicyNetworkRule @networkRuleParams
 ```
 
-Use [New-AzFirewallPolicyFilterRuleCollection](/powershell/module/az.network/new-azfirewallpolicyfilterrulecollection) to create a rule collection.
+Use [New-AzFirewallPolicyFilterRuleCollection](/powershell/module/az.network/new-azfirewallpolicyfilterrulecollection) to create a rule collection for the network rule.
 
-```azurepowershell
-$newRuleCollectionConfigParams = @{
+```powershell
+# Create a rule collection for the network rule
+$ruleCollectionParams = @{
     Name = 'spoke-to-internet'
     Priority = 100
-    Rule = $networkrule
+    Rule = $networkRule
     ActionType = 'Allow'
 }
-$newrulecollectionconfig = New-AzFirewallPolicyFilterRuleCollection @newRuleCollectionConfigParams
-$newrulecollection = $networkrulecollectiongroup.Properties.RuleCollection.Add($newrulecollectionconfig)
+$ruleCollection = New-AzFirewallPolicyFilterRuleCollection @ruleCollectionParams
 ```
 
-Use [Set-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/set-azfirewallpolicyrulecollectiongroup) to update the rule collection group.
+Use [New-AzFirewallPolicyRuleCollectionGroup](/powershell/module/az.network/new-azfirewallpolicyrulecollectiongroup) to create a rule collection group.
 
-```azurepowershell
-$setRuleCollectionGroupParams = @{
-    Name = 'DefaultNetworkRuleCollectionGroup'
-    Priority = 200
-    FirewallPolicyObject = $firewallpolicy
-    RuleCollection = $networkrulecollectiongroup.Properties.RuleCollection
+```powershell
+# Check if DefaultNetworkRuleCollectionGroup exists, create it if not
+$existingRuleCollectionGroup = Get-AzFirewallPolicyRuleCollectionGroup -ResourceGroupName 'test-rg' -AzureFirewallPolicyName 'firewall-policy' -Name 'DefaultNetworkRuleCollectionGroup' -ErrorAction SilentlyContinue
+
+if ($null -eq $existingRuleCollectionGroup) {
+    # Create a new rule collection group
+    $newRuleCollectionGroupParams = @{
+        Name = 'DefaultNetworkRuleCollectionGroup'
+        Priority = 200
+        FirewallPolicyObject = $firewallPolicy
+        RuleCollection = $ruleCollection
+    }
+    New-AzFirewallPolicyRuleCollectionGroup @newRuleCollectionGroupParams
+} else {
+    # Add the rule collection to the existing group
+    $existingRuleCollectionGroup.Properties.RuleCollection.Add($ruleCollection)
+    
+    # Update the rule collection group
+    $updateRuleCollectionGroupParams = @{
+        Name = 'DefaultNetworkRuleCollectionGroup'
+        Priority = 200
+        FirewallPolicyObject = $firewallPolicy
+        RuleCollection = $existingRuleCollectionGroup.Properties.RuleCollection
+    }
+    Set-AzFirewallPolicyRuleCollectionGroup @updateRuleCollectionGroupParams
 }
-Set-AzFirewallPolicyRuleCollectionGroup @setRuleCollectionGroupParams
 ```
 
 ### [CLI](#tab/cli)
@@ -1042,7 +1051,7 @@ Use [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterfac
 $nicParams = @{
     ResourceGroupName = "test-rg"
     Name = "nic-1"
-    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-spoke").Subnets[1].Id
+    SubnetId = (Get-AzVirtualNetwork -ResourceGroupName "test-rg" -Name "vnet-spoke").Subnets[0].Id
     NetworkSecurityGroupId = (Get-AzNetworkSecurityGroup -ResourceGroupName "test-rg" -Name "nsg-1").Id
     Location = "southcentralus"
 }
