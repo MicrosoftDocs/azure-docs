@@ -1,6 +1,6 @@
 ---
-title: MongoDB Atlas (Preview) Developer Resources and Tools
-description: Learn about resources and developer tools available with MongoDB Atlas (preview).
+title: MongoDB Atlas Preview Developer Resources and Tools
+description: Learn about resources and developer tools available with MongoDB Atlas Preview.
 author: ProfessorKendrick
 ms.topic: overview
 ms.date: 04/14/2025
@@ -9,7 +9,7 @@ ms.date: 04/14/2025
 
 ---
 
-# Resources and tools for MongoDB Atlas (preview) on Azure
+# Resources and tools for MongoDB Atlas Preview on Azure
 
 In this article, you learn about resources and tools from MongoDB that can help you use MongoDB Atlas.
 
