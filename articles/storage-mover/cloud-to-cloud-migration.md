@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 05/19/25
+ms.date: 05/19/2025
 ---
 
 # Getting Started with Cloud-to-Cloud Migration in Azure Storage Mover (Preview)
@@ -45,6 +45,12 @@ Follow the steps in this section to configure an AWS connector in the Azure Arc 
 1. Within the **Authentication template** tab, follow the instructions presented to create the *AWS CloudFormation Stack* from the AWS portal.
 1. Finally, select **Review + Create**.
 
+:::image type="content" source="media/cloud-to-cloud-migration/sample-migration-sml.png" alt-text="A screen capture showing the Storage Mover Overview page with the Multicloud Migration tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/sample-migration.png":::
+
+:::image type="content" source="media/cloud-to-cloud-migration/add-aws-connector-sml.png" alt-text="A screen capture showing the Multicloud Connector creation page with the Basics tab selected and required fields displayed." lightbox="media/cloud-to-cloud-migration/add-aws-connector.png":::
+
+:::image type="content" source="media/cloud-to-cloud-migration/connectors-available-sml.png" alt-text="A screen capture showing the Connectors available pane page with several Multicloud Connectors displayed." lightbox="media/cloud-to-cloud-migration/connectors-available.png":::
+
 ## Configure Source and Destination Endpoints
 
 After you configure the Azure Arc service, the next step is to create source and destination endpoints for your migration.
@@ -60,7 +66,11 @@ Follow the steps in this section to configure an AWS S3 source endpoint and an A
 1. Select **AWS S3** as the source.
 1. Choose the Multicloud connector you created in the previous section.
 1. Select the S3 bucket you want to migrate and verify that access is properly configured.
-1. Select **Save**. 
+1. Select **Save** to commit your changes.
+
+:::image type="content" source="media/cloud-to-cloud-migration/storage-endpoints-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint pane with required fields displayed." lightbox="media/cloud-to-cloud-migration/storage-endpoints.png":::
+
+:::image type="content" source="media/cloud-to-cloud-migration/create-aws-endpoint-sml.png" alt-text="A screen capture showing the Endpoints page containing the Create Source Endpoint with the S3 Connector drop down list displayed." lightbox="media/cloud-to-cloud-migration/create-aws-endpoint.png":::
 
 ### Configure an Azure Blob Storage Destination Endpoint
 
@@ -88,6 +98,12 @@ Follow the steps in this section to create and run a Storage Mover Migration Job
 1. Select **Next** and review your settings.
 1. After confirming that your settings are correct, select **Start Migration** to begin the copy operation.
 
+:::image type="content" source="media/cloud-to-cloud-migration/create-job-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Basics tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-job.png":::
+
+:::image type="content" source="media/cloud-to-cloud-migration/create-source-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Source tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-source.png":::
+
+:::image type="content" source="media/cloud-to-cloud-migration/create-target-sml.png" alt-text="A screen capture showing the Create a Migration Job page with the Target tab selected and the required fields displayed." lightbox="media/cloud-to-cloud-migration/create-target.png":::
+
 ## Monitor Migration Progress
 
 As you use Storage Mover to migrate your data to your Azure destination targets, you should monitor the copy operations for potential issues. Data relating to the operations being performed during your migration are displayed within the **Migration overview** tab. This data allows you to track the progress of your migration by providing current status and key information such as progress, speed, and estimated completion time.
@@ -101,6 +117,7 @@ Follow the steps in this section to monitor the progress of a Storage Mover Migr
 1. Select **Logs** to check for any errors or warnings.
 1. After the migration is complete, verify the data in **Azure Blob Storage**.
 
+:::image type="content" source="media/cloud-to-cloud-migration/migration-overview-sml.png" alt-text="A screen capture showing the Storage Mover page with the Migration Overview tab selected and all Migration Jobs displayed." lightbox="media/cloud-to-cloud-migration/migration-overview.png":::
 
 ## Post-Migration Validation 
 
@@ -115,8 +132,6 @@ Follow the steps in this section to complete manual validation and clean up unus
 ## Troubleshooting & Support 
 
 Troubleshooting your migration might involve a range of steps, from basic diagnostics to more advanced error handling. If you're encountering issues, begin troubleshooting by taking the following steps.
-
-
 
 - Migration job failed? Check the logs for error messages.
 - Data transfer is slow? Ensure your network bandwidth is sufficient and AWS S3 rate limits aren’t throttling your transfer.
