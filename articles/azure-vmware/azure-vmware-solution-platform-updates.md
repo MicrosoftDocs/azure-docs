@@ -13,6 +13,10 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 ## May 2025
 
+**vSAN ESA (Express Storage Architecture) for Azure VMware Solution**
+
+vSAN ESA is now available on Azure VMware Solution. [Learn more](configure-vsan-esa.md)
+
 **HCX Upgrade and Hybridity Depot Decommissioning**
 
 The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
