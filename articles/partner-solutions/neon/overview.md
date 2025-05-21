@@ -16,7 +16,7 @@ Neon is a cloud-native Postgres solution designed for modern applications. It of
 
 Neon manages the Postgres infrastructure so that you can focus on building and optimizing your applications. For example, Neon manages database configuration, maintenance, and scaling operations.
 
-With its intuitive onboarding process, you can quickly start using Neon's capabilities for your Azure workloads to help ensure that your databases are always optimized for performance and reliability.  
+With the service's intuitive onboarding process, you can quickly start using Neon's capabilities for your Azure workloads to keep your databases optimized for performance and reliability.
 
 Neon Serverless Postgres provides these key capabilities:
 

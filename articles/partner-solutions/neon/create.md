@@ -13,6 +13,7 @@ This quickstart shows you how to create a Neon Serverless Postgres resource by u
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
+
 - You must [subscribe to Neon](overview.md#subscribe-to-neon).
 
 ## Create a resource

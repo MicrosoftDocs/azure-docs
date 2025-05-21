@@ -24,7 +24,7 @@ The details under **Essentials** include:
 - Subscription ID
 - Tags
 
-To manage your resource, select the links next to corresponding details.
+To manage your resource, select the links next to the corresponding details.
 
 Below the essentials, you can go to other details about your resource by selecting the links.
 

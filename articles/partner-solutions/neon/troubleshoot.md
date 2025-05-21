@@ -8,11 +8,11 @@ ms.date: 04/23/2025
 
 # Troubleshoot Neon Serverless Postgres
 
-You can get support for your Neon Serverless Postgres deployment through a support request. For further assistance, visit the [Neon Support](https://neon.tech/docs/introduction/support) page. This article also includes troubleshooting for problems that you might experience in creating and using a Neon resource.
+You can get support for your Neon Serverless Postgres deployment by creating a support request. For more assistance, visit the [Neon Support](https://neon.tech/docs/introduction/support) page. This article also includes troubleshooting for problems that you might experience when you're creating and using a Neon resource.
 
 ## Get support
 
-To contact support about a Neon resource:
+Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
 1. In the Azure portal, go to the resource. Then select **Support + troubleshooting** > **New Support Request**.
 
