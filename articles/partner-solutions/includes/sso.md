@@ -11,8 +11,8 @@ To establish single sign-on through Microsoft Entra ID:
 
 1. Select the checkbox.
 
-    The Azure portal retrieves the appropriate application from Microsoft Entra ID. 
+    The Azure portal retrieves the appropriate application from Microsoft Entra ID.
 
 1. Select the app name.
 
-Select the **Next** button at the bottom of the page.
+1. Select **Next**.
