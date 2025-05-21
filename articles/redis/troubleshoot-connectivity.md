@@ -69,7 +69,7 @@ You can confirm the number of sent packets is equal to the received packets. Con
 
 Steps to check your private endpoint configuration:
 
-1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-private-endpoint-with-a-new-azure-managed-redis-instance).
+1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-virtual-network-with-a-subnet).
 
 1. Verify if your application is connecting to `<instancename>.<region>.redis.azure.net` on port 10000. We recommend avoiding the use of `<instancename>.<region>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
 
