@@ -6,7 +6,7 @@ ms.author: bpinto
 ms.service: azure-operator-nexus
 ms.custom: azure-operator-nexus, devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/14/2025
+ms.date: 05/21/2025
 # ms.custom: template-include
 ---
 
