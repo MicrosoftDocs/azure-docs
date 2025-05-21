@@ -70,13 +70,13 @@ After you have your Azure services running, it is recommended to regularly check
 
 Visit the [Cost Management + Billing page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade).
 
-Select **Cost analysis** from the menu on the left side of the screen to see the current cost broken down by various pivots such as tags, service, location, and subscription. After you add a service or make a purchase, wait 24 hours for the data to be displayed. By default, Cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in Cost analysis. For more information about scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md#scopes)
+Select **Cost analysis** from the menu on the left side of the screen to access reports that allow you to view your current cost broken down by various pivots such as tags, service, location, and subscription. After you add a service or make a purchase, it is recommended to wait 24 hours for the data to be displayed. By default, Cost analysis shows the cost for the scope that you are in. For example, in the screenshot below, cost for Contoso billing account is displayed. Use the Scope pill to switch to a different scope in Cost analysis. For more information about scopes, see, [Understand and work with scopes](../costs/understand-work-scopes.md#scopes)
 
 :::image type="content" border="true" source="./media/plan-manage-costs/cost-analysis.png" alt-text="Screenshot of the cost analysis view in Azure portal.":::
 
 You can group your costs by various dimensions, such as service family, tags, subscription and resource group. Select Group by to view your charges by any of the available properties.
 
-You can filter the charges by various properties such as tags, resource type, and time span. Select **Add filter** to add the filter for a property and select the values to filter. Select **Export** to export the view to a comma-separated values (.csv) file.
+You can filter the charges by various properties such as tags, resource type, and time span. Select **Add filter** to add the filter for a property and select the values to filter. Select **Download** to export the view to a comma-separated values (.csv) file.
 
 For example, in the screenshot below, charges are filtered to virtual machines only.
 
