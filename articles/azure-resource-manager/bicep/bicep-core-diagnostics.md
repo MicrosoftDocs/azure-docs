@@ -13,7 +13,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | Code       | Level | Description |
 |------------|-------|-------------|
 | <a id='BCP001' />BCP001 | Error | The following token isn't recognized: `{token}`. |
-| <a id='BCP002' />BCP002 | Error | The multi-line comment at this location isn't terminated. Terminate it with the */ character sequence. |
+| <a id='BCP002' />BCP002 | Error | The multi-line comment at this location isn't terminated. Terminate it with the `*/` character sequence. |
 | <a id='BCP003' />BCP003 | Error | The string at this location isn't terminated. Terminate the string with a single quote character. |
 | <a id='BCP004' />BCP004 | Error | The string at this location isn't terminated due to an unexpected new line character. |
 | <a id='BCP005' />BCP005 | Error | The string at this location isn't terminated. Complete the escape sequence and terminate the string with a single unescaped quote character. |
@@ -51,7 +51,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP041' />BCP041 | Error | Values of type `{valueType}` can't be assigned to a variable. |
 | <a id='BCP043' />BCP043 | Error | This isn't a valid expression. |
 | <a id='BCP044' />BCP044 | Error | Can't apply operator `{operatorName}` to operand of type `{type}`. |
-| <a id='BCP045' />BCP045 | Error | Can't apply operator `{operatorName}` to operands of type `{type1}` and `{type2}`.{(additionalInfo is null? string.Empty : " " + additionalInfo)} |
+| <a id='BCP045' />BCP045 | Error | Can't apply operator `{operatorName}` to operands of type `{type1}` and `{type2}`.|
 | <a id='BCP046' />BCP046 | Error | Expected a value of type `{type}`. |
 | <a id='BCP047' />BCP047 | Error | String interpolation is unsupported for specifying the resource type. |
 | <a id='BCP048' />[BCP048](./diagnostics/bcp048.md) | Error | Can't resolve function overload.|
@@ -83,7 +83,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP075' />BCP075 | Error | Indexing over objects requires an index of type `{LanguageConstants.String}`, but the provided index was of type `{wrongType}`. |
 | <a id='BCP076' />BCP076 | Error | Can't index over expression of type `{wrongType}`. Arrays or objects are required. |
 | <a id='BCP077' />[BCP077](./diagnostics/bcp077.md) | Error/Warning | The property `<property-name>` on type `<type-name>` is write-only. Write-only properties can't be accessed. |
-| <a id='BCP078' />[BCP078](./diagnostics/bcp078.md) | Error/Warning | The property `<property-name> requires a value of type `<type-name>, but none was supplied. |
+| <a id='BCP078' />[BCP078](./diagnostics/bcp078.md) | Error/Warning | The property `<property-name>` requires a value of type `<type-name>`, but none was supplied. |
 | <a id='BCP079' />BCP079 | Error | This expression is referencing its own declaration, which isn't allowed. |
 | <a id='BCP080' />BCP080 | Error | The expression is involved in a cycle (`{string.Join("\" -> \"", cycle)}`). |
 | <a id='BCP081' />BCP081 | Warning | Resource type `{resourceTypeReference.FormatName()}` doesn't have types available. Bicep is unable to validate resource properties prior to deployment, but this won't block the resource from being deployed. |
@@ -118,7 +118,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP110' />BCP110 | Error | The type `{type}` doesn't contain function `{name}`. Did you mean `{suggestedName}`? |
 | <a id='BCP111' />BCP111 | Error | The specified file path contains invalid control code characters. |
 | <a id='BCP112' />BCP112 | Error | The `{LanguageConstants.TargetScopeKeyword}` can't be declared multiple times in one file. |
-| <a id='BCP113' />BCP113 | Warning | Unsupported scope for module deployment in a `{LanguageConstants.TargetScopeTypeTenant}` target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include tenant: tenant(), named management group: managementGroup(`<name>), named subscription: subscription(`<subId>), or named resource group in a named subscription: resourceGroup(`<subId>`, `<name>`). |
+| <a id='BCP113' />BCP113 | Warning | Unsupported scope for module deployment in a `{LanguageConstants.TargetScopeTypeTenant}` target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include tenant: tenant(), named management group: managementGroup(`<name>`), named subscription: subscription(`<subId>`), or named resource group in a named subscription: resourceGroup(`<subId>`, `<name>`). |
 | <a id='BCP114' />BCP114 | Warning | Unsupported scope for module deployment in a `{LanguageConstants.TargetScopeTypeManagementGroup}` target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current management group: managementGroup(), named management group: managementGroup(`<name>`), named subscription: subscription(`<subId>`), tenant: tenant(), or named resource group in a named subscription: resourceGroup(`<subId>`, `<name>`). |
 | <a id='BCP115' />BCP115 | Warning | Unsupported scope for module deployment in a `{LanguageConstants.TargetScopeTypeSubscription}` target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current subscription: subscription(), named subscription: subscription(`<subId>`), named resource group in same subscription: resourceGroup(`<name>`), named resource group in different subscription: resourceGroup(`<subId>`, `<name>`), or tenant: tenant(). |
 | <a id='BCP116' />BCP116 | Warning | Unsupported scope for module deployment in a `{LanguageConstants.TargetScopeTypeResourceGroup}` target scope. Omit this property to inherit the current scope, or specify a valid scope. Permissible scopes include current resource group: resourceGroup(), named resource group in same subscription: resourceGroup(`<name>`), named resource group in a different subscription: resourceGroup(`<subId>`, `<name>`), current subscription: subscription(), named subscription: subscription(`<subId>`) or tenant: tenant(). |
@@ -144,7 +144,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP137' />BCP137 | Error | Loop expected an expression of type `{LanguageConstants.Array}`, but the provided value is of type `{actualType}`. |
 | <a id='BCP138' />BCP138 | Error | For-expressions aren't supported in this context. For-expressions may be used as values of resource, module, variable, and output declarations, or values of resource and module properties. |
 | <a id='BCP083' />[BCP139](./diagnostics/bcp139.md) | Error | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
-| <a id='BCP140' />BCP140 | Error | The multi-line string at this location isn't terminated. Terminate it with "'''. |
+| <a id='BCP140' />BCP140 | Error | The multi-line string at this location isn't terminated. Terminate it with `'''`. |
 | <a id='BCP141' />BCP141 | Error | The expression can't be used as a decorator as it isn't callable. |
 | <a id='BCP142' />BCP142 | Error | Property value for-expressions can't be nested. |
 | <a id='BCP143' />BCP143 | Error | For-expressions can't be used with properties whose names are also expressions. |
@@ -177,8 +177,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP173' />BCP173 | Error | The property `{property}` can't be used in an existing resource declaration. |
 | <a id='BCP174' />BCP174 | Warning | Type validation isn't available for resource types declared containing a `/providers/` segment. Instead use the `scope` property. |
 | <a id='BCP176' />BCP176 | Error | Values of the `any` type aren't allowed here. |
-| <a id='BCP177' />BCP177 | Error | This expression is being used in the if-condition expression, which requires a value that can be calculated at the start of the deployment.{variableDependencyChainClause}{accessiblePropertiesClause} |
-| <a id='BCP178' />BCP178 | Error | This expression is being used in the for-expression, which requires a value that can be calculated at the start of the deployment.{variableDependencyChainClause}{accessiblePropertiesClause} |
+| <a id='BCP177' />BCP177 | Error | This expression is being used in the if-condition expression, which requires a value that can be calculated at the start of the deployment.`{variableDependencyChainClause}{accessiblePropertiesClause}`|
+| <a id='BCP178' />BCP178 | Error | This expression is being used in the for-expression, which requires a value that can be calculated at the start of the deployment.`{variableDependencyChainClause}{accessiblePropertiesClause}` |
 | <a id='BCP179' />BCP179 | Warning | Unique resource or deployment name is required when looping. The loop item variable `{itemVariableName}` or the index variable `{indexVariableName}` must be referenced in at least one of the value expressions of the following properties in the loop body: `{ToQuotedString(expectedVariantProperties)}` |
 | <a id='BCP180' />BCP180 | Error | Function `<function-name>` isn't valid at this location. It can only be used when directly assigning to a module parameter with a secure decorator. |
 | <a id='BCP181' />BCP181 | Error | This expression is being used in an argument of the function `<function-name>`, which requires a value that can be calculated at the start of the deployment.{variableDependencyChainClause}{accessiblePropertiesClause} |
@@ -193,7 +193,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP190' />BCP190 | Error | The artifact with reference `{artifactRef}` hasn't been restored. |
 | <a id='BCP191' />BCP191 | Error | Unable to restore the artifact with reference `{artifactRef}`. |
 | <a id='BCP192' />[BCP192](./diagnostics/bcp192.md) | Error | Unable to restore the artifact with reference `<reference>`: `<error-message>`. |
-| <a id='BCP193' />BCP193 | Error | `{BuildInvalidOciArtifactReferenceClause(aliasName, badRef)}` Specify a reference in the format of "{ArtifactReferenceSchemes.Oci}:\<artifact-uri>:\<tag>", or "{ArtifactReferenceSchemes.Oci}\<module-alias>:\<module-name-or-path>:\<tag>". |
+| <a id='BCP193' />BCP193 | Error | `{BuildInvalidOciArtifactReferenceClause(aliasName, badRef)}` Specify a reference in the format of `{ArtifactReferenceSchemes.Oci}:\<artifact-uri>:\<tag>`, or `{ArtifactReferenceSchemes.Oci}\<module-alias>:\<module-name-or-path>:\<tag>`. |
 | <a id='BCP194' />BCP194 | Error | `{BuildInvalidTemplateSpecReferenceClause(aliasName, badRef)}` Specify a reference in the format of `{ArtifactReferenceSchemes.TemplateSpecs}:<subscription-ID><resource-group-name><template-spec-name>:<version>`, or `{ArtifactReferenceSchemes.TemplateSpecs}<module-alias>:<template-spec-name>:<version>`. |
 | <a id='BCP195' />BCP195 | Error | `{BuildInvalidOciArtifactReferenceClause(aliasName, badRef)}` The artifact path segment `{badSegment}` isn't valid. Each artifact name path segment must be a lowercase alphanumeric string optionally separated by a `.`, `_`, or `-`. |
 | <a id='BCP196' />BCP196 | Error | The module tag or digest is missing. |
@@ -258,7 +258,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP261' />BCP261 | Error | A using declaration must be present in this parameters file. |
 | <a id='BCP262' />BCP262 | Error | More than one using declaration is present. |
 | <a id='BCP263' />BCP263 | Error | The file specified in the using declaration path doesn't exist. |
-| <a id='BCP264' />BCP264 | Error | Resource type `{resourceTypeName}` is declared in multiple imported namespaces ({ToQuotedStringWithCaseInsensitiveOrdering(namespaces)}), and must be fully qualified. |
+| <a id='BCP264' />BCP264 | Error | Resource type `{resourceTypeName}` is declared in multiple imported namespaces (`{ToQuotedStringWithCaseInsensitiveOrdering(namespaces)}`), and must be fully qualified. |
 | <a id='BCP265' />BCP265 | Error | The name `{name}` isn't a function. Did you mean `{knownFunctionNamespace}.{knownFunctionName}`? |
 | <a id='BCP266' />[BCP266](./diagnostics/bcp266.md) | Error | Expected a metadata identifier at this location. |
 | <a id='BCP267' />BCP267 | Error | Expected a metadata declaration after the decorator. |
@@ -391,7 +391,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP412' />BCP412 | Error | The variable type is not valid. Please specify one of the following types: `{ToQuotedString(validTypes)}`. |
 | <a id='BCP414' />BCP414 | Error | The `^` indexing operator cannot be used on base expressions of type `{baseType}`.  |
 | <a id='BCP415' />BCP415 | Error | The `^` indexing operator cannot be used with index expressions of type `{indexType}`.     |
-| <a id='BCP416' />BCP416 | Error | The supplied string does not match the expected pattern of `/{expectedPattern}/`.   |
+| <a id='BCP416' />BCP416 | Error | The supplied string does not match the expected pattern of `{expectedPattern}`.   |
 | <a id='BCP417' />BCP417 | Error | The spread operator `{ellipsis}` cannot be used inside objects with property for-expressions.    |
 | <a id='BCP418' />BCP418 | Error | Extensions cannot be referenced here. Extensions can only be referenced by module extension configurations.   |
 | <a id='BCP419' />BCP419 | Error | Namespace name `{name}` cannot be used as an extension name.|
