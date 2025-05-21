@@ -381,7 +381,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP402' />BCP402 | Error | The spread operator `{spread.Ellipsis.Text}` can only be used in this context for an expression assignable to type `{requiredType}`. |
 | <a id='BCP403' />BCP403 | Error/Warning | The enclosing array expects elements of type `{expectedType}`, but the array being spread contains elements of incompatible type `{actualType}`. |
 | <a id='BCP404' />BCP404 | Error | The `{LanguageConstants.ExtendsKeyword}` declaration is missing a bicepparam file path reference. |
-| <a id='BCP405' />BCP405 | Error | More than one `{LanguageConstants.ExtendsKeyword}` declaration are present. |
+| <a id='BCP405' />BCP405 | Error | More than one `{LanguageConstants.ExtendsKeyword}` declaration is present. |
 | <a id='BCP406' />BCP406 | Error | The `{LanguageConstants.ExtendsKeyword}` keyword isn't supported. |
 | <a id='BCP407' />BCP407 | Error | Built-in extension `microsoftGraph` is retired. Use dynamic types instead. See `https://aka.ms/graphBicepDynamicTypes` |
 | <a id='BCP408' />BCP408 | Error | The `{LanguageConstants.NameofFunctionName}` function can only be used with an expression which has a name.   |
