@@ -12,6 +12,8 @@ ms.custom:
   - devx-track-extended-java
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 
 # Azure Managed Redis Client libraries

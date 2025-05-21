@@ -7,6 +7,8 @@ ms.topic: troubleshooting
 ms.custom:
   - ignite-2024
   - build-2025
+appliesto:
+  - ✅ Azure Managed Redis
 ---
 # Troubleshoot Azure Managed Redis client-side issues
 
