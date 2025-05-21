@@ -44,7 +44,7 @@ Do the following steps to order an import job in Azure Import/Export job via the
       * The name must include only letters, numbers, and hyphens.
       * The name must start and end with a letter or number.
 
-    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are hightlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-05.png)
+    ![Screenshot showing the Basics tab for an import job in Azure Data Box. The Basics tab, the Import Job Name text box, and the Next: Job Details button are highlighted.](./media/storage-import-export-preview-import-steps/import-export-order-preview-05.png)
 
     Select **Next: Job Details >** to proceed.
 
