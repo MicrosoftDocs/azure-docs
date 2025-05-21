@@ -178,7 +178,7 @@ $storageAccountSku = "StandardV2_LRS"
 New-AzStorageAccount -ResourceGroupName $resourceGroupName -AccountName $storageAccountName -SkuName $storageAccountSku -Kind $storageAccountKind -Location $region
 ```
 
-To view the settings and service usage for the Provisiond V2 storage account, use the following command. 
+To view the settings and service usage for the Provisioned V2 storage account, use the following command. 
 
 ```powershell
 Get-AzStorageFileServiceUsage -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
@@ -233,7 +233,7 @@ storageAccountSku="StandardV2_LRS"
 az storage account create --resource-group $resourceGroupName --name $storageAccountName --location $region --kind $storageAccountKind --sku $storageAccountSku --output none
 ```
 
-To view the settings and service usage for the Provisiond V2 storage account, use the following command.
+To view the settings and service usage for the Provisioned V2 storage account, use the following command.
 
 ```bash
 az storage account file-service-usage --account-name $storageAccountName -g $resourceGroupName
@@ -331,7 +331,7 @@ $f | fl
 ```
 
 # [Azure CLI](#tab/azure-cli)
-You can create an Provisioned v2 Azure file share with [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following PowerShell commands assume you set the variables `resourceGroupName` and `storageAccountName` as defined in the creating a storage account with Azure CLI section.
+You can create a Provisioned v2 Azure file share with [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following PowerShell commands assume you set the variables `resourceGroupName` and `storageAccountName` as defined in the creating a storage account with Azure CLI section.
 
 To create a provisioned v2 file share, use the following command. Remember to replace the values for the variables `shareName`, `provisionedStorageGib` with the desired selections for your file share deployment.
 
