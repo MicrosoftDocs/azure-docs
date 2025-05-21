@@ -22,13 +22,14 @@ For more information on configuring `IsMain`, see [Microsoft.Web sites/siteconta
 
 The Volume mounts feature enables you to share non-persistent files and directories between containers within your Web App.
 
-:::image type="content" source="../../media/tutorial-sidecar/configure-volume-mounts.png" alt-text="Screenshot showing a volume mount configuration for a sidecar container.":::
+:::image type="content" source="/media/tutorial-sidecar/configure-volume-mounts.png" alt-text="Screenshot showing a volume mount configuration for a sidecar container.":::
 
 **Volume sub path:** This is a logical directory path that is automatically created, and is not referenced within the container. Containers that are configured with the same volume sub path can share files and directories with each other.
 
 **Container mount path:** This corresponds to a directory path that you reference within the container. The container mount path is mapped to the volume sub path.
 
 For example, suppose the following volume mounts are configured:
+
 | Sidecar name | Volume sub path | Container mount path | Read-only |
 | ------------ | --------------- | -------------------- | --------- |
 | Container1 | /directory1/directory2 | /container1Vol | False |
