@@ -1,5 +1,5 @@
 ---
-title: Configure Storage Policy
+title: Configure a Storage Policy
 description:  Learn how to configure a storage policy for your Azure VMware Solution virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
@@ -20,38 +20,38 @@ Authorized users can use the `Run` command to change the default or existing VM 
 
 Run commands are executed one at a time in the order submitted.
 
-In this article learn how to:
+In this article, learn how to:
 
 > [!div class="checklist"]
-> * List all storage policies
-> * Set the storage policy for a VM
-> * Specify the default storage policy for a cluster
-> * Create a storage policy
-> * Remove a storage policy
+> * List all storage policies.
+> * Set the storage policy for a VM.
+> * Specify the default storage policy for a cluster.
+> * Create a storage policy.
+> * Remove a storage policy.
 
 ## Prerequisites for vSAN OSA-based clusters
 
 Make sure that the minimum level of hosts is met, according to the following table:
 
-|  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
+|  RAID configuration | Failures to tolerate (FTT) | Minimum hosts required |
 | --- | :---: | :---: |
-| `RAID-1` (mirroring) <br />Default setting  | 1  | 3  |
-| `RAID-5` (erasure coding)  | 1  | 4  |
-| `RAID-1` (mirroring)  | 2  | 5  |
-| `RAID-6` (erasure coding)  | 2  | 6  |
-| `RAID-1` (mirroring)  | 3  | 7  |
+| RAID-1 (mirroring) <br />Default setting  | 1  | 3  |
+| RAID-5 (erasure coding)  | 1  | 4  |
+| RAID-1 (mirroring)  | 2  | 5  |
+| RAID-6 (erasure coding)  | 2  | 6  |
+| RAID-1 (mirroring)  | 3  | 7  |
 
 ## Prerequisites for vSAN ESA-based clusters
 
 Make sure that the minimum level of hosts is met, according to the following table:
 
-|  **RAID configuration** | **Failures to tolerate (FTT)** | **Minimum hosts required** |
+|  RAID configuration | Failures to tolerate (FTT) | Minimum hosts required |
 | --- | :---: | :---: |
-| `RAID-1` (mirroring) <br />Default setting  | 1  | 3  |
-| `RAID-5` (ESA optimized)  | 1  | 3  |
-| `RAID-1` (mirroring)  | 2  | 5  |
-| `RAID-6` (ESA optimized)  | 2  | 5  |
-| `RAID-1` (mirroring)  | 3  | 7  |
+| RAID-1 (mirroring) <br />Default setting  | 1  | 3  |
+| RAID-5 (ESA optimized)  | 1  | 3  |
+| RAID-1 (mirroring)  | 2  | 5  |
+| RAID-6 (ESA optimized)  | 2  | 5  |
+| RAID-1 (mirroring)  | 3  | 7  |
 
 ## List storage policies
 
@@ -65,7 +65,7 @@ Run the `Get-StoragePolicy` cmdlet to list the vSAN-based storage policies that 
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
    | **Specify name for execution**  | Alphanumeric name. For example, *Get-StoragePolicies-Exec1*. |
@@ -75,9 +75,9 @@ Run the `Get-StoragePolicy` cmdlet to list the vSAN-based storage policies that 
    
 1. Check **Notifications** to see the progress.
 
-## Set storage policy on VM
+## Set a storage policy on a VM
 
-Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a default cluster, individual VM, or group of VMs sharing a similar VM name. For example, if you have three VMs named *MyVM1*, *MyVM2*, and *MyVM3*, supplying *MyVM* to the **VM Name** parameter would change the `StoragePolicy` on all three VMs.
+Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a default cluster, individual VM, or group of VMs sharing a similar VM name. For example, if you have three VMs named *MyVM1*, *MyVM2*, and *MyVM3*, supplying *MyVM* to the **VMName** parameter would change the `StoragePolicy` on all three VMs.
 
 > [!NOTE]
 > You can't use the vSphere Client to change the default storage policy or any existing storage policies for a VM.
@@ -86,7 +86,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **VMName** | Name of the target VM. |
    | **StoragePolicyName** | Name of the storage policy that you want to set. For example, *RAID1 FTT-1*. |
@@ -96,7 +96,7 @@ Run the `Set-VMStoragePolicy` cmdlet to modify vSAN-based storage policies on a 
 
 1. Check **Notifications** to see the progress.
 
-## Set storage policy on all VMs in a location
+## Set a storage policy on all VMs in a location
 
 Run the `Set-LocationStoragePolicy` cmdlet to modify vSAN-based storage policies on all VMs in a location in which a location is the name of a cluster, resource pool, or folder. For example, if you have three VMs in *Cluster-3*, supplying *Cluster-3* would change the storage policy on all three VMs.
 
@@ -107,7 +107,7 @@ Run the `Set-LocationStoragePolicy` cmdlet to modify vSAN-based storage policies
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **Location** | Name of the target VM. |
    | **StoragePolicyName** | Name of the storage policy to set. For example, *RAID1 FTT-1*. |
@@ -125,7 +125,7 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify a default storage po
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **ClusterName** | Name of the cluster. |
    | **StoragePolicyName** | Name of the storage policy to set. For example, *RAID1 FTT-1*. |
@@ -136,11 +136,11 @@ Run the `Set-ClusterDefaultStoragePolicy` cmdlet to specify a default storage po
 1. Check **Notifications** to see the progress.
 
 > [!NOTE]
-> Changing the default cluster policy affects only new VMs. Existing VMs retain the policy they're currently configured/deployed with.
+> Changing the default cluster policy affects only new VMs. Existing VMs retain the policy they're currently configured or deployed with.
 
 ## Create a custom Azure VMware Solution storage policy
 
-Run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy. This function creates a new, or overwrites an existing, vSphere storage policy. Non vSAN-based, vSAN-only, VMEncryption-only, Tag-only based or any combination of these policy types are supported.
+Run the `New-AVSStoragePolicy` cmdlet to create or overwrite an existing policy. This function creates a new, or overwrites an existing, vSphere storage policy. Non-vSAN-based, vSAN-only-based, VMEncryption-only-based, tag-only-based, or any combination of these policy types is supported.
 
 Keep the following information in mind:
 
@@ -152,21 +152,21 @@ Keep the following information in mind:
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **Overwrite** | Overwrite existing storage policy. <br>- The default value is  `$false`. <br>- Passing overwrite `true` provided overwrites an existing policy exactly as defined. <br>- Those values not passed are removed or set to default values. |
    | **NotTags** | Match to datastores that do *not* have these tags. <br>- Tags are case sensitive. <br>- Comma separate multiple tags. <br>- Example: `Tag1,Tag 2,Tag_3`. |
    | **Tags** | Match to datastores that do have these tags.  <br>- Tags are case sensitive. <br>- Comma separate multiple tags. <br>- Example: `Tag1,Tag 2,Tag_3`. |
-   | **vSANForceProvisioning** | Force provisioning for the policy. <br>- The default value is `$false`.<br>- Valid values are `$true` or `$false`. <br>- Warning: vSAN force-provisioned objects aren't covered under Microsoft's Service Level Agreement (SLA). Data loss and vSAN instability can occur. <br>- Recommended value is `$false`. |
+   | **vSANForceProvisioning** | Force provisioning for the policy. <br>- The default value is `$false`.<br>- Valid values are `$true` or `$false`. <br>- Warning: vSAN force-provisioned objects aren't covered under the Microsoft service-level agreement (SLA). Data loss and vSAN instability can occur. <br>- Recommended value is `$false`. |
    | **vSANChecksumDisabled** | Enable or disable checksum for the policy. <br>- The default value is `$false`. <br>- Valid values are `$true` or `$false`. <br>- Warning: Disabling checksum can lead to data loss and/or corruption. <br>- Recommended value is `$false`. |
    | **vSANCacheReservation** | Percentage of cache reservation for the policy. <br>- The default value is `0`. <br>- Valid values are `0` to `100`.|
-   | **vSANIOLimit** | Sets limit on allowed input/output (IO). <br>- The default value is unset. <br>- Valid values are `0` to `2147483647`. <br>- Input/output operations per second (IOPS) limit for the policy. |
+   | **vSANIOLimit** | Sets limit on allowed input/output (I/O). <br>- The default value is unset. <br>- Valid values are `0` to `2147483647`. <br>- Input/output operations per second (IOPS) limit for the policy. |
    | **vSANDiskStripesPerObject** | The number of hard disk drives (HDDs) across which each replica of a storage object is striped. <br>- The default value is `1`. Valid values are `1` to `12`. <br>- A value higher than `1` might result in better performance (for example, when flash read cache misses need to get serviced from HDD), but also results in a higher use of system resources. |
    | **vSANObjectSpaceReservation** | Object reservation. <br>- The default value is `0`.  <br>- Valid values are `0` to `100`. <br>- `0` = Thin provision. <br>- `100` = Thick provision.|
-   | **VMEncryption** | Sets VM encryption. <br>- The default value is `None`.  <br>- Valid values are `None`, `Pre-IO`, and `Post-IO`. <br>- Pre-IO allows virtual IO (VAIO) filtering solutions to capture data before VM encryption. <br>- Post-IO allows VAIO-filtering solutions to capture data after VM encryption. |
+   | **VMEncryption** | Sets VM encryption. <br>- The default value is `None`.  <br>- Valid values are `None`, `Pre-IO`, and `Post-IO`. <br>- `Pre-IO` allows virtual I/O (VAIO) filtering solutions to capture data before VM encryption. <br>- `Post-IO` allows VAIO-filtering solutions to capture data after VM encryption. |
    | **vSANFailuresToTolerate** | Number of vSAN hosts' failures to tolerate. <br>- The default value is `R1FTT1`. <br>- Valid values are `None`, `R1FTT1`, `R1FTT2`, `R1FTT3`, `R5FTT1`, `R6FTT2`, and `R1FTT3`. <br>- `None` = No data redundancy.<br>- `R1FTT1` = 1 failure - `RAID-1` (mirroring).<br>- `R1FTT2` = 2 failures - `RAID-1` (mirroring).<br>- `R1FTT3` = 3 failures - `RAID-1` (mirroring).<br>- `R5FTT1` = 1 failure - `RAID-5` (erasure coding).<br>- `R6FTT2` = 2 failures - `RAID-6` (erasure coding). <br>- The `None` (no data redundancy) option isn't covered under Microsoft's SLA.|
    | **vSANSiteDisasterTolerance** | Valid only for stretch clusters. <br>-  The default value is `None`. <br>- Valid values are `None`, `Dual`, `Preferred`, `Secondary`, and `NoneStretch`.  <br>- `None` = No site redundancy. This option is recommended for nonstretch clusters and not recommended for stretch clusters.  <br>- `Dual` = Dual site redundancy. This option is recommended for stretch clusters.  <br>- `Preferred` = No site redundancy. Keep data on preferred (stretched cluster).  <br>- `Secondary` = No site redundancy. Keep data on secondary site (stretched cluster).  <br>- `NoneStretch` = No site redundancy. Not recommended. For more information, see [For vSAN stretched clusters, don't use a storage policy with locality=none](https://kb.vmware.com/s/article/88358).|
-   | **Description** | Description of the storage policy that you're creating, free form text. |
+   | **Description** | Description of the storage policy that you're creating, in free-form text. |
    | **Name** | Name of the storage policy to set. For example, *RAID1 FTT-1*. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
    | **Specify name for execution**  | Alphanumeric name. For example, *New-AVSStoragePolicy-Exec1*.  |
@@ -174,7 +174,7 @@ Keep the following information in mind:
 
 1. Check **Notifications** to see the progress.
 
-## Remove Azure VMware Solution storage policy
+## Remove an Azure VMware Solution storage policy
 
 Run the `Remove-AVSStoragePolicy` cmdlet to specify the default storage policy for a cluster.
 
@@ -182,7 +182,7 @@ Run the `Remove-AVSStoragePolicy` cmdlet to specify the default storage policy f
 
 1. Provide the required values or change the default values according to the following table. Then select **Run**.
 
-   | **Field** | **Value** |
+   | Field | Value |
    | --- | --- |
    | **Name** | Name of the storage policy. Wildcards aren't supported and are stripped. |
    | **Retain up to**  | Retention period of the cmdlet output. The default value is `60`.  |
