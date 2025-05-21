@@ -194,7 +194,7 @@ The following table indicates whether your data is durable and available in a gi
 
 For pricing information for each redundancy option, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
-## Region supportability base on different billing models
+## Region supportability based on different billing models
 You can verify region supportability for various billing models using the following commands.
 # [Portal](#tab/azure-portal)
 To view region supportability based on different billing models, use Azure PowerShell or Azure CLI.
