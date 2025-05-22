@@ -4,7 +4,7 @@ description: Known issues for the MQTT broker, Layered Network Management (previ
 author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
-ms.date: 05/07/2025
+ms.date: 05/22/2025
 ---
 
 # Known issues: Azure IoT Operations
@@ -204,6 +204,26 @@ To work around this issue, complete the following steps to manually delete the C
 
 1. Uninstall Helm release without running the hook: `helm uninstall aio-<id>-connectors -n azure-iot-operations --no-hooks`
 
+## Asset discovery with Akri services issues
+
+This section lists current known issues for asset discovery with Akri services.
+
+### Asset discovery doesn't work for one hour after upgrade
+
+---
+
+Issue ID: 0407
+
+---
+
+Log signature: N/A
+
+---
+
+When you upgrade the Akri services, you might experience some loss of messages and assets for an hour after the upgrade.
+
+To workaround this issue, wait for an hour after the upgrade and run the asset detection scenario again.
+
 ## Data flows issues
 
 This section lists current known issues for data flows.
@@ -290,7 +310,7 @@ To work around this issue, use the following steps to manually delete the data f
    In the output, check for the final log entry:
 
    `Failed to create webhook cert resources: Failed to update ApiError: Internal error occurred: failed calling webhook "webhook.cert-manager.io" [...]`.
-
+Issue ID:2382
    If you see both log entries from the two _kubectl log_ commands, the cert-manager wasn't ready or running.
 
 1. Run `kubectl delete pod aio-dataflow-operator-0 -n azure-iot-operations` to delete the data flow operator pod. Deleting the pod clears the crash status and restarts the pod.

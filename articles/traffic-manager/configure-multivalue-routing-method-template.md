@@ -75,7 +75,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 ## Validate the deployment
 
-1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manger profile you entered when deploying the template.
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the nested endpoints were added to the profile. For `-Name`, enter the name of the parent Traffic Manager profile you entered when deploying the template.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name tmprofileparent-1 | Select Endpoints

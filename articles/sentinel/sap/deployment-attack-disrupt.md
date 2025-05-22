@@ -51,4 +51,4 @@ For more information, see:
 
 ## Related content
 
-For more information, see [Microsoft Sentinel in the Microsoft Defender portal (preview)](../microsoft-sentinel-defender-portal.md).
+For more information, see [Microsoft Sentinel in the Microsoft Defender portal](../microsoft-sentinel-defender-portal.md).

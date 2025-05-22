@@ -29,7 +29,7 @@ If you don't see a related error to your issue, turn on trace logging for more i
 
 ## Check for prerequisites
 
-The agentless data connector package, deployed while [performing the initial connector configuration](preparing-sap.md#perform-initial-connector-configuration), includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
+The agentless data connector package, deployed while [performing the initial connector configuration](preparing-sap.md#configure-the-connector-in-microsoft-sentinel-and-in-your-sap-system), includes a tool to help SAP admins diagnose and fix issues related to the SAP environment configuration. 
 
 [!INCLUDE [sap-agentless-prerequisites](../includes/sap-agentless-prerequisites.md)]
 

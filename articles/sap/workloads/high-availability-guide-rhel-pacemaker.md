@@ -907,11 +907,13 @@ The monitoring and fencing operations are deserialized. As a result, if there's 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events.
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. 
 
-The Pacemaker resource agent `azure-events-az` monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute.
+Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`. 
 
-When the cluster health attribute is set for a node, the location constraint triggers and all resources with names that don't start with `health-` are migrated away from the node with the scheduled event. After the affected cluster node is free of running cluster resources, the scheduled event is acknowledged and can execute its action, such as a restart.
+When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources. 
+
+The `#heath-azure` attribute is set back to `0` on pacemaker startup once all events have been processed, marking the node as healthy again.
 
 1. **[A]** Make sure that the package for the `azure-events-az` agent is already installed and up to date.
 

@@ -7,7 +7,7 @@ author: SivaSun
 manager: timlt
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: azure-cloud-services-classic
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/09/2025
 ms.author: ssundara
 ms.custom: compute-evergreen

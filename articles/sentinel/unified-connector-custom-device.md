@@ -37,7 +37,10 @@ For more information about the related Microsoft Sentinel solution for each of t
 
 The steps for collecting logs from machines hosting applications and appliances follow a general pattern:
 
-1. Create the destination table in Log Analytics (or Advanced Hunting if you're in the Defender portal).
+1. Create the destination table in one of the following locations:
+
+    - In the Defender portal, use the **Advanced Hunting** page.
+    - In the Azure portal, use Log Analytics.
 
 1. Create the data collection rule (DCR) for your application or appliance.
 

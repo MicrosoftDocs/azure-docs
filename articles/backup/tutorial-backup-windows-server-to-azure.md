@@ -2,17 +2,17 @@
 title: Tutorial - Back up Windows Server to Azure
 description: This tutorial details backing up on-premises Windows Servers to a Recovery Services vault.
 ms.topic: tutorial
-ms.date: 12/15/2022
+ms.date: 05/22/2025
 ms.custom: mvc, engagement-fy23
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 ---
-# Back up Windows Server to Azure
+# Tutorial: Back up Windows Server to Azure
 
 This tutorial describes how to back up on-premises Windows Server to Azure using the Microsoft Azure Recovery Services (MARS) agent.
 
-Azure Backup helps you to protect a Windows Server from corruptions, attacks, and disasters. Azure Backup provides a lightweight tool called the Microsoft Azure Recovery Services (MARS) agent. The MARS agent is installed on the Windows Server to protect files and folders, and server configuration info via Windows Server System State. This tutorial explains how you can use MARS Agent to back up your Windows Server to Azure. 
+Azure Backup protects Windows Server from corruption, cyberattacks, and disasters. This solution uses the lightweight Microsoft Azure Recovery Services (MARS) agent, which is installed on the server to protect files, folders, and system configuration data through Windows Server System State backups.
 
 ## Sign in to Azure
 
@@ -73,7 +73,7 @@ To install and register the agent, follow these steps:
 
 7. Select **Finish**.
 
-## Configure backup and retention
+## Configure backup and retention for Windows Server
 
 You use the Microsoft Azure Recovery Services agent to schedule when backups to Azure, occur on Windows Server.
 
@@ -85,34 +85,36 @@ To configure backup and retention on the server where you downloaded the agent, 
 
     ![Screenshot shows tbe Schedule Backup option.](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-3. Select **Next** to go to the **Select Items to Back up** page.
+3. Select **Next** to go to the **Select Items to Back up** pane.
 
 4. Select **Add Items** and from the dialog box that opens, select **System State** and files or folders that you want to back up. Then select **OK**.
 
 5. Select **Next**.
 
-6. On the **Specify Backup Schedule (System State)** page, specify the time of the day, or week when backups need to be triggered for System State and select **Next**.
+6. On the **Specify Backup Schedule (System State)** pane, specify the time of the day, or week when backups need to be triggered for System State and select **Next**.
 
-7. On the **Select Retention Policy (System State)** page, select the Retention Policy for the backup copy for System State and select **Next**.
+7. On the **Select Retention Policy (System State)** pane, select the Retention Policy for the backup copy for System State and select **Next**.
 
 8. Similarly, select the backup schedule and retention policy for selected files and folders.
 
-9. On the **Choose Initial Back up Type** page, select **Automatically over the network**, and select **Next**.
+9. On the **Choose Initial Back up Type** pane, select **Automatically over the network**, and select **Next**.
 
-10. On the **Confirmation** page, review the information, and select **Finish**.
+10. On the **Confirmation** pane, review the information, and select **Finish**.
 
 11. After the wizard finishes creating the backup schedule, select **Close**.
 
-## Run an on-demand backup
+## Run an on-demand backup of Windows Server
 
-You've established the schedule when backup jobs run. However, you haven't backed up the server. It's a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
+After you configure the backup schedule, jobs run automatically. However, the server isn't protected until a backup is actually performed. As a disaster recovery best practice, we recommend you to initiate an on-demand backup to ensure data resiliency.
+
+To run an on-demand backup of Windows Server, follow these steps:
 
 1. On the Microsoft Azure Recovery Services agent console, select **Back Up Now**.
 
     ![Screenshot shows how to select Back Up Now.](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2. On the **Back Up Now** wizard, select one from **Files and Folders** or **System State** that you want to back up and select **Next**
-3. On the **Confirmation** page, review the settings that the **Back Up Now** wizard uses to back up your server. Then select **Back Up**.
+3. On the **Confirmation** pane, review the settings that the **Back Up Now** wizard uses to back up your server. Then select **Back Up**.
 4. Select **Close** to close the wizard. If you close the wizard before the backup process finishes, the wizard continues to run in the background.
 
 After the initial backup is complete, **Job completed** status appears on **Jobs** pane of the MARS agent console.

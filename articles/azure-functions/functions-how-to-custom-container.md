@@ -11,6 +11,9 @@ zone_pivot_groups: functions-container-hosting
 
 :::zone pivot="container-apps"
 This article demonstrates the support that Azure Functions provides for working with containerized function apps running in an Azure Container Apps environment. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+
+[!INCLUDE [functions-aca-v2-note](../../includes/functions-aca-v2-note.md)]
+
 ::: zone-end
 :::zone pivot="azure-functions,azure-arc"
 This article demonstrates the support that Azure Functions provides for working with function apps running in Linux containers. 
@@ -407,6 +410,8 @@ SSH enables secure communication between a container and a client. With SSH enab
 The following articles provide more information about deploying and managing containers:
 
 + [Azure Container Apps hosting of Azure Functions](./functions-container-apps-hosting.md)
++ [Native Azure Functions Support in Azure Container Apps](../../articles/container-apps/functions-overview.md)
++ [Create your Native Azure Functions on Azure Container Apps](../../articles/container-apps/functions-usage.md)
 + [Scale and hosting options](functions-scale.md)
 + [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
 

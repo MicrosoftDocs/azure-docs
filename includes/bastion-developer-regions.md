@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 04/30/2024
+ms.date: 04/08/2025
 ms.service: azure-bastion
 ms.topic: include
 ms.custom: references_regions

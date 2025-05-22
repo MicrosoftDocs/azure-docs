@@ -1190,7 +1190,7 @@ On September 30, 2021, the Azure Virtual Desktop web client will no longer suppo
 
 ### Microsoft Intune preview
 
-We've started the preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manger documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
+We've started the preview for Microsoft Intune support in Windows 10 Enterprise multi-session. Intune support lets you manage your Windows 10 VMs with the same tools as your local devices. Learn more at our [Microsoft Endpoint Manager documentation](/mem/intune/fundamentals/windows-virtual-desktop-multi-session).
 
 ### FSLogix version 2105 preview
 

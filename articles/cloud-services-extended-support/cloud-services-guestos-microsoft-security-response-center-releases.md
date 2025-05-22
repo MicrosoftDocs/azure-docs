@@ -6,7 +6,7 @@ ms.subservice: guest-os-patching
 author: jejackson
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/05/2025
 ms.author: jejackson
 ms.custom: compute-evergreen

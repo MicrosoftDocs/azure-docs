@@ -55,7 +55,7 @@ The Akri services use standard Kubernetes primitives that let you apply your exi
 
 ## Discover OPC UA assets
 
-The Akri services and OPC UA connector are a turnkey solution that lets you discover assets connected to an OPC UA server and add the asset configurations into Azure Device Registry. The OPC UA connector discovers assets at the edge and Akri services maps them to assets in Azure Device Registry. The assets send telemetry to upstream brokers and components. The Akri services let you eliminate the time-consuming and error-prone process of manually configuring and onboarding the assets to your cluster and Azure Device Registry.
+The Akri services and OPC UA connector are a turnkey solution that lets you discover assets connected to an OPC UA server and add the asset configurations into Azure Device Registry. The OPC UA connector discovers assets at the edge and Akri services maps them to assets in Azure Device Registry. The assets send messages, such as sensor data, to upstream brokers and components. The Akri services let you eliminate the time-consuming and error-prone process of manually configuring and onboarding the assets to your cluster and Azure Device Registry.
 
 ### Features supported
 

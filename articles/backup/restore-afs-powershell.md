@@ -2,7 +2,7 @@
 title: Restore Azure Files with PowerShell
 description: In this article, learn how to restore Azure Files using the Azure Backup service and PowerShell. 
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 05/22/2025
 ms.custom: devx-track-azurepowershell
 author: jyothisuri
 ms.author: jsuri
@@ -10,7 +10,7 @@ ms.author: jsuri
 
 # Restore Azure Files with PowerShell
 
-This article explains how to restore an entire File Share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell.
+This article explains how to restore an entire File Share, or specific files, from a restore point created by the [Azure Backup](backup-overview.md) service using Azure PowerShell. You can also restore Azure Files using [Azure portal](restore-afs.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
 
 You can restore an entire File Share or specific files on the share. You can restore to the original location, or to an alternate location.
 
@@ -169,4 +169,4 @@ If you want to restore multiple files or folders to alternate location, use the 
 
 ## Next steps
 
-[Learn about](restore-afs.md) restoring Azure Files in the Azure portal.
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/27/2025
+ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
@@ -96,8 +96,8 @@ output
 ## Next steps
 
 - [Restore Azure Files using CLI](restore-afs-cli.md).
-- [Manage Azure Files backups using CLI](manage-afs-backup-cli.md?tabs=vault-standard).
-
+- Restore Azure Files using [Azure portal](restore-afs.md), [Azure PowerShell](restore-afs-powershell.md), [REST API](restore-azure-file-share-rest-api.md).
+- Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
 
  
 

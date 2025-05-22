@@ -12,7 +12,7 @@ appliesto:
 
 ---
 
-# Multiple Microsoft Sentinel workspaces in the Defender portal (preview)
+# Multiple Microsoft Sentinel workspaces in the Defender portal
 
 The Defender portal allows you to connect to one primary workspace and multiple secondary workspaces for Microsoft Sentinel. In the context of this article, a workspace is a Log Analytics workspace with Microsoft Sentinel enabled.
 

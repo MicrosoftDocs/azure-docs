@@ -2,16 +2,16 @@
 title: Manage Azure Files backups
 description: Learn common tasks for managing and monitoring backed-up Azure Files using Azure Backup.
 ms.topic: how-to
-ms.date: 12/20/2024
+ms.date: 05/22/2025
 ms.service: azure-backup
 author: jyothisuri
 ms.author: jsuri
 
 ---
 
-# Manage Azure Files backups
+# Manage Azure Files backups using Azure portal
 
-This article describes common tasks for managing and monitoring backed-up Azure Files using [Azure Backup](./backup-overview.md). 
+This article describes common tasks for managing and monitoring backed-up Azure Files using Azure portal. You cam also manage Azure Files backups using [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md). 
 
 Azure Backup offers a simple, reliable, and secure way to protect your enterprise File Shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
 

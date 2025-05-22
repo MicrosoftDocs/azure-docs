@@ -3,14 +3,14 @@ title: Restore Azure Files with the Azure CLI
 description: Learn how to use the Azure CLI to restore backed-up Azure Files in the Recovery Services vault
 ms.topic: how-to
 ms.custom: devx-track-azurecli, engagement-fy24
-ms.date: 03/05/2025
+ms.date: 05/22/2025
 author: jyothisuri
 ms.author: jsuri
 ---
 
 # Restore Azure Files with the Azure CLI
 
-The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md) by using the Azure CLI. You can also perform these steps with [Azure PowerShell](./backup-azure-afs-automation.md) or in the [Azure portal](backup-afs.md).
+The Azure CLI provides a command-line experience for managing Azure resources. It's a great tool for building custom automation to use Azure resources. This article explains how to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md) by using the Azure CLI. You can also restore Azure Files using [Azure portal](restore-afs.md), [Azure PowerShell](restore-afs-powershell.md), [REST API](restore-azure-file-share-rest-api.md).
 
 By the end of this article, you'll learn how to perform the following operations with the Azure CLI:
 
@@ -196,4 +196,4 @@ If you want to restore multiple items to an alternate location, use the command 
 
 ## Next steps
 
-Learn how to [Manage Azure Files backups with the Azure CLI](manage-afs-backup-cli.md).
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).
