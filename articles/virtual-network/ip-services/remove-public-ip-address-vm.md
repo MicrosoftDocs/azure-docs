@@ -112,7 +112,7 @@ If you don't know the name of the public IP address associated to an IP configur
 
 ```azurecli
 # Get the name of public IP address associated to an IP configuration
-az network nic ip-config show --name ipconfigmyVM --nic-name myVMNic --resource-group myResourceGroup --query publicIpAddress.id
+az network nic ip-config show --name ipconfigmyVM --nic-name myVMNic --resource-group myResourceGroup --query publicIPAddress.id
 ```
 The output includes one or more lines that are similar to the following example:
 
