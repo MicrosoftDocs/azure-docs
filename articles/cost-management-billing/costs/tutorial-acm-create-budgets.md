@@ -134,7 +134,7 @@ Budget cost evaluations now include reserved instance and purchase data. If the 
 
 If you want to filter the new costs so that budgets are evaluated against first party Azure consumption charges only, add the following filters to your budget:
 
-- Publisher Type: Azure
+- Publisher Type: Microsoft
 - Charge Type: Usage
 
 Budget cost evaluations are based on actual cost. They don't include amortization. For more information about filtering options available to you in budgets, see [Understanding grouping and filtering options](group-filter.md).
