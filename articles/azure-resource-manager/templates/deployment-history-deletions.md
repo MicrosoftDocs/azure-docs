@@ -8,7 +8,7 @@ ms.custom: devx-track-azurecli, devx-track-arm-template
 
 # Automatic deletions from deployment history
 
-When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope — whether it's a resource group, subscription, or management group—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process has been in effect since **August 6, 2020**.
+When you deploy resources to Azure, the deployment details are recorded in the deployment history at the scope where the deployment occurs. Each scope—whether it's a resource group, subscription, or management group—can store up to **800 deployments** in its history. Once this limit is reached, Azure **automatically deletes the oldest deployments** to make space for new ones. This automatic cleanup process was implemented on **August 6, 2020**.
 
 > [!NOTE]
 > Deleting a deployment from the history doesn't affect any of the resources that were deployed.
@@ -34,31 +34,43 @@ If the current user doesn't have the required permissions, automatic deletion is
 
 ## Removing locks that block deletions
 
-If you have a [CanNotDelete lock](../management/lock-resources.md) on a resource group or a subscription, the deployments for that scope can't be automatically deleted. To enable automatic cleanup of the deployment history, you'll need to remove the lock.
+If you have a [CanNotDelete lock](../management/lock-resources.md) on a resource group or a subscription, the deployments for that scope can't be automatically deleted. To enable automatic cleanup of the deployment history, you need to remove the lock.
 
-To delete a resource group lock using Azure PowerShell, run the following commands:
+To delete a resource group lock, run the following commands:
+
+### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 $lockId = (Get-AzResourceLock -ResourceGroupName lockedRG).LockId
 Remove-AzResourceLock -LockId $lockId
 ```
 
-To delete a resource group lock using Azure CLI, run the following commands:
+To delete a resource group lock, run the following commands:
+
+### [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 lockid=$(az lock show --resource-group lockedRG --name deleteLock --output tsv --query id)
 az lock delete --ids $lockid
 ```
 
+### [REST](#tab/rest)
+
+```rest
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/locks/{lockName}?api-version=2016-09-01
+```
+
+---
+
 ## How to opt out of automatic deletions
 
-You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you'll receive an error and your deployment will fail.
+You can opt out of automatic deletions from the history. **Use this option only when you want to manage the deployment history yourself.** The limit of 800 deployments in the history is still enforced. If you exceed 800 deployments, you receive an error and your deployment fail.
 
 To disable automatic deletions at the tenant or the management group scope, open a support ticket. For the instructions, see [Request support](./overview.md#get-support).
 
 To disable automatic deletions at the subscription scope, register the `Microsoft.Resources/DisableDeploymentGrooming` feature flag. When you register the feature flag, you opt out of automatic deletions for the entire Azure subscription. You can't opt out for only a particular resource group. To reenable automatic deletions, unregister the feature flag.
 
-# [PowerShell](#tab/azure-powershell)
+### [PowerShell](#tab/azure-powershell)
 
 For PowerShell, use [Register-AzProviderFeature](/powershell/module/az.resources/Register-AzProviderFeature).
 
@@ -74,7 +86,7 @@ Get-AzProviderFeature -ProviderNamespace Microsoft.Resources -FeatureName Disabl
 
 To reenable automatic deletions, use Azure REST API or Azure CLI.
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 For Azure CLI, use [az feature register](/cli/azure/feature#az-feature-register).
 
@@ -94,7 +106,7 @@ To reenable automatic deletions, use [az feature unregister](/cli/azure/feature#
 az feature unregister --namespace Microsoft.Resources --name DisableDeploymentGrooming
 ```
 
-# [REST](#tab/rest)
+### [REST](#tab/rest)
 
 For REST API, use [Features - Register](/rest/api/resources/features/register).
 
