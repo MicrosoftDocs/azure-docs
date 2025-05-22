@@ -169,7 +169,7 @@ During VM configuration, you have an option to create or select exiting load bal
 > * For HANA scale out, select the NIC for the `client` subnet when adding the virtual machines in the backend pool.
 > * The full set of command in Azure CLI and PowerShell adds the VMs with primary NIC in the backend pool.
 
-#### [Azure Portal](#tab/lb-portal)
+#### [Azure portal](#tab/lb-portal)
 
 [!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
