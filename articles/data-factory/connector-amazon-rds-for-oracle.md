@@ -81,14 +81,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Amazon RDS for Oracle connector now supports version 2.0. Refer to this [section](#upgrade-the-amazon-rds-for-oracle-connector) to upgrade your Amazon RDS for Oracle connector connector version from version 1.0. For the property details, see the corresponding sections.
+The Amazon RDS for Oracle connector now supports version 2.0. Refer to this [section](#upgrade-the-amazon-rds-for-oracle-connector) to upgrade your Amazon RDS for Oracle connector version from version 1.0. For the property details, see the corresponding sections.
 
 - [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
 ### Version 2.0
 
-The Amazon RDS for Oracle connector linked service supports the following properties when apply version 2.0:
+The Amazon RDS for Oracle linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
