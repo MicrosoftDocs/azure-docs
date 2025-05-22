@@ -13,6 +13,8 @@ ms.date: 04/24/2025
 
 # Create unit tests from Standard workflow runs in Azure Logic Apps with Visual Studio Code (Preview)
 
+[!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
+
 > [!NOTE]
 >
 > This capability is in preview and is subject to the 
