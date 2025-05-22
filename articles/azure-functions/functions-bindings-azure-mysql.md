@@ -15,15 +15,15 @@ ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
-# Overview of Azure Database for MySQL bindings for Azure Functions (preview)
+# Overview of Azure Database for MySQL bindings for Azure Functions
 
-This set of articles explains how to work with [Azure Database for MySQL](/azure/mysql/index) bindings in Azure Functions. For the preview, Azure Functions supports input bindings and output bindings for Azure Database for MySQL.
+This set of articles explains how to work with [Azure Database for MySQL](/azure/mysql/index) bindings in Azure Functions. Azure Functions supports input bindings and output bindings in general availability. For the preview, Azure Functions supports trigger bindings for Azure Database for MySQL.
 
 | Action | Type |
 |---------|---------|
 | Read data from a database | [Input binding](./functions-bindings-azure-mysql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-mysql-output.md) |
-| Trigger a function when a change is detected in a MySQL table | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
+| Trigger a function when a change is detected in a MySQL table (preview) | [Trigger binding](./functions-bindings-azure-mysql-trigger.md) |
 
 ::: zone pivot="programming-language-csharp"
 

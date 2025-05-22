@@ -46,7 +46,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
 
-1. Add the Request built-in trigger named **When a HTTP request is received** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. Add the Request built-in trigger named **When a HTTP request is received** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
 
 1. After the trigger information box appears, provide the following information as required:
 
@@ -190,7 +190,7 @@ The Request trigger creates a manually callable endpoint that handles *only* inb
 
 1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
 
-1. Add the Request built-in trigger named **When a HTTP request is received** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. Add the Request built-in trigger named **When a HTTP request is received** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
 1. After the trigger information box appears, provide the following information as required:
 
@@ -400,7 +400,7 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 1. Open your Consumption logic app and workflow in the designer. This example uses the HTTP trigger added in the previous section as the first step.
 
-1. Add the Response built-in action named **Response** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Add the Response built-in action named **Response** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
    For simplicity, the following examples show a collapsed Request trigger.
 
@@ -430,7 +430,7 @@ When you use the Request trigger to receive inbound requests, you can model the 
 
 1. Open your Standard logic app and workflow in the designer. This example uses the HTTP trigger added in the previous section as the first step.
 
-1. Add the Response built-in action named **Response** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Add the Response built-in action named **Response** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
 
 1. In the action information box, add the required values for the response message:
 

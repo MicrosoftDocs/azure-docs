@@ -7,8 +7,8 @@ author: SivaSun
 manager: timlt
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: azure-cloud-services-classic
-ms.topic: article
-ms.date: 04/07/2025
+ms.topic: concept-article
+ms.date: 05/09/2025
 ms.author: ssundara
 ms.custom: compute-evergreen
 ---
@@ -71,7 +71,7 @@ We recommend that you use latest Guest OS family for designing your Cloud Servic
 
 **What if my web application requires deeper integration with the OS?**
 
-If your web application architecture depends on underlying features of the operating system, use platform supported capabilities such as [startup tasks](/previous-versions/azure/cloud-services/cloud-services-startup-tasks.md) or other extensibility mechanisms. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you're responsible for maintaining the underlying operating system.
+If your web application architecture depends on underlying features of the operating system, use platform supported capabilities such as [startup tasks](/previous-versions/azure/cloud-services/cloud-services-startup-tasks) or other extensibility mechanisms. Alternatively, you can also use [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – Infrastructure as a Service), where you're responsible for maintaining the underlying operating system.
 
 ## Next steps
 Review the latest [Guest OS releases](cloud-services-guestos-update-matrix.md).

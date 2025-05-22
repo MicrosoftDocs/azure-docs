@@ -350,8 +350,7 @@ If your account isn't assigned to the previous role, it must be assigned to a [c
 
 | Action                                                          | Name |
 |---                                                              |---   |
-| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B. Virtual network A must be a virtual network         |
-| **Microsoft.Network/virtualNetworks/peer/action**                   | Required to create a peering from virtual network B to virtual network A                                                       |
+| **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write**  | Required to create a peering from virtual network A to virtual network B.         |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read**   | Read a virtual network peering   |
 | **Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete** | Delete a virtual network peering |
 

@@ -51,7 +51,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. Select **+ Add** to create a new workflow. Enter a name for your workflow and choose the state type.
 
-1. Add the built-in trigger named **HTTP** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. Add the built-in trigger named **HTTP** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-trigger).
 
    This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and operation names in your workflow must be unique.
 
@@ -72,7 +72,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app. Under **Development Tools** in the sidebar menu, select **Logic app designer** to open a blank workflow.
 
-1. Add the built-in trigger named **HTTP** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. Add the built-in trigger named **HTTP** to your workflow. For detailed steps, see [Add a trigger to start your workflow](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-trigger).
 
    This example renames the trigger to **HTTP trigger - Call endpoint URL** so that the trigger has a more descriptive name. Also, the example later adds an HTTP action, and operation names in your workflow must be unique.
 
@@ -103,7 +103,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    This example uses the HTTP trigger added in the previous section as the first step.
 
-1. Add the built-in action named **HTTP** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Add the built-in action named **HTTP** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=standard#add-action).
 
    This example renames the action to **HTTP action - Call endpoint URL** so that the step has a more descriptive name. Also, operation names in your workflow must be unique.
 
@@ -126,7 +126,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    This example uses the HTTP trigger added in the previous section as the first step.
 
-1. Add the built-in action named **HTTP** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Add the built-in action named **HTTP** to your workflow. For detailed steps, see [Add an action to run a task](../logic-apps/add-trigger-action-workflow.md?tabs=consumption#add-action).
 
    This example renames the action to **HTTP action - Call endpoint URL** so that the step has a more descriptive name. Also, operation names in your workflow must be unique.
 
