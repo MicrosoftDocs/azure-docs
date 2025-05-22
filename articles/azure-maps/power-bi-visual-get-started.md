@@ -93,9 +93,9 @@ Take the following steps to load the Azure Maps visual:
 
 1. You can also show or hide country/region borders, state or province borders, county borders, building, and road details in the **Format** pane. The following two images show maps with the **Country/Region borders** settings turned on and off:
 
-    :::image type="content" source="media/power-bi-visual/country-borders-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-borders-on.png":::
+    :::image type="content" source="media/power-bi-visual/country-region-borders-on.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned on in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-region-borders-on.png":::
 
-    :::image type="content" source="media/power-bi-visual/country-borders-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-borders-off.png":::
+    :::image type="content" source="media/power-bi-visual/country-region-borders-off.png" alt-text="A screenshot of the Azure Maps visual displaying a map with the country/region borders setting turned off in the style section of the format pane in Power BI." lightbox="media/power-bi-visual/country-region-borders-off.png":::
 
 ## Fields pane buckets
 
