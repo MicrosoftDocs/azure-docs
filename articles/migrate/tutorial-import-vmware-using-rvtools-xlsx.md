@@ -17,7 +17,7 @@ As part of your migration journey to Azure, you discover your on-premises invent
 This tutorial shows you how to discover the servers that are running in your VMware environment by using RVTools XLSX (preview). When you use this tool, you can control the data shared in the file and there's no need to set up the Azure Migrate appliance to discover servers. [Learn more](migrate-support-matrix-vmware.md#import-servers-using-rvtools-xlsx-preview).
 
 > [!NOTE]
-> * RVTools has a supply chain attack on May 12, 2025. The attack injected malware to the RVTools installer. Customers should download RVTools only from official sites and verify that the installer’s file hash matches on the official site. Customers should run anti-malware software to find any harmful programs.
+> * RVTools has a supply chain attack on May 12, 2025. The attack injected malware to the RVTools installer. Customers should download RVTools only from official websites and verify that the installer’s file hash matches on the official website. Customers should run anti-malware software to find any harmful programs.
 > * Microsoft doesn't own or support RVTools. Customers use the software at their own risk.
 
 In this tutorial, you learn how to:
