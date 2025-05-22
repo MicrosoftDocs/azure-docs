@@ -2,13 +2,14 @@
 author: maud-lv
 ms.service: azure-managed-grafana
 ms.topic: include
-ms.date: 04/18/2024
+ms.date: 05/22/2025
 ms.author: malev
 ---
 
 | Limit                                | Description                                                                                                                                                          | Essential              | Standard X1            | Standard X2            |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|------------------------|------------------------|
 | Alert rules                          | Maximum number of alert rules that can be created.                                                                                                                   | Not supported          | 500 per instance       | 1000 per instance      |
+| Memory for Grafana instance          | Amount of memory for Grafana in your dedicated instance.                                                                                                             | Standard               | Standard               | Expanded               | 
 | Dashboards                           | Maximum number of dashboards that can be created.                                                                                                                    | 20 per instance        | Unlimited              | Unlimited              |
 | Data sources                         | Maximum number of datasources that can be created.                                                                                                                   | 5 per instance         | Unlimited              | Unlimited              |
 | API keys                             | Maximum number of API keys that can be created.                                                                                                                      | 2 per instance         | 100 per instance       | 100 per instance       |
