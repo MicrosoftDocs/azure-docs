@@ -5,7 +5,7 @@ author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 01/06/2025
+ms.date: 05/22/2025
 ms.custom: template-concept
 ---
 
@@ -42,7 +42,7 @@ status:
   phase: Bound
 ```
 
-Some Azure Operator Nexus deployments may have two storage appliances installed. Persistent volume claims (PVCs) using the *nexus-volume* storage class can place the associated persistent volumes onto a specific storage appliance by using the *nexusSharedStorageApplianceName* annotation. More information is available in [this document](./concepts-storage-multiple-appliances.md).
+Some Azure Operator Nexus deployments may have two storage appliances installed. Persistent volume claims (PVCs) using the *nexus-volume* storage class can place the associated persistent volumes onto a specific storage appliance by using the *storageApplianceName* annotation. More information is available in [this document](./concepts-storage-multiple-appliances.md).
 
 ### StorageClass: nexus-shared
 

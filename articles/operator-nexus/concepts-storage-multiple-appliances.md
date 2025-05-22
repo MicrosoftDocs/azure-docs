@@ -5,7 +5,7 @@ author: pjw711
 ms.author: peterwhiting
 ms.service: azure-operator-nexus
 ms.topic: conceptual
-ms.date: 03/12/2025
+ms.date: 05/22/2025
 ms.custom: template-concept
 ---
 
@@ -49,7 +49,7 @@ The default storage appliance is the appliance in rack slot 1. You can set the d
 
 ### Nexus-volume storage class
 
-Azure Operator Nexus supports creating Persistent Volume Claims (PVCs) using the *nexus-volume* storage class. Nexus-volume PVCs are backed by a volume on the storage appliance which is created and managed by Azure Operator Nexus. You can select the storage appliance to provide the backing storage by using the `nexusSharedStorageApplianceName` annotation.
+Azure Operator Nexus supports creating Persistent Volume Claims (PVCs) using the *nexus-volume* storage class. Nexus-volume PVCs are backed by a volume on the storage appliance which is created and managed by Azure Operator Nexus. You can select the storage appliance to provide the backing storage by using the `storageApplianceName` annotation.
 
 ```yml
 apiVersion: v1
@@ -58,7 +58,7 @@ metadata:
   name: testPvc
   namespace: default
   annotations:
-    nexusSharedStorageApplianceName: exampleStorageAppliance
+    storageApplianceName: exampleStorageAppliance
 spec:
   accessModes:
   - ReadWriteOnce
@@ -76,11 +76,11 @@ status:
   phase: Bound
 ```
 
-`nexusSharedStorageApplianceName` must match the Azure resource name of the storage appliance resource managed by your Azure Operator Nexus cluster on which you want to create the volume backing your PVC. If there's no `nexusSharedStorageApplianceName` annotation, Azure Operator Nexus places the volume on the default storage appliance. If there is a `nexusSharedStorageApplianceName` annotation, but it does not match the Azure resource name of a storage appliance managed by your Azure Operator Nexus cluster, the PVC creation will fail.
+`storageApplianceName` must match the Azure resource name of the storage appliance resource managed by your Azure Operator Nexus cluster on which you want to create the volume backing your PVC. If there's no `storageApplianceName` annotation, Azure Operator Nexus places the volume on the default storage appliance. If there is a `storageApplianceName` annotation, but it does not match the Azure resource name of a storage appliance managed by your Azure Operator Nexus cluster, the PVC creation will fail.
 
 #### Nexus-volume limitations
 
-- Azure Operator Nexus doesn't support moving a PVC from one storage appliance to another. Attempts to change the `nexusSharedStorageApplianceName` annotation have no effect.
+- Azure Operator Nexus doesn't support moving a PVC from one storage appliance to another. Attempts to change the `storageApplianceName` annotation have no effect.
 - There's no support for placing volumes on a specific storage appliance when creating volumes through the Azure Resource Manager APIs. All volumes created directly through Azure Resource Manager will be placed on the storage appliance in rack slot 1.
 
 ### Nexus-shared storage class
@@ -89,11 +89,11 @@ Azure Operator Nexus provides a shared filesystem storage solution for container
 
 You can create the shared storage service on either storage appliance when the CSN is created. All nexus-shared PVCs using that shared storage service consume storage from the storage appliance backing the shared service. The configuration applies to all nexus-shared PVCs using the shared storage service provided by the CSN. All nexus-shared PVCs using the same shared storage service use the same storage appliance.
 
-The `nexusSharedStorageApplianceName` Azure resource tag controls which storage appliance is used to back the shared storage service. See [Prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
+The `storageApplianceName` Azure resource tag controls which storage appliance is used to back the shared storage service. See [Prerequisites for deploying tenant workloads](./quickstarts-tenant-workload-prerequisites.md#create-a-cloud-services-network) for instructions on creating the shared storage service on a specific storage appliance.
 
 If no storage appliance configuration is provided at CSN creation time, the shared storage service uses the first storage appliance. If the configuration is present but doesn't match a storage appliance then the CSN creation will fail.
 
-Subsequent updates to the `nexusSharedStorageApplianceName` Azure resource tag have no effect. There is no support for moving the shared filesystem storage solution between storage appliances after initial deployment.
+Subsequent updates to the `storageApplianceName` Azure resource tag have no effect. There is no support for moving the shared filesystem storage solution between storage appliances after initial deployment.
 
 #### Nexus-shared limitations
 
