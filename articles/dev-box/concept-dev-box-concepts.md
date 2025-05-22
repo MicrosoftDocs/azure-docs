@@ -13,6 +13,9 @@ ms.custom: template-concept
 
 # Key concepts for Microsoft Dev Box
 
+[!INCLUDE [note-build-2025](includes/note-build-2025.md)]
+
+
 This article describes the key concepts and components of Microsoft Dev Box to help you set up the service successfully.
 
 Microsoft Dev Box gives developers self-service access to preconfigured and ready-to-code cloud-based workstations. You can configure the service to meet your development team and project structure, manage security, and network settings to access resources securely. Different components play a part in the configuration of Microsoft Dev Box.
@@ -21,7 +24,7 @@ Microsoft Dev Box builds on the same foundations as [Azure Deployment Environmen
 
 This diagram shows the key components of Dev Box and how they relate to each other. You can learn more about each component in the following sections.
 
-:::image type="content" source="media/concept-key-concepts/dev-box-architecture.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-architecture.png" :::
+:::image type="content" source="media/concept-key-concepts/dev-box-concepts-overview.png" alt-text="Diagram showing the major components of Microsoft Dev Box and the relationships between them." lightbox="media/concept-key-concepts/dev-box-concepts-overview.png" :::
 
 For more in-depth information about the Microsoft Dev Box architecture, see the [architecture overview](./concept-dev-box-architecture.md) article.
 

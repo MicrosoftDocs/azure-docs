@@ -4,6 +4,9 @@ description: Learn how to about common errors returned by WebHCat on HDInsight a
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 01/02/2025
 ---
 

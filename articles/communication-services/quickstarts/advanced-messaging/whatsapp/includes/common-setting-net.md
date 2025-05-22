@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -17,7 +17,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 The Messages SDK uses the `NotificationMessagesClient` to send messages. The `NotificationMessagesClient` method authenticates using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information about connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
-[!INCLUDE [Authenticate the client ](./authenticate-notification-messages-client-net.md)]
+[!INCLUDE [Authenticate the client](./authenticate-notification-messages-client-net.md)]
 
 ### Set channel registration ID   
 
@@ -57,6 +57,7 @@ var recipientList = new List<string> { "+14255550199" };
 ### Start sending messages between a business and a WhatsApp user
 
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 

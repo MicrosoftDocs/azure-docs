@@ -3,7 +3,7 @@
  author: cherylmc
  ms.service: azure-virtual-wan
  ms.topic: include
- ms.date: 05/20/2022
+ ms.date: 04/07/2025
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -16,7 +16,8 @@
 | Aggregate throughput per Virtual WAN User VPN (Point-to-site) gateway | 200 Gbps |
 | Aggregate throughput per Virtual WAN ExpressRoute gateway | 20 Gbps |
 | ExpressRoute circuit connections per hub | 8 |
-| VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
+| VNet connections per hub without Routing Intent enabled | 500 minus total number of hubs in Virtual WAN |
+| Address spaces across all VNets directly connected to single hub with Routing Intent with private routing policies enabled| 400 per Virtual WAN hub - [adjustable](../articles/virtual-wan/how-to-routing-policies.md#address-limits)|
 | Aggregate throughput per Virtual WAN hub router | 50 Gbps for VNet to VNet transit |
 | VM workload across all VNets connected to a single Virtual WAN hub | 2000 (If you want to raise the limit or quota above the default limit, see [hub settings](../articles/virtual-wan/hub-settings.md)). |
 | Total number of routes the hub can accept from its connected resources (virtual networks, branches, other virtual hubs, etc.) | 10,000 |

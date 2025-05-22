@@ -4,7 +4,7 @@ description: Describes how to find error codes to troubleshoot Azure resources d
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep, devx-track-azurecli
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ---
 
 # Find error codes

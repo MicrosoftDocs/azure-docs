@@ -4,6 +4,9 @@ description: Work from a Windows PC in Hadoop on HDInsight. Manage and query clu
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-dotnet, linux-related-content
+author: apurbasroy
+ms.author: apsinhar
+ms.reviewer: hgowrisankar
 ms.date: 09/06/2024
 ---
 

@@ -9,7 +9,8 @@
     href: whats-new.md
   - name: VPN Gateway FAQ
     href: vpn-gateway-vpn-faq.md
-  - name: Quickstarts
+  - name: Quickstarts & Tutorials
+    expanded: true
     items:
     - name: Create and manage a VPN gateway
       href: tutorial-create-gateway-portal.md
@@ -25,9 +26,9 @@
         href: point-to-site-certificate-gateway.md
       - name: Microsoft Entra ID authentication
         href: point-to-site-entra-gateway.md
-- name: Design and architecture
+- name: Design & architecture
   items:
-  - name: Design and topology
+  - name: Design & topology
     href: design.md
   - name: Design highly available gateway connections
     href: vpn-gateway-highlyavailable.md
@@ -47,27 +48,37 @@
       href: work-remotely-support.md
     - name: NVA configurations and remote work
       href: nva-work-remotely-support.md
-- name: Gateways and configuration settings
+- name: Configuration settings, SKUs & gateways
   items:
-  - name: VPN Gateway configuration settings
-    href: vpn-gateway-about-vpn-gateway-settings.md
   - name: Gateway SKUs
     items:
     - name: About gateway SKUs
       href: about-gateway-skus.md
-    - name: Gateway SKU consolidation
-      href: gateway-sku-consolidation.md
+    - name: Gateway SKU consolidation & migration
+      items:
+      - name: About SKU consolidation & migration
+        href: gateway-sku-consolidation.md
     - name: Resize a gateway SKU
       href: gateway-sku-resize.md
     - name: Change a gateway SKU
       href: gateway-sku-change.md
     - name: Manage legacy gateway SKUs
       href: vpn-gateway-about-skus-legacy.md
+  - name: Public IP addresses
+    items:
+    - name: About Basic SKU public IP address migration
+      href: basic-public-ip-migrate-about.md
+    - name: How to migrate a Basic SKU public IP address to Standard
+      href: basic-public-ip-migrate-howto.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About zone-redundant gateways
     href: about-zone-redundant-vnet-gateways.md
-- name: Create and manage VPN gateways
+  - name: VPN Gateway configuration settings
+    href: vpn-gateway-about-vpn-gateway-settings.md
+  - name: IPv6 configuration settings
+    href: ipv6-configuration.md
+- name: Create & manage a VPN gateway
   items:
   - name: Create a VPN gateway
     items:
@@ -93,7 +104,7 @@
       href: vpn-gateway-about-skus-legacy.md
   - name: Migrate classic gateways to Resource Manager
     href: vpn-gateway-classic-resource-manager-migration.md
-  - name: Active-active gateways
+  - name: Active-active mode gateways
     items:
     - name: About active-active mode gateways
       href: about-active-active-gateways.md
@@ -113,11 +124,11 @@
       href: vpn-gateway-delete-vnet-gateway-powershell.md
   - name: Verify a gateway connection
     href: vpn-gateway-verify-connection-resource-manager.md
-  - name: Reset a connection or a gateway
+  - name: Reset a gateway or gateway connection
     href: reset-gateway.md
-  - name: Configure customer-controlled gateway maintenance
+  - name: Configure gateway maintenance
     href: customer-controlled-gateway-maintenance.md
-- name: Configure site-to-site VPN connections
+- name: Site-to-site (S2S) VPN
   items:
   - name: Configure site-to-site connections - preshared key
     items:
@@ -131,6 +142,16 @@
     href: site-to-site-certificate-authentication-gateway-portal.md
   - name: Connect AWS and Azure using a BGP-enabled VPN gateway
     href: vpn-gateway-howto-aws-bgp.md
+  - name: Site-to-site with ExpressRoute connections
+    items:
+    - name: Coexisting connections
+      items:
+      - name: Azure portal
+        href: ../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=/azure/vpn-gateway/toc.json
+      - name: Azure PowerShell
+        href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=/azure/vpn-gateway/toc.json
+    - name: VPN over private peering
+      href: site-to-site-vpn-private-peering.md
   - name: Add or remove a site-to-site connection
     href: add-remove-site-to-site-connections.md
   - name: Forced tunneling
@@ -161,17 +182,7 @@
       href: vpn-gateway-3rdparty-device-config-cisco-asa.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-  - name: Site-to-site with ExpressRoute connections
-    items:
-    - name: Coexisting connections
-      items:
-      - name: Azure portal
-        href: ../expressroute/how-to-configure-coexisting-gateway-portal.md?toc=/azure/vpn-gateway/toc.json
-      - name: Azure PowerShell
-        href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=/azure/vpn-gateway/toc.json
-    - name: VPN over private peering
-      href: site-to-site-vpn-private-peering.md
-- name: Configure point-to-site VPN connections
+- name: Point-to-site (P2S) VPN
   items:
   - name: About point-to-site VPN
     href: point-to-site-about.md
@@ -249,11 +260,11 @@
         href: openvpn-azure-ad-mfa.md
     - name: VPN client configuration
       items:
-      - name: Windows clients
+      - name: Azure VPN Client - Windows
         href: point-to-site-entra-vpn-client-windows.md
-      - name: Linux clients
+      - name: Azure VPN Client - Linux
         href: point-to-site-entra-vpn-client-linux.md
-      - name: macOS clients
+      - name: Azure VPN Client - macOS
         href: point-to-site-entra-vpn-client-mac.md
       - name: Generate VPN client profile configuration files
         href: about-vpn-profile-download.md
@@ -293,13 +304,13 @@
     items:
     - name: Azure VPN Client - optional settings
       href: azure-vpn-client-optional-configurations.md
-    - name: Azure VPN Client prerequisites check
+    - name: Run Prerequisites Test
       href: azure-vpn-client-prerequisites-check.md
     - name: Azure VPN Client versions
       href: azure-vpn-client-versions.md
   - name: Intune - Deploy VPN client profile
     href: vpn-profile-intune.md
-- name: Configure VNet-to-VNet VPN connections
+- name: VNet-to-VNet VPN
   items:
   - name: Configure VNet-to-VNet VPN connections
     items:

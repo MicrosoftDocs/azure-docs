@@ -2,14 +2,14 @@
 title: Permissions to view and manage Azure savings plans
 titleSuffix: Microsoft Cost Management
 description: Learn how savings plan permissions work and how to view and manage your savings plan in the Azure portal.
-author: bandersmsft
+author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 01/07/2025
-ms.author: banders
+ms.author: onwokolo
 ---
 
 # Permissions to view and manage Azure savings plans

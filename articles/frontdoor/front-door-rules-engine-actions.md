@@ -3,11 +3,11 @@ title: Rule set actions
 titleSuffix: Azure Front Door
 description: This article provides a list of various actions you can do with Azure Front Door rule sets.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 07/16/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -416,7 +416,7 @@ Use the **URL rewrite** action to rewrite the path of a request that's en route 
 
 | Property | Supported values |
 |----------|------------------|
-| Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (`/`) as the source pattern value. |
+| Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (`/`) as the source pattern value. Note that only the path after the patterns to match in the route configuration is taken into consideration for the source pattern. For more information, see [source pattern.](front-door-url-rewrite.md?pivots=front-door-standard-premium#source-pattern) |
 | Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern. |
 | Preserve unmatched path | If set to _Yes_, the remaining path after the source pattern is appended to the new destination path. |
 

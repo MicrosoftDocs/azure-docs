@@ -1,11 +1,11 @@
 ---
 title: "Azure Operator Nexus Cluster Support for managed identities and user provided resources"
 description: Azure Operator Nexus Cluster support for managed identities and user provided resources.
-author: eak13
-ms.author: ekarandjeff
+author: DanCrank
+ms.author: danielcrank
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 2/5/2025
+ms.date: 4/28/2025
 ms.custom: template-how-to
 ---
 
@@ -132,7 +132,7 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
     --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container" \
+    container-url="https://myaccount.blob.core.windows.net/mycontainer" \
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUAMI" \
@@ -151,7 +151,7 @@ az networkcloud cluster create --name "clusterName" -g "resourceGroupName" \
     --mi-user-assigned "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mySecondUAMI" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container" \
+    container-url="https://myaccount.blob.core.windows.net/mycontainer" \
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myFirstUAMI" \
@@ -201,7 +201,7 @@ Cluster update to assign `mySecondUAMI` to the command output settings.
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
     --command-output-settings identity-type="UserAssignedIdentity" \
     identity-resource-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/mySecondUAMI" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container"
+    container-url="https://myaccount.blob.core.windows.net/mycontainer"
 ```
 
 _Example 3:_ Update a Cluster that already has a SAMI and add a UAMI. The SAMI is retained. Then assign the UAMI to the log analytics output settings (LAW).
@@ -391,7 +391,7 @@ _Example 1:_ Add or update the command output settings (Storage Account) for a C
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
     --command-output-settings identity-type="SystemAssignedIdentity" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container"
+    container-url="https://myaccount.blob.core.windows.net/mycontainer"
 ```
 
 _Example 2:_ Add or update the log analytics output settings (LAW) for a Cluster.
@@ -418,7 +418,7 @@ _Example 4:_ This example combines all three resources using a SAMI into one upd
 ```azurecli-interactive
 az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" \
     --command-output-settings identity-type="SystemAssignedIdentity" \
-    container-url="https://myaccount.blob.core.windows.net/mycontainer?restype=container"
+    container-url="https://myaccount.blob.core.windows.net/mycontainer"
     --analytics-output-settings analytics-workspace-id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName" \
     identity-type="SystemAssignedIdentity" \
     --secret-archive-settings identity-type="SystemAssignedIdentity" \

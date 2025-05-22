@@ -3,7 +3,7 @@ title: Azure IoT Central integration guide
 description: This guide describes how to integrate your IoT Central application with other services to extend its capabilities.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/02/2024
+ms.date: 04/15/2025
 ms.topic: conceptual
 ms.service: azure-iot-central
 services: iot-central
@@ -71,11 +71,11 @@ Built-in features of IoT Central you can use to extract business value include:
 
   An IoT Central application can have one or more dashboards that operators use to view and interact with the application. You can customize the default dashboard and create specialized dashboards:
 
-  - To view some examples of customized dashboards, see [Industry focused templates](../retail/tutorial-in-store-analytics-create-app.md).
+  - To view some examples of customized dashboards, see [Tutorial: Create and deploy an in-store analytics application template](../retail/tutorial-in-store-analytics-create-app.md).
   
-  - To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
+  - To learn more about dashboards, see [Create and manage dashboards](howto-manage-dashboards.md).
   
-  - When a device connects to an IoT Central, the device is assigned to a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Add views](howto-set-up-template.md#views).
+  - When a device connects to an IoT Central, the device is assigned to a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. You can create and customize the available views for each device type. To learn more, see [Views](howto-set-up-template.md#views).
 
 - Built-in rules and analytics:
 
@@ -104,7 +104,7 @@ Scenarios that process IoT data outside of IoT Central to extract business value
   
   Use IoT data to calculate common business metrics such as *overall equipment effectiveness (OEE)*  and *overall process effectiveness (OPE)*. You can also use IoT data to enrich your existing AI and ML assets. For example, IoT Central can help to capture the data you need to build, train, and deploy your models.
 
-  Use the IoT Central continuous data export feature to publish captured IoT data into an Azure data lake. Then use a connected to Azure Databricks workspace to compute OEE and OPE. Pipe the same data to Azure Machine Learning or Azure Synapse to use their machine learning capabilities.
+  Use the IoT Central continuous data export feature to publish captured IoT data into an Azure data lake. Then, use a connected to Azure Databricks workspace to compute OEE and OPE. Pipe the same data to Azure Machine Learning or Azure Synapse to use their machine learning capabilities.
 
 - Streaming computation, monitoring, and diagnostics
 
@@ -112,18 +112,18 @@ Scenarios that process IoT data outside of IoT Central to extract business value
 
 - Analyze and visualize IoT data alongside business data
 
-  IoT Central provides feature-rich dashboards and visualizations. However, business-specific reports may require you to merge IoT data with existing business data sourced from external systems. Use the IoT Central integration features to extract IoT data from IoT Central. Then merge the IoT data with existing business data to deliver a centralized solution for analyzing and visualizing your business processes.
+  IoT Central provides feature-rich dashboards and visualizations. However, business-specific reports might require you to merge IoT data with existing business data sourced from external systems. Use the IoT Central integration features to extract IoT data from IoT Central. Then merge the IoT data with existing business data to deliver a centralized solution for analyzing and visualizing your business processes.
 
   For example, use the IoT Central continuous data export feature to continuously ingest your IoT data into an Azure Synapse store. Then use Azure Data Factory to bring data from external systems into the Azure Synapse store. Use the Azure Synapse store with Power BI to generate your business reports.
 
-To learn more, see [Transform data for IoT Central](howto-transform-data.md). For a complete, end-to-end sample, see the [IoT Central Compute](https://github.com/Azure/iot-central-compute) GitHub repository.
+To learn more, see [Transform data externally for IoT Central](howto-transform-data.md). For a complete, end-to-end sample, see the [IoT Central Compute](https://github.com/Azure/iot-central-compute) GitHub repository.
 
 ## Integrate with other services
 
 You can use the data export and rules capabilities in IoT Central to integrate with other service. To learn more, see:
 
-- [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
-- [Transform data for IoT Central](howto-transform-data.md)
+- [Export IoT data to Blob Storage](howto-export-to-blob-storage.md)
+- [Transform data externally for IoT Central](howto-transform-data.md)
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 
 ## Integrate with companion applications
@@ -141,4 +141,4 @@ You use the *control plane* to manage IoT Central-related resources in your Azur
 
 ## Next step
 
-If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md).
+If you want to learn more about using IoT Central, the suggested next steps are to try the quickstarts, beginning with [Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application](./quick-deploy-iot-central.md).

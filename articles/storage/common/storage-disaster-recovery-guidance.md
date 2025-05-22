@@ -6,7 +6,7 @@ services: storage
 author: stevenmatthew
 
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/06/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
@@ -103,7 +103,7 @@ To understand the effect of this type of failover on your users and applications
 
 [!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
 
-[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+<!--[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]-->
 
 ### Customer-managed (unplanned) failover
 

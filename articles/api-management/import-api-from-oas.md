@@ -120,10 +120,3 @@ You can configure API Management [validation policies](api-management-policies.m
 [!INCLUDE [api-management-append-apis.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
-
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> * [Create and publish a product](api-management-howto-add-products.md)
-> * [Transform and protect a published API](transform-api.md)

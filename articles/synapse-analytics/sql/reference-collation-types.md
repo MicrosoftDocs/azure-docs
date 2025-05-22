@@ -3,7 +3,7 @@ title: Collation support
 description: Collation types support for Synapse SQL in Azure Synapse Analytics.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: wiassaf
+
 ms.date: 12/11/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql

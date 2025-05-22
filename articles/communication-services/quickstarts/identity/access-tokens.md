@@ -1,7 +1,7 @@
 ---
-title: Create and manage access tokens
+title: Create and manage access tokens for end users
 titleSuffix: An Azure Communication Services guide
-description: Manage identities and access tokens using the Azure Communication Services Identity SDK.
+description: Manage identities and access tokens for end users using the Azure Communication Services Identity SDK.
 author: soricos85
 manager: dariagrigoriu
 services: azure-communication-services
@@ -14,9 +14,9 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode
 ms.custom: mode-other, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python
 ---
 
-# Create and manage access tokens
+# Create and manage access tokens for end users
 
-Access tokens enable Azure Communication Services SDKs to [authenticate](../../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You need to create access tokens if you want your users to join a call or chat thread within your application. 
+Access tokens enable Azure Communication Services SDKs to [authenticate](../../concepts/authentication.md) directly against Azure Communication Services as a particular identity. You need to create access tokens for end users if you want them to join a call or chat thread within your application. 
 
 This article describes how to use the Azure Communication Services SDKs to create identities and manage your access tokens. For production use cases, we recommend that you generate access tokens on a server-side service as described in [Client and server architecture](../../concepts/identity-model.md#client-server-architecture).
 

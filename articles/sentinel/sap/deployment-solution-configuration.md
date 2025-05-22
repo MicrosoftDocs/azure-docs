@@ -6,9 +6,11 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 09/15/2024
 appliesto:
-    - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
+zone_pivot_groups: sentinel-sap-connection
+
 
 #Customer intent: As a security analyst, I want to configure and monitor SAP systems using Microsoft Sentinel so that I can detect and respond to suspicious activities and threats effectively.
 
@@ -18,12 +20,22 @@ ms.collection: usx-security
 
 While deploying a Microsoft Sentinel data collector and solution for SAP provides you with the ability to monitor SAP systems for suspicious activities and identify threats, extra configuration steps are required to ensure the solution is optimized for your SAP deployment. This article provides best practices for getting started with the security content delivered with the Microsoft Sentinel solution for SAP applications, and is the last step in deploying the SAP integration.
 
+:::zone pivot="connection-agent"
+
 :::image type="content" source="media/deployment-steps/settings.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Configure solution settings step." border="false":::
+
+:::zone-end
+
+:::zone pivot="connection-agentless"
+
+:::image type="content" source="media/deployment-steps/settings-agentless.png" alt-text="Diagram of the SAP solution deployment flow, highlighting the Configure solution settings step." border="false":::
+
+:::zone-end
 
 Content in this article is relevant for your **security** team.
 
 > [!IMPORTANT]
-> Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The agentless data connector is in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
 ## Prerequisites
@@ -66,7 +78,7 @@ For more information, see [Available watchlists](sap-solution-security-content.m
 
 The Microsoft Sentinel solution for SAP applications includes the **SAP - Security Audit Controls** workbook, which helps you check compliance for your SAP security controls. The workbook provides a comprehensive view of the security controls that are in place and the compliance status of each control.
 
-For more information, see [Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook(Preview)](sap-audit-controls-workbook.md).
+For more information, see [Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook](sap-audit-controls-workbook.md).
 
 ## Next step
 

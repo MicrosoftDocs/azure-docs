@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Find tutorials that help you learn how to use Azure services with Azure Data Lake Storage.
 author: normesta
 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: normesta
 ms.date: 11/18/2024
 ms.service: azure-data-lake-storage

@@ -5,7 +5,7 @@
  author: mbender
  ms.service: load-balancer
  ms.topic: include
- ms.date: 05/31/2024
+ ms.date: 03/17/2024
  ms.author: mbender-ms
 ms.custom: include-file
 ---
@@ -29,7 +29,6 @@ $IP1 = @{
     Name = 'MyIpConfig'
     subnetID= $vnet.subnets[0].Id
     PrivateIpAddressVersion = 'IPv4'
--LoadBalancerBackendAddressPool $lb-be-info
 }
 $IP1Config = New-AzNetworkInterfaceIpConfig @IP1 -Primary
 $nic = @{
@@ -37,6 +36,7 @@ $nic = @{
     ResourceGroupName = '<Resource Group Subscription A>'
     Location = 'eastus'
     IpConfiguration = $IP1Config
+    LoadBalancerBackendAddressPool = "/subscriptions/<Subscription B ID>/resourceGroups/myResourceGroupLB/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/BackendPool1"
 }
 New-AzNetworkInterface @nic
 ```

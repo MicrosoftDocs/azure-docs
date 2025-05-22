@@ -17,6 +17,8 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Transmit Security with Azure Active Directory B2C for passkeys authentication
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this tutorial, learn to integrate Azure Active Directory B2C (Azure AD B2C) authentication with [Transmit Security's hosted passkeys authentication solution](https://transmitsecurity.com/solutions/password-mfa-replacement). Transmit Security uses strong Fast Identity Online (FIDO2) biometric authentication for reliable omni-channel authentication. The solution ensures a smooth sign-in experience for customers across devices and channels, while reducing fraud, phishing, and credential reuse.
 
 ## Scenario description

@@ -10,28 +10,18 @@ ms.custom: references_regions
 # Prevent and resolve issues caused by an auto-migration of an App Service Environment
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 are retired and no longer supported. If you have an App Service Environment v1 or v2, you must migrate to App Service Environment v3. For more information, see [Upgrade to App Service Environment v3](upgrade-to-asev3.md).
+> App Service Environment v1 and v2 are retired and no longer supported.
 >
-> Auto-migrations are migrations that are initiated by Microsoft. As of September 1, 2024, the platform will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+> Auto-migrations are migrations that are initiated by Microsoft. As of September 1, 2024, the platform auto-migrated any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data were deleted.
 >
 
 If you have an App Service Environment v1 or v2 that was auto-migrated to App Service Environment v3, you might encounter issues with your apps or services. This article provides guidance on how to address these issues.
 
 ## Overview
 
-After September 1, 2024, all App Service Environments v1 and v2 are eligible to be automatically migrated (auto-migrated) to App Service Environment v3 at any given time unless otherwise stated. The platform initiates auto-migrations, which are necessary to ensure that your App Service Environment is running on a supported platform.
-
-> [!NOTE]
-> Auto-migrations and deletions are done in batches. If your App Service Environment isn't auto-migrated yet, it's subject to auto-migration or deletion at any time.
->
+After September 1, 2024, all App Service Environments v1 and v2 were automatically migrated (auto-migrated) to App Service Environment v3. The platform initiated auto-migrations, which are necessary to ensure that your App Service Environment is running on a supported platform.
 
 Auto-migrations are done using the [in-place migration feature](migrate.md). There's about one hour of downtime during the migration process. The inbound and outbound IP addresses of your App Service Environment might change during the migration process. Downtime might be longer if you have dependencies on these IP addresses. Downtime might also be longer if you use features that aren't supported in App Service Environment v3.
-
-## Grace period
-
-> [!NOTE]
-> As of January 1, 2025, grace periods aren't available. Migrate immediately or open a support ticket to discuss your options.
->
 
 ## Auto-migration limitations
 
@@ -157,7 +147,7 @@ The following are notable changes in App Service Environment v3:
 
 There's no cost associated with auto-migrating your App Service Environment. You stop being charged for your previous App Service Environment as soon as it shuts down during the migration process. You begin getting charged for your new App Service Environment v3 as soon as it gets deployed. For more information about App Service Environment v3 pricing, see the [pricing details](overview.md#pricing).
 
-When you migrate to App Service Environment v3 from previous versions, there are scenarios that you should consider that can potentially reduce your monthly cost. Consider [reservations](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-isolated-v2-instances) and [savings plans](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) to further reduce your costs. For information on cost saving opportunities, see [Cost saving opportunities after upgrading to App Service Environment v3](upgrade-to-asev3.md#cost-saving-opportunities-after-upgrading-to-app-service-environment-v3).
+When you migrate to App Service Environment v3 from previous versions, there are scenarios that you should consider that can potentially reduce your monthly cost. Consider [reservations](../../cost-management-billing/reservations/reservation-discount-app-service.md#how-reservation-discounts-apply-to-instances) and [savings plans](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md) to further reduce your costs. For information on cost saving opportunities, see [Cost saving opportunities after upgrading to App Service Environment v3](upgrade-to-asev3.md#cost-saving-opportunities-after-upgrading-to-app-service-environment-v3).
 
 > [!NOTE]
 > Due to the conversion of App Service plans from Isolated to Isolated v2, your apps may be over-provisioned after the migration since the Isolated v2 tier has more memory and CPU per corresponding instance size. You'll have the opportunity to [scale your environment](../manage-scale-up.md) as needed once migration is complete. For more information, review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/).
@@ -188,8 +178,6 @@ We encourage you to complete migration to Azure App Service Environment v3 as so
 
 ## Frequently asked questions
 
-- **Why am I experiencing temporary application outages on my App Service Environment v1/v2?**  
-  The Azure platform is preparing for the retirement of Cloud Services (Classic), which is the infrastructure that App Service Environment v1 and v2 run on. As part of this preparation, you should expect temporary outages and service disruptions. To minimize the effect of these disruptions, we recommend that you migrate to App Service Environment v3 as soon as possible.
 - **Why was my App Service Environment auto-migrated?**  
   App Service Environment v1 and v2 are retired and no longer supported. The supporting infrastructure for App Service Environment v1 and v2 is being decommissioned. To ensure that your App Service Environment is running on a supported platform, Microsoft initiates auto-migrations to App Service Environment v3.
 - **Why are my apps not working after auto-migration?**  

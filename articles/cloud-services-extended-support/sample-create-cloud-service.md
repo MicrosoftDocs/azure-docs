@@ -8,9 +8,14 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want sample scripts for deploying Azure Cloud Services (extended support) so that I can automate the configuration and provisioning of scalable, role-based applications using PowerShell.
 ---
 
 # Create a new Azure Cloud Service (extended Support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
+
 These samples cover various ways to create a new Azure Cloud Service (extended support) deployment.
 
 ## Create new Cloud Service with single role

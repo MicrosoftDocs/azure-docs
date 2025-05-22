@@ -2,13 +2,14 @@
 title: Azure Content Delivery Network POP locations by region
 description: This article lists Azure Content Delivery Network POP locations, sorted by region, for Azure Content Delivery Network products.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumud
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: references_regions
+ROBOTS: NOINDEX
 ---
 
 # Azure Content Delivery Network Coverage by Metro

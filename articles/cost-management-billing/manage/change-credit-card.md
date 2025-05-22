@@ -1,13 +1,13 @@
 ---
 title: Add, update, or delete a payment method
 description: This article describes how to add, update, or delete a payment method for an Azure subscription.
-author: bandersmsft
-ms.reviewer: lishepar
+author: lindseyshep
+ms.reviewer: lishepar, jobailey
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
-ms.author: banders
+ms.date: 05/01/2025
+ms.author: lishepar
 ms.custom: references_regions
 ---
 
@@ -20,15 +20,16 @@ In the Azure portal, you can change your default payment method to a new credit 
 - For a Microsoft Online Subscription Program (pay-as-you-go) account, you must be an [account administrator](add-change-subscription-administrator.md#whoisaa).
 - For a Microsoft Customer Agreement account, you must have the correct [Microsoft Customer Agreement permissions](understand-mca-roles.md).
 
-The supported payment methods for Azure are credit card, debit card, and wire transfer. Azure doesn't support virtual or prepaid cards. To get approved to pay by wire transfer, see [Pay for your Azure subscription by wire transfer](pay-by-invoice.md).
+The supported payment methods for Azure are credit card, debit card, and wire transfer. Azure doesn't support virtual or prepaid cards. To see a complete list of supported payment methods, see [Supported payment methods](supported-payment-methods.md).
 
-> [!NOTE]
-> Most countries/regions accept credit cards and debit cards. Here's some specific information:
->
-> - Hong Kong Special Administrative Region and Brazil support only credit cards.
-> - India supports credit and debit cards through Visa and Mastercard.
->
-> The Reserve Bank of India has a [regulation for storing credit card information](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159) that might affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
+To get approved to pay by wire transfer, see [Pay for your Azure subscription by wire transfer](pay-by-invoice.md).
+
+Most countries/regions accept credit cards and debit cards. Here's some specific information:
+
+- Hong Kong Special Administrative Region and Brazil support only credit cards.
+- India supports credit and debit cards through Visa and Mastercard.
+
+The Reserve Bank of India has a [regulation for storing credit card information](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159) that might affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 If you get an error after you add a credit card, see [Troubleshoot a declined card](../troubleshoot-billing/troubleshoot-declined-card.md).
 
@@ -202,6 +203,15 @@ To detach a payment method, you must meet a list of conditions. If you don't mee
 
 - Instructions on how to meet the condition.
 - A link that takes you to the location where you can resolve the problem.
+
+Conditions:
+- Outstanding charges
+- Recurring charges
+- Pending charges
+- Active subscriptions
+  
+> [!NOTE]
+> If you have an [Entra Free subscription](microsoft-entra-id-free.md) inside your billing account you cannot delete or detach the last payment method on file. To remove the last payment method, you must delete the tenant. For more information about deleting a tenant, see [Delete the organization](/entra/identity/users/directory-delete-howto#delete-the-organization).
 
 When you fully satisfy all the conditions, you can detach the payment method from the billing profile.
 

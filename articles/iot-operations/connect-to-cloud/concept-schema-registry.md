@@ -99,7 +99,7 @@ Asset sources have a predefined message schema that was created by the connector
 
 Schemas can be uploaded for message broker sources. Currently, Azure IoT Operations supports JSON for source schemas, also known as input schemas. In the operations experience, you can select an existing schema or upload one while defining a message broker source:
 
-:::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience portal.":::
+:::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience web UI.":::
 
 ### Transformation
 
@@ -109,7 +109,7 @@ The operations experience uses the input schema as a starting point for your dat
 
 Output schemas are associated with data flow destinations.
 
-In the operations experience portal, you can configure output schemas for the following destination endpoints that support Parquet output:
+In the operations experience web UI, you can configure output schemas for the following destination endpoints that support Parquet output:
 
 * local storage
 * Fabric OneLake
@@ -126,7 +126,7 @@ To upload an output schema, see [Upload schema](#upload-schema).
 
 ## Upload schema
 
-Input schema can be uploaded in the operations experience portal as described in the [Input schema](#input-schema) section of this article. You can also upload a schema using the Azure CLI or a Bicep template. 
+Input schema can be uploaded in the operations experience web UI as described in the [Input schema](#input-schema) section of this article. You can also upload a schema using the Azure CLI or a Bicep file. 
 
 ### Upload schema with the CLI
 
@@ -157,7 +157,7 @@ Once the `create` command is completed, you should see a blob in your storage ac
 
 You can see more options with the helper command `az iot ops schema -h`.
 
-### Upload schema with a Bicep template
+### Upload schema with a Bicep file
 
 Create a Bicep `.bicep` file, and add the schema content to it at the top as a variable. This example is a Delta schema that corresponds to the OPC UA data from [quickstart](../get-started-end-to-end-sample/quickstart-add-assets.md).
 
@@ -301,7 +301,7 @@ resource opcuaSchemaVersion 'Microsoft.DeviceRegistry/schemaRegistries/schemas/s
 }
 ```
 
-After you've defined the schema content and resources, you can deploy the Bicep template to create the schema in the schema registry.
+After you've defined the schema content and resources, you can deploy the Bicep file to create the schema in the schema registry.
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep

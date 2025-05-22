@@ -90,7 +90,8 @@ Use the following step-by-step instructions to deploy the CTM360 CBS data connec
 
 **1. Deploy a Function App**
 
-> **NOTE:** You will need to [prepare VS code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
+> [!NOTE]
+> You will need to [prepare VS Code](/azure/azure-functions/create-first-function-vs-code-python) for Azure function development.
 
 1. Download the [Azure Function App](https://raw.githubusercontent.com/CTM360-Integrations/Azure-Sentinel/ctm360-HV-CBS-azurefunctionapp/Solutions/CTM360/Data%20Connectors/HackerView/AzureFunctionCTM360_HV.zip) file. Extract archive to your local development computer.
 2. Start VS Code. Choose File in the main menu and select Open Folder.

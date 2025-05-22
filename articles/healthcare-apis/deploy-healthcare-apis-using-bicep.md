@@ -25,11 +25,11 @@ You can continue to work with JSON ARM templates, or use Bicep to develop your A
 
 ## Define parameters and variables
 
-Using Bicep parameters and variables instead of hard coding names and other values allows you to debug and reuse your Bicep templates.
+Using Bicep parameters and variables instead of hard coding names and other values allows you to debug and reuse your Bicep files.
 
 We first define parameters with the keyword *param* for workspace, FHIR service, DICOM service, MedTech service. Also, we define parameters for Azure subscription and Microsoft Entra tenant. They’re used in the CLI command line with the "--parameters" option.
 
-We then define variables for resources with the keyword *var*. Also, we define variables for properties such as the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep template, and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
+We then define variables for resources with the keyword *var*. Also, we define variables for properties such as the authority and the audience for the FHIR service. They’re specified and used internally in the Bicep file, and can be used in combination of parameters, Bicep functions, and other variables. Unlike parameters, they aren’t used in the CLI command line.
 
 It's important to note that one Bicep function and environment(s) are required to specify the log in URL, `https://login.microsoftonline.com`. For more information on Bicep functions, see [Deployment functions for Bicep](../azure-resource-manager/bicep/bicep-functions-deployment.md#environment).
 
@@ -243,7 +243,7 @@ resource exampleIoTDestination 'Microsoft.HealthcareApis/workspaces/iotconnector
 
 ## Deploy Azure Health Data Services
 
-You can use the `az deployment group create` command to deploy individual Bicep template or combined templates, similar to the way you deploy Azure resources with JSON templates. Specify the resource group name, and include the parameters in the command line. With the "--parameters" option, specify the parameter and value pair as "parameter = value", and separate the parameter and value pairs by a space if more than one parameter is defined.
+You can use the `az deployment group create` command to deploy individual Bicep file or combined templates, similar to the way you deploy Azure resources with JSON templates. Specify the resource group name, and include the parameters in the command line. With the "--parameters" option, specify the parameter and value pair as "parameter = value", and separate the parameter and value pairs by a space if more than one parameter is defined.
 
 For the Azure subscription and tenant, you can specify the values, or use CLI commands to obtain them from the current sign-in session.
 
@@ -265,9 +265,9 @@ az deployment group create --resource-group $resourcegroupname --template-file $
 
 Note that the child resource name such as the FHIR service includes the parent resource name, and the "dependsOn" property is required. However, when the child resource is created within the parent resource, its name doesn't need to include the parent resource name, and the "dependsOn" property isn't required. For more info on nested resources, see [Set name and type for child resources in Bicep](../azure-resource-manager/bicep/child-resource-name-type.md).
 
-## Debugging Bicep templates
+## Debugging Bicep files
 
-You can debug Bicep templates in Visual Studio Code, or in other environments and troubleshoot issues based on the response. Also, you can review the activity log for a specific resource in the resource group while debugging.
+You can debug Bicep files in Visual Studio Code, or in other environments and troubleshoot issues based on the response. Also, you can review the activity log for a specific resource in the resource group while debugging.
 
 In addition, you can use the **output** value for debugging or as part of the deployment response. For example, you can define two output values to display the values of authority and audience for the FHIR service in the response. For more information, see [Outputs in Bicep](../azure-resource-manager/bicep/outputs.md).
 
@@ -278,7 +278,7 @@ output stringOutput2 string = audience
 
 ## Next steps
 
-In this article, you learned how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and MedTech services using Bicep. You also learned how to create and debug Bicep templates. For more information about Azure Health Data Services, see 
+In this article, you learned how to create Azure Health Data Services, including workspaces, FHIR services, DICOM services, and MedTech services using Bicep. You also learned how to create and debug Bicep files. For more information about Azure Health Data Services, see 
 
 >[!div class="nextstepaction"]
 >[What is Azure Health Data Services](healthcare-apis-overview.md)

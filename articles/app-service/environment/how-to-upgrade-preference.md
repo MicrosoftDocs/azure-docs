@@ -14,10 +14,6 @@ Azure App Service is regularly updated to provide new features, new runtime vers
 
 If you don't have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
-> [!NOTE]
-> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
-> 
-
 With App Service Environment v3, you can specify your preference for when and how the planned maintenance is applied. The upgrade can be applied automatically or manually. Even with your preference set to automatic, you have some options to influence the timing.
 
 ## Automatic upgrade preference

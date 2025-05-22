@@ -1,19 +1,13 @@
 ---
-# Mandatory fields.
 title: Endpoints and event routes
 titleSuffix: Azure Digital Twins
 description: Learn how to route Azure Digital Twins events, both within the service and externally to other Azure services.
 author: baanders
-ms.author: baanders # Microsoft employees only
+ms.author: baanders
 ms.date: 01/27/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-digital-twins
 ms.custom: engagement-fy23
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Route Azure Digital Twins events
@@ -112,7 +106,7 @@ To learn how to set up an endpoint with dead-lettering, see [Endpoint options: D
 
 Different types of events in IoT Hub and Azure Digital Twins produce different types of notification messages, as described below.
 
-[!INCLUDE [digital-twins-notifications.md](../../includes/digital-twins-notifications.md)]
+[!INCLUDE [digital-twins-notifications.md](includes/digital-twins-notifications.md)]
 
 ## Next steps
 

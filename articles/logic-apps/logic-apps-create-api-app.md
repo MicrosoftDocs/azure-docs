@@ -1,16 +1,16 @@
 ---
-title: Create web APIs & REST APIs for Azure Logic Apps
-description: Create web APIs & REST APIs to call your APIs, services, or systems for system integrations in Azure Logic Apps
+title: Patterns for web APIs and REST APIs
+description: Patterns for web APIs and REST APIs so you can call your APIs, services, or systems from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: azla
+ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 10/23/2023
+ms.date: 04/15/2025
 ---
 
-# Create custom APIs you can call from Azure Logic Apps
+# Patterns for custom web APIs and REST APIs you can call from Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Although Azure Logic Apps offers 1,400+ connectors 
 that you can use in logic app workflows, you might want to call APIs, 
@@ -368,14 +368,6 @@ To make your custom APIs available to all users in Logic Apps,
 Power Automate, and Microsoft Power Apps, you must add security, 
 register your APIs as Azure Logic Apps connectors, and nominate your connectors for the 
 [Microsoft Azure Certified program](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
-
-## Get support
-
-* For specific help with custom APIs, 
-  contact [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com).
-
-* For questions, visit the 
-  [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 
 ## Next steps
 

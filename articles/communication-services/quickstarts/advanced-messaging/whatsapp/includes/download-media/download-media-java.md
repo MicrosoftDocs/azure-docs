@@ -5,7 +5,7 @@ services: azure-communication-services
 author: arifibrahim4
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 12/29/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: armohamed
@@ -94,4 +94,4 @@ The Messages SDK enables Contoso to download the media in received WhatsApp medi
 
 ## Full sample code
 
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages/DownloadMediaSample.java).
+Find the finalized code on GitHub at [Java Messages SDK](https://github.com/Azure/azure-sdk-for-java/tree/d668cb44f64d303e71d2ee72a8b0382896aa09d5/sdk/communication/azure-communication-messages/src/samples/java/com/azure/communication/messages/DownloadMediaSample.java).

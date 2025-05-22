@@ -28,10 +28,8 @@ For a video demonstration of the procedures in this article, watch the following
 :::zone pivot="connection-agentless"
 
 > [!IMPORTANT]
-> Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The agentless data connector for SAP is currently in **LIMITED PREVIEW**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> Microsoft Sentinel's **Agentless solution** is in limited preview as a prereleased product, which may be substantially modified before it’s commercially released. Microsoft makes no warranties expressed or implied, with respect to the information provided here. Access to the **Agentless solution** also [requires registration](https://aka.ms/SentinelSAPAgentlessSignUp) and is only available to approved customers and partners during the preview period. For more information, see [Microsoft Sentinel for SAP goes agentless ](https://community.sap.com/t5/enterprise-resource-planning-blogs-by-members/microsoft-sentinel-for-sap-goes-agentless/ba-p/13960238).
-
 :::zone-end
 
 ## Prerequisites
@@ -66,7 +64,7 @@ This procedure describes how to check your data connector's connection status fr
         |---------|---------|
         |**Production**     |  The system is defined by the SAP admin as a production system.       |
         |**Unknown (Production)**     | Microsoft Sentinel couldn't retrieve the system status. Microsoft Sentinel regards this type of system as a production system for both security and billing purposes.  <br><br>In such cases, we recommend that you check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.       |
-        |**Non production**     | Indicates roles like developing, testing, and customizing.        |
+        |**Non-production**     | Indicates roles like developing, testing, and customizing.        |
 
     - **Agent name**. Unique ID of the installed data connector agent.
 

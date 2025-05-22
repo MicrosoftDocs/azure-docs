@@ -1,12 +1,12 @@
 ---
-title: Install and upgrade Azure Monitor Agent - Azure Arc-enabled servers
+title: Install and upgrade Azure Monitor Agent on Azure Arc-enabled servers
 titleSuffix: Azure Network Watcher
 description: Learn how to install, upgrade, and uninstall Azure Monitor Agent on Azure Arc-enabled servers.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 03/25/2025
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 #Customer intent: As an Azure administrator, I need to install the Azure Monitor Agent on Azure Arc-enabled servers so I can monitor a connection using the Connection Monitor.
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Azure Monitor Agent is implemented as an Azure virtual machine (VM) extension. You can install Azure Monitor Agent using any of the methods described in [Azure Monitor Agent overview](/azure/azure-monitor/agents/agents-overview?toc=/azure/network-watcher/toc.json). 
 
-This article covers installing Azure Monitor Agent on Azure Arc-enabled servers using PowerShell or the Azure CLI. For more information, see [Manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
+This article covers installing Azure Monitor Agent on Azure Arc-enabled servers using PowerShell or the Azure CLI. For more information, see [Manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?toc=/azure/network-watcher/toc.json).
 
 ## Use PowerShell
 
@@ -24,11 +24,11 @@ You can install Azure Monitor Agent on Azure virtual machines and on Azure Arc-e
 
 ### Install on Azure Arc-enabled servers
 Use the following PowerShell command to install Azure Monitor Agent on Azure Arc-enabled servers.
-# [Windows](#tab/PowerShellWindowsArc)
+# [Windows](#tab/windows)
 ```powershell
 New-AzConnectedMachineExtension -Name AMAWindows -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
 ```
-# [Linux](#tab/PowerShellLinuxArc)
+# [Linux](#tab/linux)
 ```powershell
 New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location>
 ```
@@ -37,11 +37,11 @@ New-AzConnectedMachineExtension -Name AMALinux -ExtensionType AzureMonitorLinuxA
 ### Uninstall on Azure Arc-enabled servers
 Use the following PowerShell command to uninstall Azure Monitor Agent from Azure Arc-enabled servers.
 
-# [Windows](#tab/PowerShellWindowsArc)
+# [Windows](#tab/windows)
 ```powershell
 Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroupName <resource-group-name> -Name AMAWindows
 ```
-# [Linux](#tab/PowerShellLinuxArc)
+# [Linux](#tab/linux)
 ```powershell
 Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroupName <resource-group-name> -Name AMALinux
 ```
@@ -51,12 +51,12 @@ Remove-AzConnectedMachineExtension -MachineName <arc-server-name> -ResourceGroup
 
 To perform a *one-time upgrade* of the agent, use the following PowerShell commands.
 
-# [Windows](#tab/PowerShellWindowsArc)
+# [Windows](#tab/windows)
 ```powershell
 $target = @{"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent" = @{"targetVersion"=<target-version-number>}}
 Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineName <arc-server-name> -ExtensionTarget $target
 ```
-# [Linux](#tab/PowerShellLinuxArc)
+# [Linux](#tab/linux)
 ```powershell
 $target = @{"Microsoft.Azure.Monitor.AzureMonitorLinuxAgent" = @{"targetVersion"=<target-version-number>}}
 Update-AzConnectedExtension -ResourceGroupName $env.ResourceGroupName -MachineName <arc-server-name> -ExtensionTarget $target
@@ -69,11 +69,11 @@ You can install Azure Monitor Agent on Azure virtual machines and on Azure Arc-e
 ### Install on Azure Arc-enabled servers
 Use the following Azure CLI commands to install Azure Monitor Agent on Azure Arc-enabled servers.
 
-# [Windows](#tab/CLIWindowsArc)
+# [Windows](#tab/windows)
 ```azurecli
 az connectedmachine extension create --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
-# [Linux](#tab/CLILinuxArc)
+# [Linux](#tab/linux)
 ```azurecli
 az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher Microsoft.Azure.Monitor --type AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name> --location <arc-server-location>
 ```
@@ -82,11 +82,11 @@ az connectedmachine extension create --name AzureMonitorLinuxAgent --publisher M
 ### Uninstall on Azure Arc-enabled servers
 Use the following Azure CLI commands to uninstall Azure Monitor Agent from Azure Arc-enabled servers.
 
-# [Windows](#tab/CLIWindowsArc)
+# [Windows](#tab/windows)
 ```azurecli
 az connectedmachine extension delete --name AzureMonitorWindowsAgent --machine-name <arc-server-name> --resource-group <resource-group-name>
 ```
-# [Linux](#tab/CLILinuxArc)
+# [Linux](#tab/linux)
 ```azurecli
 az connectedmachine extension delete --name AzureMonitorLinuxAgent --machine-name <arc-server-name> --resource-group <resource-group-name>
 ```
@@ -94,11 +94,11 @@ az connectedmachine extension delete --name AzureMonitorLinuxAgent --machine-nam
 
 ### Upgrade on Azure Arc-enabled servers
 To perform a *one time upgrade* of the agent, use the following CLI commands:
-# [Windows](#tab/CLIWindowsArc)
+# [Windows](#tab/windows)
 ```azurecli
 az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
 ```
-# [Linux](#tab/CLILinuxArc)
+# [Linux](#tab/linux)
 ```azurecli
 az connectedmachine upgrade-extension --extension-targets "{\"Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\":{\"targetVersion\":\"<target-version-number>\"}}" --machine-name <arc-server-name> --resource-group <resource-group-name>
 ```
@@ -113,11 +113,11 @@ To install the Network Watcher extension on your Azure Arc-enabled servers with 
 
 You can also use the following command to install the Network Watcher extension in your Azure Arc-enabled machine with Azure Monitor Agent extension. 
 
-# [Windows](#tab/PowerShellWindowsArc)
+# [Windows](#tab/windows)
 ```powershell
 New-AzConnectedMachineExtension -Name AzureNetworkWatcherExtension -ExtensionType NetworkWatcherAgentWindows -Publisher Microsoft.Azure.NetworkWatcher -ResourceGroupName $rg -MachineName $vm -Location $location
 ```
-# [Linux](#tab/PowerShellLinuxArc)
+# [Linux](#tab/linux)
 ```powershell
 New-AzConnectedMachineExtension -Name AzureNetworkWatcherExtension -ExtensionType NetworkWatcherAgentLinux -Publisher Microsoft.Azure.NetworkWatcher -ResourceGroupName $rg -MachineName $vm -Location $location
 ```

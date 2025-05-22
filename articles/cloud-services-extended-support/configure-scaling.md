@@ -8,9 +8,13 @@ author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+# Customer intent: As a cloud administrator, I want to configure scaling options for Azure Cloud Services (extended support) so that I can optimize resource usage and maintain high availability based on workload demands.
 ---
 
 # Configure scaling options with Azure Cloud Services (extended support) 
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support)is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 Conditions can be configured to enable Cloud Services (extended support) deployments to scale in and out. These conditions can be based on CPU usage, disk load, and network load. 
 

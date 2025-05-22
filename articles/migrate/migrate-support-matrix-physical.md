@@ -4,9 +4,9 @@ description: 'Learn about support for physical discovery and assessment with Azu
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 02/03/2025
+ms.date: 04/04/2025
 ms.custom: engagement-fy23, linux-related-content
 ---
 
@@ -83,13 +83,16 @@ For Linux servers, based on the features you want to perform, you can create a u
 
     Operating system | Versions
     --- | ---
-    Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x
-    Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04, 22.04
+    Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x, 9.5
+    Ubuntu | 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04
     Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
     SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
     Debian | 7, 8, 9, 10, 11
     Amazon Linux | 2.0.2021
     CoreOS Container | 2345.3.0
+    Alma Linux | 8.x, 9.x
+    Rocky Linux | 8.x, 9.x
+
 
 > [!Note]
 > If you want to perform software inventory (discovery of installed applications) and enable agentless dependency analysis on Linux servers, we recommend that you use Option 1.
@@ -359,7 +362,7 @@ Stack | VMware, Hyper-V, and physical servers. | VMware, Hyper-V, and physical s
 Windows servers | Windows Server 2008 R2 and later are supported. | Not supported.
 Linux servers | Not supported. | Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, and Red Hat Enterprise Linux 5/6/7.
 Web server versions | IIS 7.5 and later. | Tomcat 8 or later.
-Required privileges | Local admin. | Root or sudo user.
+Required privileges | Local admin. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.

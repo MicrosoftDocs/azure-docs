@@ -53,6 +53,8 @@
     href: enable-sentinel-features-content.md
   - name: Onboard to Microsoft Sentinel
     href: quickstart-onboard.md
+  - name: Connect Microsoft Sentinel to the Defender portal
+    href: /unified-secops-platform/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Configure content
     href: configure-content.md
   - name: Set up multiple workspaces
@@ -63,52 +65,56 @@
     href: configure-data-retention-archive.md
   - name: Deploy side-by-side
     href: deploy-side-by-side.md
-- name: Migrate to Microsoft Sentinel
+- name: Migrate
   items:
-  - name: Plan and design your migration
+  - name: Transition your environment to the Defender portal
+    href: move-to-defender.md
+  - name: Migrate to Microsoft Sentinel
     items:
-    - name: Plan your migration
-      href: migration.md
-    - name: Use the SIEM migration experience
-      href: siem-migration.md
-    - name: Track migration with a workbook
-      href: migration-track.md                
-  - name: Migrate from ArcSight      
-    items: 
-    - name: Migrate detection rules
-      href: migration-arcsight-detection-rules.md
-    - name: Migrate SOAR automation
-      href: migration-arcsight-automation.md
-    - name: Export historical data
-      href: migration-arcsight-historical-data.md           
-  - name: Migrate from Splunk
-    items:
-    - name: Migrate detection rules
-      href: migration-splunk-detection-rules.md
-    - name: Migrate SOAR automation
-      href: migration-splunk-automation.md
-    - name: Export historical data
-      href: migration-splunk-historical-data.md
-  - name: Migrate from QRadar      
-    items:
-    - name: Migrate detection rules
-      href: migration-qradar-detection-rules.md
-    - name: Migrate SOAR automation
-      href: migration-qradar-automation.md
-    - name: Export historical data
-      href: migration-qradar-historical-data.md
-  - name: Ingest historical data
-    items:      
-    - name: Select target platform
-      href: migration-ingestion-target-platform.md
-    - name: Select data ingestion tool
-      href: migration-ingestion-tool.md
-    - name: Ingest data
-      href: migration-export-ingest.md
-  - name: Convert dashboards to workbooks
-    href: migration-convert-dashboards.md
-  - name: Update SOC processes      
-    href: migration-security-operations-center-processes.md
+    - name: Plan and design your migration
+      items:
+      - name: Plan your migration
+        href: migration.md
+      - name: Use the SIEM migration experience
+        href: siem-migration.md
+      - name: Track migration with a workbook
+        href: migration-track.md                
+    - name: Migrate from ArcSight      
+      items: 
+      - name: Migrate detection rules
+        href: migration-arcsight-detection-rules.md
+      - name: Migrate SOAR automation
+        href: migration-arcsight-automation.md
+      - name: Export historical data
+        href: migration-arcsight-historical-data.md           
+    - name: Migrate from Splunk
+      items:
+      - name: Migrate detection rules
+        href: migration-splunk-detection-rules.md
+      - name: Migrate SOAR automation
+        href: migration-splunk-automation.md
+      - name: Export historical data
+        href: migration-splunk-historical-data.md
+    - name: Migrate from QRadar      
+      items:
+      - name: Migrate detection rules
+        href: migration-qradar-detection-rules.md
+      - name: Migrate SOAR automation
+        href: migration-qradar-automation.md
+      - name: Export historical data
+        href: migration-qradar-historical-data.md
+    - name: Ingest historical data
+      items:      
+      - name: Select target platform
+        href: migration-ingestion-target-platform.md
+      - name: Select data ingestion tool
+        href: migration-ingestion-tool.md
+      - name: Ingest data
+        href: migration-export-ingest.md
+    - name: Convert dashboards to workbooks
+      href: migration-convert-dashboards.md
+    - name: Update SOC processes      
+      href: migration-security-operations-center-processes.md
 - name: Manage solutions and content
   items:  
   - name: Overview
@@ -156,7 +162,7 @@
           - name: Connect your SAP system
             displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
-          - name: Troubleshoot SAP data connector agent
+          - name: Troubleshoot SAP data connector
             href: sap/sap-deploy-troubleshoot.md    
           - name: Extra deployment steps
             items:
@@ -164,9 +170,9 @@
               href: sap/collect-sap-hana-audit-logs.md
             - name: Update the data connector agent
               href: sap/update-sap-data-connector.md      
-            - name: Deploy from the command line
+            - name: Deploy the agent from the command line
               href: sap/deploy-command-line.md
-            - name: Deploy with expert options
+            - name: Deploy the agent with expert options
               href: sap/sap-solution-deploy-alternate.md
           - name: SAP deployment reference (advanced)
             items:
@@ -733,7 +739,9 @@
     - name: AWS S3 WAF logs
       href: connect-aws-s3-waf.md
     - name: CloudWatch events via Lambda function
-      href: cloudwatch-lambda-function.yml
+      href: cloudwatch-lambda-function.yml      
+    - name: Cisco FTD firewall
+      href: cisco-ftd-firewall.md
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
     - name: Microsoft Entra
@@ -800,6 +808,8 @@
     href: use-threat-indicators-in-analytics-rules.md
   - name: Use matching analytics to detect threats
     href: use-matching-analytics-to-detect-threats.md
+  - name: Work with STIX objects and indicators
+    href: work-with-stix-objects-indicators.md
 - name: Detect threats and analyze data
   items:
   - name: Monitor and visualize data
@@ -1000,6 +1010,8 @@
     items: 
     - name: Overview
       href: sentinel-security-copilot.md
+    - name: Summarize incidents in Azure portal
+      href: sentinel-security-copilot-incident-summary.md
     - name: Microsoft Copilot in Microsoft Defender
       items:
       - name: Overview
@@ -1093,11 +1105,11 @@
       href: /azure/azure-monitor/logs/data-retention-configure?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
-  - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
-    - name: Workspace manager
+    - name: Workspaces in the Defender portal 
+      href: workspaces-defender-portal.md
+    - name: Workspace manager in the Azure portal
       href: workspace-manager.md
     - name: Extend across multiple workspaces
       href: extend-sentinel-across-workspaces-tenants.md  
@@ -1137,6 +1149,8 @@
   items:
   - name: Overview
     href: sentinel-integration-guide.md
+  - name: Sentinel solution quality guidelines
+    href: sentinel-solution-quality-guidance.md
   - name: Partner integrations best practices
     href: partner-integrations.md
   - name: Creating codeless data connectors (CCP)

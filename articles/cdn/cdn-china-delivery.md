@@ -2,13 +2,14 @@
 title: China content delivery with Azure Content Delivery Network
 description: Learn about using Azure Content Delivery Network to deliver content to China users.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 03/31/2025
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # China content delivery with Azure Content Delivery Network

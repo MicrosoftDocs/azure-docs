@@ -114,7 +114,6 @@ You can also enable support for large message for existing queues (or topics), b
 ## Network security
 The following network security features are available only in the premium tier. For details, see [Network security](network-security.md).
 
-- [Service tags](network-security.md#service-tags)
 - [Network service endpoints](network-security.md#network-service-endpoints)
 - [Private endpoints](network-security.md#private-endpoints)
 

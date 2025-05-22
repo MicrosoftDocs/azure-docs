@@ -140,54 +140,6 @@ Your Azure for Students Starter subscription gives you access to certain softwar
 
 [Microsoft Learn training](/training/) is a free online learning platform that helps you learn Azure technologies at your own pace. Learning paths contain modules that start with the basics and then move to advanced methods that address real-world challenges.
 
-## Azure Classroom
-
-### How do I start using my Azure course credits?
-
-You can access your Azure course credits by creating a new Azure Academic Sponsorship subscription. Select the **Activate** button in the sponsorship approval email.
-
-You can also convert an existing subscription to the Azure Sponsorship offer to access your credits. To convert your subscription, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-### Can I associate my course credits with an existing subscription?
-
-You can associate your course credits with an existing subscription on the account that's entitled to the offer. To associate your course credits, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-### Why do I see a $0 balance in the Azure portal?
-
-When you go to your subscription details in the Azure portal, you see $0.00. The offer places a 100% discount on all services. The portal shows what you're charged during your monthly usage period, which should be $0.00.
-
-To view your balance and sponsorship information, go to the [Azure Sponsorships portal](https://www.microsoftazuresponsorships.com/balance) and sign in to your account.
-
-### Can I apply my course credits to an existing Enterprise Agreement?
-
-You can't associate your course credits with any subscription that's on an account under an Enterprise Agreement (EA). To apply course credits, you must create a new account that's outside the EA, which we can then entitle. After the sponsorship period ends, you can associate that subscription with the EA.
-
-> [!WARNING]
-> If you associate the account with your EA before the end of the sponsorship, all sponsorship funds are terminated. For more information, see the [terms and conditions of the Azure Sponsorship offer](https://azure.microsoft.com/offers/ms-azr-0143p/).
-
-### Can I apply my course credits to my Cloud Solution Provider subscription?
-
-No, you can't associate your course credits with any Cloud Solution Provider (CSP) subscription.
-
-### Can I move my course credits to another account?
-
-Yes, you can move an entitlement of course credits to another account. To do so, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-
-### Do course credits cover partner applications on Azure Marketplace?
-
-No, course credits don't cover applications from Microsoft partners on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/). Those applications are charged to the credit card on the account.
-
-For more information, see the [terms and conditions of the Azure Sponsorship offer](https://azure.microsoft.com/offers/ms-azr-0143p/).
-
-### Can I pay off a previous balance with my course credits?
-
-Azure course credits cover usage only from the time that you activate the Azure Sponsorship offer. You're responsible for all charges that you accrued before your offer start date.
-
-### How do I know if my subscription is on the Azure course credit offer?
-
-1. In the Azure portal, go to **Subscriptions**.
-1. In a specific subscription, check for **Offer Name** as one of the properties. If the **Offer Name** value says **Azure Sponsorship**, the subscription is connected to your course credits. If **Azure Sponsorship** doesn't appear, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) to get it converted.
-
 ## Azure Dev Tools for Teaching
 
 ### Who is eligible to purchase Azure Dev Tools for Teaching?

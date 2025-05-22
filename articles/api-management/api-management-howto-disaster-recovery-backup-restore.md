@@ -22,7 +22,7 @@ To recover from availability problems that affect your API Management service, b
 
 Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
-This article shows how to automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
+This article shows how to automate backup and restore operations of your API Management instance using an external storage account. The steps shown here use either the [Backup-AzApiManagement](/powershell/module/az.apimanagement/backup-azapimanagement) and [Restore-AzApiManagement](/powershell/module/az.apimanagement/restore-azapimanagement) Azure PowerShell cmdlets, or the [API Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [API Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore) REST APIs.
 
 
 > [!WARNING]
@@ -33,6 +33,9 @@ This article shows how to automate backup and restore operations of your API Man
 
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+
+[!INCLUDE [api-management-service-update-behavior](../../includes/api-management-service-update-behavior.md)]
+
 
 ## Prerequisites
 
@@ -291,8 +294,6 @@ Restore-AzApiManagement -ResourceGroupName $apiManagementResourceGroup -Name $ap
     -SourceBlobName $blobName -AccessType "UserAssignedManagedIdentity" ` -identityClientId $identityid
 ```
 
-Restore is a long-running operation that may take up to 45 minutes or more to complete. 
-
 ### [CLI](#tab/cli)
 
 In the following examples, 
@@ -319,8 +320,6 @@ storageKey=$(az storage account keys list --resource-group $storageResourceGroup
 az apim restore --resource-group $apiManagementResourceGroup --name $apiManagementName \
     --storage-account-name $storageAccountName --storage-account-key $storageKey --storage-account-container $containerName --backup-name $backupName
 ```
-
-Restore is a long-running operation that may take up to 45 minutes or more to complete. 
 
 ### [REST](#tab/rest)
 
@@ -380,7 +379,7 @@ In the body of the request, specify the existing storage account name, blob cont
 
 Set the value of the `Content-Type` request header to `application/json`.
 
-Restore is a long-running operation that may take up to 30 or more minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
+Restore is a long-running operation that may take several minutes to complete. If the request succeeded and the restore process began, you receive a `202 Accepted` response status code with a `Location` header. Make `GET` requests to the URL in the `Location` header to find out the status of the operation. While the restore is in progress, you continue to receive a `202 Accepted` status code. A response code of `200 OK` indicates successful completion of the restore operation.
 
 ---
 
@@ -410,7 +409,7 @@ If the storage account is **[firewall][azure-storage-ip-firewall] enabled**, it'
 
 The frequency with which you perform service backups affects your recovery point objective. To minimize it, we recommend implementing regular backups and performing on-demand backups after you make changes to your API Management service.
 
-## Next steps
+## Related content
 
 Check out the following related resources for the backup/restore process:
 

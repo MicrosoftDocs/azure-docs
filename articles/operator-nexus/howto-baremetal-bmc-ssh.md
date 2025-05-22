@@ -1,37 +1,37 @@
 ---
-title: Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset` command for Azure Operator Nexus
-description: Step by step guide on using the `az networkcloud cluster bmckeyset` command to manage emergency access to a bare metal machine.
-author: DanCrank
-ms.author: danielcrank
+title: Manage emergency access to a Bare Metal Machine using the `az networkcloud cluster bmckeyset` command for Azure Operator Nexus
+description: Step by step guide on using the `az networkcloud cluster bmckeyset` command to manage emergency access to a Bare Metal Machine.
+author: eak13
+ms.author: ekarandjeff
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 06/12/2024
+ms.date: 05/02/2025
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Manage emergency access to a bare metal machine using the `az networkcloud cluster bmckeyset`
+# Manage emergency access to a Bare Metal Machine using the `az networkcloud cluster bmckeyset`
 
 > [!CAUTION]
-> Please note this process is used in emergency situations when all other troubleshooting options via Azure are exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
+> This process is used in emergency situations when all other troubleshooting options via Azure are exhausted. SSH access to these bare metal machines is restricted to users managed via this method from the specified jump host list.
 
-There are rare situations where a user needs to investigate & resolve issues with a bare metal machine and all other ways using Azure are exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Azure Group ID `--azure-group-id <Entra Group ID>`.
+There are rare situations where a user needs to investigate & resolve issues with a Bare Metal Machine and all other ways using Azure are exhausted. Operator Nexus provides the `az networkcloud cluster bmckeyset` command so users can manage SSH access to the baseboard management controller (BMC) on these bare metal machines. On keyset creation, users are validated against Microsoft Entra ID for proper authorization by cross referencing the User Principal Name provided for a user against the supplied Azure Group ID `--azure-group-id <Entra Group ID>`.
 
 Users in a keyset are validated every four hours, and also when any changes are made to any keyset. Each user's status is then set to "Active" or "Invalid." Invalid users remain in the keyset but their keys are removed from all hosts and they aren't allowed access. Reasons for a user being invalid are:
-- The user's User Principal Name hasn't been specified
-- The user's User Principal Name isn't a member of the given Entra group
-- The given Entra group doesn't exist (in which case all users in the keyset are invalid)
+
+- The user's User Principal Name isn't specified
+- The user's User Principal Name isn't a member of the given Microsoft Entra group
+- The given Microsoft Entra group doesn't exist (in which case all users in the keyset are invalid)
 - The keyset is expired (in which case all users in the keyset are invalid)
 
 > [!NOTE]
-> The User Principal Name is now required for keysets as Microsoft Entra ID validation is enforced for all users. Current keysets that do not specify User Principal Names for all users will continue to work until the expiration date. If a keyset without User Principal Names expires, the keyset will need to be updated with User Principal Names, for all users, in order to become valid again. Keysets that have not been updated with the User Principal Names for all users prior to December 2024 are at-risk of being `Invalid`. Note that if any user fails to specify a User Principal Name this results in the entire keyset being invalidated.
+> The User Principal Name is now required for keysets as Microsoft Entra ID validation is enforced for all users. Current keysets that don't specify User Principal Names for all users continue to work until the expiration date. If a keyset without User Principal Names expires, the keyset needs to be updated with User Principal Names, for all users, in order to become valid again. Keysets that weren't with the User Principal Names for all users before December 2024 are at-risk of being `Invalid`. If any user is missing the User Principal Name, it results in the entire keyset being invalidated.
 
 The keyset and each individual user also have detailed status messages communicating other information:
+
 - The keyset's detailedStatusMessage tells you whether the keyset is expired, and other information about problems encountered while updating the keyset across the cluster.
 - The user's statusMessage tells you whether the user is active or invalid, and a list of machines that aren't yet updated to the user's latest active/invalid state. In each case, causes of problems are included if known.
 
-When the command runs, it executes on each bare metal machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any bare metal machine that wasn't available at the time of the original command. Also, any bare metal machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
-
-The BMCs support a maximum number of 12 users. Users are defined on a per Cluster basis and applied to each bare metal machine. Attempts to add more than 12 users results in an error. Delete a user before adding another one when 12 already exists.
+When the command runs, it executes on each Bare Metal Machine in the Cluster with an active Kubernetes node. There's a reconciliation process that runs periodically that retries the command on any Bare Metal Machine that wasn't available at the time of the original command. Also, any Bare Metal Machine that returns to the cluster via an `az networkcloud baremetalmachine actionreimage` or `az networkcloud baremetalmachine actionreplace` command (see [BareMetal functions](./howto-baremetal-functions.md)) sends a signal causing any active keysets to be sent to the machine as soon as it returns to the cluster. Multiple commands execute in the order received.
 
 ## Prerequisites
 
@@ -48,9 +48,29 @@ The BMCs support a maximum number of 12 users. Users are defined on a per Cluste
 > Operator Nexus software upgrades. If an upgrade is known to be in progress, you can use the `--no-wait`
 > option with the command to prevent the command prompt from waiting for the process to complete.
 
-## Creating a BMC keyset
+## Limitations
 
-The `bmckeyset create` command creates SSH access to the bare metal machine in a Cluster for a group of users.
+### BMC Keyset User limitations
+
+While the BMCs support a maximum number of 16 users, 6 are reserved for system use leaving 10 for BMC Keyset Users. BMC Keyset Users are defined on a per Cluster basis and applied to each Bare Metal Machine. Attempts to add more than 10 users results in an error. Delete a user before adding another one when 10 already exist.
+
+> [!CAUTION]
+> BMC users shouldn't be created or modified manually. Nexus fully manages the BMC users and their placement in the slots. Manual changes could cause the Bare Metal Machine to cease functioning and become unreachable. If there are questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+Here's a mapping of the BMC slots to users.
+
+| BMC Slot   | User                          |
+| ---------- | ----------------------------- |
+| slots 1-6  | Reserved for System Use       |
+| slots 7-16 | Reserved for BMC Keyset Users |
+
+### Microsoft Entra group user limitations
+
+Using a Microsoft Entra group ID with greater than 5,000 users isn't recommended. Reconciling a large number of users can result in time-outs, blocking access and causing sign-in issues.
+
+## Creating a BMC Keyset
+
+The `bmckeyset create` command creates SSH access to the Bare Metal Machine in a Cluster for a group of users.
 
 The command syntax is:
 
@@ -136,6 +156,19 @@ az networkcloud cluster bmckeyset create \
                                                            for full debug logs.
 ```
 
+> [!NOTE]
+> The public key supplied for each user in a BMCKeyset must be one of the types supported by iDRAC.
+> Using a key of an unsupported type might result in an error or undefined behavior. Supported types
+> are:
+>
+> - rsa-sha2-512
+> - rsa-sha2-256
+> - ssh-rsa
+> - ecdsa-sha2-nistp256
+> - ssh-ed25519
+>
+> For more information, see the [Dell iDRAC9 Security Configuration Guide](https://www.dell.com/support/manuals/en-us/idrac9-lifecycle-controller-v5.x-series/idrac9_security_configuration_guide/supported-ssh-cryptography-schemes?guid=guid-5ab48ae4-72cb-4b95-8623-5124ed3b4f64&lang=en-us).
+
 This example creates a new keyset with two users that have standard access from two jump hosts.
 
 ```azurecli
@@ -158,7 +191,7 @@ az networkcloud cluster bmckeyset create \
 
 For assistance in creating the `--user-list` structure, see [Azure CLI Shorthand](https://github.com/Azure/azure-cli/blob/dev/doc/shorthand_syntax.md).
 
-## Deleting a BMC keyset
+## Deleting a BMC Keyset
 
 The `bmckeyset delete` command removes SSH access to the BMC for a group of users. All members of the group lose SSH access to any of the BMCs in the Cluster.
 

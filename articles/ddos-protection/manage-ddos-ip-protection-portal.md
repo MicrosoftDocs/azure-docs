@@ -5,7 +5,7 @@ author: AbdullahBell
 ms.author: abell
 ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 02/10/2025
+ms.date: 03/17/2025
 ms.custom: template-quickstart
 ---
 

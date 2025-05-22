@@ -6,7 +6,8 @@ ms.topic: how-to
 ms.date: 02/06/2025
 ms.author: cwatson
 appliesto:
-  - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+    - Microsoft Sentinel in the Azure portal
 
 
 #Customer intent: As an IT admin, I want to remove Microsoft Sentinel from my Log Analytics workspace so that I can discontinue its use and manage associated costs and configurations.
@@ -21,23 +22,26 @@ If you instead want to offboard Microsoft Sentinel from the Defender portal, see
 
 ## Prerequisites
 
-Before you begin, review [Implications of removing Microsoft Sentinel from your workspace](offboard-implications.md).
+Before you begin, make sure that you understand the effects of removing Microsoft Sentinel from your environment.
+
+For example, you can't manage Microsoft Sentinel tables in Log Analytics after removing Microsoft Sentinel, such as to set extended data retention. Therefore, to avoid extra data retention charges, we recommend that you set per-table retention to 90 days or less for Microsoft Sentinel tables stored in Log Analytics that will be inaccessible after removing Microsoft Sentinel.
+
+For more information, see [Implications of removing Microsoft Sentinel from your workspace](offboard-implications.md).
 
 ## Remove Microsoft Sentinel
 
 Complete the following steps to remove Microsoft Sentinel from your Log Analytics workspace.
 
-1. Before removing Sentinel, note that you will no longer have visibility to manage Sentinel tables, such as setting extended data retention, in the Log Analytics Tables UI. Please consider per-table retention to 90 days or less to avoid data retention charges for the Sentinel data that Log Analytics will store, but which you can no longer access after Sentinel is removed. 
-
 1. For Microsoft Sentinel in the [Azure portal](https://portal.microsoft.com), under **Configuration**, select **Settings**.<br>On the **Settings** page, select the **Settings** tab. <br><br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **System** > **Settings** > **Microsoft Sentinel**.
 
 1. Select **Remove Microsoft Sentinel**.
 
+    #### [Defender portal](#tab/defender-portal)
+    :::image type="content" source="media/offboard/defender-settings-remove-sentinel.png" alt-text="Screenshot of Microsoft Sentinel settings in the Defender portal with the option to remove Microsoft Sentinel highlighted toward the end of the list.":::
+
     #### [Azure portal](#tab/azure-portal)
     :::image type="content" source="media/offboard/locate-remove-sentinel.png" alt-text="Screenshot to find the setting to remove Microsoft Sentinel from your workspace in the Azure portal.":::
 
-    #### [Defender portal](#tab/defender-portal)
-    :::image type="content" source="media/offboard/defender-settings-remove-sentinel.png" alt-text="Screenshot of Microsoft Sentinel settings in the Defender portal with the option to remove Microsoft Sentinel highlighted toward the end of the list.":::
     ----
 
 1. Review the **Know before you go...** section and the rest of this document carefully. Take all the necessary actions before proceeding.

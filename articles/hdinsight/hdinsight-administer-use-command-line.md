@@ -5,6 +5,9 @@ ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 12/02/2024
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ---
 
 # Manage Azure HDInsight clusters by using the Azure CLI

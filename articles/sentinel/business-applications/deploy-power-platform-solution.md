@@ -15,11 +15,6 @@ ms.date: 11/14/2024
 
 This article describes how to deploy the [Microsoft Sentinel solution for Microsoft Business Apps](../business-applications/solution-overview.md) to connect your Microsoft Power Platform and Microsoft Dynamics 365 Customer Engagement system to Microsoft Sentinel. The solution collects audit and activity logs to detect threats, suspicious activities, illegitimate activities, and more.
 
-> [!IMPORTANT]
->
-> - The Microsoft Sentinel solution for Microsoft Business Apps is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - The solution is a premium offering. Pricing information will be available before the solution becomes generally available.
-
 ## Prerequisites
 
 Before deploying the Microsoft Sentinel solution for Microsoft Business Apps, ensure that you meet the following prerequisites:

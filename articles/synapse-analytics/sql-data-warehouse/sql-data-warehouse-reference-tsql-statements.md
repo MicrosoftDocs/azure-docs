@@ -1,8 +1,8 @@
 ---
 title: T-SQL statements in dedicate SQL pool
 description: Links to the documentation for T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics .
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 05/01/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw

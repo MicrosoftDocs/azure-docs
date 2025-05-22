@@ -5,8 +5,8 @@ description: Object replication asynchronously copies block blobs between a sour
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 02/27/2025
+ms.topic: concept-article
+ms.date: 03/06/2025
 ms.author: normesta
 ms.custom: engagement-fy23
 ---
@@ -194,7 +194,7 @@ You can use Azure Policy to audit a set of storage accounts to ensure that the *
 ## Replication metrics
 > [!IMPORTANT]
 > Object replication metrics is currently in PREVIEW and available in all regions.
-> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features.md) and specify AllowObjectReplicationMetrics as the feature name. The provider name for this preview feature is Microsoft.Storage.
+> To opt in to the preview, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features) and specify AllowObjectReplicationMetrics as the feature name. The provider name for this preview feature is Microsoft.Storage.
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
